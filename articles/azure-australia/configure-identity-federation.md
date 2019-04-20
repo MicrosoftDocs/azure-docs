@@ -16,7 +16,7 @@ Identity Management and Federation with Public Cloud offerings is one of the mos
 
 This guide covers the key design points for implementing Azure Active Directory, synchronising users from an Active Directory Domain Services domain, and implementing secure authentication. Specific focus is placed on the recommendations in the Australian Cyber Security Center's Information Security Manual (ISM) and Azure Certification Reports.
 
-The classification of information stored within Azure Active Directory should inform decisions about how it is designed. The following excerpt is provided from the [ACSC CERTIFICATION REPORT – Microsoft Azure](https://aka.ms/au-irap):
+The classification of information stored within Azure Active Directory should inform decisions about how it is designed. The following excerpt is provided from the [ACSC Certification Report – Microsoft Azure](https://aka.ms/au-irap):
 
 ``` ACSC CERTIFICATION REPORT – Microsoft Azure
 Azure Active Directory (AAD) must be configured with Active Directory Federation services when Commonwealth entities classify the
@@ -31,15 +31,17 @@ As such, what information is synchronised, and the mechanism by which users are 
 
 ### User Synchronisation
 
-When deploying Azure AD Connect, there are several decisions that must be made about what data will be synchronised. Azure AD Connect is based upon Microsoft Identity Manager and provides a robust feature-set for [transforming](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration) data between directories.
+When deploying Azure AD Connect, there are several decisions that must be made about the data that will be synchronised. Azure AD Connect is based upon Microsoft Identity Manager and provides a robust feature-set for [transforming](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration) data between directories.
 
 Microsoft Consulting Services can be engaged to do an ADRAP evaluation of your existing Windows Server Active Directory. The ADRAP assists in determining any issues that may need to be corrected before synchronising with Azure Active Directory. Microsoft Premier Support Agreements will generally include this service.
 
-The [IDFix tool](https://docs.microsoft.com/en-us/office365/enterprise/install-and-run-idfix) scans your on-premises Active Directory domain for issues before synchronising with Azure AD. IDFix should always be run before implementing Azure AD Connect. Although an IDFix scan can identify a large number of issues, many of these issues can either be resolved quickly with scripts, or worked-around using data transforms in Azure AD Connect.
+The [IDFix tool](https://docs.microsoft.com/en-us/office365/enterprise/install-and-run-idfix) scans your on-premises Active Directory domain for issues before synchronising with Azure AD. IDFix is a key first step before implementing Azure AD Connect. Although an IDFix scan can identify a large number of issues, many of these issues can either be resolved quickly with scripts, or worked-around using data transforms in Azure AD Connect.
 
-Azure AD requires that users have an externally routable top-level domain to enable authentication. If your domain has a UPN suffix that is not externally routable, the current best practice is to set the [alternative sign in ID](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-userprincipalname) in AD Connect to the users mail attribute. Users then sign in to Azure services with their email address rather than their domain sign in. The UPN suffix on user accounts can also be altered using tools such as PowerShell however; it can have unforeseen consequences for other connected systems and is no longer considered best practice.
+Azure AD requires that users have an externally routable top-level domain to enable authentication. If your domain has a UPN suffix that is not externally routable, the you need to set the [alternative sign in ID](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-userprincipalname) in AD Connect to the user's mail attribute. Users then sign in to Azure services with their email address rather than their domain sign in.
 
-In deciding which attributes to Synchronise to Azure Active Directory, it's safest to assume that all attributes are required. It is rare for a directory to contain actual PROTECTED data, however conducting an audit is recommended. If PROTECTED data is found within the directory, assess the impact of omitting or transforming the attribute. As a helpful guide, there is a list of attributes which Microsoft Cloud Services [require](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized).
+The UPN suffix on user accounts can also be altered using tools such as PowerShell however; it can have unforeseen consequences for other connected systems and is no longer considered best practice.
+
+In deciding which attributes to synchronise to Azure Active Directory, it's safest to assume that all attributes are required. It is rare for a directory to contain actual PROTECTED data, however conducting an audit is recommended. If PROTECTED data is found within the directory, assess the impact of omitting or transforming the attribute. As a helpful guide, there is a list of attributes which Microsoft Cloud Services [require](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized).
 
 ### Authentication
 

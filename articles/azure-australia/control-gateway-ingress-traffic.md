@@ -12,7 +12,11 @@ ms.author: grgale
 
 ## Introduction
 
-A core element of securing ICT systems is controlling network traffic. Restricting communication to only the traffic necessary for a system to function reduces the potential for compromise. This guide provides information on how inbound (ingress) network traffic works within Azure and provides recommendations for implementing network security controls for an internet accessible system that aligns with the Australian Cyber Security Centre (ACSC) Consumer Guidance and the intent of the ACSC’s Information Security Manual (ISM).
+A core element of securing ICT systems is controlling network traffic. Traffic should be restricted to only that necessary for a system to function. This reduces the potential for compromise.
+
+This guide gives details about how inbound (ingress) network traffic works within Azure, and recommendations for implementing network security controls for an internet connected system.
+
+The network controls align with the Australian Cyber Security Centre (ACSC) Consumer Guidance and the intent of the ACSC’s Information Security Manual (ISM).
 
 ## Requirements
 

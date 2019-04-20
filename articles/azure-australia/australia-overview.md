@@ -1,7 +1,7 @@
 ---
 title: Azure Australia Documentation Overview | Microsoft Docs
 description: Guidance on configuring Azure within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
-author: galey801
+author: Galey801
 ms.service: azure-australia
 ms.topic: overview
 ms.date: 04/25/2019
@@ -20,7 +20,7 @@ Refer to the Australia page of the [Microsoft Service Trust Portal](https://aka.
 
 ## Principles for Securing Customer Data in Azure Australia
 
-Azure Australia provides a range of features and services that you can use to build cloud solutions to meet your regulated/controlled data needs. A compliant customer solution is nothing more than the effective implementation of out-of-the-box Azure Australia capabilities, coupled with a solid data security practice. 
+Azure Australia provides a range of features and services that you can use to build cloud solutions to meet your regulated/controlled data needs. A compliant customer solution is nothing more than the effective implementation of out-of-the-box Azure Australia capabilities, coupled with a solid data security practice.
 
 When you host a solution in Azure Australia, Microsoft handles many of these requirements at the cloud infrastructure level.
 
@@ -88,3 +88,11 @@ Customers can further isolate their resources across subscriptions, resource gro
 For more information on isolation in Microsoft Azure, see the [Isolation in the Azure Public Cloud](../security/azure-isolation/).
 
 For supplemental information and updates, subscribe to the [Microsoft Australia Blog](https://blogs.msdn.microsoft.com/azureaustralia/).
+
+## Next Steps
+
+The first step to using Azure Australia is to establish secure connectivity.
+[Configure VPN Gateway for secure connection to Azure Australia](configure-vpn-gateway.md)
+
+Another key step for Government agencies is the establishment of perimeter security capabilities. The How tos provide guidance to agencies to do it.
+[Implement gateway auditing, logging and visibility is the first guide](implement-gateway-logging-auditing-visibility.md)

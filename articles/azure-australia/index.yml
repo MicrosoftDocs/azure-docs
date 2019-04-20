@@ -2,99 +2,38 @@
 documentType: LandingData
 title: Azure Australia Documentation
 metadata:
-  document_id: ?????
-  title: Azure Australia Documentation - Quickstarts, Gateway Guides
-  meta.description:  
-  services: Azure-Australia
-  author: galey801
-  manager: liki
-  ms.service: azure-australia
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/25/2019
   ms.author: grgale
 abstract:
-  description: Microsoft Azure Australia delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Microsoft Azure Australia is certified by the Australian Cyber Security Centre (ACSC) and included on the Certified Cloud Services List (CCSL) at both the PROTECTED and Official:Sensitive (formerly Dissemination Limiting Markings) classifications. Microsoft Azure Australia employs world-class security and compliance services critical to Australian Government and Critical Infrastructure organisations and their suppliers, for all systems and applications built on its architecture. 
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: media/index/video.png
-      width: 250  
-    title: Start using Azure Government
-    href: https://channel9.msdn.com/Shows/Azure-Friday/Azure-Government
-    width: 250
-
+  description: 'Microsoft Azure Australia delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Microsoft Azure Australia is certified by the Australian Cyber Security Centre (ACSC) and included on the Certified Cloud Services List (CCSL) at both the PROTECTED and Official: Sensitive (formerly Dissemination Limiting Markings) classifications. Microsoft Azure Australia employs world-class security and compliance services critical to Australian Government and Critical Infrastructure organisations and their suppliers, for all systems and applications built on its architecture.'
+  
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
-    items:
-      - image:
-          src: media/index/azure-government.svg
-        text: Learn about Azure Government
-        href: /azure/azure-government/documentation-government-welcome
 
-- title: 5-Minute Quickstarts
+- title: Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to access and manage the Azure Government cloud:'
-  - type: list
-    style: icon48
-    items: 
-    - image:
-        src: media/index/portal.svg
-      text: Portal
-      href: documentation-government-get-started-connect-with-portal.md
-    - image:
-        src: media/index/cli.svg
-      text: CLI
-      href: documentation-government-get-started-connect-with-cli.md
-    - image:
-        src: media/index/powershell.svg
-      text: PowerShell
-      href: documentation-government-get-started-connect-with-ps.md
-  - type: paragraph
-    text: 'Use dev tools for developing and deploying applications on Azure Government'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/DevOpsPipelines.svg
-      text: Azure Pipelines
-      href: connect-with-azure-pipelines.md
-    - image:
-        src: media/index/logo_vs.svg
-      text: Visual Studio
-      href: documentation-government-get-started-connect-with-vs.md
-    - image:
-        src: media/index/SSMS_Logo.svg
-      text: SSMS
-      href: documentation-government-connect-ssms.md
-    - image:
-        src: media/index/storage.svg
-      text: Azure storage
-      href: documentation-government-get-started-connect-to-storage.md
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to deploy and manage services with Azure Government
+    text: Learn how to implement key security measures recommended by the ACSC
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/azure-government/documentation-government-howto-deploy-webandmobile">Deploy an Azure App Services app on Azure Government</a>
-    - html: <a href="/azure/azure-government/documentation-government-quickstarts-vm">Use Virtual Machines in Azure Government</a>
-- title: Reference
+    - text: Configure Azure VPN Gateway for IPSEC encryption
+      href: configure-vpn-gateway.md
+    - text: Configure and use Azure Key Vault for secure key management
+      href: configure-use-azure-key-vault.md
+    - text: Implement Azure system monitoring
+      href: implement-azure-system-monitoring.md
+  
+- title: How to guides
   items:
   - type: paragraph
-    text: ''
+    text: Learn how to deploy and manage services that provide perimeter security that meets Government gateway requirements
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/azure-government/documentation-government-image-gallery">Images</a>
-    - html: <a href="/azure/azure-government/documentation-government-manage-marketplace">Marketplace</a>
-    - html: <a href="/azure/azure-government/documentation-government-manage-marketplace-partners">Marketplace for partners</a>
-
+    - text: Implement gateway auditing, logging, and visibility
+      href: implement-gateway-auditing-logging-visibility.md
+    - text: Configure gateway secure remote administration
+      href: configure-gateway-secure-remote-administration.md
+    - text: Control ingress traffic at the gateway
+      href: control-gateway-ingress-traffic.md

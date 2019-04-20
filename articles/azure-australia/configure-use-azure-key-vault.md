@@ -68,7 +68,7 @@ You can configure Key Vault firewalls and virtual networks to control access to 
 
 Access to Key Vaults should be explicitly restricted to the minimum set of networks that have users or applications requiring access to keys.
 
-###	Bring Your Own Key (BYOK)
+### Bring Your Own Key (BYOK)
 
 Key Vault supports BYOK.  BYOK enables users to import keys from their existing key infrastructures.  Thales provides an [Australian toolset](https://www.microsoft.com/en-us/download/details.aspx?id=45345) to support the secure transfer and import of keys from an external HSM (for example, keys generated with an offline workstation) into Key Vault.
 
@@ -92,9 +92,9 @@ These options enable keys to be rotated on a periodic basis to satisfy complianc
 
 It is important to develop an appropriate key rotation strategy for keys which are stored in KeyVault.  Using the wrong key will lead to information being incorrectly decrypted, and losing keys can lead to the complete loss of access to information.  Examples of key rotation strategies for different scenarios include:
 
- - **Inflight data:** volatile information is transmitted between 2 parties.  When a key is rotated then both parties must have a mechanism to synchronous retrieving the updated keys from keyvault.
- - **Data as rest:** A party stores encrypted data and decrypts it in the future to use.  When a key is going to rotated then the data must be decrypted with the old key and then encrypted with the new, rotated key.  There are approaches to minimize the impact of the decrypt/encrypt process using key encrypting keys (see example).  Microsoft manages the majority of the process related to key rotation for Azure Storage (see…)
- - **Access keys:**  a number of Azure services have access keys that can be stored in Keyvault (for example, CosmosDB).  The azure services have primary and secondary access keys.  It is important that both keys are not rotated at the same time.  Therefore, one key should be rotated then after a period and the key operation has been verified then the second key can be rotated.
+- **Inflight data:** volatile information is transmitted between 2 parties.  When a key is rotated then both parties must have a mechanism to synchronous retrieving the updated keys from the key vault.
+- **Data as rest:** A party stores encrypted data and decrypts it in the future to use.  When a key is going to rotated then the data must be decrypted with the old key and then encrypted with the new, rotated key.  There are approaches to minimize the impact of the decrypt/encrypt process using key encrypting keys (see example).  Microsoft manages the majority of the process related to key rotation for Azure Storage (see…)
+- **Access keys:**  a number of Azure services have access keys that can be stored in Key Vault (for example, CosmosDB).  The azure services have primary and secondary access keys.  It is important that both keys are not rotated at the same time.  Therefore, one key should be rotated then after a period and the key operation has been verified then the second key can be rotated.
 
 ### High availability
 
@@ -164,7 +164,7 @@ SSE is used for managed disks but customer-managed keys are not supported.  Encr
 
 ## Further Information
 
-###	Related Documentation
+### Related Documentation
 
 [Azure Key Vault Overview](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview)
 [About keys, secrets, and certificates](https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates)

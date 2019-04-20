@@ -42,7 +42,7 @@ Providing a secure administration capability requires multiple components that a
 
 ## Components
 
-The architecture is designed to ensure that a privileged account is granted only the necessary permissions, is securely identified, and then provided access to administrative interfaces only from an authorised device and through secure communications mechanisms that are controlled and auditable.
+The architecture is designed to ensure that a privileged account is granted only the necessary permissions, is securely identified, and then provided access to administrative interfaces only from an authorised device and through secure communications mechanisms that are controlled and audited.
 
 |Solution| Components|Elements|
 |---|---|---|

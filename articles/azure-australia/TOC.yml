@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is Azure Australia?
-    href: documentation-Australia-welcome.md
+    href: australia-overview.md
 - name: Quickstart guides
   items:
   - name: Connect securely to Azure Australia with VPN Gateway
@@ -17,9 +17,7 @@
   - name: Implement Azure system monitoring
     href: implement-azure-system-monitoring.md
   - name: Implementing Site Recovery and Backup for Essential 8 compliance
-    href: implement-asr-backup.md
-  - name: Secure your Storage in Azure Australia
-    href: secure-storage.md  
+    href: implement-asr-backup.md  
 - name: How-to guides
   items: 
   - name: Implement logging, auditing and visibility gateway services
@@ -27,13 +25,7 @@
   - name: Implement secure remote administration gateway services
     href: implement-gateway-secure-remote-administration.md
   - name: Implement data ingress nanagement and control gateway services
-    href: control-gateway-ingress-traffic.md
-  - name: Implement data egress management and control gateway services
-    href: manage-control-gateway-egress-traffic.md  
-  - name: Implement PaaS boundary management gateway services
-    href: implement-gateway-paas-boundary.md  
-  - name: Implement IaaS boundary management gateway services
-    href: implement-gateway-iaas-boundary.md
+    href: control-gateway-ingress-traffic.md  
 - name: Resources
   items:
   - name: Azure Australia Frequently Asked Questions Answered
