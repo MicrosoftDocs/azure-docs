@@ -142,7 +142,7 @@ Use the interactive **Test** pane in the LUIS portal to validate that the entity
 
 1. Add a new utterance then press Enter:
 
-   ```Is there a form named hrf-234098```
+   `Is there a form named hrf-234098`
 
    ![Test new utterance in test pane](./media/get-started-portal-build-app/test-new-utterance.png)
 
