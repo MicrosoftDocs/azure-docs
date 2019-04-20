@@ -56,7 +56,7 @@ The data or documents you want to enrich must exist in an Azure data source supp
 
 You also need an Azure Search service and the REST API to create and configure objects used for data enrichment. The REST API for creating a knowledge store is `api-version=2019-05-06-Preview`.
 
-Azure Search provides the indexer feature, and indexers are used to drive the entire process end-to-end, resulting in persisted, enriched documents in Azure storage.
+Azure Search provides the indexer feature, and indexers are used to drive the entire process end-to-end, resulting in persisted, enriched documents in Azure storage. Indexers use a data source, an index, and a skillset - all of which are required for creating and populating a knowledge store.
 
 | Object | REST API | Description |
 |--------|----------|-------------|
@@ -67,11 +67,11 @@ Azure Search provides the indexer feature, and indexers are used to drive the en
 
 ### 3 - Cognitive Services
 
-Enrichments are based on the Computer Vision and Language features in Cognitive Services. Cognitive Services functionality is leveraged during indexing through your skillset. A skillset is a composition of skills, and skills are bound to specific Computer Vision and Language features.
+Enrichments specified in a skillset are based on the Computer Vision and Language features in Cognitive Services. Cognitive Services functionality is leveraged during indexing through your skillset. A skillset is a composition of skills, and skills are bound to specific Computer Vision and Language features.
 
 ### 4 - Storage account
 
-If your data originates from Azure Blob or Table storage, you are already set. Otherwise, you will need an Azure storage account. Tables and objects in Azure storage contain the enriched documents created by the AI-based indexing pipeline.
+Under your Azure Storage account, Azure Search creates a Blob container or tables, depending on how you configure a skillset. If your data originates from Azure Blob or Table storage, you are already set. Otherwise, you will need to create an Azure storage account. Tables and objects in Azure storage contain the enriched documents created by the AI-based indexing pipeline.
 
 The storage account is specified in the skillset. In `api-version=2019-05-06-Preview`, a skillset definition includes a knowledge store definition so that you can provide account information.
 
@@ -140,11 +140,11 @@ When using multple services, create all of your services in the same region for 
 
 **Step 5: [Get started with sample data using REST and Postman](knowledge-store-howto.md)** 
 
-You can use REST `api-version=2019-05-06-Preview`. This step uses the REST APIs to construct an AI-based pipeline. In the newest preview API, the Skillset object provides the Knowledge Store definitions.
+You can use REST `api-version=2019-05-06-Preview`. This step uses the REST APIs to construct an AI-based pipeline. In the newest preview API, the Skillset object provides the `knowledgeStore` definitions.
 
 ## Takeaways
 
-Knowledge Store offers a variety of benefits including but not limited to enabling use of the enriched documents in scenarios other than search, cost controls, and managing drift in your enrichment process. These features are all available to use simply by adding a storage account to your skillset and using the updated expression language as described in [How to use Knowledge Store](knowledge-store-howto.md). 
+Knowledge Store offers a variety of benefits including but not limited to enabling use of the enriched documents in scenarios other than search, cost controls, and managing drift in your enrichment process. These features are all available to use simply by adding a storage account to your skillset and using the updated expression language as described in [How to get started with Knowledge Store](knowledge-store-howto.md). 
 
 ## Next steps
 
