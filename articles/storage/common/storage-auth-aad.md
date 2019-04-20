@@ -45,7 +45,7 @@ To learn how to assign a built-in RBAC role to a security principal, see one of 
 - [Grant access to Azure blob and queue data with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md)
 - [Grant access to Azure blob and queue data with RBAC using PowerShell](storage-auth-aad-rbac-powershell.md)
 
-For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](../articles/role-based-access-control/role-definitions.md#management-and-data-operations-preview). For information about creating custom RBAC roles, see [Create custom roles for Azure Role-Based Access Control](../articles/role-based-access-control/custom-roles.md).
+For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](../../role-based-access-control/role-definitions.md#management-and-data-operations-preview). For information about creating custom RBAC roles, see [Create custom roles for Azure Role-Based Access Control](../../role-based-access-control/custom-roles.md).
 
 ### Access permissions for data operations
 
@@ -70,7 +70,7 @@ To access blob or queue data from the Azure portal using your Azure AD account, 
 - You have been assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
 - You have been assigned either a built-in or custom RBAC role that provides access to blob or queue data.
 
-For more information, see [Use the Azure portal to access blob or queue data](../articles/storage/common/storage-access-blobs-queues-portal.md) and [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md).
+For more information, see [Use the Azure portal to access blob or queue data](storage-access-blobs-queues-portal.md) and [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md).
 
 ### Data access from PowerShell or Azure CLI
 
