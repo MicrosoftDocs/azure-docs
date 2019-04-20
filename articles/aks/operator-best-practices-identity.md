@@ -80,6 +80,8 @@ roleRef:
 
 When *developer1\@contoso.com* is authenticated against the AKS cluster, they have full permissions to resources in the *finance-app* namespace. In this way, you logically separate and control access to resources. Kubernetes RBAC should be used in conjunction with Azure AD-integration, as discussed in the previous section.
 
+To see how to use Azure AD groups to control access to Kubernetes resources using RBAC, see [Control access to cluster resources using role-based access controls and Azure Active Directory identities in AKS][azure-ad-rbac].
+
 ## Use pod identities
 
 **Best practice guidance** - Don't use fixed credentials within pods or container images, as they are at risk of exposure or abuse. Instead, use pod identities to automatically request access using a central Azure AD identity solution.
@@ -124,8 +126,9 @@ For more information about cluster operations in AKS, see the following best pra
 
 <!-- INTERNAL LINKS -->
 [aks-concepts-identity]: concepts-identity.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration-cli.md
 [managed-identities:]: ../active-directory/managed-identities-azure-resources/overview.md
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
+[azure-ad-rbac]: azure-ad-rbac.md
