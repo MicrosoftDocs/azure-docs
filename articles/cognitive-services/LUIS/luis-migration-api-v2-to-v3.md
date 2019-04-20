@@ -18,7 +18,7 @@ ms.author: diberry
 
 The query prediction endpoint APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
 
-This V3 API provides the following features: 
+This V3 API provides the following new features: 
 
 * [External entities](#pass-in-external-entities-at-prediction-time)
 * [Dynamic lists](#pass-in-dynamic-lists-at-prediction-time)
