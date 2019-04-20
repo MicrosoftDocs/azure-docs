@@ -28,9 +28,14 @@ The following LUIS features are not supported in V3:
 
 * Bing Spell Check V7
 
-The query prediction endpoint [request](#changes-to-the-query-prediction-endpoint-request) and [response](#changes-to-the-query-prediction-endpoint-response) have significant changes.
+The query prediction endpoint [request](#changes-to-the-query-prediction-endpoint-request) and [response](#changes-to-the-query-prediction-endpoint-response) have significant changes, including the following:
 
-[Reference documentation](https://cognitivewuppe.portal.azure-api.net/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a9459a1fe8fa44c28dd8) is available for V3.
+* [Top level changes](#top-level-json-changes)
+* [Entity role name instead of entity name](#entity-role-name-instead-of-entity-name)
+* [Prebuilt domain changes](#prebuilt-domains-with-new-models-and-language-coverage)
+* [Prebuilt entity changes](#prebuilt-entities-with-new-json)
+
+[Reference documentation](https://aka.ms/luis-api-v3) is available for V3.
 
 ## Pass in external entities at prediction time
 
@@ -49,9 +54,13 @@ In a [multi-intent](#multi-intent-prediction) utterance, you can use the externa
 
 The first segment can correctly predict Hazem when the external entity is sent with the prediction request. The second segment won't know that `him` is a secondary reference to the same data unless you send it with the request and mark it as the same entity.
 
+This feature includes significant [JSON response changes](#multi-intent-prediction). 
+
 ## Pass in dynamic lists at prediction time
 
 Dynamic lists allow you to update and extend an already published list entity during runtime for a period of time or a single request.
+
+This feature includes significant [JSON response changes](#multi-intent-prediction). 
 
 ## Multi-intent prediction
 
@@ -261,4 +270,4 @@ The following prebuilt entities have JSON schema changes:
 
 ## Next steps
 
-Use the V3 API documentation to update existing REST calls to LUIS [endpoint](https://aka.ms/luis-endpoint-apis) APIs. 
+Use the V3 API documentation to update existing REST calls to LUIS [endpoint](https://aka.ms/luis-api-v3) APIs. 
