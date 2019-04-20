@@ -70,7 +70,7 @@ Here are the types of resources you can manage access to with entitlement manage
 - Office 365 groups
 - Azure AD enterprise applications
 - SaaS applications
-- Custom integrated applications
+- Custom-integrated applications
 - SharePoint Online site collections
 - SharePoint Online sites
 
@@ -114,7 +114,7 @@ To better understand entitlement management and its documentation, you should re
 | --- | --- |
 | entitlement management | A service that assigns, revokes, and administers access packages. |
 | catalog | A container of related resources and access packages. |
-| Default Catalog | A built-in catalog that is always available. To add resources to the Default Catalog requires certain permissions. |
+| Default Catalog | A built-in catalog that is always available. To add resources to the Default Catalog, requires certain permissions. |
 | access package | A collection of permissions and policies to resources that users can request. An access package is always contained in a catalog. |
 | access request | A request to access an access package. A request typically goes through a workflow. |
 | policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access. Example policies include employee access and external access. |

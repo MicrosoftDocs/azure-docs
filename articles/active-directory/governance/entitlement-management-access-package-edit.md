@@ -158,7 +158,7 @@ The following diagram shows the high-level process to create a policy for an exi
 
 1. Click **Policies** and then **Add policy**.
 
-1. Type the a name and a description for the policy.
+1. Type a name and a description for the policy.
 
     ![Create policy with name and description](./media/entitlement-management-access-package-edit/policy-name-description.png)
 
@@ -320,7 +320,7 @@ Access packages are discoverable by default. This means that if a policy allows 
 
     If set to **No**, the access package will be listed in the user's My Access portal.
 
-    If set to **Yes**, the access package will not be listed in the user's My Access portal. The only way a user can view the access package is if they have the direct **MyAccess portal link** to the access package.
+    If set to **Yes**, the access package will not be listed in the user's My Access portal. The only way a user can view the access package is if they have the direct **My Access portal link** to the access package.
 
 ## Delete
 

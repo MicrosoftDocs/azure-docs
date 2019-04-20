@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) identity governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. It provides you with capabilities to ensure that the right users have the right access to the right resources, and it allows you to protect, monitor, and audit access to critical assets -- while ensuring employee productivity.  
 
-Identity governance give organizations the ability to do the following across employees, business partners and vendors, and services and applications:
+Identity governance give organizations the ability to do the following tasks across employees, business partners and vendors, and services and applications:
 
 - Govern the identity lifecycle
 - Govern access lifecycle
@@ -67,7 +67,7 @@ Azure AD Privileged Identity Management (PIM) provides additional controls tailo
 
 ## Getting started
 
-While there is no perfect solution or recommendation for every customer, the following configurations provide a guide to what baseline policies Microsoft recommends to ensure a more secure and productive workforce.
+While there is no perfect solution or recommendation for every customer, the following configurations provide a guide to what baseline policies Microsoft recommends you follow to ensure a more secure and productive workforce.
 
 - [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Securing privileged access](../users-groups-roles/directory-admin-roles-secure.md)

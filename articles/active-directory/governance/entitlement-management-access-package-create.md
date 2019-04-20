@@ -92,7 +92,7 @@ On the **Resource roles** tab, you select the resources to include in the access
 
 1. Once you have selected the resources, in the **Role** list, select the role you want users to be assigned for the resource.
 
-    ![Access package - Resource roles role selection](./media/entitlement-management-access-package-create/resource-roles-role.png)
+    ![Access package - Resource role selection](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
 1. Click **Next**.
 
