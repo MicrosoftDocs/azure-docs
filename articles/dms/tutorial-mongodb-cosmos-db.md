@@ -27,6 +27,7 @@ In this tutorial, you migrate a dataset in MongoDB hosted in an Azure Virtual Ma
 
 ## Prerequisites
 To complete this tutorial, you need to:
+- [Complete the pre-migration steps such as estimating throughput, choosing a partition key, and the indexing policy](../cosmos-db/mongodb-pre-migration.md)
 - [Create an Azure Cosmos DB's API for MongoDB account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - Create an Azure Virtual Network (VNET) for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
@@ -170,6 +171,10 @@ After the service is created, locate it within the Azure portal, open it, and th
 - After the migration completes, you can check your Azure Cosmos DB account to verify that all the collections were migrated successfully.
 
     ![Activity status completed](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
+
+## post-migration 
+
+After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API for MongoDB, you can connect to Azure Cosmos DB and manage the data. You can also perform other post-migration optimization steps such as- optimizing the indexing policy, update the default consistency level or configure global distribution for your Azure Cosmos DB account. For more details, see the [Post-migration guide](mongodb-post-migration.md) article. 
 
 ## Additional resources
 
