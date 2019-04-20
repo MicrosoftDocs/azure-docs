@@ -52,7 +52,7 @@ Before you can use a custom wake word with your device, you'll need to create a 
 
     ![Enter your wake word](media/speech-devices-sdk/wake-word-5.png)
 
-1. Three alternative pronunciations of your wake word will be created. You can choose all the pronunciations that you like. Then select **Submit** to generate the wake word. If you want to change the wake word please remove the existing one first. When you hover on the pronunciation line the delete icon will appear.
+1. Three alternative pronunciations of your wake word will be created. You can choose all the pronunciations that you like. Then select **Submit** to generate the wake word. If you want to change the wake word please remove the existing one first, when you hover on the pronunciation line the delete icon will appear.
 
     ![Review your wake word](media/speech-devices-sdk/wake-word-6.png)
 
