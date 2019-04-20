@@ -1,27 +1,26 @@
 ---
-title: Comparing the Microsoft identity platform (v2.0) endpoint with the Azure AD v1.0 endpoint | Microsoft Docs
-description: Know the differences between the Microsoft identity platform (v2.0) endpoint and the Azure Active Directory (Azure AD) v1.0 endpoint.
+title: Why update to Microsoft identity platform (v2.0) | Azure
+description: Know the differences between the Microsoft identity platform (v2.0) endpoint and the Azure Active Directory (Azure AD) v1.0 endpoint, and learn the benefits of updating to v2.0.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
 manager: mtillman
 editor: ''
 
-ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
+ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Comparing the Microsoft identity platform endpoint and Azure AD v1.0 endpoint
+# Why update to Microsoft identity platform (v2.0)?
 
 When developing a new application, it's important to know the differences between the Microsoft identity platform (v2.0) and Azure Active Directory (v1.0) endpoints. This article covers the main differences between the endpoints and some existing limitations for Microsoft identity platform.
 

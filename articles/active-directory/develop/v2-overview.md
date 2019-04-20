@@ -35,7 +35,7 @@ Working with identity doesn’t have to be hard. However, it's important to know
 
 The following diagram outlines key authentication concepts and best practices for common application scenarios – we recommend that you reference it when integrating the Microsoft identity platform with your app:
 
-[![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios.png)](./media/v2-overview/application-scenarios.svg#lightbox)
+[![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
 Choose a scenario that applies to you. Start by reviewing the **Prerequisites**, which are core authentication concepts that apply to all app scenarios. Each scenario path has a quickstart to get you up and running in minutes and an overview of scenario and other specifics you need to know:
 
