@@ -19,19 +19,23 @@ ms.custom: seodec18
 
 **New features**
 
-<!-- TODO -->
+* Keyword spotting functionality (KWS) is available for Windows and Linux. KWS functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK.
+* Phrase hint functionality is available though the SDK. See the corresponding article in the `how-to`-section.
 
 **Samples**
 
-<!-- TODO -->
+* Added samples for newly added features or new services supported by the SDK.
 
 **Improvements / Changes**
 
-* Objective-C: OutputFormat property was added to SPXSpeechConfiguration.
+* Added various recognizer properties to adjust service behaviour or service results (like masking profanity and others).
+* You can now configure the recognizer through the standard configuration properties, even if you created the recognizer `FromEndpoint`.
+* Objective-C: `OutputFormat` property was added to SPXSpeechConfiguration.
+* The SDK now supports MP3 and Opus/Ogg audio files as stream input files on Android.
 
 **Bug fixes**
 
-<!-- TODO -->
+* Fixed a problem where the speaker resource was destructed to early in text-to-speech.
 
 ## Speech SDK 1.4.1
 
