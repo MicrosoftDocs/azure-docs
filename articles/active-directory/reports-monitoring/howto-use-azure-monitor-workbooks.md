@@ -151,7 +151,7 @@ You can filter each trend by:
 
 For the disabled sign-ins, you get a breakdown by the conditional access status.
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/48.png)
+![Conditional access status](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 
