@@ -25,7 +25,7 @@ This article is an in-depth guide to hosting ASP.NET Core services in Service Fa
 
 For an introductory tutorial on ASP.NET Core in Service Fabric and instructions on getting your development environment set up, see [Tutorial: Create and deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service](service-fabric-tutorial-create-dotnet-app.md).
 
-The rest of this article assumes you are already familiar with ASP.NET Core. If not, please read through the [ASP.NET Core fundamentals](https://docs.microsoft.com/aspnet/core/fundamentals/index).
+The rest of this article assumes you're already familiar with ASP.NET Core. If not, please read through the [ASP.NET Core fundamentals](https://docs.microsoft.com/aspnet/core/fundamentals/index).
 
 ## ASP.NET Core in the Service Fabric environment
 
@@ -41,14 +41,14 @@ In Service Fabric, one or more instances and/or replicas of your service run in 
 
 Traditional ASP.NET (up to MVC 5) is tightly coupled to IIS through System.Web.dll. ASP.NET Core provides a separation between the web server and your web application. This separation allows web applications to be portable between different web servers. It also allows web servers to be *self-hosted*. This means you can start a web server in your own process, as opposed to a process that's owned by dedicated web server software, such as IIS.
 
-In order to combine a Service Fabric service and ASP.NET, either as a guest executable or in a Reliable Service, you must be able to start ASP.NET inside your service host process. ASP.NET Core self-hosting allows you to do this.
+To combine a Service Fabric service and ASP.NET, either as a guest executable or in a Reliable Service, you must be able to start ASP.NET inside your service host process. ASP.NET Core self-hosting allows you to do this.
 
 ## Hosting ASP.NET Core in a Reliable Service
 Typically, self-hosted ASP.NET Core applications create a WebHost in an application's entry point, such as the `static void Main()` method in `Program.cs`. In this case, the life cycle of the WebHost is bound to the life cycle of the process.
 
 ![Hosting ASP.NET Core in a process][0]
 
-However, the application entry point is not the right place to create a WebHost in a Reliable Service. That's because the application entry point is only used to register a service type with the Service Fabric runtime, so that it can create instances of that service type. The WebHost should be created in a Reliable Service itself. Within the service host process, service instances and/or replicas can go through multiple life cycles. 
+However, the application entry point isn't the right place to create a WebHost in a Reliable Service. That's because the application entry point is only used to register a service type with the Service Fabric runtime, so that it can create instances of that service type. The WebHost should be created in a Reliable Service itself. Within the service host process, service instances and/or replicas can go through multiple life cycles. 
 
 A Reliable Service instance is represented by your service class deriving from `StatelessService` or `StatefulService`. The communication stack for a service is contained in an `ICommunicationListener` implementation in your service class. The `Microsoft.ServiceFabric.AspNetCore.*` NuGet packages contain implementations of `ICommunicationListener` that start and manage the ASP.NET Core WebHost for either Kestrel or HTTP.sys in a Reliable Service.
 
@@ -63,7 +63,7 @@ Both communication listeners provide a constructor that takes the following argu
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: a lambda that you implement, in which you create and return an `IWebHost`. This allows you to configure `IWebHost` the way you normally would in an ASP.NET Core application. The lambda provides a URL that's generated for you, depending on the Service Fabric integration options you use and the `Endpoint` configuration you provide. That URL can then be modified or used as is to start the web server.
 
 ## Service Fabric integration middleware
-The `Microsoft.ServiceFabric.AspNetCore` NuGet package includes the `UseServiceFabricIntegration` extension method on `IWebHostBuilder` that adds Service Fabric–aware middleware. This middleware configures the Kestrel or HTTP.sys `ICommunicationListener` to register a unique service URL with the Service Fabric Naming Service. It then validates client requests to ensure clients are connecting to the right service. This step is necessary to prevent clients from mistakenly connecting to the wrong service. That's because, in a shared-host environment such as Service Fabric,  multiple web applications can run on the same physical or virtual machine but do not use unique host names. This scenario is described in more detail in the next section.
+The `Microsoft.ServiceFabric.AspNetCore` NuGet package includes the `UseServiceFabricIntegration` extension method on `IWebHostBuilder` that adds Service Fabric–aware middleware. This middleware configures the Kestrel or HTTP.sys `ICommunicationListener` to register a unique service URL with the Service Fabric Naming Service. It then validates client requests to ensure clients are connecting to the right service. This step is necessary to prevent clients from mistakenly connecting to the wrong service. That's because, in a shared-host environment such as Service Fabric,  multiple web applications can run on the same physical or virtual machine but don't use unique host names. This scenario is described in more detail in the next section.
 
 ### A case of mistaken identity
 Service replicas, regardless of protocol, listen on a unique IP:port combination. Once a service replica has started listening on an IP:port endpoint, it reports that endpoint address to the Service Fabric Naming Service. There, it can be discovered by clients or other services. If services use dynamically assigned application ports, a service replica might coincidentally use the same IP:port endpoint of another service previously on the same physical or virtual machine. This can cause a client to mistakenly connect to the wrong service. This scenario can arise if the following sequence of events occurs:
@@ -84,7 +84,7 @@ In a trusted environment, the middleware that's added by the `UseServiceFabricIn
 
 Services that use a dynamically assigned port should make use of this middleware.
 
-Services that use a fixed unique port do not have this problem in a cooperative environment. A fixed unique port is typically used for externally facing services that need a well-known port for client applications to connect to. For example, most internet-facing web applications will use port 80 or 443 for web browser connections. In this case, the unique identifier should not be enabled.
+Services that use a fixed unique port don't have this problem in a cooperative environment. A fixed unique port is typically used for externally facing services that need a well-known port for client applications to connect to. For example, most internet-facing web applications will use port 80 or 443 for web browser connections. In this case, the unique identifier shouldn't be enabled.
 
 The following diagram shows the request flow with the middleware enabled:
 
@@ -130,7 +130,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### HTTP.sys in a stateful service
 
-`HttpSysCommunicationListener` is currently not designed for use in stateful services due to complications with the underlying **HTTP.sys** port sharing feature. For more information, see the following section on dynamic port allocation with HTTP.sys. For stateful services, Kestrel is the recommended web server.
+`HttpSysCommunicationListener` isn't currently designed for use in stateful services due to complications with the underlying **HTTP.sys** port sharing feature. For more information, see the following section on dynamic port allocation with HTTP.sys. For stateful services, Kestrel is the recommended web server.
 
 ### Endpoint configuration
 
@@ -245,7 +245,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 }
 ```
 
-In this example, a singleton instance of `IReliableStateManager` is provided to the WebHost dependency injection container. This is not strictly necessary, but it allows you to use `IReliableStateManager` and Reliable Collections in your MVC controller action methods.
+In this example, a singleton instance of `IReliableStateManager` is provided to the WebHost dependency injection container. This isn't strictly necessary, but it allows you to use `IReliableStateManager` and Reliable Collections in your MVC controller action methods.
 
 An `Endpoint` configuration name is *not* provided to `KestrelCommunicationListener` in a stateful service. This is explained in more detail in the following section.
 
@@ -294,9 +294,9 @@ For a full example in a tutorial, see [Configure Kestrel to use HTTPS](service-f
 
 
 ### Endpoint configuration
-An `Endpoint` configuration is not required to use Kestrel. 
+An `Endpoint` configuration isn't required to use Kestrel. 
 
-Kestrel is a simple standalone web server. Unlike HTTP.sys (or HttpListener), it doesn't need an `Endpoint` configuration in ServiceManifest.xml because it doesn't require URL registration prior to starting. 
+Kestrel is a simple standalone web server. Unlike HTTP.sys (or HttpListener), it doesn't need an `Endpoint` configuration in ServiceManifest.xml because it doesn't require URL registration before starting. 
 
 #### Use Kestrel with a static port
 A static port can be configured in the `Endpoint` configuration of ServiceManifest.xml for use with Kestrel. Although this isn't strictly necessary, it offers two potential benefits:
@@ -320,9 +320,9 @@ new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listen
 If ServiceManifest.xml doesn't use an `Endpoint` configuration, omit the name in the `KestrelCommunicationListener` constructor. In this case, it will use a dynamic port. See the next section for more information about this.
 
 #### Use Kestrel with a dynamic port
-Kestrel cannot use the automatic port assignment from the `Endpoint` configuration in ServiceManifest.xml. That's because automatic port assignment from an `Endpoint` configuration assigns a unique port per *host process*, and a single host process can contain multiple Kestrel instances. This doesn't work with Kestrel because it doesn't support port sharing. Therefore, each Kestrel instance must be opened on a unique port.
+Kestrel can't use the automatic port assignment from the `Endpoint` configuration in ServiceManifest.xml. That's because automatic port assignment from an `Endpoint` configuration assigns a unique port per *host process*, and a single host process can contain multiple Kestrel instances. This doesn't work with Kestrel because it doesn't support port sharing. Therefore, each Kestrel instance must be opened on a unique port.
 
-To use dynamic port assignment with Kestrel, omit the `Endpoint` configuration in ServiceManifest.xml entirely, and do not pass an endpoint name to the `KestrelCommunicationListener` constructor, as follows:
+To use dynamic port assignment with Kestrel, omit the `Endpoint` configuration in ServiceManifest.xml entirely, and don't pass an endpoint name to the `KestrelCommunicationListener` constructor, as follows:
 
 ```csharp
 new KestrelCommunicationListener(serviceContext, (url, listener) => ...
@@ -446,7 +446,7 @@ public Startup()
 ### Configuration updates
 Service Fabric Configuration Provider also supports configuration updates. You can use ASP.NET Core `IOptionsMonitor` to receive change notifications, and then use `IOptionsSnapshot` to reload configuration data. For more information, see [Options pattern in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options).
 
-This is supported by default. No further coding is needed to enable configuration updates.
+These options are supported by default. No further coding is needed to enable configuration updates.
 
 ## Scenarios and configurations
 This section provides the recommended combination of web server, port configuration, Service Fabric integration options, and miscellaneous settings to troubleshoot the following scenarios:
@@ -459,18 +459,18 @@ An **externally exposed service** is one that exposes an endpoint that's reachab
 An **internal-only** service is one whose endpoint is only reachable from within the cluster.
 
 > [!NOTE]
-> Stateful service endpoints generally should not be exposed to the internet. Clusters behind load balancers that are unaware of Service Fabric service resolution, such as Azure Load Balancer, will be unable to expose stateful services. That's because the load balancer will not be able to locate and route traffic to the appropriate stateful service replica. 
+> Stateful service endpoints generally shouldn't be exposed to the internet. Clusters behind load balancers that are unaware of Service Fabric service resolution, such as Azure Load Balancer, will be unable to expose stateful services. That's because the load balancer won't be able to locate and route traffic to the appropriate stateful service replica. 
 
 ### Externally exposed ASP.NET Core stateless services
 Kestrel is the recommended web server for front-end services that expose external, internet-facing HTTP endpoints. On Windows, HTTP.sys can be used to provide port sharing capability, which allows you to host multiple web services on the same set of nodes using the same port. In this scenario, the web services are differentiated by host name or path, without relying on a front-end proxy or gateway to provide HTTP routing.
  
-When exposed to the internet, a stateless service should use a well-known and stable endpoint that's reachable through a load balancer. This is the URL you will provide to users of your application. The following configuration is recommended:
+When exposed to the internet, a stateless service should use a well-known and stable endpoint that's reachable through a load balancer. You'll provide this URL to your application's users. The following configuration is recommended:
 
 |  |  | **Notes** |
 | --- | --- | --- |
 | Web server | Kestrel | Kestrel is the preferred web server, as it's supported across Windows and Linux. |
 | Port configuration | static | A well-known static port should be configured in the `Endpoints` configuration of ServiceManifest.xml, such as 80 for HTTP or 443 for HTTPS. |
-| ServiceFabricIntegrationOptions | None | The `ServiceFabricIntegrationOptions.None` option should be used when configuring Service Fabric integration middleware, so that the service doesn't attempt to validate incoming requests for a unique identifier. External users of your application will not know the unique identifying information that the middleware uses. |
+| ServiceFabricIntegrationOptions | None | The `ServiceFabricIntegrationOptions.None` option should be used when configuring Service Fabric integration middleware, so that the service doesn't attempt to validate incoming requests for a unique identifier. External users of your application won't know the unique identifying information that the middleware uses. |
 | Instance Count | -1 | In typical use cases, the instance count setting should be set to *-1*. This is done so that an instance is available on all nodes that receive traffic from a load balancer. |
 
 If multiple externally exposed services share the same set of nodes, HTTP.sys can be used with a unique but stable URL path. This can be accomplished by modifying the URL provided when configuring IWebHost. Note that this applies to HTTP.sys only.
@@ -503,7 +503,7 @@ Stateful services that are only reachable from within the cluster should use dyn
 
 |  |  | **Notes** |
 | --- | --- | --- |
-| Web server | Kestrel | The `HttpSysCommunicationListener` is not designed for use by stateful services in which replicas share a host process. |
+| Web server | Kestrel | The `HttpSysCommunicationListener` isn't designed for use by stateful services in which replicas share a host process. |
 | Port configuration | dynamically assigned | Multiple replicas of a stateful service might share a host process or host operating system and thus will need unique ports. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | With dynamic port assignment, this setting prevents the mistaken identity issue described earlier. |
 
