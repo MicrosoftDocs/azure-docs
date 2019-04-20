@@ -328,6 +328,10 @@
           href: tutorial-global-distribution-mongodb.md
       - name: How-to guides
         items:
+        - name: Pre-migration guide
+          href: mongodb-pre-migration.md
+        - name: Post-migration guide
+          href: mongodb-post-migration.md
         - name: Get the connection string
           href: connect-mongodb-account.md
         - name: Connect using Studio 3T
