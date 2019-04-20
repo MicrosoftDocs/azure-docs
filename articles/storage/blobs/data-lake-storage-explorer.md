@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Use Azure Storage Explorer to manage data in Azure Data Lake Storage Gen2
 "
-description: In this quickstart, you learn how to use Azure Storage Explorer to create a filesystem in an Azure Data Lake Storage Gen2 account, as well as a directory and a file. Next, you learn how to download the file to your local computer, and how to view all of the file in a directory.
+description: In this quickstart, you learn how to use Azure Storage Explorer to create a file system in an Azure Data Lake Storage Gen2 account, as well as a directory and a file. Next, you learn how to download the file to your local computer, and how to view all of the file in a directory.
 services: storage
 author: tamram
 
@@ -23,7 +23,7 @@ In this quickstart, you learn how to use [Azure Storage Explorer](https://azure.
 
 This quickstart requires that you install Azure Storage Explorer. To install Azure Storage Explorer for Windows, Macintosh, or Linux, see [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-## Log in to Storage Explorer
+## Sign in to Storage Explorer
 
 On first launch, the **Microsoft Azure Storage Explorer - Connect** window is shown. While Storage Explorer provides several ways to connect to storage accounts, only one way is currently supported for managing ACLs.
 
@@ -39,13 +39,13 @@ When it completes connecting, Azure Storage Explorer loads with the **Explorer**
 
 ![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
-## Create a filesystem
+## Create a file system
 
 Blobs are always uploaded into a directory. This allows you to organize groups of blobs like you organize your files on your computer in folders.
 
-To create a directory, expand the storage account you created in the proceeding step. Select **Blob container**, right-click and select **Create Blob container**. Enter the name for your filesystem. When complete, press **Enter** to create the filesystem. Once the blob directory has been successfully created, it is displayed under the **Blob container** folder for the selected storage account.
+To create a directory, expand the storage account you created in the proceeding step. Select **Blob container**, right-click and select **Create Blob container**. Enter the name for your file system. When complete, press **Enter** to create the file system. Once the blob directory has been successfully created, it is displayed under the **Blob container** folder for the selected storage account.
 
-![Microsoft Azure Storage Explorer - Creating a filesystem](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
+![Microsoft Azure Storage Explorer - Creating a file system](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
 
 ## Upload blobs to the directory
 
