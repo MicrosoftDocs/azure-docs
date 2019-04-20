@@ -21,7 +21,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# web API that calls Web APIs - overview
+# Web API that calls Web APIs - overview
 
 Learn all you need to build a web API that calls Web APIs.
 

@@ -21,7 +21,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# web API that calls Web APIs - move to production
+# Web API that calls Web APIs - move to production
 
 Now that you know how to acquire a token to call Web APIs, learn how to move to production.
 

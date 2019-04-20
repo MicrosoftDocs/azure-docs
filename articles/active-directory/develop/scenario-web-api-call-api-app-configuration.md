@@ -1,4 +1,4 @@
----
+    ---
 title: web API that calls Web APIs - app's code configuration | Azure
 description: Learn how to build a web API that calls Web APIs (app's code configuration)
 services: active-directory
@@ -21,7 +21,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# web API that calls Web APIs - app's code configuration
+# Web API that calls Web APIs - app's code configuration
 
 ## This is a protected API
 

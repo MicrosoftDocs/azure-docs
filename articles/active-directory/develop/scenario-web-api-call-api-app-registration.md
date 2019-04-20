@@ -21,7 +21,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# web API that calls Web APIs - app registration
+# Web API that calls Web APIs - app registration
 
 This page explains the app registration specifics for a web API that calls Web APIs.
 

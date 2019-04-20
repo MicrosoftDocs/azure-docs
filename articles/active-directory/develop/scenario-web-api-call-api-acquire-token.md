@@ -21,7 +21,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# web API that calls Web APIs - acquiring a token for the app
+# Web API that calls Web APIs - acquiring a token for the app
 
 Now you have built you client application object, you'll use it to acquire a token that you'll, then, use to call a Web API.
 
