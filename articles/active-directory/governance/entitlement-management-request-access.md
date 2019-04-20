@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/18/2019
+ms.date: 04/19/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -41,6 +41,8 @@ The first step is to sign in to the My Access portal where you can request acces
 1. Open the link.
 
 1. Sign in to the My Access portal.
+
+    Be sure you use your organizational account. If you unsure, check with your project or business manager.
 
 ## Request an access package
 

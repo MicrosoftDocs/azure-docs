@@ -32,19 +32,19 @@ This article answers common questions to help you troubleshoot Azure Active Dire
 
 ## Checklist for adding a resource
 
-* If users already have been assigned to a resource, e.g., there are already members in a group, prior to that group being used in an access package, ensure that any users that are in that group which require continued access have the access package.  This can be done by either asking the users to request the access package containing that resource, or by adding them to a direct assignment policy.
+* If there are users that have already been assigned to a resource that you want to manage with an access package, be sure that the users are assigned to the access package with an appropriate policy. For example, you might want to include a group in an access package that already has users in the group. If those users in the group require continued access, they must have an appropriate policy for the access packages so that they don't lose their access to the group. You can assign the access package by either asking the users to request the access package containing that resource, or by directly assigning them to the access package. For more information, see [Edit and manage an existing access package](entitlement-management-access-package-edit.md).
 
 ## Checklist for troubleshooting request issues
 
-* When a user wishes to request access, ensure that the URL they are using is the one which is provided for that access package in the Azure Portal access package overview field `MyAccess portal link`.
+* When a user wants to request access to an access package, be sure that they are using the **My Access portal link** for the access package. For more information, see [Copy My Access portal link](entitlement-management-access-package-edit.md#copy-my-access-portal-link).
 
-* When requesting access, the user should authenticate using their organizational account.  The organizational account can be either an account in the resource directory, or in a directory which is included in one of the policies of the access package.  If the user's account is not an organizational account, or the directory is not included in the policy, then the user will not see the access package.
+* When a user signs in to the My Access portal to request an access package, be sure they authenticate using their organizational account. The organizational account can be either an account in the resource directory, or in a directory that is included in one of the policies of the access package. If the user's account is not an organizational account, or the directory is not included in the policy, then the user will not see the access package. For more information, see [Request access to an access package](entitlement-management-request-access.md).
 
-* If the user is blocked from sign in to the resource directory, then they will not be able to request access. Then they must be re-enabled in the resource directory before they can request.  This can be done in the Azure portal, by navigating to Azure Active Directory, selecting User management and editing the user so that their `block sign in` setting is `No`.
+* If a user is blocked from signing in to the resource directory, they will not be able to request access in the My Access portal. Before the user can request access, you must remove the sign-in block from the user's profile. To remove the sign-in block, in the Azure portal, click **Azure Active Directory**, click **Users**, click the user, and then click **Profile**. Edit the **Settings** section and change **Block sign in** to **No**. For more information, see [Add or update a user's profile information using Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md)
 
-* If a user does not see a request that they made on the approvals page, that is intentional - a user cannot approve their own request. Ensure that the access package they are requesting has additional approvers configured on the policy.
+* In the My Access portal, if a user is both a requestor and an approver, they will not see their request for an access package on the **Approvals** page. This behavior is intentional - a user cannot approve their own request. Ensure that the access package they are requesting has additional approvers configured on the policy. For more information, see [Edit an existing policy](entitlement-management-access-package-edit.md#edit-an-existing-policy).
 
-* If a new external user, that has not previously been in the directory, receives an access package including a SharePoint Online site, their access package will show as not fully delivered until their account is provisioned into SharePoint Online.
+* If a new external user, that has not previously signed in your directory, receives an access package including a SharePoint Online site, their access package will show as not fully delivered until their account is provisioned in SharePoint Online.
 
 ## Next steps
 
