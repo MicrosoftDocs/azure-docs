@@ -21,7 +21,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# protected Web API - app registration
+# Protected Web API - app registration
 
 See [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md) how to register the application.
 

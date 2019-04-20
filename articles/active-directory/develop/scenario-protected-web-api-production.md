@@ -21,7 +21,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# protected Web API - move to production
+# Protected Web API - move to production
 
 Now that you know how to protect your Web API, learn how to move it to production
 

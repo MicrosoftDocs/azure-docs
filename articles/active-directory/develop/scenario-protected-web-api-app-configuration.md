@@ -21,7 +21,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# protected Web API - app's code configuration
+# Protected Web API - app's code configuration
 
 Learn how to configure the code for your protected Web API.
 
