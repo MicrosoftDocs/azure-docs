@@ -109,13 +109,13 @@ Each template comes with sample code included, which takes simulated sensor data
 
 1. In the VS Code explorer, open **modules** > **NodeModule** > **app.js**.
 
-5. Add a temperature threshold variable below required node modules. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
+2. Add a temperature threshold variable below required node modules. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
 
     ```javascript
     var temperatureThreshold = 25;
     ```
 
-6. Replace the entire `PipeMessage` function with the `FilterMessage` function.
+3. Replace the entire `PipeMessage` function with the `FilterMessage` function.
     
     ```javascript
     // This function filters out messages that report temperatures below the temperature threshold.
@@ -136,7 +136,7 @@ Each template comes with sample code included, which takes simulated sensor data
 
     ```
 
-7. Replace the function name `pipeMessage` with `filterMessage` in `client.on()` function.
+4. Replace the function name `pipeMessage` with `filterMessage` in `client.on()` function.
 
     ```javascript
     client.on('inputMessage', function (inputName, msg) {
@@ -144,7 +144,7 @@ Each template comes with sample code included, which takes simulated sensor data
         });
     ```
 
-8. Copy the following code snippet into the `client.open()` function callback, after `client.on()` inside the `else` statement. This function is invoked when the desired properties are updated.
+5. Copy the following code snippet into the `client.open()` function callback, after `client.on()` inside the `else` statement. This function is invoked when the desired properties are updated.
 
     ```javascript
     client.getTwin(function (err, twin) {
@@ -160,11 +160,11 @@ Each template comes with sample code included, which takes simulated sensor data
     });
     ```
 
-9. Save the app.js file.
+6. Save the app.js file.
 
-10. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
+7. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
-11. Add the NodeModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin: 
+8. Add the NodeModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin: 
 
    ```json
      "NodeModule": {
@@ -176,7 +176,7 @@ Each template comes with sample code included, which takes simulated sensor data
 
    ![Add module twin to deployment template](./media/tutorial-node-module/module-twin.png)
 
-12. Save the deployment.template.json file.
+9. Save the deployment.template.json file.
 
 
 ## Build and push your module
@@ -195,11 +195,13 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 2. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**.
 
-   The build and push command starts three operations. First, it creates a new folder in the solution called **config** which holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
+   The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
 
 ## Deploy modules to device
 
-You verified that the built container images are stored in your container registry, so it's time to deploy them to a device. Make sure that your IoT Edge device is up and running. 
+Use the Visual Studio Code explorer and the Azure IoT Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.json** file in the config folder. All you need to do now is select a device to receive the deployment.
+
+Make sure that your IoT Edge device is up and running.
 
 1. In the Visual Studio Code explorer, expand the **Azure IoT Hub Devices** section to see your list of IoT devices.
 
@@ -228,7 +230,7 @@ We used the NodeModule module twin in the deployment manifest to set the tempera
 
 2. Right-click **NodeModule** and select **Edit module twin**. 
 
-3. Find **TemperatureThreshold** in the desired properties. Change its value to a new temperature five to ten degrees higher than the latest reported temperature. 
+3. Find **TemperatureThreshold** in the desired properties. Change its value to a new temperature 5 degrees to 10 degrees higher than the latest reported temperature. 
 
 4. Save the module twin file.
 
@@ -247,10 +249,10 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 
 ## Next steps
 
-In this tutorial, you created an IoT Edge module that contains code to filter raw data generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about [Developing your own IoT Edge modules](module-development.md) or how to [develop modules with Visual Studio Code](how-to-vs-code-develop-module.md).You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
+In this tutorial, you created an IoT Edge module that contains code to filter raw data generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about [developing your own IoT Edge modules](module-development.md) or how to [develop modules with Visual Studio Code](how-to-vs-code-develop-module.md). You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
 
 > [!div class="nextstepaction"]
-> [Azure Functions](tutorial-deploy-function.md)
-> [Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
-> [Azure Machine Learning](tutorial-deploy-machine-learning.md)
-> [Azure Custom Vision Service](tutorial-deploy-custom-vision.md)
+> [Functions](tutorial-deploy-function.md)
+> [Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Machine Learning](tutorial-deploy-machine-learning.md)
+> [Custom Vision Service](tutorial-deploy-custom-vision.md)

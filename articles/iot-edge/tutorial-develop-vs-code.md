@@ -131,11 +131,11 @@ Once your new solution loads in the Visual Studio Code window, take a moment to 
 
 * The **.vscode** folder contains a file called **launch.json**, which is used for debugging modules.
 * The **modules** folder contains a folder for each module in your solution. Right now, that should only be **SampleModule**, or whatever name you gave to the module. The SampleModule folder contains the main program code, the module metadata, and several Docker files. 
-* The **.env** file holds the credentials to your container registry. These credentials are shared with your IoT Edge device so that it has acceess to pull the container images. 
+* The **.env** file holds the credentials to your container registry. These credentials are shared with your IoT Edge device so that it has access to pull the container images. 
 * The **deployment.debug.template.json** file and **deployment.template.json** file are templates that help you create a deployment manifest. A *deployment manifest* is a file that defines exactly which modules you want deployed on a device, how they should be configured, and how they can communicate with each other and the cloud. The template files use pointers for some values. When you transform the template into a true deployment manifest, the pointers are replaced with values taken from other solution files. Locate the two common placeholders in your deployment template: 
 
-  * In the registry credentials section, the address is auto-filled from the information you provided when you created the solution. However, the username and password reference the variables stored in the .env file. This is for security, as the .env file is git ignored, but the deployment template is not. 
-  * In the SampleModule section, the container image isn't filled in even though you provided the image repository when you created the solution. This placeholder points to the **module.json** file inside the SampleModule folder. If you go to that file, you'll see that the image field does contain the repository, but also a tag value which is made up of the version and the platform of the container. You can iterate the version manually as part of your development cycle, and you select the container platform using a switcher that we introduce later in this section. 
+  * In the registry credentials section, the address is autofilled from the information you provided when you created the solution. However, the username and password reference the variables stored in the .env file. This is for security, as the .env file is git ignored, but the deployment template is not. 
+  * In the SampleModule section, the container image isn't filled in even though you provided the image repository when you created the solution. This placeholder points to the **module.json** file inside the SampleModule folder. If you go to that file, you'll see that the image field does contain the repository, but also a tag value that is made up of the version and the platform of the container. You can iterate the version manually as part of your development cycle, and you select the container platform using a switcher that we introduce later in this section. 
 
 ### Provide your registry credentials to the IoT Edge agent
 
@@ -213,7 +213,7 @@ Visual Studio Code now has access to your container registry, so it's time to tu
 
    ![Build and push IoT Edge modules](./media/tutorial-develop-vs-code/build-and-push-modules.png)
 
-   The build and push command starts three operations. First, it creates a new folder in the solution called **config** which holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry. 
+   The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry. 
 
    This process may take several minutes the first time, but is faster the next time that you run the commands. 
 
@@ -244,7 +244,7 @@ Visual Studio Code now has access to your container registry, so it's time to tu
 
 If you encounter errors when building and pushing your module image, it often has to do with Docker configuration on your development machine. Use the following checks to review your configuration: 
 
-* Did you run the `docker login` command using the credentials that you copied from your container registry? These are different than the credentials you use to sign in to Azure. 
+* Did you run the `docker login` command using the credentials that you copied from your container registry? These credentials are different than the ones that you use to sign in to Azure. 
 * Is your container repository correct? Does it have your correct container registry name and your correct module name? Open the **module.json** file in the SampleModule folder to check. The repository value should look like **\<registry name\>.azurecr.io/samplemodule**. 
 * If you used a different name than **SampleModule** for your module, is that name consistent throughout the solution?
 * Is your machine running the same type of containers that you're building? This tutorial is for Linux IoT Edge devices, so Visual Studio Code should say **amd64** or **arm32v7** in the side bar, and Docker Desktop should be running Linux containers. C modules in Visual Studio Code do not support Windows containers. 
@@ -293,7 +293,7 @@ The commands in this section are for your IoT Edge device, not your development 
    iotedge list
    ```
 
-   You should see four modoules: the two IoT Edge runtime modules, tempSensor, and SampleModule. All four should be listed as running.
+   You should see four modules: the two IoT Edge runtime modules, tempSensor, and SampleModule. All four should be listed as running.
 
 * Inspect the logs for a specific module:
 

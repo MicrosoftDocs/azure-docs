@@ -101,7 +101,7 @@ Currently, Visual Studio Code can develop Java modules for Linux AMD64 and Linux
 
 1. In the VS Code explorer, open **modules** > **JavaModule** > **src** > **main** > **java** > **com** > **edgemodule** > **App.java**.
 
-5. Add the following code at the top of the file to import new referenced classes.
+2. Add the following code at the top of the file to import new referenced classes.
 
     ```java
     import java.io.StringReader;
@@ -118,14 +118,14 @@ Currently, Visual Studio Code can develop Java modules for Linux AMD64 and Linux
     import com.microsoft.azure.sdk.iot.device.DeviceTwin.TwinPropertyCallBack;
     ```
 
-5. Add the following definition into class **App**. This variable sets a temperature threshold. The measured machine temperature won't be reported to IoT Hub until it goes over this value. 
+3. Add the following definition into class **App**. This variable sets a temperature threshold. The measured machine temperature won't be reported to IoT Hub until it goes over this value. 
 
     ```java
     private static final String TEMP_THRESHOLD = "TemperatureThreshold";
     private static AtomicLong tempThreshold = new AtomicLong(25);
     ```
 
-7. Replace the execute method of **MessageCallbackMqtt** with the following code. This method is called whenever the module receives an MQTT message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin.
+4. Replace the execute method of **MessageCallbackMqtt** with the following code. This method is called whenever the module receives an MQTT message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin.
 
     ```java
     protected static class MessageCallbackMqtt implements MessageCallback {
@@ -159,7 +159,7 @@ Currently, Visual Studio Code can develop Java modules for Linux AMD64 and Linux
     }
     ```
 
-8. Add the following two static inner classes into class **App**. These classes update the tempThreshold variable when the module twin's desired property changes. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
+5. Add the following two static inner classes into class **App**. These classes update the tempThreshold variable when the module twin's desired property changes. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
 
     ```java
     protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
@@ -187,7 +187,7 @@ Currently, Visual Studio Code can develop Java modules for Linux AMD64 and Linux
     }
     ```
 
-9. Add the following lines in to **main** method after **client.open()** to subscribe the module twin updates.
+6. Add the following lines in to **main** method after **client.open()** to subscribe the module twin updates.
 
     ```java
     client.startTwin(new DeviceTwinStatusCallBack(), null, new OnProperty(), null);
@@ -200,11 +200,11 @@ Currently, Visual Studio Code can develop Java modules for Linux AMD64 and Linux
     client.getTwin();
     ```
 
-11. Save the App.java file.
+7. Save the App.java file.
 
-12. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
+8. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
-13. Add the **JavaModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin: 
+9. Add the **JavaModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin: 
 
    ```json
      "JavaModule": {
@@ -216,7 +216,7 @@ Currently, Visual Studio Code can develop Java modules for Linux AMD64 and Linux
 
    ![Add module twin to deployment template](./media/tutorial-java-module/module-twin.png)
 
-14. Save the deployment.template.json file.
+10. Save the deployment.template.json file.
 
 ## Build and push your module
 
@@ -234,11 +234,13 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 2. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**.
 
-   The build and push command starts three operations. First, it creates a new folder in the solution called **config** which holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
+   The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
 
 ## Deploy modules to device
 
-You verified that the built container images are stored in your container registry, so it's time to deploy them to a device. Make sure that your IoT Edge device is up and running. 
+Use the Visual Studio Code explorer and the Azure IoT Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.json** file in the config folder. All you need to do now is select a device to receive the deployment.
+
+Make sure that your IoT Edge device is up and running.
 
 1. In the Visual Studio Code explorer, expand the **Azure IoT Hub Devices** section to see your list of IoT devices.
 
@@ -266,7 +268,7 @@ We used the JavaModule module twin in the deployment manifest to set the tempera
 
 2. Right-click **JavaModule** and select **Edit module twin**. 
 
-3. Find **TemperatureThreshold** in the desired properties. Change its value to a new temperature five to ten degrees higher than the latest reported temperature. 
+3. Find **TemperatureThreshold** in the desired properties. Change its value to a new temperature 5 degrees to 10 degrees higher than the latest reported temperature. 
 
 4. Save the module twin file.
 
@@ -284,10 +286,10 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 
 ## Next steps
 
-In this tutorial, you created an IoT Edge module that contains code to filter raw data generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about [Developing your own IoT Edge modules](module-development.md) or how to [develop modules with Visual Studio Code](how-to-vs-code-develop-module.md).You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
+In this tutorial, you created an IoT Edge module that contains code to filter raw data generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about [developing your own IoT Edge modules](module-development.md) or how to [develop modules with Visual Studio Code](how-to-vs-code-develop-module.md). You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
 
 > [!div class="nextstepaction"]
-> [Azure Functions](tutorial-deploy-function.md)
-> [Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
-> [Azure Machine Learning](tutorial-deploy-machine-learning.md)
-> [Azure Custom Vision Service](tutorial-deploy-custom-vision.md)
+> [Functions](tutorial-deploy-function.md)
+> [Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Machine Learning](tutorial-deploy-machine-learning.md)
+> [Custom Vision Service](tutorial-deploy-custom-vision.md)

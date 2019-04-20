@@ -48,7 +48,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * A [Windows device running Azure IoT Edge](quickstart.md).
 * A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017) configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) extension.
-* [Docker CE](https://docs.docker.com/install/) on your development machine, configured to run Windows containers.
+* [Docker CE](https://docs.docker.com/install/) configured to run Windows containers.
 * The Azure IoT SDK for C. 
 
 ## Create a module project
@@ -129,7 +129,7 @@ The default module code receives messages on an input queue and passes them alon
       #include "parson.h"
       ```
 
-2.  In the **main.c** file, add a global variable called `temperatureThreshold` next to the messagesReceivedByInput1Queue variabl. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
+2.  In the **main.c** file, add a global variable called `temperatureThreshold` next to the messagesReceivedByInput1Queue variable. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
 
     ```c
     static double temperatureThreshold = 25;
@@ -154,7 +154,7 @@ The default module code receives messages on an input queue and passes them alon
    }
    ```
 
-   The new lines of code in the else statement adds a new property to the message, which labels the message as an alert. This code labels all messages as alerts, because we'll add functionality that only sends messages to IoT Hub if they report high temperatures. 
+   The new lines of code in the else statement add a new property to the message, which labels the message as an alert. This code labels all messages as alerts, because we'll add functionality that only sends messages to IoT Hub if they report high temperatures. 
 
 4. Find the `InputQueue1Callback` function, and replace the whole function with the following code. This function implements the actual messaging filter. When a message is received, it checks whether the reported temperature exceeds the threshold. If yes, then it forwards the message through its output queue. If not, then it ignores the message. 
 
@@ -300,11 +300,13 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 3. Select **Build and Push IoT Edge Modules**. 
 
-   The build and push command starts three operations. First, it creates a new folder in the solution called **config** which holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry. 
+   The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template, and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry. 
 
 ## Deploy modules to device
 
 Use the Visual Studio cloud explorer and the Azure IoT Edge Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.json** file in the config folder. All you need to do now is select a device to receive the deployment.
+
+Make sure that your IoT Edge device is up and running. 
 
 1. In the Visual Studio cloud explorer, expand the resources to see your list of IoT devices. 
 
@@ -337,7 +339,7 @@ We used the CModule module twin to set the temperature threshold at 25 degrees. 
 
 1. In Visual Studio, open the **deployment.windows-amd64.json** file. (Not the deployment.template file. If you don't see the deployment manifest in the config file in the solution explorer, select the **Show all files** icon in the explorer toolbar.)
 
-2. Find the CModule twin and change the value of the **temperatureThreshold** parameter to a new temperature five to ten degrees higher than the latest reported temperature. 
+2. Find the CModule twin and change the value of the **temperatureThreshold** parameter to a new temperature 5 degrees to 10 degrees higher than the latest reported temperature. 
 
 3. Save the **deployment.windows-amd64.json** file.
 
@@ -355,10 +357,10 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 
 ## Next steps
 
-In this tutorial, you created an IoT Edge module with code to filter raw data that's generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about [Developing your own IoT Edge modules](module-development.md) or how to [develop modules with Visual Studio](how-to-visual-studio-develop-module.md). You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
+In this tutorial, you created an IoT Edge module with code to filter raw data that's generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about [developing your own IoT Edge modules](module-development.md) or how to [develop modules with Visual Studio](how-to-visual-studio-develop-module.md). You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
 
 > [!div class="nextstepaction"]
-> [Azure Functions](tutorial-deploy-function.md)
-> [Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
-> [Azure Machine Learning](tutorial-deploy-machine-learning.md)
-> [Azure Custom Vision Service](tutorial-deploy-custom-vision.md)
+> [Functions](tutorial-deploy-function.md)
+> [Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Machine Learning](tutorial-deploy-machine-learning.md)
+> [Custom Vision Service](tutorial-deploy-custom-vision.md)

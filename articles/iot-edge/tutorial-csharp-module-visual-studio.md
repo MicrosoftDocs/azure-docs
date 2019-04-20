@@ -49,7 +49,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * A [Windows device running Azure IoT Edge](quickstart.md).
 * A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017) configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) extension.
-* [Docker CE](https://docs.docker.com/install/) on your development machine, configured to run Windows containers.
+* [Docker CE](https://docs.docker.com/install/) configured to run Windows containers.
 
 ## Create a module project
 
@@ -169,7 +169,7 @@ The default module code receives messages on an input queue and passes them alon
    }
    ```
    
-   This updated Init method still sets up the connection to the IoT Edge runtime with the ModuleClient, but also adds new functionality. It reads the module twin's desired properties to retrieve the **temperatureThreshold** value. Then, it create a callback that listens for any future updates to the module twin's desired properties. With this callback, you can update the temperature threshold in the module twin remotely, and the changes will be incorporated into the module. 
+   This updated Init method still sets up the connection to the IoT Edge runtime with the ModuleClient, but also adds new functionality. It reads the module twin's desired properties to retrieve the **temperatureThreshold** value. Then, it creates a callback that listens for any future updates to the module twin's desired properties. With this callback, you can update the temperature threshold in the module twin remotely, and the changes will be incorporated into the module. 
 
    The updated Init method also changes the existing **SetInputMessageHandlerAsync** method. In the sample code, incoming messages on *input1* are processed with the *PipeMessage* function, but we want to change that to use the *FilterMessages* function that we'll create in the following steps. 
 
@@ -294,11 +294,13 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 3. Select **Build and Push IoT Edge Modules**. 
 
-   The build and push command starts three operations. First, it creates a new folder in the solution called **config** which holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry. 
+   The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry. 
 
 ## Deploy modules to device
 
 Use the Visual Studio cloud explorer and the Azure IoT Edge Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.json** file in the config folder. All you need to do now is select a device to receive the deployment.
+
+Make sure that your IoT Edge device is up and running. 
 
 1. In the Visual Studio cloud explorer, expand the resources to see your list of IoT devices. 
 
@@ -330,7 +332,7 @@ We used the CSharpModule module twin to set the temperature threshold at 25 degr
 
 1. In Visual Studio, open the **deployment.windows-amd64.json** file. (Not the deployment.template file. If you don't see the deployment manifest in the config file in the solution explorer, select the **Show all files** icon in the explorer toolbar.)
 
-2. Find the CSharpModule twin and change the value of the **temperatureThreshold** parameter to a new temperature five to ten degrees higher than the latest reported temperature. 
+2. Find the CSharpModule twin and change the value of the **temperatureThreshold** parameter to a new temperature 5 degrees to 10 degrees higher than the latest reported temperature. 
 
 3. Save the **deployment.windows-amd64.json** file.
 
@@ -342,16 +344,16 @@ We used the CSharpModule module twin to set the temperature threshold at 25 degr
 
 If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them. You can also keep using the same IoT Edge device as a test device. 
 
-Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges. 
+Otherwise, you can delete the local configurations and the Azure resources that you used in this article to avoid charges. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## Next steps
 
-In this tutorial, you created an IoT Edge module with code to filter raw data that's generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about [Developing your own IoT Edge modules](module-development.md) or how to [develop modules with Visual Studio](how-to-visual-studio-develop-module.md). You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
+In this tutorial, you created an IoT Edge module with code to filter raw data that's generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about [developing your own IoT Edge modules](module-development.md) or how to [develop modules with Visual Studio](how-to-visual-studio-develop-module.md). You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
 
 > [!div class="nextstepaction"]
-> [Azure Functions](tutorial-deploy-function.md)
-> [Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
-> [Azure Machine Learning](tutorial-deploy-machine-learning.md)
-> [Azure Custom Vision Service](tutorial-deploy-custom-vision.md)
+> [Functions](tutorial-deploy-function.md)
+> [Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Machine Learning](tutorial-deploy-machine-learning.md)
+> [Custom Vision Service](tutorial-deploy-custom-vision.md)

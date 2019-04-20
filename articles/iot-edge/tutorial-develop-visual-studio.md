@@ -179,7 +179,7 @@ Each module can have multiple *input* and *output* queues declared in their code
 
 3. Next, find the **InputQueue1Callback** function.
 
-4. This function processes recieved messages and sets up an output queue to pass them along. It calls the C SDK module client function [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync). Review this function and see that it initializes an output queue called **output1**. 
+4. This function processes received messages and sets up an output queue to pass them along. It calls the C SDK module client function [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync). Review this function and see that it initializes an output queue called **output1**. 
 
    ![Find the output name in the SendEventToOutputAsync constructor](./media/tutorial-develop-visual-studio/SendEventToOutputAsync-output1.png)
 
@@ -193,7 +193,7 @@ Each module can have multiple *input* and *output* queues declared in their code
 
 7. Find the **routes** property of the $edgeHub desired properties. 
 
-   One of the functions if the IoT Edge hub modules is to route messages between all the modules in a deployment. Review the values in the routes property. The first route, **IotEdgeModule1ToIoTHub**, uses a wildcard character (**\***) to include any message coming from any output queue in the IoTEdgeModule1 module. These messages go into *$upstream*, which is a reserved name that indicates IoT Hub. The second route, **sensorToIotEdgeModule1**, takes messages coming from the tempSensor module and routes them to the *input1* input queue of the IotEdgeModule1 module. 
+   One of the functions if the IoT Edge hub module is to route messages between all the modules in a deployment. Review the values in the routes property. The first route, **IotEdgeModule1ToIoTHub**, uses a wildcard character (**\***) to include any message coming from any output queue in the IoTEdgeModule1 module. These messages go into *$upstream*, which is a reserved name that indicates IoT Hub. The second route, **sensorToIotEdgeModule1**, takes messages coming from the tempSensor module and routes them to the *input1* input queue of the IotEdgeModule1 module. 
 
    ![Review routes in deployment.template.json](./media/tutorial-develop-visual-studio/edgeHub-routes.png)
 
@@ -224,7 +224,7 @@ Your development machine now has access to your container registry, and your IoT
 
    ![Build and push IoT Edge modules](./media/tutorial-develop-visual-studio/build-and-push-modules.png)
 
-   The build and push command starts three operations. First, it creates a new folder in the solution called **config** which holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry. 
+   The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry. 
 
    This process may take several minutes the first time, but is faster the next time that you run the commands. 
 
@@ -255,7 +255,7 @@ Your development machine now has access to your container registry, and your IoT
 
 If you encounter errors when building and pushing your module image, it often has to do with Docker configuration on your development machine. Use the following checks to review your configuration: 
 
-* Did you run the `docker login` command using the credentials that you copied from your container registry? These are different than the credentials you use to sign in to Azure. 
+* Did you run the `docker login` command using the credentials that you copied from your container registry? These credentials are different than the ones that you use to sign in to Azure. 
 * Is your container repository correct? Does it have your correct container registry name and your correct module name? Open the **module.json** file in the IotEdgeModule1 folder to check. The repository value should look like **\<registry name\>.azurecr.io/iotedgemodule1**. 
 * If you used a different name than **IotEdgeModule1** for your module, is that name consistent throughout the solution?
 * Is your machine running the same type of containers that you're building? This tutorial is for Windows IoT Edge devices, so your Visual Studio files should have the **windows-amd64** extension, and Docker Desktop should be running Windows containers. 
@@ -271,7 +271,7 @@ You verified that the built container images are stored in your container regist
    ![Create deployment for single device](./media/tutorial-develop-visual-studio/create-deployment.png)
 
 
-3. In the file explorer, navigate to the config folder of your project and select the **deployment.windows-amd64.json** file. This is often located at `C:\Users\<username>\source\repos\AzureIotEdgeApp1\AzureIotEdgeApp1.Windows.Amd64\config\deployment.windows-amd64.json`
+3. In the file explorer, navigate to the config folder of your project and select the **deployment.windows-amd64.json** file. This file is often located at `C:\Users\<username>\source\repos\AzureIotEdgeApp1\AzureIotEdgeApp1.Windows.Amd64\config\deployment.windows-amd64.json`
 
    Do not use the deployment.template.json file, which doesn't have the full module image values in it. 
 
@@ -308,7 +308,7 @@ The commands in this section are for your IoT Edge device, not your development 
    iotedge list
    ```
 
-   You should see four modoules: the two IoT Edge runtime modules, tempSensor, and IotEdgeModule1. All four should be listed as running.
+   You should see four modules: the two IoT Edge runtime modules, tempSensor, and IotEdgeModule1. All four should be listed as running.
 
 * Inspect the logs for a specific module:
 
