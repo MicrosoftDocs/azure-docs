@@ -21,20 +21,21 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
+* You got access to the Form Recognizer limited-access preview. To get access to the preview, please fill out and submit the [Cognitive Services Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form. 
 * You must have [cURL](https://curl.haxx.se/windows/).
-* You must have a subscription key for Form Recognizer. To get a subscription key, see Obtaining subscription keys.
-* You must have a minimum set of five forms of the same type located in the container's mounted **/input** directory. You can use a [sample dataset](https://github.com/Azure/CSContainers/blob/master/FormUnderstanding/sample_data.zip) for this quickstart.
+* You must have a subscription key for Form Recognizer. To get a subscription key, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Form Recognizer and get your key. 
+* You must have a minimum set of five forms of the same type located on a blob to train a model or you can downlaod and extract to a blob container the [sample dataset](https://github.com/Azure/CSContainers/blob/master/FormUnderstanding/sample_data.zip) for this quickstart.
 
 ## Train a Form Recognizer model
 
 First, you will need a training data. The training data can be the [sample data](https://github.com/Azure/CSContainers/blob/master/FormUnderstanding/sample_data.zip) located on an Azure Blob or your own training data. Training data should consist of a minimum of five forms (PDF documents and/or images) of the same type/structure or an empty form (the empty form's filename must include the word "empty") located on an Azure Blob container.
 
 To train a Form Recognizer model using the documents in your Azure Blob container, call the **Train** API by executing the following cURL command. Before running the command replace the following: 
-* Replace `<Azure region>` with the Azure region where you obtained your Form Recognizer subscription key.
+* Replace `<Endpoint URL>` with the Form Recognizer endpoint, you can find it in your Form Recognizer resource overview tab. 
 * Replace `<SAS URL>` with an Azure Blob Storage container shared access signature (SAS) URL where the training data is located.  
 
 ```bash
-curl -X POST "http://<Azure Region>/formrecognizer/v1.0-preview/custom/train" -H "accept: application/json" -H "Content-Type: application/json-patch+json" -d "{ \"source\": \"<SAS URL>\"}"
+curl -X POST "http://<Endpoint URL>/formrecognizer/v1.0-preview/custom/train" -H "accept: application/json" -H "Content-Type: application/json-patch+json" -d "{ \"source\": \"<SAS URL>\"}"
 ```
 
 You will receive a `200 (Success)` response with the following JSON output:
@@ -88,13 +89,13 @@ Take note of the `"modelId"` value; you will need it for the following steps.
 ## Extract key-value pairs and tables from forms
 
 Next, you will analyze a document and extract key value pairs and tables from it. Call the **model analyze** API by executing the following cURL command. Before running the command replace the following: 
-* Replace `<Azure region>` with the Azure region where you obtained your Form Recognizer subscription key.
+* Replace `<Endpoint URL>` with the Form Recognizer endpoint, you can find it in your Form Recognizer resource overview tab. 
 * Replace `<modelID>` with the modelID you received in the previous step of training the model.
 * Replace `</path/to/my/Invoice_1.pdf>` with the path to the file you would like to analyze from the sample data. 
 * Replace `<pdf>` with the file type you are analyzing supported options are - pdf, image/jpeg, image/png. 
 
 ```bash
-curl -X POST "http://<Azure Region>/formrecognizer/v1.0-preview/custom/model/<modelID>/analyze" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "form=@</path/to/my/Invoice_1.pdf>;type=application/<pdf>"
+curl -X POST "http://<Endpoint URL>/formrecognizer/v1.0-preview/custom/model/<modelID>/analyze" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "form=@</path/to/my/Invoice_1.pdf>;type=application/<pdf>"
 ```
 
 ### Examine the response
