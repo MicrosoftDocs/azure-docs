@@ -7,7 +7,7 @@ Using the [Azure Functions Core Tools](functions-run-local) and the following to
 
 ## Setup
 
-For this guide, we'll work with the following simple Function App:
+For this guide, we'll work with the following simple function app:
 
 ```
 PSFunctionApp
@@ -60,37 +60,39 @@ if($name) {
 # ...
 ```
 
-With a `Wait-Debugger` in place, we are ready to debug our Function App.
+With a `Wait-Debugger` in place, you are ready to debug functions in your function app using either Visual Studio Code or a PowerShell console.
 
-From here, we're ready to either use Visual Studio Code, or a PowerShell Console, to debug our Function.
+## Debug PowerShell functions using Visual Studio Code
 
-## Debugging a PowerShell Function App with Visual Studio Code
-
-With Visual Studio Code, you can debug local PowerShell Azure Functions with ease - right from your text editor. You will need two extensions:
+With Visual Studio Code, you can debug local PowerShell functions right from the file editor. To do this you need the following two Visual Studio Code extensions:
 
 * [PowerShell](/powershell/scripting/components/vscode/using-vscode)
-* [Azure Functions](functions-create-first-function-vs-code)
+* [Azure Functions](functions-create-first-function-vs-code.md)
 
-Now that you have the PowerShell and Azure Functions extensions installed in Visual Studio Code, either [create a new Azure Functions project](create-an-azure-functions-project), or load an existing Function App.
+With the PowerShell and Azure Functions extensions installed in Visual Studio Code, open load an existing function app project. You can also [create a Functions project](functions-create-first-function-vs-code.md).
 
 >[!NOTE]
-> If you load an existing Function App and don't have the needed config files, the Azure Functions extension will prompt you asking if it can add the files - make sure you say yes! If you already have the config files, it won't notify you.
+> If your project doesn't have the needed configuration files, you are prompted to add them.
 
-Once you have your Function App loaded inside of Visual Studio Code, make sure you have a `Wait-Debugger` somewhere in your Function.
+Review the functions that you want to debug to make sure that `Wait-Debugger` is set where you want to attache the debugger.
 
-### Let's run our Function App
+### Start the function app
 
-With our `Wait-Debugger` in place, and Visual Studio Code setup, we are ready to run and debug our Function App using Visual Studio Code. All you need to do is hit <kbd>F5</kbd> which will run with debugging. This is equivalent to clicking the debug pane and hitting the green play button:
+With our `Wait-Debugger` in place, you can now debug your function app using Visual Studio Code. 
+
+Choose the **Debug** pane and then **Attach to PowerShell function**.
 
 ![debugger](https://user-images.githubusercontent.com/2644648/56166073-8a7b3780-5f89-11e9-85ce-36ed38e221a2.png)
+
+You can also press the F5 keys.
 
 That action will:
 
 * Run `func extensions install` to install any Azure Functions extensions you may have
-* Run `func host start` in the background which will start the Function App
+* Run `func host start` in the background which will start the function app
 * Attach the PowerShell debugger to the PowerShell runspace within the Functions runtime
 
-With our Function App now running, all we need is one more PowerShell console.
+With our function app now running, all we need is one more PowerShell console.
 
 The PowerShell console will be our client. We'll use `Invoke-RestMethod` (or `irm` for short) to invoke our Function. Let's do that now. In one of the PowerShell console's run:
 
@@ -109,18 +111,18 @@ Once you continue and fully invoke your script, you'll notice that:
 
 You can invoke the same function again (using `irm` for example) and the debugger in PowerShell extension will pick up and drop you right after the `Wait-Debugger` is. This approach is a great way to continually test your Functions!
 
-## Debugging a PowerShell Function App with a PowerShell Console
+## Debugging a PowerShell function app with a PowerShell Console
 
 >[!NOTE]
-> This guide assumes you have read the [Azure Functions Core Tools docs](functions-run-local) and know how to use the `func host start` command to start your Function App.
+> This guide assumes you have read the [Azure Functions Core Tools docs](functions-run-local.md) and know how to use the `func host start` command to start your function app.
 
-Open up a console, `cd` into the directory of your Function App, and run:
+Open up a console, `cd` into the directory of your function app, and run:
 
 ```sh
 func host start
 ```
 
-With the Function App running and our `Wait-Debugger` in place, we're ready to attach to the process. All we need is two more PowerShell consoles.
+With the function app running and our `Wait-Debugger` in place, we're ready to attach to the process. All we need is two more PowerShell consoles.
 
 One of them, will be our client. We'll use `Invoke-RestMethod` (or `irm` for short) to invoke our Function. Let's do that now. In one of the PowerShell console's, run:
 
@@ -151,7 +153,7 @@ pwsh            32071 None
 pwsh            88785 None
 ```
 
-Make note of the `ProcessId` for the item in the table with the `ProcessName` as `dotnet`. This process is your Function App.
+Make note of the `ProcessId` for the item in the table with the `ProcessName` as `dotnet`. This process is your function app.
 
 Next, run the following snippet:
 
