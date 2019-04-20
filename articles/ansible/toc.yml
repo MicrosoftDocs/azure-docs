@@ -28,9 +28,9 @@
       href: ./ansible-create-configure-application-gateway.md
   - name: Azure App Service
     items:
-    - name: Configure web apps
+    - name: Configure apps
       href: ./ansible-create-configure-azure-web-apps.md
-    - name: Scale web apps
+    - name: Scale apps
       href: ./ansible-scale-azure-web-apps.md
   - name: Azure DevTest Labs
     items:

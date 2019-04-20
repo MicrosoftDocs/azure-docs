@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure a web app in Azure App Service using Ansible
+title: Tutorial - Configure apps in Azure App Service using Ansible | Microsoft Docs
 description: Learn how to create a Java web app in Azure App Service on Linux using Ansible
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, Java
 ms.topic: tutorial
@@ -10,25 +10,33 @@ ms.author: tarcher
 ms.date: 04/04/2019
 ---
 
-# Tutorial: Configure a web app in Azure App Service using Ansible
+# Tutorial: Configure apps in Azure App Service using Ansible
 
-[Azure App Service](/azure/app-service/overview) (or just Web Apps) hosts web applications, REST APIs, and mobile backends. You can develop in your favorite language&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-Ansible enables you to automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to create a web app by using the Java runtime. 
+[!INCLUDE [open-source-devops-intro-app-service.md](../../includes/open-source-devops-intro-app-service.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Create an app service on Linux with Java 8 and the Tomcat container runtime
+> * Create an Azure Traffic Manager profile
+> * Define a Traffic Manager endpoint using the created app
 
 ## Prerequisites
 
 - [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-> [!Note]
-> Ansible 2.7 is required to run the following the sample playbooks in this tutorial.
-
 ## Create a simple app service
 
-This section presents a sample Ansible playbook that defines the following resources:
-- Resource group, where your App Service plan and web app will be deployed to
-- Web app with Java 8 and the Tomcat container runtime in App Service on Linux
+The playbook code in this section defines the following resources:
+
+* Azure resource group within which the App Service plan and app are deployed
+* App service on Linux with Java 8 and the Tomcat container runtime
+
+Save the following playbook as `firstwebapp.yml`:
 
 ```yml
 - hosts: localhost
@@ -62,15 +70,13 @@ This section presents a sample Ansible playbook that defines the following resou
               java_container_version: 8.5
 ```
 
-Save the preceding playbook as `firstwebapp.yml`.
-
 Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook firstwebapp.yml
 ```
 
-The output from running the Ansible playbook shows that the web app was successfully created:
+After running the playbook, you see output similar to the following results:"
 
 ```Output
 PLAY [localhost] 
@@ -92,18 +98,20 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 
 ## Create an app service using Traffic Manager
 
-You can use [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) to control how requests from web clients are distributed to apps in Azure App Service. When App Service endpoints are added to an Azure Traffic Manager profile, Traffic Manager tracks the status of your App Service apps. Statuses include running, stopped, and deleted. Traffic Manager can then decide which of those endpoints should receive traffic.
+[Azure Traffic Manager](/azure/app-service/web-sites-traffic-manager) enables you to control how requests from web clients are distributed to apps in Azure App Service. When App Service endpoints are added to an Azure Traffic Manager profile, Traffic Manager tracks the status of your App Service apps. Statuses include running, stopped, and deleted. Traffic Manager is used to decide which endpoints should receive the traffic.
 
-In App Service, an app runs in an [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans
-). An App Service plan defines a set of compute resources for a web app to run. You can manage your App Service plan and web app in different groups.
+In App Service, an app runs in an [App Service plan](/azure/app-service/overview-hosting-plans). An App Service plan defines a set of compute resources for a app to run. You can manage your App Service plan and web app in different groups.
 
-This section presents a sample Ansible playbook that defines the following resources:
-- Resource group, where your app service plan will be deployed to
-- App Service plan
-- Secondary resource group, where your web app will be deployed to
-- Web app with Java 8 and the Tomcat container runtime in App Service on Linux
-- Traffic Manager profile
-- Traffic Manager endpoint, using the created website
+The playbook code in this section defines the following resources:
+
+* Azure resource group within which the App Service plan is deployed
+* App Service plan
+* Azure resource group within which the app is deployed
+* App service on Linux with Java 8 and the Tomcat container runtime
+* Traffic Manager profile
+* Traffic Manager endpoint using the created app
+
+Save the following playbook as `webapp.yml`:
 
 ```yml
 - hosts: localhost
@@ -186,15 +194,13 @@ This section presents a sample Ansible playbook that defines the following resou
       target_resource_id: "{{ webapp.webapps[0].id }}"
 ```
 
-Save the preceding playbook as `webapp.yml`, or [download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
-
 Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook webapp.yml
 ```
 
-The output from running the Ansible playbook shows that the App service plan, web app, Traffic Manager profile, and endpoint were successfully created:
+After running the playbook, you see output similar to the following results:
 
 ```Output
 PLAY [localhost] 
@@ -237,4 +243,4 @@ localhost                  : ok=9    changed=6    unreachable=0    failed=0
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Tutorial: Scale an app in Azure App Service web apps using Ansible](https://docs.microsoft.com/azure/ansible/ansible-scale-azure-web-apps)
+> [Tutorial: Scale apps in Azure App Service using Ansible](/azure/ansible/ansible-scale-azure-web-apps)
