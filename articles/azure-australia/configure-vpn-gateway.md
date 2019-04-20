@@ -91,9 +91,10 @@ ipsecEncryption | | AES256|GCMAES256
 ipsecIntegrity | | SHA256|GCMAES256
 ikeEncryption | | AES256|GCMAES256
 ikeIntegrity | | SHA256|GCMAES256
-dhGroup | DHGroup14\|DHGroup24\|**ECP256\|ECP384**<sup>[1](#fn1)</sup> | DHGroup2
-pfsGroup | PFS2048\|PFS24\|**ECP256\|ECP384**<sup>[1](#fn1)</sup> |
+dhGroup | DHGroup14\|DHGroup24\|**ECP256\|ECP384**<sup>[1]</sup> | DHGroup2
+pfsGroup | PFS2048\|PFS24\|**ECP256\|ECP384**<sup>[1]</sup> |
 |
+<sup>[1]- Use of Elliptic Curve encryption algorithms are preferred</sup>
 
 ### Related Services
 
@@ -121,7 +122,9 @@ Subnet | A subnet of the VNet needs to be created for the VPN Gateway.
 
 2. Add custom role to users who are allowed to create and manage VPN Gateways and connections to on-premises environments.
 
-### Create VPN Gateway <sup>[2](#fn2)</sup>
+### Create VPN Gateway <sup>[2]</sup>
+
+<sup>[2] - Assuming VNet has previously been created</sup>
 
 1. Create a new Public IP address
 2. Create a VPN Gateway subnet
@@ -194,6 +197,3 @@ New-AzVirtualNetworkGatewayConnection `
 [What is VPN Gateway?](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways)  
 [Create a VNet with a Site-to-Site VPN connection using PowerShell](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)  
 [Create and manage a VPN gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell)
-
-<a name="footnote1"><sup>1</sup></a> Use of Elliptic Curve encryption algorithms are preferred [>](#fn1ref)  
-<a name="fn2"><sup>2</sup></a> Assuming VNet has previously been created [>](#fn2ref)

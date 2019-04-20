@@ -73,7 +73,7 @@ Pass-Through Authentication presents several design factors to be considered:
 
 Active Directory Federation Services was included within the IRAP assessment and is approved for use in PROTECTED environments.
 
-![Federation](federated-identity.png)
+![Federation](media/federated-identity.png)
 
 Active Directory Federation Services presents several design factors to be considered:
 

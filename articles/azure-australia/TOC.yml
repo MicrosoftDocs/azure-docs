@@ -23,7 +23,7 @@
   - name: Implement logging, auditing and visibility gateway services
     href: implement-gateway-logging-auditing-visibility.md
   - name: Implement secure remote administration gateway services
-    href: implement-gateway-secure-remote-administration.md
+    href: configure-gateway-secure-remote-administration.md
   - name: Implement data ingress nanagement and control gateway services
     href: control-gateway-ingress-traffic.md  
 - name: Resources

@@ -22,7 +22,7 @@ Role-Based Access Control is central to the management of access to all resource
 
 At a high level, implementing RBAC requires three components:
 
-![RBAC-Overview](images/rbac-overview.png)
+![RBAC-Overview](media/rbac-overview.png)
 
 * **Security Principals**: A security principal can be any one of the following; a user, a group, [Service Principals, or a [Managed Identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). Security Principals should be assigned privileges using Azure Active Directory Groups.
 
@@ -116,7 +116,7 @@ Azure Resource Roles also have the benefit of being able to be assigned to resou
 
 Azure Management Groups can be used by an organisation to manage the assignment of Roles to all of the subscriptions and their resources within an Azure Tenancy. Azure Management Groups are designed to allow you to create management hierarchies, including the ability to map your organisational structure hierarchically, within Azure. Creating organisational business units as separate logical entities allows permissions to be applied within an organisation based on each team's specific requirements. Azure Management Groups can be used to define a management hierarchy up to six levels deep.
 
-![Management Groups](images/management-groups.png)
+![Management Groups](media/management-groups.png)
 
 Azure Management Groups are mapped to Azure Subscriptions within an Azure Tenancy. This allows an organisation to segregate Azure Resources belonging to specific business units and provide a level of granular control over both cost management and privilege assignment.
 
