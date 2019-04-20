@@ -32,7 +32,7 @@ There are several ways that you can configure entitlement management for your or
 
 ## Administrators
 
-### I'm new to entitlement management and I need help with getting started
+### I'm new to entitlement management and I want help with getting started
 
 > [!div class="mx-tableFixed"]
 > | Steps | Example |
