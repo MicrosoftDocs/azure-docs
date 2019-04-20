@@ -67,6 +67,12 @@ imageDefName=myIbImageDef
 runOutputName=ubuntusig2sig
 ```
 
+Create a variable for your subscription ID. You can get this using `az account show | grep id`.
+
+```azurecli-interactive
+subscriptionID=<Subscription ID>
+```
+
 Get the image version created that we created earlier.
 
 ```
@@ -95,7 +101,7 @@ az role assignment create \
 ```bash
 # download the example and configure it with your vars
 
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIGfromSIG.json -o helloImageTemplateforSIGfromSIG.json
+curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json -o helloImageTemplateforSIGfromSIG.json
 
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforSIGfromSIG.json
 sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforSIGfromSIG.json
@@ -109,11 +115,11 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIGfromSIG.j
 
 ```
 
-## Step 3 : Create the Image
+## Create the Image
 
-```bash
-# submit the image confiuration to the VM Image Builder Service
+Submit the image confiuration to the VM Image Builder Service.
 
+```azurecli-interactive
 az resource create \
     --resource-group $sigResourceGroup \
     --properties @helloImageTemplateforSIGfromSIG.json \
@@ -122,90 +128,49 @@ az resource create \
     -n helloImageTemplateforSIGfromSIG01
 
 
-# start the image build
+Start the image build.
 
+```azurecli-interactive
 az resource invoke-action \
      --resource-group $sigResourceGroup \
      --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
      -n helloImageTemplateforSIGfromSIG01 \
      --action Run 
-
-# wait minimum of 30mins (this includes replication time to both regions)
 ```
 
+Wait until the image has been built and replication before moving on to the next step.
 
-## Step 4 : Create the VM
 
-```bash
+## Create the VM
+
+```azurecli-interactive
 az vm create \
   --resource-group $sigResourceGroup \
   --name aibImgVm001 \
-  --admin-username aibuser \
+  --admin-username azureuser \
   --location $location \
   --image "/subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup/providers/Microsoft.Compute/galleries/$sigName/images/$imageDefName/versions/latest" \
   --generate-ssh-keys
+```
 
-# and login...
+Create an SSH connection to the VM using the public IP address of the VM.
 
-ssh aibuser@<pubIp>
+```azurecli-interactive
+ssh azureuser@<pubIp>
+```
 
-You should see the image was customized with a Message of the Day as soon as your SSH connection is established!
+You should see the image was customized with a "Message of the Day" as soon as your SSH connection is established.
 
+```console
 *******************************************************
 **            This VM was built from the:            **
-...
-
+**      !! AZURE VM IMAGE BUILDER Custom Image !!    **
+**         You have just been Customized :-)         **
+*******************************************************
 ```
 
-## Clean Up
-```bash
-# BEWARE : This is DELETING the Image created for you, be sure this is what you want!!!
 
-# delete AIB Template
-az resource delete \
-    --resource-group $sigResourceGroup \
-    --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateforSIGfromSIG01
-
-# list image versions created by AIB, this always starts with 0.*
-az sig image-version list \
-   -g $sigResourceGroup \
-   --gallery-name $sigName \
-   --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID --query [].'name' -o json | grep 0. | tr -d '"'
-
-# delete image version
-az sig image-version delete \
-   -g $sigResourceGroup \
-   --gallery-name $sigName \
-   --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID \
-   --gallery-image-version <imageVersionNumber>
-   #<imageVersionNumber e.g. 0.23725.5933> \
-
-# delete image definition
-az sig image-definition delete \
-   -g $sigResourceGroup \
-   --gallery-name $sigName \
-   --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID
-
-# delete SIG
-az sig delete -r $sigName -g $sigResourceGroup
-
-# delete RG
-az group delete -n $sigResourceGroup -y
-
-```
 
 ## Next Steps
-* Want to learn more???
-    * Explore the documentation in the [MS Teams channel](https://teams.microsoft.com/l/channel/19%3a03e8b2922c5b44eaaaf3d0c7cd1ff448%40thread.skype/General?groupId=a82ee7e2-b2cc-49e6-967d-54da8319979d&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47) (Files).
-    * Look at the composition of the Image Builder Template, look in the 'Properties' you will see the source image, customization script it runs, and where it distributes it.
 
-    ```bash
-    cat helloImageTemplateforSIGfromSIG.json
-    ```
-
-* Want to try more???
-* Image Builder does support deployment through Azure Resource Manager, see here in the repo for [examples](https://github.com/danielsollondon/azvmimagebuilder/tree/master/armTemplates), you will also see how you can use a RHEL ISO source too, and manu other capabilities.
+To learn more about the components of the .json file used in this article, see [Image builder json template example](image-builder-json.md).

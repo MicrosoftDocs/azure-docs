@@ -181,7 +181,6 @@ You should see the image was customized with a *Message of the Day* as soon as y
 **      !! AZURE VM IMAGE BUILDER Custom Image !!    **
 **         You have just been Customized :-)         **
 *******************************************************
-
 ```
 
 ## Clean up resources
