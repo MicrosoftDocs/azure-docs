@@ -138,15 +138,11 @@
       - name: Indexing
         items:
         - name: Overview
+          displayName: range, spatial
           href: index-overview.md
-        - name: Index policy
+        - name: Indexing policies
           displayName: consistent, none
           href: index-policy.md
-        - name: Index types
-          displayName: hash, range, spatial
-          href: index-types.md
-        - name: Index paths
-          href: index-paths.md
       - name: Change feed
         items:
         - name: Overview
@@ -165,6 +161,17 @@
         href: unique-keys.md
       - name: Transactions and optimistic concurrency control
         href: database-transactions-optimistic-concurrency.md
+    - name: Change feed
+      items:
+      - name: Overview
+        href: change-feed.md
+      - name: Reading change feed
+        href: read-change-feed.md
+      - name: Change feed processor
+        href: change-feed-processor.md
+      - name: Trigger Azure Functions 
+        displayName: change feed
+        href: change-feed-functions.md
     - name: Server-side programming
       items:
         - name: Stored procedures, triggers, and UDFs
@@ -216,78 +223,6 @@
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
     items:
-    - name: MongoDB API
-      items: 
-      - name: Introduction
-        href: mongodb-introduction.md
-      - name: Wire protocol support
-        href: mongodb-feature-support.md
-      - name: Quickstarts
-        items:
-        - name: .NET
-          href: create-mongodb-dotnet.md
-        - name: Java
-          href: create-mongodb-java.md
-        - name: Node.js
-          href: create-mongodb-nodejs.md
-        - name: Python
-          href: create-mongodb-flask.md
-        - name: Xamarin
-          href: create-mongodb-xamarin.md
-        - name: Golang
-          href: create-mongodb-golang.md
-      - name: Tutorials
-        items:
-        - name: 1 - Create & manage data
-          items:
-          - name: Node.js console app
-            href: mongodb-samples.md
-          - name: Node.js and Angular app
-            items:
-            - name: Part 1 - Introduction
-              href: tutorial-develop-mongodb-nodejs.md
-            - name: Part 2 - Create Node app
-              href: tutorial-develop-mongodb-nodejs-part2.md
-            - name: Part 3 - Add UI with Angular
-              href: tutorial-develop-mongodb-nodejs-part3.md
-            - name: Part 4 - Create an account
-              href: tutorial-develop-mongodb-nodejs-part4.md
-            - name: Part 5 - Connect to Cosmos DB
-              href: tutorial-develop-mongodb-nodejs-part5.md
-            - name: Part 6 - Perform CRUD operations
-              href: tutorial-develop-mongodb-nodejs-part6.md
-          - name: Node.js and React app
-            href: tutorial-develop-mongodb-react.md
-        - name: 2 - Migrate data
-          displayName: import 
-          href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
-        - name: 3 - Query data
-          href: tutorial-query-mongodb.md
-        - name: 4 - Distribute data globally
-          href: tutorial-global-distribution-mongodb.md
-      - name: How-to guides
-        items:
-        - name: Get the connection string
-          href: connect-mongodb-account.md
-        - name: Connect using Studio 3T
-          href: mongodb-mongochef.md
-        - name: Connect using Robomongo
-          href: mongodb-robomongo.md
-        - name: Connect using Mongoose
-          href: mongodb-mongoose.md
-        - name: Distribute reads globally
-          displayName: read preference
-          href: mongodb-readpreference.md
-        - name: Time to live - MongoDB
-          href: mongodb-time-to-live.md
-        - name: Manage data indexing
-          href: mongodb-indexing.md
-        - name: Store and manage Spring Data 
-          href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
-          maintainContext: true
-        - name: MongoDB extension commands
-          href: mongodb-custom-commands.md
-          displayName: custom commands
     - name: Cassandra API
       items: 
       - name: Introduction
@@ -342,6 +277,82 @@
             href: cassandra-spark-aggregation-ops.md
           - name: Copy table data
             href: cassandra-spark-table-copy-ops.md
+    - name: MongoDB API
+      items: 
+      - name: Introduction
+        href: mongodb-introduction.md
+      - name: Wire protocol support
+        href: mongodb-feature-support.md
+      - name: Quickstarts
+        items:
+        - name: .NET
+          href: create-mongodb-dotnet.md
+        - name: Java
+          href: create-mongodb-java.md
+        - name: Node.js
+          href: create-mongodb-nodejs.md
+        - name: Python
+          href: create-mongodb-flask.md
+        - name: Xamarin
+          href: create-mongodb-xamarin.md
+        - name: Golang
+          href: create-mongodb-golang.md
+      - name: Tutorials
+        items:
+        - name: 1 - Create & manage data
+          items:
+          - name: Node.js console app
+            href: mongodb-samples.md
+          - name: Node.js and Angular app
+            items:
+            - name: Part 1 - Introduction
+              href: tutorial-develop-mongodb-nodejs.md
+            - name: Part 2 - Create Node app
+              href: tutorial-develop-mongodb-nodejs-part2.md
+            - name: Part 3 - Add UI with Angular
+              href: tutorial-develop-mongodb-nodejs-part3.md
+            - name: Part 4 - Create an account
+              href: tutorial-develop-mongodb-nodejs-part4.md
+            - name: Part 5 - Connect to Cosmos DB
+              href: tutorial-develop-mongodb-nodejs-part5.md
+            - name: Part 6 - Perform CRUD operations
+              href: tutorial-develop-mongodb-nodejs-part6.md
+          - name: Node.js and React app
+            href: tutorial-develop-mongodb-react.md
+        - name: 2 - Migrate data
+          displayName: import 
+          href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
+        - name: 3 - Query data
+          href: tutorial-query-mongodb.md
+        - name: 4 - Distribute data globally
+          href: tutorial-global-distribution-mongodb.md
+      - name: How-to guides
+        items:
+        - name: Pre-migration guide
+          href: mongodb-pre-migration.md
+        - name: Post-migration guide
+          href: mongodb-post-migration.md
+        - name: Get the connection string
+          href: connect-mongodb-account.md
+        - name: Connect using Studio 3T
+          href: mongodb-mongochef.md
+        - name: Connect using Robomongo
+          href: mongodb-robomongo.md
+        - name: Connect using Mongoose
+          href: mongodb-mongoose.md
+        - name: Distribute reads globally
+          displayName: read preference
+          href: mongodb-readpreference.md
+        - name: Time to live - MongoDB
+          href: mongodb-time-to-live.md
+        - name: Manage data indexing
+          href: mongodb-indexing.md
+        - name: Store and manage Spring Data 
+          href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
+          maintainContext: true
+        - name: MongoDB extension commands
+          href: mongodb-custom-commands.md
+          displayName: custom commands
     - name: Gremlin API
       displayName: graph, graph database
       items: 
@@ -483,10 +494,8 @@
         href: storage-explorer.md
       - name: Work with data using Azure Cosmos explorer
         href: data-explorer.md
-      - name: Indexing
-        items:
-        - name: Manage indexing
-          href: how-to-manage-indexing-policy.md
+      - name: Manage indexing policies
+        href: how-to-manage-indexing-policy.md
     - name: Change Feed
       items:
       - name: Multiple Azure Cosmos DB Triggers
