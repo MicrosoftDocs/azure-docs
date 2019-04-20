@@ -79,6 +79,8 @@
   - name: Update existing assignments from the portal
     displayName: lock, errors
     href: ./how-to/update-existing-assignments.md
+  - name: Manage Blueprints as Code (community)
+    href: https://github.com/Azure/azure-blueprints/blob/master/README.md
 - name: Troubleshoot
   displayName: errors, violation
   href: ./troubleshoot/general.md
@@ -97,6 +99,8 @@
     href: https://www.powershellgallery.com/packages/Manage-AzureRMBlueprint
 - name: Resources
   items:
+  - name: GitHub - Azure Blueprints samples
+    href: https://github.com/Azure/azure-blueprints
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator

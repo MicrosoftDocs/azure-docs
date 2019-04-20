@@ -151,7 +151,7 @@ Create a video review with **ContentModeratorClient.Reviews.CreateVideoReviews**
 **CreateVideoReviews** has the following required parameters:
 1. A string that contains a MIME type, which should be "application/json." 
 1. Your Content Moderator team name.
-1. An **IList<CreateVideoReviewsBodyItem>** object. Each **CreateVideoReviewsBodyItem** object represents a video review. This quickstart creates one review at a time.
+1. An **IList\<CreateVideoReviewsBodyItem>** object. Each **CreateVideoReviewsBodyItem** object represents a video review. This quickstart creates one review at a time.
 
 **CreateVideoReviewsBodyItem** has several properties. At a minimum, you set the following properties:
 - **Content**. The URL of the video to be reviewed.
@@ -241,15 +241,15 @@ In addition to adding a transcript to a video review, you also add the result of
 1. A string that contains a MIME type, which should be "application/json." 
 1. Your Content Moderator team name.
 1. The video review ID returned by **CreateVideoReviews**.
-1. An IList<TranscriptModerationBodyItem>. A **TranscriptModerationBodyItem** has the following properties:
-1. **Terms**. An IList<TranscriptModerationBodyItemTermsItem>. A **TranscriptModerationBodyItemTermsItem** has the following properties:
+1. An IList\<TranscriptModerationBodyItem>. A **TranscriptModerationBodyItem** has the following properties:
+1. **Terms**. An IList\<TranscriptModerationBodyItemTermsItem>. A **TranscriptModerationBodyItemTermsItem** has the following properties:
 1. **Index**. The zero-based index of the term.
 1. **Term**. A string that contains the term.
 1. **Timestamp**. A string that contains, in seconds, the time in the transcript at which the terms are found.
 
 The transcript must be in the WebVTT format. For more information, see [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/).
 
-Add the following method definition to namespace VideoTranscriptReviews, class Program. This method submits a transcript to the **ContentModeratorClient.TextModeration.ScreenText** method. It also translates the result into an IList<TranscriptModerationBodyItem>, and submits to **AddVideoTranscriptModerationResult**.
+Add the following method definition to namespace VideoTranscriptReviews, class Program. This method submits a transcript to the **ContentModeratorClient.TextModeration.ScreenText** method. It also translates the result into an IList\<TranscriptModerationBodyItem>, and submits to **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>

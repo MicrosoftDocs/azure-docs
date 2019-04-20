@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Indexing semi-strutured data in JSON blobs - Azure Search'
-description: Learn how to index and search semi-structured Azure JSON blobs using Azure Search and Postman.
+description: Learn how to index and search semi-structured Azure JSON blobs using Azure Search REST APIs and Postman.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -12,7 +12,7 @@ ms.custom: seodec2018
 #Customer intent: As a developer, I want an introduction the indexing Azure blob data for Azure Search.
 ---
 
-# Tutorial: Index and search semi-structured data (JSON blobs) in Azure Search
+# REST Tutorial: Index and search semi-structured data (JSON blobs) in Azure Search
 
 Azure Search can index JSON documents and arrays in Azure blob storage using an [indexer](search-indexer-overview.md) that knows how to read semi-structured data. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be indexed on a per-field basis.
 
@@ -33,9 +33,9 @@ The following services, tools, and data are used in this quickstart.
 
 [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
 
-[Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account), and then [create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain sample data. Because you will be using a key and storage account name for the connection, make sure the container's Public Access Level is set to "Container (anonymous read access for container)".
+[Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data.
 
-[Postman desktop app](https://www.getpostman.com/) is used for sending requests to Azure Search.
+[Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search.
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contains the data used in this tutorial. Download and unzip this file to its own folder. Data originates from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), converted to JSON for this tutorial.
 
@@ -53,13 +53,17 @@ All requests require an api-key on every request sent to your service. Having a 
 
 ## Prepare sample data
 
-1. Locate the sample data you downloaded to your system.
+1. [Sign in to the Azure portal](https://portal.azure.com), navigate to your Azure storage account, click **Blobs**, and then click **+ Container**.
 
-1. [Sign in to the Azure portal](https://portal.azure.com), navigate to your Azure storage account and Blob container, and click **Upload**.
+1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain sample data. You can set the Public Access Level to any of its valid values.
 
-1. Click **Advanced**, enter "clinical-trials-json", and then upload all of the JSON files you downloaded.
+1. After the container is created, open it and select **Upload** on the command bar.
 
-  ![Semi-structured search](media/search-semi-structured-data/clinicalupload.png)
+   ![Upload on command bar](media/search-semi-structured-data/upload-command-bar.png "Upload on command bar")
+
+1. Navigate to the folder containing the sample files. Select all of them and then click **Upload**.
+
+   ![Upload files](media/search-semi-structured-data/clinicalupload.png "Upload files")
 
 After the upload completes, the files should appear in their own subfolder inside the data container.
 
@@ -79,20 +83,22 @@ Execute the following three API calls from your REST client.
 
 ## Create a data source
 
-A data source is an Azure Search object that specifies what data to index.
+The [Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/create-data-source)creates an Azure Search object that specifies what data to index.
 
-The endpoint of this call is `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Replace `[service name]` with the name of your search service. For this call, you need the name of your storage account and your storage account key. The storage account key can be found in the Azure portal inside your storage account's **Access Keys**. The location is shown in the following image:
+The endpoint of this call is `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Replace `[service name]` with the name of your search service. 
+
+For this call, the request body must include the name of your storage account, storage account key, and blob container name. The storage account key can be found in the Azure portal inside your storage account's **Access Keys**. The location is shown in the following image:
 
   ![Semi-structured search](media/search-semi-structured-data/storagekeys.png)
 
-Make sure to replace the `[storage account name]` and `[storage account key]` in the body of your call before executing the call.
+Make sure to replace `[storage account name]`, `[storage account key]`, and `[blob container name]` in the body of your call before executing the call.
 
 ```json
 {
     "name" : "clinical-trials-json",
     "type" : "azureblob",
     "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=[storage account name];AccountKey=[storage account key];" },
-    "container" : { "name" : "data", "query" : "clinical-trials-json" }
+    "container" : { "name" : "[blob container name]"}
 }
 ```
 
@@ -110,8 +116,8 @@ The response should look like:
         "connectionString": "DefaultEndpointsProtocol=https;AccountName=[mystorageaccounthere];AccountKey=[[myaccountkeyhere]]];"
     },
     "container": {
-        "name": "data",
-        "query": "clinical-trials-json"
+        "name": "[mycontainernamehere]",
+        "query": null
     },
     "dataChangeDetectionPolicy": null,
     "dataDeletionDetectionPolicy": null
@@ -120,7 +126,7 @@ The response should look like:
 
 ## Create an index
     
-The second API call creates an Azure Search index. An index specifies all the parameters and their attributes.
+The second call is [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), creating an Azure Search index that stores all searchable data. An index specifies all the parameters and their attributes.
 
 The URL for this call is `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Replace `[service name]` with the name of your search service.
 
@@ -210,7 +216,7 @@ The response should look like:
 
 ## Create and run an indexer
 
-An indexer connects the data source, imports data into the target search index, and optionally provides a schedule to automate the data refresh.
+An indexer connects the data source, imports data into the target search index, and optionally provides a schedule to automate the data refresh. The REST API is [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 The URL for this call is `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Replace `[service name]` with the name of your search service.
 
@@ -253,7 +259,11 @@ The response should look like:
 
 ## Search your JSON files
 
-You can now issue queries against the index. For this task, use [**Search explorer**](search-explorer.md) in the portal.
+You can start searching as soon as the first document is loaded. For this task, use [**Search explorer**](search-explorer.md) in the portal.
+
+In Azure portal, open the search service **Overview** page, find the index you created in the **Indexes** list.
+
+Be sure to choose the index you just created. The API version can be preview or a generally available version. The only preview requirement was for indexing JSON arrays.
 
   ![Unstructured search](media/search-semi-structured-data/indexespane.png)
 
@@ -279,7 +289,7 @@ The fastest way to clean up after a tutorial is by deleting the resource group c
 
 ## Next steps
 
-You can attach AI-powered algorithms to an indexer pipeline. As a next step, continue on with the following tutorial.
+There are several approaches and multiple options for indexing JSON blobs. As a next step, review and test the various options to see what works best for your scenario.
 
 > [!div class="nextstepaction"]
-> [Indexing Documents in Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+> [How to index JSON blobs using Azure Search Blob indexer](search-howto-index-json-blobs.md)

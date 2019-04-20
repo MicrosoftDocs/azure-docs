@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/17/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -76,13 +76,14 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 |Salesforce Reports<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|SharePoint<sup>[1](#tab1400b)</sup>     |   
+|SharePoint List<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
 |Sybase Database     |  
 |TXT file  |
 |XML table<sup>[1](#tab1400b)</sup>    |  
 ||
  
-<a name="tab1400b">1</a> Tabular 1400 and higher models only.
+<a name="tab1400b">1</a> - Tabular 1400 and higher models only.   
+<a name="filesSP">2</a> - Files in on-premises SharePoint are not supported.
 
 ## Specifying a different provider
 
