@@ -35,7 +35,7 @@ The process of deploying a model is similar for all compute targets:
 1. Test the deployment.
 
 > [!NOTE]
-> There are extra steps involved in deploying to IoT Edge. For more information, check out THIS ARTICLE.
+> There are extra steps involved in deploying to IoT Edge. For more information, check out [this article](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning).
 
 For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning Service](concept-model-management-and-deployment.md).
 
@@ -444,7 +444,7 @@ For a walkthrough of batch inference with Azure Machine Learning Compute, read t
 For more information, see the reference documentation for the [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class.
 
 ## <a id="iotedge"></a> Inference on the edge
-Coming soon.
+Support for deploying to the edge is in preview. For more info check out [this article](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning).
 
 ## Next steps
 
