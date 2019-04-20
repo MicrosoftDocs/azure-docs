@@ -50,41 +50,37 @@ For Preview AIB will only support creating custom images in the same Resource Gr
 
 This Quick Start assumes you have completed 1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image, and therefore the variables below, will be preset to those variable names, for continuity, but you can always update them yourself.
 
-```bash
-# set your environment variables here!!!!
 
-# Create SIG  resource group
-sigResourceGroup=aibsig
 
-# location of SIG (see possible locations in main docs)
-location=westus
-
-# additional region to replication image to
+```azurecli-interactive
+# Resource group name - we are using ibsigRG in this example
+sigResourceGroup=ibsigRG
+# Datacenter location - we are using West US 2 in this example
+location=westus2
+# Additional region to replicate the image to - we are using East US in this example
 additionalregion=eastus
-
-# your subscription
-# get the current subID : 'az account show | grep id'
-subscriptionID=<INSERT YOUR SUBSCRIPTION ID HERE>
-
-# name of the shared image gallery to used, e.g. myCorpGallery
-sigName=my21stSIG
-
-# name of the image definition to be used, e.g. ProdImages
-imageDefName=ubuntu1804images
-
+# name of the shared image gallery - in this example we are using myGallery
+sigName=myIbGallery
+# name of the image definition to be created - in this example we are using myImageDef
+imageDefName=myIbImageDef
 # image distribution metadata reference name
-runOutputName=u1804SigRo2
+runOutputName=ubuntusig2sig
+```
 
-# get image version created in SIG from previous example
+Get the image version created that we created earlier.
+
+```
 sigDefImgVersionId=$(az sig image-version list \
    -g $sigResourceGroup \
    --gallery-name $sigName \
    --gallery-image-definition $imageDefName \
    --subscription $subscriptionID --query [].'id' -o json | grep 0. | tr -d '"' | tr -d '[:space:]')
-
 ```
 
->>Note! If you already have your own Shared Image Gallery, and did not follow the previous example, you will need to assign permissions for Image Builder to access the Resource Group, so it can access the SIG.
+
+If you already have your own Shared Image Gallery, and did not follow the previous example, you will need to assign permissions for Image Builder to access the Resource Group, so it can access the SIG.
+
+
 ```bash
 # assign permissions for that resource group
 az role assignment create \
@@ -94,7 +90,7 @@ az role assignment create \
 ```
 
 
-## Step 2 : Modify HelloImage Example
+## Modify HelloImage Example
 
 ```bash
 # download the example and configure it with your vars

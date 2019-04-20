@@ -3,7 +3,7 @@ title: Use Azure Image Builder with a Shared Image Gallery
 description: Create an images with Azure Image Builder as part of a Shared Image Gallery.
 author: cynthn
 ms.author: cynthn
-ms.date: 04/16/2019
+ms.date: 04/20/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
@@ -98,7 +98,7 @@ az sig create \
 
 Create an image definition.
 
-```
+```azurecli-interactive
 az sig image-definition create \
    -g $sigResourceGroup \
    --gallery-name $sigName \
@@ -178,7 +178,9 @@ You should see the image was customized with a *Message of the Day* as soon as y
 ```console
 *******************************************************
 **            This VM was built from the:            **
-...
+**      !! AZURE VM IMAGE BUILDER Custom Image !!    **
+**         You have just been Customized :-)         **
+*******************************************************
 
 ```
 

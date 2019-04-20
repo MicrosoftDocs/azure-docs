@@ -3,12 +3,12 @@ title: Create a Linux VM with Azure Image Builder (preview)
 description: Create a Linux VM with the Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 04/12/2019
+ms.date: 04/20/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ---
-# Create a Linux VM with Azure Image Builder (preview)
+# Preview: Create a Linux VM with Azure Image Builder
 
 This article shows you how you can create a basic customized image using the Azure Image Builder and the Azure CLI.
 
@@ -58,6 +58,8 @@ imageResourceGroup=myImageBuilerRG
 location=WestUS2
 # Name for the image - we are using myBuilderImage in this example
 imageName=myBuilderImage
+# Run output name
+runOutputName=aibLinux
 ```
 
 Create a variable for your subscription ID. You can get this using `az account show | grep id`.
@@ -93,6 +95,7 @@ sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateLinux.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateLinux.json
 sed -i -e "s/<region>/$location/g" helloImageTemplateLinux.json
 sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
+sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 ```
 
 ## Create the image
@@ -143,18 +146,22 @@ ssh azureuser@<pubIp>
 You should see the image was customized with a Message of the Day as soon as your SSH connection is established!
 
 ```console
+
 *******************************************************
 **            This VM was built from the:            **
-...
-
+**      !! AZURE VM IMAGE BUILDER Custom Image !!    **
+**         You have just been Customized :-)         **
+*******************************************************
 ```
+
+Type `exit` when you are done to close the SSH connection.
 
 ## Check the source
 
 In the Image Builder Template, in the 'Properties', you will see the source image, customization script it runs, and where it is distributed.
 
 ```azurecli-interactive
-cat helloImageTemplate.json
+cat helloImageTemplateLinux.json
 ```
 
 For more detailed information about this .json file, see [Image builder .json example](image-builder-json.md)

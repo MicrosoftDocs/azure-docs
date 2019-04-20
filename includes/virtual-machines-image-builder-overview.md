@@ -11,18 +11,9 @@ Creating standardized virtual machine (VM) images allows organizations to migrat
  
 The Azure VM Image Builder (Azure Image Builder) lets you start with either a Windows or Linux-based Azure Marketplace VM or Red Hat Enterprise Linux (RHEL) ISO and begin to add your own customizations. Your customizations can be added in the documented customizations in this document, and because the VM Image Builder is built on [HashiCorp Packer](https://packer.io/), you can also import your existing Packer shell provisioner scripts. As the last step, you specify where you would like your images hosted, either in the Azure Shared Image Gallery (https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries) or as an Azure Managed Image. See below for a quick video on how to create a custom image using the VM Image Builder.
  
-## Preview feature support
-For the preview, we are supporting these key features:
-
-- Migrating an existing image customization pipeline to Azure  o Use existing scripts, commands.
-- Creating golden custom images, update, and then customize them further for specific uses.
-- Image management and distribution, through integration with Azure Shared Image Gallery.
-- Integration with existing CI/CD pipeline. Simplify image customization as an integral part of your application build and release process as shown below.
-- Create images in VHD format.
-- Red Hat Bring Your Own Subscription support. Create Red Hat Enterprise Images for use with your eligible, unused Red Hat subscriptions.
 
 ## Regions
-The Azure Image Builder Service will be available for preview in these regions, however, images can be distributed outside of these regions.
+The Azure Image Builder Service will be available for preview in these regions. Images can be distributed outside of these regions.
 - East US
 - East US 2
 - West Central US
@@ -30,7 +21,6 @@ The Azure Image Builder Service will be available for preview in these regions, 
 - West US 2
 
 ## Pipeline
-
 
 The Azure Image Builder is a fully managed Azure service that is accessible by an Azure first party resource provider. The Azure Image Builder pipeline has three main components: source, customize and distribute. The pipeline steps are defined in a configuration template that is used by the service, then stored as an ImageTemplate. 
  
