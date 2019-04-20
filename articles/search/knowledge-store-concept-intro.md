@@ -13,9 +13,9 @@ ms.author: heidist
 ---
 # What is Knowledge Store in Azure Search?
 
-Knowledge Store is an optional feature of Azure Search, currently in public preview, that persists enriched documents and metadata created by an AI-based indexing pipeline (cognitive search). Knowledge Store is backed by an Azure storage account that you configure as part of the pipeline. When enabled, the search service uses this storage account to cache a representation of each enriched document. Enriched documents are consumable by Azure Search (same as before) but can also be viewed in [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) or any app that connects to Azure storage.
+Knowledge Store is an optional feature of Azure Search, currently in public preview, that persists enriched documents and metadata created by an AI-based indexing pipeline (cognitive search). Knowledge Store is backed by an Azure storage account that you configure as part of the pipeline. When enabled, the search service uses this storage account to cache a representation of each enriched document. 
 
-If you have used [cognitive search](cognitive-search-concept-intro.md) in the past, what Knowledge Store gives you is a way to peek inside the "black box" of AI-based indexing to see what an enriched document looks like. 
+If you have used [cognitive search](cognitive-search-concept-intro.md) in the past, what Knowledge Store gives you is a way to peek inside the "black box" of AI-based indexing to see what an enriched document looks like. Enriched documents are consumable by Azure Search (same as before) but can also be viewed in [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) or any app that connects to Azure storage.
 
 ![Knowledge Store in pipeline diagram](./media/knowledge-store-concept-intro/pipeline-knowledge-store.png "Knowledge Store in pipeline diagram")
 
@@ -38,9 +38,9 @@ Enumerated, the benefits of Knowledge Store include the following:
 > [!Note]
 > Not familiar with AI-based indexing using Cognitive Services? Azure Search integrates with Cognitive Services Vision and Language features to extract and rich source data using Optical Character Recognition (OCR) over image files, entity recognition and key phrase extraction from text files, and more. For more information, see [What is cognitive search](cognitive-search-concept-intro.md).
 
-## knowledgeStore in a skillset
+## How to create a knowledge store
 
-The following JSON specifies a `knowledgeStore` in a skillset, which determines whether tables or objects are created in Azure storage.
+A knowledge store is part of a skillset definition. The following JSON specifies a `knowledgeStore` in a skillset, which determines whether tables or objects are created in Azure storage.
 
 If you are already familiar with AI-based indexing, the skillset definition determines the creation, organization, and substance of each enriched document.
 
@@ -186,7 +186,7 @@ Skillset execution can be scheduled or user-initiated, depending on whether you 
 
 Although Azure Search creates and updates structures and content in Azure storage, it does not delete them. Projections and cached documents continue to exist even when the skillset is deleted. As the owner of the storage account, you should delete a projection if it is no longer needed. 
 
-> [!Note}
+> [!Note]
 > While you can edit the data in the projections, any edits will be overwritten on the next pipeline invocation, assuming the document in source data is updated. 
 
 ## Where do I start?
