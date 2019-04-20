@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/18/2019
+ms.date: 04/19/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -30,36 +30,7 @@ ms.collection: M365-identity-device-management
 
 There are several ways that you can configure entitlement management for your organization. However, if you're just getting started, it's helpful to understand the common scenarios for administrators, approvers, and requestors.
 
-## Administrators 1
-
-> [!div class="mx-tableFixed"]
-> | Scenario | Steps |
-> | --- | --- |
-> | I'm new to entitlement management and I need help with getting started | [Follow tutorial to create your first access package](entitlement-management-access-package-first.md) |
-> | I want to allow users in my directory to request access to groups, applications, or SharePoint sites | 1. [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package)<br/>2. [Add resource roles to access package](entitlement-management-access-package-create.md#resource-roles)<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul>3. [Create a policy](entitlement-management-access-package-create.md#policy-for-users-in-your-directory)<ul><li>For users in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> |
-> | I want to allow users from my business partners (including users not yet in my directory) to request access to groups, applications, or SharePoint sites | 1. [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package)<br/>2. [Add resource roles to access package](entitlement-management-access-package-create.md#resource-roles)<br/>3. [Create a policy for external users](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory)<ul><li>For users not in your directory</li><li>Require approval</li><li>Expiration settings</li></ul>4. [Send the My Access portal link to request the access package to your business partner](entitlement-management-access-package-edit.md#copy-my-access-portal-link)<ul><li>Business partner can share link with their users</li></ul> |
-> | I want to change the groups, applications, or SharePoint sites in an access package | 1. Open the access package<br/>2. [Add or remove resource roles](entitlement-management-access-package-edit.md) |
-> | I want to view who has an assignment to groups, applications, or SharePoint sites | 1. Open an access package<br/>2. [View Assignments](entitlement-management-access-package-edit.md#view-who-has-an-assignment)<ul><li>View which users have access to an access package</li><li>View which user's access has expired</li></ul> |
-> | I want to view groups, applications, or SharePoint sites a user has access to | [View User assignments report](entitlement-management-reports.md)<ul><li>View when they requested and who approved</li></ul> |
-
-## Approvers 1
-
-> [!div class="mx-tableFixed"]
-> | Scenario | Steps |
-> | --- | --- |
-> | I want to approve requests to access groups, applications, or SharePoint sites | 1. [Open request in My Access portal](entitlement-management-request-approve.md#open-request)<br/>2. [Approve access request](entitlement-management-request-approve.md#approve-or-deny-request) |
-
-## Requestors 1
-
-> [!div class="mx-tableFixed"]
-> | Scenario | Steps |
-> | --- | --- |
-> | I want to view the groups, applications, or SharePoint sites available to me and request access | 1. [Sign in to the My Access portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)<br/>2. Find access package<br/>3. [Request access](entitlement-management-request-access.md#request-an-access-package) |
-> | I'm an external user and I want to request access to groups, applications, or SharePoint sites with a direct link | 1. Find the access package link you received<br/>2. [Sign in to the My Access portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)<br/>3. [Request access](entitlement-management-request-access.md#request-an-access-package) |
-> | I want to view the groups, applications, or SharePoint sites I already have access to | 1. [Sign in to the My Access portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)<br/>2. View active access packages |
-
-
-## Administrators 2
+## Administrators
 
 ### I'm new to entitlement management and I need help with getting started
 
@@ -110,9 +81,7 @@ There are several ways that you can configure entitlement management for your or
 > | --- | --- |
 > | [View User assignments report](entitlement-management-reports.md)<ul><li>View when they requested and who approved</li></ul> |  |
 
-
-
-## Approvers 2
+## Approvers
 
 ### I want to approve requests to access groups, applications, or SharePoint sites
 
@@ -122,8 +91,7 @@ There are several ways that you can configure entitlement management for your or
 > | **1.** [Open request in My Access portal](entitlement-management-request-approve.md#open-request) | ![My Access portal icon](./media/entitlement-management-scenarios/icon-myaccess-portal.png) |
 > | **2.** [Approve access request](entitlement-management-request-approve.md#approve-or-deny-request) | ![Approve access](./media/entitlement-management-scenarios/icon-approve-access.png) |
 
-
-## Requestors 2
+## Requestors
 
 ### I want to view the groups, applications, or SharePoint sites available to me and request access
 

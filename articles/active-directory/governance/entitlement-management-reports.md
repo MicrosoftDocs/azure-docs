@@ -44,7 +44,7 @@ ms.collection: M365-identity-device-management
 
     ![User assignments report](./media/entitlement-management-reports/user-assignments-report.png)
 
-## Determining the status of a user's request
+## Determine the status of a user's request
 
 To get additional details on how a user requested and received access to an access package, you can use the Azure AD audit log. In particular, you can use the log records in the `EntitlementManagement` and `UserManagement` categories to get additional details on the processing steps for each request.  
 
