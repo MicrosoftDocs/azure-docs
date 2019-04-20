@@ -50,7 +50,7 @@ Typically, self-hosted ASP.NET Core applications create a WebHost in an applicat
 
 However, the application entry point is not the right place to create a WebHost in a Reliable Service. That's because the application entry point is only used to register a service type with the Service Fabric runtime, so that it can create instances of that service type. The WebHost should be created in a Reliable Service itself. Within the service host process, service instances and/or replicas can go through multiple life cycles. 
 
-A Reliable Service instance is represented by your service class and derives from `StatelessService` or `StatefulService`. The communication stack for a service is contained in an `ICommunicationListener` implementation in your service class. The `Microsoft.ServiceFabric.AspNetCore.*` NuGet packages contain implementations of `ICommunicationListener` that start and manage the ASP.NET Core WebHost for either Kestrel or HTTP.sys in a Reliable Service.
+A Reliable Service instance is represented by your service class deriving from `StatelessService` or `StatefulService`. The communication stack for a service is contained in an `ICommunicationListener` implementation in your service class. The `Microsoft.ServiceFabric.AspNetCore.*` NuGet packages contain implementations of `ICommunicationListener` that start and manage the ASP.NET Core WebHost for either Kestrel or HTTP.sys in a Reliable Service.
 
 ![Reliable Service diagram][1]
 
@@ -59,7 +59,7 @@ The `ICommunicationListener` implementations for Kestrel and HTTP.sys in the  `M
 
 Both communication listeners provide a constructor that takes the following arguments:
  - **`ServiceContext serviceContext`**: the `ServiceContext` object that contains information about the running service.
- - **`string endpointName`**: the name of an `Endpoint` configuration in ServiceManifest.xml. This is primarily where the two communication listeners differ. HTTP.sys *requires* an `Endpoint` configuration, while Kestrel does not.
+ - **`string endpointName`**: the name of an `Endpoint` configuration in ServiceManifest.xml. This is primarily where the two communication listeners differ. HTTP.sys *requires* an `Endpoint` configuration, while Kestrel doesn't.
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: a lambda that you implement, in which you create and return an `IWebHost`. This allows you to configure `IWebHost` the way you normally would in an ASP.NET Core application. The lambda provides a URL that's generated for you, depending on the Service Fabric integration options you use and the `Endpoint` configuration you provide. That URL can then be modified or used as is to start the web server.
 
 ## Service Fabric integration middleware
@@ -78,9 +78,9 @@ Service replicas, regardless of protocol, listen on a unique IP:port combination
 This can cause bugs at random times that can be difficult to diagnose.
 
 ### Using unique service URLs
-To prevent these bugs, services can post an endpoint to the Naming Service with a unique identifier, and then validate that unique identifier during client requests. This is a cooperative action between services in a non-hostile-tenant trusted environment. It does not provide secure service authentication in a hostile-tenant environment.
+To prevent these bugs, services can post an endpoint to the Naming Service with a unique identifier, and then validate that unique identifier during client requests. This is a cooperative action between services in a non-hostile-tenant trusted environment. It doesn't provide secure service authentication in a hostile-tenant environment.
 
-In a trusted environment, the middleware that's added by the `UseServiceFabricIntegration` method automatically appends a unique identifier to the address posted to the Naming Service. It validates that identifier on each request. If the identifier does not match, the middleware immediately returns an HTTP 410 Gone response.
+In a trusted environment, the middleware that's added by the `UseServiceFabricIntegration` method automatically appends a unique identifier to the address posted to the Naming Service. It validates that identifier on each request. If the identifier doesn't match, the middleware immediately returns an HTTP 410 Gone response.
 
 Services that use a dynamically assigned port should make use of this middleware.
 
@@ -190,7 +190,7 @@ A dynamic port allocated by an `Endpoint` configuration only provides one port *
 ## Kestrel in Reliable Services
 Kestrel can be used in a Reliable Service by importing the **Microsoft.ServiceFabric.AspNetCore.Kestrel** NuGet package. This package contains `KestrelCommunicationListener`, an implementation of `ICommunicationListener`. `KestrelCommunicationListener` allows you to create an ASP.NET Core WebHost inside a Reliable Service by using Kestrel as the web server.
 
-Kestrel is a cross-platform web server for ASP.NET Core based on libuv, a cross-platform asynchronous I/O library. Unlike HTTP.sys, Kestrel does not use a centralized endpoint manager. Also unlike HTTP.sys, Kestrel does not support port sharing between multiple processes. Each instance of Kestrel must use a unique port.
+Kestrel is a cross-platform web server for ASP.NET Core based on libuv, a cross-platform asynchronous I/O library. Unlike HTTP.sys, Kestrel doesn't use a centralized endpoint manager. Also unlike HTTP.sys, Kestrel doesn't support port sharing between multiple processes. Each instance of Kestrel must use a unique port.
 
 ![Kestrel diagram][4]
 
@@ -296,11 +296,11 @@ For a full example in a tutorial, see [Configure Kestrel to use HTTPS](service-f
 ### Endpoint configuration
 An `Endpoint` configuration is not required to use Kestrel. 
 
-Kestrel is a simple standalone web server. Unlike HTTP.sys (or HttpListener), it does not need an `Endpoint` configuration in ServiceManifest.xml because it does not require URL registration prior to starting. 
+Kestrel is a simple standalone web server. Unlike HTTP.sys (or HttpListener), it doesn't need an `Endpoint` configuration in ServiceManifest.xml because it doesn't require URL registration prior to starting. 
 
 #### Use Kestrel with a static port
 A static port can be configured in the `Endpoint` configuration of ServiceManifest.xml for use with Kestrel. Although this isn't strictly necessary, it offers two potential benefits:
- - If the port does not fall in the application port range, it's opened through the OS firewall by Service Fabric.
+ - If the port doesn't fall in the application port range, it's opened through the OS firewall by Service Fabric.
  - The URL provided to you through `KestrelCommunicationListener` will use this port.
 
 ```xml
@@ -470,7 +470,7 @@ When exposed to the internet, a stateless service should use a well-known and st
 | --- | --- | --- |
 | Web server | Kestrel | Kestrel is the preferred web server, as it's supported across Windows and Linux. |
 | Port configuration | static | A well-known static port should be configured in the `Endpoints` configuration of ServiceManifest.xml, such as 80 for HTTP or 443 for HTTPS. |
-| ServiceFabricIntegrationOptions | None | The `ServiceFabricIntegrationOptions.None` option should be used when configuring Service Fabric integration middleware, so that the service does not attempt to validate incoming requests for a unique identifier. External users of your application will not know the unique identifying information that the middleware uses. |
+| ServiceFabricIntegrationOptions | None | The `ServiceFabricIntegrationOptions.None` option should be used when configuring Service Fabric integration middleware, so that the service doesn't attempt to validate incoming requests for a unique identifier. External users of your application will not know the unique identifying information that the middleware uses. |
 | Instance Count | -1 | In typical use cases, the instance count setting should be set to *-1*. This is done so that an instance is available on all nodes that receive traffic from a load balancer. |
 
 If multiple externally exposed services share the same set of nodes, HTTP.sys can be used with a unique but stable URL path. This can be accomplished by modifying the URL provided when configuring IWebHost. Note that this applies to HTTP.sys only.
