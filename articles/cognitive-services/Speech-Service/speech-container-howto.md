@@ -11,7 +11,10 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
 ---
+
 # Install and run containers
+
+Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The two speech containers we support now are **speech-to-text** and **text-to-speech**. 
 
 The two speech containers are **speech-to-text** and **text-to-speech**. 
 
@@ -102,14 +105,14 @@ The following table lists the supported locales for **speech-to-text**:
 |Language locale|Tags|
 |--|--|
 |Chinese|`zh-cn`|
-|English |`en-us`<br>`en-gb`<br>`en-au`|
+|English |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
 |French |`fr-ca`<br>`fr-fr`|
 |German|`de-de`|
 |Italian|`it-it`|
 |Japense|`ja-jp`|
 |Korean|`ko-kr`|
 |Portuguese|`pt-br`|
-|Spanish|`es-es`<br>`en-in`<br>`es-mx`|
+|Spanish|`es-es`<br>`es-mx`|
 
 
 #### Text to speech locales
