@@ -231,7 +231,7 @@ The output from running the ansible-playbook command indicates that the sample J
 
 Verify the results of your work by navigating to the URL of the load balancer for your scale set:
 
-![Java app running in a scale set in Azure.](media/ansible-deploy-app-vmss/ansible-vmss-deploy.png)
+![Java app running in a scale set in Azure.](media/ansible-vmss-deploy/ansible-vmss-deploy.png)
 
 ## Next steps
 
