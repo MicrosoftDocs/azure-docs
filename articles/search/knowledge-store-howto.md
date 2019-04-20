@@ -11,12 +11,26 @@ ms.author: vikurpad
 ---
 # How to get started with Knowledge Store
 
-
+## Prerequisites
 REST API api-version=2019-05-06-Preview
 
 Postman and REST API calls
 
 Sample data
+
+
+
+The data.jsonl file used in this exercise originates from the [Caselaw Access Project](https://case.law/bulk/download/)Public Bulk Data downlaod page. Specifically, the exercises uses the first 10 documents of the first download (Arkansas). We uploaded the 10-document sample plus the full 571-document version to the [Azure Search sample data repository](https://azure-search-sample-data) on GitHub.
+
+Indexers accept inbound data from Azure data platforms. This exercise assumes you created an Azure storage account and placed the 10-document sample in a blob container.
+
+## Create a data source
+
+```json
+
+```
+## 
+
 
 
 Link list:
@@ -214,3 +228,11 @@ Alternatively, reuse the sample data and services you created, and learn how to 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Learn the cognitive search REST APIs](cognitive-search-tutorial-blob.md)
+
+
+## Keep This
+
+How to convert unformatted JSON into an indented JSON document structure that allows you to quickly identify nested structures. Useful for creating an index that includes complex types.
+
+1. Use Visual Studio Code.
+2. Open data.jsonl
