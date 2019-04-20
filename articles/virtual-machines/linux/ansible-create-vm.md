@@ -21,7 +21,7 @@ Using a declarative language, Ansible allows you to automate the creation, confi
 
 ## Create a resource group
 
-Ansible needs a resource group in whi ch your resources are deployed. The following sample Ansible playbook section creates a resource group named `myResourceGroup` in the `eastus` location:
+Ansible needs a resource group in which your resources are deployed. The following sample Ansible playbook section creates a resource group named `myResourceGroup` in the `eastus` location:
 
 ```yaml
 - name: Create resource group
