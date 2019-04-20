@@ -24,7 +24,7 @@ This V3 API provides the following features:
 * [Dynamic lists](#pass-in-dynamic-lists-at-prediction-time)
 * [Multi-intent](#multi-intent-prediction)
 
-The following LUIS features are not supported in V3:
+The following LUIS features are **not supported** in V3:
 
 * Bing Spell Check V7
 
