@@ -54,7 +54,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 >      - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
 >      - Select **Register** to create the application.
 > 1. In the list of pages for the app, select **Authentication**.
-> 1. In the **Redirect URIs** section, locate the **Suggested Redirect URIs for public clients (mobile, desktop)** section, and select **"urn:ietf:wg:oauth:2.0:oob**.
+> 1. Expand the **Desktop + devices** section, and under the **Redirect URI** section, select **Add URI**.  Type **urn:ietf:wg:oauth:2.0:oob**.
 > 1. Select **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]

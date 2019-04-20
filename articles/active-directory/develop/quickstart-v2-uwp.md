@@ -55,7 +55,7 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 >      - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
 >      - Select **Register** to create the application.
 > 1. In the list of pages for the app, select **Authentication**.
-> 1. In the **Redirect URLs** section, locate the **Suggested Redirect URIs for public clients (mobile, desktop)** section, and select **"urn:ietf:wg:oauth:2.0:oob**.
+> 1. Expand the **Desktop + devices** section, and under the **Redirect URI** section, select **Add URI**.  Type **urn:ietf:wg:oauth:2.0:oob**.
 > 1. Select **Save**.
 
 > [!div renderon="portal" class="sxs-lookup alert alert-info"]
