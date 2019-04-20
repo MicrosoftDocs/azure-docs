@@ -2,10 +2,10 @@
 title: About the Azure Site Recovery Deployment Planner for disaster recovery of Hyper-V VMs to Azure | Microsoft Docs
 description: Learn about the Azure Site Recovery Deployment Planner Hyper-V disaster recovery to Azure.
 author: mayurigupta13
-manager: garavd
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/18/2019
 ms.author: mayg
 
 ---
@@ -68,7 +68,7 @@ The tool provides the following details:
 | | **VMware to Azure** |**Hyper-V to Azure**|**Azure to Azure**|**Hyper-V to secondary site**|**VMware to secondary site**
 --|--|--|--|--|--
 Supported scenarios |Yes|Yes|No|Yes*|No
-Supported Version | vCenter 6.5, 6.0 or 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
+Supported Version | vCenter 6.7, 6.5, 6.0 or 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
 Supported configuration|vCenter, ESXi| Hyper-V cluster, Hyper-V host|NA|Hyper-V cluster, Hyper-V host|NA|
 Number of servers that can be profiled per running instance of the Azure Site Recovery Deployment Planner |Single (VMs belonging to one vCenter Server or one ESXi server can be profiled at a time)|Multiple (VMs across multiple hosts or host clusters can be profile at a time)| NA |Multiple (VMs across multiple hosts or host clusters can be profile at a time)| NA
 
@@ -127,7 +127,7 @@ If you have previous version of the deployment planner, do either of the followi
   >Each new deployment planner is a cumulative update of the .zip file. You don't need to copy the newest files to the previous  folder. You can create and use a new folder.
 
 ## Version history
-The latest Azure Site Recovery Deployment Planner tool version is 2.3.
+The latest Azure Site Recovery Deployment Planner tool version is 2.4.
 Refer to [Azure Site Recovery Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
 
 
