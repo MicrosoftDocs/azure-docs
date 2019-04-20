@@ -57,7 +57,7 @@ Dynamic lists allow you to update and extend an already published list entity du
 
 This feature identifies multiple intents from as utterance, enabling better understanding of complex and compound utterances that include more than one action.
 
-This feature includes significant [JSON response changes](#detect-multiple-intents-within-single utterance). 
+This feature includes significant [JSON response changes](#detect-multiple-intents-within-single-utterance). 
 
 ## Changes to the query prediction endpoint request
 
