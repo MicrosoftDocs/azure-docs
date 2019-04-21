@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: How to use Azure Kubernetes with Azure Cosmos DB 
+description: Learn how to bootstrap a Kubernetes cluster on Azure that uses Azure Cosmos DB 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: sample
