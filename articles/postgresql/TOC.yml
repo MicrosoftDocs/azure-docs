@@ -47,7 +47,7 @@
   - name: Hyperscale (Citus)
     items:
     - name: Design a Multi-Tenant Database
-      href: hyperscale-tutorial-mt.md
+      href: tutorial-design-database-hyperscale-mulit-tenant.md
     - name: Design a real-time dashboard
       href: tutorial-design-database-hyperscale-realtime.md
 - name: Samples
