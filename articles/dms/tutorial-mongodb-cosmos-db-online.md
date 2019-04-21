@@ -212,9 +212,9 @@ After the service is created, locate it within the Azure portal, open it, and th
 
     ![Activity status replaying](media/tutorial-mongodb-to-cosmosdb-online/dms-finish-migration.png)
 
-## Post-migration 
+## Post-migration optimization
 
-After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API for MongoDB, you can connect to Azure Cosmos DB and manage the data. You can also perform other post-migration optimization steps such as- optimizing the indexing policy, update the default consistency level or configure global distribution for your Azure Cosmos DB account. For more details, see the [Post-migration](../cosmos-db/mongodb-post-migration.md) article. 
+After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API for MongoDB, you can connect to Azure Cosmos DB and manage the data. You can also perform other post-migration optimization steps such as- optimizing the indexing policy, update the default consistency level or configure global distribution for your Azure Cosmos DB account. For more details, see the [Post-migration optimization](../cosmos-db/mongodb-post-migration.md) article. 
 
 ## Additional resources
 
