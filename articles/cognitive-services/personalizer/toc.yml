@@ -48,6 +48,14 @@
     - name: Configure containers
       href: https://go.microsoft.com/fwlink/?linkid=2083828&clcid=0x409
       displayName: docker, run, apikey
+- name: Reference
+  items:
+  - name: Samples
+    href: https://aka.ms/personalizer-samples
+  - name: SDKs
+    items:
+    - name: NuGet package
+      href: https://aka.ms/personalizer-nuget-sdk
 - name: Resources
   items:
   - name: Regional availability
