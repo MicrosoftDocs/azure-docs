@@ -13,7 +13,7 @@ ms.author: edjez
 #Customer intent: 
 
 ---
-# Personalizer Settings
+# Personalizer settings
 
 Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 
@@ -43,6 +43,6 @@ The following settings allow you to control the rewards:
 
 **Data retention period**: Sets for how many days Personalizer will keep data logs. Past data logs are required to perform offline evaluations<!--[offline evaluations](concepts-offline-evaluation.md)--> that are used to measure the effectiveness of Personalizer and optimize Learning Policy.
 
-# Next step
+## Next steps
 
 [How to use the Personalizer container](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
