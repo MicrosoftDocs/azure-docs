@@ -19,15 +19,12 @@
   - name: Where can you use Personalizer?
     href: where-can-you-use-personalizer.md
     displayName: checklist, considerations, effectiveness, recommendation engine
-  - name: Ethics & Responsible use
+  - name: Ethics & responsible use
     href: ethics-and-responsible-use.md
     displayName: best practice, design
   - name: Fundamental concepts
     items: 
-    - name: Actions and context
-      href: concepts-actions-context.md  
-      displayName: json, feature, rank api,options,list 
-    - name: Features
+    - name: "Features: action and context"
       href: concepts-features.md
       displayName: action, context, feature, namespace, JSON, best practice, set 
     - name: Reinforcement learning

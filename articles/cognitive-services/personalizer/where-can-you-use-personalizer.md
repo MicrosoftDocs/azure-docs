@@ -41,7 +41,7 @@ Personalizer will learn best in situations where:
 
 * There's enough events to stay on top of optimal personalization if the problem drifts over time (such as preferences in news or fashion). Personalizer will adapt to continuous change in the real world, but results won't be optimal if there's not enough events and data to learn from to discover and settle on new patterns. You should choose a use case that happens often enough. Consider looking for use cases that happen at least 500 times per day.
 * Context and actions have enough  [features](concepts-features.md) to facilitate learning.
-* There are less than 50 actions to rank per call.
+* There are fewer than 50 actions to rank per call.
 * Your data retention settings allow Personalizer to collect enough data to perform offline evaluations and policy optimization. This is typically at least 50,000 data points.
 
 ## Monitor effectiveness of Personalizer
@@ -57,7 +57,11 @@ The [Microsoft Recommenders repository in GitHub](https://github.com/Microsoft/R
 Personalizer can work with a recommendation engine when it's present.
 
 * Recommendation engines take large amounts of items (for example, 500,000) and recommend a subset (such as the top 20) from hundreds or thousands of options.
-* Personalizer takes a small amount of actions with lots of information about them and ranks them in real time for a given rich context, while most recommendation engines only use a few attributes about users, products and their interactions.
+* Personalizer takes a small number of actions with lots of information about them and ranks them in real time for a given rich context, while most recommendation engines only use a few attributes about users, products and their interactions.
 * Personalizer is designed to autonomously explore user preferences all the time, which will yield better results where content is changing rapidly, such as news, live events, live community content, content with daily updates, or seasonal content.
 
 A common use is to take the output of a recommendation engine (for example, the top 20 products for a certain customer) and use that as the input actions for Personalizer.
+
+## Next Steps
+
+[Ethics & responsible use](ethics-and-responsible-use.md).

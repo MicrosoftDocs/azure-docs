@@ -92,8 +92,4 @@ We recommend looking at feature evaluations and asking:
 
 ## Next steps
 
-* [How to Do Offline Evaluations](concepts-offline-evaluation.md)
-<!--
-* [How to Configure Personalizer Settings](how-to-settings.md)
-
--->
+[Configure Personalizer](how-to-settings.md)

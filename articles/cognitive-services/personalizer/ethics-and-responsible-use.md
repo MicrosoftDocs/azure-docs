@@ -52,7 +52,7 @@ For example, the following are not good uses of personalization services, as the
 When choosing use cases for personalization:
 
 * Start the design process by considering how the personalization helps your users.
-* Consider the negative consequences in the real world if the items aren't ranked for users. [This is not clearn - be more direct in what you are saying.]
+* Consider the negative consequences in the real world if the items aren't ranked for users. 
 * Consider self-fulfilling prophecy loops. This may happen if a personalization reward trains a model so it may subsequently further exclude a demographic group from accessing relevant content. For example, most people in a low-income neighborhood don't obtain a premium insurance offer, and slowly nobody in the neighborhood tends to see the offer at all.
 * Save copies of models and learning policies in case it is necessary to reproduce Personalizer in the future. [What is a recommended time interval or data quantity to base backups on?]
 * Consider the level of exploration adequate for the subject area and how to use it as a tool to mitigate echo chamber effects.
@@ -75,7 +75,7 @@ Apply the following ethical practices when using Personalizer:
 * Expose transparently to users that algorithms and data analysis are being used to personalize the options they see. 
 * Ask yourself: Would my users care and be happy if I used this information to personalize the content for them? Would I feel comfortable showing them how the decision was made to highlight or hide certain items?
 * Consider how to prevent features from being misused by malicious users, which if exploited in large numbers can lead to training the Personalization Service in misleading ways to purposefully disrupt, embarrass and harass certain classes of users.
-* When appropriate, design your application to allow your users to opt-in or opt-out of having certain personal features used. These could be grouped, such as location information, device information, and past purchase history. Consider if some information types, such as location, need opt-ins to be refreshed periodically.
+* When appropriate, design your application to allow your users to opt in or opt-out of having certain personal features used. These could be grouped, such as location information, device information, and past purchase history. Consider if some information types, such as location, need opt-ins to be refreshed periodically.
 
 ## Ethical considerations for building reward functions
 
@@ -127,7 +127,7 @@ The following are areas of design for responsible implementations of artificial 
 ### Ethical considerations for privacy
 
 * *Inform users up front about the data that is collected and how it is used and obtain their consent beforehand*, following your local and industry regulations.
-* *Provide privacy-protecting user controls.* For applications that store personal information, consider providing an easy-to-find buttons: 
+* *Provide privacy-protecting user controls.* For applications that store personal information, consider providing an easy-to-find button: 
    * `Show me all you know about me`    
    * `Forget my last interaction` 
    * `Delete all you know about me`
@@ -144,8 +144,8 @@ In some cases, buttons may be legally required. Consider the tradeoffs in retrai
 
  It is hard to predict specific changes in regulatory contexts, but in general it would be wise to go beyond the minimum legal framework in ensuring respectful use of personal data, and provide transparency and choice related to algorithmic decision making.
 
- * Consider planning ahead to a situation where data collected from individuals may not be afree resource, and there is a need to show where it came from, and how it was used.
- * Consider extra readiness where users may include marginalized vulnerable populations,such as children, users of economic vulnerability, or susceptible to influence from algorithmic manipulation.
+ * Consider planning ahead to a situation where data collected from individuals may not be a free resource, and there is a need to show where it came from, and how it was used.
+ * Consider extra readiness where users may include marginalized vulnerable populations, such as children, users of economic vulnerability, or susceptible to influence from algorithmic manipulation.
  * Consider the widespread dissatisfaction with how audience-targeting and audience-influencing data collection programs and algorithms have played out, and how to avoid proven strategic errors.
 
 ## Proactive Assessments during your project lifecycle
@@ -166,4 +166,7 @@ Consider responsible use tasks just like other tasks in user experience, securit
 * [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
 * [Genetic Information Nondiscrimination Act - GINA](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
 * [FATML Principles for Accountable Algorithms](http://www.fatml.org/resources/principles-for-accountable-algorithms)
-* [Top 10 methods to avoid clickbait (#3 will surprise you!)]()
+
+## Next Steps
+
+[Features: action and context](concepts-features.md).

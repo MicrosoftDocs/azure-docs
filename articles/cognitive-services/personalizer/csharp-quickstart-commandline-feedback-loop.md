@@ -17,20 +17,17 @@ ms.author: edjez
 # Quickstart: Create feedback loop using C# 
 
 Create feedback loop in this C# quickstart with the Personalizer service.
-<!--
-## Features 
+
 This sample demonstrates how to use the Personalization client library for C# to perform the following actions: 
+
  * Rank a list of actions for personalization.
  * Report reward to allocate to the top ranked action based on user selection for the specified event.
-
-## Getting Started 
 
 Getting started with Personalization involves the following steps:
 
 1. Referencing the SDK 
 1. Writing code to rank the actions you want to show to your users,
-1. Writing code to send rewards to train the Personalization Loop.
--->
+1. Writing code to send rewards to train the loop.
 
 ## Prerequisites
 
@@ -45,7 +42,7 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 -->
 
 1. Create a new Visual C# Console App in Visual Studio.
-1. Install the Personalization client library NuGet package. On the menu, select **Tools**, select **Nuget Package Manager**, then **Manage NuGet Packages for Solution**.
+1. Install the Personalization client library NuGet package. On the menu, select **Tools**, select **Nuget package Manager**, then **Manage NuGet Packages for Solution**.
 1. Select the **Browse** tab, and in the **Search** box type `Microsoft.Azure.CognitiveServices.Personalization`.
 1. Select **Microsoft.Azure.CognitiveServices.Personalization** when it displays.
 1. Select the checkbox next to your project name, and select **Install**.
@@ -260,6 +257,6 @@ When you are done with the quickstart, remove all the files created in this quic
 
 ## Next Steps
 
-* [Review Personalizer overview](what-is-personalizer.md)
+* [How Personalizer works](how-personalizer-works.md)
 
 
