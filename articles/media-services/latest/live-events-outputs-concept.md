@@ -123,7 +123,7 @@ Once the **Live Event** starts receiving the contribution feed, you can use its 
 
 ## Live Event long-running operations
 
-For details, see [long-running operations](entities-overview.md#long-running-operations)
+For details, see [long-running operations](media-services-apis-overview.md#long-running-operations)
 
 ## Live Outputs
 

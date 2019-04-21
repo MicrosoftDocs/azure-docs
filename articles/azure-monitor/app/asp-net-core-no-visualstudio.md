@@ -29,7 +29,9 @@ Application Insights SDK (Software Development Kit) for ASP.NET Core can monitor
 
 ## Enabling Application Insights Server-Side Telemetry
 
-1. Install the Application Insights SDK for ASP.NET Core, which is a regular NuGet package. It is recommended to always use the latest stable version. Some of the functionalities described in this article may not be available in older versions. Full release notes for the SDK can be found [here](https://github.com/Microsoft/ApplicationInsights-aspnetcore/releases).
+1. Install the Application Insights SDK for ASP.NET Core, which is a regular NuGet package. It is recommended to always use the latest stable version. Some of the functionalities described in this article may not be available in older versions. Full release notes for the SDK can be found [here](https://github.com/Microsoft/ApplicationInsights-aspnetcore/releases). 
+
+Following shows the changes to be added to your project's .csproj file.
 
 ```xml
     <ItemGroup>
@@ -86,7 +88,7 @@ Application Insights SDK (Software Development Kit) for ASP.NET Core can monitor
     1. Dependencies
         1. Http/Https calls made with `HttpClient`
         1. SQL calls made with `SqlClient`
-        1. [Azure Storage Client](https://www.nuget.org/packages/WindowsAzure.Storage/)*
+        1. Azure storage calls made with [Azure Storage Client](https://www.nuget.org/packages/WindowsAzure.Storage/)*
         1. [EventHub Client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) version 1.1.0 and above
         1. [ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) version 3.0.0 and above
 
@@ -142,9 +144,12 @@ It is possible to modify a few common settings by passing `ApplicationInsightsSe
 ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        ApplicationInsightsServiceOptions aiOptions = new ApplicationInsightsServiceOptions();
+        Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions aiOptions
+                    = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+        // Disables adaptive sampling.
         aiOptions.EnableAdaptiveSampling = false;
-        // Disables QuickPulse (Live Metrics stream)
+
+        // Disables QuickPulse (Live Metrics stream).
         aiOptions.EnableQuickPulseMetricStream = false;
         services.AddApplicationInsightsTelemetry(aiOptions);
     }
@@ -158,7 +163,7 @@ Application Insights SDK for ASP.NET Core supports both FixedRate and Adaptive s
 
 ### Adding TelemetryInitializers
 
-To add a new `TelemetryInitializer`, add it into the DependencyInjection Container as shown below.
+To add a new `TelemetryInitializer`, add it into the DependencyInjection Container as shown below. `TelemetryInitializer`s added to DependencyInjection container will be picked up by the SDK automatically.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -291,13 +296,13 @@ public class HomeController : Controller
 
 * If SDK is installed at build time as shown in this article, there is no need to enable the Application Insights extension from the Web Apps portal. Even if extension is installed, it will back-off, when it detects that SDK is already added to the application. Enabling Application Insights from extension frees you from installing and updating the SDK to your application. However, enabling Application Insights as per this article is more flexible for reasons below.
     1. Application Insights Telemetry will continue to work in
-        1. All Operating Systems - Windows, Linux, Mac**.**
-        1. All publish mode - Self-Contained or Framework-Dependent**.**
-        1. All target frameworks, including the full .NET Framework**.**
-        1. All Hosting options - Azure Web APP, VMs, Linux, Containers, AKS, non-Azure**.**
-    1. Telemetry can be seen locally, when debugging from Visual Studio**.**
-    1. Allows tracking additional custom telemetry using `TrackXXX()` API**.**
-    1. Has full control over the configuration**.**
+        1. All Operating Systems - Windows, Linux, Mac.
+        1. All publish mode - Self-Contained or Framework-Dependent.
+        1. All target frameworks, including the full .NET Framework.
+        1. All Hosting options - Azure Web APP, VMs, Linux, Containers, AKS, non-Azure.
+    1. Telemetry can be seen locally, when debugging from Visual Studio.
+    1. Allows tracking additional custom telemetry using `TrackXXX()` API.
+    1. Has full control over the configuration.
 
 *4. Can I enable Application Insights monitoring using tools like Status Monitor?*
 

@@ -26,7 +26,7 @@ Apache Spark History Server is the web UI for completed and running Spark applic
     ![Spark History Server](./media/apache-azure-spark-history-server/launch-history-server.png "Spark History Server")
 
 ### Open the Spark History Server Web UI by URL
-Open the Spark History Server by browsing to the following URL, replace <ClusterName> with Spark cluster name of customer.
+Open the Spark History Server by browsing to the following URL, replace `<ClusterName>` with Spark cluster name of customer.
 
    ```
    https://<ClusterName>.azurehdinsight.net/sparkhistory

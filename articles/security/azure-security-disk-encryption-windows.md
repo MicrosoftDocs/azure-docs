@@ -232,8 +232,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 To encrypt or decrypt Windows virtual machine scale sets, use the Azure Resource Manager templates and instructions below:
 
 - [Enable encryption on a Windows virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-- [Deploy a VM scale set of Windows VMs with a jumpbox and enable encryption on the Windows VM scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-- [Disable encryption on a Windows VM scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+- [Disable encryption on a Windows virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
      1. Click **Deploy to Azure**.
      2. Fill in the required fields then agree to the terms and conditions.

@@ -4,9 +4,9 @@ description: This article can help you plan capacity and scaling when you set up
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 12/12/2018
+ms.date: 4/9/2019
 ms.topic: conceptual
-ms.author: mayg
+ms.author: ramamill
 ---
 
 # Plan capacity and scaling for VMware disaster recovery to Azure

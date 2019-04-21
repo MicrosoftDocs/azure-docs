@@ -49,7 +49,7 @@ In this section, you create a .NET console app on your simulated device that upd
 
 1. **Create a Visual Studio project:** In Visual Studio, add a Visual C# Windows Classic Desktop project to the existing solution by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.6.1 or later. Name the project **UpdateModuleTwinReportedProperties**.
 
-    ![Create a visual studio project](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG)
+    ![Create a visual studio project](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.png)
 
 2. **Install the latest Azure IoT Hub .NET device SDK:** Module identity and module twin is in public preview. It's only available in the IoT Hub prerelease device SDKs. In Visual Studio, open tools > Nuget package manager > manage Nuget packages for solution. Search Microsoft.Azure.Devices.Client. Make sure you've checked include prerelease check box. Select the latest version and install. Now you have access to all the module features. 
 
@@ -57,7 +57,7 @@ In this section, you create a .NET console app on your simulated device that upd
 
 3. **Get your module connection string** -- now if you login to [Azure portal](https://portal.azure.com/). Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
 
-    ![Azure portal module detail](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
+    ![Azure portal module detail](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.png)
 
 4. **Create UpdateModuleTwinReportedProperties console app**
 
@@ -155,7 +155,7 @@ In this section, you create a .NET console app on your simulated device that upd
 
 ## Run the apps
 
-You are now ready to run the apps. In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for the console app. And then press F5 to start the app. 
+You are now ready to run the apps. In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for the console app. And then press F5 to start the app.
 
 ## Next steps
 

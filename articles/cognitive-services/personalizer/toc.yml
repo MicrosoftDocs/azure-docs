@@ -16,32 +16,41 @@
   - name: How Personalizer works
     href: how-personalizer-works.md
     displayName: rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model
-  - name: Use of Personalizer
-    items: 
-    - name: Where can you use Personalizer?
-      href: where-can-you-use-personalizer.md
-      displayName: checklist, considerations, effectiveness, recommendation engine, 
-    - name: Ethics & Responsible use
-      href: ethics-and-responsible-use.md
-      displayName: best practice, design
+  - name: Where can you use Personalizer?
+    href: where-can-you-use-personalizer.md
+    displayName: checklist, considerations, effectiveness, recommendation engine
+  - name: Ethics & Responsible use
+    href: ethics-and-responsible-use.md
+    displayName: best practice, design
   - name: Fundamental concepts
-    items:
+    items: 
+    - name: Actions and context
+      href: concepts-actions-context.md  
+      displayName: json, feature, rank api,options,list 
     - name: Features
       href: concepts-features.md
       displayName: action, context, feature, namespace, JSON, best practice, set 
     - name: Reinforcement learning
       href: concepts-reinforcement-learning.md
       displayName: RL, contextual bandits, Vowpal Wabbit
-- name: How-to guides
-  items: 
-  - name: Use containers
+  - name: Analysis
     items: 
+    - name: Offline evaluation
+      href: concepts-offline-evaluation.md
+      displayName: learning policy, Counterfactual, features
+- name: How-to guides
+  items:
+  - name: Configure Personalizer
+    href: how-to-settings.md
+    displayName: azure, portal, settings, evaluation, offline, policy
+  - name: Use containers
+    items:
     - name: Install and run containers
-      href: personalizer-container-howto.md
-      displayName: docker, kubernetes
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, run, apikey
+      href: https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409
     - name: Configure containers
-      href: personalizer-container-configuration.md 
-      displayName: docker, kubernetes
+      href: https://go.microsoft.com/fwlink/?linkid=2083828&clcid=0x409
+      displayName: docker, run, apikey
 - name: Resources
   items:
   - name: Regional availability

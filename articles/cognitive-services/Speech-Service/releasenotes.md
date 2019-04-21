@@ -8,18 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 4/3/2019
+ms.date: 4/5/2019
 ms.author: wolfma
 ms.custom: seodec18
 ---
 
 # Release notes
 
+## Speech SDK 1.4.1
+
+This is a JavaScript-only release. No features have been added. The following fixes were made:
+
+* Prevent webpack from loading https-proxy-agent.
+
 ## Speech SDK 1.4.0: 2019-April release
 
 **New features** 
 
-* The SDK now supports the text-to-speech service as a beta version. It is supported on Windows and Linux Desktop from C++, C#, and Java. For more information check the [text-to-speech overview](text-to-speech.md#get-started-with-text-to-speech).
+* The SDK now supports the text-to-speech service as a beta version. It is supported on Windows and Linux Desktop from C++ and C#. For more information check the [text-to-speech overview](text-to-speech.md#get-started-with-text-to-speech).
 * The SDK now supports MP3 and Opus/Ogg audio files as stream input files. This feature is available only on Linux from C++ and C# and is currently in beta (more details [here](how-to-use-compressed-audio-input-streams.md)).
 * The Speech SDK for Java, .NET core, C++ and Objective-C have gained macOS support. The Objective-C support for macOS is currently in beta.
 * iOS: The Speech SDK for iOS (Objective-C) is now also published as a CocoaPod.

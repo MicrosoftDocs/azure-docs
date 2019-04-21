@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/21/2019
+ms.date: 04/19/2019
 
 ---
 
@@ -23,7 +23,9 @@ In this article, you learn how to create a workspace using any of these methods:
 * An Azure Resource Manager template
 * The [Azure Machine Learning CLI](#cli)
 
-The workspace you create using the steps here-in can be used as a prerequisite to other tutorials and how-to articles. 
+The workspace you create using the steps here-in can be used as a prerequisite to other tutorials and how-to articles.
+
+If you would like to use a script to setup automated machine learning in a local Python environment please refer to the [Azure/MachineLearningNotebooks GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for instructions.  
 
 When you create a workspace the following Azure resources are added automatically (if they're regionally available):
  
@@ -156,7 +158,7 @@ Create your workspace in a Jupyter Notebook using the Python SDK.
 
 ### Write a configuration file
 
-Save the details of your workspace in a configuration file to the current directory. This file is called *aml_config/config.json*.  
+Save the details of your workspace in a configuration file to the current directory. This file is called *.azureml/config.json*.  
 
 This workspace configuration file makes it easy to load the same workspace later. You can load it with other notebooks and scripts in the same directory or a subdirectory using the code `ws=Workspace.from_config()` . 
 
@@ -173,13 +175,14 @@ This `write_config()` API call creates the configuration file in the current dir
 ```
 
 > [!TIP]
-> To use your workspace in Python scripts or Jupyter Notebooks located in other directories, copy this file to that directory. The file can be in the same directory, a subdirectory named *aml_config*, or in a parent directory.
+> To use your workspace in Python scripts or Jupyter Notebooks located in other directories, copy this file to that directory. The file can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
 
 ## Resource manager template
 
 To create a workspace with a template, see [Create an Azure Machine Learning service workspace by using a template](how-to-create-workspace-template.md)
 
-## CLI
+<a name="cli"></a>
+## Command-line interface
 
 To create a workspace with the CLI, see [Use the CLI extension for Azure Machine Learning service](reference-azure-machine-learning-cli.md).
 
