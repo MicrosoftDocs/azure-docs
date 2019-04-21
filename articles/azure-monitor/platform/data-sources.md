@@ -73,7 +73,7 @@ The [Azure Activity Log](activity-logs-overview.md) includes service health reco
 | Destination | Description | Reference |
 |:---|:---|
 | Activity Log | The Activity Log is collected into its own data store that you can view from the Azure Monitor menu or create Activity Log alerts. | [Query the Activity Log in the Azure portal](activity-logs-overview.md#query-the-activity-log-in-the-azure-portal) |
-| Azure Storage | Export the Activity log to storage for archiving. [Archive Activity Log](activity-log-export.md#archive-activity-log)  |
+| Azure Storage | Export the Activity log to storage for archiving. | [Archive Activity Log](activity-log-export.md#archive-activity-log)  |
 | Azure Monitor Logs | Copy the Activity Log to Azure Monitor Logs to analyze it with other monitoring data. |  |
 | Event Hubs | Stream the Activity log to other locations using Event Hubs | [Stream Activity Log to Event Hub](activity-log-export.md#stream-activity-log-to-event-hub). |
 
@@ -106,7 +106,7 @@ Most Azure services will generate [platform metrics](data-platform-metrics.md) t
 | Destination | Description | Reference |
 |:---|:---|:---|
 | Storage | Send Diagnostic logs to Azure Storage for archiving. | [Archive Azure Diagnostic Logs](archive-diagnostic-logs.md) |
-| Azure Monitor Logs | Send Diagnostic Logs to Azure Monitor Logs for analysis with other collected log data. Some resources can write directly to Azure Monitor while others write to a storage account before being imported into Log Analytics. | [Stream Azure Diagnostic Logs to Log Analytics workspace in Azure Monitor](diagnostic-logs-stream-log-store.md)<br>[Use the Azure portal to collect logs from Azure Storage](azure-storage-iis-table.md)  |(azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
+| Azure Monitor Logs | Send Diagnostic Logs to Azure Monitor Logs for analysis with other collected log data. Some resources can write directly to Azure Monitor while others write to a storage account before being imported into Log Analytics. | [Stream Azure Diagnostic Logs to Log Analytics workspace in Azure Monitor](diagnostic-logs-stream-log-store.md) <br> [Use the Azure portal to collect logs from Azure Storage](azure-storage-iis-table.md)  |(azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 | EventHubs | Export Diagnostic logs to Event Hub for redirection to other services. |[Stream Azure Diagnostic Logs to an event hub](diagnostic-logs-stream-event-hubs.md) |
 
 
@@ -175,7 +175,7 @@ You can also use Application Insights to [create a custom metric](../app/api-cus
 ## Monitoring Solutions and Insights
 [Monitoring solutions](../insights/solutions.md) and Insights collect data to provide additional insight into the operation of a particular service or application. They may address resources in different application tiers and even multiple tiers.
 
-## Monitoring solutions
+### Monitoring solutions
 
 | Destination | Description | Reference
 |:---|:---|:---|
@@ -196,6 +196,8 @@ A description of the data collected by Azure Monitor for VMs is included in the 
 
 ## Custom sources
 In addition to the standard tiers of an application, you may need to monitor other resources that have telemetry that can't be collected with the other data sources. For these resources, you need to write this data using an Azure Monitor API.
+
+![Custom collection](media/data-sources/custom.png)
 
 | Destination | Method | Description | Reference |
 |:---|:---|:---|:---|

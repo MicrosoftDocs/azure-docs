@@ -1,16 +1,18 @@
 ---
-title: Create a log profile for Azure Activity Log
-description: Learn what the Azure Activity Log is and how you can use it to understand events occurring within your Azure subscription.
-author: johnkemnetz
+title: Export the Azure Activity Log
+description: Archive the Azure Activity Log to Azure Storage or export it to an Azure Event Hub..
+author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.author: johnkem
+ms.date: 04/21/2019
+ms.author: bwren
 ms.subservice: logs
 ---
-# Export Azure Activity Log to storage or Event Hub
-In addition to viewing the [Azure Activity Log](activity-logs-overview.md) in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can archive it to an Azure storage account or stream it to an Event Hub. Since the process to configure both of these activities is similar, they are both described together in this article.
+# Export the Azure Activity Log
+You can view the [Azure Activity Log](activity-logs-overview.md) in the Azure portal or you can 
+
+In addition to viewing the [Azure Activity Log](activity-logs-overview.md) in the Azure portal or [copying it to a Log Analytics workspace](activity-log-collect.md) where it can be analyzed with other data collected by Azure Monitor, you can archive it to an Azure storage account or stream it to an Event Hub. Since the process to configure both of these activities is similar, they are both described together in this article.
 
 
 ## Archive Activity Log
@@ -62,7 +64,7 @@ You can use a storage account or event hub namespace that is not in the same sub
 
 These settings can be configured via the “Export” option in the Activity Log blade in the portal. They can also be configured programmatically [using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
 
-## Create log profile using the Azure portal
+### Create log profile using the Azure portal
 
 You can stream the Activity Log to an Event Hub or store them in a Storage Account by using the **Export to Event Hub** option in the Azure portal.
 
@@ -84,7 +86,7 @@ You can stream the Activity Log to an Event Hub or store them in a Storage Accou
 4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
 
 
-## Configure log profile using PowerShell
+### Configure log profile using PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -136,7 +138,7 @@ Following is a sample PowerShell script to create a log profile that writes the 
    ```
 
 
-## Configure log profile using Azure CLI
+### Configure log profile using Azure CLI
 
 If a log profile already exists, you first need to remove the existing log profile and then create a new log profile.
 
