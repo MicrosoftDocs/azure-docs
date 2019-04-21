@@ -24,6 +24,8 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) (pr
 > * Share data between tenants
 > * Customize the schema per-tenant
 
+## Prerequisites
+
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Sign in to the Azure portal
