@@ -196,4 +196,4 @@ In this quickstart, you learned how to provision a Hyperscale (Citus) server gro
 
 Next, follow a tutorial to build scalable multi-tenant applications.
 > [!div class="nextstepaction"]
-> [Design a Multi-Tenant Database](TODO)
+> [Design a Multi-Tenant Database](https://aka.ms/hyperscale-tutorial-multi-tenant)
