@@ -25,7 +25,7 @@ When a security principal (a user, group, or application) attempts to access a b
 
 The authentication step requires that one or more RBAC roles be assigned to to the security principal. Azure Storage provides RBAC roles that encompass common sets of permissions for blob and queue data. The roles that are assigned to a security principal determine the access that that principal will have. To learn more about assigning RBAC roles for Azure Storage, see [Manage access rights to storage data with RBAC](storage-auth-aad-rbac.md).
 
-The authorization step requires that an application requests an OAuth 2.0 access token at runtime. If an application is running from within an Azure entity such as an Azure VM, a virtual machine scale set, or an Azure Functions app, it can use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access blobs or queues. To learn how to authorize requests made by a managed identity to the Azure Blob or Queue service, see [Authenticate access to blobs and queues with Azure managed identities for Azure Resources](storage-auth-aad-msi.md).
+The authorization step requires that an application requests an OAuth 2.0 access token at runtime. If an application is running from within an Azure entity such as an Azure VM, a virtual machine scale set, or an Azure Functions app, it can use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access blobs or queues. To learn how to authorize requests made by a managed identity to the Azure Blob or Queue service, see [Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md).
 
 Native applications and web applications that make requests to the Azure Blob or Queue service can also authenticate with Azure AD. To learn how to request an access token and use it to authorize requests for blob or queue data, see [Authenticate with Azure AD from an Azure Storage application](storage-auth-aad-app.md).
 
@@ -70,15 +70,20 @@ To access blob or queue data from the Azure portal using your Azure AD account, 
 - You have been assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
 - You have been assigned either a built-in or custom RBAC role that provides access to blob or queue data.
 
-For more information, see [Use the Azure portal to access blob or queue data](storage-access-blobs-queues-portal.md) and [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md).
+The Azure portal indicates which scheme is in use when you navigate to a container or queue. For more information about data access in the portal, see [Use the Azure portal to access blob or queue data](storage-access-blobs-queues-portal.md).
+
+To learn more about how to assign permissions to users for data access in the Azure portal with an Azure AD account, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md).
 
 ### Data access from PowerShell or Azure CLI
 
 Azure CLI and PowerShell support signing in with Azure AD credentials. After you sign in, your session runs under those credentials. To learn more, see [Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data](storage-auth-aad-script.md).
 
+## Azure AD authentication over SMB for Azure Files
+
+Azure Files supports authentication with Azure AD over SMB for domain-joined VMs only (preview). To learn about using Azure AD over SMB for Azure Files,see [Overview of Azure Active Directory authentication over SMB for Azure Files (preview)](../files/storage-files-active-directory-overview.md).
+
 ## Next steps
 
 - [Azure Storage support for Azure Active Directory based access control generally available](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)
+- [Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md)
 - [Authenticate with Azure Active Directory from an application for access to blobs and queues](storage-auth-aad-app.md)
-- [Authenticate access to blobs and queues with managed identities for Azure Resources](storage-auth-aad-msi.md)
-- Azure Files supports authentication with Azure AD over SMB for domain-joined VMs only (preview). To learn about using Azure AD over SMB for Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files (preview)](../files/storage-files-active-directory-overview.md).
