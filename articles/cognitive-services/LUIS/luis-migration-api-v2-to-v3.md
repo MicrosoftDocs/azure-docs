@@ -112,12 +112,49 @@ The top JSON properties for V3 are:
 }
 ```
 
+The `intents` object is an unordered list. Do not assume the first child in the `intents` corresponds to the `topIntent`. Instead, use the `topIntent` value to find the score:
+
+```nodejs
+const topIntentName = response.prediction.topIntent;
+const score = intents[topIntentName];
+```
+
 The response JSON schema changes allow for:
 
 * Clear distinction between original utterance, `query`, and returned prediction, `prediction`.
 * Easier programmatic access to predicted data. Instead of enumerating through an array in V2, you can access values by **named** for both intents and entities. For predicted entity roles, the role name is returned because it is unique across the entire app.
 * Data types, if determined, are respected. Numerics are no longer returned as strings.
 * Distinction between first priority prediction information and additional metadata, returned in the `$instance` object. 
+
+### Access `$instance` for entity metadata
+
+If you need entity metadata, the query string needs to use the `verbose=true` flag and the response contains the metadata in the `$instance` object. Examples are shown in the JSON responses in the following sections.
+
+### Each predicted entity is represented as an array
+
+The `prediction.entities.<entity-name>` object contains an array because each entity can be predicted more than once in the utterance. 
+
+### List entity prediction changes
+
+The JSON for a list entity prediction has changed to be an array of arrays:
+
+```JSON
+"entities":{
+    "my_list_entity":[
+        ["canonical-form-1","canonical-form-2"],
+        ["canonical-form-2"]
+    ]
+}
+```
+Each interior array corresponds to text inside the utterance. The interior object is an array because the same text can appear in more than one sublist of a list entity. 
+
+When mapping between the `entities` object to the `$instance` object, the order of objects is preserved for the list entity predictions.
+
+```nodejs
+const item = 0; // order preserved, use same enumeration for both
+const predictedCanonicalForm = entities.my_list_entity[item];
+const associatedMetadata = entities.$instance.my_list_entity[item];
+```
 
 ### Entity role name instead of entity name 
 

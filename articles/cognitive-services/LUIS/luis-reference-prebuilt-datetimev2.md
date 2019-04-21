@@ -215,7 +215,7 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
 
 ## Preview API version 3.x
 
-DatetimeV2 JSON response has changed in the API V3.
+DatetimeV2 JSON response has changed in the API V3. 
 
 Changes from API V2:
 * `datetimeV2.timex.type` property is no longer returned because it is returned at the parent level, `datetimev2.type`. 
