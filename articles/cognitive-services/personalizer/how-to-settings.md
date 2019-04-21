@@ -1,6 +1,6 @@
 ---
 title: Configure settings
-titleSuffix: Personalizer - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 services: cognitive-services
 author: edjez
