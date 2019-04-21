@@ -40,9 +40,11 @@ Supports operations for creating and editing jobs.
 All jobs must belong to an existing job collection, 
 so there's no implicit creation. For more information, see 
 [Scheduler REST API - Jobs](https://docs.microsoft.com/rest/api/scheduler/jobs). 
-Here is the URI address for these operations:
+Here's the URI address for these operations:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
+```
 
 ### Job collection management
 
@@ -50,9 +52,11 @@ Supports operations for creating and editing jobs and job collections,
 which map to quotas and shared settings. For example, quotas specify 
 the maximum number of jobs and smallest recurrence interval. 
 For more information, see [Scheduler REST API - Job Collections](https://docs.microsoft.com/rest/api/scheduler/jobcollections). 
-Here is the URI address for these operations:
+Here's the URI address for these operations:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
+```
 
 ### Job history management
 
@@ -60,9 +64,11 @@ Supports the GET operation for fetching 60 days of job execution history,
 for example, job elapsed time and job execution results. 
 Includes query string parameter support for filtering based on state and status. 
 For more information, see [Scheduler REST API - Jobs - List Job History](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). 
-Here is the URI address for this operation:
+Here's the URI address for this operation:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
+```
 
 ## Job types
 
@@ -272,7 +278,7 @@ A job recurs if the job's JSON definition includes the **recurrence** object, fo
 | **interval** | No | 1 to 1000 inclusively | A positive integer that determines the number of time units between each occurrence based on **frequency** | 
 | **schedule** | No | Varies | The details for more complex and advanced schedules. See **hours**, **minutes**, **weekDays**, **months**, and **monthDays** | 
 | **hours** | No | 1 to 24 | An array with the hour marks for when to run the job | 
-| **minutes** | No | 1 to 24 | An array with the minute marks for when to run the job | 
+| **minutes** | No | 0 to 59 | An array with the minute marks for when to run the job | 
 | **months** | No | 1 to 12 | An array with the months for when to run the job | 
 | **monthDays** | No | Varies | An array with the days of the month for when to run the job | 
 | **weekDays** | No | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | An array with days of the week for when to run the job | 

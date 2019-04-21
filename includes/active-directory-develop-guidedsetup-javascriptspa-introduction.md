@@ -18,7 +18,7 @@ ms.custom: include file
 
 ---
 
-# Call the Microsoft Graph API from a JavaScript single-page application (SPA)
+# Sign in users and call the Microsoft Graph API from a JavaScript single-page application (SPA)
 
 This guide demonstrates how a JavaScript single-page application (SPA) can sign in personal, work and school accounts, get an access token, and call the Microsoft Graph API or other APIs that require access tokens from the Microsoft identity platform endpoint.
 

@@ -537,7 +537,7 @@ The original status in an SAP system is documented in Transaction DBACOCKPIT -->
 
 
 > [!IMPORTANT] 
-> Before you start the test, make sure that Pacemaker does not have any failed actions (crm status), and there are no location constraints (leftovers of migration test), and the IBM Db2 HADR synchronization is working. Check with with user db2\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> Before you start the test, make sure that Pacemaker does not have any failed actions (crm status), and there are no location constraints (leftovers of migration test), and the IBM Db2 HADR synchronization is working. Check with user db2\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migrate the node running the primary Db2 database by executing following command:

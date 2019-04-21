@@ -10,22 +10,17 @@
  ms.custom: include file
 ---
 
-The following table describes default limits for Azure Storage. The *ingress* limit refers to all data from requests that are sent to a storage account. The *egress* limit refers to all data from responses that are received from a storage account.
+The following table describes default limits for Azure general-purpose v1, v2, and Blob storage accounts. The *ingress* limit refers to all data from requests that are sent to a storage account. The *egress* limit refers to all data from responses that are received from a storage account.
 
 | Resource | Default limit |
 | --- | --- |
 | Number of storage accounts per region per subscription, including both standard and premium accounts | 250 |
 | Maximum storage account capacity | 2 PB for US and Europe, 500 TB for all other regions, which includes the UK |
 | Maximum number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
-| Maximum size of a FileStorage (preview) storage account | 100,000 GiB |
-| Maximum IOPS for a FileStorage (preview) storage account | 100,000 |
-| Maximum Bandwidth for a FileStorage (preview) storage account | 5 GB/s |
 | Maximum request rate<sup>1</sup> per storage account | 20,000 requests per second |
 | Maximum ingress<sup>1</sup> per storage account (US regions) | 10 Gbps if RA-GRS/GRS is enabled, 20 Gbps for LRS/ZRS<sup>2</sup> |
 | Maximum ingress<sup>1</sup> per storage account (non-US regions) | 5 Gbps if RA-GRS/GRS is enabled, 10 Gbps for LRS/ZRS<sup>2</sup> |
-| Maximum ingress per FileStorage (preview) storage account (US regions) | 20 Gbps (LRS only) |
-| Maximum ingress per FileStorage (preview) storage account (non-US regions) | 10 Gbps (LRS only)|
-| Maximum egress for general-purpose v2, FileStorage (preview), and Blob storage accounts (all regions) | 50 Gbps |
+| Maximum egress for general-purpose v2 and Blob storage accounts (all regions) | 50 Gbps |
 | Maximum egress for general-purpose v1 storage accounts (US regions) | 20 Gbps if RA-GRS/GRS is enabled, 30 Gbps for LRS/ZRS<sup>2</sup> |
 | Maximum egress for general-purpose v1 storage accounts (non-US regions) | 10 Gbps if RA-GRS/GRS is enabled, 15 Gbps for LRS/ZRS<sup>2</sup> |
 

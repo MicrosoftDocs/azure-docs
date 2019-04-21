@@ -14,10 +14,9 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for re
 
 * The M-Series offers the highest vCPU count (up to 128 vCPUs) and largest memory (up to 3.8 TiB) of any VM in the cloud.  It’s ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory.
 
-* Dv2-series, G-series, and the DSv2/GS counterparts  are ideal for applications that demand faster vCPUs, better temporary storage performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
+* Dv2-series, G-series, and the DSv2/GS counterparts are ideal for applications that demand faster vCPUs, better temporary storage performance, or have higher memory demands. They offer a powerful combination for many enterprise-grade applications.
 
-
-* Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) or E5-2673 v4 2.3 GHz  (Broadwell) processors, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+* Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) or E5-2673 v4 2.3 GHz (Broadwell) processors, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
 * The Ev3-series features the E5-2673 v4 2.3 GHz  (Broadwell) processor in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads, and bringing the Ev3 into alignment with the general purpose VMs of most other clouds.  Memory has been expanded (from 7 GiB/vCPU to 8 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyperthreading.  The Ev3 is the follow up to the high memory VM sizes of the D/Dv2 families.
 
@@ -165,7 +164,6 @@ Premium Storage Caching:  Not Supported
 <sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
 <br>
 
-
 ## DSv2-series 11-15
 
 ACU: 210 - 250 <sup>1</sup>
@@ -182,14 +180,10 @@ Premium Storage Caching:  Supported
 | Standard_DS14_v2&nbsp;<sup>3</sup>|16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 768 |8 / 12000 |
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80,000 / 640 (720) |64,000 / 960 |8 / 25000&nbsp;<sup>4</sup>
 
-
-<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Designing for high performance](../articles/virtual-machines/windows/premium-storage-performance.md).
-
-<sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
-
-<sup>3</sup> Constrained core sizes available.
-
-<sup>4</sup> 25000 Mbps with Accelerated Networking.
+<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Designing for high performance](../articles/virtual-machines/windows/premium-storage-performance.md).  
+<sup>2</sup> Instance is isolated to hardware dedicated to a single customer.  
+<sup>3</sup> Constrained core sizes available.  
+<sup>4</sup> 25000 Mbps with Accelerated Networking. 
 
 <br>
 
@@ -209,13 +203,5 @@ Premium Storage Caching:  Not Supported
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000          |
 | Standard_D15_v2&nbsp;<sup>1</sup> | 20        | 140         | 1,000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 25000&nbsp;<sup>2</sup> |
 
-<sup>1</sup> Instance is isolated to hardware dedicated to a single customer. 
-
-<sup>2</sup> 25000 Mbps with Accelerated Networking.
-
-
-
-<br>
-
-
-
+<sup>1</sup> Instance is isolated to hardware dedicated to a single customer.  
+<sup>2</sup> 25000 Mbps with Accelerated Networking. 

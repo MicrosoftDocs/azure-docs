@@ -62,6 +62,10 @@ Enable [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob
 
 In active-active configuration, both instances of a VPN gateway will establish S2S VPN tunnels to your on-premises VPN device. When a planned maintenance event or unplanned event happens to one gateway instance, traffic will be switched over to the other active IPsec tunnel automatically. Azure Advisor will identify VPN gateways that are not configured as active-active and suggest that you configure them for high availability.
 
+## Use production VPN gateways to run your production workloads
+
+Azure Advisor will check for any VPN gateways that are a Basic SKU and recommend that you use a production SKU instead. The Basic SKU is designed for development and testing purposes. Production SKUs offer a higher number of tunnels, BGP support, active-active configuration options, custom Ipsec/IKE policy, and higher stability and availability.
+
 ## How to access High Availability recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).

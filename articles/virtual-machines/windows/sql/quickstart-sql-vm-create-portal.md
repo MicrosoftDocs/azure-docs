@@ -24,11 +24,10 @@ ms.reviewer: jroth
 
 This quickstart steps through creating a SQL Server virtual machine in the Azure portal.
 
-> [!TIP]
-> This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other SQL VM provisioning choices, see the [Provisioning guide for Windows SQL Server VMs in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
 
-> [!TIP]
-> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
+  > [!TIP]
+  > - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other SQL VM provisioning choices, see the [Provisioning guide for Windows SQL Server VMs in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
+  > - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
 
 ## <a id="subscription"></a> Get an Azure subscription
 
@@ -42,12 +41,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. In the search field, type `SQL Server 2017 Developer on Windows Server 2016`, and press ENTER.
 
-1. Select the **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016** image.
+1. Select the **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016** image. The Developer edition is used in this tutorial because it is a full-featured edition of SQL Server that is free for development testing purposes. You pay only for the cost of running the VM. For complete pricing considerations, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
    ![New search window](./media/quickstart-sql-vm-create-portal/newsearch.png)
 
-   > [!TIP]
-   > The Developer edition is used in this tutorial because it is a full-featured edition of SQL Server that is free for development testing purposes. You pay only for the cost of running the VM. For complete pricing considerations, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 1. Select **Create**.
 
@@ -94,19 +91,14 @@ On the **SQL Server settings** tab, configure the following options:
 
 On the **Review + create** tab, review the summary, and select  **Create** to create SQL Server, resource group, and resources specified for this VM.
 
-You can monitor the deployment from the Azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
-
-> [!TIP]
-> Deploying a Windows SQL Server VM can take several minutes.
+You can monitor the deployment from the Azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment. Deployment can take several minutes. 
 
 ## Connect to SQL Server
 
 1. In the portal, find the **Public IP address** of your SQL Server VM in the **Overview** section of your virtual machine's properties.
 
-1. On a different computer connected to the Internet, open SQL Server Management Studio (SSMS).
+1. On a different computer connected to the Internet, open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
-   > [!TIP]
-   > If you do not have SQL Server Management Studio, you can download it from [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. In the **Connect to Server** or **Connect to Database Engine** dialog box, edit the **Server name** value. Enter your VM's public IP address. Then add a comma, and add the custom port, **1401**, that we specified when you configured the new VM. For example, `11.22.33.444,1401`.
 

@@ -26,7 +26,7 @@ Application Gateway and Web Application Firewall (WAF) are now available in Publ
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 > [!NOTE]
-> The autoscaling and zone-redundant application gateway SKU now supports [default health probe](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) to automatically monitor the health of all resources in its back-end pool and remove any resource considered unhealthy from the pool. The default health probe wil be automatically configured for all those backends for which you haven't set up any custom probe configuration. To learn more, see [health probes in application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
+> The autoscaling and zone-redundant application gateway SKU now supports [default health probe](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) to automatically monitor the health of all resources in its back-end pool and highlight those backend members that are considered unhealthy. The default health probe wil be automatically configured for all those backends for which you haven't set up any custom probe configuration. To learn more, see [health probes in application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
 ## Feature comparison between v1 SKU and v2 SKU
 

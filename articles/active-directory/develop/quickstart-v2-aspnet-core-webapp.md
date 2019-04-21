@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/03/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write an ASP.NET Core web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
@@ -52,9 +52,9 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `AspNetCore-Quickstart`.
->    - In **Reply URL**, add `https://localhost:44321/`, and select **Register**.
+>    - In **Redirect URI**, add `https://localhost:44321/`, and select **Register**.
 > 1. Select the **Authentication** menu, and then add the following information:
->    - In **Reply URL**, add `https://localhost:44321/signin-oidc`,  and select **Register**.
+>    - In **Redirect URIs**, add `https://localhost:44321/signin-oidc`,  and select **Save**.
 >    - In the **Advanced settings** section, set **Logout URL** to `https://localhost:44321/signout-oidc`.
 >    - Under **Implicit grant**, check **ID tokens**.
 >    - Select **Save**.
@@ -143,6 +143,11 @@ The line containing `.AddAzureAd` adds the Microsoft identity platform authentic
 > | Authority | The STS endpoint for the user to authenticate. Usually, this is <https://login.microsoftonline.com/{tenant}/v2.0> for public cloud, where {tenant} is the name of your tenant or your tenant ID, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
 > | TokenValidationParameters | A list of parameters for token validation. In this case, `ValidateIssuer` is set to `false` to indicate that it can accept sign-ins from any personal, or work or school accounts. |
 
+
+> [!NOTE]
+> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer.
+> See the samples to understand how to do that.
+
 ### Protect a controller or a controller's method
 
 You can protect a controller or controller methods using the `[Authorize]` attribute. This attribute restricts access to the controller or methods by only allowing authenticated users, which means that authentication challenge can be started to access the controller if the user is not authenticated.
@@ -151,8 +156,7 @@ You can protect a controller or controller methods using the `[Authorize]` attri
 
 ## Next steps
 
-Check out the GitHub repo for this ASP.NET Core quickstart for more information including instructions on how to add authentication to a brand new ASP.NET Core Web application:
+Check out the GitHub repo for this ASP.NET Core tutorial for more information including instructions on how to add authentication to a brand new ASP.NET Core Web application, how to call Microsoft Graph, and other Microsoft APIs, how to call your own APIs, how to add authorization, how to sign-in users in national clouds, or with social identities and more:
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core Web App Code Sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
-
+> [ASP.NET Core Web App tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
