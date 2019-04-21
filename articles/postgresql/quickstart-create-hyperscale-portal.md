@@ -7,6 +7,7 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/15/2019
+#Customer intent: As a developer, I want provision a hyperscale server group so that I can run queries quickly on large datasets.
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL - Hyperscale (Citus) (preview) in the Azure portal
