@@ -26,14 +26,14 @@ A common scenario among larger Azure customer is the need to provide a two-tiere
 * All traffic going to the application server must go through a firewall virtual appliance. This virtual appliance will be used for access to the backend end server, and access coming in from the on-premises network via a VPN Gateway.
 * Administrators must be able to manage the firewall virtual appliances from their on-premises computers, by using a third firewall virtual appliance used exclusively for management purposes.
 
-This is a standard DMZ scenario with a DMZ and a protected network. Such scenario can be constructed in Azure by using NSGs, firewall virtual appliances, or a combination of both. The table below shows some of the pros and cons between NSGs and firewall virtual appliances.
+This is a standard perimeter network (also knowns as DMZ) scenario with a DMZ and a protected network. Such scenario can be constructed in Azure by using NSGs,firewall virtual appliances, or a combination of both. The table below shows some of the pros and cons between NSGs and firewall virtual appliances.
 
 |  | Pros | Cons |
 | --- | --- | --- |
 | NSG |No cost. <br/>Integrated into Azure RBAC. <br/>Rules can be created in ARM templates. |Complexity could vary in larger environments. |
 | Firewall |Full control over data plane. <br/>Central management through firewall console. |Cost of firewall appliance. <br/>Not integrated with Azure RBAC. |
 
-The solution below uses firewall virtual appliances to implement a DMZ/protected network scenario.
+The solution below uses firewall virtual appliances to implement a perimeter network (DMZ)/protected network scenario.
 
 ## Considerations
 You can deploy the environment explained above in Azure using different features available today, as follows.
