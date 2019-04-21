@@ -39,7 +39,7 @@ When an RBAC role is assigned to an Azure AD security principal, Azure grants ac
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-To learn how to assign a built-in RBAC role to a security principal, see one of the following topics:
+To learn how to assign a built-in RBAC role to a security principal, see one of the following articles:
 
 - [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md)
 - [Grant access to Azure blob and queue data with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md)
