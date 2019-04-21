@@ -102,7 +102,7 @@ In this quickstart we'll primarily focus on distributed tables and getting famil
 
 The data model we're going to work with is simple: user and event data from GitHub. Events include fork creation, git commits related to an organization, and more.
 
-Once you've connected via psql let's create our tables:
+Once you've connected via psql let's create our tables. In the psql console run:
 
 ```sql
 CREATE TABLE github_events
@@ -131,7 +131,7 @@ CREATE TABLE github_users
 
 The `payload` field of `github_events` has a JSONB datatype. JSONB is the JSON datatype in binary form in Postgres. This makes it easy to store a more flexible schema in a single column.
 
-Postgres can create a `GIN` index on this type which will index every key and value within it. With a  index, it becomes fast and easy to query the payload with various conditions. Let's go ahead and create a couple of indexes before we load our data:
+Postgres can create a `GIN` index on this type which will index every key and value within it. With a  index, it becomes fast and easy to query the payload with various conditions. Let's go ahead and create a couple of indexes before we load our data. In psql:
 
 ```sql
 CREATE INDEX event_type_index ON github_events (event_type);
@@ -145,7 +145,7 @@ SELECT create_distributed_table('github_events', 'user_id');
 SELECT create_distributed_table('github_users', 'user_id');
 ```
 
-We're ready to load data. Download the two example files [users.csv](https://examples.citusdata.com/users.csv) and [events.csv](https://examples.citusdata.com/events.csv). After downloading the files, connect with psql and load the data with the `\copy` command:
+We're ready to load data. Download the two example files [users.csv](https://examples.citusdata.com/users.csv) and [events.csv](https://examples.citusdata.com/events.csv). After downloading the files, connect to the database using psql, being careful to run psql from the directory containing the files you downloaded. Load the data with the `\copy` command:
 
 ```sql
 \copy github_events from 'events.csv' WITH CSV
