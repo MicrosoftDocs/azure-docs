@@ -61,7 +61,7 @@ If you haven't already done so, download the sample Node.js project from https:/
 
 If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md), you can skip this step.
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## Register a device
 
@@ -131,7 +131,7 @@ Change `MyDevice` to the device ID you chose for your device.
 
 At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply reads the stdin on the terminal and sends it to the device, which will then echo it back. This demonstrates successful bidirectional communication between the two applications.
 
-![Service-side console output](./media/quickstart-device-streams-echo-nodejs/service-console-output.png)
+![Service-side console output](./media/quickstart-device-streams-echo-nodejs/service-console-output)
 
 You can then terminate the program by pressing enter again.
 
