@@ -8,6 +8,7 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/09/2019
+#Customer intent: As an developer, I want to design a hyperscale database so that my multi-tenant application runs efficiently for all tenants.
 ---
 
 # Tutorial: Design a Multi-Tenant Database by using Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
