@@ -103,37 +103,7 @@ In this example, the configuration contains the following items:
 * The [entry script](#script), which is used to handle web requests sent to the deployed service
 * The conda file that describes the Python packages needed to run inferencing
 
-#### <a id="customimage"></a> Use a custom base image
-
-Internally, InferenceConfig creates a Docker image that contains the model and other assets needed by the service. If not specified, a default base image is used.
-
-When creating an image to use with your inference configuration, the image must meet the following requirements:
-
-* Ubuntu 16.04 or greater.
-* Conda 4.5.# or greater.
-* Python 3.5.# or 3.6.#.
-
-To use a custom image, set the `base_image` property of the inference configuration to the address of the image. The following example demonstrates how to use an image from both a public and private Azure Container Registry:
-
-```python
-# use an image available in public Container Registry without authentication
-inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
-
-# or, use an image available in a private Container Registry
-inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
-inference_config.base_image_registry.address = "myregistry.azurecr.io"
-inference_config.base_image_registry.username = "username"
-inference_config.base_image_registry.password = "password"
-```
-
-For more information on uploading images to an Azure Container Registry, see [Push your first image to a private Docker container registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
-
-If your model is trained on Azure Machine Learning Compute, using __version 1.0.22 or greater__ of the Azure Machine Learning SDK, an image is created during training. The following example demonstrates how to use this image:
-
-```python
-# Use an image built during training with SDK 1.0.22 or greater
-image_config.base_image = run.properties["AzureML.DerivedImageName"]
-```
+For information on advanced InferenceConfiguration functionality, please click <a href="#advanced-config">here</a>.
 
 ### <a id="script"></a> Define your entry script
 
@@ -360,7 +330,77 @@ print(service.get_logs())
 
 **Time estimate:** Approximately 5 minutes.
 
-#### Autoscaling your AKS-deployed service <a id="autoscale-service"></a>
+## Consume web services
+To quickly test a web service deployment, you can invoke the WebService.run() method.
+
+Every deployed inference web service provides a REST API, so you can create client applications in a variety of programming languages. For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
+
+## <a id="update"></a> Update the web service
+
+When you create a new image, you must manually update each service that you want to use the new image. To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new image:
+
+```python
+from azureml.core.webservice import Webservice
+from azureml.core.model import Model
+
+# register new model
+new_model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
+                       model_name = "sklearn_mnist",
+                       tags = {"key": "0.1"},
+                       description = "test",
+                       workspace = ws)
+
+service_name = 'myservice'
+# Retrieve existing service
+service = Webservice(name = service_name, workspace = ws)
+
+# Update to new model(s)
+service.update(models = [new_model])
+print(service.state)
+```
+
+## Clean up
+To delete a deployed web service, use `service.delete()`.
+To delete a registered model, use `model.delete()`.
+
+For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+
+## Advanced configuration settings <a id="advanced-config"></a>
+
+### <a id="customimage"></a> Use a custom base image
+
+Internally, InferenceConfig creates a Docker image that contains the model and other assets needed by the service. If not specified, a default base image is used.
+
+When creating an image to use with your inference configuration, the image must meet the following requirements:
+
+* Ubuntu 16.04 or greater.
+* Conda 4.5.# or greater.
+* Python 3.5.# or 3.6.#.
+
+To use a custom image, set the `base_image` property of the inference configuration to the address of the image. The following example demonstrates how to use an image from both a public and private Azure Container Registry:
+
+```python
+# use an image available in public Container Registry without authentication
+inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+
+# or, use an image available in a private Container Registry
+inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
+inference_config.base_image_registry.address = "myregistry.azurecr.io"
+inference_config.base_image_registry.username = "username"
+inference_config.base_image_registry.password = "password"
+```
+
+For more information on uploading images to an Azure Container Registry, see [Push your first image to a private Docker container registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
+
+If your model is trained on Azure Machine Learning Compute, using __version 1.0.22 or greater__ of the Azure Machine Learning SDK, an image is created during training. The following example demonstrates how to use this image:
+
+```python
+# Use an image built during training with SDK 1.0.22 or greater
+image_config.base_image = run.properties["AzureML.DerivedImageName"]
+```
+
+
+### Autoscale your AKS-deployed service <a id="autoscale-service"></a>
 
 Autoscaling of your service can be controlled by setting `autoscale_target_utilization`, `autoscale_min_replicas`, and `autoscale_max_replicas` for the your deployed web service.
 
@@ -396,41 +436,6 @@ replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
 For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas`, see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
-
-## Consume web services
-To quickly test a web service deployment, you can invoke the WebService.run() method.
-
-Every deployed inference web service provides a REST API, so you can create client applications in a variety of programming languages. For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
-
-## <a id="update"></a> Update the web service
-
-When you create a new image, you must manually update each service that you want to use the new image. To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new image:
-
-```python
-from azureml.core.webservice import Webservice
-from azureml.core.model import Model
-
-# register new model
-new_model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
-                       model_name = "sklearn_mnist",
-                       tags = {"key": "0.1"},
-                       description = "test",
-                       workspace = ws)
-
-service_name = 'myservice'
-# Retrieve existing service
-service = Webservice(name = service_name, workspace = ws)
-
-# Update to new model(s)
-service.update(models = [new_model])
-print(service.state)
-```
-
-## Clean up
-To delete a deployed web service, use `service.delete()`.
-To delete a registered model, use `model.delete()`.
-
-For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## Other inference options
 
