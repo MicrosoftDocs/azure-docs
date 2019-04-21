@@ -123,7 +123,7 @@ CREATE TABLE campaigns (
 );
 ```
 
-Each campaign will pay to run ads, so add a table for ads too:
+Each campaign will pay to run ads. Add a table for ads too, by running the following code in psql after the code above:
 
 ```sql
 CREATE TABLE ads (
@@ -255,7 +255,7 @@ and can be shared. For instance, all companies in the example ad
 platform might want to get geographical information for their
 audience based on IP addresses.
 
-Create a table to hold shared geographic information:
+Create a table to hold shared geographic information. Run this in psql:
 
 ```sql
 CREATE TABLE geo_ips (
