@@ -22,7 +22,7 @@ Reinforcement Learning works by:
 * Providing contextual information about the environment and choices.
 * Providing feedback about how well the behavior achieves a certain goal.
 
-While there are many subtypes and styles of reinforcement learning, you can see how the general concept works in Personalizer:
+While there are many subtypes and styles of reinforcement learning, this is how the concept works in Personalizer:
 
 * Your application provides the opportunity to show one piece of content from a list of alternatives.
 * Your application provides information about each alternative and the context of the user.
@@ -32,9 +32,9 @@ Unlike some approaches to reinforcement learning, Personalizer does not require 
 
 ## What type of reinforcement learning algorithms does Personalizer use?
 
-The current version of Personalizer uses contextual bandits, an approach to reinforcement learning that is framed around making decisions or choices between discrete actions, in a given context.
+The current version of Personalizer uses **contextual bandits**, an approach to reinforcement learning that is framed around making decisions or choices between discrete actions, in a given context.
 
-The decision memory (the model that has been trained to capture the best possible decision, given a context) uses a set of linear models. These have repeatedly shown  business results and are a proven approach, partially because they can learn from the real world very rapidly without needing multi-pass training, and partially because they can complement supervised learning models and deep neural network models.
+The _decision memory_, the model that has been trained to capture the best possible decision, given a context, uses a set of linear models. These have repeatedly shown business results and are a proven approach, partially because they can learn from the real world very rapidly without needing multi-pass training, and partially because they can complement supervised learning models and deep neural network models.
 
 The explore/exploit traffic allocation is made randomly following the percentage set for exploration, and the default algorithm for exploration is epsilon-greedy.
 

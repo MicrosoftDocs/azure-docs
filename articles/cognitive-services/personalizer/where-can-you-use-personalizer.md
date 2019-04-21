@@ -46,7 +46,7 @@ Personalizer will learn best in situations where:
 
 ## Monitor effectiveness of Personalizer
 
-You can monitor the effectiveness of Personalizer periodically by performing offline evaluations.
+You can monitor the effectiveness of Personalizer periodically by performing [offline evaluations](concepts-offline-evaluation.md).
 
 ## Using Personalizer with Recommendation engines
 
