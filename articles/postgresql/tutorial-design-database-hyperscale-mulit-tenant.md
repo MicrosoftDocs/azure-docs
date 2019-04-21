@@ -95,7 +95,7 @@ Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) 
 
 Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) (preview) using psql, you can complete some basic tasks. This tutorial walks you through creating a web app that allows advertisers to track their campaigns.
 
-Multiple companies can use the app, so let's create a table to hold companies and another for their campaigns:
+Multiple companies can use the app, so let's create a table to hold companies and another for their campaigns. In the psql console, run these commands:
 
 ```sql
 CREATE TABLE companies (
@@ -176,7 +176,7 @@ CREATE TABLE impressions (
 );
 ```
 
-You can see the newly created tables in the list of tables now by typing:
+You can see the newly created tables in the list of tables now in psql by running:
 
 ```postgres
 \dt
@@ -202,7 +202,7 @@ SELECT create_distributed_table('impressions', 'company_id');
 
 ## Ingest sample data
 
-From the command line, download sample data sets:
+Outside of psql now, in the normal command line, download sample data sets:
 
 ```bash
 for dataset in companies campaigns ads clicks impressions geo_ips; do
@@ -210,7 +210,7 @@ for dataset in companies campaigns ads clicks impressions geo_ips; do
 done
 ```
 
-Back inside psql, bulk load the data:
+Back inside psql, bulk load the data. Be sure to run psql in the same directory where you downloaded the data files.
 
 ```sql
 \copy companies from 'companies.csv' with csv
@@ -227,7 +227,8 @@ This data will now be spread across worker nodes.
 When the application requests data for a single tenant, the database
 can execute the query on a single worker node. Single-tenant queries
 filter by a single tenant ID. For example, the following query
-filters `company_id = 5` for ads and impressions:
+filters `company_id = 5` for ads and impressions. Try running it in
+psql to see the results.
 
 ```sql
 SELECT a.campaign_id,
@@ -271,7 +272,7 @@ table on every worker node.
 SELECT create_reference_table('geo_ips');
 ```
 
-Load it with example data:
+Load it with example data. Remember to run this in psql from inside the directory where you downloaded the dataset.
 
 ```sql
 \copy geo_ips from 'geo_ips.csv' with csv
@@ -279,7 +280,7 @@ Load it with example data:
 
 Joining the clicks table with geo\_ips is efficient on all nodes.
 Here is a join to find the locations of everyone who clicked on ad
-290:
+290. Try running the query in psql.
 
 ```sql
 SELECT c.id, clicked_at, latlon
