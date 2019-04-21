@@ -21,7 +21,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Sign in users and call the Microsoft Graph API from an iOS native app
+# Quickstart: Sign in users and call the Microsoft Graph API from an iOS app
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -83,79 +83,47 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extract the zip file and open the project in XCode.
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following  code snippet:
->
->   ```swift
->   let kClientID = "Enter_the_Application_Id_here"
->   let kAuthority = "Enter_the_Authority_here"
->   ```
+>    ```swift
+>    let kClientID = "Enter_the_Application_Id_here"
+>    let kAuthority = "Enter_the_Authority_here"
+>    ```
 > 1. Press Control + click **Info.plist** to bring up the contextual menu, and then select **Open As** > **Source Code**.
 > 1. Under the dict root node, add the following code:
 >
-> ```xml
-> <key>CFBundleURLTypes</key>
-> <array>
->      <dict>
->         <key>CFBundleURLSchemes</key>
->         <array>
+>    ```xml
+>    <key>CFBundleURLTypes</key>
+>    <array>
+>       <dict>
+>          <key>CFBundleURLSchemes</key>
+>          <array>
 >             <string>msauth.Enter_the_Bundle_Id_Here</string>
->         </array>
->     </dict>
-> </array>
-> ```
-> 1. Add an entry inside `LSApplicationQueriesSchemes` in your ***Info.plist***:
->
-> ```xml 
-> <key>LSApplicationQueriesSchemes</key>
-> <array>
->    <string>msauth</string>
->    <string>msauthv2</string>
-> </array>
-> ```
+>          </array>
+>       </dict>
+>    </array>
+>    ```
 
 > [!div renderon="docs"]
 >
 > 1. Extract the zip file and open the project in XCode.
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following  code snippet:
 >
-> ```swift
-> let kClientID = "ENTER_YOUR_APPLICATION/CLIENT_ID"
-> ```
+>    ```swift
+>    let kClientID = "ENTER_YOUR_APPLICATION/CLIENT_ID"
+>    ```
 > 1. Press Control + click **Info.plist** to bring up the contextual menu, and then select **Open As** > **Source Code**.
 > 1. Under the dict root node, add the following code:
 >
-> ```xml
-> <key>CFBundleURLTypes</key>
-> <array>
->      <dict>
->         <key>CFBundleURLSchemes</key>
->         <array>
+>    ```xml
+>    <key>CFBundleURLTypes</key>
+>    <array>
+>       <dict>
+>          <key>CFBundleURLSchemes</key>
+>          <array>
 >             <string>msauth.<ENTER_YOUR_BUNDLE_ID></string>
->         </array>
->     </dict>
-> </array>
-> ```
-> 1. Add an entry inside `LSApplicationQueriesSchemes` in your ***Info.plist***:
->
-> ```xml 
-> <key>LSApplicationQueriesSchemes</key>
-> <array>
->    <string>msauth</string>
->    <string>msauthv2</string>
-> </array>
-> ```
->
-> 1. Add the following to your `AppDelegate` implementation. This lets MSAL SDK handle token response from the Auth broker app when you perform authentication.
->
-> ```
-> func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
->         
->         guard let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String else {
->             return false
->         }
->         
->         return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApplication)
->     }
-> ```
+>          </array>
+>       </dict>
+>    </array>
+>    ```
 
 ## More Information
 
@@ -200,7 +168,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 > | `authority` | The Microsoft identity platform endpoint. In most of cases this will be *https<span/>://login.microsoftonline.com/common* |
 > | `redirectUri` | The redirect URI of the application. You can pass 'nil' to use the default value, or your custom redirect URI. |
 
-Finally, your app must have the following in your `AppDelegate`. This lets MSAL SDK handle token response from the Auth broker app when you perform authentication.
+Your app must have the following in your `AppDelegate`. This lets MSAL SDK handle token response from the Auth broker app when you perform authentication.
 
  ```swift
  func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -211,6 +179,16 @@ Finally, your app must have the following in your `AppDelegate`. This lets MSAL 
          return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApplication)
      }
 ```
+
+Finally, your app must has an `LSApplicationQueriesSchemes` entry in your ***Info.plist*** alongside the `CFBundleURLTypes`. The sample comes with this included. 
+
+   ```xml 
+   <key>LSApplicationQueriesSchemes</key>
+   <array>
+      <string>msauth</string>
+      <string>msauthv2</string>
+   </array>
+   ```
 
 ### Requesting tokens
 
@@ -232,7 +210,7 @@ applicationContext.acquireToken(with: parameters) { (result, error) in /* Add yo
 
 > |Where:||
 > |---------|---------|
-> | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`)) |
+> | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs  (`api://<Application ID>/access_as_user`) |
 
 #### Getting an access token silently
 
@@ -245,8 +223,8 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in /* 
 
 > |Where: ||
 > |---------|---------|
-> | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`)) |
-> | `account` | The account requesting the token. This quickstart is a single account application (one account signed in at a time).  If you want to build a multi-account app you'll need to incorporate logic to identify a specific account. (`applicationContext.account(forHomeAccountId: self.homeAccountId)`) |
+> | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (`api://<Application ID>/access_as_user`) |
+> | `account` | The account requesting the token. This quickstart is a single account application (one account signed in at a time).  If you want to build a multi-account app you'll need to incorporate logic to identify a specific account `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
 
 ## Next steps
 
