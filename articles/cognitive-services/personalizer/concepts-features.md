@@ -180,7 +180,7 @@ In some cases, there are actions that you don't want to display to users. The be
 
 In some cases, it can only be determined later in your business logic if a resulting _action_ of a Rank API call is to be shown to a user. For these cases, you should use _Inactive Events_.
 
-### JSON format for actions
+## JSON format for actions
 
 When calling Rank, you will send multiple actions to choose from:
 
