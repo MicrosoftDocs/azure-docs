@@ -23,7 +23,7 @@
     href: csharp-quickstart-commandline-feedback-loop.md
 - name: How-to guides
   items: 
-  - name: Configuring Personalizer
+  - name: Configure Personalizer
     href: how-to-settings.md
   - name: Use containers
     items:
