@@ -28,8 +28,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 The preview of device streams is currently only supported for IoT Hubs created in the following regions:
 
-  - **Central US**
-  - **Central US EUAP**
+*  **Central US**
+*  **Central US EUAP**
 
 The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 2.1.0 or greater on your development machine.
 
@@ -95,6 +95,8 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## Communicate between device and service via device streams
 
+In this section, you run both the device-side application and the service-side application and communicate between the two.
+
 ### Run the service-side application
 
 Navigate to `iot-hub/Quickstarts/device-streams-echo/service` in your unzipped project folder. You will need the following information handy:
@@ -150,7 +152,8 @@ dotnet run <DeviceConnectionString>
 At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply echoes back the same data to the device, demonstrating successful bidirectional communication between the two applications. See figure below.
 
 Console output on the device-side:
-![alt text](./media/quickstart-device-streams-echo-csharp/device-console-output.png "Console output on the device-side")
+
+![Device-side console output](./media/quickstart-device-streams-echo-csharp/device-console-output.png)
 
 Console output on the service-side:
 ![alt text](./media/quickstart-device-streams-echo-csharp/service-console-output.png "Console output on the service-side")

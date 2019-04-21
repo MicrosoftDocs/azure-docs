@@ -36,8 +36,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 The preview of device streams is currently only supported for IoT Hubs created in the following regions:
 
-  - **Central US**
-  - **Central US EUAP**
+*  **Central US**
+*  **Central US EUAP**
 
 To run the service-side application in this quickstart you need Node.js v4.x.x or later on your development machine.
 
@@ -57,13 +57,11 @@ az extension add --name azure-cli-iot-ext
 
 If you haven't already done so, download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip and extract the ZIP archive.
 
-
 ## Create an IoT hub
 
 If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md), you can skip this step.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
-
 
 ## Register a device
 
@@ -81,7 +79,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-2. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
+2. You also need a *service connection string* to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
@@ -93,54 +91,53 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
-
 ## Communicate between device and service via device streams
+
+In this section, you run both the device-side application and the service-side application and communicate between the two.
 
 ### Run the device-side application
 
 As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the service side. For device-side application, use the accompanying device programs available in [C quickstart](./quickstart-device-streams-echo-c.md) or [C# quickstart](./quickstart-device-streams-echo-csharp.md) guides. Ensure the device-side application is running before proceeding to the next step.
 
-
 ### Run the service-side application
 
 Assuming the device-side application is running, follow the steps below to run the service-side application in Node.js:
 
-- Provide your service credentials and device ID as environment variables.
-  ```
-  # In Linux
-  export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
-  export STREAMING_TARGET_DEVICE="MyDevice"
+* Provide your service credentials and device ID as environment variables.
+ 
+   ```
+   # In Linux
+   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export STREAMING_TARGET_DEVICE="MyDevice"
 
-  # In Windows
-  SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
-  SET STREAMING_TARGET_DEVICE=MyDevice
-  ```
-  Change `MyDevice` to the device ID you chose for your device.
-
-- Navigate to `Quickstarts/device-streams-service` in your unzipped project folder and run the sample using node.
-  ```
-  cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
+   # In Windows
+   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET STREAMING_TARGET_DEVICE=MyDevice
+   ```
   
-  # Install the preview service SDK, and other dependencies
-  npm install azure-iothub@streams-preview
-  npm install
+Change `MyDevice` to the device ID you chose for your device.
 
-  node echo.js
-  ```
+* Navigate to `Quickstarts/device-streams-service` in your unzipped project folder and run the sample using node.
+
+   ```
+   cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
+    
+   # Install the preview service SDK, and other dependencies
+   npm install azure-iothub@streams-preview
+   npm install
+
+   node echo.js
+   ```
 
 At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply reads the stdin on the terminal and sends it to the device, which will then echo it back. This demonstrates successful bidirectional communication between the two applications.
 
-Console output on the service-side:
-![alt text](./media/quickstart-device-streams-echo-nodejs/service-console-output.PNG "Console output on the service-side")
-
+![Service-side console output](./media/quickstart-device-streams-echo-nodejs/service-console-output.png)
 
 You can then terminate the program by pressing enter again.
-
 
 ## Clean up resources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
-
 
 ## Next steps
 

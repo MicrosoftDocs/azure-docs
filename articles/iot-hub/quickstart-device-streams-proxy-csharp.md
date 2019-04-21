@@ -18,7 +18,7 @@ ms.author: rezas
 
 Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart guide involves two C# programs that enable client/server application traffic (such as SSH and RDP) to be sent over a device stream established through IoT Hub. See [here](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) for an overview of the setup.
+[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart guide involves two C# programs that enable client/server application traffic (such as SSH and RDP) to be sent over a device stream established through IoT Hub. See [Local Proxy Sample for SSH or RDP](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) for an overview of the setup.
 
 We first describe the setup for SSH (using port 22). We then describe how to modify the setup's port for RDP. Since device streams are application and protocol agnostic, the same sample can be modified to accommodate other types of application traffic. This usually only involves changing the communication port to the one used by the intended application.
 
@@ -26,18 +26,18 @@ We first describe the setup for SSH (using port 22). We then describe how to mod
 
 Figure below illustrates the setup of how the device- and service-local proxy programs in this sample will enable end-to-end connectivity between SSH client and SSH daemon. Here, we assume that the daemon is running on the same device as the device-local proxy.
 
-![Alt text](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "Local proxy setup")
+![Local proxy setup](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg)
 
 1. Service-local proxy connects to IoT hub and initiates a device stream to the target device using its device ID.
 
 2. Device-local proxy completes the stream initiation handshake and establishes an end-to-end streaming tunnel through IoT Hub's streaming endpoint to the service side.
 
-3. Device-local proxy connects to the SSH daemon (SSHD) listening on port 22 on the device (this port is configurable, as described [below](#run-the-device-local-proxy)).
+3. Device-local proxy connects to the SSH daemon (SSHD) listening on port 22 on the device (this port is configurable, as described [in the Run the Device Local Proxy section](#run-the-device-local-proxy).
 
-4. Service-local proxy awaits for new SSH connections from the user by listening on a designated port which in this case is port 2222 (this is also configurable, as described [below](#run-the-service-local-proxy)). When user connects via SSH client, the tunnel enables application traffic to be exchanged between the SSH client and server programs.
+4. Service-local proxy awaits for new SSH connections from the user by listening on a designated port which in this case is port 2222 (this is also configurable, as described [in the Run The Service Local Proxy section](#run-the-service-local-proxy). When user connects via SSH client, the tunnel enables application traffic to be exchanged between the SSH client and server programs.
 
 > [!NOTE]
-> SSH traffic being sent over the stream will be tunneled through IoT Hub's streaming endpoint rather than being sent directly between service and device. This provides [these benefits](./iot-hub-device-streams-overview.md#benefits).
+> SSH traffic being sent over the stream will be tunneled through IoT Hub's streaming endpoint rather than being sent directly between service and device. For more information, see the section on [Device Streams benefits](./iot-hub-device-streams-overview.md#benefits).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -47,12 +47,12 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 The preview of device streams is currently only supported for IoT Hubs created in the following regions:
 
-  - **Central US**
-  - **Central US EUAP**
+*  **Central US**
+*  **Central US EUAP**
 
 The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 2.1.0 or greater on your development machine.
 
-You can download the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
+You can download the [.NET Core SDK for multiple platforms from .NET](https://www.microsoft.com/net/download/all).
 
 You can verify the current version of C# on your development machine using the following command:
 
@@ -111,7 +111,6 @@ A device must be registered with your IoT hub before it can connect. In this qui
     Make a note of the returned value, which looks like this:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
-    
 
 ## SSH to a device via device streams
 
@@ -169,7 +168,7 @@ dotnet run %serviceConnectionString% MyDevice 2222
 
 ### Run SSH client
 
-Now use your SSH client program and connect to service-local proxy on port 2222 (instead of the SSH daemon directly). 
+Now use your SSH client program and connect to service-local proxy on port 2222 (instead of the SSH daemon directly).
 
 ```
 ssh <username>@localhost -p 2222
@@ -179,16 +178,15 @@ At this point, you will be presented with the SSH login prompt to enter your cre
 
 Console output on the service-side (the service-local proxy listens on port 2222):
 
-![Alt text](./media/quickstart-device-streams-proxy-csharp/service-console-output.png "Service-local proxy output")
+![Service-local proxy output](./media/quickstart-device-streams-proxy-csharp/service-console-output.png)
 
 Console output on the device-local proxy which connects to the SSH daemon at `IP_address:22`:
 
-![Alt text](./media/quickstart-device-streams-proxy-csharp/device-console-output.png "Device-local proxy output")
+![Device-local proxy output](./media/quickstart-device-streams-proxy-csharp/device-console-output.png)
 
 Console output of the SSH client program (SSH client communicates to SSH daemon by connecting to port 22 where service-local proxy is listening on):
 
-![Alt text](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "SSH client program output")
-
+![SSH client program output](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png)
 
 ## RDP to a device via device streams
 
@@ -247,7 +245,7 @@ dotnet run %serviceConnectionString% MyDevice 2222
 
 Now use your RDP client program and connect to service-local proxy on port 2222 (this was an arbitrary available port you chose earlier).
 
-![Alt text](./media/quickstart-device-streams-proxy-csharp/rdp-screen-capture.PNG "RDP connects to serivce-local proxy")
+![RDP connects to service-local proxy](./media/quickstart-device-streams-proxy-csharp/rdp-screen-capture.png)
 
 ## Clean up resources
 
