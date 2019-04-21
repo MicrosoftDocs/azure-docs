@@ -221,37 +221,14 @@ Changes from API V2:
 * `datetimeV2.timex.type` property is no longer returned because it is returned at the parent level, `datetimev2.type`. 
 * The `datetimeV2.timex` property has been renamed to `datetimeV2.value`.
 
-V3 version of DatetimeV2 is:
+For the utterance, `8am on may 2nd 2017`, the V3 version of DatetimeV2 is:
 
 ```JSON
-"entities": [
-    "datetimeV2": [
-        {
-            "type": "date",
-            "values": [
-                {
-                    "timex": "2019-05-06",
-                    "value": "2019-05-06"
-                }
-            ]
-        }
-    ]
-]
-```
-
-The following JSON is with the `verbose` parameter set to `false`:
-
-```json
 {
     "query": "8am on may 2nd 2017",
     "prediction": {
         "normalizedQuery": "8am on may 2nd 2017",
         "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.6826963
-            }
-        },
         "entities": {
             "datetimeV2": [
                 {
@@ -266,7 +243,7 @@ The following JSON is with the `verbose` parameter set to `false`:
 }
 ```
 
-The following JSON is with the `verbose` parameter set to `true`:
+The following JSON is with the `verbose` parameter set to `false`:
 
 ```json
 {
@@ -291,15 +268,14 @@ The following JSON is with the `verbose` parameter set to `true`:
             "$instance": {
                 "datetimeV2": [
                     {
-                        "type": "builtin.datetimeV2.datetime",
-                        "text": "8am on may 2nd 2017",
-                        "startIndex": 0,
-                        "length": 19,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
-                ]
-            }
+                    "type": "builtin.datetimeV2.datetime",
+                    "text": "8am on may 2nd 2017",
+                    "startIndex": 0,
+                    "length": 19,
+                    "modelTypeId": 2,
+                    "modelType": "Prebuilt Entity Extractor"
+                }
+            ],
         }
     }
 }

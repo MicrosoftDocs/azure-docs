@@ -254,15 +254,42 @@ Send in the following JSON body to mark the person's name, `Hazem`, as an extern
         {
             "entityName":"my-entity-name-already-in-LUIS-app",
             "startIndex": 5,
-            "entityLength": 5
+            "entityLength": 5,
+            "resolution": {
+                "employee": "program manager",
+                "type": "individual contributor"
+            }
         }
     ]
 }
 ```
 
+The prediction response includes that external entity, with all the other predicted entities, because it is defined in the request.  
+
+#### Entity already exists in app
+
 The entity name, `my-entity-name-already-in-LUIS-app`, exists in the trained and published app at the time the request is made. The type of entity doesn't matter, all types are supported.
 
-The prediction response includes that external entity, with all the other predicted entities, because it is defined in the request.  
+#### Resolution
+
+The _optional_ `resolution` property returns in the prediction response, allowing you to pass in the metadata associated with the external entity, then receive it back out in the response. 
+
+The primary purpose is to extend prebuilt entities but it is not limited to that entity type. 
+
+The `resolution` property can be a number, a string, an object, or an array:
+
+* "Dallas"
+* {"text": "value"}
+* 12345 
+* ["a", "b", "c"]
+
+<!--
+Returned JSON response is:
+
+```JSON
+not sure what to do here
+```
+-->
 
 ## Dynamic lists passed in at prediction time
 
@@ -398,8 +425,9 @@ LUIS doesn't split into segments when:
 
 ## Marking placement of entities in utterances
 
-In V2, an entity was marked in an utterance with the `startIndex` and `endIndex`. 
-In V3, the entity is marked with `startIndex` and `entityLength`.
+**In V2**, an entity was marked in an utterance with the `startIndex` and `endIndex`. 
+
+**In V3**, the entity is marked with `startIndex` and `entityLength`.
 
 
 ## Next steps
