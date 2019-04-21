@@ -26,19 +26,19 @@ To register services, you can create a configure method and add components to an
 To specify your configure method, you must create an assembly attribute that specifies the type for your configure method using the `FunctionStartup` attribute.
 
 ```csharp
-[assembly: FunctionAppStartup(typeof(Startup))]
+[assembly: FunctionAppStartup(typeof(MyNamespace.Startup))]
 
 namespace MyNamespace
 {
-    class Startup : IFunctionAppStartup
+    public class Startup : FunctionsStartup
     {
-        public void Configure(IFunctionAppBuilder builder)
+        public override void Configure(IFunctionsHostBuilder builder)
         {
             builder.Services.AddHttpClient();
             builder.Services.AddSingleton((s) => {
                 return new CosmosClient(Environment.GetEnvironmentVariable("COSMOSDB_CONNECTIONSTRING"));
             });
-            builder.Services.AddSingleton<ILoggerFactory, MyLoggerFactor>();
+            builder.Services.AddSingleton<ILoggerProvider, MyLoggerProvider>();
         }
     }
 }
