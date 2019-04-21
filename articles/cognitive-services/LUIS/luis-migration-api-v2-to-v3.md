@@ -335,7 +335,7 @@ The prediction response includes that list entity, with all the other predicted 
 
 ## Detect multiple intents within single utterance
 
-This feature identifies multiple intents from as utterance, enabling better understanding of complex and compound utterances that include more than one action.
+This feature identifies multiple intents from as utterance, enabling better understanding of complex and compound utterances that include more than one action. There is not prerequisite, or change needed to support this, in the LUIS app for this feature to work. It happens at the query prediction runtime if the associated query string parameter is passed in. 
 
 The V3 query prediction endpoint supports multi-intent query predictions if `multiple-segments=true` is passed in the query string. This means each sentence can have its own intent prediction.
 
