@@ -84,6 +84,6 @@ Azure Files supports authentication with Azure AD over SMB for domain-joined VMs
 
 ## Next steps
 
-- [Azure Storage support for Azure Active Directory based access control generally available](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)
 - [Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md)
 - [Authenticate with Azure Active Directory from an application for access to blobs and queues](storage-auth-aad-app.md)
+- [Azure Storage support for Azure Active Directory based access control generally available](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)
