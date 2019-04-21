@@ -72,7 +72,7 @@ model = Model.register(model_path = "sklearn_mnist.pkl",
 **Using the CLI**
 
 ```azurecli
-az ml model register -n mymodel -p sklearn_mnist_model.pkl
+az ml model register -n sklearn_mnist -p sklearn_mnist_model.pkl
 ```
 
 **Time estimate**: Approximately 10 seconds.
@@ -182,12 +182,11 @@ The following example script accepts and returns JSON data.
 
 **Scikit-learn example with Swagger generation:**
 ```python
+import pickle
 import json
 import numpy as np
-import os
-import pickle
 from sklearn.externals import joblib
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import Ridge
 from azureml.core.model import Model
 
 from inference_schema.schema_decorators import input_schema, output_schema
@@ -196,17 +195,22 @@ from inference_schema.parameter_types.numpy_parameter_type import NumpyParameter
 def init():
     global model
     model_path = Model.get_model_path('sklearn_mnist')
+    # deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
-input_sample = np.array([[1.8]])
-output_sample = np.array([43638.88])
+input_sample = np.array([[10,9,8,7,6,5,4,3,2,1]])
+output_sample = np.array([3726.995])
 
 @input_schema('data', NumpyParameterType(input_sample))
 @output_schema(NumpyParameterType(output_sample))
-def run(raw_data):
-    data = np.array(json.loads(raw_data)['data'])
-    y_hat = model.predict(data)
-    return {"result": y_hat.tolist()}
+def run(data):
+    try:
+        result = model.predict(data)
+        # you can return any datatype as long as it is JSON-serializable
+        return result.tolist()
+    except Exception as e:
+        error = str(e)
+        return error
 ```
 
 For more example scripts, see the following examples:
@@ -214,7 +218,6 @@ For more example scripts, see the following examples:
 * Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
 * TensorFlow: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 * Keras: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
-* Image classification with raw binary input: **TODO**
 
 ## <a id="deploy"></a> Deploy to the cloud
 
@@ -282,11 +285,12 @@ For more information, see the reference documentation for the [AciWebservice](ht
 ### <a id="aks"></a> Deploy to Azure Kubernetes Service (PRODUCTION)
 
 You can use an existing AKS cluster or create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
-
 Creating an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments.
 
 > [!IMPORTANT]
-> If you delete the cluster, then you must create a new cluster the next time you need to deploy.
+> If you have already created or attached an AKS cluster go <a href="#deploy-aks">here</a>.
+
+#### Create or attach an AKS cluster <a id="create-attach-aks"></a>
 
 #### Create a new cluster
 
@@ -336,7 +340,15 @@ attach_config = AksCompute.attach_configuration(resource_group = resource_group,
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 ```
 
+
 #### Deploy to AKS <a id="deploy-aks"></a>
+
+You can deploy to AKS with the Azure ML CLI:
+```azurecli-interactive
+az ml model deploy -ct myaks -ic inferenceconfig.json -dc deploymentconfig.json
+```
+
+You can also use the Python SDK:
 ```python
 aks_target = AksCompute(ws,"myaks")
 deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
@@ -346,11 +358,13 @@ print(service.state)
 print(service.get_logs())
 ```
 
-**Time estimate**: Approximately 5 minutes.
+**Time estimate:** Approximately 5 minutes.
 
-#### Autoscaling your AKS cluster
-Autoscaling of your service can be controlled by setting `autoscale_target_utilization`, `autoscale_min_replicas`, and `autoscale_max_replicas` for the AKS web service. The following example demonstrates how to enable autoscaling:
+#### Autoscaling your AKS-deployed service <a id="autoscale-service"></a>
 
+Autoscaling of your service can be controlled by setting `autoscale_target_utilization`, `autoscale_min_replicas`, and `autoscale_max_replicas` for the your deployed web service.
+
+The following example demonstrates how to enable autoscaling:
 ```python
 deployment_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
                                                 autoscale_target_utilization=30,
@@ -381,27 +395,12 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas`, see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-) reference.
+For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas`, see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
 
+## Consume web services
+To quickly test a web service deployment, you can invoke the WebService.run() method.
 
-## Consume web service deployments
-
-To quickly test a web service deployment, you can use the `run` method of the Webservice object. In the following example, a JSON document is set to a web service and the result is displayed. The data sent must match what the model expects. In this example, the data format matches the input expected by the diabetes model.
-
-```python
-import json
-
-test_sample = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10],
-    [10,9,8,7,6,5,4,3,2,1]
-]})
-test_sample = bytes(test_sample,encoding = 'utf8')
-
-prediction = service.run(input_data = test_sample)
-print(prediction)
-```
-
-The web service also provides a REST API, so you can create client applications in a variety of programming languages. For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
+Every deployed inference web service provides a REST API, so you can create client applications in a variety of programming languages. For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
 
 ## <a id="update"></a> Update the web service
 
@@ -426,7 +425,6 @@ service = Webservice(name = service_name, workspace = ws)
 service.update(models = [new_model])
 print(service.state)
 ```
-
 
 ## Clean up
 To delete a deployed web service, use `service.delete()`.
