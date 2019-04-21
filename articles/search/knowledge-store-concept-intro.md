@@ -13,9 +13,9 @@ ms.author: heidist
 ---
 # What is Knowledge Store in Azure Search?
 
-Knowledge Store is an optional feature of Azure Search, currently in public preview, that persists enriched documents and metadata created by an AI-based indexing pipeline (cognitive search). Knowledge Store is backed by an Azure storage account that you configure as part of the pipeline. When enabled, the search service uses this storage account to cache a representation of each enriched document. 
+Knowledge Store is an optional feature of Azure Search, currently in public preview, that saves enriched documents and metadata created by an AI-based indexing pipeline (cognitive search). Knowledge Store is backed by an Azure storage account that you configure as part of the pipeline. When enabled, the search service uses this storage account to cache a representation of each enriched document. 
 
-If you have used [cognitive search](cognitive-search-concept-intro.md) in the past, what Knowledge Store gives you are a way to peek inside the "black box" of AI-based indexing to see what an enriched document looks like. Enriched documents are consumable by Azure Search (same as before) but can also be viewed in [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) or any app that connects to Azure storage.
+If you have used [cognitive search](cognitive-search-concept-intro.md) in the past, what Knowledge Store gives you is a way to peek inside the "black box" of AI-based indexing to see what an enriched document looks like. Enriched documents are consumable by Azure Search (same as before) but can also be viewed in [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) or any app that connects to Azure storage.
 
 ![Knowledge Store in pipeline diagram](./media/knowledge-store-concept-intro/pipeline-knowledge-store.png "Knowledge Store in pipeline diagram")
 
@@ -29,20 +29,20 @@ Although its useful to see what an AI-based indexing pipeline can produce, the r
 
 Enumerated, the benefits of Knowledge Store include the following:
 
++ Consume enriched documents in [analytics and reporting tools ](#tools-and-apps) other than search. Power BI with Power Query is a compelling choice, but any tool or app that can connect to Azure storage can pull from a knowledge store that you create.
+
 + Refine an AI-indexing pipeline while debugging steps and skillset definitions. A knowledge store shows you the product of a skillset definition in an AI-indexing pipeline. You can use those results to design a better skillset because you can see exactly what the enrichments look like. You can use [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) in Azure storage to view the contents of a knowledge store.
 
 + Shape the data into new forms. The reshaping is codified in skillsets, but the point is that a skillset can now provide this capability. The [Shaper skill](cognitive-search-skill-shaper.md) in Azure Search has been extended to accommodate this task.
-
-+ Consume raw annotations in analytics and reporting tools other than search. Power BI with Power Query is a compelling choice, but any [tool or app](#tools-and-apps) that can connect to Azure storage can pull from a knowledge store that you create.
 
 > [!Note]
 > Not familiar with AI-based indexing using Cognitive Services? Azure Search integrates with Cognitive Services Vision and Language features to extract and rich source data using Optical Character Recognition (OCR) over image files, entity recognition and key phrase extraction from text files, and more. For more information, see [What is cognitive search](cognitive-search-concept-intro.md).
 
 ## Create a knowledge store
 
-A knowledge store is part of a skillset definition. In this preview, creating it requires the REST API, using `api-version=2019-05-06-Preview`.
+A knowledge store is part of a skillset definition. In this preview, creating it requires the REST API, using `api-version=2019-05-06-Preview` or the **Import data** wizard in the portal.
 
-The following JSON specifies a `knowledgeStore`, which is part of a skillset, which is invoked by an indexer (not shown). The specification of `knowledgeStore` determines whether tables or objects are created in Azure storage.
+The following JSON specifies a `knowledgeStore`, which is part of a skillset, which is invoked by an indexer (not shown). The specification of projections within the `knowledgeStore` determines whether tables or objects are created in Azure storage.
 
 If you are already familiar with AI-based indexing, the skillset definition determines the creation, organization, and substance of each enriched document.
 
@@ -128,7 +128,7 @@ Azure Search provides the indexer feature, and indexers are used to drive the en
 | Object | REST API | Description |
 |--------|----------|-------------|
 | data source | [Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | A resource identifying an external Azure data source providing source data used to create enriched documents.  |
-| skillset | [Create Skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | A resource coordinating the use of [built-in skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. |
+| skillset | [Create Skillset (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | A resource coordinating the use of [built-in skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. |
 | index | [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | A schema expressing an Azure Search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
 | indexer | [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search corpus based on the index schema, populated with source data, enriched through skillsets.  |
 
@@ -161,7 +161,7 @@ Within the storage account, the enrichments can be expressed as tables within Az
 
 + Blob storage creates one all-inclusive JSON representation of each document. You can use both storage options in one skillset to get a full range of expressions.
 
-+ Azure Search persists content in an Azure Search index. You can use Search explorer, Postman, or you can write code that renders search results in an app. An index is required to run an indexer, but once you have enriched documents and if you no longer need the indexer, you can delete all of Azure Search objects (index, data source, indexer, skillset) to save space in your service.
++ Azure Search persists content in an index. If your scenario is non-search-related, for example if your objective is analysis in another tool, you can delete the index that the pipeline creates. Currently, an indexer requires an index to exist, even if you never plan to use it.  
 
 Along with document contents, enriched documents include the metadata of the skillset version that produced the enrichments.  
 
@@ -170,7 +170,7 @@ Along with document contents, enriched documents include the metadata of the ski
 The knowledge store consists of an annotation cache and projections. The *cache* is used by the service internally to cache the results from skills and track changes. A *projection* defines the schema and structure of the enrichments that match your intended use. 
 Within Azure storage, projections can be articulated as tables or objects:
 
-+ As an object, the projection maps to Blob storage, where the projection is a container, within which are the objects or hierarchical representations in JSON for scenarios like a data science pipeline.
++ As an object, the projection maps to Blob storage, where the projection is saved to a container, within which are the objects or hierarchical representations in JSON for scenarios like a data science pipeline.
 
 + As a table, the projection maps to Table storage. A tabular representation preserves relationships for scenarios like data analysis or export as data frames for machine learning. The enriched projections can then be easily imported into other data stores. 
 
@@ -183,6 +183,8 @@ For instance, if one of the goals of the enrichment process is to also create a 
 Each time you run the indexer, the cache in Azure storage is updated if the skillset definition or underlying source data has changed. As input documents are edited or deleted, changes are propagated through the annotation cache to the projections, ensuring that your projected data is a current representation of your inputs at the end of the indexer run. 
 
 Generally speaking, pipeline processing can be an all-or-nothing operation, but Azure Search can process incremental changes, which saves you time and money.
+
+If a document is new or updated, all skills are run. If only the skillset changes, reprocessing is scoped to just those skills and documents affected by your edit.
 
 ### Changes to a skillset
 Suppose that you have a pipeline composed of multiple skills, operating over a large body of static data (for example, scanned documents), that takes 8 hours and costs $200 to create the knowledge store (hypothetical). Now suppose you need to tweak one of the skills in the skillset. Rather than starting over, Azure Search can determine which skill is affected, and reprocess only that skill. Cached data and projections that are unaffected by the change remain intact in the knowledge store.
