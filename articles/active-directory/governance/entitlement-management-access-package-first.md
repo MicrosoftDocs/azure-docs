@@ -30,7 +30,7 @@ ms.collection: M365-identity-device-management
 
 Managing access to all the resources employees need, such as groups, applications, and sites, is an important function for organizations. You want to grant employees the right level of access they need to be productive and remove their access when it is no longer needed.
 
-In this tutorial, you work for Woodgrove Bank as an IT administrator. You've been asked to create a package of resources for a web project that internal users can self-service request. Requests require approval and user's access expires after 30 days. For this tutorial, the web project resources are just membership a single group, but it could be a collection of groups, applications, or SharePoint Online sites.
+In this tutorial, you work for Woodgrove Bank as an IT administrator. You've been asked to create a package of resources for a web project that internal users can self-service request. Requests require approval and user's access expires after 30 days. For this tutorial, the web project resources are just membership in a single group, but it could be a collection of groups, applications, or SharePoint Online sites.
 
 ![Scenario overview](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
