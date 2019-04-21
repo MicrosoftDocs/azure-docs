@@ -56,10 +56,9 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview]() article. T
    ```bash
    az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<Your_Azure_subscription_ID>/resourceGroups/<Your_resource_group_name>"
    ```
-
    This command outputs the details of a service principal, for example:
-
-`  ```
+   
+   ```
    Retrying role assignment creation: 1/36
    {
      "appId": "8415a4e9-4f83-46ca-a704-107457b2e3ab",
