@@ -76,12 +76,14 @@ The V3 API has different query string parameters.
 ### The query prediction JSON body for the `POST` request
 
 ```JSON
-"query":"your utterance here",
-"options":{
-    "timezoneOffset": "-8:00"
-},
-"externalEntities":[],
-"dynamicLists":[]
+{
+    "query":"your utterance here",
+    "options":{
+        "timezoneOffset": "-8:00"
+    },
+    "externalEntities":[],
+    "dynamicLists":[]
+}
 ```
 
 ## Response changes
@@ -93,22 +95,26 @@ The query response JSON changed to allow greater programmatic access to the data
 The top JSON properties for V2 are, when `verbose` is set to true, which returns all intents and their scores in the `intents` property:
 
 ```JSON
-"query":"this is your utterance you want predicted",
-"topScoringIntent":{},
-"intents":[],
-"entities":[],
-"compositeEntities":[]
+{
+    "query":"this is your utterance you want predicted",
+    "topScoringIntent":{},
+    "intents":[],
+    "entities":[],
+    "compositeEntities":[]
+}
 ```
 
 The top JSON properties for V3 are:
 
 ```JSON
-"query": "this is your utterance you want predicted",
-"prediction":{
-    "normalizedQuery": "this is your utterance you want predicted - after normalization",
-    "topIntent": "intent-name-1",
-    "intents": {}, 
-    "entities":{}
+{
+    "query": "this is your utterance you want predicted",
+    "prediction":{
+        "normalizedQuery": "this is your utterance you want predicted - after normalization",
+        "topIntent": "intent-name-1",
+        "intents": {}, 
+        "entities":{}
+    }
 }
 ```
 
@@ -227,7 +233,7 @@ This is useful for an entity that has data available only at query prediction ru
 
 `Send Hazem a new message`, where `Hazem` is directly matched as one of the user’s contacts.
 
-In a [multi-intent](#multi-intent-prediction) utterance, you can use the external entity data to help with secondary references. For example, in the utterance `Send Hazem a new message, and let him know about the party.`, two segments of the utterance are predicted:
+In a [multi-intent](#detect-multiple-intents-within-single-utterance) utterance, you can use the external entity data to help with secondary references. For example, in the utterance `Send Hazem a new message, and let him know about the party.`, two segments of the utterance are predicted:
 
 * `Send Hazem a new message, and`
 * `let him know about the party.`
