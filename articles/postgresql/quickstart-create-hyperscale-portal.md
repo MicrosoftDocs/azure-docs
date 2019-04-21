@@ -60,7 +60,7 @@ The Azure Database for PostgreSQL – Hyperscale (Citus) (preview) service uses 
 
 4. Click the link **+ Add firewall rule for current client IP address**. Finally, click the **Save** button.
 
-4. Click **Save**.
+5. Click **Save**.
 
    > [!NOTE]
    > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 5432.
@@ -68,7 +68,7 @@ The Azure Database for PostgreSQL – Hyperscale (Citus) (preview) service uses 
 
 ## Connect to the database using psql in Cloud Shell
 
-Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) command-line utility to connect to the Azure Database for PostgreSQL server. 
+Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) command-line utility to connect to the Azure Database for PostgreSQL server.
 1. Launch the Azure Cloud Shell via the terminal icon on the top navigation pane.
 
    ![Azure Database for PostgreSQL - Azure Cloud Shell terminal icon](./media/quickstart-create-hyperscale-portal/psql-cloud-shell.png)
@@ -131,14 +131,14 @@ CREATE TABLE github_users
 
 The `payload` field of `github_events` has a JSONB datatype. JSONB is the JSON datatype in binary form in Postgres. This makes it easy to store a more flexible schema in a single column.
 
-Postgres can create a `GIN` index on this type which will index every key and value within it. With a `GIN` index it becomes fast and easy to query the payload with various conditions. Let's go ahead and create a couple of indexes before we load our data:
+Postgres can create a `GIN` index on this type which will index every key and value within it. With a  index, it becomes fast and easy to query the payload with various conditions. Let's go ahead and create a couple of indexes before we load our data:
 
 ```sql
 CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Next we’ll take those Postgres tables on the coordinator node and tell Hyperscale to shard them across the workers. To do so we’ll run a query for each table specifying the key to shard it on. In the current example we’ll shard both the events and users table on `user_id`:
+Next we’ll take those Postgres tables on the coordinator node and tell Hyperscale to shard them across the workers. To do so, we’ll run a query for each table specifying the key to shard it on. In the current example we’ll shard both the events and users table on `user_id`:
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
@@ -160,7 +160,7 @@ Now it's time for the fun part, actually running some queries. Let's start with 
 SELECT count(*) from github_events;
 ```
 
-That worked nicely. We'll come back to that sort of aggregation in a bit, but for now let’s look at a few other queries. Within the JSONB `payload` column there's a good bit of data, but it varies based on event type. `PushEvent` events contain a size which includes the number of distinct commits for the push. We can use this to finde the total number of commits per hour:
+That worked nicely. We'll come back to that sort of aggregation in a bit, but for now let’s look at a few other queries. Within the JSONB `payload` column there's a good bit of data, but it varies based on event type. `PushEvent` events contain a size that includes the number of distinct commits for the push. We can use it to find the total number of commits per hour:
 
 ```sql
 SELECT date_trunc('hour', created_at) AS hour,
@@ -171,7 +171,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-So far the queries have involved the github\_events exclusively, but we can combine this information with github\_users. Since we sharded both users and events on the same identifier (`user_id`), the rows of both tables with matching user ids will be [co-located](http://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) on the same database nodes and can easily be joined.
+So far the queries have involved the github\_events exclusively, but we can combine this information with github\_users. Since we sharded both users and events on the same identifier (`user_id`), the rows of both tables with matching user IDs will be [colocated](http://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) on the same database nodes and can easily be joined.
 
 If we join on `user_id`, Hyperscale can push the join execution down into shards for execution in parallel on worker nodes. For example, let's find the users who created the greatest number of repositories:
 
@@ -192,7 +192,7 @@ In the preceding steps, you created Azure resources in a server group. If you do
 
 ## Next steps
 
-In this quick start, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data.
+In this quickstart, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data.
 
 Next, follow a tutorial to build scalable multi-tenant applications.
 > [!div class="nextstepaction"]
