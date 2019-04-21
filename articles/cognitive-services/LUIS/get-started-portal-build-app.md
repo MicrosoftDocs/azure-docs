@@ -94,7 +94,7 @@ By design, these example utterances vary in the following ways:
 
 In order to get the form number returned as part of the runtime prediction response, the form must be marked as an entity. Since the form number text is highly structured, it can be marked using a regular expression entity. Create the entity with the following steps:
 
-1. Select **Entities** from the left-navigation menu.
+1. Select **Entities** from the menu on the left.
 
 1. Select **Create new entity** on the Entities page.
 
@@ -124,7 +124,7 @@ The **None** intent's example utterances should be outside of your client applic
 
 ## Train the app
 
-In the top-right navigation, select **Train** to apply the intent and entity model changes to the current version of the app.
+In the menu in the upper right, select **Train** to apply the intent and entity model changes to the current version of the app.
 
 ## Look at the regular expression entity in the example utterances
 
@@ -138,11 +138,11 @@ In the top-right navigation, select **Train** to apply the intent and entity mod
 
 Use the interactive **Test** pane in the LUIS portal to validate that the entity is extracted from new utterances the app hasn't seen yet.
 
-1. Select **Test** from the top-right menu.
+1. Select **Test** from the upper-right menu.
 
 1. Add a new utterance then press Enter:
 
-   `Is there a form named hrf-234098`
+   ```Is there a form named hrf-234098```
 
    ![Test new utterance in test pane](./media/get-started-portal-build-app/test-new-utterance.png)
 

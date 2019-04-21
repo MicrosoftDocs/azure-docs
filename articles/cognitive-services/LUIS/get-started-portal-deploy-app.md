@@ -30,7 +30,7 @@ You create the prediction endpoint resource in the Azure portal. This resource s
 
 1. Sign in to the **[Azure portal](https://ms.portal.azure.com/)**.
 
-1. Select the green **+** sign in the upper left-hand panel and search for `Cognitive Services` in the marketplace. Select it.
+1. Select the green **+** sign in the upper left-hand panel. Search for `Cognitive Services` in the marketplace and select it.
 
 1. Configure the subscription with the following settings:
 
@@ -43,11 +43,11 @@ You create the prediction endpoint resource in the Azure portal. This resource s
    |Resource group|`my-cognitive-service-resource-group`|Create a new resource group for all your cognitive service resources. When you are done with the resources, you can delete the resource group to clean up your subscription. |
    | | | |
 
-   ![Azure API Choice](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png) 
+   ![Azure API Choice](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png)
 
-1. Select **Create** to create the Azure resource. 
+1. Select **Create** to create the Azure resource.
 
-   In the next section, you learn how to connect this new resource to a LUIS app in the LUIS portal. 
+   In the next section, you learn how to connect this new resource to a LUIS app in the LUIS portal.
 
 ## Assign the resource key to the LUIS app in the LUIS portal
 
@@ -55,7 +55,7 @@ Every time you create a new resource for LUIS, you need to assign the resource t
 
 1. Sign in to the [LUIS portal](https://www.luis.ai) and choose the **myEnglishApp** app from the apps list.
 
-1. Select **Manage** in the top-right menu, and then select **Keys and endpoints**.
+1. Select **Manage** in the upper-right menu, and then select **Keys and endpoints**.
 
 1. To add the LUIS, select **Assign Resource +**.
 
@@ -71,23 +71,23 @@ Every time you create a new resource for LUIS, you need to assign the resource t
 
 Train the app when you are ready to test it. Publish the app when you want the currently trained version to be available to client applications from the prediction endpoint runtime.
 
-1. If the app is untrained, select **Train** from the top, right menu.
+1. If the app is untrained, select **Train** from the menu in the upper right.
 
-1. Select **Publish** from the top, right menu. Accept the default environment settings, and select **Publish**.
+1. Select **Publish** from the menu. Accept the default environment settings, and select **Publish**.
 
 1. When the green success notification bar appears at the top of the browser window, select the **Refer to the list of endpoints** link.
 
    ![Successfully published app notification bar in browser](./media/get-started-portal-deploy-app/successfully-published-notification.png)
 
-1. This takes you to the **Keys and Endpoint settings** page. The list of assigned resources and corresponding endpoint URLs is at the bottom of the page. 
+1. This takes you to the **Keys and Endpoint settings** page. Find the list of assigned resources and corresponding endpoint URLs at the bottom of the page.
 
-1. Select the endpoint URL associated with your new resource name. This opens a web browser with a correctly constructed URL to make a **GET** request to the prediction endpoint runtime. 
+1. Select the endpoint URL associated with your new resource name. This action opens a web browser with a correctly constructed URL to make a `GET` request to the prediction endpoint runtime.
 
 1. The `q=` at the end of the URL is short for **query** and is where the user's utterance is appended to the GET request. After the `q=`, enter the same user utterance used at the end of the previous quickstart:
 
     ```Is there a form named hrf-234098```
 
-    The browser response is the same JSON your client application will receive:
+    The browser shows the response, which is the same JSON your client application will receive:
 
     ```JSON
     {
@@ -117,13 +117,13 @@ Train the app when you are ready to test it. Publish the app when you want the c
     }
     ```
 
-    This response gives you more information than the default **Test** pane in the previous tutorial. If you want to see this same level of information in the Test pane, the app must be published. Then, in the Test pane, select **Compare with published**. Use **Show JSON view** in the publised test pane to see the same JSON as the previous step. This allows you to compare the current app you are working on and the app that is published to the endpoint.
+    This response gives you more information than the default **Test** pane in the previous tutorial. To see this same level of information in the Test pane, you must publish the app. After the app is published, select **Compare with published** in the test pane. Use **Show JSON view** in the published test pane to see the same JSON as the previous step. In this way, you can compare the current app you are working on with an app that is published to the endpoint.
 
     [![Compare currently editing versus published version of app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
-
 ## Clean up resources
-When you are done with this quickstart, select **My apps** from the top navigation menu. Then select the app's left-hand checkbox from the list, and select  **Delete** from the context toolbar above the list. 
+
+When you are done with this quickstart, select **My apps** from the top navigation menu. Then select the app's left-hand checkbox from the list, and select  **Delete** from the context toolbar above the list.
 
 [![Delete app from My apps list](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
