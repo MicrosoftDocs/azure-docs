@@ -129,6 +129,7 @@ The Enterprise Security Package (ESP) provides enterprise-grade capabilities lik
     --conf spark.datasource.hive.warehouse.load.staging.dir='<STAGING_DIR>'
     --conf spark.datasource.hive.warehouse.metastoreUri='<METASTORE_URI>'
     --conf spark.hadoop.hive.zookeeper.quorum='<ZOOKEEPER_QUORUM>'
+   ```
 
 ###	Creating Spark DataFrames from Hive queries
 
