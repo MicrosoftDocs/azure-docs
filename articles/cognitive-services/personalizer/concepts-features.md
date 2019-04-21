@@ -65,7 +65,6 @@ The following example shows some common ways to represent features:
 
 ```JSON
 {
-    //WE KNOW THIS IS WRONG
     "contextFeatures": [
         {
             "user":{

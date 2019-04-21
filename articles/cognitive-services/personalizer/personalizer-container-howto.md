@@ -31,32 +31,6 @@ You must meet the following prerequisites before using Personalizer Service cont
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Personalizer Service resource |In order to use these containers, you must have:<br><br>A _Personalizer Service_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Personalizer Service Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/`|
 
-<!--
-## Request access to the private container registry
-
-You must first complete and submit the [Cognitive Services Personalizer Containers Request form](http://aka.ms/PersonalizerPreview) to request access to the container. The form requests information about you, your company, and the user scenario for which you'll use the container. Once submitted, the Azure Cognitive Services team reviews the form to ensure that you meet the criteria for access to the private container registry.
-
-> [!IMPORTANT]
-> You must use an email address associated with either a Microsoft Account (MSA) or Azure Active Directory (Azure AD) account in the form.
-
-If your request is approved, you then receive an email with instructions describing how to obtain your credentials and access the private container registry.
-
-## Log in to the private container registry
-
-There are several ways to authenticate with the private container registry for Cognitive Services Containers, but the recommended method from the command line is by using the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/).
-
-Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command, as shown in the following example, to log into `containerpreview.azurecr.io`, the private container registry for Cognitive Services Containers. Replace *\<username\>* with the user name and *\<password\>* with the password provided in the credentials you received from the Azure Cognitive Services team.
-
-```docker
-docker login containerpreview.azurecr.io -u <username> -p <password>
-```
-
-If you have secured your credentials in a text file, you can concatenate the contents of that text file, using the `cat` command, to the `docker login` command as shown in the following example. Replace *\<passwordFile\>* with the path and name of the text file containing the password and *\<username\>* with the user name provided in your credentials.
-
-```docker
-cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
-```
--->
 ### The host computer
 
 The **host** is the computer that runs the docker container. It can be a computer on your premises or a docker hosting service in Azure including:
@@ -71,7 +45,7 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-|personalizer | X core, X GB memory | X core, X GB memory |
+|personalizer | 1 core, 4 GB memory | 2 core, 8 GB memory |
 
 Each core must be at least 2.6 gigahertz (GHz) or faster.
 

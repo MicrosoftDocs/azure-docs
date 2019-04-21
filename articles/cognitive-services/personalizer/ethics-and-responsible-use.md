@@ -54,9 +54,9 @@ When choosing use cases for personalization:
 * Start the design process by considering how the personalization helps your users.
 * Consider the negative consequences in the real world if the items aren't ranked for users. 
 * Consider self-fulfilling prophecy loops. This may happen if a personalization reward trains a model so it may subsequently further exclude a demographic group from accessing relevant content. For example, most people in a low-income neighborhood don't obtain a premium insurance offer, and slowly nobody in the neighborhood tends to see the offer at all.
-* Save copies of models and learning policies in case it is necessary to reproduce Personalizer in the future. [What is a recommended time interval or data quantity to base backups on?]
+* Save copies of models and learning policies in case it is necessary to reproduce Personalizer in the future. 
 * Consider the level of exploration adequate for the subject area and how to use it as a tool to mitigate echo chamber effects.
-* Provide feedback to Microsoft if you believe additional tools, scripts and features would help you use Personalization Service in ways that make it easier to add more fairness, more transparency, and less bias. [How to provide feedback?]
+* Provide feedback to Microsoft if you believe additional tools, scripts and features would help you use Personalization Service in ways that make it easier to add more fairness, more transparency, and less bias. 
 
 
 ## Ethical considerations for selecting features to use 
