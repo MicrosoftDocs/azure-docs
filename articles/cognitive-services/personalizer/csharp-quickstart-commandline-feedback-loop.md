@@ -257,6 +257,6 @@ When you are done with the quickstart, remove all the files created in this quic
 
 ## Next Steps
 
-* [How Personalizer works](how-personalizer-works.md)
+[How Personalizer works](how-personalizer-works.md)
 
 

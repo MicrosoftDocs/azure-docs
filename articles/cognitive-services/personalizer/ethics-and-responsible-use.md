@@ -137,7 +137,7 @@ In some cases, buttons may be legally required. Consider the tradeoffs in retrai
 
 ### Ethical considerations for inclusiveness
 
-* *Consider using Personalization to simplify interactions*, to reduce the amount of effort, movement, and needless repetition in interactions.[Can you give an example?]
+*Consider using Personalization to simplify interactions*, to reduce the amount of effort, movement, and needless repetition in interactions.
 
 
 ## Proactive readiness for increased data protection and governance

@@ -56,17 +56,12 @@ Personalizer currently uses [Vowpal Wabbit](https://github.com/VowpalWabbit/vowp
 
 # References
 
-[Making Contextual Decisions with Low Technical Debt](https://arxiv.org/abs/1606.03966)
-
-[A Reductions Approach to Fair Classification](https://arxiv.org/abs/1803.02453)
-
-[Efficient Contextual Bandits in Non-stationary Worlds](https://arxiv.org/abs/1708.01799ds)
-
-[Residual Loss Prediction: Reinforcement: learning With No Incremental Feedback](https://openreview.net/pdf?id=HJNMYceCW)
-
-[Mapping Instructions and Visual Observations to Actions with Reinforcement Learning](https://arxiv.org/abs/1704.08795)
-
-[Learning to Search Better Than Your Teacher](https://arxiv.org/abs/1502.02206)
+* Making Contextual Decisions with Low Technical Debt [reference](https://arxiv.org/abs/1606.03966)
+* A Reductions Approach to Fair Classification [reference](https://arxiv.org/abs/1803.02453)
+* Efficient Contextual Bandits in Non-stationary Worlds [reference](https://arxiv.org/abs/1708.01799ds)
+* Residual Loss Prediction: Reinforcement: learning With No Incremental Feedback [reference](https://openreview.net/pdf?id=HJNMYceCW)
+* Mapping Instructions and Visual Observations to Actions with Reinforcement Learning [reference](https://arxiv.org/abs/1704.08795)
+* Learning to Search Better Than Your Teacher [reference](https://arxiv.org/abs/1502.02206)
 
 ## Next steps:
 
