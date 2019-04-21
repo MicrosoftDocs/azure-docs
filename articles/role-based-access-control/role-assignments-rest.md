@@ -24,7 +24,7 @@ ms.reviewer: bagovind
 
 ## List access
 
-In RBAC, to list access, you list the role assignments. To list role assignments, use one of the [Role Assignments - List](/rest/api/authorization/roleassignments/list) REST APIs. To refine your results, you specify a scope and an optional filter. To call the API, you must have access to the `Microsoft.Authorization/roleAssignments/read` operation at the specified scope. Several [built-in roles for Azure resources](built-in-roles.md) are granted access to this operation.
+In RBAC, to list access, you list the role assignments. To list role assignments, use one of the [Role Assignments - List](/rest/api/authorization/roleassignments/list) REST APIs. To refine your results, you specify a scope and an optional filter.
 
 1. Start with the following request:
 

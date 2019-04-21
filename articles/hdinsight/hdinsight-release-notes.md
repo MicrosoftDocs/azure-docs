@@ -23,7 +23,7 @@ Azure HDInsight is one of the most popular services among enterprise customers f
 
 ## New features
 
-For more information on important changes with HDInsight 4.0., see [What's new in HDI 4.0?](../hdinsight/hdinsight-version-release.md#whats-new-in-hdinsight-40).
+For more information on important changes with HDInsight 4.0., see [What's new in HDI 4.0?](../hdinsight/hdinsight-version-release.md).
 
 ## Component versions
 

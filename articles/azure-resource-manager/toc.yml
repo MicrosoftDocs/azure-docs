@@ -200,8 +200,9 @@
   - name: Template reference
     href: subtoc/toc.yml
   - name: Template functions
-    href: resource-group-template-functions.md
     items:
+    - name: All functions
+      href: resource-group-template-functions.md
     - name: Array and object functions
       href: resource-group-template-functions-array.md
     - name: Comparison functions

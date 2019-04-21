@@ -546,6 +546,8 @@
           href: insights/container-insights-optout.md
         - name: View container live logs
           href: insights/container-insights-live-logs.md
+        - name: Analyze data with log queries
+          href: insights/container-insights-log-search.md
         - name: Alerting
           href: insights/container-insights-alerts.md
         - name: Agent management
@@ -604,7 +606,7 @@
           href: insights/vminsights-performance.md
         - name: Using workbooks
           href: insights/vminsights-workbooks.md
-        - name: Query data with Log Analytics
+        - name: Analyze data with log queries
           href: insights/vminsights-log-search.md
         - name: Disable monitoring
           href: insights/vminsights-optout.md
