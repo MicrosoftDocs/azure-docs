@@ -61,5 +61,3 @@ Personalizer can work with a recommendation engine when it's present.
 * Personalizer is designed to autonomously explore user preferences all the time, which will yield better results where content is changing rapidly, such as news, live events, live community content, content with daily updates, or seasonal content.
 
 A common use is to take the output of a recommendation engine (for example, the top 20 products for a certain customer) and use that as the input actions for Personalizer.
-
-# More Information

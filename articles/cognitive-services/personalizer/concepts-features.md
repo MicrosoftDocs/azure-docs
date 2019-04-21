@@ -13,7 +13,7 @@ ms.author: edjez
 ---
 # Features
 
-Personalizer uses information about **actions** and **current context** to make better ranking suggestions. The information about these actions and context are properties known as **features**.
+Personalizer uses information about **actions** and **context** to make better ranking suggestions. The information about these actions and context are properties known as **features**.
 
 Features can be very generic, or specific to an item. For example, you may have a feature about:
 

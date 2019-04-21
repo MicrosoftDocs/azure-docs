@@ -5,36 +5,43 @@
   items:
   - name: What is Personalizer?
     href: what-is-personalizer.md
+    displayName: loop, context, feature, action, rank, reward, developer, use case
 - name: Quickstarts
   items:
   - name: Create and use feedback loop
     href: csharp-quickstart-commandline-feedback-loop.md
+    displayName: code, sample, quickstart, c#
 - name: Concepts
   items:
-  - name: Overview
-    href: overview-concept.md
   - name: How Personalizer works
     href: how-personalizer-works.md
+    displayName: rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model
   - name: Use of Personalizer
     items: 
     - name: Where can you use Personalizer?
       href: where-can-you-use-personalizer.md
+      displayName: checklist, considerations, effectiveness, recommendation engine, 
     - name: Ethics & Responsible use
       href: ethics-and-responsible-use.md
+      displayName: best practice, design
   - name: Fundamental concepts
     items:
     - name: Features
       href: concepts-features.md
+      displayName: action, context, feature, namespace, JSON, best practice, set 
     - name: Reinforcement learning
       href: concepts-reinforcement-learning.md
+      displayName: RL, contextual bandits, Vowpal Wabbit
 - name: How-to guides
   items: 
   - name: Use containers
     items: 
     - name: Install and run containers
       href: personalizer-container-howto.md
+      displayName: docker, kubernetes
     - name: Configure containers
       href: personalizer-container-configuration.md 
+      displayName: docker, kubernetes
 - name: Resources
   items:
   - name: Regional availability

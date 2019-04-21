@@ -22,7 +22,7 @@ Reinforcement Learning works by:
 * Providing contextual information about the environment and choices.
 * Providing feedback about how well the behavior achieves a certain goal.
 
-While there are many subtypes and styles of reinforcement learning, you can see how the general concept above works in Personalizer:
+While there are many subtypes and styles of reinforcement learning, you can see how the general concept works in Personalizer:
 
 * Your application provides the opportunity to show one piece of content from a list of alternatives.
 * Your application provides information about each alternative and the context of the user.
@@ -55,7 +55,6 @@ John has also given several tutorials previously on topics such as Joint Predict
 Personalizer currently uses [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki) as the foundation for the machine learning. This framework allows for maximum throughput and lowest latency when making personalization ranks and training the model with all events.
 
 # References
-
 
 [Making Contextual Decisions with Low Technical Debt](https://arxiv.org/abs/1606.03966)
 
