@@ -62,7 +62,7 @@ The Azure Database for PostgreSQL service uses a firewall at the server-level. B
 
 4. Click the link **+ Add firewall rule for current client IP address**. Finally, click the **Save** button.
 
-4. Click **Save**.
+5. Click **Save**.
 
    > [!NOTE]
    > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 5432.
@@ -70,7 +70,7 @@ The Azure Database for PostgreSQL service uses a firewall at the server-level. B
 
 ## Connect to the database using psql in Cloud Shell
 
-Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) command-line utility to connect to the Azure Database for PostgreSQL server. 
+Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) command-line utility to connect to the Azure Database for PostgreSQL server.
 1. Launch the Azure Cloud Shell via the terminal icon on the top navigation pane.
 
    ![Azure Database for PostgreSQL - Azure Cloud Shell terminal icon](./media/tutorial-hyperscale-mt/psql-cloud-shell.png)
