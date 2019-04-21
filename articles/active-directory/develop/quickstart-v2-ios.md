@@ -171,8 +171,8 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 Your app must have the following in your `AppDelegate`. This lets MSAL SDK handle token response from the Auth broker app when you perform authentication.
 
  ```swift
- func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-         guard let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String else {
+ func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+         guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String else {
              return false
          }
          
