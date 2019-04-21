@@ -20,6 +20,14 @@
   items:
     - name: Identify anomalies in your data
       href: how-to/identify-anomalies.md
+    - name: Use containers
+      items:
+      - name: Install and run containers
+        displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
+        href: anomaly-detector-container-howto.md
+      - name: Configure containers
+        href: anomaly-detector-container-configuration.md
+        displayName: docker, container, apikey, billing, log, mount, run, pull, port      
 - name: Concepts
   items: 
     - name: Anomaly Detection API best practices
