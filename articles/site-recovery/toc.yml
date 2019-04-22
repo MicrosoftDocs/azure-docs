@@ -97,8 +97,6 @@
       href: vmware-azure-configuration-server-requirements.md
     - name: VMware to Azure architecture
       href: vmware-azure-architecture.md
-    - name: Scale guidance for VMware to Azure diasaster recovery
-      href: vmware-azure-scale-guidance.md
     - name: Failback location options from Azure to VMware
       href: concepts-types-of-failback.md
     - name: Multi-tenant support for VMware disaster recovery
