@@ -93,7 +93,7 @@ You should see results as follows:
 
 Since the app uses cloud resources, the code runs asynchronously. However, C#'s **async** and **await** weren't valid keywords in **Main** methods until C# 7.1. You can easily switch to that compiler through a flag in the .csproj file.
 
-1. From the command line in the project directory, type `code .` to open Visual Studio Code in the current directory. Keep the command line window open. There will be more commands to execute from the command line later. If you are prompted to add C# assets required to build and debug, click the **Yes** button.
+1. From the command line in the project directory, type `code .` to open Visual Studio Code in the current directory. Keep the command line window open. There will be more commands to execute later. If you are prompted to add C# assets required to build and debug, click the **Yes** button.
 
 2. Open the **QueueApp.csproj** file in the editor.
 
@@ -114,17 +114,23 @@ Since the app uses cloud resources, the code runs asynchronously. However, C#'s 
 
 4. Save the **QueueApp.csproj** file.
 
+5. Open the **Program.cs** source file and update the **Main** method to run asynchronously. Replace **void** with an **async Task** return value.
+
+   ```csharp
+   static async Task Main(string[] args)
+   ```
+
+6. Save the **Program.cs** file.
+
 ## Create a queue
 
-1. Install the **WindowsAzure. Storage** package to the project with the `dotnet add package` command. Execute the following dotnet command from the command line in the same folder as the project.
+1. Install the **WindowsAzure. Storage** package to the project with the `dotnet add package` command. Execute the following dotnet command from the project folder in the console window.
 
    ```console
    dotnet add package WindowsAzure.Storage
    ```
 
-2. Back in Visual Studio Code, open the **Program.cs** source file.
-
-3. At the top of the **Program.cs** file, add the following namespaces right after the `using System;` statement. We'll be using types from these namespaces to connect to Azure Storage and work with queues.
+2. At the top of the **Program.cs** file, add the following namespaces right after the `using System;` statement. This app uses types from these namespaces to connect to Azure Storage and work with queues.
 
    ```csharp
    using System.Threading.Tasks;
@@ -132,7 +138,7 @@ Since the app uses cloud resources, the code runs asynchronously. However, C#'s 
    using Microsoft.WindowsAzure.Storage.Queue;
    ```
 
-4. Save the file.
+3. Save the **Program.cs** file.
 
 ### Get your connection string
 
@@ -162,7 +168,7 @@ Add the connection string into the app so it can access the storage account.
 
 2. After the equal sign, paste the string value that you copied earlier in your Azure portal. The **connectionString** value will be unique to your account.
 
-3. Update the **Main** method to run asynchronously. Replace **void** with an **async Task** return value. Also, remove the "Hello World" code from **Main**. Your code should look similar to the following but with your unique connection string value.
+3. Remove the "Hello World" code from **Main**. Your code should look similar to the following but with your unique connection string value.
 
    ```csharp
    namespace QueueApp
@@ -171,7 +177,7 @@ Add the connection string into the app so it can access the storage account.
        {
            private const string connectionString = "DefaultEndpointsProtocol=https; ...";
 
-            static async Task Main(string[] args)
+           static async Task Main(string[] args)
            {
            }
        }
@@ -280,7 +286,7 @@ It's a best practice at the end of a project to identify whether you still need 
        }
        else
        {
-           return "The queue does not exist.";
+           return "The queue does not exist. Add a message to the command line to create the queue and store the message.";
        }
    }
    ```
@@ -289,7 +295,7 @@ It's a best practice at the end of a project to identify whether you still need 
 
 ## Check for command-line arguments
 
-Check for command-line arguments. If there are any, assume they're the message and join them together to make a string. Add this string to the message queue by calling the **SendMessageAsync** method we added earlier.
+If there are any command-line arguments passed into the app, assume they're a message to be added to the queue. Join the arguments together to make a string. Add this string to the message queue by calling the **SendMessageAsync** method we added earlier.
 
 If there are no command-line arguments, perform a retrieve operation. Call the **ReceiveMessageAsync** method to retrieve the first message in the queue.
 
