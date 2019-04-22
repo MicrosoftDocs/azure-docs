@@ -167,12 +167,12 @@ HDInsight by default has full access to data in the Azure Storage accounts assoc
 
 5. To limit access to a container with Shared Access Signature, add a custom entry to the core-site configuration for the cluster under Ambari HDFS Configs Advanced Custom core-site Add property.
 
-6. Use the following values for the **Key** and **Value** fields:
+6. Use the following values for the **Key** and **Value** fields:
 
     **Key**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net`
     **Value**: The SAS KEY returned by the Python application FROM step 4 above.
 
-7. Click the **Add** button to save this key and value, then click the **Save** button to save the configuration changes. When prompted, add a description of the change ("adding SAS storage access" for example) and then click **Save**.
+7. Click the **Add** button to save this key and value, then click the **Save** button to save the configuration changes. When prompted, add a description of the change ("adding SAS storage access" for example) and then click **Save**.
 
 8. In the Ambari web UI, select HDFS from the list on the left, and then select **Restart All Affected** from the Service Actions drop down list on the right. When prompted, select **Confirm Restart All**.
 
