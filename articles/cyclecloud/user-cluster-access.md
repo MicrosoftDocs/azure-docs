@@ -12,7 +12,7 @@ There are primarily two mechanisms for enabling login access to cluster nodes --
 
 ## The VM Agent User
 
-Every Azure VM started and managed through CycleCloud has an admin user that is created by the [VM agent](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-linux)). This user's username is `cyclecloud` and the SSH private key for this user can be found at __/opt/cycle_server/.ssh/cyclecloud.pem__ in the CycleCloud application server. This key is generated during the installation process and is unique to each site.
+Every Azure VM started and managed through CycleCloud has an admin user that is created by the [VM agent](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-linux)). This user's username is `cyclecloud` and the SSH private key for this user can be found at */opt/cycle_server/.ssh/cyclecloud.pem* in the CycleCloud application server. This key is generated during the installation process and is unique to each site.
 
 This user account exists locally on each VM and should be treated as a service user with admin access. However, this user account may come in useful for troubleshooting purposes.
 
@@ -20,21 +20,28 @@ To connect to a cluster node with this user:
 
     $ ssh -i /opt/cycle_server/.ssh/cyclecloud.pem cyclecloud@${NODE-IP-Address}
 
+Alternatively, the CycleCloud CLI can be used to access a cluster node.
+
+``` 
+cp /opt/cycle_server/.ssh/cyclecloud.pem ~/.ssh 
+cyclecloud connect [node] -c [cluster] -u cyclecloud
+```
+
 ## Built-In User Management
 
 CycleCloud comes with a built-in user management system that creates local user accounts on every VM as part of the boot-up phase of each cluster node. These local user accounts are created for the cluster owner, cluster admins, and any CycleCloud user account that was provided access via the cluster share feature [CycleCloud User Management](user-management.md). Additionally, the cluster owner and cluster admins are added to the local unix group `cyclecloud-admin` and users in this group have `sudoer` privileges on each VM of the cluster.
 
 User authentication is SSH-key based. The public key for each user with login access is obtained from the corresponding user record in CycleCloud and staged into each VM. If the user record does not contain a public key, the local user account is still created but the user will not be able to login until a key is staged manually.
 
-For clusters with an NFS server, the home directory for each user is available on the NAS with the base home directory __/shared/home__. For clusters without an NFS server, the base home directory is __/home__ and that is local to each VM of the cluster.
+For clusters with an NFS server, the home directory for each user is available on the NAS with the base home directory */shared/home*. For clusters without an NFS server, the base home directory is */home* and that is local to each VM of the cluster.
 
 New users can be added to a running cluster through the share menu on the cluster page in the CycleCloud UI. It takes a couple of minutes for these new user accounts to propagate across the cluster nodes.
 
-[TODO: add screenshot]
+![Share Cluster](./images/share_cluster.png)
 
 ### Revoking Access
 
-Simply remove users from the cluster share list to revoke access to a cluster. These user accounts are not deleted on each cluster node; instead the login shell for these revoked user accounts is changed to __/sbin/nologin__.
+Simply remove users from the cluster share list to revoke access to a cluster. These user accounts are not deleted on each cluster node; instead the login shell for these revoked user accounts is changed to */sbin/nologin*.
 
 ## Disabling the Built-In User Management System
 

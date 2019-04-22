@@ -18,20 +18,21 @@ For managing user access into cluster nodes please refer to the page [Cluster Us
 
 The user management page in CycleCloud can be accessed through the **Settings** link on the left panel, followed by the **Users** tab in the resulting page. Click on the **Create** button to add a new user to the application server.
 
-[TODO: Insert Create User dialog PNG]
+![Create User Dialog](./images/create_user_dialog.png)
+
 A pop-up will appear for adding a new user account. Pay attention to the password requirements and select the **Password Reset** box to force the user to change their password on first login.
 
-The **Superuser** checkbox will assign site administrator privileges to a user. This grants the user access to all the data tables and Azure account information that is stored in CycleCloud.
+The **Superuser** checkbox will assign site administrator privileges to a user. This grants the user access to all the data and Azure account information that is stored in CycleCloud.
 
-Select the appropriate roles to assign privileges to the user. The [Roles](#user-Roles) section below lists the privileges for each of the built-in roles.
+Select the appropriate roles to assign privileges to the user. The [Roles](#user-roles) section below lists the privileges for each of the built-in roles.
 
-The **Node Settings** section is relevant to the built-in user management system for providing users access to cluster nodes. If user access to cluster nodes are to be provided and managed by the CycleCloud system, select **Enable node access for this user** and also supply the SSH public key that corresponds to the private key that the user will use to connect to the cluster nodes. See the [Cluster User Management](user-cluster-access.md) page for more information.
+The **Node Settings** section is relevant to the built-in user management system for providing users access to cluster nodes. If user access to cluster nodes is to be provided and managed by the CycleCloud system, select **Enable node access for this user** and also supply the SSH public key that corresponds to the private key that the user will use to connect to the cluster nodes. See the [Cluster User Management](user-cluster-access.md) page for more information.
 
-Select **Save** to save the new user record in CycleCloud\.
+Select **Save** to save the new user record in CycleCloud.
 
 ## Edit User
 
-User records can be edited with the **Edit** button on the user management page. Besides modifying roles or other user properties, the edit pop-up also allows an administrator to change the unix **UID** of the user when this user's local account is created on the cluster nodes for login access. [See Cluster User Management for details](user-cluster-access.md).  
+The **Edit** button on the user management page allows an administrator to modify roles and user properties. The administrator can also set the Unix **UID** for the user's local account on the cluster nodes. By default, CycleCloud will reserve UIDs 50000 and above for node users.[See Cluster User Management for details](user-cluster-access.md).  
 
 ## User Roles
 
@@ -44,7 +45,7 @@ Each user can be assigned to one or more of the following roles that are built-i
 | Cluster Admin   | Inherits `Cluster Creator` privileges. Additionally, is able manage and edit all clusters in CycleCloud |
 | Administrator  | Inherits `Cluster Admin` privileges. Additionally, is able to manage settings and configurations of the CycleCloud application server |
 
-Note also that the **Superuser** checkbox described in the previous section supersedes all roles assigned to a user. All `Superusers` are `Administrators` with additional privileges to edit and manipulate data records in the CycleCloud database.
+Note also that the **Superuser** checkbox described in the previous section supersedes all roles assigned to a user. All `Superusers` are `Administrators` with additional privileges to view and edit all data in the system.
 
 ## Groups
 
@@ -54,11 +55,11 @@ Create a new group using the **Create** button. Enter a group name and a descrip
 
 ## Cluster Ownership and Sharing Clusters
 
-The user account that creates a new cluster is assigned as the **Owner** of the cluster. The cluster owner has `Cluster Admin` privilege to the cluster and attains sudo privileges on all nodes of the cluster if cluster user management is provided by the built-in CycleCloud system. [See Cluster User Management for details](user-cluster-access.md).
+The user account that creates a new cluster is assigned as the `Owner` of the cluster. The cluster owner has `Cluster Admin` privilege to the cluster and attains sudo privileges on all nodes of the cluster if cluster user management is provided by the built-in CycleCloud system. [See Cluster User Management for details](user-cluster-access.md).
 
-It is possible to share these privileges to other CycleCloud user accounts after a cluster has been created. Clicking on the **Share** button on each cluster page creates a pop-up dialog with an option to **Add User/Group**. Assign admin or user privileges to the shared user.
+It is possible to share these privileges to other CycleCloud user accounts after a cluster has been created. Clicking on the **Share** button on each cluster page creates a pop-up dialog with an option to **Add Users**.
 
-[TODO: Add Share cluster dialogs]
+![Share Cluster](./images/share_cluster.png)
 
 ## User Authentication
 
