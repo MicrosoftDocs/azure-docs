@@ -18,7 +18,6 @@ ms.author: celested
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
 ---
-
 # How to: Configure Azure AD SAML token encryption (Preview)
 
 > [!NOTE]
@@ -132,11 +131,12 @@ This functionality is coming soon.
 
 1. Read the token encryption settings using the following commands.
 
-    ```
+    ```powershell
     $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>
     $app.KeyCredentials
     $app.TokenEncryptionKeyId
     ```
+
 -->
 
 ### To configure token encryption using the application manifest
@@ -151,7 +151,7 @@ This functionality is coming soon.
 
     The following example shows an application manifest configured with two encryption certificates, and with the second selected as the active one using the tokenEnryptionKeyId.
 
-    ```
+    ```json
     { 
       "id": "3cca40e2-367e-45a5-8440-ed94edd6cc35",
       "accessTokenAcceptedVersion": null,

@@ -22,6 +22,13 @@ Using b2clogin.com gives you additional benefits, such as:
 - Space consumed in the cookie header by Microsoft services is reduced.
 - Your URLs no longer include a reference to Microsoft. For example, `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
 
+>[!NOTE]
+> You can use both the tenant name and the tenant GUID as follows:
+> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` (which still refers to `onmicrosoft.com`)
+> * `https://your-tenant-name.b2clogin.com/your-tenant-guid` (in which case there is no reference to Microsoft at all)
+>
+> However, you cannot use a _custom domain_ for your Azure Active Directory B2C tenant, e.g. `https://your-tenant-name.b2clogin.com/your-custom-domain-name` would _not_ work.
+
 Consider these settings that might need to change when using b2clogin.com:
 
 - Set the redirect URLs in your identity provider applications to use b2clogin.com. 

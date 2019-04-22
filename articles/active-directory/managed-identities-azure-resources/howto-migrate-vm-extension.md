@@ -3,7 +3,7 @@ title: Stop using the managed identity VM extension and start using the Azure In
 description: Step by step instructions to stop using the VM extension and start using the Azure Instance Metadata Service (IMDS) for authentication.
 services: active-directory
 documentationcenter: 
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
-ms.author: priyamo
+ms.author: markvi
 ---
 
 # How to stop using the virtual machine managed identities extension and start using the Azure Instance Metadata Service
@@ -192,7 +192,7 @@ There are several major limitations to using the virtual machine extension.
 
 ## Azure Instance Metadata Service
 
-The [Azure Instance Metadata Service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/instance-metadata-service) is a REST endpoint that provides information about running virtual machine instances that can be used to manage and configure your virtual machines. The endpoint is available at a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the virtual machine.
+The [Azure Instance Metadata Service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) is a REST endpoint that provides information about running virtual machine instances that can be used to manage and configure your virtual machines. The endpoint is available at a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the virtual machine.
 
 There are several advantages to using Azure IMDS to request tokens. 
 

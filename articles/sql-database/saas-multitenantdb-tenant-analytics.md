@@ -86,7 +86,7 @@ In the following steps, you deploy the analytics store, which is called **tenant
 2. Set the $DemoScenario variable in the script to match your choice of analytics store. For learning purposes, SQL database without columnstore is recommended.
     - To use SQL database without columnstore, set **$DemoScenario** = **2**
     - To use SQL database with columnstore, set **$DemoScenario** = **3**  
-3. Press **F5** to run the demo script (that calls the *Deploy-TenantAnalytics<XX>.ps1* script) which creates the tenant analytics store. 
+3. Press **F5** to run the demo script (that calls the *Deploy-TenantAnalytics\<XX>.ps1* script) which creates the tenant analytics store. 
 
 Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-mt-\<User\>** and **catalog-mt-\<User\>** servers using Login = *developer*, Password = *P\@ssword1*.
 
@@ -115,7 +115,7 @@ Before proceeding, ensure you have deployed the job account and jobaccount datab
 
 1. In SSMS, connect to the **jobaccount** database in catalog-mt-\<User\>.
 2. In SSMS, open *…\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 
-3. Modify the @User variable at the top of the script, replacing <User> with the user value used when you deployed the Wingtip Tickets SaaS Multi-tenant Database application.
+3. Modify the @User variable at the top of the script, replacing `<User>` with the user value used when you deployed the Wingtip Tickets SaaS Multi-tenant Database application.
 4. Press **F5** to run the script that creates the two target groups.
 
 ### Extract raw data from all tenants
@@ -129,7 +129,7 @@ Each job extracts its data, and posts it into the analytics store. There a separ
 
 1. In SSMS, connect to the **jobaccount** database in catalog-mt-\<User\> server.
 2. In SSMS, open *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
-3. Modify @User at the top of the script, and replace <User> with the user name used when you deployed the Wingtip Tickets SaaS Multi-tenant Database application. 
+3. Modify @User at the top of the script, and replace `<User>` with the user name used when you deployed the Wingtip Tickets SaaS Multi-tenant Database application. 
 4. Press **F5** to run the script that creates and runs the job that extracts tickets and customers data from each tenant database. The job saves the data into the analytics store.
 5. Query the TicketsRawData table in the tenantanalytics database, to ensure that the table is populated with tickets information from all tenants.
 

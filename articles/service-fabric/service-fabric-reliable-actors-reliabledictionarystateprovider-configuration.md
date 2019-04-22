@@ -4,7 +4,7 @@ description: Learn about configuring Azure Service Fabric stateful actors of typ
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 79b48ffa-2474-4f1c-a857-3471f9590ded

@@ -1,5 +1,5 @@
 ---
-title: Collect threat intelligence data in Azure Sentinel Preview| Microsoft Docs
+title: Connect threat intelligence data to Azure Sentinel Preview| Microsoft Docs
 description: Learn about how to connect threat intelligence data to Azure Sentinel.
 documentationcenter: na
 author: rkarlin
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
-# Collect data from threat intelligence providers 
+# Connect data from threat intelligence providers 
 
 > [!IMPORTANT]
 > Azure Sentinel is currently in public preview.
@@ -28,6 +28,8 @@ After you stream your data into Azure Sentinel, you can enrich it with the threa
 To enable you to cross check your alerts and rules with true threat intelligence, for example if you get an alert from a specific IP address, your threat intelligence provider integration will be able to let you know if that IP address was recently found to be malicious, Azure Sentinel enables integration with [threat intelligence providers](https://aka.ms/graphsecuritytips). 
 
 You can stream logs from Threat intelligence providers into Azure Sentinel with a single click. This connection enables you to incorporate indicators containing various types of observables such as IP address, domain, URL and file hash to search and create custom alerts rules in Azure Sentinel.  
+> [!NOTE]
+> You can input customized threat indicators into Azure Sentinel for use in alert rules, dashboards, and hunting scenarios by integrating with the [Microsoft Graph Security tiIndicator](https://aka.ms/graphsecuritytiindicators) entity or by using a [Microsoft Graph Security integrated Threat Intelligence Platform](https://aka.ms/graphsecuritytips).
 
 ## Prerequisites  
 
@@ -39,7 +41,7 @@ You can stream logs from Threat intelligence providers into Azure Sentinel with 
 
 1. If you’re already using a threat intelligence provider, be sure to browse to your TIP application and grant permission to send indicators to Microsoft and specify the service as Azure Sentinel.  
 
-2. In Azure Sentinel, select **Data collection** and then click the **Threat Intelligence** tile.
+2. In Azure Sentinel, select **Data connectors** and then click the **Threat Intelligence** tile.
 
 3. Click **Connect**. 
 

@@ -100,7 +100,7 @@ In this PowerShell script, do the following:
    
 1. Use the **Application ID** to assign the application the user account administrator role. These roles have well-known identifiers, so all you need to do is enter your **Application ID** in the script.
    
-```PowerShell
+```powershell
 Connect-AzureAD
 
 $AppId = "<Your application ID>"
@@ -253,7 +253,7 @@ To track the password change, you use an Azure table. When you run the pre-migra
 ### 4.1: Update your application setting
 1. To test the RESTful API demo, open `AADB2C.UserMigration.sln` in Visual Studio.
 
-1. In the `AADB2C.UserMigration.API` project, open the *appsettings.json* file. Replace the setting with the one configured in [Step 2.2](#step-22-configure-the-application-settings):
+1. In the `AADB2C.UserMigration.API` project, open the *Web.config* file. Replace the setting with the one configured in [Step 2.2](#step-22-configure-the-application-settings):
 
     ```json
     {

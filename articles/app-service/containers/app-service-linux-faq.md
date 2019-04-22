@@ -37,10 +37,10 @@ You can find all Docker files on [GitHub](https://github.com/azure-app-service).
 | Stack     | Expected Value                                                                |
 |-----------|-------------------------------------------------------------------------------|
 | Java SE   | a command to start your `.jar` application                                    |
-| Tomcat    | the location of a script to perform any necessary configruations for your app |
-| Node.js   | the PM2 configuration file or your script file                                |          
+| Tomcat    | the location of a script to execute any  configurations for your app          |
+| Node.js   | the PM2 configuration file or your script file                                |
 | .Net Core | the compiled DLL name as `dotnet <myapp>.dll`                                 |
-| Ruby      | the Ruby script that you want to initialize your app with                     
+| Ruby      | the Ruby script that you want to initialize your app with                     |
 
 ## Management
 
@@ -158,7 +158,7 @@ In order to use ACR with multi-container, **all container images** need to be ho
 Create the following application settings:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (full URL, ex: https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_URL (full URL, ex: `https://<server-name>.azurecr.io`)
 - DOCKER_REGISTRY_SERVER_PASSWORD (enable admin access in ACR settings)
 
 Within the configuration file, reference your ACR image like the following example:

@@ -30,7 +30,7 @@ To explore and manipulate a dataset, it must first be downloaded from the blob s
 1. Download the data from Azure blob with the following Python code sample using blob service. Replace the variable in the following code with your specific values:
 
 ```python
-from azure.storage.blob import BlobService
+from azure.storage.blob import BlockBlobService
 import tables
 
 STORAGEACCOUNTNAME= <storage_account_name>
@@ -41,7 +41,7 @@ BLOBNAME= <blob_name>
 
 #download from blob
 t1=time.time()
-blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
+blob_service=BlockBlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
 blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
 t2=time.time()
 print(("It takes %s seconds to download "+blobname) % (t2 - t1))

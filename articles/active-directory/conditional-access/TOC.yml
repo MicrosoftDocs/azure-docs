@@ -46,10 +46,14 @@
     href: policy-migration.md
   - name: Require approved client apps
     href: app-based-conditional-access.md
+  - name: Require app protection policy
+    href: app-protection-based-conditional-access.md
   - name: Require managed devices
     href: require-managed-devices.md
   - name: Require MFA for access attempts from untrusted networks
     href: untrusted-networks.md
+  - name: Require Terms of use
+    href: terms-of-use.md
 - name: Reference
   items:
   - name: Technical reference

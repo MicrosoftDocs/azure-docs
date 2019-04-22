@@ -1,9 +1,8 @@
 ---
 title: Connect to Azure Data Explorer with ODBC
 description: In this how-to, you learn how to set up an ODBC connection to Azure Data Explorer then use that connection to visualize data with Tableau.
-services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual

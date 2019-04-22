@@ -1,12 +1,12 @@
 ---
 title: Partners who integrate with Azure Monitor
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
-author: johnkemnetz
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: johnkem
+ms.author: robb
 ms.subservice: ""
 ---
 # Azure Monitor partner integrations
@@ -256,7 +256,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty documentation."
 [qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "QRadar documentation."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic documentation."
-[serverless360-doc]: https://docs.serverless360.com/docs/associating-service-principals "Serverless360 documentation."
+[serverless360-doc]: https://docs.serverless360.com/docs/ "Serverless360 documentation."
 [signalfx-doc]: https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure "SignalFx documentation."
 [signl4-doc]: https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/ "SIGNL4 documentation."
 [solarwinds-doc]: https://www.solarwinds.com/topics/azure-monitoring "SolarWinds documentation."

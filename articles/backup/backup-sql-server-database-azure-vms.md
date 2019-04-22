@@ -65,6 +65,7 @@ Avoid the following for database names:
   * Trailing/Leading spaces
   * Trailing ‘!’
   * Close square bracket ‘]’
+  * Databases names starting with ‘F:\’
 
 We do have aliasing for Azure table unsupported characters, but we recommend avoiding them. [Learn more](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
@@ -108,7 +109,7 @@ Discover databases running on the VM.
     - Azure Backup creates the service account **NT Service\AzureWLBackupPluginSvc** on the VM.
       - All backup and restore operations use the service account.
       - **NT Service\AzureWLBackupPluginSvc** needs SQL sysadmin permissions. All SQL Server VMs created in the Azure Marketplace come with the **SqlIaaSExtension** installed. The **AzureBackupWindowsWorkload** extension uses the **SQLIaaSExtension** to automatically get the required permissions.
-    - If you didn't create the VM from the marketplace, then the VM doesn't have the **SqlIaaSExtension** installed, and the discovery operation fails with the error message **UserErrorSQLNoSysAdminMembership**. Follow the instructions in [#fix-sql-sysadmin-permissions] to fix this issue.
+    - If you didn't create the VM from the marketplace, then the VM doesn't have the **SqlIaaSExtension** installed, and the discovery operation fails with the error message **UserErrorSQLNoSysAdminMembership**. Follow the [instructions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) to fix this issue.
 
         ![Select the VM and database](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -141,7 +142,7 @@ Configure backup as follows:
 
    - Select the default policy: HourlyLogBackup.
    - Choose an existing backup policy previously created for SQL.
-   - [Define a new policy](#configure-a-backup-policy) based on your RPO and retention range.
+   - Define a new policy based on your RPO and retention range.
 
      ![Select Backup policy](./media/backup-azure-sql-database/select-backup-policy.png)
 

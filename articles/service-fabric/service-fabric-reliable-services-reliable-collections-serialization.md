@@ -4,7 +4,7 @@ description: Azure Service Fabric Reliable Collections object serialization
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: masnider,rajak
 
 ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
@@ -99,7 +99,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Following is an example implementation of IStateSerializer<OrderKey>.
+Following is an example implementation of IStateSerializer\<OrderKey>.
 Note that Read and Write overloads that take in baseValue, call their respective overload for forwards compatibility.
 
 ```csharp

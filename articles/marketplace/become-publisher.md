@@ -42,6 +42,8 @@ After registering, record the Microsoft Partner Network ID for your organization
 *	Learn about the benefits of the [Microsoft Partner Network](https://partner.microsoft.com/commercial)
 *	If your organization has an existing membership, then you will join your organization during registration. If you use [Partner Center](https://partnercenter.microsoft.com/partner/home), you will be able to see the ID in your Partner Center account. If you use [Partner Membership Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), you will be able to see it in your Partner Membership Center account. 
 
+Open a ticket with Microsoft [partner support](https://partner.microsoft.com/support) for issues with MPN registration.
+
 ---
 
 ## 2. Create a Microsoft Account  

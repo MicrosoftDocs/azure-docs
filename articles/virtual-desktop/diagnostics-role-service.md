@@ -1,6 +1,6 @@
 ---
-title: Identify issues with the diagnostics feature (preview)  - Azure
-description: Describes the Windows Virtual Desktop diagnostics feature and how to use it.
+title: Identify issues with the Windows Virtual Desktop Preview diagnostics feature  - Azure
+description: Describes the Windows Virtual Desktop Preview diagnostics feature and how to use it.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ---
-# Identify issues with the diagnostics feature (Preview)
+# Identify issues with the diagnostics feature
 
-Windows Virtual Desktop (preview) offers a diagnostics feature (preview) that allows the administrator to identify issues through a single interface. The Windows Virtual Desktop roles log a diagnostic activity whenever a user interacts with the system. Each log contains relevant information such as the Windows Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end-user and administrative actions, and can be categorized into three main buckets:
+Windows Virtual Desktop Preview offers a diagnostics feature that allows the administrator to identify issues through a single interface. The Windows Virtual Desktop roles log a diagnostic activity whenever a user interacts with the system. Each log contains relevant information such as the Windows Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end-user and administrative actions, and can be categorized into three main buckets:
 
 * Feed subscription activities: the end-user triggers these activities whenever they try to connect to their feed through Microsoft Remote Desktop applications.
 * Connection activities: the end-user triggers these activities whenever they try to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications.
@@ -27,20 +27,20 @@ Windows Virtual Desktop Diagnostics uses just one PowerShell cmdlet but contains
 
 ### Retrieve diagnostic activities in your tenant
 
-You can retrieve diagnostic activities by entering the **Get-RdsDiagnosticsActivities** cmdlet. The following example cmdlet will return a list of diagnostic activities, sorted from most to least recent.
+You can retrieve diagnostic activities by entering the **Get-RdsDiagnosticActivities** cmdlet. The following example cmdlet will return a list of diagnostic activities, sorted from most to least recent.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName>
+Get-RdsDiagnosticActivities -TenantName <tenantName>
 ```
 
 Like other Windows Virtual Desktop PowerShell cmdlets, you must use the **-TenantName** parameter to specify the name of the tenant you want to use for your query. The tenant name is applicable for almost all diagnostic activity queries.
 
 ### Retrieve detailed diagnostic activities
 
-The **-Detailed** parameter provides additional details for each diagnostic activity returned. The format for each activity varies depending on its activity type. The **-Detailed** parameter can be added to any **Get-RdsDiagnosticsActivities** query, as shown in the following example.
+The **-Detailed** parameter provides additional details for each diagnostic activity returned. The format for each activity varies depending on its activity type. The **-Detailed** parameter can be added to any **Get-RdsDiagnosticActivities** query, as shown in the following example.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName> -Detailed
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
 ```
 
 ### Retrieve a specific diagnostic activity by activity ID
@@ -140,7 +140,7 @@ The following table lists common errors your admins might run into.
 |8000|InvalidAuthorizationRoleScope|The role name you entered doesn't match any existing role names. Review the role name for typos and try again. |
 |8001|UserNotFound |The user name you entered doesn't match any existing user names. Review the name for typos and try again.|
 |8005|UserNotFoundInAAD |The user name you entered doesn't match any existing user names. Review the name for typos and try again.|
-|8008|TenantConsentRequired|Follow the instructions [here](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service) to provide consent for your tenant.|
+|8008|TenantConsentRequired|Follow the instructions [here](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service) to provide consent for your tenant.|
 
 ### External connection error codes
 
@@ -159,6 +159,6 @@ The following table lists common errors your admins might run into.
 
 ## Next steps
 
-To learn more about roles within Windows Virtual Desktop, see [Windows Virtual Desktop environment](environment-setup.md).
+To learn more about roles within Windows Virtual Desktop, see [Windows Virtual Desktop Preview environment](environment-setup.md).
 
 To see a list of available PowerShell cmdlets for Windows Virtual Desktop, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).

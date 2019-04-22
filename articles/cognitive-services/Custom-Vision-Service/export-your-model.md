@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 03/21/2019
 ms.author: anroth
 ---
 
 # Export your model for use with mobile devices
 
-Custom Vision Service allows classifiers to be exported to run offline. You can embed your exported classifier into an application and run it locally on a device for real-time classification. 
+Custom Vision Service allows classifiers to be exported to run offline. You can embed your exported classifier into an application and run it locally on a device for real-time classification.
 
 Custom Vision Service supports the following exports:
 
@@ -33,7 +33,7 @@ Custom Vision Service supports the following exports:
 
 > [!NOTE]
 > The steps in this section only apply if you have an existing classifier that is not set to compact domain.
- 
+
 To convert the domain of an existing classifier, use the following steps:
 
 1. From the [Custom vision page](https://customvision.ai), select the __Home__ icon to view a list of your projects. You can also use the [https://customvision.ai/projects](https://customvision.ai/projects) to see your projects.

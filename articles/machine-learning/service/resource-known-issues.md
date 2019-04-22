@@ -9,7 +9,7 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 03/29/2019
 ms.custom: seodec18
 
 ---
@@ -43,6 +43,12 @@ If you observe `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died w
 
 You will not be able to deploy models on FPGAs until you have requested and been approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai
 
+## Automated machine learning
+
+Tensor Flow
+Automated machine learning does not currently support tensor flow version 1.13. Installing this version will cause package dependencies to stop working. We are working to fix this issue in a future release. 
+
+
 ## Databricks
 
 Databricks and Azure Machine Learning issues.
@@ -52,7 +58,7 @@ Databricks and Azure Machine Learning issues.
 Azure Machine Learning SDK installation fails on Azure Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors, install packages by freezing the library version. This issue is related to Databricks and not to the Azure Machine Learning service SDK. You might experience this issue with other libraries, too. Example:
 
 ```python
-pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
 ```
 
 Alternatively, you can use init scripts if you keep facing install issues with Python libraries. This approach isn't officially supported. For more information, see [Cluster-scoped init scripts](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
@@ -86,7 +92,7 @@ If you see this error when you use automated machine learning:
 
 1. Detach and then reattach the cluster to your notebook. 
 
-If this doesnt solve the issue, try restarting the cluster.
+If these steps don't solve the issue, try restarting the cluster.
 
 ## Azure portal
 
@@ -94,8 +100,7 @@ If you go directly to view your workspace from a share link from the SDK or the 
 
 ## Diagnostic logs
 
-Sometimes it can be helpful if you can provide diagnostic information when asking for help.
-Here is where the log files live:
+Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure portal](https://portal.azure.com) and  go to your workspace and select **Workspace > Experiment > Run > Logs**.
 
 ## Resource quotas
 
@@ -114,7 +119,3 @@ If you perform a management operation on a compute target from a remote job, you
 ```
 
 For example, you will receive an error if you try to create or attach a compute target from an ML Pipeline that is submitted for remote execution.
-
-## Get more support
-
-You can submit requests for support and get help from technical support, forums, and more. [Learn more...](support-for-aml-services.md)

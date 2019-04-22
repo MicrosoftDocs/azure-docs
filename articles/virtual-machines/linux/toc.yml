@@ -82,6 +82,9 @@
         href: constrained-vcpu.md
     - name: Storage optimized
       href: sizes-storage.md
+      items:
+      - name: Optimize performance
+        href: storage-performance.md
     - name: GPU optimized
       href: sizes-gpu.md
       items:
@@ -244,7 +247,7 @@
     items:
     - name: Prepay for VMs - Azure reservations
       href: prepay-reserved-vm-instances.md
-    - name: Prepay for SUSE software
+    - name: Prepay for Azure software plans
       href: prepay-suse-software-charges.md
     - name: What are Azure reservations?
       href: ../../billing/billing-save-compute-costs-reservations.md
@@ -369,8 +372,8 @@
         href: openshift-prerequisites.md
       - name: OpenShift Container Platform
         href: openshift-container-platform.md
-      - name: OKD
-        href: openshift-okd.md
+      - name: OpenShift Marketplace Self-Managed
+        href: openshift-marketplace-self-managed.md
       - name: Azure Stack
         href: openshift-azure-stack.md
       - name: OpenShift post-deployment tasks

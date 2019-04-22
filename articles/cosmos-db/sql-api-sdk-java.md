@@ -39,15 +39,15 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ## Release notes
 
-### <a name="2.1.0"/>2.1.3
+### <a name="2.1.3"/>2.1.3
 * Fixed bug in PartitionKey for Hash V2.
 
-### <a name="2.1.0"/>2.1.2
+### <a name="2.1.2"/>2.1.2
 * Added support for composite indexes.
 * Fixed bug in global endpoint manager to force refresh.
 * Fixed bug for upserts with pre-conditions in direct mode.
 
-### <a name="2.1.0"/>2.1.1
+### <a name="2.1.1"/>2.1.1
 * Fixed bug in gateway address cache.
 
 ### <a name="2.1.0"/>2.1.0
@@ -123,7 +123,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 * Added support for change feed.
 * Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
 * Added support for stored procedure script logging through RequestOptions.setScriptLoggingEnabled.
-* Fixed a bug where query in DirectHttps mode may hang when encountering throttle failures.
+* Fixed a bug where query in DirectHttps mode may stop responding when encountering throttle failures.
 * Fixed a bug in session consistency mode.
 * Fixed a bug which may cause NullReferenceException in HttpContext when request rate is high.
 * Improved performance of DirectHttps mode.

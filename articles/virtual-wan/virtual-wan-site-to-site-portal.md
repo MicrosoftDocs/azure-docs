@@ -39,8 +39,6 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="vnet"></a>1. Create a virtual network
 
 [!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
@@ -71,7 +69,7 @@ Create as many sites as you need that correspond to your physical locations. For
 
 ## <a name="hub"></a>4. Create a hub
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-hub-include.md)]
+[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
 
 ## <a name="associate"></a>5. Associate the sites with the hub
 

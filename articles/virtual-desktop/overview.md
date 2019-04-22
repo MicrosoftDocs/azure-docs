@@ -1,6 +1,6 @@
 ---
-title: What is Windows Virtual Desktop? (preview)  - Azure
-description: An overview of Windows Virtual Desktop.
+title: What is Windows Virtual Desktop Preview?  - Azure
+description: An overview of Windows Virtual Desktop Preview.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,9 +9,9 @@ ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
 ---
-# What is Windows Virtual Desktop? 
+# What is Windows Virtual Desktop Preview? 
 
-Now available in public preview, Windows Virtual Desktop is a desktop and app virtualization service that runs on the cloud.
+Now available in public preview, Windows Virtual Desktop Preview is a desktop and app virtualization service that runs on the cloud.
 
 Here’s what you can do when you run Windows Virtual Desktop on Azure:
 
@@ -34,7 +34,7 @@ With Windows Virtual Desktop, you can set up a scalable and flexible environment
 
 You can deploy and manage virtual desktops:
 
-* Use the Windows Virtual Desktop PowerShell and REST interfaces to configure the host pools, create app groups, assign users, and publish resources
+* Use the Windows Virtual Desktop PowerShell and REST interfaces to configure the host pools, create app groups, assign users, and publish resources.
 * Publish full desktop or individual remote apps from a single host pool, create individual app groups for different sets of users, or even assign users to multiple app groups to reduce the number of images.
 * As you manage your environment, use built-in delegated access to assign roles and collect diagnostics to understand various configuration or user errors.
 * Use the new Diagnostics service to troubleshoot errors.
@@ -49,12 +49,17 @@ You can also assign and connect users to your virtual desktops:
 
 There are a few things you need to set up Windows Virtual Desktop and successfully connect your users to their Windows desktops and applications.
 
-First, make sure you have the appropriate licenses for your users based on the desktop and apps you plan to deploy:
+Windows Virtual Desktop currently only supports the following two OSes:
+- Windows 10 Enterprise multi-session
+- Windows Server 2016
+
+We plan to add support for the following OSes, so make sure you have the [appropriate licenses](https://azure.microsoft.com/pricing/details/virtual-desktop/) for your users based on the desktop and apps you plan to deploy:
 
 |OS|Required license|
 |---|---|
-|Windows 10 Enterprise multi-session or Windows 10 single-session|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
-|Windows 7|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
+
+|Windows 10 Enterprise multi-session or Windows 10 Enterprise|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|RDS Client Access License (CAL) with Software Assurance|
 
 Your infrastructure needs the following things to support Windows Virtual Desktop:
@@ -67,7 +72,7 @@ Your infrastructure needs the following things to support Windows Virtual Deskto
   
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
-* [Standard domain-joined](https://docs.microsoft.com/microsoft-desktop-optimization-pack/appv-v4/domain-joined-and-non-domain-joined-clients) or [Hybrid AD-joined](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtual machines can't be Azure AD-joined.
+* [Standard domain-joined](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) or [Hybrid AD-joined](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtual machines can't be Azure AD-joined.
 * Running one of the following supported OS images:
   * Windows 10 Enterprise multi-session
   * Windows Server 2016
@@ -92,4 +97,4 @@ Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microso
 To get started, you'll need to create a tenant. To learn more about how to create a tenant, continue to the tenant creation tutorial.
 
 > [!div class="nextstepaction"]
-> [Create a host pool with Azure Marketplace](tenant-setup-azure-active-directory.md)
+> [Create a tenant in Windows Virtual Desktop Preview](tenant-setup-azure-active-directory.md)

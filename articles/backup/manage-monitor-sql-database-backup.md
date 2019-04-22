@@ -13,7 +13,6 @@ ms.author: raynew
 ---
 # Manage and monitor backed up SQL Server databases
 
-
 This article describes common tasks for managing and monitoring SQL Server databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](backup-overview.md) service. You'll learn how to monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
 
 If you haven't yet configured backups for your SQL Server databases, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md)
@@ -109,6 +108,7 @@ You can run different types of on-demand backups:
 * Differential backup
 * Log backup
 
+While you need to specify the retention duration for Copy-only full backup, the retention range for other backup types is automatically set to 30 days from current time. <br/>
 For more information, see [SQL Server backup types](backup-architecture.md#sql-server-backup-types).
 
 ## Unregister a SQL Server instance

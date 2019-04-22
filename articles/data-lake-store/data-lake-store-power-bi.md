@@ -3,8 +3,8 @@ title: Analyze data in Azure Data Lake Storage Gen1 by using Power BI | Microsof
 description: Use Power BI to analyze data stored in Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: 57d19d27-e135-49d9-a7ea-46c48ef4e3bd
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Analyze data in Azure Data Lake Storage Gen1 by using Power BI

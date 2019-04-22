@@ -1,6 +1,6 @@
 ---
-title: Create service principals and role assignments with PowerShell (preview)  - Azure
-description: How to create service principals and assign roles with PowerShell in Windows Virtual Desktop.
+title: Create Windows Virtual Desktop Preview service principals and role assignments with PowerShell  - Azure
+description: How to create service principals and assign roles with PowerShell in Windows Virtual Desktop Preview.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Tutorial: Create service principals and role assignments with PowerShell
 
-Service principals are identities you can create in Azure Active Directory to assign roles and permissions for a specific purpose. In Windows Virtual Desktop (preview), you can create a service principal to:
+Service principals are identities you can create in Azure Active Directory to assign roles and permissions for a specific purpose. In Windows Virtual Desktop Preview, you can create a service principal to:
 
 - Automate specific Windows Virtual Desktop management tasks
 - Use as credentials in place of MFA-required users when running any Windows Virtual Desktop Azure Resource Manager template
@@ -53,7 +53,7 @@ $svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayNa
 $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrincipal.ObjectId
 ```
 
-## Create a role assignment in Windows Virtual Desktop
+## Create a role assignment in Windows Virtual Desktop Preview
 
 Now that you’ve created a service principal, you can use it to sign in to Windows Virtual Desktop. Make sure to sign in with an account that has permissions to create the role assignment.
 
@@ -107,4 +107,4 @@ Here are the three credentials you should write down and the cmdlets you need to
 In this tutorial, you learned how to create a service principal and sign in to Windows Virtual Desktop with it. To learn more about how to sign in to Windows Virtual Desktop, continue to the Connect to Windows Virtual Desktop How-tos.
 
 - [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-and-10.md)
-- [Connect to the Windows Virtual Desktop web client](connect-web.md)
+- [Connect to the Windows Virtual Desktop Preview web client](connect-web.md)

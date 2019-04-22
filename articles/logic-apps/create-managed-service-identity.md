@@ -8,7 +8,7 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 03/29/2019
 ---
 
 # Authenticate and access resources with managed identities in Azure Logic Apps
@@ -19,9 +19,14 @@ authenticate your identity without signing in, your logic app can use a
 (formerly known as Managed Service Identity or MSI), rather than credentials or secrets. 
 Azure manages this identity for you and helps secure your credentials because you don't 
 have to provide or rotate secrets. This article shows how you can set up and use a 
-system-assigned managed identity for your logic app. For more information about managed identities, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+system-assigned managed identity for your logic app. For more information about managed identities, 
+see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
+> Your logic app can use managed identities only with 
+> connectors that support managed identities. Currently, 
+> only the HTTP connector supports managed identities.
+>
 > You can currently have up to 10 logic app workflows with 
 > system-assigned managed identities in each Azure subscription.
 
@@ -182,7 +187,7 @@ you can now use that identity for authentication. For example,
 you can use an HTTP action so your logic app can send an HTTP 
 request or call to that resource. 
 
-1. In your logic app, add the **HTTP** action. 
+1. In your logic app, add the **HTTP** action.
 
 1. Provide the necessary details for that action, 
 such as the request **Method** and **URI** location 
@@ -190,13 +195,13 @@ for the resource you want to call.
 
    For example, suppose you're using Azure Active 
    Directory (Azure AD) authentication with 
-   [one of these Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   [one of these Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    In the **URI** box, enter the endpoint URL for that Azure service. 
    So, if you're using Azure Resource Manager, enter this value in the **URI** property:
 
-   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
+   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
 
-1. In the HTTP action, choose **Show advanced options**. 
+1. In the HTTP action, choose **Show advanced options**.
 
 1. From the **Authentication** list, select **Managed Identity**. 
 After you select this authentication, the **Audience** property 
@@ -209,7 +214,7 @@ appears with the default resource ID value:
    > In the **Audience** property, the resource ID value must exactly match 
    > what Azure AD expects, including any required trailing slashes. 
    > You can find these resource ID values in this 
-   > [table describing Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   > [table describing Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    > For example, if you're using the Azure Resoruce Manager resource ID, 
    > make sure the URI has a trailing slash.
 
@@ -222,7 +227,7 @@ appears with the default resource ID value:
 To disable a system-assigned managed identity on your logic app, 
 you can follow the steps similar to how you set up the identity 
 through the Azure portal, Azure Resource Manager deployment templates, 
-or Azure PowerShell. 
+or Azure PowerShell.
 
 When you delete your logic app, 
 Azure automatically removes your logic app's 
@@ -249,7 +254,7 @@ Then, choose **Save** > **Yes**.
 If you created the logic app's system-assigned managed identity 
 with an Azure Resource Manager deployment template, set the 
 `"identity"` element's `"type"` property to `"None"`. 
-This action also deletes the principal ID from Azure AD. 
+This action also deletes the principal ID from Azure AD.
 
 ```json
 "identity": {
