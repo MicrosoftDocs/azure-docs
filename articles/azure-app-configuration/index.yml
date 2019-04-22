@@ -20,10 +20,10 @@ sections:
 - title: 5-Minute quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to develop your first web application by using Azure App Configuration:'
+    text: 'Learn how to develop your first application using Azure App Configuration:'
   - type: list
     style: icon48
-    items: 
+    items:
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
       text: ASP.NET Core

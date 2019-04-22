@@ -53,5 +53,7 @@
       href: https://go.microsoft.com/fwlink/?linkid=2078296
 - name: Resources
   items:
+    - name: Video 
+      href: https://www.youtube.com/watch?v=EIvuLLAMLZg
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration
