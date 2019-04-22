@@ -26,7 +26,7 @@ This visual interface sample experiment shows how to build a regression model to
 
 ## Related sample
 
-[Sample 2 - Regression: Automobile Price Prediction (Compare Algorithms)](ui-sample-regression-predict-automobile-price-compare-algorithms.md) provides a more complicated sample experiment that solves the same problem as this experiment by using two different regression models. It shows how to quickly compare different algorithms in Azure Machine Learning Studio version 2. Check it out if you're looking for a more advanced sample.
+[Sample 2 - Regression: Automobile Price Prediction (Compare Algorithms)](ui-sample-regression-predict-automobile-price-compare-algorithms.md) provides a more complicated sample experiment that solves the same problem as this experiment by using two different regression models. It shows how to quickly compare different algorithms. Check it out if you're looking for a more advanced sample.
 
 ## Experiment summary
 
@@ -47,7 +47,7 @@ In this experiment, we use the **Automobile price data (Raw)** dataset, which is
 
 ## Pre-process the data
 
-The main data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In Azure Machine Learning Studio, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
+The main data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In the visual interface, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
 
 We use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. We then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
 
