@@ -27,15 +27,15 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
 3. An Azure Support Engineer reviews the service request and determines the next steps to resolve the issue.
 
-4. For most cases, these support engineers can troubleshoot issues by using telemetry. <Fill this details>. However, in some cases, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer, or from a different engineer as a result of the problem being escalated to the Azure DevOps team.
+4. For most cases, these support engineers can troubleshoot issues by using telemetry. <Fill this details>. However, in some cases, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer. Or, it can be from a different engineer because the problem is escalated to the Azure DevOps team.
 
-5. The JIT policy engine evaluates the request, taking into account parameters such as:
-    - Scope of the Resource
-    - Requester (Isolated Identity, MFA etc)
-    - Secure Device (Secure Admin Workstation)
-    - Permission level
+5. The JIT policy engine evaluates the request, taking into account factors such as the scope of the resource, whether the requester is an isolated identify or using multi-factor authentication, whether the device is a secure admin workstat:
+    - The scope of the resource
+    - Whether the requester is an isolated identify or using multi-factor authentication
+    - Whether the source device is locked down for security
+    - Permissions levels
     
-    This step also includes an initial approval from internal Microsoft approvers, based on the JIT policy. For example, the the approver might be the Customer Support Lead or DevOps Manager.
+    This step also includes an initial approval from internal Microsoft approvers, based on the JIT policy. For example, the approver might be the Customer Support Lead or DevOps Manager.
 
 6. When the request requires direct access to customer data, a Customer Lockbox request is initiated. For example, remote desktop access to a customer's virtual machine.
     
@@ -47,7 +47,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
 8. The email notification provides a link to the **Customer Lockbox** blade in the Azure portal. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox.
     
-   The request remains in the customer queue for 4 days. After this time, the access request automatically expires and no access is granted to Microsoft engineers.
+   The request remains in the customer queue for four days. After this time, the access request automatically expires and no access is granted to Microsoft engineers.
 
 9. To get the details of the pending request, the designated approver can select the lockbox request.<Add Screenshot>
 
@@ -66,7 +66,7 @@ For auditing purposes, the actions taken in this workflow are logged in [Custome
 
 Customer Lockbox is automatically available for all customers who have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**. 
 
-When you have an eligible support plan, no action is required by you to enable Customer Lockbox. Customer Lockbox request are automatically initiated by a Microsoft engineer if needed, to progress a support ticket that has been filed from somebody in your organization.
+When you have an eligible support plan, no action is required by you to enable Customer Lockbox. Customer Lockbox requests are automatically initiated by a Microsoft engineer if this action is needed to progress a support ticket that is filed from somebody in your organization.
 
 ## Auditing logs
 
@@ -84,33 +84,33 @@ The following services and scenarios are currently in general availability for C
 
 ### Remote desktop access to virtual machines
 
-Customer Lockbox is currently enabled for remote desktop access requests to virtual machines. Interactive remote desktop access to the following workloads are supported:
-- PAAS V1
+Customer Lockbox is currently enabled for remote desktop access requests to virtual machines. Interactive remote desktop access to the following workloads is supported:
+- PAAS - version 1
 - IAAS - Windows and Linux (ARM-based only)
-- VMSS -Windows and Linux
+- Virtual machine scale set - Windows and Linux
 
 [Note!]: IAAS Classic instances are not supported by Customer Lockbox. If you have workloads running on IAAS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 #### Detailed audit logs 
 
-For scenarios that involve direct remote desktop access to a virtual machine, you can also use the Windows Event Log. If a virtual machine agent is installed on the virtual machine, you can export these logs for analysis and alerting, to be used by other monitoring solutions, such as Azure Monitor.
+For scenarios that involve direct remote desktop access to a virtual machine, you can also use the Windows Event Log. If a virtual machine agent is installed on the virtual machine, you can export these logs for analysis and alerting. This data can then be used by other monitoring solutions, such as Azure Monitor.
 
 ## Exclusions
 
-Customer Lockbox requests are not triggered in following scenarios:
+Customer Lockbox requests aren't triggered in following scenarios:
 
 - Law enforcement requests
     
-    In these very unusual situations, Microsoft is legally required to comply with such requests.
+    In these unusual situations, Microsoft is legally required to comply with such requests.
 
-- Operations that are not part of standard operating procedures
+- Operations that aren't part of standard operating procedures
    
-    There are some scenarios where a Microsoft engineer needs to perform an activity that falls outside of standard operating procedures, for example, to recover or restore a service.
+    There are some scenarios where a Microsoft engineer needs to do an activity that falls outside of standard operating procedures. For example, to recover or restore a service.
 
 - Incidental access at the platform layer
     
     This scenario can arise when a Microsoft engineer accesses the platform as part of troubleshooting and inadvertently has access to customer data.
     
-    For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. Note that in this case, if the customer encrypted the data while it was in transit, the engineers cannot read the data.
+    For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. However, if the customer encrypted the data while it was in transit, the engineers cannot read the data.
 
 # Frequently asked questions
