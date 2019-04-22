@@ -47,7 +47,7 @@ CloudSimple provides you with an ExpressRoute circuit for your private cloud. Yo
 
 You can now sign in to vCenter to set up virtual machines and policies.
 
-1. To access vCenter, start from the CloudSimple Portal. On the Home page, under **Common Tasks**, click **Launch vSphere Client** and then click **Launch vSphere Client**.
+1. To access vCenter, start from the CloudSimple portal. On the Home page, under **Common Tasks**, click **Launch vSphere Client** and then click **Launch vSphere Client**.
 2. Select your preferred vSphere client to access vCenter and sign in with your username and password.  The defaults are:
     * User name: **CloudOwner@cloudsimple.local**
     * Password: **CloudSimple123!**  
@@ -98,7 +98,6 @@ For ISO upload, use the vSphere HTML5 client.  Using the Flash client may result
 4. In the middle top, click **Files**, and then click **New Folder**.
 5. Create a folder entitled ‘ISOs and Templates’.
 6. Navigate to the **ISOs and Templates** folder, and click **Upload Files**. Follow the on-screen instructions to upload the ISO.
-
 
 ## Create a virtual machine in vCenter
 
@@ -158,9 +157,9 @@ The following Microsoft articles describe how to set up a Windows server as a DN
 
 ## Customize networking configuration (Optional)
 
-The Network pages in the CloudSimple Portal allow you to specify the configuration for firewall tables and public IP addresses for VMs.
+The Network pages in the CloudSimple portal allow you to specify the configuration for firewall tables and public IP addresses for VMs.
 
-### Allocate public IPs
+### Allocate a public IP
 
 1. In the CloudSimple portal, navigate to **Network > Public IP**.
 2. Click **Allocate Public IP**.
@@ -173,16 +172,15 @@ The Network pages in the CloudSimple Portal allow you to specify the configurati
 
 9. (Optional) Check the status of the task on the **Activity** > **Tasks** page.
 
-    When allocation is done, the new entry appears on the **Public IPs** page.
+    When allocation is done, the new entry appears on the **Public IPs'** page.
 
-The VM to which this IP address must be mapped needs to be configured with the local address specified above. The specific procedure to configure an IP address depends on the VM operating system. Consult your VM operating system documentation for the correct procedure.
+Use the local IP address specified in the previous steps to specify which IP address to map the VM to. The steps to configure an IP address depends on the VM operating system. Consult your VM operating system documentation for the correct procedure.
 
 ### Example
 
 The following example provides details for Ubuntu 16.04.
 
 Add the static method to the INET address family configuration in the file /etc/network/interfaces. Change the address, netmask, and gateway values. For this example, we're using:
-
 
 * The eth0 interface
 * Internal IP address: 192.168.24.10
@@ -195,9 +193,7 @@ For your environment, the available subnet information is provided in the welcom
 sudo vi /etc/network/interfaces
 ```
 
-
 The output will look similar to the following example:
-
 
 ```console
 auto eth0
@@ -249,7 +245,7 @@ python2.7 -m SimpleHTTPServer 80 or python3 -m http.server 80
 
 ## Default CloudSimple firewall rules for public IP
 
-Explicitly allocated workload public IP traffic:
+For explicitly allocated workload public IP traffic:
 
 * VPN traffic: All traffic between (from/to) the VPN and all the workload networks and management network is allowed.
 * Private cloud internal traffic: All east-west traffic between (from/to) workload networks and the management network (shown above) is allowed.
