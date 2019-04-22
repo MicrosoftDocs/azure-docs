@@ -217,7 +217,7 @@ This quickstart will describe, step by step, how to make a simple client applica
     botConnector = new SpeechBotConnector(botConnectorConfig);
     ```
 
-1. `SpeechBotConnector` relies on several events to communicate its bot activities, speech recognition results, and other information. Add handlers for these events next, appending the following to the end of the method body of `InitializeBotConnector`.
+1. `SpeechBotConnector` relies on several events to communicate its bot activities, speech recognition results, and other information. Add handlers for these events, appending the following to the end of the method body of `InitializeBotConnector`.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities
