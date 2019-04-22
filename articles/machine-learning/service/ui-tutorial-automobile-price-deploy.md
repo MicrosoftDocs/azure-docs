@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy automobile price model with the visual interface'
+title: 'Tutorial: Deploy a machine learning model with the visual interface'
 titleSuffix: Azure Machine Learning service
 description: Learn how to build a predictive analytics solution in the Azure Machine Learning service visual interface. Train, score, and deploy a machine learning model using drag and drop modules. This tutorial is part two of a two-part series on predicting automobiles prices using linear regression.
 
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 04/06/2019
 ---
 
-# Tutorial: Deploy automobile price model
+# Tutorial: Deploy a machine learning model with the visual interface
 
 In this tutorial, you take an extended look at developing a predictive analytics solution in the Azure Machine Learning service visual interface. You'll learn how to create a machine learning model, deploy a model as an Azure web service, and consume your web service to make predictions on new data.
 
