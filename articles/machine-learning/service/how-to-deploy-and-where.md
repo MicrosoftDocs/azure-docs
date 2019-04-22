@@ -34,9 +34,6 @@ The process of deploying a model is similar for all compute targets:
 1. Deploy model(s).
 1. Test the deployment.
 
-> [!NOTE]
-> There are extra steps involved in deploying to IoT Edge. For more information, check out [this article](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning).
-
 For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning Service](concept-model-management-and-deployment.md).
 
 ## Prerequisites for deployment
