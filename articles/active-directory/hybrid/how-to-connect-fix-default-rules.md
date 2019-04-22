@@ -17,89 +17,89 @@ ms.collection: M365-identity-device-management
 
 # Fix modified default rules in Azure AD Connect
 
-Azure AD Connect ships with default rules for synchronization.  Unfortunately these rules do not apply universally to all organizations and there may be times, based on your requirements, when you need to modify them.
-
- If you have modified the default rules or are planning to modify them, then please take a moment to read this document.
-
-This document presents 2 examples of the most common customizations done by users and explains the correct way to achieve these customizations.
+Azure Active Directory (Azure AD) Connect uses default rules for synchronization.  Unfortunately, these rules don't apply universally to all organizations. Based on your requirements, you might need to modify them. This article discusses two examples of the most common customizations, and explains the correct way to achieve these customizations.
 
 >[!NOTE] 
-> Modifying existing default rule(s) to achieve a needed customization is not supported - by doing this you will prevent updating these rules to the latest version in future releases. This will prevent you getting needed bug fixes and new features.  This document will explain how to achieve the same result without modifying the existing default rules. 
+> Modifying existing default rules to achieve a needed customization isn't supported. If you do so, it prevents updating these rules to the latest version in future releases. You won't get the bug fixes you need, or new features. This document explains how to achieve the same result without modifying the existing default rules. 
 
-## How to identify modified default rules?
-Starting with version 1.3.7.0 of **Azure AD Connect**, it is now easy to identify the modified default rule. You can go to Apps on Desktop and click on **Synchronization Rules Editor**.
+## How to identify modified default rules
+Starting with version 1.3.7.0 of Azure AD Connect, it's easy to identify the modified default rule. Go to **Apps on Desktop**, and select **Synchronization Rules Editor**.
 
-![editor](media/how-to-connect-fix-default-rules/default1.png)
+![Screenshot of Azure AD Connect, with Synchronization Rules Editor highlighted](media/how-to-connect-fix-default-rules/default1.png)
 
-In the Editor, any modified default rules will be shown with an icon in front of the name as shown below:
+In the Editor, any modified default rules are shown with a warning icon in front of the name.
 
-![icon](media/how-to-connect-fix-default-rules/default2.png)
+![Image of warning icon](media/how-to-connect-fix-default-rules/default2.png)
 
- Also you will see a disabled rule with same name next to it which is the standard default rule:
+ A disabled rule with same name next to it also appears (this is the the standard default rule).
 
-![default rules](media/how-to-connect-fix-default-rules/default2a.png)
+![Screenshot of Synchronization Rules Editor, showing standard default rule and modified default rule](media/how-to-connect-fix-default-rules/default2a.png)
 
 ## Common customizations
 The following are common customizations to the default rules:
 
-- [Changing attribute flow](#changing-attribute-flow)
-- [Changing scoping filter](#changing-scoping-filter)
-- [Changing join condition](#changing-join-condition)
+- [Change attribute flow](#changing-attribute-flow)
+- [Change scoping filter](#changing-scoping-filter)
+- [Change join condition](#changing-join-condition)
 
-## Before changing any rules
-- Disable the sync scheduler.  The scheduler runs every 30 minutes by default. Make sure it is not starting while you are making changes and troubleshooting your new rules. To temporarily disable the scheduler, start PowerShell and run `Set-ADSyncScheduler -SyncCycleEnabled $false`.
- ![default rules](media/how-to-connect-fix-default-rules/default3.png)
+Before changing any rules:
 
-- The change in scoping filter may result in deletion of objects in the target directory. Please be careful before making any changes in the scoping of objects. It’s recommended to make changes to a staging server before making changes on the active server.
-- Please run a preview on a single object as mentioned in [Validate Sync Rule](#validate-sync-rule) section, after adding any new Rule.
-- Please run a full sync after adding a new rule or modifying any custom sync rule. This sync will apply new rules to all the objects.
+- Disable the sync scheduler. The scheduler runs every 30 minutes by default. Make sure it's not starting while you're making changes and troubleshooting your new rules. To temporarily disable the scheduler, start PowerShell, and run `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+ ![Screenshot of PowerShell commands to disable the sync scheduler](media/how-to-connect-fix-default-rules/default3.png)
 
-## Changing attribute flow
-There are 3 different scenarios for the attribute flow, let’s look at how to achieve it without altering standard default rules.
-- Adding new attribute
-- Overriding value of existing attribute
-- Don’t sync existing attribute
+- The change in scoping filter can result in deletion of objects in the target directory. Be careful before making any changes in the scoping of objects. It’s recommended to make changes to a staging server before making changes on the active server.
+- Run a preview on a single object, as mentioned in the [Validate Sync Rule](#validate-sync-rule) section, after adding any new rule.
+- Run a full sync after adding a new rule or modifying any custom sync rule. This sync applies new rules to all the objects.
 
-### Adding new attribute:
-If you find that an attribute is not flowing from your source directory to the target directory then you can use the [Azure AD Connect sync: Directory extensions](how-to-connect-sync-feature-directory-extensions.md) to flow the new attributes.
+## Change attribute flow
+There are three different scenarios for changing the attribute flow:
+- Adding a new attribute.
+- Overriding the value of an existing attribute.
+- Choosing not to sync an existing attribute.
 
-Please note that your first choice should be to use [Azure AD Connect sync: Directory extensions](how-to-connect-sync-feature-directory-extensions.md), an out of box feature provided by Azure AD Connect. However, if it didn’t work for you then go through following steps to flow an attribute without modifying existing standard default sync rule, you can do this by adding two new sync rules.
+You can do these without altering standard default rules.
+
+### Add a new attribute
+If you find that an attribute is not flowing from your source directory to the target directory, use the [Azure AD Connect sync: Directory extensions](how-to-connect-sync-feature-directory-extensions.md) to fix this.
+
+If the extensions don't work for you, try adding two new sync rules, described in the following sections.
 
 
-#### Add an inbound sync rule:
-Inbound sync rule means the source for the attribute is a connector space and target is metaverse. For example, to flow a new attribute from on-premises Active Directory to Azure Active Directory, create a new inbound sync rule by launching the **Synchronization Rule Editor**, then select Direction as **Inbound** and click **Add new rule**. 
+#### Add an inbound sync rule
+An inbound sync rule means the source for the attribute is a connector space, and the target is the metaverse. For example, to have a new attribute flow from on-premises Active Directory to Azure Active Directory, create a new inbound sync rule. Launch the **Synchronization Rules Editor**, select **Inbound** as the direction, and select **Add new rule**. 
 
- ![default rules](media/how-to-connect-fix-default-rules/default3a.png)
+ ![Screenshot of Synchronization Rules Editor](media/how-to-connect-fix-default-rules/default3a.png)
 
-Follow your own naming convention to name the rule, here we used **Custom In from AD - User**, this means that the rule is a custom rule and is an inbound rule from AD connector space to the Metaverse.   
+Follow your own naming convention to name the rule. Here, we use **Custom In from AD - User**. This means that the rule is a custom rule, and is an inbound rule from the Active Directory connector space to the metaverse.   
 
- ![default rules](media/how-to-connect-fix-default-rules/default3b.png)
+ ![Screenshot of Create inbound synchronization rule](media/how-to-connect-fix-default-rules/default3b.png)
 
-Give your own description of the rule so that the future maintenance of the rule is easy, like what’s the objective of this rule and why it was needed.
-Select a Connected System (the forest) - the attribute source. Then, select the Connected System Object Type and the Metaverse Object Type.
+Provide your own description of the rule, so that future maintenance of the rule is easy. For example, the description can be based on what the objective of the rule is, and why it's needed.
 
-Specify the precedence value between 0 – 99 (lower the number, higher the precedence). Keep other fields like ‘Tag’, ‘Enable Password Sync’ and ‘Disabled’ as default.
+Make your selections for the **Connected System**, **Connected System Object Type**, and **Metaverse Object Type** fields.
 
-Keep ‘Scoping filter’ empty, this means that the rule will apply to all the objects joined between AD Connected System and Metaverse.
+Specify the precedence value between 0 – 99 (the lower the number, the higher the precedence). For the **Tag**, **Enable Password Sync**, and **Disabled** fields, use the default selections.
 
-Keep the ‘Join rules’ empty which means this rule will piggyback on the join condition defined in the standard default rule. This is another reason not to disable/delete the standard default rule because if there is no join condition to piggyback then the attribute will not flow. 
+Keep **Scoping filter** empty. This means that the rule applies to all the objects joined between the Active Directory Connected System and the metaverse.
 
-Add appropriate transformation for your attribute, you can assign constant to flow a constant value to your target attribute, or direct mapping between source or target attribute, or an expression for the attribute. Here are various [expression functions](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) you can use.
+Keep **Join rules** empty. This means this rule uses the join condition defined in the standard default rule. This is another reason not to disable or delete the standard default rule. If there is no join condition, the attribute won't flow. 
 
-#### Add an outbound sync rule:
-So far by adding just an inbound sync rule we have done half the work, because the attribute is not yet linked to the target directory. To link the attribute to the target director you need to create an outbound rule, which means source is metaverse and the target is connected system. To create an outbound rule, launch **Synchronization Rule Editor**, change the **Direction** to **Outbound** and click **Add new rule**. 
+Add appropriate transformations for your attribute. You can assign a constant, to make a constant value flow to your target attribute. You can use direct mapping between the source or target attribute. Or, you can use an expression for the attribute. Here are various [expression functions](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) you can use.
 
-![default rules](media/how-to-connect-fix-default-rules/default3c.png)
+#### Add an outbound sync rule
+To link the attribute to the target directory, you need to create an outbound rule. This means that the source is the metaverse, and the target is the connected system. To create an outbound rule, launch the **Synchronization Rules Editor**, change the **Direction** to **Outbound**, and select **Add new rule**. 
 
-As in the inbound rule, you can use your own naming convention to **Name** the rule. Select the **Connected System** as Azure AD tenant, select the connected system object to which you want to set the attribute value. Set the precedence between 0 - 99. 
+![Screenshot of Synchronization Rules Editor](media/how-to-connect-fix-default-rules/default3c.png)
 
-![default rules](media/how-to-connect-fix-default-rules/default3d.png)
+As with the inbound rule, you can use your own naming convention to name the rule. Select the **Connected System** as the Azure AD tenant, and select the connected system object to which you want to set the attribute value. Set the precedence between 0 - 99. 
 
-Keep **Scoping filter** empty, keep **Join rules** empty, fill in the transformation as Constant, Direct or expression. 
+![Screenshot of Create outbound synchronization rule](media/how-to-connect-fix-default-rules/default3d.png)
 
-In this example we have demonstrated how to flow new attribute for a user object from Active Directory to Azure Active Directory. You can use these steps to map any attribute from any object to source and target.  For more information see [Creating custom sync rules](how-to-connect-create-custom-sync-rule.md) and [Prepare to provision users](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+Keep **Scoping filter** and **Join rules** empty. Fill in the transformation as constant, direct, or expression. 
 
-### Overriding value of existing attribute
+You now know how to make a new attribute for a user object flow from Active Directory to Azure Active Directory. You can use these steps to map any attribute from any object to source and target. For more information, see [Creating custom sync rules](how-to-connect-create-custom-sync-rule.md) and [Prepare to provision users](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+
+### Override the value of an existing attribute
 It’s possible that you want to override the value of already mapped attribute, for example you always want to set Null value to an attribute in Azure AD, you can do this by simply creating only an inbound rule as mentioned in previous step and flow **AuthoritativeNull** constant value for the target attribute. Please note that we have used AuthoritativeNulll instead of Null in this case. This is because the non-null value will replace the Null value even if it has lower precedence (higher number value in the rule). However, the AuthoritativeNull will be treated as Null and will not be replaced with non-null value by other rules. 
 
 ### Don’t sync existing attribute
@@ -188,4 +188,6 @@ To fix your rules to default settings, you can delete the modified rule and enab
 - [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
 - [Express settings](how-to-connect-install-express.md)
 - [Customized settings](how-to-connect-install-custom.md)
+
+
 
