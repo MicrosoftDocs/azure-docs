@@ -70,7 +70,7 @@ Before deploying Azure File Sync, you should evaluate whether it is compatible w
 #### Download Instructions
 1. Make sure that you have the latest version of PackageManagement and PowerShellGet installed (this allows you to install preview modules)
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name PackageManagement -Repository PSGallery -Force
         Install-Module -Name PowerShellGet -Repository PSGallery -Force
     ```
@@ -78,29 +78,29 @@ Before deploying Azure File Sync, you should evaluate whether it is compatible w
 2. Restart PowerShell
 3. Install the modules
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
     ```
 
 #### Usage  
 You can invoke the evaluation tool in a few different ways: you can perform the system checks, the dataset checks, or both. To perform both the system and dataset checks: 
 
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path>
 ```
 
 To test only your dataset:
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
 ```
  
 To test system requirements only:
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
 ```
  
 To display the results in CSV:
-```PowerShell
+```powershell
     $errors = Invoke-AzStorageSyncCompatibilityCheck […]
     $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```
@@ -237,7 +237,7 @@ Azure File Sync is available only in the following regions:
 | Canada East | Quebec City |
 | Central India | Pune |
 | Central US | Iowa |
-| East Asia | Hong Kong |
+| East Asia | Hong Kong SAR |
 | East US | Virginia |
 | East US2 | Virginia |
 | Japan East | Tokyo, Saitama |
@@ -273,6 +273,8 @@ To support the failover integration between geo-redundant storage and Azure File
 | East Asia           | Southeast Asia     |
 | East US             | West US            |
 | East US 2           | Central US         |
+| Korea Central       | Korea South        |
+| Korea South         | Korea Central      |
 | North Europe        | West Europe        |
 | North Central US    | South Central US   |
 | South India         | Central India      |

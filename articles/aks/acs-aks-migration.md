@@ -140,7 +140,7 @@ Make any necessary modifications to your YAML definitions. Ex: replacing `apps/v
 
 ### 3. (Optional) Migrate volumes
 
-Migrate volumes from your ACS cluster to your AKS cluster. More details can be found in the [Migrating Persistent Volumes](#Migrating-Persistent-Volumes) section.
+Migrate volumes from your ACS cluster to your AKS cluster. More details can be found in the [Migrating Persistent Volumes](#migrating-persistent-volumes) section.
 
 ### 4. Deploy applications
 

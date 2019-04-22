@@ -61,7 +61,7 @@ The following code makes an HTTPS request to the QnA Maker API to send the quest
 
 [!code-go[Add a POST request to send question to knowledge base](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=35-48 "Add a POST request to send question to knowledge base")]
 
-The `Authorization` header's value includes the string `EndpointKey `. 
+The `Authorization` header's value includes the string `EndpointKey`. 
 
 Learn more about the [request](../how-to/metadata-generateanswer-usage.md#generateanswer-request) and [response](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
 

@@ -19,6 +19,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync service features
+
 The synchronization feature of Azure AD Connect has two components:
 
 * The on-premises component named **Azure AD Connect sync**, also called **sync engine**.
@@ -60,26 +61,29 @@ The following settings are configured by Azure AD Connect and cannot be modified
 | UserWriteback |Not currently supported. |
 
 ## Duplicate attribute resiliency
+
 Instead of failing to provision objects with duplicate UPNs / proxyAddresses, the duplicated attribute is “quarantined” and a temporary value is assigned. When the conflict is resolved, the temporary UPN is changed to the proper value automatically. For more details, see [Identity synchronization and duplicate attribute resiliency](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
 ## UserPrincipalName soft match
+
 When this feature is enabled, soft-match is enabled for UPN in addition to the [primary SMTP address](https://support.microsoft.com/kb/2641663), which is always enabled. Soft-match is used to match existing cloud users in Azure AD with on-premises users.
 
 If you need to match on-premises AD accounts with existing accounts created in the cloud and you are not using Exchange Online, then this feature is useful. In this scenario, you generally don’t have a reason to set the SMTP attribute in the cloud.
 
 This feature is on by default for newly created Azure AD directories. You can see if this feature is enabled for you by running:  
 
-```
+```powershell
 Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
 ```
 
 If this feature is not enabled for your Azure AD directory, then you can enable it by running:  
 
-```
+```powershell
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 ```
 
 ## Synchronize userPrincipalName updates
+
 Historically, updates to the UserPrincipalName attribute using the sync service from on-premises has been blocked, unless both of these conditions are true:
 
 * The user is managed (non-federated).
@@ -87,23 +91,23 @@ Historically, updates to the UserPrincipalName attribute using the sync service 
 
 For more details, see [User names in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/kb/2523192).
 
-Enabling this feature allows the sync engine to update the userPrincipalName when it is changed on-premises and you use password hash sync. If you use federation, this feature is not supported.
+Enabling this feature allows the sync engine to update the userPrincipalName when it is changed on-premises and you use password hash sync or pass-through authentication. If you use federation, this feature is not supported.
 
 This feature is on by default for newly created Azure AD directories. You can see if this feature is enabled for you by running:  
 
-```
+```powershell
 Get-MsolDirSyncFeatures -Feature SynchronizeUpnForManagedUsers
 ```
 
 If this feature is not enabled for your Azure AD directory, then you can enable it by running:  
 
-```
+```powershell
 Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 ```
 
 After enabling this feature, existing userPrincipalName values will remain as-is. On next change of the userPrincipalName attribute on-premises, the normal delta sync on users will update the UPN.  
 
 ## See also
+
 * [Azure AD Connect sync](how-to-connect-sync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
-

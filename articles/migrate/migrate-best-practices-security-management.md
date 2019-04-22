@@ -433,7 +433,7 @@ Since Azure Functions functions more or less as code, you should back them up us
 
 **Learn more:**
 
-- [Data protection](https://docs.microsoft.com/azure/devops/articles/team-services-security-whitepaper?view=vsts) for Azure DevOps.
+- [Data protection](/azure/devops/organizations/security/data-protection) for Azure DevOps.
 
 ## Best practice: Set up disaster recovery 
 

@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 03/26/2019
 ---
 # Creating and using active geo-replication
 
@@ -69,8 +69,11 @@ To achieve real business continuity, adding database redundancy between datacent
 
   An application can access a secondary database for read-only operations using the same or different security principals used for accessing the primary database. The secondary databases operate in snapshot isolation mode to ensure replication of the updates of the primary (log replay) is not delayed by queries executed on the secondary.
 
-  > [!NOTE]
-  > The log replay is delayed on the secondary database if there are schema updates on the Primary. The latter requires a schema lock on the secondary database.
+> [!NOTE]
+> The log replay is delayed on the secondary database if there are schema updates on the Primary. The latter requires a schema lock on the secondary database.
+> [!IMPORTANT]
+> You can use geo-replication to create a secondary database in the same region as the primary. You can use this secondary to load-balance a read-only workloads in the same region. However, a secondary database in the same region does not provide additional fault resilience and therefore is not a suitable failover target for disaster recovery. It will also not guarantee avaialability zone isolation. Use Business critical or Premium service tier with [zone redundant configuration](sql-database-high-availability.md#zone-redundant-configuration) to achieve avaialability zone isolation.   
+>
 
 - **Planned failover**
 

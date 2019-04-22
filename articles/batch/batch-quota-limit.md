@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: lahugh
 ms.custom: seodec18
 
@@ -73,14 +73,12 @@ View your Batch account quotas in the [Azure portal][portal].
 1. Select **Batch accounts** in the portal, then select the Batch account you're interested in.
 1. Select **Quotas** on the Batch account's menu.
 1. View the quotas currently applied to the Batch account
-   
+
     ![Batch account quotas][account_quotas]
-
-
 
 ## Increase a quota
 
-Follow these steps to request a quota increase for your Batch account or your subscription using the [Azure portal][portal]. The type of quota increase depends on the pool allocation mode of your Batch account.
+Follow these steps to request a quota increase for your Batch account or your subscription using the [Azure portal][portal]. The type of quota increase depends on the pool allocation mode of your Batch account. To request a quota increase, you must include the VM series you would like to increase the quota for. When the quota increase is applied, it is applied to all series of VMs.
 
 ### Increase a Batch cores quota 
 

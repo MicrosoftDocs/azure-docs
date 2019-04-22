@@ -71,7 +71,7 @@ To set up your Azure Data Science environment, follow these steps.
 **Provision your Azure SQL DW instance.**
 Follow the documentation at [Create a SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) to provision a SQL Data Warehouse instance. Make sure that you make notations on the following SQL Data Warehouse credentials which will be used in later steps.
 
-* **Server Name**: <server Name>.database.windows.net
+* **Server Name**: \<server Name>.database.windows.net
 * **SQLDW (Database) Name**
 * **Username**
 * **Password**

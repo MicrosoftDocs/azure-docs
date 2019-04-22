@@ -4,7 +4,7 @@ description: Provides answers to some questions IT administrators might have abo
 services: active-directory
 keywords: enterprise state roaming settings, windows cloud, frequently asked questions on enterprise state roaming
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: tanning
 ms.custom: it-pro
 
@@ -26,6 +26,8 @@ ms.collection: M365-identity-device-management
 # Troubleshooting Enterprise State Roaming settings in Azure Active Directory
 
 This topic provides information on how to troubleshoot and diagnose issues with Enterprise State Roaming, and provides a list of known issues.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Preliminary steps for troubleshooting 
 

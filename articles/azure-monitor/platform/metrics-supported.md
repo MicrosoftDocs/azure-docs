@@ -500,10 +500,10 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |---|---|---|---|---|---|
 |JobEndedSuccess|Successful Jobs|Count|Total|Count of successful jobs.|No Dimensions|
 |JobEndedFailure|Failed Jobs|Count|Total|Count of failed jobs.|No Dimensions|
-|JobEndedCancelled|Cancelled Jobs|Count|Total|Count of cancelled jobs.|No Dimensions|
+|JobEndedCanceled|Canceled Jobs|Count|Total|Count of canceled jobs.|No Dimensions|
 |JobAUEndedSuccess|Successful AU Time|Seconds|Total|Total AU time for successful jobs.|No Dimensions|
 |JobAUEndedFailure|Failed AU Time|Seconds|Total|Total AU time for failed jobs.|No Dimensions|
-|JobAUEndedCancelled|Cancelled AU Time|Seconds|Total|Total AU time for cancelled jobs.|No Dimensions|
+|JobAUEndedCanceled|Canceled AU Time|Seconds|Total|Total AU time for canceled jobs.|No Dimensions|
 
 ## Microsoft.DataLakeStore/accounts
 
@@ -870,7 +870,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |RunsCompleted|Runs Completed|Count|Total|Number of workflow runs completed.|No Dimensions|
 |RunsSucceeded|Runs Succeeded|Count|Total|Number of workflow runs succeeded.|No Dimensions|
 |RunsFailed|Runs Failed|Count|Total|Number of workflow runs failed.|No Dimensions|
-|RunsCancelled|Runs Cancelled|Count|Total|Number of workflow runs cancelled.|No Dimensions|
+|RunsCanceled|Runs Canceled|Count|Total|Number of workflow runs canceled.|No Dimensions|
 |RunLatency|Run Latency|Seconds|Average|Latency of completed workflow runs.|No Dimensions|
 |RunSuccessLatency|Run Success Latency|Seconds|Average|Latency of succeeded workflow runs.|No Dimensions|
 |RunThrottledEvents|Run Throttled Events|Count|Total|Number of workflow action or trigger throttled events.|No Dimensions|
@@ -1086,8 +1086,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |registration.get|Registration Read Operations|Count|Total|The count of all successful registration queries.|No Dimensions|
 |registration.delete|Registration Delete Operations|Count|Total|The count of all successful registration deletions.|No Dimensions|
 |incoming|Incoming Messages|Count|Total|The count of all successful send API calls. |No Dimensions|
-|incoming.scheduled|Scheduled Push Notifications Sent|Count|Total|Scheduled Push Notifications Cancelled|No Dimensions|
-|incoming.scheduled.cancel|Scheduled Push Notifications Cancelled|Count|Total|Scheduled Push Notifications Cancelled|No Dimensions|
+|incoming.scheduled|Scheduled Push Notifications Sent|Count|Total|Scheduled Push Notifications Canceled|No Dimensions|
+|incoming.scheduled.cancel|Scheduled Push Notifications Canceled|Count|Total|Scheduled Push Notifications Canceled|No Dimensions|
 |scheduled.pending|Pending Scheduled Notifications|Count|Total|Pending Scheduled Notifications|No Dimensions|
 |installation.all|Installation Management Operations|Count|Total|Installation Management Operations|No Dimensions|
 |installation.get|Get Installation Operations|Count|Total|Get Installation Operations|No Dimensions|
@@ -1281,8 +1281,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |MessageCount|Message Count|Count|Total|The total amount of messages.|No Dimensions|
 |InboundTraffic|Inbound Traffic|Bytes|Total|The inbound traffic of service|No Dimensions|
 |OutboundTraffic|Outbound Traffic|Bytes|Total|The outbound traffic of service|No Dimensions|
-|UserErrors|User Errors|Percent|Maximum|The percentage of user errors|No Dimensions|
-|SystemErrors|System Errors|Percent|Maximum|The percentage of system errors|No Dimensions|
+|UserErrors|User Errors|Percent|Average|The percentage of user errors|No Dimensions|
+|SystemErrors|System Errors|Percent|Average|The percentage of system errors|No Dimensions|
 
 ## Microsoft.Sql/servers/databases
 
@@ -1507,7 +1507,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Http5xx|Http Server Errors|Count|Total|Http Server Errors|Instance|
 |MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|Instance|
 |AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|Instance|
-|FunctionExecutionUnits|Function Execution Units|Count|Total|Function Execution Units|Instance|
+|FunctionExecutionUnits|Function Execution Units|MB / Milliseconds|Total|[Function Execution Units](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instance|
 |FunctionExecutionCount|Function Execution Count|Count|Total|Function Execution Count|Instance|
 |PrivateBytes|Private Bytes|Bytes|Average|Private Bytes|Instance|
 |IoReadBytesPerSecond|IO Read Bytes Per Second|BytesPerSecond|Total|IO Read Bytes Per Second|Instance|
@@ -1602,7 +1602,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |MemoryPercentage|Memory Percentage|Percent|Average|Memory Percentage|Instance|
 
 ## Next steps
-
-* [Read about metrics in Azure Monitor](../../azure-monitor/platform/data-collection.md)
-* [Create alerts on metrics](../../azure-monitor/platform/alerts-overview.md)
-* [Export metrics to storage, Event Hub, or Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Read about metrics in Azure Monitor](data-platform.md)
+* [Create alerts on metrics](alerts-overview.md)
+* [Export metrics to storage, Event Hub, or Log Analytics](diagnostic-logs-overview.md)

@@ -4,7 +4,7 @@ description: How to configure risk policies in Azure Active Directory identity p
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
-ms.author: markvi
-ms.reviewer: raluthra
+ms.author: joflore
+ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---
@@ -36,7 +36,8 @@ Azure AD analyzes each sign-in of a user. The objective of the analysis is to de
 
 The sign-in risk policy is an automated response you can configure for a specific sign-in risk level. In your response, you can block access to your resources or require passing a multi-factor authentication (MFA) challenge to gain access.
 
-   
+When a user successfully completes an MFA prompt triggered by the sign-in risk policy, it gives feedback to Identity Protection that the sign-in originated from the legitimate user. Thus, the sign-in risk event that triggered the MFA prompt will automatically be closed and Identity Protection will prevent this event from contributing to the elevation of user risk. Enabling the sign-in risk policy can reduce noisiness in the risky sign-ins view by allowing users to self-remediate when prompted for MFA and subsequently automatically closing the associated risky sign-in.
+
 ## How do I access the sign-in risk policy?
    
 The sign-in risk policy is in the **Configure** section on the [Azure AD Identity Protection page](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).

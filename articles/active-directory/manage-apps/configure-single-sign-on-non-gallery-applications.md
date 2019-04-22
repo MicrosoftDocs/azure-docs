@@ -74,7 +74,7 @@ To set up Azure AD, enter the basic SAML configuration. You can manually enter t
 
     To configure multiple replyURLs you can use the following PowerShell script.
 
-    ```PowerShell
+    ```powershell
     $sp = Get-AzureADServicePrincipal -SearchString "<Exact App  name>"
     $app = Get-AzureADApplication -SearchString "<Exact app name>"
     Set-AzureADApplication -ObjectId $app.ObjectId -ReplyUrls "<ReplyURLs>"

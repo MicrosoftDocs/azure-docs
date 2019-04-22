@@ -7,7 +7,6 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/21/2019
 
-
 ---
 
 # Use Azure Disk Encryption with virtual machine scale set extension sequencing
@@ -149,7 +148,7 @@ Here is an example using "AzureDiskEncryption" followed by "VMDiagnosticsSetting
 ```
 
 For more in-depth templates, see:
-* Apply the Azure Disk Encryption extension after a custom shell script that formats the desk (Linux): [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
+* Apply the Azure Disk Encryption extension after a custom shell script that formats the disk (Linux): [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
 * Apply the Azure Disk Encryption extension after a custom Powershell script that initializes and formats the disk (Windows): [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-windows-ADE-after-customscript.json)
 * Apply the Azure Disk Encryption extension before a custom Powershell script that initializes and formats the disk (Windows): [deploy-extseq-windows-CustomScript-after-ADE.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-windows-CustomScript-after-ADE.json)
 

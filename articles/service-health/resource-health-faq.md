@@ -46,7 +46,7 @@ Yes, when a resource is unavailable, Resource Health identifies the root cause w
 In the portal, user initiated actions are shown using a blue notification icon, while planned and unplanned events are shown using a red warning icon. More details are provided in the [Resource Health overview](Resource-health-overview.md).  
 
 ## Can I integrate Resource Health with my monitoring tools?
-Resource health is a service designed to help you diagnose and mitigate Azure service issues that impact your resources. While you can use the Resource Health API to programmatically obtain the health status, we recommend you use metrics to monitor your resources. Once an issue is detected, Resource Health helps you determine the root cause and guides you through actions to address them. Visit [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) to learn more about how you can use metrics to check your resources.
+Resource health has [preview support](resource-health-alert-arm-template-guide.md) for Activity Log based alerts. Activity Log alerts use [action groups](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups) to notify users that an alert has been triggered. Action groups support a variety of notification channels such as email, SMS, webhook, and ITSM actions.
 
 ## Where do I find Resource Health?
 After you log in to the Azure portal, there are multiple ways you can access Resource Health:
@@ -63,13 +63,7 @@ The list of health checks and resource types supported through Resource Health c
 When checking the health of a resource, right under the health status you can click **Report incorrect health status**. Before submitting the report, you have the option of providing additional details on why you believe the current health status is incorrect.
 
 ## Is Resource Health available for all Azure regions? 
-Resource health is available in across all Azure geos except the following regions:
-- US Gov Virginia
-- US Gov Iowa
-- US DoD East
-- US DoD Central
-- Germany Central
-- Germany Northeast
+Resource health is available in all Azure geos.
 
 ## How is Resource Health different from Azure status or the Service Health dashboard?
 The information provided by Resource Health is more specific than what is provided by Azure status or the Service Health dashboard.

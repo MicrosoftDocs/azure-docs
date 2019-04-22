@@ -23,7 +23,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
 * At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server, see [Interoperability with Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
 * Ensure PowerShell 5.1 is installed on your Windows Server. If you are using Windows Server 2012 R2, ensure that you are running at least PowerShell 5.1.\*. You can safely skip this check on Windows Server 2016 as PowerShell 5.1 is the default version out-of-box. On Windows Server 2012 R2, you can verify that you are running PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
-    ```PowerShell
+    ```powershell
     $PSVersionTable.PSVersion
     ```
 
@@ -35,7 +35,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
     - The Az module can be installed by following the instructions here: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
     - The AzureRM PowerShell module can be installed by executing the following PowerShell cmdlet:
     
-        ```PowerShell
+        ```powershell
         Install-Module AzureRM
         ```
 
@@ -54,7 +54,7 @@ For each server that you intend to use with Azure File Sync, including each serv
 # [PowerShell](#tab/azure-powershell)
 To disable the Internet Explorer Enhanced Security Configuration, execute the following from an elevated PowerShell session:
 
-```PowerShell
+```powershell
 # Disable Internet Explorer Enhanced Security Configuration 
 # for Administrators
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
@@ -95,7 +95,7 @@ Before interacting with the Azure File Sync management cmdlets, you will need to
 > [!Note]  
 > The StorageSync.Management.PowerShell.Cmdlets.dll package, which contains the Azure File Sync management cmdlets, (intentionally) contains a cmdlet with an unapproved verb (`Login`). The name `Login-AzureStorageSync` was chosen to match the `Login-AzAccount` cmdlet alias in the Azure PowerShell module. This error message (and cmdlet) will be removed when the Azure File Sync agent is added to the Azure PowerShell module.
 
-```PowerShell
+```powershell
 $acctInfo = Login-AzAccount
 
 # The location of the Azure File Sync Agent. If you have installed the Azure File Sync 
@@ -153,9 +153,9 @@ Login-AzureRmStorageSync `
     -Location $region
 ```
 
-Once you have created the Azure File Sync context with the `Login-AzureR,StorageSync` cmdlet, you can create the Storage Sync Service. Be sure to replace `<my-storage-sync-service>` with the desired name of your Storage Sync Service.
+Once you have created the Azure File Sync context with the `Login-AzureRmStorageSync` cmdlet, you can create the Storage Sync Service. Be sure to replace `<my-storage-sync-service>` with the desired name of your Storage Sync Service.
 
-```PowerShell
+```powershell
 $storageSyncName = "<my-storage-sync-service>"
 New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
 ```
@@ -183,7 +183,7 @@ Execute the following PowerShell code to download the appropriate version of the
 > [!Important]  
 > If you intend to use Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster. Each node in the cluster must registered to work with Azure File Sync.
 
-```PowerShell
+```powershell
 # Gather the OS version
 $osver = [System.Environment]::OSVersion.Version
 
@@ -237,7 +237,7 @@ After you sign in, you are prompted for the following information:
 After you have selected the appropriate information, select **Register** to complete the server registration. As part of the registration process, you are prompted for an additional sign-in.
 
 # [PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $storageSyncName
 ```
 
@@ -266,14 +266,14 @@ In the pane that opens, enter the following information to create a sync group w
 # [PowerShell](#tab/azure-powershell)
 To create the sync group, execute the following PowerShell. Remember to replace `<my-sync-group>` with the desired name of the sync group.
 
-```PowerShell
+```powershell
 $syncGroupName = "<my-sync-group>"
 New-AzureRmStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
 ```
 
 Once the sync group has been successfully created, you can create your cloud endpoint. Be sure to replace `<my-storage-account>` and `<my-file-share>` with the expected values.
 
-```PowerShell
+```powershell
 # Get or create a storage account with desired name
 $storageAccountName = "<my-storage-account>"
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object {
@@ -330,7 +330,7 @@ To add the server endpoint, select **Create**. Your files are now kept in sync a
 # [PowerShell](#tab/azure-powershell)
 Execute the following PowerShell commands to create the server endpoint, and be sure to replace `<your-server-endpoint-path>` and `<your-volume-free-space>` with the desired values.
 
-```PowerShell
+```powershell
 $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
 $volumeFreeSpacePercentage = <your-volume-free-space>

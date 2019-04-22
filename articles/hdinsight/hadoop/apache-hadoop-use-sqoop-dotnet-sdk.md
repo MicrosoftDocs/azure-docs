@@ -113,6 +113,6 @@ Linux-based HDInsight presents the following limitations:
 ## Next steps
 Now you have learned how to use Sqoop. To learn more, see:
 
-* [Use Apache Oozie with HDInsight](../hdinsight-use-oozie.md): Use Sqoop action in an Oozie workflow.
+* [Use Apache Oozie with HDInsight](../hdinsight-use-oozie-linux-mac.md): Use Sqoop action in an Oozie workflow.
 * [Upload data to HDInsight](../hdinsight-upload-data.md): Find other methods for uploading data to HDInsight or Azure Blob storage.
 
