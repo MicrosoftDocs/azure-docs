@@ -111,6 +111,8 @@ Datasets provides methods for working with data in popular formats, such as usin
 
 For more information, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).
 
+For an example of using Datasets, see the [sample notebooks](https://aka.ms/dataset-tutorial).
+
 ## Datastore
 
 A datastore is a storage abstraction over an Azure storage account. The datastore can use either an Azure blob container or an Azure file share as the back-end storage. Each workspace has a default datastore, and you can register additional datastores.

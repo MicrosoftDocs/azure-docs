@@ -328,8 +328,8 @@ To get a list of all definitions, use `get_definitions()`. To get a specific ver
 ```python
 # list all definitions for the dataset
 dataset.get_definitions()
-# get version ID 2
-dataset.get_definition(version_id=2)
+# get version ID 1
+dataset.get_definition(version_id=1)
 ```
 
 The output of `get_definitions()` is similar to the following example:
@@ -338,6 +338,8 @@ The output of `get_definitions()` is similar to the following example:
 {'2': VersionID: 2, State: active, Created: 2019-04-19 16:43:52.439890+00:00, Modified: 2019-04-19 16:43:52.439890+00:00, Notes: select useful column,
  '1': VersionID: 1, State: active, Created: 2019-04-19 16:39:14.112046+00:00, Modified: 2019-04-19 16:44:12.912663+00:00, Notes: None}
 ```
+
+Once you have retrieved a definition, you can use it with your machine learning models or in a machine learning pipeline.
 
 ## Manage lifecycle of Dataset definitions
 
@@ -384,3 +386,5 @@ ds_def.reactivate()
 ## Next steps
 
 For more information on working with Datasets, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).
+
+For an example of using Datasets, see the [sample notebooks](https://aka.ms/dataset-tutorial).
