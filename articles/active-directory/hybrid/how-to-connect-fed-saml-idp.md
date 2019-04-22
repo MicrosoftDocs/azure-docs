@@ -208,15 +208,17 @@ This procedure shows how to add a single user to Azure AD.
 
 1. Connect to your Azure AD Directory as a tenant administrator: Connect-MsolService.
 2.	Create a new user principal:
-	` New-MsolUser
-		-UserPrincipalName elwoodf1@contoso.com
-		-ImmutableId ABCDEFG1234567890
-		-DisplayName "Elwood Folk"
-		-FirstName Elwood 
-		-LastName Folk 
-		-AlternateEmailAddresses "Elwood.Folk@contoso.com" 
-		-LicenseAssignment "samlp2test:ENTERPRISEPACK" 
-		-UsageLocation "US" ` 
+    ```powershell
+    New-MsolUser
+      -UserPrincipalName elwoodf1@contoso.com
+      -ImmutableId ABCDEFG1234567890
+      -DisplayName "Elwood Folk"
+      -FirstName Elwood 
+      -LastName Folk 
+      -AlternateEmailAddresses "Elwood.Folk@contoso.com" 
+      -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
+      -UsageLocation "US" 
+    ```
 
 For more information about “New-MsolUser” checkout, [https://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)
 

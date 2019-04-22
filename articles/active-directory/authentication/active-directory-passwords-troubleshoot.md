@@ -73,7 +73,7 @@ Are you having a problem with Azure Active Directory (Azure AD) self-service pas
 | The user sees an error when validating their phone number. | This error occurs when the phone number entered does not match the phone number on file. Make sure the user is entering the complete phone number, including the area and country code, when they attempt to use a phone-based method for password reset. |
 | There is an error processing the request. | This can be caused by many issues, but generally this error is caused by either a service outage or a configuration issue. If you see this error and it affects your business, contact Microsoft support for additional assistance. |
 | On-premises policy violation | The password does not meet the on-premises Active Directory password policy. |
-| Password does not comply fuzzy policy | The password that was used appears in the banned password list and may not be used. |
+| Password does not comply fuzzy policy | The password that was used appears in the [banned password list](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad#how-are-passwords-evaluated) and may not be used. |
 
 ## Troubleshoot password writeback
 
@@ -165,8 +165,8 @@ The most common point of failure is that firewall and or proxy ports and idle ti
 
 For Azure AD Connect version 1.1.443.0 and above, you need outbound HTTPS access to the following:
 
-* passwordreset.microsoftonline.com
-* servicebus.windows.net
+* \*.passwordreset.microsoftonline.com
+* \*.servicebus.windows.net
 
 For more granularity, reference the updated list of [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) updated every Wednesday and put into effect the next Monday.
 

@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/11/2018
+ms.date: 04/01/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
@@ -61,21 +61,21 @@ Application Insights gathers telemetry data for your application regardless of w
 
 You can now open Application Insights in the Azure portal to view various details about your running application.
 
-1. Right-click on **Connected Services Application Insights** folder in Solution Explorer and click **Open Application Insights Portal**.  You see some information about your application and a variety of options.
+1. Expand the **Connected Services** folder (cloud and plug icon) in the Solution Explorer then right-click on the **Application Insights** folder and click **Open Application Insights Portal**.  You see some information about your application and a variety of options.
 
-	![Application Map](media/quick-monitor-portal/overview-001.png)
+	![Application Map](media/quick-monitor-portal/4overview.png)
 
 2. Click on **Application map** to get a visual layout of the dependency relationships between your application components.  Each component shows KPIs such as load, performance, failures, and alerts.
 
-	![Application Map](media/quick-monitor-portal/application-map-001.png)
+	![Application Map](media/quick-monitor-portal/5appmap.png)
 
-3. Click on the **App Analytics** icon ![Application Map](media/quick-monitor-portal/app-analytics-icon.png) on one of the application components.  This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights.  In this case, a query is generated for you that renders the request count as a chart.  You can write your own queries to analyze other data.
+3. Click on the **App Analytics** icon ![Application Map](media/quick-monitor-portal/app-analytics-icon.png) **View in Analytics** on one of the application components. This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights.  In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
 
-	![Analytics](media/quick-monitor-portal/analytics.png)
+	![Analytics](media/quick-monitor-portal/6viewanalytics.png)
 
-4. Return to the **Overview** page and click on **Live Stream**.  This shows live statistics about your application as it's running.  This includes such information as the number of incoming requests, the duration of those requests, and any failures that occur.  You can also inspect critical performance metrics such as processor and memory.
+4. Click on **Live Metrics Stream** on the left under investigate. This shows live statistics about your application as it's running. This includes such information as the number of incoming requests, the duration of those requests, and any failures that occur. You can also inspect critical performance metrics such as processor and memory.
 
-	![Live Stream](media/quick-monitor-portal/live-stream.png)
+	![Live Stream](media/quick-monitor-portal/7livemetrics.png)
 
     If you are ready to host your application in Azure, you can publish it now. Follow the steps described
     in [Create an ASP.NET Web App Quickstart](../../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy).
@@ -107,8 +107,13 @@ To learn more, visit the GitHub repository for our [open-source JavaScript SDK](
 
 * External step-by-step video about [configuring Application Insights with a .NET application from scratch](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
+## Clean up resources
+When you are done testing, you can delete the resource group and all related resources. To do so follow the steps below.
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**.
+2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
+
 ## Next steps
-In this quick start, you’ve enabled your application for monitoring by Azure Application Insights.  Continue to the tutorials to learn how to use it to monitor statistics and detect issues in your application.
+In this quickstart, you’ve enabled your application for monitoring by Azure Application Insights.  Continue to the tutorials to learn how to use it to monitor statistics and detect issues in your application.
 
 > [!div class="nextstepaction"]
 > [Azure Application Insights tutorials](tutorial-runtime-exceptions.md)

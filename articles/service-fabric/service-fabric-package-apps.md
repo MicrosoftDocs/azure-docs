@@ -1,10 +1,10 @@
-﻿---
+---
 title: Package an Azure Service Fabric app | Microsoft Docs
 description: How to package a Service Fabric application before deploying to a cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: mani-ramaswamy
 
 ms.assetid:
@@ -14,18 +14,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: ryanwi
+ms.author: atsenthi
 
 ---
 # Package an application
+
 This article describes how to package a Service Fabric application and make it ready for deployment.
 
 ## Package layout
+
 The application manifest, one or more service manifests, and other necessary package files must be organized in a specific layout for deployment into a Service Fabric cluster. The example manifests in this article would need to be organized in the following directory structure:
 
 ```
-PS D:\temp> tree /f .\MyApplicationType
+tree /f .\MyApplicationType
+```
 
+```Output
 D:\TEMP\MYAPPLICATIONTYPE
 │   ApplicationManifest.xml
 │
@@ -45,6 +49,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 The folders are named to match the **Name** attributes of each corresponding element. For example, if the service manifest contained two code packages with the names **MyCodeA** and **MyCodeB**, then two folders with the same names would contain the necessary binaries for each code package.
 
 ## Use SetupEntryPoint
+
 Typical scenarios for using **SetupEntryPoint** are when you need to run an executable before the service starts or you need to perform an operation with elevated privileges. For example:
 
 * Setting up and initializing environment variables that the service executable needs. It is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
@@ -53,8 +58,11 @@ Typical scenarios for using **SetupEntryPoint** are when you need to run an exec
 For more information on how to configure the **SetupEntryPoint**, see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)
 
 <a id="Package-App"></a>
+
 ## Configure
+
 ### Build a package by using Visual Studio
+
 If you use Visual Studio 2015 to create your application, you can use the Package command to automatically create a package that matches the layout described above.
 
 To create a package, right-click the application project in Solution Explorer and choose the Package command, as shown below:
@@ -64,6 +72,7 @@ To create a package, right-click the application project in Solution Explorer an
 When packaging is complete, you can find the location of the package in the **Output** window. The packaging step occurs automatically when you deploy or debug your application in Visual Studio.
 
 ### Build a package by command line
+
 It is also possible to programmatically package up your application using `msbuild.exe`. Under the hood, Visual Studio is running it so the output is same.
 
 ```shell
@@ -71,12 +80,16 @@ D:\Temp> msbuild HelloWorld.sfproj /t:Package
 ```
 
 ## Test the package
+
 You can verify the package structure locally through PowerShell by using the [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) command.
 This command checks for manifest parsing issues and verify all references. This command only verifies the structural correctness of the directories and files in the package.
 It doesn't verify any of the code or data package contents beyond checking that all necessary files are present.
 
+```powershell
+Test-ServiceFabricApplicationPackage .\MyApplicationType
 ```
-PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
+
+```Output
 False
 Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
 FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
@@ -85,8 +98,10 @@ FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_71957
 This error shows that the *MySetup.bat* file referenced in the service manifest **SetupEntryPoint** is missing from the code package. After the missing file is added, the application verification passes:
 
 ```
-PS D:\temp> tree /f .\MyApplicationType
+tree /f .\MyApplicationType
+```
 
+```Output
 D:\TEMP\MYAPPLICATIONTYPE
 │   ApplicationManifest.xml
 │
@@ -102,10 +117,14 @@ D:\TEMP\MYAPPLICATIONTYPE
     │
     └───MyData
             init.dat
+```
 
-PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
+```powershell
+Test-ServiceFabricApplicationPackage .\MyApplicationType
+```
+
+```Output
 True
-PS D:\temp>
 ```
 
 If your application has [application parameters](service-fabric-manage-multiple-environment-app-configuration.md) defined, you can pass them in [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) for proper validation.
@@ -116,6 +135,7 @@ that are already running in the cluster. For example, the validation can detect 
 Once the application is packaged correctly and passes validation, consider compressing the package for faster deployment operations.
 
 ## Compress a package
+
 When a package is large or has many files, you can compress it for faster deployment. Compression reduces the number of files and the package size.
 For a compressed application package, [uploading the application package](service-fabric-deploy-remove-applications.md#upload-the-application-package) may take longer compared to uploading the uncompressed package, especially if compression is done as part of copy. With compression, [registering](service-fabric-deploy-remove-applications.md#register-the-application-package) and [un-registering the application type](service-fabric-deploy-remove-applications.md#unregister-an-application-type) are faster.
 
@@ -131,8 +151,10 @@ The package now includes zipped files for the `code`, `config`, and `data` packa
 because they are needed for many internal operations. For example, package sharing, application type name and version extraction for certain validations all need to access the manifests. Zipping the manifests would make these operations inefficient.
 
 ```
-PS D:\temp> tree /f .\MyApplicationType
+tree /f .\MyApplicationType
+```
 
+```Output
 D:\TEMP\MYAPPLICATIONTYPE
 │   ApplicationManifest.xml
 │
@@ -148,10 +170,14 @@ D:\TEMP\MYAPPLICATIONTYPE
     │
     └───MyData
             init.dat
-PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -CompressPackage -SkipCopy
+```
 
-PS D:\temp> tree /f .\MyApplicationType
+```powershell
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -CompressPackage -SkipCopy
+tree /f .\MyApplicationType
+```
 
+```Output
 D:\TEMP\MYAPPLICATIONTYPE
 │   ApplicationManifest.xml
 │
@@ -165,8 +191,9 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 Alternatively, you can compress and copy the package with [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) in one step.
 If the package is large, provide a high enough timeout to allow time for both the package compression and the upload to the cluster.
-```
-PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
+
+```powershell
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
 Internally, Service Fabric computes checksums for the application packages for validation. When using compression, the checksums are computed on the zipped versions of each package. Generating a new zip from the same application package creates different checksums. To prevent validation errors, use [diff provisioning](service-fabric-application-upgrade-advanced.md). With this option, do not include the unchanged packages in the new version. Instead, reference them directly from the new service manifest.
@@ -176,6 +203,7 @@ If diff provisioning is not an option and you must include the packages, generat
 The package is now packaged correctly, validated, and compressed (if needed), so it is ready for [deployment](service-fabric-deploy-remove-applications.md) to one or more Service Fabric clusters.
 
 ### Compress packages when deploying using Visual Studio
+
 You can instruct Visual Studio to compress packages on deployment, by adding the `CopyPackageParameters` element to your publish profile, and set the `CompressPackage` attribute to `true`.
 
 ``` xml
@@ -187,6 +215,7 @@ You can instruct Visual Studio to compress packages on deployment, by adding the
 ```
 
 ## Create an sfpkg
+
 Starting with version 6.1, Service Fabric allows provisioning from an external store.
 With this option, the application package doesn't have to be copied to the image store. Instead, you can create an `sfpkg` and upload it to an external store, then provide the download URI to Service Fabric when provisioning. The same package can be provisioned to multiple clusters. Provisioning from the external store saves the time needed to copy the package to each cluster.
 
@@ -207,6 +236,7 @@ To provision the package, use external provision, which requires the download UR
 > Provisioning based on image store relative path doesn't currently support `sfpkg` files. Therefore, the `sfpkg` should not be copied to the image store.
 
 ## Next steps
+
 [Deploy and remove applications][10] describes how to use PowerShell to manage application instances
 
 [Managing application parameters for multiple environments][11] describes how to configure parameters and environment variables for different application instances.

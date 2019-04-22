@@ -141,7 +141,7 @@
     - name: Column patterns
       href: concepts-data-flow-column-pattern.md
     - name: Data flow monitoring
-      href: concepts-data-flow-monitoring.md     
+      href: concepts-data-flow-monitoring.md
     - name: Move nodes
       href: concepts-data-flow-move-nodes.md
     - name: Optimize tab
@@ -354,7 +354,7 @@
     - name: Load SQL Data Warehouse
       href: load-azure-sql-data-warehouse.md
     - name: Load Data Lake Storage Gen1
-      href: load-azure-data-lake-store.md 
+      href: load-azure-data-lake-store.md
     - name: Load SAP BW data
       href: load-sap-bw-data.md
     - name: Load Office 365 data
@@ -409,7 +409,7 @@
     - name: Execute Data Flow Activity
       href: control-flow-execute-data-flow-activity.md
     - name: Execute Pipeline Activity
-      href: control-flow-execute-pipeline-activity.md      
+      href: control-flow-execute-pipeline-activity.md
     - name: Filter Activity
       href: control-flow-filter-activity.md
     - name: For Each Activity
@@ -424,10 +424,14 @@
       href: control-flow-set-variable-activity.md
     - name: Until Activity
       href: control-flow-until-activity.md
+    - name: Validation Activity
+      href: control-flow-validation-activity.md
     - name: Wait Activity
       href: control-flow-wait-activity.md
     - name: Web Activity
       href: control-flow-web-activity.md
+    - name: Webhook Activity
+      href: control-flow-webhook-activity.md
   - name: Data flow transformations
     items:
     - name: Aggregate
@@ -540,7 +544,7 @@
       href: how-to-create-event-trigger.md
     - name: Create a schedule trigger
       href: how-to-create-schedule-trigger.md
-    - name: Create a tumbling window trigger 
+    - name: Create a tumbling window trigger
       href: how-to-create-tumbling-window-trigger.md
   - name: Templates
     items:
@@ -549,7 +553,7 @@
     - name: Copy files from multiple containers
       href: solution-template-copy-files-multiple-containers.md
     - name: Copy new files by LastModifiedDate
-      href: solution-template-copy-new-files-lastmodifieddate.md 
+      href: solution-template-copy-new-files-lastmodifieddate.md
     - name: Bulk copy with control table
       href: solution-template-bulk-copy-with-control-table.md
     - name: Delta copy with control table

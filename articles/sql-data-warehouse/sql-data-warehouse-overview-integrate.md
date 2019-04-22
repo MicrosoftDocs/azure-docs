@@ -53,6 +53,4 @@ Azure Stream Analytics is a complex, fully managed infrastructure for processing
 
 For more information, see [Integrate with Azure Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md).
 
-## Next steps
-To integrate with Azure SQL Database, see [Configure SQL Database elastic query](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 

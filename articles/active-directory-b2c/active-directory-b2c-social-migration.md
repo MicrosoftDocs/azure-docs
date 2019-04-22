@@ -60,7 +60,7 @@ The following list shows the properties that are required when you create a user
 * **userIdentities** - One or more UserIdentity records that specify the social account type and the unique user identifier from the social identity provider.
 * [optional] **otherMails** - For social account only, the user's email addresses 
 
-For more information, see: [Graph API reference](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+For more information, see: [Graph API reference](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## Migrate social account (only)
 To create social account only, without local account credentials. Send HTTPS POST request to Graph API. The request body contains the properties of the social account user to create. At a minimum, you must specify the required properties. 

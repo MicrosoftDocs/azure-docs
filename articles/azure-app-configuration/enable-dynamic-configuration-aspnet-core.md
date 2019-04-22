@@ -50,10 +50,11 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(o => o.Connect(settings["ConnectionStrings:AppConfig"])
-                    .Watch("TestApp:Settings:BackgroundColor")
-                    .Watch("TestApp:Settings:FontColor")
-                    .Watch("TestApp:Settings:Message"));
+                config.AddAzureAppConfiguration(options =>
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                           .Watch("TestApp:Settings:BackgroundColor")
+                           .Watch("TestApp:Settings:FontColor")
+                           .Watch("TestApp:Settings:Message"));
             })
             .UseStartup<Startup>();
     ```

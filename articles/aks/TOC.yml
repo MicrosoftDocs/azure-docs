@@ -108,8 +108,6 @@
     - name: Delete an AKS cluster
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
-    - name: Azure AD-enabled AKS
-      href: aad-integration.md
     - name: Create virtual nodes (preview)
       items:
       - name: Azure CLI
@@ -172,8 +170,18 @@
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies (preview)
       href: use-network-policies.md
+    - name: Use pod security policies (preview)
+      href: use-pod-security-policies.md
     - name: Update cluster service principal credentials
       href: update-credentials.md
+    - name: Enable Azure Active Directory integration
+      items:
+        - name: Use the Azure CLI
+          href: azure-ad-integration-cli.md
+        - name: Use the Azure portal
+          href: azure-ad-integration.md
+    - name: Use Kubernetes RBAC with Azure AD integration
+      href: azure-ad-rbac.md
     - name: Authenticate with ACR
       href: ../container-registry/container-registry-auth-aks.md
       maintainContext: true
@@ -291,7 +299,7 @@
   - name: REST
     href: /rest/api/aks
   - name: PowerShell
-    href: /powershell/module/azurerm.aks#aks
+    href: /powershell/module/az.aks#aks
   - name: .NET
     href: /dotnet/api/overview/azure/containerservice
   - name: Python
@@ -310,6 +318,8 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Support policies
+    href: support-policies.md
   - name: Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Provide product feedback

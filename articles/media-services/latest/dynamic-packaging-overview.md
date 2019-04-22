@@ -56,7 +56,7 @@ For a list of Media Encoder Standard formats and codecs, see [formats and codecs
 Here are the steps for a live streaming workflow:
 
 1. Create a [Live Event](live-events-outputs-concept.md).
-1. Get the ingest URL(s) and configure your on-premise encoder to use the URL to send the contribution feed.
+1. Get the ingest URL(s) and configure your on-premises encoder to use the URL to send the contribution feed.
 1. Get the preview URL and use it to verify that the input from the encoder is actually being received.
 1. Create a new **Asset**.
 1. Create a **Live Output** and use the asset name that you created.<br/>The **Live Output** will archive the stream into the **Asset**.

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure. 
 ---
@@ -83,10 +83,14 @@ To create a Data Box Edge resource, take the following steps in the Azure portal
 1. Use your Microsoft Azure credentials to sign in to 
     
     - The Azure portal at this URL: [https://portal.azure.com](http://portal.azure.com).
-    - Or, the Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us)
+    - Or, the Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us). For more details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. In the left-pane, select **+ Create a resource**. Search for **Data Box Edge / Data Box Gateway**. Select **Data Box Edge / Data Box Gateway**. Select **Create**.
-3. Pick the subscription that you want to use for the Data Box Edge device. Select the region where you want to deploy the Data Box Edge resource. For this release, East US, South East Asia, and West Europe are available. Choose a location closest to the geographical region where you want to deploy your device. In the **Data Box Edge** option, select **Create**.
+3. Pick the subscription that you want to use for the Data Box Edge device. Select the region where you want to deploy the Data Box Edge resource. For this release, East US, South East Asia, and West Europe are available. 
+
+    Choose a location closest to the geographical region where you want to deploy your device. The region stores only the metadata for device management. The actual data can be stored in any storage account. 
+    
+    In the **Data Box Edge** option, select **Create**.
 
     ![Search Data Box Edge service](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 

@@ -211,7 +211,7 @@ The **GetTableListAndTriggerCopyData** pipeline performs two steps:
 * Looks up the Azure SQL Database system table to get the list of tables to be copied.
 * Triggers the pipeline **IterateAndCopySQLTables** to do the actual data copy.
 
-The  **GetTableListAndTriggerCopyData** takes a list of tables as a parameter. For each table in the list, it copies data from the table in Azure SQL Database to Azure SQL Data Warehouse using staged copy and PolyBase.
+The  **IterateAndCopySQLTables** takes a list of tables as a parameter. For each table in the list, it copies data from the table in Azure SQL Database to Azure SQL Data Warehouse using staged copy and PolyBase.
 
 ### Create the pipeline IterateAndCopySQLTables
 

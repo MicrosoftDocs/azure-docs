@@ -6,10 +6,11 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/20/2019
+ms.date: 4/18/2019
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.
 ---
+
 # What is Azure Application Gateway?
 
 Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, to a destination IP address and port.
@@ -49,7 +50,7 @@ Application gateway supports SSL termination at the gateway, after which traffic
 
 ## Azure Kubernetes Service (AKS) Ingress controller preview 
 
-The Application Gateway Ingress controller runs as a pod within the AKS cluster and allows Application Gateway to act as ingress for an AKS cluster. 
+The Application Gateway Ingress controller runs as a pod within the AKS cluster and allows Application Gateway to act as ingress for an AKS cluster. This is supported with Application Gateway v2 only.
 
 For more information, see [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/).
 
@@ -117,9 +118,12 @@ For more information, see [WebSocket support](https://docs.microsoft.com/azure/a
 
 ## Rewrite HTTP headers (public preview)
 
-HTTP headers allow the client and the server to pass additional information with the request or the response. Rewriting these HTTP headers helps you accomplish several important scenarios such as adding Security-related header fields like HSTS/ X-XSS-Protection or removing response header fields which may reveal sensitive information like backend server name. 
+HTTP headers allow the client and server to pass additional information with the request or the response. Rewriting these HTTP headers helps you accomplish several important scenarios, such as:
+- Adding security-related header fields like HSTS/ X-XSS-Protection.
+- Removing response header fields that can reveal sensitive information.
+- Stripping port information from X-Forwarded-For headers.
 
-Application Gateway now supports the ability to rewrite headers of the incoming HTTP requests as well as the outgoing HTTP responses. You will be able to add, remove or update HTTP request and response headers while the request/response packets move between the client and backend pools. You can rewrite both standard (defined in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) as well as non-standard header fields.  
+Application Gateway supports the capability to add, remove, or update HTTP request and response headers, while the request and response packets move between the client and back-end pools. It also provides you with the capability to add conditions to ensure the specified headers are rewritten only when certain conditions are met.
 
 For more information about this public preview feature, see [Rewrite HTTP headers](rewrite-http-headers.md).
 
