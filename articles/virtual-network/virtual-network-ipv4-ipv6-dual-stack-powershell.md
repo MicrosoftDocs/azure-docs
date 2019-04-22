@@ -49,8 +49,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 Before you can create your dual-stack virtual network, you must create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myRGDualStack* in the *east us* location:
 
 ```azurepowershell-interactive
-$rg = New-AzResourceGroup `
-  -ResourceGroupName "dsRG1" `
+   $rg = New-AzResourceGroup `
+  -ResourceGroupName "dsRG1"  `
   -Location "east us"
 ```
 
@@ -58,14 +58,13 @@ $rg = New-AzResourceGroup `
 To access your virtual machines from the Internet, you need IPv4 and IPv6 public IP addresses for the load balancer. Create public IP addresses with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). The following example creates IPv4 and IPv6 public IP address named *dsPublicIP_v4* and *dsPublicIP_v6* in the *dsRG1* resource group:
 
 ```azurepowershell-interactive
- $PublicIP_v4 = New-AzPublicIpAddress `
+  $PublicIP_v4 = New-AzPublicIpAddress `
   -Name "dsPublicIP_v4" `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
   -AllocationMethod Dynamic `
   -IpAddressVersion IPv4
   
-  $PublicIP_v6 = New-AzPublicIpAddress `
   -Name "dsPublicIP_v6" `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
@@ -75,19 +74,19 @@ To access your virtual machines from the Internet, you need IPv4 and IPv6 public
 To access your virtual machines using a RDP connection, create a IPV4 public IP addresses for the virtual machines with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
 
 ```azurepowershell-interactive
-$RdpPublicIP_1 = New-AzPublicIpAddress `
+  $RdpPublicIP_1 = New-AzPublicIpAddress `
   -Name "RdpPublicIP_1" `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
   -AllocationMethod Dynamic `
   -IpAddressVersion IPv4
   
-    $RdpPublicIP_2 = New-AzPublicIpAddress `
-    -Name "RdpPublicIP_2" `
-    -ResourceGroupName $rg.ResourceGroupName `
-    -Location $rg.Location  `
-    -AllocationMethod Dynamic `
-    -IpAddressVersion IPv4
+  $RdpPublicIP_2 = New-AzPublicIpAddress `
+   -Name "RdpPublicIP_2" `
+   -ResourceGroupName $rg.ResourceGroupName `
+   -Location $rg.Location  `
+   -AllocationMethod Dynamic `
+   -IpAddressVersion IPv4
 ```
 
 ## Create Basic Load Balancer
@@ -248,16 +247,17 @@ $vnet = New-AzVirtualNetwork `
 Create virtual NICs with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). The following example creates two virtual NICs both with IPv4 and IPv6 configurations. (One virtual NIC for each VM you create for your app in the following steps).
 
 ```azurepowershell-interactive
-	$Ip4Config=New-AzNetworkInterfaceIpConfig `
-    -Name dsIp4Config `
+  $Ip4Config=New-AzNetworkInterfaceIpConfig `
+    -Name dsIp4Config `
     -Subnet $vnet.subnets[0] `
-    -PrivateIpAddressVersion IPv4 `
-    -LoadBalancerBackendAddressPool $backendPoolv4
+    -PrivateIpAddressVersion IPv4 `
+    -LoadBalancerBackendAddressPool $backendPoolv4 `
+    -PublicIpAddress  $RdpPublicIP_1
   	
-  $Ip6Config=New-AzNetworkInterfaceIpConfig `
-    -Name dsIp6Config `
+  $Ip6Config=New-AzNetworkInterfaceIpConfig `
+    -Name dsIp6Config `
     -Subnet $vnet.subnets[0] `
-    -PrivateIpAddressVersion IPv6 `
+    -PrivateIpAddressVersion IPv6 `
     -LoadBalancerBackendAddressPool $backendPoolv6
     
   $NIC_1 = New-AzNetworkInterface `
@@ -267,6 +267,13 @@ Create virtual NICs with [New-AzNetworkInterface](/powershell/module/az.network/
     -NetworkSecurityGroupId $nsg.Id `
     -IpConfiguration $Ip4Config,$Ip6Config 
     
+  $Ip4Config=New-AzNetworkInterfaceIpConfig `
+    -Name dsIp4Config `
+    -Subnet $vnet.subnets[0] `
+    -PrivateIpAddressVersion IPv4 `
+    -LoadBalancerBackendAddressPool $backendPoolv4 `
+    -PublicIpAddress  $RdpPublicIP_2  
+
   $NIC_2 = New-AzNetworkInterface `
     -Name "dsNIC2" `
     -ResourceGroupName $rg.ResourceGroupName `
@@ -281,7 +288,7 @@ Create virtual NICs with [New-AzNetworkInterface](/powershell/module/az.network/
 Set an administrator username and password for the VMs with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell-interactive
-$cred = get-credential -Message "DUAL STACK VNET SAMPLE:  Please enter the Administrator credential to log into the VMs"
+$cred = get-credential -Message "DUAL STACK VNET SAMPLE:  Please enter the Administrator credential to log into the VMs."
 ```
 
 Now you can create the VMs with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates two VMs and the required virtual network components if they do not already exist. 
@@ -298,33 +305,46 @@ $VM1 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 
 $vmName= "dsVM2"
 $VMconfig2 = New-AzVMConfig -VMName $vmName -VMSize $vmsize -AvailabilitySetId $avset.Id 3> $null | Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent 3> $null | Set-AzVMSourceImage -PublisherName $ImagePublisher -Offer $imageOffer -Skus $imageSKU -Version "latest" 3> $null | Set-AzVMOSDisk -Name "$vmName.vhd" -CreateOption fromImage  3> $null | Add-AzVMNetworkInterface -Id $NIC_2.Id  3> $null 
-$VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location  -VM $VMconfig2 
+$VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location  -VM $VMconfig2
 ```
 
 ## Determine IP addresses of the IPv4 and IPv6 endpoints
 Get all Network Interface Objects in the resource group to summarize the IP's used in this deployment with `get-AzNetworkInterface`. Also, get the Load Balancer's frontend addresses of the IPv4 and IPv6 endpoints with `get-AzpublicIpAddress`.
 
 ```azurepowershell-interactive
- $NICsInRG= get-AzNetworkInterface -resourceGroupName "dsRG1"
+#Deployment is now complete
+Write-Host  `n Deployment is complete (get-date)
+
+#Get all Network Interface Objects in the resource group to summarize the IP's used in the deployment
+$rgName = "dsRG1"
+$NICsInRG= get-AzNetworkInterface -resourceGroupName $rgName
   
-write-host `Summary of IPs in this Deployment:
+write-host `nSummary of IPs in this Deployment:
 write-host ******************************************
-foreach ($NIC in $NICsInRG)
-{
-	$VMid= $NIC.virtualmachine.id
-	$VMnamebits= $VMid.split("/")
-	$VMname= $VMnamebits[($VMnamebits.count-1)]
-	write-host `nPrivate IP addresses for $VMname 
-	$IPconfigsInNIC= $NIC.IPconfigurations
-	foreach ($IPconfig in $IPconfigsInNIC)
-		{
-			$IPaddress= $IPconfig.privateipaddress
-			write-host "    "$IPaddress
-		}
+foreach ($NIC in $NICsInRG) {
+  $VMid= $NIC.virtualmachine.id
+  $VMnamebits= $VMid.split("/")
+  $VMname= $VMnamebits[($VMnamebits.count-1)]
+  write-host `nPrivate IP addresses for $VMname 
+  $IPconfigsInNIC= $NIC.IPconfigurations
+  foreach ($IPconfig in $IPconfigsInNIC)
+  {
+      $IPaddress= $IPconfig.privateipaddress
+      write-host "    "$IPaddress  
+      IF ($IPconfig.PublicIpAddress.ID) 
+      {
+          $IDbits= ($IPconfig.PublicIpAddress.ID).split("/")
+          $PipName= $IDbits[($IDbits.count-1)]
+          $PipObject= get-azPublicIpAddress -name $PipName -resourceGroup $rgName
+          write-host "    "RDP address:  $PipObject.IpAddress
+      }
+  }
 }
   
-  write-host `nPublic IP addresses on Load Balancer:
-  (get-AzpublicIpAddress -resourcegroupname "dsRG1" ).ipaddress
+
+  write-host `nPublic IP addresses on Load Balancer:
+ (get-AzpublicIpAddress -resourcegroupname "dsRG1" | where { $_.name -notlike "RdpPublicIP_*" }).IpAddress
+
 
 ```
 The following figure shows a sample output that lists the private IPv4 and IPv6 addresses of the two VMs, and the frontend IPv4 and IPv6 IP addresses of the Load Balancer.
