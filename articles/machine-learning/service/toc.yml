@@ -102,7 +102,7 @@
     - name: Add & register datasets
       displayName: data, dataset
       href: how-to-create-register-datasets.md
-    - name: 'Prepare with azureml&#47;dataprep'
+    - name: 'Prepare with azureml.dataprep'
       items:
       - name: Load data
         displayName: data, etl, data prep, dataprep
