@@ -47,7 +47,7 @@
   - name: Hyperscale (Citus)
     items:
     - name: Design a real-time dashboard
-      href: hyperscale-tutorial-rt.md
+      href: tutorial-design-database-hyperscale-realtime.md
 - name: Samples
   items:
   - name: Azure CLI
