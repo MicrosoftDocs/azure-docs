@@ -35,9 +35,8 @@ Form Recognizer is available as a REST API. You can create, train and score a mo
 Form Recognizer works on input documents that meet the following requirements:
 
 * JPG, PNG, or PDF format (text or scanned). Text embedded PDFs are preferable because there is no possibility of error in character extraction and location.
-* For images:
-  * File size must be less than 4 megabytes (MB)
-  * Dimensions must be between 50x50 and 4200x4200 pixels
+* File size must be less than 4 megabytes (MB)
+* For images, dimensions must be between 50x50 and 4200x4200 pixels
 * If scanned from paper documents, forms should be high-quality scans
 * Must use the Latin alphabet (English characters)
 * Printed data (not handwritten)
@@ -49,7 +48,7 @@ Additionally, Form Recognizer is **not** compatible with the following types of 
 * Complex tables (tables whose header and data associations cannot be easily determined from the layout)
 * Forms with checkboxes or radio buttons
 * Images which appear tilted
-* PDF documents longer than 50 pages or 4MB file size
+* PDF documents longer than 50 pages
 
 ## Data privacy and security
 
