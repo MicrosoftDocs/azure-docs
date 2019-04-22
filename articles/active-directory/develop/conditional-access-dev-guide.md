@@ -100,7 +100,7 @@ The following sections discuss common scenarios that are more complex. The core 
 
 ## Scenario: App performing the on-behalf-of flow
 
-In this scenario, we walk through the case in which a native app calls a web service/API. In turn, this service does [he "on-behalf-of" flow to call a downstream service. In our case, we've applied our conditional access policy to the downstream service (Web API 2) and are using a native app rather than a server/daemon app. 
+In this scenario, we walk through the case in which a native app calls a web service/API. In turn, this service does the "on-behalf-of" flow to call a downstream service. In our case, we've applied our conditional access policy to the downstream service (Web API 2) and are using a native app rather than a server/daemon app. 
 
 ![App performing the on-behalf-of flow diagram](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -141,7 +141,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![App accessing multiple services requesting a new token](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-If the app is using the ADAL library, a failure to acquire the token is always retried interactively. When this interactive request occurs, the end user has the opportunity to comply with the conditional access. This is true unless the request is a `AcquireTokenSilentAsync` or `PromptBehavior.Never` in which case the app needs to perform an interactive ```AcquireToken``` request to give the end use the opportunity to comply with the policy.
+If the app is using the ADAL library, a failure to acquire the token is always retried interactively. When this interactive request occurs, the end user has the opportunity to comply with the conditional access. This is true unless the request is a `AcquireTokenSilentAsync` or `PromptBehavior.Never` in which case the app needs to perform an interactive ```AcquireToken``` request to give the end user the opportunity to comply with the policy.
 
 ## Scenario: Single-page app (SPA) using ADAL.js
 
