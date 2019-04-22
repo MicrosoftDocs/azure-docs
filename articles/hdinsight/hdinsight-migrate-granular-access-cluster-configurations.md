@@ -19,11 +19,11 @@ Previously, secrets could be obtained via the HDInsight API by cluster users
 possessing the Owner, Contributor, or Reader [RBAC
 roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles).
 Going forward, these secrets will no longer be accessible to users with the
-Reader role. We are also be introducing a new ‘HDInisght Cluster Operator’ Role
+Reader role. We are also introducing a new ‘HDInisght Cluster Operator’ Role
 that is be able to retrieve secrets without being granted the administrative
 permissions of Contributor or Owner. To summarize:
 
-| Role                                  | Previously                                                                                       | Now       |
+| Role                                  | Previously                                                                                       | Going Forward       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | Reader                                | - Read access, including secrets                                                                   | - Read access, **excluding** secrets |           |   |   |
 | HDInsight Cluster Operator<br>(New Role) | N/A                                                                                              | - Read/write access, including secrets         |   |   |
@@ -145,7 +145,7 @@ Please update to [version 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree
 
 ## Add the HDInsight Cluster Operator role assignment to a user
 
-A user with the [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role can grant the HDInsight Cluster Operator role to users that you want to have read/write access to HDInsight cluster secrets like cluster gateway credentials and storage account keys.
+A user with the [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role can assign the HDInsight Cluster Operator role to users that you would want to have read/write access to sensitive HDInsight cluster configuration vlues (such as cluster gateway credentials and storage account keys).
 
 ### Using the Azure CLI
 
