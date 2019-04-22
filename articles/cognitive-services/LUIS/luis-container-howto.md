@@ -79,7 +79,7 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 ![Process for using Language Understanding (LUIS) container](./media/luis-container-how-to/luis-flow-with-containers-diagram.jpg)
 
 1. [Export package](#export-packaged-app-from-luis) for container from LUIS portal or LUIS APIs.
-1. Move package file into the required **input** directory on the [host computer](#the-host-computer). Do not rename, alter, or decompress LUIS package file.
+1. Move package file into the required **input** directory on the [host computer](#the-host-computer). Do not rename, alter, overwrite, or decompress LUIS package file.
 1. [Run the container](##run-the-container-with-docker-run), with the required _input mount_ and billing settings. More [examples](luis-container-configuration.md#example-docker-run-commands) of the `docker run` command are available. 
 1. [Querying the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
 1. When you are done with the container, [import the endpoint logs](#import-the-endpoint-logs-for-active-learning) from the output mount in the LUIS portal and [stop](#stop-the-container) the container.
@@ -108,7 +108,7 @@ The input mount directory can contain the **Production**, **Staging**, and **Tra
 |Production|Get, Post|Azure and container|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
-> Do not rename, alter, or decompress the LUIS package files.
+> Do not rename, alter, overwrite, or decompress the LUIS package files.
 
 ### Packaging prerequisites
 
