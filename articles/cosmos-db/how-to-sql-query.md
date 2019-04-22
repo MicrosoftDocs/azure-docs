@@ -4,7 +4,7 @@ description: Learn about SQL syntax, database concepts, and SQL queries for Azur
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 04/21/2019
 ms.author: mjbrown
 
 ---
@@ -240,7 +240,7 @@ The results are:
 In the preceding example, the SELECT clause needs to create a JSON object, and since the sample provides no key, the clause uses the implicit argument variable name `$1`. The following query returns two implicit argument variables: `$1` and `$2`.
 
 ```sql
-    SELECT { "state": f.address.state, "city": f.address.city },
+   SELECT { "state": f.address.state, "city": f.address.city },
            { "name": f.id }
     FROM Families f
     WHERE f.id = "AndersenFamily"
@@ -375,7 +375,7 @@ The results are:
         }
       ],
       [
-        {
+       {
             "familyName": "Merriam",
             "givenName": "Jesse",
             "gender": "female",
@@ -594,7 +594,7 @@ Use the ?? operator to efficiently check for a property in an item when querying
 
 ## <a id="TopKeyword"></a>TOP operator
 
-The TOP keyword returns the first `N` number of query results in an undefined order. As a best practice, use TOP with the ORDER BY clause to limit results to the first `N` number of ordered values. Combining these two clauses is the only way to predictably indicate which rows TOP affects. 
+The TOP keyword returns the first `N` number of query results in an undefined order. As a best practice, use TOP with the ORDER BY clause to limit results to the first `N` number of ordered values. Combining these two clauses is the only way to predictably indicate which rows TOP affects.
 
 You can use TOP with a constant value, as in the following example, or with a variable value using parameterized queries. For more information, see the [Parameterized queries](#parameterized-queries) section.
 
@@ -674,6 +674,125 @@ The results are:
       }
     ]
 ```
+
+Additionally, you can order by multiple fields. Consider the following query:
+
+```sql
+    SELECT f.id, f.creationDate
+    FROM Families f
+    ORDER BY f.address.city ASC, f.creationDate DESC
+```
+
+This query retrieves family `id`'s  in ascending order of the city name. If multiple items have the same city name, the query will order by the `creationDate` in descending order. A multi Order By
+
+## <a id="OffsetLimitClause"></a>OFFSET LIMIT clause
+
+OFFSET LIMIT is an optional clause to skip then take some number of values from the query. The OFFSET count and the LIMIT count are required in the OFFSET LIMIT clause.
+When OFFSET LIMIT is used in conjunction with ORDER BY clause, the result set is produced by doing skip and take on the ordered values; otherwise, it will result in a fixed order of values.
+
+For example, here's a query that retrieves the second page (page size of 1) of families in order of the resident city's name:
+
+```sql
+    SELECT f.id, f.address.city
+    FROM Families f
+    ORDER BY f.address.city
+    OFFSET 1 LIMIT 1
+```
+
+The results are:
+
+```JSON
+    [
+      {
+        "id": "AndersenFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+Here's a query that retrieves the second page (page size of 1) of families without ordering:
+
+```sql
+   SELECT f.id, f.address.city
+    FROM Families f
+    OFFSET 1 LIMIT 1
+```
+
+The results are:
+
+```JSON
+    [
+      {
+        "id": "WakefieldFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+
+## <a id="DistinctKeyword"></a>DISTINCT Keyword
+
+The DISTINCT keyword will eliminate duplicates in the query's projection.
+
+```sql
+SELECT DISTINCT VALUE f.lastName
+FROM Families f
+```
+
+In this example, the query projects values for each last name.
+
+The results are:
+
+```json
+[
+    "Andersen"
+]
+```
+
+You can also project unique objects. In this case, the lastName field does not exist in one of the two documents, so the query returns an empty object.
+
+```sql
+SELECT DISTINCT f.lastName
+FROM Families f
+```
+
+The results are:
+
+```json
+[
+    {
+        "lastName": "Andersen"
+    },
+    {}
+]
+```
+
+DISTINCT can also be used in the projection within a subquery:
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
+```
+
+This query projects an array which contains each child's givenName with duplicates removed. This array is aliased as ChildNames and projected in the outer query.
+
+The results are:
+
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+
+
 ## Scalar expressions
 
 The SELECT clause supports scalar expressions like constants, arithmetic expressions, and logical expressions. The following query uses a scalar expression:
@@ -1013,7 +1132,7 @@ The following example registers a UDF under an item container in the Cosmos DB d
        {
            Id = "REGEX_MATCH",
            Body = @"function (input, pattern) {
-                       return input.match(pattern) !== null;
+                      return input.match(pattern) !== null;
                    };",
        };
 
@@ -2169,4 +2288,4 @@ A nested query applies the inner query to each element of the outer container. O
 
 [1]: ./media/how-to-sql-query/sql-query1.png
 [introduction]: introduction.md
-[consistency-levels]: consistency-levels.md
+[consistency-levels]: consistency.md

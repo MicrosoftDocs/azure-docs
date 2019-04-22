@@ -75,6 +75,10 @@ The **spatial** index kind is used for:
 
 Spatial indexes can be used on correctly formatted [GeoJSON](geospatial.md) objects. Points, LineStrings and Polygons are currently supported.
 
+The **composite** index kind is used for:
+
+- multi `ORDER BY` queries: `SELECT * FROM container c ORDER BY c.property1, c.property2`
+
 ## Querying with indexes
 
 The paths extracted when indexing data make it easy to lookup the index when processing a query. By matching the `WHERE` clause of a query with the list of indexed paths, it is possible to identify the items that match the query predicate very quickly.
@@ -84,7 +88,7 @@ For example, consider the following query: `SELECT location FROM location IN com
 ![Matching a specific path within a tree](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> An `ORDER BY` clause *always* needs a range index and will fail if the path it references doesn't have one.
+> An `ORDER BY` clause that orders by a single property *always* needs a range index and will fail if the path it references doesn't have one. Similarly, a multi `ORDER BY` query *always* needs a composite index.
 
 ## Next steps
 

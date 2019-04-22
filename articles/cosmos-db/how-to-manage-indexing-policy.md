@@ -271,6 +271,121 @@ This policy can be used in situations where the [Time-to-Live (TTL) feature](tim
         "indexingPolicy": "none"
     }
 
+## Composite Indexing Policy Examples
+
+In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](index-policy.md#how-to-manage-composite-indexes) on those properties is required.
+
+### Composite Index Defined for (a asc, b desc):
+
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/a",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/b",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+
+This composite index would be able to support the following two queries:
+
+Query #1:
+```sql
+    SELECT *
+    FROM c
+    ORDER BY a asc, b desc    
+```
+
+Query #2:
+```sql
+    SELECT *
+    FROM c
+    ORDER BY a desc, b asc
+```
+
+You can define multiple different composite indexes within the same indexing policy. 
+
+### Composite Index Defined for (a asc, b asc) and (a asc, b desc):
+
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/a",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/b",
+                    "order":"ascending"
+                }
+            ]
+            [  
+                {  
+                    "path":"/a",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/b",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+
+It is optional to specify the order. If not specified, the order is ascending.
+
+### Composite Index Defined for (a asc, b asc):
+
+```
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/a",
+                },
+                {  
+                    "path":"/b",
+                }
+            ]
+        ]
+}
+```
+
 ## Next steps
 
 Read more about the indexing in the following articles:

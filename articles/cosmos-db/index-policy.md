@@ -66,6 +66,30 @@ Any indexing policy has to include the root path `/*` as either an included or a
 
 See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) for indexing policy examples.
 
+## Adding Composite Indexes
+
+Queries that `ORDER BY` two or more properties require a composite index. Currently, composite indexes are only utilized by Multi `ORDER BY` queries. By default, no composite indexes are defined so you should [add composite indexes]() as needed.
+
+When defining a composite index, you specify:
+
+- two or more property paths. The sequence in which property paths are defined matters.
+- the order (ascending or descending).
+
+If the composite index paths do not match the sequence of the properties in the `ORDER BY` clause, the the composite index will not be able to support the query. The order (ascending or descending) should also match the order in the `ORDER BY` clause. The composite index will also be able to support an `ORDER BY` clause with the opposite order on all paths.
+
+Consider the following example where a composite index is defined on properties a, b, and c:
+
+| **Composite Index**     | **Sample `ORDER BY` Query**      | **Supported by Index?** |
+| ----------------------- | -------------------------------- | -------------- |
+| (a asc, b asc)          | `ORDER BY`  a asc, b   asc        | Yes            |
+| (a asc, b asc)          | `ORDER BY`  b asc, a   asc        | No             |
+| (a asc, b asc)          | `ORDER BY`  a desc, b   desc      | Yes            |
+| (a asc, b asc)          | `ORDER BY`  a asc, b   desc       | No             |
+| (a asc, b asc, c asc) | `ORDER BY`  a asc, b   asc, c asc | Yes            |
+| (a asc, b asc, c asc) | `ORDER BY`  a asc, b   asc        | Yes            |
+
+You should customize your indexing policy so you can serve all necessary `ORDER BY` queries.
+
 ## Modifying the indexing policy
 
 A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in place (so no additional storage space is consumed during the operation). The old policy's index is efficiently transformed to the new policy without affecting the write availability or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size. 
