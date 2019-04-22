@@ -1,5 +1,5 @@
 ---
-title: Delete an Azure OpenShift cluster | Microsoft Docs
+title: Tutorial - Delete an Azure Red Hat OpenShift cluster | Microsoft Docs
 description: In this tutorial, learn how to delete an Azure Red Hat OpenShift cluster using the Azure CLI
 services: container-service
 author: tylermsft
@@ -13,7 +13,7 @@ ms.date: 05/06/2019
 
 # Tutorial: Delete an Azure Red Hat OpenShift cluster
 
-This is the end of the tutorial. When you're done with the resources you have created, delete your cluster and associated resources.
+This is the end of the tutorial. When you're finished testing the sample cluster, here's how to delete it and its associated resources so you don't get charged for what you're not using.
 
 In part three of the series, you learn how to:
 
@@ -50,7 +50,7 @@ Open a Bash terminal and set the variable CLUSTER_NAME to the name of your clust
 CLUSTER_NAME=yourclustername
 ```
 
-Then delete the cluster:
+Now delete your cluster:
 
 ```bash
 az openshift delete --resource-group $CLUSTER_NAME --name $CLUSTER_NAME
@@ -60,11 +60,13 @@ You'll be prompted whether you want to delete the cluster. After you confirm wit
 
 ## Deleting a cluster using the Azure portal
 
-If you want to use the Azure portal to delete the cluster, delete the resource group that you specified when you created the cluster. The name of that resource group is the same as the cluster name. Deleting that resource group will delete all of the related resources that get created when you build an Azure Red Hat OpenShift cluster.
+Alternately, you can delete the associated resource group of your cluster through the online Azure portal. The name of the resource group is the same as your cluster name.
 
 Currently, the `Microsoft.ContainerService/openShiftManagedClusters` resource that is created when you create the cluster is hidden in the Azure portal. In the `Resource group` view, check `Show hidden types` to view the resource group.
 
 ![Screenshot of the hidden type checkbox](./media/aro-portal-hidden-type.png)
+
+Deleting the resource group will delete all of the related resources that get created when you build an Azure Red Hat OpenShift cluster.
 
 ## Next steps
 
@@ -72,4 +74,4 @@ In this part of the tutorial, you learned how to:
 > [!div class="checklist"]
 > * Delete an Azure Red Hat OpenShift cluster
 
-Now that you've completed this tutorial, learn more about Red Hat OpenShift at [Red Hat OpenShift dedicated documentation](https://access.redhat.com/documentation/openshift_dedicated/3/)
+Learn more about using OpenShift with the official [Red Hat OpenShift documentation](https://access.redhat.com/documentation/openshift_dedicated/3/)
