@@ -138,15 +138,22 @@
       - name: Indexing
         items:
         - name: Overview
+          displayName: range, spatial
           href: index-overview.md
-        - name: Index policy
+        - name: Indexing policies
           displayName: consistent, none
           href: index-policy.md
-        - name: Index types
-          displayName: hash, range, spatial
-          href: index-types.md
-        - name: Index paths
-          href: index-paths.md
+      - name: Change feed
+        items:
+        - name: Overview
+          href: change-feed.md
+        - name: Reading change feed
+          href: read-change-feed.md
+        - name: Change feed processor
+          href: change-feed-processor.md
+        - name: Trigger Azure Functions 
+          displayName: change feed
+          href: change-feed-functions.md
       - name: Time to live
         displayName: delete, delete data, ttl
         href: time-to-live.md
@@ -314,13 +321,18 @@
             href: tutorial-develop-mongodb-react.md
         - name: 2 - Migrate data
           displayName: import 
-          href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
+          href: /azure/dms/tutorial-mongodb-cosmos-db
+          maintainContext: true 
         - name: 3 - Query data
           href: tutorial-query-mongodb.md
         - name: 4 - Distribute data globally
           href: tutorial-global-distribution-mongodb.md
       - name: How-to guides
         items:
+        - name: Pre-migration guide
+          href: mongodb-pre-migration.md
+        - name: Post-migration guide
+          href: mongodb-post-migration.md
         - name: Get the connection string
           href: connect-mongodb-account.md
         - name: Connect using Studio 3T
@@ -420,7 +432,8 @@
         - name: Ruby
           href: table-storage-how-to-use-ruby.md
         - name: F#
-          href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+          href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+          maintainContext: true
       - name: How-to guides
         items:
         - name: Build apps with Table API
@@ -483,10 +496,8 @@
         href: storage-explorer.md
       - name: Work with data using Azure Cosmos explorer
         href: data-explorer.md
-      - name: Indexing
-        items:
-        - name: Manage indexing
-          href: how-to-manage-indexing-policy.md
+      - name: Manage indexing policies
+        href: how-to-manage-indexing-policy.md
     - name: Change Feed
       items:
       - name: Multiple Azure Cosmos DB Triggers
@@ -526,7 +537,8 @@
       - name: Diagnostic logging
         href: logging.md
       - name: Application logging with Logic Apps
-        href: https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json
+        href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
+        maintainContext: true 
     - name : Monitor
       items:
       - name: Monitor with metrics
@@ -578,17 +590,21 @@
       - name: Azure App Service
         href: create-website.md
       - name: Azure Search indexer
-        href: https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json
+        href: /azure/search/search-howto-index-cosmosdb
+        maintainContext: true 
       - name: Azure Functions
         items:
         - name: Serverless computing
           href: serverless-computing-database.md
         - name: Azure Function bindings
-          href: https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json
+          href: /azure/azure-functions/functions-bindings-cosmosdb
+          maintainContext: true 
       - name: Azure Data Factory
-        href: https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json
+        href: /azure/data-factory/connector-azure-cosmos-db
+        maintainContext: true 
       - name: Azure Stream Analytics
-        href: ../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db
+        href: /azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db
+        maintainContext: true 
       - name: Logic Apps and Service bus
         href: change-feed-hl7-fhir-logic-apps.md
       - name: Azure Event Hubs and Azure Storage
@@ -601,7 +617,8 @@
       - name: Azure Databricks(Spark connector)
         href: spark-connector.md
       - name: Spark and Kafka
-        href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
+        href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
+        maintainContext: true 
       - name: ODBC driver 
         href: odbc-driver.md
     - name: Bulk executor library
