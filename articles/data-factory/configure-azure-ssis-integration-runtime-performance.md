@@ -87,8 +87,8 @@ In the unofficial in-house testing by the SSIS engineering team, the D series ap
 
 -   The performance/price ratio of the D series is higher than the A series and the performance/price ratio of the v3 series is higher than the v2 series.
 -   The throughput for the D series is higher than the A series at the same price and the throughput for the v3 series is higher than the v2 series at the same price.
--   The v2-series nodes of Azure-SSIS IR are not suitable for custom setup, so please use the v3-series nodes instead. If you already use the v2-series nodes, please switch to use the v3-series nodes as soon as possible.
--   The E series is memory optimized VM sizes offer a high memory-to-CPU ratio than others. If your package requires a lot of memory, you can consider choosing E series VM.
+-   The v2 series nodes of Azure-SSIS IR are not suitable for custom setup, so please use the v3 series nodes instead. If you already use the v2 series nodes, please switch to use the v3 series nodes as soon as possible.
+-   The E series is memory optimized VM sizes that provides a higher memory-to-CPU ratio than other machines.If your package requires a lot of memory, you can consider choosing E series VM.
 
 ### Configure for execution speed
 If you don't have many packages to run, and you want packages to run quickly, use the information in the following chart to choose a virtual machine type suitable for your scenario.
