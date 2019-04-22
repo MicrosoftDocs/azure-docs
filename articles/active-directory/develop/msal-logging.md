@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -34,13 +34,13 @@ MSAL's logger allows for several levels of detail to be capture:
 - Verbose: Default. MSAL will log a large amount of information and give full details into what library behavior.
 
 ## Personal and organizational data 
-By default, the MSAL logger does not capture any personal or organizational data.  By turning on the collection of personal and organizational data, the app takes responsibility for safely handling highly sensitive data and complying with any regulatory requirements and in particular [GDPR](https://www.microsoft.com/en-us/trustcenter/privacy/gdpr/resources).
+By default, the MSAL logger does not capture any highly sensitive personal or organizational data.  You decide if you want to log personal and organizational data or not. 
 
 ## Logging in MSAL.NET
 In MSAL 3.x, logging is set per application at app creation using the `.WithLogging` builder modifier. This method takes optional parameters:
 
 - *Level* enables you to decide which level of logging you want. Setting it to Errors will only get errors
-- *PiiLoggingEnabled* enables you to decide if you want to log personal and organizational data or not. By default this is set to false, so that your application is compliant with GDPR.
+- *PiiLoggingEnabled* enables you to log personal and organizational data if set to true. By default this is set to false, so that your application does not log personal data.
 - *LogCallback* is set to a delegate that does the logging. If *PiiLoggingEnabled* is true, this method will receive the messages twice: once with the *containsPii* parameter equals false and the message without personal data, and a second time with the *containsPii* parameter equals to true and the message might contain personal data. In some cases (when the message does not contain personal data), the message will be the same.
 - *DefaultLoggingEnabled* enables the default logging for the platform. By default it's false. If you set it to true it uses Event Tracing in Desktop/UWP applications, NSLog on iOS and logcat on Android.
 
@@ -78,7 +78,7 @@ class Program
 
 - *level* (optional): the configurable log level. The supported log levels are: Error, Warning, Info, Verbose. Default value is Info.
 
-- *piiLoggingEnabled* (optional): enables/disables the logging of PII data. PII logs are never written to default outputs like Console, Logcat, or NSLog. Default is set to false.
+- *piiLoggingEnabled* (optional): enables you to log personal and organizational data if set to true. By default this is set to false, so that your application does not log personal data. Personal data logs are never written to default outputs like Console, Logcat, or NSLog. Default is set to false.
 
 - *correlationId* (optional): a unique identifier, used to map the request with the response for debugging purposes. Defaults to RFC4122 version 4 guid (128 bits).
 
