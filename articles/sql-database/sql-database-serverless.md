@@ -22,7 +22,7 @@ In contrast, publicly available offers in SQL Database today bill for the amount
 
 A database in the serverless computer tier is parameterized by the compute range it can use and an auto-pause delay.
 
-![serverless billing](./media/sql-database-serverless/serverless_billing.png)
+![serverless billing](./media/sql-database-serverless/serverless-billing.png)
 
 ### Performance
 
@@ -82,7 +82,7 @@ Auto-pause is triggered if all of the following conditions are true for the dura
 
 An option is provided to disable auto-pause if desired.
 
-![serverless pause and resume](./media/sql-database-serverless/serverless_pause_resume.png)
+![serverless pause and resume](./media/sql-database-serverless/serverless-pause-resume.png)
 
 ### Auto-resume
 
