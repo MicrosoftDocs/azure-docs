@@ -68,7 +68,7 @@ See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) fo
 
 ## Adding composite indexes
 
-Queries that `ORDER BY` two or more properties require a composite index. Currently, composite indexes are only utilized by Multi `ORDER BY` queries. By default, no composite indexes are defined so you should [add composite indexes]() as needed.
+Queries that `ORDER BY` two or more properties require a composite index. Currently, composite indexes are only utilized by Multi `ORDER BY` queries. By default, no composite indexes are defined so you should [add composite indexes](how-to-manage-indexing-policy#composite-indexing-policy-examples) as needed.
 
 When defining a composite index, you specify:
 
