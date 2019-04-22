@@ -15,48 +15,11 @@ ms.date: 04/22/2019
 
 # Quickstart: Explore the Azure Time Series Insights Preview demo environment
 
-A quickstart is provided to get started with the Azure Time Series Insights Preview in a free demonstration environment. You'll learn how to use your web browser to visualize large volumes of IoT data and tour key features presently in general availability.
+A quickstart is provided to get started with the Azure Time Series Insights Preview in a free demonstration environment. Through the demo, you'll tour key features that have been added in the Time Series Insights Preview.
 
-Through it, you'll learn how to use your web browser to visualize large volumes of IoT data and tour key features presently in general availability.
-Azure Time Series Insights is a fully managed analytics, storage, and visualization service that simplifies how to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution, and avoid costly downtime to mission-critical devices. Through Azure Time Series Insights, you can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time.
+The Preview demo environment involves a fictitious electric power company, Contoso. The company operates two wind turbine farms, each with 10 turbines. Each turbine has 20 sensors that report data every minute to Azure IoT Hub. The sensors gather information about weather conditions, blade pitch and yaw position, generator performance, gearbox behavior, and safety monitors.
 
-For additional flexibility, Azure Time Series Insights can be added to a pre-existing application through its powerful REST API and client SDK. The API allow you to store, query time series data, and consume time series data in a client application of your choice. You may also choose to use the client SDK to add UI components to your existing application.
-
-The Time Series Insights explorer is a guided tour of features presently in general availability.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Time Series Insights provides an end-to-end platform as a service (PaaS) offering. It can ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data for improvised data exploration. It also provides operational analysis. Time Series Insights is a differentiated offering that's tailored to the unique needs of industrial IoT deployments.
-
-The demo environment shows an electricity generation company, Contoso. In the environment, you use Time Series Insights to find actionable insights in Contoso data and conduct a short root-cause analysis. Contoso operates two wind turbine farms, each with 10 turbines. Each turbine has 20 sensors that report data every minute to Azure IoT Hub. The sensors gather information about weather conditions, blade pitch and yaw position, generator performance, gearbox behavior, and safety monitors.
-
-You use Time Series Insights Preview to analyze Contoso's ever-growing dataset from the last two years, which is currently at 40 GB. It can help you to better understand and predict both critical failures and slow-moving maintenance issues.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ You'll learn to use Time Series Insights to find actionable insights in Contoso data and conduct a short root-cause analysis and to better understand and predict critical failures and improve maintenance.
 
 ## Explore the Time Series Insights explorer in a demo environment
 
