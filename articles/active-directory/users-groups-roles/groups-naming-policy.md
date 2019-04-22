@@ -79,7 +79,7 @@ Selected administrators can be exempted from these policies, across all group wo
 
 2. Select **Groups**, then select **Naming policy** to open the Naming policy page.
 
-### View or edit the Prefix-suffix naming policy 
+### View or edit the Prefix-suffix naming policy
 
 1. On the **Naming policy** page, go to **Group naming policy**
 2. You can view or edit the current prefix or suffix naming policies individually by selecting the attributes or strings you want to enforce as part of the naming policy.
