@@ -102,7 +102,7 @@ Using [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cl
 
 ### Creating an Azure Pipeline
 
-Using the `devops-build create` [command](https://docs.microsoft.com/cli/azure/functionapp/devops-build#az-functionapp-devops-build-create) a pipeline will be created to build and release any code changes in your repo. The pre-requisites for this command depends on the location of your code:
+Using the `devops-build create` [command](https://docs.microsoft.com/cli/azure/functionapp/devops-build#az-functionapp-devops-build-create) a pipeline will be created to build and release any code changes in your repo. The pre-requisites for this command depend on the location of your code:
 
 - Azure Repos:
 
