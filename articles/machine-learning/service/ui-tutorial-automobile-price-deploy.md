@@ -135,7 +135,7 @@ Navigate to the **API Doc** tab, to find more API details.
 
 ## Next Steps
 
-In this tutorial, you learned the key steps in creating, deploying, and consuming a machine learning model in the visual interface. To learn more about how you can use the visual interface to solve other types of problems, checkout the sample experiments.
+In this tutorial, you learned the key steps in creating, deploying, and consuming a machine learning model in the visual interface. To learn more about how you can use the visual interface to solve other types of problems, check out the sample experiments.
 
 > [!div class="nextstepaction"]
 > [Credit risk classification sample](ui-sample-classification-predict-credit-risk-basic.md)

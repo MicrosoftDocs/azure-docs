@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Predict automobile prices with the visual interface'
+title: 'Tutorial: Predict automobile price with the visual interface'
 titleSuffix: Azure Machine Learning service
 description: Learn how to train, score, and deploy a machine learning model using a drag and drop visual interface. This tutorial is part one of a two-part series on predicting automobiles prices using linear regression.
 
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/06/2019
 ---
 
-# Tutorial: Predict automobile prices with the visual interface
+# Tutorial: Predict automobile price with the visual interface
 
 In this tutorial, you take an extended look at developing a predictive analytics solution in the Azure Machine Learning service visual interface. You'll learn how to create a machine learning model, deploy it as an Azure web service, and consume your web service to make predictions on new data.
 
-By the end of this tutorial, you'll have a solution that can predict the price of any car based on automobile technical features you send it.
+By the end of this tutorial, you'll have a solution that can predict the price of any car based on technical specifications you send it.
 
 This tutorial [continues from the quickstart](ui-quickstart-run-experiment.md) and is **part one of a two-part tutorial series**. However, you don't have to complete the quickstart before starting.
 
@@ -51,7 +51,7 @@ If you have an Azure Machine Learning service workspace, skip to the [next secti
 
 ## Import and clean the data
 
-The first thing you need is data, but raw data is usually too messy to be directly used in model training. Learn how to do basic data cleaning to prepare your data. If you completed the quickstart, you can reuse your data prep experiment here.
+The first thing you need is data, but raw data is typically too messy to train a model directly. You'll have to do some basic data cleaning to prepare your data. If you completed the quickstart, you can reuse your data prep experiment here.
 
 ### Reuse the quickstart experiment
 
