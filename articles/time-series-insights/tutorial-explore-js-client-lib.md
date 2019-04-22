@@ -25,6 +25,9 @@ In this tutorial, you learn about:
 > * The TSI JavaScript client library.
 > * How the sample application uses the library to visualize TSI data.
 
+> [!NOTE]
+> The Time Series Insights sample application source files can be found in the provided [GitHub sample repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
+
 ## Video: 
 
 ### In this video, we introduce the open source Time Series Insights JavaScript SDK.</br>
@@ -53,7 +56,7 @@ Throughout this tutorial, the Time Series Insights sample application is used to
 
 ### Page source and structure
 
-First, let's view the HTML and JavaScript source code that's behind the page that's rendered in your browser. We don't walk through all of the elements, but you learn about the major sections and you get a sense of how the page works:
+First, let's view the [HTML and JavaScript source code](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) that's behind the page that's rendered in your browser. We don't walk through all of the elements, but you learn about the major sections and you get a sense of how the page works:
 
 1. Open **Developer Tools** in your browser. Inspect the HTML elements that make up the current page (also known as the HTML or DOM tree).
 
@@ -105,7 +108,7 @@ As mentioned earlier, this sample is an SPA that uses the OAuth 2.0 support in A
 
 2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions for a specific service/API identifier https://api.timeseries.azure.com. The service/API identifier is also known as the token "audience." The token permissions are issued on behalf of the signed-in user. The identifier for the service/API is yet another property that's contained in the application's Azure AD registration. After ADAL returns the access token to the application, it's passed as a "bearer token" when accessing the TSI service APIs.
 
-   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=145-204&highlight=4-9,36-39)]
+   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=4-9,36-39)]
 
 ### Control identification
 
@@ -187,7 +190,7 @@ Look at the code that's behind some of the standard chart controls that are demo
 
 Recall from step #3 in the [Page source and structure section](#page-source-and-structure) that chart controls are arranged in rows on the page, each of which has a descriptive title row. In this example, the three charts are populated under the "Multiple Chart Types From the Same Data" title `<div>` element, and are bound to the three `<div>` elements that are beneath the title:
 
-[!code-javascript[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
+[!code-html[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
 The following section of JavaScript code uses patterns that were outlined earlier: build TSI aggregate expressions, use them to query for TSI data, and render the three charts. Notice the three types that are used from the `tsiClient.ux` namespace: `LineChart`, `BarChart`, and `PieChart`, to create and render the respective charts. Also note that all three charts are able to use the same aggregate expression data `transformedResult`:
 
@@ -279,9 +282,12 @@ In this tutorial, you learned how to:
 > * Use APIs in the TSI JavaScript client library.
 > * Use JavaScript to create and populate chart controls with TSI data.
 
-As discussed, the TSI Sample application uses a demo data set. To learn how you can create your own TSI environment and data set, advance to the following article:
+As seen, the TSI sample application uses a demo data set. To learn how you can create your own TSI environment and data set, advance to the following article:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create an Azure Time Series Insights environment](tutorial-create-populate-tsi-environment.md)
 
+Or view the TSI sample application source files:
 
+> [!div class="nextstepaction"]
+> [TSI sample app repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)
