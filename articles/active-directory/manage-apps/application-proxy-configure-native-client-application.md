@@ -22,13 +22,13 @@ ms.collection: M365-identity-device-management
 
 # How to enable native client applications to interact with proxy applications
 
-While Azure Active Directory (Azure AD) Application Proxy can be used to publish web apps, you can also use it to publish native client applications that are configured with the Azure AD Authentication Library (ADAL). Native client applications differ from web apps because they are installed on a device, while web apps are accessed through a browser.
+You can use Azure Active Directory (Azure AD) Application Proxy to publish web apps, but it also can be used to publish native client applications that are configured with the Azure AD Authentication Library (ADAL). Native client applications differ from web apps because they're installed on a device, while web apps are accessed through a browser.
 
-To support native client applications, Application Proxy accepts Azure AD-issued tokens that are sent in the header. The Application Proxy service performs authentication on behalf of the users. This solution does not use application tokens for authentication.
+To support native client applications, Application Proxy accepts Azure AD-issued tokens that are sent in the header. The Application Proxy service does the authentication for the users. This solution doesn't use application tokens for authentication.
 
 ![Relationship between end users, Azure Active Directory, and published applications](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Use the Azure AD Authentication Library, which takes care of authentication and supports many client environments, to publish native applications. Application Proxy fits into the [Native Application to Web API scenario](../develop/native-app.md).
+To publish native applications, use the Azure AD Authentication Library, which takes care of authentication and supports many client environments. Application Proxy fits into the [Native Application to Web API scenario](../develop/native-app.md).
 
 This article walks you through the four steps to publish a native application with Application Proxy and the Azure AD Authentication Library.
 
@@ -64,7 +64,7 @@ Now that you've registered your native application, you can give it access to ot
 2. Select **Add a permission**. The **Request API permissions** page appears.
 3. Under the **Select an API** setting, select **APIs my organization uses**. A list appears, containing the applications in your directory that expose APIs.
 4. Type in the search box or scroll to find the proxy application that you published in [Step 1: Publish your proxy application](#step-1-publish-your-proxy-application), and then select the proxy application.
-5. In the **What type of permissions does your application require?** heading, select **Delegated permissions** if your native application needs to access the proxy application API as the signed-in user, or select **Application permissions** if your native application runs as a background service or daemon without a signed-in user.
+5. In the **What type of permissions does your application require?** heading, select the permission type. If your native application needs to access the proxy application API as the signed-in user, choose **Delegated permissions**. If your native application runs as a background service or daemon without a signed-in user, choose **Application permissions**.
 6. In the **Select permissions** heading, type in the search box or scroll to find the permissions you want to grant, select the permissions, and select **Add permissions**. The **API permissions** page for your native application now shows the proxy application and permission types that you added.
 
 ## Step 4: Edit the Active Directory Authentication Library
@@ -93,7 +93,7 @@ Replace the variables in the sample code as follows:
 - **Redirect URI of the Native App** can be found on the **Redirect URIs** page of the native application.
 - **Proxy App API Url** is the URL associated with the proxy application API that the native application is accessing. First go to  **Azure Active Directory** > **App registrations**, and select your native application name. Then select **API permissions**, select the name of the proxy application API, and copy the URL of the API.
 
-Once the ADAL is edited with these parameters, your users should be able to authenticate to native client applications even when they're outside of the corporate network.
+After you edit the ADAL with these parameters, your users can authenticate to native client applications even when they're outside of the corporate network.
 
 ## Next steps
 
