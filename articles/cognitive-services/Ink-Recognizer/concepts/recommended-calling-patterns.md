@@ -63,13 +63,13 @@ You can call the Ink Recognizer REST API in different patterns according to diff
 
 ### User initiated API calls
 
-If you're building an app that takes user input (for example, a notetaking or annotation app), you probably want to give them control of when and which ink gets sent to the Ink Recognizer API. This is especially useful when text and shapes are both present on the canvas, and users want to perform different actions for each. Consider adding selection features (like a lasso or rectangle selection tool), that enable users to choose what gets sent to the API.  
+If you're building an app that takes user input (for example, a note taking or annotation app), you probably want to give them control of when and which ink gets sent to the Ink Recognizer API. This is especially useful when text and shapes are both present on the canvas, and users want to perform different actions for each. Consider adding selection features (like a lasso or rectangle selection tool), that enable users to choose what gets sent to the API.  
 
 ### App initiated API calls
 
 You can also have your app call the Ink Recognizer API after a timeout. By sending the current ink strokes to the API routinely, you can store recognition results as they're created while reducing the API processing and response time. For example, you can send a line of handwritten text to the API after detecting your user has completed it. 
 
-Having the recognition results in advance gives you information about the characteristics of ink strokes as they relate to each other - which strokes are grouped to form the same word, line, list, paragraph or shape. This information can enhance the ink selection features in your app by being able to select groups of strokes at once, for exapmle.
+Having the recognition results in advance gives you information about the characteristics of ink strokes as they relate to each other - which strokes are grouped to form the same word, line, list, paragraph or shape. This information can enhance the ink selection features in your app by being able to select groups of strokes at once, for example.
 
 ## Integrate the Ink Recognizer API with Windows Ink
 

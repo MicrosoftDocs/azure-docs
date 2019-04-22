@@ -27,12 +27,12 @@ Use this quickstart to begin using the Ink Recognizer API on digital ink strokes
 
 - A JSON file containing digital ink strokes. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
-Usually you would call the API from an app that accepts digital inking. This quickstart simulates sending ink stroke data by using a JSON file with the ink strokes for the following drawn square. 
+Usually you would call the API from a digital inking app. This quickstart sends ink stroke data for the following handwritten sample from a JSON file.
 
 ![an image of handwritten text](../media/handwriting-sample.jpg)
 
 
-The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
