@@ -102,11 +102,23 @@ Using [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cl
 
 ### Creating an Azure Pipeline
 
-Using the `devops-build create` [command](https://docs.microsoft.com/cli/azure/functionapp/devops-build#az-functionapp-devops-build-create) a pipeline will be created to build and release any code changes in your repo. There are some pre-requisites for this command:
+Using the `devops-build create` [command](https://docs.microsoft.com/cli/azure/functionapp/devops-build#az-functionapp-devops-build-create) a pipeline will be created to build and release any code changes in your repo. The pre-requisites for this command depends on the location of your code:
 
-- You need to have write access to the repo.
+- Azure Repos:
 
-- You need to have owner access to the function app.
+    - You need to have microsoft.authorization/roleassignments/write permission (e.g. owner) of your subscription.
+ 
+    - You are the project administrator in Azure DevOps.
+
+- GitHub:
+
+    - You need to have microsoft.authorization/roleassignments/write permission (e.g. owner) of your subscription.
+
+    - You are the project administrator in Azure DevOps.
+
+    - You can create a Github Personal Access Token with sufficient permissions. Github PAT Permission Requirements
+
+    - You can commit to the master branch in your Github repository to upload the auto-generated azure-pipelines.yml file.
 
 ## Next steps
 
