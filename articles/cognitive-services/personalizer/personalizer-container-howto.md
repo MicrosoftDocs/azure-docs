@@ -205,4 +205,4 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 ## Next steps
 
-[How to configure Docker container for the `Docker Run` command](personalier-container-configuration.md)
+[How to configure Docker container for the `Docker Run` command](personalizer-container-configuration.md)
