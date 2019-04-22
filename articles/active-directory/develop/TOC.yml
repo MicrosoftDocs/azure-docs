@@ -135,6 +135,20 @@
           href: scenario-desktop-call-api.md
         - name: Move to production
           href: scenario-desktop-production.md
+      - name: Mobile app that calls Web APIs
+        items:
+        - name: Overview
+          href: scenario-mobile-overview.md
+        - name: App registration
+          href: scenario-mobile-app-registration.md
+        - name: App's code configuration
+          href: scenario-mobile-app-configuration.md
+        - name: Acquiring a token for the app
+          href: scenario-mobile-acquire-token.md
+        - name: Calling a Web API
+          href: scenario-mobile-call-api.md
+        - name: Move to production
+          href: scenario-mobile-production.md
       - name: Daemon app
         items:
         - name: Overview
