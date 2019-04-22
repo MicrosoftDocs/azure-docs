@@ -52,7 +52,7 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 3. In **Deployment model**, select **Resource Manager**.
 4. In **Account kind**, select **Storage (general-purpose v1)**. Don't select blob storage.
 5. In **Replication**, select the default **Read-access geo-redundant storage** for storage redundancy. Leave the Secure transfer required setting as Disabled.
-6. In **Performance**, select **Standard**. Next, in Access tier, select the default option of **Hot**.
+6. In **Performance**, select **Standard**. Next, in **Access tier**, select the default option of **Hot**.
 7. In **Subscription**, choose the subscription in which you want to create the new storage account.
 8. In **Resource group**, enter a new resource group. An Azure resource group is a logical container in which Azure resources are deployed and managed. For this tutorial, use **ContosoRG**.
 9. In **Location**, choose the geographic location for your storage account. For this tutorial, use **West Europe**.
@@ -80,9 +80,9 @@ When Azure VMs are created from storage after failover, they're joined to this n
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Networking** > **Virtual network**. Leave Resource Manager selected as the deployment model.
 2. In **Name**, enter a network name. The name must be unique within the Azure resource group. For this tutorial, use **ContosoASRnet**.
 3. Specify the resource group in which to create the network. For this tutorial, use the existing resource group **contosoRG**.
-4. In **Address range**, enter 10.0.0.0/24 as the range for the network. There's no subnet for this network.
+4. In **Address range**, enter **10.0.0.0/24** as the range for the network. There's no subnet for this network.
 5. In **Subscription**, select the subscription in which to create the network.
-6. In **Location**, select **West Europe**. The network must be in the same region as the Recovery Services vault.
+6. In **Location**, choose **West Europe**. The network must be in the same region as the Recovery Services vault.
 7. Leave the default options of basic DDoS protection, with no service endpoint on the network.
 8. Select **Create**.
 
