@@ -17,16 +17,15 @@ ms.date: 04/17/2019
 ms.author: pepogors
 
 ---
-# Overview
+# Deploy an Azure Service Fabric cluster across availability zones
+## Overview
 Availability Zones is a high-availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking.
 
-Service Fabric supports clusters that span across availability zones through the deployment of node types that are pinned to zones in a supported region. 
-
-Azure Availability Zones are only available in select regions. For more information, see [Azure Availability Zones Overview](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Service Fabric supports clusters that are able to span across availability zones through the deployment of node types that are pinned to zones in a supported region. Deploying a Service Fabric cluster across availability zones will ensure high-availability of your applications. Azure Availability Zones are only available in select regions. For more information, see [Azure Availability Zones Overview](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 Sample templates are available: [cross availability zone templates](https://docs.microsoft.com/azure/availability-zones/az-overview)
 
-## Recommended Topology for primary node type of Azure Service Fabric clusters spanning across zones
+## Recommended Topology for primary node type of Azure Service Fabric clusters spanning across availability zones
 To ensure high availability of a Service Fabric cluster which is distributed across availability zones, it is important that a primary node type is located in each of the zones supported by the region. To spread a primary node type across, you
 can mark multiple node types as primary which will distribute seed nodes evenly across the multiple primary node types.
 
@@ -39,7 +38,7 @@ The recommended topology for the primary node type requires the resources outlin
 * The cluster reliability level set to Platinum.
 
 >[!NOTE]
-> Service Fabric does not support virtual machine scale sets which span zones. The virtual machine scale set single placement group property must be set to true.
+> Service Fabric does not support a single virtual machine scale set which span zones. The virtual machine scale set **single placement group property must be set to true**.
 
  ![Azure Service Fabric Availability Zone Architecture][sf-architecture]
 
@@ -121,7 +120,7 @@ The load balancer inbound NAT rules should match the NAT pools from the Virtual 
 }
 ```
 
-## Enabling Zones on a Virtual Machine Scale Set
+## Enabling zones on a Virtual Machine Scale Set
 To enable a zone, on a virtual machine scale set you must include three values in the virtual machine scale set resource. The first value is the **zones** property that specifies which availability zone the virtual machine scale set will be deployed to. The second value is the "singlePlacementGroup" property that must be set to true.
 
 The “faultDomainOverride” property in the Service Fabric virtual machine scale set extension needs to be included. The value for this property should include the region and zone in which this virtual machine scale set will be placed. Example: "faultDomainOverride": "eastus/az1" All virtual machine scale set resources must be placed in the same region as Service Fabric does not support clusters across regions.
@@ -150,7 +149,6 @@ The “faultDomainOverride” property in the Service Fabric virtual machine sca
             "nodeTypeRef": "[parameters('vmNodeType1Name')]",
             "dataPath": "D:\\\\SvcFab",
             "durabilityLevel": "Bronze",
-            "TestExtension": true,
             "certificate": {
                 "thumbprint": "[parameters('certificateThumbprint')]",
                 "x509StoreName": "[parameters('certificateStoreValue')]"
@@ -165,7 +163,7 @@ The “faultDomainOverride” property in the Service Fabric virtual machine sca
 }
 ```
 
-## Enabling Multiple Primary Node Types in the Service Fabric Cluster Resource
+## Enabling multiple primary Node Types in the Service Fabric Cluster resource
 To set multiple node types as primary in a cluster resource, set the isPrimary property to "true" for each of the node types that you would like to mark as primary. When deploying a Service Fabric cluster across availability zones, you should have three node types in distinct zones.
 
 ```json
@@ -221,10 +219,9 @@ To set multiple node types as primary in a cluster resource, set the isPrimary p
     }
     ],
 }
-
 ```
 
-## Migrate to availability zones from a cluster using a Basic SKU Load Balancer and a Basic SKU IP
+## Migrate to using availability zones from a cluster using a Basic SKU Load Balancer and a Basic SKU IP
 To migrate a cluster, which was using a Load Balancer and IP with a basic SKU, you must first create an entirely new Load Balancer and IP resource using the standard SKU. It is not possible to update these resources in-place. 
 
 The new LB and IP should be referenced in the new cross availability zone node types that you would like to use. In the example above, three new virtual machine scale set resources were added in zones 1,2, and 3. These virtual machine scale sets reference the newly created LB and IP and are marked as primary node types in the Service Fabric Cluster Resource.
@@ -283,4 +280,4 @@ foreach($name in $nodeNames){
 
 ```
 
-[sf-architecture]: .\media\service-fabric-availability-zones\az-cross-architecture.png
+[sf-architecture]: .\media\service-fabric-availability-zones\sf-cross-az-topology.png
