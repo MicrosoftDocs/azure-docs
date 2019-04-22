@@ -23,6 +23,8 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) (pr
 > * Query raw and aggregated data
 > * Expire data
 
+## Prerequisites
+
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Sign in to the Azure portal
