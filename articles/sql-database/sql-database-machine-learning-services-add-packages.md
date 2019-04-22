@@ -1,7 +1,7 @@
 ---
 title: Add an R package
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: This tutorial explains how to install an R package that is not already installed in Azure SQL Database Machine Learning Services (preview).
+description: This article explains how to install an R package that isn't already installed in Azure SQL Database Machine Learning Services (preview).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -17,17 +17,17 @@ ms.date: 04/22/2019
 
 # Add an R package to Azure SQL Database Machine Learning Services (preview)
 
-This tutorial explains how to install an R package that is not already installed in your Azure SQL database. You install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils).
+This article explains how to install an R package that isn't already installed in your Azure SQL database. You install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils).
 
-## Prequisites
+## Prerequisites
 
-- [R](https://www.r-project.org/) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) need to be installed on your local computer. R is available for Windows, MacOS, and Linux. This tutorial assumes you're using Windows.
+- Install [R](https://www.r-project.org/) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer. R is available for Windows, MacOS, and Linux. This tutorial assumes you're using Windows.
 
 ## List R packages
 
 Microsoft provides a number of R packages pre-installed with Machine Learning Services in your SQL database.
 
-To see a list of which R packages are installed, including version, dependencies, license, and library path information, run the following script.
+You can see a list of installed R packages by running the following script. The list displays information including version, dependencies, license, and library path information.
 
     ```SQL
     EXECUTE sp_execute_external_script @language = N'R'
@@ -50,9 +50,9 @@ The output is from `installed.packages()` in R and is returned as a result set. 
 
 ## Add a package
 
-If you need to use a package that is not already installed in your SQL database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils).
+If you need to use a package that isn't already installed in your SQL database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils).
 
-For example, follow the steps below to install the **[glue](https://cran.r-project.org/web/packages/glue/)** package which can format and interpolate a string. These steps also install **sqlmlutils** and **RODBCext** (which is a prerequisite for **sqlmlutils**).
+For example, follow the steps below to install the **[glue](https://cran.r-project.org/web/packages/glue/)** package. **[glue](https://cran.r-project.org/web/packages/glue/)** can format and interpolate a string. These steps also install **sqlmlutils** and **RODBCext** (which is a prerequisite for **sqlmlutils**).
 
 1. Open a **Command Prompt** and run the following command to install the **RODBCext** package:
 
@@ -63,7 +63,7 @@ For example, follow the steps below to install the **[glue](https://cran.r-proje
     > [!TIP]
     > If you get the error, " 'R' is not recognized as an internal or external command, operable program or batch file", it likely means that the path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the path to the environment variable or navigate to the folder in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`) and then retry the command.
 
-1. Download the latest **sqlmlutils** zip file from https://github.com/Microsoft/sqlmlutils/tree/master/R/dist to your local computer. You do not need to unzip the file.
+1. Download the latest **sqlmlutils** zip file from https://github.com/Microsoft/sqlmlutils/tree/master/R/dist to your local computer. You don't need to unzip the file.
 
 1. Use the **R CMD INSTALL** command in **Command Prompt** to install **sqlmlutils**. Specify the full path to the zip file you downloaded. For example:
 
@@ -72,7 +72,7 @@ For example, follow the steps below to install the **[glue](https://cran.r-proje
     R CMD INSTALL R/dist/sqlmlutils_0.5.0.zip
     ```
 
-    The output you see should be similar to the following:
+    The output you see should be similar to the following.
 
     ```text
     In R CMD INSTALL
@@ -124,7 +124,7 @@ Once the package is installed, you can use it in an R script through **sp_execut
         ';
     ```
 
-    You will see the following result in the **Messages** tab.
+    You'll see the following result in the **Messages** tab.
 
     **Results**
 
