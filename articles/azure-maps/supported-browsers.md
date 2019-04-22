@@ -12,7 +12,7 @@ manager: cpendleton
 
 # Web SDK supported browsers
 
-The Azure Maps Web SDK provides a helper function [atlas.isSupported](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest#issupported-boolean-) to detect if a web browser has the minimum required WebGL features to support loading and rendering the map control. 
+The Azure Maps Web SDK provides a helper function [atlas.isSupported](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest#issupported-boolean-) to detect if a web browser has the minimum required WebGL features to support loading and rendering the map control.
 
 ```
 if(!atlas.isSupported()) {
