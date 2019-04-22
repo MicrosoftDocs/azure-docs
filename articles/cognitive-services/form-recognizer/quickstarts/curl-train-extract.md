@@ -94,7 +94,7 @@ Next, you will analyze a document and extract key-value pairs and tables from it
 
 * Replace `<Endpoint>` with the endpoint you obtained your Form Recognizer subscription key. You can find it in your Form Recognizer resource overview tab.
 * Replace `<modelID>` with the model ID you received in the previous step of training the model.
-* Replace `<SAS URL>` with the SAS URL to the form you want to extract or the path to the file you would like to analyze (/input/path/to/my/Invoice_1.pdf).
+* Replace `<SAS URL>` with an Azure Blob Storage container shared access signature (SAS) URL where the form to extract data is located. 
 * Replace `<subscription key>` with your subscription key.
 
 ```bash
