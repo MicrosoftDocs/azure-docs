@@ -88,6 +88,10 @@ A new folder named _MyFunctionProj_ is created. To continue, change directory to
 cd MyFunctionProj
 ```
 
+## Reference bindings
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
 ## Create a function
 
 To create a function, run the following command:
@@ -124,10 +128,6 @@ The function "HttpTrigger" was created successfully from the "HTTP trigger" temp
 ```
 
 A sub-folder named _HttpTrigger_ is created. This contains `__init__.py` which is the primary script file and `function.json` file which describes the trigger and bindings used by the function. To learn more about the programming model, you can refer to the [Azure Functions Python developer guide](functions-reference-python.md).
-
-## Reference bindings
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ## Run the function locally
 

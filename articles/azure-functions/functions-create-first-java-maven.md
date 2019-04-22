@@ -104,6 +104,10 @@ public class Function {
 
 ```
 
+## Reference bindings
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
 ## Run the function locally
 
 Change directory to the newly created project folder and build and run the function with Maven:

@@ -60,6 +60,10 @@ Use the following command to navigate to the new `MyFunctionProj` project folder
 cd MyFunctionProj
 ```
 
+## Reference bindings
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
 [!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
@@ -102,10 +106,6 @@ After the function app has been created, the Azure CLI shows information similar
     // Remaining output has been truncated for readability.
 }
 ```
-
-## Reference bindings
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 

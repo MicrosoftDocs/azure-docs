@@ -62,6 +62,10 @@ Use the following command to navigate to the new `MyFunctionProj` project folder
 cd MyFunctionProj
 ```
 
+## Reference bindings
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
 [!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
@@ -89,10 +93,6 @@ After the function app has been created, you see the following message:
 Your serverless Linux function app 'myfunctionapp' has been successfully created.
 To active this function app, publish your app content using Azure Functions Core Tools or the Azure portal.
 ```
-
-## Reference bindings
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 Now, you can publish your project to the new function app in Azure.
 
