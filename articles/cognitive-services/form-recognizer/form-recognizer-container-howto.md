@@ -30,12 +30,12 @@ You must meet the following prerequisites before using Form Recognizer container
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.|
 |Azure CLI| You need to install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) on your host.|
-|Computer Vision API resource| In order to process scanned documents and images, OCR is required. Please note that usual fees apply. Use this key and the billing endpoint as {COMPUTER_VISION_API_KEY} and {COMPUTER_VISION_BILLING_ENDPOINT_URI} in the following.|  
+|Computer Vision API resource| In order to process scanned documents and images, OCR is required. The usual billing fees apply. Use this key and the billing endpoint as {COMPUTER_VISION_API_KEY} and {COMPUTER_VISION_BILLING_ENDPOINT_URI} in the following.|  
 |Form Recognizer resource |In order to use these containers, you must have:<br><br>A _Form Recognizer_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's **Form Recognizer** Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
 
 ### Create Form Recognizer resource
 
-1. Click on this link [Azure portal - Forms](https://aka.ms/form-recognizer-resource) to log in to Azure portal with your user account and open the create page of Form Recognizer  
+1. Click on this link [Azure portal - Forms](https://aka.ms/form-recognizer-resource) to sign in to Azure portal with your user account and open the create page of Form Recognizer  
 
 1. In the create page, enter the following information then select **Create**:
 
@@ -48,7 +48,7 @@ You must meet the following prerequisites before using Form Recognizer container
 
 1. On the **Keys** page, copy a key for the {BILLING_KEY} setting used in the [`Docker run`](#run-the-container-with-docker-run) command. 
 
-1. If you don't have one, provision [Cognitive Services Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision/),  which is required to provide the OCR scanning functionality for the documents and images. Please note that usual fees for this service apply. Use this as `{COMPUTER_VISION_API_KEY}` and `{COMPUTER_VISION_API_ENDPOINT_URI}` in the following.
+1. If you don't have one, provision [Cognitive Services Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision/),  which is required to provide the OCR scanning functionality for the documents and images. The usual billing fees for this service apply. Use this as `{COMPUTER_VISION_API_KEY}` and `{COMPUTER_VISION_API_ENDPOINT_URI}` in the following.
 
 ### The host computer
 
@@ -109,7 +109,7 @@ There are multiple options on how the forms can be provided to the service. The 
 
 * local volumes
 * [Azure Files](https://azure.microsoft.com/services/storage/files)
-* [Azure Blob](https://azure.microsoft.com/en-ca/services/storage/blobs) 
+* [Azure Blob](https://azure.microsoft.com/services/storage/blobs) 
 
 
 ### Local volumes
@@ -200,7 +200,7 @@ To mount a previously created Azure file to kubernetes, get the `YOUR_STORAGEACC
     kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=YOUR_STORAGEACCOUNTNAME --from-literal=azurestorageaccountkey=YOUR_STORAGEACCOUNTKEY
     ```
     
-    Note: `YOUR_STORAGEACCOUNTNAME` AFS should contain two shares: `input`, `output`.
+    `YOUR_STORAGEACCOUNTNAME` AFS should contain two shares: `input`, `output`.
 
 1. Configure the Kubernetes manifest file
 
@@ -208,7 +208,7 @@ To mount a previously created Azure file to kubernetes, get the `YOUR_STORAGEACC
 
     b. Inside the local folder, open the file `aks.forms_understanding.pp.yaml`. You will need to fill in the following values, with keys specific to your Azure subscription.
 
-    Note, if you used different names for `input` and `output` shares, you will need to modify them in this file as well.
+    If you used different names for `input` and `output` shares, you will need to modify them in this file as well.
     
     ```yaml
     env:
@@ -224,7 +224,7 @@ To mount a previously created Azure file to kubernetes, get the `YOUR_STORAGEACC
         value: "{COMPUTER_VISION_API_ENDPOINT_URI}"
     ```
 
-1. Create a secret key with your docker password. Note: you must supply `--docker-email` and an email address. If you don't,  you will get a failure.
+1. Create a secret key with your docker password. You must supply `--docker-email` and an email address. If you don't,  you will get a failure.
 
     ```kubectl
     kubectl create secret docker-registry acr-auth --docker-server {{ACR_TODO}}.azurecr.io --docker-username {YOUR_DOCKER_USERNAME} --docker-password {YOUR_DOCKER_PASSWORD} --docker-email {YOUR_EMAIL_ADDRESS}
@@ -288,7 +288,7 @@ You will find the log files when logging into your container under `/app/forms/l
 
 Run `docker ps` to get the {CONTAINER_ID}.
 
-Run `docker exec {DOCKER_ID}` to log into the container. 
+Run `docker exec {DOCKER_ID}` to sign into the container. 
 
 ## Container's API documentation
 

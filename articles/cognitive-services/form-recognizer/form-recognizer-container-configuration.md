@@ -15,8 +15,6 @@ ms.author: pafarley
 
 The **Form Recognizer** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings.
 
-# Configuration settings
-
 This container has the following configuration settings:
 
 |Required|Setting|Purpose|
@@ -116,7 +114,7 @@ The exact syntax of the host mount location varies depending on the host operati
 
 The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](form-recognizer-container-howto.md#stop-the-container) it.
 
-* **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character for a bash shell. Replace or remove this based on your host operating system's requirements. For example, the line continuation character for windows is a carot, `^`. Replace the back slash with the carot.
+* **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character for a bash shell. Replace or remove this based on your host operating system's requirements. For example, the line continuation character for windows is a caret, `^`. Replace the back slash with the caret.
 * **Argument order**: Do not change the order of the arguments unless you are very familiar with Docker containers.
 
 Replace {_argument_name_} with your own values:
@@ -175,4 +173,7 @@ billing={BILLING_ENDPOINT_URI} computervisionapikey={COMPUTER_VISION_API_KEY}
 computervisionendpointuri={COMPUTER_VISION_API_BILLING_ENDPOINT_URI}
 Logging:Disk:Format=json
   ```
-  
+
+## Next steps
+
+* [How to run container](form-recognizer-container-howto.md) for your `Docker run` command.  
