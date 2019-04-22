@@ -1,5 +1,5 @@
 ---
-title: web API that calls Web APIs - overview | Azure
+title: Web API that calls Web APIs - overview | Azure
 description: Learn how to build a web API that calls Web APIs (overview)
 services: active-directory
 documentationcenter: dev-center-name
@@ -25,12 +25,9 @@ ms.collection: M365-identity-device-management
 
 Learn all you need to build a web API that calls Web APIs.
 
-## Pre-requisites
+## Prerequisites
 
-This scenario "protected Web API that calls Web APIs" builds on top of the "Protect a Web API" scenario: 
-
-> [!div class="nextstepaction"]
-> [Protected Web API - Scenario](scenario-protected-web-api-overview.md)
+This scenario "protected Web API that calls Web APIs" builds on top of the "Protect a Web API" scenario. If you have not already, please read [Protected Web API - Scenario](scenario-protected-web-api-overview.md) first.
 
 ## Scenario overview
 

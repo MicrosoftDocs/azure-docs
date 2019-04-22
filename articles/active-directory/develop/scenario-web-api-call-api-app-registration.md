@@ -1,5 +1,5 @@
 ---
-title: web API that calls Web APIs - app registration | Azure
+title: Web API that calls Web APIs - app registration | Azure
 description: Learn how to build a web API that calls Web APIs (app registration)
 services: active-directory
 documentationcenter: dev-center-name

@@ -1,5 +1,5 @@
 ---
-title: web API that calls Web APIs - acquiring a token for the app | Azure
+title: Web API that calls Web APIs - acquiring a token for the app | Azure
 description: Learn how to build a web API that calls Web APIs (acquiring a token for the app)
 services: active-directory
 documentationcenter: dev-center-name

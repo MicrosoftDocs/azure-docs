@@ -1,5 +1,5 @@
 ---
-title: web API that calls Web APIs - move to production | Azure
+title: Web API that calls Web APIs - move to production | Azure
 description: Learn how to build a web API that calls Web APIs (move to production)
 services: active-directory
 documentationcenter: dev-center-name
@@ -31,8 +31,8 @@ Now that you know how to acquire a token to call Web APIs, learn how to move to 
 
 ## Learn more
 
-Here is a tutorial explaining in depth how to build a protected Web API calling Web APIs
+You know the basics of how to call a Web API from your Web API. UYou might be interested is this tutorial, which explains in details the code used to build a protected Web API calling Web APIs
 
 Sample | Platform | Description
 ------ | -------- | -----------
-[active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | ASP.NET Core 2.2 Web API, Desktop (WPF) | ASP.NET Core 2.2 Web API calling Microsoft Graph, itself called from a WPF application using Azure AD V2
+[active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | ASP.NET Core 2.2 Web API, Desktop (WPF) | ASP.NET Core 2.2 Web API calling Microsoft Graph, itself called from a WPF application using the Microsoft identity platform (formerly named Azure AD) v2.0

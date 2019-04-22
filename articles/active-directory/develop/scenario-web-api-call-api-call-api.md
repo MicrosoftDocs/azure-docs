@@ -1,5 +1,5 @@
 ---
-title: web API that calls Web APIs - calling a Web API | Azure
+title: Web API that calls Web APIs - calling a Web API | Azure
 description: Learn how to build a web API that calls Web APIs (calling a Web API)
 services: active-directory
 documentationcenter: dev-center-name
@@ -23,13 +23,13 @@ ms.collection: M365-identity-device-management
 
 # Web API that calls Web APIs - calling a Web API
 
-Now that you have a token, you can call a protected Web API.
+Now that you have a token, you can call a protected Web API. This is done from the controller of you ASP.NET / ASP.NET Core Web API.
 
 ## Code in the controller
 
 Here is the continuation of the example of code shown in [Protected Web API calls Web APIs - acquiring a token](scenario-web-api-call-api-acquire-token.md), called in the actions of the API controllers, calling a downstream API (here named todolist)
 
-You just use the acquire token as a bearer token to call the downstream API.
+Once you acquired the token, you just use it as a bearer token to call the downstream API.
 
 ```CSharp
 private async Task GetTodoList(bool isAppStarting)

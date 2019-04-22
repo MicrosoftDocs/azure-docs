@@ -1,5 +1,5 @@
 ---
-title: protected Web API - app's code configuration | Azure
+title: Protected Web API - app's code configuration | Azure
 description: Learn how to build a protected Web API (app's code configuration)
 services: active-directory
 documentationcenter: dev-center-name

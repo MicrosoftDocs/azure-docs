@@ -1,5 +1,5 @@
 ---
-title: protected Web API - overview | Azure
+title: Protected Web API - overview | Azure
 description: Learn how to build a protected Web API (overview)
 services: active-directory
 documentationcenter: dev-center-name
@@ -26,9 +26,16 @@ ms.collection: M365-identity-device-management
 You expose a Web API and you want to protect it so that only authenticated user can access it. You want to enable authenticated users with both work and school accounts
 or Microsoft personal accounts (formerly live account) to use your Web API.
 
-## Pre-requisites
+## Prerequisites
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
+## Specifics
+
+You'll learn what is specific about protecting Web APIs:
+
+- Your app registration needs to expose at least one scope. The token version accepted by your Web API depends on the sign in audience.
+- The configuration of the code for the Web API needs to validate the token used when calling the Web API.
 
 ## Next steps
 

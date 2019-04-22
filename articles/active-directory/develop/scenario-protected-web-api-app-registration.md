@@ -1,5 +1,5 @@
 ---
-title: protected Web API - app registration | Azure
+title: Protected Web API - app registration | Azure
 description: Learn how to build a protected Web API (app registration)
 services: active-directory
 documentationcenter: dev-center-name
@@ -23,9 +23,9 @@ ms.collection: M365-identity-device-management
 
 # Protected Web API - app registration
 
-See [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md) how to register the application.
-
 This article explains the app registration specifics for a protected Web API.
+
+See [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md) for the common steps on how to register the application.
 
 ## Accepted token version
 
@@ -68,17 +68,17 @@ The scopes are also displayed on the consent screen presented to the end users u
 ### How to expose the API
 
 1. Select the **Expose an API** section in the application registration, and:
-   - Select **Add a scope**
-   - accept the proposed Application ID URI (api://{clientId}) by selecting **Save and Continue**
-   - Enter the following parameters:
-     - for **Scope name** use `access_as_user`
-     - Ensure the **Admins and users** option is selected for **Who can consent**
-     - in **Admin consent display name** type `Access TodoListService as a user`
-     - in **Admin consent description** type `Accesses the TodoListService Web API as a user`
-     - in **User consent display name** type `Access TodoListService as a user`
-     - in **User consent description** type `Accesses the TodoListService Web API as a user`
-     - Keep **State** as **Enabled**
-     - Select **Add scope**
+   1. Select **Add a scope**
+   1. accept the proposed Application ID URI (api://{clientId}) by selecting **Save and Continue**
+   1. Enter the following parameters:
+      - for **Scope name** use `access_as_user`
+      - Ensure the **Admins and users** option is selected for **Who can consent**
+      - in **Admin consent display name** type `Access TodoListService as a user`
+      - in **Admin consent description** type `Accesses the TodoListService Web API as a user`
+      - in **User consent display name** type `Access TodoListService as a user`
+      - in **User consent description** type `Accesses the TodoListService Web API as a user`
+      - Keep **State** as **Enabled**
+      - Select **Add scope**
 
 ## Next steps
 
