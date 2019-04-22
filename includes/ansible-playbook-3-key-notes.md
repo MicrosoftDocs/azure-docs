@@ -6,4 +6,4 @@
  ms.author: tarcher
 ---
 
-In this tutorial, Ansible is used to:
+Here are some key notes to consider when working with the sample playbook:

@@ -6,4 +6,4 @@
  ms.author: tarcher
 ---
 
-In this tutorial, Ansible is used to:
+Run the playbook using the `ansible-playbook` command:

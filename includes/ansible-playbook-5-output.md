@@ -6,4 +6,4 @@
  ms.author: tarcher
 ---
 
-In this tutorial, Ansible is used to:
+After running the playbook, you see output similar to the following results:

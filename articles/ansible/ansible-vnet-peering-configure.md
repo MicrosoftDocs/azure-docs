@@ -20,8 +20,13 @@ Traffic is routed between VMs in the same virtual network through private IP add
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
-In this article, you use Ansible to create and peer two virtual networks.
+> [!div class="checklist"]
+>
+> * Create two virtual networks
+> * Peer the two virtual networks
+> * Delete the peering between the two networks
 
 ## Prerequisites
 
@@ -32,7 +37,9 @@ In this article, you use Ansible to create and peer two virtual networks.
 
 A resource group is a logical container in which Azure resources are deployed and managed.
 
-The first two tasks in the sample Ansible playbook create two resource groups.
+[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
+
+- Creates two resource groups 
 
 ```yaml
   - name: Create a resource group
@@ -47,7 +54,10 @@ The first two tasks in the sample Ansible playbook create two resource groups.
 
 ## Create the first virtual network
 
-In this section, create the first virtual network and add a subnet.
+[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
+
+- Creates a virtual network
+- Creates a subnet within the virtual network
 
 ```yml
   - name: Create first virtual network
@@ -65,7 +75,10 @@ In this section, create the first virtual network and add a subnet.
 
 ## Create the second virtual network
 
-In this section, create the second virtual network and add a subnet.
+[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
+
+- Creates a virtual network
+- Creates a subnet within the virtual network
 
 ```yml
   - name: Ceate second virtual network
@@ -83,7 +96,10 @@ In this section, create the second virtual network and add a subnet.
 
 ## Peer the two virtual networks
 
-Establish virtual network peering between the two virtual networks.
+[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
+
+- Initializes virtual-network peering
+- Peers two previously-created virtual networks
 
 ```yml
   - name: Initial vnet peering
@@ -111,7 +127,9 @@ Establish virtual network peering between the two virtual networks.
 
 ## Delete the virtual network peering
 
-To delete the virtual network peering, run the following task:
+[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
+
+- Deletes the peering between the two previously-created virtual networks
 
 ```yaml
   - name: Delete vnet peering
@@ -125,6 +143,7 @@ To delete the virtual network peering, run the following task:
 ## Get the sample playbook
 
 There are two ways to get the complete sample playbook:
+
 - [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml) and save it to `vnet_peering.yml`.
 - Create a new file named `vnet_peering.yml` and copy into it the following contents:
 
@@ -209,17 +228,19 @@ There are two ways to get the complete sample playbook:
 
 ## Run the sample playbook
 
-In this section, run the playbook to test various features explained throughout this article.
+[!INCLUDE [ansible-run-playbook-section-intro.md](../../includes/ansible-run-playbook-section-intro.md)]
 
-In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
+[!INCLUDE [ansible-playbook-3-key-notes.md](../../includes/ansible-playbook-3-key-notes.md)]
 
-Run the playbook using the `ansible-playbook` command:
+- In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
+
+[!INCLUDE [ansible-playbook-4-run.md](../../includes/ansible-playbook-4-run.md)]
 
 ```bash
 ansible-playbook vnet_peering.yml
 ```
 
-The output looks similar to the following results:
+[!INCLUDE [ansible-playbook-5-output.md](../../includes/ansible-playbook-5-output.md)]
 
 ```Output
 PLAY [localhost] 
@@ -270,7 +291,7 @@ localhost                  : ok=12   changed=9    unreachable=0    failed=0    s
 
 When no longer needed, delete the resources created in this article. 
 
-Save the following code as `cleanup.yml`:
+[!INCLUDE [ansible-playbook-2-saveas.md](../../includes/ansible-playbook-2-saveas.md)] `cleanup.yml`:
 
 ```bash
 - hosts: localhost
@@ -291,9 +312,11 @@ Save the following code as `cleanup.yml`:
         state: absent
 ```
 
-In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
+[!INCLUDE [ansible-playbook-3-key-notes.md](../../includes/ansible-playbook-3-key-notes.md)]
 
-Run the playbook using the `ansible-playbook` command:
+- In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
+
+[!INCLUDE [ansible-playbook-4-run.md](../../includes/ansible-playbook-4-run.md)]
 
 ```bash
 ansible-playbook cleanup.yml

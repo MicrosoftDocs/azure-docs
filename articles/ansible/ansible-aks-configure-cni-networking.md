@@ -38,11 +38,12 @@ For more information about networking to your applications in AKS, see [Network 
 
 ## Create a virtual network and subnet
 
-This section presents a playbook with two tasks to do the following work: 
-- Create a virtual network
-- Add a subnet to the virtual network
+[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
 
-Save the following playbook as `vnet.yml`:
+- Create a virtual network
+- Create a subnet within the virtual network
+
+[!INCLUDE [ansible-playbook-2-saveas.md](../../includes/ansible-playbook-2-saveas.md)] `vnet.yml`:
 
 ```yml
 - name: Create vnet
@@ -63,19 +64,11 @@ Save the following playbook as `vnet.yml`:
 
 ## Create an AKS cluster in the virtual network
 
-This section presents a playbook that creates an AKS cluster with a virtual network. 
+[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
 
-Here are some key notes to consider when working with the sample playbook:
-- Use the `azure_rm_aks_version` module to find the supported version.
-- The `vnet_subnet_id` is the subnet created in the previous section.
-- The playbook loads `ssh_key` from `~/.ssh/id_rsa.pub`. If you modify it, use the single-line format - starting with "ssh-rsa" (without the quotes).
-- The `client_id` and `client_secret` values are loaded from `~/.azure/credentials`, which is the default credential file. You can set these values to your service principal or load these values from environment variables:
-    ```yml
-    client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
-    client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
-    ```
+- Create an AKS cluster within a virtual network.
 
-Save the following playbook as `aks.yml`:
+[!INCLUDE [ansible-playbook-2-saveas.md](../../includes/ansible-playbook-2-saveas.md)] `aks.yml`:
 
 ```yml
 - name: List supported kubernetes version from Azure
@@ -83,7 +76,7 @@ Save the following playbook as `aks.yml`:
       location: "{{ location }}"
   register: versions
 
-- name: Create AKS cluster with vnet
+- name: Create AKS cluster within a VNet
   azure_rm_aks:
       resource_group: "{{ resource_group }}"
       name: "{{ name }}"
@@ -108,11 +101,23 @@ Save the following playbook as `aks.yml`:
   register: aks
 ```
 
+[!INCLUDE [ansible-playbook-3-key-notes.md](../../includes/ansible-playbook-3-key-notes.md)]
+
+- Use the `azure_rm_aks_version` module to find the supported version.
+- The `vnet_subnet_id` is the subnet created in the previous section.
+- The playbook loads `ssh_key` from `~/.ssh/id_rsa.pub`. If you modify it, use the single-line format - starting with "ssh-rsa" (without the quotes).
+- The `client_id` and `client_secret` values are loaded from `~/.azure/credentials`, which is the default credential file. You can set these values to your service principal or load these values from environment variables:
+
+    ```yml
+    client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
+    client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
+    ```
+
 ## Run the sample playbook
 
-This section lists the complete sample playbook that calls the tasks creating in this article. 
+[!INCLUDE [ansible-run-playbook.md](../../includes/ansible-run-playbook.md)]
 
-Save the following playbook as `aks-azure-cni.yml`:
+[!INCLUDE [ansible-playbook-2-saveas.md](../../includes/ansible-playbook-2-saveas.md)] `aks-azure-cni.yml`:
 
 ```yml
 ---
@@ -140,19 +145,19 @@ Save the following playbook as `aks-azure-cni.yml`:
            var: aks
 ```
 
-In the `vars` section, make the following changes:
-- For the `resource_group` key, change the `aksansibletest` value to your resource group name.
-- For the `name` key, change the `aksansibletest` value to your AKS name.
-- For the `Location` key, change the `eastus` value to your resource group location.
+[!INCLUDE [ansible-playbook-3-key-notes.md](../../includes/ansible-playbook-3-key-notes.md)]
 
+- Change the `aksansibletest` value to your resource group name.
+- Change the `aksansibletest` value to your AKS name.
+- Change the `eastus` value to your resource group location.
 
-Run the complete playbook using the `ansible-playbook` command:
+[!INCLUDE [ansible-playbook-4-run.md](../../includes/ansible-playbook-4-run.md)]
 
 ```bash
 ansible-playbook aks-azure-cni.yml
 ```
 
-Running the playbook shows results similar to the following output:
+[!INCLUDE [ansible-playbook-5-output.md](../../includes/ansible-playbook-5-output.md)]
 
 ```Output
 PLAY [localhost] 
@@ -236,32 +241,7 @@ PLAY RECAP
 localhost                  : ok=9    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-## Clean up resources
-
-When no longer needed, delete the resources created in this article. 
-
-Save the following code as `cleanup.yml`:
-
-```yml
----
-- hosts: localhost
-  vars:
-      resource_group: {{ resource_group_name }}
-  tasks:
-      - name: Clean up resource group
-        azure_rm_resourcegroup:
-            name: "{{ resource_group }}"
-            state: absent
-            force: yes
-```
-
-In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
-
-Run the playbook using the `ansible-playbook` command:
-
-```bash
-ansible-playbook cleanup.yml
-```
+[!INCLUDE [ansible-clean-up-resources.md](../../includes/ansible-clean-up-resources.md)]
 
 ## Next steps
 

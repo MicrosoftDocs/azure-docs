@@ -38,9 +38,10 @@ For more information about networking to your applications in AKS, see [Network 
 
 ## Create a VNET and subnet
 
-This section presents a playbook with two tasks to do the following work: 
-- Create a virtual network
-- Add a subnet to the virtual network
+The playbook code in this section creates the following Azure resources:
+
+- Virtual network
+- Subnet within the virtual network
 
 Save the following playbook as `vnet.yml`:
 
@@ -63,23 +64,7 @@ Save the following playbook as `vnet.yml`:
 
 ## Create an AKS cluster in the VNET
 
-This section presents a playbook that creates an AKS cluster with a virtual network. 
-
-Here are some key notes to consider when working with the sample playbook:
-- Use `azure_rm_aks_version` module to find the supported version.
-- The `vnet_subnet_id` is the subnet created in the previous section.
-- The `network_profile` defines the properties for the kubenet network plugin.
-- The `service_cidr` is used to assign internal services in the AKS cluster to an IP address. This IP address range should be an address space that isn't used elsewhere in your network. 
-- The `dns_service_ip` address should be the ".10" address of your service IP address range.
-- The `pod_cidr` should be a large address space that isn't in use elsewhere in your network environment. The address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed.
-- The pod IP address range is used to assign a /24 address space to each node in the cluster. In the following example, the `pod_cidr` of 192.168.0.0/16 assigns the first node 192.168.0.0/24, the second node 192.168.1.0/24, and the third node 192.168.2.0/24.
-- As the cluster scales or upgrades, Azure continues to assign a pod IP address range to each new node.
-- The playbook loads `ssh_key` from `~/.ssh/id_rsa.pub`. If you modify it, use the single-line format - starting with "ssh-rsa" (without the quotes).
-- The `client_id` and `client_secret` values are loaded from `~/.azure/credentials`, which is the default credential file. You can set these values to your service principal or load these values from environment variables:
-    ```yml
-    client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
-    client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
-    ```
+The playbook code in this section creates an AKS cluster within a virtual network. 
 
 Save the following playbook as `aks.yml`:
 
@@ -115,13 +100,27 @@ Save the following playbook as `aks.yml`:
   register: aks
 ```
 
+Here are some key notes to consider when working with the sample playbook:
+
+- Use `azure_rm_aks_version` module to find the supported version.
+- The `vnet_subnet_id` is the subnet created in the previous section.
+- The `network_profile` defines the properties for the kubenet network plugin.
+- The `service_cidr` is used to assign internal services in the AKS cluster to an IP address. This IP address range should be an address space that isn't used elsewhere in your network. 
+- The `dns_service_ip` address should be the ".10" address of your service IP address range.
+- The `pod_cidr` should be a large address space that isn't in use elsewhere in your network environment. The address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed.
+- The pod IP address range is used to assign a /24 address space to each node in the cluster. In the following example, the `pod_cidr` of 192.168.0.0/16 assigns the first node 192.168.0.0/24, the second node 192.168.1.0/24, and the third node 192.168.2.0/24.
+- As the cluster scales or upgrades, Azure continues to assign a pod IP address range to each new node.
+- The playbook loads `ssh_key` from `~/.ssh/id_rsa.pub`. If you modify it, use the single-line format - starting with "ssh-rsa" (without the quotes).
+- The `client_id` and `client_secret` values are loaded from `~/.azure/credentials`, which is the default credential file. You can set these values to your service principal or load these values from environment variables:
+
+    ```yml
+    client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
+    client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
+    ```
+
 ## Associate the network resources
 
 When you create an AKS cluster, a network security group and route table are created. These resources are managed by AKS and updated when you create and expose services. Associate the network security group and route table with your virtual network subnet as follows. 
-
-Here are some key notes to consider when working with the sample playbook:
-- The `node_resource_group` is the resource group name in which the AKS nodes are created.
-- The `vnet_subnet_id` is the subnet created in previous section.
 
 Save the following playbook as `associate.yml`.
 
@@ -154,6 +153,12 @@ Save the following playbook as `associate.yml`.
       security_group: "{{ nsg.ansible_facts.azure_securitygroups[0].id }}"
       route_table: "{{ routetable.route_tables[0].id }}"
 ```
+
+Here are some key notes to consider when working with the sample playbook:
+
+- The `node_resource_group` is the resource group name in which the AKS nodes are created.
+- The `vnet_subnet_id` is the subnet created in previous section.
+
 
 ## Run the sample playbook
 
@@ -201,6 +206,7 @@ Save the following playbook as `aks-kubenet.yml`:
 ```
 
 In the `vars` section, make the following changes:
+
 - For the `resource_group` key, change the `aksansibletest` value to your resource group name.
 - For the `name` key, change the `aksansibletest` value to your AKS name.
 - For the `Location` key, change the `eastus` value to your resource group location.

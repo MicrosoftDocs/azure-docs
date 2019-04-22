@@ -6,4 +6,4 @@
  ms.author: tarcher
 ---
 
-In this tutorial, Ansible is used to:
+The sample playbook code in this section is used to test various features shown throughout this tutorial.

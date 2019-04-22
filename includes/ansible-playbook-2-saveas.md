@@ -6,4 +6,4 @@
  ms.author: tarcher
 ---
 
-In this tutorial, Ansible is used to:
+Save the following playbook as  
