@@ -28,8 +28,10 @@ Azure Machine Learning service provides a cloud-based environment you can use to
 
 [![Azure Machine Learning service workflow](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
-Support for a visual interface (preview) and rich tools makes it easy to interactively explore and prepare data and then develop and test models. Examples include the visual interface in which you can drag-n-drop modules to build your experiments, and  [Jupyter notebooks](https://jupyter.org) or the [Azure Machine Learning for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) extension.
-
+Interactively explore and prepare data, train and test models, and deploy them using rich tools such as:
++ A visual interface in which you can drag-n-drop modules to build your experiments and then deploy models
++ [Jupyter notebooks](https://jupyter.org)  in which you use the SDKs to write your own code, such as [these sample notebooks](https://aka.ms/aml-notebooks)   
++ [Visual Studio Code extension](how-to-vscode-tools.md)
 
 ## What can I do with Azure Machine Learning service?
 
