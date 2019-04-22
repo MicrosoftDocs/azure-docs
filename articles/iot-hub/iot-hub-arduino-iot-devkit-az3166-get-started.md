@@ -119,7 +119,7 @@ The DevKit connects to a device-specific endpoint on your IoT hub and sends temp
     ![Configuration result](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/configuration-ui-result.png)
 
     > [!NOTE]
-    > fter Wi-Fi is configured, your credentials will persist on the device for that connection, even if the device is unplugged.
+    > After Wi-Fi is configured, your credentials will persist on the device for that connection, even if the device is unplugged.
 
 1. The IoT DevKit reboots in a few seconds. On the DevKit screen, you see the IP address for the DevKit follows by the telemetry data including temperature and humidity value with message count send to Azure IoT Hub.
     ![WiFi IP](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/wifi-ip.jpg)
@@ -219,7 +219,7 @@ The IoT DevKit contains a rich gallery of samples that you can use to learn conn
 
 ### Provision Azure IoT Hub and device
 
-Instead of provisioning Azure IoT Hub and device from Azure Portal, you can do it in the VS Code without leaving the development environment.
+Instead of provisioning Azure IoT Hub and device from the Azure portal, you can do it in the VS Code without leaving the development environment.
 
 1. In the new opened project window, click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Provision Azure Services...**. Follow the step by step guide to finish provisioning your Azure IoT Hub and creating the IoT Hub device.
     ![Provision command](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision.png)
