@@ -8,16 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 04/22/2019
 ms.author: hrasheed
-
 ---
+
 # Install Apache Giraph on HDInsight Hadoop clusters, and use Giraph to process large-scale graphs
 
 Learn how to install Apache Giraph on an HDInsight cluster. The script action feature of HDInsight allows you to customize your cluster by running a bash script. Scripts can be used to customize clusters during and after cluster creation.
-
-> [!IMPORTANT]  
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whatis"></a>What is Giraph
 
@@ -54,7 +51,7 @@ This section provides instructions on how to use the sample script while creatin
 > [!NOTE]  
 > A script action can be applied using any of the following methods:
 > * Azure PowerShell
-> * The Azure Classic CLI
+> * The Azure CLI
 > * The HDInsight .NET SDK
 > * Azure Resource Manager templates
 > 
@@ -144,7 +141,7 @@ Once the cluster has been created, use the following steps to run the SimpleShor
 
     For more information on these, and other parameters used with Giraph samples, see the [Giraph quickstart](https://giraph.apache.org/quick_start.html).
 
-6. Once the job has finished, the results are stored in the **/example/out/shotestpaths** directory. The output file names begin with **part-m-** and end with a number indicating the first, second, etc. file. Use the following command to view the output:
+6. Once the job has finished, the results are stored in the **/example/out/shortestpaths** directory. The output file names begin with **part-m-** and end with a number indicating the first, second, etc. file. Use the following command to view the output:
 
     ```bash
     hdfs dfs -text /example/output/shortestpaths/*
