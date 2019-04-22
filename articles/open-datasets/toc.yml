@@ -9,7 +9,7 @@
 - name: Tutorial
   items:
   - name: Regression (NYC Taxi data)
-    href: tutorial-opendatasets-automl
+    href: tutorial-opendatasets-automl.md
 - name: Samples
   displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub
   href: samples.md
