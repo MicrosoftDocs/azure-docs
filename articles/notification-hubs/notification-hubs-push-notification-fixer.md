@@ -93,7 +93,7 @@ If the notification hub was configured correctly and tags or tag expressions wer
 
 Notification Hubs is optimized for an "at-most-once" message delivery model. We attempt deduplication, so that no notifications are delivered more than once to a device. Registrations are checked to ensure that only one message is sent per device identifier before it's sent to the push notification service.
 
-Each batch is sent to the push notification service, which in turn accepts and validates the registrations. During this process, it's possible that the push notification service will detect an error with one or more registration in a batch. The push notification service then returns an error to Notification Hubs, and the process stops. The push notification service drops that batch completely. This is especially true with APNs, which uses a TCP stream protocol.
+Each batch is sent to the push notification service, which in turn accepts and validates the registrations. During this process, it's possible that the push notification service will detect an error with one or more registrations in a batch. The push notification service then returns an error to Notification Hubs, and the process stops. The push notification service drops that batch completely. This is especially true with APNs, which uses a TCP stream protocol.
 
 In this case, the faulting registration is removed from the database. Then, we retry notification delivery for the rest of the devices in that batch.
 
