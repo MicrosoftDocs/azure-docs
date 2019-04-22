@@ -29,9 +29,9 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
 4. For most cases, these support engineers can troubleshoot issues by using telemetry. <Fill this details>. However, in some cases, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer. Or, it can be from a different engineer because the problem is escalated to the Azure DevOps team.
 
-5. The JIT policy engine evaluates the request, taking into account factors such as the scope of the resource, whether the requester is an isolated identify or using multi-factor authentication, whether the device is a secure admin workstat:
+5. The JIT policy engine evaluates the request, taking into account factors such as:
     - The scope of the resource
-    - Whether the requester is an isolated identify or using multi-factor authentication
+    - Whether the requester is an isolated identity or using multi-factor authentication
     - Whether the source device is locked down for security
     - Permissions levels
     
