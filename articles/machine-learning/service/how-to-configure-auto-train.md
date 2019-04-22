@@ -233,9 +233,6 @@ If you use `preprocess=True`, the following data preprocessing steps are perform
     * Numeric features with very few unique values transformed into categorical features.
     * Depending on cardinality of categorical features, perform label encoding or (hashing) one-hot encoding.
 
-## Ensemble Models
-Ensemble learning improves machine learning results and predictive performance by combing many models as opposed to using single models. When using automated machine learning, you can train ensemble models using the [Caruana ensemble selection algorithm with sorted Ensemble initialization](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). The ensemble iteration appears as the last iteration of your run.
-
 ## Time Series Forecasting
 For time series forecasting task type you have additional parameters to define.
 1. time_column_name - This is a required parameter which defines the name of the column in your training data containing date/time series. 
