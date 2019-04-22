@@ -171,7 +171,7 @@ In order to send data from Application Insights to the Azure Government region, 
   ...
   <TelemetryModules>
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
-      <QuickPulseServiceEndpoint>https://rt.applicationinsights.us/QuickPulseService.svc</QuickPulseServiceEndpoint>
+      <QuickPulseServiceEndpoint>https://quickpulse.applicationinsights.us/QuickPulseService.svc</QuickPulseServiceEndpoint>
     </Add>
   </TelemetryModules>
     ...
@@ -199,15 +199,19 @@ Modify the appsettings.json file in your project as follows to adjust the main e
   }
 ```
 
-The values for Live Metrics and the Profile Query Endpoint can only be set via code. To override the default values, make the following changes in the `ConfigureServices` method of the `Startup.cs` file:
+The values for Live Metrics and the Profile Query Endpoint can only be set via code. To override the default values for all endpoint values via code, make the following changes in the `ConfigureServices` method of the `Startup.cs` file:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //place at top of Startup.cs file
 
-   services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="https://rt.applicationinsights.us/QuickPulseService.svc"); //place in ConfigureServices method
+   services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="https://quickpulse.applicationinsights.us/QuickPulseService.svc");
 
-   services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.us/api/profiles/{0}/appId" }); //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry();
+   services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.us/api/profiles/{0}/appId" }); 
+
+   services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.us/v2/track" });
+
+    //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry("instrumentation key");
 ```
 
 ### Java
@@ -252,7 +256,7 @@ var appInsights = require("applicationinsights");
 appInsights.setup('INSTRUMENTATION_KEY');
 appInsights.defaultClient.config.endpointUrl = "https://dc.applicationinsights.us/v2/track"; // ingestion
 appInsights.defaultClient.config.profileQueryEndpoint = "https://dc.applicationinsights.us/api/profiles/{0}/appId"; // appid/profile lookup
-appInsights.defaultClient.config.quickPulseHost = "https://rt.applicationinsights.us/QuickPulseService.svc"; //live metrics
+appInsights.defaultClient.config.quickPulseHost = "https://quickpulse.applicationinsights.us/QuickPulseService.svc"; //live metrics
 appInsights.Configuration.start();
 ```
 
@@ -261,7 +265,7 @@ The endpoints can also be configured through environment variables:
 ```
 Instrumentation Key: “APPINSIGHTS_INSTRUMENTATIONKEY”
 Profile Endpoint: “https://dc.applicationinsights.us/api/profiles/{0}/appId”
-Live Metrics Endpoint: "https://rt.applicationinsights.us/QuickPulseService.svc"
+Live Metrics Endpoint: "https://quickpulse.applicationinsights.us/QuickPulseService.svc"
 ```
 
 ### JavaScript
