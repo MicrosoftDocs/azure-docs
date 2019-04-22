@@ -52,7 +52,8 @@ that's linked to your logic app
 1. If you haven't already, in the [Azure portal](https://portal.azure.com), 
 open your logic app in the Logic App Designer.
 
-1. In the designer, follow either step to add the **Inline Code** action:
+1. In the designer, add the **Inline Code** action to your logic 
+app's workflow at the location that you want.
 
    * To add the action at the end of your workflow, choose **Next step**.
 
@@ -61,7 +62,7 @@ open your logic app in the Logic App Designer.
    and select **Add an action**.
 
 1. Under **Choose an action** and the search box, 
-choose **All** or **Built-in**.
+choose **Built-in** or **All**.
 
 1. In the search box, enter "inline code" as your filter. 
 From the actions list, select this action: 
@@ -69,11 +70,14 @@ From the actions list, select this action:
 
    ![Select "Execute JavaScript Code"](./media/logic-apps-add-run-inline-code/inline-code-action.png)
 
-1. In the **Code** box, enter the code you want to run. 
+1. In the **Code** box, enter the code that you want to run.
 
-   When you click inside the editor, the dynamic content 
-   list opens so that you can select any available outputs 
-   from previous steps.
+   To reference outputs from previous steps, click inside 
+   the editor so that the dynamic content list opens. 
+   This list shows any outputs from previous steps that 
+   match the current action's expected input format. 
+   To view all outputs from previous steps, choose 
+   **See more** in the dynamic content list.
 
    For example, this logic app triggers when a new email 
    arrives in an Office 365 Outlook account. The code 
