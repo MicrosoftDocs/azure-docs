@@ -17,7 +17,7 @@ ms.subservice: files
 
 ### Cause 1: Share experiencing throttling
 
-The default quota on a share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more details on provision and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
+The default quota on a share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information on provision and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
 
 ### Solution
 
@@ -33,7 +33,7 @@ If the majority of your requests are metadata centric, (such as createfile/openf
 
 ### Cause 3: Single-threaded application
 
-If the application being used by the custoemr is single-threaded, this can result in significantly lower IOPS/throughput than the maximum possible based on your provisioned share size.
+If the application being used by the customer is single-threaded, this can result in significantly lower IOPS/throughput than the maximum possible based on your provisioned share size.
 
 ### Solution
 
@@ -52,7 +52,7 @@ The client VM could be located in a different region than the premium file share
 
 ## Client unable to achieve maximum throughput supported by the network
 
-One potential cause of this is a lack fo SMB multi-channel support. Currently, premium files only supports single channel, so there is only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
+One potential cause of this is a lack fo SMB multi-channel support. Currently, premium files only support single channel, so there is only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
 
 ### Workaround
 
@@ -97,7 +97,7 @@ IO depth greater than one is not supported on CentOS.
 
 ### Cause
 
-Client application consitently exceeds baseline IOPS. Currently, there is no service side smoothing of the request load, so if the client exceeds baseline IOPS, it will get throttled by the service. That throttling can result in the client experiencing a jittery/saw-tooth IOPS pattern. In this case, average IOPS achieved by the client might be lower than the baseline IOPS.
+Client application consistently exceeds baseline IOPS. Currently, there is no service side smoothing of the request load, so if the client exceeds baseline IOPS, it will get throttled by the service. That throttling can result in the client experiencing a jittery/saw-tooth IOPS pattern. In this case, average IOPS achieved by the client might be lower than the baseline IOPS.
 
 ### Workaround
 
