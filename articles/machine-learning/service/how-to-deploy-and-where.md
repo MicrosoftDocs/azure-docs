@@ -332,9 +332,33 @@ print(service.get_logs())
 **Time estimate:** Approximately 5 minutes.
 
 ## Consume web services
-To quickly test a web service deployment, you can invoke the WebService.run() method.
+Every deployed web service provides a REST API, so you can create client applications in a variety of programming languages. 
+If you have enabled authentication for your service, you need to provide a service key as a token in your request header.
 
-Every deployed inference web service provides a REST API, so you can create client applications in a variety of programming languages. For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
+Here is an example of how to invoke your service in Python:
+```python
+import requests
+import json
+
+headers = {'Content-Type':'application/json'}
+
+if service.auth_enabled:
+    headers['Authorization'] = 'Bearer '+service.get_keys()[0]
+
+print(headers)
+    
+test_sample = json.dumps({'data': [
+    [1,2,3,4,5,6,7,8,9,10], 
+    [10,9,8,7,6,5,4,3,2,1]
+]})
+
+response = requests.post(service.scoring_uri, data=test_sample, headers=headers)
+print(response.status_code)
+print(response.elapsed)
+print(response.json())
+```
+
+For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
 
 ## <a id="update"></a> Update the web service
 
