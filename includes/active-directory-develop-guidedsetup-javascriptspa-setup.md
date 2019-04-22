@@ -60,7 +60,7 @@ Instructions in this guide are based on both Node.js and Visual Studio 2017, but
    <head>
        <title>Quickstart for MSAL JS</title>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview/js/msal.js"></script>
+       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.1/js/msal.js"></script>
    </head>
    <body>
        <h2>Welcome to MSAL.js Quickstart</h2><br/>

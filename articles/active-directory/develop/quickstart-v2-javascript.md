@@ -145,13 +145,13 @@ After the browser loads the application, click **Sign In**.  The first time that
 MSAL is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. The quickstart's *index.html* contains a reference to the library:
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.1/js/msal.min.js"></script>
 ```
 
 Alternatively, if you have Node installed, you can download it through npm:
 
 ```batch
-npm install msal@1.0.0-preview
+npm install msal@1.0.0-preview.1
 ```
 
 ### MSAL initialization
