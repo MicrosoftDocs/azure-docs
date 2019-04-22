@@ -106,19 +106,19 @@ Using the `devops-build create` [command](https://docs.microsoft.com/cli/azure/f
 
 - Azure Repos:
 
-    - You need to have microsoft.authorization/roleassignments/write permission (e.g. owner) of your subscription.
+    - You need to have microsoft.authorization/roleassignments/write permission (for example, owner) of your subscription.
  
     - You are the project administrator in Azure DevOps.
 
 - GitHub:
 
-    - You need to have microsoft.authorization/roleassignments/write permission (e.g. owner) of your subscription.
+    - You need to have microsoft.authorization/roleassignments/write permission (for example, owner) of your subscription.
 
     - You are the project administrator in Azure DevOps.
 
     - You can create a GitHub Personal Access Token with sufficient permissions. [GitHub PAT Permission Requirements.](https://aka.ms/azure-devops-source-repos)
 
-    - You can commit to the master branch in your GitHub repository to upload the auto-generated azure-pipelines.yml file.
+    - You can commit to the master branch in your GitHub repository to upload the auto generated YAML file.
 
 ## Next steps
 
