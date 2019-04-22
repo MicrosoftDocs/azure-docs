@@ -6,7 +6,7 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 05/02/2019
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
@@ -17,11 +17,13 @@ Synonyms in search engines associate equivalent terms that implicitly expand the
 
 In Azure Search, synonym expansion is done at query time. You can add synonym maps to a service with no disruption to existing operations. You can add a  **synonymMaps** property to a field definition without having to rebuild the index.
 
-## Feature availability
+## Create synonyms
 
-The synonyms feature is supported in the latest api-version (2019-05-06). There is no Azure portal support at this time.
+There is no portal support for creating synonyms but you can use the REST API or .NET SDK. To get started with REST, we recommend [using Postman](search-fiddler.md) and formulation of requests using this API: [Create Synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). For C# developers, you can get started with [Add Synonyms in Azure Searching using C#](search-synonyms-tutorial-sdk.md).
 
-## How to use synonyms in Azure search
+Optionally, if you are using [customer-managed keys](search-security-manage-encryption-keys.md) for service-side encryption-at-rest, you can apply that protection to the contents of your synonym map.
+
+## Use synonyms
 
 In Azure Search, synonym support is based on synonym maps that you define and upload to your service. These maps constitute an independent resource (like indexes or data sources), and can be used by any searchable field in any index in your search service.
 
@@ -68,14 +70,14 @@ Alternatively, you can use PUT and specify the synonym map name on the URI. If t
 
 ##### Apache Solr synonym format
 
-The Solr format supports equivalent and explicit synonym mappings. Mapping rules adhere to the open source synonym filter specification of Apache Solr, described in this document: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Below is a sample rule for equivalent synonyms.
+The Solr format supports equivalent and explicit synonym mappings. Mapping rules adhere to the open-source synonym filter specification of Apache Solr, described in this document: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Below is a sample rule for equivalent synonyms.
 ```
 USA, United States, United States of America
 ```
 
 With the rule above, a search query "USA" will expand to "USA" OR "United States" OR "United States of America".
 
-Explicit mapping is denoted by an arrow "=>". When specified, a term sequence of a search query that matches the left hand side of "=>" will be replaced with the alternatives on the right hand side. Given the rule below, search queries "Washington", "Wash." or "WA" will all be rewritten to "WA". Explicit mapping only applies in the direction specified and does not rewrite the query "WA" to "Washington" in this case.
+Explicit mapping is denoted by an arrow "=>". When specified, a term sequence of a search query that matches the left-hand side of "=>" will be replaced with the alternatives on the right-hand side. Given the rule below, search queries "Washington", "Wash." or "WA" will all be rewritten to "WA". Explicit mapping only applies in the direction specified and does not rewrite the query "WA" to "Washington" in this case.
 ```
 Washington, Wash., WA => WA
 ```

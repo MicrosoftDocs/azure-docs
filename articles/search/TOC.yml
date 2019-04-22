@@ -2,10 +2,8 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Search
+  - name: What is Azure Search?
     href: search-what-is-azure-search.md
-  - name: What is cognitive search
-    href: cognitive-search-concept-intro.md
 - name: Quickstarts
   expanded: true
   items:
@@ -51,13 +49,15 @@
     href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
 - name: Concepts
   items:
-  - name: Full text search
+  - name: Full-text search
     href: search-lucene-query-architecture.md
-  - name: Design patterns for multitenancy
-    href: search-modeling-multitenant-saas-applications.md
+  - name: Cognitive search
+    href: cognitive-search-concept-intro.md
+  - name: Knowledge Store 
+    href: knowledge-store-concept-intro.md
 - name: How-to guides
   items:
-  - name: Capacity planning
+  - name: Planning
     items:
     - name: Choose a tier
       href: search-sku-tier.md
@@ -67,6 +67,8 @@
       href: search-capacity-planning.md
     - name: Deployment strategies and best practices
       href: search-performance-optimization.md
+    - name: Multitenant architecture
+      href: search-modeling-multitenant-saas-applications.md
   - name: Security
     items:
     - name: Security overview
@@ -171,26 +173,36 @@
       href: search-indexer-field-mappings.md
     - name: Troubleshooting common issues
       href: search-indexer-troubleshooting.md
-  - name: AI-indexing (cognitive search)
+  - name: Enrich with AI
     items:
     - name: Attach a Cognitive Services resource
       href: cognitive-search-attach-cognitive-services.md
-    - name: Define a skillset
-      href: cognitive-search-defining-skillset.md
-    - name: Reference an annotation    
-      href: cognitive-search-concept-annotations-syntax.md
-    - name: Map to index fields
-      href: cognitive-search-output-field-mapping.md
-    - name: Process and extract information from images
-      href: cognitive-search-concept-image-scenarios.md
-    - name: Integrate custom skills
-      href: cognitive-search-custom-skill-interface.md
-    - name: Example - custom skills
-      href: cognitive-search-create-custom-skill-example.md
+    - name: Skillsets
+      items:
+      - name: Define a skillset
+        href: cognitive-search-defining-skillset.md
+      - name: Reference an annotation    
+        href: cognitive-search-concept-annotations-syntax.md
+      - name: Map to index fields
+        href: cognitive-search-output-field-mapping.md
+      - name: Process and extract information from images
+        href: cognitive-search-concept-image-scenarios.md
+    - name: Custom skills
+      items:
+      - name: Integrate custom skills
+        href: cognitive-search-custom-skill-interface.md
+      - name: Example - Text Translation
+        href: cognitive-search-create-custom-skill-example.md
+      - name: Example - Job Recommender
+        href: https://github.com/kabirkhan/MicrosoftBuild2019-AzureSearchSkillsExtractor 
     - name: Troubleshooting tips
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
       href: cognitive-search-resources-documentation.md
+  - name: Knowledge Store (preview)
+    items:
+    - name: How to get started
+      href: knowledge-store-howto.md
   - name: Query data
     items:
     - name: Create a basic query
