@@ -214,8 +214,9 @@
       - name: Use Azure PowerShell
         href: virtual-machine-scale-sets-manage-powershell.md
     - name: Shared image galleries 
-      href: shared-image-galleries.md
       items:
+      - name: Overview
+        href: shared-image-galleries.md
       - name: CLI
         href: shared-images-cli.md
       - name: PowerShell
