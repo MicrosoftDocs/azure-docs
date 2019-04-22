@@ -19,7 +19,7 @@ In this article, learn how to create a CloudSimple private cloud and set up your
 2. On the **Resources** or **CloudSimple Dedicated VMware Nodes** page, select **Create Private Cloud**.
 3. Select the location to host the private cloud resources.
 4. Select the node type for your private cloud. You can choose the [CS28 or CS36 option](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). The latter option includes the maximum compute and memory capacity.
-5. Select the number of nodes for the private cloud. You can select up to the number of nodes that you have [purchased](create-nodes.md) or [reserved](reserve-nodes.md).
+5. Select the number of nodes for the private cloud. You can select up to the number of nodes that you've [purchased](create-nodes.md) or [reserved](reserve-nodes.md).
 6. Select **Next: Advanced options**.
 7. Enter the CIDR range for vSphere/vSAN subnets. Make sure that the CIDR range doesn't overlap with any of your on-premises or other Azure subnets.
 8. Select **Next: Review and create**.
@@ -28,7 +28,7 @@ In this article, learn how to create a CloudSimple private cloud and set up your
 
 ## Create a VLAN for your workload VMs
 
-After creating a private cloud, create a VLAN in which to deploy your workload/application VMs.
+After creating a private cloud, create a VLAN where you'll deploy your workload/application VMs.
 
 1. In the CloudSimple Portal, select **Network > VLAN/Subnets**.
 2. Click **Create VLAN/Subnet**.
@@ -48,15 +48,11 @@ CloudSimple provides you with an ExpressRoute circuit for your private cloud. Yo
 You can now sign in to vCenter to set up virtual machines and policies.
 
 1. To access vCenter, start from the CloudSimple Portal. On the Home page, under **Common Tasks**, click **Launch vSphere Client** and then click **Launch vSphere Client**.
-
 2. Select your preferred vSphere client to access vCenter and sign in with your username and password.  The defaults are:
     * User name: **CloudOwner@cloudsimple.local**
     * Password: **CloudSimple123!**  
 
     If your private cloud was created in link mode, sign in as your on-premises administrator user or as a user who is a member of the administrator group.
-
-> [!NOTE]
-> The vCenter screens in the next procedures are from the vSphere (HTML5) client.
 
 ## Change your vCenter password
 
@@ -64,19 +60,19 @@ CloudSimple recommends that you change your password the first time you sign in 
 The password you set must meet the following requirements:
 
 * Maximum lifetime: Password must be changed every 365 days
-* Restrict re-use: Users can't reuse any of the previous five passwords
-* Maximum length: 20 characters
-* Minimum length: eight characters
-* Character requirements: At least one special character
-* Alphabetic characters: At least two alphabetic characters, A-Z or a-z
-* Uppercase characters: At least one uppercase character, A-Z
-* Lowercase characters: At least one lowercase character, a-z
+* Restrict reuse: Users can't reuse any of the previous five passwords
+* Length: 8 - 20 characters
+* Special character: At least one special character
+* Alphabetic characters: At least one uppercase character, A-Z, and at least one lowercase character, a-z
 * Numbers: At least one numeric character, 0-9
-* Maximum identical adjacent characters: Three.
-Example: CC or CCC is acceptable as a part of the password, but CCCC isn't.
+* Maximum identical adjacent characters: Three
 
-> [!NOTE]
-> The vSphere Flash Client reports an error if you set a password that doesn’t meet the requirements. However, the HTML5 client does NOT report an error. With the HTML5 client, if you enter a password that doesn’t meet the requirements, the client doesn't accept the change and the old password continues to work.
+    Example: CC or CCC is acceptable as a part of the password, but CCCC isn't.
+
+If you set a password that doesn't meet the requirements:
+
+* if you use the vSphere Flash Client, it reports an error
+* If you use the HTML5 client, it doesn't report an error. The client doesn't accept the change and the old password continues to work.
 
 ## Add users and identity sources to vCenter
 
@@ -87,21 +83,22 @@ CloudSimple assigns a default vCenter user account with username: **cloudowner@c
 
 ## Create a port group
 
-To create a distributed port group in vSphere, follow the instructions in "Add a distributed port group," in the [vSphere Networking Guide](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf). When setting up the distributed port group, provide the VLAN ID used in [Create a VLAN for your Workload VMs](#create-a-vlan-for-your-workload-vms).
+To create a distributed port group in vSphere:
+
+1. Follow the instructions in "Add a distributed port group," in the [vSphere Networking Guide](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf).
+2. When setting up the distributed port group, provide the VLAN ID created in [Create a VLAN for your Workload VMs](#create-a-vlan-for-your-workload-vms).
 
 ## Upload an ISO or vSphere template
 
-> [!WARNING]
-> For ISO upload, use the vSphere HTML5 client.  Using Flash client may result in an error.
+For ISO upload, use the vSphere HTML5 client.  Using the Flash client may result in an error.
 
 1. Obtain the ISO or vSphere template that you want to upload to vCenter to create a VM.
 2. Make the ISO or vSphere template available on your local system.
 3. In vCenter, in the upper left, click the **Disk** icon, and then below it select **vsanDatastore**.
 4. In the middle top, click **Files**, and then click **New Folder**.
-
 5. Create a folder entitled ‘ISOs and Templates’.
+6. Navigate to the **ISOs and Templates** folder, and click **Upload Files**. Follow the on-screen instructions to upload the ISO.
 
-6. Navigate to the ISOs folder in ISOs and Templates, and click **Upload Files**. Follow the on-screen instructions to upload the ISO.
 
 ## Create a virtual machine in vCenter
 
@@ -135,7 +132,7 @@ The following sections contain optional information about setting up DNS and DHC
 
 ## Create a DNS and DHCP server (Optional)
 
-Applications and workloads running in a private cloud environment require name resolution and DHCP services for lookup and IP address assignment. A proper DHCP and DNS infrastructure is required to provide these services. You can configure a virtual machine in vCenter to provide these services in your private cloud environment.
+Running applications and workloads in a private cloud environment requires a proper DHCP and DNS infrastructure. These provide name resolution and DHCP services for lookup and IP address assignment. You can configure a VM in vCenter to provide these services in your private cloud environment.
 
 ### Prerequisites
 
@@ -149,11 +146,11 @@ The following sections provide guidance on setting up DHCP and DNS servers on Li
 
 ### Linux-based DNS server setup
 
-Linux offers various packages for setting up DNS servers. For instructions setting up an open source BIND DNS server, refer to [Example setup](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7).
+Linux offers various packages for setting up DNS servers. For instructions setting up an open-source BIND DNS server, refer to [Example setup](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7).
 
 ### Windows-based setup
 
-The following Microsoft topics describe how to set up a Windows server as a DNS server and as a DHCP server.
+The following Microsoft articles describe how to set up a Windows server as a DNS server and as a DHCP server.
 
 * [Windows Server as DNS Server](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
 
@@ -165,24 +162,27 @@ The Network pages in the CloudSimple Portal allow you to specify the configurati
 
 ### Allocate public IPs
 
-1. Navigate to **Network > Public IP** in the CloudSimple Portal.
+1. In the CloudSimple portal, navigate to **Network > Public IP**.
 2. Click **Allocate Public IP**.
 3. Enter a name to identify the IP address entry.
 4. Keep the default location.
-5. Use the slider to change the idle timeout if desired.
+5. (Optional) Use the slider to change the idle timeout.
 6. Enter the local IP address for which you want to assign a public IP address.
-7. Enter an associated DNS name if desired.
-8. Click **Submit**.
+7. (Optional) Enter an associated DNS name.
+8. Click **Submit**. Public IP address allocation begins.
 
-The task of allocating the public IP address begins. You can check the status of the task on the **Activity > Tasks** page. When allocation is complete, the new entry is shown on the Public IPs page.
+9. (Optional) Check the status of the task on the **Activity** > **Tasks** page.
 
-The VM to which this IP address must be mapped needs to be configured with the local address specified above. The procedure to configure an IP address is specific to the VM operating system. Consult the documentation for your VM operating system for the correct procedure.
+    When allocation is done, the new entry appears on the **Public IPs** page.
+
+The VM to which this IP address must be mapped needs to be configured with the local address specified above. The specific procedure to configure an IP address depends on the VM operating system. Consult your VM operating system documentation for the correct procedure.
 
 ### Example
 
-For example, here are the details for Ubuntu 16.04.
+The following example provides details for Ubuntu 16.04.
 
-Add the static method to the inet address family configuration in the file /etc/network/interfaces. Change the address, netmask, and gateway values. For this example, we're using:
+Add the static method to the INET address family configuration in the file /etc/network/interfaces. Change the address, netmask, and gateway values. For this example, we're using:
+
 
 * The eth0 interface
 * Internal IP address: 192.168.24.10
@@ -195,7 +195,9 @@ For your environment, the available subnet information is provided in the welcom
 sudo vi /etc/network/interfaces
 ```
 
-The output will look like this
+
+The output will look similar to the following example:
+
 
 ```console
 auto eth0
@@ -247,8 +249,6 @@ python2.7 -m SimpleHTTPServer 80 or python3 -m http.server 80
 
 ## Default CloudSimple firewall rules for public IP
 
-The following are the default firewall rules.
-
 Explicitly allocated workload public IP traffic:
 
 * VPN traffic: All traffic between (from/to) the VPN and all the workload networks and management network is allowed.
@@ -261,7 +261,13 @@ You can also modify the way your traffic is secured, using the Firewall Rules fe
 
 ## Install solutions (Optional)
 
-You can install solutions on your CloudSimple private cloud to take full advantage of your private cloud vCenter environment. You can set up backup, disaster recovery, replication, and other functions to protect your virtual machines. Examples include VMware Site Recovery Manager (VMware SRM) and Veeam Backup & Replication.
+You can install solutions on your CloudSimple private cloud to take full advantage of your private cloud vCenter environment. To protect your virtual machines, you can set up solutions for:
+
+* Backup
+* Disaster recovery
+* Replication
+* Other functions
+For example, you can set up VMware Site Recovery Manager (VMware SRM) and Veeam Backup & Replication.
 
 To install a solution, you must request additional privileges for a limited period. See [Escalate privileges](https://docs.azure.cloudsimple.com/vsphere-access#escalate-privileges).
 
