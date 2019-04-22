@@ -68,14 +68,15 @@ For example, follow the steps below to install the **[glue](https://cran.r-proje
 1. Use the **R CMD INSTALL** command in **Command Prompt** to install **sqlmlutils**. Specify the full path to the zip file you downloaded. For example:
 
     ```console
-    R CMD INSTALL C:\Users\youruser\Downloads\sqlmlutils_0.5.0.zip
+    R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
+    R CMD INSTALL R/dist/sqlmlutils_0.5.0.zip
     ```
 
     The output you see should be similar to the following:
 
     ```text
     In R CMD INSTALL
-    * installing to library 'C:/Users/youruser/Documents/R/win-library/3.5'
+    * installing to library 'C:/Users/<youruser>/Documents/R/win-library/3.5'
     package 'sqlmlutils' successfully unpacked and MD5 sums checked
     ```
 
