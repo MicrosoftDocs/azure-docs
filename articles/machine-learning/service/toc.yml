@@ -102,7 +102,7 @@
     - name: Add & register datasets (preview)
       displayName: data, etl, dataset
       href: how-to-create-register-datasets.md
-    - name: Prepare data (GA)
+    - name: 'Prep data (GA): azureml.dataprep'
       items:
       - name: Load data
         displayName: data, etl, data prep, dataprep
@@ -113,7 +113,7 @@
       - name: Write data
         displayName: data, etl, data prep, dataprep
         href: how-to-write-data.md
-    - name: Prepare data (preview)
+    - name: 'Prep data (preview): Dataset'
       displayName: data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep
       href: how-to-explore-prepare-data.md
     - name: Version dataset definitions (preview)
