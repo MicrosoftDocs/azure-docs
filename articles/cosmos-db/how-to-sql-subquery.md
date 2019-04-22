@@ -21,7 +21,7 @@ There are two types of subqueries:
 > [!NOTE]
 > Azure Cosmos DB supports correlated subqueries only.
 
-## Types of Subqueries
+## Types of subqueries
 
 Subqueries can be further classified based on the number of rows and columns that they return. There are three different types:
 1.	**Table**: Returns multiple rows and multiple columns
@@ -34,14 +34,14 @@ Subqueries can be further classified based on the number of rows and columns tha
 Azure Cosmos DB SQL queries always return a single column (either a simple value or a complex document). Therefore, only Multi-Value and Scalar subqueries from above are applicable in Azure Cosmos DB. A Multi-Value subquery can only be used in the FROM clause as a relational expression, while a Scalar subquery can be used as a scalar expression in the SELECT or WHERE clause or as a relational expression in the FROM clause.
 
 
-## <a id="Multi-Value Subqueries"></a>Multi-Value Subqueries
+## <a id="Multi-Value Subqueries"></a>Multi-Value subqueries
 
 Multi-Value subqueries return a set of documents and are always used within the FROM clause. They are used for:
 
 * Optimizing JOIN expressions 
 * Evaluating expensive expressions once and referencing multiple times
 
-### Optimize JOIN Expressions
+### Optimize JOIN expressions
 
 Multi-Value subqueries can optimize JOIN expressions by pushing predicates after each select-many expression rather than after all cross-joins in the WHERE clause
 
@@ -71,14 +71,16 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 Assuming only one item in the tags array matches the filter, and five items for both nutrients and servings arrays, the JOIN expressions will expand to 1 x 1 x 5 x 5 = 25 items as opposed to 1,000 items in the first query.
 
-### Evaluate Once and Reference Many Times
+### Evaluate once and reference many times
 
 Subqueries can help optimize queries with expensive expressions such as user-defined functions (UDF) or complex string or arithmetic expressions. You can use a subquery along with a JOIN expression to evaluate the expression once but reference it many times.
 
 The following query executes the UDF GetMaxNutritionValue twice:
 
 ```sql
-SELECT TOP 1000 c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
+
+
+c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
 FROM c
 WHERE udf.GetMaxNutritionValue(c.nutrients) > 100
 ```
@@ -115,7 +117,7 @@ JOIN (SELECT VALUE avg(n.nutritionValue) FROM n IN c.nutrients) AvgNutritionValu
 WHERE AvgNutritionValue > 80
 ```
 
-### Mimic Join with External Reference Data
+### Mimic join with external reference data
 
 We often need to reference static data that rarely changes, such as units of measurements or country codes. For such data, it’s preferable not to duplicate it for each document. Avoiding this duplication will save on storage and improve write performance by keeping document size smaller. A subquery can be used here to mimic inner-join semantics with a collection of reference data.
 For instance, consider this set of reference data.
@@ -171,7 +173,7 @@ JOIN r IN (
 WHERE n.units = r.unit
 ```
 
-## <a id="Scalar Subqueries"></a>Scalar Subqueries
+## <a id="Scalar Subqueries"></a>Scalar subqueries
 
 A scalar subquery expression is a subquery that evaluates to a single value. The value of the scalar subquery expression is the value of the projection (SELECT clause) of the subquery.  A scalar subquery expression can be used in many places a scalar expression is valid. For instance, a scalar subquery can be used in any expression in both the SELECT and WHERE clauses.
 However, using a scalar subquery does not always help optimize. For example, passing a scalar subquery as an argument to either a system or user-defined functions provides no benefit in RU consumption or latency.
@@ -180,7 +182,7 @@ Scalar subqueries can be further classified as:
 * Simple-Expression Scalar Subqueries
 * Aggregate Scalar Subqueries
 
-### Simple-Expression Scalar Subqueries
+### Simple-Expression scalar subqueries
 
 A simple-expression scalar subquery is a correlated subquery which has a SELECT clause that does not contain any aggregate expressions. These subqueries provide no optimization benefits because the compiler converts them into one larger simple expression. There is no correlated context between the inner and outer query.
 
@@ -258,7 +260,7 @@ Query Output:
 ]
 ```
 
-## Aggregate Scalar Subqueries
+## Aggregate scalar subqueries
 
 An aggregate scalar subquery is a subquery that has an aggregate function in its projection or filter that evaluates to a single value.
 
@@ -344,7 +346,7 @@ JOIN (SELECT VALUE Count(1) FROM n IN f.nutrients WHERE n.units = 'mg') AS count
 WHERE count_mg > 20
 ```
 
-### EXISTS Expression
+### EXISTS expression
 
 Azure Cosmos DB supports EXISTS expressions. This is an aggregate scalar subquery built into the Azure Cosmos DB SQL API. EXISTS is a Boolean expression that takes a subquery expression and returns true if the subquery returns any rows; otherwise, it returns false.
 Since Azure Cosmos DB SQL API does not differentiate between Boolean expressions and any other scalar expressions, EXISTS can be used in both SELECT and WHERE clauses,  This is unlike T-SQL, where a Boolean expression (e.g. EXISTS, BETWEEN, and IN) is restricted to the filter.
@@ -428,7 +430,7 @@ Query Output:
 ]
 ```
 
-## ARRAY Expression
+## ARRAY expression
 
 The `ARRAY` expression can be used to project the results of a query as an array. This expression can only be used within the SELECT clause of the query.
 
@@ -513,6 +515,6 @@ Query Output:
 
 ## Next steps
 
-- [SQL Query Examples][how-to-sql-query]
+- [SQL Query Examples][how-to-sql-query.md]
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Model Document Data][modeling-data]
+- [Model Document Data][modeling-data.md]
