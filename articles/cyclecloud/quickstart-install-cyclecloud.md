@@ -72,8 +72,11 @@ The output will display a series of information. You will need to save the `appI
 An SSH key is needed to log into the CycleCloud VM and clusters. Generate an SSH keypair:
 
 ```azurecli-interactive
-ssh-keygen -f ~/.ssh/id_rsa  -N "" -b 4096
+ssh-keygen -f ~/.ssh/id_rsa -m pem -t rsa -N "" -b 4096
 ```
+
+> [!NOTE]
+> The Python cryptography library used by the CycleCloud CLI does not support the newer OpenSSH serialization format. One must use `ssh-keygen -m pem` to generate the key with the older standard format.
 
 Retrieve the SSH public key with:
 
