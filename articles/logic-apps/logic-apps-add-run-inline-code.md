@@ -100,8 +100,8 @@ select this action: **Execute JavaScript Code**
 
    The code snippet then returns the result by calling the `match()` function, 
    which finds matches in the email body against the regular expression. 
-   The **Compose** action takes the **Result** output from inline code action 
-   result and creates a single output.
+   The **Compose** action takes the **Result** output from the inline code 
+   action and creates a single output.
 
    ![Finished logic app](./media/logic-apps-add-run-inline-code/inline-code-complete-example.png)
 
