@@ -35,42 +35,14 @@ Event Grid uses [event subscriptions](../../event-grid/concepts.md#event-subscri
 
 ![Event Grid Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
-## List of events for Blob REST APIs
+First, subscribe an endpoint to an event. Then, when an event is triggered, the Event Grid service sends data about that event to subscribing endpoint.
 
-These events are triggered when a client creates, replaces, or deletes a blob by calling Blob REST APIs.
+See the [Blob storage events schema](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) article, to learn about these things:
 
- |Event name |Description|
- |----------|-----------|
- |**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `PutBlob`, `PutBlockList`, or `CopyBlob` operations that are available in the Blob REST API.   |
- |**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. <br>Specifically, this event is triggered when clients call the `DeleteBlob` operation that is available in the Blob REST API. |
-
-> [!NOTE]
-> If you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `CopyBlob`, `PutBlob`, and `PutBlockList` REST API calls. These API calls trigger the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/how-to-filter-events).
-
-## List of the events for Azure Data Lake Storage Gen 2 REST APIs
-
-These events are triggered if you enable a hierarchical namespace on the storage account, and clients call Azure Data Lake Storage Gen2 REST APIs.
-
-> [!NOTE]
-> These events are in public preview and they are available only the **West US 2** and **West Central US** regions.
-
- |Event name|Description|
- |----------|-----------|
- |**Microsoft.Storage.BlobCreated** | Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `CreateFile` and `FlushWithClose` operations that are available in the Azure Data Lake Storage Gen2 REST API. |
- |**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. <br>Specifically, This event is also triggered when clients call the `DeleteFile` operation that is available in the Azure Data Lake Storage Gen2 REST API. |
- |**Microsoft.Storage.BlobRenamed**|Triggered when a blob is renamed. <br>Specifically, this event is triggered when clients use the `RenameFile` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
- |**Microsoft.Storage.DirectoryCreated**|Triggered when a directory is created. <br>Specifically, this event is triggered when clients use the `CreateDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
- |**Microsoft.Storage.DirectoryRenamed**|Triggered when a directory is renamed. <br>Specifically, this event is triggered when clients use the `RenameDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
- |**Microsoft.Storage.DirectoryDeleted**|Triggered when a directory is deleted. <br>Specifically, this event is triggered when clients use the `DeleteDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
-
-> [!NOTE]
-> If you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `FlushWithClose` REST API call. This API call triggers the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/how-to-filter-events).
-
-## The contents of an event response
-
-When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint.
-
-To see an example of the data the Event Grid would send for each of these events, and to understand the purpose of each key value pair that appears in the data, see the [Blob storage events schema](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) article.
+> [!div class="checklist"]
+> * View the complete list of Blob storage events and how each event is triggered.
+> * See an example of the data the Event Grid would send for each of these events.
+> * Understand the purpose of each key value pair that appears in the data.
 
 ## Filtering events
 
