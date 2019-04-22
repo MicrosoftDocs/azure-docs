@@ -2,7 +2,7 @@
 title: Azure Active Directory conditional access settings reference | Microsoft Docs
 description: Get an overview of the supported settings in an Azure Active Directory conditional access policy.
 
-services: active-directory.
+services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article

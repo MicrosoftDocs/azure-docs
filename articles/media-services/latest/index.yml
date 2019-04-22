@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/20/2019
+  ms.date: 04/12/2019
   ms.author: juliako
 abstract:
   description: Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users. <br/> The SDKs are based on <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI Specification (Swagger)</a>.
@@ -26,7 +26,7 @@ sections:
     - title: Learn concepts    
       html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Cloud upload and storage</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">Monitoring</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Media analytics</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Packaging</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Protection</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Live Streaming</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Player clients</a></p>
     - title: Develop with v3 API
-      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Start developing with SDKs</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Develop with REST</a></p>
+      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Develop with REST</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Develop with SDKs</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Connect with Java</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">Connect with .NET</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Connect with Node.js</a></p>
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph

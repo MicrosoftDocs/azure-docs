@@ -76,7 +76,7 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
     ```
 4. Fill out the `ClientId` property with the Client ID for your app from the Azure Government portal. You can find the Client ID by navigating to Azure AD -> App Registrations -> Your Application -> Application ID. 
 5. Fill out the `TenantId` property with the Tenant ID for your app from the Azure Government portal. You can find the Tenant ID by navigating to Azure AD -> Properties -> Directory ID. 
-6. Fill out the `Domain` property with "<tenantname>.onmicrosoft.com."
+6. Fill out the `Domain` property with `<tenantname>.onmicrosoft.com`.
 7. Open the `startup.cs` file.
 8. In your `ConfigureServices` method, add the following code:
 

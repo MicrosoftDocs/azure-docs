@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 04/08/2019
 ms.author: celested
-
+ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ---
 
 
 # How to change the token lifetime defaults for a custom-developed application
 
-Azure AD Premium allows app developers and tenant admins to configure the lifetime of tokens issued for non-confidential clients. Token lifetime policies are set on a tenant-wide basis or the resources being accessed.
+This article shows how to use Azure AD PowerShell to set a token lifetime policy. Azure AD Premium allows app developers and tenant admins to configure the lifetime of tokens issued for non-confidential clients. Token lifetime policies are set on a tenant-wide basis or the resources being accessed.
 
 1. To set a token lifetime policy, you need to download the [Azure AD PowerShell Module](https://www.powershellgallery.com/packages/AzureADPreview).
 1. Run the **Connect-AzureAD -Confirm** command.

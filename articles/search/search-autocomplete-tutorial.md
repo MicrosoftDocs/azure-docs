@@ -160,7 +160,7 @@ Open the **HomeController.cs** file under the Controllers directory.
 
 The first thing you might notice is a method at the top of the class called `InitSearch`. This creates an authenticated HTTP index client to the Azure Search service. For more information, see [How to use Azure Search from a .NET Application](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
-On line 41, notice the Suggest function. It is based on the [DocumentsOperationsExtensions.Suggest method](https://docs.microsoft.com/dotnet/api/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
+On line 41, notice the Suggest function. It is based on the [DocumentsOperationsExtensions.Suggest method](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)

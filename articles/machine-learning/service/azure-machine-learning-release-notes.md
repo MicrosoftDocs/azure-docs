@@ -18,9 +18,44 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 + The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
 + The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
+
 ## 2019-04-22
 
 ### Azure Machine Learning SDK for Python v1.0.30
+
+## 2019-04-17
+
+### Azure Machine Learning Data Prep SDK v1.1.2
+
+Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages. See [updated installation instructions](https://aka.ms/aml-data-prep-installation).
+
++ **New features**
+  + You can now use the Pivot transform.
+    + How-to guide: [Pivot notebook](https://aka.ms/aml-data-prep-pivot-nb)
+  + You can now use regular expressions in native functions.
+    + Examples:
+      + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
+      + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
+  + You can now use `to_upper` and `to_lower` functions in expression language.
+  + You can now see the number of unique values of each column in a data profile.
+  + For some of the commonly used reader steps, you can now pass in the `infer_column_types` argument. If it is set to `True`, Data Prep will attempt to detect and automatically convert column types.
+    + `inference_arguments` is now deprecated.
+  + You can now call `Dataflow.shape`.
+
++ **Bug fixes and improvements**
+  + `keep_columns` now accepts an additional optional argument `validate_column_exists`, which checks if the result of `keep_columns` will contain any columns.
+  + All reader steps (which read from a file) now accept an additional optional argument `verify_exists`.
+  + Improved performance of reading from pandas dataframe and getting data profiles.
+  + Fixed a bug where slicing a single step from a Dataflow failed with a single index.
+
+## 2019-04-15
+
+### Azure Portal
++ **New features**
+  + You can now resubmit an existing Script run on an existing remote compute cluster. 
+  + You can now run a published pipeline with new parameters on the Pipelines tab. 
+  + Run details now supports a new Snapshot file viewer. You can view a snapshot of the directory when you submitted a specific run. You can also download the notebook that was submitted to start the run.
+   + You can now cancel parent runs from the Azure Portal.
 
 ## 2019-04-08
 
@@ -28,7 +63,31 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 + **New features**
   + The Azure Machine Learning SDK now supports Python 3.7.
+  + Azure Machine Learning DNN Estimators now provide built-in multi-version support. For example,
+  `TensorFlow` estimator now accepts a `framework_version` parameter, and users can specify
+  version '1.10' or '1.12'. For a list of the versions supported by your current SDK release, call 
+  `get_supported_versions()` on the desired framework class (e.g. `TensorFlow.get_supported_versions()`).
+  For a list of the versions supported by the latest SDK release, see the [DNN Estimator documentation](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
+### Azure Machine Learning Data Prep SDK v1.1.1
+
++ **New features**
+  + You can read multiple Datastore/DataPath/DataReference sources using read_* transforms.
+  + You can perform the following operations on columns to create a new column: division, floor, modulo, power, length.
+  + Data Prep is now part of the Azure ML diagnostics suite and will log diagnostic information by default.
+    + To turn this off, set this environment variable to true: DISABLE_DPREP_LOGGER
+
++ **Bug fixes and improvements**
+  + Improved code documentation for commonly used classes and functions.
+  + Fixed a bug in auto_read_file that failed to read Excel files.
+  + Added option to overwrite the folder in read_pandas_dataframe.
+  + Improved performance of dotnetcore2 dependency installation, and added support for Fedora 27/28 and Ubuntu 1804.
+  + Improved the performance of reading from Azure Blobs.
+  + Column type detection now supports columns of type Long.
+  + Fixed a bug where some date values were being displayed as timestamps instead of Python datetime objects.
+  + Fixed a bug where some type counts were being displayed as doubles instead of integers.
+
+  
 ## 2019-03-25
 
 ### Azure Machine Learning SDK for Python v1.0.21

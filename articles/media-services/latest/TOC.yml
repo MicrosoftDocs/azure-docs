@@ -14,7 +14,6 @@
   - name: Stream video files - Node.js
     href: stream-files-nodejs-quickstart.md
 - name: Tutorials
-  expanded: true
   items:
   - name: Encode remote file and stream video – REST
     displayName: encoding, job, transform
@@ -133,7 +132,12 @@
     - name: Azure Media Player
       href: use-azure-media-player.md
   - name: Developing with v3 APIs
-    href: entities-overview.md 
+    href: media-services-apis-overview.md
+    items:
+    - name: Page, filter, order entities
+      href: entities-overview.md 
+    - name: RBAC
+      href: rbac-overview.md
   - name: Migration guidance from v2 to v3
     href: migrate-from-v2-to-v3.md      
 - name: How-to guides
@@ -153,10 +157,14 @@
     - name: Develop with SDKs
       href: developers-guide.md
       items:
+      - name: Connect with Java
+        href: configure-connect-java-howto.md
       - name: Connect with .NET 
         href: configure-connect-dotnet-howto.md
       - name: Connect with Node.js
         href: configure-connect-nodejs-howto.md
+      - name: Connect with Python
+        href: configure-connect-python-howto.md
   - name: Upload content
     items:
     - name: From HTTPS - .NET
@@ -234,6 +242,9 @@
     href: /azure/templates/microsoft.media/allversions
 - name: Resources
   items:
+  - name: Azure Media Services community
+    displayName: forums, twitter, feedback
+    href: media-services-community.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=web-mobile
   - name: Pricing
