@@ -12,8 +12,7 @@ When no longer needed, delete the resources created in this article.
 
 [!INCLUDE [ansible-playbook-1-objectives.md](ansible-playbook-1-objectives.md)]
 
-- Deletes a resource group referred to in the `vars` section.
-- Automatically deletes all resources within the resource group.
+- Delete a resource group referred to in the `vars` section.
 
 [!INCLUDE [ansible-playbook-2-saveas.md](ansible-playbook-2-saveas.md)] `cleanup.yml`:
 
@@ -33,6 +32,7 @@ When no longer needed, delete the resources created in this article.
 [!INCLUDE [ansible-playbook-3-key-notes.md](ansible-playbook-3-key-notes.md)]
 
 - In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
+- All resources within the specified resource group will be deleted.
 
 [!INCLUDE [ansible-playbook-4-run.md](ansible-playbook-4-run.md)]
 
