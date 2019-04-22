@@ -135,15 +135,15 @@ For more information on using PowerShell, see [public documentation](https://doc
 Metrics are generally available in Azure Government. However, multi-dimensional metrics are supported only via the REST API. The ability to [show multi-dimensional metrics](../azure-monitor/platform/metrics-charts.md) is in preview in the Azure Government portal.
 
 #### Metric Alerts
-The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*.  The second-generation of metric alerts (also called the [unified alerts experience](../azure-monitor/platform/alerts-overview.md)) is now also available, but with a reduced set of resource providers [compared to the public cloud](../azure-monitor/platform/alerts-metric-near-real-time.md). More will be added over time. 
+The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*.  The second generation of metric alerts (also called the [unified alerts experience](../azure-monitor/platform/alerts-overview.md)) is now also available, but with a reduced set of resource providers [compared to the public cloud](../azure-monitor/platform/alerts-metric-near-real-time.md). More will be added over time. 
 
-The resources currently supported in the second-generation alerts experience are:
+The resources currently supported in the second generation alerts experience are:
 - Microsoft.Compute/virtualMachines
 - Microsoft.OperationalInsights/workspaces
 - Microsoft.PowerBIDedicated/capacities
 - Microsoft.Storage/accounts
 
-You can still use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md) for resources not yet available in the second-generation of alerts. 
+You can still use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md) for resources not yet available in the second generation of alerts. 
 
 When using PowerShell/ARM/Rest calls to create metric alerts, you will need to set the "Location" of the metric alert to "USGov Virginia" or "USGov Iowa". An example of the setting is below:
 
@@ -319,7 +319,7 @@ The following Azure Monitor logs features and solutions are not currently availa
   * Key Vault Analytics solution
 * Solutions and features that require updates to on-premises software, including:
   * Surface Hub solution
-* Features that are in preview in public Azure, including:
+* Features that are in preview in global Azure, including:
   * Export of data to Power BI
 * Azure metrics and Azure diagnostics
 
