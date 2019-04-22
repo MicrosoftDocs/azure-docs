@@ -289,7 +289,7 @@ localhost                  : ok=12   changed=9    unreachable=0    failed=0    s
 
 When no longer needed, delete the resources created in this article. 
 
-[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
+[!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objective.md)]
 
 - Delete the two resources groups created earlier
 
