@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/29/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 
 ---
@@ -104,11 +104,40 @@ To configure Azure AD single sign-on with ZIVVER, perform the following steps:
     In the **Identifier** text box, type a URL:
     `https://app.zivver.com/SAML/Zivver`
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+5. ZIVVER application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. ZIVVER application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
-	![The Certificate download link](common/metadataxml.png)
+	![image](common/edit-attribute.png)
 
-6. On the **Set up ZIVVER** section, copy the appropriate URL(s) as per your requirement.
+6. In addition to above, ZIVVER application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+
+	| Name | Namespace | Source Attribute|
+	| ---------------| --------------- |
+	| ZivverAccountKey | https://zivver.com/SAML/Attributes | user.objectid |
+
+	>[!NOTE]
+	>If you are using a hybrid setup with Active Directory on-premise and Azure AD Connect Tool, VALUE should be set to `user.objectGUID`
+
+	a. Click **Add new claim** to open the **Manage user claims** dialog.
+
+	![image](common/new-save-attribute.png)
+
+	![image](common/new-attribute-details.png)
+
+	b. In the **Name** textbox, type the attribute name shown for that row.
+
+	c. Leave the **Namespace** blank.
+
+	d. Select Source as **Attribute**.
+
+	e. From the **Source attribute** list, type the attribute value shown for that row.
+
+	f. Click **Save**.
+
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** and click **Copy** icon to copy the **App Federation Metadata url** from the given options as per your requirement and save it on your computer.
+
+	![The Certificate URL download link](./media/zivver-tutorial/metadataxmlurl.png)
+
+8. On the **Set up ZIVVER** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -120,7 +149,19 @@ To configure Azure AD single sign-on with ZIVVER, perform the following steps:
 
 ### Configure ZIVVER Single Sign-On
 
-To configure single sign-on on **ZIVVER** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [ZIVVER support team](https://support.zivver.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+1. In a different web browser window, sign in to your ZIVVER company [site](https://app.zivver.com/login) as an administrator.
+
+2. Click the **Organization settings** icon at the bottom left of your browser window.
+
+3. Go to **Single sign-on**.
+
+4. Open the Federation Metadata XML file that you downloaded from Azure portal.
+
+5. In the **Identity Provider metadata URL** text box, paste the **App Federation Metadata URL** you have saved previously from the Azure portal.
+
+6. Check the checkbox **Turn on SSO**.
+
+7. Click **SAVE**.
 
 ### Create an Azure AD test user 
 
@@ -140,7 +181,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
