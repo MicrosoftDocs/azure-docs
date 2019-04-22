@@ -10,12 +10,33 @@ ms.reviewer: anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 12/03/2018
+ms.date: 04/22/2019
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Preview demo environment
 
-This quickstart shows you how to use the Azure Time Series Insight Preview explorer in a free demonstration environment. You learn how to use your web browser to visualize large volumes of historical industrial IoT data, and you tour the key features of the Time Series Insights Preview explorer.
+A quickstart is provided to get started with the Azure Time Series Insights Preview in a free demonstration environment. You'll learn how to use your web browser to visualize large volumes of IoT data and tour key features presently in general availability.
+
+Through it, you'll learn how to use your web browser to visualize large volumes of IoT data and tour key features presently in general availability.
+Azure Time Series Insights is a fully managed analytics, storage, and visualization service that simplifies how to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution, and avoid costly downtime to mission-critical devices. Through Azure Time Series Insights, you can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time.
+
+For additional flexibility, Azure Time Series Insights can be added to a pre-existing application through its powerful REST API and client SDK. The API allow you to store, query time series data, and consume time series data in a client application of your choice. You may also choose to use the client SDK to add UI components to your existing application.
+
+The Time Series Insights explorer is a guided tour of features presently in general availability.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Time Series Insights provides an end-to-end platform as a service (PaaS) offering. It can ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data for improvised data exploration. It also provides operational analysis. Time Series Insights is a differentiated offering that's tailored to the unique needs of industrial IoT deployments.
 
@@ -23,77 +44,109 @@ The demo environment shows an electricity generation company, Contoso. In the en
 
 You use Time Series Insights Preview to analyze Contoso's ever-growing dataset from the last two years, which is currently at 40 GB. It can help you to better understand and predict both critical failures and slow-moving maintenance issues.
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Explore the Time Series Insights explorer in a demo environment
 
-1. In your browser, go to the [Contoso Wind Farm environment](https://insights.timeseries.azure.com/preview/samples).  
+The Time Series Insights Preview explorer demonstrates historical data and root causes analysis. To get started:
 
-1. If you're prompted, sign in to the Time Series Insights explorer with your Azure account credentials.
+1. Create a <a href="https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio" target="_blank" rel="external noopener noreferrer">free Azure account</a> if one hasn't been created.
 
-### Demo step 1
+1. Navigate to the <a href="https://insights.timeseries.azure.com/preview/samples" target="_blank" rel="external noopener noreferrer">Contoso Wind Farm demo</a> environment.  
 
-1. Let’s take a look at wind turbine **W7** in **Contoso Plant 1**.  
+1. If you're prompted, sign in to the Time Series Insights explorer using your Azure account credentials.
 
-    * **Action**: Update the view range to **1/1/17 20:00 to 3/10/17 20:00 (UTC)**, add the **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed** sensor, and then display the resulting values.
+### Work with historical data
+
+1. Look at wind turbine **W7** in **Contoso Plant 1**.  
+
+    * Update the view range to **1/1/17 20:00 to 3/10/17 20:00 (UTC)**.
+    * Select the **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed** sensor. Then review the resultant values.
 
        ![Quickstart one][1]
 
-1. Recently, Contoso found a fire in wind turbine **W7**. Let’s drill in here. We can see that the fire alert sensor was activated during the fire.
+1. Recently, Contoso found a fire in wind turbine **W7**. Opinions vary about what the proximate cause of the fire was. Upon closer inspection, we see that the fire alert sensor was activated during the fire.
 
-    * **Action**: Update the view range to **3/9/17 20:00 to 3/10/17 20:00 (UTC)**, and add the **Safety System** > **FireAlert** sensor.
+    * Update the view range to **3/9/17 20:00 to 3/10/17 20:00 (UTC)**.
+    * Select the **Safety System** > **FireAlert** sensor.
 
       ![Quickstart two][2]
 
-1. Let’s see what else happened around the time of the fire. Both oil pressure and active warnings spiked just before the fire but by that time it was too late to prevent the issue.
+1. Review other events around the time of the fire to understand what occurred. Both oil pressure and active warnings spiked just before the fire.
 
-    * **Action**: Add the **Pitch System** > **HydraulicOilPressure** sensor and the **Pitch System** > **ActiveWarning** sensor.
+    * Select the **Pitch System** > **HydraulicOilPressure** sensor.
+    * Select the **Pitch System** > **ActiveWarning** sensor.
 
       ![Quickstart three][3]
 
-1. If we zoom out, we can see there were signs leading up to the fire. Both sensors fluctuated. So, has this issue happened before?
+1. The oil pressure and active warning sensors spiked prior to the fire. Expand the displayed time series to see other signs present leading up to the fire. Both sensors fluctuated consistently over time indicating a persistent and worrisome pattern.
 
-    * **Action**: Update the view range to **2/24/17 20:00 to 3/10/17 20:00 (UTC)**.
+    * Update the view range to **2/24/17 20:00 to 3/10/17 20:00 (UTC)**.
 
       ![Quickstart four][4]
 
-1. If we examine the whole two years of data, we can see a previous fire event with the same signs. With this data, we can build systems to catch issues like this one early.
+1. Examining two years of historical reveals another fire event with the same sensor fluctuations.
 
-    * **Action**: Update the view range to **1/1/16 to 12/31/17** (all data).
+    * Update the view range to **1/1/16 to 12/31/17** (all data).
 
        ![Quickstart five][5]
 
-### Demo step 2
+Using Azure Time Series Insights and our sensor telemetry, we've discovered a long-term and problematic trend hidden in our historical data. With these new insights, we can explain:
 
-1. Other issues are more subtle and harder to diagnose. Time Series Insights provides a range of ways to help us track down difficult issues. Here we can see a warning sensor outage on **W6** on **6/25**. But what’s actually happening?
+> [!div class="checklist"]
+> * What actually occurred
+> * Correct the problem
+> * Put superior alert notification systems into place.
 
-    * **Action**: Remove the current sensors, update the view range to **6/1/17 20:00 to 7/1/17 20:00 (UTC)**, and then add the **Contoso Plant 1** > **W6** > **Safety System** > **VoltageActuatorSwitchWarning** sensor.
+### Root cause analysis
+
+1. Some scenarios require sophisticated analysis to uncover subtle clues in data. Select the windmill **W6** on date **6/25**
+
+    * Update the view range to **6/1/17 20:00 to 7/1/17 20:00 (UTC)**
+    * Then select the **Contoso Plant 1** > **W6** > **Safety System** > **VoltageActuatorSwitchWarning** sensor.
 
        ![Quickstart six][6]
 
-1. The warning indicates an issue with the voltage being output by the generator. But what’s the cause? The overall power output of the generator looks fine at a granular interval. But by aggregating the data, we can see a definitive drop-off.
+1. The warning indicates an issue with the voltage being output by the generator. The overall power output of the generator is operating within normal parameters given our current interval. By increasing our interval, another pattern emerges: there's a definite drop-off.
 
-    * **Action**: Remove the **VoltageActuatorSwitchWarning** sensor, add the **Generator System** > **ActivePower** sensor, and update the interval to **3d**.
+    * Remove the **VoltageActuatorSwitchWarning** sensor.
+    * Select the **Generator System** > **ActivePower** sensor.
+    * Update the interval to **3d**.
 
        ![Quickstart seven][7]
 
-1. If we navigate forward in the dataset, we can see that this issue isn’t transient. It is continuing.
+1. By expanding the time range, we can determine whether the issue has stopped or whether it continues.
 
-    * **Action**: Extend the time span to the right.
-
-       ![Quickstart eight][8]
-
-1. Let’s drill further. We can add other sensor data points to view voltage by phase. But the data points all look comparable. Let’s drop a marker to see the actual values. It looks like there's a problem with the phase 3 output.
-
-    * **Action**: Add **Generator System** > **GridVoltagePhase1**, **GridVoltagePhase2**, and **GridVoltagePhase3** sensors. Drop a marker on the last data point in the visible area.
+    * Extend the time span to 60 days.
 
        ![Quickstart eight][8]
 
-1. If we view all three data points on the same scale, the phase 3 drop-off appears even more obvious. At this point, we’re ready to refer the issue to our maintenance team with a good lead on the cause of the warning.  
+1. Other sensor data points can be added to provide superior context. The more sensors we can view, the fuller our understanding of the problem is. Let’s drop a marker to see the actual values. 
 
-    * **Action**: Update the display to overlay all sensors on the same chart scale.
+    * Select the **Generator System** > **GridVoltagePhase1**, **GridVoltagePhase2**, and **GridVoltagePhase3** sensors.
+    * Drop a marker on the last data point in the visible area.
 
        ![Quickstart nine][9]
+
+    The three voltage sensors are operating comparably and within normal parameters. It looks like the **GridVoltagePhase3** sensor is the culprit.
+
+1. With highly contextual data added, the phase 3 drop-off appears even more as the problem. At this point, we’re ready to refer the issue to our maintenance team with a good lead on the cause of the warning.  
+
+    * Update the display to overlay all **Generator System** sensors on the same chart scale.
+
+       ![Quickstart ten][10]
 
 ## Next steps
 
@@ -112,3 +165,4 @@ You're ready to create your own Time Series Insights Preview environment:
 [7]: media/v2-update-quickstart/quickstart-seven.png
 [8]: media/v2-update-quickstart/quickstart-eight.png
 [9]: media/v2-update-quickstart/quickstart-nine.png
+[10]: media/v2-update-quickstart/quickstart-ten.png
