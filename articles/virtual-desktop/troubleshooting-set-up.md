@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop Troubleshooting Guide for set up - Azure
-description: How to resolve common issues when you set up a Windows Virtual Desktop tenant environment.
+title: Windows Virtual Desktop Troubleshooting Guide - Azure
+description: How to resolve common issues when you setting up a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
 author: ChJenk
 
@@ -11,7 +11,7 @@ ms.author: v-chjenk
 ---
 # Windows Virtual Desktop Troubleshooting Guide
 
-This article describes some common issues you may encounter when you're setting up Windows Virtual Desktop and provides ways to troubleshoot the issues.
+This article describes common issues you come across when setting up Windows Virtual Desktop and provides ways to troubleshoot the issues.
 
 ## Escalation tracks
 
@@ -20,16 +20,16 @@ Use the following table to identify and resolve issues you may encounter when se
 | **Issue**                                                            | **Suggested Solution**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
 | Creating a Tenant                                                    | If there's an Azure outage, contact [Azure Support](https://azure.microsoft.com/support/options/); otherwise contact **Remote Desktop Services/Windows Virtual Desktop support**.|
-| Accessing Marketplace templates in Azure Portal       | If there is an Azure outage, contact [Azure Support](https://azure.microsoft.com/support/options/). <br> <br> Azure Marketplace Windows Virtual Desktop templates are freely available.|
-| Accessing Azure Resource Manager templates from GitHub                                  | If the issue is not covered in [Creating Windows Virtual Desktop session host VMs](#creating-windows-virtual-desktop-session-host-vms), contact the [GitHub support team](https://github.com/contact). <br> <br> If the error occurs after accessing the template in GitHub, contact [Azure Support](https://azure.microsoft.com/support/options/).|
-| Session host pool VNET and Express Route settings                    | Contact **Azure Support (Networking)**. |
-| Session host pool Virtual Machine (VM) creation when Azure Resource Manager templates provided with Windows Virtual Desktop are not being used | Contact **Azure Support (Compute)**. <br> <br> For issue with the Azure Resource Manager templates provided with Windows Virtual Desktop, see [Creating Windows Virtual Desktop tenant](#creating-windows-virtual-desktop-tenant). |
+| Accessing Marketplace templates in Azure portal       | If there's an Azure outage, contact [Azure Support](https://azure.microsoft.com/support/options/). <br> <br> Azure Marketplace Windows Virtual Desktop templates are freely available.|
+| Accessing Azure Resource Manager templates from GitHub                                  | If the issue isn't covered in [Creating Windows Virtual Desktop session host VMs](#creating-windows-virtual-desktop-session-host-vms), contact the [GitHub support team](https://github.com/contact). <br> <br> If the error occurs after accessing the template in GitHub, contact [Azure Support](https://azure.microsoft.com/support/options/).|
+| Session host pool Azure Virtual Network (VNET) and Express Route settings               | Contact **Azure Support (Networking)**. |
+| Session host pool Virtual Machine (VM) creation when Azure Resource Manager templates provided with Windows Virtual Desktop aren't being used | Contact **Azure Support (Compute)**. <br> <br> For issues with the Azure Resource Manager templates that are provided with Windows Virtual Desktop, see [Creating Windows Virtual Desktop tenant](#creating-windows-virtual-desktop-tenant). |
 | Managing Windows Virtual Desktop session host environment from the Azure management portal    | Contact **Azure Support**. <br> <br> For management issues when using Remote Desktop Services/Windows Virtual Desktop PowerShell, troubleshoot using [Management with PowerShell](#management-with-powershell) or contact the **Remote Desktop Services/Windows Virtual Desktop support team**. |
 | Managing Windows Virtual Desktop configuration tied to host pools and application groups (appgroups)      | Troubleshoot using [Management with PowerShell](#management-with-powershell), or contact the **Remote Desktop Services/Windows Virtual Desktop support team**. <br> <br> If issues are tied to the sample graphical user interface (GUI), reach out to the Yammer community.|
-| Remote desktop clients malfunction on start                                                 | Troubleshoot using [Client connection issues](#client-connection-issues) and if this doesn't resolve the issue, contact **Remote Desktop Services/Windows Virtual Desktop support team**.  <br> <br> If it's a network issues, your users need to contact their network administrator. |
+| Remote desktop clients malfunction on start                                                 | Troubleshoot using [Client connection issues](#client-connection-issues) and if it doesn't resolve the issue, contact **Remote Desktop Services/Windows Virtual Desktop support team**.  <br> <br> If it's a network issue, your users need to contact their network administrator. |
 | Connected but no feed                                                                 | Troubleshoot using [User connects but nothing is displayed (no feed)](#user-connects-but-nothing-is-displayed-no-feed). <br> <br> If your users have been assigned to an appgroup, escalate to the **Remote Desktop Services/Windows Virtual Desktop support team**. |
 | Feed discovery problems due to the network                                            | Your users need to contact their network administrator. |
-| Connecting clients                                                                    | Troubleshoot using [Session host VMs configuration](#session-host-vms-configuration) and [Client connection issues](#client-connection-issues). |
+| Connecting clients                                                                    | Troubleshoot using [Session host VM configuration](#session-host-vm-configuration) and [Client connection issues](#client-connection-issues). |
 | Responsiveness of remote applications or desktop                                      | If issues are tied to a specific application or product, contact the team responsible for that product. |
 | Licensing messages or errors                                                          | If issues are tied to a specific application or product, contact the team responsible for that product. |
 
@@ -47,14 +47,14 @@ To use the Windows 10 Enterprise multi-session image, go to the Azure Marketplac
 
 This section covers potential issues when creating the Windows Virtual Desktop tenant.
 
-**Error:** User is not authorized to query the management service.
+**Error:** The user isn't authorized to query the management service.
 
-![Screenshot of PowerShell window showing a user is not authorized to query the management service.](media/UserNotAuthorizedNewTenant.png)
+![Screenshot of PowerShell window in which a user isn't authorized to query the management service.](media/UserNotAuthorizedNewTenant.png)
 
 Example of raw error:
 
 ```Error
-New-RdsTenant : User is not authorized to query the management service.
+New-RdsTenant : User isn't authorized to query the management service.
 ActivityId: ad604c3a-85c6-4b41-9b81-5138162e5559
 Powershell commands to diagnose the failure:
 Get-RdsDiagnosticActivities -ActivityId ad604c3a-85c6-4b41-9b81-5138162e5559
@@ -66,7 +66,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : UnauthorizedAccess,Microsoft.RDInfra.RDPowershell.Tenant.NewRdsTenant
 ```
 
-**Cause:** The logged in user has not been assigned the TenantCreator role in their Azure Active Directory.
+**Cause:** The user who's signed in hasn't been assigned the TenantCreator role in their Azure Active Directory.
 
 **Fix:** Follow the instructions in [Assign the TenantCreator application role to a user in your Azure Active Directory tenant](https://docs.microsoft.com/en-us/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant). After completing the steps, you'll have a user assigned to the TenantCreator role.
 
@@ -74,25 +74,25 @@ At line:1 char:1
 
 ### Creating Windows Virtual Desktop session host VMs
 
-Session host VMs can be created using multiple methods but Remote Desktop Services/Windows Virtual Desktop teams only support VM provisioning issues resulting from the usage of the Azure Resource Manager template for creating a new host pool. The Azure Resource Manager template is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [GitHub](https://github.com/).
+Session host VMs can be created in several ways, but Remote Desktop Services/Windows Virtual Desktop teams only support VM provisioning issues related to the Azure Resource Manager template. The Azure Resource Manager template is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [GitHub](https://github.com/).
 
 ### Issues using Windows Virtual Desktop – Provision a host pool Azure Marketplace offering
 
-Thw Windows Virtual Desktop – Provision a host pool template is available from the Azure Marketplace.
+The Windows Virtual Desktop – Provision a host pool template is available from the Azure Marketplace.
 
 **Error:** When using the link from GitHub, the message “Create a free account" appears.
 
 ![Screenshot to create a free account.](media/be615904ace9832754f0669de28abd94.png)
 
-**Cause 1:** There are no active subscriptions in the account being used to log into Azure or the account being used does not have permissions to view the subscriptions.
+**Cause 1:** There aren't active subscriptions in the account used to sign in to Azure or the account used doesn't have permissions to view the subscriptions.
 
-**Fix 1:** Sign in with an account that has been granted at a minimum contributor access to the subscription where session host VMs are going to be deployed.
+**Fix 1:** Sign in with an account that has contributor access (at a minimum) to the subscription where session host VMs are going to be deployed.
 
 **Cause 2:** The subscription being used is part of a Microsoft Cloud Service Provider (CSP) tenant.
 
 **Fix 2:** Go to the GitHub location for **Create and provision new Windows Virtual Desktop host pool** and follow these instructions:
 
-1. Right click on **Deploy to Azure** and select **Copy link address**.
+1. Right-click on **Deploy to Azure** and select **Copy link address**.
 2. Open **Notepad** and paste the link.
 3. Before the \# character, insert the CSP end customer tenant name.
 4. Open the new link in a browser and the Azure portal will load the template.
@@ -126,13 +126,13 @@ Example of raw error:
  extension 'joindomain'. Error message: \\\"Exception(s) occurred while joining Domain 'diamondsg.onmicrosoft.com'\\\".\"\r\n }\r\n ]\r\n }\r\n}"}]}
 ```
 
-**Cause 1:** Credential provided for joining VMs to the domain are incorrect.
+**Cause 1:** Credentials provided for joining VMs to the domain are incorrect.
 
 **Fix 1:** See the "Incorrect credentials" error in [VMs are not joined to the domain](#vms-are-not-joined-to-the-domain).
 
-**Cause 2:** Domain name does not resolve.
+**Cause 2:** Domain name doesn't resolve.
 
-**Fix 2:** See the "Domain name does not resolve" error in [VMs are not joined to the domain](#vms-are-not-joined-to-the-domain).
+**Fix 2:** See the "Domain name doesn't resolve" error in [VMs are not joined to the domain](#vms-are-not-joined-to-the-domain).
 
 **Error:** VMExtensionProvisioningError
 
@@ -144,9 +144,9 @@ Example of raw error:
 
 **Fix:** Confirm Windows Virtual Desktop environment is healthy by signing in using PowerShell. Complete the manual VM registration instructions in [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
 
-**Error:** The Admin Username specified is not allowed.
+**Error:** The Admin Username specified isn't allowed.
 
-![Screenshot of your deployment failed due to admin specified is not allowed.](media/f2b3d3700e9517463ef88fa41875bac9.png)
+![Screenshot of your deployment failed in which an admin specified isn't allowed.](media/f2b3d3700e9517463ef88fa41875bac9.png)
 
 Example of raw error:
 
@@ -187,7 +187,7 @@ Example of raw error:
 
 **Cause:** PowerShell DSC extension was not able to get admin access on the VM.
 
-**Fix:** Confirm username and password provided have administrative access on the virtual machine and run the Azure Resource Manager template again.
+**Fix:** Confirm username and password have administrative access on the virtual machine and run the Azure Resource Manager template again.
 
 **Error:** DeploymentFailed – PowerShell DSC Configuration ‘FirstSessionHost’ completed with Error(s).
 
@@ -276,7 +276,7 @@ resources are in the same region.\\\",\\r\\n \\\"details\\\": []\\r\\n }\\r\\n}\
 }\r\n ]\r\n }\r\n ]\r\n }\r\n\
 ```
 
-**Cause:** This error is due to having the NIC created by the Azure Resource Manager template having the same name as another NIC already in the VNET.
+**Cause:** This error is because the NIC created with the Azure Resource Manager template has the same name as another NIC already in the VNET.
 
 **Fix:** Use different host prefix.
 
@@ -295,11 +295,11 @@ be found in the logs located under
 the VM.\\\"
 ```
 
-**Cause:** This is due to a static route, firewall rule, or NSG blocking download of the zip file tied to the Azure Resource Manager template.
+**Cause:** This error is due to a static route, firewall rule, or NSG blocking the download of the zip file tied to the Azure Resource Manager template.
 
 **Fix:** Remove blocking static route, firewall rule, or NSG. Optionally, open the Azure Resource Manager template json file in a text editor, take the link to zip file, and download the resource to an allowed location.
 
-**Error:** User is not authorized to query the management service
+**Error:** The user isn't authorized to query the management service
 
 Example of raw error:
 
@@ -314,9 +314,9 @@ Following are the first few: PowerShell DSC resource MSFT_ScriptResource failed 
 The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d25b-47e5-8d70-a7493e9dc473" } } }}
 ```
 
-**Cause:** The specified Windows Virtual Desktop tenant admin does not have a valid role assignment in Windows Virtual Desktop tenant.
+**Cause:** The specified Windows Virtual Desktop tenant admin doesn't have a valid role assignment.
 
-**Fix:** The user who created the Windows Virtual Desktop tenant needs to log in to Windows Virtual Desktop PowerShell and assign the attempted user a role assignment. If you're running the GitHub ARM template parameters, follow these instructions using PowerShell commands:
+**Fix:** The user who created the Windows Virtual Desktop tenant needs to sign in to Windows Virtual Desktop PowerShell and assign the attempted user a role assignment. If you're running the GitHub Azure Resource Manager template parameters, follow these instructions using PowerShell commands:
 
 ```PowerShell
 Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
@@ -334,27 +334,27 @@ Example of raw error:
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**Cause:** The specified Windows Virtual Desktop tenant admin requires MFA to login.
+**Cause:** The specified Windows Virtual Desktop tenant admin requires Azure Multi-Factor Authentication (MFA) to sign in.
 
-**Fix:** Create a service principal and assign it a role for your Windows Virtual Desktop tenant by following the steps in [Tutorial: Create service principals and role assignments with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell). After verifying that you can log in to Windows Virtual Desktop with the service principal, either rerun the Azure Marketplace offering or the GitHub ARM template, depending on which method you're using. Follow the instructions below for your method.
+**Fix:** Create a service principal and assign it a role for your Windows Virtual Desktop tenant by following the steps in [Tutorial: Create service principals and role assignments with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell). After verifying that you can sign in to Windows Virtual Desktop with the service principal, rerun the Azure Marketplace offering or the GitHub Azure Resource Manager template, depending on which method you're using. Follow the instructions below to enter the correct parameters for your method.
 
 If you're running the Azure Marketplace offering, provide values for the following parameters to properly authenticate to Windows Virtual Desktop:
 
 - Windows Virtual Desktop tenant RDS Owner: Service principal
-- Application ID: The application ID of the new service principal you created
+- Application ID: The application identification of the new service principal you created
 - Password/Confirm Password: The password secret you generated for the service principal
 - Azure AD Tenant ID: The Azure AD Tenant ID of the service principal you created
 
-If you're running the GitHub ARM template, provide values for the following parameters to properly authenticate to Windows Virtual Desktop:
+If you're running the GitHub Azure Resource Manager template, provide values for the following parameters to properly authenticate to Windows Virtual Desktop:
 
-- Tenant Admin Upn or Application Id: The application ID of the new service principal you created
+- Tenant Admin user principal name (UPN) or Application ID: The application identification of the new service principal you created
 - Tenant Admin Password: The password secret you generated for the service principal
 - IsServicePrincipal: **true**
 - AadTenantId: The Azure AD Tenant ID of the service principal you created
 
 ## Session host VMs configuration
 
-Use this section to troubleshoot issues when configuring session host VMs.
+Use this section to troubleshoot issues when configuring the session host VMs.
 
 ### VMs are not joined to the domain
 
@@ -385,16 +385,16 @@ Follow these instructions if you're having issues joining VMs to the domain.
 
 **Error:** Account used during provisioning not having permissions to complete the operation.
 
-**Cause:** The account being used does not have permissions to join VMs to the domain due to compliance and regulations.
+**Cause:** The account being used doesn't have permissions to join VMs to the domain due to compliance and regulations.
 
 **Fix:** Follow these instructions.
 
 1. Use an account that is a member of the Administrator group.
 2. Grant the necessary permissions to the account being used.
 
-**Error:** Domain name does not resolve
+**Error:** Domain name doesn't resolve
 
-**Cause 1:** VMs are in a resource group that is not tied to the virtual network (VNET) where the domain is located.
+**Cause 1:** VMs are in a resource group that's not associated with the virtual network (VNET) where the domain is located.
 
 **Fix 1:** Create VNET peering between the VNET where VMs were provisioned and the VNET where the domain controller (DC) is running. See [Create a virtual network peering - Resource Manager, different subscriptions](https://docs.microsoft.com/en-us/azure/virtual-network/create-peering-different-subscriptions).
 
@@ -408,8 +408,8 @@ The recommended way to provision VMs is using the Azure Resource Manager **Creat
 
 Follow these instructions to confirm the components are installed and to check for error messages.
 
-1. Confirm that the two components are installed by checking in **Control Panel** \>**Programs** \>**Programs and Features**. If **Windows Virtual Desktop Agent** and **Windows Virtual Desktop Agent Boot Loader** are not visible, they are not installed on the VM.
-2. Open **File Explorer** and navigate to **C:\\Windows\\Temp\\scriptlogs.log**. If the file is missing, this indicates that the PowerShell DSC that installed the two components was not able to run in the security context provided.
+1. Confirm that the two components are installed by checking in **Control Panel** \>**Programs** \>**Programs and Features**. If **Windows Virtual Desktop Agent** and **Windows Virtual Desktop Agent Boot Loader** are not visible, they aren't installed on the VM.
+2. Open **File Explorer** and navigate to **C:\\Windows\\Temp\\scriptlogs.log**. If the file is missing, it indicates that the PowerShell DSC that installed the two components was not able to run in the security context provided.
 3. If the file **C:\\Windows\\Temp\\scriptlogs.log** is present, open it and check for error messages.
 
 **Error:** Windows Virtual Desktop Agent and Windows Virtual Desktop Agent Boot Loader are missing. C:\\Windows\\Temp\\scriptlogs.log is also missing.
@@ -418,42 +418,42 @@ Follow these instructions to confirm the components are installed and to check f
 
 **Fix 1:** Manually add the missing components to the VMs using [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
 
-**Cause 2:** PowerShell DSC was able to start and execute but failed to complete as it was not able to sign in to Windows Virtual Desktop infra and obtain needed information.
+**Cause 2:** PowerShell DSC was able to start and execute but failed to complete as it's not able to sign in to Windows Virtual Desktop and obtain needed information.
 
-**Fix 2:** Confrim the items in the following list.
+**Fix 2:** Confirm the items in the following list.
 
-- Make sure account does not have MFA.
-- Confirm tenant name is accurate and tenant exists in Windows Virtual Desktop.
-- Confirm account has at least RDS Contributor permissions.
+- Make sure the account doesn't have MFA.
+- Confirm that the tenant name is accurate and the tenant exists in Windows Virtual Desktop.
+- Confirm the account has at least RDS Contributor permissions.
 
-**Error:** Authentication failed, Error in C:\\Windows\\Temp\\scriptlogs.log
+**Error:** Authentication failed, error in C:\\Windows\\Temp\\scriptlogs.log
 
-**Cause:** PowerShell DSC was able to execute but could not connect to Windows Virtual Desktop.
+**Cause:** PowerShell DSC was able to execute but couldn't connect to Windows Virtual Desktop.
 
-**Fix:** Confirm the following list:
+**Fix:** Confirm the items in the following list.
 
 - Manually register the VMs with the Windows Virtual Desktop service.
 - Confirm account used for connecting to Windows Virtual Desktop has permissions on the tenant to create host pools.
-- Confirm account does not have MFA.
+- Confirm account doesn't have MFA.
 
 ### Windows Virtual Desktop Agent is not registering with the Windows Virtual Desktop service
 
-When the Windows Virtual Desktop Agent is first installed on the session host VM (either manually or through the Azure Resource Manager template and PowerShell DSC), a registration token must be provided. The following section covers common troubleshooting issues applicable to the Windows Virtual Desktop Agent.
+When the Windows Virtual Desktop Agent is first installed on session host VMs (either manually or through the Azure Resource Manager template and PowerShell DSC), it provides a registration token. The following section covers common troubleshooting issues applicable to the Windows Virtual Desktop Agent and the token.
 
 **Error:** The status filed in Get-RdsSessionHost cmdlet shows status as Unavailable.
 
 ![Get-RdsSessionHost cmdlet shows status as Unavailable.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-**Cause:** The agent is not able to update itself to a new version.
+**Cause:** The agent isn't able to update itself to a new version.
 
 **Fix:** Follow these instructions to manually update the agent.
 
 1. Download a new version of the agent on the session host VM.
-2. Launch Task Manager (TM) and in the Service Tab stop the RDAgentBootLoader service.
+2. Launch Task Manager and, in the Service Tab, stop the RDAgentBootLoader service.
 3. Run the installer for the new version of the Windows Virtual Desktop Agent.
-4. When prompted for the registration token, remove the entry INVALID_TOKEN and press next (a new token is not required).
+4. When prompted for the registration token, remove the entry INVALID_TOKEN and press next (a new token isn't required).
 5. Complete the installation Wizard.
-6. Open TM and start the RDAgentBootLoader service.
+6. Open Task Manager and start the RDAgentBootLoader service.
 
 **Error:**  Windows Virtual Desktop Agent registry entry IsRegistered shows a value of 0.
 
@@ -465,11 +465,11 @@ When the Windows Virtual Desktop Agent is first installed on the session host VM
 2. Generate new token with Rds-NewRegistrationInfo.
 3. Confirm that the -ExpriationHours parameter is set to 72 (max value is 99999).
 
-**Error:** Windows Virtual Desktop agent is not reporting heartbeat when running Get-RdsSessionHost
+**Error:** Windows Virtual Desktop agent isn't reporting a heartbeat when running Get-RdsSessionHost
 
 **Cause 1:** RDAgentBootLoader service has been stopped.
 
-**Fix 1:** Launch Task Manager (TM) and, if the Service Tab reports a stopped status for RDAgentBootLoader service, start the service.
+**Fix 1:** Launch Task Manager and, if the Service Tab reports a stopped status for RDAgentBootLoader service, start the service.
 
 **Cause 2:** Port 443 may be closed.
 
@@ -511,13 +511,13 @@ There are three main ways the side-by-side stack gets installed or enabled on se
 - By being included and enabled on the master image
 - Installed or enabled manually on each VM (or with extensions/PowerShell)
 
-If you're having issues with the Windows Virtual Desktop side-by-side stack, confirm the side-by-side stack is installed or enabled by issuing the **qwinsta** command from the command prompt.
+If you're having issues with the Windows Virtual Desktop side-by-side stack, type the **qwinsta** command from the command prompt to confirm that the side-by-side stack is installed or enabled.
 
-If the side-by-side stack is installed or enabled, the output of **qwinsta** will list **rdp-sxs** in the output.
+The output of **qwinsta** will list **rdp-sxs** in the output if the side-by-side stack is installed and enabled.
 
 ![Side-by-side stack installed or enabled with qwinsta listed as rdp-sxs in the output.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow guidance in [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell) on how to reinstall the side-by-side stack.
+Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow the instructions in [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell) on how to reinstall the side-by-side stack.
 
 ```registry
     HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal
@@ -531,7 +531,7 @@ Examine the registry entries listed below and confirm that their values match. I
 
 ![O_REVERSE_CONNECT_STACK_FAILURE error code.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-**Cause:** The side-by-side stack is not installed on the session host VM.
+**Cause:** The side-by-side stack isn't installed on the session host VM.
 
 **Fix:** Follow these instructions to install the side-by-side stack on the session host VM.
 
@@ -541,17 +541,17 @@ Examine the registry entries listed below and confirm that their values match. I
 
 ### How to fix a Windows Virtual Desktop side-by-side stack that malfunctions
 
-There are known circumstance that can cause the side-by-side stack to malfunction:
+There are known circumstances that can cause the side-by-side stack to malfunction:
 
 - Not following the correct order of the steps to enable the side-by-side stack
 - Auto update to Windows 10 Enhanced Versatile Disc (EVD)
 - Missing the Remote Desktop Session Host (RDSH) role
 - Running enablesxsstackrc.ps1 multiple times
-- Running enablesxsstackrc.ps1 in an account that does not have local admin privileges
+- Running enablesxsstackrc.ps1 in an account that doesn't have local admin privileges
 
 The instructions in this section can help you uninstall the Windows Virtual Desktop side-by-side stack. Once you uninstall the side-by-side stack, go to “Register the VM with the Windows Virtual Desktop host pool” in [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell) to reinstall the side-by-side stack.
 
-The VM used to run remediation must be on the same subnet and part of the same domain as the VM with the malfunctioning side-by-side stack.
+The VM used to run remediation must be on the same subnet and domain as the VM with the malfunctioning side-by-side stack.
 
 Follow these instructions to run remediation from the same subnet and domain:
 
@@ -575,7 +575,7 @@ Follow these instructions to run remediation from the same subnet and domain:
 >[!Note]
 >This dialog will show up only the first time PsExec is run.
 
-8. This will start a command prompt session on the VM with the malfunctioning side-by-side stack. Run qwinsta and confirm that an entry rdp-sxs is available. If not, the issue is not tied to the side-by-side stack as this indicates that no side-by-side stack is present on the VM.
+8. After the command prompt session opens on the VM with the malfunctioning side-by-side stack, run qwinsta and confirm that an entry named rdp-sxs is available. If not, a side-by-side stack isn't present on the VM so the issue isn't tied to the side-by-side stack.
 
 ![Administrator command prompt](media/AdministratorCommandPrompt.png)
 
@@ -593,9 +593,10 @@ Follow these instructions to run remediation from the same subnet and domain:
 
 11. Uninstall all products that start with “Remote Desktop.”
 
-12. If the operating system is Windows Server, once all Windows Virtual Desktop components have been uninstalled, restart the VM that had the malfunctioning side-by-side stack (either with Azure Portal or from the PsExec tool).
+12. After all Windows Virtual Desktop components have been uninstalled, follow the instructions for your operating system:
 
-If the operating system you're using is Microsoft Windows 10, add these steps to the procedure:
+- If your operating system is Windows Server, restart the VM that had the malfunctioning side-by-side stack (either with Azure portal or from the PsExec tool).
+- If your operating system is Microsoft Windows 10, continue with these instructions:
 
 1. From the VM running PsExec, open File Explorer and copy disablesxsstackrc.ps1 to the system drive of the VM with the malfunctioned side-by-side stack.
 
@@ -646,9 +647,9 @@ Try connecting with another client, like Remote Desktop client for Windows 7 or 
 
 **Error:** Other clients can connect.
 
-**Cause:** Browser is not behaving as expected due to cashed or bad setting, and browser has stopped working.
+**Cause:** The browser isn't behaving as expected and stopped working.
 
-**Fix:** Follow these instructions to troubleshoot browser.
+**Fix:** Follow these instructions to troubleshoot the browser.
 
 1. Restart browser.
 2. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/en-us/help/278835/how-to-delete-cookie-files-in-internet-explorer).
@@ -693,9 +694,9 @@ Navigate to **%AppData%\\RdClientRadc\\** and delete all content.
 
 Uninstall and reinstall Remote Desktop client for Windows 7 and Windows 10.
 
-### Troubleshooting end user connectivity
+### Troubleshooting end-user connectivity
 
-In scenarios where users can obtain their feed and see the resource provided to them, there can sometimes be configuration, availability, or performance issues that prevent users from accessing their remote resources. The user gets a messages like the one below:
+Sometiems users can access their feed and local resources, but still have configuration, availability, or performance issues that prevent them from accessing remote resources. The user gets messages similar to these:
 
 ![Remote Desktop Connection error message.](media/eb76b666808bddb611448dfb621152ce.png)
 
@@ -706,7 +707,7 @@ Follow these general troubleshooting instructions for common error codes.
 1. Confirm user name and time when issue was experienced.
 2. Open **PowerShell** and establish connection to the Windows Virtual Desktop tenant where the issue was reported.
 3. Confirm connection to the correct tenant with **Get-RdsTenant.**
-4. If needed set the tenant group context with **Set-RdsContext –TenantGroupt\<TenantGroup\>**.
+4. If needed, set the tenant group context with **Set-RdsContext –TenantGroupt\<TenantGroup\>**.
 5. Using **Get-RdsHostPool** and **Get-RdsSessionHost** cmdlets, confirm that troubleshooting is being done on the correct host pool.
 6. Execute the command below to get a list of all failed activities of type connection for the specified time window:
 
@@ -721,7 +722,7 @@ Follow these general troubleshooting instructions for common error codes.
 (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
 ```
 
-8. This will produce output of the type show below. Use **ErrorCodeSymbolic** and **ErrorMessage** to troubleshoot the root cause.
+8. The command produces output of the type show below. Use **ErrorCodeSymbolic** and **ErrorMessage** to troubleshoot the root cause.
 
 ```
 ErrorSource       : <Source>
@@ -754,7 +755,7 @@ Time              : <Timestampt>
 
 ### User connects but nothing is displayed (no feed)
 
-A User can start Remote Desktop clients and is able to authenticate, however the user does not see any icons in the web discovery feed.
+A User can start Remote Desktop clients and is able to authenticate, however the user doesn't see any icons in the web discovery feed.
 
 Confirm that the user reporting the issues has been assigned to application groups by using this command line:
 
@@ -768,7 +769,7 @@ If the web client is being used, confirm that there are no cached credentials is
 
 ## Management with PowerShell
 
-This section covers common errors and issues reported when using PowerShell. For more information on Remote Desktop Services PowerShell, please see **PowerShell Reference (Windows Virtual Desktop)**.
+This section covers common errors and issues reported when using PowerShell. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop Powershell](https://docs.microsoft.com/en-us/powershell/module/windowsvirtualdesktop/).
 
 ### Add-RdsAppGroupUser
 
@@ -782,21 +783,21 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 **Cause:** The username used has been already assigned to an AppGroup of a different type. Users can’t be assigned to both a remote desktop and remote app group under the same session host pool.
 
-**Fix:** If user needs both remote apps and remote desktop, create different host pools or grant user access to remote desktop only, as this will permit the use of any application on the session host VM.
+**Fix:** If user needs both remote apps and remote desktop, create different host pools or grant user access to the remote desktop, which will permit the use of any application on the session host VM.
 
 ```cmd
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName “Desktop Application Group” -UserPrincipalName <UserPrincipalName>
 ```
 
-**Error:** The specified UserPrincipalName does not exist in the Azure Active Directory associated with the Remote Desktop tenant.
+**Error:** The specified UserPrincipalName doesn't exist in the Azure Active Directory associated with the Remote Desktop tenant.
 
 **Cause:** The user specified by the -UserPrincipalName cannot be found in the Azure Active Directory tied to the Windows Virtual Desktop tenant.
 
 **Fix:** Confirm the items in the following list.
 
-- User has synched to Azure Active Directory.
-- User is not B2C or B2B.
-- Windows Virtual Desktop tenant is tied to correct Azure Active Directory.
+- The user is synched to Azure Active Directory.
+- The user isn't tied to business to consumer (B2C) or business-to-business (B2B) commerce.
+- The Windows Virtual Desktop tenant is tied to correct Azure Active Directory.
 
 ### Get-RdsDiagnosticActivities
 
@@ -804,9 +805,9 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 Get-RdsDiagnosticActivities -ActivityId \<ActivityId\>
 ```
 
-**Error:** Get-RdsDiagnosticActivities : User is not authorized to query the management service.
+**Error:** Get-RdsDiagnosticActivities: User isn't authorized to query the management service.
 
-**Cause:** -TenantName switch is not specified. Issuing Get-RdsDiagnosticActivities without -TenantName \<TenantName\> will query the entire Windows Virtual Desktop service, which is not allowed.
+**Cause:** -TenantName switch isn't specified. Issuing Get-RdsDiagnosticActivities without -TenantName \<TenantName\> will query the entire Windows Virtual Desktop service, which isn't allowed.
 
 **Fix:** Issue Get-RdsDiagnosticActivities with -TenantName \<TenantName\>.
 
@@ -814,24 +815,24 @@ Get-RdsDiagnosticActivities -ActivityId \<ActivityId\>
 Get-RdsDiagnosticActivities -Deployment -username \<username\>
 ```
 
-**Error:** Get-RdsDiagnosticActivities : User is not authorized to query the management service.
+**Error:** Get-RdsDiagnosticActivities -- the user isn't authorized to query the management service.
 
 **Cause:** Using -Deployment switch.
 
-**Fix:** -Deployment switch can be used by deployment administrators only. These are usually members of the Remote Desktop Services/Windows Virtual Desktop team. Replace -Deployment with -TenantName \<TenantName\>
+**Fix:** -Deployment switch can be used by deployment administrators only. These administrators are usually members of the Remote Desktop Services/Windows Virtual Desktop team. Replace -Deployment with -TenantName \<TenantName\>
 
 ### New-RdsRoleAssignment
 
-New-RdsRoleAssignment cannot give permissions to a user that does not exist in the Azure AD.
+New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Azure Active Directory (AD).
 
-**Error:** New-RdsRoleAssignment : User is not authorized to query the management service.
+**Error:** New-RdsRoleAssignment -- the user isn't authorized to query the management service.
 
-**Cause:** Account being used does not have Remote Desktop Services Owner permissions on the tenant.
+**Cause:** The account being used doesn't have Remote Desktop Services Owner permissions on the tenant.
 
 **Fix:** A user with Remote Desktop Services owner permissions needs to execute the role assignment.
 
-**Error:** New-RdsRoleAssignment : User is not authorized to query the management service.
+**Error:** New-RdsRoleAssignment -- the user isn't authorized to query the management service.
 
-**Cause:** Account being used does have Remote Desktop Services owner permissions but is not part of Active Directory (AD) or does not have permission to query AD where the user is located.
+**Cause:** The account being used has Remote Desktop Services owner permissions but isn't part of AD or doesn't have permissions to query AD where the user is located.
 
-**Fix:** User with AD permissions needs to execute the role assignment.
+**Fix:** A user with AD permissions needs to execute the role assignment.
