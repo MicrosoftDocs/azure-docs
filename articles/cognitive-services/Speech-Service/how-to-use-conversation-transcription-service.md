@@ -3,34 +3,34 @@ title: Transcribe multi-participant conversations with the Speech SDK - Speech S
 titleSuffix: Azure Cognitive Services
 description: Learn how to use Conversation Transcription service with the Speech SDK. Available for C++, C#, and Java.
 services: cognitive-services
-author: jhakulin, sarahlu 
-manager: Rob Chambers
+author: jhakulin 
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/17/2019
-ms.author: jhakulin, sarahlu
+ms.date: 5/2/2019
+ms.author: jhakulin
 ---
 # Transcribe multi-participant conversations with the Speech SDK
 
-The Speech SDK's **Conversation Transcriber** API provides a way to transcribe conversation/meeting like scenarios where you can add and remove participants and transcribe their conversations (ie. see textual output what each participant has said in the conversation) by streaming audio to the Speech Service using PullStream or PushStream.
+The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetings/conversations with the ability to add, remove, and identify participants by streaming audio to the Speech Services using `PullStream` or `PushStream`.
 
 ## Limitations
 
 * Conversation transcriber is supported for C++, C#, and Java on Windows, Linux and Android.
-* ROOBO DevKit ([See Speech Devices SDK for more details](speech-devices-sdk.md)) is supported HW environment for creating conversations as that provides circular multi-microphone array which can be utilized efficiently by the Conversation Transcription service for the speaker identification. 
-* Support in Speech SDK is limited to use of audio pull and push mode streams with 8-channels of PCM audio.
-* Conversation Transcription service requires a specific endpoint (add link for more information).
+* ROOBO DevKit ([See Speech Devices SDK for more details](speech-devices-sdk.md)) is the supported hardware environment for creating conversations as that provides circular multi-microphone array which can be utilized efficiently by the Conversation Transcription service for the speaker identification. 
+* Speech SDK support is limited to use of audio pull and push mode streams with 8-channels of PCM audio.
 
 ## Prerequisites
 
-* [Learn how to use Speech-to-text with the Speech SDK](quickstart-csharp-dotnet-windows.md)
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [Learn how to use Speech-to-text with the Speech SDK.](quickstart-csharp-dotnet-windows.md)
+* [Get your Speech trial subscription.](https://azure.microsoft.com/try/cognitive-services/)
 
 ## Create voice signatures for participants
-First step to enable creating conversation/meeting like scenario is to create voice signatures for the conversation participants. Creating voice signatures is required for efficient speaker identification functionality done by Speech Service.
-[Use the REST API to get the voice signature.](https://westus.signature.speech.microsoft.com/ui)
+
+The first step is to create voice signatures for the conversation participants. Creating voice signatures is required for efficient speaker identification.
+In the following sample, we'll [use the REST API to get the voice signature.](https://westus.signature.speech.microsoft.com/ui)
 
 The example below shows two different ways to create voice signatures:
 ```csharp
@@ -71,8 +71,7 @@ class Program
 
 ## Transcribing conversations
 
-To transcribe conversations of multiple participants, create `ConversationTranscriber` object associated with the audio config created for conversation session
-and stream audio using `PullAudioInputStream` or `PushAudioInputStream`.
+To transcribe conversations with multiple participants, create the `ConversationTranscriber` object that's associated with the `AudioConfig` object created for the conversation session and stream audio using `PullAudioInputStream` or `PushAudioInputStream`.
 Let's assume that you have a ConversationTranscriber class called `MyConversationTranscriber`. This is what the code may look like: 
 
 ```csharp
