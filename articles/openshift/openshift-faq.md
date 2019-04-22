@@ -41,8 +41,8 @@ No, not at the current time.
 
 ## Is the Docker registry available externally so I can use tools such as Jenkins?
 
-The Docker registry is available from https://docker-registry.apps.<clustername>.<region>.azmosa.io/ 
-However, a strong storage durability guarantee is not provided. You can also use [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/).
+The Docker registry is available from `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` 
+However, a strong storage durability guarantee is not provided. You can also use [Azure Container Registry](https://azure.microsoft.com/services/container-registry/).
 
 ## Is cross-namespace networking supported?
 
