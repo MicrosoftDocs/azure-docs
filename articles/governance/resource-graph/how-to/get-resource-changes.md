@@ -42,8 +42,7 @@ information in the Azure portal, see Azure Policy's [Change history](../../polic
 ## Find when changes were detected
 
 The first step in seeing what changed on a resource is to find the change events related to that
-resource within a window of time. This step is done through the [resourceChanges](/rest/api/azureresourcegraph/resourceChanges)
-REST endpoint.
+resource within a window of time. This step is done through the **resourceChanges** REST endpoint.
 
 The **resourceChanges** endpoint requires two parameters in the request body:
 
@@ -102,8 +101,7 @@ The change event occurred at some point in this window of time.
 
 ## See what properties changed
 
-With the **changeId** from the **resourceChanges** endpoint, the [resourceChangeDetails](/rest/api/azureresourcegraph/resourceChangeDetails)
-REST endpoint is then used to get specifics of the change event.
+With the **changeId** from the **resourceChanges** endpoint, the **resourceChangeDetails** REST endpoint is then used to get specifics of the change event.
 
 The **resourceChangeDetails** endpoint requires two parameters in the request body:
 
