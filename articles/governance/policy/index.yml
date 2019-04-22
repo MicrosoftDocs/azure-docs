@@ -4,7 +4,6 @@ title: Documentation for the Azure Policy service
 metadata:
   title: Azure Policy Documentation - Tutorials, API Reference
   description: Azure Policy helps you manage and prevent IT issues with policy definitions that enforce rules and effects for your resources. When you use Azure Policy, resources stay compliant with your corporate standards and service level agreements.
-  services: azure-policy
   author: DCtheGeek
   manager: carmonm
   ms.service: azure-policy

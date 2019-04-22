@@ -85,13 +85,9 @@
     - name: Configure dev environments
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
-    - name: Visual Studio Code extension
+    - name: Use Visual Studio Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
-      items:
-      - name: Get started
-        href: how-to-vscode-tools.md
-      - name: Train and deploy
-        href: how-to-vscode-train-deploy.md
+      href: how-to-vscode-tools.md
   - name: Work with data
     displayName: data prep, ETL, ELT, data preparation
     items:
@@ -121,17 +117,24 @@
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
+  - name: Track and monitor experiments
+    items:
+    - name: Start, monitor or cancel runs
+      displayName: cancel, fail, status, child run
+      href: how-to-manage-runs.md
     - name: Log metrics for training runs
       href: how-to-track-experiments.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
-    - name: Configure auto training
+    - name: Use automated ML (Python)
+      displayName: SDK automl
       href: how-to-configure-auto-train.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
-    - name: Auto-train forecast models
+    - name: Auto-train a forecast model
+      displayName: time series
       href: how-to-auto-train-forecast.md
   - name: ONNX models
     href: how-to-build-deploy-onnx.md

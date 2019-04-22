@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 01/07/2019
+ms.date: 04/16/2019
 ms.author: alkohli
 ---
 
 Final step is to prepare the device to ship. In this step, all the device shares are taken offline. The shares cannot be accessed once you start this process.
 
 > [!IMPORTANT]
-> Prepare to ship is required as it flags data that does not conform to Azure naming conventions. Skipping this step could result in potential data upload failures due to non-confirming data.
+> Prepare to ship is required as it flags data that does not conform to Azure naming conventions. Skipping this step could result in potential data upload failures due to non-conforming data.
 
 1. Go to **Prepare to ship** and click **Start preparation**. By default, checksums are computed inline during the prepare to ship. The checksum computation can take hours to days depending upon the size of your data. 
    

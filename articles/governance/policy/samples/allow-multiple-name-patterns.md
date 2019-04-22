@@ -1,7 +1,6 @@
 ---
 title: Sample - multiple name patterns
 description: This sample policy definition requires that resource match one of the provided name patterns.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy

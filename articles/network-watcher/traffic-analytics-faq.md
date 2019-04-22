@@ -128,12 +128,6 @@ No. You can store raw logs in any storage account where an NSG is enabled for fl
 
 Select a supported region. If you select a non-supported region, you receive a "Not found" error. The supported regions are listed earlier in this article.
 
-## Why am I getting the error "Failed to update flow logs settings for ... InternalServerError..." when enabling NSG's in US Gov Virginia?
-
-This is due to a bug where ‘Microsoft.Network’ resource provider is not re-registered for a subscription in US Gov Virginia. The team is working on the fix for this. As a workaround, you would need to [manually re-register ‘Microsoft.Network’ RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
-
-Please contact support if the problem persists. 
-
 ## What if I am getting the status, “Failed to load,” under the NSG flow logs page?
 
 The Microsoft.Insights provider must be registered for flow logging to work properly. If you are not sure whether the Microsoft.Insights provider is registered for your subscription, replace *xxxxx-xxxxx-xxxxxx-xxxx* in the following command, and run the following commands from PowerShell:
@@ -236,13 +230,30 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 ```
 
 
-
 ## How is Traffic Analytics priced?
 
 Traffic Analytics is metered. The metering is based on processing of flow log data by the service, and storing the resulting enhanced logs in a Log Analytics workspace. 
 
 For example, as per the [pricing plan](https://azure.microsoft.com/pricing/details/network-watcher/), considering West Central US region, if flow logs data stored in a storage account processed by Traffic Analytics is 10 GB and enhanced logs ingested in Log Analytics workspace is 1 GB then the applicable charges are:
 10 x 2.3$ + 1 x 2.76$ = 25.76$
+
+## How frequently does Traffic Analytics process data?
+
+Refer to the [data aggregation section](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) in Traffic Analytics Schema and Data Aggregation Document
+
+## How does Traffic Analytics decide that an IP is malicious? 
+
+Traffic Analytics relies on Microsoft internal threat intelligence systems to deem an IP as malicious. These systems leverage diverse telemetry sources like Microsoft products and services,the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds and build a lot of intelligence on top of it. 
+Some of this data is Mircosoft Internal. If a known IP is getting flagged as malicios, please raise a support ticket to know the details.
+
+## How can I set alerts on Traffic Analytics data?
+
+Traffic Analytics does not have inbuilt support for alerts. However, since Traffic Analytics data is stored in Log Analytics you can write custom queries and set alerts on them. 
+Steps :
+- You can use the shortlink for Log Analytics in Traffic Analytics. 
+- Use the [schema documented here](traffic-analytics-schema.md) to write your queries 
+- Click "New alert rule" to create the alert
+- Refer to [log alerts documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) to create the alert
 
 ## How can I navigate by using the keyboard in the geo map view?
 

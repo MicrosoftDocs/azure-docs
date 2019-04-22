@@ -32,7 +32,7 @@ Configure the `Redirect URL` field with the URL for your index.html page based o
 > 2. Copy the value from **URL** to the clipboard:<br/> ![Project properties](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
 > 3. Paste the value as a **Redirect URL** on the top of this page, and then select **Update**.
 
-<p/>
+<p>
 
 > #### Setting redirect URL for Node
 > For Node.js, you can set the web server port in the *server.js* file. This tutorial uses the port 30662 for reference but you can use any other available port. Follow the instructions below to set up a redirect URL in the application registration information:<br/>

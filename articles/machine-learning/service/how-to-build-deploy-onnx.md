@@ -24,6 +24,7 @@ The [Open Neural Network Exchange](https://onnx.ai) (ONNX) format is an open sta
 Microsoft supports ONNX across its products including Azure and Windows to help you achieve these goals.  
 
 ## Why choose ONNX?
+
 The interoperability you get with ONNX makes it possible to get great ideas into production faster. With ONNX, data scientists can choose their preferred framework for the job. Similarly, developers can spend less time getting models ready for production, and deploy across the cloud and edge.  
 
 You can create ONNX models from many frameworks, including PyTorch, Chainer,  MXNet, ML.Net, TensorFlow, Keras, SciKit-Learn, Microsoft Cognitive Toolkit,and more.
@@ -32,7 +33,7 @@ There is also an ecosystem of tools for visualizing and accelerating ONNX models
 
 [ONNX models can be deployed](#deploy) to the cloud using Azure Machine Learning and ONNX Runtime. They can also be deployed to Windows 10 devices using [Windows ML](https://docs.microsoft.com/windows/ai/). They can even be deployed to other platforms using converters that are available from the ONNX community. 
 
-[![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
+[![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## Get ONNX models
 
@@ -139,6 +140,9 @@ Here is an example for deploying an ONNX model:
 
    image.wait_for_creation(show_output = True)
    ```
+
+   > [!TIP]
+   > The previous example uses the default image provided by the Azure Machine Learning service. You can also use a custom image. For more information, see the configure and register image section of [Deploy models](how-to-deploy-and-where.md#configureimage).
 
    The file `score.py` contains the scoring logic and needs to be included in the image. This file is used to run the model in the image. See this [tutorial](tutorial-deploy-models-with-aml.md#create-scoring-script) for instructions on how to create a scoring script. An example file for an ONNX model is shown below:
 

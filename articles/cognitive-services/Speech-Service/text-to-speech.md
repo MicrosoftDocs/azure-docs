@@ -1,27 +1,35 @@
 ---
 title: Text-to-speech with Azure Speech Services
 titleSuffix: Azure Cognitive Services
-description: Text-to-speech from Azure Speech Services is a REST-based service that enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose from standard and neural voices, or create your own custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in 4 languages and locales.
+description: Text-to-speech from Azure Speech Services is a service that enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose from standard and neural voices, or create your own custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in 4 languages and locales.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
 
 # What is text-to-speech?
 
-Text-to-speech from Azure Speech Services is a REST-based service that enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose from standard and neural voices, or create your own custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in 4 languages and locales. For a full list, see [supported languages](language-support.md#text-to-speech).
+Text-to-speech from Azure Speech Services is a service that enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose from standard and neural voices, or create your own custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in 4 languages and locales. For a full list, see [supported languages](language-support.md#text-to-speech).
 
 Text-to-speech technology allows content creators to interact with their users in different ways. Text-to-speech can improve accessibility by providing users with an option to interact with content audibly. Whether the user has a visual impairment, a learning disability, or requires navigation information while driving, text-to-speech can improve an existing experience. Text-to-speech is also a valuable add-on for voice bots and virtual assistants.
 
+### Standard voices
+
+Standard voices are created using Statistical Parametric Synthesis and/or Concatenation Synthesis techniques. These voices are highly intelligible and sound quite natural. You can easily enable your applications to speak in more than 45 languages, with a wide range of voice options. These voices provide high pronunciation accuracy, including support for abbreviations, acronym expansions, date/time interpretations, polyphones, and more. Use standard voice to improve accessibility for your applications and services by allowing users to interact with your content audibly.
+
 ### Neural voices
 
+Neural voices use deep neural networks to overcome the limits of traditional text-to-speech systems in matching the patterns of stress and intonation in spoken language, and in synthesizing the units of speech into a computer voice. Standard text-to-speech breaks down prosody into separate linguistic analysis and acoustic prediction steps that are governed by independent models. That can result in muffled, buzzy voice synthesis. Our neural capability does prosody prediction and voice synthesis simultaneously, which results in a more fluid and natural-sounding voice.
+
 Neural voices can be used to make interactions with chatbots and virtual assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, Neural voices significantly reduce listening fatigue when you interact with AI systems. For more information about neural voices, see [supported languages](language-support.md#text-to-speech).
+
+To learn more about the benefits of neural voices, see [Microsoft’s new neural text-to-speech service helps machines speak like people](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/).
 
 ### Custom voices
 
@@ -40,20 +48,13 @@ This table lists the core features for text-to-speech:
 | Create and manage voice font tests. | No | Yes\* |
 | Manage subscriptions. | No | Yes\* |
 
-\* *These services are available using the cris.ai endpoint. See [Swagger reference](https://westus.cris.ai/swagger/ui/index).*
-
-> [!NOTE]
-> The text-to-speech endpoint implements throttling that limits requests to 25 per 5 seconds. When throttling occurs, you'll be notified via message headers.
+\* *These services are available using the cris.ai endpoint. See [Swagger reference](https://westus.cris.ai/swagger/ui/index). These custom voice training and management APIs implement throttling that limits requests to 25 per 5 seconds, while the speech synthesis API itself implements throttling that allows 200 requests per second as the highest. When throttling occurs, you'll be notified via message headers.*
 
 ## Get started with text to speech
 
 We offer quickstarts designed to have you running code in less than 10 minutes. This table includes a list of text-to-speech quickstarts organized by language.
 
-| Quickstart (REST) | Platform | API reference |
-|------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+### SDK quickstarts
 
 | Quickstart (SDK) | Platform | API reference |
 |------------|----------|---------------|
@@ -61,12 +62,20 @@ We offer quickstarts designed to have you running code in less than 10 minutes. 
 | [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
 | [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
 
+### REST quickstarts
+
+| Quickstart (REST) | Platform | API reference |
+|------------|----------|---------------|
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+
 ## Sample code
 
 Sample code for text-to-speech is available on GitHub. These samples cover text-to-speech conversion in most popular programming languages.
 
-* [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 * [Text-to-speech samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## Reference docs
 

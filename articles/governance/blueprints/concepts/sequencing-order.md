@@ -1,7 +1,6 @@
 ---
 title: Understand the deployment sequence order
 description: Learn about the life-cycle that a blueprint definition goes through and details about each stage.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/25/2019

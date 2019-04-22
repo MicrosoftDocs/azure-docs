@@ -60,4 +60,4 @@ In addition to processing and displaying metrics from Traffic Manager, Azure Mon
 
 ## Next steps
 - Learn more about [Azure Monitor service](../azure-monitor/platform/metrics-supported.md)
-- Learn how to [create a chart using Azure Monitor](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)
+- Learn how to [create a chart using Azure Monitor](../azure-monitor/platform/metrics-getting-started.md#create-your-first-metric-chart)

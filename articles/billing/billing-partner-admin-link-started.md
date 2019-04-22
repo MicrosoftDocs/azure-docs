@@ -147,9 +147,9 @@ You can find influenced revenue reporting at [My Insights dashboard](https://par
 
 You can't see the customer in the reports due to following reasons
 
-1. The linked user account doesn't have [Role Based Access ](https://docs.microsoft.com/azure/role-based-access-control/overview) on any customer Azure subscription or resource.
+1. The linked user account doesn't have [Role Based Access](https://docs.microsoft.com/azure/role-based-access-control/overview) on any customer Azure subscription or resource.
 
-2. The Azure subscription where the user has [Role Based Access ](https://docs.microsoft.com/azure/role-based-access-control/overview) access doesn't have any usage.
+2. The Azure subscription where the user has [Role Based Access](https://docs.microsoft.com/azure/role-based-access-control/overview) access doesn't have any usage.
 
 **Does link partner ID works with Azure Stack?**
 
