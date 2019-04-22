@@ -99,7 +99,7 @@ Select which columns of data to work with.  To start with, configure the module 
 
     In the **Select columns** dialog, select **ALL COLUMNS** and include **all features**. The dialog should look like this:
 
-     ![column-selector](./media/ui-quickstart-run-experiment/select-all.PNG)
+     ![column-selector](./media/ui-quickstart-run-experiment/select-all.png)
 
 1. On the lower right, select the check mark (OK) button to close the column selector.
 
@@ -107,28 +107,11 @@ Select which columns of data to work with.  To start with, configure the module 
 
 At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow.  If the **Visualize** option is disabled, you first need to run the experiment.  You'll do that next.
 
-An experiment runs on a compute target, a compute resource that is attached to your workspace.  Once you create a compute target, you can reuse it for future runs.
+[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
-1. Select **Run** at the bottom to run the experiment.
+After the compute target is available, the experiment runs. When the run is complete, a green checkmark appears on each module.
 
-     ![Run experiment](./media/ui-quickstart-run-experiment/run-experiment.png)
-
-1. When the **Setup Compute Targets** dialog appears, if your workspace already has a compute target, you can select it now.  Otherwise, select **Create new**.
-
-1. Provide a name for your compute target. 
-
-1. Select **Run**.
-
-    ![Setup compute target](./media/ui-quickstart-run-experiment/set-compute.png)
-
-    Your compute resource will now be created. View the status in the top-right corner of the experiment. 
-
-    > [!NOTE]
-    > It takes approximately 10 minutes to create a compute target. After the resource is created, you can reuse it and skip this wait time for future runs.
-
-    After the compute target is available, the experiment runs. When the run is complete, a green checkmark appears on each module.
-
-    ![View status](./media/ui-quickstart-run-experiment/status1.png)
+![View status](./media/ui-quickstart-run-experiment/status1.png)
 
 ## Preview the data
 
