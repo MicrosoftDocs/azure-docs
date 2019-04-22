@@ -62,7 +62,7 @@ The Azure Database for PostgreSQL service uses a firewall at the server-level. B
 
 4. Click the link **+ Add firewall rule for current client IP address**. Finally, click the **Save** button.
 
-4. Click **Save**.
+5. Click **Save**.
 
    > [!NOTE]
    > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 5432.
@@ -70,7 +70,7 @@ The Azure Database for PostgreSQL service uses a firewall at the server-level. B
 
 ## Connect to the database using psql in Cloud Shell
 
-Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) command-line utility to connect to the Azure Database for PostgreSQL server. 
+Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) command-line utility to connect to the Azure Database for PostgreSQL server.
 1. Launch the Azure Cloud Shell via the terminal icon on the top navigation pane.
 
    ![Azure Database for PostgreSQL - Azure Cloud Shell terminal icon](./media/tutorial-design-database-hyperscale-realtime/psql-cloud-shell.png)
@@ -144,7 +144,7 @@ You can see the newly created tables in the list of tables now by typing:
 
 A hyperscale deployment stores table rows on different nodes based on the value of a user-designated column. This "distribution column" marks how data is sharded across nodes.
 
-Let's set the distribution column to be site\_id, the shard 
+Let's set the distribution column to be site\_id, the shard
 key. In psql, run these functions:
 
   ```sql
@@ -154,7 +154,7 @@ SELECT create_distributed_table('http_request_1min', 'site_id');
 
 ## Generate sample data
 
-Now our server group should be ready to ingest some data. We can run the 
+Now our server group should be ready to ingest some data. We can run the
 following locally from our `psql` connection to continuously insert data.
 
 ```sql
@@ -188,7 +188,7 @@ The query adds a row approximately every quarter second. The rows are stored on 
    > connection for the remaining commands in this tutorial.
    >
 
-## Query 
+## Query
 
 The hyperscale hosting option allows multiple nodes to process queries in
 parallel for speed. For instance, the database calculates aggregates like SUM
@@ -257,7 +257,7 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-With our function in place rolling up our data can be run with a single 
+With our function in place rolling up our data can be run with a single
 function:
 
 ```sql
