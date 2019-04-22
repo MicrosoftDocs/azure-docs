@@ -3,7 +3,7 @@ title: mobile app that calls Web APIs - acquiring a token for the app | Azure
 description: Learn how to build a mobile app that calls Web APIs (acquiring a token for the app)
 services: active-directory
 documentationcenter: dev-center-name
-author: dadobali
+author: danieldobalian
 manager: CelesteDG
 editor: ''
 
