@@ -121,7 +121,7 @@ If your organization allows it, you can renew an Office 365 group, extending you
 ### To renew a group
 1. Select the Office 365 group you want to renew, and then select **Renew group**.
 
-    ![Renew an Office 365 group expiration date](media/my-apps-portal/my-apps-portal-renew-group-link.png)
+    ![Renew an Office 365 group, extending the expiration date](media/my-apps-portal/my-apps-portal-renew-group-link.png)
 
 2. Click **OK** to close the confirmation message.
 
