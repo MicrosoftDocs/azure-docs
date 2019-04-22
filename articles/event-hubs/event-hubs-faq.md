@@ -49,11 +49,19 @@ Event Hubs Standard tier currently supports a maximum retention period of seven 
 Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
 ### What ports do I need to open on the firewall? 
-If want to use the **Advanced Message Queueing Protocol (AMQP)** protocol (recommended), open the following TCP ports: **5671** and **5672**. For more informationm, see [AMQP protocol guide](service-bus-amqp-protocol-guide.md). 
+You can use the following protocols with Azure Service Bus to send and receive messages:
 
-If you're using the **Service Bus Message Protocol (SBMP)** protocol (old), the following ports are used: **9350** to **9354**. For more information, see [Connectivity mode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet). 
+- Advanced Message Queuing Protocol (AMQP)
+- HTTP
+- Apache Kafka
 
-If you're using **REST API**, open the port: **443**. 
+See the following table for the outbound ports you need to open to use these protocols to communicate with Azure Event Hubs. 
+
+| Protocol | Ports | Details | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 and 5672 | See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
+| HTTP, HTTPS | 80, 443 |  |
+| Kafka | 9092 | See [Use Event Hubs from Kafka applications](event-hubs-for-kafka-ecosystem-overview.md)
 
 ## Apache Kafka integration
 
