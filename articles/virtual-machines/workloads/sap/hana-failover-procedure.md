@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -31,35 +31,20 @@ There are two cases to consider when failing over to the DR site:
 >[!NOTE]
 >The following steps need to be executed on the HANA Large Instance unit, which represents the DR unit. 
  
-To restore to the latest replicated storage snapshots, perform the following steps: 
+To restore to the latest replicated storage snapshots, perform the steps as listed in the section **'Perform full DR failover - azure_hana_dr_failover'** of the document [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
-1. Shut down the non-production instance of HANA on the disaster recovery unit of HANA Large Instances that you're running. This is because there is a dormant HANA production instance pre-installed.
-1. Make sure that no SAP HANA processes are running. Use the following command for this check: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. 
-The output should show you the **hdbdaemon** process in a stopped state, and no other HANA processes in a running or started state.
-1. On the DR site HANA Large Instance unit, execute the script *azure_hana_dr_failover.pl*. The script is asking for an SAP HANA SID to be restored. When requested, type in one or the only SAP HANA SID that has been replicated and is maintained in the *HANABackupCustomerDetails.txt* file on the HANA Large Instance unit in the DR site. 
+If you want to have multiple SAP HANA instances failed over, you need to run the azure_hana_dr_failover command several times. When requested, type in the SAP HANA SID you want to fail over and restore. 
 
-      If you want to have multiple SAP HANA instances failed over, you need to run the script several times. When requested, type in the SAP HANA SID you want to fail over and restore. On completion, the script shows a list of mount points of the volumes that are added to the HANA Large Instance unit. This list includes the restored DR volumes as well.
 
-1. Mount the restored disaster recovery volumes by using Linux operating system commands to the HANA Large Instance unit in the disaster recovery site. 
-1. Start the dormant SAP HANA production instance.
-1. If you chose to copy transaction log backup logs to reduce the RPO time, you need to merge those transaction log backups into the newly mounted DR /hana/logbackups directory. Don't overwrite existing backups. Copy newer backups that have not been replicated with the latest replication of a storage snapshot.
-1. You can also restore single files out of the snapshots that have been replicated to the /hana/shared/PRD volume in the DR Azure region. 
-
-You can test the DR failover as well without impacting the actual replication relationship. To perform a test failover, follow the preceding steps 1 and 2, and then continue with the following step 3.
+You can test the DR failover as well without impacting the actual replication relationship. To perform a test failover, follow the steps in **'Perform a test DR failover - azure_hana_test_dr_failover'** of the document [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
 >[!IMPORTANT]
->Do *not* run any production transactions on the instance that you created in the DR site through the process of **testing a failover** with the script introduced in step 3. That command creates a set of volumes that have no relationship to the primary site. As a result, synchronization back to the primary site is *not* possible. 
+>Do *not* run any production transactions on the instance that you created in the DR site through the process of **testing a failover**. That command azure_hana_test_dr_failover creates a set of volumes that have no relationship to the primary site. As a result, synchronization back to the primary site is *not* possible. 
 
-Step 3 for the failover test:
+If you want to have multiple SAP HANA instances to test, you need to run the script several times. When requested, type in the SAP HANA SID of the instance you want to test for failover. 
 
-On the DR site HANA Large Instance unit, execute the script **azure_hana_test_dr_failover.pl**. This script is *not* stopping the replication relationship between the primary site and the DR site. Instead, this script is cloning the DR storage volumes. After the cloning process succeeds, the cloned volumes are restored to the state of the most recent snapshot and then mounted to the DR unit. The script is asking for an SAP HANA SID to be restored. Type in one or the only SAP HANA SID that has been replicated and is maintained in the *HANABackupCustomerDetails.txt* file on the HANA Large Instance unit in the DR site. 
-
-If you want to have multiple SAP HANA instances to test, you need to run the script several times. When requested, type in the SAP HANA SID of the instance you want to test for failover. Upon completion, the script shows a list of mount points of the volumes that are added to the HANA Large Instance unit. This list includes the cloned DR volumes as well.
-
-Continue to step 4.
-
-   >[!NOTE]
-   >If you need to fail over to the DR site to rescue some data that was deleted hours ago and needs the DR volumes to be set to an earlier snapshot, this procedure applies. 
+>[!NOTE]
+>If you need to fail over to the DR site to rescue some data that was deleted hours ago and needs the DR volumes to be set to an earlier snapshot, this procedure applies. 
 
 1. Shut down the non-production instance of HANA on the disaster recovery unit of HANA Large Instances that you're running. This is because there is a dormant HANA production instance pre-installed.
 1. Make sure that no SAP HANA processes are running. Use the following command for this check: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. 
@@ -120,34 +105,9 @@ This is the sequence of steps to take:
 
 ## Monitor disaster recovery replication
 
-You can monitor the status of your storage replication progress by executing the script `azure_hana_replication_status.pl`. This script must be run from a unit running in the disaster recovery location to function as expected. The script works regardless of whether replication is active. The script can be run for every HANA Large Instance unit of your tenant in the disaster recovery location. It cannot be used to obtain details about the boot volume.
+You can monitor the status of your storage replication progress by executing the script `azure_hana_replication_status`. This command must be run from a unit running in the disaster recovery location to function as expected. The command works regardless of whether replication is active. The command can be run for every HANA Large Instance unit of your tenant in the disaster recovery location. It cannot be used to obtain details about the boot volume. For details of the command and its output read **'Get DR replication status - azure_hana_replication_status'** of the document [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
-Call the script with this command:
-```
-./azure_hana_replication_status.pl
-```
-
-The output is broken down, by volume, into the following sections:  
-
-- Link status
-- Current replication activity
-- Latest snapshot replicated 
-- Size of the latest snapshot
-- Current lag time between snapshots (between the last completed snapshot replication and now)
-
-The link status shows as **Active** unless the link between locations is down, or there's a currently ongoing failover event. The replication activity addresses whether any data is currently being replicated or is idle, or if other activities are currently happening to the link. The last snapshot replicated should only appear as `snapmirror…`. The size of the last snapshot is then displayed. Finally, the lag time is shown. The lag time represents the time from the scheduled replication to when the replication finishes. A lag time can be greater than an hour for data replication, especially in the initial replication, even though replication has started. The lag time continues to increase until the ongoing replication finishes.
-
-The following is an example of the output:
-
-```
-hana_data_hm3_mnt00002_t020_dp
--------------------------------------------------
-Link Status: Broken-Off
-Current Replication Activity: Idle
-Latest Snapshot Replicated: snapmirror.c169b434-75c0-11e6-9903-00a098a13ceb_2154095454.2017-04-21_051515
-Size of Latest Snapshot Replicated: 244KB
-Current Lag Time between snapshots: -   ***Less than 90 minutes is acceptable***
-```
 
 **Next steps**
-- Refer  [Monitoring and troubleshooting from HANA side](hana-monitor-troubleshoot.md).
+- Refer  [Monitoring and troubleshooting from HANA side](hana-monitor-troubleshoot
+- .md).
