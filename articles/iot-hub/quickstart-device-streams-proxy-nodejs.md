@@ -18,7 +18,7 @@ ms.author: rezas
 
 Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart guide describes execution of a Node.js proxy application running on the service side to enable SSH and RDP traffic to be sent to the device over a device stream. See [Local proxy sample for SSH or RDP](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) for an overview of the setup. During public preview, Node.js SDK only supports device streams on the service side. As a result, this quickstart guide only covers instructions to run the service-local proxy. You should run an accompanying device-local proxy which is available in [C quickstart](./quickstart-device-streams-proxy-c.md) or [C# quickstart](./quickstart-device-streams-proxy-csharp.md) guides.
+[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart guide describes execution of a Node.js proxy application running on the service side to enable SSH and RDP traffic to be sent to the device over a device stream. See [Local proxy sample for SSH or RDP](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) for an overview of the setup. During public preview, Node.js SDK only supports device streams on the service side. As a result, this quickstart guide only covers instructions to run the service-local proxy. You should run an accompanying device-local proxy which is available in [SSH/RDP over IoT Hub device streams using C proxy apps](./quickstart-device-streams-proxy-c.md) or [SSH/RDP over IoT Hub device streams using C# proxy apps](./quickstart-device-streams-proxy-csharp.md) guides.
 
 We first describe the setup for SSH (using port 22). We then describe how to modify the setup for RDP (which uses port 3389). Since device streams are application and protocol agnostic, the same sample can be modified to accommodate other types of client/server application traffic (usually by modifying the communication port).
 
@@ -87,9 +87,11 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## SSH to a device via device streams
 
+In this section, you establish an end-to-end stream to tunnel SSH traffic.
+
 ### Run the device-local proxy
 
-As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the service side. For device-local application, use the accompanying device proxy programs available in [C quickstart](./quickstart-device-streams-proxy-c.md) or [C# quickstart](./quickstart-device-streams-proxy-csharp.md) guides. Ensure the device-local proxy is running before proceeding to the next step.
+As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the service side. For device-local application, use the accompanying device proxy programs available in [SSH/RDP over IoT Hub device streams using C proxy apps](./quickstart-device-streams-proxy-c.md) or [SSH/RDP over IoT Hub device streams using C# proxy apps](./quickstart-device-streams-proxy-csharp.md) guides. Ensure the device-local proxy is running before proceeding to the next step.
 
 ### Run the service-local proxy
 

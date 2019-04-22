@@ -37,7 +37,7 @@ The figure below illustrates the setup of how the device- and service-local prox
 4. Service-local proxy awaits for new SSH connections from the user by listening on a designated port which in this case is port 2222 (this is also configurable, as described in the [run the device-local proxy application section](#run-the-device-local-proxy-application). When user connects via SSH client, the tunnel enables SSH application traffic to be transferred between the SSH client and server programs.
 
 > [!NOTE]
-> SSH traffic being sent over a device stream will be tunneled through IoT Hub's streaming endpoint rather than being sent directly between service and device. For more information, read about [the benefits of using Iot Hub device streams(iot-hub-device-streams-overview.md#benefits). Furthermore, the figure illustrates the SSH daemon running on the same device (or machine) as the device-local proxy. In this quickstart, providing the SSH daemon IP address allows device-local proxy and daemon to run on different machines as well.
+> SSH traffic being sent over a device stream will be tunneled through IoT Hub's streaming endpoint rather than being sent directly between service and device. For more information, read about [the benefits of using Iot Hub device streams](iot-hub-device-streams-overview.md#benefits). Furthermore, the figure illustrates the SSH daemon running on the same device (or machine) as the device-local proxy. In this quickstart, providing the SSH daemon IP address allows device-local proxy and daemon to run on different machines as well.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -48,6 +48,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * The preview of device streams is currently only supported for IoT Hubs created in the following regions:
 
    * **Central US**
+
    * **Central US EUAP**
 
 * Install [Visual Studio 2017](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
@@ -140,6 +141,8 @@ A device must be registered with your IoT hub before it can connect. In this sec
     You use this value later in the quickstart.
 
 ## SSH to a device via device streams
+
+In this section, you establish an end-to-end stream to tunnel SSH traffic.
 
 ### Run the device-local proxy application
 
