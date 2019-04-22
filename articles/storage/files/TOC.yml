@@ -153,6 +153,8 @@
       href: storage-troubleshoot-windows-file-connection-problems.md
     - name: Troubleshoot Azure Files on Linux
       href: storage-troubleshoot-linux-file-connection-problems.md
+    - name: Troubleshoot Azure premium Files
+      href: storage-troubleshooting-premium-files.md
     - name: Troubleshoot Azure File Sync
       href: storage-sync-files-troubleshoot.md
 - name: Reference
