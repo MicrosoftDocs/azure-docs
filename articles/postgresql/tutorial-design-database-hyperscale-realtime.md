@@ -297,4 +297,4 @@ In this tutorial, you learned how to provision a Hyperscale (Citus) server group
 
 Next, learn about the concepts of hyperscale.
 > [!div class="nextstepaction"]
-> [Hyperscale node types](TODO)
+> [Hyperscale node types](https://aka.ms/hyperscale-concepts)
