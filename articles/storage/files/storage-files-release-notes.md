@@ -61,7 +61,7 @@ Before deploying Azure File Sync, you should evaluate whether it is compatible w
 For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
 
 - The agent installation package must be installed with elevated (admin) permissions.
-- The agent is not supported on Windows Server Core or Nano Server deployment options.
+- The agent is not supported on Nano Server deployment option.
 - The agent is supported only on Windows Server 2019, Windows Server 2016, and Windows Server 2012 R2.
 - The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory.
 - The Storage Sync Agent (FileSyncSvc) service does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
