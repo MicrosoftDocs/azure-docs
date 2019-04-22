@@ -22,7 +22,7 @@ If you are not familiar with Unity, it is recommended to study the [Unity User M
 
 > [!NOTE]
 > The Speech SDK for Unity is currently in beta.
-> It supports Windows Desktop (x86 and x64) or Windows Universal Platform (x86, x64, or ARM64), and Android (ARM32/64, x86).
+> It supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), and Android (x86, ARM32/64).
 
 ## Prerequisites
 
