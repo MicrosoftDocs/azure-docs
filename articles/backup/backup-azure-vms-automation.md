@@ -28,7 +28,6 @@ Before you can back up (or protect) a virtual machine, you must complete the [pr
 - [Review](backup-architecture.md#architecture-direct-backup-of-azure-vms) the architecture for Azure VM backup, [learn about](backup-azure-vms-introduction.md) the backup process, and [review](backup-support-matrix-iaas.md) support, limitations, and prerequisites.
 - Review the PowerShell object hierarchy for Recovery Services.
 
-
 ## Recovery Services object hierarchy
 
 The object hierarchy is summarized in the following diagram.
@@ -50,7 +49,7 @@ To begin:
     ```powershell
     Get-Command *azrecoveryservices*
     ```
- 
+
     The aliases and cmdlets for Azure Backup, Azure Site Recovery, and the Recovery Services vault appear. The following image is an example of what you'll see. It is not the complete list of cmdlets.
 
     ![list of Recovery Services](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
@@ -73,9 +72,11 @@ To begin:
     ```
 
 6. You can verify that the Providers registered successfully, using the following commands:
+
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
+
     In the command output, the **RegistrationState** should change to **Registered**. If not, just run the **[Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** cmdlet again.
 
 
@@ -237,9 +238,49 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > If you are using the Azure Government cloud, then use the value ff281ffe-705c-4f53-9f37-a40e6f2c68f3 for the parameter ServicePrincipalName in [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 >
 
+## Monitoring a backup job
+
+You can monitor long-running operations, such as backup jobs, without using the Azure portal. To get the status of an in-progress job, use the [Get-AzRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet. This cmdlet gets the backup jobs for a specific vault, and that vault is specified in the vault context. The following example gets the status of an in-progress job as an array, and stores the status in the $joblist variable.
+
+```powershell
+$joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress"
+$joblist[0]
+```
+
+The output is similar to the following example:
+
+```
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   ----------
+V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+```
+
+Instead of polling these jobs for completion - which is unnecessary additional code - use the [Wait-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) cmdlet. This cmdlet pauses the execution until either the job completes or the specified timeout value is reached.
+
+```powershell
+Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
+```
+
+## Manage Azure VM backups
+
 ### Modify a protection policy
 
 To modify the protection policy, use [Set-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) to modify the SchedulePolicy or RetentionPolicy objects.
+
+#### Modifying scheduled time
+
+When you create a protection policy, it is assigned a start-time by default. The following examples shows how to modify the start time of a protection policy.
+
+````powershell
+$SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that the customer wants to start the backup)
+$UtcTime = $UtcTime.ToUniversalTime()
+$SchPol.ScheduleRunTimes[0] = $UtcTime
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -SchedulePolicy $SchPol
+````
+
+#### Modifying retention
 
 The following example changes the recovery point retention to 365 days.
 
@@ -263,14 +304,15 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 The default value will be 2, user can set the value with a min of 1 and max of 5. For weekly backup polices, the period is set to 5 and cannot be changed.
 
-## Trigger a backup
+### Trigger a backup
 
-Use [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) to trigger a backup job. If it's the initial backup, it is a full backup. Subsequent backups take an incremental copy. Be sure to use **[Set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext)** to set the vault context before triggering the backup job. The following example assumes the vault context was already set.
+Use [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) to trigger a backup job. If it's the initial backup, it is a full backup. Subsequent backups take an incremental copy. The following example takes a VM backup to be retained for 60 days.
 
 ```powershell
 $namedContainer = Get-AzRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
 $item = Get-AzRecoveryServicesBackupItem -Container $namedContainer -WorkloadType "AzureVM"
-$job = Backup-AzRecoveryServicesBackupItem -Item $item
+$endDate = (Get-Date).AddDays(60).ToUniversalTime()
+$job = Backup-AzRecoveryServicesBackupItem -Item $item -VaultId $targetVault.ID -ExpiryDateTimeUTC $endDate
 ```
 
 The output is similar to the following example:
@@ -286,28 +328,42 @@ V2VM              Backup              InProgress          4/23/2016             
 >
 >
 
-## Monitoring a backup job
+### Change policy for backup items
 
-You can monitor long-running operations, such as backup jobs, without using the Azure portal. To get the status of an in-progress job, use the [Get-AzRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet. This cmdlet gets the backup jobs for a specific vault, and that vault is specified in the vault context. The following example gets the status of an in-progress job as an array, and stores the status in the $joblist variable.
+User can either modify existing policy or change the policy of the backed-up item from Policy1 to Policy2. To switch policies for a backed-up item, simply fetch the relevant policy and back up item and use the [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) command with backup item as the parameter.
+
+````powershell
+$TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
+$anotherBkpItem = Get-AzRecoveryServicesBackupItem -WorkloadType AzureVM -BackupManagementType AzureVM -Name "<BackupItemName>"
+Enable-AzRecoveryServicesBackupProtection -Item $anotherBkpItem -Policy $TargetPol1
+````
+
+The command waits until the configure backup is completed and returns the following output.
 
 ```powershell
-$joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress"
-$joblist[0]
-```
-
-The output is similar to the following example:
-
-```
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
-------------     ---------            ------               ---------                 -------                   ----------
-V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+------------     ---------            ------               ---------                 -------                   -----
+TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
 
-Instead of polling these jobs for completion - which is unnecessary additional code - use the [Wait-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) cmdlet. This cmdlet pauses the execution until either the job completes or the specified timeout value is reached.
+### Stop protection
 
-```powershell
-Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
-```
+#### Retain data
+
+If user wishes to stop protection, they can use the [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS cmdlet. This will stop the scheduled backups but the data backed up until now is retained forever.
+
+````powershell
+$bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -Name "<backup item name>" -VaultId $targetVault.ID
+Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID
+````
+
+#### Delete backup data
+
+In order to completely remove the stored backup data in the vault, just add '-RemoveRecoveryPoints' flag/switch to the ['disable' protection command](#retain-data).
+
+````powershell
+Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID -RemoveRecoveryPoints
+````
 
 ## Restore an Azure VM
 
