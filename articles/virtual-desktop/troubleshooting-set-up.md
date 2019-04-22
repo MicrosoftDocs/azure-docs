@@ -68,7 +68,7 @@ At line:1 char:1
 
 **Cause:** The user who's signed in hasn't been assigned the TenantCreator role in their Azure Active Directory.
 
-**Fix:** Follow the instructions in [Assign the TenantCreator application role to a user in your Azure Active Directory tenant](https://docs.microsoft.com/en-us/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant). After completing the steps, you'll have a user assigned to the TenantCreator role.
+**Fix:** Follow the instructions in [Assign the TenantCreator application role to a user in your Azure Active Directory tenant](https://docs.microsoft.com/en-us/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant). After following the instructions, you'll have a user assigned to the TenantCreator role.
 
 ![Screenshot of TenantCreator role assigned.](media/TenantCreatorRoleAssigned.png)
 
@@ -142,7 +142,7 @@ Example of raw error:
 
 **Cause 2:** Transient error with connection.
 
-**Fix:** Confirm Windows Virtual Desktop environment is healthy by signing in using PowerShell. Complete the manual VM registration instructions in [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
+**Fix:** Confirm Windows Virtual Desktop environment is healthy by signing in using PowerShell. Finish the VM registration manually in [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
 
 **Error:** The Admin Username specified isn't allowed.
 
@@ -383,7 +383,7 @@ Follow these instructions if you're having issues joining VMs to the domain.
 1. Temporarily remove MFA for the account.
 2. Use a service account.
 
-**Error:** Account used during provisioning not having permissions to complete the operation.
+**Error:** The account used during provisioning doesn't have permissions to complete the operation.
 
 **Cause:** The account being used doesn't have permissions to join VMs to the domain due to compliance and regulations.
 
@@ -418,7 +418,7 @@ Follow these instructions to confirm the components are installed and to check f
 
 **Fix 1:** Manually add the missing components to the VMs using [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
 
-**Cause 2:** PowerShell DSC was able to start and execute but failed to complete as it's not able to sign in to Windows Virtual Desktop and obtain needed information.
+**Cause 2:** PowerShell DSC was able to start and execute but failed to complete as it can't sign in to Windows Virtual Desktop and obtain needed information.
 
 **Fix 2:** Confirm the items in the following list.
 
