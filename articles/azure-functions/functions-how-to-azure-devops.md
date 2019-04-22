@@ -30,9 +30,9 @@ You can use the following samples to create your YAML file to build your .NET ap
 
 - Consumption Linux Function App (In Preview): [Sample](https://github.com/Azure/azure-functions-devops-build/blob/master/sample_yaml_builds/linux/consumption/dotnet-consumption.yml)
 
-# [YAML Java Script](#tab/yamljs)
+# [YAML JavaScript](#tab/yamljs)
 
-You can use the following samples to create your YAML file to build your Java Script app targeting:
+You can use the following samples to create your YAML file to build your JavaScript app targeting:
 
 - Windows Function App: [Sample](https://github.com/Azure/azure-functions-devops-build/blob/master/sample_yaml_builds/windows/node-windows.yml)
 
