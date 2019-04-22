@@ -31,7 +31,7 @@ Optionally, you may also have previously exported _learning policy_ files you ca
 
 ## Steps to Start a New Offline Evaluation
 
-1. Locate your Personalization Loop resource in the Azure Portal.
+1. Locate your Personalization Loop resource in the Azure portal.
 1. Navigate to the "Evaluation" section.
 1. Click on New Evaluation
 1. Select a start and end date for the offline evaluation. These are dates in the past, that specify the range of data to use in the evaluation. This data must be present in the logs, as specified in the [Data Retention](how-to-settings.md) setting.
