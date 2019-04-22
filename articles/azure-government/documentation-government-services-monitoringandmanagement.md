@@ -33,7 +33,7 @@ The following Advisor recommendations are not currently available in Azure Gover
 * Performance
   * Improve App Service performance and reliability
   * Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
-  * Improve SQL Datawarehouse performance
+  * Improve SQL Data Warehouse performance
   * Use Premium Storage
   * Migrate your Storage Account to Azure Resource Manager
 * Cost
@@ -41,7 +41,7 @@ The following Advisor recommendations are not currently available in Azure Gover
   * Eliminate unprovisioned ExpressRoute circuits
   * Delete or reconfigure idle virtual network gateways
 
-The calculation used to recommend that you should right-size or shutdown underutilized virtual machines is as follows in Azure Government:
+The calculation used to recommend that you should right-size or shut down underutilized virtual machines is as follows in Azure Government:
 
 Advisor monitors your virtual machine usage for 7 days and identifies low-utilization virtual machines. Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2% or if the current workload can be accommodated by a smaller virtual machine size. If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 
@@ -135,15 +135,15 @@ For more information on using PowerShell, see [public documentation](https://doc
 Metrics are generally available in Azure Government. However, multi-dimensional metrics are supported only via the REST API. The ability to [show multi-dimensional metrics](../azure-monitor/platform/metrics-charts.md) is in preview in the Azure Government portal.
 
 #### Metric Alerts
-The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*.  The second generation of metric alerts (also called the [unified alerts experience](../azure-monitor/platform/alerts-overview.md)) is now also available, but with a reduced set of resource providers [compared to the public cloud](../azure-monitor/platform/alerts-metric-near-real-time.md). More will be added over time. 
+The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*.  The second-generation of metric alerts (also called the [unified alerts experience](../azure-monitor/platform/alerts-overview.md)) is now also available, but with a reduced set of resource providers [compared to the public cloud](../azure-monitor/platform/alerts-metric-near-real-time.md). More will be added over time. 
 
-The resources currently supported in the second generation alerts experience are:
+The resources currently supported in the second-generation alerts experience are:
 - Microsoft.Compute/virtualMachines
 - Microsoft.OperationalInsights/workspaces
 - Microsoft.PowerBIDedicated/capacities
 - Microsoft.Storage/accounts
 
-You can still use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md) for resources not yet available in the second generation of alerts. 
+You can still use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md) for resources not yet available in the second-generation of alerts. 
 
 When using PowerShell/ARM/Rest calls to create metric alerts, you will need to set the "Location" of the metric alert to "USGov Virginia" or "USGov Iowa". An example of the setting is below:
 
