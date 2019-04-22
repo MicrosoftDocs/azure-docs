@@ -15,7 +15,7 @@ ms.date: 05/06/2019
 ---
 # SQL Database serverless (preview) compute tier provides compute and memory resources only as needed
 
-## What is the serverless compute tier versus the provisioned compute tier
+## What is the serverless compute tier
 
 SQL Database serverless is a compute tier that bills for the amount of compute used by a single database on a per second basis. Serverless is price-perf optimized for single databases with bursty usage patterns that can afford some delay in compute warm-up after idle usage periods.
 In contrast, publicly available offers in SQL Database today bill for the amount of compute provisioned on an hourly basis. This provisioned compute tier is price-perf optimized for single databases or elastic pools with higher average usage that cannot afford any delay in compute warm-up.
