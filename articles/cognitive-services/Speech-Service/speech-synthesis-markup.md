@@ -98,4 +98,6 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 
 ## Next steps
 
+For more information on SSML including tags that weren't discussed here, check out the [Cortana SSML reference](https://docs.microsoft.com/en-us/cortana/skills/speech-synthesis-markup-language). All SSML specs covered there apply to Speech Services as well.
+
 * [Language support: voices, locales, languages](language-support.md)
