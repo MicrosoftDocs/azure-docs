@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 04/19/2019
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -35,7 +35,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 ## Auto-failover group terminology and capabilities
 
-- **Failover group**
+- **Failover group (FOG)**
 
   A failover group is a group of databases managed by a single SQL Database server or within a single managed instance that can fail over as a unit to another region in case all or some primary databases become unavailable due to an outage in the primary region.
 
@@ -72,11 +72,11 @@ To achieve real business continuity, adding database redundancy between datacent
 
   - **SQL Database server DNS CNAME record for read-write listener**
 
-     On a SQL Database server, the DNS CNAME record for the failover group that points to the current primary's URL is formed as `failover-group-name.database.windows.net`.
+     On a SQL Database server, the DNS CNAME record for the failover group that points to the current primary's URL is formed as `<fog-name>.database.windows.net`.
 
   - **Managed Instance DNS CNAME record for read-write listener**
 
-     On a Managed Instance, the DNS CNAME record for the failover group that points to the current primary's URL is formed as `failover-group-name.zone_id.database.windows.net`.
+     On a Managed Instance, the DNS CNAME record for the failover group that points to the current primary's URL is formed as `<fog-name>.zone_id.database.windows.net`.
 
 - **Failover group read-only listener**
 
@@ -84,11 +84,11 @@ To achieve real business continuity, adding database redundancy between datacent
 
   - **SQL Database server DNS CNAME record for read-only listener**
 
-     On a SQL Database server, the DNS CNAME record for the read-only listener that points to the secondary's URL is formed as `failover-group-name.secondary.database.windows.net`.
+     On a SQL Database server, the DNS CNAME record for the read-only listener that points to the secondary's URL is formed as `'.secondary.database.windows.net`.
 
   - **Managed Instance DNS CNAME record for read-only listener**
 
-     On a Managed Instance, the DNS CNAME record for the read-only listener that points to the secondary's URL is formed as `failover-group-name.zone_id.database.windows.net`.
+     On a Managed Instance, the DNS CNAME record for the read-only listener that points to the secondary's URL is formed as `<fog-name>.zone_id.database.windows.net`.
 
 - **Automatic failover policy**
 
@@ -151,11 +151,11 @@ When designing a service with business continuity in mind, follow these general 
 
 - **Use read-write listener for OLTP workload**
 
-  When performing OLTP operations, use `failover-group-name.database.windows.net` as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. Note the failover involves updating the DNS record so the client connections are redirected to the new primary only after the client DNS cache is refreshed.
+  When performing OLTP operations, use `<fog-name>.database.windows.net` as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. Note the failover involves updating the DNS record so the client connections are redirected to the new primary only after the client DNS cache is refreshed.
 
 - **Use read-only listener for read-only workload**
 
-  If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use `failover-group-name.secondary.database.windows.net` as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate in connection string read intent by using **ApplicationIntent=ReadOnly**.
+  If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use `<fog-name>.secondary.database.windows.net` as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate in connection string read intent by using **ApplicationIntent=ReadOnly**.
 
 - **Be prepared for perf degradation**
 
@@ -201,7 +201,7 @@ If your application uses Managed Instance as the data tier, follow these general
 
 - **Use read-write listener for OLTP workload**
 
-  When performing OLTP operations, use `failover-group-name.zone_id.database.windows.net` as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. The failover involves updating the DNS record, so the client connections are redirected to the new primary only after the client DNS cache is refreshed. Because the secondary instance shares the DNS zone with the primary, the client application will be able to re-connect to it using the same SAN certificate.
+  When performing OLTP operations, use `<fog-name>.zone_id.database.windows.net` as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. The failover involves updating the DNS record, so the client connections are redirected to the new primary only after the client DNS cache is refreshed. Because the secondary instance shares the DNS zone with the primary, the client application will be able to re-connect to it using the same SAN certificate.
 
 - **Connect directly to geo-replicated secondary for read-only queries**
 
@@ -209,8 +209,8 @@ If your application uses Managed Instance as the data tier, follow these general
 
   > [!NOTE]
   > In certain service tiers, Azure SQL Database supports the use of [read-only replicas](sql-database-read-scale-out.md) to load balance read-only query workloads using the capacity of one read-only replica and using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
-  > - To connect to a read-only replica in the primary location, use `failover-group-name.zone_id.database.windows.net`.
-  > - To connect to a read-only replica in the secondary location, use `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - To connect to a read-only replica in the primary location, use `<fog-name>.zone_id.database.windows.net`.
+  > - To connect to a read-only replica in the secondary location, use `<fog-name>.secondary.zone_id.database.windows.net`.
 
 - **Be prepared for perf degradation**
 
