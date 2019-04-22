@@ -29,13 +29,13 @@ Microsoft identity platform connects and secures over 1 billion monthly active u
   
 Microsoft identity platform unifies application development for various Microsoft identities. Whether your app needs to authenticate users with work or school accounts (provisioned through Azure AD) or personal accounts (known as Microsoft accounts (MSA), such as @outlook.com), the unified platform simplifies getting authentication integrated into your app. The unified Microsoft identity platform lets developers write code once and have the code work with all the applicable user identities. Developers can build an app once and have it work across many platforms, or build an app that functions as a client and a resource application (API).
 
-# Getting started
+## Getting started
 
 Working with identity doesn’t have to be hard. However, it's important to know the basics and choose the right flow for the scenario. It's also important to follow principles and patterns necessary to ensure secure configuration of the application, and secure DevOps processes to ensure that the app won't be compromised in the course of its lifecycle.
 
 The following diagram outlines key authentication concepts and best practices for common application scenarios – we recommend that you reference it when integrating the Microsoft identity platform with your app:
 
-[![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios.png)](./media/v2-overview/application-scenarios.svg#lightbox)
+[![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
 Choose a scenario that applies to you. Start by reviewing the **Prerequisites**, which are core authentication concepts that apply to all app scenarios. Each scenario path has a quickstart to get you up and running in minutes and an overview of scenario and other specifics you need to know:
 
