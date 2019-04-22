@@ -352,7 +352,7 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 - IsServicePrincipal: **true**
 - AadTenantId: The Azure AD Tenant ID of the service principal you created
 
-## Session host VMs configuration
+## Session host VM configuration
 
 Use this section to troubleshoot issues when configuring the session host VMs.
 
