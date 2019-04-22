@@ -170,4 +170,4 @@ Create the home page URL, and update your app with that value. Continue using th
 ## Next steps
 
 - [Enable remote access to SharePoint with Azure AD Application Proxy](application-proxy-integrate-with-sharepoint-server.md)
-- [Enable Application Proxy in the Azure portal](application-proxy-add-on-premises-application.md)
+- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
