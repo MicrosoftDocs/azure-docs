@@ -101,7 +101,7 @@ For example, follow the steps below to install the **[glue](https://cran.r-proje
 
     **Results**
 
-    ![Contents of the RTestData table](./media/sql-database-connect-query-r/r-verify-package-install.png)
+    ![Contents of the RTestData table](./media/sql-database-quickstart-r-create-script/r-verify-package-install.png)
 
 Once the package is installed, you can use it in an R script through **sp_execute_external_script**.
 
