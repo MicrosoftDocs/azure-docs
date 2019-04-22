@@ -28,8 +28,10 @@ Azure Machine Learning service provides a cloud-based environment you can use to
 
 [![Azure Machine Learning service workflow](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
-Support for a visual interface (preview) and rich tools makes it easy to interactively explore and prepare data and then develop and test models. Examples include the visual interface in which you can drag-n-drop modules to build your experiments, and  [Jupyter notebooks](https://jupyter.org) or the [Azure Machine Learning for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) extension.
-
+Interactively explore and prepare data, train and test models, and deploy them using rich tools such as:
++ A visual interface in which you can drag-n-drop modules to build your experiments and then deploy models
++ [Jupyter notebooks](https://jupyter.org)  in which you use the SDKs to write your own code, such as [these sample notebooks](https://aka.ms/aml-notebooks)   
++ [Visual Studio Code extension](how-to-vscode-tools.md)
 
 ## What can I do with Azure Machine Learning service?
 
@@ -39,20 +41,20 @@ You can choose from many machine learning components available in open-source Py
 
 Whether you write code or use the visual interface, you can track multiple runs as you experiment to find the best solution as well as manage the deployed models.
 
-## Code-first experience
+### Code-first experience
 
 Start training on your local machine using the <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> and then scale out to the cloud. With many available [compute targets](how-to-set-up-training-targets.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
 
 You can also [automate model training and tuning](tutorial-auto-train-models.md) using the SDK.
 
-## Code-free / low code experience
+### Code-free / low code experience
 
 For code-free training, try:
 + The visual interface for drag-n-drop experimenting and deployment
 + The Azure portal option for automated ML experiments. 
 
 
-## Operationalization (MLOps)
+### Operationalization (MLOps)
 
 When you have the right model, you can easily use it in a web service, on an IoT device, or from Power BI. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md). 
 
@@ -67,14 +69,27 @@ To get started using Azure Machine Learning service, see [Next steps](#next-step
 
 ## How does Azure Machine Learning service differ from Studio?
 
-[Azure Machine Learning Studio](../studio/what-is-ml-studio.md) is a collaborative, drag-and-drop visual workspace where you can build, test, and deploy machine learning solutions without needing to write code. It uses prebuilt and preconfigured machine learning algorithms and data-handling modules.
+[Machine Learning Studio](../studio/what-is-ml-studio.md) is a collaborative, drag-and-drop visual workspace where you can build, test, and deploy machine learning solutions without needing to write code. It uses prebuilt and preconfigured machine learning algorithms and data-handling modules as well as a proprietary compute platform.
 
-Use Machine Learning Studio when you want to experiment with machine learning models quickly and easily, and the built-in machine learning algorithms are sufficient for your solutions.
+Azure Machine Learning service provides both SDKs **-and-** a visual interface(Preview), to quickly prep data, train and deploy machine learning models. This visual interface (Preview) provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the visual interface uses your own compute resources and is fully integrated into Azure Machine Learning service.
 
-Use Machine Learning service if you work in a Python environment, you want more control over your machine learning algorithms, or you want to use open-source machine learning libraries.
+Here is a quick comparison.
+
+|| Machine Learning Studio | Azure Machine Learning service|
+|---| --- | --- |
+|Visual interface| yes (GA) | yes (preview)|
+|Modules for interface| Many | Initial set of popular Python modules|
+|Training compute targets| Proprietary compute target, CPU support only| Several types of computes<br/> visual interface supports Azure Machine Learning compute only.|
+|Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options & [several types of targets](how-to-deploy-and-where.md)<br/>Visual interface supports Azure Kubernetes Service only |
+|SDKs| None | [Python SDK](https://aka.ms/aml-sdk) |
+|Automated model training and hyperparameter tuning | No | Yes, in the SDK. <br/>Not yet in interface| 
+|ML multi-step pipelines|No | Yes, in the SDK| 
+|Accepts Azure Open Datasets|No |Yes, in preview| 
+
+Try out the visual interface (Preview) with [Quickstart: Prepare and visualize data without writing code](ui-quickstart-run-experiment.md)
 
 > [!NOTE]
-> Models created in Azure Machine Learning Studio can't be deployed or managed by Azure Machine Learning service.
+> Models created in Studio can't be deployed or managed by Azure Machine Learning service. However, models created and deployed in the service visual interface can be managed through the Azure Machine Learning service workspace.
 
 ## Free trial
 
