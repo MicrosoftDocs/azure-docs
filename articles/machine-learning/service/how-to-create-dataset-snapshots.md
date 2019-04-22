@@ -17,7 +17,11 @@ ms.date: 05/02/2019
 
 When you create a snapshot of an Azure Machine Learning Dataset, you generate the current data profile, and have the option to save a copy of that data. With snapshots, you can compare your data between training runs and model production, or use them to monitor the evolution of your data as it changes.
 
-In this article, you learn how to take a Dataset snapshot, how to access its data profile and data copy, and how to delete it with the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+In this article, you use the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)  how to do the following tasks:
+
+* Take a Dataset snapshot
+* Access a snapshot's data profile and data copy
+* Delete a snapshot
 
 ## Prerequisites
 
@@ -159,3 +163,4 @@ dataset.get_all_snapshots()
 ## Next steps
 
 * See the automated machine learning [tutorial](tutorial-auto-train-models.md) for a regression model example.
+* See the SDK [overview](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) for design patterns and usage examples
