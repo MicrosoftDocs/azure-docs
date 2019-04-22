@@ -65,8 +65,6 @@ When importing the PDF document, QnA Maker determines follow-up prompts from the
 1. Select **Add QnA pair**. 
 1. Enter the new question text, `Give feedback.` with an answer of `What kind of feedback do you have?`.
 
-    ![![Enter the new conversational state follow-up prompt question text, `Give feedback.`](../media/conversational-context/add-parent-question-for-conversation-flow.png)](../media/conversational-context/add-parent-question-for-conversation-flow.png#lightbox)
-
 1. In the **Answer** column for this question, select **Add follow-up prompt**. 
 1. The **Follow-up prompt** pop-up dialog allows you to search for an existing question or enter a new question. In this procedure, enter the text `Feedback on an QnA Maker service`, for the **Display text**. 
 1. Check **Context-only**. The **Context-only** option indicates that this user text will be understood _only_ if given in response to the previous question. For this scenario, the prompt text doesn't make any sense as a stand-alone question, it only makes sense from the context of the previous question.
