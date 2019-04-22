@@ -70,7 +70,8 @@ To perform the steps described in this article, you must have:
 
      ![Select VPN][api-management-setup-vpn-select]
 
-5. Click **Save** at the top of the screen.
+5. Click **Save** in the top navigation bar.
+6. Click **Apply network configuration** in the top navigation bar.
 
 > [!NOTE]
 > The VIP address of the API Management instance will change each time VNET is enabled or disabled.
