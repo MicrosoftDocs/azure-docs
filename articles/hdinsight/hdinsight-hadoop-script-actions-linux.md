@@ -1,15 +1,12 @@
 ---
-title: Script action development with Linux-based HDInsight - Azure 
-description: 'Learn how to use Bash scripts to customize Linux-based HDInsight clusters. The script action feature of HDInsight allows you to run scripts during or after cluster creation. Scripts can be used to change cluster configuration settings or install additional software.'
-services: hdinsight
+title: Develop script actions to customize Azure HDInsight clusters
+description: Learn how to use Bash scripts to customize HDInsight clusters. Script actions allow you to run scripts during or after cluster creation to change cluster configuration settings or install additional software.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: hrasheed
 ---
 
 # Script action development with HDInsight
