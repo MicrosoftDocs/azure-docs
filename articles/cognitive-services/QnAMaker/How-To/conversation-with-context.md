@@ -37,12 +37,20 @@ When the user selects a choice (#3), then the next list of refining choices (#4)
 
 You need to change your client application to manage the contextual conversation.
 
-## Create contextual conversation from imported document's structure
+## Create contextual conversation from document's structure
 
-If you import a document, contextual conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you, as part of the document import. 
-<!--
-![If you import a document, contextual conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you, as part of the document import.](./media/conversational-context/import-file-with-converational-structure.png)
--->
+If you import a document, contextual conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you. 
+
+The following image of a Microsoft Surface [PDF file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf) is meant to be used as a manual. 
+
+![![If you import a document, contextual conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you, as part of the document import.](../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+
+When importing the PDF document, QnA Maker determines follow-up prompts from the structure to create conversational flow. 
+
+![![When importing the PDF document, QnA Maker determines follow-up prompts from the structure to create conversational flow. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+
+
+
 ## Filter questions and answers by context
 
 1. Reduce the question and answer pairs displayed to just those with contextual conversations. Select **View options**, then select **Show context (PREVIEW)**. The list will be empty until you add the first question and answer pair with a follow-up prompt. 
@@ -105,10 +113,9 @@ In the knowledge base, when a question-and-answer pair is linked to follow-up pr
 
 ## Test the QnA set to get all the follow-up prompts
 
-Select the **Test** pane and enter the question, `Give feedback`. The test result includes the two follow-up prompts as question IDs.
+When testing the question with follow-up prompts in the **Test** pane, the response includes the follow-up prompts.
 
-![Select Test pane and enter the question, `Give feedback`. The test result includes the two child questions.](../media/conversational-context/test-pane-parent-question-prompts-to-child-questions.png)
-
+![When testing the question in the Test pane, the response includes the follow-up prompts.](../media/conversational-context/test-pane-with-question-having-follow-up-prompts.png)
 
 ## JSON response for prompts
 
