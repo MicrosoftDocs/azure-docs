@@ -127,7 +127,7 @@ Save the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output 
 
 ### Sign in to Azure Resource Manager
 
-First, sign in to your Azure account from within the PowerShell environment by using the [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet.
+First, sign in to your Azure account from within the PowerShell environment by using the [Connect-AzAccount](powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ### Get the Web Service Definition object
 

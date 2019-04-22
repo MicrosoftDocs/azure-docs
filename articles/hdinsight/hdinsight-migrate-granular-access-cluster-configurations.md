@@ -54,28 +54,28 @@ See the below sections (or use the above links) to see the migration steps for y
 The following APIs will be changed or deprecated:
 
 - [**GET /configurations/{configurationName}**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (sensitive information removed)
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations/{configurationName}?api-version={api-version}
+https:\//management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations/{configurationName}?api-version={api-version}
     - Previously used to obtain individual configuration types (including secrets).
-    - This API call will now return individual configuration types with secrets omitted. To obtain all configurations, including secrets, use the new [POST /configurations]() call. To obtain just gateway settings, use the new [POST /getGatewaySettings]() call.
+    - This API call will now return individual configuration types with secrets omitted. To obtain all configurations, including secrets, use the new POST /configurations call. To obtain just gateway settings, use the new POST /getGatewaySettings call.
 - [**GET /configurations**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configurations) (deprecated)
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations?api-version={api-version}
+https:\//management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations?api-version={api-version}
     - Previously used to obtain all configurations (including secrets)
-    - This API call will no longer be supported. To obtain all configurations going forward, use the new [POST /configurations]() call. To obtain configurations with sensitive parameters omitted, use the [GET /configurations/{configurationName}]() call.
+    - This API call will no longer be supported. To obtain all configurations going forward, use the new POST /configurations call. To obtain configurations with sensitive parameters omitted, use the GET /configurations/{configurationName} call.
 - [**POST /configurations/{configurationName}**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#change-connectivity-settings) (deprecated)
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations/{configurationName}?api-version={api-version}
+https:\//management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations/{configurationName}?api-version={api-version}
     - Previously used to update gateway credentials.
-    - This API call will be deprecated and no longer supported. Use the new [POST /updateGatewaySettings]() instead.
+    - This API call will be deprecated and no longer supported. Use the new POST /updateGatewaySettings instead.
 
 The following replacement APIs have been added:</span>
 
 - **POST /configurations**
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations?api-version={api-version}
+https:\//management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations?api-version={api-version}
     - Use this API to obtain all configurations, including secrets.
 - **POST /getGatewaySettings**
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/getGatewaySettings?api-version={api-version}
+https:\//management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/getGatewaySettings?api-version={api-version}
     - Use this API to obtain gateway settings.
 - **POST /updateGatewaySettings**
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/updateGatewaySettings?api-version={api-version}
+https:\//management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/updateGatewaySettings?api-version={api-version}
     - Use this API to update gateway settings (username and/or password).
 
 ### Azure HDInsight Tools for Visual Studio Code
