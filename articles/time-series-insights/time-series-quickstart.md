@@ -17,17 +17,19 @@ ms.date: 04/22/2019
 
 A quickstart explorer is provided to get started with Azure Time Series Insights in a free demonstration environment. Through it, you'll learn how to use your web browser to visualize large volumes of IoT data and tour key features presently in general availability.
 
-Azure Time Series Insights is a fully managed analytics, storage, and visualization service that simplifies how to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time. 
+Azure Time Series Insights is a fully managed analytics, storage, and visualization service that simplifies how to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution, and avoid costly downtime to mission-critical devices. Through Azure Time Series Insights, you can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time.
 
-For additional flexibility, Azure Time Series Insights can be added to a pre-existing application through its powerful REST API's. The API's allow you to store, query time series data, and consume time series data in a client application of your choice.
+For additional flexibility, Azure Time Series Insights can be added to a pre-existing application through its powerful REST API and client SDK. The API allow you to store, query time series data, and consume time series data in a client application of your choice. You may also choose to use the client SDK to add UI components to your existing application.
 
-## Explore Time Series Insights explorer in a demo environment
+The Time Series Insights explorer is a guided tour of features presently in general availability.
 
-The Time Series Insights explorer is a guided tour of features presently in general availability. The following steps describe the guided demo.
+## Explore the demo environment
 
-1. Create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) if one hasn't been created.
+The following steps describe the guided demo.
 
-1. In your browser, navigate to <a href="https://insights.timeseries.azure.com/demo" target="_blank" rel="external noopener noreferrer">https://insights.timeseries.azure.com/demo</a>.
+1. Create a <a href="https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio" target="_blank" rel="external noopener noreferrer">free Azure account</a> if one hasn't been created.
+
+1. In your browser, navigate to the <a href="https://insights.timeseries.azure.com/demo" target="_blank" rel="external noopener noreferrer">general availability demo</a>.
 
 1. If prompted, log in to the Time Series Insights explorer using your Azure account credentials.
 
@@ -40,10 +42,10 @@ The Time Series Insights explorer is a guided tour of features presently in gene
    ![Time selection panel](media/quickstart/quickstart2.png)
 
 1. Click and drag in the region, then click the **Search** button.
- 
+
    ![Select a time frame](media/quickstart/quickstart3.png)
 
-   Time Series Insights displays a chart visualization for the time frame you specified. You can do various actions within with the line chart, such as filtering, pinning, sorting, and stacking. 
+   Time Series Insights displays a chart visualization for the time frame you specified. You can do various actions within with the line chart, such as filtering, pinning, sorting, and stacking.
 
    To return to the **Time selection panel**, click the down arrow as shown:
 
