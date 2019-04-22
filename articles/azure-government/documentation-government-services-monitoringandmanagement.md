@@ -158,7 +158,7 @@ For more information on using PowerShell, see [public documentation](../azure-mo
 ## Application Insights
 
 > [!NOTE]
-> Codeless agent based monitoring for Azure App Services is not currently not supported. Snapshot Debugger is also not currently available in Azure Government. As soon as this functionality becomes available this article will be updated.
+> Codeless agent based monitoring for Azure App Services is **currently not supported**. Snapshot Debugger is also not currently available in Azure Government. As soon as this functionality becomes available this article will be updated.
 
 ### SDK endpoint modifications
 
