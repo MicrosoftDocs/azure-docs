@@ -2288,4 +2288,4 @@ A nested query applies the inner query to each element of the outer container. O
 
 [1]: ./media/how-to-sql-query/sql-query1.png
 [introduction]: introduction.md
-[consistency-levels]: consistency.md
+[consistency-levels]: consistency-levels.md
