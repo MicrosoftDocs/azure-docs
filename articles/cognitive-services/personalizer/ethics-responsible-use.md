@@ -1,6 +1,6 @@
 ---
-title: Ethics and responsible use
-titleSuffix: Personalizer - Azure Cognitive Services
+title: Ethics and responsible use -Personalizer
+titleSuffix: Azure Cognitive Services
 description: These guidelines are aimed at helping you to implement personalization in a way that helps you build trust in your company and service. Be sure to pause to research, learn and deliberate on the impact of the personalization on people’s lives. When in doubt, seek guidance.
 author: edjez
 manager: nitinme
@@ -156,7 +156,7 @@ Any person thinking about side effects of use of any technology is limited by th
 
 Consider responsible use tasks just like other tasks in user experience, security, or DevOps. These crosscutting concerns shouldn't be an afterthought. Responsible use should be discussed and verified throughout the application lifecycle. 
 
-# Recommended reading
+## Recommended reading
 
 * See Microsoft’s six principles for the responsible development of AI published in the January 2018 book, [The Future Computed](https://news.microsoft.com/futurecomputed/)
 * [Asilomar AI Principles](https://futureoflife.org/ai-principles/) from Future of Life Institute.
@@ -167,6 +167,6 @@ Consider responsible use tasks just like other tasks in user experience, securit
 * [Genetic Information Nondiscrimination Act - GINA](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
 * [FATML Principles for Accountable Algorithms](http://www.fatml.org/resources/principles-for-accountable-algorithms)
 
-## Next Steps
+## Next steps
 
 [Features: action and context](concepts-features.md).

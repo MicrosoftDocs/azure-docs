@@ -1,7 +1,7 @@
 ---
-title: "Features: action and context"
-titleSuffix: Personalizer - Azure Cognitive Services
-description: Personalizer uses **features**, information about **actions** and **context**, to make better ranking suggestions. Features can be very generic, or specific to an item.
+title: "Features: action and context" - Personalizer
+titleSuffix: Azure Cognitive Services
+description: Personalizer uses features, information about actions and context, to make better ranking suggestions. Features can be very generic, or specific to an item.
 services: cognitive-services
 author: edjez
 manager: nitinme
@@ -82,7 +82,7 @@ In the following JSON, `user`, `state`, and `device` are feature namespaces.
 }
 ```
 
-## How to makes feature sets more effective for Personalizer?
+## How to makes feature sets more effective for Personalizer
 
 A good feature set helps Personalizer learn how to predict the action that will drive the highest reward. 
 
@@ -119,16 +119,16 @@ By preprocessing your items using artificial intelligence services, you can auto
 
 For example:
 
-* You can run a movie file via [Video Indexer](https://azure.microsoft.com/en-us/services/media-services/video-indexer/) to extract scene elements, text, sentiment, and many other attributes. These attributes can then be made more dense to reflect characteristics that the original item metadata didn't have. 
+* You can run a movie file via [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) to extract scene elements, text, sentiment, and many other attributes. These attributes can then be made more dense to reflect characteristics that the original item metadata didn't have. 
 * Images can be run through object detection, faces through sentiment, etc.
 * Information in text can be augmented by extracting entities, sentiment, expanding entities with Bing knowledge graph, etc.
 
 You can use several other [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), like
 
-* [Entity Linking](../entitylinking/home.md),
-* [Text Analytics](../text-analytics/overview.md),
-* [Emotion](../emotion/home.md), and
-* [Computer Vision](../computer-vision/home.md).
+* [Entity Linking](../entitylinking/home.md)
+* [Text Analytics](../text-analytics/overview.md)
+* [Emotion](../emotion/home.md)
+* [Computer Vision](../computer-vision/home.md)
 
 ## Actions represent a list of options
 
@@ -283,6 +283,6 @@ Context is expressed as a JSON object that is sent to the Rank API:
 }
 ```
 
-## Next steps:
+## Next steps
 
 [Reinforcement learning](concepts-reinforcement-learning.md) 

@@ -1,7 +1,7 @@
 ---
-title: Reinforcement Learning
-titleSuffix: Personalizer - Azure Cognitive Services
-description: Personalizer uses information about actions and current context to make better ranking suggestions. The information about these actions and context are attributes or properties that are referred to as **features**.
+title: Reinforcement Learning - Personalizer
+titleSuffix: Azure Cognitive Services
+description: Personalizer uses information about actions and current context to make better ranking suggestions. The information about these actions and context are attributes or properties that are referred to as features.
 services: cognitive-services
 author: edjez
 manager: nitinme
@@ -54,15 +54,15 @@ John has also given several tutorials previously on topics such as Joint Predict
 
 Personalizer currently uses [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki) as the foundation for the machine learning. This framework allows for maximum throughput and lowest latency when making personalization ranks and training the model with all events.
 
-# References
+## References
 
-* Making Contextual Decisions with Low Technical Debt [reference](https://arxiv.org/abs/1606.03966)
-* A Reductions Approach to Fair Classification [reference](https://arxiv.org/abs/1803.02453)
-* Efficient Contextual Bandits in Non-stationary Worlds [reference](https://arxiv.org/abs/1708.01799ds)
-* Residual Loss Prediction: Reinforcement: learning With No Incremental Feedback [reference](https://openreview.net/pdf?id=HJNMYceCW)
-* Mapping Instructions and Visual Observations to Actions with Reinforcement Learning [reference](https://arxiv.org/abs/1704.08795)
-* Learning to Search Better Than Your Teacher [reference](https://arxiv.org/abs/1502.02206)
+* [Making Contextual Decisions with Low Technical Debt](https://arxiv.org/abs/1606.03966)
+* [A Reductions Approach to Fair Classification](https://arxiv.org/abs/1803.02453)
+* [Efficient Contextual Bandits in Non-stationary Worlds](https://arxiv.org/abs/1708.01799ds)
+* [Residual Loss Prediction: Reinforcement: learning With No Incremental Feedback](https://openreview.net/pdf?id=HJNMYceCW)
+* [Mapping Instructions and Visual Observations to Actions with Reinforcement Learning](https://arxiv.org/abs/1704.08795)
+* [Learning to Search Better Than Your Teacher](https://arxiv.org/abs/1502.02206)
 
-## Next steps:
+## Next steps
 
 [Offline evaluation](concepts-offline-evaluation.md) 

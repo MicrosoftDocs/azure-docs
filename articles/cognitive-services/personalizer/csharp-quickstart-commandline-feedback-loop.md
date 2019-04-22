@@ -1,6 +1,6 @@
 ---
-title: Feedback loop
-titleSuffix: Personalizer - Azure Cognitive Services
+title: Feedback loop - Personalizer
+titleSuffix: Azure Cognitive Services
 description: Create feedback loop in this C# quickstart with the Personalizer service.
 services: cognitive-services
 author: edjez
@@ -255,7 +255,7 @@ Build and run the program. The quickstart program asks a couple of questions to 
 ## Clean up resources
 When you are done with the quickstart, remove all the files created in this quickstart. 
 
-## Next Steps
+## Next steps
 
 [How Personalizer works](how-personalizer-works.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Install and run containers
-titleSuffix: Personalizer - Azure Cognitive Services
+title: Install and run containers -Personalizer
+titleSuffix: Azure Cognitive Services
 description: How to download, install, and run containers for Personalizer.
 author: edjez
 manager: nitinme
@@ -35,9 +35,9 @@ You must meet the following prerequisites before using Personalizer Service cont
 
 The **host** is the computer that runs the docker container. It can be a computer on your premises or a docker hosting service in Azure including:
 
-* [Azure Kubernetes Service](https://docs.microsoft.com/en-us/aks/index.yml)
-* [Azure Container Instances](https://docs.microsoft.com/en-us/container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](https://docs.microsoft.com/en-us/azure-stack/index.yml). For more information, see [Deploy Kubernetes to Azure Stack](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+* [Azure Kubernetes Service](https://docs.microsoft.com/aks/index.yml)
+* [Azure Container Instances](https://docs.microsoft.com/container-instances/index.yml)
+* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](https://docs.microsoft.com/azure-stack/index.yml). For more information, see [Deploy Kubernetes to Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 ### Container requirements and recommendations
 
@@ -194,7 +194,7 @@ For more information about these options, see [Configure containers](personalize
 
 In this article, you learned concepts and workflow for downloading, installing, and running Personalizer Service containers. In summary:
 
-* Personalizer Service provides [number of containers for service] Linux containers for Docker, encapsulating [service features of containers].
+* Personalizer Service provides a Linux containers for Docker, encapsulating personalization.
 * Container images are downloaded from the Microsoft Container Registry (MCR) in Azure.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Personalizer Service containers by specifying the host URI of the container.
@@ -202,3 +202,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 > [!IMPORTANT]
 > Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. The Personalizer containers will also send the request data to Microsoft for the purposes of online training.
+
+## Next steps
+
+[How to configure Docker container for the `Docker Run` command](personalier-container-configuration.md)

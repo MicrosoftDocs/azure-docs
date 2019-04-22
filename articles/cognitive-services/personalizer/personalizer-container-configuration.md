@@ -1,6 +1,6 @@
 ---
 title: How Personalizer Works
-titleSuffix: Personalizer - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 
 author: edjez
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: edjez
 
 The **Personalizer** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
 
-# Configuration settings
+## Configuration settings
 
 This container has the following configuration settings:
 
@@ -128,4 +128,6 @@ The following Docker examples are for the Personalizer container.
   Logging:Console:LogLevel:Default=Information
   ```
 
+## Next steps
 
+[Understand how to use the Docker container](personalizer-container-howto.md)

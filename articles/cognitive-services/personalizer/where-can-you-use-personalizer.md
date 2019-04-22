@@ -1,6 +1,6 @@
 ---
-title: Scenario assessment
-titleSuffix: Personalizer - Azure Cognitive Services
+title: Scenario assessment - Personalizer
+titleSuffix: Azure Cognitive Services
 description: Personalizer can be applied in any situation where your application can select the right item, action, or product to display - in order to make the experience better, achieve better business results, or improve productivity.
 services: cognitive-services
 author: edjez
@@ -25,7 +25,7 @@ You can apply Personalizer in situations where:
 * You have a business or usability goal for your application.
 * You have a place in your application where making a contextual decision of what to show to users will improve that goal.
 * The best choice can and should be learned from collective user behavior and total reward score.
-* The use of machine learning for personalization follows [responsible use guidelines](ethics-and-responsible-use.md) and choices you chose.
+* The use of machine learning for personalization follows [responsible use guidelines](ethics-responsible-use.md) and choices you chose.
 * The contextual decision can be expressed as ranking the best option (action) from a limited set of choices.
 * How well the ranked choice worked for your application can be determined by measuring some aspect of user behavior, and expressing it in a _reward score_. This is a number between -1 and 1.
 * The reward score doesn't bring in too many confounding or external factors. The experiment duration is low enough that the reward score can be computed while it's still relevant.
@@ -62,6 +62,6 @@ Personalizer can work with a recommendation engine when it's present.
 
 A common use is to take the output of a recommendation engine (for example, the top 20 products for a certain customer) and use that as the input actions for Personalizer.
 
-## Next Steps
+## Next steps
 
-[Ethics & responsible use](ethics-and-responsible-use.md).
+[Ethics & responsible use](ethics-responsible-use.md).

@@ -1,6 +1,6 @@
 ---
-title: How Personalizer Works
-titleSuffix: Personalizer - Azure Cognitive Services
+title: How Personalizer Works -Personalizer
+titleSuffix: Azure Cognitive Services
 description: Personalizer uses machine learning to discover what action to use in a context. Each learning loop has a model that is trained exclusively on data that you have sent to it via Rank and Reward calls. Every learning loop is completely independent of each other.
 author: edjez
 manager: nitinme
@@ -75,6 +75,6 @@ Personalizer is based on cutting-edge science and research in the area of [Reinf
 
 * **Model**: A Personalizer model captures all data learned about user behavior, getting training data from the combination of the arguments you send to Rank and Reward calls, and with a training behavior determined by the Learning Policy. 
 
-## Next Steps
+## Next steps
 
 Understand [where you can use Personalizer](where-can-you-use-personalizer.md).

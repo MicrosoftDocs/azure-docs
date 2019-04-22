@@ -20,11 +20,11 @@
     href: where-can-you-use-personalizer.md
     displayName: checklist, considerations, effectiveness, recommendation engine
   - name: Ethics & responsible use
-    href: ethics-and-responsible-use.md
+    href: ethics-responsible-use.md
     displayName: best practice, design
   - name: Fundamental concepts
     items: 
-    - name: "Features: action and context"
+    - name: "Features: Action and context"
       href: concepts-features.md
       displayName: action, context, feature, namespace, JSON, best practice, set 
     - name: Reinforcement learning
@@ -44,9 +44,9 @@
     items:
     - name: Install and run containers
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, run, apikey
-      href: https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409
+      href: personalizer-container-howto.md
     - name: Configure containers
-      href: https://go.microsoft.com/fwlink/?linkid=2083828&clcid=0x409
+      href: personalizer-container-configuration.md
       displayName: docker, run, apikey
 - name: Reference
   items:
