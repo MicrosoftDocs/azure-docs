@@ -56,7 +56,7 @@ To do this quickstart, install [Visual Studio 2017](https://visualstudio.microso
     Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
     ```
 
-2. Open *Function1.cs*, and add a reference to an App Configuration .NET Core configuration provider.
+2. Open *Function1.cs*, and add a reference to the .NET Core App Configuration provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
