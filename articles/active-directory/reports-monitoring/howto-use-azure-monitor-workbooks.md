@@ -35,7 +35,7 @@ This article:
 
 - Assumes that you are familiar with how to [Create interactive reports with Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
 
-- Explains how you can use the Azure Monitor workbooks about monitoring.
+- Explains how you can use the Azure Monitor workbooks about monitoring to answer the questions above.
  
 
 
@@ -49,7 +49,7 @@ To use this feature, you need:
 
 ## Access workbooks 
 
-To Access workbooks:
+To access workbooks:
 
 1. Sign in to your [Azure portal](https://portal.azure.com).
 
@@ -103,7 +103,7 @@ For each trend, you get a breakdown by:
 ## Sign-ins using legacy authentication 
 
 
-To access the sign-ins using legacy authentication workbook, click **Sign-ins using Legacy Authentication** in the **Usage** section. 
+To access the sign-ins using [legacy authentication](../conditional-access/block-legacy-authentication.md) workbook, click **Sign-ins using Legacy Authentication** in the **Usage** section. 
 
 This workbook shows the following sign-in trends:
 
@@ -151,7 +151,7 @@ You can filter each trend by:
 
 For the disabled sign-ins, you get a breakdown by the conditional access status.
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/48.png)
+![Conditional access status](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 
@@ -195,6 +195,13 @@ For each trend, you get a breakdown by app and protocol.
 
 ## Sign-ins failure analysis
 
+Use the **Sign-ins failure analysis** workbook to troubleshoot errors with:
+
+- Sign-ins
+- Conditional access policies
+- Legacy authentication. 
+
+
 To access the sign-ins by conditional access data, click **Sign-ins using Legacy Authentication** in the **Troubleshoot** section. 
 
 This workbook shows the following sign-in trends:
@@ -219,7 +226,7 @@ You can filter each trend by:
 ![Gallery](./media/howto-use-azure-monitor-workbooks/52.png)
 
 
-For troubleshooting sign-ins, you get a breakdown by:
+To troubleshoot sign-ins, you get a breakdown by:
 
 - Top errors
 
