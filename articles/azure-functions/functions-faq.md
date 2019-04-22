@@ -20,7 +20,9 @@ ms.author: aelnably
 
 Visit [azure.com](https://www.azure.com) for the primary [Azure Functions documentation page](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)
 
-## Languages
+## 
+
+## Language Support
 
 **What are the supported languages?**
 
@@ -28,11 +30,20 @@ Currently we support .NET, JavaScript, Java, Python (In Preview), and PowerShell
 
 ## Limits
 
-## Deployment Options
+**Add information about execution limits, scaling limits**
 
-## DevOps
+## Continuous integration and deployment
+
+**What are the different deployment options?**
+
+Check the [deployment option article](functions-continuous-deployment.md) **NEED NEW LINK**
+
+**Can I use Azure DevOps to deploy my functions?**
+Yes, check the [Azure DevOps Integration article](functions-continuous-deployment.md) **NEED NEW LINK**
 
 ## Hosting Options
+
+**Information about consumption, App service plans, Windows, and Linux**
 
 ## Versions
 
@@ -42,7 +53,7 @@ This [article](functions-versions.md) explains the difference between both versi
 
 **Which version should I use?**
 
-You should use v2
+For new projects, you should use v2
 
 ## Extensions
 
@@ -82,5 +93,14 @@ Instructions of how to install the core tools is provided in the [GitHub Repo](h
 
 Instructions of how to install and update the Azure CLI tools is provided in the following [doc](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
+## Durable Functions
+
+**Need Questions**
+
 ## Connectivity
 
+Please check the [Networking FAQ article](functions-networking-faq.md)
+
+## Other Questions
+
+**??**
