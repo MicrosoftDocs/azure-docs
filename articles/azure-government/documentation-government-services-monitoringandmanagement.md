@@ -8,7 +8,7 @@ ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
 ms.topic: article
 ms.workload: azure-government
-ms.date: 02/13/2019
+ms.date: 04/22/2019
 ms.author: gsacavdm
 
 ---
@@ -158,7 +158,7 @@ For more information on using PowerShell, see [public documentation](../azure-mo
 ## Application Insights
 
 > [!NOTE]
-> Snapshot Debugger is not currently available in Azure Government. As soon as it becomes available this article will be updated.
+> Codeless agent based monitoring for Azure App Services is not currently not supported. Snapshot Debugger is also not currently available in Azure Government. As soon as this functionality becomes available this article will be updated.
 
 ### SDK endpoint modifications
 
@@ -205,14 +205,10 @@ The values for Live Metrics and the Profile Query Endpoint can only be set via c
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //place at top of Startup.cs file
 
-   services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="QUICKPULSE ENDPOINT ADDRESS"); //place in ConfigureServices method
+   services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="https://rt.applicationinsights.us/QuickPulseService.svc"); //place in ConfigureServices method
 
-   services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.services.visualstudio.com/api/profiles/{0}/appId" }); //place in ConfigureServices method. If used, place this prior to   services.AddApplicationInsightsTelemetry();
-
-   
-
+   services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.us/api/profiles/{0}/appId" }); //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry();
 ```
-
 
 ### Java
 
@@ -236,7 +232,7 @@ Modify the applicationinsights.xml file to change the default endpoint address.
   </TelemetryInitializers>
   <!--Add the following Channel value to modify the Endpoint address-->
   <Channel type="com.microsoft.applicationinsights.channel.concrete.inprocess.InProcessTelemetryChannel">
-  <EndpointAddress>https://dc.services.visualstudio.us/v2/track</EndpointAddress>
+  <EndpointAddress>https://dc.applicationinsights.us/v2/track</EndpointAddress>
   </Channel>
 </ApplicationInsights>
 ```
@@ -254,9 +250,9 @@ azure.application-insights.channel.in-process.endpoint-address= https://dc.appli
 ```javascript
 var appInsights = require("applicationinsights");
 appInsights.setup('INSTRUMENTATION_KEY');
-appInsights.defaultClient.config.endpointUrl = "https://dc.applicationinsights.us/v2/track "; // ingestion
-appInsights.defaultClient.config.profileQueryEndpoint = “https://dc.applicationinsights.us”; // appid/profile lookup
-appInsights.defaultClient.config.quickPulseHost = ”FAIRFAX QUICKPULSE ENDPOINT”; //live metrics
+appInsights.defaultClient.config.endpointUrl = "https://dc.applicationinsights.us/v2/track"; // ingestion
+appInsights.defaultClient.config.profileQueryEndpoint = "https://dc.applicationinsights.us/api/profiles/{0}/appId"; // appid/profile lookup
+appInsights.defaultClient.config.quickPulseHost = "https://rt.applicationinsights.us/QuickPulseService.svc"; //live metrics
 appInsights.Configuration.start();
 ```
 
@@ -264,8 +260,8 @@ The endpoints can also be configured through environment variables:
 
 ```
 Instrumentation Key: “APPINSIGHTS_INSTRUMENTATIONKEY”
-Profile Endpoint: “APPINSIGHTS_PROFILE_QUERY_ENDPOINT”
-Live Metrics Endpoint: “APPINSIGHTS_QUICKPULSE_HOST”
+Profile Endpoint: “https://dc.applicationinsights.us/api/profiles/{0}/appId”
+Live Metrics Endpoint: "https://rt.applicationinsights.us/QuickPulseService.svc"
 ```
 
 ### JavaScript
