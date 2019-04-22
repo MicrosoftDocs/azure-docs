@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to use the Cognitive Services Speech Software Development Kit (SDK) in a Java console application. You will learn how you can connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel and enable a voice-first virtual assistant experience.
 services: cognitive-services
 author: bidishac
-manager: 
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
