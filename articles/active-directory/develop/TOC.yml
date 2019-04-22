@@ -149,6 +149,8 @@
           href: scenario-daemon-call-api.md
         - name: Move to production
           href: scenario-daemon-production.md
+      - name: Integration checklist
+        href: active-directory-integration-checklist.md
     - name: Microsoft Authentication Library (MSAL)
       items:        
         - name: Overview
@@ -159,6 +161,8 @@
           href: msal-compare-msal-js-and-adal-js.md
         - name: Handling errors and exceptions
           href: msal-handling-exceptions.md
+        - name: Logging
+          href: msal-logging.md
     - name: Authentication
       items:
       - name: Authentication basics
@@ -330,7 +334,7 @@
     href: sample-v1-code.md
   - name: Concepts
     items:
-    - name: Deciding between v1.0 and v2.0
+    - name: Why update to v2.0
       href: azure-ad-endpoint-comparison.md
     - name: Application types
       items:

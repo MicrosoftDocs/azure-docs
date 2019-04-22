@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 04/20/2019
 ---
 
 # Tutorial: Migrate RDS SQL Server to Azure SQL Database or an Azure SQL Database managed instance online using DMS
@@ -184,7 +184,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 4. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **AWS RDS for SQL Server**, in the **Target server type** text box, select **Azure SQL Database**.
 
     > [!NOTE]
-    > AFor Target server type, select Azure SQL Database for migrating to both an Azure SQL Database singleton database and as well as to an Azure SQL Database managed instance.
+    > For Target server type, select **Azure SQL Database** for migrating to both an Azure SQL Database singleton database and as well as to an Azure SQL Database managed instance.
 
 5. In the **Choose type of activity** section, select **Online data migration**.
 
