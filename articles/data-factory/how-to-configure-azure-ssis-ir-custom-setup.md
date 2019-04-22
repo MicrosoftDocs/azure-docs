@@ -77,7 +77,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
       ![Create a blob container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. Select the new container and upload your custom setup script and its associated files. Make sure that you upload `main.cmd` at the top level of your container, not in any folder. Please also ensure that your container contains only the necessary custom setup files, so downloading them onto your Azure-SSIS IR later will not take a long time.
+   1. Select the new container and upload your custom setup script and its associated files. Make sure that you upload `main.cmd` at the top level of your container, not in any folder. Please also ensure that your container contains only the necessary custom setup files, so downloading them onto your Azure-SSIS IR later will not take a long time. The default timeout for custom setup is 45 minutes which includes the time to download all files from container to Azure-SSIS IR and time to install the custom setup into docker container image. If a longer timeout is needed, open a support ticket.
 
       ![Upload files to the blob container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
