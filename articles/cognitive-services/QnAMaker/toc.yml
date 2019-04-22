@@ -88,7 +88,7 @@
     - name: Add chit-chat to knowledge base
       href: How-to/chit-chat-knowledge-base.md
     - name: Create multi-turn conversations with follow-up prompts
-      href: Concepts/multiturn-conversation.md
+      href: How-To/multiturn-conversation.md
       displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
     - name: Migrate a knowledge base
       href: Tutorials/migrate-knowledge-base.md
