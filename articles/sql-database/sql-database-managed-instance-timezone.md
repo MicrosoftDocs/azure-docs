@@ -80,9 +80,10 @@ When you perform a point-in-time restore, the time to restore to is interpreted 
 
 ### Auto-failover groups
 
-Using the same time zone across a primary and secondary instance in a failover group isn't enforced, but it's strongly recommended.
-  >[!IMPORTANT]
-  > There are valid scenarios for having a different time zone on a geo-secondary instance that's used for read scale only. In the case of manual or automatic failover to a secondary instance, it retains its original time zone.
+Using the same time zone across a primary and secondary instance in a failover group isn't enforced, but we strongly recommend it.
+
+  >[!WARNING]
+  > We strongly recommend that you use the same time zone for the primary and secondary instance in a failover group. Because of some rare scenarios, keeping the same time zone across primary and secondary instances isn't enforced. It's important to understand that in the case of manual or automatic failover, the secondary instance will retain its original time zone.
 
 ## Limitations
 
