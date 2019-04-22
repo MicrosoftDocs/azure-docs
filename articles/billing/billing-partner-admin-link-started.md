@@ -136,7 +136,7 @@ The link is associated at the user account level. Only you can edit or remove th
 
 **Which MPN ID should I use if my company has multiple?**
 
-You can use any valid MPN ID except virual orgnization(v-org) MPN ID. Most partners choose to use the MPN ID for the geography where the customer is based or services are being delivered.
+You can use any valid MPN ID except virtual organization(v-org) MPN ID. Most partners choose to use the MPN ID for the geography where the customer is based or services are being delivered.
 
 **Where can I find influenced revenue reporting for linked partner ID?**
 

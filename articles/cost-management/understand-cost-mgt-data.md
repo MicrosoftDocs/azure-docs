@@ -111,7 +111,7 @@ Pay-as-you-go subscriptions – If the billing month ends on May 15, then the es
 
 ### Rerated data
 
-Whether you use the [Cost Management APIs](https://aka.ms/costmgmt/docs), PowerBI, or the Azure portal to retrieve data, expect the current billing period's charges to get re-rated, and consequently change, until the invoice is closed.
+Whether you use the [Cost Management APIs](https://aka.ms/costmgmt/docs), Power BI, or the Azure portal to retrieve data, expect the current billing period's charges to get re-rated, and consequently change, until the invoice is closed.
 
 ## Usage data update frequency varies
 
