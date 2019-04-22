@@ -197,15 +197,15 @@
         items: 
         - name: Collect in Logs
           href: platform/diagnostic-logs-stream-log-store.md
+          href: platform/collect-azure-metrics-logs.md
+        - name: Collect from Azure storage
         - name: Archive to storage
           href: platform/archive-diagnostic-logs.md
-        - name: Forward to Event Hub
+        - name: Stream data to Event Hub
           href: platform/diagnostic-logs-stream-event-hubs.md
         - name: Enable diagnostic settings with Resource Manager templates
           href: platform/diagnostic-logs-stream-template.md
       - name: Service logs and metrics
-        href: platform/collect-azure-metrics-logs.md
-      - name: Diagnostic or log data from Azure storage
         href: platform/azure-storage-iis-table.md
       - name: Forward to Event Hub
         href: platform/stream-monitoring-data-event-hubs.md   
