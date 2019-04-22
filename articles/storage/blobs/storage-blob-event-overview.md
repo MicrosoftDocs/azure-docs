@@ -35,14 +35,14 @@ Event Grid uses [event subscriptions](../../event-grid/concepts.md#event-subscri
 
 ![Event Grid Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
-First, subscribe an endpoint to an event. Then, when an event is triggered, the Event Grid service sends data about that event to subscribing endpoint.
+First, subscribe an endpoint to an event. Then, when an event is triggered, the Event Grid service will send data about that event to subscribing endpoint.
 
-See the [Blob storage events schema](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) article, to learn about these things:
+See the [Blob storage events schema](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) article, to view:
 
 > [!div class="checklist"]
-> * View the complete list of Blob storage events and how each event is triggered.
-> * See an example of the data the Event Grid would send for each of these events.
-> * Understand the purpose of each key value pair that appears in the data.
+> * A complete list of Blob storage events and how each event is triggered.
+> * An example of the data the Event Grid would send for each of these events.
+> * The purpose of each key value pair that appears in the data.
 
 ## Filtering events
 
