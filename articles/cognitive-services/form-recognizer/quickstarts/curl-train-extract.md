@@ -21,9 +21,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
+* You got access to the Form Recognizer limited-access preview. To get access to the preview, please fill out and submit the [Cognitive Services Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form. 
 * You must have [cURL](https://curl.haxx.se/windows/).
 * You must have a subscription key for Form Recognizer. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Form Recognizer and get your key.
-* You must have a set of forms of the same type. You can use a [sample dataset](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/curl/form-recognizer/sample_data.zip) for this quickstart.
+* You must have a minimum set of five forms of the same type. You can use a [sample dataset](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/curl/form-recognizer/sample_data.zip) for this quickstart.
 
 ## Train a Form Recognizer model
 
@@ -31,11 +32,11 @@ First, you will need a set of training data. You can use data in an Azure Blob o
 
 To train a Form Recognizer model using the documents in your Azure Blob container, call the **Train** API by executing the cURL command below. Before running the command, make the following changes:
 
-* Replace `<Azure region>` with the Azure region where you obtained your Form Recognizer subscription key.
+* Replace `<Azure region>` with the Azure region where you obtained your Form Recognizer subscription key. You can find it in your Form Recognizer resource overview tab.
 * Replace `<SAS URL>` with an Azure Blob Storage container shared access signature (SAS) URL where the training data is located.  
 
 ```bash
-curl -X POST "http://<Azure Region>/formrecognizer/v1.0-preview/custom/train" -H "accept: application/json" -H "Content-Type: application/json-patch+json" -d "{ \"source\": \"<SAS URL>\"}"
+curl -X POST "http://<Azure region>/formrecognizer/v1.0-preview/custom/train" -H "accept: application/json" -H "Content-Type: application/json-patch+json" -d "{ \"source\": \"<SAS URL>\"}"
 ```
 
 You will receive a `200 (Success)` response with the following JSON output:
@@ -96,7 +97,7 @@ Next, you will analyze a document and extract key-value pairs and tables from it
 * Replace `<pdf>` with the file type you are analyzing. Supported values are `pdf`, `image/jpeg`, and `image/png`.
 
 ```bash
-curl -X POST "http://<Azure Region>/formrecognizer/v1.0-preview/custom/model/<modelID>/analyze" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "form=@</path/to/my/Invoice_1.pdf>;type=application/<pdf>"
+curl -X POST "http://<Azure region>/formrecognizer/v1.0-preview/custom/model/<modelID>/analyze" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "form=@</path/to/my/Invoice_1.pdf>;type=application/<pdf>"
 ```
 
 ### Examine the response

@@ -36,6 +36,17 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
+6. Select **Key/Value Explorer** > **+ Create** to add the following key-value pairs:
+
+    | Key | Value |
+    |---|---|
+    | TestApp:Settings:BackgroundColor | White |
+    | TestApp:Settings:FontSize | 24 |
+    | TestApp:Settings:FontColor | Black |
+    | TestApp:Settings:Message | Data from Azure App Configuration |
+
+    Leave **Label** and **Content Type** empty for now.
+
 ## Create an ASP.NET Core web app
 
 You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) to create a new ASP.NET Core MVC web app project. The advantage of using the .NET Core CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.
