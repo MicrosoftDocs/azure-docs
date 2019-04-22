@@ -127,14 +127,6 @@ For information on how to check user access permissions, see [Traffic analytics 
 
 To analyze traffic, you need to have an existing network watcher, or [enable a network watcher](network-watcher-create.md) in each region that you have NSGs that you want to analyze traffic for. Traffic analytics can be enabled for NSGs hosted in any of the [supported regions](#supported-regions).
 
-### Re-register the network resource provider
-
-Before you can use traffic analytics, you must re-register your network resource provider. Click **Try It** in the following code box to open the Azure Cloud Shell. The Cloud Shell automatically logs you into to your Azure subscription. Once the Cloud Shell is open, enter the following command to re-register the network resource provider:
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
-```
-
 ### Select a network security group
 
 Before enabling NSG flow logging, you must have a network security group to log flows for. If you don't have a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md#create-a-network-security-group) to create one.
