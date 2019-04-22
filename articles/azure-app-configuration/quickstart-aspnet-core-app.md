@@ -101,7 +101,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
     This secret is accessed with the configuration API. A colon (:) works in the configuration name with the configuration API on all supported platforms. See [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Open *Program.cs*, and add a reference to an App Configuration .NET Core configuration provider.
+4. Open *Program.cs*, and add a reference to the .NET Core App Configuration provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
