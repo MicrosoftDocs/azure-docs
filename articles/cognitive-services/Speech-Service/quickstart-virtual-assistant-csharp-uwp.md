@@ -199,7 +199,7 @@ This quickstart will describe, step by step, how to make a simple client applica
     }
     ```
 
-1. Next, you'll create the SpeechBotConnector from your own configuration details. Add the following to the method body of `InitializeBotConnector`, replacing the strings `YourChannelSecret`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your bot, speech subscription, and [region](regions.md).
+1. Next, you'll create the `SpeechBotConnector` with your subscription information. Add the following to the method body of `InitializeBotConnector`, replacing the strings `YourChannelSecret`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your bot, speech subscription, and [region](regions.md).
 
     > [!NOTE]
     > In preview, the Direct Line Speech channel currently supports only the **westus2** region. Further region support will be added in the future.
@@ -217,7 +217,7 @@ This quickstart will describe, step by step, how to make a simple client applica
     botConnector = new SpeechBotConnector(botConnectorConfig);
     ```
 
-1. `SpeechBotConnector` relies on several events to communicate its bot activities, speech recognition results, and other information. Add handlers for these events next, appending the following to the end of the method body of `InitializeBotConnector`.
+1. `SpeechBotConnector` relies on several events to communicate its bot activities, speech recognition results, and other information. Add handlers for these events, appending the following to the end of the method body of `InitializeBotConnector`.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities
