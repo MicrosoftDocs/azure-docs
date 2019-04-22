@@ -19,7 +19,7 @@ Learn how to complete an offline evaluation and understand the results.
 
 Offline Evaluations allow you to measure how effective Personalizer is compared to your application's default behavior, learn what features are contributing most to personalization, and discover new machine learning settings automatically.
 
-Read about [Offline Evaluations](concepts-offline-evaluations.md) to learn more.
+Read about [Offline Evaluations](concepts-offline-evaluation.md) to learn more.
 
 
 ## Prerequisites
@@ -27,7 +27,7 @@ Read about [Offline Evaluations](concepts-offline-evaluations.md) to learn more.
 1. You must have a Personalizer loop configured
 1. The Personalizer loop must have at least 50,000 events in its logs for meaningful evaluation results.
 
-Optionally, you may also have previously exported [Learning Policy](concepts-learning.policy.md) files you can compare and test in the same evaluation.
+Optionally, you may also have previously exported _learning policy_ files you can compare and test in the same evaluation.
 
 ## Steps to Start a New Offline Evaluation
 
@@ -35,7 +35,7 @@ Optionally, you may also have previously exported [Learning Policy](concepts-lea
 1. Navigate to the "Evaluation" section.
 1. Click on New Evaluation
 1. Select a start and end date for the offline evaluation. These are dates in the past, that specify the range of data to use in the evaluation. This data must be present in the logs, as specified in the [Data Retention](how-to-settings.md) setting.
-1. Optionally, you can upload your own [Learning Policy](concepts-learning.policy.md) 
+1. Optionally, you can upload your own learning policy. 
 1. Specify whether Personalizer should create an optimized Learning Policy based on the user behavior observed in this time period.
 1. Start the Evaluation
 
