@@ -28,7 +28,7 @@ It's easy to change the name or logo for a custom enterprise application in Azur
 2. In the left pane, select **Enterprise applications**. The list of your enterprise applications appears.
 3. Select an application. The application overview page appears.
 4. In the application overview pane, under the **Manage** heading, select **Properties**. The **Properties** page appears.
-5. If you want to change the name, select the **Name** box, type the new name, and press Enter.
+5. If you want to change the name, select the **Name** box, type the new name, and press **Enter**.
 6. If you want to change the logo, find the **Logo** field, and select the folder icon next to the **Select a file** box, which is below the application's current logo image.
 
    ![Selecting the properties command](./media/change-name-or-logo-portal/change-logo.png)
