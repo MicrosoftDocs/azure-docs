@@ -2,18 +2,12 @@
 title: Get started with Storage Explorer | Microsoft Docs
 description: Manage Azure storage resources with Storage Explorer
 services: storage
-documentationcenter: na
 author: cawaMS
-manager: paulyuk
-editor: ''
 
-ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/17/2017
+ms.date: 04/22/2019
 ms.author: cawa
 ---
 
@@ -111,7 +105,9 @@ In addition, you can work with storage accounts in global and national Azure:
 
 With Storage Explorer, you can work with local storage by using an emulator. This approach lets you simulate working with Azure Storage without necessarily having a storage account deployed on Azure.
 
-Starting with version 1.1.0, local storage emulator is supported on all platforms. Storage Explorer can connect to any emulated service listening to its default local storage endpoints.
+Starting with version 1.1.0, Storage Explorer supports using a local storage emulator on all platforms. Storage Explorer can connect to any emulated service listening to its default local storage endpoints.
+
+The [Azure storage emulator](storage/common/storage-use-emulator.md) currently runs only on Windows. For those considering a storage emulator for Linux, one option is the community maintained, open source storage emulator [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Support for storage services and features may vary widely depending on your choice of emulator. Make sure your emulator supports the services and features you intend to work with.
