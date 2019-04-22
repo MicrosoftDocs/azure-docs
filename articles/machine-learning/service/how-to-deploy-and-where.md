@@ -152,7 +152,6 @@ The following example script accepts and returns JSON data.
 
 **Scikit-learn example with Swagger generation:**
 ```python
-import pickle
 import json
 import numpy as np
 from sklearn.externals import joblib
@@ -164,7 +163,9 @@ from inference_schema.parameter_types.numpy_parameter_type import NumpyParameter
 
 def init():
     global model
-    model_path = Model.get_model_path('sklearn_mnist')
+    # note here "sklearn_regression_model.pkl" is the name of the model registered under
+    # this is a different behavior than before when the code is run locally, even though the code is the same.
+    model_path = Model.get_model_path('sklearn_regression_model.pkl')
     # deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
