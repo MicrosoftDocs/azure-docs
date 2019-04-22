@@ -11,8 +11,8 @@ ms.date: 04/19/2019
 
 # Customer Lockbox for Microsoft Azure
 
-[!NOTE]
-To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
+> [!NOTE]
+> To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
 
 As a cloud service provider, we understand the importance of maintaining the integrity and confidentiality of customer data. <Need to complete this section>
 
@@ -89,7 +89,8 @@ Customer Lockbox is currently enabled for remote desktop access requests to virt
 - Infrastructure as a service (IaaS) - Windows and Linux (ARM-based only)
 - Virtual machine scale set - Windows and Linux
 
-[NOTE!]: IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IAAS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+> [!NOTE]
+> IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IaaS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 #### Detailed audit logs 
 
