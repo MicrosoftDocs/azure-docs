@@ -316,40 +316,36 @@ $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 Get all Network Interface Objects in the resource group to summarize the IP's used in this deployment with `get-AzNetworkInterface`. Also, get the Load Balancer's frontend addresses of the IPv4 and IPv6 endpoints with `get-AzpublicIpAddress`.
 
 ```azurepowershell-interactive
-#Deployment is now complete
-Write-Host  `n Deployment is complete (get-date)
-
-#Get all Network Interface Objects in the resource group to summarize the IP's used in the deployment
-$rgName = "dsRG1"
-$NICsInRG= get-AzNetworkInterface -resourceGroupName $rgName
-  
-write-host `nSummary of IPs in this Deployment:
+$rgName= "dsRG1"
+$NICsInRG= get-AzNetworkInterface -resourceGroupName $rgName 
+write-host `nSummary of IPs in this Deployment: 
 write-host ******************************************
 foreach ($NIC in $NICsInRG) {
-  $VMid= $NIC.virtualmachine.id
-  $VMnamebits= $VMid.split("/")
-  $VMname= $VMnamebits[($VMnamebits.count-1)]
-  write-host `nPrivate IP addresses for $VMname 
-  $IPconfigsInNIC= $NIC.IPconfigurations
-  foreach ($IPconfig in $IPconfigsInNIC)
-  {
-      $IPaddress= $IPconfig.privateipaddress
-      write-host "    "$IPaddress  
-      IF ($IPconfig.PublicIpAddress.ID) 
-      {
-          $IDbits= ($IPconfig.PublicIpAddress.ID).split("/")
-          $PipName= $IDbits[($IDbits.count-1)]
-          $PipObject= get-azPublicIpAddress -name $PipName -resourceGroup $rgName
-          write-host "    "RDP address:  $PipObject.IpAddress
-      }
-  }
-}
-  
-
-  write-host `nPublic IP addresses on Load Balancer:
- (get-AzpublicIpAddress -resourcegroupname "dsRG1" | where { $_.name -notlike "RdpPublicIP_*" }).IpAddress
-
-
+ 
+    $VMid= $NIC.virtualmachine.id 
+    $VMnamebits= $VMid.split("/") 
+    $VMname= $VMnamebits[($VMnamebits.count-1)] 
+    write-host `nPrivate IP addresses for $VMname 
+    $IPconfigsInNIC= $NIC.IPconfigurations 
+    foreach ($IPconfig in $IPconfigsInNIC) {
+ 
+        $IPaddress= $IPconfig.privateipaddress 
+        write-host "    "$IPaddress 
+        IF ($IPconfig.PublicIpAddress.ID) {
+ 
+            $IDbits= ($IPconfig.PublicIpAddress.ID).split("/")
+            $PipName= $IDbits[($IDbits.count-1)]
+            $PipObject= get-azPublicIpAddress -name $PipName -resourceGroup $rgName
+            write-host "    "RDP address:  $PipObject.IpAddress
+                 }
+         }
+ }
+ 
+ 
+ 
+  write-host `nPublic IP addresses on Load Balancer:
+ 
+  (get-AzpublicIpAddress -resourcegroupname $rgName | where { $_.name -notlike "RdpPublicIP*" }).IpAddress
 ```
 The following figure shows a sample output that lists the private IPv4 and IPv6 addresses of the two VMs, and the frontend IPv4 and IPv6 IP addresses of the Load Balancer.
 
