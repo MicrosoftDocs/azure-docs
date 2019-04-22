@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/22/2019
 ms.author: raynew
 
 ---
@@ -126,8 +126,8 @@ Debian 8 | 9.21, 9.22, 9.23, 9.24 | 3.16.0-4-amd64 to 3.16.0-7-amd64, 4.9.0-0.bp
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.24 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default to 4.4.162-94.79-default</br></br>SP4 4.12.14-94.41-default to 4.12.14-95.6-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.23 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default to 4.4.162-94.79-default</br></br>SP4 4.12.14-94.41-default to 4.12.14-95.6-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.24 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default to 4.4.175-94.79-default</br></br>SP4 4.12.14-94.41-default to 4.12.14-95.6-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.23 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default to 4.4.162-94.69-default</br></br>SP4 4.12.14-94.41-default to 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.22 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default to 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.21 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default to 4.4.162-94.72-default |
 
@@ -222,7 +222,7 @@ Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per 
 ## Replicated machines - networking
 **Setting** | **Support** | **Details**
 --- | --- | ---
-NIC | Maximum number supported for a specific Azure VM size | NICs are created when the VM is created during failover.<br/><br/> The number of NICs on the failover VM depends on the number of NICs on the source VM when replication was enabled. If you add or remove a NIC after enabling replication, it doesn't impact the number of NICs on the replicated VM after failover.
+NIC | Maximum number supported for a specific Azure VM size | NICs are created when the VM is created during failover.<br/><br/> The number of NICs on the failover VM depends on the number of NICs on the source VM when replication was enabled. If you add or remove a NIC after enabling replication, it doesn't impact the number of NICs on the replicated VM after failover. Also note that the order of NICs after failover is not guaranteed to be the same as the original order.
 Internet Load Balancer | Supported | Associate the preconfigured load balancer using an Azure Automation script in a recovery plan.
 Internal Load balancer | Supported | Associate the preconfigured load balancer using an Azure Automation script in a recovery plan.
 Public IP address | Supported | Associate an existing public IP address with the NIC. Or, create a public IP address and associate it with the NIC using an Azure Automation script in a recovery plan.

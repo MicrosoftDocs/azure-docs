@@ -11,13 +11,13 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: magoedte
 ---
 
 # Collect log data with the Azure Log Analytics agent
 
-The Azure Log Analytics agent, previously referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent, was developed for comprehensive management across on-premises machines, computers monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), and virtual machines in any cloud. The Windows and Linux agents attach to a Log Analytics workspace to collect data from different sources as well as any unique logs or metrics as defined in a monitoring solution. 
+The Azure Log Analytics agent, previously referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent, was developed for comprehensive management across on-premises machines, computers monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), and virtual machines in any cloud. The Windows and Linux agents attach to an Azure Monitor and store collected log data from different sources in your Log Analytics workspace, as well as any unique logs or metrics as defined in a monitoring solution. 
 
 This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.   
 
@@ -25,13 +25,15 @@ This article provides a detailed overview of the agent, system and network requi
 
 ![Log Analytics agent communication diagram](./media/log-analytics-agent/log-analytics-agent-01.png)
 
-Before analyzing and acting on collected data, you first need to install and connect agents for all of the machines that you want to send data to the Log Analytics service. You can install agents on your Azure VMs using the Azure Log Analytics VM extension for Windows and Linux, and for machines in a hybrid environment using setup, command line, or with Desired State Configuration (DSC) in Azure Automation. 
+Before analyzing and acting on collected data, you first need to install and connect agents for all of the machines that you want to send data to the Azure Monitor service. You can install agents on your Azure VMs using the Azure Log Analytics VM extension for Windows and Linux, and for machines in a hybrid environment using setup, command line, or with Desired State Configuration (DSC) in Azure Automation. 
 
-The agent for Linux and Windows communicates outbound to the Log Analytics service over TCP port 443, and if the machine connects through a firewall or proxy server to communicate over the Internet, review requirements below to understand the network configuration required. If your IT security policies do not allow computers on the network to connect to the Internet, you can set up a [Log Analytics gateway](gateway.md) and then configure the agent to connect through the gateway to Log Analytics. The agent can then receive configuration information and send data collected depending on what data collection rules and monitoring solutions you have enabled. 
+The agent for Linux and Windows communicates outbound to the Azure Monitor service over TCP port 443, and if the machine connects through a firewall or proxy server to communicate over the Internet, review requirements below to understand the network configuration required. If your IT security policies do not allow computers on the network to connect to the Internet, you can set up a [Log Analytics gateway](gateway.md) and then configure the agent to connect through the gateway to Azure Monitor logs. The agent can then receive configuration information and send data collected depending on what data collection rules and monitoring solutions you have enabled in your workspace. 
 
-If you are monitoring the computer with System Center Operations Manager 2012 R2 or later, it can be multi-homed with the Log Analytics service to collect data and forward to the service and still be monitored by [Operations Manager](../../azure-monitor/platform/om-agents.md). Linux computers monitored by an Operations Manager management group integrated with Log Analytics do not receive configuration for data sources and forward collected data through the management group. The Windows agent can report up to four Log Analytics workspaces, while the Linux agent only supports reporting to a single workspace.  
+If you are monitoring a computer with System Center Operations Manager 2012 R2 or later, it can be multi-homed with the Azure Monitor service to collect data and forward to the service and still be monitored by [Operations Manager](../../azure-monitor/platform/om-agents.md). With Linux computers, the agent doesn't include a health service component as the Windows agent does, and information is collected and processes by a management server on its behalf. Because Linux computers are monitored differently with Operations Manager, they do not receive configuration or collect data directly, and forward through the management group like a Windows agent-managed system does. As a result, this scenario isn't supported with Linux computers reporting to Operations Manager.  
 
-The agent for Linux and Windows isn't only for connecting to Log Analytics, it also supports Azure Automation to host the Hybrid Runbook worker role and other services such as [Change Tracking](../../automation/automation-change-tracking.md) and [Update Management](../../automation/automation-update-management.md). For more information about the Hybrid Runbook Worker role, see [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
+The Windows agent can report up to four Log Analytics workspaces, while the Linux agent only supports reporting to a single workspace.  
+
+The agent for Linux and Windows isn't only for connecting to Azure Monitor, it also supports Azure Automation to host the Hybrid Runbook worker role and other services such as [Change Tracking](../../automation/automation-change-tracking.md) and [Update Management](../../automation/automation-update-management.md). For more information about the Hybrid Runbook Worker role, see [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## Supported Windows operating systems
 The following versions of the Windows operating system are officially supported for the Windows agent:
@@ -67,10 +69,10 @@ If you are using a distro or version that is not currently supported and doesn't
 >
 
 ## TLS 1.2 protocol
-To insure the security of data in transit to Log Analytics, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+To insure the security of data in transit to Azure Monitor logs, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ## Network firewall requirements
-The information below list the proxy and firewall configuration information required for the Linux and Windows agent to communicate with Log Analytics.  
+The information below list the proxy and firewall configuration information required for the Linux and Windows agent to communicate with Azure Monitor logs.  
 
 |Agent Resource|Ports |Direction |Bypass HTTPS inspection|
 |------|---------|--------|--------|   
@@ -83,7 +85,7 @@ For firewall information required for Azure Government, see [Azure Government ma
 
 If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
-The Windows and Linux agent supports communicating either through a proxy server or Log Analytics gateway to the Log Analytics service using the HTTPS protocol.  Both anonymous and basic authentication (username/password) are supported.  For the Windows agent connected directly to the service, the proxy configuration is specified during installation or [after deployment](agent-manage.md#update-proxy-settings) from Control Panel or with PowerShell.  
+The Windows and Linux agent supports communicating either through a proxy server or Log Analytics gateway to Azure Monitor using the HTTPS protocol.  Both anonymous and basic authentication (username/password) are supported.  For the Windows agent connected directly to the service, the proxy configuration is specified during installation or [after deployment](agent-manage.md#update-proxy-settings) from Control Panel or with PowerShell.  
 
 For the Linux agent, the proxy server is specified during installation or [after installation](agent-manage.md#update-proxy-settings) by modifying the proxy.conf configuration file.  The Linux agent proxy configuration value has the following syntax:
 
@@ -107,14 +109,14 @@ For example:
 > If you use special characters such as “\@” in your password, you receive a proxy connection error because value is parsed incorrectly.  To work around this issue, encode the password in the URL using a tool such as [URLDecode](https://www.urldecoder.org/).  
 
 ## Install and configure agent 
-Connecting machines in your Azure subscription or hybrid environment directly with Azure Log Analytics can be accomplished using different methods depending on your requirements. The following table highlights each method to determine which works best in your organization.
+Connecting machines in your Azure subscription or hybrid environment directly with Azure Monitor logs can be accomplished using different methods depending on your requirements. The following table highlights each method to determine which works best in your organization.
 
 |Source | Method | Description|
 |-------|-------------|-------------|
 |Azure VM| - Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) or [Linux](../../virtual-machines/extensions/oms-linux.md) using Azure CLI or with an Azure Resource Manager template<br>- [Manually from the Azure portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | The extension installs the Log Analytics agent on Azure virtual machines and enrolls them into an existing Azure Monitor workspace.|
 | Hybrid Windows computer|- [Manual install](agent-windows.md)<br>- [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Resource Manager template with Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Install the Microsoft Monitoring agent from the command line or using an automated method such as Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), or with an Azure Resource Manager template if you have deployed Microsoft Azure Stack in your datacenter.| 
 | Hybrid Linux computer| [Manual install](../../azure-monitor/learn/quick-collect-linux-computer.md)|Install the agent for Linux calling a wrapper-script hosted on GitHub. | 
-| System Center Operations Manager|[Integrate Operations Manager with Log Analytics](../../azure-monitor/platform/om-agents.md) | Configure integration between Operations Manager and Log Analytics to forward collected data from Linux and Windows computers reporting to a management group.|  
+| System Center Operations Manager|[Integrate Operations Manager with Log Analytics](../../azure-monitor/platform/om-agents.md) | Configure integration between Operations Manager and Azure Monitor logs to forward collected data from Windows computers reporting to a management group.|  
 
 ## Next steps
 
