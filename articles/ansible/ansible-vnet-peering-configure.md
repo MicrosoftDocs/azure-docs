@@ -289,13 +289,17 @@ localhost                  : ok=12   changed=9    unreachable=0    failed=0    s
 
 When no longer needed, delete the resources created in this article. 
 
+[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
+
+- Delete the two resources groups created earlier
+
 [!INCLUDE [ansible-playbook-2-saveas.md](../../includes/ansible-playbook-2-saveas.md)] `cleanup.yml`:
 
 ```bash
 - hosts: localhost
   vars:
-    resource_group: "{{ resource_group_name }}"
-    resource_group_secondary: "{{ resource_group_name }}"
+    resource_group: "{{ resource_group_name-1 }}"
+    resource_group_secondary: "{{ resource_group_name-2 }}"
   tasks:
     - name: Delete a resource group
       azure_rm_resourcegroup:
@@ -312,7 +316,9 @@ When no longer needed, delete the resources created in this article.
 
 [!INCLUDE [ansible-playbook-3-key-notes.md](../../includes/ansible-playbook-3-key-notes.md)]
 
-- In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
+- Replace the `{{ resource_group_name-1 }}` placeholder with the name of the first resource group created.
+- Replace the `{{ resource_group_name-2 }}` placeholder with the name of the second resource group created.
+- All resources within the two specified resource groups will be deleted.
 
 [!INCLUDE [ansible-playbook-4-run.md](../../includes/ansible-playbook-4-run.md)]
 

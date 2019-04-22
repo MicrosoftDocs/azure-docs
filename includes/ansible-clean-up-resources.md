@@ -31,7 +31,7 @@ When no longer needed, delete the resources created in this article.
 
 [!INCLUDE [ansible-playbook-3-key-notes.md](ansible-playbook-3-key-notes.md)]
 
-- In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
+- Replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
 - All resources within the specified resource group will be deleted.
 
 [!INCLUDE [ansible-playbook-4-run.md](ansible-playbook-4-run.md)]
