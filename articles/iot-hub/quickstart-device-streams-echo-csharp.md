@@ -26,15 +26,15 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-The preview of device streams is currently only supported for IoT Hubs created in the following regions:
+*  The preview of device streams is currently only supported for IoT Hubs created in the following regions:
 
-*  **Central US**
+   *  **Central US**
 
-*  **Central US EUAP**
+   *  **Central US EUAP**
 
 The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 2.1.0 or greater on your development machine.
 
-You can download the [.NET Core SDK for multiple platforms from .NET](https://www.microsoft.com/net/download/all).
+*  Download the [.NET Core SDK for multiple platforms from .NET](https://www.microsoft.com/net/download/all).
 
 You can verify the current version of C# on your development machine using the following command:
 
@@ -42,13 +42,13 @@ You can verify the current version of C# on your development machine using the f
 dotnet --version
 ```
 
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+*  Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
+    ```azurecli-interactive
+    az extension add --name azure-cli-iot-ext
+    ```
 
-Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive. You will need it on both device and service side.
+* Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive. You will need it on both device and service side.
 
 ## Create an IoT hub
 
