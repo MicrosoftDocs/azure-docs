@@ -628,7 +628,7 @@ To get the same data as a file of comma-separated values, download [complete-mod
 ## Microsoft.HDInsight
 | Resource type | Complete mode deletion |
 | ------------- | ----------- |
-| clusters | Yes | 
+| clusters | No | 
 | clusters/applications | No | 
 
 ## Microsoft.ImportExport

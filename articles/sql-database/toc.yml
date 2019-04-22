@@ -69,6 +69,12 @@
       href: sql-database-connect-query-ruby.md
     - name: R
       href: sql-database-connect-query-r.md
+  - name: Machine Learning Services
+    items:
+    - name: Create R scripts
+      href: sql-database-quickstart-r-create-script.md
+    - name: Train and score a model
+      href: sql-database-quickstart-r-train-score-model.md
 - name: Tutorials
   items:
   - name: Design a database in SQL Database
@@ -645,6 +651,12 @@
           href: saas-multitenantdb-schema-management.md
         - name: ETL for analytics
           href: saas-multitenantdb-tenant-analytics.md
+  - name: Machine Learning Services
+    items:
+      - name: Write advanced R functions
+        href: sql-database-machine-learning-services-functions.md
+      - name: Work with R and SQL data
+        href: sql-database-machine-learning-services-data-issues.md
 - name: Reference
   items:
   - name: Azure PowerShell
