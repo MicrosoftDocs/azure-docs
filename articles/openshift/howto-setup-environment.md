@@ -1,6 +1,6 @@
 ---
-title: Set up your Microsoft Azure Red Hat OpenShift development environment | Microsoft Docs
-description: Before you can create a Red Hat OpenShift cluster, you need to install the CLI, create a tenant, and an Azure AD app object and user.
+title: Set up your Azure Red Hat OpenShift development environment | Microsoft Docs
+description: Here are the prerequisites for working with Microsoft Azure Red Hat OpenShift.
 services: openshift
 keywords:  red hat openshift setup set up
 author: TylerMSFT
@@ -9,51 +9,43 @@ ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-#Customer intent: As a developer, I need to take care of several tasks before I can create an Azure Red Hat OpenShift cluster
+#Customer intent: As a developer, I need to understand the prerequisites for working with Azure Red Hat OpenShift
 ---
 
-# Set up your Microsoft Azure Red Hat OpenShift dev environment
+# Set up your Azure Red Hat OpenShift dev environment
 
-To build and run Microsoft Azure Red Hat OpenShift applications:
+To build and run Microsoft Azure Red Hat OpenShift applications, you'll need to:
 
 * Purchase Azure virtual machine reserved instances.
-* Install Version 2.0.43 or higher of the Azure CLI (or use the Azure Cloud Shell).
-* Create a tenant (Azure Active Directory) for your OpenShift cluster if you don't already have one.
-* Create an Azure AD application object.
-* Create an Azure AD user that you'll use to sign into apps running on your OpenShift cluster.
-* Manually register Azure Red Hat OpenShift providers and features.
+* Install version 2.0.61 (or higher) of the Azure CLI (or use the Azure Cloud Shell).
+* Register for the `openshiftmanagedcluster` feature and associated resource providers.
+* Create an Azure Active Directory (Azure AD) tenant
+* Create an Azure AD application object
+* Create an Azure AD user
 
-The following instructions will help you get everything ready.
+The following instructions will walk you through all of these prerequisites.
 
 ## Purchase Azure virtual machine reserved instances
 
-Before you can use Azure Red Hat OpenShift, you need to purchase Azure virtual machine reserved instances.
+Before you can use Azure Red Hat OpenShift, you'll need to purchase Azure virtual machine reserved instances.
 
-If you are an Azure customer, [purchase Azure virtual machine reserved instances](https://aka.ms/openshift/buy). A reservation reduces your spend by pre-paying for fully managed Azure services. You can see [what are Azure Reservations](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) to learn more about reservations and how they save you money.
+If you are an Azure customer, here's how to [purchase Azure virtual machine reserved instances](https://aka.ms/openshift/buy). A reservation reduces your spend by pre-paying for fully managed Azure services. Refer to [*What are Azure Reservations*](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) to learn more about reservations and how they save you money.
 
 If you are not an Azure customer, [contact sales](https://aka.ms/openshift/contact-sales) and fill out the sales form at the bottom of the page to start the process.
 
 ## Install the Azure CLI
 
-If you don't have version [2.0.61] of the Azure CLI, install the [latest version here][azure-cli-install].
-You can see which version of the Azure CLI you have by running the following command from a command window:
+Azure Red Hat OpenShift requires version 2.0.61 or higher of the Azure CLI. If you've already installed the Azure CLI, you can check which version you have by running:
+
 ```bat
 az --version
 ```
 
 The first line of output will have the CLI version, for example `azure-cli (2.0.61)`.
 
-## Create a tenant (Azure Active Directory)
+Here are instructions for [installing the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) if you require a new installation or an upgrade.
 
-Before you can create an Azure Red Hat OpenShift cluster, you need a tenant, otherwise known as an Azure AD, for it.
-
-If you don't have an Azure AD to use as the tenant for your Azure Red Hat OpenShift cluster, or you wish to create a tenant for testing, follow the instructions in [Create a tenant for your Azure OpenShift cluster](howto-create-tenant.md) before continuing with these instructions.
-
-## Create an Azure Active Directory application object and user
-
-You also need an app registration that allows the cluster to perform functions such as configuring storage. You'll also need to create a new user in Azure AD to use to sign in to the app running on your Azure Red Hat OpenShift cluster.
-
-If you don't have an app registration in the Azure AD tenant you are using to create your Azure Red Hat OpenShift cluster, or don't have an Azure AD user to use to sign in to your cluster, follow the instructions in [Create an Azure Active Directory application object](howto-aad-app-configuration.md) before continuing with these instructions.
+Alternately, you can use the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview). When using the Azure Cloud Shell, be sure to select the **Bash** environment if you plan to follow along with the [Create and manage an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial series.
 
 ## Register providers and features
 
@@ -61,7 +53,7 @@ The `Microsoft.ContainerService openshiftmanagedcluster` feature, `Microsoft.Sol
 
 To register these providers and features manually, use the following instructions from a Bash shell if you've installed the CLI, or from the Azure Cloud Shell (Bash) session in your Azure portal:
 .
-1. If you have access to multiple subscriptions, specify the relevant subscription ID:
+1. If you have multiple Azure subscriptions, specify the relevant subscription ID:
 
     ```bash
     az account set --subscription <SUBSCRIPTION ID>
@@ -91,11 +83,24 @@ To register these providers and features manually, use the following instruction
     az provider register -n Microsoft.ContainerService --wait
     ```
 
-You're now ready to create Azure Red Hat OpenShift applications.
+## Create an Azure Active Directory (Azure AD) tenant
+
+The Azure Red Hat OpenShift service requires an associated Azure Active Directory (Azure AD) tenant that represents your organization and its relationship to Microsoft. Your Azure AD tenant enables you to register, build, and manage apps, as well as use other Azure services.
+
+If you don't have an Azure AD to use as the tenant for your Azure Red Hat OpenShift cluster, or you wish to create a tenant for testing, follow the instructions in [Create an Azure AD tenant for your Azure Red Hat OpenShift cluster](howto-create-tenant.md) before continuing with this guide.
+
+## Create an Azure AD application object and user
+
+Azure Red Hat OpenShift requires permissions to perform tasks on your cluster, such as configuring storage. These permissions are represented through a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) and are created when you register an Azure AD application representing the workload you intend to host on Azure Red Hat OpenShift. You'll also want to create a new Active Directory user for testing apps running on your Azure Red Hat OpenShift cluster.
+
+Follow the instructions in [Create an Azure AD app object and user](howto-aad-app-configuration.md) to learn how to create a service principal, generate a client secret and authentication callback URL for your app, and create a new Active Directory user for testing.
 
 ## Next steps
 
-Try the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
-Find answers to [common questions and known issues](openshift-faq.md).
+You're now ready to use Azure Red Hat OpenShift!
+
+Try the tutorial:
+> [!div class="nextstepaction"]
+> [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md)
 
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
