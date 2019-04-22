@@ -6,7 +6,7 @@ metadata:
   description: Learn how to use Azure Lab Services to quickly set up a development, test, hackathon, or a classroom lab for your team or students in the cloud. Azure Tutorials, samples, and more show you how to create, manage, and secure labs.
   services: lab-services
   author: spelluru
-  manager: 
+  manager:
   ms.service: lab-services
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -41,7 +41,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="https://github.com/Azure/azure-devtestlab/tree/master/Samples">Resource Manager templates</a>
+    - html: <a href="https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates">Resource Manager templates</a>
     - html: <a href="/azure/lab-services/samples-cli">Azure CLI</a>
     - html: <a href="/azure/lab-services/samples-powershell">Azure PowerShell</a>
 - title: Reference
@@ -53,4 +53,4 @@ sections:
     - title: Command-Line
       html: <p><a href="/cli/azure/lab">Azure CLI</a></p><p><a href="/powershell/module/az.devtestlabs/#devtest_labs">Azure PowerShell</a></p>
     - title: REST
-      html: <p><a href="/rest/api/dtl">REST API</a></p>      
+      html: <p><a href="/rest/api/dtl">REST API</a></p>
