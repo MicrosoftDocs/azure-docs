@@ -152,4 +152,4 @@ This application can be run within your web browser. A successful response is re
 > [!div class="nextstepaction"]
 > [REST API reference](https://dev.cognitive.microsoft.com/docs/services/inkrecognizer)
 
-* [What is the Ink Recognizer API?](overview.md)
+* [What is the Ink Recognizer API?](../overview.md)
