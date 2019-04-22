@@ -91,8 +91,8 @@ Create a new user in Active Directory to use to sign in to the app running on yo
 
 ## Resources
 
-[Applications and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)  
-[Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)  
+* [Applications and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)  
+* [Quickstart: Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)  
 
 [appidimage]: ./media/howto-create-tenant/get-app-id.png
 [createkeyimage]: ./media/howto-create-tenant/create-key.png
