@@ -69,10 +69,10 @@ This quickstart will describe, step by step, how to make a simple client applica
 1. Open the code-behind source file `MainPage.xaml.cs`. You'll find it grouped under `MainPage.xaml`. Replace the contents with the code below. Here's what this sample covers: 
 
     * Using statements for the Speech and Speech.Dialog namespaces
-    * a simple implementation to ensure application microphone access, wired to a button handler;
-    * very basic UI helpers to present messages and errors in the application;
-    * a landing point for the initialization code path that will be populated later;
-    * an empty button handler for starting listening that will be populated later.
+    * A simple implementation to ensure application microphone access, wired to a button handler
+    * Very basic UI helpers to present messages and errors in the application
+    * A landing point for the initialization code path that will be populated later
+    * An empty button handler for starting listening that will be populated later
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
