@@ -107,11 +107,11 @@ Select which columns of data to work with.  To start with, configure the module 
 
 At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow.  If the **Visualize** option is disabled, you first need to run the experiment.  You'll do that next.
 
-    [!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
+[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
-    After the compute target is available, the experiment runs. When the run is complete, a green checkmark appears on each module.
+After the compute target is available, the experiment runs. When the run is complete, a green checkmark appears on each module.
 
-    ![View status](./media/ui-quickstart-run-experiment/status1.png)
+![View status](./media/ui-quickstart-run-experiment/status1.png)
 
 ## Preview the data
 
