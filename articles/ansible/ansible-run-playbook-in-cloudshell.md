@@ -41,7 +41,7 @@ export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ## Verify the configuration
 To verify the successful configuration, use Ansible to create a resource group.
 
-[!INCLUDE [create-resource-group-with-ansible.md](../../includes/ansible-create-resource-group.md)]
+[!INCLUDE [create-resource-group-with-ansible.md](../../includes/ansible-snippet-create-resource-group.md)]
 
 ## Next steps
 
