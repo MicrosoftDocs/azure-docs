@@ -30,29 +30,40 @@ Azure Machine Learning service provides a cloud-based environment you can use to
 
 Support for a visual interface (preview) and rich tools makes it easy to interactively explore and prepare data and then develop and test models. Examples include the visual interface in which you can drag-n-drop modules to build your experiments, and  [Jupyter notebooks](https://jupyter.org) or the [Azure Machine Learning for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) extension.
 
+
 ## What can I do with Azure Machine Learning service?
 
-Using the <a href="https://aka.ms/aml-sdk" target="_blank">main Python SDK</a> and the <a href="https://aka.ms/data-prep-sdk" target="_blank">Data Prep SDK</a> for Azure Machine Learning as well as open-source Python packages, you can build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service Workspace.
-You can choose from many machine learning components available in open-source Python packages, such as the following examples:
+Using the <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> and visual interface (preview) as well as open-source Python packages , you can build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service Workspace.
 
-- <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
-- <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
-- <a href="https://pytorch.org" target="_blank">PyTorch</a>
-- <a href="https://mxnet.io" target="_blank">MXNet</a>
+You can choose from many machine learning components available in open-source Python packages, such as <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>, and <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
-Azure Machine Learning service can also autotrain a model and autotune it for you.
-For an example, see [Train a regression model with automated machine learning](tutorial-auto-train-models.md).
+Whether you write code or use the visual interface, you can track multiple runs as you experiment to find the best solution as well as manage the deployed models.
 
-After you have a model, you use it to create a container, such as Docker, that can be deployed locally for testing. After testing is done, you can deploy the model as a production web service in either Azure Container Instances or Azure Kubernetes Service. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
+## Code-first experience
 
-Or train and deploy your machine learning model without writing code by using the drag-and-drop visual interface. 
+Start training on your local machine using the <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> and then scale out to the cloud. With many available [compute targets](how-to-set-up-training-targets.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
 
-Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) or the [Azure portal](https://portal.azure.com/).
+You can also [automate model training and tuning](tutorial-auto-train-models.md) using the SDK.
 
-You can evaluate model metrics, retrain, and redeploy new versions of the model, all while tracking the model's experiments.
+## Code-free / low code experience
+
+For code-free training, try:
++ The visual interface for drag-n-drop experimenting and deployment
++ The Azure portal option for automated ML experiments. 
+
+
+## Operationalization (MLOps)
+
+When you have the right model, you can easily use it in a web service, on an IoT device, or from Power BI. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md). 
+
+Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) or the [Azure portal](https://portal.azure.com/). 
+
+These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
+
+And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment.
+
 
 To get started using Azure Machine Learning service, see [Next steps](#next-steps).
-
 
 ## How does Azure Machine Learning service differ from Studio?
 
