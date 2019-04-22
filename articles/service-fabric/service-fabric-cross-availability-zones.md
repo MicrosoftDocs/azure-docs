@@ -23,7 +23,7 @@ Availability Zones is a high-availability offering that protects your applicatio
 
 Service Fabric supports clusters that are able to span across availability zones through the deployment of node types that are pinned to zones in a supported region. Deploying a Service Fabric cluster across availability zones will ensure high-availability of your applications. Azure Availability Zones are only available in select regions. For more information, see [Azure Availability Zones Overview](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-Sample templates are available: [cross availability zone templates](https://docs.microsoft.com/azure/availability-zones/az-overview)
+Sample templates are available: [Service Fabric cross availability zone template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
 ## Recommended Topology for primary node type of Azure Service Fabric clusters spanning across availability zones
 To ensure high availability of a Service Fabric cluster which is distributed across availability zones, it is important that a primary node type is located in each of the zones supported by the region. To spread a primary node type across, you
@@ -74,7 +74,6 @@ To enable the zones property on a virtual machine scale set resource, the load b
 >[!NOTE]
 > It is not possible to do an in-place change of SKU on the public IP and load balancer resources. If you are migrating from existing resources which are basic SKU see the migration section for more info. 
 
-
 ### Virtual Machine Scale Set (VMSS) NAT Rules
 The load balancer inbound NAT rules should match the NAT pools from the Virtual Machine Scale Set. Each Virtual Machine Scale Set must have a unique inbound NAT pool.
 ```json
@@ -119,6 +118,10 @@ The load balancer inbound NAT rules should match the NAT pools from the Virtual 
     ]
 }
 ```
+
+## Standard SKU Load Balancer outbound rules
+Standard Load Balancer and Standard Public IP introduce new abilities and different behaviors to outbound connectivity. They are not the same as Basic SKUs. If you want outbound connectivity when working with Standard SKUs, you must explicitly define it either with Standard Public IP addresses or Standard public Load Balancer. For more information, see [Outbound connections](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) and [Azure Standard Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-overview).
+
 
 ## Enabling zones on a Virtual Machine Scale Set
 To enable a zone, on a virtual machine scale set you must include three values in the virtual machine scale set resource. The first value is the **zones** property that specifies which availability zone the virtual machine scale set will be deployed to. The second value is the "singlePlacementGroup" property that must be set to true.
@@ -227,6 +230,9 @@ To migrate a cluster, which was using a Load Balancer and IP with a basic SKU, y
 The new LB and IP should be referenced in the new cross availability zone node types that you would like to use. In the example above, three new virtual machine scale set resources were added in zones 1,2, and 3. These virtual machine scale sets reference the newly created LB and IP and are marked as primary node types in the Service Fabric Cluster Resource.
 
 To migrate the system services over from the existing primary node type to the new cross availability zone node types, you must first disable with intent to remove all of the nodes in the existing primary node type.  The system services will then migrate to the new primary types as the nodes are disabled. This process takes several hours to complete due to the process of node and node type removal. 
+
+>[!NOTE]
+> If you want outbound connectivity when working with Standard SKUs, you must explicitly define it either with Standard Public IP addresses or Standard public Load Balancer. For more information, see [Outbound connections](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) and [Azure Standard Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-overview).
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
