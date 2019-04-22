@@ -57,13 +57,20 @@ sections:
       - href: quickstarts/java.md
       - href: quickstarts/javascript.md
 
-- title: Step-by-Step Tutorials
+- title: Samples
   items:
   - type: paragraph
-    text: "Learn how to develop applications using Ink Recognizer:"
+    text: "Use the examples to start integrating the Ink Recognizer API into your applications:"
   - type: paragraph
-    text: <a href="tutorial-wpf-translation-csharp.md">Not sure if this will be ready for //Build.</a>
-
+    text: <a href="https://github.com/Azure-Samples/cognitive-services-csharp-ink-recognition">C# and Universal Windows Platform(UWP)</a>
+  - type: paragraph
+    text: <a href="https://github.com/Azure-Samples/cognitive-services-javascript-ink-recognition">Javascript web-browser app</a>
+  - type: paragraph
+    text: <a href="https://github.com/Azure-Samples/cognitive-services-javascript-ink-recognition">Javascript web-browser app</a>
+  - type: paragraph
+    text: <a href="https://github.com/Azure-Samples/cognitive-services-java-android-ink-recognition">Java and Android mobile app</a>
+  - type: paragraph
+    text: <a href="https://github.com/Azure-Samples/cognitive-services-swift-ios-ink-recognition">Swift and iOS mobile app</a>
 
 - title: Reference
   items:
