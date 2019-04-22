@@ -375,5 +375,5 @@ With application packages, you can help your customers select the applications f
 [10]: ./media/batch-application-packages/app_pkg_10.png "Choose storage account blade in Azure portal"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Update package blade in Azure portal"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Delete package confirmation dialog in Azure portal"
-[13]: ./media/batch-application-packages/package-file-structure.PNG "Compute node information in Azure portal"
-[14]: ./media/batch-application-packages/package-file-structure-on-node.png "Files on the compute node displayed in Azure portal"
+[13]: ./media/batch-application-packages/package-file-structure.png "Compute node information in Azure portal"
+[14]: ./media/batch-application-packages/package-file-structure-node.png "Files on the compute node displayed in Azure portal"
