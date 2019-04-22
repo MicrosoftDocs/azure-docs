@@ -76,7 +76,7 @@ Step 1: Connect to the Domain Controller Via Remote Desktop
 
 ![alt-text](./media/apache-domain-joined-create-configure-esp/image012.png)
 
-Step 2: Use your Domain Name\\Administrator user you have provided in the previous step during deployment
+Step 2: Use your `Domain_Name\\Administrator` user you have provided in the previous step during deployment
 
 ![alt-text](./media/apache-domain-joined-create-configure-esp/image014.png)
 
