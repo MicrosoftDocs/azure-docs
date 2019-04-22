@@ -316,6 +316,9 @@
       - name: Use Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+    - name: Delete a cluster
+      href: ../hdinsight-delete-cluster.md
+      maintainContext: true
     - name: Manually scale a cluster
       href: ../hdinsight-scaling-best-practices.md
       maintainContext: true
