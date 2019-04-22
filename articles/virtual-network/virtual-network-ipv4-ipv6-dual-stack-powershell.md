@@ -58,13 +58,14 @@ Before you can create your dual-stack virtual network, you must create a resourc
 To access your virtual machines from the Internet, you need IPv4 and IPv6 public IP addresses for the load balancer. Create public IP addresses with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). The following example creates IPv4 and IPv6 public IP address named *dsPublicIP_v4* and *dsPublicIP_v6* in the *dsRG1* resource group:
 
 ```azurepowershell-interactive
-  $PublicIP_v4 = New-AzPublicIpAddress `
+$PublicIP_v4 = New-AzPublicIpAddress `
   -Name "dsPublicIP_v4" `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
   -AllocationMethod Dynamic `
   -IpAddressVersion IPv4
   
+$PublicIP_v6 = New-AzPublicIpAddress `
   -Name "dsPublicIP_v6" `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
@@ -113,8 +114,11 @@ $frontendIPv6 = New-AzLoadBalancerFrontendIpConfig `
 Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). The VMs attach to this back-end pool in the remaining steps. The following example creates back-end address pools named *dsLbBackEndPool_v4* and *dsLbBackEndPool_v6* to include VMs with both IPV4 and IPv6 NIC configurations:
 
 ```azurepowershell-interactive
-$backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig -Name "dsLbBackEndPool_v4"
-$backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig -Name "dsLbBackEndPool_v6"
+$backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig `
+-Name "dsLbBackEndPool_v4"
+
+$backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig `
+-Name "dsLbBackEndPool_v6"
 ```
 
 ### Create a load balancer rule
