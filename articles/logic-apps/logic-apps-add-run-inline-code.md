@@ -39,6 +39,8 @@ a new email arrives in an Office 365 Outlook account.
 The code snippet extracts and returns any email addresses 
 that appear in the email body.
 
+![Example overview](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
+
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
