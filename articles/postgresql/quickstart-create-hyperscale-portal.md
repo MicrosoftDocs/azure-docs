@@ -4,6 +4,7 @@ description: Create and query distributed tables on Azure Database for PostgreSQ
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/15/2019
