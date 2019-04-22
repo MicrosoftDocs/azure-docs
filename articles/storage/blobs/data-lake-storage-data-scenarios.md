@@ -137,7 +137,7 @@ Here's a list of tools that you can use to ingest data associated with HDInsight
 |---|--|
 |Apache DistCp | [Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
 |AzCopy tool | [Transfer data with the AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
-|Azure Data Factory | [Copy data to or from Azure Data Lake Storage Gen1 by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) |
+|Azure Data Factory | [Copy data to or from Azure Data Lake Storage Gen2 by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
 
 ### Data stored in on-premises or IaaS Hadoop clusters
 

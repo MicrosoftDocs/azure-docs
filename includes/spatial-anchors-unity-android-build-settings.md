@@ -17,4 +17,4 @@ Close the **Build Settings** window.
 
 ### Download and import the ARCore SDK for Unity
 
-Download the `unitypackage` file from the [ARCore SDK for Unity 1.5 releases](https://github.com/google-ar/arcore-unity-sdk/releases/tag/v1.5.0). Back in the Unity project, select **Assets** > **Import Package** > **Custom Package** and then select the `unitypackage` file you previously downloaded. In the **Import Unity Package** dialog box, make sure all files are selected and then select **Import**.
+Download the `unitypackage` file from the [ARCore SDK for Unity 1.7 releases](https://github.com/google-ar/arcore-unity-sdk/releases/tag/v1.7.0). Back in the Unity project, select **Assets** > **Import Package** > **Custom Package** and then select the `unitypackage` file you previously downloaded. In the **Import Unity Package** dialog box, make sure all files are selected and then select **Import**.

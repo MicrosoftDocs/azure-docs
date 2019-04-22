@@ -1,7 +1,6 @@
 ---
 title: Create a custom policy definition
 description: Craft a custom policy definition for Azure Policy to enforce custom business rules.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/12/2019

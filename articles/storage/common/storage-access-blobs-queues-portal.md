@@ -37,13 +37,13 @@ When you attempt to access blob or queue data in the Azure portal, the portal fi
 To access blob or queue data from the Azure portal using your Azure AD account, both of the following statements must be true for you:
 
 - You have been assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
-- You have been assigned either a built-in or custom role that provides access to blobs or queue data.
+- You have been assigned either a built-in or custom role that provides access to blob or queue data.
 
 The **Reader** role assignment or another Azure Resource Manager role assignment is necessary so that the user can view and navigate storage account management resources in the Azure portal. The RBAC roles that grant access to blob or queue data do not grant access to storage account management resources. To access blob or queue data in the portal, the user needs permissions to navigate storage account resources. For more information about this requirement, see [Assign the Reader role for portal access](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 The built-in roles that support access to your blob or queue data include:
 
-- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): For POSIX access control for Azure Data Lake Storage Gen2 (preview).
+- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): For POSIX access control for Azure Data Lake Storage Gen2.
 - [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Read/write/delete permissions for blobs.
 - [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Read-only permissions for blobs.
 - [Storage Queue Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Read/write/delete permissions for queues.

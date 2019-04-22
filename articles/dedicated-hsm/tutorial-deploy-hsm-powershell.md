@@ -213,7 +213,7 @@ The ssh tool is used to connect to the virtual machine. The command will be simi
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 The password to use is the one from the parameter file.
-Once logged on to the Linux VM you can log in to the HSM using the private IP address found in the portal for the resource <prefix>hsm_vnic.
+Once logged on to the Linux VM you can log in to the HSM using the private IP address found in the portal for the resource \<prefix>hsm_vnic.
 
 ```powershell
 

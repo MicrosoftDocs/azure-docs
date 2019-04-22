@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -26,7 +26,7 @@ You must:
 - Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems). 
 - Enable BitLocker on the Windows system. See [How to enable BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [Download the WAImportExport version 1](https://aka.ms/waiev1) on the Windows system. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
-- Have a FedEx/DHL account.  
+- Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.  
     - The account must be valid, should have balance, and must have return shipping capabilities.
     - Generate a tracking number for the export job.
     - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
@@ -108,7 +108,7 @@ Perform the following steps to create an import job in the Azure portal.
 
 4. In **Return shipping info**:
 
-   - Select the carrier from the dropdown list.
+   - Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
    - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](http://www.dhl.com/) carrier account.
    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region. 
         

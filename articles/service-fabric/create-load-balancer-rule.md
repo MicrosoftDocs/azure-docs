@@ -23,6 +23,9 @@ The load balancer deployed with your Azure Service Fabric cluster directs traffi
 
 When you deployed your Service Fabric cluster to Azure, a load balancer was automatically created for you. If you do not have a load balancer, see [Configure an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-portal.md).
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Configure service fabric
 
 Your Service Fabric application **ServiceManifest.xml** config file defines the endpoints your application expects to use. After the config file has been updated to define an endpoint, the load balancer must be updated to expose that (or a different) port. For more information on how to create the service fabric endpoint, see [Setup an Endpoint](service-fabric-service-manifest-resources.md).
@@ -78,14 +81,14 @@ PowerShell is a little more complicated than the Azure CLI. Follow these concept
 >[!NOTE]
 >If you need to determine the name of the load balancer, use this command to quickly get a list of all load balancers and associated resource groups.
 >
->`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
+>`Get-AzLoadBalancer | Select Name, ResourceGroupName`
 
 ```powershell
 # Get the load balancer
-$lb = Get-AzureRmLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
+$lb = Get-AzLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
 
 # Create the rule based on information from the load balancer.
-$lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
+$lbrule = New-AzLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
                                             -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
                                             -BackendAddressPool  $lb.BackendAddressPools[0] `
                                             -Probe $lb.Probes[0]
@@ -94,14 +97,14 @@ $lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -Fr
 $lb.LoadBalancingRules.Add($lbrule)
 
 # Update the load balancer on Azure
-$lb | Set-AzureRmLoadBalancer
+$lb | Set-AzLoadBalancer
 ```
 
-Regarding the `New-AzureRmLoadBalancerRuleConfig` command, the `-FrontendPort` represents the port the load balancer exposes for external connections, and the `-BackendPort` represents the port the service fabric app is listening to.
+Regarding the `New-AzLoadBalancerRuleConfig` command, the `-FrontendPort` represents the port the load balancer exposes for external connections, and the `-BackendPort` represents the port the service fabric app is listening to.
 
 >[!NOTE]
 >For more information on how to create a load balancer with PowerShell, see [Create a load balancer with PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 ## Next steps
 
-Learn more about [networking in Service Fabric](service-fabric-patterns-networking.md).
+Learn more about [networking in Service Fabric](service-fabric-patterns-networking.md).rvice-fabric-patterns-networking.md).

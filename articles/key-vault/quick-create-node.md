@@ -147,7 +147,7 @@ Browse to your newly created web app, and you should see that it's functioning. 
     ```
     http://<app name>.azurewebsites.net
     ```
-The preceding command also creates a Git-enabled app that enables you to deploy to Azure from your local Git repository. The local Git repo is configured with this URL: https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git.
+The preceding command also creates a Git-enabled app that enables you to deploy to Azure from your local Git repository. The local Git repo is configured with this URL: `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`.
 
 After you finish the preceding command, you can add an Azure remote to your local Git repository. Replace `<url>` with the URL of the Git repo.
 
@@ -191,7 +191,7 @@ Run the following command to deploy the app to Azure:
 git push azure master
 ```
 
-After this, when you browse to https://<app_name>.azurewebsites.net, you can see the secret value. Make sure that you replaced the name <YourKeyVaultName> with your vault name.
+After this, when you browse to `https://<app_name>.azurewebsites.net`, you can see the secret value. Make sure that you replaced the name `<YourKeyVaultName>` with your vault name.
 
 ## Next steps
 

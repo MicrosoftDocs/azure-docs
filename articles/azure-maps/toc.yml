@@ -6,30 +6,32 @@
     href: about-azure-maps.md
 - name: Quickstarts
   items:
-  - name: Create a map app
+  - name: Create a web app
     href: quick-demo-map-app.md
 - name: Tutorials
   items:
-  - name: 1 - Search for point of interest
-    href: tutorial-search-location.md
-  - name: 2 - Route to a destination
-    href: tutorial-route-location.md
-  - name: 3 - Multiple routes by mode of travel
-    href: tutorial-prioritized-routes.md
-  - name: 4 - Create a store locator
-    href: tutorial-create-store-locator.md
-  - name: 5 - Set up a geofence
-    href: tutorial-geofence.md
+  - name: Web SDK Tutorials
+    items:
+    - name: Search for point of interest
+      href: tutorial-search-location.md
+    - name: Route to a destination
+      href: tutorial-route-location.md
+    - name: Multiple routes by mode of travel
+      href: tutorial-prioritized-routes.md
+    - name: Create a store locator
+      href: tutorial-create-store-locator.md
+  - name: REST API Tutorials
+    items:
+    - name: Set up a geofence
+      href: tutorial-geofence.md
 - name: Concepts
   items:
-  - name: Zoom levels and tile grid
-    href: zoom-levels-and-tile-grid.md
+  - name: Authentication with Azure Maps
+    href: azure-maps-authentication.md
   - name: Azure Maps Event Grid integration
     href: azure-maps-event-grid-integration.md
   - name: Choose the right pricing tier
     href: choose-pricing-tier.md
-  - name: Authentication with Azure Maps
-    href: azure-maps-authentication.md
   - name: Coverage
     items:
     - name: Geocoding coverage
@@ -42,10 +44,12 @@
       href: routing-coverage.md
   - name: Supported languages
     href: supported-languages.md
-  - name: Supported Map styles
+  - name: Supported map styles
     href: supported-map-styles.md
   - name: Web SDK supported browsers
     href: supported-browsers.md
+  - name: Zoom levels and tile grid
+    href: zoom-levels-and-tile-grid.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
@@ -62,6 +66,8 @@
     items:
     - name: Search for an address
       href: how-to-search-for-address.md
+    - name: Best practices for search
+      href: how-to-use-best-practices-for-search.md
     - name: Render custom data on static map
       href: how-to-render-custom-data.md
   - name: Develop with the Web SDK
@@ -88,6 +94,8 @@
         href: map-add-heat-map-layer.md   
       - name: Cluster point data
         href: clustering-point-data-web-sdk.md
+      - name: Use data-driven style expressions
+        href: data-driven-style-expressions-web-sdk.md
       - name: Overlay an image
         href: map-add-image-layer.md
       - name: Add tile layers
@@ -158,7 +166,7 @@
   items:
   - name: Azure Maps terms of use
     href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31
-  - name: Pricing
+  - name: Azure Maps Pricing
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
@@ -166,7 +174,9 @@
     href: https://stackoverflow.com/questions/tagged/azure-maps
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
-  - name: Glossary
+  - name: Azure Maps Videos
+    href: https://aka.ms/AzureMapsVideos
+  - name: Azure Maps Glossary
     href: glossary.md
   - name: Service updates
     href: https://azure.microsoft.com/updates 
@@ -176,7 +186,7 @@
     href: https://azure.microsoft.com/roadmap/?category=iot    
   - name: Technical case studies
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Videos
+  - name: Azure Maps on IoT School
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo    
 - name: Related
   items:

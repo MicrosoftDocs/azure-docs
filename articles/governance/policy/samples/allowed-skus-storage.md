@@ -1,7 +1,6 @@
 ---
 title: Sample - Allowed SKUs for storage accounts and virtual machines
 description: This sample policy definition requires that storage accounts and virtual machines use approved SKUs.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy

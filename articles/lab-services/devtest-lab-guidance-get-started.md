@@ -1,5 +1,5 @@
 ---
-title: Get started with using Azure DevTest Labs
+title: Popular scenarios for using Azure DevTest Labs
 description: This article provides the primary scenarios for using Azure DevTest Labs and two general paths to start using the service in your organization. 
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.reviewer: christianreddington,anthdela,juselph
 
 ---
 
-# Get started with using Azure DevTest Labs
+# Popular scenarios for using Azure DevTest Labs
 Depending on the needs of an enterprise, DevTest Labs can be configured to meet different requirements.  This article discusses the popular scenarios. Each scenario covers benefits brought by using DevTest Labs and resources to use to implement those scenarios.  
 
 - Developer desktops

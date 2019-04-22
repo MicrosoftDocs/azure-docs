@@ -35,7 +35,39 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ---
 
+## April 2019
+
+### Increased security using the app protection-based conditional access policy in Azure AD (Public preview)
+
+**Type:** New feature  
+**Service category:** Conditional Access  
+**Product capability:** Identity Security & Protection
+
+App protection-based conditional access is now available by using the **Require app protection** policy. This new policy helps to increase your organization's security by helping to prevent:
+
+- Users gaining access to apps without a Microsoft Intune license.
+
+- Users being unable to get a Microsoft Intune app protection policy.
+
+- Users gaining access to apps without a configured Microsoft Intune app protection policy.
+
+For more information, see [How to Require app protection policy for cloud app access with conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-protection-based-conditional-access).
+
+---
+
 ## March 2019
+
+### New support for Azure AD single sign-on and conditional access in Microsoft Edge (Public preview)
+
+**Type:** New feature  
+**Service category:** Conditional Access  
+**Product capability:** Identity Security & Protection
+
+We've enhanced our Azure AD support for Microsoft Edge, including providing new support for Azure AD single sign-on and conditional access. If you've previously used Microsoft Intune Managed Browser, you can now use Microsoft Edge instead.
+
+For more information about setting up and managing your devices and apps using conditional access, see [Require managed devices for cloud app access with conditional access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/require-managed-devices) and [Require approved client apps for cloud app access with conditional access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-conditional-access). For more information about how to manage access using Microsoft Edge with Microsoft Intune policies, see [Manage Internet access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/en-us/intune/app-configuration-managed-browser).
+
+---
 
 ### Identity Experience Framework and custom policy support in Azure Active Directory B2C is now available (GA)
 
@@ -153,7 +185,7 @@ To help prevent administrators from accidentally locking themselves out of their
 **Service category:** Terms of Use  
 **Product capability:** Governance
 
-We've updated our existing Terms of use experiences to help improve how you review and consent to Terms of use on a mobile device. You can now zoom in and out, go back, download the information, and select hyperlinks. For more information about the updated Terms of use, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#what-terms-of-use-looks-like-for-users).
+We've updated our existing Terms of use experiences to help improve how you review and consent to Terms of use on a mobile device. You can now zoom in and out, go back, download the information, and select hyperlinks. For more information about the updated Terms of use, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users).
 
 ---
 
@@ -517,7 +549,7 @@ For more information about roles and permissions, see [Assigning administrator r
 **Service category:** Device Registration and Management  
 **Product capability:** Device Lifecycle Management
 
-We realize that over time you must refresh and retire your organizations' devices in Azure AD, to avoid having stale devices hanging around in your environment. To help with this process, Azure AD now updates your devices with a new activity timestamp, helping you to manage your device lifecycle.
+We realize that over time you must refresh and retire your organizations' devices in Azure AD, to avoid having stale devices in your environment. To help with this process, Azure AD now updates your devices with a new activity timestamp, helping you to manage your device lifecycle.
 
 For more information about how to get and use this timestamp, see [How To: Manage the stale devices in Azure AD](https://docs.microsoft.com/azure/active-directory/devices/manage-stale-devices)
 
@@ -531,7 +563,7 @@ For more information about how to get and use this timestamp, see [How To: Manag
  
 Administrators can now turn on the **Require users to consent on every device** option to require your users to accept your Terms of use on every device they're using on your tenant.
 
-For more information, see the [Per-device Terms of use section of the Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#per-device-terms-of-use).
+For more information, see the [Per-device Terms of use section of the Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use).
 
 ---
 
@@ -544,7 +576,7 @@ For more information, see the [Per-device Terms of use section of the Azure Acti
 
 Administrators can now turn on the **Expire consents** option to make a Terms of use expire for all of your users based on your specified recurring schedule. The schedule can be annually, bi-annually, quarterly, or monthly. After the Terms of use expire, users must reaccept.
 
-For more information, see the [Add Terms of use section of the Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#add-terms-of-use).
+For more information, see the [Add Terms of use section of the Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
 
 ---
 
@@ -556,7 +588,7 @@ For more information, see the [Add Terms of use section of the Azure Active Dire
 
 Administrators can now specify a duration that user must reaccept a Terms of use. For example, administrators can specify that users must reaccept a Terms of use every 90 days.
 
-For more information, see the [Add Terms of use section of the Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#add-terms-of-use).
+For more information, see the [Add Terms of use section of the Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
  
 ---
 
