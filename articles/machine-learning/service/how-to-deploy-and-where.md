@@ -78,31 +78,12 @@ For an example of registering an ONNX model, see the [example ONNX notebooks](ht
 
 For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## Deploy as a web service
+## How to deploy
 
 To deploy as a web service, you must create an inference configuration (`InferenceConfig`) and a deployment configuration. The deployment configuration is specific to the compute target that you deploy to.
 
-### Define your InferenceConfiguration
 
-The inference configuration describes how to configure the model to make predictions. The following example demonstrates how to create an inference configuration:
-
-```python
-inference_config = InferenceConfig(source_directory="C:/abc",
-                                   runtime= "python",
-                                   entry_script="x/y/score.py",
-                                   conda_file="env/myenv.yml")
-```
-
-In this example, the configuration contains the following items:
-
-* A directory that contains assets needed to perform inferencing
-* That this model requires Python
-* The [entry script](#script), which is used to handle web requests sent to the deployed service
-* The conda file that describes the Python packages needed to run inferencing
-
-For information on advanced InferenceConfiguration functionality, please click <a href="#advanced-config">here</a>.
-
-### <a id="script"></a> Define your entry script
+### <a id="script"></a> 1. Define your entry script & dependencies
 
 The entry script receives data submitted to a deployed web service, and passes it to the model. It then takes the response returned by the model and returns that to the client. **The script is specific to your model**; it must understand the data that the model expects and returns.
 
@@ -125,7 +106,8 @@ The following types are currently supported:
 
 To use schema generation, include the `inference-schema` package in your conda environment file. The following example uses `[numpy-support]` since the entry script uses a numpy parameter type: 
 
-**Example inference_environment.yml**
+#### Example dependencies file
+This is an example of a Conda dependencies file for inference.
 ```python
 name: project_environment
 dependencies:
@@ -187,13 +169,31 @@ For more example scripts, see the following examples:
 * TensorFlow: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 * Keras: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 
-## <a id="deploy"></a> Deploy to the cloud
+### 2. Define your InferenceConfiguration
+
+The inference configuration describes how to configure the model to make predictions. The following example demonstrates how to create an inference configuration:
+
+```python
+inference_config = InferenceConfig(source_directory="C:/abc",
+                                   runtime= "python",
+                                   entry_script="x/y/score.py",
+                                   conda_file="env/myenv.yml")
+```
+
+In this example, the configuration contains the following items:
+
+* A directory that contains assets needed to perform inferencing
+* That this model requires Python
+* The [entry script](#script), which is used to handle web requests sent to the deployed service
+* The conda file that describes the Python packages needed to run inferencing
+
+For information on advanced InferenceConfiguration functionality, please click <a href="#advanced-config">here</a>.
+
+### 3. Define your DeploymentConfiguration
 
 Before deploying, you must define the deployment configuration. The deployment configuration is specific to the compute target that will host the web service. For example, when deploying locally you must specify the port where the service accepts requests.
 
 You may also need to create the compute resource. For example, if you do not already have an Azure Kubernetes Service associated with your workspace.
-
-### Define your DeploymentConfiguration
 
 The following table provides an example of creating a deployment configuration for each compute target:
 
@@ -204,6 +204,8 @@ The following table provides an example of creating a deployment configuration f
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 The following sections demonstrate how to create the deployment configuration, and then use it to deploy the web service.
+
+## Where to deploy
 
 ### <a id="local"></a> Deploy locally
 
