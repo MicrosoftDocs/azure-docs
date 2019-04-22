@@ -1,21 +1,19 @@
 ---
-title: Use Apache Sqoop with Curl in HDInsight - Azure 
+title: Use Curl to export data with Apache Sqoop in Azure HDInsight
 description: Learn how to remotely submit Apache Sqoop jobs to HDInsight using Curl.
 services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.author: hrasheed
 ---
 
-# Run Apache Sqoop jobs with Hadoop in HDInsight with Curl
+# Run Apache Sqoop jobs with Hadoop in HDInsight with cURL
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use Curl to run Apache Sqoop jobs on an Apache Hadoop cluster in HDInsight. This article demonstrates how to export data from Azure storage and import it into a SQL Server database using Curl. This article is a continuation of [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
+Learn how to use cURL to run Apache Sqoop jobs on an Apache Hadoop cluster in HDInsight. This article demonstrates how to export data from Azure storage and import it into a SQL Server database using Curl. This article is a continuation of [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
 Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run, monitor, and retrieve the results of Sqoop jobs. This works by using the WebHCat REST API (formerly known as Templeton) provided by your HDInsight cluster.
 
@@ -29,9 +27,9 @@ Curl is used to demonstrate how you can interact with HDInsight by using raw HTT
 
 * [jq](https://stedolan.github.io/jq/). The jq utility is used to process the JSON data returned from REST requests.
 
-## Submit Apache Sqoop jobs by using Curl from Azure storage to SQL Server
+## Submit Apache Sqoop jobs by using Curl
 
-From Azure storage to SQL Server.
+Use Curl to export data using Apache Sqoop jobs from Azure storage to SQL Server.
 
 > [!NOTE]  
 > When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server.
@@ -106,15 +104,7 @@ As demonstrated in this document, you can use a raw HTTP request to run, monitor
 For more information on the REST interface used in this article, see the <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">Apache Sqoop REST API guide</a>.
 
 ## Next steps
-For general information on Hive with HDInsight:
-
-* [Use Apache Sqoop with Apache Hadoop on HDInsight](hdinsight-use-sqoop.md)
-
-For information on other ways you can work with Hadoop on HDInsight:
-
-* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
-* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+[Use Apache Sqoop with Apache Hadoop on HDInsight](hdinsight-use-sqoop.md)
 
 For other HDInsight articles involving curl:
  
@@ -122,6 +112,3 @@ For other HDInsight articles involving curl:
 * [Run Apache Hive queries with Apache Hadoop in HDInsight using REST](apache-hadoop-use-hive-curl.md)
 * [Run MapReduce jobs with Apache Hadoop on HDInsight using REST](apache-hadoop-use-mapreduce-curl.md)
 * [Run Apache Pig jobs with Apache Hadoop on HDInsight using cURL](apache-hadoop-use-pig-curl.md)
-
-
-
