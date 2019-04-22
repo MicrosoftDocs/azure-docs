@@ -262,11 +262,12 @@ Creating an AKS cluster is a one time process for your workspace. You can reuse 
 > If you have already created or attached an AKS cluster go <a href="#deploy-aks">here</a>.
 
 #### Create or attach an AKS cluster <a id="create-attach-aks"></a>
+Creating or attaching an AKS cluster is a **one time process** for your workspace. 
+After a cluster has been associated with your workspace you can use it for multiple deployments. 
 
-#### Create a new cluster
+If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy.
 
-Creating the AKS cluster is a **one time process** for your workspace. Once created, you can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, then you must create a new cluster the next time you need to deploy.
-
+##### Create a new AKS cluster
 To create a new Azure Kubernetes Service cluster use the following code:
 
 ```python
@@ -295,7 +296,7 @@ For more information on creating an AKS cluster outside of the Azure Machine Lea
 
 **Time estimate**: Approximately 20 minutes.
 
-#### Attach an existing AKS cluster
+##### Attach an existing AKS cluster
 
 If you already have AKS cluster in your Azure subscription, and it is version 1.12.## and has at least 12 virtual CPUs, you can use it to deploy your image. The following code demonstrates how to attach an existing AKS 1.12.## cluster to your workspace:
 
