@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 04/17/2019
+ms.date: 04/22/2019
 ---
 # Azure SQL Database vCore-based purchasing model limits for a single database
 
@@ -44,7 +44,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Target IOPS (64 KB)|500|1000|1500|2000|2500|3000|
-|Log rate limits (MBps)|2.5|5|7.5|10|12.5|15|
+|Log rate limits (MBps)|3.75|7.5|11.25|15|18.75|22.5|
 |Max concurrent workers (requests)|200|400|600|800|1000|1200|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Number of replicas|1|1|1|1|1|1|
@@ -67,7 +67,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)
 |Target IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
-|Log rate limits (MBps)|17.5|20|20|20|20|20|
+|Log rate limits (MBps)|26.25|30|30|30|30|30|
 |Max concurrent workers (requests)|1400|1600|1800|2000|3200|4800|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Number of replicas|1|1|1|1|1|1|
@@ -89,8 +89,8 @@ You can set the service tier, compute size, and storage amount for a single data
 |TempDB size (GB)|64|128|192|256|320|384|384|
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Target IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|Log rate limits (MBps)|2.5|5.6|7.5|10|12.5|15|17.5|
+|Target IOPS (64 KB)|1000|2000|3000|4000|5000|6000|7000|
+|Log rate limits (MBps)|3.75|7.5|11.25|15|18.75|22.5|26.25|
 |Max concurrent workers (requests)|200|400|600|800|1000|1200|1400|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
 |Number of replicas|1|1|1|1|1|1|1|
@@ -112,8 +112,8 @@ You can set the service tier, compute size, and storage amount for a single data
 |TempDB size (GB)|384|384|384|384|384|384|384|
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Target IOPS (64 KB)|4000|4500|5000|6000|7000|7000|7000|
-|Log rate limits (MBps)|20|20|20|20|20|20|20|
+|Target IOPS (64 KB)|7000|7000|7000|7000|7000|7000|7000|
+|Log rate limits (MBps)|30|30|30|30|30|30|30|
 |Max concurrent workers (requests)|1600|1800|2000|2400|3200|4000|8000|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
 |Number of replicas|1|1|1|1|1|1|1|
@@ -138,7 +138,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |TempDB size (GB)|32|64|96|128|160|192|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
-|Log rate limits (MBps)|6|12|18|24|30|36|
+|Log rate limits (MBps)|8|16|24|32|40|48|
 |Max concurrent workers (requests)|200|400|600|800|1000|1200|
 |Max concurrent logins|200|400|600|800|1000|1200|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
@@ -162,7 +162,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |TempDB size (GB)|224|256|288|320|384|384|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
-|Log rate limits (MBps)|42|48|54|60|64|64|
+|Log rate limits (MBps)|56|64|64|64|64|64|
 |Max concurrent workers (requests)|1400|1600|1800|2000|3200|4800|
 |Max concurrent logins (requests)|1400|1600|1800|2000|3200|4800|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
@@ -185,8 +185,8 @@ You can set the service tier, compute size, and storage amount for a single data
 |TempDB size (GB)|64|128|192|256|320|384|384|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
-|Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|35000|
-|Log rate limits (MBps)|6|12|18|24|30|36|42|
+|Target IOPS (64 KB)|8000|16000|24000|32000|40000|48000|56000|
+|Log rate limits (MBps)|12|24|36|48|60|72|84|
 |Max concurrent workers (requests)|200|400|600|800|1000|1200|1400|
 |Max concurrent logins|200|400|600|800|1000|1200|1400|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
@@ -209,8 +209,8 @@ You can set the service tier, compute size, and storage amount for a single data
 |TempDB size (GB)|384|384|384|384|384|384|384|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
-|Target IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Log rate limits (MBps)|48|54|60|72|96|96|96|
+|Target IOPS (64 KB)|64000|72000|80000|96000|128000|160000|320000|
+|Log rate limits (MBps)|96|96|96|96|96|96|96|
 |Max concurrent workers (requests)|1600|1800|2000|2400|3200|4000|8000|
 |Max concurrent logins|1600|1800|2000|2400|3200|4000|8000|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
