@@ -32,7 +32,7 @@ Switching between the two license models incurs **no downtime**, does not restar
  - CSP customers can utilize the AHB benefit by first deploying a pay-as-you-go VM and then converting it to bring-your-own-license. 
  - When registering a custom SQL Server VM image with the resource provider, specify the license type as = 'AHUB'. Leaving the license type as blank, or specifying 'PAYG' will cause the registration to fail. 
  - If you drop your SQL Server VM resource, you will go back to the hard-coded license setting of the image. 
- - When changing the availability set for a SQL Server VM, you will need to update the license type for a SQL Server VM since changing the availability set requires recreating the VM. 
+ - When changing the availability set for a SQL Server VM, you will need to update the license type again since changing the availability set requires recreating the VM. 
  - The ability to change the licensing model is a feature of the SQL VM resource provider. Deploying a marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](#register-sql-server-vm-with-the-sql-vm-resource-provider). 
  
 
