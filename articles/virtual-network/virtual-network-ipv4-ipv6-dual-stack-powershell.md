@@ -349,7 +349,7 @@ foreach ($NIC in $NICsInRG) {
 ```
 The following figure shows a sample output that lists the private IPv4 and IPv6 addresses of the two VMs, and the frontend IPv4 and IPv6 IP addresses of the Load Balancer.
 
-![IP summary of dual stack (IPv4/IPv6) application deployment in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-application-IP-summary.png)
+![IP summary of dual stack (IPv4/IPv6) application deployment in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-application-summary.png)
 
 ## View IPv6 dual stack virtual network in Azure portal
 You can view the IPv6 dual stack virtual network in Azure portal as follows:
