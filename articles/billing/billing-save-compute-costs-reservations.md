@@ -26,7 +26,6 @@ Service plans:
 - Reserved Virtual Machine Instance: A reservation only covers the virtual machine compute costs. It doesn't cover additional software, networking, or storage charges.
 - Azure Cosmos DB reserved capacity: A reservation covers throughput provisioned for your resources. It doesn't cover the storage and networking charges.
 - SQL Database reserved vCore: Only the compute costs are included with a reservation. The license is billed separately.
-- Azure Cosmos DB reserved capacity: A reservation covers throughput provisioned for your resources, it doesn't cover the storage and networking charges.
 
 For Windows virtual machines and SQL Database, you can cover the licensing costs with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
