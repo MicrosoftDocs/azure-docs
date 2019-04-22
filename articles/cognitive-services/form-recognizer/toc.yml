@@ -1,4 +1,5 @@
 - name: Form Recognizer Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Form Recognizer?
@@ -20,3 +21,13 @@
     - name: Configure containers
       href: form-recognizer-container-configuration.md    
       displayName: docker, container, run, billing, apikey, logging
+- name: Resources
+  items: 
+  - name: Pricing and limits
+    href: https://go.microsoft.com/fwlink/?linkid=2087258
+  - name: Stack Overflow
+    href: https://go.microsoft.com/fwlink/?linkid=2087186
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
+  - name: Regional availability
+    href: https://go.microsoft.com/fwlink/?linkid=2087185
