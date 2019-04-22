@@ -7,6 +7,7 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 04/09/2019
+#Customer intent: As a developer, I want to parallelize queries so that I can make a realtime dashboard application.
 ---
 
 # Tutorial: Design a Real-Time Analytics Dashboard by using Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
