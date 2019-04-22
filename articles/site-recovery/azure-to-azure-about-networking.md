@@ -98,6 +98,12 @@ Site Recovery IP address ranges are as follows:
    Australia Central 2| 20.36.69.62 | 20.36.74.130
    South Africa West | 102.133.72.51 | 102.133.26.128
    South Africa North | 102.133.160.44 | 102.133.154.128
+   US Gov Virginia | 52.227.178.114 | 23.97.0.197
+   US Gov Iowa | 13.72.184.23 | 23.97.16.186
+   US Gov Arizona | 52.244.205.45 | 52.244.48.85
+   US Gov Texas | 52.238.119.218 | 52.238.116.60
+   US DoD East | 52.181.164.103 | 52.181.162.129
+   US DoD Central | 52.182.95.237 | 52.182.90.133
 ## Example NSG configuration
 
 This example shows how to configure NSG rules for a VM to replicate.
