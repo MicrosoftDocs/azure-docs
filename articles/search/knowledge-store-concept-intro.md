@@ -13,9 +13,9 @@ ms.author: heidist
 ---
 # What is Knowledge Store in Azure Search?
 
-Knowledge Store is an optional feature of Azure Search, currently in public preview, that saves enriched documents and metadata created by an AI-based indexing pipeline (cognitive search). Knowledge Store is backed by an Azure storage account that you configure as part of the pipeline. When enabled, the search service uses this storage account to cache a representation of each enriched document. 
+Knowledge Store is an optional feature of Azure Search, currently in public preview, that saves enriched documents and metadata created by an AI-based indexing pipeline [(cognitive search)](cognitive-search-concept-intro.md). Knowledge Store is backed by an Azure storage account that you configure as part of the pipeline. When enabled, the search service uses this storage account to cache a representation of each enriched document. 
 
-If you have used [cognitive search](cognitive-search-concept-intro.md) in the past, what Knowledge Store gives you is a way to peek inside the "black box" of AI-based indexing to see what an enriched document looks like. Enriched documents are consumable by Azure Search (same as before) but can also be viewed in [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) or any app that connects to Azure storage.
+If you have used cognitive search in the past, what Knowledge Store gives you is a way to peek inside the "black box" of AI-based indexing to see what an enriched document looks like. Enriched documents are consumable by Azure Search (same as before) but can also be viewed in [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) or any app that connects to Azure storage, which open s up new possibilities for how enriched documents are used.
 
 ![Knowledge Store in pipeline diagram](./media/knowledge-store-concept-intro/pipeline-knowledge-store.png "Knowledge Store in pipeline diagram")
 
@@ -165,10 +165,11 @@ Within the storage account, the enrichments can be expressed as tables within Az
 
 Along with document contents, enriched documents include the metadata of the skillset version that produced the enrichments.  
 
-## Knowledge Store composition
+## Inside a knowledge store
 
-The knowledge store consists of an annotation cache and projections. The *cache* is used by the service internally to cache the results from skills and track changes. A *projection* defines the schema and structure of the enrichments that match your intended use. 
-Within Azure storage, projections can be articulated as tables or objects:
+The knowledge store consists of an annotation cache and projections. The *cache* is used by the service internally to cache the results from skills and track changes. A *projection* defines the schema and structure of the enrichments that match your intended use. There is one cache per knowledge store, but multiple projections. 
+
+The cache is always a blob container, but projections can be articulated as tables or objects:
 
 + As an object, the projection maps to Blob storage, where the projection is saved to a container, within which are the objects or hierarchical representations in JSON for scenarios like a data science pipeline.
 
@@ -176,9 +177,9 @@ Within Azure storage, projections can be articulated as tables or objects:
 
 You can create multiple projections in a knowledge store to accommodate various constituencies in your organization. A developer might need access to the full JSON representation of an enriched document, while data scientists or analysts might want granular or modular data structures shaped by your skillset.
 
-For instance, if one of the goals of the enrichment process is to also create a dataset used to train a model, projecting the data into the object store would be one way to use the data in your data science pipelines. Alternatively, if you want to create a quick Power BI dashboard based on the enriched documents the tabular projection would work well.
+For example, if one of the goals of the enrichment process is to also create a dataset used to train a model, projecting the data into the object store would be one way to use the data in your data science pipelines. Alternatively, if you want to create a quick Power BI dashboard based on the enriched documents the tabular projection would work well.
 
-## Cache and projection lifecycle and billing
+## Data lifecycle and billing
 
 Each time you run the indexer, the cache in Azure storage is updated if the skillset definition or underlying source data has changed. As input documents are edited or deleted, changes are propagated through the annotation cache to the projections, ensuring that your projected data is a current representation of your inputs at the end of the indexer run. 
 
