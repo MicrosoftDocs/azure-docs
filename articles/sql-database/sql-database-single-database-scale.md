@@ -63,7 +63,7 @@ The latency to change the service tier or rescale the compute size of a single d
 
 ### Cancelling service tier changes or compute rescaling operations
 
-A service tier change or compute rescaling operation can be cancelled.
+A service tier change or compute rescaling operation can be canceled.
 
 #### Azure portal
 
