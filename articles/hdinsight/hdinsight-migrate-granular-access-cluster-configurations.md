@@ -19,11 +19,11 @@ Previously, secrets could be obtained via the HDInsight API by cluster users
 possessing the Owner, Contributor, or Reader [RBAC
 roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles).
 Going forward, these secrets will no longer be accessible to users with the
-Reader role. We are also be introducing a new ‘HDInisght Cluster Operator’ Role
+Reader role. We are also introducing a new ‘HDInisght Cluster Operator’ Role
 that is be able to retrieve secrets without being granted the administrative
 permissions of Contributor or Owner. To summarize:
 
-| Role                                  | Previously                                                                                       | Now       |
+| Role                                  | Previously                                                                                       | Going Forward       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | Reader                                | - Read access, including secrets                                                                   | - Read access, **excluding** secrets |           |   |   |
 | HDInsight Cluster Operator<br>(New Role) | N/A                                                                                              | - Read/write access, including secrets         |   |   |
@@ -37,15 +37,15 @@ For information on how to add the HDInsight Cluster Operator role assignment to 
 The following entities and scenarios are affected:
 
 - [API](#api): Users using the `/configurations` or `/configurations/{configurationName}` endpoints.
-- [Azure HDInsight Tools for Visual Studio Code](#azure-hdinsight-tools-for-visual-studio-code) version ___ and below.
-- [Azure Toolkit for IntelliJ](#azure-toolkit-for-intellij) version __ and below.
-- [Azure Toolkit for Eclipse](#azure-toolkit-for-eclipse) version __ and below.
+- [Azure HDInsight Tools for Visual Studio Code](#azure-hdinsight-tools-for-visual-studio-code) version 1.1.1 or below.
+- [Azure Toolkit for IntelliJ](#azure-toolkit-for-intellij) version 3.21.0 or below.
+- [Azure Toolkit for Eclipse](#azure-toolkit-for-eclipse) 2019-03-29 release or older.
 - [SDK for .NET](#sdk-for-net)
     - [versions 1.x or 2.x](#versions-1x-and-2x): Users using the `GetClusterConfigurations`, `GetConnectivitySettings`, `ConfigureHttpSettings`, `EnableHttp` or `DisableHttp` methods from the ConfigurationsOperationsExtensions class.
-    - [versions 3.x and up](#versions-3x-and-up): Users using the `EnableHttp`, `DisableHttp`, `Update`, or `Get` methods from the `ConfigurationsOperationsExtensions` class.
-- [SDK for Python](#sdk-for-python): Users using the `get` or `update` methods from the ConfigurationsOperations class.
-- [SDK for Java](#sdk-for-java): Users using the `update` or `get` methods from the ConfigurationsInner class.
-- [SDK for Go](#sdk-for-go): Users using the `Get` or `Update` methods from the ConfigurationsClient struct.
+    - [versions 3.x and up](#versions-3x-and-up): Users using the `Get`, `Update`, `EnableHttp`, or `DisableHttp` methods from the `ConfigurationsOperationsExtensions` class.
+- [SDK for Python](#sdk-for-python): Users using the `get` or `update` methods from the `ConfigurationsOperations` class.
+- [SDK for Java](#sdk-for-java): Users using the `update` or `get` methods from the `ConfigurationsInner` class.
+- [SDK for Go](#sdk-for-go): Users using the `Get` or `Update` methods from the `ConfigurationsClient` struct.
 
 See the below sections (or use the above links) to see the migration steps for your scenario.
 
@@ -54,37 +54,37 @@ See the below sections (or use the above links) to see the migration steps for y
 The following APIs will be changed or deprecated:
 
 - [**GET /configurations/{configurationName}**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (sensitive information removed)
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations/{configurationName}?api-version={api-version}
+https:\//management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations/{configurationName}?api-version={api-version}
     - Previously used to obtain individual configuration types (including secrets).
-    - This API call will now return individual configuration types with secrets omitted. To obtain all configurations, including secrets, use the new [POST /configurations]() call. To obtain just gateway settings, use the new [POST /getGatewaySettings]() call.
+    - This API call will now return individual configuration types with secrets omitted. To obtain all configurations, including secrets, use the new POST /configurations call. To obtain just gateway settings, use the new POST /getGatewaySettings call.
 - [**GET /configurations**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configurations) (deprecated)
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations?api-version={api-version}
+https:\//management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations?api-version={api-version}
     - Previously used to obtain all configurations (including secrets)
-    - This API call will no longer be supported. To obtain all configurations going forward, use the new [POST /configurations]() call. To obtain configurations with sensitive parameters omitted, use the [GET /configurations/{configurationName}]() call.
+    - This API call will no longer be supported. To obtain all configurations going forward, use the new POST /configurations call. To obtain configurations with sensitive parameters omitted, use the GET /configurations/{configurationName} call.
 - [**POST /configurations/{configurationName}**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#change-connectivity-settings) (deprecated)
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations/{configurationName}?api-version={api-version}
+https:\//management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations/{configurationName}?api-version={api-version}
     - Previously used to update gateway credentials.
-    - This API call will be deprecated and no longer supported. Use the new [POST /updateGatewaySettings]() instead.
+    - This API call will be deprecated and no longer supported. Use the new POST /updateGatewaySettings instead.
 
 The following replacement APIs have been added:</span>
 
 - **POST /configurations**
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations?api-version={api-version}
+https:\//management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations?api-version={api-version}
     - Use this API to obtain all configurations, including secrets.
 - **POST /getGatewaySettings**
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/getGatewaySettings?api-version={api-version}
+https:\//management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/getGatewaySettings?api-version={api-version}
     - Use this API to obtain gateway settings.
 - **POST /updateGatewaySettings**
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/updateGatewaySettings?api-version={api-version}
+https:\//management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/updateGatewaySettings?api-version={api-version}
     - Use this API to update gateway settings (username and/or password).
 
 ### Azure HDInsight Tools for Visual Studio Code
 
-If you are using version 1.1.1 or older, please update to the [latest version of Azure HDInsight Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mshdinsight.azure-hdinsight&ssr=false) to avoid interruptions.
+If you are using version 1.1.1 or below, please update to the [latest version of Azure HDInsight Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mshdinsight.azure-hdinsight&ssr=false) to avoid interruptions.
 
 ### Azure Toolkit for IntelliJ
 
-If you are using version 3.21.0 or older, please update to the [latest version of the Azure Toolkit for IntelliJ plugin](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij) to avoid interruptions.
+If you are using version 3.21.0 or below, please update to the [latest version of the Azure Toolkit for IntelliJ plugin](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij) to avoid interruptions.
 
 ### Azure Toolkit for Eclipse
 
@@ -145,7 +145,7 @@ Please update to [version 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree
 
 ## Add the HDInsight Cluster Operator role assignment to a user
 
-A user with the [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role can grant the HDInsight Cluster Operator role to users that you want to have read/write access to HDInsight cluster secrets like cluster gateway credentials and storage account keys.
+A user with the [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role can assign the HDInsight Cluster Operator role to users that you would want to have read/write access to sensitive HDInsight cluster configuration vlues (such as cluster gateway credentials and storage account keys).
 
 ### Using the Azure CLI
 
