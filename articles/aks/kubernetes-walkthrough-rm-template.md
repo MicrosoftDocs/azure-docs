@@ -41,7 +41,7 @@ The following command creates an SSH key pair using RSA encryption and a bit len
 ssh-keygen -t rsa -b 2048
 ```
 
-For more information about creating SSH keys, see [ssh-keys][Detailed steps: Create and manage SSH keys for authentication in Azure].
+For more information about creating SSH keys, see [Create and manage SSH keys for authentication in Azure][ssh-keys].
 
 ### Create a service principal
 
@@ -69,7 +69,7 @@ Make a note of the *appId* and *password*. These values are used in the followin
 
 The template used in this quickstart is to [deploy an Azure Kubernetes Service cluster](https://azure.microsoft.com/resources/templates/101-aks/). For more AKS samples, see the [AKS quickstart templates][aks-quickstart-templates] site.
 
-1. Select the following image to sign in to Azure and open a template..
+1. Select the following image to sign in to Azure and open a template.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json"><img src="./media/kubernetes-walkthrough-rm-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 
@@ -80,9 +80,9 @@ The template used in this quickstart is to [deploy an Azure Kubernetes Service c
     * **Subscription**: Select an Azure subscription.
     * **Resource group**: Select **Create new**. Enter a unique name for the resource group, such as *myResourceGroup*, then choose **OK**.
     * **Cluster name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
-    * **Location**: Select a location, such as For example, **East US**.
+    * **Location**: Select a location, such as **East US**.
     * **DNS prefix**: Enter a unique DNS prefix for your cluster, such as *myakscluster*.
-    * **Linux Admin Username**: Enter a username if you need to connect using SSH, such as *azureuser*.
+    * **Linux Admin Username**: Enter a username to connect using SSH, such as *azureuser*.
     * **SSH RSA Public Key**: Copy and paste the *public* part of your SSH key pair (by default, the contents of *~/.ssh/id_rsa.pub*).
     * **Service Principal Client Id**: Copy and paste the *appId* of your service principal from the `az ad sp create-for-rbac` command.
     * **Service Principal Client Secret**: Copy and paste the *password* of your service principal from the `az ad sp create-for-rbac` command.
@@ -114,11 +114,13 @@ To verify the connection to your cluster, use the [kubectl get][kubectl-get] com
 kubectl get nodes
 ```
 
-The following example output shows the single node created in the previous steps. Make sure that the status of the node is *Ready*:
+The following example output shows the nodes created in the previous steps. Make sure that the status of the node is *Ready*:
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.9.11
+aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.16
+aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.16
+aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.16
 ```
 
 ## Run the application
