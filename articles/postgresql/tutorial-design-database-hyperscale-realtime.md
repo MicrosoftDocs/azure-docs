@@ -4,6 +4,7 @@ description: This tutorial shows how to create, populate, and query distributed 
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 04/09/2019
