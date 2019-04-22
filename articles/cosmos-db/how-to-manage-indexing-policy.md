@@ -271,11 +271,11 @@ This policy can be used in situations where the [Time-to-Live (TTL) feature](tim
         "indexingPolicy": "none"
     }
 
-## Composite Indexing Policy Examples
+## Composite indexing policy examples
 
-In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](index-policy.md#how-to-manage-composite-indexes) on those properties is required.
+In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](index-policy.md#adding-composite-indexes) on those properties is required.
 
-### Composite Index Defined for (a asc, b desc):
+### Composite index defined for (a asc, b desc):
 
     {  
         "automatic":true,
@@ -320,7 +320,7 @@ Query #2:
 
 You can define multiple different composite indexes within the same indexing policy. 
 
-### Composite Index Defined for (a asc, b asc) and (a asc, b desc):
+### Composite index defined for (a asc, b asc) and (a asc, b desc):
 
     {  
         "automatic":true,
@@ -359,7 +359,7 @@ You can define multiple different composite indexes within the same indexing pol
 
 It is optional to specify the order. If not specified, the order is ascending.
 
-### Composite Index Defined for (a asc, b asc):
+### Composite index defined for (a asc, b asc):
 
 ```
 {  
