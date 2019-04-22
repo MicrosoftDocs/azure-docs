@@ -149,7 +149,7 @@ The Azure Maps Web SDK provides a *services module*. This module is a helper lib
     });
     ```
 
-    Here's the fully running code sample:
+    Here's the full, running code sample:
 
 <br/>
 

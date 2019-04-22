@@ -60,6 +60,7 @@ The following Web SDK modules are also supported in Node.js:
 
 You might want to target older browsers that don't support WebGL or that have only limited support for it. In such cases, we recommend that you use Azure Maps services together with an open-source map control like [Leaflet](https://leafletjs.com/). Here's an example:
 
+<br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Azure Maps + Leaflet" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> by Azure Maps
@@ -69,7 +70,7 @@ You might want to target older browsers that don't support WebGL or that have on
 
 ## Next steps
 
-Learn more about the Azure Maps Web SDK.
+Learn more about the Azure Maps Web SDK:
 
 > [!div class="nextstepaction"]
 > [Map control](how-to-use-map-control.md)
