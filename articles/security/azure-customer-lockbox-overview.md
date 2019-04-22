@@ -14,7 +14,7 @@ ms.date: 04/19/2019
 > [!NOTE]
 > To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
 
-As a cloud service provider, we understand the importance of maintaining the integrity and confidentiality of customer data. <Need to complete this section>
+As a cloud service provider, we understand the importance of maintaining the integrity and confidentiality of customer data. `Need to complete this section`
 
 
 ## Workflow
@@ -27,7 +27,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
 3. An Azure Support Engineer reviews the service request and determines the next steps to resolve the issue.
 
-4. For most cases, these support engineers can troubleshoot issues by using telemetry. <Fill this details>. However, in some cases, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer. Or, it can be from a different engineer because the problem is escalated to the Azure DevOps team.
+4. For most cases, these support engineers can troubleshoot issues by using telemetry. `Fill this details` However, in some cases, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer. Or, it can be from a different engineer because the problem is escalated to the Azure DevOps team.
 
 5. The JIT policy engine evaluates the request, taking into account factors such as:
     - The scope of the resource
@@ -43,18 +43,18 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
 7. At the customer organization, the user who has the [Owner role](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-rbac-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
 
-<Add Screenshot>
+`Add screenshot`
 
 8. The email notification provides a link to the **Customer Lockbox** blade in the Azure portal. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox.
     
    The request remains in the customer queue for four days. After this time, the access request automatically expires and no access is granted to Microsoft engineers.
 
-9. To get the details of the pending request, the designated approver can select the lockbox request.<Add Screenshot>
+9. To get the details of the pending request, the designated approver can select the lockbox request.`Add Screenshot`
 
-10. The designated approver can also select the **Ticket ID** reference to view the support ticket request that created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem. <Include screenshot>
+10. The designated approver can also select the **Ticket ID** reference to view the support ticket request that created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem. `Include screenshot`
 
 11. After reviewing the request, the designated approver selects **Approve** or **Deny**.
-<Include Screenshot>
+`Include Screenshot`
     
     As a result of the selection:
     - **Approve**:  Access is granted to the Microsoft engineer. The access is granted for a default period of 8 hours.
@@ -76,7 +76,7 @@ Use the **Activity Logs** to view auditing information related to Customer Lockb
 - **Deny Lockbox Requests**
 - **Lockbox Request Expiry**
 
-<Include Screenshot>
+`Include Screenshot`
 
 ## Supported services and scenarios
 
