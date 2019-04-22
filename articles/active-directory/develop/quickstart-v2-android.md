@@ -197,7 +197,7 @@ sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
 > | `SCOPES` | Contains the scopes being requested (that is, `{ "user.read" }` for Microsoft Graph or `{ "<Application ID URL>/scope" }` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`) |
 > | `getAuthInteractiveCallback` | Callback executed when control is given back to the application after authentication |
 
-#### Getting a user token silently
+#### acquireTokenSilent: Getting a user token silently
 
 Apps shouldn't require their users to sign in every time they request a token. If the user has already signed in, this method allows apps to request tokens silently.
 
