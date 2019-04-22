@@ -6,11 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
-
-ms.reviewer: jmartens
-author: garyericson
-ms.author: garye
-ms.date: 12/04/2018
+author: j-martens
+ms.author: jmartens
+ms.date: 05/02/2019
 ms.custom: seodec18
 ---
 
@@ -30,15 +28,18 @@ Azure Machine Learning service provides a cloud-based environment you can use to
 
 [![Azure Machine Learning service workflow](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
-Azure Machine Learning service fully supports open-source technologies. So you can use tens of thousands of open-source Python packages with machine learning components. Examples are PyTorch, TensorFlow, and scikit-learn.
-Support for rich tools makes it easy to interactively explore and prepare data and then develop and test models. Examples are [Jupyter notebooks](https://jupyter.org) or the [Azure Machine Learning for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) extension.
-Azure Machine Learning service also includes features that [automate model generation and tuning](tutorial-auto-train-models.md) to help you create models with ease, efficiency, and accuracy.
+The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn.
 
-By using Azure Machine Learning service, you can start training on your local machine and then scale out to the cloud. With many available [compute targets](how-to-set-up-training-targets.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
+Support for a visual interface (preview) and rich tools makes it easy to interactively explore and prepare data and then develop and test models. Examples are the visual interface in which you can drag-n-drop modules to build your experiments, and  [Jupyter notebooks](https://jupyter.org) or the [Azure Machine Learning for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) extension.
+
+You can also [automate model generation and tuning](tutorial-auto-train-models.md) with ease, efficiency, and accuracy with Azure Machine Learning service.
+
+Start training on your local machine and then scale out to the cloud. With many available [compute targets](how-to-set-up-training-targets.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
 
 When you have the right model, you can easily deploy it in a container such as Docker. So it's simple to deploy to Azure Container Instances or Azure Kubernetes Service. Or you can use the container in your own deployments, either on-premises or in the cloud. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
 
-You can manage the deployed models and track multiple runs as you experiment to find the best solution.
+Whether you write code or use the visual interface, you can manage the deployed models and track multiple runs as you experiment to find the best solution.
+
 After it's deployed, your model can return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
 
 And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on all the steps of data preparation, model training and evaluation, and deployment.
@@ -58,12 +59,15 @@ For an example, see [Train a regression model with automated machine learning](t
 
 After you have a model, you use it to create a container, such as Docker, that can be deployed locally for testing. After testing is done, you can deploy the model as a production web service in either Azure Container Instances or Azure Kubernetes Service. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
 
+Or train and deploy your machine learning model without writing code by using the drag-and-drop visual interface. 
+
 Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) or the [Azure portal](https://portal.azure.com/).
+
 You can evaluate model metrics, retrain, and redeploy new versions of the model, all while tracking the model's experiments.
 
 To get started using Azure Machine Learning service, see [Next steps](#next-steps).
 
-## How is Azure Machine Learning service different from Machine Learning Studio?
+## How does Azure Machine Learning service differ from Studio?
 
 [Azure Machine Learning Studio](../studio/what-is-ml-studio.md) is a collaborative, drag-and-drop visual workspace where you can build, test, and deploy machine learning solutions without needing to write code. It uses prebuilt and preconfigured machine learning algorithms and data-handling modules.
 
