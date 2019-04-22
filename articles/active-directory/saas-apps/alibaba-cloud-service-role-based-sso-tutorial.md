@@ -130,7 +130,7 @@ To configure Azure AD single sign-on with Alibaba Cloud Service (Role-based SSO)
 
 	| Name | Namespace | Source Attribute|
 	| ---------------| ------------| --------------- |
-	| Role | https://www.aliyun.com/SAML-Role/Attribute| user.assignedroles |
+	| Role | https://www.aliyun.com/SAML-Role/Attribute | user.assignedroles |
 	| RoleSessionName | https://www.aliyun.com/SAML-Role/Attribute | user.userprincipalname |
 
 	> [!NOTE]
@@ -215,35 +215,35 @@ To associate the RAM role with the Azure AD user, you must create a role in Azur
 	>You can locate the appRoles property by entering `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` in the field of the query. Note that the `objectID` is the object ID you have copied from the Azure AD **Properties** page.
 
 	f. Go back to the Graph Explorer, change the method from **GET** to **PATCH**, paste the following content into the **Request Body** section, and click **Run Query**:
-
-	`{ 
-  "appRoles": [
-    { 
-      "allowedMemberTypes":[
-        "User"
-      ],
-      "description": "msiam_access",
-      "displayName": "msiam_access",
-      "id": "41be2db8-48d9-4277-8e86-f6d22d35****",
-      "isEnabled": true,
-      "origin": "Application",
-      "value": null
-    },
-    { "allowedMemberTypes": [
-        "User"
-    ],
-    "description": "Admin,AzureADProd",
-    "displayName": "Admin,AzureADProd",
-    "id": "68adae10-8b6b-47e6-9142-6476078cdbce",
-    "isEnabled": true,
-    "origin": "ServicePrincipal",
-    "value": "acs:ram::187125022722****:role/aadrole,acs:ram::187125022722****:saml-provider/AAD"
-    }
+	```
+	{ 
+  	"appRoles": [
+    	{ 
+      	"allowedMemberTypes":[
+        	"User"
+      	],
+      	"description": "msiam_access",
+      	"displayName": "msiam_access",
+      	"id": "41be2db8-48d9-4277-8e86-f6d22d35****",
+      	"isEnabled": true,
+      	"origin": "Application",
+      	"value": null
+    	},
+    	{ "allowedMemberTypes": [
+        	"User"
+    	],
+    	"description": "Admin,AzureADProd",
+    	"displayName": "Admin,AzureADProd",
+    	"id": "68adae10-8b6b-47e6-9142-6476078cdbce",
+    	"isEnabled": true,
+    	"origin": "ServicePrincipal",
+    	"value": "acs:ram::187125022722****:role/aadrole,acs:ram::187125022722****:saml-provider/AAD"
+    	}
   	]
-	`}
-
-	>[!NOTE]
-	>The `value` is the ARNs of the IdP and the role you created in the RAM console. Here, you can add multiple roles as needed. Azure AD will send the value of these roles as the claim value in SAML response. However, you can only add new roles after the `msiam_access` part for the patch operation. To smooth the creation process, we recommend that you use an ID generator, such as GUID Generator, to generate IDs in real time.
+	}
+	```
+	> [!NOTE]
+	> The `value` is the ARNs of the IdP and the role you created in the RAM console. Here, you can add multiple roles as needed. Azure AD will send the value of these roles as the claim value in SAML response. However, you can only add new roles after the `msiam_access` part for the patch operation. To smooth the creation process, we recommend that you use an ID generator, such as GUID Generator, to generate IDs in real time.
 
 	g. After the 'Service Principal' is patched with the required role, attach the role with the Azure AD user (u2) by following the steps of **Assign the Azure AD test user** section of the tutorial.
 
