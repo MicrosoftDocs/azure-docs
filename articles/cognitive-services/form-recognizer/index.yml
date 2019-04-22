@@ -38,8 +38,8 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: ./media/index/logo_curl.svg
-      text: cURL;
+        src: ./media/logos/logo-curl.svg
+      text: cURL
       href: quickstarts/curl-train-extract.md
 - title: Reference
   items:
