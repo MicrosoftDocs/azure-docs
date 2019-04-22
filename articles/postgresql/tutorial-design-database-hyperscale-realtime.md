@@ -96,7 +96,7 @@ Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) 
 
 Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) (preview) using psql, you can complete some basic tasks. This tutorial walks you through ingesting traffic data from web analytics, then rolling up the data to provide real-time dashboards based on that data.
 
-Let's create a table that will consume all of our raw web traffic data:
+Let's create a table that will consume all of our raw web traffic data. Run the following commands in the psql terminal:
 
 ```sql
 CREATE TABLE http_request (
@@ -112,7 +112,7 @@ CREATE TABLE http_request (
 );
 ```
 
-We're also going to create a table that will hold our per-minute aggregates, and a table that maintains the position of our last rollup:
+We're also going to create a table that will hold our per-minute aggregates, and a table that maintains the position of our last rollup. Run the following in psql as well:
 
 ```sql
 CREATE TABLE http_request_1min (
@@ -136,7 +136,7 @@ CREATE TABLE latest_rollup (
 );
 ```
 
-You can see the newly created tables in the list of tables now by typing:
+You can see the newly created tables in the list of tables now with this psql command:
 
 ```postgres
 \dt
@@ -196,7 +196,8 @@ The hyperscale hosting option allows multiple nodes to process queries in
 parallel for speed. For instance, the database calculates aggregates like SUM
 and COUNT on worker nodes, and combines the results into a final answer.
 
-Here's a query to count web requests per minute along with a few statistics:
+Here's a query to count web requests per minute along with a few statistics.
+Try running it in psql and observe the results.
 
 ```sql
 SELECT
@@ -224,7 +225,8 @@ our one minute aggregation table, but you could also have aggregations
 of 5 minutes, 15 minutes, one hour, and so on.
 
 Because we will continually run this roll-up we're going to create
-a function to perform it:
+a function to perform it. Run these commands in psql to create the
+`rollup_http_request` function.
 
 ```sql
 -- initialize to a time long ago
@@ -259,15 +261,14 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-With our function in place rolling up our data can be run with a single
-function:
+With our function in place, execute it to roll up the data data:
 
 ```sql
 SELECT rollup_http_request();
 ```
 
-And with our data in an already aggregated form we can query the rollup
-table to get the same report as earlier:
+And with our data in a pre-aggregated form we can query the rollup
+table to get the same report as earlier. Run the following:
 
 ```sql
 SELECT site_id, ingest_time as minute, request_count,
