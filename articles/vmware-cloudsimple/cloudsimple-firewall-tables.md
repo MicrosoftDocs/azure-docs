@@ -11,7 +11,7 @@ manager: dikamath
 ---
 # Firewall tables overview
 
-You can filter network traffic to and from Private Cloud resources using a firewall table. A firewall table provides rules to apply to a VLAN/subnet to allow or deny network traffic. The combination of rules in the table allows you to can control network traffic between a source network or IP address, and a destination network or IP address.
+A firewall table lists rules to filter network traffic to and from private cloud resources. You can apply them to a VLAN or subnet. The rules then control network traffic between a source network or IP address, and a destination network or IP address.
 
 ## Firewall rules
 
@@ -20,7 +20,7 @@ The following table describes the parameters in a firewall rule.
 | Property | Details |
 | ---------| --------|
 | **Name** | A name that uniquely identifies the firewall rule and its purpose. |
-| **Priority** | A number between 100 and 4096. Rules are processed in priority order, with lower numbers processed before higher numbers. Lower numbers have a higher priority. When traffic encounters a rule match, rule processing stops. As a result, any rules that exist with lower priorities that have the same attributes as rules with higher priorities are not processed.  Take care to avoid conflicting rules. |
+| **Priority** | A number between 100 and 4096, with 100 being the highest priority. Rules are processed in priority order. When traffic comes across a rule match, rule processing stops. As a result, any rules that exist with lower priorities that have the same attributes as rules with higher priorities aren't processed.  Take care to avoid conflicting rules. |
 | **State Tracking** | Tracking can be stateless (Private Cloud, Internet, or VPN) or stateful (Public IP).  |
 | **Protocol** | Options include Any, TCP, or UDP. If you require ICMP, use Any. |
 | **Direction** | Whether the rule applies to inbound, or outbound traffic. |
@@ -33,7 +33,7 @@ The following table describes the parameters in a firewall rule.
 ### Stateless
 
 A stateless rule looks only at individual packets and filters them based on the rule.  
-Additional rules may be required for traffic flow in the reverse direction.  Use stateless rules for traffic between the following:
+Additional rules may be required for traffic flow in the reverse direction.  Use stateless rules for traffic between the following points:
 
 * Subnets of Private Clouds
 * On-premises subnet and a Private Cloud subnet
