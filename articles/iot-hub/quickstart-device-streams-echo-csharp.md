@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub device streams C# quickstart (preview) | Microsoft Docs
+title: Communicate to a device app in C# via Azure IoT Hub device streams  (preview) | Microsoft Docs
 description: In this quickstart, you will run two sample C# applications that communicate via a device stream established through IoT Hub.
 author: rezasherafat
 manager: briz
@@ -29,6 +29,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 The preview of device streams is currently only supported for IoT Hubs created in the following regions:
 
 *  **Central US**
+
 *  **Central US EUAP**
 
 The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 2.1.0 or greater on your development machine.
@@ -81,7 +82,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     You use this value later in the quickstart.
 
-3. You also need the _service connection string_ from your IoT hub to enable the service-side application to connect to your IoT hub and establish a device stream. The following command retrieves this value for your IoT hub:
+3. You also need the *service connection string* from your IoT hub to enable the service-side application to connect to your IoT hub and establish a device stream. The following command retrieves this value for your IoT hub:
 
    **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
@@ -156,13 +157,13 @@ Console output on the device-side:
 ![Device-side console output](./media/quickstart-device-streams-echo-csharp/device-console-output.png)
 
 Console output on the service-side:
-![alt text](./media/quickstart-device-streams-echo-csharp/service-console-output.png "Console output on the service-side")
+![Console output on the service-side](./media/quickstart-device-streams-echo-csharp/service-console-output.png )
 
-The traffic being sent over the stream will be tunneled through IoT Hub rather than being sent directly. This provides [these benefits](./iot-hub-device-streams-overview.md#benefits).
+The traffic being sent over the stream will be tunneled through IoT Hub rather than being sent directly. The benefits provided are in [Device Streams Benefits](./iot-hub-device-streams-overview.md#benefits).
 
 ## Clean up resources
 
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
 ## Next steps
 

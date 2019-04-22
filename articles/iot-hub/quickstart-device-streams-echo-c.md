@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub device streams C Quickstart (preview) | Microsoft Docs
+title: Communicate to a device app in C via Azure IoT Hub device streams (preview) | Microsoft Docs
 description: In this quickstart, you will run a C service-side application that communicates with an IoT device via a device stream.
 author: rezasherafat
 manager: briz
@@ -18,7 +18,7 @@ ms.author: rezas
 
 Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IoT Hub device streams](iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-side application. You should run an accompanying service-side application, which is available in the [C# quickstart](./quickstart-device-streams-echo-csharp.md) or [Node.js quickstart](./quickstart-device-streams-echo-nodejs.md).
+[IoT Hub device streams](iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-side application. You should run an accompanying service-side application, which is available in the [Communicating to device apps in C# via IoT Hub Device Streams](./quickstart-device-streams-echo-csharp.md) or [Communicating to device apps in Nodejs via IoT Hub Device Streams](./quickstart-device-streams-echo-nodejs.md).
 
 The device-side C application in this quickstart has the following functionality:
 
@@ -130,7 +130,7 @@ A device must be registered with your IoT hub before it can connect. In this sec
 
 ## Communicate between device and service via device streams
 
-In this section, you run both the device-side application and the servericeide application and communicate between the two.
+In this section, you run both the device-side application and the service-side application and communicate between the two.
 
 ### Run the device-side application
 
@@ -173,11 +173,11 @@ To run the device-side application, you need to perform the following steps:
 
 ### Run the service-side application
 
-As mentioned previously, the IoT Hub C SDK only supports device streams on the device side. To build and run the service-side application, follow the steps available in the [C# quickstart](./quickstart-device-streams-echo-csharp.md) or the [Node.js quickstart](./quickstart-device-streams-echo-nodejs.md).
+As mentioned previously, the IoT Hub C SDK only supports device streams on the device side. To build and run the service-side application, follow the steps available in the [Communicate to device apps in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md) or the [Communicate to device apps in Node.js via IoT Hub device streams](./quickstart-device-streams-echo-nodejs.md).
 
 ## Clean up resources
 
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
 ## Next steps
 
