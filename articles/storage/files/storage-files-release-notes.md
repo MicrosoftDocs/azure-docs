@@ -54,7 +54,7 @@ The following release notes are for version 6.0.0.0 of the Azure File Sync agent
   - By default, both event channels can store up to 1MB each – you can increase the amount of files reported by increasing the event channel size.
 - Support for FIPS mode
   - Azure File Sync now supports enabling FIPS mode on servers which have the Azure File Sync agent installed.
-    - Prior to enabling FIPS mode on your server, install the Azure File Sync agent and [PackageManagement module](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2) on your server. If FIPS is already enabled on the server, [manually download](https://docs.microsoft.com/en-us/powershell/gallery/how-to/working-with-packages/manual-download) the [PackageManagement module](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2) to your server.
+    - Prior to enabling FIPS mode on your server, install the Azure File Sync agent and [PackageManagement module](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2) on your server. If FIPS is already enabled on the server, [manually download](https://docs.microsoft.com/powershell/gallery/how-to/working-with-packages/manual-download) the [PackageManagement module](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2) to your server.
 - Miscellaneous reliability improvements for cloud tiering and sync
 
 ### Evaluation Tool
