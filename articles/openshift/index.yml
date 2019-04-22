@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Microsoft Azure Red Hat OpenShift Service
+title: Azure Red Hat OpenShift Service
 metadata:
   document_id:
-  title: Microsoft Azure Red Hat OpenShift Service Documentation - Tutorials, API Reference | Microsoft Docs
-  meta.description: Azure Red Hat OpenShift allows you to quickly deploy a production ready Red Hat OpenShift cluster in Azure. Learn how to use Azure Red Hat OpenShift with these tutorials and how-to guides.
+  title: Azure Red Hat OpenShift Service Documentation - Tutorials, API Reference | Microsoft Docs
+  meta.description: Microsoft Azure Red Hat OpenShift allows you to quickly deploy a production ready Red Hat OpenShift cluster in Azure. Learn how to use Azure Red Hat OpenShift with these tutorials and how-to guides.
   services: container-service
   author: tylermsft
   manager: jeconnoc
@@ -15,7 +15,7 @@ metadata:
   ms.date: 05-06-2019
   ms.author: twhitney
 abstract:
-  description: 'Azure Red Hat OpenShift provides single-tenant, high-availability Kubernetes clusters, supported by Red Hat and Microsoft on Azure.'
+  description: 'Azure Red Hat OpenShift provides single-tenant, high-availability Kubernetes clusters on Azure, supported by Red Hat and Microsoft.'
 sections:
 - title: Step-by-Step Tutorials
   items:
