@@ -108,8 +108,6 @@ Auto-pause is triggered if all of the following conditions are true for the dura
 
 An option is provided to disable auto-pause if desired.
 
-![serverless pause and resume](./media/sql-database-serverless/serverless-pause-resume.png)
-
 ### Auto-resume
 
 Auto-resume is triggered if any of the following conditions are true at any time:
