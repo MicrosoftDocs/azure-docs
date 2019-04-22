@@ -51,8 +51,8 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 For code-free training, try:
 + The visual interface for drag-n-drop experimenting and deployment
-+ The Azure portal option for automated ML experiments. 
 
++ The Azure portal option for automated ML experiments
 
 ### Operationalization (MLOps)
 
@@ -64,7 +64,6 @@ These models can be consumed and return predictions in [real time](how-to-consum
 
 And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment.
 
-
 To get started using Azure Machine Learning service, see [Next steps](#next-steps).
 
 ## How does Azure Machine Learning service differ from Studio?
@@ -75,16 +74,13 @@ Azure Machine Learning service provides both SDKs **-and-** a visual interface(P
 
 Here is a quick comparison.
 
-|| Machine Learning Studio | Azure Machine Learning service|
+|| Machine Learning Studio | Azure Machine Learning service:<br/>Visual interface|
 |---| --- | --- |
-|Visual interface| yes (GA) | yes (preview)|
-|Modules for interface| Many | Initial set of popular Python modules|
-|Training compute targets| Proprietary compute target, CPU support only| Several types of computes<br/> visual interface supports Azure Machine Learning compute only.|
-|Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options & [several types of targets](how-to-deploy-and-where.md)<br/>Visual interface supports Azure Kubernetes Service only |
-|SDKs| None | [Python SDK](https://aka.ms/aml-sdk) |
-|Automated model training and hyperparameter tuning | No | Yes, in the SDK. <br/>Not yet in interface| 
-|ML multi-step pipelines|No | Yes, in the SDK| 
-|Accepts Azure Open Datasets|No |Yes, in preview| 
+|| Generally available (GA) | In preview|
+|Modules for interface| Many | Initial set of popular modules|
+|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute, GPU or CPU.<br/>(Other computes supported in SDK)|
+|Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options  & Azure Kubernetes Service. <br/>([Other computes](how-to-deploy-and-where.md) supported in SDK) |
+|Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the SDK and Azure portal.) | 
 
 Try out the visual interface (Preview) with [Quickstart: Prepare and visualize data without writing code](ui-quickstart-run-experiment.md)
 
