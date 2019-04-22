@@ -10,7 +10,7 @@
 
 When no longer needed, delete the resources created in this article. 
 
-[!INCLUDE [ansible-playbook-1-objectives.md](ansible-playbook-1-objective.md)]
+[!INCLUDE [ansible-playbook-1-objectives.md](ansible-playbook-1-objectives.md)]
 
 - Deletes a resource group referred to in the `vars` section.
 - Automatically deletes all resources within the resource group.
