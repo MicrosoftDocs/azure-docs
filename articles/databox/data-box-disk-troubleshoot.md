@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 04/2/2019
 ms.author: alkohli
 ---
 # Troubleshoot issues in Azure Data Box Disk
@@ -91,7 +91,7 @@ This section details some of the top issues faced during deployment of Data Box 
 
 This could be due to an unclean file system. 
 
-Remounting a drive as read-write does not work with Data Box Disks. This scenario is not supported with drives decrypted by dislocker. You may have successfully remounted the device using the following command: 
+Remounting a drive as read-write does not work with Data Box Disks. This scenario is not supported with drives decrypted by dislocker. You may have successfully remounted the device using the following command:
 
     `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
 
@@ -99,15 +99,51 @@ Though the remounting was successful, the data will not persist.
 
 **Resolution**
 
-If you see the above error, you could try one of the following resolutions:
+If you have easy access to a Windows system, take the following steps:
 
-- Install [`ntfsfix`](https://linux.die.net/man/8/ntfsfix) (available in `ntfsprogs` package) and run it against the relevant partition.
+1. [Unlock the disks on your Windows system](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client).
+2. Use `fsutil` to unmount the volume on Windows. Run this command as an administrator in PowerShell or Command Prompt window.
+    
+   ```
+   fsutil volume dismount <driveletter>:-
+   ```
+3. Shut down the system while the drive is connected. This flushes any outstanding writes to the drive and closes the drive gracefully.
+4. Remove the drive and connect it to your Linux system.
+5. Unlock the drive on the Linux system and continue data copy.
+6. Write a dummy file to validate read-write access. Unmount and remount to validate data persistence. This should work after `fsutil` unmount.
+7. Continue with the data copy.
 
-- If you have access to a Windows system
+If you do not have access to a Windows system, take the following steps on your Linux system:
 
-    - Load the drive into the Windows system.
-    - Open a command prompt with administrative privileges. Run `chkdsk` on the volume.
-    - Safely remove the volume and try again.
+1. Install the `ntfsprogs` package for the ntfsfix utility.
+2. Unmount the mount points provided for the drive by the unlock tool. The number of mount points will vary for drives.
+
+    ```
+    unmount /mnt/DataBoxDisk/mountVol1
+    ```
+
+3. Run `ntfsfix` on the corresponding path. The highlighted number should be same as Step 2.
+
+    ```
+    ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
+    ```
+
+4. Run the following command to remove the hibernation metadata that may cause the mount issue.
+
+    ```
+    ntfs-3g -o remove_hiberfile /mnt/DataBoxDisk/bitlockerVol1/dislocker-file /mnt/DataBoxDisk/mountVol1
+    ```
+
+5. Do a clean unmount.
+
+    ```
+    ./DataBoxDiskUnlock_x86_64 /unmount
+    ```
+
+6. Do a clean unlock and mount.
+7. Test the mount point by writing a file.
+8. Unmount and remount to validate the file persistence.
+9. Continue with the data copy.
  
 ### Issue: Error with data not persisting after copy
  
