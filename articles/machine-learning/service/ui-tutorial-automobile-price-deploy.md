@@ -16,7 +16,7 @@ ms.date: 04/06/2019
 
 In this tutorial, you take an extended look at developing a predictive analytics solution in the Azure Machine Learning service visual interface. You'll learn how to create a machine learning model, deploy a model as an Azure web service, and consume your web service to make predictions on new data.
 
-This tutorial is **part two of a two-part tutorial series**. In [part one of the tutorial](tutorial-ui-part1-train-score.md), you trained, scored, and evaluated a model to predict car prices. In this part of the tutorial, you will:
+This tutorial is **part two of a two-part tutorial series**. In [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you trained, scored, and evaluated a model to predict car prices. In this part of the tutorial, you will:
 
 > [!div class="checklist"]
 > * Prepare a model for deployment

@@ -27,7 +27,7 @@ In part one of the tutorial series you'll learn how to:
 > * Train a machine learning model
 > * Score and evaluate a model
 
-In [part two](./tutorial-ui-part2-deploy.md) of the tutorial series, you'll learn how to deploy your predictive model as an Azure web service.
+In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial series, you'll learn how to deploy your predictive model as an Azure web service.
 
 > [!NOTE]
 > A completed version of this tutorial is available as a sample experiment.
@@ -157,4 +157,4 @@ In this tutorial, you completed these steps:
 * Train the model
 * Score and evaluate the model
 
-You're now ready to deploy models for this data. [Continue with part 2 of the tutorial](./tutorial-ui-part2-deploy.md).
+You're now ready to deploy models for this data. [Continue with part 2 of the tutorial](ui-tutorial-automobile-price-deploy.md).
