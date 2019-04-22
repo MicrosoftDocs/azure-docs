@@ -419,19 +419,19 @@ The following code snippet configures logs for *Warning* and above from all cate
 
    When you use the standalone package, `TelemetryClient` is not injected to DI container, so you need to create a new instance of `TelemetryClient` and use the same configuration as the logger provider uses, as the following code shows. This ensures that the same configuration is used for all custom telemetry as well as telemetry d from ILogger.
 
-```csharp
-public class MyController : ApiController
-{
-   // This telemtryclient can be used to track additional telemetry using TrackXXX() api.
-   private readonly TelemetryClient _telemetryClient;
-   private readonly ILogger _logger;
-
-   public MyController(IOptions<TelemetryConfiguration> options, ILogger<MyController> logger)
+   ```csharp
+   public class MyController : ApiController
    {
-        _telemetryClient = new TelemetryClient(options.Value);
-        _logger = logger;
-   }  
-}
+      // This telemtryclient can be used to track additional telemetry using TrackXXX() api.
+      private readonly TelemetryClient _telemetryClient;
+      private readonly ILogger _logger;
+
+      public MyController(IOptions<TelemetryConfiguration> options, ILogger<MyController> logger)
+      {
+           _telemetryClient = new TelemetryClient(options.Value);
+           _logger = logger;
+      }  
+   }
 ```
 
 > [!NOTE]
