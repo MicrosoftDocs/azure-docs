@@ -84,12 +84,12 @@
         - name: Disk encryption with Azure AD app for Linux VMs 
           displayName: active directory
           href: azure-security-disk-encryption-linux-aad.md
-  - name: Customer Lockbox
-    href: azure-customer-lockbox-overview.md
   - name: Azure Storage security
     href: security-storage-overview.md
   - name: Storage security guide
     href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Customer Lockbox
+    href: azure-customer-lockbox-overview.md
 - name: Platform and infrastructure
   items:
   - name: Infrastructure security
