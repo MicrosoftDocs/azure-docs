@@ -21,7 +21,7 @@ As of Azure Functions version 2.x, bindings are available as separate packages f
 
 ## Reference function bindings
 
-To make bindings available to your non-.NET function, ensure you have the latest version of [Azure Functions Core Tools](./functions-run-local.md#install-the-azure-functions-core-tools) add update the *host.json* file the following entry for `extensionBundle`:
+To make bindings available to your non-.NET function, update the *host.json* file the following entry for `extensionBundle`:
 
 ```json
 {
@@ -34,9 +34,15 @@ To make bindings available to your non-.NET function, ensure you have the latest
 ```
 
 - The `id` property references the namespace for Microsoft Azure Functions extension bundles.
-- The `version` property uses the [interval notation for specifying version ranges](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards).
+- The `version` property uses the [interval notation for specifying version ranges](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). A version notation of [1.*, 2.0.0) states that all extensions associated with the bundle from version 1.0 up to, but not including, version 2.0 are available to your functions app. This means that if a new extension package in that version range is published, your function app automatically references the latest version.
+
+For local development, ensure you have the latest version of [Azure Functions Core Tools](./functions-run-local.md#install-the-azure-functions-core-tools).
 
 Once you reference the extension bundles in your project, then all default bindings are available to your functions.
+
+## Bundle versions
+
+>  \*\*todo\*\* add list of extensions and versions included in the bundle
 
 ## Next Steps
 
