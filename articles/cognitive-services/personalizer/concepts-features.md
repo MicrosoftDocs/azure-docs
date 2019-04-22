@@ -82,7 +82,7 @@ In the following JSON, `user`, `state`, and `device` are feature namespaces.
 }
 ```
 
-## How to makes feature sets more effective for Personalizer
+## How to make feature sets more effective for Personalizer
 
 A good feature set helps Personalizer learn how to predict the action that will drive the highest reward. 
 
@@ -94,24 +94,24 @@ Consider sending features to the Personalizer Rank API that follow these recomme
 
 Having features of high density helps the Personalizer extrapolate learning from one item to another. But if there are only a few features and they are too dense, the Personalizer will try to precisely target content with only a few buckets to choose from.
 
-### Improving feature sets 
+### Improve feature sets 
 
 Analyze the user behavior by doing an Offline Evaluation. This allows you to look at past data to see what features are heavily contributing to positive rewards versus those that are contributing less. You can see what features are helping, and it will be up to you and your application to find better features to send to Personalizer to improve results even further.
 
 These following sections are common practices for improving features sent to Personalizer.
 
-#### Making features more dense
+#### Make features more dense
 
 It is possible to improve your feature sets by editing them to make them larger and more or less dense.
 
 For example, a timestamp down to the second is a very sparse feature. It could be made more dense (effective) by classifying times into "morning", "midday", "afternoon", etc.
 
 
-#### Expanding feature sets with extrapolated information
+#### Expand feature sets with extrapolated information
 
 You can also get more features by thinking of unexplored attributes that can be derived from information you already have. For example, in a fictitious movie list personalization, is it possible that a weekend vs weekday elicit different behavior from users? Time could be expanded to have a "weekend" or "weekday" attribute. Do national cultural holidays drive attention to certain movie types? For example, a "Halloween" attribute is useful in places where it is relevant. Is it possible that rainy weather has significant impact on the choice of a movie for many people? With time and place, a weather service could provide that information and you can add it as an extra feature. 
 
-#### Expanding feature sets with artificial intelligence and cognitive services
+#### Expand feature sets with artificial intelligence and cognitive services
 
 Artificial Intelligence and ready-to-run Cognitive Services can be a very powerful addition to the Personalizer. 
 
@@ -170,11 +170,11 @@ The following are good examples of features for actions. These will depend a lot
 * Features about how users may have interacted with this action in the past. For example, this movie is mostly seen by people in demographics A or B, it is typically played no more than one time.
 * Features about the characteristics of how the user *sees* the actions. For example, does the poster for the movie shown in the thumbnail include faces, cars, or landscapes?
 
-### Loading actions from the client application
+### Load actions from the client application
 
 Features from actions may typically come from content management systems, catalogs, and recommender systems. Your application is responsible for loading the information about the actions from the relevant databases and systems you have. If your actions don't change or getting them loaded every time has an unnecessary impact on performance, you can add logic in your application to cache this information.
 
-### Preventing actions from being ranked
+### Prevent actions from being ranked
 
 In some cases, there are actions that you don't want to display to users. The best way to prevent an action from being ranked as topmost is not to include it in the action list to the Rank API in the first place.
 

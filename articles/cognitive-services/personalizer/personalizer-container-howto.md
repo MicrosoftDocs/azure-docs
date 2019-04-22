@@ -1,5 +1,5 @@
 ---
-title: Install and run containers -Personalizer
+title: Install and run containers - Personalizer
 titleSuffix: Azure Cognitive Services
 description: How to download, install, and run containers for Personalizer.
 author: edjez
@@ -117,7 +117,7 @@ This command:
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-### Running multiple containers on the same host
+### Run multiple containers on the same host
 
 If you intend to run multiple containers with exposed ports, make sure to run each container with a different port. For example, run the first container on port 5000 and the second container on port 5001.
 
@@ -156,11 +156,11 @@ Use the host, https://localhost:5000, for container APIs.
 
 To shut down the container, in the command-line environment where the container is running, press **Ctrl+C**.
 
-## Troubleshooting
+## Troubleshoot
 
 If you run the container with an output [mount](personalizer-container-configuration.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
 
-## Container's API documentation
+## Container API documentation
 
 The container provides a full set of documentation for the endpoints as well as a `Try it now` feature. This feature allows you to enter your settings into a web-based HTML form and make the query without having to write any code. Once the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format required. 
 

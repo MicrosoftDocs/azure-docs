@@ -48,7 +48,7 @@ Personalizer will learn best in situations where:
 
 You can monitor the effectiveness of Personalizer periodically by performing [offline evaluations](concepts-offline-evaluation.md).
 
-## Using Personalizer with Recommendation engines
+## Use Personalizer with recommendation engines
 
 Many companies use recommendation engines, marketing and campaigning tools, audience segmentation and clustering, collaborative filtering, and other means to recommend products from a large catalog to customers.
 

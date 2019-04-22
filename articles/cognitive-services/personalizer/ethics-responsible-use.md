@@ -148,7 +148,7 @@ In some cases, buttons may be legally required. Consider the tradeoffs in retrai
  * Consider extra readiness where users may include marginalized vulnerable populations, such as children, users of economic vulnerability, or susceptible to influence from algorithmic manipulation.
  * Consider the widespread dissatisfaction with how audience-targeting and audience-influencing data collection programs and algorithms have played out, and how to avoid proven strategic errors.
 
-## Proactive Assessments during your project lifecycle
+## Proactive assessments during your project lifecycle
 
 Consider creating methods for team members, users and business owners to report concerns regarding responsible use, and creating a process that prioritizes their resolution and prevents retaliation.
 

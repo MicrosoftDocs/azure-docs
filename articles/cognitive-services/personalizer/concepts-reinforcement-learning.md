@@ -11,7 +11,7 @@ ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
 ---
-# What is Reinforcement Learning
+# What is Reinforcement Learning?
 
 
 Reinforcement Learning is an approach to machine learning that learns behaviors by getting feedback from its use.
@@ -40,7 +40,7 @@ The explore/exploit traffic allocation is made randomly following the percentage
 
 ### History of Contextual Bandits
 
-John Langford coined the name contextual bandits (Langford and Zhang [2007]) to describe a tractable subset of reinforcement learning and has worked on a half-dozen papers improving our understanding of how to learn in this paradigm:
+John Langford coined the name Contextual Bandits (Langford and Zhang [2007]) to describe a tractable subset of reinforcement learning and has worked on a half-dozen papers improving our understanding of how to learn in this paradigm:
 
 * Beygelzimer et al. [2011]
 * Dudík et al. [2011a,b]
