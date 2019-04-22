@@ -1,7 +1,7 @@
 ---
-title: Contextual conversation
+title: Multi-turn conversations
 titleSuffix: Azure Cognitive Services
-description: Use question & answer prompts to manage the conversation state. This is the ability to manage a question within the context of questions asked before and after that question. When you design your chat bot flow, a user asks a question that needs to be refined in order to determine the correct answer.
+description: Use prompts and context to manage the multiple turns, known as multi-turn, for your bot from one question to another. Multi-turn is the ability to have a back and forth conversation where the previous question's context influences the next question and answer.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -13,19 +13,22 @@ ms.author: diberry
 #
 ---
 
-# Create contextual conversations using follow-up prompts
+# Use follow-up prompts to create multiple turns of a conversation
 
-Use prompts and context to manage the conversational flow for your bot from one question to another.
+Use follow-up prompts and context to manage the multiple turns, known as _multi-turn_, for your bot from one question to another.
 
-## What is a contextual conversation?
+## What is a multi-turn conversation?
 
-Contextual conversation is the ability to have a back and forth conversation where the previous question's context influences the next question and answer. 
+Some types of conversation can't be completed in a single turn. A bot needs multiple questions to filter down to the correct answer. Some scenarios that require multiple conversational turns include:
 
-When you design your client application (chat bot) conversations, a user may ask a question that needs to be filtered or refined in order to determine the correct answer. This flow through the questions is possible by presenting the user with follow-up prompts.
+* A bot that prompts the user for additional information that it needs to complete a task. The bot needs to track whether it has all the parameters for fulfilling the task.
+* A bot that guides the user through steps in a process, such as placing an order. The bot needs to track where the user is in the sequence of steps.
+
+This flow through the questions is possible by presenting the user with follow-up prompts.
 
 When the user asks the question, QnA Maker returns the answer _and_ any follow-up prompts. This allows you to present the follow-up questions as choices. 
 
-## Example contextual conversation with chat bot
+## Example multi-turn conversation with chat bot
 
 A chat bot manages the conversation, question by question, with the user to determine the final answer.
 
@@ -37,9 +40,9 @@ When the user selects a choice (#3), then the next list of refining choices (#4)
 
 You need to change your client application to manage the contextual conversation.
 
-## Create contextual conversation from document's structure
+## Create a multi-turn conversation from document's structure
 
-If you import a document, contextual conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you. 
+If you import a document, the multi-turn conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you. 
 
 The following image of a Microsoft Surface [PDF file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf) is meant to be used as a manual. 
 
@@ -65,26 +68,25 @@ When importing the PDF document, QnA Maker determines follow-up prompts from the
     ![![Enter the new conversational state follow-up prompt question text, `Give feedback.`](../media/conversational-context/add-parent-question-for-conversation-flow.png)](../media/conversational-context/add-parent-question-for-conversation-flow.png#lightbox)
 
 1. In the **Answer** column for this question, select **Add follow-up prompt**. 
-1. The **Follow-up prompt** pop-up dialog allows you to search for an existing question or enter a new question. In this procedure, enter the text `Feedback on an QnA Maker service`, as a new question. 
-1. Check **Context-only**. The **Context-only** option indicates that this user text will be understood only if given in response to the previous question. For this scenario, the prompt text doesn't make any sense as a stand-alone question, it only makes sense from the context of the previous question.
-1. Select **Create new prompt QnA** then select **Save**. This created a new question-and-answer pair and linked the selected question as a follow-up prompt.
+1. The **Follow-up prompt** pop-up dialog allows you to search for an existing question or enter a new question. In this procedure, enter the text `Feedback on an QnA Maker service`, for the **Display text**. 
+1. Check **Context-only**. The **Context-only** option indicates that this user text will be understood _only_ if given in response to the previous question. For this scenario, the prompt text doesn't make any sense as a stand-alone question, it only makes sense from the context of the previous question.
+1. In the **Link to answer** text box, enter the answer, `How would you rate QnA Maker?`.
+1. Select **Create new** then select **Save**. 
 
     ![Create new prompt QnA](../media/conversational-context/create-child-prompt-from-parent.png)
 
-1. The first follow-up prompt question text is available to edit. 
+    This created a new question-and-answer pair and linked the selected question as a follow-up prompt. The **Context** column, for both questions, indicate a follow-up prompt relationship. 
 
-    ![![The follow-up prompt question is available to edit.](../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
-
-1. In the **Answer** column for this follow-up question, enter the answer `How would you rate QnA Maker?`. 
-    ![![In the Answer column for this question, enter the answer `How would you rate QnA Maker?`. ](../media/conversational-context/add-level-2-answer.png)](../media/conversational-context/add-level-2-answer.png)
+    ![The Context column, for both questions, indicate a follow-up prompt relationship.](../media/conversational-context/child-prompt-created.png)
 
 1. Select **Add follow-up prompt** for the `Give feedback` question to add another follow-up prompt. 
-1. Create a new question by entering the text `Feedback on an existing feature`. Select **Create new prompt QnA** and check **Context-only**, then select **Save**. This created a new question and linked the question as a follow-up prompt question to the `Give feedback` question. 
-1. Add the answer for this new question `Which feature would you like to give feedback on?`.
+1. Create a new question by entering the question `Feedback on an existing feature`, with the answer `Which feature would you like to give feedback on?` feature`,  check **Context-only**, then select **Save**. This created a new question and linked the question as a follow-up prompt question to the `Give feedback` question. 
     
     At this point, the top question has two follow-up prompts liked to the previous question, `Give feedback`.
 
-1. Select **Save and Train** to train the knowledge base. 
+    ![At this point, the top question has two follow-up prompts liked to the previous question, `Give feedback`.](../media/conversational-context/all-child-prompts-created.png)
+
+1. Select **Save and Train** to train the knowledge base with the new questions. 
 
 ## Add existing QnA pair as follow-up prompt
 
@@ -163,7 +165,7 @@ The prompt order, returned in the [JSON](#json-response-for-prompts) response, i
 
 ## Next steps
 
-Learn more about contextual conversations from the [Dialog sample](https://aka.ms/qnamakermultiturnsample).
+Learn more about contextual conversations from the [Dialog sample](https://aka.ms/qnamakermultiturnsample) or learn more [conceptual bot design for multi-turn conversations](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 
 > [!div class="nextstepaction"]
 > [Migrate a knowledge base](../Tutorials/migrate-knowledge-base.md)
