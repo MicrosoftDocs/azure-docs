@@ -38,12 +38,12 @@ For more information about networking to your applications in AKS, see [Network 
 
 ## Create a virtual network and subnet
 
-[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objectives.md)]
+The sample playbook code in this section is used to:
 
 - Create a virtual network
 - Create a subnet within the virtual network
 
-[!INCLUDE [ansible-playbook-2-saveas.md](../../includes/ansible-playbook-2-saveas.md)] `vnet.yml`:
+Save the following playbook as `vnet.yml`:
 
 ```yml
 - name: Create vnet
@@ -64,11 +64,11 @@ For more information about networking to your applications in AKS, see [Network 
 
 ## Create an AKS cluster in the virtual network
 
-[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objectives.md)]
+The sample playbook code in this section is used to:
 
 - Create an AKS cluster within a virtual network.
 
-[!INCLUDE [ansible-playbook-2-saveas.md](../../includes/ansible-playbook-2-saveas.md)] `aks.yml`:
+Save the following playbook as `aks.yml`:
 
 ```yml
 - name: List supported kubernetes version from Azure
@@ -101,7 +101,7 @@ For more information about networking to your applications in AKS, see [Network 
   register: aks
 ```
 
-[!INCLUDE [ansible-playbook-3-key-notes.md](../../includes/ansible-playbook-3-key-notes.md)]
+Here are some key notes to consider when working with the sample playbook:
 
 - Use the `azure_rm_aks_version` module to find the supported version.
 - The `vnet_subnet_id` is the subnet created in the previous section.
@@ -115,9 +115,9 @@ For more information about networking to your applications in AKS, see [Network 
 
 ## Run the sample playbook
 
-[!INCLUDE [ansible-run-playbook.md](../../includes/ansible-run-playbook-section-intro.md)]
+The sample playbook code in this section is used to test various features shown throughout this tutorial.
 
-[!INCLUDE [ansible-playbook-2-saveas.md](../../includes/ansible-playbook-2-saveas.md)] `aks-azure-cni.yml`:
+Save the following playbook as `aks-azure-cni.yml`:
 
 ```yml
 ---
@@ -145,19 +145,19 @@ For more information about networking to your applications in AKS, see [Network 
            var: aks
 ```
 
-[!INCLUDE [ansible-playbook-3-key-notes.md](../../includes/ansible-playbook-3-key-notes.md)]
+Here are some key notes to consider when working with the sample playbook:
 
 - Change the `aksansibletest` value to your resource group name.
 - Change the `aksansibletest` value to your AKS name.
 - Change the `eastus` value to your resource group location.
 
-[!INCLUDE [ansible-playbook-4-run.md](../../includes/ansible-playbook-4-run.md)]
+Run the playbook using the ansible-playbook command:
 
 ```bash
 ansible-playbook aks-azure-cni.yml
 ```
 
-[!INCLUDE [ansible-playbook-5-output.md](../../includes/ansible-playbook-5-output.md)]
+After running the playbook, you see output similar to the following results:
 
 ```Output
 PLAY [localhost] 
@@ -241,7 +241,39 @@ PLAY RECAP
 localhost                  : ok=9    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-[!INCLUDE [ansible-clean-up-resources.md](../../includes/ansible-clean-up-resources.md)]
+## Clean up resources
+
+When no longer needed, delete the resources created in this article. 
+
+The sample playbook code in this section is used to:
+
+- Delete a resource group referred to in the `vars` section.
+
+Save the following playbook as `cleanup.yml`:
+
+```yml
+---
+- hosts: localhost
+  vars:
+      resource_group: {{ resource_group_name }}
+  tasks:
+      - name: Clean up resource group
+        azure_rm_resourcegroup:
+            name: "{{ resource_group }}"
+            state: absent
+            force: yes
+```
+
+Here are some key notes to consider when working with the sample playbook:
+
+- Replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
+- All resources within the specified resource group will be deleted.
+
+Run the playbook using the ansible-playbook command:
+
+```bash
+ansible-playbook cleanup.yml
+```
 
 ## Next steps
 

@@ -35,7 +35,7 @@ Traffic is routed between VMs in the same virtual network through private IP add
 
 A resource group is a logical container in which Azure resources are deployed and managed.
 
-[!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objectives.md)]
+The sample playbook code in this section is used to:
 
 - Create two resource groups 
 
@@ -52,7 +52,7 @@ A resource group is a logical container in which Azure resources are deployed an
 
 ## Create the first virtual network
 
-[!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objectives.md)]
+The sample playbook code in this section is used to:
 
 - Create a virtual network
 - Create a subnet within the virtual network
@@ -73,7 +73,7 @@ A resource group is a logical container in which Azure resources are deployed an
 
 ## Create the second virtual network
 
-[!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objectives.md)]
+The sample playbook code in this section is used to:
 
 - Create a virtual network
 - Create a subnet within the virtual network
@@ -94,7 +94,7 @@ A resource group is a logical container in which Azure resources are deployed an
 
 ## Peer the two virtual networks
 
-[!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objectives.md)]
+The sample playbook code in this section is used to:
 
 - Initialize virtual-network peering
 - Peer two previously created virtual networks
@@ -125,7 +125,7 @@ A resource group is a logical container in which Azure resources are deployed an
 
 ## Delete the virtual network peering
 
-[!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objectives.md)]
+The sample playbook code in this section is used to:
 
 - Delete the peering between the two previously created virtual networks
 
@@ -226,19 +226,19 @@ There are two ways to get the complete sample playbook:
 
 ## Run the sample playbook
 
-[!INCLUDE [ansible-run-playbook-section-intro.md](../../includes/ansible-run-playbook-section-intro.md)]
+The sample playbook code in this section is used to test various features shown throughout this tutorial.
 
-[!INCLUDE [ansible-playbook-3-key-notes.md](../../includes/ansible-playbook-3-key-notes.md)]
+Here are some key notes to consider when working with the sample playbook:
 
 - In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
 
-[!INCLUDE [ansible-playbook-4-run.md](../../includes/ansible-playbook-4-run.md)]
+Run the playbook using the ansible-playbook command:
 
 ```bash
 ansible-playbook vnet_peering.yml
 ```
 
-[!INCLUDE [ansible-playbook-5-output.md](../../includes/ansible-playbook-5-output.md)]
+After running the playbook, you see output similar to the following results:
 
 ```Output
 PLAY [localhost] 
@@ -289,11 +289,11 @@ localhost                  : ok=12   changed=9    unreachable=0    failed=0    s
 
 When no longer needed, delete the resources created in this article. 
 
-[!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objective.md)]
+The sample playbook code in this section is used to:
 
 - Delete the two resources groups created earlier
 
-[!INCLUDE [ansible-playbook-2-saveas.md](../../includes/ansible-playbook-2-saveas.md)] `cleanup.yml`:
+Save the following playbook as `cleanup.yml`:
 
 ```bash
 - hosts: localhost
@@ -314,13 +314,13 @@ When no longer needed, delete the resources created in this article.
         state: absent
 ```
 
-[!INCLUDE [ansible-playbook-3-key-notes.md](../../includes/ansible-playbook-3-key-notes.md)]
+Here are some key notes to consider when working with the sample playbook:
 
 - Replace the `{{ resource_group_name-1 }}` placeholder with the name of the first resource group created.
 - Replace the `{{ resource_group_name-2 }}` placeholder with the name of the second resource group created.
 - All resources within the two specified resource groups will be deleted.
 
-[!INCLUDE [ansible-playbook-4-run.md](../../includes/ansible-playbook-4-run.md)]
+Run the playbook using the ansible-playbook command:
 
 ```bash
 ansible-playbook cleanup.yml
