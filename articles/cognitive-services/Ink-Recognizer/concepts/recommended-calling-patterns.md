@@ -77,8 +77,8 @@ Having the recognition results in advance gives you information about the charac
 
 ## Next steps
 
-* [What is the Ink Recognizer API?](overview.md)
+* [What is the Ink Recognizer API?](../overview.md)
 * Start sending digital ink stroke data using:
-    * [C#](quickstarts/csharp.md)
-    * [Java](quickstarts/java.md)
-    * [JavaScript](quickstarts/javascript.md)
+    * [C#](../quickstarts/csharp.md)
+    * [Java](../quickstarts/java.md)
+    * [JavaScript](../quickstarts/javascript.md)

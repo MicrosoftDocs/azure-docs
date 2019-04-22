@@ -39,7 +39,7 @@ The Ink Recognizer API is a RESTful web service, making it easy to call from any
 
 After signing up:
 
-1. Take your time series data and convert it into a valid JSON format. Use [best practices](concepts/recommended-calling-patterns.md) when preparing your data to get the best results.
+1. Take your ink stroke data and [format it](concepts/recommended-calling-patterns.md#sending-ink-data-to-the-api) into valid JSON.
 1. Send a request to the Ink Recognizer API with your data.
 1. Process the API response by parsing the returned JSON message.
 
@@ -49,3 +49,10 @@ Try a quickstart in the following languages to begin making calls to the Ink Rec
 * [C#](quickstarts/csharp.md)
 * [Java](quickstarts/java.md)
 * [JavaScript](quickstarts/csharp.md)
+
+To see how the Ink Recognition API works in a digital inking app, take a look at the following sample applications on GitHub:
+* [C# and Universal Windows Platform(UWP)](https://github.com/Azure-Samples/cognitive-services-csharp-ink-recognition)  
+* [C# and Windows Presentation Foundation(WPF)](https://github.com/Azure-Samples/cognitive-services-csharp-wpf-ink-recognition)
+* [Javascript web-browser app](https://github.com/Azure-Samples/cognitive-services-javascript-ink-recognition)       
+* [Java and Android mobile app](https://github.com/Azure-Samples/cognitive-services-java-android-ink-recognition)
+* [Swift and iOS mobile app](https://github.com/Azure-Samples/cognitive-services-swift-ios-ink-recognition)
