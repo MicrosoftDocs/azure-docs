@@ -46,6 +46,14 @@
     - name: 2. Auto-train an ML model
       displayName: automl, automated, auto ml,
       href: tutorial-auto-train-models.md
+  - name: Visual interface
+    items:
+    - name: Train regression model
+      displayName: experiment drag-and-drop visual interface Tutorial 1
+      href: ui-tutorial-automobile-price-train-score.md
+    - name: Deploy regression model
+      displayName: experiment drag-and-drop visual interface Tutorial 2
+      href: ui-tutorial-automobile-price-deploy.md
 - name: Samples
   items:
   - name: Notebooks
