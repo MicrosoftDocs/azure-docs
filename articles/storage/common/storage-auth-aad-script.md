@@ -15,7 +15,7 @@ ms.subservice: common
 
 Azure Storage provides extensions for Azure CLI and PowerShell that enable you to sign in and run scripting commands with Azure Active Directory (Azure AD) credentials. When you sign in to Azure CLI or PowerShell with Azure AD credentials, an OAuth 2.0 access token is returned. That token is  automatically used by CLI or PowerShell to authorize subsequent data operations against Blob or Queue storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
-You can assign permissions to blob and queue data to an Azure AD security princpal via role-based access control (RBAC). For more information about RBAC roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC](storage-auth-aad-rbac.md).
+You can assign permissions to blob and queue data to an Azure AD security principal via role-based access control (RBAC). For more information about RBAC roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC](storage-auth-aad-rbac.md).
 
 ## Supported operations
 
