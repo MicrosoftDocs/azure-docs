@@ -162,7 +162,7 @@ For each of the error statistics, smaller is better. A smaller value indicates t
 
 ## Clean up resources
 
-[!INCLUDE aml-ui-cleanup]
+[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 

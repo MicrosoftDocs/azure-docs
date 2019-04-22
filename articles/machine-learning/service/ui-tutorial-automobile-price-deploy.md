@@ -131,7 +131,7 @@ Navigate to the **API Doc** tab, to find more API details.
 
 ## Clean up resource
 
-[!INCLUDE aml-ui-cleanup]
+[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
 ## Next Steps
 
