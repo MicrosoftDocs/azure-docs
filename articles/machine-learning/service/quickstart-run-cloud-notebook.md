@@ -51,6 +51,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 1. Wait approximately 4-5 minutes, then select **Refresh**.  Try refreshing every 30 seconds or so until the status is **Running**.
 
+    ![Refresh](media/quickstart-run-cloud-notebook/refresh.png)
 
 ## Launch Jupyter web interface
 
@@ -81,18 +82,27 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
     ![Wait for kernel to start](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
 
-2.  Click into the first code cell and select **Run**.
-
-    ![Run the first code cell](media/quickstart-run-cloud-notebook/cell1.png)
+1.  Click into the first code cell and select **Run**.
 
     > [!NOTE]
     > Code cells have brackets before them. If the brackets are empty (__[  ]__), the code has not been run. While the code is running, you see an asterisk(__[*]__). After the code completes, a number **[1]** appears.
     >
     > Use **Shift-Enter** as a shortcut to run a cell.
 
-1. Run the second code cell. Follow the instructions to authenticate. When you are done, the cell number __[ 2 ]__ appears and you see a successful authentication status message.
+    ![Run the first code cell](media/quickstart-run-cloud-notebook/cell1.png)
+
+1. The notebook contains instructions titled **Important note** which you can ignore.  This information is only applicable when using the notebook From Azure Notebooks.  
+
+1. Run the second code cell. If you see instructions to authenticate, copy the code and follow the link to sign in. Once you sign in, your browser will remember this setting.  
+
+    > [!TIP]
+    > Be sure not to copy the space after the code.  
 
     ![Authenticate](media/quickstart-run-cloud-notebook/authenticate.png)
+
+1. When you are done, the cell number __[ 2 ]__ appears and you see a successful authentication status message.
+
+    ![Success message](media/quickstart-run-cloud-notebook/success.png)
 
 1. Skip the next code cell which includes `!az-login`.  You are already logged in.
 
