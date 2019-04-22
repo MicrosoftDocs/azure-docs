@@ -65,7 +65,7 @@ Middleware libraries are used to protect Web applications and Web APIs. For web 
 
 | Platform | Library | Download | Source Code | Sample | Reference
 | --- | --- | --- | --- | --- | --- |
-| ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | ASP.NET Security |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[ASP.NET Security (GitHub)](https://github.com/aspnet/Security) |[MVC app](quickstart-v2-aspnet-webapp.md) |[ASP.NET API reference](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0) |
+| ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | ASP.NET Security |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[MVC app](quickstart-v2-aspnet-webapp.md) |[ASP.NET API reference](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0) |
 | ![.NET](media/sample-v2-code/logo_NET.png)| IdentityModel Extensions for .NET| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [MVC app](quickstart-v2-aspnet-webapp.md) |[Reference](https://docs.microsoft.com/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet) |
 | ![Node.js](media/sample-v2-code/logo_nodejs.png) | Azure AD Passport |[NPM](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Web app](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
 
