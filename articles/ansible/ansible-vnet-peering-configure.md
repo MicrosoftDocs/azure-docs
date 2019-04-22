@@ -99,7 +99,7 @@ A resource group is a logical container in which Azure resources are deployed an
 [!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
 
 - Initializes virtual-network peering
-- Peers two previously-created virtual networks
+- Peers two previously created virtual networks
 
 ```yml
   - name: Initial vnet peering
@@ -129,7 +129,7 @@ A resource group is a logical container in which Azure resources are deployed an
 
 [!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
 
-- Deletes the peering between the two previously-created virtual networks
+- Deletes the peering between the two previously created virtual networks
 
 ```yaml
   - name: Delete vnet peering
