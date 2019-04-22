@@ -161,8 +161,8 @@
           href: msal-compare-msal-js-and-adal-js.md
         - name: Client applications
           href: msal-client-applications.md
-        - name: Instantiating applications (.NET)
-          href: msal-net-instantiating-client-applications.md
+        - name: Initializing applications (.NET)
+          href: msal-net-initializing-client-applications.md
         - name: Handling errors and exceptions
           href: msal-handling-exceptions.md
         - name: Logging

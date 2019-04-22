@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Public client and confidential client applications
-Microsoft Authentication Library (MSAL) defines two types of clients: public clients and confidential clients. The two client types are distinguished by their ability to authenticate securely with the authorization server and maintain the confidentiality of their client credentials.  In contrast, Azure AD Authentication Library (ADAL) has the concept of [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext-the-connection-to-Azure-AD) (which is a connection to Azure AD).
+Microsoft Authentication Library (MSAL) defines two types of clients: public clients and confidential clients. The two client types are distinguished by their ability to authenticate securely with the authorization server and maintain the confidentiality of their client credentials.  In contrast, Azure AD Authentication Library (ADAL) has the concept of authentication context (which is a connection to Azure AD).
 
 - **Confidential client applications** are applications which run on servers (Web Apps, Web API, or even service/daemon applications). They are considered difficult to access, and therefore capable of keeping an application secret. Confidential clients are able to hold configuration time secrets. Each instance of the client has a distinct configuration (including clientId and secret). These values are difficult for end users to extract. A web app is the most common confidential client. The client ID is exposed through the web browser, but the secret is passed only in the back channel and never directly exposed.
 
@@ -41,16 +41,17 @@ There are some commonalities and differences between public client and confident
 - Both manage user accounts and can get the accounts from the user token cache, get an account from its identifier, or remove an account.
 - Public client applications have four ways of acquiring a token (four flows), whereas confidential client applications have three (and one method to compute the URL of the identity provider authorize endpoint). For more details see Scenarios and Acquiring tokens
 
-If you used ADAL in the past, you might notice that, contrary to ADAL.NET's Authentication context, in MSAL.NET the clientID (also named applicationID or appId) is passed once at the construction of the Application, and no longer needs to be repeated when acquiring a token. This is the case both for a public and a confidential client applications. Constructors of confidential client applications are also passed client credentials: the secret they share with the identity provider.
+If you used ADAL in the past, you might notice that, contrary to ADAL's authentication context, in MSALT the client ID (also named application ID or app ID) is passed once at the construction of the application, and no longer needs to be repeated when acquiring a token. This is the case both for a public and a confidential client applications. Constructors of confidential client applications are also passed client credentials: the secret they share with the identity provider.
 
-## Application options
+## Application configuration options
 
 There are a number of different applications, which can be separated into two groups:
 
 - Registration options, including:
     - [Authority](#authority): Identity provider [instance](#cloud-instance) and sign-in [audience](#application-audience) for the application, and possibly the tenant ID.
+    - [client ID](#client-id)
     - [redirect URI](#redirect-uri)
-    - client secret for a confidential client application (which you've seen already)
+    - [client secret](#client-secret) for a confidential client application
 - [Logging options](#logging), including: log level, control of the PII, name of the component using the library
 
 ### Authority
@@ -93,7 +94,7 @@ Using MSAL in your code, you specify the audience by using:
     - `consumers` to sign-in users only with their personal accounts
     - `common` to sign-in users with their work and school account or Microsoft personal account
 
-MSAL.NET will throw a meaningful exception if you specify both Azure AD authority audience and the tenant ID. 
+MSAL will throw a meaningful exception if you specify both Azure AD authority audience and the tenant ID. 
 
 If you don't specify an audience your app will target Azure AD and personal Microsoft accounts as an audience (that is `common`).
 
@@ -104,12 +105,15 @@ Currently, the only way to get an application to sign in users with only Microso
 - set the app registration audience to "Work and school accounts and personal accounts" and,
 - and, set the audience in your code / configuration to `AadAuthorityAudience.PersonalMicrosoftAccount` (or `TenantID `="consumers")
 
+### Client ID
+The unique application (client) ID assigned to your app by Azure AD when the app was registered.
+
 ### Redirect URI
 The redirect URI is the URI where the identity provider will send the security tokens back. 
 
 #### Redirect URI for public client applications
-For public client application developers using MSAL.NET:
-- You don't need to pass the ``RedirectUri`` as it's automatically computed by MSAL.NET. This RedirectUri is set to the following values depending on the platform:
+For public client application developers using MSAL:
+- You don't need to pass the ``RedirectUri`` as it's automatically computed by MSAL. This redirect URI is set to the following values depending on the platform:
 
 - ``urn:ietf:wg:oauth:2.0:oob`` for all the Windows platforms
 - ``msal{ClientId}://auth`` for Xamarin Android and iOS
@@ -130,8 +134,11 @@ For web apps, the redirect URI (or reply URI), is the URI at which Azure AD will
 
 For daemon apps you don't need to specify a redirect URI.
 
+### Client secret
+The client secret for the confidential client application. This secret (application password) is provided by the application registration portal, or provided to Azure AD during the application registration with PowerShell AzureAD, PowerShell AzureRM, or Azure CLI.
+
 ### Logging
-The other options enable logging and troubleshooting. See the [Logging](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Logging) page for more details on how to use them.
+The other options enable logging and troubleshooting. See the [Logging](msal-logging.md) page for more details on how to use them.
 
 ## Next steps
 Learn about [instantiating client applications using MSAL.NET](msal-net-instantiating-client-applications.md).

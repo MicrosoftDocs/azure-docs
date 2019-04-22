@@ -1,5 +1,5 @@
 ---
-title: Instantiate client applications (MSAL.NET) | Azure
+title: Initialize client applications (MSAL.NET) | Azure
 description: Microsoft Authentication Library (MSAL.NET) enables application developers to acquire tokens in order to call secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS, third-party Web APIs, or your own Web API. MSAL.NET supports multiple application architectures and platforms.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,17 +17,17 @@ ms.date: 04/12/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn about instantiating client applications so I can decide if this platform meets my application development needs and requirements.
+#Customer intent: As an application developer, I want to learn about initializing client applications so I can decide if this platform meets my application development needs and requirements.
 ms.collection: M365-identity-device-management
 ---
 
-# Instantiating client applications using MSAL.NET
-This article describes instantiating public client and confidential client applications using Microsoft Authentication Library for .NET (MSAL.NET).  To learn more about the client application types and application options, read the [overview](msal-client-applications.md).
+# Initializing client applications using MSAL.NET
+This article describes initializing public client and confidential client applications using Microsoft Authentication Library for .NET (MSAL.NET).  To learn more about the client application types and application options, read the [overview](msal-client-applications.md).
 
 With MSAL.NET 3.x, the recommended way to instantiate an application is by using the application builders: `PublicClientApplicationBuilder` and `ConfidentialClientApplicationBuilder`. They offer a powerful mechanism to configure the application either from the code, or from a configuration file, or even by mixing both approaches.
 
 ## Pre-requisites
-Before instantiating an application, you first need to [register it](quickstart-register-app.md) so that your app can be integrated with the Microsoft identity platform.  After registration, you may need the following information (which can be found in the Azure portal):
+Before initializing an application, you first need to [register it](quickstart-register-app.md) so that your app can be integrated with the Microsoft identity platform.  After registration, you may need the following information (which can be found in the Azure portal):
 
 - The client ID (a string representing a GUID)
 - The identity provider URL (named the instance) and the sign-in audience for your application. These two parameters are collectively known as the authority.
@@ -35,10 +35,10 @@ Before instantiating an application, you first need to [register it](quickstart-
 - The application secret (client secret string) or certificate (of type X509Certificate2) if it's a confidential client app.
 - For web apps, and sometimes for public client apps (in particular when your app needs to use a broker), you'll have also set the redirectUri where the identity provider will contact back your application with the security tokens.
 
-## Ways to instantiate applications
+## Ways to initialize applications
 There are many different ways to instantiate client applications.
 
-### Instantiating a public client application from code
+### Initializing a public client application from code
 
 The following code instantiates a public client application, signing-in users in the Microsoft Azure public cloud, with their work and school accounts, or their personal Microsoft accounts.
 
@@ -47,7 +47,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-### Instantiating a confidential client application from code
+### Initializing a confidential client application from code
 
 In the same way, the following code instantiates a confidential application (a Web app located at `https://myapp.azurewebsites.net`) handling tokens from users in the Microsoft Azure public cloud, with their work and school accounts, or their personal Microsoft accounts. The application is identified with the identity provider by sharing a client secret:
 
@@ -68,7 +68,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
     .Build();
 ```
 
-### Instantiating a public client application from configuration options
+### Initializing a public client application from configuration options
 
 The following code instantiates a public client application from a configuration object, which could be filled-in programmatically or read from a configuration file
 
@@ -78,7 +78,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
     .Build();
 ```
 
-### Instantiating a confidential client application from configuration options
+### Initializing a confidential client application from configuration options
 
 The same kind of pattern applies to confidential client applications. You can also add other parameters using .WithXXX modifiers (here a certificate).
 
@@ -91,7 +91,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 ## Builder modifiers
 
-In the code snippets using applicatoin builders, a number of .With methods can be applied as modifiers (for example, `.WithCertificate` and `.WithRedirectUri`). 
+In the code snippets using application builders, a number of .With methods can be applied as modifiers (for example, `.WithCertificate` and `.WithRedirectUri`). 
 
 ### Modifiers common to public and confidential client applications
 
