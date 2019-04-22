@@ -22,11 +22,11 @@ HDInsight cluster billing starts once a cluster is created and stops when the cl
 
 ## Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select your HDInsight cluster. If your HDInsight cluster is not pinned to the dashboard, you can search for it by name using the search field.
-   
-    ![portal search](./media/hdinsight-delete-cluster/navbar.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. From the cluster settings, select the **Delete** icon. When prompted, select **Yes** to delete the cluster.
+2. From the left menu, navigate to **All services** > **Analytics** > **HDInsight clusters** and select your cluster.
+
+3. From the default view, select the **Delete** icon. Follow the prompt to delete your cluster.
    
     ![delete icon](./media/hdinsight-delete-cluster/deletecluster.png)
 
