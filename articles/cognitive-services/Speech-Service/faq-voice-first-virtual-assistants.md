@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Get answers to the most popular questions about voice-first virtual assistants using the Direct Line Speech channel.
 services: cognitive-services
 author: trrwilson
-manager: 
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
