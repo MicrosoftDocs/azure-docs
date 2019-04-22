@@ -12,19 +12,25 @@ ms.reviewer: larryfr
 ms.date: 05/02/19
 ---
 
-# Version & manage dataset definitions 
+# Update and manage the lifecycle of Dataset definitions
 
-Dataset definitions (preview) are the recipes used to prepare your Datasets, which include both the reference to your source data and the transformation steps performed. One Dataset can have many definitions, and each definition has its own lifecycle. 
+Learn how to update and manage Dataset definitions with Azure Machine Learning Datasets (preview).
 
-For example, after building a machine learning pipeline by consuming the current definition of your Dataset, you realized that the underlying data is changed with new attributes being added.  Now you want to add some extra transformation steps to your Dataset definition to deal with the new attributes, and you don’t want to break the old pipelines with these extra steps. You can do so by updating your Dataset definition to create a new version. In doing so, your old pipeline will continue to consume the previous definition, and you can use the latest definition for new machine learning scenarios such as model training and pipeline creation.
+Dataset definitions are the recipes used to prepare your Datasets, which include both the reference to your source data and the transformation steps performed. One Dataset can have many definitions, and each definition has its own lifecycle.
 
-In this article, you will learn how to update Dataset definitions, and manage the lifecycle of definitions through deprecation, archiving, and reactivation.
+The following scenario is an example of using Dataset definitions:
+
+1. You build a machine learning pipeline that consumes the current definition of your Dataset.
+1. The underlying data changes; new attributes have been added.
+1. You create a new version of your definition that adds extra transformations to handle the new attributes.
+
+In this example, the existing pipeline continues to consume the original definition version. The new definition version can be used for new scenarios, such as training a model or creating a pipeline.
 
 ## Prerequisites
 
 You need to have an Azure subscription and a workspace to register your Dataset in order to manage the lifecycle of Dataset definitions.
 
-Sample files used in the following examples can be downloaded from [here](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv).
+The sample file used in the examples in this document is available at [https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv).
 
 ## Update Dataset definitions
 
@@ -62,7 +68,7 @@ The first Dataset definition (`version_id` = 1) is created when the Dataset is c
 
 ```python
 # get the Dataset from the workspace by name
-dataset = Dataset.get(workspace=workspace, dataset_name=dataset_name)
+dataset = workspace.datasets['dataset_name']
 
 # get the latest Dataset definition
 ds_def = dataset.get_definition()
@@ -73,7 +79,7 @@ ds_def = ds_def.keep_columns(['ID', 'Arrest', 'Latitude', 'Longitude'])
 # with this update, the latest definition for dataset now has `version_id = 2`
 dataset = dataset.update_definition(ds_def, 'select useful column')
 
-dataset = Dataset.get(workspace, dataset_name)
+dataset = workspace.datasets['dataset_name']
 dataset.head(5)
 ```
 <div>
@@ -311,22 +317,43 @@ ds_def_old.head(5)
     </tr>
   </tbody>
 </table>
-<p>5 rows × 22 columns</p>
 </div>
 
 As we can see from the result, the first version of Dataset definition still keeps all columns from the crime data regardless of later update. For example, if you have a machine learning model currently consuming the first version of the Dataset and using `Date` column from the Dataset as one of the features, you will not encounter any error with the latest definition update, which keeps only `ID`, `Arrest`, `Latitude`, `Longitude` columns from the crime data.
 
+## How to access Dataset definitions
+
+To get a list of all definitions, use `get_definitions()`. To get a specific version of a definition, use `get_definition()`. The following example demonstrates retrieving a list of all definitions, and then retrieving version 1:
+
+```python
+# list all definitions for the dataset
+dataset.get_definitions()
+# get version ID 1
+dataset.get_definition(version_id=1)
+```
+
+The output of `get_definitions()` is similar to the following example:
+
+```text
+{'2': VersionID: 2, State: active, Created: 2019-04-19 16:43:52.439890+00:00, Modified: 2019-04-19 16:43:52.439890+00:00, Notes: select useful column,
+ '1': VersionID: 1, State: active, Created: 2019-04-19 16:39:14.112046+00:00, Modified: 2019-04-19 16:44:12.912663+00:00, Notes: None}
+```
+
+Once you have retrieved a definition, you can use it with your machine learning models or in a machine learning pipeline.
+
 ## Manage lifecycle of Dataset definitions
 
-You can manage the lifecycle of each Dataset definitions independently. There are three stages of the lifecycle: active, deprecated, or archived.
+You can manage the lifecycle of each Dataset definition independently. There are three stages of the lifecycle: active, deprecated, or archived.
 
 ### Active
+
 When a new Dataset definition is created, it is active by default. 
 
 ### Deprecate
-Dataset definitions can be deprecated when usage is no longer recommended, and a replacement is available. When a deprecated Dataset definition is used in machine learning pipelines, a warning message gets returned, but execution will not be blocked. 
 
-You need to indicate the Dataset ID and the Dataset definition version id for the replacement definition. This information will be stored and used in warning message when you try to consume a deprecated Dataset definition.
+Dataset definitions can be deprecated when usage is no longer recommended, and a replacement is available. When a deprecated Dataset definition is used in machine learning pipelines, a warning message gets returned, but execution will not be blocked.
+
+When deprecating a Dataset definition, specify the Dataset ID and the Dataset definition version ID for the replacement definition. This information is stored and used in warning message when you try to consume a deprecated Dataset definition.
 
 ```python
 # get the definition that you want to deprecate
@@ -337,6 +364,7 @@ ds_def.deprecate(deprecate_by_dataset_id=dataset.id, deprecated_by_definition_ve
 ```
 
 ### Archive
+
 Dataset definitions can be archived when definitions are not supposed to be used for any reason (such as underlying data no longer available). When an archived Dataset definition is used in machine learning pipelines, execution will be blocked with error.
 
 ```python
@@ -345,6 +373,8 @@ ds_def = dataset.get_definition(version_id = 1)
 ds_def.archive()
 ```
 
+### Reactivate
+
 You can reactivate any deprecated or archived Dataset definition easily.
 
 ```python
@@ -352,3 +382,9 @@ You can reactivate any deprecated or archived Dataset definition easily.
 ds_def = dataset.get_definition(version_id = 1)
 ds_def.reactivate()
 ```
+
+## Next steps
+
+For more information on working with Datasets, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).
+
+For an example of using Datasets, see the [sample notebooks](https://aka.ms/dataset-tutorial).

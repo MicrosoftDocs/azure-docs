@@ -95,30 +95,32 @@
       href: how-to-vscode-tools.md
   - name: Work with data
     items:
-    - name: Load data
-      displayName: data, etl, data prep, dataprep
-      href: how-to-load-data.md
-    - name: Transform data
-      displayName: data, etl, dataprep, data prep
-      href: how-to-transform-data.md
-    - name: Write data
-      displayName: data, etl, data prep, dataprep
-      href: how-to-write-data.md
-    - name: Create Datasets
-      displayName: data, etl, dataset
+    - name: Add & register datasets
+      displayName: data, dataset
       href: how-to-create-register-datasets.md
-    - name: Prepare data
+    - name: 'Prep data with azureml.dataprep'
+      items:
+      - name: Load data
+        displayName: data, etl, data prep, dataprep
+        href: how-to-load-data.md
+      - name: Transform data
+        displayName: data, etl, dataprep, data prep
+        href: how-to-transform-data.md
+      - name: Write data
+        displayName: data, etl, data prep, dataprep
+        href: how-to-write-data.md
+    - name: 'Prep data with datasets (preview)'
       displayName: data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep
       href: how-to-explore-prepare-data.md
-    - name: Manage Dataset definitions
+    - name: Version & manage data definitions
       displayName: data, etl, dataset, data preparation, dataprep, version
       href: how-to-manage-dataset-definitions.md
-    - name: Create Dataset snapshots
+    - name: Snapshot your data
       displayName: snapshots, profile, summary statistics, data copy
       href: how-to-create-dataset-snapshots.md
-  - name: Get data in datastore
-    displayName: blob get fileshare access storage
-    href: how-to-access-data.md
+    - name: Get data from a datastore
+      displayName: blob get fileshare access storage
+      href: how-to-access-data.md
   - name: Train models
     items:
     - name: Set up training environments
