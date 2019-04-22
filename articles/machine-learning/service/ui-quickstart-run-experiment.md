@@ -99,7 +99,7 @@ Select which columns of data to work with.  To start with, configure the module 
 
     In the **Select columns** dialog, select **ALL COLUMNS** and include **all features**. The dialog should look like this:
 
-     ![column-selector](./media/ui-quickstart-run-experiment/select-all.PNG)
+     ![column-selector](./media/ui-quickstart-run-experiment/select-all.png)
 
 1. On the lower right, select the check mark (OK) button to close the column selector.
 
@@ -107,7 +107,7 @@ Select which columns of data to work with.  To start with, configure the module 
 
 At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow.  If the **Visualize** option is disabled, you first need to run the experiment.  You'll do that next.
 
-[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
+    [!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
     After the compute target is available, the experiment runs. When the run is complete, a green checkmark appears on each module.
 
