@@ -82,7 +82,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 
     The following are the expected DNS zones to be used in the verify record for different Azure regions.
   
-  - North America, Europe, Singapore, Hong Kong, Japan:
+  - North America, Europe, Singapore, Hong Kong SAR, Japan:
       
     - `media.azure.net`
     - `verifydns.media.azure.net`
