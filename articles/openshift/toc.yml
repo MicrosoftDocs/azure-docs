@@ -40,6 +40,8 @@
     href: openshift-faq.md
   - name: Troubleshooting
     href: troubleshoot.md
+  - name: Supported resources
+    href: supported-resources.md
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Red Hat OpenShift documentation
