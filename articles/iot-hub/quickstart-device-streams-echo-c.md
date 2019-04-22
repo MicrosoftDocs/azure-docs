@@ -37,6 +37,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * The preview of device streams is currently only supported for IoT Hubs created in the following regions:
 
   * **Central US**
+
   * **Central US EUAP**
 
 * Install [Visual Studio 2017](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
