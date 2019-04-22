@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -76,7 +76,7 @@ As of now, following versions of Confluence are supported:
 - Confluence: 6.12.0
 
 > [!NOTE]
-> Please note that Confluence also supports Linux Ubuntu version 16.04
+> Please note that our Confluence Plugin also works on Ubuntu Version 16.04
 
 ## Scenario description
 

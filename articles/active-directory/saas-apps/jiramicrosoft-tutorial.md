@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -63,7 +63,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]
-> Please note that JIRA also supports Linux Ubuntu version 16.04
+> Please note that our JIRA Plugin also works on Ubuntu Version 16.04
 
 ## Scenario description
 
