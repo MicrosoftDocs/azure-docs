@@ -54,7 +54,7 @@ In your Bash command window, set the following variables:
 > The name of your cluster must be all lowercase or cluster creation will fail.
 
 ```bash
-CLUSTER_NAME=<the name of your cluster - lowercase only>
+CLUSTER_NAME=<cluster name in lowercase>
 ```
 
  Use the same name for the cluster that you chose in step 6 of [Create new app registration](howto-aad-app-configuration.md#create-a-new-app-registration).
@@ -63,11 +63,7 @@ CLUSTER_NAME=<the name of your cluster - lowercase only>
 LOCATION=<location>
 ```
 
-Choose a location to create your cluster. For a list of azure regions that supports OpenShift on Azure, see [Supported Regions](supported-resources.md#azure-regions). For example:
-
-```bash
-LOCATION=eastus
-```
+Choose a location to create your cluster. For a list of azure regions that supports OpenShift on Azure, see [Supported Regions](supported-resources.md#azure-regions). For example: `LOCATION=eastus`.
 
 Set `FQDN` to the fully qualified name of your cluster. This name is composed of the cluster name, the location, and `.cloudapp.azure.com` appended to the end. This is the same as the Sign-On URL you created in step 6 of [Create new app registration](howto-aad-app-configuration.md#create-a-new-app-registration). For example:  
 
