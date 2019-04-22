@@ -25,6 +25,9 @@ In this tutorial, you learn about:
 > * The TSI JavaScript client library.
 > * How the sample application uses the library to visualize TSI data.
 
+> [!NOTE]
+> The Time Series Insights sample application source files can be found in the provided [GitHub sample repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
+
 ## Video: 
 
 ### In this video, we introduce the open source Time Series Insights JavaScript SDK.</br>
@@ -53,7 +56,7 @@ Throughout this tutorial, the Time Series Insights sample application is used to
 
 ### Page source and structure
 
-First, let's view the HTML and JavaScript source code that's behind the page that's rendered in your browser. We don't walk through all of the elements, but you learn about the major sections and you get a sense of how the page works:
+First, let's view the [HTML and JavaScript source code](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) that's behind the page that's rendered in your browser. We don't walk through all of the elements, but you learn about the major sections and you get a sense of how the page works:
 
 1. Open **Developer Tools** in your browser. Inspect the HTML elements that make up the current page (also known as the HTML or DOM tree).
 
@@ -279,9 +282,12 @@ In this tutorial, you learned how to:
 > * Use APIs in the TSI JavaScript client library.
 > * Use JavaScript to create and populate chart controls with TSI data.
 
-As discussed, the TSI Sample application uses a demo data set. To learn how you can create your own TSI environment and data set, advance to the following article:
+As seen, the TSI sample application uses a demo data set. To learn how you can create your own TSI environment and data set, advance to the following article:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create an Azure Time Series Insights environment](tutorial-create-populate-tsi-environment.md)
 
+Or view the TSI sample application source files:
 
+> [!div class="nextstepaction"]
+> [TSI sample app repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)
