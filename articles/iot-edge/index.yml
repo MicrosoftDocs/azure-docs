@@ -43,15 +43,31 @@ sections:
   - type: paragraph
     text: Learn how to install and configure IoT Edge, deploy modules, and utilize Azure services like Stream Analytics and Custom Vision at the edge.
   - type: list
-    style: unordered
+    style: ordered
     items:
-    - html: <a href="/azure/iot-edge/tutorial-deploy-function">Filter messages with Azure Functions</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Find averages with Azure Stream Analytics as a module</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Score data with Azure Machine Learning as a module</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">Classify images with Custom Vision Service as a module</a>
-    - html: <a href="/azure/iot-edge/tutorial-csharp-module">Filter data with a C# module</a>
-    - html: <a href="/azure/iot-edge/tutorial-python-module">Filter data with a Python module</a>
-    - html: <a href="/azure/iot-edge/tutorial-node-module">Filter data with a Node.js module</a>
-    - html: <a href="/azure/iot-edge/tutorial-java-module">Filter data with a Java module</a>
-    - html: <a href="/azure/iot-edge/tutorial-c-module">Filter data with a C module</a>
-    - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Store data at the edge with SQL Server</a>
+    - text: Set up your development machine and learn about IoT Edge modules.
+      - type: list
+        style: unordered
+        items: 
+        - html: <a href="/azure/iot-edge/tutorial-develop-vs-code">Develop modules for Linux devices</a>
+        - html: <a href="/azure/iot-edge/tutorial-develop-visual-studio">Develop modules for Windows devices</a>
+    - text: Develop custom code modules in your preferred language.
+      - type: list
+        style: unordered
+        items:
+        - html: <a href="/azure/iot-edge/tutorial-c-module">C modules for Linux devices</a>
+        - html: <a href="/azure/iot-edge/tutorial-c-module-visual-studio">C modules for Windows devices</a>
+        - html: <a href="/azure/iot-edge/tutorial-csharp-module">C# modules for Linux devices</a>
+        - html: <a href="/azure/iot-edge/tutorial-csharp-module-visual-studio">C# modules for Linux devices</a>
+        - html: <a href="/azure/iot-edge/tutorial-python-module">Python modules for Linux devices</a>
+        - html: <a href="/azure/iot-edge/tutorial-node-module">Node.js modules for Linux devicesw</a>
+        - html: <a href="/azure/iot-edge/tutorial-java-module">Java modules for Linux devices</a>
+    - text: Deploy Azure services as modules
+      - type: list
+        style: unordered
+        items:
+        - html: <a href="/azure/iot-edge/tutorial-deploy-function">Filter messages with Azure Functions</a>
+        - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Find averages with Azure Stream Analytics as a module</a>
+        - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Score data with Azure Machine Learning as a module</a>
+        - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">Classify images with Custom Vision Service as a module</a>
+        - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Store data at the edge with SQL Server</a>
