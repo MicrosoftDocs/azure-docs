@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ---
 
-# Run Apache Sqoop jobs with Hadoop in HDInsight with cURL
+# Run Apache Sqoop jobs with Hadoop in HDInsight with Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use cURL to run Apache Sqoop jobs on an Apache Hadoop cluster in HDInsight. This article demonstrates how to export data from Azure storage and import it into a SQL Server database using Curl. This article is a continuation of [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
+Learn how to use Curl to run Apache Sqoop jobs on an Apache Hadoop cluster in HDInsight. This article demonstrates how to export data from Azure storage and import it into a SQL Server database using Curl. This article is a continuation of [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
 Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run, monitor, and retrieve the results of Sqoop jobs. This works by using the WebHCat REST API (formerly known as Templeton) provided by your HDInsight cluster.
 
