@@ -373,10 +373,10 @@ ORDER BY <sort_specification>
   
   **Remarks**  
   
-   The ORDER BY clause requires that the indexing policy include an index for the fields being sorted. The Azure Cosmos DB query runtime supports sorting against a property name and not against computed properties. Azure Cosmos DB supports multiple ORDER BY properties. In order to run a query with multiple ORDER BY properties, you should define a [composite index](index-policy.md#how-to-manage-composite-indexes) on the fields being sorted.
+   The ORDER BY clause requires that the indexing policy include an index for the fields being sorted. The Azure Cosmos DB query runtime supports sorting against a property name and not against computed properties. Azure Cosmos DB supports multiple ORDER BY properties. In order to run a query with multiple ORDER BY properties, you should define a [composite index](index-policy.md#adding-composite-indexes) on the fields being sorted.
 
 
-##  <a name=#bk_offsetlimit_clause></a> OFFSET LIMIT clause
+##  <a name=bk_offsetlimit_clause></a> OFFSET LIMIT clause
 
 Specifies the number of items skipped and number of items returned. For examples, see [OFFSET LIMIT clause examples](how-to-sql-query.md#OffsetLimitClause)
   
