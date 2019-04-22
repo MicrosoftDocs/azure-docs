@@ -51,7 +51,7 @@ After VMs are reprotected, you can fail back to the primary region as needed.
 
 8. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt a shutdown of source VMs before triggering the failover. The failover continues even if shutdown fails. Note that Site Recovery doesn't clean up the source after failover.
 9. Follow the failover progress on the **Jobs** page.
-10. After the failover, validate the VM by logging in to it. You can change the recovery point as needed.
+10. After the failover is complete, validate the VM by logging in to it. You can change the recovery point as needed.
 11. After you've verified the failover, select **Commit the failover**. Committing deletes all the available recovery points. The change recovery point option is no longer available.
 12. The VM should show as failed over and failed back.
 
