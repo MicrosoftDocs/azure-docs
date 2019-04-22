@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 04/19/2019
+ms.date: 04/23/2019
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -98,7 +98,7 @@ For scenarios that involve direct remote desktop access to a virtual machine, yo
 
 ## Exclusions
 
-Customer Lockbox requests aren't triggered in following scenarios:
+Customer Lockbox requests aren't triggered in the following scenarios:
 
 - Law enforcement requests
     
