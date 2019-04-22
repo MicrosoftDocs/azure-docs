@@ -20,11 +20,10 @@ The query prediction endpoint APIs have changed. Use this guide to understand ho
 
 This V3 API provides the following new features, which include significant JSON request and/or response changes: 
 
-* [Prebuilt domain changes](#prebuilt-domains-with-new-models-and-language-coverage)
-* [Prebuilt entity changes](#prebuilt-entities-with-new-json)
 * [External entities](#external-entities-passed-in-at-prediction-time)
 * [Dynamic lists](#dynamic-lists-passed-in-at-prediction-time)
 * [Multi-intent detection of utterance](#detect-multiple-intents-within-single-utterance)
+* [Prebuilt entity JSON changes](#prebuilt-entities-with-new-json)
 
 The query prediction endpoint [request](#request-changes) and [response](#response-changes) have significant changes to support the new features listed above, including the following:
 
@@ -36,7 +35,7 @@ The following LUIS features are **not supported** in the V3 API:
 
 * Bing Spell Check V7
 
-[Reference documentation](https://aka.ms/luis-api-v3) is available for V3.
+[Reference documentation](https://aka.ms/luis-preview-api-v3) is available for V3.
 
 ## Prebuilt domains with new models and language coverage
 
@@ -68,8 +67,8 @@ The V3 API has different query string parameters.
 
 |Param name|Type|Version|Purpose|
 |--|--|--|--|
-|`multiple-segments`|boolean|V3|Break utterance into segments and predict each segment for intents and entities.|
-|`query`|string|V3|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
+|`multiple-segments`|boolean|V3 only|Break utterance into segments and predict each segment for intents and entities.|
+|`query`|string|V3 only|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
 |`show-all-intents`|boolean|V3 only|Return all intents with the corresponding score in the **prediction.intents** object. Intents are returned as objects in a parent `intents` object. This allows programmatic access without needing to find the intent in an array: `prediction.intents.give`. In V2, these were returned in an array. |
 |`verbose`|boolean|V2 & V3|**In V2**, when set to true, all predicted intents were returned. If you need all predicted intents, use the V3 param of `show-all-intents`.<br><br>**In V3**, this parameter only provides entity metadata details of entity prediction.  |
 
