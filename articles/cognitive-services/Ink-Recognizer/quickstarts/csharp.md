@@ -136,10 +136,6 @@ A successful response is returned in JSON format. Click the links below to view 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)
+> [REST API reference](https://dev.cognitive.microsoft.com/docs/services/inkrecognizer)
 
 * [What is the Ink Recognizer API?](overview.md)
-* Start sending digital ink stroke data using:
-    * [C#](quickstarts/csharp.md)
-    * [Java](quickstarts/java.md)
-    * [JavaScript](quickstarts/javascript.md)

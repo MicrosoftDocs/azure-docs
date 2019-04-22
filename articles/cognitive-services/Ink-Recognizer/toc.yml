@@ -41,7 +41,7 @@
 - name: Resources
   items:
   - name: Pricing and limits
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Privacy & cookies
