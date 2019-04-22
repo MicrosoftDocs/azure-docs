@@ -90,6 +90,10 @@ Your serverless Linux function app 'myfunctionapp' has been successfully created
 To active this function app, publish your app content using Azure Functions Core Tools or the Azure portal.
 ```
 
+## Reference bindings
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
 Now, you can publish your project to the new function app in Azure.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
