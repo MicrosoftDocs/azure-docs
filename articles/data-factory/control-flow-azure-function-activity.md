@@ -23,7 +23,7 @@ For an eight-minute introduction and demonstration of this feature, watch the fo
 
 ## Azure Function linked service
 
-The return type of the Azure function has to be a valid `JObject`. (Keep in mind that [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) is *not* a `JObject`.) Any return type other than `JObject` fails and raises the generic user error *Error calling endpoint*.
+The return type of the Azure function has to be a valid `JObject`. (Keep in mind that [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) is *not* a `JObject`.) Any return type other than `JObject` fails and raises the user error *Response Content is not a valid JObject*.
 
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |
@@ -47,11 +47,18 @@ The return type of the Azure function has to be a valid `JObject`. (Keep in mind
 
 See the schema of the request payload in [Request payload schema](control-flow-web-activity.md#request-payload-schema) section.
 
-## More info
+## Routing and Queries
 
-The Azure Function Activity supports **routing**. For example, if your app uses the following routing - `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>` - then the `functionName` is `functionName/{value}`, which you can parameterize to provide the desired `functionName` at runtime.
+The Azure Function Activity supports **routing**. For example, if your Azure Function has the following endpoint - `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>` - then the `functionName` to use in the Azure Function Activity is `<functionName>/<value>`, which you also can parameterize to provide the desired `functionName` at runtime.
 
-The Azure Function Activity also supports **queries**. A query has to be part of the `functionName` - for example, `HttpTriggerCSharp2?name=hello` - where the `function name` is `HttpTriggerCSharp2`.
+The Azure Function Activity also supports **queries**. A query has to be included as part of the `functionName`. For example when the function's name is `HttpTriggerCSharp` and the query you want to include is `name=hello`, then you can construct the `functionName` in the Azure Function Activity as `HttpTriggerCSharp?name=hello`. This can also be parameterized so that the value can be determined at runtime.
+
+## Timeout and Long Running Functions
+
+Azure Functions will timeout after 230 seconds regardless of the `functionTimeout` setting you have configured in the settings. Read about it [here](../../includes/functions-timeout-duration.md). To work around this, you will have to follow an async pattern or use Durable Functions. The benefit of Durable Functions is that they also offer their own state-tracking mechanism, so you will not have to implement your own.
+
+Learn more about Durable Functions [here](../azure-functions/durable/durable-functions-overview.md). You can set up an Azure Function Activity to call the Durable Function, which will return a response with a different URIs like [this](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery). Since `statusQueryGetUri` returns HTTP Status 202 while the function is running, you can poll the status of the function using a Web Activity. Simply setup a Web Activity with the `url` field set to `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. When the Durable Function completes, the output of the function will be the output of the Web Activity.
+
 
 ## Next steps
 
