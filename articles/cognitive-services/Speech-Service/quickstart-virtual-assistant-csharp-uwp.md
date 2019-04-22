@@ -66,7 +66,7 @@ This quickstart will describe, step by step, how to make a simple client applica
     </StackPanel>
     ```
 
-1. Open the code-behind source file `MainPage.xaml.cs` (find it grouped under `MainPage.xaml`). Replace its entire contents with the following code. This starting document includes:
+1. Open the code-behind source file `MainPage.xaml.cs`. You'll find it grouped under `MainPage.xaml`. Replace the contents with the code below. Here's what this sample covers: 
 
     * using statements for the Speech and Speech.Dialog namespaces;
     * a simple implementation to ensure application microphone access, wired to a button handler;
