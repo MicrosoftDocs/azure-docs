@@ -48,7 +48,31 @@ Your Hive workload may include a mix of ACID and non-ACID tables. One key differ
 alter table myacidtable compact 'major';
 ```
 
-This compaction is required because HDInsight 3.6 and HDInsight 4.0 ACID tables understand ACID deltas different. Compaction enforces a clean slate that guarantees table consistency. Once the compaction is complete, the previous steps for metastore and table migration will be enough to use any HDInsight 3.6 ACID tables in HDInsight 4.0.
+This compaction is required because HDInsight 3.6 and HDInsight 4.0 ACID tables understand ACID deltas differently. Compaction enforces a clean slate that guarantees consistency. Section 4 of the [Hive migration documentation](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.3.0/bk_ambari-upgrade-major/content/prepare_hive_for_upgrade.html) contains guidance for bulk compaction of HDInsight 3.6 ACID tables.
+
+Once you have completed the metastore migration and compaction steps, you can migrate the actual warehouse. After you complete the Hive warehouse migration, the HDInsight 4.0 warehouse will have the following properties:
+
+* External tables in HDInsight 3.6 will be external tables in HDInsight 4.0
+* Non-transactional managed tables in HDInsight 3.6 will be external tables in HDInsight 4.0
+* Transactional managed tables in HDInsight 3.6 will be managed tables in HDInsight 4.0
+
+You may need to adjust the properties of your warehouse before executing the migration. For example, if you expect that some table will be accessed by a third party (such as an HDInsight 3.6 cluster), that table must be external once the migration is complete. In HDInsight 4.0, all managed tables are transactional. Therefore, managed tables in HDInsight 4.0 should only be accessed by HDInsight 4.0 clusters.
+
+Once your table properties are set correctly, execute the Hive warehouse migration tool from one of the cluster headnodes using the SSH shell:
+
+1. Connect to your cluster headnode using SSH. For instructions, see [Connect to HDInsight using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. Open a login shell as the Hive user by running `sudo su - hive`
+1. Determine the Hortonworks Data Platform stack version by executing `ls /usr/hdp`. This will display a version string that you should use in the next command.
+1. Execute the following command from the shell. Replace `${{STACK_VERSION}}` with the version string from the previous step:
+
+```bash
+/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true  -m automatic  automatic  --modifyManagedTables --oldWarehouseRoot /apps/hive/warehouse
+```
+
+After the migration tool completes, your Hive warehouse will be ready for HDInsight 4.0. 
+
+> [!Important]
+> Managed tables in HDInsight 4.0 (including tables migrated from 3.6) should not be accessed by other services or applications, including HDInsight 3.6 clusters.
 
 ## Secure Hive across HDInsight versions
 
@@ -68,9 +92,9 @@ In HDInsight 4.0, HiveCLI has been replaced with Beeline. HiveCLI is a thrift cl
 
 In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari Hive View. HDInsight 4.0 replaces the Hive View with Hortonworks Data Analytics Studio (DAS). DAS doesn't ship with HDInsight clusters out-of-box and is not an officially supported package. However, DAS can be installed on the cluster as follows:
 
-1. Download the [DAS package installation script](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-mpack.sh) and run it on both cluster headnodes. Don't execute this script as a script action.
-2. Download the [DAS service installation script](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-component.sh) and run it as a script action. Select **Headnodes** as the node type of choice from the script action interface.
-3. Once the script action is complete, navigate to Ambari and select **Data Analytics Studio** from the list of services. All DAS services are stopped. In the top-right corner, select **Actions** and **Start**. You can now execute and debug queries with DAS.
+Launch a script action against your cluster, with "Head nodes" as the node type for execution. Paste the following URI into the textbox marked "Bash Script URI": https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+
+
 
 Once DAS is installed, if you don't see the queries you’ve run in the queries viewer, do the following steps:
 

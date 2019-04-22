@@ -1,6 +1,6 @@
 ---
 title: Azure China 21Vianet service hosting for websites in China | Microsoft Docs
-description: Should you host your website and services inside or outside of mainland China? The answer depends on whether China is one of your primary target markets. This article provides guidance on which issues to consider and helps you make the best decision. 
+description: Should you host your website and services inside or outside of China? The answer depends on whether China is one of your primary target markets. This article provides guidance on which issues to consider and helps you make the best decision. 
 services: china
 cloud: na
 documentationcenter: na
@@ -18,11 +18,11 @@ ms.author: v-wimarc
 
 ---
 # Service hosting for websites in China
-Organizations often ask if they should host their website and services inside or outside of mainland China. The answer depends on whether China is one of your primary target markets. If your website must be quickly and easily accessible and locally hosted, you should go through the government compliance process.
+Organizations often ask if they should host their website and services inside or outside of China. The answer depends on whether China is one of your primary target markets. If your website must be quickly and easily accessible and locally hosted, you should go through the government compliance process.
 
 You can host a website outside of China. The advantage is that you don't have to set up a company in China and go through the ICP filing procedures. However, there are several disadvantages worth mentioning:
 - The website may not be completely accessible in China. Even if the website is in Chinese, it may be hard to find on Baidu, China's largest search engine.
-- A website that is not hosted in mainland China may get blocked. The list of what is banned can change at any time. 
+- A website that is not hosted in China may get blocked. The list of what is banned can change at any time. 
 - If your website is not hosted on a dedicated server, and another site hosted on your shared server gets banned, the whole server—including your site—may get blocked. 
 - Users may not have the best experience. Network latency can slow access to services hosted outside of China even if the service is specifically optimized for low bandwidth and mobile access.
 
