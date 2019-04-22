@@ -68,4 +68,4 @@ Learn more about the classes and methods used in this article:
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Add a image layer](./map-add-image-layer.md)
+> [Add an image layer](./map-add-image-layer.md)

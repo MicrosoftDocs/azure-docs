@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Code sample to get started using the Project Answer Search with C#.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: answer-search

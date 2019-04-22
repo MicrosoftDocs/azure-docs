@@ -163,7 +163,7 @@ The impact of changing the number of data nodes for each type of cluster support
     
     The Storm web UI is available on the HDInsight cluster:
     
-    ![HDInsight Storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    ![HDInsight Storm scale rebalance](./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png)
     
     Here is an example how to use the CLI command to rebalance the Storm topology:
     
@@ -217,10 +217,10 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 > [!NOTE]  
 > By granting/revoking the access, you will reset the cluster user name and password.
 
-This can also be done via the Portal. See [Administer HDInsight by using the Azure portal][hdinsight-admin-portal].
+This can also be done via the Portal. See [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md).
 
 ## Update HTTP user credentials
-It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).  If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
+It is the same procedure as Grant/revoke HTTP access.  If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
 
 ## Find the default storage account
 The following code snippet demonstrates how to get the default storage account name and the default storage account key for a cluster.
@@ -259,7 +259,7 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 
 ## See Also
 * [HDInsight .NET SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
-* [Administer HDInsight by using the Azure portal][hdinsight-admin-portal]
+* [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md)
 * [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
 * [Create HDInsight clusters][hdinsight-provision]
 * [Upload data to HDInsight][hdinsight-upload-data]
@@ -275,11 +275,9 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-admin-portal]: hdinsight-administer-use-portal-linux.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
 

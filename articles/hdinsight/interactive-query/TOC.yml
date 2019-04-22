@@ -64,12 +64,6 @@
       - name: Use the HDInsight tools for Visual Studio
         href: ../hadoop/apache-hadoop-use-hive-visual-studio.md
         maintainContext: true
-      - name: Use Remote Desktop
-        href: ../hadoop/apache-hadoop-use-hive-remote-desktop.md
-        maintainContext: true
-      - name: Use the Query Console
-        href: ../hadoop/apache-hadoop-use-hive-query-console.md
-        maintainContext: true
     - name: Use a Java UDF with Apache Hive
       href: ../hadoop/apache-hadoop-hive-java-udf.md
       maintainContext: true
@@ -83,9 +77,6 @@
       maintainContext: true
     - name: Process and analyze JSON documents
       href: ../hadoop/using-json-in-hive.md
-      maintainContext: true
-    - name: Serialize data with Avro Library
-      href: ../hadoop/apache-hadoop-dotnet-avro-serialization.md
       maintainContext: true
     - name: Use C# user-defined functions
       href: ../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md
@@ -112,17 +103,11 @@
     - name: Connect using the Apache Hive JDBC driver
       href: ../hadoop/apache-hadoop-connect-hive-jdbc-driver.md
       maintainContext: true
-    - name: Analyze stored sensor data
-      href: ../hadoop/apache-hive-analyze-sensor-data.md
-      maintainContext: true
     - name: Analyze stored tweets
       href: ../hdinsight-analyze-twitter-data-linux.md
       maintainContext: true
     - name: Analyze flight delay data
       href: ../hdinsight-analyze-flight-delay-data-linux.md
-      maintainContext: true
-    - name: Analyze website logs with Apache Hive
-      href: ../hadoop/apache-hive-analyze-website-log.md
       maintainContext: true
   - name: Extend clusters
     items:
@@ -204,6 +189,7 @@
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
       - name: Use Azure Resource Manager templates
+        displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
     - name: Create on-demand clusters
@@ -340,12 +326,12 @@
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Monitoring using Log Analytics
+  - name: Monitoring using Azure Monitor logs
     items:
-    - name: Use Azure Log Analytics
+    - name: Use Azure Monitor logs
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
       maintainContext: true
-    - name: Use queries with Log Analytics
+    - name: Use queries with Azure Monitor logs
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
       maintainContext: true
     - name: Monitor cluster performance
@@ -356,7 +342,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.hdinsight
+    href: /powershell/module/az.hdinsight
   - name: .NET SDK
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
   - name: Python SDK
@@ -367,13 +353,12 @@
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
-  - name: .NET (Avro)
-    href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
   - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
   - name: Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
     href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:

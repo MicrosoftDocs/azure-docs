@@ -29,7 +29,7 @@ ms.author: mbaldwin
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights etc)| Yes | Using Azure monitoring support and third party support. |
+| Azure monitoring support (Log analytics, App insights etc)| Yes | Using Azure monitoring support and third party support. |
 
 ## IAM Support
 

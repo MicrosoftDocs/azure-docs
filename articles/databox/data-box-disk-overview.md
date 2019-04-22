@@ -98,6 +98,7 @@ Currently Data Box Disk can transfer data to the following Azure regions:
 |North Central US  |Australia Southeast   |
 |East US      |Australia Central |
 |East US2     |Australia Central 2|
+|Japan East     |Korea Central |
 
 
 ## Pricing

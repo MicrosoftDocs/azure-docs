@@ -5,19 +5,19 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 2/28/2018
 ms.author: mayg
 
 ---
 # Set up network mapping and IP addressing for VNets
 
-This article describes how to map two instances of Azure virtual networks (VNets) located in different Azure regions, and how to set up IP addressing between networks. Network mapping ensures that a replicated VM is created in the target Azure region is created in the VNet that's mapped to the VNet of the source VM.
+This article describes how to map two instances of Azure virtual networks (VNets) located in different Azure regions, and how to set up IP addressing between networks. Network mapping provides a default behavior for target network selection based on source network at the time of enabling replication.
 
 ## Prerequisites
 
 Before you map networks, you should have [Azure VNets](../virtual-network/virtual-networks-overview.md) in the source and target Azure regions. 
 
-## Set up network mapping
+## Set up network mapping manually (Optional)
 
 Map networks as follows:
 
@@ -27,7 +27,7 @@ Map networks as follows:
 
 3. In **Add network mapping**, select the source and target locations. In our example, the source VM is running in the East Asia region, and replicates to the Southeast Asia region.
 
-    ![Select source and target ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![Select source and target](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 3. Now create a network mapping in the opposite directory. In our example, the source will now be Southeast Asia, and the target will be East Asia.
 
     ![Add network mapping pane - Select source and target locations for the target network](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
@@ -39,9 +39,13 @@ If you haven't prepared network mapping before you configure disaster recovery f
 
 - Based on the target you select, Site Recovery automatically creates network mappings from the source to target region, and from the target to source region.
 - By default, Site Recovery creates a network in the target region that's identical to the source network. Site Recovery adds **-asr** as a suffix to the name of the source network. You can customize the target network.
-- If network mapping has already occurred, you can't change the target virtual network when you enable replication. To change the target virtual network, you need to modify the existing network mapping.
-- If you modify a network mapping from region A to region B, ensure that you also modify the network mapping from region B to region A.
-]
+- If network mapping has already occurred for a source network, the mapped target network will always be the default at the time of enabling replications for more VMs. You can choose to change the target virtual network by choosing other available options from the dropdown. 
+- To change the default target virtual network for new replications, you need to modify the existing network mapping.
+- If you wish to modify a network mapping from region A to region B, ensure that you first delete the network mapping from region B to region A. After reverse mapping deletion, modify the network mapping from region A to region B and then create the relevant reverse mapping.
+
+>[!NOTE]
+>* Modifying the network mapping only changes the defaults for new VM replications. It does not impact the target virtual network selections for existing replications. 
+>* If you wish to modify the target network for an existing replication, go to Compute and Network Settings of the replicated item.
 
 ## Specify a subnet
 
@@ -67,6 +71,7 @@ The IP address for each NIC on a target virtual machine is configured as follows
 **Source and target subnets** | **Details**
 --- | ---
 Same address space | IP address of the source VM NIC is set as the target VM NIC IP address.<br/><br/> If the address isn't available, the next available IP address is set as the target.
+
 Different address space<br/><br/> The next available IP address in the target subnet is set as the target VM NIC address.
 
 

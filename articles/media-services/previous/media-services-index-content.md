@@ -4,7 +4,7 @@ description: Azure Media Indexer enables you to make content of your media files
 services: media-services
 documentationcenter: ''
 author: Asolanki
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 827a56b2-58a5-4044-8d5c-3e5356488271
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 03/18/2019
 ms.author: adsolank;juliako;johndeu
 
 ---

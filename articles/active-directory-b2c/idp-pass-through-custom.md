@@ -8,26 +8,22 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
 ---
 
 # Pass an access token through a custom policy to your application in Azure Active Directory B2C
 
-> [!NOTE]
-> This feature is currently in public preview.
-
-> [!Important]
-> This public preview feature is temporarily unavailable.
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 A [custom policy](active-directory-b2c-get-started-custom.md) in Azure Active Directory (Azure AD) B2C provides users of your application an opportunity to sign up or sign in with an identity provider. When this happens, Azure AD B2C receives an [access token](active-directory-b2c-reference-tokens.md) from the identity provider. Azure AD B2C uses that token to retrieve information about the user. You add a claim type and output claim to your custom policy to pass the token through to the applications that you register in Azure AD B2C. 
 
-Azure AD B2C currently only supports passing the access token of [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) identity providers, which include Facebook and [Google](active-directory-b2c-custom-setup-goog-idp.md). For all other identity providers, the claim is returned blank.
+Azure AD B2C supports passing the access token of [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) and [OpenID Connect](active-directory-b2c-reference-oidc.md) identity providers. For all other identity providers, the claim is returned blank.
 
 ## Prerequisites
 
-- Your custom policy is configured with an OAuth 2.0 identity provider.
+- Your custom policy is configured with an OAuth 2.0 or OpenID Connect identity provider.
 
 ## Add the claim elements 
 

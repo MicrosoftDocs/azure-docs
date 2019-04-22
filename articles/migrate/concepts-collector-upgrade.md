@@ -4,7 +4,7 @@ description: Provides information about upgrades for the Azure Migrate Collector
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 03/13/2019
 ms.author: hamusa
 services: azure-migrate
 ---
@@ -17,7 +17,17 @@ The Azure Migrate Collector is a lightweight appliance that's used to discover a
 
 ## Continuous discovery: Upgrade versions
 
-No upgrade for the continuous discovery appliance is available yet.
+### Version 1.0.10.12 (Released on 03/13/2019)
+
+Contains fixes for issues in selecting Azure cloud in the appliance.
+
+Hash values for upgrade [package 1.0.10.12](https://aka.ms/migrate/col/upgrade_10_12)
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | 27704154082344c058238000dff9ae44
+SHA1 | 41e9e2fb71a8dac14d64f91f0fd780e0d606785e
+SHA256 | c6e7504fcda46908b636bfe25b8c73f067e3465b748f77e50027e66f2727c2a9
 
 ## One-time discovery (deprecated now): Previous upgrade versions
 

@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 11/13/2018
+ms.lastreviewed: 03/25/2019
 
 ---
 # App Service on Azure Stack update 4 release notes
@@ -61,6 +61,8 @@ Azure App Service on Azure Stack Update 4 includes the following improvements an
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**. Consistent with Azure Stack Portal SDK version.
 
+- Updates **Azure Functions runtime** to **v1.0.11959**.
+
 - Updates to core service to improve reliability and error messaging enabling easier diagnosis of common issues.
 
 - **Updates to the following application frameworks and tools**:
@@ -92,7 +94,12 @@ Azure App Service on Azure Stack Update 4 includes the following improvements an
 
 - Ensure endpoint is specified in custom storage connection string when specified in new Function application
 
-### Post update steps (optional)
+### Post-deployment steps
+
+> [!IMPORTANT]  
+> If you have provided the App Service RP with a SQL Always On Instance you MUST [add the appservice_hosting and appservice_metering databases to an availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) and synchronize the databases to prevent any loss of service in the event of a database failover.
+
+### Post-update steps (optional)
 
 For customers wishing to migrate to contained database for existing Azure App Service on Azure Stack deployments, execute these steps after the Azure App Service on Azure Stack 1.4 update has completed:
 

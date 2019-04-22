@@ -42,23 +42,23 @@ After registering, record the Microsoft Partner Network ID for your organization
 *	Learn about the benefits of the [Microsoft Partner Network](https://partner.microsoft.com/commercial)
 *	If your organization has an existing membership, then you will join your organization during registration. If you use [Partner Center](https://partnercenter.microsoft.com/partner/home), you will be able to see the ID in your Partner Center account. If you use [Partner Membership Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), you will be able to see it in your Partner Membership Center account. 
 
----  
+---
 
 ## 2. Create a Microsoft Account  
 | 15 min |  
-A Microsoft account, e.g. *@outlook.com or @live.com*, is used to access many Microsoft devices and services. It is required for Azure Marketplace transact offers, and we recommend its use to all cloud publishers. For more information on the benefits and uses of a Microsoft account, [visit this page](https://account.microsoft.com/account/). You will use a personal Microsoft account to access the Cloud Partner Portal, the publishing platform that you will use to create and manage your marketplace offers. 
+A Microsoft account, e.g. *\@outlook.com or \@live.com*, is used to access many Microsoft devices and services. It is required for Azure Marketplace transact offers, and we recommend its use to all cloud publishers. For more information on the benefits and uses of a Microsoft account, [visit this page](https://account.microsoft.com/account/). You will use a personal Microsoft account to access the Cloud Partner Portal, the publishing platform that you will use to create and manage your marketplace offers. 
 
 [! IMPORTANT] Please note that a Microsoft account associated with your work email will not allow you to access the portal.
 
->[!Note]
->If you already have a Microsoft account, review the [Guidelines for creating a Microsoft ID to manage a marketplace account](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) to determine if it can be used for marketplace publishing. 
-
->Users with an Azure Active Directory federated corporate account should read [this article](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) before attempting to create or use your existing Microsoft Account.
+> [!Note]
+> If you already have a Microsoft account, review the [Guidelines for creating a Microsoft ID to manage a marketplace account](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) to determine if it can be used for marketplace publishing. 
+> 
+> Users with an Azure Active Directory federated corporate account should read [this article](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) before attempting to create or use your existing Microsoft Account.
 
 *	For help creating or managing your Microsoft account, visit the [Microsoft account help support pages](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 
 
----  
+---
 
 ## 3. Submit the marketplace registration form  
 | 15 min |  
@@ -69,7 +69,7 @@ You will be asked to include the following information:
 *	A brief description of your initial app or consulting services offer that you intend to publish, including the Microsoft product or service to which your offer most closely aligns
 *	The target audience for your app or service 
 
----  
+---
 ## 4. Sign into Cloud Partner Portal
 | 1-3 days | <br>
 Our Marketplace Onboarding Team will validate the marketplace registration details provided in step 3. Once approved, you will receive a welcome email with account credentials and guidance on signing-in to the [Cloud Partner Portal](https://cloudpartner.azure.com).
@@ -105,4 +105,4 @@ Once you have completed the [Dev Center](https://developer.microsoft.com/store/r
 *	[Determine the listing type for your solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

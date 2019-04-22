@@ -9,7 +9,7 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
---- 
+---
 
 # Develop Stream Analytics Edge jobs using Visual Studio tools
 

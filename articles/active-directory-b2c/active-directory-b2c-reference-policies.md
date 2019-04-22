@@ -81,6 +81,6 @@ Only the **otherMails** and **signInNames** properties are exposed through the A
 
 ## Next steps
 
-To create the recommended user flows, follow the instructions in [Tutorial: Create a user flow](tutorial-create-tenant.md).
+To create the recommended user flows, follow the instructions in [Tutorial: Create a user flow](tutorial-create-user-flows.md).
 
 

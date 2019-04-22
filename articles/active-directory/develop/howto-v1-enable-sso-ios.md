@@ -15,6 +15,7 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Enable cross-app SSO on iOS using ADAL
@@ -225,7 +226,7 @@ When you do have entitlements set up correctly you should see a file in your pro
 </plist>
 ```
 
-Once you have the keychain entitlement enabled in each of your applications, and you are ready to use SSO, tell the odentity SDK about your keychain by using the following setting in your `ADAuthenticationSettings` with the following setting:
+Once you have the keychain entitlement enabled in each of your applications, and you are ready to use SSO, tell the identity SDK about your keychain by using the following setting in your `ADAuthenticationSettings` with the following setting:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";

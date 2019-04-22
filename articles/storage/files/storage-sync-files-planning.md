@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
 ---
@@ -127,6 +127,7 @@ To display the results in CSV:
 - A locally attached volume formatted with the NTFS file system.
 
 ### File system features
+
 | Feature | Support status | Notes |
 |---------|----------------|-------|
 | Access control lists (ACLs) | Fully supported | Windows ACLs are preserved by Azure File Sync, and are enforced by Windows Server on server endpoints. Windows ACLs are not (yet) supported by Azure Files if files are accessed directly in the cloud. |
@@ -143,6 +144,7 @@ To display the results in CSV:
 > Only NTFS volumes are supported. ReFS, FAT, FAT32, and other file systems are not supported.
 
 ### Files skipped
+
 | File/folder | Note |
 |-|-|
 | Desktop.ini | File specific to system |
@@ -162,10 +164,14 @@ Windows Server Failover Clustering is supported by Azure File Sync for the "File
 > The Azure File Sync agent must be installed on every node in a Failover Cluster for sync to work correctly.
 
 ### Data Deduplication
-For volumes that don't have cloud tiering enabled, Azure File Sync supports Windows Server Data Deduplication being enabled on the volume. Currently, we do not support interoperability between Azure File Sync with cloud tiering enabled and Data Deduplication.
+**Agent version 5.0.2.0**   
+Data Deduplication is supported on volumes with cloud tiering enabled on Windows Server 2016 and Windows Server 2019. Enabling deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage.
+
+**Windows Server 2012 R2 or older agent versions**  
+For volumes that don't have cloud tiering enabled, Azure File Sync supports Windows Server Data Deduplication being enabled on the volume.
 
 ### Distributed File System (DFS)
-Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R) starting with [Azure File Sync agent 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
+Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R).
 
 **DFS Namespaces (DFS-N)**: Azure File Sync is fully supported on DFS-N servers. You can install the Azure File Sync agent on one or more DFS-N members to sync data between the server endpoints and the cloud endpoint. For more information, see [DFS Namespaces overview](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
@@ -226,6 +232,7 @@ Azure File Sync is available only in the following regions:
 |--------|---------------------|
 | Australia East | New South Wales |
 | Australia Southeast | Victoria |
+| Brazil South | Sao Paolo State |
 | Canada Central | Toronto |
 | Canada East | Quebec City |
 | Central India | Pune |
@@ -233,6 +240,8 @@ Azure File Sync is available only in the following regions:
 | East Asia | Hong Kong |
 | East US | Virginia |
 | East US2 | Virginia |
+| Japan East | Tokyo, Saitama |
+| Japan West | Osaka |
 | North Central US | Illinois |
 | North Europe | Ireland |
 | South Central US | Texas |
@@ -246,7 +255,10 @@ Azure File Sync is available only in the following regions:
 Azure File Sync supports syncing only with an Azure file share that's in the same region as the Storage Sync Service.
 
 ### Azure disaster recovery
-To protect against the loss of an Azure region, Azure File Sync integrates with the [geo-redundant storage redundancy](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) option. GRS storage works by using asynchronous block replication between storage in the primary region, with which you normally interact, and storage in the paired secondary region. In the event of a disaster which causes an Azure region to go temporarily or permanently offline, Microsoft will fail over storage to the paired region. 
+To protect against the loss of an Azure region, Azure File Sync integrates with the [geo-redundant storage redundancy](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) option. GRS storage works by using asynchronous block replication between storage in the primary region, with which you normally interact, and storage in the paired secondary region. In the event of a disaster which causes an Azure region to go temporarily or permanently offline, Microsoft will failover storage to the paired region. 
+
+> [!Warning]  
+> If you are using your Azure file share as a cloud endpoint in a GRS storage account, you shouldn't initiate storage account failover. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files. In the case of loss of an Azure region, Microsoft will trigger the storage account failover in a way that is compatible with Azure File Sync.
 
 To support the failover integration between geo-redundant storage and Azure File Sync, all Azure File Sync regions are paired with a secondary region that matches the secondary region used by storage. These pairs are as follows:
 

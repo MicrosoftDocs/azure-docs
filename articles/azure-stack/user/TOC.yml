@@ -147,6 +147,8 @@
           href: azure-stack-solution-template-kubernetes-azuread.md
         - name: Deploy Kubernetes using AD FS
           href: azure-stack-solution-template-kubernetes-adfs.md
+        - name: Enable the Kubernetes dashboard
+          href: azure-stack-solution-template-kubernetes-dashboard.md
         - name: Troubleshoot Kubernetes cluster
           href: azure-stack-solution-template-kubernetes-trouble.md
       - name: Deploy Cognitive Services
@@ -229,6 +231,6 @@
   - name: Pricing information
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-stack
+    href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Training and certification
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert

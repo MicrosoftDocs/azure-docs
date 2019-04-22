@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/19/2018
@@ -38,8 +38,9 @@ Azure Stack virtual machines provide on-demand, scalable computing resources. Be
 | Virtual machine disks performance | Depends on disk type and size. | Depends on VM size of VM which the disks are attached to, refer to the [Virtual machine sizes supported in Azure Stack](azure-stack-vm-sizes.md) article.
 | API versions | Azure always has the latest API versions for all the virtual machine features. | Azure Stack supports specific Azure services and specific API versions for these services. To view the list of supported API versions, refer to the [API versions](#api-versions) section of this article. |
 | Azure Instance Metadata service | The Azure Instance Metadata Service provides information about running virtual machine instances that can be used to manage and configure your virtual machines.  | The Instance metadata service is not supported on Azure Stack. |
-|Virtual machine availability sets|Multiple fault domains (2 or 3 per region)<br>Multiple update domains<br>Managed disk support|Multiple fault domains (2 or 3 per region)<br>Multiple update domains (up to 20)<br>No managed disk support|
-|Virtual machine scale sets|Autoscale supported|Autoscale not supported.<br>Add more instances to a scale set using the portal, Resource Manager templates, or PowerShell.
+| Virtual machine availability sets|Multiple fault domains (2 or 3 per region)<br>Multiple update domains|Multiple fault domains (2 or 3 per region)<br>Multiple update domains (up to 20)|
+| Virtual machine scale sets|Autoscale supported|Autoscale not supported.<br>Add more instances to a scale set using the portal, Resource Manager templates, or PowerShell. |
+| Virtual machine diagnostics | Linux VM diagnostics | Linux VM diagnostics are not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.
 
 ## Virtual machine sizes
 
@@ -68,7 +69,7 @@ Virtual machine sizes and their associated resource quantities are consistent be
 
 ## Virtual machine extensions
 
- Azure Stack includes a small set of extensions. Updates and additional extensions are available through Marketplace syndication.
+Azure Stack includes a small set of extensions. Updates and additional extensions are available through Marketplace syndication.
 
 Use the following PowerShell script to get the list of virtual machine extensions that are available in your Azure Stack environment:
 
@@ -79,6 +80,8 @@ Get-AzureRmVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+
+If provisioning an extension on a VM deployment takes too long, let the provisioning timeout instead of trying to stop the process to deallocate or delete the VM.
 
 ## API versions
 
@@ -98,7 +101,7 @@ Get-AzureRmResourceProvider | `
 
 The list of supported resource types and API versions may vary if the cloud operator updates your Azure Stack environment to a newer version.
 
-## Windows Activation
+## Windows activation
 
 Windows products must be used in accordance with Product Use Rights and Microsoft license terms. Azure Stack uses [Automatic VM Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) to activate Windows Server virtual machines (VMs).
 

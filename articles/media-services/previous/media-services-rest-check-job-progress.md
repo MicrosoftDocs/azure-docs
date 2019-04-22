@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
@@ -31,7 +31,6 @@ When you run jobs, you often require a way to track job progress. You can find o
 
 For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
-
 ## Check job progress
 
 Request:
@@ -44,8 +43,6 @@ Request:
     Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     Host: media.windows.net
-
-
 
 Response:
 

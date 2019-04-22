@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to search for videos across the web, using the Bing Video Search API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-video-search
@@ -24,7 +24,7 @@ The Bing Video Search API makes it easy to add video searching capabilities to y
 | [Filter and restrict video results](concepts/get-videos.md#filtering-videos)                      | Filter the videos returned by editing query parameters.                                                                                                       |
 | [Crop, resize, and display thumbnails](resize-and-crop-thumbnails.md)                                                | Edit and display thumbnail previews for the videos returned by Bing Video Search API.                                                                                      |
 | [Get trending videos](trending-videos.md) | Search for trending videos from around the world.                                                                                                          |
-| [Get video insights](video-insights.md) | Customize a search for trending images from around the world.                                                                                                          |
+| [Get video insights](video-insights.md) | Customize a search for trending videos from around the world.                                                                                                          |
 
 ## Workflow
 

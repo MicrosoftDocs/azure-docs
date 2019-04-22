@@ -28,14 +28,14 @@ This article is a continuation of the user migration article, and focuses on soc
 * **Combine local account with social identity**. As mentioned, local account sign-in names, and social account identities are stored in different attributes. `signInNames` is used for local account, while `userIdentities` for social account. A single Azure AD B2C account, can be a local account only, social account only, or combine a local account with social identity in one user record. This behavior allows you to manage a single account, while a user can sign in with the local account credential(s) or with the social identities.
 
 * `UserIdentity` Type - Contains information about the identity of a social account user in an Azure AD B2C tenant:
-    * `issuer` The string representation of the identity provider that issued the user identifier, such as facebook.com.
-    * `issuerUserId` The unique user identifier used by the social identity provider in base64 format.
+  * `issuer` The string representation of the identity provider that issued the user identifier, such as facebook.com.
+  * `issuerUserId` The unique user identifier used by the social identity provider in base64 format.
 
     ```JSON
     "userIdentities": [{
-            "issuer": "Facebook.com",
-            "issuerUserId": "MTIzNDU2Nzg5MA=="
-        }
+          "issuer": "Facebook.com",
+          "issuerUserId": "MTIzNDU2Nzg5MA=="
+      }
     ]
     ```
 
@@ -136,7 +136,7 @@ The issuer name, or the identity provider name, is configured in your policy. If
 1. Sign in with one of the social accounts
 2. From the JWT token, copy the `sub` value. The `sub` usually contains the user's object ID in Azure AD B2C. Or from Azure portal, open the user's properties and copy the object ID.
 3. Open [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net)
-4. Sign in with your administrator. N
+4. Sign in with your administrator.
 5. Run following GET request. Replace the userObjectId with the user ID you copied. **GET** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 6. Locate the `userIdentities` element inside the JSON return from Azure AD B2C.
 7. [Optional] You may also want to decode the `issuerUserId` value.

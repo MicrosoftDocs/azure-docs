@@ -18,6 +18,7 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Enable cross-app SSO on Android using ADAL
@@ -114,7 +115,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### Step 2: Establish a new redirect URI with your URL Scheme
 
-In order to ensure that the right application recevies the returned the credential tokens, there is a need to make sure the call back to your application in a way that the Android operating system can verify. The Android operating system uses the hash of the certificate in the Google Play store. This hash of the certificate cannot be spoofed by a rogue application. Along with the URI of the broker application, Microsoft ensures that the tokens are returned to the correct application. A unique redirect URI is required to be registered on the application.
+In order to ensure that the right application receives the returned the credential tokens, there is a need to make sure the call back to your application in a way that the Android operating system can verify. The Android operating system uses the hash of the certificate in the Google Play store. This hash of the certificate cannot be spoofed by a rogue application. Along with the URI of the broker application, Microsoft ensures that the tokens are returned to the correct application. A unique redirect URI is required to be registered on the application.
 
 Your redirect URI must be in the proper form of:
 

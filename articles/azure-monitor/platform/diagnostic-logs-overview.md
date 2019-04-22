@@ -17,7 +17,7 @@ ms.subservice: logs
 * **Tenant logs** - these logs come from tenant-level services that exist outside of an Azure subscription, such as Azure Active Directory logs.
 * **Resource logs** - these logs come from Azure services that deploy resources within an Azure subscription, such as Network Security Groups or Storage Accounts.
 
-    ![Resource diagnostics logs vs other types of logs ](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
+    ![Resource diagnostics logs vs other types of logs](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
 
 The content of these logs varies by the Azure service and resource type. For example, Network Security Group rule counters and Key Vault audits are two types of diagnostic logs.
 
@@ -34,7 +34,9 @@ Here are some of the things you can do with diagnostic logs:
 
 * Save them to a [**Storage Account**](../../azure-monitor/platform/archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using **resource diagnostic settings**.
 * [Stream them to **Event Hubs**](diagnostic-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
-* Analyze them with [Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md), where the data is written immediately to Log Analytics with no need to first write the data to storage.  
+* Analyze them with [Azure Monitor](../../azure-monitor/platform/collect-azure-metrics-logs.md), where the data is written immediately to Azure Monitor with no need to first write the data to storage.  
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 You can use a storage account or Event Hubs namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
 
@@ -50,7 +52,7 @@ You can use a storage account or Event Hubs namespace that is not in the same su
 
 Resource diagnostic logs are configured using resource diagnostic settings. Tenant diagnostic logs are configured using a tenant diagnostic setting. **Diagnostic settings** for a service control:
 
-* Where diagnostic logs and metrics are sent (Storage Account, Event Hubs, and/or Log Analytics).
+* Where diagnostic logs and metrics are sent (Storage Account, Event Hubs, and/or Azure Monitor).
 * Which log categories are sent and whether metric data is also sent.
 * How long each log category should be retained in a storage account
     - A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
@@ -105,12 +107,14 @@ Tenant diagnostic settings can only be configured in the portal blade for the te
 
 ### Enable collection of resource diagnostic logs via PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 To enable collection of resource diagnostic logs via Azure PowerShell, use the following commands:
 
 To enable storage of diagnostic logs in a storage account, use this command:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
 The storage account ID is the resource ID for the storage account to which you want to send the logs.
@@ -118,7 +122,7 @@ The storage account ID is the resource ID for the storage account to which you w
 To enable streaming of diagnostic logs to an event hub, use this command:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
 The service bus rule ID is a string with this format: `{Service Bus resource ID}/authorizationrules/{key name}`.
@@ -126,13 +130,13 @@ The service bus rule ID is a string with this format: `{Service Bus resource ID}
 To enable sending of diagnostic logs to a Log Analytics workspace, use this command:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 You can obtain the resource ID of your Log Analytics workspace using the following command:
 
 ```powershell
-(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+(Get-AzOperationalInsightsWorkspace).ResourceId
 ```
 
 You can combine these parameters to enable multiple output options.
@@ -229,5 +233,4 @@ Adding a diagnostic setting brings up the Diagnostic Settings view, where you ca
 
 * [Stream resource diagnostic logs to **Event Hubs**](diagnostic-logs-stream-event-hubs.md)
 * [Change resource diagnostic settings using the Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/)
-* [Analyze logs from Azure storage with Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-
+* [Analyze logs from Azure storage with Azure Monitor](collect-azure-metrics-logs.md)

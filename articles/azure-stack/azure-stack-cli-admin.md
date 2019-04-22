@@ -36,12 +36,12 @@ If you are using an integrated system, you don't need to export the CA root cert
 To export the ASDK root certificate in PEM format, sign in and run the following script:
 
 ```powershell
-$label = "<Your Azure Stack CA root certificate name>"
+$label = "AzureStackSelfSignedRootCert"
 Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
 $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
 if (-not $root)
 {
-    Log-Error "Certificate with subject CN=$label not found"
+    Write-Error "Certificate with subject CN=$label not found"
     return
 }
 

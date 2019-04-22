@@ -385,4 +385,4 @@ This topic showed you how to create a simple Java REST client for Notification H
 [Send localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Send notifications to authenticated users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Send cross-platform notifications to authenticated users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Maven]: http://maven.apache.org/
+[Maven]: https://maven.apache.org/

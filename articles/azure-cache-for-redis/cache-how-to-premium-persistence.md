@@ -1,20 +1,20 @@
 ---
 title: How to configure data persistence for a Premium Azure Cache for Redis
 description: Learn how to configure and manage data persistence your Premium tier Azure Cache for Redis instances
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 
 ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # How to configure data persistence for a Premium Azure Cache for Redis
@@ -129,7 +129,7 @@ For both RDB and AOF persistence:
 * If you have scaled to a smaller size, and there isn't enough room in the smaller size to hold all of the data from the last backup, keys will be evicted during the restore process, typically using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
 
 ### Can I change the RDB backup frequency after I create the cache?
-Yes, you can change the backup frequency for RDB persistence on the **Redis data persistence** blade. For instructions, see [Configure Redis persistence](#configure-redis-persistence).
+Yes, you can change the backup frequency for RDB persistence on the **Redis data persistence** blade. For instructions, see Configure Redis persistence.
 
 ### Why if I have an RDB backup frequency of 60 minutes there is more than 60 minutes between backups?
 The RDB persistence backup frequency interval does not start until the previous backup process has completed successfully. If the backup frequency is 60 minutes and it takes a backup process 15 minutes to successfully complete, the next backup won't start until 75 minutes after the start time of the previous backup.

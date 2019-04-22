@@ -1,27 +1,27 @@
 ---
-title: Azure Site Recovery support matrix for disaster recovery of Azure IaaS VMs between Azure regions with Azure Site Recovery | Microsoft Docs
+title: Support matrix for disaster recovery of Azure VMs between Azure regions with Azure Site Recovery | Microsoft Docs
 description: Summarizes the supported operating systems and configurations for Azure Site Recovery replication of Azure virtual machines (VMs) from one region to another for disaster recovery (DR) needs.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/21/2019
+ms.date: 03/20/2019
 ms.author: raynew
 
 ---
-# Support matrix for replicating from one Azure region to another
+# Support matrix for replicating Azure VMs from one region to another
 
 This article summarizes supported configurations and components when you deploy disaster recovery with replication, failover, and recovery of Azure VMs from one Azure region to another, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
 
 ## Deployment method support
 
-**Deployment method** |  **Supported / Not supported**
+**Deployment** |  **Support**
 --- | ---
-**Azure portal** | Supported
-**PowerShell** | [Azure to Azure replication with PowerShell](azure-to-azure-powershell.md)
-**REST API** | Supported
+**Azure portal** | Supported.
+**PowerShell** | Supported. [Learn more](azure-to-azure-powershell.md)
+**REST API** | Supported.
 **CLI** | Not currently supported
 
 
@@ -29,7 +29,7 @@ This article summarizes supported configurations and components when you deploy 
 
 **Resource action** | **Details**
 --- | --- | ---
-**Move vault across resource groups** | Not supported
+**Move vaults across resource groups** | Not supported
 **Move compute/storage/network resources across resource groups** | Not supported.<br/><br/> If you move a VM or associated components such as storage/network after the VM is replicating, you need to disable and then re-enable replication for the VM.
 **Replicate Azure VMs from one subscription to another for disaster recovery** | Supported within the same Azure Active Directory tenant.
 **Migrate VMs across regions within supported geographical clusters (within and across subscriptions)** | Supported within the same Azure Active Directory tenant.
@@ -52,12 +52,12 @@ China | China East, China North, China North2, China East2
 
 >[!NOTE]
 >
-> - For **Brazil South** region, you can replicate and fail over to one of the following: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US regions. It should be noted that Site Recovery has only enabled Brazil South to be used as a source region from where VMs can be protected. It **cannot be used as a Target DR region** for any of the Azure regions like South Central US. The reason being latency observed due to geographical distance it is recommended to select any other America's region other than Brazil South.
-> 
-> - If you are **not able to see a region** where you want **to create a vault** then make sure your subscription has access to create resources in that region. For example: If you are not able to create vault in France South then your subscription doesn't have access to France south region. Please file support ticket under issue Type "subscription management" and  problem type "other General questions" subject " whitelist subscription for the XXX Azure region"
-> 
-> - If you are **not able to see a region** within a Geographic cluster **during enabling replication** then make sure your subscription has access to create virtual machine in that region. For example: If you are trying to protect virtual machines from France Central to France south and don't see France south under the region drop down then your subscription doesn't have access to deploy VM in that region. Please file support ticket under issue Type "subscription management" and  problem type "other General questions" subject " whitelist subscription for the XXX Azure region"
-> - You cannot select regions across geographic clusters mentioned above.
+> - For **Brazil South**, you can replicate and fail over to these regions: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US.
+> - Brazil South can only be used as a source region from which VMs can replicate using Site Recovery. It can't act as a target region. This is because of latency issues due to geographical distances. 
+> - You can work within regions for which you have appropriate access.
+> - If the region in which you want to create a vault doesn't show, make sure your subscription has access to create resources in that region. 
+> - If you can't see a region within a geographic cluster when you enable replication, make sure your subscription has permissions to create VMs in that region. 
+
 
 
 ## Cache storage
@@ -78,6 +78,7 @@ Site Recovery supports replication of Azure VMs running the operating systems li
 
 **Operating system** | **Details**
 --- | ---
+Windows Server 2019 |
 Windows Server 2016  | Server Core, Server with Desktop Experience
 Windows Server 2012 R2 |
 Windows Server 2012 |
@@ -118,7 +119,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-Debian 7 | 9.18,9.19,9.20,9.21 | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.19,9.20,9.21,9.22 | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
 Debian 8 | 9.20, 9.21 | 3.16.0-4-amd64 to 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.8-amd64 |
 Debian 8 | 9.19 | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.7-amd64 |
@@ -128,10 +129,10 @@ Debian 8 | 9.18 | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.22 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default to 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.21 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default to 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default to 4.4.162-94.69-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.19 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default to 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default to 4.4.138-94.39-default |
 
 
 ## Replicated machines - Linux file system/guest storage
@@ -172,8 +173,8 @@ This table summarized support for the Azure VM OS disk, data disk, and temporary
 
 **Component** | **Support** | **Details**
 --- | --- | ---
-OS disk maximum size | 2048 GB | [Learn more](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) about VM disks.
-Temporary disk | Not supported | The temporary disk is always excluded from replication.<br/><br/> Don't any persistent data on the temporary disk. [Learn more](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
+OS disk maximum size | 2048 GB | [Learn more](../virtual-machines/windows/managed-disks-overview.md) about VM disks.
+Temporary disk | Not supported | The temporary disk is always excluded from replication.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](../virtual-machines/windows/managed-disks-overview.md).
 Data disk maximum size | 4095 GB |
 Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size | [Learn more](../virtual-machines/windows/sizes.md) about VM sizes.
 Data disk change rate | Maximum of 10 MBps per disk for premium storage. Maximum of 2 MBps per disk for Standard storage. | If the average data change rate on the disk is continuously higher than the maximum, replication won't catch up.<br/><br/>  However, if the maximum is exceeded sporadically, replication can catch up, but you might see slightly delayed recovery points.
@@ -189,7 +190,7 @@ Encryption at rest (SSE) | Supported | SSE is the default setting on storage acc
 Azure Disk Encryption (ADE) for Windows OS | VMs enabled for [encryption with Azure AD app](https://aka.ms/ade-aad-app) are supported |
 Azure Disk Encryption (ADE) for Linux OS | Not supported |
 Hot add/remove disk	| Not supported | If you add or remove data disk on the VM, you need to disable replication and enable replication again for the VM.
-Exclude disk | Not supported|	Temporary disk is excluded by default.
+Exclude disk | Support. You must use [Powershell](azure-to-azure-exclude-disks.md) to configure. |	Temporary disks are excluded by default.
 Storage Spaces Direct  | Supported for crash consistent recovery points. Application consistent recovery points are not supported. |
 Scale-out File Server  | Supported for crash consistent recovery points. Application consistent recovery points are not supported. |
 LRS | Supported |
@@ -197,26 +198,31 @@ GRS | Supported |
 RA-GRS | Supported |
 ZRS | Not supported |
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
-Azure Storage firewalls for Virtual networks  | Supported | If you are restricting the virtual network access to storage accounts, ensure you ['Allow trusted Microsoft services'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Azure Storage firewalls for virtual networks  | Supported | If restrict virtual network access to storage accounts, enable [Allow trusted Microsoft services](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 General purpose V2 storage accounts (Both Hot and Cool tier) | No | Transaction costs increase substantially compared to General purpose V1 storage accounts
 
 >[!IMPORTANT]
-> Ensure that you observe the VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery will create the required disks and storage accounts based on the source configuration. If you customize and select your own settings, ensure that you follow the disk scalability and performance targets for your source VMs.
+> To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs. If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings,follow the disk scalability and performance targets for your source VMs.
 
-## Azure Site Recovery limits to replicate Data change rates
-The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they cannot cover all possible application I/O combinations. Actual results can vary based on your application I/O mix. We should also note that there are two limits to consider, per disk data churn and per virtual machine data churn.
-For example, if we look at Premium P20 disk in the below table, Site Recovery can handle 5 MB/s churn per disk with at max of five such disks per VM due to the limit of 25 MB/s total churn per VM.
+## Limits and data change rates
 
-**Replication storage target** | **Average source disk I/O size** |**Average source disk data churn** | **Total source disk data churn per day**
+The following table summarizes Site Recovery limits.
+
+- These limits are based on our tests, but obviously don't cover all possible application I/O combinations.
+- Actual results can vary based on you app I/O mix.
+- There are two limits to consider, per disk data churn and per virtual machine data churn.
+- As an example, if we use a Premium P20 disk as described in the table below, Site Recovery can handle 5 MBs of churn per disk, with at max of five such disks per VM, due to the limit of 25 MB/s total churn per VM.
+
+**Storage target** | **Average source disk I/O** |**Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---
 Standard storage | 8 KB	| 2 MB/s | 168 GB per disk
 Premium P10 or P15 disk | 8 KB	| 2 MB/s | 168 GB per disk
 Premium P10 or P15 disk | 16 KB | 4 MB/s |	336 GB per disk
 Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per disk
 ## Replicated machines - networking
-**Configuration** | **Support** | **Details**
+**Setting** | **Support** | **Details**
 --- | --- | ---
 NIC | Maximum number supported for a specific Azure VM size | NICs are created when the VM is created during failover.<br/><br/> The number of NICs on the failover VM depends on the number of NICs on the source VM when replication was enabled. If you add or remove a NIC after enabling replication, it doesn't impact the number of NICs on the replicated VM after failover.
 Internet Load Balancer | Supported | Associate the preconfigured load balancer using an Azure Automation script in a recovery plan.
@@ -229,15 +235,15 @@ Dynamic IP address | Supported | If the NIC on the source has dynamic IP address
 Traffic Manager 	| Supported | You can preconfigure Traffic Manager so that traffic is routed to the endpoint in the source region on a regular basis, and to the endpoint in the target region in case of failover.
 Azure DNS | Supported |
 Custom DNS	| Supported |
-Unauthenticated Proxy | Supported | Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 
+Unauthenticated proxy | Supported | [Learn more].(site-recovery-azure-to-azure-networking-guidance.md)	 
 Authenticated Proxy | Not supported | If the VM is using an authenticated proxy for outbound connectivity, it cannot be replicated using Azure Site Recovery.	 
-Site to Site VPN with on-premises (with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site recovery traffic is not routed to on-premises. Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 
-VNET to VNET connection	| Supported | Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 
+VPN site-to-site connection to on-premises<br/><br/>(with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site recovery traffic is not routed to on-premises. [Learn more](site-recovery-azure-to-azure-networking-guidance.md)	 
+VNET to VNET connection	| Supported | [Learn more](site-recovery-azure-to-azure-networking-guidance.md)	 
 Virtual Network Service Endpoints | Supported | If you are restricting the virtual network access to storage accounts, ensure that the trusted Microsoft services are allowed access to the storage account.
-Accelerated Networking | Supported | Accelerated Networking must be enabled on source VM. [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Accelerated networking | Supported | Accelerated networking must be enabled on source VM. [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 
 ## Next steps
-- Read [networking guidance for replicating Azure VMs](site-recovery-azure-to-azure-networking-guidance.md).
+- Read [networking guidance](site-recovery-azure-to-azure-networking-guidance.md)  for replicating Azure VMs.
 - Deploy disaster recovery by [replicating Azure VMs](site-recovery-azure-to-azure.md).

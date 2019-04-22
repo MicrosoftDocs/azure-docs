@@ -86,7 +86,7 @@ Azure automatically creates routes to default destinations. You may create custo
     | Virtual machine         | Select myVm                                            |
     | Network interface       | myvm - Your network interface name may be different.   |
     | Source IP address       | 10.0.0.4                                               |
-    | Destination IP address  | 13.107.21.200 - One of the addresses for www.bing.com. |
+    | Destination IP address  | 13.107.21.200 - One of the addresses for <www.bing.com>. |
 
     ![Next hop](./media/diagnose-vm-network-routing-problem/next-hop.png)
 

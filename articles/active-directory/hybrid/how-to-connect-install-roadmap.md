@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Azure AD Connect and Azure AD Connect Health installation roadmap
@@ -40,10 +41,10 @@ You can find the download for Azure AD Connect on [Microsoft Download Center](ht
 |Install using Express settings | [Express installation of Azure AD Connect](./how-to-connect-install-express.md)|
 |Install using Customized settings | [Custom installation of Azure AD Connect](./how-to-connect-install-custom.md)|
 |Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
-|After installation | [Verify the installation and assign licenses ](how-to-connect-post-installation.md)|
+|After installation | [Verify the installation and assign licenses](how-to-connect-post-installation.md)|
 
 ### Learn more about Install Azure AD Connect
-You also want to prepare for [operational](how-to-connect-sync-operations.md) concerns. You might want to have a stand-by server so you easily can fail over if there is a [disaster](how-to-connect-sync-operations.md#disaster-recovery). If you plan to make frequent configuration changes, you should plan for a [staging mode](how-to-connect-sync-operations.md#staging-mode) server.
+You also want to prepare for [operational](how-to-connect-sync-operations.md) concerns. You might want to have a stand-by server so you easily can fail over if there is a [disaster](how-to-connect-sync-staging-server.md#disaster-recovery). If you plan to make frequent configuration changes, you should plan for a [staging mode](how-to-connect-sync-staging-server.md) server.
 
 |Topic |Link|  
 | --- | --- |

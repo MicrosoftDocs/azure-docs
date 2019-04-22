@@ -4,43 +4,29 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: You do not need to create subscription keys to use your free first-1000 endpoint queries. If you receive an _out of quota_ error in the form of an HTTP 403 or 429, you need to create a key and assign it to your app.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 03/01/2019
 ms.author: diberry
 ---
 
 # Using subscription keys with your LUIS app
 
-You do not need to create subscription keys to use your free first-1000 endpoint queries. Once those endpoint queries are used, create an Azure resource in the [Azure portal](http://portal.azure.com), then assign that resource to a LUIS app in the [LUIS portal](https://www.luis.ai).
+You do not need to create subscription keys to use your free first-1000 endpoint queries. Once those endpoint queries are used, create an Azure resource in the [Azure portal](https://portal.azure.com), then assign that resource to a LUIS app in the [LUIS portal](https://www.luis.ai).
 
 If you receive an _out of quota_ error in the form of an HTTP 403 or 429, you need to create a key and assign it to your app. 
 
 For testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. Do not use the [authoring key](luis-concept-keys.md#authoring-key) for endpoint queries in production.
 
 <a name="create-luis-service"></a>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## Create Language Understanding endpoint key in the Azure portal
+## Create prediction endpoint runtime resource in the Azure portal
 
-This procedure creates a **Language Understanding** resource. If you want a resource that can be used across Cognitive Services, create the all-in-one key **[Cognitive Service](../cognitive-services-apis-create-account.md)** instead of the Language Understanding resource. 
-
-This key should only be used for endpoint prediction queries. Do not use this key for changes to the model or app. 
-
-1. Sign in to the **[Azure portal](https://ms.portal.azure.com/)**. 
-1. Select the green **+** sign in the upper left-hand panel and search for `Language Understanding` in the marketplace, then select on **Language Understanding** and follow the **create experience** to create a LUIS subscription account. 
-
-    ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
-
-1. Configure the subscription with settings including account name, pricing tiers, etc. 
-
-    ![Azure API Choice](./media/luis-azure-subscription/azure-api-choice.png) 
-
-1. Once you create the Language Understanding resource, you can view the access keys generated in **Resource Management->Keys**. The next section will show you how to connect this new resource to a LUIS app in the LUIS portal. You need the name of the LUIS resource from step 3.
-
-    ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
+Learn more with the [build an app](get-started-portal-build-app.md) quickstart.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -58,23 +44,7 @@ This key should only be used for endpoint prediction queries. Do not use this ke
 
 ## Assign resource key to LUIS app in LUIS Portal
 
-1. Sign in to the LUIS portal, choose an app to add the new key to, then select **Manage** in the top-right menu, then select **Keys and endpoints**.
-
-    [ ![Keys and endpoints page](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
-
-1. In order to add the LUIS, select **Assign Resource +**.
-
-    ![Assign a resource to your app](./media/luis-manage-keys/assign-key.png)
-
-1. Select a Tenant in the dialog associated with the email address your used to sign in with to the LUIS website.  
-
-1. Choose the **Subscription Name** associated with the Azure resource you want to add.
-
-1. Select the **LUIS resource name**. 
-
-1. Select **Assign resource**. 
-
-1. Find the new row in the table and copy the endpoint URL. It is correctly constructed to make an HTTP GET request to the LUIS endpoint for a prediction. 
+Learn more with the [deployment](get-started-portal-deploy-app.md) quickstart.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>

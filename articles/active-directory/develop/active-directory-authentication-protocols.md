@@ -18,6 +18,7 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory authentication protocols

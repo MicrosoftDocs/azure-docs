@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/16/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
 
 ---
@@ -32,8 +32,8 @@ This article describes some common Azure deployment errors, and provides informa
 | AccountPropertyCannotBeSet | Check available storage account properties. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | The cluster or region doesn't have resources available or can't support the requested VM size. Retry the request at a later time, or request a different VM size. | [Provisioning and allocation issues for Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Provisioning and allocation issues for Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) and [Troubleshoot allocation failures](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Wait for concurrent operation to complete. | |
-| AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope. | [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md) |
-| BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) and [Supported locations](resource-manager-templates-resources.md#location) |
+| AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope.<br><br>You may receive this error when a required resource provider isn't registered. | [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolve registration](resource-manager-register-provider-errors.md) |
+| BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) and [Supported locations](resource-group-authoring-templates.md#resource-location) |
 | Conflict | You're requesting an operation that isn't allowed in the resource's current state. For example, disk resizing is allowed only when creating a VM or when the VM is deallocated. | |
 | DeploymentActive | Wait for concurrent deployment to this resource group to complete. | |
 | DeploymentFailed | The DeploymentFailed error is a general error that doesn't provide the details you need to solve the error. Look in the error details for an error code that provides more information. | [Find error code](#find-error-code) |
@@ -54,7 +54,7 @@ This article describes some common Azure deployment errors, and provides informa
 | InvalidTemplateCircularDependency | Remove unnecessary dependencies. | [Resolve circular dependencies](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Check if your account belongs to the same tenant as the resource group you're deploying to. | |
 | LinkedInvalidPropertyId | The resource ID for a resource isn't resolving correctly. Check that you provide all required values for the resource ID, including subscription ID, resource group name, resource type, parent resource name (if needed), and resource name. | |
-| LocationRequired | Provide a location for your resource. | [Set location](resource-manager-templates-resources.md#location) |
+| LocationRequired | Provide a location for your resource. | [Set location](resource-group-authoring-templates.md#resource-location) |
 | MismatchingResourceSegments | Make sure nested resource has correct number of segments in name and type. | [Resolve resource segments](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Check resource provider registration status, and supported locations. | [Resolve registration](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Register your subscription with the resource provider. | [Resolve registration](resource-manager-register-provider-errors.md) |

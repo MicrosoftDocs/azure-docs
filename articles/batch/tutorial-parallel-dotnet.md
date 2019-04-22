@@ -27,7 +27,7 @@ Use Azure Batch to run large-scale parallel and high-performance computing (HPC)
 > * Monitor task execution
 > * Retrieve output files
 
-In this tutorial, you convert MP4 media files in parallel to MP3 format using the [ffmpeg](http://ffmpeg.org/) open-source tool. 
+In this tutorial, you convert MP4 media files in parallel to MP3 format using the [ffmpeg](https://ffmpeg.org/) open-source tool. 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 

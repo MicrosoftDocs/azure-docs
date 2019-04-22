@@ -310,17 +310,17 @@ Now Contoso admins can start replicating the **OSTICKETWEB** VM.
 
 3. They select the **OSTICKETWEB** VM for replication. 
 
-    - At this stage they select **OSTICKETWEB** only, because the VNet and subnet must both be selected, and the VMs aren't in the same subnet.
-    - Site Recovery automatically installs the Mobility service when replication is enabled for the VM.
+   - At this stage they select **OSTICKETWEB** only, because the VNet and subnet must both be selected, and the VMs aren't in the same subnet.
+   - Site Recovery automatically installs the Mobility service when replication is enabled for the VM.
 
-    ![Enable replication](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
+     ![Enable replication](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
 
 4. In the VM properties, they select the account that's used by the process server to automatically install Mobility Service on the machine.
 
      ![Mobility service](./media/contoso-migration-rehost-linux-vm/linux-mobility.png)
 
 5. in **Replication settings** > **Configure replication settings**, they check that the correct replication policy is applied, and select **Enable Replication**.
-6.  They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
+6. They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 
 
 
@@ -404,7 +404,7 @@ Contoso admins are now ready to run a failover on the recovery plan, to migrate 
 
 ### Connect the VM to the database
 
-As the final step in the migration process, Contoso adins update the connection string of the application to point to the app database running on the **OSTICKETMYSQL** VM. 
+As the final step in the migration process, Contoso admins update the connection string of the application to point to the app database running on the **OSTICKETMYSQL** VM. 
 
 1. They make an SSH connection to the **OSTICKETWEB** VM using Putty or another SSH client. The VM is private so they connect using the private IP address.
 
@@ -461,7 +461,7 @@ The Contoso security team review the OSTICKETWEB and OSTICKETMYSQLVMs to determi
 - The team reviews the Network Security Groups (NSGs) for the VMs to control access. NSGs are used to ensure that only traffic allowed to the application can pass.
 - The team also considers securing the data on the VM disks using Disk encryption and Azure KeyVault.
 
-[Read more](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) about security practices for VMs.
+[Read more](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) about security practices for VMs.
 
 ### BCDR
 

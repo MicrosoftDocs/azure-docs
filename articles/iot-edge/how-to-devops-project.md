@@ -122,7 +122,7 @@ In the previous sections, Azure DevOps Projects automatically configured a full 
 
 12. In the menu for your release pipeline, select **Tasks** then choose the **dev** stage from the dropdown list. DevOps Projects created a release stage for you that creates an IoT hub, creates an IoT Edge device in that hub, deploys the sample module from the build pipeline, and provisions a virtual machine to run as your IoT Edge device. To learn more about Azure IoT Edge tasks for CD, see [Configure Azure Pipelines for continuous deployment](how-to-ci-cd.md#configure-continuous-deployment).
 
-   ![View continuous deployment tasks](media/how-to-devops-project/dev-release.png)
+    ![View continuous deployment tasks](media/how-to-devops-project/dev-release.png)
 
 13. On the right, select **View releases**. This view shows a history of releases.
 

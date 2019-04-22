@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Azure Automation runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/17/2019
+ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -33,7 +33,7 @@ This error occurs if the credential asset name isn't valid. This error may also 
 
 To determine what's wrong, take the following steps:  
 
-1. Make sure that you don’t have any special characters. These characters include the **@** character in the Automation credential asset name that you're using to connect to Azure.  
+1. Make sure that you don’t have any special characters. These characters include the **\@** character in the Automation credential asset name that you're using to connect to Azure.  
 2. Check that you can use the username and password that stored in the Azure Automation credential in your local PowerShell ISE editor. You can do check the username and password are correct by running the following cmdlets in the PowerShell ISE:  
 
    ```powershell
@@ -128,7 +128,7 @@ To use a certificate with the Azure classic deployment model cmdlets, refer to [
 
 ## Common errors when working with runbooks
 
-###<a name="child-runbook-object"></a>Child runbook returns error when the output stream contains objects rather than simple data types
+### <a name="child-runbook-object"></a>Child runbook returns error when the output stream contains objects rather than simple data types
 
 #### Issue
 
@@ -167,6 +167,32 @@ while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout
 
 $jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRecord | Select-Object -ExpandProperty Value
 ```
+
+### <a name="get-serializationsettings"></a>Scenario: You see an error in your job streams about the get_SerializationSettings Method
+
+#### Issue
+
+You see in your error in your job streams for a runbook with the following message:
+
+```
+Connect-AzureRMAccount : Method 'get_SerializationSettings' in type 
+'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 
+'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' 
+does not have an implementation.
+At line:16 char:1
++ Connect-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Connect-AzureRmAccount], TypeLoadException
+    + FullyQualifiedErrorId : System.TypeLoadException,Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+```
+
+#### Cause
+
+This error is caused by using both AzureRM and Az cmdlets in a runbook. It occurs when you import `Az` before importing `AzureRM`.
+
+#### Resolution
+
+Az and AzureRM cmdlets can not be imported and used in the same runbook, to learn more about Az support in Azure Automation, see [Az module support in Azure Automation](../az-modules.md).
 
 ### <a name="task-was-cancelled"></a>Scenario: The runbook fails with the error: A task was canceled
 
@@ -272,7 +298,7 @@ This error occurs due to one of the following issues:
 
 3. Module Incompatible. This error can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
 
-4. Your runbook attempted to call a an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
+4. Your runbook attempted to call an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
 
 #### Resolution
 

@@ -88,7 +88,7 @@ Here are descriptions for the parameters in the template:
 | Parameter | Description | JSON definition example | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | Defines the name of the logic app that template creates. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
-| `testUri` | Defines the location to ping for testing. | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
+| `testUri` | Defines the location to ping for testing. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
 ||||
 
 Learn more about [REST API for Logic Apps Workflow definition and properties](https://docs.microsoft.com/rest/api/logic/workflows) 
@@ -118,8 +118,10 @@ For example, the Azure portal prompts you for these details:
 
 ### PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ```
-New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 ``` 
 
 ### Azure CLI

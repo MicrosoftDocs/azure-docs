@@ -14,10 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 
+ms.collection: M365-identity-device-management
 ---
 # How To: Plan your hybrid Azure Active Directory join implementation
 
@@ -36,6 +37,8 @@ If you have an on-premises Active Directory environment and you want to join you
 
 This article assumes that you are familiar with the [Introduction to device management in Azure Active Directory](../device-management-introduction.md).
 
+>[!NOTE]
+>  The minimum required domain functional and forest functional levels for Windows 10 hybrid Azure AD join is Windows Server 2008 R2. On lower versions, the user may not get a Primary Refresh Token during Windows logon due to LSA issues 
 
 ## Plan your implementation
 
@@ -87,7 +90,7 @@ As a first planning step, you should review your environment and determine wheth
 
 You can't use a hybrid Azure AD join if your environment consists of a single forest that synchronized identity data to more than one Azure AD tenant.
 
-If you are relying on the System Preparation Tool (Sysprep), make sure you create images from an installation of Windows that has not been configured for hybrid Azure AD join.
+If you are relying on the System Preparation Tool (Sysprep), make sure images created from an installation of Windows 10 1803 or earlier have not been configured for hybrid Azure AD join.
 
 If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, make sure you use a VM snapshot that has not been configured for hybrid Azure AD join.
 
@@ -107,10 +110,12 @@ If your organization requires access to the Internet via an authenticated outbou
 
 Hybrid Azure AD join is a process to automatically register your on-premises domain-joined devices with Azure AD. There are cases where you don't want all your devices to register automatically. If this is true for you, see [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md).
 
-If your Windows 10 domain joined devices are already [Azure AD registered](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) to your tenant, you should consider removing that state before enabling Hybrid Azure AD join. The dual state of a device to be both, hybrid Azure AD join and Azure AD registered is not supported. From Windows 10 1809 release, the following changes have been made to avoid this dual state: 
+If your Windows 10 domain joined devices are already [Azure AD registered](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) to your tenant, we highly recommend removing that state before enabling Hybrid Azure AD join. From Windows 10 1809 release, the following changes have been made to avoid this dual state: 
  - Any existing Azure AD registered state would be automatically removed after the device is Hybrid Azure AD joined. 
- - You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
+ - You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001 .
+ - This change is now available for Windows 10 1803 release with KB4489894.
 
+FIPS-compliant TPMs aren't supported for Hybrid Azure AD join. If your devices have FIPS-compliant TPMs, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
 
 ## Review how to control the hybrid Azure AD join of your devices
 
@@ -141,20 +146,20 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
 - [Configure hybrid Azure Active Directory join for managed domains](hybrid-azuread-join-managed-domains.md)
 
 
- If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](../device-management-hybrid-azuread-joined-devices-setup.md). 
+ If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
 
-## Alternate login ID support in Hybrid Azure AD join
+## On-premises AD UPN support in Hybrid Azure AD join
 
-Windows 10 Hybrid Azure AD join provides limited support for [Alternate login IDs](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) based on the type of alternate login ID, [authentication method](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), domain type and Windows 10 version. There are two types of alternate login IDs that can exist in your environment:
+Sometimes, your on-premises AD UPNs could be different from your Azure AD UPNs. In such cases, Windows 10 Hybrid Azure AD join provides limited support for on-premises AD UPNs based on the [authentication method](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), domain type and Windows 10 version. There are two types of on-premises AD UPNs that can exist in your environment:
 
- - Routable alternate login ID: A routable alternate login ID has a valid verified domain, that is registered with a domain registrar. For example, if contoso.com is the primary domain, contoso.org and contoso.co.uk are valid domains that are owned by Contoso and [verified in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+ - Routable UPN: A routable UPN has a valid verified domain, that is registered with a domain registrar. For example, if contoso.com is the primary domain in Azure AD, contoso.org is the primary domain in on-premises AD owned by Contoso and [verified in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
- - Non-routable alternate login ID: A non-routable alternate login ID does not have a verified domain. It is applicable only within your organization's private network. For example, if contoso.com is the primary domain, contoso.local is not a verifiable domain in the internet but is used within Contoso's network.
+ - Non-routable UPN: A non-routable UPN does not have a verified domain. It is applicable only within your organization's private network. For example, if contoso.com is the primary domain in Azure AD, contoso.local is the primary domain in on-premises AD but is not a verifiable domain in the internet and only used within Contoso's network.
  
-The table below provides details on support for either of these alternate login IDs in Windows 10 Hybrid Azure AD join
+The table below provides details on support for these on-premises AD UPNs in Windows 10 Hybrid Azure AD join
 
-|Type of Alternate login ID|Domain type|Windows 10 version|Description|
+|Type of on-premises AD UPN|Domain type|Windows 10 version|Description|
 |-----|-----|-----|-----|
 |Routable|Federated |From 1703 release|Generally available|
 |Routable|Managed|From 1709 release|Currently in private preview. Azure AD SSPR is not supported |

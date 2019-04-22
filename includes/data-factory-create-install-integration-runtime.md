@@ -30,7 +30,7 @@ In this section, you create a self-hosted integration runtime and associate it w
     Name              : myonpremirsp0914
     Description       :
     ```
- ​
+  
 3. To retrieve the status of the created integration runtime, run the following command. Confirm that the value of the **State** property is set to **NeedRegistration**. 
 
    ```powershell

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: How to optimize a webpage by making API calls directly from a browser to the Custom Decision Service.
 services: cognitive-services
 author: slivkins
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-decision-service

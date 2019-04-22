@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/01/2019
+ms.date: 03/25/2019
 ms.author: markvi
 ms.reviewer: calebb
 
+ms.collection: M365-identity-device-management
 ---
 # How to: Block legacy authentication to Azure AD with conditional access   
 
@@ -49,6 +50,8 @@ Azure AD supports several of the most widely used authentication and authorizati
 Single factor authentication (for example, username and password) is not enough these days. Passwords are bad as they are easy to guess and we (humans) are bad at choosing good passwords. Passwords are also vulnerable to a variety of attacks like phishing and password spray. One of the easiest things you can do to protect against password threats is to implement MFA. With MFA, even if an attacker gets in possession of a user's password, the password alone is not sufficient to successfully authenticate and access the data.
 
 How can you prevent apps using legacy authentication from accessing your tenant's resources? The recommendation is to just block them with a conditional access policy. If necessary, you allow only certain users and specific network locations to use apps that are based on legacy authentication.
+
+Conditional access policies are enforced after the first-factor authentication has been completed. Therefore, conditional access is not intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can utilize signals from these events (e.g. the sign-in risk level, location of the request, and so on) to determine access.
 
 
 
@@ -110,6 +113,8 @@ For more information, see [How should you deploy a new policy?](best-practices.m
 
 ## What you should know
 
+Blocking access using **Other clients** also blocks Exchange Online PowerShell using basic auth.
+
 Configuring a policy for **Other clients** blocks the entire organization from certain clients like SPConnect. This block happens because older clients authenticate in unexpected ways. The issue doesn't apply to major Office applications like the older Office clients.
 
 It can take up to 24 hours for the policy to go into effect.
@@ -131,4 +136,6 @@ If you block legacy authentication using the other clients condition, you can al
 
 ## Next steps
 
-If you are not familiar with configuring conditional access policies yet, see [require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md) for an example.
+- If you are not familiar with configuring conditional access policies yet, see [require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md) for an example.
+
+- For more information about modern authentication support, see [How modern authentication works for Office 2013 and Office 2016 client apps](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016) 

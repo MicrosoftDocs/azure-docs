@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr

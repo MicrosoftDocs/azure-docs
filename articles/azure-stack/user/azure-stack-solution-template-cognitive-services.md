@@ -64,12 +64,12 @@ Before you get started, you will need to:
 
 Create a Cognitive Service resource on Azure to preview the Face, LUIS, or Recognize Text containers, respectively. You will need to use the subscription key and endpoint URL from the resource to instantiate the cognitive service containers.
 
-1.  Create an Azure resource in the Azure portal. If you want to preview the Face containers, you must first create a corresponding Face resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Create an Azure resource in the Azure portal. If you want to preview the Face containers, you must first create a corresponding Face resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
-    >  [!Note]  
-    >  The Face or Computer Vision resource must use the F0   pricing tier.
+   > [!Note]
+   >  The Face or Computer Vision resource must use the F0   pricing tier.
 
-2.  Get the endpoint URL and subscription key for the Azure resource. Once the Azure resource is created, you must use the subscription key and endpoint URL from that resource to instantiate the corresponding Face, LUIS, or Recognize Text container for the preview.
+2. Get the endpoint URL and subscription key for the Azure resource. Once the Azure resource is created, you must use the subscription key and endpoint URL from that resource to instantiate the corresponding Face, LUIS, or Recognize Text container for the preview.
 
 ## Create a Kubernetes secret 
 
@@ -141,7 +141,7 @@ Details about the key fields:
 | ImageLocation | Indicates the location of the specific cognitive service container image in ACR. For example, the face service: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |The Endpoint URL noted in step of [Create Azure Resource](#create-azure-resources) |
 | ApiKey | The subscription key noted in step of [Create Azure Resource](#create-azure-resources) |
-| SecretName | The secret name you just noted in step of [Create secrete to access the private container registry](#create-secrete-to-access-the-private-container-registry) |
+| SecretName | The secret name you just noted in step of Create secrete to access the private container registry |
 
 ## Deploy the cognitive service
 
@@ -202,7 +202,7 @@ print(faces)
 
 [How to install and run Computer Vision API containers.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 
-[How to install and run Face API containers](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#create-a-face-resource-on-azure)
+[How to install and run Face API containers](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers)
 
 [How to install and run Text Analytics API containers](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)
 

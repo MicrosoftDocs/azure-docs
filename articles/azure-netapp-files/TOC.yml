@@ -8,6 +8,22 @@
     href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Quickstarts
   items:
+  - name: Set up Azure NetApp Files and create a volume
+    href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
+# - name: Tutorials
+# - name: Samples
+- name: Concepts
+  items:
+  - name: Service levels for Azure NetApp Files
+    href: azure-netapp-files-service-levels.md
+  - name: Resource limits for Azure NetApp Files
+    href: azure-netapp-files-resource-limits.md
+  - name: Metrics for Azure NetApp Files
+    href: azure-netapp-files-metrics.md
+#  - name: FAQ for networking and security
+#    href: azure-netapp-files-faq-for-networking-security.md
+- name: How-to guides
+  items:
   - name: Register for Azure NetApp Files
     href: azure-netapp-files-register.md
   - name: Create a NetApp account
@@ -18,26 +34,20 @@
     href: azure-netapp-files-delegate-subnet.md
   - name: Create a volume for Azure NetApp Files
     href: azure-netapp-files-create-volumes.md
-  - name: Configure export policy for a volume (optional)
+  - name: Configure export policy for an NFS volume
     href: azure-netapp-files-configure-export-policy.md
-# - name: Tutorials
-# - name: Samples
-- name: Concepts
-  items:
-  - name: Resource limits for Azure NetApp Files
-    href: azure-netapp-files-resource-limits.md
-#  - name: FAQ for networking and security
-#    href: azure-netapp-files-faq-for-networking-security.md
-- name: How-to guides
-  items:
   - name: Manage volumes
     href: azure-netapp-files-manage-volumes.md
-  - name: Mount or unmount a volume for virtual machines
+  - name: Mount or unmount a volume for Windows or Linux virtual machines
     href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
   - name: Manage snapshots
     href: azure-netapp-files-manage-snapshots.md
   - name: Resize a capacity pool or a volume
     href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+  - name: Develop
+    items:
+    - name: REST
+      href: azure-netapp-files-develop-with-rest-api.md
 - name: Reference
   items:
   - name: REST

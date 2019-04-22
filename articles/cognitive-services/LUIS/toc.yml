@@ -9,6 +9,18 @@
   items:
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
+  - name: Use LUIS portal
+    items: 
+    - name: 1. Create an app
+      href: get-started-portal-build-app.md
+      displayName: intent, entity, create app, test, example utterance
+    - name: 2. Deploy an app
+      href: get-started-portal-deploy-app.md
+      displayName: assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish
+  - name: Use .NET SDK
+    items: 
+    - name: Query prediction endpoint
+      href: sdk-csharp-quickstart-query-prediction-endpoint.md
   - name: Use REST APIs
     items:
     - name: Get intent
@@ -81,6 +93,7 @@
   items:
   - name: Best practices
     href: luis-concept-best-practices.md
+    displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
   - name: Plan your app
     displayName: simple, hierarchical, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md
@@ -89,10 +102,11 @@
     - name: Authoring cycle
       href: luis-concept-app-iteration.md
     - name: Collaboration
-      displayName: shared, transfer, ownership, author, access
+      displayName: shared, transfer, ownership, author, access, import
       href: luis-concept-collaborator.md
     - name: Versioning
       href: luis-concept-version.md
+      displayName: import
   - name: Design Model
     items:
     - name: Intents
@@ -136,10 +150,11 @@
     items:
     - name: Design strategies
       href: luis-concept-enterprise.md
+      displayName: import
   - name: Security
     items:
     - name: App access
-      displayName: public, public app, AAD, compliance, ISO, certification, trust center
+      displayName: public, public app, AAD, compliance, ISO, certification, trust center, import
       href: luis-concept-security.md
     - name: Authoring and endpoint keys
       href: luis-concept-keys.md
@@ -147,6 +162,7 @@
   items:
   - name: Start a new app
     href: luis-how-to-start-new-app.md
+    displayName: import
   - name: Build Model
     items:
     - name: Add an intent
@@ -155,6 +171,7 @@
       href: luis-how-to-add-example-utterances.md
     - name: Add entity without utterance
       href: luis-how-to-add-entities.md
+      displayName: import
     - name: Use prebuilt models
       items:
       - name: Use domains
@@ -212,6 +229,7 @@
       href: luis-interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
+      displayName: import
   - name: Publish
     href: luis-how-to-publish-app.md
   - name: Manage app
@@ -224,8 +242,9 @@
       href: luis-how-to-azure-subscription.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
+      diplayName: import
     - name: Manage authors and collaborators
-      displayName: access, transfer, AAD, tenant, Azure AD, consent
+      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
     - name: Manage authoring key
       href: luis-how-to-account-settings.md
@@ -236,7 +255,7 @@
   - name: Use containers
     items:
     - name: Install and run containers
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
       href: luis-container-howto.md
     - name: Configure containers
       href: luis-container-configuration.md
@@ -244,8 +263,9 @@
   items:
   - name: User privacy
     href: luis-user-privacy.md
-  - name: Regions
+  - name: Authoring and publishing regions
     href: luis-reference-regions.md
+    displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
   - name: Boundaries
     href: luis-boundaries.md
   - name: Prebuilt entity reference
@@ -339,6 +359,8 @@
       items:
       - name: Pip SDK
         href: https://pypi.org/project/azure-cognitiveservices-language-luis/
+      - name: Reference
+        href: https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python
       - name: Samples
         href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis
 - name: Related
@@ -367,12 +389,14 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Language and region support
     href: luis-language-support.md
+    displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, Germain, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
   - name: Azure Roadmap
     href: https://aka.ms/luis-roadmap
   - name: Glossary
     href: luis-glossary.md
-  - name: FAQ
-    href: luis-resources-faq.md
+  - name: Troubleshooting
+    href: troubleshooting.md
+    displayName: FAQ, import
   - name: Pricing and limits 
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: Stack Overflow

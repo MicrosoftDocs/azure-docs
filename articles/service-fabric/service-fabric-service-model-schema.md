@@ -22,9 +22,10 @@ ms.author: ryanwi
 This article documents the ServiceFabricServiceModel.xsd schema file installed with the Service Fabric SDK.  By default, the schema file is installed to *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## Namespace bindings
+
 |Prefix|Namespace URI|
 |---|---|
-|xs|http://www.w3.org/2001/XMLSchema|
+|xs|https:\//www.w3.org/2001/XMLSchema|
 
 ## Component summary 
 The following components are defined in ServiceFabricServiceModel.xsd:
@@ -550,7 +551,7 @@ def main():
     #tree = etree.parse('C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd')
     tree = etree.parse('ServiceFabricServiceModel.xsd')
     
-    NSMAP = {'xs': 'http://www.w3.org/2001/XMLSchema'}
+    NSMAP = {'xs': 'https://www.w3.org/2001/XMLSchema'}
 
     namedElements = sfschemapy.getElements(tree, NSMAP)
     namedComplexTypes = sfschemapy.getComplexTypes(tree, NSMAP)
@@ -704,7 +705,7 @@ def getComplexTypes(tree, NSMAP):
         # Global element or local?
         parent = type.getparent()
 
-        if parent.tag == '{http://www.w3.org/2001/XMLSchema}schema':
+        if parent.tag == '{https://www.w3.org/2001/XMLSchema}schema':
             t.IsGlobal = True
 
         # Get type XML source
@@ -782,7 +783,7 @@ def getElements(tree, NSMAP, complexTypes=None):
         # Global element or local?
         parent = elem.getparent()        
         
-        if parent.tag == '{http://www.w3.org/2001/XMLSchema}schema':
+        if parent.tag == '{https://www.w3.org/2001/XMLSchema}schema':
             isGlobal = True
             defin = None
         else:

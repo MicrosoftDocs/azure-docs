@@ -1,5 +1,5 @@
 ---
-title: On-premises password writeback integration with Azure AD SSPR
+title: On-premises password writeback integration with Azure AD SSPR - Azure Active Directory
 description: Get cloud passwords written back to on-premises AD infratstructure
 
 services: active-directory
@@ -12,6 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
+ms.collection: M365-identity-device-management
 ---
 # What is password writeback?
 
@@ -91,11 +92,11 @@ When a federated or password hash synchronized user attempts to reset or change 
    >
 
 1. If the password set operation fails, an error prompts the user to try again. The operation might fail because:
-   * The service was down.
-   * The password they selected did not meet the organization's policies.
-   * Unable to find the user in local Active Directory.
+    * The service was down.
+    * The password they selected did not meet the organization's policies.
+    * Unable to find the user in local Active Directory.
 
-    The error messages provide guidance to users so they can attempt to resolve without administrator intervention.
+      The error messages provide guidance to users so they can attempt to resolve without administrator intervention.
 
 ## Password writeback security
 

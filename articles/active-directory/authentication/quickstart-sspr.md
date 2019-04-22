@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: As an Azure AD Administrator, I want to protect user authentication so I deploy SSPR so that when users have trouble signing-in they can reset their passwords using something they know.
+ms.collection: M365-identity-device-management
 ---
 # Quickstart: Self-service password reset
 
@@ -39,11 +40,11 @@ In this quickstart, you walk through configuring self-service password reset (SS
 3. From the **Authentication methods** page, make the following choices:
    * Number of methods required to reset: **1**
    * Methods available to users:
-      * **Mobile phone**
-      * **Office phone**
+      * **Email**
+      * **Mobile app code (preview)**
    * Click **Save**.
 
-    ![Authentication][Authentication]
+     ![Choosing authentication methods for SSPR][Authentication]
 
 4. From the **Registration** page, make the following choices:
    * Require users to register when they sign in: **Yes**

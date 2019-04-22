@@ -187,7 +187,7 @@ For more information, see:
 
 * [Specifying Conditional Headers for Blob Service Operations](https://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Lease Container](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Lease Blob ](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## Managing Concurrency in the Table Service
 The table service uses optimistic concurrency checks as the default behavior when you are working with entities, unlike the blob service where you must explicitly choose to perform optimistic concurrency checks. The other difference between the table and blob services is that you can only manage the concurrency behavior of entities whereas with the blob service you can manage the concurrency of both containers and blobs.  

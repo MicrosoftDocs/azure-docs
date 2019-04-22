@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: In this tutorial, you learn how to recognize intents from speech using the Speech SDK for C#.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -43,9 +43,9 @@ Be sure you have the following before you begin this tutorial.
 
 ## LUIS and speech
 
-LUIS integrates with the Speech service to recognize intents from speech. You don't need a Speech service subscription, just LUIS.
+LUIS integrates with the Speech Services to recognize intents from speech. You don't need a Speech Services subscription, just LUIS.
 
-LUIS uses two kinds of keys: 
+LUIS uses two kinds of keys:
 
 |Key type|Purpose|
 |--------|-------|
@@ -54,7 +54,7 @@ LUIS uses two kinds of keys:
 
 The endpoint key is the LUIS key needed for this tutorial. This tutorial uses the example Home Automation LUIS app, which you can create by following [Use prebuilt Home automation app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). If you have created a LUIS app of your own, you can use it instead.
 
-When you create a LUIS app, a starter key is automatically generated so you can test the app using text queries. This key does not enable the Speech service integration and won't work with this tutorial. You must create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this tutorial. 
+When you create a LUIS app, a starter key is automatically generated so you can test the app using text queries. This key does not enable the Speech Services integration and won't work with this tutorial. You must create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this tutorial.
 
 After creating the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the My Apps page, then switch to the app's Manage page. Finally, click **Keys and Endpoints** in the sidebar.
 
@@ -75,7 +75,7 @@ In a moment, the new subscription appears in the table at the bottom of the page
 
 ## Create a speech project in Visual Studio
 
-[!INCLUDE [Create project ](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
+[!INCLUDE [Create project](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
 
 ## Add the code
 
@@ -121,7 +121,7 @@ The following sections include a discussion of the code.
 The first step in recognizing intents in speech is to create a speech config from your LUIS endpoint key and region. Speech configs can be used to create recognizers for the various capabilities of the Speech SDK. The speech config has multiple ways to specify the subscription you want to use; here, we use `FromSubscription`, which takes the subscription key and region.
 
 > [!NOTE]
-> Use the key and region of your LUIS subscription, not of a Speech Service subscription.
+> Use the key and region of your LUIS subscription, not of a Speech Services subscription.
 
 Next, create an intent recognizer using `new IntentRecognizer(config)`. Since the configuration already knows which subscription to use, there's no need to specify the subscription key and endpoint again when creating the recognizer.
 
@@ -172,7 +172,7 @@ The following code illustrates two additional capabilities of intent recognition
 
 The other capability is reading the audio containing the speech to be processed from a WAV file. This involves creating an audio configuration that can be used when creating the intent recognizer. The file must be single-channel (mono) with a sampling rate of 16 kHz.
 
-To try out these features, replace the body of the `RecognizeIntentAsync()` method with the following code. 
+To try out these features, replace the body of the `RecognizeIntentAsync()` method with the following code.
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 

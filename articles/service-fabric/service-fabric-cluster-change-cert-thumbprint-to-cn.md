@@ -92,7 +92,7 @@ Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 ```
 
 >[!NOTE]
-> Computes Virtual Machine Scale Set Secrets do not support the same resource id for two separate secrets, as each secret is a versioned unique resource. 
+> Scale set secrets do not support the same resource ID for two separate secrets, as each secret is a versioned, unique resource. 
 
 ## Download and update the template from the portal
 The certificate has been installed on the underlying scale set, but you also need to update the Service Fabric cluster to use that certificate and its common name.  Now, download the template for your cluster deployment.  Log in to the [Azure portal](https://portal.azure.com) and navigate to the resource group hosting the cluster.  In **Settings**, select **Deployments**.  Select the most recent deployment and click **View template**.

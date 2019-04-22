@@ -9,7 +9,7 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
@@ -32,7 +32,7 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | defaultLanguageCode	|  A string indicating the language to return. The service returns recognition results in a specified language. If this parameter is not specified, the default value is "en". <br/><br/>Supported languages are: <br/>*en* - English (default) <br/> *zh* - Simplified Chinese|
-|visualFeatures |	An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li> *categories* - categorizes image content according to a taxonomy defined in the Cognitive Services [documentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *tags* - tags the image with a detailed list of words related to the image content.</li><li>*Description* - describes the image content with a complete English sentence.</li><li>*Faces* - detects if faces are present. If present, generates coordinates, gender, and age.</li><li>	*ImageType* - detects if image is clipart or a line drawing.</li><li>	*Color* - determines the accent color, dominant color, and whether an image is black&white.</li><li>*Adult* - detects if the image is pornographic in nature (depicts nudity or a sex act). Sexually suggestive content is also detected.</li></ul> Names of visual features are case-sensitive.|
+|visualFeatures |	An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li> *categories* - categorizes image content according to a taxonomy defined in the Cognitive Services [documentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *tags* - tags the image with a detailed list of words related to the image content.</li><li>*Description* - describes the image content with a complete English sentence.</li><li>*Faces* - detects if faces are present. If present, generates coordinates, gender, and age.</li><li>	*ImageType* - detects if image is clip art or a line drawing.</li><li>	*Color* - determines the accent color, dominant color, and whether an image is black&white.</li><li>*Adult* - detects if the image is pornographic in nature (depicts nudity or a sex act). Sexually suggestive content is also detected.</li></ul> Names of visual features are case-sensitive.|
 | details	| An array of strings indicating which domain-specific details to return. Valid visual feature types include: <ul><li>*Celebrities* - identifies celebrities if detected in the image.</li><li>*Landmarks* - identifies landmarks if detected in the image.</li></ul>
  |
 
@@ -40,7 +40,7 @@ Parameters are case-sensitive.
 
 | Input name	  | Description                                          |
 |---------------|------------------------------------------------------|
-| image         | Complex Type. Currently only works with "/document/normalized_images" field, produced by the Azure Blob indexer when ```imageAction``` is set to ```generateNormalizedImages```. See the [sample](#sample-output) for more information.|
+| image         | Complex Type. Currently only works with "/document/normalized_images" field, produced by the Azure Blob indexer when ```imageAction``` is set to a value other than ```none```. See the [sample](#sample-output) for more information.|
 
 
 
@@ -105,16 +105,16 @@ Parameters are case-sensitive.
     "values": [
         {
             "recordId": "1",
-            "data": {                
-                "image":  {
-                               "data": "BASE64 ENCODED STRING OF A JPEG IMAGE",
-                               "width": 500,
-                               "height": 300,
-                               "originalWidth": 5000,  
-                               "originalHeight": 3000,
-                               "rotationFromOriginal": 90,
-                               "contentOffset": 500  
-                           }
+            "data": {
+                "image": {
+                    "data": "BASE64 ENCODED STRING OF A JPEG IMAGE",
+                    "width": 500,
+                    "height": 300,
+                    "originalWidth": 5000,
+                    "originalHeight": 3000,
+                    "rotationFromOriginal": 90,
+                    "contentOffset": 500
+                }
             }
         }
     ]
@@ -127,18 +127,18 @@ Parameters are case-sensitive.
 ```json
 {
     "values": [
-      {
-        "recordId": "1",
+        {
+            "recordId": "1",
             "data": {
                 "categories": [
-           {
+                    {
                         "name": "abstract_",
                         "score": 0.00390625
                     },
                     {
-                "name": "people_",
+                        "name": "people_",
                         "score": 0.83984375,
-                "detail": {
+                        "detail": {
                             "celebrities": [
                                 {
                                     "name": "Satya Nadella",
@@ -209,7 +209,7 @@ Parameters are case-sensitive.
                     {
                         "age": 44,
                         "gender": "Male",
-                    "faceBoundingBox": {
+                        "faceBoundingBox": {
                             "left": 593,
                             "top": 160,
                             "width": 250,
@@ -231,8 +231,8 @@ Parameters are case-sensitive.
                     "clipArtType": 0,
                     "lineDrawingType": 0
                 }
-           }
-      }
+            }
+        }
     ]
 }
 ```

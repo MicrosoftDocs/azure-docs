@@ -11,8 +11,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
+ms.reviewer: christianreddington,anthdela,juselph
 
 ---
 
@@ -113,7 +114,7 @@ Is there a rule in terms of how many virtual machines I should set per user, or 
 When considering the number of virtual machines per user or per lab, there are three main concerns:
 
 - The **overall cost** that the team can spend on resources in the lab. It’s easy to spin up many machines. To control costs, one mechanism is to limit the number of VMs per user and/or per lab
-- The total number of virtual machines in a lab is impacted by the [subscription level quotas](../azure-subscription-service-limits.md) available. One of the upper limits is 800 resource groups per subscription. DevTest Labs currently creates a new resource group for each VM (unless shared public IPs are used). If there are 10 labs in a subscription, labs could fit approx. 79 virtual machines in each lab (800 upper limit – 10 resource groups for the 10 labs themselves) = 79 virtual machines per lab.
+- The total number of virtual machines in a lab is impacted by the [subscription level quotas](../azure-subscription-service-limits.md) available. One of the upper limits is 800 resource groups per subscription. DevTest Labs currently creates a new resource group for each VM (unless shared public IPs are used). If there are 10 labs in a subscription, labs could fit approximately 79 virtual machines in each lab (800 upper limit – 10 resource groups for the 10 labs themselves) = 79 virtual machines per lab.
 - If the lab is connected to on-premises via Express Route (for example), there are **defined IP address spaces available** for the VNet/Subnet. To ensure that VMs in the lab don't fail to be created (error: can’t get IP address), lab owners can specify the max VMs per lab aligned with the IP address space available.
 
 ## Use Resource Manager templates

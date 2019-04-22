@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 03/18/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -81,7 +81,7 @@ Make sure VMware servers and VMs comply with requirements.
 3. Check on-premises [network](vmware-physical-azure-support-matrix.md#network) and [storage](vmware-physical-azure-support-matrix.md#storage) support. 
 4. Check what's supported for [Azure networking](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](vmware-physical-azure-support-matrix.md#azure-storage), and [compute](vmware-physical-azure-support-matrix.md#azure-compute), after failover.
 5. Your on-premises VMs you replicate to Azure must comply with [Azure VM requirements](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
-6. In Linux virtual machines, device name or mount point name should be unique. Ensure that no two devices/mount points have case sensitive names. For example, naming two devices of same virtual machine as *device1* and *Device1* is not allowed.
+6. In Linux virtual machines, device name or mount point name should be unique. Ensure that no two devices/mount points have the same names. Note that name aren't case sensitive. For example, naming two devices for the same VM as _device1_ and _Device1_ isn't allowed.
 
 
 ## Prepare to connect to Azure VMs after failover
@@ -112,11 +112,11 @@ To connect to Linux VMs using SSH after failover, do the following:
 
 
 ## Failback requirements
-If you plan to fail back to you onr-premises, you also need to ensure that certain [prerequisites are met](vmware-azure-reprotect.md##before-you-begin). These are however **not required to get started with enabling disaster recovery** for your VMs, and can be done after failover to Azure as well.
+If you plan to fail back to your on-premises, you also need to ensure that certain [prerequisites are met](vmware-azure-reprotect.md##before-you-begin). These are however **not required to get started with enabling disaster recovery** for your VMs, and can be done after failover to Azure as well.
 
 ## Useful links
 
-If you're  replicating multiple VMs, you should plan capacity and deployment before you start. [Learn more](site-recovery-deployment-planner.md).
+If you're replicating multiple VMs, you should plan capacity and deployment before you start. [Learn more](site-recovery-deployment-planner.md).
 
 ## Next steps
 

@@ -53,4 +53,4 @@ Each command in the table links to command specific documentation. This script u
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional Azure SignalR Service CLI script samples can be found in the [Azure SignalR Service documentation](../signalr-cli-samples.md).
+Additional Azure SignalR Service CLI script samples can be found in the [Azure SignalR Service documentation](../signalr-reference-cli.md).

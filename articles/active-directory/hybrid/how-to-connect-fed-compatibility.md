@@ -16,6 +16,7 @@ ms.date: 08/23/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD federation compatibility list
 Azure Active Directory provides single-sign on and enhanced application access security for Office 365 and other Microsoft Online services for hybrid and cloud-only implementations without requiring any third party solution. Office 365, like most of Microsoft’s Online services, is integrated with Azure Active Directory for directory services, authentication, and authorization. Azure Active Directory also provides single sign-on to thousands of SaaS applications and on-premises web applications. See the Azure Active Directory [application gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) for supported SaaS applications. 

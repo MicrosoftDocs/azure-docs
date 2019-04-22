@@ -3,14 +3,14 @@ title: Call the Text Analytics API
 titlesuffix: Azure Cognitive Services
 description: Learn how to call the Text Analytics REST API.
 services: cognitive-services
-author: ashmaka
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/01/2018
-ms.author: ashmaka
+ms.date: 02/13/2019
+ms.author: aahi
 ---
 
 # How to call the Text Analytics REST API
@@ -26,9 +26,7 @@ Recall that Text Analytics is stateless so there are no data assets to manage. Y
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Text Analytics API**. 
-
-You must have the [endpoint and access key](text-analytics-how-to-access-key.md) that is generated for you when you sign up for Cognitive Services. 
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with the Text Analytics API, and the [endpoint and access key](text-analytics-how-to-access-key.md) that is generated for you when you sign up for Cognitive Services. 
 
 <a name="json-schema"></a>
 
@@ -41,7 +39,7 @@ You can currently submit the same documents for all Text Analytics operations: s
 | Element | Valid values | Required? | Usage |
 |---------|--------------|-----------|-------|
 |`id` |The data type is string, but in practice document IDs tend to be integers. | Required | The system uses the IDs you provide to structure the output. Language codes, key phrases, and sentiment scores are generated for each ID in the request.|
-|`text` | Unstructured raw text, up to 5,000 characters. | Required | For language detection, text can be expressed in any language. For sentiment analysis, key phrase extraction and entity identification, the text must be in a [supported language](../text-analytics-supported-languages.md). |
+|`text` | Unstructured raw text, up to 5,120 characters. | Required | For language detection, text can be expressed in any language. For sentiment analysis, key phrase extraction and entity identification, the text must be in a [supported language](../text-analytics-supported-languages.md). |
 |`language` | 2-character [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code for a [supported language](../text-analytics-supported-languages.md) | Varies | Required for sentiment analysis, key phrase extraction, and entity linking; optional for language detection. There is no error if you exclude it, but the analysis is weakened without it. The language code should correspond to the `text` you provide. |
 
 For more information about limits, see [Text Analytics Overview > Data limits](../overview.md#data-limits). 
@@ -56,7 +54,7 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
    + Paste in the endpoint you copied from the portal page.
    + Append a resource.
 
-  Resource endpoints are as follows (your region may vary):
+   Resource endpoints are as follows (your region may vary):
 
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
@@ -69,7 +67,7 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
    + `Content-Type`: application/json.
    + `Accept`: application/json.
 
-  Your request should look similar to the following screenshot, assuming a **/keyPhrases** resource.
+   Your request should look similar to the following screenshot, assuming a **/keyPhrases** resource.
 
    ![Request screenshot with endpoint and headers](../media/postman-request-keyphrase-1.png)
 
@@ -79,15 +77,15 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
 
 5. Paste in some JSON documents in a format that is valid for the intended analysis. For more information about a particular analysis, see the topics below:
 
-  + [Language detection](text-analytics-how-to-language-detection.md)  
-  + [Key phrase extraction](text-analytics-how-to-keyword-extraction.md)  
-  + [Sentiment analysis](text-analytics-how-to-sentiment-analysis.md)  
-  + [Entity recognition (Preview)](text-analytics-how-to-entity-linking.md)  
+   + [Language detection](text-analytics-how-to-language-detection.md)  
+   + [Key phrase extraction](text-analytics-how-to-keyword-extraction.md)  
+   + [Sentiment analysis](text-analytics-how-to-sentiment-analysis.md)  
+   + [Entity recognition (Preview)](text-analytics-how-to-entity-linking.md)  
 
 
 6. Click **Send** to submit the request. You can submit up to 100 requests per minute. 
 
-  In Postman, the response is displayed in the next window down, as a single JSON document, with an item for each document ID provided in the request.
+   In Postman, the response is displayed in the next window down, as a single JSON document, with an item for each document ID provided in the request.
 
 ## See also 
 

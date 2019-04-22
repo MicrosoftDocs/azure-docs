@@ -4,24 +4,22 @@ description: Steps to deploy the Avere vFXT cluster in Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
 ---
 
 # Deploy the vFXT cluster
 
-This procedure walks you through using the deployment wizard available from the Azure Marketplace. The wizard automatically deploys the cluster by using an Azure Resource Manager template. After you enter the parameters in the form and click **Create**, Azure automatically completes these steps: 
+This procedure walks you through using the deployment wizard available from the Azure Marketplace. The wizard automatically deploys the cluster by using an Azure Resource Manager template. After you enter the parameters in the form and click **Create**, Azure automatically completes these steps:
 
-* Create the cluster controller, which is a basic VM that contains the software needed to deploy and manage the cluster.
-* Set up resource group and virtual network infrastructure, including creating new elements if needed.
-* Create the cluster node VMs and configure them as the Avere cluster.
-* If requested, create a new Azure Blob container and configure it as a cluster core filer.
+* Creates the cluster controller, which is a basic VM that contains the software needed to deploy and manage the cluster.
+* Sets up resource group and virtual network infrastructure, including creating new elements.
+* Creates the cluster node VMs and configures them as the Avere cluster.
+* If requested, creates a new Azure Blob container and configures it as a cluster core filer.
 
-After following the instructions in this document, you will have a virtual network, a subnet, a controller, and a vFXT cluster as shown in the following diagram:
+After following the instructions in this document, you will have a virtual network, a subnet, a controller, and a vFXT cluster as shown in the following diagram. This diagram shows the optional Azure Blob core filer, which includes a new Blob storage container (in a new storage account, not shown) and a service endpoint for Microsoft storage inside the subnet. 
 
-![diagram showing vnet containing optional blob storage and a subnet containing three grouped VMs labeled vFXT nodes/vFXT cluster and one VM labeled cluster controller](media/avere-vfxt-deployment.png)
-
-After creating the cluster, you should [create a storage endpoint](#create-a-storage-endpoint-if-using-azure-blob) in your virtual network if using Blob storage. 
+![diagram showing three concentric rectangles with Avere cluster components. The outer rectangle is labeled 'Resource group' and contains a hexagon labeled 'Blob storage (optional)'. The next rectangle in is labeled 'Virtual network: 10.0.0.0/16' and does not contain any unique components. The innermost rectangle is labeled 'Subnet:10.0.0.0/24' and contains a VM labeled 'Cluster controller', a stack of three VMs labeled 'vFXT nodes (vFXT cluster)', and a hexagon labeled 'Service endpoint'. There is an arrow connecting the service endpoint (which is inside the subnet) and the blob storage (which is outside the subnet and vnet, in the resource group). The arrow passes through the subnet and virtual network boundaries.](media/avere-vfxt-deployment.png)  
 
 Before using the creation template, make sure you have addressed these prerequisites:  
 
@@ -29,6 +27,7 @@ Before using the creation template, make sure you have addressed these prerequis
 1. [Subscription owner permissions](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Quota for the vFXT cluster](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
 1. [Custom access roles](avere-vfxt-prereqs.md#create-access-roles) - You must create a role-based access control role to assign to the cluster nodes. You have the option to also create a custom access role for the cluster controller, but most users will take the default Owner role, which gives the controller privileges corresponding to a resource group owner. Read [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md#owner) for more detail.
+1. [Storage service endpoint (if needed)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) - Required for deploys using an existing virtual network and creating blob storage
 
 For more information about cluster deployment steps and planning, read [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md) and [Deployment overview](avere-vfxt-deploy-overview.md).
 
@@ -75,7 +74,7 @@ Fill in the following information:
 
 * **Subscription** - Select the subscription for the Avere vFXT. 
 
-* **Resource group** - Select the resource group for the Avere vFXT cluster, or click "Create new" and enter a new resource group name. 
+* **Resource group** - Select an existing empty resource group for the Avere vFXT cluster, or click "Create new" and enter a new resource group name. 
 
 * **Location** - Select the Azure location for your cluster and resources.
 
@@ -100,13 +99,13 @@ The second page of the deployment template allows you to set the cluster size, n
 
 * **Avere vFXT cluster name** - Give the cluster a unique name. 
 
-* **Size** - Specify the VM type to use when creating the cluster nodes. 
+* **Size** - This section shows the VM type that will be used for the cluster nodes. Although there is only one recommended option, the **Change size** link opens a table with details about this instance type and a link to a pricing calculator.  
 
 * **Cache size per node** - The cluster cache is spread across the cluster nodes, so the total cache size on your Avere vFXT cluster will be the cache size per node multiplied by the number of nodes. 
 
-  The recommended configuration is to use 1 TB per node if using Standard_D16s_v3 cluster nodes, and to use 4 TB per node if using Standard_E32s_v3 nodes.
+  The recommended configuration is to use 4 TB per node for Standard_E32s_v3 nodes.
 
-* **Virtual network** - Select an existing vnet to house the cluster, or define a new vnet to create. 
+* **Virtual network** - Define a new vnet to house the cluster, or select an existing vnet that meets the prerequisites described in [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md#resource-group-and-network-infrastructure). 
 
   > [!NOTE]
   > If you create a new vnet, the cluster controller will have a public IP address so that you can access the new private network. If you choose an existing vnet, the cluster controller is configured without a public IP address. 
@@ -116,17 +115,21 @@ The second page of the deployment template allows you to set the cluster size, n
   >  * If you do not set up a public IP address on the controller, you must use another jump host, a VPN connection, or ExpressRoute to access the cluster. For example, create the controller within a virtual network that already has a VPN connection configured.
   >  * If you create a controller with a public IP address, you should protect the controller VM with a network security group. By default, the Avere vFXT for Azure deployment creates a network security group and restricts inbound access to only port 22 for controllers with public IP addresses. You can further protect the system by locking down access to your range of IP source addresses - that is, only allow connections from machines you intend to use for cluster access.
 
+  The deploy template also configures the new vnet with a storage service endpoint for Azure Blob storage and with network access control locked to only IPs from the cluster subnet. 
+
 * **Subnet** - Choose a subnet from your existing virtual network, or create a new one. 
 
-* **Use blob storage** - Choose **true** to create a new Azure Blob container and configure it as back-end storage for the new Avere vFXT cluster. This option also creates a new storage account within the same resource group as the cluster. 
+* **Create and use blob storage** - Choose **true** to create a new Azure Blob container and configure it as back-end storage for the new Avere vFXT cluster. This option also creates a new storage account within the same resource group as the cluster and a Microsoft storage service endpoint inside the cluster subnet. 
+  
+  If you supply an existing virtual network, it must have a storage service endpoint before you create the cluster. (For more information, read [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md).)
 
   Set this field to **false** if you do not want to create a new container. In this case, you must attach and configure storage after creating the cluster. Read [Configure storage](avere-vfxt-add-storage.md) for instructions. 
 
-* **Storage account** - If creating a new Azure Blob container, enter a name for the new storage account. 
+* **(New) Storage account** - If creating a new Azure Blob container, enter a name for the new storage account. 
 
 ## Validation and purchase
 
-Page three gives a summary of the configuration and validates the parameters. After validation succeeds, click the **OK** button to proceed. 
+Page three summarizes the configuration and validates the parameters. After validation succeeds, click the **OK** button to proceed. 
 
 ![Third page of the deployment template - validation](media/avere-vfxt-deploy-3.png)
 
@@ -154,20 +157,6 @@ To find this information, follow this procedure:
 1. On left side, click **Outputs**. Copy the values in each of the fields. 
 
    ![outputs page showing SSHSTRING, RESOURCE_GROUP, LOCATION, NETWORK_RESOURCE_GROUP, NETWORK, SUBNET, SUBNET_ID, VSERVER_IPs, and MGMT_IP values in fields to the right of the labels](media/avere-vfxt-outputs-values.png)
-
-
-## Create a storage endpoint (if using Azure Blob)
-
-If you are using Azure Blob storage for your back-end data storage, you should create a storage service endpoint in your virtual network. This [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) keeps Azure Blob traffic local instead of routing it outside the virtual network.
-
-1. From the portal, click **Virtual networks** on the left.
-1. Select the vnet for your controller. 
-1. Click **Service endpoints** on the left.
-1. Click **Add** at the top.
-1. Leave the service as ``Microsoft.Storage`` and choose the controller’s subnet.
-1. At the bottom, click **Add**.
-
-  ![Azure portal screenshot with annotations for the steps of creating the service endpoint](media/avere-vfxt-service-endpoint.png)
 
 ## Next step
 

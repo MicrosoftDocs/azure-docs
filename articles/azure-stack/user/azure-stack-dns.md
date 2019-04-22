@@ -39,7 +39,7 @@ To learn more about name resolution, see the [DNS resolution](../../dns/dns-for-
 
 The following screenshot shows the **Create public IP address** dialog for creating a public IP address using the portal:
 
-![Create public IP address](media/azure-stack-whats-new-dns/image01.png)
+![Create public IP address](media/azure-stack-dns/image01.png)
 
 ### Example scenario
 

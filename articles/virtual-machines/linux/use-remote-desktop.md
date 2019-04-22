@@ -99,7 +99,7 @@ After authenticating, the xfce desktop environment will load and look similar to
 
 ![xfce desktop environment through xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
 
-If your local RDP client uses network level authentication (NLA), you may need to disable that connection setting. XRDP does not currently support NLA. You can also look at alternative RDP solutions that do support NLA, such as [FreeRDP](http://www.freerdp.com).
+If your local RDP client uses network level authentication (NLA), you may need to disable that connection setting. XRDP does not currently support NLA. You can also look at alternative RDP solutions that do support NLA, such as [FreeRDP](https://www.freerdp.com).
 
 
 ## Troubleshoot

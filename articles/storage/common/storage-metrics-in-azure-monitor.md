@@ -18,7 +18,7 @@ Azure Monitor provides unified user interfaces for monitoring across different A
 
 ## Access metrics
 
-Azure Monitor provides multiple ways to access metrics. You can access them from the [Azure portal](https://portal.azure.com), the Azure Monitor APIs (REST, and .Net) and analysis solutions such as Event Hubs. For more information, see  [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor provides multiple ways to access metrics. You can access them from the [Azure portal](https://portal.azure.com), the Azure Monitor APIs (REST, and .NET) and analysis solutions such as Event Hubs. For more information, see  [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Metrics are enabled by default, and you can access the past 93 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../../azure-monitor/platform/diagnostic-logs-overview.md) in Azure Monitor.
 
@@ -34,7 +34,7 @@ For metrics supporting dimensions, you can filter metric with the desired dimens
 
 ### Access metrics with the REST API
 
-Azure Monitor provides [REST APIs](/rest/api/monitor/) to read metric definition and values. This section shows you how to read the storage metrics. Resource ID is used in all REST APIS. For more information, please read [Understanding resource ID for services in Storage](#understanding-resource-id-for-services-in-storage).
+Azure Monitor provides [REST APIs](/rest/api/monitor/) to read metric definition and values. This section shows you how to read the storage metrics. Resource ID is used in all REST APIS. For more information, please read Understanding resource ID for services in Storage.
 
 The following example shows how to use [ArmClient](https://github.com/projectkudu/ARMClient)  at the command line to simplify testing with the REST API.
 
@@ -129,13 +129,13 @@ The following response contains metric values in JSON format:
 
 ```
 
-### Access metrics with the .Net SDK
+### Access metrics with the .NET SDK
 
-Azure Monitor provides [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or later version for storage metrics. Resource ID is used in .Net SDK. For more information, please read [Understanding resource ID for services in Storage](#understanding-resource-id-for-services-in-storage).
+Azure Monitor provides [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or later version for storage metrics. Resource ID is used in .NET SDK. For more information, please read Understanding resource ID for services in Storage.
 
-The following example shows how to use Azure Monitor .Net SDK to read storage metrics.
+The following example shows how to use Azure Monitor .NET SDK to read storage metrics.
 
-#### List account level metric definition with the .Net SDK
+#### List account level metric definition with the .NET SDK
 
 The following example shows how to list metric definition at account level:
 
@@ -172,7 +172,7 @@ The following example shows how to list metric definition at account level:
 
 If you want to list the metric definitions for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
 
-#### Read metric values with the .Net SDK
+#### Read metric values with the .NET SDK
 
 The following example shows how to read `UsedCapacity` data at account level:
 
@@ -222,7 +222,7 @@ The following example shows how to read `UsedCapacity` data at account level:
 
 In above example, if you want to read metric values for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
 
-#### Read multi-dimensional metric values with the .Net SDK
+#### Read multi-dimensional metric values with the .NET SDK
 
 For multi-dimensional metrics, you need to define meta data filter if you want to read metric data on specific dimension value.
 

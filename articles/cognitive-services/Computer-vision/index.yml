@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 02/26/2019
   ms.author: nitinme
 ms.custom: seodec18
 abstract:
@@ -71,7 +71,7 @@ sections:
     - image: 
         src: media/index/logo_python.svg
       text: Python
-      href: QuickStarts/python-analyze
+      href: quickstarts-sdk/python-sdk
     - image:
         src: media/index/logo_go.svg
       text: Go
@@ -104,6 +104,6 @@ sections:
             <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable">Android (Java)</a></p>
             <p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p>
     - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
       html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>

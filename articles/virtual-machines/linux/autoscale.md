@@ -14,6 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 08/21/2017
 ms.author: cynthn
+ms.topic: conceptual
 ---
 
 # Automatically scale virtual machines in Azure

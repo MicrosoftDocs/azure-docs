@@ -1,6 +1,6 @@
 ---
 
-title: Add B2B collaboration users to Azure Active Directory without an invitation | Microsoft Docs
+title: Add B2B guests without an invitation link or email - Azure Active Directory | Microsoft Docs
 description: You can let a guest user add other guest users to your Azure AD without redeeming an invitation in Azure Active Directory B2B collaboration.
 services: active-directory
 documentationcenter: ''
@@ -16,9 +16,10 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
-# Add B2B collaboration guest users without an invitation
+# Add B2B collaboration guest users without an invitation link or email
 
 You can now invite guest users by sending out a direct link to a shared app. With this method, guest users no longer need to use the invitation email, except in some special cases. A guest user clicks the app link, reviews and accepts the privacy terms, and then seamlessly accesses the app. For more information, see [B2B collaboration invitation redemption](redemption-experience.md).   
 
@@ -32,7 +33,7 @@ This  original method still works. However, there's a small difference in behavi
 
 If you invite a user to the directory, the guest user must access the resource tenant-specific Azure portal URL directly (such as https://portal.azure.com/*resourcetenant*.onmicrosoft.com) to view and agree to the privacy terms.
 
-### Next steps
+## Next steps
 
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [B2B collaboration invitation redemption](redemption-experience.md)

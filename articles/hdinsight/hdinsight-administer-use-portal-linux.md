@@ -52,7 +52,7 @@ Select your cluster name from the [**HDInsight clusters** page](#showClusters). 
     - **Tools**: Help information for HDInsight related tools.
 
 - **Settings menu**  
-  - **Cluster size**: Check, increase, and decrease the number of cluster worker nodes. See [Scale clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
+  - **Cluster size**: Check, increase, and decrease the number of cluster worker nodes. See [Scale clusters](hdinsight-administer-use-portal-linux.md#scale-clusters).
   - **Quota limits**: Display the used and available cores for your subscription.
   - **SSH + Cluster login**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
   - **Data Lake Storage Gen1**: Configure access Data Lake Storage Gen1.  See [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
@@ -67,9 +67,9 @@ Select your cluster name from the [**HDInsight clusters** page](#showClusters). 
 
 - **Monitoring menu**
   - **Alerts**: Manage the alerts and actions.
-  - **Metrics**: Monitor the cluster metrics in Azure Log Analytics.
+  - **Metrics**: Monitor the cluster metrics in Azure Monitor logs.
   - **Diagnosis settings**: Settings on where to store the diagnosis metrics.
-  - **Operations Management Suite**:  Monitor your cluster in Azure Operations Management Suite (OMS) and Azure Log Analytics.
+  - **Operations Management Suite**:  Monitor your cluster in Azure Operations Management Suite (OMS) and Azure Monitor logs.
 
 - **Support + troubleshooting menu**
   - **Resource health**: See [Azure resource health overview](../service-health/resource-health-overview.md).
@@ -120,7 +120,7 @@ You can add additional Azure Storage accounts and Azure Data Lake Storage accoun
 The cluster scaling feature allows you to change the number of worker nodes used by an Azure HDInsight cluster, without having to re-create the cluster.
 
 > [!NOTE]  
-> Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](#list-and-show-clusters).
+> Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See List and show clusters.
 
 From the [cluster home page](#homePage):
 
@@ -182,7 +182,7 @@ You are also charged for an HDInsight cluster, even when it is not in use. Since
 There are many ways you can program the process:
 
 * User Azure Data Factory. See [Create on-demand Linux-based Apache Hadoop clusters in HDInsight using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) for creating on-demand HDInsight linked services.
-* Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data.md).
+* Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data-linux.md).
 * Use Azure Classic CLI. See [Manage HDInsight clusters using Azure Classic CLI](hdinsight-administer-use-command-line.md).
 * Use HDInsight .NET SDK. See [Submit Apache Hadoop jobs](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
@@ -279,7 +279,7 @@ See [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hado
 
 
 ## Monitor cluster usage
-The **Usage** section of the HDInsight cluster blade displays information about the number of cores available to your subscription for use with HDInsight, as well as the number of cores allocated to this cluster and how they are allocated for the nodes within this cluster. See [List and show clusters](#list-and-show-clusters).
+The **Usage** section of the HDInsight cluster blade displays information about the number of cores available to your subscription for use with HDInsight, as well as the number of cores allocated to this cluster and how they are allocated for the nodes within this cluster. See List and show clusters.
 
 > [!IMPORTANT]  
 > To monitor the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Apache Ambari](hdinsight-hadoop-manage-ambari.md)

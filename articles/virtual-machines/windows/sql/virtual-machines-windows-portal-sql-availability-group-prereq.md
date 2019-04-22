@@ -3,7 +3,7 @@ title: SQL Server availability groups - Azure virtual machines - Prereqs | Micro
 description: "This tutorial shows how to configure the prerequisites for creating a SQL Server Always On availability group on Azure VMs."
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -39,7 +39,7 @@ This tutorial assumes that you have a basic understanding of SQL Server Always O
 You need an Azure account. You can [open a free Azure account](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) or [activate Visual Studio subscriber benefits](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
 
 ## Create a resource group
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **+** to create a new object in the portal.
 
    ![New object](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -289,14 +289,14 @@ After the primary domain controller reboots, you can configure the second domain
 15. Click the **More** link on the yellow warning bar.
 16. In the **Action** column of the **All Server Task Details** dialog, click **Promote this server to a domain controller**.
 17. Under **Deployment Configuration**, select **Add a domain controller to an existing domain**.
-   ![Deployment configuration](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
+    ![Deployment configuration](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
 18. Click **Select**.
 19. Connect by using the administrator account (**CORP.CONTOSO.COM\domainadmin**) and password (**Contoso!0000**).
 20. In **Select a domain from the forest**, click your domain, and then click **OK**.
 21. In **Domain Controller Options**, use the default values and set a DSRM password.
 
-   >[!NOTE]
-   >The **DNS Options** page might warn you that a delegation for this DNS server can't be created. You can ignore this warning in non-production environments.
+    >[!NOTE]
+    >The **DNS Options** page might warn you that a delegation for this DNS server can't be created. You can ignore this warning in non-production environments.
 22. Click **Next** until the dialog reaches the **Prerequisites** check. Then click **Install**.
 
 After the server finishes the configuration changes, restart the server.
@@ -305,7 +305,7 @@ After the server finishes the configuration changes, restart the server.
 
 In the Azure portal, under virtual network, change the DNS Server to include the IP address of the secondary domain controller. This setting allows the DNS service redundancy.
 
-### <a name=DomainAccounts></a> Configure the domain accounts
+### <a name="DomainAccounts"></a> Configure the domain accounts
 
 In the next steps, you configure the Active Directory accounts. The following table shows the accounts:
 
@@ -410,7 +410,7 @@ After each virtual machine restarts as a member of the domain, add **CORP\Instal
 
 ### <a name="setServiceAccount"></a>Set the SQL Server service accounts
 
-On each SQL Server VM, set the SQL Server service account. Use the accounts that you created when you [configured the domain accounts](#DomainAccounts).
+On each SQL Server VM, set the SQL Server service account. Use the accounts that you created when you configured the domain accounts.
 
 1. Open **SQL Server Configuration Manager**.
 2. Right-click the SQL Server service, and then click **Properties**.
@@ -461,7 +461,7 @@ To add Failover Clustering features, do the following steps on both SQL Server V
 Repeat the steps on the other SQL Server VM.
 
   >[!NOTE]
-  > This step, along with actually joining the SQL Server VMs to the failover cluster, can now be automated with an Azure Quickstart Template. For more information, see [Create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM with Azure Quickstart template](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > This step, along with actually joining the SQL Server VMs to the failover cluster, can now be automated with [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) and [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 ## <a name="endpoint-firewall"> Configure the firewall on each SQL Server VM

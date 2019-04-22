@@ -16,7 +16,8 @@
       href: apache-spark-jupyter-spark-sql-use-portal.md
     - name: Create an Apache Spark cluster - PowerShell
       href: apache-spark-jupyter-spark-sql-use-powershell.md
-    - name: Create an Apache Spark cluster - Template
+    - name: Create an Apache Spark cluster - Resource Manager Template
+      displayName: resource manager template, arm template, resource manager group
       href: apache-spark-jupyter-spark-sql.md
 - name: Tutorials
   items:
@@ -41,7 +42,10 @@
         - name: Using Azure Storage
           href: ../hdinsight-hadoop-use-blob-storage.md
           maintainContext: true
-        - name: Using Azure Data Lake Storage
+        - name: Using Azure Data Lake Storage Gen2
+          href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
+          maintainContext: true
+        - name: Using Azure Data Lake Storage Gen1
           href: ../hdinsight-hadoop-use-data-lake-store.md
           maintainContext: true
     - name: Develop
@@ -165,9 +169,6 @@
       - name: Use Hue
         href: ../hdinsight-hadoop-hue-linux.md
         maintainContext: true
-      - name: Use Apache Solr
-        href: ../hdinsight-hadoop-solr-install-linux.md
-        maintainContext: true
       - name: Use empty edge nodes
         href: ../hdinsight-apps-use-edge-node.md
         maintainContext: true
@@ -245,6 +246,7 @@
           href: ../hdinsight-hadoop-create-linux-clusters-portal.md
           maintainContext: true
         - name: Use Azure Resource Manager templates
+          displayName: resource manager template, arm template, resource manager group
           href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
       - name: Create on-demand clusters
         href: ../hdinsight-hadoop-create-linux-clusters-adf.md
@@ -402,12 +404,12 @@
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Monitoring using Log Analytics
+  - name: Monitoring using Azure Monitor logs
     items:
-    - name: Use Azure Log Analytics
+    - name: Use Azure Monitor logs
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
       maintainContext: true
-    - name: Use queries with Log Analytics
+    - name: Use queries with Azure Monitor logs
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
       maintainContext: true
     - name: Monitor cluster performance
@@ -418,7 +420,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.hdinsight
+    href: /powershell/module/az.hdinsight
   - name: .NET SDK
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
   - name: Python SDK
@@ -429,13 +431,12 @@
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
-  - name: .NET (Avro)
-    href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST API
     href: /rest/api/hdinsight/
   - name: REST API (Apache Spark)
     href: /rest/api/hdinsightspark/
   - name: Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
     href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:

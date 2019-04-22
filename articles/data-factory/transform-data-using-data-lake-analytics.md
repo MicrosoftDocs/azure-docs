@@ -128,7 +128,7 @@ The following table describes names and descriptions of properties that are spec
 | runtimeVersion      | Runtime version of the U-SQL engine to use. | No       |
 | compilationMode     | <p>Compilation mode of U-SQL. Must be one of these values: **Semantic:** Only perform semantic checks and necessary sanity checks, **Full:** Perform the full compilation, including syntax check, optimization, code generation, etc., **SingleBox:** Perform the full compilation, with TargetType setting to SingleBox. If you don't specify a value for this property, the server determines the optimal compilation mode. | No |
 
-Data Factory submits the See [SearchLogProcessing.txt Script Definition](#sample-u-sql-script) for the script definition. 
+See [SearchLogProcessing.txt](#sample-u-sql-script) for the script definition. 
 
 ## Sample U-SQL script
 
@@ -159,7 +159,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-In above script example, the input and output to the script is defined in **@in** and **@out** parameters. The values for **@in** and **@out** parameters in the U-SQL script are passed dynamically by Data Factory using the ‘parameters’ section. 
+In above script example, the input and output to the script is defined in **\@in** and **\@out** parameters. The values for **\@in** and **\@out** parameters in the U-SQL script are passed dynamically by Data Factory using the ‘parameters’ section. 
 
 You can specify other properties such as degreeOfParallelism and priority as well in your pipeline definition for the jobs that run on the Azure Data Lake Analytics service.
 

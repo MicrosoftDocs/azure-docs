@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with PolicyStat
 
@@ -172,7 +173,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     c. In the **Last Name Attribute** textbox, type **lastname** of user **Simon**.
 
-    d. In the **Email Attribute** textbox, type **emailaddress** of user **BrittaSimon@contoso.com**.
+    d. In the **Email Attribute** textbox, type **emailaddress** of user **BrittaSimon\@contoso.com**.
 
     e. Click **Save Changes**.
 

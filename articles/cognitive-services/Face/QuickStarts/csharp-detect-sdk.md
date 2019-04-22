@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you will use the Azure Face SDK with C# to detect faces in an image.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/07/2018
+ms.date: 02/06/2019
 ms.author: pafarley
 #Customer intent: As a C# developer, I want to implement a simple Face detection scenario with the .NET SDK, so that I can build more complex scenarios later on.
 ---
@@ -29,8 +29,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **FaceDetection**. 
 1. If there are other projects in your solution, select this one as the single startup project.
-1. Get the required NuGet packages. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**. Click the **Browse** tab and select **Include prerelease**; then find and install the following package:
+1. Get the required NuGet packages. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**. Click the **Browse** tab and select **Include prerelease**; then find and install the following packages:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
+    - Microsoft.Rest.ClientRuntime
+    - Microsoft.Rest.ClientRuntime.Azure
+    - Newtonsoft.Json
 
 ## Add face detection code
 

@@ -13,7 +13,7 @@
 1. In a new window, sign in to the [Azure portal](https://portal.azure.com/).
 2. In the left menu, click **Create a resource**, click **Databases**, and then under **Azure Cosmos DB**, click **Create**.
    
-   ![Screen shot of the Azure portal, highlighting More Services, and Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
+   ![Screenshot of the Azure portal, highlighting More Services, and Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
 
 3. In the **Create Azure Cosmos DB Account** page, enter the settings for the new Azure Cosmos DB account. 
  

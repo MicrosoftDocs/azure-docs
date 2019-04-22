@@ -17,16 +17,16 @@ ms.date: 01/31/2019
 ms.author: pbutlerm
 ---
 
-# Create Power BI App technical assets
+# Create Power BI App offer technical assets
 
-The primary technical asset you will need for this offer type is a Power BI Application, which is a collection of a primary dataset, report and (or) dashboard and optional connected services and embedded datasets. (Power BI applications are an evolution of asset type previously known as [content packs](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction).)  For complete information about developing these applications, see [Power BI Apps](https://go.microsoft.com/fwlink/?linkid=2028636).
+The primary technical asset that you need for this offer type is a Power BI app. A Power BI app is a collection of primary datasets, reports or dashboards, and optional connected services and embedded datasets. It has evolved from an asset type previously known as a [content pack](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). For more information about developing this type of app, see [What are Power BI template apps?](https://go.microsoft.com/fwlink/?linkid=2028636).
 
 
-## Obtaining an installation URL
+## Obtain an installation URL
 
-Building Power BI App in only available within the [Power BI service](https://powerbi.microsoft.com/) and requires sign in using a [Power BI Pro license](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro). Once your service application is created and tested in Power BI, save the application installation URL that Power BI generates.  You must supply this URL in the [Technical Info tab](./cpp-technical-info-tab.md) of the Cloud Partner Portal submission form.
+You can build a Power BI app only within the [Power BI service](https://powerbi.microsoft.com/). To begin, you sign in with a [Power BI Pro license](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro). After you create and test your service application in Power BI, save the app installation URL that Power BI generates. Finally, supply the URL on the [Technical Info](./cpp-technical-info-tab.md) tab of the Cloud Partner Portal submission form.
  
 
 ## Next steps
 
-After you have created and tested your Power BI App and created the associated offer, you can [publish the Power BI offer](./cpp-publish-offer.md).  
+After you've created and tested your Power BI app and you've created the associated offer, you can [publish the Power BI App offer](./cpp-publish-offer.md). 

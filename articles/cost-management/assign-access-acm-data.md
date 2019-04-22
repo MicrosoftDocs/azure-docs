@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/01/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
@@ -14,13 +14,17 @@ ms.custom: secdec18
 
 # Assign access to Cost Management data
 
-For most users, a combination of permissions granted in the Azure portal and the Enterprise (EA) portal define a user's level of access to Azure Cost Management data. This article walks you through assigning access to Cost Management data. After the combination of permissions is assigned, the user views data in Cost Management based the scope that they have access to and on the scope that they select in the Azure portal.
+For users with Azure Enterprise agreements, a combination of permissions granted in the Azure portal and the Enterprise (EA) portal define a user's level of access to Azure Cost Management data. For users with other Azure account types, a user's level of access is to Cost Management data is simpler. This article walks you through assigning access to Cost Management data. After the combination of permissions is assigned, the user views data in Cost Management based the scope that they have access to and on the scope that they select in the Azure portal.
 
 The scope that a user selects is used throughout Cost Management to provide data consolidation and to control access to cost information. When using scopes, users don't multi-select them. Instead, they select a larger scope that child scopes roll up to and then they filter-down to what they want to view. Data consolidation is important to understand because some people shouldn't have access to a parent scope that child scopes roll up to.
 
 ## Cost Management scopes
 
-To view cost data, a user must have at least read access to one or more of the following scopes.
+Cost management supports a variety of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). The type of account determines available scopes.
+
+### Azure EA subscription scopes
+
+To view cost data for Azure EA subscriptions, a user must have at least read access to one or more of the following scopes.
 
 | **Scope** | **Defined at** | **Required access to view data** | **Prerequisite EA setting** | **Consolidates data to** |
 | --- | --- | --- | --- | --- |
@@ -42,6 +46,14 @@ The following diagram illustrates the relationship between Cost Management scope
 When **DA view charges** are disabled in the EA portal, you’ll see a message stating *Costs disabled for your organization* when you try to view costs for departments and accounts.
 
 Similarly, when **AO view charges** are disabled in the EA portal, you’ll see a message stating *Costs disabled for your organization* when you try to view costs for enrollment accounts, management groups, subscriptions, and resource groups.
+
+## Other Azure account scopes
+
+To view cost data for other Azure subscriptions, a user must have at least read access to one or more of the following scopes:
+
+- Azure account
+- Management group
+- Resource group
 
 ## Enable access to costs in the EA portal
 
@@ -108,7 +120,7 @@ After completing the steps above, the user account becomes an enrollment account
 
 ## Assign management group scope access
 
-Access to a management group scope requires at least the Cost Management Reader (or Reader) permission. You can configure permissions for a management group in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the management group to enable access for others. And, you must also have enabled the **AO view charges** setting in the EA portal.
+Access to a management group scope requires at least the Cost Management Reader (or Reader) permission. You can configure permissions for a management group in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the management group to enable access for others. And for Azure EA accounts, you must also have enabled the **AO view charges** setting in the EA portal.
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. Select **All Services** in the sidebar, search for _management groups_, then select **management groups**.
@@ -124,7 +136,7 @@ Access to a management group scope requires at least the Cost Management Reader 
 
 ## Assign subscription scope access
 
-Access to a subscription requires at least the Cost Management Reader (or Reader) permission. You can configure permissions to a subscription in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the subscription to enable access for others. And, you must also have enabled the **AO view charges** setting in the EA portal.
+Access to a subscription requires at least the Cost Management Reader (or Reader) permission. You can configure permissions to a subscription in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the subscription to enable access for others. And for Azure EA accounts, you must also have enabled the **AO view charges** setting in the EA portal.
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. Select **All Services** in the sidebar, search for _subscriptions_, then select **Subscriptions**.
@@ -138,7 +150,7 @@ Access to a subscription requires at least the Cost Management Reader (or Reader
 
 ## Assign resource group scope access
 
-Access to a resource group requires at least the Cost Management Reader (or Reader) permission. You can configure permissions to a resource group in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the resource group to enable access for others. And, you must also have enabled the **AO view charges** setting in the EA portal.
+Access to a resource group requires at least the Cost Management Reader (or Reader) permission. You can configure permissions to a resource group in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the resource group to enable access for others. And for Azure EA accounts, you must also have enabled the **AO view charges** setting in the EA portal.
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. Select **All Services** in the sidebar, search for _resource groups_, then select **Resource groups**.

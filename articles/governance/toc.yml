@@ -9,8 +9,9 @@
   expanded: true
   items:
   - name: Management Groups
-    href: management-groups/overview.md
     items:
+    - name: Overview
+      href: management-groups/index.md
     - name: Create
       href: management-groups/create.md
     - name: Manage

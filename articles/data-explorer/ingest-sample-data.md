@@ -52,6 +52,11 @@ The **StormEvents** sample data set contains weather-related data from the [Nati
 
 ## Next steps
 
-[Write queries](write-queries.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Query data in Azure Data Explorer](web-query-data.md)
 
-[Azure Data Explorer data ingestion](ingest-data-overview.md)
+> [!div class="nextstepaction"]
+> [Write queries](write-queries.md)
+
+> [!div class="nextstepaction"]
+> [Azure Data Explorer data ingestion](ingest-data-overview.md)

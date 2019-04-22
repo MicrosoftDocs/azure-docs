@@ -72,15 +72,15 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
 
 1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/linux/update-agent.md).
 
- > [!NOTE]
- > We *strongly recommend* that you update the agent only through a distribution repository. We do not recommend downloading the agent code directly from GitHub and updating it. If the latest agent for your distribution is not available, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.
+   > [!NOTE]
+   > We *strongly recommend* that you update the agent only through a distribution repository. We do not recommend downloading the agent code directly from GitHub and updating it. If the latest agent for your distribution is not available, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.
 
 2. Ensure that the Azure agent is running on the VM by running the following command: `ps -e`
 
- If the process isn't running, restart it by using the following commands:
+   If the process isn't running, restart it by using the following commands:
 
- * For Ubuntu: `service walinuxagent start`
- * For other distributions: `service waagent start`
+   * For Ubuntu: `service walinuxagent start`
+   * For other distributions: `service waagent start`
 
 3. [Configure the auto restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Enable protection of the virtual machine.

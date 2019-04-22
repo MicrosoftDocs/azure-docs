@@ -273,6 +273,6 @@ while conflict:
 
 Learn about the following Azure Cosmos DB concepts:
 
+* [How to configure multi-master in your applications](how-to-multi-master.md).
 * [Partitioning and data distribution](partition-data.md)
 * [Indexing in Azure Cosmos DB](indexing-policies.md)
-

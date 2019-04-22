@@ -6,7 +6,7 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/8/2019
+ms.date: 02/05/2019
 ms.author: rajanaki 
 
 ---
@@ -92,36 +92,39 @@ In case you have chosen to manually manage updates, follow these steps:
 
 ## Between an on-premises VMware or physical site to Azure
 
-1. Install the update first on your on-premises management server. This is the server that has the Configuration server and Process server roles. 
-2. If you have scale-out process servers, update them next.
-3. Go to the Azure portal, and then go to the **Protected Items** > **Replicated Items** page.
-Select a VM on this page. Select the **Update Agent** button that appears at the bottom of the page for each VM. This updates the Mobility Service Agent on all protected VMs.
+Before proceeding with updates, refer to [Site Recovery support statement](#support-statement-for-azure-site-recovery) to understand the upgrade path.
+
+1. Based on your current version and support statement given above, install the update first on your on-premises management server by following the guidelines given [here](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server). This is the server that has Configuration server and Process server roles.
+2. If you have scale-out process servers, update them next by following guidelines given [here](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+3. Next, to update mobility agent on each protected item, go to Azure portal, and then go to the **Protected Items** > **Replicated Items** page. Select a VM on this page. Select the **Update Agent** button that appears at the bottom of the page for each VM. This updates the Mobility Service Agent on all protected VMs.
+
+### Reboot of source machine after mobility agent upgrade
 
 A reboot is recommended after every upgrade of Mobility agent to ensure that all latest changes are loaded on the source machine. It is however **not mandatory**. If difference between agent version during last reboot and current version is greater than 4, then a reboot is mandatory. Refer to the following table for detailed explanation.
 
 |**Agent version during last reboot** | **Upgrading to** | **Is reboot mandatory?**|
-|---------|---------|---------|--------|
+|---------|---------|---------|
 |9.16 |  9.18 | Not mandatory|
 |9.16 | 9.19 | Not mandatory|
 | 9.16 | 9.20 | Not mandatory
  | 9.16 | 9.21 | Yes, first upgrade to 9.20, then reboot before upgrading to 9.21 as the difference between the versions (9.16 where the last reboot was performed and the target version 9.21) is >4,
 
-
-
 ## Links to currently supported update rollups
-
 
 |Update Rollup  |Provider  |Unified Setup| OVF  |MARS|
 |---------|---------|---------|---------|--------|
-|[Update Rollup 32](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
+|[Update Rollup 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
+|[Update Rollup 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) - Hot fix     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
+|[Update Rollup 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
+|[Update Rollup 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[Update Rollup 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[Update Rollup 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
-|[Update Rollup 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0
-|[Update Rollup 28 ](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600 .0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
-| [Update Rollup 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)       |   5.1.3550.0      |    9.18.4946.1     | 5.1.3550.0         |2.0.9125.0
-
 
 ## Previous Update Rollups
+
+- [Update Rollup 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
+- [Update Rollup 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)
+- [Update Rollup 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)
 - [Update Rollup 26](https://support.microsoft.com/help/4344054/update-rollup-26-for-azure-site-recovery)  
 - [Update Rollup 25](https://support.microsoft.com/help/4278275/update-rollup-25-for-azure-site-recovery) 
 - [Update Rollup 23](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) 

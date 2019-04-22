@@ -4,12 +4,12 @@ titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision API with PHP.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -64,7 +64,7 @@ $ocpApimSubscriptionKey = '<Subscription Key>';
 // from westus, replace "westcentralus" in the URL below with "westus".
 $uriBase = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/';
 
-$imageUrl = 'http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
+$imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
 
 require_once 'HTTP/Request2.php';
 

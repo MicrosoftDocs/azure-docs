@@ -4,7 +4,7 @@ description: This article demonstrates how to use the Azure portal to configure 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 03/19/2019
 ms.author: juliako
 
 ---

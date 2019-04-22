@@ -17,6 +17,7 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Provide optional claims to your Azure AD app (Public Preview)
@@ -72,7 +73,7 @@ The set of optional claims available by default for applications to use are list
 | `ztdid`                    | Zero-touch Deployment ID | JWT | | The device identity used for [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 |`email`                     | The addressable email for this user, if the user has one.  | JWT, SAML | | This value is included by default if the user is a guest in the tenant.  For managed users (those inside the tenant), it must be requested through this optional claim or, on v2.0 only, with the OpenID scope.  For managed users, the email address must be set in the [Office admin portal](https://portal.office.com/adminportal/home#/users).|  
 | `acct`   		     | Users account status in tenant. | JWT, SAML | | If the user is a member of the tenant, the value is `0`. If they are a guest, the value is `1`. |
-| `upn`                      | UserPrincipalName claim. | JWT, SAML  |           | Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case. <br> Additional properties: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
+| `upn`                      | UserPrincipalName claim. | JWT, SAML  |           | Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case.  |
 
 ### v2.0 optional claims
 
@@ -81,30 +82,28 @@ These claims are always included in v1.0 tokens, but not included in v2.0 tokens
 **Table 3: V2.0-only optional claims**
 
 | JWT Claim     | Name                            | Description                                | Notes |
-|---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
+|---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP Address                      | The IP address the client logged in from.   |       |
 | `onprem_sid`  | On-Premises Security Identifier |                                             |       |
 | `pwd_exp`     | Password Expiration Time        | The datetime at which the password expires. |       |
-| `pwd_url`     | Change Password URL             | A URL that the user can visit to change their password.   |       |
-| `in_corp`     | Inside Corporate Network        | Signals if the client is logging in from the corporate network. If they are not, the claim is not included.   |       |
-| `nickname`    | Nickname                        | An additional name for the user, separate from first or last name. |       |                                                                                                                |       |
+| `pwd_url`     | Change Password URL             | A URL that the user can visit to change their password.   |   |
+| `in_corp`     | Inside Corporate Network        | Signals if the client is logging in from the corporate network. If they are not, the claim is not included.   |  Based off of the [trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) settings in MFA.    |
+| `nickname`    | Nickname                        | An additional name for the user, separate from first or last name. | 
 | `family_name` | Last Name                       | Provides the last name, surname, or family name of the user as defined in the Azure AD user object. <br>"family_name":"Miller" |       |
 | `given_name`  | First name                      | Provides the first or "given" name of the user, as set on the Azure AD user object.<br>"given_name": "Frank"                   |       |
+| `upn`       | User Principal Name | An identifer for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and should not be used to key data. | See [additional properties](#additional-properties-of-optional-claims) below for configuration of the claim. |
 
 ### Additional properties of optional claims
 
-Some optional claims can be configured to change the way the claim is returned. These additional properties are mostly used to help migration of on-premises applications with different data expectations (for example, `include_externally_authenticated_upn_without_hash` helps with clients that cannot handle hashmarks (`#`) in the UPN)
+Some optional claims can be configured to change the way the claim is returned. These additional properties are mostly used to help migration of on-premises applications with different data expectations (for example, `include_externally_authenticated_upn_without_hash` helps with clients that cannot handle hash marks (`#`) in the UPN)
 
-**Table 4: Values for configuring standard optional claims**
+**Table 4: Values for configuring optional claims**
 
-| Property name                                     | Additional Property name                                                                                                             | Description |
-|---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |  Can be used for both SAML and JWT responses.        |
-| | `include_externally_authenticated_upn`              | Includes the guest UPN as stored in the resource tenant. For example, `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
-| | `include_externally_authenticated_upn_without_hash` | Same as above, except that the hashmarks (`#`) are replaced with underscores (`_`) , for example `foo_hometenant.com_EXT_@resourcetenant.com` |             
-
-> [!Note]
->Specifying the upn optional claim without an additional property does not change any behavior – in order to see a new claim issued in the token, at least one of the additional properties must be added. 
+| Property name  | Additional Property name | Description |
+|----------------|--------------------------|-------------|
+| `upn`          |                          | Can be used for both SAML and JWT responses, and for v1.0 and v2.0 tokens. |
+|                | `include_externally_authenticated_upn`  | Includes the guest UPN as stored in the resource tenant. For example, `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn_without_hash` | Same as above, except that the hash marks (`#`) are replaced with underscores (`_`) , for example `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### Additional properties example
 
@@ -147,12 +146,12 @@ You can configure optional claims for your application by modifying the applicat
 "saml2Token": [ 
               { 
                     "name": "upn", 
-                    "essential": true
+                    "essential": false
                },
                { 
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
-                    "essential": true
+                    "essential": false
                }
        ]
    }

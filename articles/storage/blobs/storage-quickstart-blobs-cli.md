@@ -43,7 +43,7 @@ First, create a file to upload to a blob.
 If you're using the Azure cloud shell, use the following in order to create a file:
 `vi helloworld` when the file opens, press **insert**, type "Hello world" and then press **Esc** and enter `:x` and press **Enter**.
 
-In this example, you upload a blob to the container you created in the last step using the [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) command.
+In this example, you upload a blob to the container you created in the last step using the [az storage blob upload](/cli/azure/storage/blob) command.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -57,17 +57,17 @@ If you used the previously described method to create a file in your Azure Cloud
 ```azurecli-interactive
 az storage blob upload \
     --container-name mystoragecontainer \
-    --name helloworld
+    --name helloworld \
     --file helloworld
 ```
 
 This operation creates the blob if it doesn't already exist, and overwrites it if it does. Upload as many files as you like before continuing.
 
-To upload multiple files at the same time, you can use the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) command.
+To upload multiple files at the same time, you can use the [az storage blob upload-batch](/cli/azure/storage/blob) command.
 
 ## List the blobs in a container
 
-List the blobs in the container with the [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) command.
+List the blobs in the container with the [az storage blob list](/cli/azure/storage/blob) command.
 
 ```azurecli-interactive
 az storage blob list \
@@ -77,7 +77,7 @@ az storage blob list \
 
 ## Download a blob
 
-Use the [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) command to download the blob you uploaded earlier.
+Use the [az storage blob download](/cli/azure/storage/blob) command to download the blob you uploaded earlier.
 
 ```azurecli-interactive
 az storage blob download \

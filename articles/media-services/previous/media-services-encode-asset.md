@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
-# Overview and comparison of Azure on demand media encoders
+# Overview and comparison of Azure on demand media encoders 
+
 ## Encoding overview
 Azure Media Services provides multiple options for the encoding of media in the cloud.
 
@@ -90,4 +91,4 @@ If your input video does not contain closed captioning, the output Asset will st
 * [Quotas and Limitations](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: http://azure.microsoft.com/pricing/details/media-services/
+[1]: https://azure.microsoft.com/pricing/details/media-services/

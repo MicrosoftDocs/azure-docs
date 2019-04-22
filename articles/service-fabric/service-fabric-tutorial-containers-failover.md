@@ -58,8 +58,8 @@ To scale the web front-end, do the following steps:
 
 You can now choose to scale the number of instances of the web front-end.
 
-3. Change the number to **2** and click **Scale Service**.
-4. Click on the **fabric:/TestContainer/azurevotefront** node in the tree view and expand the partition node (represented by a GUID).
+1. Change the number to **2** and click **Scale Service**.
+1. Click on the **fabric:/TestContainer/azurevotefront** node in the tree view and expand the partition node (represented by a GUID).
 
 ![sfxscaledone][sfxscaledone]
 

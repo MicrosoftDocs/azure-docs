@@ -1,4 +1,4 @@
---- 
+---
 title: How to use the Anomaly Finder API with Javascript - Microsoft Cognitive Services | Microsoft Docs
 description: Get information and code samples to help you quickly get started using Anomaly Finder with Javascript in Cognitive Services.
 services: cognitive-services
@@ -47,7 +47,7 @@ The steps of using the example are as follows.
 <html>
 <head>
     <title>Anomaly Detection Javascript Quick Starts</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
 

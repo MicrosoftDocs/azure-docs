@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 02/01/2019
 ---
 # High availability concepts in Azure Database for PostgreSQL
 The Azure Database for PostgreSQL service provides a guaranteed high level of availability. The financially backed service level agreement (SLA) is 99.99% upon general availability. There is virtually no application down time when using this service.
 
 ## High availability
-The high availability (HA) model is based on built-in fail-over mechanisms when a node-level interruption occurs. A node-level interruption could occur because of a hardware failure or in response to a service deployment.
+The high availability (HA) model is based on built-in failover mechanisms when a node-level interruption occurs. A node-level interruption could occur because of a hardware failure or in response to a service deployment.
 
 At all times, changes made to an Azure Database for PostgreSQL database server occur in the context of a transaction. Changes are recorded synchronously in Azure storage when the transaction is committed. If a node-level interruption occurs, the database server automatically creates a new node and attaches data storage to the new node. Any active connections are dropped and any inflight transactions are not committed.
 
@@ -26,5 +26,5 @@ Similar to the HA model, when an Azure Database for PostgreSQL is scaled up or d
 During the scale operation, an interruption to the database connections occurs. The client applications are disconnected, and open uncommitted transactions are canceled. Once the client application retries the connection, or makes a new connection, the gateway directs the connection to the newly sized instance. 
 
 ## Next steps
-- For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md)
-- For an overview on retry logic, see [Handling of transient connectivity errors for Azure Database for PostgreSQL](concepts-connectivity.md)
+- Learn about [handling transient connectivity errors](concepts-connectivity.md)
+- Learn how to [replicate your data with read replicas](howto-read-replicas-portal.md)

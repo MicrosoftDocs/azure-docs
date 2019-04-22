@@ -6,7 +6,7 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ---
 
@@ -70,11 +70,12 @@ The following table summarizes capacity requirements for the configuration serve
 
 **Component** | **Requirement** 
 --- | ---
-**CPU** | **Memory** | **Cache disk** | **Data change rate** | **Replicated machines**
---- | --- | --- | --- | ---
-8 vCPUs<br/><br/> 2 sockets * 4 cores \@ 2.5 GHz | 16 GB | 300 GB | 500 GB or less | Les than 100 machines
-12 vCPUs<br/><br/> 2 socks  * 6 cores \@ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 to 150 machines
-16 vCPUs<br/><br/> 2 socks  * 8 cores \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 machines
+
+| **CPU** | **Memory** | **Cache disk** | **Data change rate** | **Replicated machines** |
+| --- | --- | --- | --- | --- |
+| 8 vCPUs<br/><br/> 2 sockets * 4 cores \@ 2.5 GHz | 16 GB | 300 GB | 500 GB or less | Les than 100 machines |
+| 12 vCPUs<br/><br/> 2 socks  * 6 cores \@ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 to 150 machines |
+| 16 vCPUs<br/><br/> 2 socks  * 8 cores \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 machines | 
 
 
 

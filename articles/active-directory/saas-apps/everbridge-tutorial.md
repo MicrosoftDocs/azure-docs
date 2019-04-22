@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with EverBridge
 
@@ -123,22 +124,22 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 5. To configure the **EverBridge** application as **EverBridge Member Portal**, on the **Basic SAML Configuration** section, perform the following steps:
 
-	* If you wish to configure the application in **IDP** initiated mode:
+   * If you wish to configure the application in **IDP** initiated mode:
 
-		![EverBridge Domain and URLs single sign-on information](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
+       ![EverBridge Domain and URLs single sign-on information](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
 
-		* In the **Identifier** textbox, type a URL using the following pattern: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
+       * In the **Identifier** textbox, type a URL using the following pattern: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
-		* In the **Reply URL** textbox, type a URL using the following pattern: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
+       * In the **Reply URL** textbox, type a URL using the following pattern: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
-    * Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+   * Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-		![EverBridge Domain and URLs single sign-on information](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
+       ![EverBridge Domain and URLs single sign-on information](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
 
-    	* In the **Sign-on URL** textbox, type a URL using the following pattern: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
+       * In the **Sign-on URL** textbox, type a URL using the following pattern: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [EverBridge support team](mailto:support@everbridge.com) to get these values.
+     > [!NOTE]
+     > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [EverBridge support team](mailto:support@everbridge.com) to get these values.
 
 6. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and then save metadata file on your computer.
 
@@ -160,21 +161,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 9. In the menu on the top, click the **Settings** tab and select **Single Sign-On** under **Security**.
    
-    ![Configure Single Sign-On](./media/everbridge-tutorial/tutorial_everbridge_002.png)
+     ![Configure Single Sign-On](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
-    a. In the **Name** textbox, type the name of Identifier Provider (for example: your company name).
+     a. In the **Name** textbox, type the name of Identifier Provider (for example: your company name).
    
-    b. In the **API Name** textbox, type the name of API.
+     b. In the **API Name** textbox, type the name of API.
    
-    c. Click **Choose File** button to upload the metadata file which you downloaded from Azure portal.
+     c. Click **Choose File** button to upload the metadata file which you downloaded from Azure portal.
    
-    d. In the SAML Identity Location, select **Identity is in the NameIdentifier element of the Subject statement**.
+     d. In the SAML Identity Location, select **Identity is in the NameIdentifier element of the Subject statement**.
    
-    e. In the **Identity Provider Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
+     e. In the **Identity Provider Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
    
-    f. In the Service Provider Initiated Request Binding, select **HTTP Redirect**.
+     f. In the Service Provider Initiated Request Binding, select **HTTP Redirect**.
 
-	g. Click **Save**
+     g. Click **Save**
 
 10. To configure single sign-on on **EverBridge** application as **EverBridge Member Portal**, you need to send the downloaded **Federation Metadata XML** to [Everbridge support team](mailto:support@everbridge.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -196,7 +197,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.

@@ -26,20 +26,14 @@ ms.author: sngun
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
-
-<tr><td>**API documentation**</td><td>[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
-
-<tr><td>**Samples**</td><td>[.NET code samples](sql-api-dotnet-samples.md)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the Azure Cosmos DB .NET SDK](sql-api-get-started.md)</td></tr>
-
-<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
-
-<tr><td>**Current supported framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
+|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**Samples**|[.NET code samples](sql-api-dotnet-samples.md)|
+|**Get started**|[Get started with the Azure Cosmos DB .NET SDK](sql-api-get-started.md)|
+|**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|
+|**Current supported framework**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 ## Release notes
 
@@ -49,6 +43,16 @@ ms.author: sngun
 * New object model, with top-level CosmosClient and methods split across relevant CosmosDatabases, CosmosContainers and CosmosItems classes. 
 * Support for streams. 
 * Updated CosmosResponseMessage from server to return status code, and only throw exception when no response is returned. 
+
+### <a name="2.2.3"/>2.2.3
+
+* Diagnostics improvements
+
+### <a name="2.2.2"/>2.2.2
+
+* Added environment variable setting “POCOSerializationOnly”.
+
+* Removed DocumentDB.Spatial.Sql.dll and now included in Microsoft.Azure.Documents.ServiceInterop.dll
 
 ### <a name="2.2.1"/>2.2.1
 
@@ -353,6 +357,8 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.2.3](#2.2.3) |February 11, 2019 |--- |
+| [2.2.2](#2.2.2) |February 06, 2019 |--- |
 | [2.2.1](#2.2.1) |December 24, 2018 |--- |
 | [2.2.0](#2.2.0) |December 07, 2018 |--- |
 | [2.1.3](#2.1.3) |October 15, 2018 |--- |

@@ -22,11 +22,13 @@ All messages to the Kafka cluster (including replicas maintained by Kafka) are e
 
 You can use the Azure portal or Azure CLI to safely rotate the keys in the key vault. When a key rotates, the HDInsight Kafka cluster starts using the new key within minutes. Enable the "Do Not Purge" and "Soft Delete" key protection features to protect against ransomware scenarios and accidental deletion. Keys without these protection features are not supported.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Get started with BYOK
 
 1. Create managed identities for Azure resources.
 
-   To authenticate to Key Vault, create a user-assigned managed identity using the [Azure Portal](../../active-directory/managed-service-identity/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-service-identity/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-service-identity/how-to-manage-ua-identity-arm.md), or [Azure CLI](../../active-directory/managed-service-identity/how-to-manage-ua-identity-cli.md). While Azure Active directory is required for managed identities and BYOK to Kafka, Enterprise Security Package (ESP) isn't a requirement. Be sure to save the managed identity resource ID for when you add it to the Key Vault access policy.
+   To authenticate to Key Vault, create a user-assigned managed identity using the [Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md), or [Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). For more information on how managed identities work in Azure HDInsight, see [Managed identities in Azure HDInsight](../hdinsight-managed-identities.md). While Azure Active directory is required for managed identities and BYOK to Kafka, Enterprise Security Package (ESP) isn't a requirement. Be sure to save the managed identity resource ID for when you add it to the Key Vault access policy.
 
    ![Create user-assigned managed identity in Azure portal](./media/apache-kafka-byok/user-managed-identity-portal.png)
 
@@ -34,7 +36,7 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
    HDInsight only supports Azure Key Vault. If you have your own key vault, you can import your keys into Azure Key Vault. Remember that the keys must have "Soft Delete" and "Do Not Purge" enabled. The "Soft Delete" and "Do Not Purge" features are available through the REST, .NET/C#, PowerShell, and Azure CLI interfaces.
 
-   To create a new key vault, follow the [Azure Key Vault](../../key-vault/key-vault-get-started.md) quickstart. For more information about importing existing keys, visit [About keys, secrets, and certificates](../../key-vault/about-keys-secrets-and-certificates.md).
+   To create a new key vault, follow the [Azure Key Vault](../../key-vault/key-vault-overview.md) quickstart. For more information about importing existing keys, visit [About keys, secrets, and certificates](../../key-vault/about-keys-secrets-and-certificates.md).
 
    To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
 
@@ -94,7 +96,7 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
 **How can I recover the cluster if the keys are deleted?**
 
-   Since only “Soft Delete” enabled keys are supported, if the keys are restored in the key vault, the cluster should regain access to the keys. To restore an Azure Key Vault key, see [Restore-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey).
+   Since only “Soft Delete” enabled keys are supported, if the keys are restored in the key vault, the cluster should regain access to the keys. To restore an Azure Key Vault key, see [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey).
 
 **Can I have producer/consumer applications working with a BYOK cluster and a non-BYOK cluster simultaneously?**
 
@@ -115,4 +117,4 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 ## Next steps
 
 * For more information about Azure Key Vault, see [What is Azure Key Vault](../../key-vault/key-vault-whatis.md)?
-* To get started with Azure Key Vault, see [Getting Started with Azure Key Vault](../../key-vault/key-vault-get-started.md).
+* To get started with Azure Key Vault, see [Getting Started with Azure Key Vault](../../key-vault/key-vault-overview.md).

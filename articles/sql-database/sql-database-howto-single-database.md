@@ -1,17 +1,17 @@
 ---
-title: How to configure Azure SQL Database - standalone | Microsoft Docs
-description: Learn how to configure and manage Azure SQL Database - Standalone Database
+title: How to configure Azure SQL Database - single | Microsoft Docs
+description: Learn how to configure and manage Azure SQL Database - single database
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/08/2019
 ---
 # How to use a single database in Azure SQL Database
 
@@ -19,7 +19,7 @@ In this section you can find various guides, scripts, and explanations that can 
 
 ## Migrate
 
-- [Migrate to SQL Database](sql-database-cloud-migrate.md) – Learn about the recommended migration process and tools for migration to a managed instance.
+- [Migrate to SQL Database](sql-database-single-database-migrate.md) – Learn about the recommended migration process and tools for migration to a managed instance.
 - Learn how to [manage SQL database after migration](sql-database-manage-after-migration.md).
 
 ## Configure features

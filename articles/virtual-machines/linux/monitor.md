@@ -14,6 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 08/14/2017
 ms.author: cynthn
+ms.topic: conceptual
 ---
 
 # How to monitor virtual machines in Azure

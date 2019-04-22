@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Release notes for the Face API Service include a history of release changes for various versions.
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api

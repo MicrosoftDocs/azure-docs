@@ -168,13 +168,13 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
     ```
     Graphical and quiet boot isn't useful in a cloud environment, where we want all logs sent to the serial port. The `crashkernel` option may be left configured if needed, but note that this parameter reduces the amount of available memory in the VM by at least 128 MB, which may be problematic for smaller VM sizes.
 
-2. Install the Azure Linux Agent.
+1. Install the Azure Linux Agent.
   
     The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or Deb package (the package is typically called WALinuxAgent or walinuxagent).  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../extensions/agent-linux.md).
 
-3. Ensure that the SSH server is installed, and configured to start at boot time.  This configuration is usually the default.
+1. Ensure that the SSH server is installed, and configured to start at boot time.  This configuration is usually the default.
 
-4. Don't create swap space on the OS disk.
+1. Don't create swap space on the OS disk.
   
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. The local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (step 2 above), modify the following parameters in /etc/waagent.conf as needed.
     ```  
@@ -184,15 +184,15 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
     ```
-* Run the following commands to deprovision the virtual machine.
+1. Run the following commands to deprovision the virtual machine.
   
-    ```
-    sudo waagent -force -deprovision
-    export HISTSIZE=0
-    logout
-    ```  
-  > [!NOTE]
-  > On Virtualbox you may see the following error after running `waagent -force -deprovision` that says `[Errno 5] Input/output error`. This error message is not critical and can be ignored.
+     ```
+     sudo waagent -force -deprovision
+     export HISTSIZE=0
+     logout
+     ```  
+   > [!NOTE]
+   > On Virtualbox you may see the following error after running `waagent -force -deprovision` that says `[Errno 5] Input/output error`. This error message is not critical and can be ignored.
 
 * Shut down the virtual machine and upload the VHD to Azure.
 

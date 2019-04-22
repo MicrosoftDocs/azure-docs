@@ -46,9 +46,9 @@ Partial dependency information is collected automatically by the [Application In
 
 ## Where to find dependency data
 * [Application Map](#application-map) visualizes dependencies between your app and neighboring components.
-* [Performance, browser, and failure blades](#performance-and-blades) show server dependency data.
+* [Performance, browser, and failure blades](#performance-and-failure-blades) show server dependency data.
 * [Browsers blade](#ajax-calls) shows AJAX calls from your users' browsers.
-* [Click through from slow or failed requests](#diagnose-slow-requests) to check their dependency calls.
+* Click through from slow or failed requests to check their dependency calls.
 * [Analytics](#analytics) can be used to query dependency data.
 
 ## Application Map
@@ -129,7 +129,7 @@ Click through to an occurrence of a failed request, and look at its associated e
 ![Click a request type, click the instance to get to a different view of the same instance, click it to get exception details.](./media/asp-net-dependencies/07-faildetail.png)
 
 ## Analytics
-You can track dependencies in the [Log Analytics query language](https://aka.ms/LogAnalyticsLanguage). Here are some examples.
+You can track dependencies in the [Kusto query language](/azure/kusto/query/). Here are some examples.
 
 * Find any failed dependency calls:
 

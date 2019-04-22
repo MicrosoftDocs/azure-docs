@@ -22,13 +22,13 @@ Azure Media Player is a web video player built to play back media content from M
 
 Microsoft Azure Media Services allows for content to be served up with HLS, DASH, Smooth Streaming streaming formats to play back content. Azure Media Player takes into account these various formats and automatically plays the best link based on the platform/browser capabilities. Media Services also allows for dynamic encryption of assets with PlayReady encryption or AES-128 bit envelope encryption. Azure Media Player allows for decryption of PlayReady and AES-128 bit encrypted content when appropriately configured. 
 
-[Start your free trial](http://azure.microsoft.com/en-us/pricing/free-trial/)
+[Start your free trial](https://azure.microsoft.com/en-us/pricing/free-trial/)
 
 ## Use Azure Media Player demo page
 
 ### Start using
 
-You can use the [Azure Media Player demo page](http://aka.ms/amp) to play Azure Media Services samples or your own stream.  
+You can use the [Azure Media Player demo page](https://aka.ms/amp) to play Azure Media Services samples or your own stream.  
 
 To play a new video, paste a different URL and press **Update**.
 
@@ -38,7 +38,7 @@ To configure various playback options (for example, tech, language, or encryptio
 
 ### Monitor diagnostics of a video stream
 
-You can use the [Azure Media Player demo page](http://aka.ms/amp) to monitor diagnostics of a video stream. 
+You can use the [Azure Media Player demo page](https://aka.ms/amp) to monitor diagnostics of a video stream. 
 
 ![Azure Media Player diagnostics](./media/azure-media-player/diagnostics.png)
 

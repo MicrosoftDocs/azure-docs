@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 02/21/2019
 ms.author: tomfitz
 ---
 
@@ -32,7 +32,7 @@ When you apply a lock at a parent scope, all resources within that scope inherit
 
 Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md).
 
-Resource Manager locks apply only to operations that happen in the management plane, which consists of operations sent to `https://management.azure.com`. The locks do not restrict how resources perform their own functions. Resource changes are restricted, but resource operations are not restricted. For example, a ReadOnly lock on a SQL Database prevents you from deleting or modifying the database, but it does not prevent you from creating, updating, or deleting data in the database. Data transactions are permitted because those operations are not sent to `https://management.azure.com`.
+Resource Manager locks apply only to operations that happen in the management plane, which consists of operations sent to `https://management.azure.com`. The locks don't restrict how resources perform their own functions. Resource changes are restricted, but resource operations aren't restricted. For example, a ReadOnly lock on a SQL Database prevents you from deleting or modifying the database, but it doesn't prevent you from creating, updating, or deleting data in the database. Data transactions are permitted because those operations aren't sent to `https://management.azure.com`.
 
 Applying **ReadOnly** can lead to unexpected results because some operations that seem like read operations actually require additional actions. For example, placing a **ReadOnly** lock on a storage account prevents all users from listing the keys. The list keys operation is handled through a POST request because the returned keys are available for write operations. For another example, placing a **ReadOnly** lock on an App Service resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
 
@@ -43,6 +43,19 @@ To create or delete management locks, you must have access to `Microsoft.Authori
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## Template
+
+When using a Resource Manager template to deploy a lock, you use different values for the name and type depending on the scope of the lock.
+
+When applying a lock to a **resource**, use the following formats:
+
+* name - `{resourceName}/Microsoft.Authorization/{lockName}`
+* type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+
+When applying a lock to a **resource group** or **subscription**, use the following formats:
+
+* name - `{lockName}`
+* type - `Microsoft.Authorization/locks`
+
 The following example shows a template that creates an app service plan, a web site, and a lock on the web site. The resource type of the lock is the resource type of the resource to lock and **/providers/locks**. The name of the lock is created by concatenating the resource name with **/Microsoft.Authorization/** and the name of the lock.
 
 ```json
@@ -100,19 +113,7 @@ The following example shows a template that creates an app service plan, a web s
 }
 ```
 
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name sitegroup -Location southcentralus
-New-AzResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
-```
-
-To deploy this example template with Azure CLI, use:
-
-```azurecli
-az group create --name sitegroup --location southcentralus
-az group deployment create --resource-group sitegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json --parameters hostingPlanName=plan0103
-```
+For an example of setting a lock on a resource group, see [Create a resource group and lock it](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
 
 ## PowerShell
 You lock deployed resources with Azure PowerShell by using the [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) command.
@@ -202,7 +203,7 @@ To create a lock, run:
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-The scope could be a subscription, resource group, or resource. The lock-name is whatever you want to call the lock. For api-version, use **2015-01-01**.
+The scope could be a subscription, resource group, or resource. The lock-name is whatever you want to call the lock. For api-version, use **2016-09-01**.
 
 In the request, include a JSON object that specifies the properties for the lock.
 
@@ -215,7 +216,6 @@ In the request, include a JSON object that specifies the properties for the lock
 
 ## Next steps
 * To learn about logically organizing your resources, see [Using tags to organize your resources](resource-group-using-tags.md)
-* To change which resource group a resource resides in, see [Move resources to new resource group](resource-group-move-resources.md)
-* You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md).
+* You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../governance/policy/overview.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

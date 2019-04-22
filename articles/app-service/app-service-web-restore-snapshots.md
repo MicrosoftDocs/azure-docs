@@ -35,6 +35,7 @@ up your app, see [Scale up an app in Azure](web-sites-scale.md).
 - App Service stops the target app or target slot while doing the restore.
 - App Service keeps three months worth of snapshots for platform data recovery purposes.
 - You can only restore snapshots for the last 30 days.
+- App Services running on an App Service Environment do not support snapshots.
  
 
 ## Restore an app from a snapshot

@@ -53,11 +53,11 @@ The gateway is required even if the Oracle is hosted in an Azure infrastructure 
 This Oracle connector support two versions of drivers:
 
 - **Microsoft driver for Oracle (recommended)**: Beginning in Data Management Gateway version 2.7, a Microsoft driver for Oracle is automatically installed with the gateway. You don't need to install or update the driver to establish connectivity to Oracle. You can also experience better copy performance by using this driver. These versions of Oracle databases are supported:
-    - Oracle 12c R1 (12.1)
-    - Oracle 11g R1, R2 (11.1, 11.2)
-    - Oracle 10g R1, R2 (10.1, 10.2)
-    - Oracle 9i R1, R2 (9.0.1, 9.2)
-    - Oracle 8i R3 (8.1.7)
+  - Oracle 12c R1 (12.1)
+  - Oracle 11g R1, R2 (11.1, 11.2)
+  - Oracle 10g R1, R2 (10.1, 10.2)
+  - Oracle 9i R1, R2 (9.0.1, 9.2)
+  - Oracle 8i R3 (8.1.7)
 
     > [!NOTE]
     > Oracle proxy server isn't supported.
@@ -66,7 +66,7 @@ This Oracle connector support two versions of drivers:
     > Currently, the Microsoft driver for Oracle supports only copying data from Oracle. The driver doesn't support writing to Oracle. The test connection capability on the Data Management Gateway **Diagnostics** tab doesn't support this driver. Alternatively, you can use the Copy wizard to validate connectivity.
     >
 
-- **Oracle Data Provider for .NET**: You can use Oracle Data Provider to copy data from or to Oracle. This component is included in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the relevant version (32-bit or 64-bit) on the machine where the gateway is installed. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access Oracle Database 10g Release 2 and later versions.
+- **Oracle Data Provider for .NET**: You can use Oracle Data Provider to copy data from or to Oracle. This component is included in [Oracle Data Access Components for Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the relevant version (32-bit or 64-bit) on the machine where the gateway is installed. [Oracle Data Provider .NET 12.1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access Oracle Database 10g Release 2 and later versions.
 
 	If you select **XCopy Installation**, complete the steps that are described in the readme.htm file. We recommend selecting the installer that has the UI (not the XCopy installer).
 
@@ -89,7 +89,7 @@ Whether you use the tools or APIs, complete the following steps to create a pipe
 3. Create **datasets** to represent input and output data for the copy operation. In the example in the preceding step, you create a dataset to specify the table in your Oracle database that contains the input data. You create another dataset to specify the blob container and the folder that holds the data copied from the Oracle database. For dataset properties that are specific to Oracle, see [Dataset properties](#dataset-properties).
 4. Create a **pipeline** that has a copy activity that takes a dataset as an input and a dataset as an output. In the preceding example, you use **OracleSource** as a source and **BlobSink** as a sink for the copy activity. Similarly, if you are copying from Azure Blob storage to an Oracle database, you use **BlobSource** and **OracleSink** in the copy activity. For Copy Activity properties that are specific to an Oracle database, see [Copy Activity properties](#copy-activity-properties). For details about how to use a data store as a source or sink, select the link for your data store in the preceding section.
 
-When you use the wizard, JSON definitions for these Data Factory entities are automatically created for you: linked services, datasets, and the pipeline. When you use tools or APIs (except for the .NET API), you define these Data Factory entities by using the JSON format. For samples that have JSON definitions for Data Factory entities that you use to copy data to or from an on-premises Oracle database, see [JSON examples](#json-examples-for-copying-data-to-and-from-oracle-database).
+When you use the wizard, JSON definitions for these Data Factory entities are automatically created for you: linked services, datasets, and the pipeline. When you use tools or APIs (except for the .NET API), you define these Data Factory entities by using the JSON format. For samples that have JSON definitions for Data Factory entities that you use to copy data to or from an on-premises Oracle database, see JSON examples.
 
 The following sections provide details about JSON properties that you use to define Data Factory entities.
 
@@ -180,7 +180,7 @@ In Copy Activity, when the source is the **OracleSource** type, the following pr
 | writeBatchTimeout |The wait time for the batch insert operation to complete before it times out. |**timespan**<br/><br/> Example: 00:30:00 (30 minutes) |No |
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches the value of **writeBatchSize**. |Integer (number of rows) |No (default: 100) |
 | sqlWriterCleanupScript |Specifies a query for Copy Activity to execute so that the data of a specific slice is cleaned up. |A query statement. |No |
-| sliceIdentifierColumnName |Specifies the column name for Copy Activity to fill with an autogenerated slice identifier.  The value for **sliceIdentifierColumnName** is used to clean up data of a specific slice when rerun. |The column name of a column that has data type of **binary(32)**. |No |
+| sliceIdentifierColumnName |Specifies the column name for Copy Activity to fill with an autogenerated slice identifier. The value for **sliceIdentifierColumnName** is used to clean up data of a specific slice when rerun. |The column name of a column that has data type of **binary(32)**. |No |
 
 ## JSON examples for copying data to and from the Oracle database
 
@@ -554,7 +554,7 @@ The pipeline contains a copy activity that's configured to use the input and out
 
 **Error message**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
 
 **Possible causes**
 
@@ -563,10 +563,10 @@ The pipeline contains a copy activity that's configured to use the input and out
 
 **Resolution**
 
-* If you haven't installed the .NET Provider for Oracle, [install it](http://www.oracle.com/technetwork/topics/dotnet/downloads/), and then retry the scenario.
+* If you haven't installed the .NET Provider for Oracle, [install it](https://www.oracle.com/technetwork/topics/dotnet/downloads/), and then retry the scenario.
 * If you see the error message even after you install the provider, complete the following steps:
-   1. Open the machine config file for .NET 2.0 from the folder <system disk\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-   2. Search for **Oracle Data Provider for .NET**. You should be able to find an entry as shown in the following sample under **system.data** > **DbProviderFactories**:
+    1. Open the machine config file for .NET 2.0 from the folder <system disk\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
+    2. Search for **Oracle Data Provider for .NET**. You should be able to find an entry as shown in the following sample under **system.data** > **DbProviderFactories**:
         `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
 * Copy this entry to the machine.config file in the following .NET 4.0 folder: <system disk\>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Then, change the version to 4.xxx.x.x.
 * Install <ODP.NET Installed Path\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll in the global assembly cache (GAC) by running **gacutil /i [provider path]**.

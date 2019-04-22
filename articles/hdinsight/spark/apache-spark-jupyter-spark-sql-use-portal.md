@@ -46,16 +46,16 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
     Select **Next** to continue to the **Storage** page.
 3. Under **Storage**, provide the following values:
 
-    - **Select a Storage account**: select **Create new**, and then give a name to the new storage account. The storage account name used for this quickstart is **myspark20180403store**.
+   - **Select a Storage account**: select **Create new**, and then give a name to the new storage account. The storage account name used for this quickstart is **myspark20180403store**.
 
-    ![Create HDInsight Spark cluster storage configurations](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "Create Spark cluster in HDInsight the storage configurations")
+     ![Create HDInsight Spark cluster storage configurations](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "Create Spark cluster in HDInsight the storage configurations")
 
-    > [!NOTE]  
-    > On the screenshot, it shows **Select existing**. The link toggles between **Create new** and **Select existing**.
+     > [!NOTE]  
+     > On the screenshot, it shows **Select existing**. The link toggles between **Create new** and **Select existing**.
 
-    The **Default container** has a default name.  You can change the name if you want.
+     The **Default container** has a default name.  You can change the name if you want.
 
-    Select **Next** to continue to the **Summary** page. 
+     Select **Next** to continue to the **Summary** page. 
 
 
 3. On **Summary**, select **Create**. It takes about 20 minutes to create the cluster. The cluster must be created before you can proceed to the next session.

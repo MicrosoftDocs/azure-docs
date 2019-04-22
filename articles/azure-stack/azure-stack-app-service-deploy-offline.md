@@ -3,8 +3,8 @@ title: 'Deploy App Service in an offline environment in Azure Stack | Microsoft 
 description: Detailed guidance on how to deploy App Service in a disconnected Azure Stack environment secured by AD FS.
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: jeffgilb
+manager: femila
 editor:
 
 ms.assetid:
@@ -13,8 +13,9 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/27/2019
 ms.author: anwestg
+ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
 
 ---
@@ -23,16 +24,16 @@ ms.lastreviewed: 01/11/2019
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Apply the 1809 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.4.
+> Apply the 1901 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.5.
 
 By following the instructions in this article, you can install the [App Service resource provider](azure-stack-app-service-overview.md) to an Azure Stack environment that is:
 
 - not connected to the Internet
 - secured by Active Directory Federation Services (AD FS).
 
- > [!IMPORTANT]
- > Before deploying the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
- 
+> [!IMPORTANT]  
+> Before you run the resource provider installer, make sure that you've followed the guidance in [Before you get started](azure-stack-app-service-before-you-get-started.md) and have read the [release notes](azure-stack-app-service-release-notes-update-five.md) which accompany the 1.5 release learn about new functionality, fixes, and any known issues that could affect your deployment.
+
 To add the App Service resource provider to your offline Azure Stack deployment, you must complete these top-level tasks:
 
 1. Complete the [prerequisite steps](azure-stack-app-service-before-you-get-started.md) (like purchasing certificates, which can take a few days to receive).
@@ -77,30 +78,30 @@ To deploy App Service in a disconnected environment, you must first create an of
     ![App Service Installer][3]
 
 7. On the next page:
-    1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
-        - Provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and click **Sign In**.
-    2. In the **Azure Stack Subscriptions** box, select the **Default Provider Subscription**.
+   1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
+      - Provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and click **Sign In**.
+   2. In the **Azure Stack Subscriptions** box, select the **Default Provider Subscription**.
     
-    > [!NOTE]
-    > App Service can only be deployed into the **Default Provider Subscription**.
-    >
+      > [!NOTE]
+      > App Service can only be deployed into the **Default Provider Subscription**.
+      >
     
-    3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
-    4. Click **Next**.
+   3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
+   4. Click **Next**.
 
-    ![App Service Installer][4]
+      ![App Service Installer][4]
 
 8. You now have the option to deploy into an existing Virtual Network as configured through the steps [here](azure-stack-app-service-before-you-get-started.md#virtual-network), or allow the App Service installer to create a Virtual Network and associated Subnets.
-    1. Select **Create VNet with default settings**, accept the defaults, and then click **Next**, or;
-    2. Select **Use existing VNet and Subnets**.
-        1. Select the **Resource Group** that contains your Virtual Network;
-        2. Choose the correct **Virtual Network** name you wish to deploy into;
-        3. Select the correct **Subnet** values for each of the required role subnets;
-        4. Click **Next**
+   1. Select **Create VNet with default settings**, accept the defaults, and then click **Next**, or;
+   2. Select **Use existing VNet and Subnets**.
+       1. Select the **Resource Group** that contains your Virtual Network;
+       2. Choose the correct **Virtual Network** name you wish to deploy into;
+       3. Select the correct **Subnet** values for each of the required role subnets;
+       4. Click **Next**
 
-    ![App Service Installer][5]
+      ![App Service Installer][5]
 
-9. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name, or IP Address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites
+9. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name, or IP Address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.  If you are using a file server which is domain joined, you must provide the full username including domain, for example, myfileserverdomain\FileShareOwner.
 
     > [!NOTE]
     > The installer attempts to test connectivity to the fileshare before proceeding.  However, if you chose to deploy in an existing   Virtual Network, the installer might not be able to connect to the fileshare and displays a warning, asking whether you want to continue.  Verify the fileshare information and continue if they are correct.
@@ -147,7 +148,7 @@ To deploy App Service in a disconnected environment, you must first create an of
     > ```
     > Refer to the [release notes for Azure App Service on Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) for more details.
    
-   ![App Service Installer][12]
+    ![App Service Installer][12]
 
 13. Review the role instance and SKU options. The defaults are populated with the minimum number of instances and the minimum SKU for each role in an ASDK Deployment. A summary of vCPU and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
 
@@ -167,7 +168,7 @@ To deploy App Service in a disconnected environment, you must first create an of
     ![App Service Installer][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core is not a supported platform image for use with Azure App Service on Azure Stack.  Do not use evaluation images for production deployments.  Azure App Service on Azure Stack requires that Microsoft.Net 3.5.1 SP1 is activated on the image used for deployment.   Marketplace syndicated Windows Server 2016 images do not have this feature enabled, therefore you must create and use a Windows Server 2016 image with this pre-enabled.**
+    > **Windows Server 2016 Core is not a supported platform image for use with Azure App Service on Azure Stack.  Do not use evaluation images for production deployments.  Azure App Service on Azure Stack requires that Microsoft.NET 3.5.1 SP1 is activated on the image used for deployment.   Marketplace syndicated Windows Server 2016 images do not have this feature enabled, therefore you must create and use a Windows Server 2016 image with this pre-enabled.**
 
 14. In the **Select Platform Image** box, choose your deployment Windows Server 2016 virtual machine image from those available in the compute resource provider for the App Service cloud. Click **Next**.
 
@@ -191,6 +192,11 @@ To deploy App Service in a disconnected environment, you must first create an of
 
     ![App Service Installer][18]
 
+## Post-deployment Steps
+
+> [!IMPORTANT]  
+> If you have provided the App Service RP with a SQL Always On Instance you MUST [add the appservice_hosting and appservice_metering databases to an availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) and synchronize the databases to prevent any loss of service in the event of a database failover.
+
 ## Validate the App Service on Azure Stack installation
 
 1. In the Azure Stack admin portal, go to **Administration - App Service**.
@@ -200,11 +206,11 @@ To deploy App Service in a disconnected environment, you must first create an of
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
 
 > [!NOTE]
-> If you chose to deploy into an existing virtual network and a internal IP address to connect to your fileserver, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+> If you chose to deploy into an existing virtual network and an internal IP address to connect to your file server, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the file server.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
 > * Source: Any
 > * Source port range: *
 > * Destination: IP Addresses
-> * Destination IP address range: Range of IPs for your fileserver
+> * Destination IP address range: Range of IPs for your file server
 > * Destination port range: 445
 > * Protocol: TCP
 > * Action: Allow
@@ -243,7 +249,7 @@ After you deploy and register the App Service resource provider, test it to make
 
 1. In the Azure Stack tenant portal, click **+**, go to the Azure Marketplace, deploy a Django website, and wait for successful completion. The Django web platform uses a file system-based database. It doesn’t require any additional resource providers, such as SQL or MySQL.
 
-2. If you also deployed a MySQL resource provider, you can deploy a WordPress website from the Marketplace. When you're prompted for database parameters, enter the user name as *User1@Server1*, with the user name and server name of your choice.
+2. If you also deployed a MySQL resource provider, you can deploy a WordPress website from the Marketplace. When you're prompted for database parameters, enter the user name as *User1\@Server1*, with the user name and server name of your choice.
 
 3. If you also deployed a SQL Server resource provider, you can deploy a DNN website from the Marketplace. When you're prompted for database parameters, choose a database in the computer running SQL Server that's connected to your resource provider.
 

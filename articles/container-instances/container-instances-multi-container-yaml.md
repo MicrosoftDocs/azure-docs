@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ---
 
@@ -30,17 +30,17 @@ To deploy a multi-container container group with the [az container create][az-co
 
 Start by copying the following YAML into a new file named **deploy-aci.yaml**.
 
-This YAML file defines a container group named "myContainerGroup" with two containers, a public IP address, and two exposed ports. The first container in the group runs an internet-facing web application. The second container, the sidecar, periodically makes HTTP requests to the web application running in the first container via the container group's local network.
+This YAML file defines a container group named "myContainerGroup" with two containers, a public IP address, and two exposed ports. The containers are deployed from public Microsoft images. The first container in the group runs an internet-facing web application. The second container, the sidecar, periodically makes HTTP requests to the web application running in the first container via the container group's local network.
 
 ```YAML
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: myContainerGroup
 properties:
   containers:
   - name: aci-tutorial-app
     properties:
-      image: microsoft/aci-helloworld:latest
+      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
       resources:
         requests:
           cpu: 1
@@ -50,7 +50,7 @@ properties:
       - port: 8080
   - name: aci-tutorial-sidecar
     properties:
-      image: microsoft/aci-tutorial-sidecar
+      image: mcr.microsoft.com/azuredocs/aci-tutorial-sidecar
       resources:
         requests:
           cpu: 1
@@ -94,9 +94,9 @@ az container show --resource-group myResourceGroup --name myContainerGroup --out
 If you'd like to view the running application, navigate to its IP address in your browser. For example, the IP is `52.168.26.124` in this example output:
 
 ```bash
-Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location
-----------------  ---------------  -------------------  --------------------------------------------------------------  ---------------------  ---------------  --------  ----------
-myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-helloworld:latest,microsoft/aci-tutorial-sidecar  52.168.26.124:80,8080  1.0 core/1.5 gb  Linux     eastus
+Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  --------------------------------------------------------------------------------------------------  --------------------  ---------  ---------------  --------  ----------
+myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
 ## View logs
@@ -111,9 +111,9 @@ Output:
 
 ```console
 listening on port 80
-::1 - - [09/Jan/2018:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [09/Jan/2018:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [09/Jan/2018:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [21/Mar/2019:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [21/Mar/2019:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 To see the logs for the side-car container, run the same command specifying the second container name.
@@ -125,7 +125,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 Output:
 
 ```console
-Every 3s: curl -I http://localhost                          2018-01-09 23:25:11
+Every 3s: curl -I http://localhost                          2019-03-21 20:36:41
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -138,7 +138,7 @@ Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
 ETag: W/"67f-16006818640"
 Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Date: Tue, 09 Jan 2018 23:25:11 GMT
+Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
@@ -158,7 +158,7 @@ To use a private container image registry, include the following YAML with value
 For example, the following YAML deploys a container group with a single container whose image is pulled from a private Azure Container Registry named "myregistry":
 
 ```YAML
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: myContainerGroup2
 properties:
@@ -211,7 +211,7 @@ properties:
   - name: aci-tutorial-app
     properties:
       environmentVariables: []
-      image: microsoft/aci-helloworld:latest
+      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
 ```
 
 ## Next steps

@@ -12,10 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/21/2019
 ms.author: patricka
 ms.reviewer: unknown
-ms.lastreviewed: 10/15/2018
+ms.lastreviewed: 02/21/2019
 
 ---
 # Add Azure Stack users in AD FS
@@ -25,12 +25,13 @@ You can use the **Active Directory Users and Computers** snap-in to add addition
 > [!TIP]
 > This example uses the default azurestack.local ASDK active directory. 
 
-1.	Log into a computer with an account providing access to the Windows Administrative Tools and open a new Microsoft Management Console (MMC).
-2.	Click **File > Add or remove snap-in**.
-3.	Select **Active Directory Users and Computers** > **AzureStack.local** > **Users**.
-4.	Click **Action** > **New** > **User**.
-5.	In the New Object – User window, provide and confirm a password
-6.	Click **Next** to finalize the values and click Finish to create the user.
+1. Log into a computer with an account providing access to the Windows Administrative Tools and open a new Microsoft Management Console (MMC).
+2. Select **File > Add or remove snap-in**.
+3. Select **Active Directory Users and Computers** > **AzureStack.local** > **Users**.
+4. Select **Action** > **New** > **User**.
+5. In New Object – User, provide user information details. Select **Next**.
+6. Provide and confirm a password.
+7. Select **Next** to finalize the values. Select **Finish** to create the user.
 
 
 ## Next steps

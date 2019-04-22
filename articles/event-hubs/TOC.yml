@@ -23,7 +23,7 @@
       href: event-hubs-resource-manager-namespace-event-hub.md
   - name: Send events to event hub 
     items:
-    - name: .NET Standard
+    - name: .NET Core
       href: event-hubs-dotnet-standard-getstarted-send.md
     - name: .NET Framework
       href: event-hubs-dotnet-framework-getstarted-send.md
@@ -39,7 +39,7 @@
       href: event-hubs-node-get-started-send.md
   - name: Receive events from event hub
     items:
-    - name: .NET Standard
+    - name: .NET Core
       href: event-hubs-dotnet-standard-getstarted-receive-eph.md
     - name: .NET Framework
       href: event-hubs-dotnet-framework-getstarted-receive-eph.md
@@ -195,6 +195,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=event-hubs
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-eventhub
+    href: https://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs

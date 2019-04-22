@@ -15,6 +15,7 @@ ms.topic: conceptual
 ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # User sign-in with Azure Active Directory Pass-through Authentication

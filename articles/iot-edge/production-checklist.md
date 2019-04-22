@@ -181,7 +181,7 @@ If your devices are going to be deployed on a network that uses a proxy server, 
 
 ### Set up logs and diagnostics
 
-On Linux, the IoT Edge daemon uses journald as the default logging driver. You can use the command-line tool `journalctl` to query the daemon logs. On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-WinEvent` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the Docker default.  
+On Linux, the IoT Edge daemon uses journals as the default logging driver. You can use the command-line tool `journalctl` to query the daemon logs. On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-WinEvent` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the Docker default.  
 
 When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. Consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own. 
 
@@ -189,7 +189,7 @@ If you're worried about logs becoming too large on a resource constrained device
 
 * You can specifically limit the size of all docker logfiles in the Docker daemon itself. For Linux, configure the daemon at `/etc/docker/daemon.json`. For Windows, `C:\ProgramData\docker\confige\daemon.json`. 
 * If you want to adjust the logfile size for each container, you can do so in the CreateOptions of each module. 
-* Configure Docker to automatically manage logs by setting journald as the default logging driver for Docker. 
+* Configure Docker to automatically manage logs by setting journals as the default logging driver for Docker. 
 * Periodically remove old logs from your device by installing a logrotate tool for Docker. Use the following file specification: 
 
    ```

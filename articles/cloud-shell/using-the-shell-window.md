@@ -3,7 +3,7 @@ title: Using the Azure Cloud Shell window | Microsoft Docs
 description: Overview of how to use the Azure Cloud Shell window.
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
  
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
-ms.author: juluk
+ms.author: damaerte
 ---
 
 # Using the Azure Cloud Shell window

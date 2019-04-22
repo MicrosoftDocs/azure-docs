@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 02/11/2019
 ms.author: mabrigg
-ms.reviewer: wfayed
-ms.lastreviewed: 01/18/2019
+ms.reviewer: justini
+ms.lastreviewed: 02/11/2019
 
 ---
 
@@ -22,7 +22,43 @@ ms.lastreviewed: 01/18/2019
 
 *Applies to: Azure Stack integrated systems*
 
-You can use the **Update** tile in the administration portal to apply Microsoft or OEM update packages for Azure Stack. You must download the update package, import the package files to Azure Stack, and then install the update package.
+You can use the **Update** tile in the administration portal to apply Microsoft or OEM update packages for Azure Stack.
+
+If you are using an integrated systems version 1807 or earlier, you must download the update package, import the package files to Azure Stack, and then install the update package. For instructions, see [Update Azure Stack by downloading the package](#update-azure-stack-by-downloading-the-package)
+
+These upgrade instructions work with Azure Stack integrated systems. If you are using the Azure Stack Development System, you must download the installation package for the current version. For instructions, see [Install the Azure Stack Development Kit](./asdk/asdk-install.md)
+
+## Update Azure Stack
+
+### Select and apply an update package
+
+1. Open the Administration portal.
+
+2. Select **Dashboard**. Select the **Update** tile.
+
+    ![Azure Stack update available](media/azure-stack-apply-updates/azure-stack-updates-1901-dashboard.png)
+
+3. Make note of the current version of your Azure Stack. You can update to the next full version. For example if you running Azure Stack 1811, the next released version is 1901.
+
+    ![Azure Stack update apply](media/azure-stack-apply-updates/azure-stack-updates-1901-updateavailable.png)
+
+4. Select the next available version in the Updates list. You can select **View** in the release notes column to open the release notes topic for the version if would like to review the version changes.
+
+5. Select update now. The update will start.
+
+### Review update history
+
+1. Open the Administration portal.
+
+2. Select **Dashboard**. Select the **Update** tile.
+
+3. Select **Update history**.
+
+![Azure Stack update history](media/azure-stack-apply-updates/azure-stack-update-history.PNG)
+
+## Update Azure Stack by downloading the package
+
+If you are using an integrated systems version 1807 or earlier, you must download the update package, import the package files to Azure Stack, and then install the update package.
 
 ## Download the update package
 
@@ -33,6 +69,9 @@ When a Microsoft or OEM update package for Azure Stack is available, download th
 - Corresponding `<PackageName>.bin` files. These files provide compression for the payload that's associated with the *PackageName*.exe file.
 
 - A `Metadata.xml` file. This file contains essential information about the update, for example the publisher, name, prerequisite, size, and support path URL.
+
+> [!IMPORTANT]  
+> After the Azure Stack 1901 update package is applied, the packaging format for Azure Stack update pacakges will move from .exe, .bin(s), and .xml format to a .zip(s) and .xml format. Azure Stack operators that have connected stamps won't be impacted. Azure Stack operators that are disconnected will simply import the .xml and .zip file(s) by using the same process described below.
 
 ## Import and install updates
 

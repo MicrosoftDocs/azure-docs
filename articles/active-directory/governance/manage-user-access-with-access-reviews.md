@@ -1,6 +1,6 @@
 ---
-title: Manage user access with Azure AD access reviews| Microsoft Docs
-description: Learn how to manage users' access as membership of a group or assignment to an application with Azure Active Directory access reviews
+title: Manage user access with Azure AD Access Reviews| Microsoft Docs
+description: Learn how to manage users' access as membership of a group or assignment to an application with Azure Active Directory Access Reviews
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,9 +15,10 @@ ms.subservice: compliance
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
+ms.collection: M365-identity-device-management
 ---
 
-# Manage user access with Azure AD access reviews
+# Manage user access with Azure AD Access Reviews
 
 With Azure Active Directory (Azure AD), you can easily ensure that users have appropriate access. You can ask the users themselves or a decision maker to participate in an access review and recertify (or attest) to users' access. The reviewers can give their input on each user's need for continued access based on suggestions from Azure AD. When an access review is finished, you can then make changes and remove access from users who no longer need it.
 
@@ -39,20 +40,20 @@ You can have one or more users as reviewers in an access review.
 
 2. Decide whether to have each user review their own access or to have one or more users review everyone's access.
 
-3. As a global administrator or user account administrator, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. As a global administrator or user administrator, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-4. Create the access review. For more information, see [Create an access review](create-access-review.md).
+4. Create the access review. For more information, see [Create an access review of groups or applications](create-access-review.md).
 
-5. When the access review starts, ask the reviewers to give input. By default, they each receive an email from Azure AD with a link to the access panel, where they [perform their access review](perform-access-review.md).
+5. When the access review starts, ask the reviewers to give input. By default, they each receive an email from Azure AD with a link to the access panel, where they [review access to groups or applications](perform-access-review.md).
 
 6. If the reviewers haven't given input, you can ask Azure AD to send them a reminder. By default, Azure AD automatically sends a reminder halfway to the end date to reviewers who haven't yet responded.
 
-7. After the reviewers give input, stop the access review and apply the changes. For more information, see [Complete an access review](complete-access-review.md).
+7. After the reviewers give input, stop the access review and apply the changes. For more information, see [Complete an access review of groups or applications](complete-access-review.md).
 
 
 ## Next steps
 
-[Create an access review for members of a group or access to an application](create-access-review.md)
+[Create an access review of groups or applications](create-access-review.md)
 
 
 

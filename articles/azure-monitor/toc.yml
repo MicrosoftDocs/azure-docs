@@ -4,7 +4,7 @@
   items:
   - name: What is Azure Monitor?
     href: overview.md
-  - name: Branding changes
+  - name: Terminology changes
     href: azure-monitor-rebrand.md
 - name: Quickstarts
   expanded: true
@@ -33,9 +33,9 @@
       href: learn/quick-collect-windows-computer.md
 - name: Tutorials
   items:
-  - name: Analyze data in Log Analytics
+  - name: Analyze data in log analytics
     href: learn/tutorial-viewdata.md
-  - name: Visualize data in Log Analytics
+  - name: Visualize data in log analytics
     href: learn/tutorial-logs-dashboards.md
   - name: Archive platform metric and log data 
     href: learn/tutorial-archive-data.md
@@ -60,9 +60,15 @@
 - name: Concepts
   items:
   - name: Azure management
-    href: azure-management.md?toc=/azure/azure-monitor/toc.json
+    href: azure-management.md
   - name: Continuous monitoring
     href: continuous-monitoring.md
+  - name: Analyze log data
+    items: 
+    - name: Log queries
+      href: log-query/log-query-overview.md
+    - name: Log query portals
+      href: log-query/portals.md
   - name: Monitoring data
     items: 
     - name: Metrics and logs
@@ -105,18 +111,6 @@
       href: insights/vminsights-overview.md
     - name: Monitoring solutions
       href: insights/solutions-inventory.md
-  - name: Analyze data
-    items: 
-    - name: Log Analytics
-      href: log-query/log-query-overview.md
-    - name: Log query portals
-      href: log-query/portals.md
-    - name: OMS portal transition
-      items:
-        - name: Overview
-          href: platform/oms-portal-transition.md
-        - name: Common questions
-          href: platform/oms-portal-faq.md
   - name: Respond to incidents
     items:
     - name: Alerts 
@@ -134,9 +128,15 @@
     - name: Activity log alerts
       href: platform/activity-log-alerts.md  
   - name: Visualize data
-    href: visualizations.md?toc=/azure/azure-monitor/toc.json
+    href: visualizations.md
   - name: Partner integrations
     href: platform/partners.md
+  - name: OMS portal transition
+    items:
+    - name: Overview
+      href: platform/oms-portal-transition.md
+    - name: Common questions
+      href: platform/oms-portal-faq.md
   - name: FAQ
     items:
     - name: Log Analytics
@@ -179,6 +179,8 @@
           href: learn/quick-create-workspace-posh.md
       - name: Delete a workspace
         href: platform/delete-workspace.md
+      - name: Manage a workspace
+        href: platform/manage-access.md
       - name: Design for service providers
         href: platform/service-providers.md
   - name: Collect data
@@ -194,12 +196,12 @@
         - name: Windows agents
           href: platform/agent-windows.md
         - name: VM Extension for Windows
-          href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machines/windows/extensions-oms.md
         - name: VM Extension for Linux
-          href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machines/linux/extensions-oms.md
         - name: Operations Manager
           href: platform/om-agents.md
-        - name: OMS Gateway
+        - name: Log Analytics gateway
           href: platform/gateway.md
         - name: Agent management
           href: platform/agent-manage.md
@@ -279,14 +281,26 @@
             href: app/profiler-servicefabric.md 
           - name: Enable Profiler for an Azure VM
             href: app/profiler-vm.md
+          - name: Profiler for Linux App services (preview)
+            href: app/profiler-aspnetcore-linux.md
           - name: Profiler Settings
             href: app/profiler-settings.md 
           - name: Track Requests for Profiling
             href: app/profiler-trackrequests.md 
           - name: Profiler Troubleshooting
             href: app/profiler-troubleshooting.md 
+        - name: Snapshot Debugger
+          items:
+          - name: Overview
+            href: app/snapshot-debugger.md 
+          - name: Enable Snapshot Debugger for an App Service
+            href: app/snapshot-debugger-appservice.md
+          - name: Enable Snapshot Debugger for other environments
+            href: app/snapshot-debugger-vm.md
+          - name: Snapshot Debugger troubleshooting
+            href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnostics
-          href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: ../application-insights/app-insights-azure-diagnostics.md
         - name: Previews
           href: app/previews.md
       - name: ASP.NET apps
@@ -302,7 +316,7 @@
         - name: ASP.NET Core
           href: app/asp-net-core.md
           items:
-          - name: Profiler for Linux App services
+          - name: Profiler for Linux App services (preview)
             href: app/profiler-aspnetcore-linux.md
         - name: Console
           href: app/console.md
@@ -314,6 +328,8 @@
           href: app/asp-net-exceptions.md
         - name: Log traces
           href: app/asp-net-trace-logs.md
+        - name: ILogger
+          href: app/ilogger.md
         - name: Performance counters
           href: app/performance-counters.md
         - name: Dependencies
@@ -322,8 +338,6 @@
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
-        - name: Snapshot Debugger
-          href: app/snapshot-debugger.md
       - name: Java apps
         items:
         - name: Web apps
@@ -353,7 +367,7 @@
         - name: JavaScript
           href: app/javascript.md
       - name: Monitor Azure Functions
-        href: ../azure-functions/functions-monitoring.md?toc=/azure/application-insights/toc.json 
+        href: ../azure-functions/functions-monitoring.md
       - name: Distributed tracing
         items:
         - name: Local forwarder
@@ -389,6 +403,8 @@
           href: app/proactive-cloud-services.md
         - name: Manage smart detection rules
           href: app/proactive-arm-config.md
+        - name: E-mail notification
+          href: app/proactive-email-notification.md
       - name: Create a resource
         href: app/create-new-resource.md 
       - name: Troubleshoot
@@ -396,7 +412,7 @@
         - name: No data for .NET
           href: app/asp-net-troubleshoot-no-data.md
         - name: Snapshot debugger
-          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
+          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
         - name: Analytics
           href: app/analytics-troubleshooting.md
         - name: Java
@@ -415,8 +431,6 @@
         href: platform/collect-azure-metrics-logs.md
       - name: Diagnostic or log data from Azure storage
         href: platform/azure-storage-iis-table.md
-      - name: Azure PaaS resources
-        href: platform/collect-azurepass-posh.md
       - name: Correlate custom data sources
         href: app/custom-data-correlation.md
     - name: Collect custom data 
@@ -443,10 +457,10 @@
         href: platform/archive-diagnostic-logs.md
       - name: Store diagnostic logs
         href: platform/diagnostic-logs-stream-log-store.md
+      - name: Azure resource data to Event Hub
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: Stream activity log to Event Hubs
         href: platform/activity-logs-stream-event-hubs.md
-      - name: Logs and metrics to Event Hub
-        href: platform/stream-monitoring-data-event-hubs.md
       - name: Diagnostic logs to Event Hub
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Application data to Log Analytics
@@ -518,6 +532,8 @@
         items:
         - name: Overview
           href: insights/container-insights-overview.md
+        - name: FAQ
+          href: insights/container-insights-faq.md
         - name: Onboard 
           href: insights/container-insights-onboard.md
         - name: Analyze 
@@ -526,6 +542,8 @@
           href: insights/container-insights-optout.md
         - name: View container live logs
           href: insights/container-insights-live-logs.md
+        - name: Alerting
+          href: insights/container-insights-alerts.md
         - name: Agent management
           href: insights/container-insights-manage-agent.md
         - name: Troubleshooting
@@ -603,7 +621,7 @@
       - name: Key Vault Analytics
         href: insights/azure-key-vault.md
       - name: Service Fabric Analytics
-        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md?toc=/azure/azure-monitor/toc.json
+        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
     - name: Monitor other resources
       items:
       - name: Assess AD Health
@@ -627,8 +645,9 @@
   - name: Visualize data
     items:
     - name: Views
-      href: platform/view-designer.md
       items:
+      - name: View Designer
+        href: platform/view-designer.md
       - name: Tile reference
         href: platform/view-designer-tiles.md
       - name: Visualization part reference
@@ -647,12 +666,14 @@
       href: platform/grafana-plugin.md
   - name: Analyze data
     items:
-    - name: Create metrics charts in Metrics Explorer
+    - name: Getting started with Metrics Explorer
+      href: platform/metrics-getting-started.md
+    - name: Advanced features of Metrics Explorer
       href: platform/metrics-charts.md
-    - name: Metric Explorer chart samples
+    - name: Examples of metrics charts
       href: platform/metric-chart-samples.md
     - name: View events in activity log
-      href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
+      href: ../azure-resource-manager/resource-group-audit.md
     - name: View service notifications
       href: platform/service-notifications.md
     - name: Query log data
@@ -818,7 +839,7 @@
       - name: Autoscale VM scale sets using Resource Manager templates
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Automatically scale machines in a VM scale set
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json?toc=/azure/azure-monitor/toc.json
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
       - name: Configure webhooks and email notifications on autoscale
         href: platform/autoscale-webhook-email.md
     - name: Service notifications

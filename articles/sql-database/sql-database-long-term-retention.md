@@ -11,14 +11,14 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/08/2019
 ---
 # Store Azure SQL Database backups for up to 10 years
 
 Many applications have regulatory, compliance, or other business purposes that require you to retain database backups beyond the 7-35 days provided by Azure SQL Database [automatic backups](sql-database-automated-backups.md). By using the long-term retention (LTR) feature, you can store specified SQL database full backups in [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob storage for up to 10 years. You can then restore any backup as a new database.
 
 > [!NOTE]
-> LTR can be enabled for standalone and pooled databases. It is not yet available for instance databases in Managed Instances. You can use SQL Agent jobs to schedule [copy-only database backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) as an alternative to LTR beyond 35 days.
+> LTR can be enabled for single and pooled databases. It is not yet available for instance databases in Managed Instances. You can use SQL Agent jobs to schedule [copy-only database backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) as an alternative to LTR beyond 35 days.
 > 
 
 ## How SQL Database long-term retention works
@@ -50,22 +50,20 @@ W=12 weeks (84 days), M=12 months (365 days), Y=10 years (3650 days), WeekOfYear
    ![ltr example](./media/sql-database-long-term-retention/ltr-example.png)
 
 
- 
+
 If you were to modify the above policy and set W=0 (no weekly backups), the cadence of backup copies would change as shown in the above table by the highlighted dates. The storage amount needed to keep these backups would reduce accordingly. 
 
 > [!NOTE]
-1. The LTR copies are created by Azure storage service so the copy process has no performance impact on the existing database.
-2. The policy applies to the future backups. E.g. if the specified WeekOfYear is in the past when the policy is configured, the first LTR backup will be created next year. 
-3. To restore a database from the LTR storage, you can select a specific backup based on its timestamp.   The database can be restored to any existing server under the same subscription as the original database. 
-> 
+> 1. The LTR copies are created by Azure storage service so the copy process has no performance impact on the existing database.
+> 2. The policy applies to the future backups. E.g. if the specified WeekOfYear is in the past when the policy is configured, the first LTR backup will be created next year. 
+> 3. To restore a database from the LTR storage, you can select a specific backup based on its timestamp.   The database can be restored to any existing server under the same subscription as the original database. 
 
 ## Geo-replication and long-term backup retention
 
 If you are using active geo-replication or failover groups as your business continuity solution you should prepare for eventual failovers and configure the same LTR policy on the geo-secondary database. This will not increase your LTR storage cost as backups are not generated from the secondaries. Only when the secondary becomes primary the backups will be created. This way you will guarantee non-interrupted generation of the LTR backups when the failover is triggered and the primary moves to the secondary region. 
 
 > [!NOTE]
-When the original primary database recovers from the outage that cause it to failover, it will become a new secondary. Therefore, the backup creation will not resume and the existing LTR policy will not take effect until it becomes the primary again. 
-> 
+> When the original primary database recovers from the outage that cause it to failover, it will become a new secondary. Therefore, the backup creation will not resume and the existing LTR policy will not take effect until it becomes the primary again. 
 
 ## Configure long-term backup retention
 

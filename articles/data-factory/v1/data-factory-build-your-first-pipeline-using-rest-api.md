@@ -44,6 +44,9 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
 * Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the CURL tool with REST commands to create a data factory.
 * Follow instructions from [this article](../../active-directory/develop/howto-create-service-principal-portal.md) to:
@@ -53,13 +56,13 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
   4. Assign the **ADFGetStartedApp** application to the **Data Factory Contributor** role.
 * Install [Azure PowerShell](/powershell/azure/overview).
 * Launch **PowerShell** and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
-  1. Run **Connect-AzureRmAccount** and enter the user name and password that you use to sign in to the Azure portal.
-  2. Run **Get-AzureRmSubscription** to view all the subscriptions for this account.
-  3. Run **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription.
+  1. Run **Connect-AzAccount** and enter the user name and password that you use to sign in to the Azure portal.
+  2. Run **Get-AzSubscription** to view all the subscriptions for this account.
+  3. Run **Get-AzSubscription -SubscriptionName NameOfAzureSubscription | Set-AzContext** to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription.
 * Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell:
 
 	```PowerShell
-	New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+	New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 	```
 
    Some of the steps in this tutorial assume that you use the resource group named ADFTutorialResourceGroup. If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
@@ -130,7 +133,7 @@ Note the following points:
 * You could use **your own HDInsight cluster** instead of using an on-demand HDInsight cluster. See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details.
 * The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice is processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done.
 
-    As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
+    As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Storage Explorer](https://storageexplorer.com/) to delete containers in your Azure blob storage.
 
 See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
 
@@ -323,12 +326,12 @@ Note the following points:
   * In Azure PowerShell, run the following command to register the Data Factory provider:
 
 	```PowerShell
-	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
 	```
 
       You can run the following command to confirm that the Data Factory provider is registered:
 	```PowerShell
-	Get-AzureRmResourceProvider
+	Get-AzResourceProvider
 	```
   * Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 

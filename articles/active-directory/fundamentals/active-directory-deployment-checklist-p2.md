@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer:
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory feature deployment guide
 

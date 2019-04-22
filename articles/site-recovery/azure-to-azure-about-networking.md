@@ -94,8 +94,10 @@ Site Recovery IP address ranges are as follows:
    Korea South | 52.231.298.185 | 52.231.200.144
    France Central | 52.143.138.106 | 52.143.136.55
    France South | 52.136.139.227 |52.136.136.62
-
-
+   Australia central| 20.36.34.70 | 20.36.46.142
+   Australia Central 2| 20.36.69.62 | 20.36.74.130
+   South Africa West | 102.133.72.51 | 102.133.26.128
+   South Africa North | 102.133.160.44 | 102.133.154.128
 ## Example NSG configuration
 
 This example shows how to configure NSG rules for a VM to replicate.
@@ -157,4 +159,4 @@ You can override Azure's default system route for the 0.0.0.0/0 address prefix w
 ## Next steps
 - Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md).
 - Learn more about [IP address retention](site-recovery-retain-ip-azure-vm-failover.md) for Azure virtual machine failover.
-- Learn more about disaster recovery of [Azure virtual machines with ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).
+- Learn more about disaster recovery of [Azure virtual machines with ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

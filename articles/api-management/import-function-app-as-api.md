@@ -157,7 +157,7 @@ You can call operations directly from the Azure portal. Using the Azure portal i
 
 You can also call operations from the developer portal to test APIs. 
 
-1. Select the API that you created in [Import and publish a back-end API](#create-api).
+1. Select the API that you created in Import and publish a back-end API.
 
 2. Select **Developer portal**.
 

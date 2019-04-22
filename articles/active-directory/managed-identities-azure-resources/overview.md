@@ -3,7 +3,7 @@ title: Managed identities for Azure resources
 description: An overview of the managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,9 +13,10 @@ ms.devlang:
 ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
-ms.author: priyamo
+ms.author: markvi
 
 #As a developer, I'd like to securely manage the credentials that my application uses for authenticating to cloud services without having the credentials in my code or checked into source control.
+ms.collection: M365-identity-device-management
 ---
 
 # What is managed identities for Azure resources?
@@ -60,13 +61,12 @@ The following diagram shows how managed service identities work with Azure virtu
     1. Updates the Azure Instance Metadata Service identity endpoint with the service principal client ID and certificate.
     1. Provisions the VM extension (planned for deprecation in January 2019), and adds the service principal client ID and certificate. (This step is planned for deprecation.)
 4. After the VM has an identity, use the service principal information to grant the VM access to Azure resources. To call Azure Resource Manager, use role-based access control (RBAC) in Azure AD to assign the appropriate role to the VM service principal. To call Key Vault, grant your code access to the specific secret or key in Key Vault.
-5. Your code that's running on the VM can request a token from two endpoints that are accessible only from within the VM:
+5. Your code that's running on the VM can request a token from the Azure Instance Metadata service endpoint, accessible only from within the VM: `http://169.254.169.254/metadata/identity/oauth2/token`
+    - The resource parameter specifies the service to which the token is sent. To authenticate to Azure Resource Manager, use `resource=https://management.azure.com/`.
+    - API version parameter specifies the IMDS version, use api-version=2018-02-01 or greater.
 
-    - Azure Instance Metadata Service identity endpoint (recommended): `http://169.254.169.254/metadata/identity/oauth2/token`
-        - The resource parameter specifies the service to which the token is sent. To authenticate to Azure Resource Manager, use `resource=https://management.azure.com/`.
-        - API version parameter specifies the IMDS version, use api-version=2018-02-01 or greater.
-    - VM extension endpoint (planned for deprecation in January 2019): `http://localhost:50342/oauth2/token` 
-        - The resource parameter specifies the service to which the token is sent. To authenticate to Azure Resource Manager, use `resource=https://management.azure.com/`.
+> [!NOTE]
+> Your code can also request a token from VM extension endpoint, but this is planned for deprecation soon. For more information about the VM extension, see [Migrate from the VM extension to Azure IMDS for authentication](howto-migrate-vm-extension.md).
 
 6. A call is made to Azure AD to request an access token (as specified in step 5) by using the client ID and certificate configured in step 3. Azure AD returns a JSON Web Token (JWT) access token.
 7. Your code sends the access token on a call to a service that supports Azure AD authentication.
@@ -83,16 +83,14 @@ The following diagram shows how managed service identities work with Azure virtu
    > [!Note]
    > You can also do this step before step 3.
 
-5. Your code that's running on the VM can request a token from two endpoints that are accessible only from within the VM:
+5. Your code that's running on the VM can request a token from the Azure Instance Metadata Service identity endpoint, accessible only from within the VM: `http://169.254.169.254/metadata/identity/oauth2/token`
+    - The resource parameter specifies the service to which the token is sent. To authenticate to Azure Resource Manager, use `resource=https://management.azure.com/`.
+    - The client ID parameter specifies the identity for which the token is requested. This value is required for disambiguation when more than one user-assigned identity is on a single VM.
+    - The API version parameter specifies the Azure Instance Metadata Service version. Use `api-version=2018-02-01` or higher.
 
-    - Azure Instance Metadata Service identity endpoint (recommended): `http://169.254.169.254/metadata/identity/oauth2/token`
-        - The resource parameter specifies the service to which the token is sent. To authenticate to Azure Resource Manager, use `resource=https://management.azure.com/`.
-        - The client ID parameter specifies the identity for which the token is requested. This value is required for disambiguation when more than one user-assigned identity is on a single VM.
-        - The API version parameter specifies the Azure Instance Metadata Service version. Use `api-version=2018-02-01` or higher.
+> [!NOTE]
+> Your code can also request a token from VM extension endpoint, but this is planned for deprecation soon. For more information about the VM extension, see [Migrate from the VM extension to Azure IMDS for authentication](howto-migrate-vm-extension.md).
 
-    - VM extension endpoint (planned for deprecation in January 2019): `http://localhost:50342/oauth2/token`
-        - The resource parameter specifies the service to which the token is sent. To authenticate to Azure Resource Manager, use `resource=https://management.azure.com/`.
-        - The client ID parameter specifies the identity for which the token is requested. This value is required for disambiguation when more than one user-assigned identity is on a single VM.
 6. A call is made to Azure AD to request an access token (as specified in step 5) by using the client ID and certificate configured in step 3. Azure AD returns a JSON Web Token (JWT) access token.
 7. Your code sends the access token on a call to a service that supports Azure AD authentication.
 

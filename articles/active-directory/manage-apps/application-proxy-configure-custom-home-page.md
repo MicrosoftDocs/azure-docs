@@ -3,8 +3,8 @@ title: Set a custom home page for published apps by using Azure AD Application P
 description: Covers the basics about Azure AD Application Proxy connectors
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Set a custom home page for published apps by using Azure AD Application Proxy
@@ -25,10 +26,10 @@ This article discusses how to configure apps to direct users to a custom home pa
 When users launch the app, they're directed by default to the root domain URL for the published app. The landing page is typically set as the home page URL. Use the Azure AD PowerShell module to define custom home page URLs when you want app users to land on a specific page within the app. 
 
 Here's one example of why a company would set a custom home page:
-- Inside your corporate network, users go to *https://ExpenseApp/login/login.aspx* to sign in and access your app.
-- Because you have other assets like images that Application Proxy needs to access at the top level of the folder structure, you publish the app with *https://ExpenseApp* as the internal URL.
-- The default external URL is *https://ExpenseApp-contoso.msappproxy.net*, which doesn't take your users to the sign-in page.  
-- Set *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* as the home page URL. 
+- Inside your corporate network, users go to `https://ExpenseApp/login/login.aspx` to sign in and access your app.
+- Because you have other assets like images that Application Proxy needs to access at the top level of the folder structure, you publish the app with `https://ExpenseApp` as the internal URL.
+- The default external URL is `https://ExpenseApp-contoso.msappproxy.net`, which doesn't take your users to the sign-in page.  
+- Set `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` as the home page URL. 
 
 >[!NOTE]
 >When you give users access to published apps, the apps are displayed in the [Azure AD Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) and the [Office 365 app launcher](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
@@ -108,7 +109,7 @@ Create the home page URL, and update your application with that value. Continue 
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
- Now that you've confirmed the app, you're ready to update the home page, as follows.
+   Now that you've confirmed the app, you're ready to update the home page, as follows.
 
 2. Create a blank application object to hold the changes that you want to make. This variable holds the values that you want to update. Nothing is created in this step.
 

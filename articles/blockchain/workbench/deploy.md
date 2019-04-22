@@ -103,20 +103,20 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
     The *use existing* option allows you to specify an Ethereum Proof-of-Authority (PoA) blockchain network. Endpoints have the following requirements.
 
-    * The endpoint must be an Ethereum Proof-of-Authority (PoA) blockchain network.
-    * The endpoint must be publicly accessible over the network.
-    * The PoA blockchain network should be configured to have gas price set to zero.
+   * The endpoint must be an Ethereum Proof-of-Authority (PoA) blockchain network.
+   * The endpoint must be publicly accessible over the network.
+   * The PoA blockchain network should be configured to have gas price set to zero.
 
-    > [!NOTE]
-    > Blockchain Workbench accounts are not funded. If funds are required, the transactions fail.
+     > [!NOTE]
+     > Blockchain Workbench accounts are not funded. If funds are required, the transactions fail.
 
-    ![Advanced settings for existing blockchain network](media/deploy/advanced-blockchain-settings-existing.png)
+     ![Advanced settings for existing blockchain network](media/deploy/advanced-blockchain-settings-existing.png)
 
-    | Setting | Description  |
-    |---------|--------------|
-    | Ethereum RPC Endpoint | Provide the RPC endpoint of an existing PoA blockchain network. The endpoint starts with https:// or http:// and ends with a port number. For example, `http<s>://<network-url>:<port>` |
-    | Azure Active Directory settings | Choose **Add Later**.</br>Note: If you chose to [pre-configure Azure AD](#azure-ad-configuration) or are redeploying, choose to *Add Now*. |
-    | VM selection | Choose the preferred VM size for your blockchain network. |
+     | Setting | Description  |
+     |---------|--------------|
+     | Ethereum RPC Endpoint | Provide the RPC endpoint of an existing PoA blockchain network. The endpoint starts with https:// or http:// and ends with a port number. For example, `http<s>://<network-url>:<port>` |
+     | Azure Active Directory settings | Choose **Add Later**.</br>Note: If you chose to [pre-configure Azure AD](#azure-ad-configuration) or are redeploying, choose to *Add Now*. |
+     | VM selection | Choose the preferred VM size for your blockchain network. |
 
 9. Select **OK** to finish Advanced Settings.
 
@@ -218,18 +218,18 @@ Next, you need to modify the manifest to use application roles within Azure AD t
 
     ``` json
     "appRoles": [
-         {
-           "allowedMemberTypes": [
-             "User",
-             "Application"
-           ],
-           "displayName": "Administrator",
-           "id": "<A unique GUID>",
-           "isEnabled": true,
-           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
-           "value": "Administrator"
-         }
-       ],
+         {
+           "allowedMemberTypes": [
+             "User",
+             "Application"
+           ],
+           "displayName": "Administrator",
+           "id": "<A unique GUID>",
+           "isEnabled": true,
+           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
+           "value": "Administrator"
+         }
+       ],
     ```
 
     > [!IMPORTANT]

@@ -11,12 +11,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
+ms.date: 02/08/2019
 ms.author: magoedte
 ---
 
 # Understand the health of your Azure virtual machines with Azure Monitor for VMs (preview)
-Azure includes multiple services that individually perform a specific role or task in the monitoring space, but providing an in-depth health perspective of the operating system hosted on Azure virtual machines wasn't available.  While you could monitor for different conditions using Log Analytics or Azure Monitor, they were not designed to model and represent health of core components or overall health of the virtual machine.  With Azure Monitor for VMs health feature, it proactively monitors the availability and performance of the Windows or Linux guest OS with a model that represent key components and their relationships, criteria that specifies how to measure the health of those components, and alert you when an unhealthy condition is detected.  
+Azure includes multiple services that individually perform a specific role or task in the monitoring space, but providing an in-depth health perspective of the operating system hosted on Azure virtual machines wasn't available.  While you could monitor for different conditions using Azure Monitor, it wasn't designed to model and represent health of core components or overall health of the virtual machine.  With Azure Monitor for VMs health feature, it proactively monitors the availability and performance of the Windows or Linux guest OS with a model that represent key components and their relationships, criteria that specifies how to measure the health of those components, and alert you when an unhealthy condition is detected.  
 
 Viewing the overall health state of the Azure VM and underlying operating system can be observed from two perspectives with Azure Monitor for VMs health, directly from the virtual machine or across all VMs in a resource group from Azure Monitor.
 
@@ -24,22 +24,22 @@ This article will help you understand how to quickly assess, investigate, and re
 
 For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-onboard.md).
 
->[!NOTE]
->Starting February 11, 2019 we will begin migrating you from the current health model in Azure Monitor for VMs health feature, which is visible when you're in the Health diagnostics experience today, to a new version of the health model. This update improves the performance of health rollup processing and includes a refined health model presented in the Health diagnostics view. 
->
->With the new health model, rollup of child health criteria to parent/entity level health criteria will be faster, and as a result, health state of the parent updates to the desired or targeted state with less latency. You can still filter the health criteria under the **Performance** and **Availability** categories unlike the previous tab-based method to select either category in the view.
->
->For more details about the Health diagnostics experience, please refer the Health diagnostics [section](#health-diagnostics) in this article. 
->
->This update will improve the following: 
->
->- Health roll-up processing with reduced latency  
->- Quicker alerting on health state changes 
->- Faster updating of health state in the aggregated virtual machine view for all VMs 
->
->There is no regression of any functionality delivered today with the Health feature of Azure Monitor for VMs.
-
->As a result of this change, there will be some disruption for a short period of time with the service and the health history. The two experiences in Health diagnostics are affected - state change history will be reset and previous state changes for health criteria will not be available for review in the State Change column of the Health diagnostics page. If you are interested in the historical data of any mission critical VM, then you can take a screenshot of the health criteria data and the corresponding state changes for your reference. 
+> [!NOTE]
+> Starting February 11, 2019 we will begin migrating you from the current health model in Azure Monitor for VMs health feature, which is visible when you're in the Health diagnostics experience today, to a new version of the health model. This update improves the performance of health rollup processing and includes a refined health model presented in the Health diagnostics view. 
+> 
+> With the new health model, rollup of child health criteria to parent/entity level health criteria will be faster, and as a result, health state of the parent updates to the desired or targeted state with less latency. You can still filter the health criteria under the **Performance** and **Availability** categories unlike the previous tab-based method to select either category in the view.
+> 
+> For more details about the Health diagnostics experience, please refer the Health diagnostics [section](#health-diagnostics) in this article. 
+> 
+> This update will improve the following: 
+> 
+> - Health roll-up processing with reduced latency  
+> - Quicker alerting on health state changes 
+> - Faster updating of health state in the aggregated virtual machine view for all VMs 
+> 
+> There is no regression of any functionality delivered today with the Health feature of Azure Monitor for VMs.
+> 
+> As a result of this change, two experiences in Health diagnostics are affected - state change history will be reset and previous state changes for health criteria will not be available for review in the State Change column of the Health diagnostics page. If you are interested in the historical data of any mission critical VM, then you can take a screenshot of the health criteria data and the corresponding state changes for your reference. 
 
 ## Monitoring configuration details
 This section outlines the default health criteria defined to monitor Azure Windows and Linux virtual machines. All health criteria are pre-configured to alert when the unhealthy condition is met. 
@@ -101,7 +101,7 @@ To view the health of an Azure VM, select **Insights (preview)** from the left-h
 
 ![Azure Monitor for VMs health overview of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
 
-On the **Health** tab, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of VM Health alerts raised by an unhealthy component. Refer to [Alerts](#alerting-and-alert-management) section for more details about the alerting experience.  
+On the **Health** tab, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of VM Health alerts raised by an unhealthy component. Refer to Alerts section for more details about the alerting experience.  
 
 The health states defined for a VM are described in the following table: 
 
@@ -246,7 +246,7 @@ Total number of VM Health alerts categorized by severity is available on the **H
 
 On the **Alerts** page, it is not only scoped to show alerts matching your selection, but are also filtered by **Resource type** to only show health alerts raised by the virtual machine resource.  This is reflected in the list of alerts, under the column **Target Resource**, where it shows the Azure VM the alert was raised for when the particular health criteria's unhealthy condition was met.  
 
-Alerts from other resource types or services are not intended to be included in this view, such as log alerts based on Log Analytics queries or metric alerts that you would normally view from the default Azure Monitor [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page. 
+Alerts from other resource types or services are not intended to be included in this view, such as log alerts based on log queries or metric alerts that you would normally view from the default Azure Monitor [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page. 
 
 You can filter this view by selecting values in the dropdown menus at the top of the page.
 

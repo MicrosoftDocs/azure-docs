@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/30/2019
+ms.date: 03/015/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -24,7 +24,7 @@ ms.custom: H1Hack27Feb2017
 
 # Using Azure for hosting and running SAP workload scenarios
 
-By choosing Microsoft Azure, you are able to reliably run your mission critical SAP workloads and scenarios on a scalable, compliant, and enterprise-proven platform.  Get the scalability, flexibility, and cost savings of Azure. With the expanded partnership between Microsoft and SAP, you can run SAP applications across dev/test and production scenarios in Azure - and be fully supported. From SAP NetWeaver to SAP S4/HANA, SAP BI, Linux to Windows, SAP HANA to SQL, we have you covered.
+By choosing Microsoft Azure, you are able to reliably run your mission critical SAP workloads and scenarios on a scalable, compliant, and enterprise-proven platform.  Get the scalability, flexibility, and cost savings of Azure. With the expanded partnership between Microsoft and SAP, you can run SAP applications across dev/test and production scenarios in Azure - and be fully supported. From SAP NetWeaver to SAP S/4HANA, SAP BI, Linux to Windows, SAP HANA to SQL, we have you covered.
 
 Besides hosting SAP NetWeaver scenarios with the different DBMS on Azure, you can host different other SAP workload scenarios, like SAP BI on Azure. 
 
@@ -33,6 +33,8 @@ The uniqueness of Azure for SAP HANA is an offer that sets Azure apart from comp
 Hosting SAP workload scenarios in Azure also can create requirements of Identity integration and Single-Sign-On using Azure Activity Directory to different SAP components and SAP SaaS or PaaS offers. A list of such integration and Single-Sign-On scenarios with Azure Active Directory (AAD) and SAP entities is described and documented in the section "AAD SAP Identity Integration and Single-Sign-On."
 
 ## Latest Changes
+
+Release of [SAP workload configurations with Azure Availability Zones](sap-ha-availability-zones.md)
 
 Release of [SAP workload planning and deployment checklist](sap-deployment-checklist.md)
 

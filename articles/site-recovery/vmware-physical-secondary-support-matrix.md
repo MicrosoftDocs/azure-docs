@@ -105,10 +105,10 @@ Move storage, network, Azure VMs across resource groups (within or across subscr
 
 The Mobility service coordinates replication between on-premises VMware servers or physical servers, and the secondary site. When you set up replication, you should make sure you have the latest version of the Mobility service, and of other components.
 
-**Update** | **Details** 
---- | --- 
-Scout updates | [Learn about and download](vmware-physical-secondary-disaster-recovery.md#updates) the latest Scout updates | Scout updates are cumulative.
-Component updates | Scout updates include updates for all components, including the RX server, configuration server, process and master target servers, vContinuum servers, and source servers you want to protect.<br/><br/> [Learn more](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
+| **Update** | **Details** |
+| --- | --- |
+|Scout updates | Scout updates are cumulative. <br/><br/> [Learn about and download](vmware-physical-secondary-disaster-recovery.md#updates) the latest Scout updates |
+|Component updates | Scout updates include updates for all components, including the RX server, configuration server, process and master target servers, vContinuum servers, and source servers you want to protect.<br/><br/> [Learn more](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
 
 
 ## Next steps

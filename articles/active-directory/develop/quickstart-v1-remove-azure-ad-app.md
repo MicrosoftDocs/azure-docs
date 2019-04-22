@@ -18,6 +18,7 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 #Customer intent: As an application developer, I need to know how to remove my application from Azure Active Directory.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Remove an application from Azure Active Directory

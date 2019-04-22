@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/21/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: calebb
 
-#Customer intent: As a IT admin, I need to understand what the location condition is so that I can configure location- based conditional access policies
+#Customer intent: As an IT admin, I need to understand what the location condition is so that I can configure location- based conditional access policies
 
+ms.collection: M365-identity-device-management
 ---
 # What is the location condition in Azure Active Directory conditional access? 
 
@@ -32,9 +33,9 @@ This article provides you with the information you need to configure the locatio
 
 Azure AD enables single sign on to devices, apps, and services from anywhere on the public internet. With the location condition, you can control access to your cloud apps based on the network location of a user. Common use cases for the location condition are:
 
-- Requiring multi-factor authentication for users accessing a service when they are off the corporate network  
+- Requiring multi-factor authentication for users accessing a service when they are off the corporate network.
 
-- Blocking access for users accessing a service from specific countries or regions. 
+- Blocking access for users accessing a service from specific countries or regions.
 
 A location is a label for a network location that either represents a named location or multi-factor authentication trusted IPs.
 
@@ -56,15 +57,15 @@ A named location has the following components:
 
 - **Name** - The display name of a named location.
 
-- **IP ranges** - One or more IPv4 address ranges in CIDR format. Specifying an Ipv6 address range is not supported.
+- **IP ranges** - One or more IPv4 address ranges in CIDR format. Specifying an IPv6 address range is not supported.
 
 - **Mark as trusted location** - A flag you can set for a named location to indicate a trusted location. Typically, trusted locations are network areas that are controlled by your IT department. In addition to conditional access, trusted named locations are also used by Azure Identity Protection and Azure AD security reports to reduce [false positives](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
-- **Country / Regions** - This option enables you to select one or more country or region to define a named location. 
+- **Countries/Regions** - This option enables you to select one or more country or region to define a named location. 
 
-- **Include unknown areas** - Some IP addresses are not mapped to a specific country. This option allows you to choose if these IP addresses should be included in the named location. They could be check when the policy using the named location should apply to unknown locations.
+- **Include unknown areas** - Some IP addresses are not mapped to a specific country. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
-The number of named locations you can configure is constrained by the size of the related object in Azure AD. You can configure:
+The number of named locations you can configure is constrained by the size of the related object in Azure AD. You can configure one of the following:
 
 - One named location with up to 1200 IP ranges.
 
@@ -85,7 +86,7 @@ On the multi-factor authentication service settings page, you can identify corpo
 
 After checking this option, including the named location **MFA Trusted IPS** will apply to any policies with this selected.
 
-For mobile and desktop applications, which have long lived session lifetimes, conditional access is periodically re-evaluated. The default is once an hour. When the inside corporate network claim is and only issued at the time of the initial authentication, Azure AD may not have a list of trusted IP ranges. In this case, it is more difficult to determine if the user is still on the corporate network:
+For mobile and desktop applications, which have long lived session lifetimes, conditional access is periodically re-evaluated. The default is once an hour. When the inside corporate network claim is only issued at the time of the initial authentication, Azure AD may not have a list of trusted IP ranges. In this case, it is more difficult to determine if the user is still on the corporate network:
 
 1. Check if the user’s IP address is in one of the trusted IP ranges.
 
@@ -139,7 +140,7 @@ By default, Azure AD issues a token on an hourly basis. After moving off the cor
 
 ### User IP address
 
-The IP address that is used in policy evaluation is the public IP address of the user. For devices on a private network, this is not the client IP of the user’s device on the intranet, it is the address used by the network to connect to the public internet. 
+The IP address that is used in policy evaluation is the public IP address of the user. For devices on a private network, this is not the client IP of the user’s device on the intranet, it is the address used by the network to connect to the public internet. If your device has only an IPv6 address, configuring the location condition is not supported.
 
 ### Bulk uploading and downloading of named locations
 
@@ -148,7 +149,7 @@ When you create or update named locations, for bulk updates, you can upload or d
 
 ### Cloud proxies and VPNs 
 
-When you use a cloud hosted proxy or VPN solution, the IP address Azure AD uses while evaluating a policy is the IP address of the proxy. The X-Forwarded-For (XFF) header that contains the users public IP address is not used because there is no validation that it comes from a trusted source, so would present a method for faking an IP address. 
+When you use a cloud hosted proxy or VPN solution, the IP address Azure AD uses while evaluating a policy is the IP address of the proxy. The X-Forwarded-For (XFF) header that contains the user’s public IP address is not used because there is no validation that it comes from a trusted source, so would present a method for faking an IP address. 
 
 When a cloud proxy is in place, a policy that is used to require a domain joined device can be used, or the inside corpnet claim from AD FS.
 

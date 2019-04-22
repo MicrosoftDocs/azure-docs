@@ -10,7 +10,7 @@ ms.author: glenga
 ms.custom: include file
 ---
 
-1. Select the **New** button found on the upper left-hand corner of the Azure portal, then select **Compute** > **Function App**.
+1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal, then select **Compute** > **Function App**.
 
     ![Create a function app in the Azure portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
@@ -28,7 +28,7 @@ ms.custom: include file
     | **Location** | West Europe | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
     | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET** for C# and F# functions. |
     | **[Storage](../articles/storage/common/storage-quickstart-create-account.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meets the [storage account requirements](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
-    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | Application Insights is enabled by default. Choose a location near your function app.  |
+    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | When you choose a *Location* that supports Application Insights, integration with your function app is enabled by default. If disabled, choose an Application Insights location near your function app.  |
 
 3. Select **Create** to provision and deploy the function app.
 

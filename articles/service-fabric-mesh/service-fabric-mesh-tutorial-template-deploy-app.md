@@ -3,7 +3,7 @@ title: Tutorial- Deploy an app to Azure Service Fabric Mesh | Microsoft Docs
 description: In this tutorial, you learn how to deploy an application to Service Fabric Mesh using a template.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid:  
@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
 ---
@@ -207,7 +207,7 @@ The parameters section is defined at the top of your deployment template, right 
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       ...
@@ -225,7 +225,7 @@ Services are specified in the template as properties of the application resource
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     ...
@@ -340,6 +340,7 @@ Refer to the [mesh_rp.windows.json deployment template](https://github.com/Azure
 Create the application and related resources using the following command, and provide the credentials from the previous [Retrieve credentials for the registry](#retrieve-credentials-for-the-registry) step.
 
 In the parameters file, update the following parameter values:
+
 |Parameter|Value|
 |---|---|
 |location|The region to deploy the application to.  For example, "eastus".|

@@ -170,7 +170,7 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
 Run the client application to start collecting and sending temperature and humidity data to your IoT hub. For each message that your IoT hub receives, the Stream Analytics job calls the weather forecast web service to produce the chance of rain. The result is then saved to your Azure blob storage. Azure Storage Explorer is a tool that you can use to view the result.
 
-1. [Download and install Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+1. [Download and install Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 1. Open Azure Storage Explorer.
 1. Sign in to your Azure account.
 1. Select your subscription.

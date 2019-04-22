@@ -16,6 +16,7 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Sharing accounts with Azure AD
 ## Overview

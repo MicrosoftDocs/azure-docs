@@ -25,8 +25,8 @@ We use **python/pip** command to build virtual environment in your Home path. If
  
         ![Python pip version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-    > [!NOTE]
-    > It is recommended to manually install Python instead of using the MacOS default version.
+     > [!NOTE]
+     > It is recommended to manually install Python instead of using the MacOS default version.
 
 
 2. Install **virtualenv** by running command below.
@@ -66,4 +66,4 @@ We use **python/pip** command to build virtual environment in your Home path. If
 * [Use external packages with Jupyter notebooks](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [Visualize Apache Hive data with Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight ](hdinsight-connect-hive-zeppelin.md)
+* [Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight](hdinsight-connect-hive-zeppelin.md)

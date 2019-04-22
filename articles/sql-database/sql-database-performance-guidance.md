@@ -32,7 +32,7 @@ Although Azure SQL Database service tiers are designed to improve performance st
 
 - **Applications that have slow performance because of "chatty" behavior**
 
-  Chatty applications make excessive data access operations that are sensitive to network latency. You might need to modify these kinds of applications to reduce the number of data access operations to the SQL database. For example, you might improve application performance by using techniques like batching ad-hoc queries or moving the queries to stored procedures. For more information, see [Batch queries](#batch-queries).
+  Chatty applications make excessive data access operations that are sensitive to network latency. You might need to modify these kinds of applications to reduce the number of data access operations to the SQL database. For example, you might improve application performance by using techniques like batching ad hoc queries or moving the queries to stored procedures. For more information, see [Batch queries](#batch-queries).
 
 - **Databases with an intensive workload that can't be supported by an entire single machine**
 

@@ -174,7 +174,7 @@ Points to note:
 >
 >
 
-To better use these two properties, and to enhance your data movement throughput, see the [sample use cases](#case-study-use-parallel-copy). You don't need to configure **parallelCopies** to take advantage of the default behavior. If you do configure and **parallelCopies** is too small, multiple cloud DMUs might not be fully utilized.
+To better use these two properties, and to enhance your data movement throughput, see the sample use cases. You don't need to configure **parallelCopies** to take advantage of the default behavior. If you do configure and **parallelCopies** is too small, multiple cloud DMUs might not be fully utilized.
 
 ### Billing impact
 It's **important** to remember that you are charged based on the total time of the copy operation. If a copy job used to take one hour with one cloud unit and now it takes 15 minutes with four cloud units, the overall bill remains almost the same. For example, you use four cloud units. The first cloud unit spends 10 minutes, the second one, 10 minutes, the third one, 5 minutes, and the fourth one, 5 minutes, all in one Copy Activity run. You are charged for the total copy (data movement) time, which is 10 + 10 + 5 + 5 = 30 minutes. Using **parallelCopies** does not affect billing.
@@ -295,7 +295,7 @@ If you copy data from Blob storage to SQL Data Warehouse, consider using **PolyB
 
 * **Data pattern**: Your table schema affects copy throughput. A large row size gives you a better performance than small row size, to copy the same amount of data. The reason is that the database can more efficiently retrieve fewer batches of data that contain fewer rows.
 * **Query or stored procedure**: Optimize the logic of the query or stored procedure you specify in the Copy Activity source to fetch data more efficiently.
-* For **on-premises relational databases**, such as SQL Server and Oracle, which require the use of **Data Management Gateway**, see the [Considerations for Data Management Gateway](#considerations-on-data-management-gateway) section.
+* For **on-premises relational databases**, such as SQL Server and Oracle, which require the use of **Data Management Gateway**, see the Considerations for Data Management Gateway section.
 
 ## Considerations for the sink
 ### General

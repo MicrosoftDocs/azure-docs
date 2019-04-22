@@ -518,7 +518,7 @@ Use the following content for the input file. You need to adapt the content to y
 }
 ```
 
-### **[1]** Assign the custom role to the Service Principal
+### **[A]** Assign the custom role to the Service Principal
 
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore!
 

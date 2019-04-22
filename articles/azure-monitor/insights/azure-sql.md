@@ -3,7 +3,6 @@ title: Azure SQL Analytics solution in Log Analytics | Microsoft Docs
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
 services: log-analytics
 ms.service: log-analytics
-ms.subservice: performance
 ms.custom: 
 ms.topic: conceptual
 author: danimir
@@ -62,9 +61,13 @@ The above page also provides instructions on enabling support for monitoring mul
 
 ## Using the solution
 
-When you add the solution to your workspace, the Azure SQL Analytics tile is added to your workspace, and it appears in Overview. The tile shows the number of Azure SQL databases, elastic pools, Managed Instances, and databases in Managed instances that the solution is receiving diagnostics telemetry from.
+When you add the solution to your workspace, the Azure SQL Analytics tile is added to your workspace, and it appears in Overview. Select View Summary link to load the tile content.
 
-![Azure SQL Analytics tile](./media/azure-sql/azure-sql-sol-tile.png)
+![Azure SQL Analytics summary tile](./media/azure-sql/azure-sql-sol-tile-01.png)
+
+Once loaded, the tile shows the number of Azure SQL databases, elastic pools, Managed Instances, and databases in Managed instances that the solution is receiving diagnostics telemetry from.
+
+![Azure SQL Analytics tile](./media/azure-sql/azure-sql-sol-tile-02.png)
 
 The solution provides two separate views -- one for monitoring Azure SQL Databases and elastic pools, and the other view for monitoring Managed Instance, and databases in Managed Instances.
 
@@ -141,14 +144,16 @@ To use Azure SQL Analytics, users need to be granted a minimum permission of the
 
 ### Creating a custom role in portal
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Recognizing that some organizations enforce strict permission controls in Azure, find the following PowerShell script enabling creation of a custom role “SQL Analytics Monitoring Operator” in Azure portal with the minimum read and write permissions required to use Azure SQL Analytics to its fullest extent.
 
 Replace the “{SubscriptionId}" in the below script with your Azure subscription ID, and execute the script logged in as an Owner or Contributor role in Azure.
 
    ```powershell
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription {SubscriptionId}
-    $role = Get-AzureRmRoleDefinition -Name Reader
+    Connect-AzAccount
+    Select-AzSubscription {SubscriptionId}
+    $role = Get-AzRoleDefinition -Name Reader
     $role.Name = "SQL Analytics Monitoring Operator"
     $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
     $role.IsCustom = $true
@@ -167,7 +172,7 @@ Replace the “{SubscriptionId}" in the below script with your Azure subscriptio
     $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
     $role.Actions.Add("Microsoft.Resources/deployments/write");
     $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
-    New-AzureRmRoleDefinition $role
+    New-AzRoleDefinition $role
    ```
 
 Once the new role is created, assign this role to each user that you need to grant custom permissions to use Azure SQL Analytics.

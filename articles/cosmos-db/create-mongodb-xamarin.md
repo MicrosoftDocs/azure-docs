@@ -11,7 +11,7 @@ ms.author: masoucou
 
 ---
 
-# QuickStart: QuickStart: Build a Xamarin.Forms app with .NET and Azure Cosmos DB's API for MongoDB
+# QuickStart: Build a Xamarin.Forms app with .NET SDK and Azure Cosmos DB's API for MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

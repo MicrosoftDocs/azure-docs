@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
@@ -31,7 +31,7 @@ Monthly update packages are hosted in a secure Azure endpoint. You can download 
 
 Hotfix update packages are hosted in the same secure Azure endpoint. You can download them manually using the embedded links in each of the respective hotfix KB articles; for example, [Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Similar to the full, monthly update packages, Azure Stack operators can download the .xml, .bin and .exe files and import them using the procedure in [Apply updates in Azure Stack](azure-stack-apply-updates.md). Azure Stack operators with connected scale units will see the hotfixes automatically appear in the Administrator portal with the message **Update available**.
 
-If your scale unit is not connected and you would like to be notified about each hotfix release, subscribe to the [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) or [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) feed noted in each release.  
+If your scale unit is not connected and you would like to be notified about each hotfix release, subscribe to the [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) or [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) feed noted in each release.  
 
 ## Update package types
 
@@ -49,10 +49,10 @@ Find documentation on how to plan for and manage updates, and how to determine y
 
 For information about a specific update, including how to download it, see the release notes for that update:
 
+- [Azure Stack 1902 update](azure-stack-update-1902.md)
+- [Azure Stack 1901 update](azure-stack-update-1901.md)
 - [Azure Stack 1811 update](azure-stack-update-1811.md)
 - [Azure Stack 1809 update](azure-stack-update-1809.md)
-- [Azure Stack 1808 update](azure-stack-update-1808.md)
-- [Azure Stack 1807 update](azure-stack-update-1807.md)
 
 ## Hotfixes
 

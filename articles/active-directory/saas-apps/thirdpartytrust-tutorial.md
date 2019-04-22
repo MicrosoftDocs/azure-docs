@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with ThirdPartyTrust
 

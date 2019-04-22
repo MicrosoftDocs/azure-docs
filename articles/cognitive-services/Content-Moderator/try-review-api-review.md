@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use the Review API's review operations to create image or text reviews for human moderation.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
@@ -30,35 +30,35 @@ To test-drive the API by using the online console, you need a few values to ente
 
 The simplest way to access a testing console is from the **Credentials** window.
 
-1.	In the **Credentials** window, select [Review API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+1. In the **Credentials** window, select [Review API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
-  The **Review - Create** page opens.
+   The **Review - Create** page opens.
 
-2.	For **Open API testing console**, select the region that most closely describes your location.
+2. For **Open API testing console**, select the region that most closely describes your location.
 
-  ![Review - Create page region selection](images/test-drive-region.png)
+   ![Review - Create page region selection](images/test-drive-region.png)
 
-  The **Review - Create** API console opens.
+   The **Review - Create** API console opens.
   
-3.	Enter values for the required query parameters, content type, and your subscription key. In the **Request body** box, specify the content (for example, image location), metadata, and other information associated with the content.
+3. Enter values for the required query parameters, content type, and your subscription key. In the **Request body** box, specify the content (for example, image location), metadata, and other information associated with the content.
 
-  ![Review - Create console query parameters, headers, and Request body box](images/test-drive-review-1.PNG)
+   ![Review - Create console query parameters, headers, and Request body box](images/test-drive-review-1.PNG)
   
-4.	Select **Send**. A review ID is created. Copy this ID to use in the following steps.
+4. Select **Send**. A review ID is created. Copy this ID to use in the following steps.
 
-  ![Review - Create console Response content box displays the review ID](images/test-drive-review-2.PNG)
+   ![Review - Create console Response content box displays the review ID](images/test-drive-review-2.PNG)
   
-5.	Select **Get**, and then open the API by selecting the button that matches your region. On the resulting page, enter the values for **teamName**, **ReviewID**, and **subscription key**. Select the **Send** button on the page. 
+5. Select **Get**, and then open the API by selecting the button that matches your region. On the resulting page, enter the values for **teamName**, **ReviewID**, and **subscription key**. Select the **Send** button on the page. 
 
-  ![Review - Create console Get results](images/test-drive-review-3.PNG)
+   ![Review - Create console Get results](images/test-drive-review-3.PNG)
   
-6.	You will see the results of the scan.
+6. You will see the results of the scan.
 
-  ![Review - Create console Response content box](images/test-drive-review-4.PNG)
+   ![Review - Create console Response content box](images/test-drive-review-4.PNG)
   
-7.	On the Content Moderator Dashboard, select **Review** > **Image**. The image that you scanned appears, ready for human review.
+7. On the Content Moderator Dashboard, select **Review** > **Image**. The image that you scanned appears, ready for human review.
 
-  ![Review tool image of a soccer ball](images/test-drive-review-5.PNG)
+   ![Review tool image of a soccer ball](images/test-drive-review-5.PNG)
 
 ## Next steps
 

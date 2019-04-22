@@ -107,7 +107,7 @@ APP_ENDPOINT=https://$SITE_NAME.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
     --name event-sub-acr \
-    --resource-id $ACR_REGISTRY_ID \
+    --source-resource-id $ACR_REGISTRY_ID \
     --endpoint $APP_ENDPOINT
 ```
 
@@ -241,7 +241,7 @@ In this quickstart, you deployed a container registry, built an image with ACR T
 [sample-app]: https://github.com/dbarkol/azure-event-grid-viewer
 
 <!-- LINKS - Internal -->
-[az-acr-create]: /cli/azure/acr/repository#az-acr-create
+[az-acr-create]: /cli/azure/acr/repository
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
 [az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create
 [az-group-create]: /cli/azure/group#az-group-create

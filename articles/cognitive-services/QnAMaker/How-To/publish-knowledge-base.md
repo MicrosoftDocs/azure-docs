@@ -1,20 +1,20 @@
 ---
 title: Publish a knowledge base
-titleSuffix: QnA Maker - Azure Cognitive Services
-description: Publishing your knowledge base is the final step in making your knowledge base available as a question-answering endpoint. When you publish a knowledge base, the QnA contents of your knowledge base moves from the test index to a production index in Azure search.
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: Publishing your knowledge base with QnA Maker API service is the final step to make your knowledge base available as a question-answering endpoint. When you publish a knowledge base, the QnA contents of your knowledge base moves from the test index to a production index in Azure search.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 03/11/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
-# Publish a knowledge base using the QnA Maker portal
+# Publish a knowledge base using the QnA Maker API service portal
 
-Publishing your knowledge base is the final step in making your knowledge base available as a question-answering endpoint to a client application. 
+Publishing your knowledge base with QnA Maker API service is the final step to make your knowledge base available as a question-answering endpoint. 
 
 When you publish a knowledge base, the question and answer contents of your knowledge base moves from the test index to a production index in Azure search.
 

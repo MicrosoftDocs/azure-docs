@@ -3,17 +3,19 @@ title: Release Notes - Custom Vision Service
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 03/21/2019
 ms.author: anroth
 ---
 
 # Custom Vision Service Release Notes
 
+## January 22, 2019
+- Support added for new Azure regions: West US 2, East US, East US 2, West Europe, North Europe, Southeast Asia, Australia East, Central India, UK South, Japan East, and North Central US. Support continues for South Central US. 
 
 ## December 12, 2018
 - Support export for Object Detection models (introduced Object Detection Compact Domain).

@@ -75,7 +75,7 @@ You also can install the PowerShell module manually:
 1. Download the latest release of the [logic app template creator](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
 2. Extract the folder in your PowerShell module folder (usually `%UserProfile%\Documents\WindowsPowerShell\Modules`).
 
-For the module to work with any tenant and subscription access token, we recommend that you use it with the [ARMClient](https://github.com/projectkudu/ARMClient) command-line tool.  This [blog post](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) discusses ARMClient in more detail.
+For the module to work with any tenant and subscription access token, we recommend that you use it with the [ARMClient](https://github.com/projectkudu/ARMClient) command-line tool.  This [blog post](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) discusses ARMClient in more detail.
 
 ### Generate a logic app template by using PowerShell
 After PowerShell is installed, you can generate a template by using the following command:

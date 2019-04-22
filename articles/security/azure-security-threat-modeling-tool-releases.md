@@ -27,7 +27,7 @@ The Microsoft Threat Modeling Tool is currently released as a free [click-to-dow
 - Supported Operating Systems
   - Microsoft Windows 10 Anniversary Update or later
 - .NET Version Required
-  - .Net 4.7.1 or later
+  - .NET 4.7.1 or later
 - Additional Requirements
   - An Internet connection is required to receive updates to the tool and templates.
 

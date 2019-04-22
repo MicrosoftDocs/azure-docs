@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/30/2019
+ms.date: 03/22/2019
 ms.author: markvi
 ms.reviewer: spunukol
 
-#Customer intent: As a IT admin, I need to understand the conditional access settings so that  I can set them according to my business needs
+#Customer intent: As an IT admin, I need to understand the conditional access settings so that  I can set them according to my business needs
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory conditional access settings reference
 
@@ -48,25 +49,43 @@ With conditional access policies, you control how your users access your [cloud 
 
 You can assign a conditional access policy to the following cloud apps from Microsoft:
 
-- Azure Information Protection - [Learn more](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
-- Azure RemoteApp
-
-- Azure SQL Database - [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
-
-- Microsoft Dynamics 365
-
-- Microsoft Office 365 Yammer
-
-- Microsoft Office 365 Exchange Online
-
-- Microsoft Office 365 SharePoint Online (includes OneDrive for Business and Project Online)
-
-- Microsoft Power BI 
-
+- Azure Analysis Services
 - Azure DevOps
+- Azure SQL Database and Data Warehouse - [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
+- Dynamics CRM Online
+- Microsoft Application Insights Analytics
+- Microsoft Azure Information Protection - [Learn more](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Microsoft Azure Management - [Learn more](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- Microsoft Azure RemoteApp
+- Microsoft Azure Subscription Management
+- Microsoft Cloud App Security
+- Microsoft Commerce Tools Access Control Portal
+- Microsoft Commerce Tools Authentication Service
+- Microsoft Flow
+- Microsoft Forms
+- Microsoft Intune
+- Microsoft Intune Enrollment
+- Microsoft Planner
+- Microsoft Power BI
+- Microsoft PowerApps
+- Microsoft Search in Bing
+- Microsoft StaffHub
+- Microsoft Stream
+- Microsoft Teams 
+- Office 365 Exchange Online
+- Office 365 SharePoint Online
+- Office 365 Yammer
+- Office Delve
+- Office Sway 
+- Outlook Groups
+- Project Online
+- Skype for Business Online
+- Virtual Private Network (VPN)
+- Visual Studio App Center
+- Windows Defender ATP
 
-- Microsoft Teams
+
 
 
 ### Other applications 
@@ -123,20 +142,25 @@ In your conditional access policy, you can select **Browsers** as client app.
 This setting works with all browsers. However, to satisfy a device policy, like a compliant device requirement, the following operating systems and browsers are supported:
 
 
-| OS                     | Browsers                            | Support     |
-| :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Check][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Check][1] |
-| Windows 7              | Internet Explorer, Chrome           | ![Check][1] |
-| iOS                    | Safari, Intune Managed Browser      | ![Check][1] |
-| Android                | Chrome, Intune Managed Browser      | ![Check][1] |
-| Windows Phone          | Internet Explorer, Microsoft Edge             | ![Check][1] |
-| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![Check][1] |
-| Windows Server 2016    | Chrome                              | Coming soon |
-| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Check][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Check][1] |
-| macOS                  | Chrome, Safari                      | ![Check][1] |
+| OS                     | Browsers                                      |
+| :--                    | :--                                           |
+| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
+| Windows 8 / 8.1        | Internet Explorer, Chrome                     |
+| Windows 7              | Internet Explorer, Chrome                     |
+| iOS                    | Safari, Intune Managed Browser                |
+| Android                | Chrome, Intune Managed Browser                |
+| Windows Phone          | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Chrome                                        |
+| Windows Server 2012 R2 | Internet Explorer, Chrome                     |
+| Windows Server 2008 R2 | Internet Explorer, Chrome                     |
+| macOS                  | Chrome, Safari                                |
+ 
 
+
+#### Why do I see a certificate prompt in the browser
+
+On Windows 7, iOS, Android, and macOS Azure AD identifies the device using a client certificate that is provisioned when the device is registered with Azure AD.  When a user first signs in through the browser the user is prompted to select the certificate. The user must select this certificate before using the browser.
 
 
 #### Chrome support

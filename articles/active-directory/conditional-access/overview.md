@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: calebb
-#Customer intent: As a IT admin, I want to understand conditional access well enough so that I can control how users are accessing my resources.
+#Customer intent: As an IT admin, I want to understand conditional access well enough so that I can control how users are accessing my resources.
+ms.collection: M365-identity-device-management
 ---
 
 # What is conditional access in Azure Active Directory?
@@ -106,11 +107,7 @@ Using conditional access requires an Azure AD Premium license. To find the right
 
 ## Next steps
 
-- If you want to know more about:
-    - Conditions, see [Conditions in Azure Active Directory conditional access](conditions.md).
+To learn how to implement conditional access in your environment, see [Plan your conditional access deployment in Azure Active Directory](plan-conditional-access.md).
 
-    - Access controls, see [Access controls in Azure Active Directory conditional access](controls.md).
 
-- If you want to get some experience with configuring conditional access policies, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
 
-- If you would like a step-by-step deployment plan with recommended policies, see the [conditional access deployment plan](https://aka.ms/conditionalaccessdeploymentplan)

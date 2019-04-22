@@ -44,7 +44,7 @@ Cloud-init also works across distributions. For example, you don't use **apt-get
 We are working with our partners to get cloud-init included and working in the images that they provide to Azure. The following table outlines the current cloud-init availability on Azure platform images:
 
 | Alias | Publisher | Offer | SKU | Version |
-|:--- |:--- |:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |:--- |:--- |
 | UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |latest |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |latest |
 | CoreOS |CoreOS |CoreOS |Stable |latest |
@@ -66,7 +66,7 @@ packages:
   - npm
 write_files:
   - owner: www-data:www-data
-  - path: /etc/nginx/sites-available/default
+    path: /etc/nginx/sites-available/default
     content: |
       server {
         listen 80;
@@ -80,7 +80,7 @@ write_files:
         }
       }
   - owner: azureuser:azureuser
-  - path: /home/azureuser/myapp/index.js
+    path: /home/azureuser/myapp/index.js
     content: |
       var express = require('express')
       var app = express()
@@ -194,7 +194,7 @@ packages:
   - npm
 write_files:
   - owner: www-data:www-data
-  - path: /etc/nginx/sites-available/default
+    path: /etc/nginx/sites-available/default
     content: |
       server {
         listen 80;
@@ -211,7 +211,7 @@ write_files:
         }
       }
   - owner: azureuser:azureuser
-  - path: /home/azureuser/myapp/index.js
+    path: /home/azureuser/myapp/index.js
     content: |
       var express = require('express')
       var app = express()

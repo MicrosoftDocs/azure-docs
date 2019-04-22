@@ -1,4 +1,4 @@
-- name: SQL DB Documentation
+- name: SQL Database Documentation
   href: index.yml
 - name: SQL Database Service
   items:
@@ -6,23 +6,28 @@
     href: sql-database-technical-overview.md
   - name: Choose a version of Azure SQL
     href: sql-database-paas-vs-sql-server-iaas.md
+  - name: Release notes
+    href: sql-database-release-notes.md 
 - name: Quickstarts
   expanded: true
   items:
   - name: Single database quickstart guide
-    href: sql-database-quickstart-guide.md
+    href: sql-database-single-database-quickstart-guide.md
   - name: Managed instance quickstart guide
     href: sql-database-managed-instance-quickstart-guide.md
   - name: Create
     items: 
-    - name: Single database
-      href: sql-database-get-started-portal.md
+    - name: Single database - portal
+      href: sql-database-single-database-get-started.md
+    - name: Single database - template
+      displayName: Azure Resource Manager template, ARM
+      href: sql-database-single-database-get-started-template.md
     - name: Managed instance
       href: sql-database-managed-instance-get-started.md
   - name: Configure
     items:
-    - name: Database server firewall rules
-      href: sql-database-get-started-portal-firewall.md
+    - name: Server-level IP firewall rules
+      href: sql-database-server-level-firewall-rule.md
     - name: Client VM connection to a managed instance
       href: sql-database-managed-instance-configure-vm.md
     - name: Point-to-site connection to a managed instance
@@ -66,23 +71,23 @@
       href: sql-database-connect-query-r.md
 - name: Tutorials
   items:
-  - name: Design Azure SQL Database
+  - name: Design a database in SQL Database
     items:
     - name: Design database using SSMS
       href: sql-database-design-first-database.md
     - name: Design database using .NET
       href: sql-database-design-first-database-csharp.md
-  - name: Migrate to Azure SQL Database
+  - name: Migrate to SQL Database
     items:
     - name: Migrate to a single/pooled database using DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: Migrate to a managed instance using DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: Security in Azure SQL Database
+  - name: Security in SQL Database
     items:
-    - name: Single database security
+    - name: Single and pooled database security
       href: sql-database-security-tutorial.md
-    - name: Managed instance security with Azure AD logins
+    - name: Managed instance security
       href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
@@ -95,16 +100,18 @@
   - name: Azure CLI
     href: sql-database-cli-samples.md
   - name: Azure PowerShell
-    href: sql-database-powershell-samples.md 
+    href: sql-database-powershell-samples.md
+  - name: Azure Resource Manager
+    href: sql-database-resource-manager-samples.md 
 - name: Concepts
   items:
   - name: Purchasing models
     items: 
     - name: Overview 
-      href: sql-database-service-tiers.md
+      href: sql-database-purchase-models.md
     - name: vCore-based model
       href: sql-database-service-tiers-vcore.md
-    - name: DTU model
+    - name: DTU service tiers
       href: sql-database-service-tiers-dtu.md
     - name: Prepay for reserved capacity
       href: sql-database-reserved-capacity.md
@@ -188,6 +195,8 @@
       href: sql-database-automated-backups.md
     - name: Long-term backup retention
       href: sql-database-long-term-retention.md
+    - name: Planned maintenance events
+      href: sql-database-planned-maintenance.md  
     - name: Failover groups and geo-replication
       items: 
       - name: Active geo-replication
@@ -214,17 +223,17 @@
       href: sql-database-security-index.yml
     - name: Security capabilities
       href: sql-database-security-overview.md
-    - name: Advanced Data Security
+    - name: Advanced data security
       items:
-      - name: Advanced Data Security
-        href: sql-advanced-threat-protection.md
+      - name: Advanced data security
+        href: sql-database-advanced-data-security.md
       - name: Data discovery and classification
         href: sql-database-data-discovery-and-classification.md
       - name: Vulnerability assessment
         href: sql-vulnerability-assessment.md
       - name: Threat detection
         href: sql-database-threat-detection-overview.md
-    - name: Database server IP firewall rules
+    - name: Server-level IP firewall rules
       items:
       - name: Create and manage
         href: sql-database-firewall-configure.md      
@@ -242,12 +251,12 @@
       href: sql-database-aad-authentication.md
     - name: Auditing
       items:
-      - name: Auditing - Single databases and elastic pools
+      - name: Get started with SQL Database auditing
         href: sql-database-auditing.md
       - name: Auditing - Managed instance
         href: sql-database-managed-instance-auditing.md
-      - name: Table auditing (deprecated)
-        href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
+      - name: Audit Log Format
+        href: sql-database-audit-log-format.md
     - name: Dynamic data masking
       href: sql-database-dynamic-data-masking-get-started.md
     - name: Always encrypted
@@ -292,8 +301,6 @@
       href: sql-database-elastic-query-overview.md
     - name: Elastic transactions
       href: sql-database-elastic-transactions-overview.md
-  - name: SQL features comparison
-    href: sql-database-features.md
   - name: Monitoring and tuning
     items:
     - name: Monitoring and tuning overview
@@ -318,24 +325,30 @@
         href: sql-database-performance.md
       - name: Database advisor performance recommendations
         href: sql-database-advisor.md
-  - name: Load and move data
-    items: 
-      - name: SQL Data Sync
-        href: sql-database-sync-data.md
-      - name: Transactional replication
-        href: sql-database-managed-instance-transactional-replication.md
   - name: Databases features
     items:
-    - name: Databases features
-      href: sql-database-develop-overview.md
+    - name: Overview
+      href: sql-database-features-index.yml
+    - name: SQL features comparison
+      href: sql-database-features.md
     - name: Multi-model capabilities
       href: sql-database-multi-model-features.md
     - name: In-memory
       href: sql-database-in-memory.md
+    - name: Transactional replication
+      href: sql-database-managed-instance-transactional-replication.md
+    - name: SQL Data Sync
+      href: sql-database-sync-data.md
     - name: Temporal tables 
       href: sql-database-temporal-tables.md
     - name: Job automation 
       href: sql-database-job-automation-overview.md
+    - name: Machine learning
+      items:
+      - name: Machine learning overview
+        href: sql-database-machine-learning-services-overview.md
+      - name: Key differences
+        href: sql-database-machine-learning-services-differences.md
 - name: How-to guides
   items:
   - name: Overview
@@ -344,15 +357,15 @@
     items: 
     - name: Overview
       href: sql-database-howto-single-database.md
-    - name: Migrate to SQL Database
-      href: sql-database-cloud-migrate.md
+    - name: Migrate to a single/pooled database
+      href: sql-database-single-database-migrate.md
     - name: Manage SQL database after migration
       href: sql-database-manage-after-migration.md
     - name: Configure replication
       href: replication-to-sql-database.md
     - name: Configure threat detection
       href: sql-database-threat-detection.md
-    - name: Configure backup retention using Azure blob storage
+    - name: Configure backup retention using Azure Blob storage
       href: sql-database-long-term-backup-retention-configure.md
     - name: Configure Elastic Database jobs
       href: elastic-jobs-overview.md
@@ -374,8 +387,6 @@
       href: sql-database-insights-alerts-portal.md
     - name: Troubleshoot connectivity
       href: sql-database-troubleshoot-common-connection-issues.md
-    - name: Configure backup retention using Azure vault (deprecated)
-      href: sql-database-long-term-backup-retention-configure-vault.md
     - name: Manage file space
       href: sql-database-file-space-management.md
     - name: Use Resource Health for connectivity issues
@@ -398,7 +409,7 @@
         href: sql-database-elastic-scale-add-a-shard.md
       - name: Fix shard map problems
         href: sql-database-elastic-database-recovery-manager.md
-      - name: Migrate sharded DB
+      - name: Migrate sharded database
         href: sql-database-elastic-convert-to-use-elastic-tools.md
       - name: Create counters
         href: sql-database-elastic-database-perf-counters.md
@@ -414,7 +425,7 @@
         href: sql-database-elastic-query-horizontal-partitioning.md
       - name: Query across tables with different schemas
         href: sql-database-elastic-query-vertical-partitioning.md
-    - name: Elastic Database Jobs
+    - name: Elastic jobs
       items:
       - name: Create and manage (PowerShell)
         href: elastic-jobs-powershell.md
@@ -452,11 +463,11 @@
       href: sql-database-managed-instance-connect-app.md
   - name: Load and move data
     items:
-    - name: Copy a DB within Azure
+    - name: Copy a database within Azure
       href: sql-database-copy.md
-    - name: Import a DB from a BACPAC
+    - name: Import a database from a BACPAC file
       href: sql-database-import.md
-    - name: Export a DB to BACPAC
+    - name: Export a database to a BACPAC file
       href: sql-database-export.md
     - name: Data sync
       items:
@@ -520,12 +531,20 @@
       href: sql-database-manage-automation.md
   - name: Develop apps
     items:
-    - name: Connectivity
-      href: sql-database-libraries.md
+    - name: Overview
+      href: sql-database-develop-overview.md
     - name: Working with JSON data
       href: sql-database-json-features.md
+    - name: Use ASP.NET App Service
+      href: /azure/app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/sql-database/toc.json
+    - name: Use Azure Functions
+      href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=/azure/sql-database/toc.json
+    - name: Use Azure Logic Apps
+      href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/sql-database/toc.json
     - name: Use Spark Connector
       href: sql-database-spark-connector.md
+    - name: Index with Azure Search
+      href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/sql-database/toc.json
     - name: Authenticate app 
       href: sql-database-client-id-keys.md
     - name: Error messages
@@ -588,7 +607,7 @@
             href: saas-dbpertenant-provision-and-catalog.md
           - name: Monitor database performance
             href: saas-dbpertenant-performance-monitoring.md
-          - name: Monitor with log analytics
+          - name: Monitor with Azure Monitor logs
             href: saas-dbpertenant-log-analytics.md
           - name: Restore one tenant
             href: saas-dbpertenant-restore-single-tenant.md
@@ -598,9 +617,9 @@
             href: saas-tenancy-cross-tenant-reporting.md
           - name: Tenant analytics
             items:
-            - name: With SQL DB
+            - name: With SQL Database
               href: saas-tenancy-tenant-analytics.md
-            - name: With SQL DW
+            - name: With SQL Data Warehouse
               href: saas-tenancy-tenant-analytics-adf.md
         - name: Disaster recovery using geo-restore
           href: saas-dbpertenant-dr-geo-restore.md
@@ -623,7 +642,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.sql/#sql
+    href: /powershell/module/az.sql
   - name: Azure CLI
     href: /cli/azure/sql
   - name: .NET
@@ -675,8 +694,6 @@
     href: /learn/browse/?products=azure-sql-database
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: FAQ
-    href: sql-database-faq.md
   - name: Public data sets
     href: sql-database-public-data-sets.md  
   - name: Troubleshoot connectivity
@@ -686,7 +703,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/sql-azure
+    href: https://stackoverflow.com/questions/tagged/sql-azure
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
   - name: Service updates
@@ -694,7 +711,7 @@
   - name: Architecture center
     href: /azure/architecture/
   - name: Customer stories
-    href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
   - name: Elastic jobs (deprecated)
     items:
     - name: Elastic jobs (deprecated)

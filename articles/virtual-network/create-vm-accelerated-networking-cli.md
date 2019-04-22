@@ -38,7 +38,7 @@ The benefits of accelerated networking only apply to the VM that it is enabled o
 
 ## Supported operating systems
 The following distributions are supported out of the box from the Azure Gallery: 
-* **Ubuntu 16.04** 
+* **Ubuntu 16.04+** 
 * **SLES 12 SP3** 
 * **RHEL 7.4**
 * **CentOS 7.4**
@@ -51,7 +51,7 @@ The following distributions are supported out of the box from the Azure Gallery:
 ### Supported VM instances
 Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs.  These supported series are: D/DSv2 and F/Fs
 
-On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/DSv3, E/ESv3, Fsv2, and Ms/Mms.
+On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms and Ms/Mmsv2.
 
 For more information on VM instances, see [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -67,14 +67,19 @@ A supported VM size without accelerated networking enabled can only have the fea
 Virtual machines (classic) cannot be deployed with Accelerated Networking.
 
 ## Create a Linux VM with Azure Accelerated Networking
+## Portal creation
+Though this article provides steps to create a virtual machine with accelerated networking using the Azure CLI, you can also [create a virtual machine with accelerated networking using the Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). When creating a virtual machine in the portal, in the **Create a virtual machine** blade, choose the **Networking** tab.  In this tab, there is an option for **Accelerated networking**.  If you have chosen a [supported operating system](#supported-operating-systems) and [VM size](#supported-vm-instances), this option will automatically populate to "On."  If not, it will populate the "Off" option for Accelerated Networking and give the user a reason why it is not be enabled.   
 
-Though this article provides steps to create a virtual machine with accelerated networking using the Azure CLI, you can also [create a virtual machine with accelerated networking using the Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). When creating a virtual machine in the portal, under **Settings**, select **Enabled**, under **Accelerated networking**. The option to enable accelerated networking doesn't appear in the portal unless you've selected a [supported operating system](#supported-operating-systems) and [VM size](#supported-vm-instances). After the virtual machine is created, you need to complete the instructions in [Confirm that accelerated networking is enabled](#confirm-that-accelerated-networking-is-enabled).
+* *Note:* Only supported operating systems can be enabled through the portal.  If you are using a custom image, and your image supports Accelerated Networking, please create your VM using CLI or Powershell. 
 
+After the virtual machine is created, you can confirm Accelerated Networking is enabled by following the instructions in the [Confirm that accelerated networking is enabled](#confirm-that-accelerated-networking-is-enabled).
+
+## CLI creation
 ### Create a virtual network
 
-Install the latest [Azure CLI](/cli/azure/install-azure-cli) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login). In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVm*.
+Install the latest [Azure CLI](/cli/azure/install-azure-cli) and log in to an Azure account using [az login](/cli/azure/reference-index). In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVm*.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *centralus* location:
+Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *centralus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -82,7 +87,7 @@ az group create --name myResourceGroup --location centralus
 
 Select a supported Linux region listed in [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual network named *myVnet* with one subnet:
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet). The following example creates a virtual network named *myVnet* with one subnet:
 
 ```azurecli
 az network vnet create \
@@ -94,7 +99,7 @@ az network vnet create \
 ```
 
 ### Create a network security group
-Create a network security group with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). The following example creates a network security group named *myNetworkSecurityGroup*:
+Create a network security group with [az network nsg create](/cli/azure/network/nsg). The following example creates a network security group named *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -102,7 +107,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-The network security group contains several default rules, one of which disables all inbound access from the Internet. Open a port to allow SSH access to the virtual machine with [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create):
+The network security group contains several default rules, one of which disables all inbound access from the Internet. Open a port to allow SSH access to the virtual machine with [az network nsg rule create](/cli/azure/network/nsg/rule):
 
 ```azurecli
 az network nsg rule create \
@@ -121,7 +126,7 @@ az network nsg rule create \
 
 ### Create a network interface with accelerated networking
 
-Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). A public IP address isn't required if you don't plan to access the virtual machine from the Internet, but to complete the steps in this article, it is required.
+Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip). A public IP address isn't required if you don't plan to access the virtual machine from the Internet, but to complete the steps in this article, it is required.
 
 ```azurecli
 az network public-ip create \
@@ -129,7 +134,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-Create a network interface with [az network nic create](/cli/azure/network/nic#az_network_nic_create) with accelerated networking enabled. The following example creates a network interface named *myNic* in the *mySubnet* subnet of the *myVnet* virtual network and associates the *myNetworkSecurityGroup* network security group to the network interface:
+Create a network interface with [az network nic create](/cli/azure/network/nic) with accelerated networking enabled. The following example creates a network interface named *myNic* in the *mySubnet* subnet of the *myVnet* virtual network and associates the *myNetworkSecurityGroup* network security group to the network interface:
 
 ```azurecli
 az network nic create \
@@ -145,7 +150,7 @@ az network nic create \
 ### Create a VM and attach the NIC
 When you create the VM, specify the NIC you created with `--nics`. Select a size and distribution listed in [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM* with the UbuntuLTS image and a size that supports Accelerated Networking (*Standard_DS4_v2*):
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named *myVM* with the UbuntuLTS image and a size that supports Accelerated Networking (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \

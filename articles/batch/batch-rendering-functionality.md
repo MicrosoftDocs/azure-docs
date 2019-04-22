@@ -2,6 +2,7 @@
 title: Rendering capabilities - Azure Batch
 description: Specific rendering capabilities in Azure Batch
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018

@@ -5,7 +5,7 @@ description: This article provides a set of best practices for Azure Service Fab
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 
 ms.assetid:
@@ -172,7 +172,7 @@ There are two basic steps to set up a key vault:
 
     The key vault must be enabled for deployment. The compute resource provider can then get the certificates from the vault and install them on the VM instances.
 
-To learn more about how to set up a key vault, see [Get started with Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
+To learn more about how to set up a key vault, see [What is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
 
 ## Assign users to roles
 After you've created the applications to represent your cluster, assign your users to the roles that are supported by Service Fabric: read-only and admin. You can assign these roles by using the Azure portal.

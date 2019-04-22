@@ -1,11 +1,11 @@
 ---
 title: 'Encryption at rest in Azure Cosmos DB'
 description: Learn how Azure Cosmos DB provides encryption of data at rest and how it is implemented.
-author: rafats
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: rafats
+ms.author: rimman
 ms.author: sngun
 ms.custom: seodec18
 ---

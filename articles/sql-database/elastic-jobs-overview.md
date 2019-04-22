@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: srinia
 ms.author: srinia
 ms.reviewer: sstein

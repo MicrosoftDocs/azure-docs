@@ -132,7 +132,6 @@ For more information about the HDInsight tools for Visual Studio:
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
 
 

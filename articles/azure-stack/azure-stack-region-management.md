@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 03/21/2018
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
@@ -26,9 +26,9 @@ ms.lastreviewed: 11/27/2018
 
 Azure Stack uses the concept of *regions*, which are logical entities comprised of the hardware resources that make up the Azure Stack infrastructure. In region management, you can find all resources that are required to successfully operate the Azure Stack infrastructure.
 
-One integrated system deployment (referred to as an *Azure Stack cloud*) makes up a single region. Each Azure Stack Development Kit has one region, named **local**. If you deploy a second Azure Stack integrated system, or you set up another instance of the development kit on separate hardware, this Azure Stack cloud is a different region.
+One integrated system deployment (referred to as an *Azure Stack cloud*) makes up a single region. Each Azure Stack Development Kit (ASDK) has one region, named **local**. If you deploy a second Azure Stack integrated system, or you set up another instance of the development kit on separate hardware, this Azure Stack cloud is a different region.
 
-## Information available through the Region management tile
+## Information available through the region management tile
 
 Azure Stack has a set of region management capabilities available in the **Region management** tile. This tile is available to an Azure Stack operator on the default dashboard in the administrator portal. Through this tile, you can monitor and update your Azure Stack region and its components, which are region-specific.
 
@@ -36,11 +36,11 @@ Azure Stack has a set of region management capabilities available in the **Regio
 
 If you click a region in the **Region management** tile, you can access the following information:
 
-[ ![Description of panes on the Region management blade](media/azure-stack-region-management/regionssm.png "Region management blade") ](media/azure-stack-region-management/regions.png#lightbox)
+[![Description of panes on the Region management blade](media/azure-stack-region-management/regionssm.png "Region management blade")](media/azure-stack-region-management/regions.png#lightbox)
 
 1. **The resource menu**. Access specific infrastructure management areas, and view and manage user resources such as storage accounts and virtual networks.
 
-2. **Alerts**. Lists system-wide alerts and provides details on each of those alerts.
+2. **Alerts**. List system-wide alerts and provide details on each of those alerts.
 
 3. **Updates**. View the current version of your Azure Stack infrastructure, available updates, and the update history. You can also update your integrated system.
 

@@ -1,6 +1,6 @@
 ---
-title: View activity logs for RBAC changes in Azure | Microsoft Docs
-description: View activity logs for role-based access control (RBAC) changes for the past 90 days.
+title: View activity logs for RBAC changes to Azure resources | Microsoft Docs
+description: View activity logs for role-based access control (RBAC) changes to Azure resources for the past 90 days.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ---
-# View activity logs for RBAC changes
+# View activity logs for RBAC changes to Azure resources
 
-Sometimes you need information about role-based access control (RBAC) changes, such as for auditing or troubleshooting purposes. Any time someone makes changes to role assignments or role definitions within your subscriptions, the changes get logged in [Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md). You can view the activity logs to see all the RBAC changes for the past 90 days.
+Sometimes you need information about role-based access control (RBAC) changes to Azure resources, such as for auditing or troubleshooting purposes. Any time someone makes changes to role assignments or role definitions within your subscriptions, the changes get logged in [Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md). You can view the activity logs to see all the RBAC changes for the past 90 days.
 
 ## Operations that are logged
 
@@ -48,24 +48,26 @@ For more information about activity logs, see [View events in activity log](/azu
 
 ## Azure PowerShell
 
-To view activity logs with Azure PowerShell, use the [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) command.
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
+To view activity logs with Azure PowerShell, use the [Get-AzLog](/powershell/module/Az.Monitor/Get-AzLog) command.
 
 This command lists all role assignment changes in a subscription for the past seven days:
 
 ```azurepowershell
-Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
+Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
 ```
 
 This command lists all role definition changes in a resource group for the past seven days:
 
 ```azurepowershell
-Get-AzureRmLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
+Get-AzLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
 This command lists all role assignment and role definition changes in a subscription for the past seven days and displays the results in a list:
 
 ```azurepowershell
-Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
+Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
 ```
 
 ```Example
@@ -101,9 +103,9 @@ This command lists the activity logs for the Authorization resource provider sin
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
 ```
 
-## Azure Log Analytics
+## Azure Monitor logs
 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) is another tool you can use to collect and analyze RBAC changes for all your Azure resources. Log Analytics has the following benefits:
+[Azure Monitor logs](../log-analytics/log-analytics-overview.md) is another tool you can use to collect and analyze RBAC changes for all your Azure resources. Azure Monitor logs has the following benefits:
 
 - Write complex queries and logic
 - Integrate with alerts, Power BI, and other tools
@@ -116,9 +118,9 @@ Here are the basic steps to get started:
 
 1. [Configure the Activity Log Analytics solution](../azure-monitor/platform/collect-activity-logs.md#configuration) for your workspace.
 
-1. [View the activity logs](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). A quick way to navigate to the Activity Log Analytics Overview page is to click the **Log Analytics** option.
+1. [View the activity logs](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). A quick way to navigate to the Activity Log Analytics solution Overview page is to click the **Log Analytics** option.
 
-   ![Log Analytics option in portal](./media/change-history-report/azure-log-analytics-option.png)
+   ![Azure Monitor logs option in portal](./media/change-history-report/azure-log-analytics-option.png)
 
 1. Optionally use the [Log Search](../log-analytics/log-analytics-log-search.md) page or the [Advanced Analytics portal](../azure-monitor/log-query/get-started-portal.md) to query and view the logs. For more information about these two options, see [Log Search page or the Advanced Analytics portal](../azure-monitor/log-query/portals.md).
 

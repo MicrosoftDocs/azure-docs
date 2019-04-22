@@ -4,7 +4,7 @@ description: A checklist of common security attributes for evaluating Azure Back
 services: backup
 documentationcenter: ''
 author: msmbaldwin
-manager: mbaldwin
+manager: barbkess
 ms.service: backup
 
 ms.topic: conceptual

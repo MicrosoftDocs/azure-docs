@@ -40,7 +40,10 @@ An Azure IoT Edge device to configure as a gateway. You can use your development
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
-You can use any machine to generate the certificates, and then copy them over to your IoT Edge device. 
+You can use any machine to generate the certificates, and then copy them over to your IoT Edge device.
+
+>[!NOTE]
+>The "gateway name" used  to create the certificates in this instruction, needs to be the same name as used as hostname in your IoT Edge config.yaml file and as GatewayHostName in the connection string of the downstream device. The "gateway name" needs to be resolvable to an IP Address, either using DNS or a host file entry. Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparant IoT Edge. If a firewall is in between, the respective port needs to be open.
 
 ## Generate certificates with Windows
 
@@ -173,7 +176,7 @@ Use the steps in this section to generate test certificates on a Linux device. Y
 
 In this section, you create three certificates and then connect them in a chain. Placing the certificates in a chain file allows to easily install them on your IoT Edge gateway device and any downstream devices.  
 
-1.	Create the owner CA certificate and one intermediate certificate. These certificates are placed in *\<WRKDIR>*.
+1. Create the owner CA certificate and one intermediate certificate. These certificates are placed in *\<WRKDIR>*.
 
    ```bash
    ./certGen.sh create_root_and_intermediate
@@ -185,7 +188,7 @@ In this section, you create three certificates and then connect them in a chain.
    * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
    * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
-2.	Create the Edge device CA certificate and private key with the following command. Provide a name for the gateway device, which will be used to name the files and during certificate generation. 
+2. Create the Edge device CA certificate and private key with the following command. Provide a name for the gateway device, which will be used to name the files and during certificate generation. 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway name>"

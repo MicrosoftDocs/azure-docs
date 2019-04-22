@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 03/14/2019
 ms.author: ccompy
 ms.custom: seodec18
 ---
@@ -49,6 +49,7 @@ The normal app access ports are:
 |  HTTP/HTTPS  | User configurable |  80, 443 |
 |  FTP/FTPS    | User configurable |  21, 990, 10001-10020 |
 |  Visual Studio remote debugging  |  User configurable |  4020, 4022, 4024 |
+|  Web Deploy service | User configurable | 8172 |
 
 This is true if you're on an External ASE or on an ILB ASE. If you're on an External ASE, you hit those ports on the public VIP. If you're on an ILB ASE, you hit those ports on the ILB. If you lock down port 443, there can be an effect on some features exposed in the portal. For more information, see [Portal dependencies](#portaldep).
 

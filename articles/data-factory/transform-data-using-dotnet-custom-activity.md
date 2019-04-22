@@ -3,17 +3,14 @@ title: Use custom activities in an Azure Data Factory pipeline
 description: Learn how to create custom activities and use them in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: douglasl
-
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 ---
 # Use custom activities in an Azure Data Factory pipeline
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,11 +24,13 @@ There are two types of activities that you can use in an Azure Data Factory pipe
 
 To move data to/from a data store that Data Factory does not support, or to transform/process data in a way that isn't supported by Data Factory, you can create a **Custom activity** with your own data movement or transformation logic and use the activity in a pipeline. The custom activity runs your customized code logic on an **Azure Batch** pool of virtual machines.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 See following articles if you are new to Azure Batch service:
 
 * [Azure Batch basics](../batch/batch-technical-overview.md) for an overview of the Azure Batch service.
-* [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) cmdlet to create an Azure Batch account (or) [Azure portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure portal. See [Using PowerShell to manage Azure Batch Account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) article for detailed instructions on using the cmdlet.
-* [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) cmdlet to create an Azure Batch pool.
+* [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet to create an Azure Batch account (or) [Azure portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure portal. See [Using PowerShell to manage Azure Batch Account](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) article for detailed instructions on using the cmdlet.
+* [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet to create an Azure Batch pool.
 
 ## Azure Batch linked service
 The following JSON defines a sample Azure Batch linked service. For details, see [Compute environments supported by Azure Data Factory](compute-linked-services.md)
@@ -104,8 +103,12 @@ The following table describes names and descriptions of properties that are spec
 | folderPath            | Path to the folder of the custom application and all its dependencies<br/><br/>If you have dependencies stored in subfolders - that is, in a hierarchical folder structure under *folderPath* - the folder structure is currently flattened when the files are copied to Azure Batch. That is, all files are copied into a single folder with no subfolders. To work around this behavior, consider compressing the files, copying the compressed file, and then unzipping it with custom code in the desired location. | No &#42;       |
 | referenceObjects      | An array of existing Linked Services and Datasets. The referenced Linked Services and Datasets are passed to the custom application in JSON format so your custom code can reference resources of the Data Factory | No       |
 | extendedProperties    | User-defined properties that can be passed to the custom application in JSON format so your custom code can reference additional properties | No       |
+| retentionTimeInDays | The retention time for the files submitted for custom activity. Default value is 30 days. | No |
 
 &#42; The properties `resourceLinkedService` and `folderPath` must either both be specified or both be omitted.
+
+> [!NOTE]
+> If you are passing linked services as referenceObjects in Custom Activity, it is a good security practice to pass an Azure Key Vault enabled linked service (since it does not contain any secure strings) and fetch the credentials using secret name directly from Key Vault from the code. You can find an example [here](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) that references AKV enabled linked service, retrieves the credentials from Key Vault, and then accesses the storage in the code.  
 
 ## Custom activity permissions
 
@@ -224,13 +227,13 @@ namespace SampleApp
 You can start a pipeline run using the following PowerShell command:
 
 ```.powershell
-$runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
+$runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
 ```
 When the pipeline is running, you can check the execution output using the following commands:
 
 ```.powershell
 while ($True) {
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
     if(!$result) {
         Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"
@@ -315,9 +318,9 @@ To access properties of type *SecureString* from a custom activity, read the `ac
 
 ## <a name="compare-v2-v1"></a> Compare v2 Custom Activity and version 1 (Custom) DotNet Activity
 
-In Azure Data Factory version 1, you implement a (Custom) DotNet Activity by creating a .Net Class Library project with a class that implements the `Execute` method of the `IDotNetActivity` interface. The Linked Services, Datasets, and Extended Properties in the JSON payload of a (Custom) DotNet Activity are passed to the execution method as strongly-typed objects. For details about the version 1 behavior, see [(Custom) DotNet in version 1](v1/data-factory-use-custom-activities.md). Because of this implementation, your version 1 DotNet Activity code has to target .Net Framework 4.5.2. The version 1 DotNet Activity also has to be executed on Windows-based Azure Batch Pool nodes.
+In Azure Data Factory version 1, you implement a (Custom) DotNet Activity by creating a .NET Class Library project with a class that implements the `Execute` method of the `IDotNetActivity` interface. The Linked Services, Datasets, and Extended Properties in the JSON payload of a (Custom) DotNet Activity are passed to the execution method as strongly-typed objects. For details about the version 1 behavior, see [(Custom) DotNet in version 1](v1/data-factory-use-custom-activities.md). Because of this implementation, your version 1 DotNet Activity code has to target .NET Framework 4.5.2. The version 1 DotNet Activity also has to be executed on Windows-based Azure Batch Pool nodes.
 
-In the Azure Data Factory V2 Custom Activity, you are not required to implement a .Net interface. You can now directly run commands, scripts, and your own custom code, compiled as an executable. To configure this implementation, you specify the `Command` property together with the `folderPath` property. The Custom Activity uploads the executable and its dependencies to `folderpath` and executes the command for you.
+In the Azure Data Factory V2 Custom Activity, you are not required to implement a .NET interface. You can now directly run commands, scripts, and your own custom code, compiled as an executable. To configure this implementation, you specify the `Command` property together with the `folderPath` property. The Custom Activity uploads the executable and its dependencies to `folderpath` and executes the command for you.
 
 The Linked Services, Datasets (defined in referenceObjects), and Extended Properties defined in the JSON payload of a Data Factory v2 Custom Activity can be accessed by your executable as JSON files. You can access the required properties using a JSON serializer as shown in the preceding SampleApp.exe code sample.
 
@@ -328,18 +331,18 @@ The following table describes the differences between the Data Factory V2 Custom
 
 |Differences      | Custom Activity      | version 1 (Custom) DotNet Activity      |
 | ---- | ---- | ---- |
-|How custom logic is defined      |By providing an executable      |By implementing a .Net DLL      |
-|Execution environment of the custom logic      |Windows or Linux      |Windows (.Net Framework 4.5.2)      |
-|Executing scripts      |Supports executing scripts directly (for example "cmd /c echo hello world" on Windows VM)      |Requires implementation in the .Net DLL      |
+|How custom logic is defined      |By providing an executable      |By implementing a .NET DLL      |
+|Execution environment of the custom logic      |Windows or Linux      |Windows (.NET Framework 4.5.2)      |
+|Executing scripts      |Supports executing scripts directly (for example "cmd /c echo hello world" on Windows VM)      |Requires implementation in the .NET DLL      |
 |Dataset required      |Optional      |Required to chain activities and pass information      |
 |Pass information from activity to custom logic      |Through ReferenceObjects (LinkedServices and Datasets) and ExtendedProperties (custom properties)      |Through ExtendedProperties (custom properties), Input, and Output Datasets      |
-|Retrieve information in custom logic      |Parses activity.json, linkedServices.json, and datasets.json stored in the same folder of the executable      |Through .Net SDK (.Net Frame 4.5.2)      |
-|Logging      |Writes directly to STDOUT      |Implementing Logger in .Net DLL      |
+|Retrieve information in custom logic      |Parses activity.json, linkedServices.json, and datasets.json stored in the same folder of the executable      |Through .NET SDK (.NET Frame 4.5.2)      |
+|Logging      |Writes directly to STDOUT      |Implementing Logger in .NET DLL      |
 
 
-If you have existing .Net code written for a version 1 (Custom) DotNet Activity, you need to modify your code for it to work with the current version of the Custom Activity. Update your code by following these high-level guidelines:
+If you have existing .NET code written for a version 1 (Custom) DotNet Activity, you need to modify your code for it to work with the current version of the Custom Activity. Update your code by following these high-level guidelines:
 
-  - Change the project from a .Net Class Library to a Console App.
+  - Change the project from a .NET Class Library to a Console App.
   - Start your application with the `Main` method. The `Execute` method of the `IDotNetActivity` interface is no longer required.
   - Read and parse the Linked Services, Datasets and Activity with a JSON serializer, and not as strongly-typed objects. Pass the values of required properties to your main custom code logic. Refer to the preceding SampleApp.exe code as an example.
   - The Logger object is no longer supported. Output from your executable can be printed to the console and is saved to stdout.txt.

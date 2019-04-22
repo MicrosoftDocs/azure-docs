@@ -54,7 +54,7 @@ For additional orchestrator-specific security information, see the following res
 
 * **Kubernetes**: [Security Best Practices for Kubernetes Deployment](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/)
 
-* **DC/OS**: [Securing Your Cluster](https://dcos.io/docs/1.8/administration/securing-your-cluster/)
+* **DC/OS**: [Securing Your Cluster](http://docs.mesosphere.com/1.12/administering-clusters/securing-your-cluster)
 
 * **Docker Swarm**: [Docker Security](https://www.docker.com/docker-security)
 

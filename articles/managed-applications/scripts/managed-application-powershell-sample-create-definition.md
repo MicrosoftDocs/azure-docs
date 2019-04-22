@@ -23,6 +23,8 @@ This script publishes a managed application definition to a service catalog.
 
 ## Sample script
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/managed-applications/create-definition/create-definition.ps1 "Create definition")]
 
 
@@ -32,7 +34,7 @@ This script uses the following command to create the managed application definit
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmManagedApplicationDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermmanagedapplicationdefinition) | Create a managed application definition. Provide the package that contains the required files. |
+| [New-AzManagedApplicationDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplicationdefinition) | Create a managed application definition. Provide the package that contains the required files. |
 
 
 ## Next steps

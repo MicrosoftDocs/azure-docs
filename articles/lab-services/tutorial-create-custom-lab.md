@@ -76,7 +76,7 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
 1. After the VM is created, you see it in the list of **Claimable virtual machines** in the list. 
 
     > [!NOTE] 
-    > When adding a Linux VM to a lab, you can enable SSH and RDP access to the VM. If you don't enable the access while creating the VM, you can manually add rules in the network security group associated with the VM to open ports for SSH and RDP.
+    > On the **Advanced Settings** page, you can configure public, private or a shared IP address for the VM. When the **shared IP** is enabled, Azure DevTest Labs automatically enables RDP for Windows VMs and SSH for Linux VMs. If you create VMs with **public IP** addresses, RDP and SSH are enabled without any changes from DevTest Labs.  
 
 ## Add a user to the Lab User role
 

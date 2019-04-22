@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Integrate Azure Active Directory with E Sales Manager Remix
 

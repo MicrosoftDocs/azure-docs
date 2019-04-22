@@ -140,7 +140,7 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-To access your application, open a web browser to the address and port specified in the `draft connect` output, such as *http://localhost:49804*. 
+To access your application, open a web browser to the address and port specified in the `draft connect` output, such as `http://localhost:49804`. 
 
 ![Sample Java app running with Draft](media/kubernetes-draft/sample-app.png)
 

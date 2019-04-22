@@ -140,7 +140,7 @@ The job gets its input from the CSV file that you uploaded earlier to blob stora
 
    ![Settings for new Stream Analytics job input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-4. Click **Save**.
+1. Click **Save**.
 
 ### Configure the job output
 The job sends results to the same blob storage where it gets input. 

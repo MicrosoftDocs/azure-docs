@@ -69,7 +69,7 @@ The following patterns and guidance may also be relevant when implementing this 
 
 * [Inter-partition secondary index pattern](#inter-partition-secondary-index-pattern)
 * [Compound key pattern](#compound-key-pattern)
-* [Entity Group Transactions](#entity-group-transactions)
+* Entity Group Transactions
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)
 
 ## Inter-partition secondary index pattern
@@ -126,7 +126,7 @@ The following patterns and guidance may also be relevant when implementing this 
 * [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern)  
 * [Intra-partition secondary index pattern](#intra-partition-secondary-index-pattern)  
 * [Compound key pattern](#compound-key-pattern)  
-* [Entity Group Transactions](#entity-group-transactions)  
+* Entity Group Transactions  
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)  
 
 ## Eventually consistent transactions pattern
@@ -170,7 +170,7 @@ Use this pattern when you want to guarantee eventual consistency between entitie
 ### Related patterns and guidance
 The following patterns and guidance may also be relevant when implementing this pattern:  
 
-* [Entity Group Transactions](#entity-group-transactions)  
+* Entity Group Transactions  
 * [Merge or replace](#merge-or-replace)  
 
 > [!NOTE]
@@ -210,7 +210,7 @@ The **EmployeeIDs** property contains a list of employee ids for employees with 
 The following steps outline the process you should follow when you are adding a new employee if you are using the second option. In this example, we are adding an employee with Id 000152 and a last name Jones in the Sales department:  
 
 1. Retrieve the index entity with a **PartitionKey** value "Sales" and the **RowKey** value "Jones." Save the ETag of this entity to use in step 2.  
-2. Create an entity group transaction (that is, a batch operation) that inserts the new employee entity (**PartitionKey** value "Sales" and **RowKey** value "000152"), and updates the index entity (**PartitionKey** value "Sales" and **RowKey** value "Jones") by adding the new employee ID to the list in the EmployeeIDs field. For more information about entity group transactions, see [Entity Group Transactions](#entity-group-transactions).  
+2. Create an entity group transaction (that is, a batch operation) that inserts the new employee entity (**PartitionKey** value "Sales" and **RowKey** value "000152"), and updates the index entity (**PartitionKey** value "Sales" and **RowKey** value "Jones") by adding the new employee ID to the list in the EmployeeIDs field. For more information about entity group transactions, see Entity Group Transactions.  
 3. If the entity group transaction fails because of an optimistic concurrency error (someone else has just modified the index entity), then you need to start over at step 1 again.  
 
 You can use a similar approach to deleting an employee if you are using the second option. Changing an employee's last name is slightly more complex because you will need to execute an entity group transaction that updates three entities: the employee entity, the index entity for the old last name, and the index entity for the new last name. You must retrieve each entity before making any changes in order to retrieve the ETag values that you can then use to perform the updates using optimistic concurrency.  
@@ -249,7 +249,7 @@ The following patterns and guidance may also be relevant when implementing this 
 
 * [Compound key pattern](#compound-key-pattern)  
 * [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern)  
-* [Entity Group Transactions](#entity-group-transactions)  
+* Entity Group Transactions  
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)  
 
 ## Denormalization pattern
@@ -280,7 +280,7 @@ Use this pattern when you frequently need to look up related information. This p
 The following patterns and guidance may also be relevant when implementing this pattern:  
 
 * [Compound key pattern](#compound-key-pattern)  
-* [Entity Group Transactions](#entity-group-transactions)  
+* Entity Group Transactions  
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)
 
 ## Compound key pattern
@@ -323,7 +323,7 @@ Use this pattern when you need to store one or more related entities that you qu
 ### Related patterns and guidance
 The following patterns and guidance may also be relevant when implementing this pattern:  
 
-* [Entity Group Transactions](#entity-group-transactions)  
+* Entity Group Transactions  
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)  
 * [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern)  
 
@@ -392,7 +392,7 @@ Use this pattern when you have a high volume of entities that you must delete at
 ### Related patterns and guidance
 The following patterns and guidance may also be relevant when implementing this pattern:  
 
-* [Entity Group Transactions](#entity-group-transactions)
+* Entity Group Transactions
 * [Modifying entities](#modifying-entities)  
 
 ## Data series pattern
@@ -452,7 +452,7 @@ Use this pattern when  need to store entities whose size or number of properties
 ### Related patterns and guidance
 The following patterns and guidance may also be relevant when implementing this pattern:  
 
-* [Entity Group Transactions](#entity-group-transactions)
+* Entity Group Transactions
 * [Merge or replace](#merge-or-replace)
 
 ## Large entities pattern
@@ -554,7 +554,7 @@ Consider the following points when deciding how to store log data:
 This section discusses some of the considerations to bear in mind when you implement the patterns described in the previous sections. Most of this section uses examples written in C# that use the Storage Client Library (version 4.3.0 at the time of writing).  
 
 ## Retrieving entities
-As discussed in the section [Design for querying](#design-for-querying), the most efficient query is a point query. However, in some scenarios you may need to retrieve multiple entities. This section describes some common approaches to retrieving entities using the Storage Client Library.  
+As discussed in the section Design for querying, the most efficient query is a point query. However, in some scenarios you may need to retrieve multiple entities. This section describes some common approaches to retrieving entities using the Storage Client Library.  
 
 ### Executing a point query using the Storage Client Library
 The easiest way to execute a point query is to use the **Retrieve** table operation as shown in the following C# code snippet that retrieves an entity with a **PartitionKey** of value "Sales" and a **RowKey** of value "212":  
@@ -586,7 +586,7 @@ var employees = query.Execute();
 
 Notice how the query specifies both a **RowKey** and a **PartitionKey** to ensure better performance.  
 
-The following code sample shows equivalent functionality using the fluent API (for more information about fluent APIs in general, see [Best Practices for Designing a Fluent API](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
+The following code sample shows equivalent functionality using the fluent API (for more information about fluent APIs in general, see [Best Practices for Designing a Fluent API](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(

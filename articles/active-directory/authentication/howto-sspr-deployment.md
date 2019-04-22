@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # How to successfully roll out self-service password reset
 
@@ -45,7 +46,7 @@ Many customers find that the easiest way to get users to use SSPR is with an ema
 * **SSPR Table tents**: Table cards you can place in the lunch room, conference rooms, or on desks to encourage your users to complete registration.
 * **SSPR Stickers**: Sticker templates you can customize and print to place laptops, monitors, keyboards, or cell phones to remember how to access SSPR.
 
-![SSPR Email Samples][Email]
+![SSPR email samples for rollout to users][Email]
 
 ## Create your own password portal
 

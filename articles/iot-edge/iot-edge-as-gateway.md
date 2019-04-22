@@ -4,7 +4,7 @@ description: Use Azure IoT Edge to create a transparent, opaque, or proxy gatewa
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2017
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -48,4 +48,4 @@ Here is a quick cheat sheet that compares IoT Hub primitives when using transpar
 When using an opaque gateway (protocol translation) pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most 50 messages. It follows that the opaque gateway pattern should be used only when few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
 
 ## Next steps
-Learn how to configure an IoT Edge device as a [transparent gateway](how-to-create-transparent-gateway-linux.md).
+Learn how to configure an IoT Edge device as a [transparent gateway](how-to-create-transparent-gateway.md).

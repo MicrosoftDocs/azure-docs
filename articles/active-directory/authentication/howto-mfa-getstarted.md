@@ -1,5 +1,5 @@
 ---
-title: Get started Azure MFA in the cloud
+title: Get started Azure MFA in the cloud - Azure Active Directory
 description: Microsoft Azure Multi-Factor Authentication get started with conditional access
 
 services: multi-factor-authentication
@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Deploy cloud-based Azure Multi-Factor Authentication
 
@@ -38,6 +39,9 @@ Before you start, make sure you have the following prerequisites:
 ## Choose authentication methods
 
 Enable at least one authentication method for your users based on your organization's requirements. We find that when enabled for users the Microsoft Authenticator app provides the best user experience. If you need to understand which methods are available and how to set them, see the article [What are authentication methods](concept-authentication-methods.md).
+
+> [!IMPORTANT]
+> Starting in March of 2019 the phone call options will not be available to MFA and SSPR users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
 
 ## Get users to enroll
 

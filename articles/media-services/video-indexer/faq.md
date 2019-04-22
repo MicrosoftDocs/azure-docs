@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/10/2019
 ms.author: juliako
 ---
 
@@ -62,7 +62,7 @@ In the Video Indexer web-based portal, you can upload a media file using the fil
 
 ### How long does it take Video Indexer to extract insights from media?
 
-The amount of time it takes to index a video or audio file, both using the Video Indexer API and the Video Indexer web-based interface, depends on multiple parameters such as the file length and quality, the number of insights found in the file, the number of [reserved units](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) available, and whether the [streaming endpoint](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) is enabled or not. For most content types, assuming that 10 reserved units of type S3 are enabled, we predict that indexing takes from 1/3 to ½ of the duration of the audio or video file (for example, a 10-minute source video takes 3.5 to 5 minutes). However, we recommend that you run a few test files with your own content and take an average to get a better idea.
+The amount of time it takes to index a video or audio file, both using the Video Indexer API and the Video Indexer web-based interface, depends on multiple parameters such as the file length and quality, the number of insights found in the file, the number of [reserved units](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) available, and whether the [streaming endpoint](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) is enabled or not. We recommend that you run a few test files with your own content and take an average to get a better idea.
 
 ### Can I create customized workflows to automate processes with Video Indexer?
 
@@ -96,7 +96,7 @@ Your video or audio content that have public as its privacy setting can be acces
 
 ### What access does Microsoft have to my video or audio files that have been indexed and/or stored by Video Indexer and the metadata and insights that were extracted?
 
-Per the [Azure Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), you completely own your content, and Microsoft will only access your content and the metadata and insights that Video Indexer extracts from your content according to the OST and the Microsoft Privacy Statement.
+Per the [Azure Online Services Terms](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), you completely own your content, and Microsoft will only access your content and the metadata and insights that Video Indexer extracts from your content according to the OST and the Microsoft Privacy Statement.
 
 ### Are the custom models that I build in my Video Indexer account available to other accounts?
 
@@ -154,6 +154,10 @@ Access tokens expire every hour, so you need to generate a new access token ever
 
 Video Indexer uses a simple pay-as-you-go pricing model based on the duration of the content input that you index. Additional charges may apply for encoding, streaming, storage, network usage, and media reserved units. For more information, see the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) page.
 
+### When am I billed for using Video Indexer?
+
+When sending a video to be indexed, the user will define the indexing to be video analysis, audio analysis or both. This will determine which SKUs will be charged. If there is a critical level error during processing, an error code will be returned as a response. In such a case, no billing occurs.  A critical error can be caused by a bug in our code or a critical failure in an internal dependency the service has. Errors such as wrong identification or insight extraction are not considered as critical and a response is returned. In any case where a valid (non-error code) response is returned, billing occurs.
+ 
 ### Does Video Indexer offer a free trial?
 
 Yes, Video Indexer offers a free trial that gives full service and API functionality. There is a quota of 600 minutes worth of videos for web-based interface users and 2,400 minutes for API users. 

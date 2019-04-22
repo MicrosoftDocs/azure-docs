@@ -79,7 +79,7 @@ For Django apps, App Service looks for a file named `wsgi.py` within your app co
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-If you want more specific control over the startup command, use a [custom startup command](#custom-startup-command) and replace `<module>` with the name of the module that contains *wsgi.py*.
+If you want more specific control over the startup command, use a custom startup command and replace `<module>` with the name of the module that contains *wsgi.py*.
 
 ### Flask app
 
@@ -92,7 +92,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 application:app
 gunicorn --bind=0.0.0.0 --timeout 600 app:app
 ```
 
-If your main app module is contained in a different file, use a different name for the app object, or you want to provide additional arguments to Gunicorn, use a [custom startup command](#custom-startup-command).
+If your main app module is contained in a different file, use a different name for the app object, or you want to provide additional arguments to Gunicorn, use a custom startup command.
 
 ### Default behavior
 
@@ -157,7 +157,7 @@ Popular web frameworks let you access the `X-Forwarded-*` information in your st
 - Restart the App Service, wait 15-20 seconds, and check the app again.
 - Be sure you're using App Service for Linux rather than a Windows-based instance. From the Azure CLI, run the command `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind`, replacing `<resource_group_name>` and `<app_service_name>` accordingly. You should see `app,linux` as output; otherwise, recreate the App Service and choose Linux.
 - Use SSH or the Kudu console to connect directly to the App Service and verify that your files exist under *site/wwwroot*. If your files don't exist, review your deployment process and redeploy the app.
-- If your files exist, then App Service wasn't able to identify your specific startup file. Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#custom-startup-command).
+- If your files exist, then App Service wasn't able to identify your specific startup file. Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a custom startup command.
 - **You see the message "Service Unavailable" in the browser.** The browser has timed out waiting for a response from App Service, which indicates that App Service started the Gunicorn server, but the arguments that specify the app code are incorrect.
 - Refresh the browser, especially if you're using the lowest pricing tiers in your App Service Plan. The app may take longer to start up when using free tiers, for example, and becomes responsive after you refresh the browser.
 - Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).

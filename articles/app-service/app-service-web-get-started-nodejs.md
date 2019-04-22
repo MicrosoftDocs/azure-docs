@@ -3,7 +3,7 @@ title: Create Node.js web app - Azure App Service | Microsoft Docs
 description: Deploy your first Node.js Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
-author: msangapu
+author: cephalin
 manager: jeconnoc
 editor: ''
 
@@ -13,11 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/30/2018
-ms.author: cephalin;msangapu
+ms.date: 02/15/2019
+ms.author: cephalin
 ms.custom: mvc, devcenter
 ms.custom: seodec18
 
+experimental: true
+experiment_id: a231f2b4-2625-4d
 ---
 # Create a Node.js web app in Azure
 
@@ -46,7 +48,7 @@ Download the sample Node.js project from [https://github.com/Azure-Samples/nodej
 Open _index.js_ and find the following line:
 
 ```javascript
-var port = process.env.PORT || 1337;
+const port = process.env.PORT || 1337;
 ```
 
 App Service injects process.env.PORT into your application, so the code uses the variable to know which port to listen. 
@@ -109,11 +111,11 @@ When the web app has been created, the Azure CLI shows output similar to the fol
 
 ### Set Node.js runtime
 
-Set the Node runtime to 8.11.1. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
+Set the Node runtime to 10.14.1. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
 
 ```azurecli-interactive
 # Bash and Powershell
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=10.14.1
 ```
 
 Browse to your newly created web app. Replace `<app_name>` with a unique app name.
@@ -146,13 +148,13 @@ The Node.js sample code is running in an Azure App Service web app.
 
 Using a text editor, open the `index.js` file in the Node.js app, and make a small change to the text in the call to `response.end`:
 
-```nodejs
+```javascript
 response.end("Hello Azure!");
 ```
 
 In the local terminal window, navigate to your application's root directory, create a new ZIP file for your updated project.
 
-```
+```azurecli-interactive
 # Bash
 zip -r myUpdatedAppFiles.zip .
 
@@ -179,12 +181,6 @@ You see your web app's Overview page. Here, you can perform basic management tas
 ![App Service page in Azure portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 The left menu provides different pages for configuring your app. 
-
-## Video
-
-Watch the video to see this quickstart in action and then follow the steps yourself to publish your first Node.js app on Azure.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

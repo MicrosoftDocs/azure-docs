@@ -3,11 +3,10 @@ title: Azure Kubernetes Service (AKS) quotas and region availability
 description: The default quotas and region availability of the Azure Kubernetes Service (AKS).
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
-ms.topic: overview
-ms.date: 08/01/2018
+ms.topic: conceptual
+ms.date: 03/01/2019
 ms.author: iainfou
 ---
 # Quotas and region availability for Azure Kubernetes Service (AKS)
@@ -27,11 +26,15 @@ All other network, compute, and storage limitations apply to the provisioned inf
 Azure Kubernetes Service (AKS) is available in the following regions:
 
 - Australia East
+- Australia Southeast
 - Canada Central
 - Canada East
+- Central India
 - Central US
+- East Asia
 - East US
 - East US2
+- France Central
 - Japan East
 - North Europe
 - Southeast Asia

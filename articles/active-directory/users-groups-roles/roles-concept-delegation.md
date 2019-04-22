@@ -16,6 +16,7 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 #As an Azure AD administrator, I want to know how to organize my approach to delegating roles
+ms.collection: M365-identity-device-management
 ---
 
 # Delegate administration in Azure Active Directory

@@ -65,12 +65,12 @@ If you only need the SDK, you can install this package:
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
 The current versions are:
-* Service Fabric SDK and Tools 3.3.622
-* Service Fabric runtime 6.4.622
+* Service Fabric SDK and Tools 3.3.644
+* Service Fabric runtime 6.4.644
 * Service Fabric Tools for Visual Studio 2015 2.4.11116.1
 * Visual Studio 2017 15.9 includes Service Fabric Tools for Visual Studio 2.4.11024.1 
 
-For a list of supported versions, see [Service Fabric support](service-fabric-support.md)
+For a list of supported versions, see [Service Fabric versions](service-fabric-versions.md)
 
 > [!NOTE]
 > Single machine clusters (OneBox) are not supported for Application or Cluster upgrades; delete the OneBox cluster and recreate it if you need to perform a Cluster upgrade, or have any issues performing an Application upgrade. 

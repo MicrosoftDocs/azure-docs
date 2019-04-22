@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
@@ -36,6 +36,10 @@ Your Azure Stack operator (either a service provider or an administrator in your
 The dashboard contains a default set of tiles. You can select **Edit dashboard** to modify the default dashboard, or select **New dashboard** to create a custom dashboard. You can easily customize a dashboard by adding or removing tiles. For example, to add a Compute tile, select **+ Create a resource**. Right-click **Compute**, and then select **Pin to dashboard**.
 
 ![Screen capture of the Azure Stack user portal](media/azure-stack-use-portal/userportal.png)
+
+To restore the dashboard to the original settings:
+1.  Select **Edit Dashboard**. 
+2.  Right-click and select **Reset to default state**.
 
 ## Create subscription and browse available resources
 

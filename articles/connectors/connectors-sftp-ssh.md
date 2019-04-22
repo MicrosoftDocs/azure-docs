@@ -82,7 +82,7 @@ which renames a file on the SFTP server.
 * Caches the connection to SFTP server *for up to 1 hour*, which improves 
 performance and reduces the number of attempts at connecting to the server. 
 To set the duration for this caching behavior, edit the 
-<a href="http://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> 
+<a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> 
 property in the SSH configuration on your SFTP server. 
 
 ## Prerequisites

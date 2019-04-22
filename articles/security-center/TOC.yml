@@ -89,6 +89,8 @@
       href: security-center-adaptive-application.md
     - name: File integrity monitoring
       href: security-center-file-integrity-monitoring.md
+    - name: Adaptive network hardening
+      href: security-center-adaptive-network-hardening.md
   - name: Detect threats
     href: security-center-detection-capabilities.md
     items:
@@ -184,7 +186,7 @@
   - name: Readiness Roadmap
     href: security-center-readiness-roadmap.md
   - name: Azure Security, Privacy, & Compliance blog
-    href: http://blogs.msdn.com/b/azuresecurity/
+    href: https://blogs.msdn.com/b/azuresecurity/
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=security-center
   - name: Videos

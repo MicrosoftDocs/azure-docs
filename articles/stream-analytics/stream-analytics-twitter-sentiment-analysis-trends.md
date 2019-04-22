@@ -53,7 +53,7 @@ In this procedure, you first create an event hub namespace, and then you add an 
 
 5. Click the new namespace, and in the namespace blade, click **+&nbsp;Event Hub**. 
 
-    ![The Add Event Hub button for creating a new event hub ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
+    ![The Add Event Hub button for creating a new event hub](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
 6. Name the new event hub `socialtwitter-eh`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub.
 
@@ -114,10 +114,10 @@ If you do not already have a Twitter application that you can use for this tutor
 
 2. Create a new application. 
 
-    * For the website URL, specify a valid URL. It does not have to be a live site. (You can't specify just `localhost`.)
-    * Leave the callback field blank. The client application you use for this tutorial doesn't require callbacks.
+   * For the website URL, specify a valid URL. It does not have to be a live site. (You can't specify just `localhost`.)
+   * Leave the callback field blank. The client application you use for this tutorial doesn't require callbacks.
 
-    ![Creating an application in Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
+     ![Creating an application in Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
 
 3. Optionally, change the application's permissions to read-only.
 
@@ -162,19 +162,19 @@ The following procedure documents both approaches.
 
 3. To set the values persistently, use a text editor to open the TwitterWpfClient.exe.config file. Then in the `<appSettings>` element, do this:
 
-    * Set `oauth_consumer_key` to the Twitter Consumer Key (API Key). 
-    * Set `oauth_consumer_secret` to the Twitter Consumer Secret (API Secret).
-    * Set `oauth_token` to the Twitter Access Token.
-    * Set `oauth_token_secret` to the Twitter Access Token Secret.
+   * Set `oauth_consumer_key` to the Twitter Consumer Key (API Key). 
+   * Set `oauth_consumer_secret` to the Twitter Consumer Secret (API Secret).
+   * Set `oauth_token` to the Twitter Access Token.
+   * Set `oauth_token_secret` to the Twitter Access Token Secret.
 
-    Later in the `<appSettings>` element, make these changes:
+     Later in the `<appSettings>` element, make these changes:
 
-    * Set `EventHubName` to the event hub name (that is, to the value of the entity path).
-    * Set `EventHubNameConnectionString` to the connection string. Make sure that you use the connection string that you removed the `EntityPath` key-value pair from.
+   * Set `EventHubName` to the event hub name (that is, to the value of the entity path).
+   * Set `EventHubNameConnectionString` to the connection string. Make sure that you use the connection string that you removed the `EntityPath` key-value pair from.
 
-    The `<appSettings>` section looks like the following example. (For clarity and security, we wrapped some lines and removed some characters.)
+     The `<appSettings>` section looks like the following example. (For clarity and security, we wrapped some lines and removed some characters.)
 
-    ![TwitterWpfClient application configuration file in a text editor, showing the Twitter keys and secrets, and the event hub connection string information](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
+     ![TwitterWpfClient application configuration file in a text editor, showing the Twitter keys and secrets, and the event hub connection string information](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
  
 4. If you didn't already start the application, run TwitterWpfClient.exe now. 
 
@@ -209,15 +209,15 @@ Now that tweet events are streaming in real time from Twitter, you can set up a 
 
 2. In the **Inputs** blade, click **+&nbsp;Add** and then fill out the blade with these values:
 
-    * **Input alias**: Use the name `TwitterStream`. If you use a different name, make a note of it because you need it later.
-    * **Source type**: Select **Data stream**.
-    * **Source**: Select **Event hub**.
-    * **Import option**: Select **Use event hub from current subscription**. 
-    * **Service bus namespace**: Select the event hub namespace that you created earlier (`<yourname>-socialtwitter-eh-ns`).
-    * **Event hub**: Select the event hub that you created earlier (`socialtwitter-eh`).
-    * **Event hub policy name**: Select the access policy that you created earlier (`socialtwitter-access`).
+   * **Input alias**: Use the name `TwitterStream`. If you use a different name, make a note of it because you need it later.
+   * **Source type**: Select **Data stream**.
+   * **Source**: Select **Event hub**.
+   * **Import option**: Select **Use event hub from current subscription**. 
+   * **Service bus namespace**: Select the event hub namespace that you created earlier (`<yourname>-socialtwitter-eh-ns`).
+   * **Event hub**: Select the event hub that you created earlier (`socialtwitter-eh`).
+   * **Event hub policy name**: Select the access policy that you created earlier (`socialtwitter-access`).
 
-    ![Create new input for Streaming Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
+     ![Create new input for Streaming Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
 3. Click **Create**.
 
@@ -292,17 +292,17 @@ In this tutorial, you write the aggregated tweet events from the job query to Az
 
 2. In the **Outputs** blade, click **+&nbsp;Add** and then fill out the blade with these values:
 
-    * **Output alias**: Use the name `TwitterStream-Output`. 
-    * **Sink**: Select **Blob storage**.
-    * **Import options**: Select **Use blob storage from current subscription**.
-    * **Storage account**. Select **Create a new storage account.**
-    * **Storage account** (second box). Enter `YOURNAMEsa`, where `YOURNAME` is your name or another unique string. The name can use only lowercase letters and numbers, and it must be unique across Azure. 
-    * **Container**. Enter `socialtwitter`.
-    The storage account name and container name are used together to provide a URI for the blob storage, like this: 
+   * **Output alias**: Use the name `TwitterStream-Output`. 
+   * **Sink**: Select **Blob storage**.
+   * **Import options**: Select **Use blob storage from current subscription**.
+   * **Storage account**. Select **Create a new storage account.**
+   * **Storage account** (second box). Enter `YOURNAMEsa`, where `YOURNAME` is your name or another unique string. The name can use only lowercase letters and numbers, and it must be unique across Azure. 
+   * **Container**. Enter `socialtwitter`.
+     The storage account name and container name are used together to provide a URI for the blob storage, like this: 
 
-    `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
+     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
     
-    !["New output" blade for Stream Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
+     !["New output" blade for Stream Analytics job](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
 4. Click **Create**. 
 
@@ -333,7 +333,7 @@ A job input, query, and output are specified. You are ready to start the Stream 
 
 After your job has started running and is processing the real-time Twitter stream, you can view the output for sentiment analysis.
 
-You can use a tool like [Azure Storage Explorer](https://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you can use [Power BI](https://powerbi.com/) to extend your application to include a customized dashboard like the one shown in the following screenshot:
+You can use a tool like [Azure Storage Explorer](https://storageexplorer.com/) or [Azure Explorer](https://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you can use [Power BI](https://powerbi.com/) to extend your application to include a customized dashboard like the one shown in the following screenshot:
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

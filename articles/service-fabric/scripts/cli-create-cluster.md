@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure CLI Script Deploy Sample
 description: Create a secure Service Fabric Linux cluster in Azure using the Azure CLI.
 services: service-fabric
@@ -43,7 +43,7 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az sf cluster create](https://docs.microsoft.com/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) | Creates a new Service Fabric cluster.  |
+| [az sf cluster create](https://docs.microsoft.com/cli/azure/sf/cluster?view=azure-cli-latest) | Creates a new Service Fabric cluster.  |
 
 ## Next steps
 

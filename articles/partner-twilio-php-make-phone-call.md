@@ -18,7 +18,7 @@ ms.author: microsofthelp@twilio.com
 
 ---
 # How to Make a Phone Call Using Twilio in a PHP Application on Azure
-The following example shows you how you can use Twilio to make a call from a PHP web page hosted in Azure. The resulting application will prompt the user for phone call values, as shown in the following screen shot.
+The following example shows you how you can use Twilio to make a call from a PHP web page hosted in Azure. The resulting application will prompt the user for phone call values, as shown in the following screenshot.
 
 ![Azure Call Form Using Twilio and PHP][twilio_php]
 

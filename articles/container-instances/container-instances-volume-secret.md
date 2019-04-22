@@ -27,7 +27,7 @@ To deploy a container with one or more secrets by using the Azure CLI, include t
 az container create \
     --resource-group myResourceGroup \
     --name secret-volume-demo \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --secrets mysecret1="My first secret FOO" mysecret2="My second secret BAR" \
     --secrets-mount-path /mnt/secrets
 ```
@@ -64,7 +64,7 @@ properties:
   - name: aci-tutorial-app
     properties:
       environmentVariables: []
-      image: microsoft/aci-helloworld:latest
+      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
       ports: []
       resources:
         requests:

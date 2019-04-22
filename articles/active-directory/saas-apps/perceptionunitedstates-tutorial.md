@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Perception United States (Non-UltiPro)
 
@@ -162,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	c. In **Identity Provider Name** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal. 
 
-	d. In **SAML Domain textbox**, enter the domain like **@contoso.com**.
+	d. In **SAML Domain textbox**, enter the domain like **\@contoso.com**.
 
 	e. Click on **Upload Again** to upload the **Metadata XML** file.
 

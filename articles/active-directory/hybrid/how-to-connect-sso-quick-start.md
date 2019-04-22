@@ -15,6 +15,7 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Seamless Single Sign-On: Quick start
@@ -68,8 +69,9 @@ If you already have an installation of Azure AD Connect, select the **Change use
 ![Azure AD Connect: Change the user sign-in](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Continue through the wizard until you get to the **Enable single sign on** page. Provide domain administrator credentials for each Active Directory forest that:
-    * You synchronize to Azure AD through Azure AD Connect.
-    * Contains users you want to enable for Seamless SSO.
+
+* You synchronize to Azure AD through Azure AD Connect.
+* Contains users you want to enable for Seamless SSO.
 
 After completion of the wizard, Seamless SSO is enabled on your tenant.
 
@@ -114,17 +116,17 @@ There are two ways to modify users' Intranet zone settings:
 
 1. Open the Group Policy Management Editor tool.
 2. Edit the group policy that's applied to some or all your users. This example uses **Default Domain Policy**.
-3. Browse to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page**. Then select **Site to Zone Assignment List**.
+3. Browse to **User Configuration** > **Policy** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page**. Then select **Site to Zone Assignment List**.
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Enable the policy, and then enter the following values in the dialog box:
    - **Value name**: The Azure AD URL where the Kerberos tickets are forwarded.
    - **Value** (Data): **1** indicates the Intranet zone.
 
-    The result looks like this:
+     The result looks like this:
 
-    Value name: `https://autologon.microsoftazuread-sso.com`
+     Value name: `https://autologon.microsoftazuread-sso.com`
   
-    Value (Data): 1
+     Value (Data): 1
 
    >[!NOTE]
    > If you want to disallow some users from using Seamless SSO (for instance, if these users sign in on shared kiosks), set the preceding values to **4**. This action adds the Azure AD URL to the Restricted zone, and fails Seamless SSO all the time.
@@ -134,7 +136,7 @@ There are two ways to modify users' Intranet zone settings:
 
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Browse to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page** > **Intranet Zone**. Then select **Allow updates to status bar via script**.
+6. Browse to **User Configuration** > **Administrative Templates** **Policy** > **> **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page** > **Intranet Zone**. Then select **Allow updates to status bar via script**.
 
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -156,17 +158,9 @@ There are two ways to modify users' Intranet zone settings:
    - **Value type**: ***REG_DWORD***.
    - **Value data**: ***00000001***.
  
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
  
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
-
-6. Browse to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page** > **Intranet Zone**. Then select **Allow updates to status bar via script**.
-
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
-
-7. Enable the policy setting, and then select **OK**.
-
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso12.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### Browser considerations
 

@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
@@ -386,7 +386,7 @@ After the virtual machine is deployed, configure an SSH connection for the virtu
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-From a client system with SSH installed, use the following command to connect to the virtual machine. If you are working on Windows, you can use [Putty](http://www.putty.org/) to create the connection.
+From a client system with SSH installed, use the following command to connect to the virtual machine. If you are working on Windows, you can use [Putty](https://www.putty.org/) to create the connection.
 
 ```
 ssh <Public IP Address>

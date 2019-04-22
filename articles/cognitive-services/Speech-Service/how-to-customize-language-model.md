@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to create a language model with Speech Service. Use this custom language model in conjunction with existing state-of-the-art speech models from Microsoft to add voice interaction to your application.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
@@ -54,7 +54,7 @@ The main requirements for the language data are summarized in the following tabl
 | # of utterances per line | 1 |
 | Maximum file size | 1.5 GB |
 | Remarks | Avoid repeating characters more often than four times, for example 'aaaaa'|
-| Remarks | No special characters such as '\t', or any other UTF-8 character above U+00A1 in the [Unicode characters table](http://www.utf8-chartable.de/)|
+| Remarks | No special characters such as '\t', or any other UTF-8 character above U+00A1 in the [Unicode characters table](https://www.utf8-chartable.de/)|
 | Remarks | URIs will also be rejected since there is no unique way to pronounce a URI|
 
 When the text is imported, it is text-normalized so it can be processed by the system. However, there are some important normalizations that must be done by the user _prior_ to uploading the data. See the [transcription guidelines](prepare-transcription.md) to determine the appropriate language to use when preparing your language data.

@@ -24,7 +24,7 @@ The following HDInsight features are not currently available in Azure Government
 * HDInsight is not available on Windows.
 * Azure Data Lake Store is not currently available in Azure Government. Azure Blob Storage is the only available storage option currently.
 
-The URLs for Log Analytics are different in Azure Government:
+The URLs for Azure Monitor logs are different in Azure Government:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
@@ -34,7 +34,10 @@ For secured virtual networks, you will want to allow Network Security Groups (NS
 
 | Region | Allowed IP addresses | Allowed port |
 | ---- | ---- | ---- |
+| USDoD Central | 52.180.249.174</br>52.180.250.239 | 443 |
+| USDoD East | 52.181.164.168</br>52.181.164.151 | 443 |
 | USGov Iowa | 13.72.184.124</br>13.72.190.110 | 443 |
+| USGov Texas | 52.238.116.212</br>52.238.112.86 | 443 |
 | USGov Virginia | 13.72.49.126</br>13.72.55.55 | 443 |
 
 For more information, see [HDInsight public documentation](../hdinsight/hadoop/apache-hadoop-introduction.md).

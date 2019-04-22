@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to use the Interpret method in the Knowledge Exploration Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration

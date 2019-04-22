@@ -135,12 +135,12 @@ You can link a normal cluster by using the Ambari managed username. Similarly, f
    a. From Package Explorer, right-click the project name, and then select **Submit Spark Application to HDInsight**.        
    b. In the **Spark Submission** dialog box, provide the following values, and then select **Submit**:
       
-      * For **Cluster Name**, select the HDInsight Spark cluster on which you want to run your application.
-      * Select an artifact from the Eclipse project, or select one from a hard drive. The default value depends on the item that you right-click from Package Explorer.
-      * In the **Main class name** drop-down list, the submission wizard displays all object names from your project. Select or enter one that you want to run. If you selected an artifact from a hard drive, you must enter the main class name manually. 
-      * Because the application code in this example does not require any command-line arguments or reference JARs or files, you can leave the remaining text boxes empty.
+   * For **Cluster Name**, select the HDInsight Spark cluster on which you want to run your application.
+   * Select an artifact from the Eclipse project, or select one from a hard drive. The default value depends on the item that you right-click from Package Explorer.
+   * In the **Main class name** drop-down list, the submission wizard displays all object names from your project. Select or enter one that you want to run. If you selected an artifact from a hard drive, you must enter the main class name manually. 
+   * Because the application code in this example does not require any command-line arguments or reference JARs or files, you can leave the remaining text boxes empty.
         
-      ![Spark Submission dialog box](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
+     ![Spark Submission dialog box](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
 1. The **Spark Submission** tab should start displaying the progress. You can stop the application by selecting the red button in the **Spark Submission** window. You can also view the logs for this specific application run by selecting the globe icon (denoted by the blue box in the image).
       
    ![Spark Submission window](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)

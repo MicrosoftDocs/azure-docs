@@ -23,7 +23,7 @@ This article describes how to create and publish an Azure application offer entr
 
 ## New Offer form
 
-Sign in to the [Cloud Partner Portal](http://cloudpartner.azure.com/), and then select **+ New offer** on the left menu bar. On the New offer menu, select **Azure Applications** to display the **New Offer** form and start the process of defining assets for a new offer.
+Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/), and then select **+ New offer** on the left menu bar. On the New offer menu, select **Azure Applications** to display the **New Offer** form and start the process of defining assets for a new offer.
 
 ![New offer form](./media/azure-new-managedapp-offer.png)
 

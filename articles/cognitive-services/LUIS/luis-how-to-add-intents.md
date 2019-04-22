@@ -4,11 +4,11 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Add intents to your LUIS app to identify groups of questions or commands that have the same intentions. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/19/2019
 ms.author: diberry
 ms.service: cognitive-services
 ---
@@ -45,21 +45,14 @@ An utterance in an intent might have an intent prediction discrepancy between th
 
 In the top navigation, select **Train**. The prediction discrepancy is now gone.
 
+> [!Note]
+> When a red line is under a word or phrase in the example utterance, an [entity prediction error](luis-how-to-add-example-utterances.md#entity-status-predictions) has occurred. You need to correct it. 
+
 ## Add a custom entity
 
 Once an utterance is added to an intent, you can select text from within the utterance to create a custom entity. A custom entity is a way to tag text for extraction, along with the correct intent. 
 
-1. Select the word, `Seattle`, in the utterance. Square brackets are drawn around the text and a drop-down menu appears. 
-
-    ![Screenshot of Intents details page, creating custom entity](./media/luis-how-to-add-intents/create-custom-entity.png) 
-
-    This example selects a single word to mark as an entity. You can mark single works and phrases as entities.
-
-1. In the top text-box of the menu, enter `Location`, then select **Create new entity**. 
-
-    ![Screenshot of Intents details page, creating custom entity name](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
-
-1. In the **What type of entity do you want to create?** pop-up window for entity creation, validate that the **entity name** is _Location_, and the **entity type** is _Simple_. Select **Done**.
+See [Add entity to utterance](luis-how-to-add-example-utterances.md) to learn more.
 
 ## Entity prediction discrepancy errors 
 
@@ -75,7 +68,7 @@ For information, see [Prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-
 
 ## Using the contextual toolbar
 
-When one or more example utterances is selected in the list, by checking the box to the left of an utterance, the toolbar above the utterance list allows you to perform the following actions:
+When one or more example utterances are selected in the list, by checking the box to the left of an utterance, the toolbar above the utterance list allows you to perform the following actions:
 
 * Reassign intent: move utterance(s) to different intent
 * Delete utterance(s)

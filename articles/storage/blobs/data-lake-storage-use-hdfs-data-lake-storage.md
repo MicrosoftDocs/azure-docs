@@ -1,6 +1,6 @@
 ---
-title: Using the HDFS CLI with Azure Data Lake Storage Gen2 Preview
-description: Introduction to HDFS CLI for Data Lake Storage Gen2 Preview
+title: Using the HDFS CLI with Azure Data Lake Storage Gen2
+description: Introduction to HDFS CLI for Data Lake Storage Gen2
 services: storage
 author: artemuwka
 ms.service: storage
@@ -12,7 +12,7 @@ ms.subservice: data-lake-storage-gen2
 
 # Using the HDFS CLI with Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 Preview allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Whether you have an HDInsight cluster attached or run an Apache Spark job using Azure Databricks to perform analytics on data stored in an Azure Storage account, you can use command-line interface (CLI) to retrieve and manipulate the loaded data.
+Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Whether you have an HDInsight cluster attached or run an Apache Spark job using Azure Databricks to perform analytics on data stored in an Azure Storage account, you can use command-line interface (CLI) to retrieve and manipulate the loaded data.
 
 ## HDFS CLI with HDInsight
 
@@ -21,17 +21,37 @@ HDInsight provides access to the distributed file system that is locally attache
 >[!IMPORTANT]
 >HDInsight cluster billing starts after a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. To learn how to delete a cluster, see our [article on the topic](../../hdinsight/hdinsight-delete-cluster.md). However, data stored in a storage account with Data Lake Storage Gen2 enabled persists even after an HDInsight cluster is deleted.
 
+### Create a file system
+
+    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
+
+* Replace the `<file-system-name>` placeholder with the name that you want to give your file system.
+
+* Replace the `<storage-account-name>` placeholder with the name of your storage account.
+
 ### Get a list of files or directories
 
-    hdfs dfs -ls <args>
+    hdfs dfs -ls <path>
+
+Replace the `<path>` placeholder with the URI of the file system or file system folder.
+
+For example: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
 ### Create a directory
 
-    hdfs dfs -mkdir [-p] <paths>
+    hdfs dfs -mkdir [-p] <path>
 
-### Delete a file or a directory
+Replace the `<path>` placeholder with the root file system name or a folder within your file system.
 
-    hdfs dfs -rm [-skipTrash] URI [URI ...]
+For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+
+### Delete a file or directory
+
+    hdfs dfs -rm <path>
+
+Replace the `<path>` placeholder with the URI of the file or folder that you want to delete.
+
+For example: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
 ### Use the HDFS CLI with an HDInsight Hadoop cluster on Linux
 
@@ -47,7 +67,7 @@ hdfs dfs -mkdir /samplefolder
 ```
 The connection string can be found at the "SSH + Cluster login" section of the HDInsight cluster blade in Azure portal. SSH credentials were specified at the time of the cluster creation.
 
-For more information on HDFS CLI, see the [official documentation](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) and the [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html). To learn more about the ACLs in Databricks, see the [Secrets CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli). 
+For more information on HDFS CLI, see the [official documentation](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) and the [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html). To learn more about the ACLs in Databricks, see the [Secrets CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli).
 
 ## HDFS CLI with Azure Databricks
 

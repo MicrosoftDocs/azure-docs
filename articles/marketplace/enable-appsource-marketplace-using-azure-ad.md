@@ -55,7 +55,7 @@ For more information about SaaS technical requirements, see [SaaS applications O
 
 Automated customer setup can increase the likelihood of conversion. When your customer selects your trial listing and is redirected to your trial environment, you can set up the customer directly without requiring additional sign-in steps.
 
-During authentication, Azure AD sends a token to your app or offer. The user information provided by the token enables the creation of a user account in your app or offer. To learn more, see [Sample tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
+During authentication, Azure AD sends a token to your app or offer. The user information provided by the token enables the creation of a user account in your app or offer. To learn more, see [Sample tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 When you use Azure AD to enable one-click authentication in your app or trial listing, you:
 

@@ -14,10 +14,10 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/25/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.lastreviewed: 10/25/2018
+ms.lastreviewed: 02/08/2019
 
 ---
 
@@ -47,7 +47,7 @@ Single-node ASDK deployments differ from multi-node Azure Stack deployments in a
 |-----|-----|-----|
 |**Scale**|All components are installed on a single-node server computer.|Can range in size from 4-16 nodes.|
 |**Resilience**|Single-node configuration does not provide high availability|[High availability](../azure-stack-key-features.md#high-availability-for-azure-stack) capabilities are supported.|
-|**Networking**|The ASDK uses a VM named AzS-BGPNAT01 to route all ASDK network traffic. There are no additional switch requirements.|The AzS-BGPNAT01 VM does not exist in multi-node deployments. More complex [network routing infrastructure](../azure-stack-network.md#network-infrastructure) is necessary including Top-Of-Rack (TOR), Baseboard Management Controller (BMC), and border (datacenter network) switches.|
+|**Networking**|The ASDK host routes all ASDK network traffic. There are no additional switch requirements.|More complex [network routing infrastructure](../azure-stack-network.md#network-infrastructure) in multi-node deployments is necessary including Top-Of-Rack (TOR), Baseboard Management Controller (BMC), and border (datacenter network) switches.|
 |**Patch and update process**|To move to a new version of the ASDK, you must redeploy the ASDK on the development kit host computer.|[Patch and update](../azure-stack-updates.md) process used to update the installed Azure Stack version.|
 |**Support**|MSDN Azure Stack forum. Microsoft Customer Service and Support (CSS) support is *not* available for non-production environments.|[MSDN Azure Stack forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) and full CSS support.|
 | | |

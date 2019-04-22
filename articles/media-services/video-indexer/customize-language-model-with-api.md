@@ -8,7 +8,7 @@ manager: johndeu
 
 ms.service: media-services
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/10/2019
 ms.author: anzaman
 ---
 
@@ -302,7 +302,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |fileId|string|Yes|Id of the file that is being updated (generated when the file is uploaded at the creation or updating of the Language model)|
 |accessToken|string|Yes|Access token (must be of scope [Account Access Token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) to authenticate against the call. Access tokens expire within 1 hour.|
 |fileName|string|No|Name to update the file name to|
-|enable|boolean|No|Update whether this file is enabled (true) or disabled (false) in the language model||
+|enable|boolean|No|Update whether this file is enabled (true) or disabled (false) in the language model|
 
 ### Request body
 

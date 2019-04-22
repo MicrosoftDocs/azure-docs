@@ -209,13 +209,13 @@ For more information, see [Apache Storm UI REST API](https://storm.apache.org/re
 
 ### Base URI
 
-The base URI for the REST API on Linux-based HDInsight clusters is available on the head node at **https://HEADNODEFQDN:8744/api/v1/**. The domain name of the head node is generated during cluster creation and is not static.
+The base URI for the REST API on Linux-based HDInsight clusters is available on the head node at **https:\//HEADNODEFQDN:8744/api/v1/**. The domain name of the head node is generated during cluster creation and is not static.
 
 You can find the fully qualified domain name (FQDN) for the cluster head node in several different ways:
 
 * **From an SSH session**: Use the command `headnode -f` from an SSH session to the cluster.
 * **From Ambari Web**: Select **Services** from the top of the page, then select **Storm**. From the **Summary** tab, select **Storm UI Server**. The FQDN of the node that hosts the Storm UI and REST API is displayed at the top of the page.
-* **From Ambari REST API**: Use the command `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` to retrieve information about the node that the Storm UI and REST API are running on. Replace **CLUSTERNAME** with the cluster name. When prompted, enter the password for the login (admin) account. In the response, the "host_name" entry contains the FQDN of the node.
+* **From Ambari REST API**: Use the command `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` to retrieve information about the node that the Storm UI and REST API are running on. Replace **CLUSTERNAME** with the cluster name. When prompted, enter the password for the login (admin) account. In the response, the "host_name" entry contains the FQDN of the node.
 
 ### Authentication
 

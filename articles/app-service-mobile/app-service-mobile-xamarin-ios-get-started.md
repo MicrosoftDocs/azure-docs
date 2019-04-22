@@ -12,7 +12,7 @@ ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
 
@@ -77,7 +77,7 @@ Follow the following steps to configure the server project to use either the Nod
 
 ## Next steps
 * [Add Offline Sync to your app](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [Add authentication to your app ](app-service-mobile-xamarin-ios-get-started-users.md)
+* [Add authentication to your app](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Add push notifications to your Xamarin.Android app](app-service-mobile-xamarin-ios-get-started-push.md)
 * [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 

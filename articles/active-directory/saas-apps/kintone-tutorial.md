@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Kintone
 
@@ -112,6 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.kintone.com`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<companyname>.cybozu.com`|

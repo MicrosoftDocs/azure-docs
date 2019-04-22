@@ -125,8 +125,8 @@ Edit your app manifest to support ADM:
 
     ```xml
     <amazon:enable-feature
-            android:name="com.amazon.device.messaging"
-                    android:required="true"/>
+        android:name="com.amazon.device.messaging"
+        android:required="true"/>
     <service
         android:name="[YOUR SERVICE NAME]"
         android:exported="false" />
@@ -254,7 +254,8 @@ Edit your app manifest to support ADM:
         new AsyncTask() {
                 @Override
                 protected Object doInBackground(Object... params) {
-                    try {                         MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
+                    try {
+                        MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
                     } catch (Exception e) {
                         Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
                         return e;

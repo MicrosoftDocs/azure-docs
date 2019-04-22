@@ -110,7 +110,7 @@ For extended events there are additional DMVs that are common to both Azure SQL 
 - **sys.dm_xe_objects**
 - **sys.dm_xe_packages**
 
- <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
+  <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
 ## Find the available extended events, actions, and targets
 

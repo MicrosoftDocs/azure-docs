@@ -83,6 +83,8 @@
     href: dns-import-export.md
   - name: Delegate a subdomain
     href: delegate-subdomain.md
+  - name: Delegate a subdomain using PowerShell
+    href: delegate-subdomain-ps.md
   - name: Integrate with other Azure services
     href: dns-for-azure-services.md
   - name: Protect DNS zones and records
@@ -108,9 +110,9 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.dns
   - name: Node.js
-    href: http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/
+    href: https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/
   - name: Ruby
-    href: http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0
+    href: https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0
   - name: Python
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html
   - name: REST
@@ -140,7 +142,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork
   - name: Networking blog
-    href: http://azure.microsoft.com/blog/topics/networking
+    href: https://azure.microsoft.com/blog/topics/networking
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/dns/
   - name: Pricing calculator

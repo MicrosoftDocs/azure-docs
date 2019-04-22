@@ -16,6 +16,7 @@ ms.date: 01/21/2019
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Reactivate disabled Access Control Service namespaces
@@ -97,7 +98,7 @@ Further extensions will no longer be automatically approved. If you need additio
     | **Problem type** | `ACS to SAS Migration` |
     | **Subject** | Describe the issue |
 
-  ![New technical support request](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![New technical support request](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 

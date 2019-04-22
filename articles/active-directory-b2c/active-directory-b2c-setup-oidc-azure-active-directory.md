@@ -1,5 +1,5 @@
 ---
-title: Set up sign-in for an Azure Active Directory organization in Azure Active Directory B2C | Microsoft Docs
+title: Set up sign-in for an Azure Active Directory organization - Azure Active Directory B2C | Microsoft Docs
 description: Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -18,7 +18,7 @@ ms.subservice: B2C
 >[!NOTE]
 > This feature is in public preview. Do not use the feature in production environments.
 
-This article shows you how to enable sign-in for users from a specific Azure Active Directory (Azure AD) organization using a user flow in Azure Active Directory (Azure AD) B2C.
+To use an Azure Active Directory (Azure AD) as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure AD B2C, you need to create an application that represents it. This article shows you how to enable sign-in for users from a specific Azure AD organization using a user flow in Azure AD B2C.
 
 ## Create an Azure AD app
 

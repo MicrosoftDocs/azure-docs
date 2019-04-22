@@ -13,11 +13,12 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Build a Xamarin app that integrates Microsoft sign-in
@@ -54,12 +55,12 @@ To enable the app to get tokens, you first need to register it in your Azure AD 
 3. Click **All services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. To create a new **Native Client Application**, follow the prompts.
-  * **Name** describes the app to users.
-  * **Redirect URI** is a scheme and string combination that Azure AD uses to return token responses. Enter a value (for example, http://DirectorySearcher).
+   * **Name** describes the app to users.
+   * **Redirect URI** is a scheme and string combination that Azure AD uses to return token responses. Enter a value (for example, `http://DirectorySearcher`).
 6. After you’ve completed registration, Azure AD assigns the app a unique application ID. Copy the value from the **Application** tab, because you'll need it later.
 7. On the **Settings** page, select **Required Permissions**, and then select **Add**.
 8. Select **Microsoft Graph** as the API. Under **Delegated Permissions**, add the **Read Directory Data** permission. 
-This action enables the app to query the Graph API for users.
+   This action enables the app to query the Graph API for users.
 
 ## Step 3: Install and configure ADAL
 
@@ -91,9 +92,9 @@ Now that you have an app in Azure AD, you can install ADAL and write your identi
 2. In the DirectorySearcherLib project, open DirectorySearcher.cs.
 3. Replace the class member values with the values that you entered in the Azure portal. Your code refers to these values whenever it uses ADAL.
 
-  * The *tenant* is the domain of your Azure AD tenant (for example, contoso.onmicrosoft.com).
-  * The *clientId* is the client ID of the app, which you copied from the portal.
-  * The *returnUri* is the redirect URI that you entered in the portal (for example, http://DirectorySearcher).
+   * The *tenant* is the domain of your Azure AD tenant (for example, contoso.onmicrosoft.com).
+   * The *clientId* is the client ID of the app, which you copied from the portal.
+   * The *returnUri* is the redirect URI that you entered in the portal (for example, `http://DirectorySearcher`).
 
 ## Step 4: Use ADAL to get tokens from Azure AD
 

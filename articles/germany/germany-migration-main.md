@@ -73,7 +73,7 @@ These terms are used in the Azure Germany migration articles:
 
 **Source** describes where you are migrating resources from (for example, Azure Germany):
 
-- **Source tenant name**: The name of the tenant in Azure Germany (everything after **@** in the account name). Tenant names in Azure Germany all end in **microsoftazure.de**.
+- **Source tenant name**: The name of the tenant in Azure Germany (everything after **\@** in the account name). Tenant names in Azure Germany all end in **microsoftazure.de**.
 - **Source tenant ID**: The ID of the tenant in Azure Germany. The tenant ID appears in the Azure portal when you move the mouse over the account name in the upper-right corner.
 - **Source subscription ID**: The ID of the resource subscription in Azure Germany. You can have more than one subscription in the same tenant. Always make sure that you're using the correct subscription.
 - **Source region**: Either Germany Central (**germanycentral**) or Germany Northeast (**germanynortheast**), depending on where the resource you want to migrate is located.

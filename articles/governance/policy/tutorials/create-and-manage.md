@@ -1,10 +1,10 @@
 ---
-title: Use Azure Policy to create and manage policies to enforce compliance
+title: Create and manage policies to enforce compliance
 description: Use Azure Policy to enforce standards, meet regulatory compliance and audit requirements, control costs, maintain security and performance consistency, and impose enterprise wide design principles.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
@@ -92,32 +92,32 @@ series, the request is denied.
       - The policy rules/conditions, in this case – VM SKU size equal to G series
       - The policy effect, in this case – **Deny**.
 
-    Here's what the JSON should look like. Paste your revised code into the Azure portal.
+   Here's what the JSON should look like. Paste your revised code into the Azure portal.
 
-    ```json
-    {
-        "policyRule": {
-            "if": {
-                "allOf": [{
-                        "field": "type",
-                        "equals": "Microsoft.Compute/virtualMachines"
-                    },
-                    {
-                        "field": "Microsoft.Compute/virtualMachines/sku.name",
-                        "like": "Standard_G*"
-                    }
-                ]
-            },
-            "then": {
-                "effect": "deny"
-            }
-        }
-    }
-    ```
+   ```json
+   {
+       "policyRule": {
+           "if": {
+               "allOf": [{
+                       "field": "type",
+                       "equals": "Microsoft.Compute/virtualMachines"
+                   },
+                   {
+                       "field": "Microsoft.Compute/virtualMachines/sku.name",
+                       "like": "Standard_G*"
+                   }
+               ]
+           },
+           "then": {
+               "effect": "deny"
+           }
+       }
+   }
+   ```
 
-    The *field* property in the policy rule must be one of the following values: Name, Type, Location, Tags, or an alias. An example of an alias might be `"Microsoft.Compute/VirtualMachines/Size"`.
+   The *field* property in the policy rule must be one of the following values: Name, Type, Location, Tags, or an alias. An example of an alias might be `"Microsoft.Compute/VirtualMachines/Size"`.
 
-    To view more Azure policy samples, see [Azure Policy samples](../samples/index.md).
+   To view more Azure policy samples, see [Azure Policy samples](../samples/index.md).
 
 1. Select **Save**.
 
@@ -337,9 +337,9 @@ in the following format:
 ## Create and assign an initiative definition
 
 With an initiative definition, you can group several policy definitions to achieve one overarching
-goal. You create an initiative definition to validate that resources within the scope of the
-definition stay compliant with the policy definitions that make up the initiative definition. For
-more information about initiative definitions, see [Azure Policy overview](../overview.md).
+goal. An initiative evaluates resources within scope of the assignment for compliance to the
+included policies. For more information about initiative definitions, see [Azure Policy
+overview](../overview.md).
 
 ### Create an initiative definition
 
@@ -371,7 +371,7 @@ more information about initiative definitions, see [Azure Policy overview](../ov
 
    ![Initiative definitions](../media/create-and-manage/initiative-definition-2.png)
 
-1. If a policy definition being added to the initiative has parameters, they're shown under the policy name in the **Policies and Parameters** area. The _value_ can be set to either 'Set value' (hard coded for all assignments of this initiative) or 'Use Initiative Parameter' (set during each initiative assignment). If 'Set value' is selected, the drown-down to the right of _Values_ allows entering or selecting the value(s). If 'Use Initiative Parameter' is selected, a new **Initiative parameters** section is displayed allowing you to define the parameter that is set during initiative assignment. The allowed values on this initiative parameter can further restrict what may be set during initiative assignment.
+1. If a policy definition being added to the initiative has parameters, they're shown under the policy name in the **Policies and Parameters** area. The _value_ can be set to either 'Set value' (hard coded for all assignments of this initiative) or 'Use Initiative Parameter' (set during each initiative assignment). If 'Set value' is selected, the drop-down to the right of _Values_ allows entering or selecting the value(s). If 'Use Initiative Parameter' is selected, a new **Initiative parameters** section is displayed allowing you to define the parameter that is set during initiative assignment. The allowed values on this initiative parameter can further restrict what may be set during initiative assignment.
 
    ![Initiative definition parameters](../media/create-and-manage/initiative-definition-3.png)
 

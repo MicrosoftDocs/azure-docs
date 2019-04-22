@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with ThousandEyes
 
@@ -210,7 +211,7 @@ The objective of this section is to create a user called Britta Simon in Thousan
 
     a. In **Name** textbox, type the name of user like **Britta Simon**.
 
-    b. In **Email** textbox, type the email of user like **brittasimon@contoso.com**.
+    b. In **Email** textbox, type the email of user like **brittasimon\@contoso.com**.
 
     b. Click **Add New User to Account**.
 

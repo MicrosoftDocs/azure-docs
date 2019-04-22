@@ -1,5 +1,5 @@
 ---
-title: Create a policy to identify non-compliant resources
+title: Create a policy for non-compliant resources
 description: This article walks you through the steps to create a policy definition to identify non-compliant resources.
 services: azure-policy
 author: DCtheGeek

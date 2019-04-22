@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 02/28/2019
 ms.author: tamram  
 ---
 
@@ -14,11 +14,10 @@ ms.author: tamram
 
 General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts are recommended for most storage scenarios. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices.
 
-Upgrading to a general-purpose v2 storage account from your general-purpose v1 or Blob storage accounts is simple. You can upgrade using the Azure portal, PowerShell, or Azure CLI. 
+Upgrading to a general-purpose v2 storage account from your general-purpose v1 or Blob storage accounts is simple. You can upgrade using the Azure portal, PowerShell, or Azure CLI.
 
-> [!NOTE]
-> Upgrading your storage account to a general-purpose v2 account is free.
-> Changing the storage access tier may result in changes to your bill. For more information, see the [Pricing and billing](#pricing-and-billing) section.
+> [!IMPORTANT]
+> Upgrading a v1 storage account to general-purpose v2 is permanent and cannot be undone.
 
 ## Upgrade using the Azure portal
 
@@ -26,14 +25,14 @@ Upgrading to a general-purpose v2 storage account from your general-purpose v1 o
 2. Navigate to your storage account.
 3. In the **Settings** section, click **Configuration**.
 4. Under **Account kind**, click on **Upgrade**.
-5. Under **Confirm upgrade**, type in the name of your account. 
+5. Under **Confirm upgrade**, type in the name of your account.
 6. Click **Upgrade** at the bottom of the blade.
 
 ## Upgrade with PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-To upgrade a general-purpose v1 account to a general-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) for information about installing PowerShell. 
+To upgrade a general-purpose v1 account to a general-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) for information about installing PowerShell.
 
 Next, call the following command to upgrade the account, substituting the name of your resource group and storage account:
 
@@ -43,17 +42,17 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 ## Upgrade with Azure CLI
 
-To upgrade a general-purpose v1 account to a general-purpose v2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for information about installing the CLI. 
+To upgrade a general-purpose v1 account to a general-purpose v2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for information about installing the CLI.
 
 Next, call the following command to upgrade the account, substituting the name of your resource group and storage account:
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
-``` 
+```
 
 ## Specify an access tier for blob data
 
-General-purpose v2 accounts support all Azure storage services and data objects, but access tiers are available only for block blobs in Blob storage. When you upgrade to a general-purpose v2 storage account, you can specify an access tier for your blob data. 
+General-purpose v2 accounts support all Azure storage services and data objects, but access tiers are available only for block blobs in Blob storage. When you upgrade to a general-purpose v2 storage account, you can specify an access tier for your blob data.
 
 Access tiers enable you to choose the most cost-effective storage based on your anticipated usage patterns. Block blobs can be stored in a Hot, Cool, or Archive tier. For more information on access tiers, see [Azure Blob storage: Hot, Cool, and Archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
@@ -64,8 +63,10 @@ By default, a new storage account is created in the Hot access tier, and a gener
 
 In both cases, the first priority is to estimate the cost of storing, accessing, and operating on your data stored in a general-purpose v2 storage account and compare that against your current costs.
 
-
 ## Pricing and billing
+
+Upgrading a v1 storage account to a general-purpose v2 account is free. However, changing the storage access tier may result in changes to your bill. 
+
 All storage accounts use a pricing model for blob storage based on the tier of each blob. When using a storage account, the following billing considerations apply:
 
 * **Storage costs**: In addition to the amount of data stored, the cost of storing data varies depending on the storage access tier. The per-gigabyte cost decreases as the tier gets cooler.
@@ -91,7 +92,7 @@ To estimate the cost of storing and accessing blob data in a general-purpose v2 
     - How much data is being stored in the storage account?
     - How does the data volume change on a monthly basis; does new data constantly replace old data?
 * The primary access pattern for your Blob storage data, including:
-    - How much data is being read from and written to the storage account? 
+    - How much data is being read from and written to the storage account?
     - How many read operations versus write operations occur on the data in the storage account?
 
 To decide on the best access tier for your needs, it can be helpful to determine your blob data capacity, and how that data is being used. This can be best done by looking at the monitoring metrics for your account.
@@ -103,7 +104,7 @@ To monitor your existing storage accounts and gather this data, you can make use
 For more information, see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Blob storage accounts expose the Table service endpoint only for storing and accessing the metrics data for that account. 
+> Blob storage accounts expose the Table service endpoint only for storing and accessing the metrics data for that account.
 
 To monitor the storage consumption for Blob storage, you need to enable the capacity metrics.
 With this enabled, capacity data is recorded daily for a storage account's Blob service and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
@@ -115,7 +116,7 @@ To monitor data access patterns for Blob storage, you need to enable the hourly 
 
 To get a good approximation of your data consumption and access pattern, we recommend you choose a retention period for the metrics that is representative of your regular usage and extrapolate. One option is to retain the metrics data for seven days and collect the data every week, for analysis at the end of the month. Another option is to retain the metrics data for the last 30 days and collect and analyze the data at the end of the 30-day period.
 
-For details on enabling, collecting, and viewing metrics data, see [Enabling Azure Storage metrics and viewing metrics data](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+For details on enabling, collecting, and viewing metrics data, see [Storage analytics metrics](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Storing, accessing, and downloading analytics data is also charged just like regular user data.

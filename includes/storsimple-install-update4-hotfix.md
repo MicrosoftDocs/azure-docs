@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=alkohli last changed: 01/23/18-->
 
 #### To download hotfixes
 
@@ -95,12 +94,12 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     You should see the following versions:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17820`
+   * `HcsSoftwareVersion: 6.3.9600.17820`
    
-    If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) for further assistance.
+     If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) for further assistance.
      
-    > [!IMPORTANT]
-    > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the next update.
+     > [!IMPORTANT]
+     > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the next update.
      
 7. Repeat steps 3-5 to install the Cis/MDS agent downloaded to your _FirstOrderUpdate_ folder. 
 8. Repeat steps 3-5 to install the second order updates. **For second order updates, multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder.** If an update is already installed, the update logic will detect that and not apply that update. 

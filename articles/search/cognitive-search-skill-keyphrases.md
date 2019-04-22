@@ -9,7 +9,7 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
@@ -33,12 +33,14 @@ The maximum size of a record should be 50,000 characters as measured by `String.
 ## Skill parameters
 
 Parameters are case-sensitive.
+
 | Inputs	            | Description |
 |---------------------|-------------|
 | defaultLanguageCode | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code is not specified,  English (en) will be used as the default language code. <br/> See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
 | maxKeyPhraseCount   | (Optional) The maximum number of key phrases to produce. |
 
 ## Skill inputs
+
 | Inputs	 | Description |
 |--------------------|-------------|
 | text | The text to be analyzed.|

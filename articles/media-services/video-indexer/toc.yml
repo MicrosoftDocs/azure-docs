@@ -17,7 +17,9 @@
   href: video-indexer-concepts.md
   items:
   - name: Compare Video Indexer and Media Services presets
-    href: compare-video-indexer-with-media-services-presets.md     
+    href: compare-video-indexer-with-media-services-presets.md   
+  - name: Manage multiple tenants
+    href: manage-multiple-tenants.md  
   - name: Customizing content models
     items:
     - name: Brands
@@ -80,5 +82,5 @@
     href: regions.md
   - name: FAQs
     href: faq.md    
-
-    
+  - name: Compliance
+    href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 

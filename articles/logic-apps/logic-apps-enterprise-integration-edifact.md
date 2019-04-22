@@ -42,7 +42,7 @@ you can create an EDIFACT agreement by following these steps.
 
 ## Create an EDIFACT agreement 
 
-1. Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
+1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 
 2. On the main Azure menu, select **All services**. 
 In the search box, enter "integration", 

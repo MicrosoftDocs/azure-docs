@@ -4,12 +4,12 @@ titleSuffix: Azure
 description: This article has datetimeV2 prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/28/2019
 ms.author: diberry
 ---
 
@@ -28,8 +28,8 @@ The following example JSON response has a `datetimeV2` entity with a subtype of 
   {
     "entity": "8am on may 2nd 2017",
     "type": "builtin.datetimeV2.datetime",
-    "startIndex": 15,
-    "endIndex": 30,
+    "startIndex": 0,
+    "endIndex": 18,
     "resolution": {
       "values": [
         {

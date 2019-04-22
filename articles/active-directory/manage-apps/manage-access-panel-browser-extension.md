@@ -3,8 +3,8 @@ title: Troubleshooting the Azure Access Panel Extension for IE | Microsoft Docs
 description: How to use group policy to deploy the Internet Explorer add-on for the My Apps portal.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,10 +12,11 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/11/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 
+ms.collection: M365-identity-device-management
 ---
 # Troubleshooting the Access Panel Extension for Internet Explorer
 This article helps you troubleshoot the following problems:

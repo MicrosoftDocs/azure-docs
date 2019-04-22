@@ -15,6 +15,7 @@ ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 
 
@@ -45,7 +46,7 @@ Members of a role assignment can extend expiring role assignments directly from 
 
 When the assignment end date-time is within 14 days, the button to **Extend** becomes an active link in the user interface. In the following example, assume the current date is March 27.
 
-![The "Extend" button](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
+![Extend button](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
 
 To request an extension of this role assignment, select **Extend** to open the request form.
 
@@ -60,11 +61,11 @@ To view information about the original assignment, expand **Assignment details**
 
 In a matter of moments, resource administrators  receive an email notification requesting that they review the extension request. If a request to extend has already been submitted, a toast notification appears at the top of the Azure portal explaining the error.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
+![Notification explaining error](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
 
 Go to the **Pending requests** tab in the left pane to view the status of your request or to cancel it.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
+![Pending requests](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
 
 ### Admin approve
 
@@ -76,7 +77,7 @@ In addition to using following the link from email, administrators can approve o
 
 When an Administrator selects **Approve** or **Deny**, the details of the request are shown, along with a field to provide justification for the audit logs.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
+![Approve role assignment request](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
 
 When approving a request to extend role assignment, resource administrators can choose a new start date, end date, and assignment type. Changing assignment type might be necessary if the administrator wants to provide limited access to complete a specific task (one day, for example). In this example, the administrator can change the assignment from **Eligible** to **Active**. This means they can provide access to the requestor without requiring them to activate.
 
@@ -96,7 +97,7 @@ While conceptually similar to the process for requesting an extension, the proce
 
 Members who can no longer access resources can access up to 30 days of expired assignment history. To do this, they browse to **My Roles** in the left pane, and then select the **Expired roles** tab in the Azure resource roles section.
 
-![The "Expired roles" tab](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
+![Expired roles tab](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
 
 The list of roles shown defaults to **Eligible roles**. Use the drop-down menu to toggle between Eligible and Active assigned roles.
 

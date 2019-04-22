@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 03/20/2019
 ms.author: juliako
 ---
 
@@ -241,34 +241,26 @@ Example:
 |confidence|The recognition confidence.|
 |language|The OCR language.|
 |instances|A list of time ranges where this OCR appeared (the same OCR can appear multiple times).|
+|height|The height of the OCR rectangle|
+|top|The top location in px|
+|left| The left location in px|
+|width|The width of the  OCR rectangle|
 
 ```json
 "ocr": [
     {
       "id": 0,
       "text": "LIVE FROM NEW YORK",
-      "confidence": 0.91,
+      "confidence": 675.971,
+      "height": 35,
       "language": "en-US",
+      "left": 31,
+      "top": 97,
+      "width": 400,      
       "instances": [
         {
           "start": "00:00:26",
           "end": "00:00:52"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "text": "NOTICIAS EN VIVO",
-      "confidence": 0.9,
-      "language": "es-ES",
-      "instances": [
-        {
-          "start": "00:00:26",
-          "end": "00:00:28"
-        },
-        {
-          "start": "00:00:32",
-          "end": "00:00:38"
         }
       ]
     }

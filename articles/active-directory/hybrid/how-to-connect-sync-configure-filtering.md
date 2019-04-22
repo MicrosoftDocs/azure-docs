@@ -16,6 +16,7 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Azure AD Connect sync: Configure filtering
@@ -89,8 +90,8 @@ You should only follow these steps if you're unable to run the installation wiza
 
 Domain-based filtering configuration consists of these steps:
 
-1. [Select the domains](#select-domains-to-be-synchronized) that you want to include in the synchronization.
-2. For each added and removed domain, adjust the [run profiles](#update-run-profiles).
+1. Select the domains that you want to include in the synchronization.
+2. For each added and removed domain, adjust the run profiles.
 3. [Apply and verify changes](#apply-and-verify-changes).
 
 ### Select the domains to be synchronized
@@ -106,7 +107,7 @@ To set the domain filter, do the following steps:
    If you've changed your on-premises Active Directory infrastructure and added or removed domains from the forest, then click the **Refresh** button to get an updated list. When you refresh, you're asked for credentials. Provide any credentials with read access to Windows Server Active Directory. It doesn't have to be the user that is prepopulated in the dialog box.  
    ![Refresh needed](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. When you're done, close the **Properties** dialog by clicking **OK**. If you removed domains from the forest, a message pop-up says that a domain was removed and that configuration will be cleaned up.
-7. Continue to adjust the [run profiles](#update-run-profiles).
+7. Continue to adjust the run profiles.
 
 ### Update the run profiles
 If you've updated your domain filter, you also need to update the run profiles.
@@ -256,7 +257,7 @@ In this example, you change the filtering so that only users that have both thei
 4. Depending on the version of Connect you use, either find the rule named **Out to AAD – User Join** or **Out to AAD - User Join SOAInAD**, and click **Edit**.
 5. In the pop-up, answer **Yes** to create a copy of the rule.
 6. On the **Description** page, change **Precedence** to an unused value, such as 50.
-7. Click **Scoping filter** on the left-hand navigation, and then click **Add clause**. In **Attribute**, select **mail**. In **Operator**, select **ENDSWITH**. In **Value**, type **@contoso.com**, and then click **Add clause**. In **Attribute**, select **userPrincipalName**. In **Operator**, select **ENDSWITH**. In **Value**, type **@contoso.com**.
+7. Click **Scoping filter** on the left-hand navigation, and then click **Add clause**. In **Attribute**, select **mail**. In **Operator**, select **ENDSWITH**. In **Value**, type **\@contoso.com**, and then click **Add clause**. In **Attribute**, select **userPrincipalName**. In **Operator**, select **ENDSWITH**. In **Value**, type **\@contoso.com**.
 8. Click **Save**.
 9. To complete the configuration, you need to run a **Full sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
 

@@ -24,7 +24,7 @@ This section describes how to create and publish a Dynamics 365 for Customer Eng
 
 ## New Offer form
 
-Sign in to the [Cloud Partner Portal](http://cloudpartner.azure.com/), and then select **+ New offer** on the left menu bar. On the New offer menu, select **Dynamics 365 for Customer Engagement**:
+Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/), and then select **+ New offer** on the left menu bar. On the New offer menu, select **Dynamics 365 for Customer Engagement**:
 
 ![New offer menu item for Dynamics 365 for Customer Engagement application](./media/new-dyn365ce-menu-item.png)
 

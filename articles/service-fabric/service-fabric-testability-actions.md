@@ -107,7 +107,7 @@ Parameter explanation:
 
 Instead of directly specifying the node by its name, you can specify it via a partition key and the kind of replica.
 
-For further information, see [PartitionSelector and ReplicaSelector](#partition_replica_selector).
+For further information, see PartitionSelector and ReplicaSelector.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll

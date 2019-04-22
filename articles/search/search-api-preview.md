@@ -24,7 +24,7 @@ This article describes the `api-version=2017-11-11-Preview` version of Azure Sea
 
 ## New in 2017-11-11-Preview
 
-[**Auto-complete**](search-autocomplete-tutorial.md) joins the existing [Suggestions API](https://docs.microsoft.com/rest/api/searchservice/suggestions) to add complementary type-ahead experiences to the search bar. Auto-complete returns candidate query terms a user can choose as the query string for a subsequent search. Suggestions returns actual documents in response to partial inputs: search results are immediate and change dynamically as the search term input grows in length and specificity.
+[**autocomplete**](search-autocomplete-tutorial.md) joins the existing [Suggestions API](https://docs.microsoft.com/rest/api/searchservice/suggestions) to add complementary type-ahead experiences to the search bar. autocomplete returns candidate query terms a user can choose as the query string for a subsequent search. Suggestions returns actual documents in response to partial inputs: search results are immediate and change dynamically as the search term input grows in length and specificity.
 
 [**Cognitive search**](cognitive-search-concept-intro.md), a new enrichment capability in Azure Search finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search. The following resources are introduced or modified in the preview REST API. All other REST APIs are the same whether you call the generally available or preview version.
 

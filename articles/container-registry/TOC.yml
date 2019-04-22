@@ -55,28 +55,35 @@
       href: container-registry-get-started-docker-cli.md
     - name: View repositories
       href: container-registry-repositories.md
+    - name: Import container images
+      href: container-registry-import-images.md
+    - name: Lock container images
+      href: container-registry-image-lock.md
     - name: Delete container images
       href: container-registry-delete.md
-    - name: Content trust (preview)
-      href: container-registry-content-trust.md
     - name: Upgrade a Classic registry
       href: container-registry-upgrade.md
     - name: Use ACR webhooks
       href: container-registry-webhook.md
     - name: Helm chart repositories (preview)
       href: container-registry-helm-repos.md
-  - name: Authentication
+  - name: Security and authentication
     items:
+    - name: Limit access with virtual network (preview)
+      href: container-registry-vnet.md
     - name: Authentication overview
       href: container-registry-authentication.md
-    - name: Service principal authentication
-      href: container-registry-auth-service-principal.md
-    - name: Managed identity authentication
-      href: container-registry-authentication-managed-identity.md
-    - name: Azure Container Instances
-      href: container-registry-auth-aci.md
-    - name: Azure Kubernetes Service (AKS)
-      href: container-registry-auth-aks.md
+      items:
+      - name: Service principal authentication
+        href: container-registry-auth-service-principal.md
+      - name: Managed identity authentication
+        href: container-registry-authentication-managed-identity.md
+      - name: Authenticate from Azure Container Instances
+        href: container-registry-auth-aci.md
+      - name: Authenticate from Azure Kubernetes Service (AKS)
+        href: container-registry-auth-aks.md
+    - name: Content trust (preview)
+      href: container-registry-content-trust.md
   - name: Build and patch
     items:
       - name: ACR Tasks
@@ -129,6 +136,6 @@
   - name: Provide product feedback
     href: https://feedback.azure.com/forums/903958-azure-container-registry
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-registry
+    href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest

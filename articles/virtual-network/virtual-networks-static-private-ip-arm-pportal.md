@@ -45,7 +45,7 @@ You cannot set a static private IP address during the creation of a VM in the Re
 
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*, follow these steps:
 
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to https://portal.azure.com and, if necessary, sign in with your Azure account.
 2. Click **Create a resource** > **Compute** > **Windows Server 2012 R2 Datacenter**, notice that the **Select a deployment model** list already shows **Resource Manager**, and then click **Create**, as seen in the following figure.
    
     ![Create VM in Azure portal](./media/virtual-networks-static-ip-arm-pportal/figure01.png)

@@ -11,11 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 02/21/2019
 ms.author: magoedte
 ---
 
 # Manage Log Analytics using Azure Resource Manager templates
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 You can use [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
 
 * Create a workspace including setting pricing tier 
@@ -35,9 +38,9 @@ This article provides template samples that illustrate some of the configuration
 The following table lists the API version for the resources used in this example.
 
 | Resource | Resource type | API version |
-|:---|:---|:---|:---|
+|:---|:---|:---|
 | Workspace   | workspaces    | 2017-03-15-preview |
-| Search      | savedSearches | 2017-03-15-preview |
+| Search      | savedSearches | 2015-03-20 |
 | Data source | datasources   | 2015-11-01-preview |
 | Solution    | solutions     | 2015-11-01-preview |
 
@@ -49,9 +52,11 @@ The following parameters set a default value:
 * Location - defaults to East US
 * SKU - defaults to the new Per-GB pricing tier released in the April 2018 pricing model
 
->[!WARNING]
->If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**. 
->
+> [!NOTE]
+>If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**.  
+>If you might have some subscriptions in the [pre-April 2018 pricing model](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), you can specify 
+>the **Standalone** pricing tier, and this will succeed for both subscription in the pre-April 2018 pricing model and for subscriptions in the new pricing. For workspaces in subscriptions 
+>that have adopted the new proicing model, the pricing tier will be set to **PerGB2018**. 
 
 ### Create and deploy template
 
@@ -96,7 +101,7 @@ The following parameters set a default value:
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
@@ -117,7 +122,7 @@ The following parameters set a default value:
    * For PowerShell use the following commands from the folder containing the template:
    
         ```powershell
-        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
         ```
 
    * For command line, use the following commands from the folder containing the template:
@@ -213,7 +218,7 @@ The following template sample illustrates how to:
   },
   "resources": [
     {
-      "apiVersion": "2017-03-15-preview",
+      "apiVersion": "2015-11-01-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -225,7 +230,7 @@ The following template sample illustrates how to:
       },
       "resources": [
         {
-          "apiVersion": "2017-03-15-preview",
+          "apiVersion": "2015-03-20",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -374,7 +379,7 @@ The following template sample illustrates how to:
           }
         },
         {
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2015-03-20",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [
@@ -495,7 +500,7 @@ To deploy the sample template:
 
 #### PowerShell
 ```powershell
-New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### Command line

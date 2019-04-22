@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -119,7 +119,7 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
 4. Select the **contosovmsacct1910171607** storage account, and the **ContosoASRnet** Azure network.
 5. In **Virtual machines** > **Select**, select the VM you want to replicate. Then click **OK**.
 
- You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the initial replication is complete, and the VM is ready for failover.
+   You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the initial replication is complete, and the VM is ready for failover.
 
 
 ## Next steps

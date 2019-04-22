@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 09/12/2018
+ ms.date: 02/01/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -22,7 +22,7 @@ You can easily create your VNet by clicking "Try It" in this article to open a P
 Adjust the PowerShell commands, then create a resource group.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName WANTestRG -Location WestUS
+New-AzResourceGroup -ResourceGroupName WANTestRG -Location WestUS
 ```
 
 ### Create a VNet
@@ -30,8 +30,8 @@ New-AzureRmResourceGroup -ResourceGroupName WANTestRG -Location WestUS
 Adjust the PowerShell commands to create the VNet that is compatible for your environment.
 
 ```azurepowershell-interactive
-$fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name FrontEnd -AddressPrefix "10.1.0.0/24"
-$vnet   = New-AzureRmVirtualNetwork `
+$fesub1 = New-AzVirtualNetworkSubnetConfig -Name FrontEnd -AddressPrefix "10.1.0.0/24"
+$vnet   = New-AzVirtualNetwork `
             -Name WANVNet1 `
             -ResourceGroupName WANTestRG `
             -Location WestUS `

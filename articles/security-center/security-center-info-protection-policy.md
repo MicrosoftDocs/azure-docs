@@ -4,7 +4,7 @@ description: Learn how to customize information protection policies in Azure Sec
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 2ebf2bc7-232a-45c4-a06a-b3d32aaf2500

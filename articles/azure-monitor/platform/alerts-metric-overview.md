@@ -13,7 +13,7 @@ ms.subservice: alerts
 
 # Understand how metric alerts work in Azure Monitor
 
-Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be platform metrics, [custom metrics](../../azure-monitor/platform/metrics-custom-overview.md), [popular logs from Log Analytics converted to metrics](../../azure-monitor/platform/alerts-metric-logs.md), Application Insights standard metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful, that is, they only send out notifications when the state changes.
+Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be [platform metrics](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [custom metrics](../../azure-monitor/platform/metrics-custom-overview.md), [popular logs from Azure Monitor converted to metrics](../../azure-monitor/platform/alerts-metric-logs.md) and Application Insights metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful, that is, they only send out notifications when the state changes.
 
 ## How do metric alerts work?
 
@@ -62,8 +62,6 @@ Say the usage on "myVM" continues being above the threshold in subsequent checks
 After some time, if the usage on "myVM" comes back down to normal that is, goes below the threshold. The alert rule monitors the condition for two more times, to send out a resolved notification. The alert rule sends out a resolved/deactivated message when the alert condition is not met for three consecutive periods to reduce noise in case of flapping conditions.
 
 As the resolved notification is sent out via web hooks or email, the status of the alert instance (called monitor state) in Azure portal is also set to resolved.
-
-## Monitoring at scale using metric alerts in Azure Monitor
 
 ### Using dimensions
 
@@ -120,9 +118,9 @@ This rule monitors if the average CPU usage for the last 5 minutes exceeds the e
 
 Increasing look-back periods and number of violations can also allow filtering alerts to only alert on your definition of a significant deviation. [Learn more about Dynamic Thresholds advanced options](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
 
-### Monitoring multiple resources using metric alerts
+## Monitoring at scale using metric alerts in Azure Monitor
 
-As you have seen from the previous section, it is possible to have a single metric alert rule that monitors each individual dimension combination (i.e a metric time series). However, previously you were still limited to doing it one resource at a time. Azure Monitor also supports monitoring multiple resources with one metric alert rule. This feature is currently preview and supported only on virtual machines. Also, a single metric alert can monitor resources in one Azure region.
+So far, you have seen how a single metric alert could be used to monitor one or many metric time-series related to a single Azure resource. Many times, you might want the same alert rule applied to many resources. Azure Monitor also supports monitoring multiple resources with one metric alert rule. This feature is currently supported only on virtual machines. Also, a single metric alert can monitor resources in one Azure region.
 
 You can specify the scope of monitoring by a single metric alert in one of three ways:
 
@@ -130,7 +128,7 @@ You can specify the scope of monitoring by a single metric alert in one of three
 - all virtual machines (in one Azure region) in one or more resource groups in a subscription
 - all virtual machines (in one Azure region) in one subscription
 
-Creating metric alert rules that monitor multiple resources is not currently supported through Azure portal. You can create these rules through [Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each virtual machine.
+Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each virtual machine.
 
 ## Typical latency
 
@@ -146,7 +144,7 @@ If you are using classic metric alerts today and are looking to see if metric al
 |-------------------------------------------------|----------------------------|
 | Microsoft.ApiManagement/service | Yes |
 | Microsoft.Batch/batchAccounts| Yes|
-|Microsoft.Cache/redis| Yes
+|Microsoft.Cache/redis| Yes |
 |Microsoft.ClassicCompute/virtualMachines | No |
 |Microsoft.ClassicCompute/domainNames/slots/roles | No|
 |Microsoft.CognitiveServices/accounts | No |
@@ -157,7 +155,7 @@ If you are using classic metric alerts today and are looking to see if metric al
 |Microsoft.DBforMySQL/servers| Yes|
 |Microsoft.DBforPostgreSQL/servers| Yes|
 |Microsoft.Devices/IotHubs | No|
-|Microsoft.DocumentDB/databaseAccounts| No|
+|Microsoft.DocumentDB/databaseAccounts| Yes|
 |Microsoft.EventHub/namespaces | Yes|
 |Microsoft.Logic/workflows | Yes|
 |Microsoft.Network/loadBalancers |Yes|
@@ -165,16 +163,16 @@ If you are using classic metric alerts today and are looking to see if metric al
 |Microsoft.Network/applicationGateways| Yes|
 |Microsoft.Network/expressRouteCircuits| Yes|
 |Microsoft.Network/trafficManagerProfiles | Yes|
-|Microsoft.Search/searchServices | No|
-|Microsoft.ServiceBus/namespaces| No|
+|Microsoft.Search/searchServices | Yes|
+|Microsoft.ServiceBus/namespaces| Yes |
 |Microsoft.Storage/storageAccounts | Yes|
 |Microsoft.StreamAnalytics/streamingjobs| Yes|
 |Microsoft.TimeSeriesInsights/environments | Yes|
 |Microsoft. Web/serverfarms | Yes |
 |Microsoft. Web/sites (excluding functions) | Yes|
 |Microsoft. Web/hostingEnvironments/multiRolePools | No|
-|Microsoft. Web/hostingEnvironments/workerPools| No
-|Microsoft.SQL/Servers | No|
+|Microsoft. Web/hostingEnvironments/workerPools| No |
+|Microsoft.SQL/Servers | No |
 
 ## Next steps
 

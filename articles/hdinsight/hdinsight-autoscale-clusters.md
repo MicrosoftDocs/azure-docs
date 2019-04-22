@@ -1,5 +1,5 @@
 ---
-title: Automatically scale Azure HDInsight clusters (Preview)
+title: Automatically scale Azure HDInsight clusters (preview)
 description: Use the HDInsight Autoscale feature to automatically scale clusters
 services: hdinsight
 author: hrasheed-msft
@@ -7,26 +7,29 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/21/2019
+ms.date: 03/19/2019
 ms.author: hrasheed
 
 ---
-# Automatically scale Azure HDInsight clusters (Preview)
+# Automatically scale Azure HDInsight clusters (preview)
+
+>[!Important]
+>The HDInsight Autoscale feature is currently in preview. Please send an email to hdiautoscalepm@microsoft.com to have Autoscale enabled for your subscription.
 
 Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down based on load within a predefined range. During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down accordingly. There is no additional charge for this feature.
 
-## Getting Started
+## Getting started
 
 ### Create a cluster with the Azure portal
 
 > [!Note]
 > Autoscale is currently only supported for Azure HDInsight Hive, MapReduce and Spark clusters version 3.6.
 
-To enable the Autoscale feature, please do the following as part of the normal cluster creation process:
+To enable the Autoscale feature, do the following as part of the normal cluster creation process:
 
 1. Select **Custom (size, settings, apps)** rather than **Quick create**.
 2. On **Custom** step 5 (**Cluster size**) check the **Worker node autoscale** checkbox.
-3. Enter the desired values for:  
+3. Enter the desired values for the following properties:  
 
     * Initial **Number of Worker nodes**.  
     * **Minimum** number of worker nodes.  
@@ -75,13 +78,11 @@ For more information on creating clusters with Resource Manager templates, see [
 
 ### Enable and disable Autoscale for a running cluster
 
-Enabling Autoscale for a running cluster is not supported during private preview. It must be enabled during cluster creation.
-
-Disabling Autoscale or modifying Autoscale settings for a running cluster is not supported in private preview. You must delete the cluster and create a new cluster to delete or modify the settings.
+You can enable or disable Autoscale for HDInsight clusters created after January 1, 2019 through the Azure portal.
 
 ## Monitoring
 
-You can view the cluster scale up and scale down history as part of the cluster metrics. You can also list all scaling actions over the past day, week, or longer period of time.
+You can view the cluster scale-up and scale-down history as part of the cluster metrics. You can also list all scaling actions over the past day, week, or longer period of time.
 
 ## How it works
 
@@ -94,27 +95,27 @@ Autoscale continuously monitors the cluster and collects the following metrics:
 3. **Total Free CPU**: The sum of all unused cores on the active worker nodes.
 4. **Total Free Memory**: The sum of unused memory (in MB) on the active worker nodes.
 5. **Used Memory per Node**: The load on a worker node. A worker node on which 10 GB of memory is used, is considered under more load than a worker with 2 GB of used memory.
-6. **Number of Application Masters per Node**: The number of Application Master (AM) containers running on a worker node. A worker node hosting 2 AM containers is considered more important than a worker node hosting 0 AM containers.
+6. **Number of Application Masters per Node**: The number of Application Master (AM) containers running on a worker node. A worker node that is hosting two AM containers, is considered more important than a worker node that is hosting zero AM containers.
 
-The above metrics are checked every 60 seconds. Autoscale will make scale up and scale down decisions based on these metrics.
+The above metrics are checked every 60 seconds. Autoscale will make scale-up and scale-down decisions based on these metrics.
 
-### Cluster scale up
+### Cluster scale-up
 
-When the following conditions are detected, Autoscale will issue a scale up request:
+When the following conditions are detected, Autoscale will issue a scale-up request:
 
 * Total pending CPU is greater than total free CPU for more than 1 minute.
 * Total pending memory is greater than total free memory for more than 1 minute.
 
-We will calculate that a certain number of new worker nodes are needed to meet the current CPU and memory requirements and then issue a scale up request that adds that number of new worker nodes.
+We will calculate that a certain number of new worker nodes are needed to meet the current CPU and memory requirements and then issue a scale-up request that adds that number of new worker nodes.
 
-### Cluster scale down
+### Cluster scale-down
 
-When the following conditions are detected, Autoscale will issue a scale down request:
+When the following conditions are detected, Autoscale will issue a scale-down request:
 
 * Total pending CPU is less than total free CPU for more than 10 minutes.
 * Total pending memory is less than total free memory for more than 10 minutes.
 
-Based on the number of AM containers per node as well as the current CPU and memory requirements, Autoscale will issue a request to remove a certain number of nodes, specifying which nodes are potential candidates for removal. By default, two nodes will be removed in one cycle.
+Based on the number of AM containers per node and the current CPU and memory requirements, Autoscale will issue a request to remove a certain number of nodes, specifying which nodes are potential candidates for removal. By default, two nodes will be removed in one cycle.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Learn what to do in the event of an Azure service disruption that a
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 19a9af63-3032-447b-9d1a-b0125f384edb

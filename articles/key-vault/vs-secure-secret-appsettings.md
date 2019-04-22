@@ -8,7 +8,7 @@ manager: paulyuk
 editor: ''
 
 ms.assetid:
-ms.service:
+ms.service: key-vault
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
@@ -140,9 +140,9 @@ If you are writing a quick prototype and don't want to provision Azure resources
 Follow instructions from ASP.NET core section to configure a Key Vault for your project.
 
 1. Install the following NuGet package to your project
-```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets
-```
+   ```
+   Microsoft.Configuration.ConfigurationBuilders.UserSecrets
+   ```
 
 2. Define Key Vault configuration builder in Web.config. Put this section before *appSettings* section. Replace *vaultName* to be the Key Vault name if your Key Vault is in public Azure, or full URI if you are using Sovereign cloud.
 
@@ -156,16 +156,16 @@ Microsoft.Configuration.ConfigurationBuilders.UserSecrets
         </builders>
     </configBuilders>
     ```
-3.  Specify appSettings section is using the Key Vault configuration builder. Make sure there is any entry for the secret setting with a dummy value.
+3. Specify appSettings section is using the Key Vault configuration builder. Make sure there is any entry for the secret setting with a dummy value.
 
-    ```xml
-    <appSettings configBuilders="AzureKeyVault">
-        <add key="webpages:Version" value="3.0.0.0" />
-        <add key="webpages:Enabled" value="false" />
-        <add key="ClientValidationEnabled" value="true" />
-        <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-        <add key="secret" value="" />
-    </appSettings>
-    ```
+   ```xml
+   <appSettings configBuilders="AzureKeyVault">
+       <add key="webpages:Version" value="3.0.0.0" />
+       <add key="webpages:Enabled" value="false" />
+       <add key="ClientValidationEnabled" value="true" />
+       <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+       <add key="secret" value="" />
+   </appSettings>
+   ```
 
 4. Start debugging the project. It should run successfully.

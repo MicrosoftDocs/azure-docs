@@ -14,6 +14,7 @@ ms.subservice: pim
 ms.date: 08/31/2018
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 # Multi-factor authentication (MFA) and PIM
 

@@ -1,6 +1,6 @@
 ---
 title: Sample - Audit diagnostic setting
-description: This sample policy audits if diagnostic settings not enabled for specified resource types.
+description: This sample policy definition audits if diagnostic settings not enabled for specified resource types.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Audit diagnostic setting
+# Sample - Audit diagnostic setting
 
 This built-in policy audits if diagnostic settings are not enabled for specified resource types. You specify an array of resource types to check whether diagnostic settings are enabled.
 
@@ -35,7 +35,7 @@ When assigning a policy, select **Audit diagnostic setting** from the available 
 
 ## Deploy with PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
 $definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/7f89b1eb-583c-429a-8828-af049802c1d9

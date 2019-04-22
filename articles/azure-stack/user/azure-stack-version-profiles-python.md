@@ -53,8 +53,59 @@ In order to use the Python Azure SDK with Azure Stack, you must supply the follo
 | Client ID | AZURE_CLIENT_ID | The service principal application ID saved when service principal was created in the previous section of this article. |
 | Subscription ID | AZURE_SUBSCRIPTION_ID | The [subscription ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) is how you access offers in Azure Stack. |
 | Client Secret | AZURE_CLIENT_SECRET | The service principal application secret saved when the service principal was created. |
-| Resource Manager Endpoint | ARM_ENDPOINT | See the [Azure Stack resource manager endpoint](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Resource Manager Endpoint | ARM_ENDPOINT | See the [Azure Stack Resource Manager endpoint](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Resource Location | AZURE_RESOURCE_LOCATION | The resource location of your Azure Stack Environment.
+
+### Trust the Azure Stack CA root certificate
+
+If you are using the ASDK, you will need to trust the CA root certificate on your remote machine. You will not need to do this with the integrated systems.
+
+#### Windows
+
+1. Find the python certificate store location on your machine. The location may vary depending on where you have installed Python. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
+
+    ```PowerShell  
+      python -c "import certifi; print(certifi.where())"
+    ```
+
+    Make a note of the certificate store location. For example, *~/lib/python3.5/site-packages/certifi/cacert.pem*. Your particular path will depend on your OS and the version of Python that you have installed.
+
+2. Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
+
+    ```powershell
+    $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
+
+    $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+    $root.Import($pemFile)
+
+    Write-Host "Extracting required information from the cert file"
+    $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
+    $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
+    $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
+
+    $issuerEntry  = [string]::Format("# Issuer: {0}", $root.Issuer)
+    $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
+    $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
+    $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
+    $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
+    $sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
+    $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
+    $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
+
+    $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
+    $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
+
+    Write-Host "Adding the certificate content to Python Cert store"
+    Add-Content "${env:ProgramFiles(x86)}\Python35\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
+
+    Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
+
+    ```
+
+> [!NOTE]  
+> If you are using virtualenv for developing with Python SDK as mentioned below, you will need to add the above cert to your virtual environment's cert store as well. The path might look similar to: "..\mytestenv\Lib\site-packages\certifi\cacert.pem"
+
+
 
 ## Python samples for Azure Stack
 
@@ -129,7 +180,7 @@ Each operation is clearly labeled with a comment and a print function. The examp
     export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
-8. In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in the Azure Stack marketplace. These can be either [downloaded from Azure](../azure-stack-download-azure-marketplace-item.md), or added to the [Platform Image Repository](../azure-stack-add-vm-image.md).
+8. In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-DataCenter images must be present in the Azure Stack marketplace. These can be either [downloaded from Azure](../azure-stack-download-azure-marketplace-item.md), or added to the [Platform Image Repository](../azure-stack-add-vm-image.md).
 
 9. Run the sample:
 

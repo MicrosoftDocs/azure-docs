@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 03/11/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -26,17 +26,19 @@ Azure Migrate helps you to:
 ## Current limitations
 
 - You can only assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, 6.5 or 6.7).
-- If you want to assess Hyper-VMs and physical servers, use the [Azure Site Recovery Deployment Planner](https://aka.ms/asr-dp-hyperv-doc) for Hyper-V, and our [partner tools](https://azure.microsoft.com/migration/partners/) for physical machines.
+- Support for Hyper-V is currently in preview with production support, if you are interested in trying it out, please sign up [here.](https://aka.ms/migratefuture)
+- For assessment of physical servers, you can leverage our [partner tools](https://azure.microsoft.com/migration/partners/).
 - You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 1500 VMs in a single assessment.
 - If you want to discover a larger environment, you can split the discovery and create multiple projects. [Learn more](how-to-scale-assessment.md). Azure Migrate supports up to 20 projects per subscription.
 - Azure Migrate only supports managed disks for migration assessment.
 -  You can only create an Azure Migrate project in the following geographies. However, this does not restrict your ability to create assessments for other target Azure locations.
+
     **Geography** | **Storage location**
     --- | ---
     Azure Government | US Gov Virginia
-    Asia | Southeast Asia
+    Asia | Southeast Asia or East Asia
     Europe | North Europe or West Europe
-    Unites States | East US or West Central US
+    United States | East US or West Central US
 
     The geography associated with the migration project is used to store the metadata discovered from the on-premises environment. Metadata is stored in one of the regions based on the geography specified for the migration project. If you use dependency visualization by creating a new Log Analytics workspace, the workspace is created in the same region as the project.
 - The dependency visualization functionality is not available in Azure Government.
@@ -68,27 +70,27 @@ Assessment settings can be customized based on your needs. Assessment properties
 
 ## How does Azure Migrate work?
 
-1.	You create an Azure Migrate project.
-2.	Azure Migrate uses an on-premises VM called the collector appliance, to discover information about your on-premises machines. To create the appliance, you download a setup file in Open Virtualization Appliance (.ova) format, and import it as a VM on your on-premises vCenter Server.
+1. You create an Azure Migrate project.
+2. Azure Migrate uses an on-premises VM called the collector appliance, to discover information about your on-premises machines. To create the appliance, you download a setup file in Open Virtualization Appliance (.ova) format, and import it as a VM on your on-premises vCenter Server.
 3. You connect to the VM from the vCenter Server, and specify a new password for it while connecting.
 4. You run the collector on the VM to initiate discovery.
 5. The collector collects VM metadata using the VMware PowerCLI cmdlets. Discovery is agentless, and doesn't install anything on VMware hosts or VMs. The collected metadata includes VM information (cores, memory, disks, disk sizes, and network adapters). It also collects performance data for VMs, including CPU and memory usage, disk IOPS, disk throughput (MBps), and network output (MBps).
-5.	The metadata is pushed to the Azure Migrate project. You can view it in the Azure portal.
-6.	For the purposes of assessment, you gather the discovered VMs into groups. For example, you might group VMs that run the same application. For more precise grouping, you can use dependency visualization to view dependencies of a specific machine, or for all machines in a group and refine the group.
-7.	After a group is defined, you create an assessment for it.
-8.	After the assessment finishes, you can view it in the portal, or download it in Excel format.
+5. The metadata is pushed to the Azure Migrate project. You can view it in the Azure portal.
+6. For the purposes of assessment, you gather the discovered VMs into groups. For example, you might group VMs that run the same application. For more precise grouping, you can use dependency visualization to view dependencies of a specific machine, or for all machines in a group and refine the group.
+7. After a group is defined, you create an assessment for it.
+8. After the assessment finishes, you can view it in the portal, or download it in Excel format.
 
-  ![Azure Migrate architecture](./media/migration-planner-overview/overview-1.png)
+   ![Azure Migrate architecture](./media/migration-planner-overview/overview-1.png)
 
 ## What are the port requirements?
 
 The table summarizes the ports needed for Azure Migrate communications.
 
-Component | Communicates with |  Details
---- | --- |---
-Collector  | Azure Migrate service | The collector connects to the service over SSL port 443.
-Collector | vCenter Server | By default the collector connects to the vCenter Server on port 443. If the server listens on a different port, configure it as an outgoing port on the collector VM.
-On-premises VM | Log Analytics Workspace | [TCP 443] | [The Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) uses TCP port 443 to connect to Log Analytics. You only need this port if you're using dependency visualization, that requires the MMA agent.
+| Component | Communicates with |  Details |
+| --- | --- |--- |
+|Collector  | Azure Migrate service | The collector connects to the service over SSL port 443.|
+|Collector | vCenter Server | By default the collector connects to the vCenter Server on port 443. If the server listens on a different port, configure it as an outgoing port on the collector VM.|
+|On-premises VM | Log Analytics Workspace | [The Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) uses TCP port 443 to connect to Azure Monitor logs. You only need this port if you're using dependency visualization, that requires the MMA agent.|
 
 
 ## What happens after assessment?

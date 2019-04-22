@@ -58,6 +58,7 @@ In this section, you create two VMs *myIISVMEastUS* and *myIISVMWEurope* in the 
     |Resource group| Select **New** and then type *myResourceGroupTM1*.|
     |Location| Select **East US**.|
     |||
+
 4. Select a VM size under **Choose a size**.
 5. Select the following values for **Settings**, then select **OK**:
     
@@ -67,6 +68,7 @@ In this section, you create two VMs *myIISVMEastUS* and *myIISVMWEurope* in the 
     |Network Security Group|Select **Basic**, and in **Select public inbound ports** drop-down, select **HTTP** and **RDP** |
     |Boot diagnostics|Select **Disabled**.|
     |||
+
 6. Under **Create** in the **Summary**, select **Create** to start the VM deployment.
 
 7. Complete steps 1-6 again, with the following changes:
@@ -78,6 +80,7 @@ In this section, you create two VMs *myIISVMEastUS* and *myIISVMWEurope* in the 
     |VM Name | myIISVMWEurope|
     |Virtual network | Select **Virtual network**, in **Create virtual network**, for **Name**, enter *myVNet2*, for subnet, enter *mySubnet*.|
     |||
+
 8. The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
 
    ![Create a VM](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -134,6 +137,7 @@ In this section, you create a VM (*mVMEastUS* and *myVMWestEurope*) in each Azur
 
 4. Select a VM size under **Choose a size**.
 5. Select the following values for **Settings**, then select **OK**:
+
     |Setting|Value|
     |---|---|
     |Virtual network| Select **Virtual network**, in **Create virtual network**, for **Name**, enter *myVNet3*, for subnet, enter *mySubnet*.|
@@ -159,6 +163,7 @@ Create a Traffic Manager profile that directs user traffic by sending them to th
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
 2. In the **Create Traffic Manager profile**, enter or select, the following information, accept the defaults for the remaining settings, and then select **Create**:
+
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name, trafficmanager.net that is used to access your Traffic Manager profile.                                   |

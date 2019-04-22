@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/11/2019
 ms.author: raynew
 ---
 
@@ -48,41 +48,39 @@ If you are unable to export the assessment report from the portal, try using the
 
 1. Install *armclient* on your computer (if you don’t have it already installed):
 
-  a. In an administrator Command Prompt window, run the following command:
+   a. In an administrator Command Prompt window, run the following command:
     ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
 
-  b. In an administrator Windows PowerShell window, run the following command:
+   b. In an administrator Windows PowerShell window, run the following command:
     ```choco install armclient```
 
-2.	Get the download URL for the assessment report using Azure Migrate REST API
+2. Get the download URL for the assessment report using Azure Migrate REST API
 
-  a.	In an administrator Windows PowerShell window, run the following command:
-      ```armclient login```
+   a.    In an administrator Windows PowerShell window, run the following command:
+     ```armclient login```
 
-  This opens the Azure login pop-up where you need to logon to Azure.
+   This opens the Azure login pop-up where you need to logon to Azure.
 
-  b.	In the same PowerShell window, run the following command to get the download URL for the assessment report (replace the URI parameters with the appropriate values, sample API request below)
+   b.    In the same PowerShell window, run the following command to get the download URL for the assessment report (replace the URI parameters with the appropriate values, sample API request below)
 
-       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
-       Sample request and output:
+      Sample request and output:
 
-       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
-esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
-018_12_16_21/downloadUrl?api-version=2018-02-02
-{
-  "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
-  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
+      ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+   esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
+   018_12_16_21/downloadUrl?api-version=2018-02-02
+   {
+   "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
+   "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
 
 3. Copy the URL from the response and open it in a browser to download the assessment report.
 
 4. Once the report is downloaded, use Excel to browse to the downloaded folder and open the file in Excel to view it.
 
-### Performance data for disks and networks adapters shows as zeros
+### Performance data for CPU, memory and disks is showing up as zeroes
 
-This can occur if the statistics setting level on the vCenter server is set to less than three. At level three or higher, vCenter stores VM performance history for compute, storage, and network. For less than level three, vCenter doesn't store storage and network data, but CPU and memory data only. In this scenario, performance data shows as zero in Azure Migrate, and Azure Migrate provides size recommendation for disks and networks based on the metadata collected from the on-premises machines.
-
-To enable collection of disk and network performance data, change the statistics settings level to three. Then, wait at least a day to discover your environment and assess it.
+Azure Migrate continuously profiles the on-premises environment to collect performance data of the on-premises VMs. If you have just started the discovery of your environment, you need to wait for at least a day for the performance data collection to be done. If an assessment is created without waiting for one day, the performance metrics will show up as zeroes. After waiting for a day, you can either create a new assessment or update the existing assessment by using the 'Recalculate' option in the assessment report.
 
 ### I specified an Azure geography, while creating a migration project, how do I find out the exact Azure region where the discovered metadata would be stored?
 
@@ -97,9 +95,9 @@ You can go to the **Essentials** section in the **Overview** page of the project
 1. Verify if Azure Migrate Collector OVA file is downloaded correctly by checking its hash value. Refer to the [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) to verify the hash value. If the hash value is not matching, download the OVA file again and retry the deployment.
 2. If it still fails and if you are using VMware vSphere Client to deploy the OVF, try deploying it through vSphere Web Client. If it still fails, try using different web browser.
 3. If you are using vSphere web client and trying to deploy it on vCenter Server 6.5 or 6.7, try to deploy the OVA directly on ESXi host by following the below steps:
-  - Connect to the ESXi host directly (instead of vCenter Server) using the web client (https://<*host IP Address*>/ui)
-  - Go to Home > Inventory
-  - Click File > Deploy OVF template > Browse to the OVA and complete the deployment
+   - Connect to the ESXi host directly (instead of vCenter Server) using the web client (https://<*host IP Address*>/ui)
+   - Go to Home > Inventory
+   - Click File > Deploy OVF template > Browse to the OVA and complete the deployment
 4. If the deployment still fails, contact Azure Migrate support.
 
 
@@ -162,16 +160,40 @@ This issue could occur due to an issue with VMware PowerCLI installation. Follow
         C:\Program Files (x86)\WindowsPowerShell\Modules
 
    d. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
-   
-   e. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version fo PowerCLI.
 
-3. If the above does not resolve the issue, manually install [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) and check if the issue is resolved.
+   e. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
+
+3. If the above does not resolve the issue, follow steps a to c above and then manually install PowerCLI in the appliance using the following steps:
+
+   a. Clean up all incomplete PowerCLI installation files by following steps #a to #c in step #2 above.
+
+   b. Go to Start > Run > Open Windows PowerShell(x86) in administrator mode
+
+   c. Run the command:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (type 'A' when it asks for confirmation)
+
+   d. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
+
+   e. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
+
+4. If you are unable to download the module in the appliance due to firewall issues, download and install the module in a machine that has access to internet using the following steps:
+
+    a. Clean up all incomplete PowerCLI installation files by following steps #a to #c in step #2 above.
+
+    b. Go to Start > Run > Open Windows PowerShell(x86) in administrator mode
+
+    c. Run the command:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (type 'A' when it asks for confirmation)
+
+    d. Copy all modules starting with "VMware" from “C:\Program Files (x86)\WindowsPowerShell\Modules” to the same location on the collector VM.
+
+    e. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
+
+    f. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
 
 ### Error UnableToConnectToServer
 
 Unable to connect to vCenter Server "Servername.com:9443" due to error: There was no endpoint listening at https://Servername.com:9443/sdk that could accept the message.
 
-Check if you are running the latest version of the collector appliance, if not, upgrade the appliance to the [latest version](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
+Check if you are running the latest version of the collector appliance, if not, upgrade the appliance to the [latest version](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 If the issue still happens in the latest version, it could be because the collector machine is unable to resolve the vCenter Server name specified or the port specified is wrong. By default, if the port is not specified, collector will try to connect to the port number 443.
 
@@ -221,14 +243,14 @@ The list of Windows operating systems supported by dependency agent is [here](ht
 The list of Linux operating systems supported by dependency agent is [here](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### I am unable to visualize dependencies in Azure Migrate for more than one hour duration?
-Azure Migrate lets you visualize dependencies for up to one hour duration. Although, Azure Migrate allows you to go back to a particular date in the history for up to last one month, the maximum duration for which you can visualize the dependencies is up to 1 hour. For example, you can use the time duration functionality in the dependency map, to view dependencies for yesterday, but can only view it for a one hour window. However, you can use Log Analytics to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) over a longer duration.
+Azure Migrate lets you visualize dependencies for up to one hour duration. Although, Azure Migrate allows you to go back to a particular date in the history for up to last one month, the maximum duration for which you can visualize the dependencies is up to 1 hour. For example, you can use the time duration functionality in the dependency map, to view dependencies for yesterday, but can only view it for a one hour window. However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
 
 ### I am unable to visualize dependencies for groups with more than 10 VMs?
 You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) that have up to 10 VMs, if you have a group with more than 10 VMs, we recommend you to split the group in to smaller groups and visualize the dependencies.
 
 ### I installed agents and used the dependency visualization to create groups. Now post failover, the machines show "Install agent" action instead of "View dependencies"
 * Post planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They may acquire a different IP address based on whether the user chose to retain on-premises IP address or not. If both MAC and IP addresses differ, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
-* Post test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and may acquire different IP address. Unless the user blocks outgoing Log Analytics traffic from these machines, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
+* Post test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and may acquire different IP address. Unless the user blocks outgoing Azure Monitor logs traffic from these machines, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
 
 ## Troubleshoot Azure readiness issues
 
@@ -278,15 +300,15 @@ To collect Event Tracing for Windows, do the following:
 1. Open the browser and navigate and log in [to the portal](https://portal.azure.com).
 2. Press F12 to start the Developer Tools. If needed, clear the setting **Clear entries on navigation**.
 3. Click the **Network** tab, and start capturing network traffic:
- - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being capture. If it doesn't appear, click the black circle to start
- - In Microsoft Edge/IE, recording should start automatically. If it doesn't, click the green play button.
+   - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being capture. If it doesn't appear, click the black circle to start
+   - In Microsoft Edge/IE, recording should start automatically. If it doesn't, click the green play button.
 4. Try to reproduce the error.
 5. After you've encountered the error while recording, stop recording, and save a copy of the recorded activity:
- - In Chrome, right-click and click **Save as HAR with content**. This zips and exports the logs as a .har file.
- - In Microsoft Edge/IE, click the **Export captured traffic** icon. This zips and exports the log.
+   - In Chrome, right-click and click **Save as HAR with content**. This zips and exports the logs as a .har file.
+   - In Microsoft Edge/IE, click the **Export captured traffic** icon. This zips and exports the log.
 6. Navigate to the **Console** tab to check for any warnings or errors. To save the console log:
- - In Chrome, right-click anywhere in the console log. Select **Save as**, to export and zip the log.
- - In Microsoft Edge/IE, right-click on the errors and select **Copy all**.
+   - In Chrome, right-click anywhere in the console log. Select **Save as**, to export and zip the log.
+   - In Microsoft Edge/IE, right-click on the errors and select **Copy all**.
 7. Close Developer Tools.
 
 ## Collector error codes and recommended actions

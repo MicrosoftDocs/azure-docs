@@ -1,65 +1,62 @@
 ---
-title: "Configure replication in Azure SQL Database Managed Instance| Microsoft Docs"
-description: Learn about configuring transactional replication in Azure SQL Database Managed Instance
+title: "Configure replication in an Azure SQL Database managed instance database| Microsoft Docs"
+description: Learn about configuring transactional replication in an Azure SQL Database managed instance database
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ---
-# Configure replication in Azure SQL Database Managed Instance
+# Configure replication in an Azure SQL Database managed instance database
 
-Transactional replication enables you to replicate data from the SQL Server or Azure SQL Database Managed Instance databases into the Managed Instance, or to push changes made in your databases in Managed Instance to other SQL Server, SQL Database single database or elastic pool, or other Managed Instance. Replication is in the public preview on [Azure SQL Database Managed Instance](sql-database-managed-instance.md). A Managed Instance can host publisher, distributor, and subscriber databases. See [Transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) for available configurations.
+Transactional replication enables you to replicate data into an Azure SQL Database managed instance database from a SQL Server database or another instance database. You can also use transactional replication to push changes made in an instance database in Azure SQL Database managed instance to a SQL Server database, to a single database in Azure SQL Database, to a pooled database in an Azure SQL Database elastic pool. Transactional replication is in the public preview on [Azure SQL Database managed instance](sql-database-managed-instance.md). A managed instance can host publisher, distributor, and subscriber databases. See [transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) for available configurations.
 
 ## Requirements
 
-Publisher and distributor on Azure SQL Database requires:
+Configuring a managed instance to function as a publisher or a distributor requires:
 
-- Azure SQL Database Managed Instance that is not in Geo-DR configuration.
+- That the managed instance is not currently participating in a geo-replication relationship.
 
    >[!NOTE]
-   >Azure SQL Databases that are not configured with Managed Instance can only be subscribers.
+   >Single databases and pooled databases in Azure SQL Database can only be subscribers.
 
-- All instances of SQL Server need to be on the same vNet.
+- All managed instances must be on the same vNet.
 
 - Connectivity uses SQL Authentication between replication participants.
 
 - An Azure Storage Account share for the replication working directory.
 
-- Port 445 (TCP outbound) needs to be open in the security rules of the Managed Instance subnet to access the Azure file share
+- Port 445 (TCP outbound) needs to be open in the security rules of the managed instance subnet to access the Azure file share
 
 ## Features
 
 Supports:
 
-- Transactional and snapshot replication mix of on-premises and Azure SQL Database Managed Instance instances.
-
-- Subscribers can be on-premises, single database in Azure SQL Database, or pooled databases in Azure SQL Database elastic pools.
-
+- Transactional and snapshot replication mix of SQL Server on-premises and managed instances in Azure SQL Database.
+- Subscribers can be in on-premises SQL Server databases, single databases/managed instances in Azure SQL Database, or pooled databases in Azure SQL Database elastic pools.
 - One-way or bidirectional replication.
 
-The following features are not supported:
+The following features are not supported in a managed instance in Azure SQL Database:
 
 - Updateable subscriptions.
-
-- Active geo replication.
+- [Active geo replication](sql-database-active-geo-replication.md) and [Auto-failover groups](sql-database-auto-failover-group.md) should not be used if the Transactional Replication is configured.
 
 ## Configure publishing and distribution example
 
-1. [Create an Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) in the portal.
+1. [Create an Azure SQL Database managed instance](sql-database-managed-instance-create-tutorial-portal.md) in the portal.
 2. [Create an Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory.
 
    Be sure to copy the storage keys. See [View and copy storage access keys](../storage/common/storage-account-manage.md#access-keys
 ).
-3. Create a database for the publisher.
+3. Create an instance database for the publisher.
 
-   In the example scripts below, replace `<Publishing_DB>` with the name of this database.
+   In the example scripts below, replace `<Publishing_DB>` with the name of the instance database.
 
 4. Create a database user with SQL Authentication for the distributor. Use a secure password.
 

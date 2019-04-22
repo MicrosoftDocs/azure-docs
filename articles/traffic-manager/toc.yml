@@ -6,8 +6,10 @@
     href: traffic-manager-overview.md
 - name: Quickstart
   items:
-  - name: Create a Traffic Manager profile
+  - name: Create a Traffic Manager profile - portal
     href: quickstart-create-traffic-manager-profile.md
+  - name: Create a Traffic Manager profile - PowerShell
+    href: quickstart-create-traffic-manager-profile-powershell.md
 - name: Tutorials
   items:
   - name: Route traffic for low latency
@@ -22,6 +24,8 @@
     href: tutorial-traffic-manager-weighted-endpoint-routing.md
   - name: Route traffic based on user's subnet
     href: tutorial-traffic-manager-subnet-routing.md
+  - name: Alias records for Traffic Manager
+    href: ../dns/tutorial-alias-tm.md?toc=%2fazure%2ftraffic-manager%2ftoc.json
 - name: Samples
   items:
   - name: Azure CLl
@@ -98,7 +102,7 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.trafficmanager
   - name: Node.js
-    href: http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/
+    href: https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/
   - name: Ruby
     href: http://www.rubydoc.info/gems/azure_mgmt_traffic_manager
   - name: Python

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with StatusPage
 
@@ -110,23 +111,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern:
+
 	| |
 	|--|
 	| `https://<subdomain>.statuspagestaging.com/` |
 	| `https://<subdomain>.statuspage.io/` |
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: 
+	
 	| |
 	|--|
 	| `https://<subdomain>.statuspagestaging.com/sso/saml/consume` |
 	| `https://<subdomain>.statuspage.io/sso/saml/consume` |
 
-	> [!NOTE]
-    > Contact the StatusPage support team at [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)to request metadata necessary to configure single sign-on. 
-    >
-    >a. From the metadata, copy the Issuer value, and then paste it into the **Identifier** textbox.
-	>
-    >b. From the metadata, copy the Reply URL, and then paste it into the **Reply URL** textbox.
+   > [!NOTE]
+   > Contact the StatusPage support team at [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)to request metadata necessary to configure single sign-on. 
+   > 
+   > a. From the metadata, copy the Issuer value, and then paste it into the **Identifier** textbox.
+   > 
+   > b. From the metadata, copy the Reply URL, and then paste it into the **Reply URL** textbox.
 
 1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -152,15 +155,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. On the SSO Setup page, perform the following steps:
    
-    ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
+      ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
 
-	![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
+      ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
  
-    a. In the **SSO Target URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+      a. In the **SSO Target URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
 
-    b. Open your downloaded certificate in Notepad, copy the content, and then paste it into the **Certificate** textbox. 
+      b. Open your downloaded certificate in Notepad, copy the content, and then paste it into the **Certificate** textbox. 
 
-    c. Click **SAVE CONFIGURATION**.
+      c. Click **SAVE CONFIGURATION**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -219,7 +222,7 @@ StatusPage supports just-in-time provisioning. You have already enabled it in [C
    
     ![Creating an Azure AD test user](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
 
-1. Type the **Email Address**, **First Name**, and **Sur Name** of a valid user you want to provision into the related textboxes. 
+1. Type the **Email Address**, **First Name**, and **Surname** of a valid user you want to provision into the related textboxes. 
    
     ![Creating an Azure AD test user](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
 

@@ -249,23 +249,23 @@ Once the operation is complete, the VM will transition into one of the following
 
 - **Succeeded** – the user-initiated actions have completed.
 
-	```
- "statuses": [ 
- {
+    ```
+  "statuses": [ 
+  {
      "code": "ProvisioningState/succeeded",
      "level": "Info",
      "displayStatus": "Provisioning succeeded",
      "time": "time"
- }
- ]
-	```
+  }
+  ]
+    ```
 
  
 
 - **Failed** – represents a failed operation. Refer to the error codes to get more information and possible solutions.
 
-	```
- "statuses": [
+    ```
+  "statuses": [
     {
       "code": "ProvisioningState/failed/InternalOperationError",
       "level": "Error",
@@ -274,7 +274,7 @@ Once the operation is complete, the VM will transition into one of the following
       "time": "time"
     }
 	]
-	```
+    ```
 
 
 

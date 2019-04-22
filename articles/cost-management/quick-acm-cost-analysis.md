@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/31/2019
+ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -26,7 +26,9 @@ In this quickstart, you learn how to:
 
 ## Prerequisites
 
-Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data. For more information about assigning access to Cost Management data, see [Assign access to data](assign-access-acm-data.md).
+Cost analysis supports a variety of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). To view cost data, you need at least read access for your Azure account.
+
+For [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers, you must have at least read access to one or more of the following scopes to view cost data.
 
 - Billing account
 - Department
@@ -35,13 +37,15 @@ Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.micr
 - Subscription
 - Resource group
 
+For more information about assigning access to Cost Management data, see [Assign access to data](assign-access-acm-data.md).
+
 ## Sign in to Azure
 
 - Sign in to the Azure portal at https://portal.azure.com.
 
 ## Review costs in cost analysis
 
-To review your costs with cost analysis, in the Azure portal, navigate to **Cost Management + Billing** &gt; **Cost analysis**. Select **Scope: _ScopeName_**, choose a scope, and then click **Select**.
+To review your costs in cost analysis, open the desired scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. Use the **Scope** pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 The scope that you select is used throughout Cost Management to provide data consolidation and to control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope that others roll up to and then you filter-down to what you want. This is important to understand because some people shouldn't have access to a parent scope that child scopes roll up to.
 

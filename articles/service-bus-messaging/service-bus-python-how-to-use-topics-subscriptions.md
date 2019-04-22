@@ -28,12 +28,14 @@ This article describes how to use Service Bus topics and subscriptions. The samp
 > [!NOTE] 
 > If you need to install Python or the [Azure Python package][Azure Python package], see the [Python Installation Guide](../python-how-to-install.md).
 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 ## Create a topic
 
 The **ServiceBusService** object enables you to work with topics. Add the following code near the top of any Python file in which you wish to programmatically access Service Bus:
 
 ```python
-from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
+from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
 The following code creates a **ServiceBusService** object. Replace `mynamespace`, `sharedaccesskeyname`, and `sharedaccesskey` with your actual namespace, Shared Access Signature (SAS) key name, and key value.
@@ -163,7 +165,7 @@ Service Bus provides functionality to help you gracefully recover from errors in
 
 There is also a timeout associated with a message locked within the subscription, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus unlocks the message automatically and makes it available to be received again.
 
-In the event that the application crashes after processing the message but before the `delete` method is called, then the message will be redelivered to the application when it restarts. This behavior is often called. At least Once Processing*; that is, each message is processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. To do so, you can use the **MessageId** property of the message, which remains constant across delivery attempts.
+In the event that the application crashes after processing the message but before the `delete` method is called, then the message will be redelivered to the application when it restarts. This behavior is often called. At least Once Processing\*; that is, each message is processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. To do so, you can use the **MessageId** property of the message, which remains constant across delivery attempts.
 
 ## Delete topics and subscriptions
 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 11/05/2018
@@ -31,7 +31,7 @@ As an Azure Stack cloud administrator, you can create offers that let your users
 
 ## Deploy the SQL Server resource provider
 
-The deployment process is described in detail in the [Use SQL databases on Azure Stack article](azure-stack-sql-resource-provider-deploy.md), and consists of the following primary steps:
+The deployment process is described in detail in the [use SQL databases on Azure Stack article](azure-stack-sql-resource-provider-deploy.md), and consists of the following primary steps:
 
 1. [Deploy the SQL resource provider](azure-stack-sql-resource-provider-deploy.md).
 2. [Verify the deployment](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).

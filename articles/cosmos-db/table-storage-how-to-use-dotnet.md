@@ -30,7 +30,6 @@ You need the following to complete this sample successfully:
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage Common Library for .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). - A required preview package that is supported in production environments. 
 * [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) - This library is currently available for .NET Standard only, it's not yet available for .NET Core.
-* [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure storage account](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -71,14 +70,11 @@ There are three recommended packages you need to reference in your project to co
 
 * [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). This package provides programmatic access to data resources in your Azure Table storage account or Azure Cosmos DB Table API account. This library is currently available for .NET Standard only, it's not yet available for .NET Core.
 
-* [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): This package provides a class for parsing a connection string in a configuration file, regardless of where your application is running.
-
 To obtain the NuGet packages, follow these steps:
 
 1. Right-click your project in **Solution Explorer**, and choose **Manage NuGet Packages**.
 2. Search online for "Microsoft.Azure.Storage.Common", choose version <= 9.0.0.1 and select **Install** to install the Azure Storage Common Library for .NET (Preview) and its dependencies. Ensure the **Include prerelease** box is checked as this is a preview package.
 3. Search online for "Microsoft.Azure.CosmosDB.Table", and select **Install** to install the Microsoft Azure CosmosDB Table Library.
-4. Search online for "WindowsAzure.ConfigurationManager", and select **Install** to install the Microsoft Azure Configuration Manager Library.
 
 > [!NOTE]
 > The ODataLib dependencies in the Storage Common Library for .NET are resolved by the ODataLib packages available on NuGet, not from WCF Data Services. The ODataLib libraries can be downloaded directly, or referenced by your code project through NuGet. The specific ODataLib packages used by the Storage Client Library are [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/), and [Spatial](https://nuget.org/packages/System.Spatial/). While these libraries are used by the Azure Table storage classes, they are required dependencies for programming with the Storage Common Library.

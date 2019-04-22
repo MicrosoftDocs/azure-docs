@@ -14,7 +14,7 @@ ms.author: alinast
 
 The telemetry data sent by devices and sensors form the backbone of any IoT solution. How to represent these different resources and manage them within the context of a location are chief concerns in IoT app development. Azure Digital Twins simplifies the process of developing IoT solutions by uniting devices and sensors with a spatial intelligence graph.
 
-To get started, create an Azure IoT Hub resource at the root of the spatial graph. The IoT Hub resource allows all devices beneath the root space to send messages. After the IoT Hub is created, register devices with sensors within the Digital Twins instance. The devices can send data to a Digital Twins service via the [Azure IoT device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
+To get started, create an Azure IoT Hub resource at the root of the spatial graph. The IoT Hub resource allows all devices beneath the root space to send messages. After the IoT Hub is created, register devices with sensors within the Digital Twins instance. The devices can send data to a Digital Twins service via the [Azure IoT device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
 For a step-by-step guide on how to bring devices onboard, see the [Tutorial to deploy and configure Digital Twins](tutorial-facilities-setup.md). At a glance, the steps are:
 

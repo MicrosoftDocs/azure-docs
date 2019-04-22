@@ -85,7 +85,7 @@ In addition to this, for streaming applications, you must also set responseBuffe
 
 ### watchedFiles
 
-A semi-colon separated list of files that are watched for changes. Any change to a file causes the application to recycle. Each entry consists of an optional directory name as well as a required file name, which are relative to the directory where the main application entry point is located. Wild cards are allowed in the file name portion only. The default value is `*.js;web.config`
+A semi-colon separated list of files that are watched for changes. Any change to a file causes the application to recycle. Each entry consists of an optional directory name as well as a required file name, which are relative to the directory where the main application entry point is located. Wild cards are allowed in the file name portion only. The default value is `*.js;iisnode.yml`
 
 ### recycleSignalEnabled
 
@@ -113,7 +113,7 @@ The default value is false. When set to true, iisnode displays the HTTP status c
 
 ### debuggingEnabled (do not enable on live production site)
 
-This setting controls debugging feature. Iisnode is integrated with node-inspector. By enabling this setting, you enable debugging of your node application. Upon enabling this setting, iisnode creates node-inspector files in ‘debuggerVirtualDir’ directory on the first debug request to your node application. You can load the node-inspector by sending a request to http://yoursite/server.js/debug. You can control the debug URL segment with ‘debuggerPathSegment’ setting. By default, debuggerPathSegment=’debug’. You can set `debuggerPathSegment` to a GUID, for example, so that it is more difficult to be discovered by others.
+This setting controls debugging feature. Iisnode is integrated with node-inspector. By enabling this setting, you enable debugging of your node application. Upon enabling this setting, iisnode creates node-inspector files in ‘debuggerVirtualDir’ directory on the first debug request to your node application. You can load the node-inspector by sending a request to `http://yoursite/server.js/debug`. You can control the debug URL segment with ‘debuggerPathSegment’ setting. By default, debuggerPathSegment=’debug’. You can set `debuggerPathSegment` to a GUID, for example, so that it is more difficult to be discovered by others.
 
 Read [Debug node.js applications on Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) for more details on debugging.
 
@@ -128,7 +128,7 @@ The agentkeepalive module ensures that sockets are reused on your Azure webapp V
 Example [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) configuration:
 
 ```nodejs
-var keepaliveAgent = new Agent({
+let keepaliveAgent = new Agent({
     maxSockets: 40,
     maxFreeSockets: 10,
     timeout: 60000,
@@ -150,9 +150,9 @@ If you believe your application is consuming too much CPU and you cannot explain
 For example, let's say you have a hello world app that you want to profile as follows:
 
 ```nodejs
-var http = require('http');
+const http = require('http');
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }
@@ -168,7 +168,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Go to the Debug Console site https://yoursite.scm.azurewebsites.net/DebugConsole
+Go to the Debug Console site `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 Go into your site/wwwroot directory. You see a command prompt as shown in the following example:
 
@@ -180,12 +180,12 @@ This command installs the v8-profiler under node\_modules directory and all of i
 Now, edit your server.js to profile your application.
 
 ```nodejs
-var http = require('http');
-var profiler = require('v8-profiler');
-var fs = require('fs');
+const http = require('http');
+const profiler = require('v8-profiler');
+const fs = require('fs');
 
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }

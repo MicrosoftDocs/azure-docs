@@ -53,7 +53,7 @@ An alternative way of connecting to an Azure Cosmos DB is to use a connection st
 
     ![Connect to Cosmos DB by connection string](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Only support SQL and Table API currently. Choose API, paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Only support SQL and Table API currently. Choose API, paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![Connection-string](./media/storage-explorer/connection-string.png)
 
@@ -68,7 +68,7 @@ Use the following steps to connect to an Azure Cosmos DB by Emulator, only suppo
 
     ![Connect to Cosmos DB by Emulator](./media/storage-explorer/emulator-entry.png)
 
-3. Only support SQL API currently. Paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+3. Only support SQL API currently. Paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![Connect to Cosmos DB by Emulator dialog](./media/storage-explorer/emulator-dialog.png)
 

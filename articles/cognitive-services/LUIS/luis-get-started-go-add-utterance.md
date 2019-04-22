@@ -3,7 +3,8 @@ title: Change, train app, Go
 description: In this Go language quickstart, add example utterances to a Home Automation app and train the app. 
 titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
-manager: cgronlun
+manager: nitinme
+services: cognitive-services
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -41,7 +42,7 @@ In this quickstart, pass utterances to a LUIS endpoint and get intent and entiti
 
 3. Add generic HTTP request function, which includes passing authoring key in header. 
 
-   [!code-go[Add HTTP request function which includes passing authoring key in header. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=12-36 "Add HTTP request function, which includes passing authoring key in header. ")]
+   [!code-go[Add HTTP request function which includes passing authoring key in header.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=12-36 "Add HTTP request function, which includes passing authoring key in header. ")]
 
 4. Add example utterances from JSON file.
 
@@ -49,15 +50,15 @@ In this quickstart, pass utterances to a LUIS endpoint and get intent and entiti
 
 5. Request training. Uses a helper function to set the VERB for the same route as training status. 
 
-   [!code-go[Request training. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=77-86 "Request training. ")]
+   [!code-go[Request training.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=77-86 "Request training. ")]
 
 6. Request training status. Uses a helper function to set the VERB for the same route as request training. 
 
-   [!code-go[Request training status. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=87-90 "Request training status. ")]
+   [!code-go[Request training status.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=87-90 "Request training status. ")]
 
 7. Add main function to handle command-line parsing.
 
-   [!code-go[Add main function to handle command line parsing. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=38-60 "Add main function to handle command-line parsing.")]
+   [!code-go[Add main function to handle command line parsing.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=38-60 "Add main function to handle command-line parsing.")]
 
 ## Add an utterance from the command line, train, and get status
 

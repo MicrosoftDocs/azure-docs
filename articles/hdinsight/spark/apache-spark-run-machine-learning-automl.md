@@ -6,7 +6,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 01/14/2019
 ---
 # Run Azure Machine Learning workloads with automated machine learning (AutoML) on Apache Spark in Azure HDInsight

@@ -22,7 +22,7 @@ ms.custom: seodec18
 
 # Create an App Service app and deploy code from a local Git repository using Azure CLI
 
-This sample script creates a app in App Service with its related resources, and then deploys your app code in a local Git repository.
+This sample script creates an app in App Service with its related resources, and then deploys your app code in a local Git repository.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

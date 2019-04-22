@@ -137,11 +137,11 @@ The next piece in the skillset is an array of skills. You can think of each skil
 
 ## Add predefined skills
 
-Let's look at the first skill, which is the predefined [named entity recognition skill](cognitive-search-skill-named-entity-recognition.md):
+Let's look at the first skill, which is the predefined [entity recognition skill](cognitive-search-skill-entity-recognition.md):
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -150,7 +150,8 @@ Let's look at the first skill, which is the predefined [named entity recognition
           "name": "text",
           "source": "/document/content"
         }
-      ],      "outputs": [
+      ],
+      "outputs": [
         {
           "name": "organizations",
           "targetName": "organizations"
@@ -223,7 +224,7 @@ Recall the structure of the custom Bing entity search enricher:
     }
 ```
 
-This definition is a custom skill that calls a web API as part of the enrichment process. For each organization identified by named entity recognition, this skill calls a web API to find the description of that organization. The orchestration of when to call the web API and how to flow the information received is handled internally by the enrichment engine. However, the initialization necessary for calling this custom API must be provided in the JSON (such as uri, httpHeaders, and the inputs expected). For guidance in creating a custom web API for the enrichment pipeline, see [How to define a custom interface](cognitive-search-custom-skill-interface.md).
+This definition is a [custom skill](cognitive-search-custom-skill-web-api.md) that calls a web API as part of the enrichment process. For each organization identified by named entity recognition, this skill calls a web API to find the description of that organization. The orchestration of when to call the web API and how to flow the information received is handled internally by the enrichment engine. However, the initialization necessary for calling this custom API must be provided in the JSON (such as uri, httpHeaders, and the inputs expected). For guidance in creating a custom web API for the enrichment pipeline, see [How to define a custom interface](cognitive-search-custom-skill-interface.md).
 
 Notice that the "context" field is set to ```"/document/organizations/*"``` with an asterisk, meaning the enrichment step is called *for each* organization under ```"/document/organizations"```. 
 

@@ -133,7 +133,7 @@ $ helm inspect myacrhelm/wordpress
 appVersion: 4.9.8
 description: Web publishing platform for building blogs and websites.
 engine: gotpl
-home: http://www.wordpress.com/
+home: https://www.wordpress.com/
 icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
 keywords:
 - wordpress

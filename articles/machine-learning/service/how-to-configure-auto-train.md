@@ -169,7 +169,7 @@ Next determine where the model will be trained. An automated machine learning tr
 
 See the [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) for example notebooks with local and remote compute targets.
 
-<a name='configure-experiment'/>
+<a name='configure-experiment'></a>
 
 ## Configure your experiment settings
 
@@ -202,36 +202,48 @@ Some examples include:
         n_cross_validations=5)
     ```
 
-This table lists parameter settings available for your experiment and their default values.
+There are three different `task` parameter values, which determine the list of algorithms to apply.  Use the `whitelist` or `blacklist` parameters to further modify iterations with the available algorithms to include or exclude.
+* Classification
+    * LogisticRegression
+    * SGD
+    * MultinomialNaiveBayes
+    * BernoulliNaiveBayes
+    * SVM
+    * LinearSVM
+    * KNN
+    * DecisionTree
+    * RandomForest
+    * ExtremeRandomTrees
+    * LightGBM
+    * GradientBoosting
+    * TensorFlowDNN
+    * TensorFlowLinearClassifier
+* Regression
+    * ElasticNet
+    * GradientBoosting
+    * DecisionTree
+    * KNN
+    * LassoLars
+    * SGD 
+    * RandomForest
+    * ExtremeRandomTree
+    * LightGBM
+    * TensorFlowLinearRegressor
+    * TensorFlowDNN
+* Forecasting
+    * ElasticNet
+    * GradientBoosting
+    * DecisionTree
+    * KNN
+    * LassoLars
+    * SGD 
+    * RandomForest
+    * ExtremeRandomTree
+    * LightGBM
+    * TensorFlowLinearRegressor
+    * TensorFlowDNN
 
-Property |	Description	| Default Value
---|--|--
-`task`	|Specify the type of machine learning problem. Allowed values are <li>Classification</li><li>Regression</li><li>Forecasting</li>	| None |
-`primary_metric` |Metric that you want to optimize in building your model. For example, if you specify accuracy as the primary_metric, automated machine learning looks to find a model with maximum accuracy. You can only specify one primary_metric per experiment. Allowed values are <br/>**Classification**:<br/><li> accuracy  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regression**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score	 </li> | For Classification: accuracy <br/>For Regression: spearman_correlation <br/> |
-`experiment_exit_score` |	You can set a target value for your primary_metric. Once a model is found that meets the primary_metric target, automated machine learning will stop iterating and the experiment terminates. If this value is not set (default), Automated machine learning experiment will continue to run the number of iterations specified in iterations. Takes a double value. If the target never reaches, then Automated machine learning will continue until it reaches the number of iterations specified in iterations.|	None
-`iterations` |Maximum number of iterations. Each iteration is equal to a training job that results in a pipeline. Pipeline is data preprocessing and model. To get a high-quality model, use 250 or more	| 100
-`max_concurrent_iterations`|	Max number of iterations to run in parallel. This setting works only for remote compute.|	1
-`max_cores_per_iteration`	| Indicates how many cores on the compute target would be used to train a single pipeline. If the algorithm can leverage multiple cores, then this increases the performance on a multi-core machine. You can set it to -1 to use all the cores available on the machine.|	1
-`iteration_timeout_minutes` |	Limits the amount of time (minutes) a particular iteration takes. If an iteration exceeds the specified amount, that iteration gets canceled. If not set, then the iteration continues to run until it is finished. |	None
-`n_cross_validations`	|Number of cross validation splits|	None
-`validation_size`	|Size of validation set as percentage of all training sample.|	None
-`preprocess` | True/False <br/>True enables experiment to perform preprocessing on the input. Following is a subset of preprocessing<li>Missing Data: Imputes the missing data- Numerical with Average, Text with most occurrence </li><li>Categorical Values: If data type is numeric and number of unique values is less than 5 percent, Converts into one-hot encoding </li><li>Etc. for complete list check [the GitHub repository](https://aka.ms/aml-notebooks)</li><br/>Note : if data is sparse you cannot use preprocess = true |	False |
-`enable_cache`	| True/False <br/>Setting this to True enables preprocess done once and reuse the same preprocessed data for all the iterations. | True |
-`blacklist_models`	| Automated machine learning experiment has many different algorithms that it tries. Configure to exclude certain algorithms from the experiment. Useful if you are aware that algorithm(s) do not work well for your dataset. Excluding algorithms can save you compute resources and training time.<br/>Allowed values for Classification<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Allowed values for Regression<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Allowed values for Forecasting<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|	None
-`whitelist_models`	| Automated machine learning experiment has many different algorithms that it tries. Configure to include certain algorithms for the experiment. Useful if you are aware that algorithm(s) do work well for your dataset. <br/>Allowed values for Classification<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Allowed values for Regression<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Allowed values for Forecasting<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|	None
-`verbosity`	|Controls the level of logging with INFO being the most verbose and CRITICAL being the least. Verbosity level takes the same values as defined in the python logging package. Allowed values are:<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>	| logging.INFO</li>
-`X`	| All features to train with |	None
-`y` |	Label data to train with. For classification, should be an array of integers.|	None
-`X_valid`|_Optional_ All features to validate with. If not specified, X is split between train and validate |	None
-`y_valid`	|_Optional_ The label data to validate with. If not specified, y is split between train and validate	| None
-`sample_weight` |	_Optional_ A weight value for each sample. Use when you would like to assign different weights for your data points | 	None
-`sample_weight_valid`	| 	_Optional_ A weight value for each validation sample. If not specified, sample_weight is split between train and validate	| None
-`run_configuration` |	RunConfiguration object.  Used for remote runs. |None
-`data_script`  |	Path to a file containing the get_data method.  Required for remote runs.	|None
-`model_explainability` | _Optional_ True/False <br/>  True enables experiment to perform feature importance for every iteration. You can also use explain_model() method on a specific iteration to enable feature importance on-demand for that iteration after experiment is complete. | False
-`enable_ensembling`|Flag to enable an ensembling iteration after all the other iterations complete.| True
-`ensemble_iterations`|Number of iterations during which we choose a fitted pipeline to be part of the final ensemble.| 15
-`experiment_timeout_minutes`| Limits the amount of time (minutes) that the whole experiment run can take | None
+See the [AutoMLConfig class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) for a full list of parameters.  
 
 ## Data pre-processing and featurization
 
@@ -379,4 +391,4 @@ RunDetails(local_run).show()
 
 Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
-Learn more about [how to train a classification model with Automated machine learning](tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](how-to-auto-train-remote.md).
+Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](how-to-auto-train-remote.md).

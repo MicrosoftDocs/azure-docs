@@ -141,6 +141,9 @@ Microsoft hosts the commerce transaction. Microsoft bills your customer on your 
 |Transaction landing page | You host an Azure co-branded transaction landing page where users can create and manage their SaaS service account. |   
 | Subscription API | You expose a service that can interact with the SaaS Subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. |  
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
+
 ## Next steps
 If you haven't already done so,
 

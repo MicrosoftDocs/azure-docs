@@ -14,6 +14,7 @@ ms.subservice: pim
 ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 
 # Assign Azure resource roles in PIM
@@ -26,8 +27,8 @@ Azure AD PIM can manage the built-in Azure resource roles, as well as custom rol
 - Security Admin
 - Security Manager, and more
 
->[!NOTE]
-Users or members of a group assigned to the Owner or User Access Administrator roles, and Global Administrators that enable subscription management in Azure AD are Resource Administrators. These administrators may assign roles, configure role settings, and review access using PIM for Azure resources. View the list of [built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
+> [!NOTE]
+> Users or members of a group assigned to the Owner or User Access Administrator roles, and Global Administrators that enable subscription management in Azure AD are Resource Administrators. These administrators may assign roles, configure role settings, and review access using PIM for Azure resources. View the list of [built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
 
 ## Assign a role
 

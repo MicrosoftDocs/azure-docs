@@ -30,13 +30,13 @@ This script uses the commands outlined in the following table:
 
 | **Command** | **Notes** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az postgres server create](/cli/azure/postgres/server#az_msql_server_create) | Creates a PostgreSQL server that hosts the databases. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az postgres server create](/cli/azure/postgres/server) | Creates a PostgreSQL server that hosts the databases. |
 | [az postgres server configuration list](/cli/azure/postgres/server/configuration) | List the configuration values for a server. |
-| [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) | Update the configuration of a server. |
-| [az postgres server-logs list](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) | List log files for a server. |
-| [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) | Download log files. |
-| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
+| [az postgres server configuration set](/cli/azure/postgres/server/configuration) | Update the configuration of a server. |
+| [az postgres server-logs list](/cli/azure/postgres/server-logs) | List log files for a server. |
+| [az postgres server-logs download](/cli/azure/postgres/server-logs) | Download log files. |
+| [az group delete](/cli/azure/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 - Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure).

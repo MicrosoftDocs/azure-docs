@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Encrypting your content with storage encryption
+# Encrypting your content with storage encryption 
 
 It is highly recommended to encrypt your content locally using AES-256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest.
 

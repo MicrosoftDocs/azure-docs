@@ -95,7 +95,7 @@ On the **SQL Server settings** window, configure the following options.
 
 1. In the **SQL connectivity** drop-down, select **Public (Internet)**. This allows SQL Server connections over the internet.
 
-1. Change the **Port** to **1401** to avoid using a well-known port name in the public scneario.
+1. Change the **Port** to **1401** to avoid using a well-known port name in the public scenario.
 
 1. Under **SQL Authentication**, click **Enable**. The SQL Login is set to the same user name and password that you configured for the VM.
 
@@ -145,7 +145,7 @@ Access to the machine enables you to directly change machine and SQL Server sett
 
 ## Clean up resources
 
-If you do not need your SQL VM to run continually, you can avoid unnecessary charges by stopping it when not in use. You can also permanently delete all resources associated with the virtual machine by deleting its associated resource group in the portal. This permanently deletes the virtual machine as well, so use this command with care. For more information, see [Manage Azure resources through portal](../../../azure-resource-manager/resource-group-portal.md).
+If you do not need your SQL VM to run continually, you can avoid unnecessary charges by stopping it when not in use. You can also permanently delete all resources associated with the virtual machine by deleting its associated resource group in the portal. This permanently deletes the virtual machine as well, so use this command with care. For more information, see [Manage Azure resources through portal](../../../azure-resource-manager/manage-resource-groups-portal.md).
 
 ## Next steps
 

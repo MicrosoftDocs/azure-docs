@@ -1,13 +1,13 @@
 ---
 title: Set up cloud for Azure IoT Hub Device Provisioning Service in portal | Microsoft Docs
 description: IoT Hub automatic device provisioning in Azure Portal
-author: sethmanheim
-ms.author: sethm
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
 ---
 
@@ -86,7 +86,7 @@ The next step is to link the Device Provisioning Service and IoT hub so that the
 
 ## Set the allocation policy on the Device Provisioning Service
 
-The allocation policy is a IoT Hub Device Provisioning Service setting that determines how devices are assigned to an IoT hub. There are three supported allocation policies: 
+The allocation policy is an IoT Hub Device Provisioning Service setting that determines how devices are assigned to an IoT hub. There are three supported allocation policies: 
 
 1. **Lowest latency**: Devices are provisioned to an IoT hub based on the hub with the lowest latency to the device.
 

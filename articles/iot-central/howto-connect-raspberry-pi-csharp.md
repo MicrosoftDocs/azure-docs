@@ -63,13 +63,13 @@ To complete the following steps, you can use Visual Studio Code. For more inform
 
 1. To initialize your .NET project and add the required NuGet packages, run the following commands:
 
-  ```cmd/sh
-  mkdir pisample
-  cd pisample
-  dotnet new console
-  dotnet add package Microsoft.Azure.Devices.Client
-  dotnet restore
-  ```
+   ```cmd/sh
+   mkdir pisample
+   cd pisample
+   dotnet new console
+   dotnet add package Microsoft.Azure.Devices.Client
+   dotnet restore
+   ```
 
 1. Open the `pisample` folder in Visual Studio Code. Then open the **pisample.csproj** project file. Add the `<RuntimeIdentifiers>` tag shown in the following snippet:
 
@@ -270,16 +270,16 @@ To complete the following steps, you can use Visual Studio Code. For more inform
 Add your device-specific connection string to the code for the device to authenticate with Azure IoT Central. You made a note of this connection string when you added your real device to your Azure IoT Central application.
 
   > [!NOTE]
-   > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [get the device connection string](concepts-connectivity.md#getting-device-connection-string) and continue with the rest of the tutorial.
+   > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instructions to [get the device connection string](concepts-connectivity.md#get-a-connection-string) and continue with the rest of the tutorial.
 
 1. Replace `{your device connection string}` in the **Program.cs** file with the connection string you noted previously.
 
 1. Run the following command in your command-line environment:
 
-  ```cmd/sh
-  dotnet restore
-  dotnet publish -r linux-arm
-  ```
+   ```cmd/sh
+   dotnet restore
+   dotnet publish -r linux-arm
+   ```
 
 1. Copy the `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` folder to your Raspberry Pi device. You can use the **scp** command to copy the files, for example:
 
@@ -308,13 +308,13 @@ Add your device-specific connection string to the code for the device to authent
 
 1. In your Azure IoT Central application, you can see how the code running on the Raspberry Pi interacts with the application:
 
-    * On the **Measurements** page for your real device, you can see the telemetry.
-    * On the **Properties** page, you can see the value of the reported **Die Number** property.
-    * On the **Settings** page, you can change various settings on the Raspberry Pi such as voltage and fan speed.
+   * On the **Measurements** page for your real device, you can see the telemetry.
+   * On the **Properties** page, you can see the value of the reported **Die Number** property.
+   * On the **Settings** page, you can change various settings on the Raspberry Pi such as voltage and fan speed.
 
-    The following screenshot shows the Raspberry Pi receiving the setting change:
+     The following screenshot shows the Raspberry Pi receiving the setting change:
 
-    ![Raspberry Pi receives setting change](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+     ![Raspberry Pi receives setting change](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
 
 
 ## Raspberry PI Device template details

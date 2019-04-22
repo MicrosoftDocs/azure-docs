@@ -44,7 +44,7 @@ Use this claims transformation to check if a claim exists or contains any value.
 ### Example
 
 - Input claims:
-    - **inputClaim**: someone@contoso.com
+  - **inputClaim**: someone@contoso.com
 - Output claims: 
     - **outputClaim**: true
 

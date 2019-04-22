@@ -46,7 +46,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
     - Azure Storage
     - File Share (on-premises)
 - Enumerate backups
-- Trigger an ad-hoc backup of a partition
+- Trigger an ad hoc backup of a partition
 - Restore a partition using previous backup
 - Temporarily suspend backups
 - Retention management of backups (upcoming)
@@ -54,7 +54,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 ## Prerequisites
 * Service Fabric cluster with Fabric version 6.2 and above. The cluster should be set up on Windows Server. Refer to this [article](service-fabric-cluster-creation-via-arm.md) for steps to create Service Fabric cluster using Azure resource template.
 * X.509 Certificate for encryption of secrets needed to connect to storage to store backups. Refer [article](service-fabric-cluster-creation-via-arm.md) to know how to get or create an X.509 certificate.
-* Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .Net Core 2.0, application should be built using Service Fabric SDK version 3.1 or above.
+* Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .NET Core 2.0, application should be built using Service Fabric SDK version 3.1 or above.
 * Create Azure Storage account for storing application backups.
 
 ## Enabling backup and restore service

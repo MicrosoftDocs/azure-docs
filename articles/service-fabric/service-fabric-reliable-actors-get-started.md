@@ -34,7 +34,7 @@ Launch Visual Studio 2015 or later as an administrator, and then create a new **
 
 ![Service Fabric tools for Visual Studio - new project][1]
 
-In the next dialog box, choose **Actor Service** under **.Net Core 2.0** and enter a name for the service.
+In the next dialog box, choose **Actor Service** under **.NET Core 2.0** and enter a name for the service.
 
 ![Service Fabric project templates][5]
 

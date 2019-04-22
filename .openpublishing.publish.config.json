@@ -33,6 +33,12 @@
   "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
+      "path_to_root": "quickstart-templates",
+      "url": "https://github.com/Azure/azure-quickstart-templates",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "master",
@@ -305,6 +311,30 @@
     {
       "path_to_root": "samples-cogserv-containers",
       "url": "https://github.com/Azure-Samples/cognitive-services-containers-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-iot-distributed-tracing",
+      "url": "https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-fbPageModeration",
+      "url": "https://github.com/MicrosoftContentModerator/samples-fbPageModeration",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "AIVisualProvision",
+      "url": "https://github.com/Microsoft/AIVisualProvision",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "VideoReviewConsoleApp",
+      "url": "https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp",
       "branch": "master",
       "branch_mapping": {}
     }

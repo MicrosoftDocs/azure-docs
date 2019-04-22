@@ -28,12 +28,12 @@ Follow these steps to grant data access for a user principal:
     ![Manage the Time Series Insights source - add](media/iot-tsi-data-access/getstarted-grant-data-access2.png)
 
 6. Select **Select role**. Choose the appropriate access role for the user:
-    - Select **Contributor** if you want to allow user to change reference data and share saved queries and perspectives with other users of the environment. 
-    - Otherwise, select **Reader** to allow user query data in the environment and save personal (not shared) queries in the environment.
+   - Select **Contributor** if you want to allow user to change reference data and share saved queries and perspectives with other users of the environment. 
+   - Otherwise, select **Reader** to allow user query data in the environment and save personal (not shared) queries in the environment.
 
-    Select **Ok** to confirm the role choice.
+     Select **Ok** to confirm the role choice.
 
-    ![Manage the Time Series Insights source - select user](media/iot-tsi-data-access/getstarted-grant-data-access3.png)
+     ![Manage the Time Series Insights source - select user](media/iot-tsi-data-access/getstarted-grant-data-access3.png)
 
 7. Select **Ok** in the **Select User Role** page.
 

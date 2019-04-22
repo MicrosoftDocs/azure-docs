@@ -18,6 +18,7 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to restrict an application that I have registered in Azure AD to a select set of users available in my Azure AD tenant
+ms.collection: M365-identity-device-management
 ---
 # How to: Restrict your app to a set of users
 

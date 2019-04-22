@@ -18,6 +18,7 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory v2.0 and the OAuth 2.0 device code flow
@@ -27,7 +28,7 @@ ms.custom: aaddev
 Azure AD supports the [device code grant](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  To enable this flow, the device has the user visit a webpage in their browser on another device to sign in.  Once the user signs in, the device is able to get access tokens and refresh tokens as needed.  
 
 > [!Important] 
-> At this time, the v2.0 endpoint only supports the device flow for Azure AD tenants, but not personal accounts.  This means that you must use a tenanted endpoint, or the organizations endpoint.  
+> At this time, the v2.0 endpoint only supports the device flow for Azure AD tenants, but not personal accounts.  This means that you must use an endpoint set up as a tenant, or the organizations endpoint.  
 >
 > Personal accounts that are invited to an Azure AD tenant will be able to use the device flow grant, but only in the context of the tenant.
 

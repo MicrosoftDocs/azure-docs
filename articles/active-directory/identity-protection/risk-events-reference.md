@@ -8,7 +8,7 @@ manager: mtillman
 
 ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
-ms.subservice: conditional-access
+ms.subservice: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.date: 01/25/2018
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection risk events reference
 
@@ -78,6 +79,7 @@ This risk event type indicates sign-ins from IP addresses infected with malware 
 **Detection Type:** Real-time  
 **Old name:** Sign-ins from unfamiliar locations
 
-This risk event type considers past sign-in properties (for example, device, location, network) to determine sign-ins with unfamiliar properties. The system stores properties of previous locations used by a user, and considers these “familiar”. The risk event is triggered when the sign-in occurs with properties not already in the list of familiar properties. The system has an initial learning period of 30 days, during which it does not flag any new detections.
+This risk event type considers past sign-in history (IP, Latitude / Longitude and ASN) to look for anomalous sign-ins. The system stores information about previous locations used by a user, and considers these “familiar” locations. The risk event is triggered when the sign-in occurs from a location that's not already in the list of familiar locations. Newly created users will be in “learning mode” for a period of time in which unfamiliar sign-in properties risk events will be turned off while our algorithms learn the user’s behavior. The learning mode duration is dynamic and depends on how much time it takes the algorithm to gather enough information about the user’s sign-in patterns. The minimum duration is five days. A user can go back into learning mode after a long period of inactivity. The system also ignores sign-ins from familiar devices, and locations that are geographically close to a familiar location. 
+
 We also run this detection for basic authentication (or legacy protocols). Because these protocols do not have modern properties such as client ID, there is limited telemetry to reduce false positives. We recommend our customers to move to modern authentication.
 

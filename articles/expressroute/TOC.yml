@@ -45,8 +45,6 @@
     href: expressroute-erdirect-about.md
   - name: About ExpressRoute Global Reach
     href: expressroute-global-reach.md
-  - name: ExpressRoute Global Reach Application Scenario
-    href: expressroute-global-reach-app-scenario.md
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
@@ -176,7 +174,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network#expressroute
+    href: /powershell/module/az.network#expressroute
   - name: Azure CLI
     href: /cli/azure/network/express-route
   - name: REST

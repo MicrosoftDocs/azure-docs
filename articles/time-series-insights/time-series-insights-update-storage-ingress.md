@@ -111,7 +111,7 @@ It's important to select an appropriate Time Series ID, because it's an immutabl
 
 When you create a Time Series Insights pay-as-you-go environment, you create two resources: a Time Series Insights environment and an Azure Storage general-purpose V1 account where the data will be stored. We chose to make Azure Storage general-purpose V1 the default resource because of its interoperability, price, and performance. 
 
-Time Series Insights publishes up to two copies of each event in your Azure storage account. The initial copy is always preserved so that you can query it performantly by using other services. You can easily use Spark, Hadoop, and other familiar tools across Time Series IDs over raw Parquet files, because these engines support basic file-name filtering. Grouping blobs by year and month is a useful way to list blobs within a specific time range for a custom job. 
+Time Series Insights publishes up to two copies of each event in your Azure storage account. The initial copy is always preserved so that you can quickly query it by using other services. You can easily use Spark, Hadoop, and other familiar tools across Time Series IDs over raw Parquet files, because these engines support basic file-name filtering. Grouping blobs by year and month is a useful way to list blobs within a specific time range for a custom job. 
 
 Additionally, Time Series Insights repartitions the Parquet files to optimize for the Time Series Insights APIs. The most recently repartitioned file is also saved.
 
@@ -184,7 +184,7 @@ Time Series Insights Preview indexes data by using a blob-size optimization stra
 
 ### Scale
 
-Time Series Insights Preview supports an initial ingress scale of up to 6 megabits per second (Mbps) per environment. Enhanced scaling support is ongoing. We plan to update our documentation to reflect those improvements.
+Time Series Insights Preview supports an initial ingress scale of up to 6 Mega Bytes per second (Mbps) per environment. Enhanced scaling support is ongoing. We plan to update our documentation to reflect those improvements
 
 ## Next steps
 

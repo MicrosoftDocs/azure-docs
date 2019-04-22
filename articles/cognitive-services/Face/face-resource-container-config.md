@@ -4,12 +4,12 @@ titlesuffix: Face - Azure Cognitive Services
 description: Configuration settings for containers.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/25/2019
 ms.author: diberry
 ---
 
@@ -24,11 +24,11 @@ Container settings are [hierarchical](#hierarchical-settings) and can be set wit
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> The [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](face-how-to-install-containers.md#billing).
+> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](face-how-to-install-containers.md#billing).
 
 ## ApiKey configuration setting
 
-The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Face_ resource specified for the [`Billing`](#billing-setting) configuration setting.
+The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Face_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
 
 This setting can be found in the following place:
 
@@ -40,7 +40,7 @@ This setting can be found in the following place:
 
 ## Billing configuration setting
 
-The `Billing` setting specifies the endpoint URI of the _Face_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Face_ resource on Azure.
+The `Billing` setting specifies the endpoint URI of the _Face_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Face_ resource on Azure. The container reports usage about every 10 to 15 minutes.
 
 This setting can be found in the following place:
 
@@ -49,6 +49,49 @@ This setting can be found in the following place:
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
 |Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+
+<!-- specific to face only -->
+
+## CloudAI configuration settings
+
+The configuration settings in the `CloudAI` section provide container-specific options unique to your container. The following settings and objects are supported for the Face container in the `CloudAI` section
+
+| Name | Data type | Description |
+|------|-----------|-------------|
+| `Storage` | Object | The storage scenario used by the Face container. For more information about storage scenarios and associated settings for the `Storage` object, see [Storage scenario settings](#storage-scenario-settings) |
+
+### Storage scenario settings
+
+The Face container stores blob, cache, metadata, and queue data, depending on what's being stored. For example, training indexes and results for a large person group are stored as blob data. The Face container provides two different storage scenarios when interacting with and storing these types of data:
+
+* Memory  
+  All four types of data are stored in memory. They're not distributed, nor are they persistent. If the Face container is stopped or removed, all of the data in storage for that container is destroyed.  
+  This is the default storage scenario for the Face container.
+* Azure  
+  The Face container uses Azure Storage and Azure Cosmos DB to distribute these four types of data across persistent storage. Blob and queue data is handled by Azure Storage. Metadata and cache data is handled by Azure Cosmos DB. If the Face container is stopped or removed, all of the data in storage for that container remains stored in Azure Storage and Azure Cosmos DB.  
+  The resources used by the Azure storage scenario have the following additional requirements
+  * The Azure Storage resource must use the StorageV2 account kind
+  * The Azure Cosmos DB resource must use the Azure Cosmos DB's API for MongoDB
+
+The storage scenarios and associated configuration settings are managed by the `Storage` object, under the `CloudAI` configuration section. The following configuration settings are available in the `Storage` object:
+
+| Name | Data type | Description |
+|------|-----------|-------------|
+| `StorageScenario` | String | The storage scenario supported by the container. The following values are available<br/>`Memory` - Default value. Container uses non-persistent, non-distributed and in-memory storage, for single-node, temporary usage. If the container is stopped or removed, the storage for that container is destroyed.<br/>`Azure` - Container uses Azure resources for storage. If the container is stopped or removed, the storage for that container is persisted.|
+| `ConnectionStringOfAzureStorage` | String | The connection string for the Azure Storage resource used by the container.<br/>This setting applies only if `Azure` is specified for the `StorageScenario` configuration setting. |
+| `ConnectionStringOfCosmosMongo` | String | The MongoDB connection string for the Azure Cosmos DB resource used by the container.<br/>This setting applies only if `Azure` is specified for the `StorageScenario` configuration setting. |
+
+For example, the following command specifies the Azure storage scenario and provides sample connection strings for the Azure Storage and Cosmos DB resources used to store data for the Face container.
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
+  ```
+
+The storage scenario is handled separately from input mounts and output mounts. You can specify a combination of those features for a single container. For example, the following command defines a Docker bind mount to the `D:\Output` folder on the host machine as the output mount, then instantiates a container from the Face container image, saving log files in JSON format to the output mount. The command also specifies the Azure storage scenario and provides sample connection strings for the Azure Storage and Cosmos DB resources used to store data for the Face container.
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 Logging:Disk:Format=json CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
+  ```
 
 ## Eula setting
 
@@ -107,7 +150,7 @@ The following Docker examples are for the face container.
 
 ### Basic example 
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
@@ -117,7 +160,7 @@ The following Docker examples are for the face container.
 
 ### Logging example with command-line arguments
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
@@ -126,7 +169,7 @@ The following Docker examples are for the face container.
 
 ### Logging example with environment variable
 
-  ```Docker
+  ```
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \

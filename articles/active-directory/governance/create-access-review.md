@@ -1,6 +1,6 @@
 ---
-title: Create an access review for members of a group or users with access to an application with Azure AD| Microsoft Docs
-description: Learn how to create an access review for members of a group or users with access to an application. 
+title: Create an access review of groups or applications in Azure AD Access Reviews | Microsoft Docs
+description: Learn how to create an access review of group members or application access in Azure AD Access Reviews. 
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,23 +11,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 11/15/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
+ms.collection: M365-identity-device-management
 ---
 
-# Create an access review of group members or application access with Azure AD
+# Create an access review of groups or applications in Azure AD Access Reviews
 
 Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access. If you need to routinely review access, you can also create recurring access reviews. For more information about these scenarios, see [Manage user access](manage-user-access-with-access-reviews.md) and [Manage guest access](manage-guest-access-with-access-reviews.md).
 
-This article describes how to create a new access review for group members or application access.
+This article describes how to create one or more access reviews for group members or application access.
 
 ## Prerequisites
 
 - [Access reviews enabled](access-reviews-overview.md)
-- Global Administrator or Account Administrator
+- Global administrator or User administrator
 
-## Create an access review
+## Create one or more access reviews
 
 1. Sign-in to the Azure portal and open the [Access Reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
@@ -47,11 +48,25 @@ This article describes how to create a new access review for group members or ap
 
 1. To make the access review recurring, change the **Frequency** setting from **One time** to **Weekly**, **Monthly**, **Quarterly** or **Annually**, and use the **Duration** slider or text box to define how many days each review of the recurring series will be open for input from reviewers. For example, the maximum duration that you can set for a monthly review is 27 days, to avoid overlapping reviews.
 
-1. Use the **End** setting to specify how to end the recurring access review series. The series can end in three ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You, another User Account Administrator, or another Global Administrator can stop the series after creation by changing the date in **Settings**, so that it ends on that date.
+1. Use the **End** setting to specify how to end the recurring access review series. The series can end in three ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You, another User administrator, or another Global administrator can stop the series after creation by changing the date in **Settings**, so that it ends on that date.
 
 1. In the **Users** section, specify the users that access review applies to. Access reviews can be for the members of a group or for users who were assigned to an application. You can further scope the access review to review only the guest users who are members (or assigned to the application), rather than reviewing all the users who are members or who have access to the application.
 
     ![Create an access review - Users](./media/create-access-review/users.png)
+
+1. In the **Groups** section, select one or more groups that you would like to review membership of.
+
+    > [!NOTE]
+    > Selecting more than one group will create multiple access reviews. For example, selecting five groups will create five separate access reviews.
+    
+    ![Create an access review - Select group](./media/create-access-review/select-group.png)
+
+1. In the **Applications** section (if you selected **Assigned to an application** in step 8), select the applications that you would like to review access to.
+
+    > [!NOTE]
+    > Selecting more than one application will create multiple access reviews. For example, selecting five applications will create five separate access reviews.
+    
+    ![Create an access review - Select application](./media/create-access-review/select-application.png)
 
 1. In the **Reviewers** section, select either one or more people to review all the users in scope. Or you can select to have the members review their own access. If the resource is a group, you can ask the group owners to review. You also can require that the reviewers supply a reason when they approve access.
 
@@ -94,7 +109,7 @@ This article describes how to create a new access review for group members or ap
 
 Once you have specified the settings for an access review, click **Start**.
 
-By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review your own access](perform-access-review.md).
+By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access to groups or applications](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review access for yourself to groups or applications](review-your-access.md).
 
 If some of the reviewers are guests, guests are notified via email only if they've already accepted their invitation.
 
@@ -102,7 +117,7 @@ If some of the reviewers are guests, guests are notified via email only if they'
 
 You can track the progress as the reviewers complete their reviews in the Azure AD dashboard in the **Access Reviews** section. No access rights are changed in the directory until [the review is completed](complete-access-review.md).
 
-If this is a one-time review, then after the access review period is over or the administrator stops the access review, follow the steps in [Complete an access review](complete-access-review.md) to see and apply the results.  
+If this is a one-time review, then after the access review period is over or the administrator stops the access review, follow the steps in [Complete an access review of groups or applications](complete-access-review.md) to see and apply the results.  
 
 To manage a series of access reviews, navigate to the access review from **Controls**, and you will find upcoming occurrences in Scheduled reviews, and edit the end date or add/remove reviewers accordingly. 
 
@@ -110,9 +125,10 @@ Based on your selections in Upon completion settings, auto-apply will be execute
 
 ## Create reviews via APIs
 
-You can also create access reviews using APIs. What you do to manage access reviews of groups and application users in the Azure portal can also be done using Microsoft Graph APIs. For more information, see the [Azure AD Access Reviews API reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/accessreviews_root). For a code sample, see [Example of retrieving Azure AD Access Reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+You can also create access reviews using APIs. What you do to manage access reviews of groups and application users in the Azure portal can also be done using Microsoft Graph APIs. For more information, see the [Azure AD Access Reviews API reference](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). For a code sample, see [Example of retrieving Azure AD Access Reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## Next steps
 
-- [Start an access review with Azure AD Access Reviews](perform-access-review.md)
-- [Complete an access review of members of a group or users' access to an application in Azure AD](complete-access-review.md)
+- [Review access to groups or applications](perform-access-review.md)
+- [Review access for yourself to groups or applications](review-your-access.md)
+- [Complete an access review of groups or applications](complete-access-review.md)

@@ -3,7 +3,7 @@ title: ReliableConcurrentQueue in Azure Service Fabric
 description: ReliableConcurrentQueue is a high-throughput queue which allows parallel enqueues and dequeues.
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
+author: aljo-microsoft
 manager: timlt
 editor: raja,tyadam,masnider,vturecek
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: twhitney
+ms.author: aljo
 
 ---
 # Introduction to ReliableConcurrentQueue in Azure Service Fabric
@@ -66,7 +66,7 @@ using (var txn = this.StateManager.CreateTransaction())
 Assume that the task completed successfully, and that there were no concurrent transactions modifying the queue. The user can expect the queue to contain the items in any of the following orders:
 
 > 10, 20
-
+> 
 > 20, 10
 
 
@@ -161,7 +161,7 @@ Assume that the items were dequeued in the following order:
 
 When we abort the transaction, the items would be added back to the head of the queue in any of the following orders:
 > 10, 20
-
+> 
 > 20, 10
 
 The same is true for all cases where the transaction was not successfully *Committed*.

@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/21/2018
+ms.date: 03/25/2019
 ---
 # Quickstart: Use .NET Core (C#) to query an Azure SQL database
 
@@ -21,20 +21,39 @@ In this quickstart, you'll use [.NET Core](https://www.microsoft.com/net/) and C
 
 For this tutorial, you need:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-- [.NET Core for your operating system](https://www.microsoft.com/net/core) installed. 
+  || Single database | Managed instance |
+  |:--- |:--- |:---|
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| [Connectivity from a VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Connectivity from on-site](sql-database-managed-instance-configure-p2s.md)
+  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
+
+  > [!IMPORTANT]
+  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
+
+- [.NET Core for your operating system](https://www.microsoft.com/net/core) installed.
 
 > [!NOTE]
 > This quickstart uses the *mySampleDatabase* database. If you want to use a different database, you will need
 > to change the database references and modify the `SELECT` query in the C# code.
 
-
 ## Get SQL server connection information
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
-#### Get ADO.NET connection information (optional)
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Navigate to the **SQL databases**  or **SQL managed instances** page.
+
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon.
+
+## Get ADO.NET connection information (optional)
 
 1. Navigate to the **mySampleDatabase** page and, under **Settings**, select **Connection strings**.
 
@@ -174,5 +193,5 @@ namespace sqltest
 
 - [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli).
 - Learn how to [connect and query an Azure SQL database using the .NET Framework and Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
-- Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [ Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md).
+- Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md).
 - For more information about .NET, see [.NET documentation](https://docs.microsoft.com/dotnet/).

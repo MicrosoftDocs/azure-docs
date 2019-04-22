@@ -74,16 +74,19 @@ Azure resources that support [Azure monitor](../../azure-monitor/overview.md) ca
 * For the details of the available logs, refer to [supported services and schema for diagnostic logs](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ### Enable diagnostics with PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 You need the November 2016 (v2.3.0) or later release of [Azure PowerShell](/powershell/azure/overview).
 
-The following PowerShell example shows how to use [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting) to enable diagnostics on a network security group. The same approach works for all supported resources - set `$resourceId` to the resource id of the resource you want to enable diagnostics for.
+The following PowerShell example shows how to use [Set-AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting) to enable diagnostics on a network security group. The same approach works for all supported resources - set `$resourceId` to the resource id of the resource you want to enable diagnostics for.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
 $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO"
 
-Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
 ### Enable diagnostics with Resource Manager templates

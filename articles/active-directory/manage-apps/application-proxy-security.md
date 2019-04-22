@@ -3,8 +3,8 @@ title: Security considerations for Azure AD Application Proxy | Microsoft Docs
 description: Covers security considerations for using Azure AD Application Proxy
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Security considerations for accessing apps remotely with Azure AD Application Proxy
@@ -64,7 +65,7 @@ For more information about connectors, see [Understand Azure AD Application Prox
 
 Get cutting-edge security protection.
 
-Because it's part of Azure Active Directory, Application Proxy can leverage [Azure AD Identity Protection](../active-directory-identityprotection.md), with data from the Microsoft Security Response Center and Digital Crimes Unit. Together we proactively identify compromised accounts and offer protection from high-risk sign-ins. We take into account numerous factors to determine which sign-in attemps are high risk. These factors include flagging infected devices, anonymizing networks, and atypical or unlikely locations.
+Because it's part of Azure Active Directory, Application Proxy can leverage [Azure AD Identity Protection](../active-directory-identityprotection.md), with data from the Microsoft Security Response Center and Digital Crimes Unit. Together we proactively identify compromised accounts and offer protection from high-risk sign-ins. We take into account numerous factors to determine which sign-in attempts are high risk. These factors include flagging infected devices, anonymizing networks, and atypical or unlikely locations.
 
 Many of these reports and events are already available through an API for integration with your security information and event management (SIEM) systems.
 
@@ -124,11 +125,11 @@ Whenever the Application Proxy service updates the configuration settings, the f
 
 When users access a published application, the following events take place between the Application Proxy service and the Application Proxy connector:
 
-1. [The service authenticates the user for the app](#the-service-checks-the-configuration-settings-for-the-app)
-2. [The service places a request in the connector queue](#The-service-places-a-request-in-the-connector-queue)
-3. [A connector processes the request from the queue](#the-connector-receives-the-request-from-the-queue)
-4. [The connector waits for a response](#the-connector-waits-for-a-response)
-5. [The service streams data to the user](#the-service-streams-data-to-the-user)
+1. The service authenticates the user for the app
+2. The service places a request in the connector queue
+3. A connector processes the request from the queue
+4. The connector waits for a response
+5. The service streams data to the user
 
 To learn more about what takes place in each of these steps, keep reading.
 
@@ -143,7 +144,7 @@ If you configured the app to preauthenticate with Azure AD, users are redirected
 
 2. After all checks have passed, the Azure AD STS issues a signed token for the application and redirects the user back to the Application Proxy service.
 
-3. Application Proxy verifies that the token was issued to correct the application. It performs other checks also, such as ensuring that the token was signed by Azure AD, and that it is still within the valid window.
+3. Application Proxy verifies that the token was issued to the correct application. It performs other checks also, such as ensuring that the token was signed by Azure AD, and that it is still within the valid window.
 
 4. Application Proxy sets an encrypted authentication cookie to indicate that authentication to the application has occurred. The cookie includes an expiration timestamp that's based on the token from Azure AD and other data, such as the user name that the authentication is based on. The cookie is encrypted with a private key known only to the Application Proxy service.
 

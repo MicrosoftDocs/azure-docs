@@ -28,6 +28,8 @@ For more detailed explanation on the differences and guidance on using these opt
 
 Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it. For more information about device twins, see [Get started with device twins](iot-hub-node-node-twin-getstarted.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## What you learn
 
 You learn using Azure IoT Tools for Visual Studio Code with various management options on your development machine.

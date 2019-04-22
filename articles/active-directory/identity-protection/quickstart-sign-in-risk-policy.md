@@ -18,6 +18,7 @@ ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
 #Customer intent: As an IT admin, I want to configure a sign-in risk conditional access policy to handle suspicious sign-ins, so that they can be automatically handled.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Block access when a session risk is detected with Azure Active Directory Identity Protection  

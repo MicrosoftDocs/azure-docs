@@ -6,7 +6,7 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/28/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
 
 # As a developer, I want to know how to create and test a new simulated device before I deploy it to the cloud.

@@ -297,11 +297,11 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 10. If building the image from **VMware, VirtualBox or KVM:** Ensure the Hyper-V drivers are included in the initramfs:
 
-   Edit `/etc/dracut.conf`, add content:
+    Edit `/etc/dracut.conf`, add content:
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-   Rebuild the initramfs:
+    Rebuild the initramfs:
 
         # sudo dracut -f -v
 
@@ -312,7 +312,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 12. Do not create swap space on the OS disk.
 
-   The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
+    The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4

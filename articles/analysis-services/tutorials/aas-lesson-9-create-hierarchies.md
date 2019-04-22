@@ -66,7 +66,7 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
     *  WeekNumberOfYear
     *  DayNumberOfWeek
   
- ## What's next?
+## What's next?
 [Lesson 10: Create partitions](../tutorials/aas-lesson-10-create-partitions.md). 
   
   

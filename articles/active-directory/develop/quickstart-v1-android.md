@@ -19,6 +19,7 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to sign-in users and call the Microsoft Graph API from my Android app.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an Android app

@@ -83,15 +83,15 @@ Select **View** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Project** > **Changes**
 
 - One new file is created:
 
-  -  _ConnectedService.json_
+  - _ConnectedService.json_
 
     ```json
     {
-      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
-      "Version": "8.12.10405.1",
-      "GettingStartedDocument": {
-        "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
-      }
+     "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+     "Version": "8.12.10405.1",
+     "GettingStartedDocument": {
+       "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
+     }
     }
     ```
 
@@ -175,6 +175,10 @@ Select **View** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Project** > **Changes**
           }
       }
       ```
+
+## Send ILogger logs to Application Insights
+
+Application Insights supports capturing logs sent via ILogger. To setup logging checkout the code samples [here](https://docs.microsoft.com/azure/azure-monitor/app/ilogger).
 
 ## Synthetic transactions with PowerShell
 
@@ -333,7 +337,7 @@ The functionality is possible in part because the NuGet package _Microsoft.AspNe
 
 ![Screenshot of NuGet dependency graph for Microsoft.AspNETCore.all](./media/asp-net-core/013-dependency.png)
 
-Outside of Visual Studio, if you were editing a ASP.NET Core project in VSCode or another editor, these assemblies wouldn't automatically load during debug if you haven't explicitly added Application Insights to your project.
+Outside of Visual Studio, if you were editing an ASP.NET Core project in VSCode or another editor, these assemblies wouldn't automatically load during debug if you haven't explicitly added Application Insights to your project.
 
 However, in Visual Studio, this lighting up of local Application Insights features from external assemblies is accomplished by using the [IHostingStartup Interface](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1). The interface dynamically adds Application Insights during debug.
 

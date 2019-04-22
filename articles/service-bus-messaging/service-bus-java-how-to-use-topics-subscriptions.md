@@ -44,46 +44,9 @@ register multiple subscriptions to a topic. When a message is sent to a topic, i
 
 Service Bus topics and subscriptions enable you to scale to process a large number of messages across a large number of users and applications.
 
-## Create a Service Bus namespace
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-A Service Bus messaging namespace provides a unique scoping container, referenced by its [fully qualified domain name](https://wikipedia.org/wiki/Fully_qualified_domain_name), in which you create one or more queues, topics, and subscriptions. The following example creates a Service Bus messaging namespace in a new or existing [resource group](/azure/azure-resource-manager/resource-group-portal):
-
-1. In the left navigation pane of the portal, click **+ Create a resource**, then click **Enterprise Integration**, and then click **Service Bus**.
-2. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
-3. After making sure the namespace name is available, choose the pricing tier (Standard or Premium).
-4. In the **Subscription** field, choose an Azure subscription in which to create the namespace.
-5. In the **Resource group** field, choose an existing resource group in which the namespace lives, or create a new one.      
-6. In **Location**, choose the country or region in which your namespace should be hosted.
-7. Click **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
-
-  ![namespace](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### Obtain the management credentials
-
-Creating a new namespace automatically generates an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that each grant full control over all aspects of the namespace. To copy the initial rule, follow these steps:
-
-1. Click **All resources**, then click the newly created namespace name.
-2. In the namespace window, click **Shared access policies**.
-3. In the **Shared access policies** screen, click **RootManageSharedAccessKey**.
-4. In the **Policy: RootManageSharedAccessKey** window, click the **Copy** button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
-
-    ![connection-string](./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png)
-5. Repeat the previous step, copying and pasting the value of **Primary Key** to a temporary location for later use.
-
-## Create a topic 
-To create a Service Bus topic, specify the namespace under which you want it created. The following example shows how to create a topic on the portal:
-
-1. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **All services**).
-2. Click the namespace in which you would like to create the Topic.
-3. In the namespace window, click **Topics**, then in the **Topics** window, click **+ Topics**.
-4. Enter **BasicTopic** for the Topic **name**, and leave the other values with their defaults.
-5. At the bottom of the window, click **Create**.
-
-
-## Create subscriptions for the topic
-1. Select the **topic** you created.
-2. Click on **+ Subscription**, enter the subscription name **Subscription1**, and leave all other values with their defaults.
-3. Repeat the previous step twice more, creating subscriptions named **Subscription2** and **Subscription3**.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
 
 ## Configure your application to use Service Bus
@@ -508,7 +471,7 @@ Message sending: Id = 9
 ## Next steps
 For more information, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions].
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: https://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter

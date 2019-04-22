@@ -1,6 +1,6 @@
 ---
-title: Create a custom speech endpoint with Speech Service on Azure | Microsoft Docs
-description: Learn how to create a custom speech-to-text endpoint with the Speech Service in Cognitive Services.
+title: Create a custom speech endpoint with Speech Services on Azure | Microsoft Docs
+description: Learn how to create a custom speech-to-text endpoint using Azure Speech Services.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -13,10 +13,10 @@ ms.author: panosper
 
 # Create a custom speech-to-text endpoint
 
-After you have created custom acoustic models or language models, you can deploy them in a custom speech-to-text endpoint. 
+After you have created custom acoustic models or language models, you can deploy them in a custom speech-to-text endpoint.
 
 ## Create an endpoint
-To create a new custom endpoint, select **Endpoints** on the **Custom Speech** menu at the top of the page. This action takes you to the **Endpoints** page, which contains a table of current custom endpoints. If you have not yet created any endpoints, the table is empty. The current locale is reflected in the table title. 
+To create a new custom endpoint, select **Endpoints** on the **Custom Speech** menu at the top of the page. This action takes you to the **Endpoints** page, which contains a table of current custom endpoints. If you have not yet created any endpoints, the table is empty. The current locale is reflected in the table title.
 
 To create a deployment for a different language, select **Change Locale**. For more information about supported languages.
 
@@ -39,6 +39,6 @@ When the deployment is ready, the endpoint name becomes a link. Selecting the li
 ## Next steps
 
 For more tutorials, see:
-- [Get your Speech Service trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [Get your Speech Services trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 - [Create custom acoustic model](how-to-customize-acoustic-models.md)
 - [Create custom language model](how-to-customize-language-model.md)

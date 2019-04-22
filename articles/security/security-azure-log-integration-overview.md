@@ -4,7 +4,7 @@ description: Learn about Azure Log Integration, its key capabilities, and how it
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TerryLanfear
 
 ms.assetid: 9c1346e1-baf8-4975-b2f2-42ae05b2dc0a
@@ -57,7 +57,7 @@ If no other options are available, consider using Azure Log Integration. The fol
 |---------|--------------------------|-------------------------------------------|
 |**Splunk** | Begin migrating to the [Azure Monitor add-on for Splunk](https://splunkbase.splunk.com/app/3534/). | Use the [Splunk connector](https://splunkbase.splunk.com/app/3534/). |
 |**QRadar** | Migrate to or begin using the QRadar connector that's documented in the last section of [Stream Azure monitoring data to an event hub for consumption by an external tool](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). | Use the QRadar connector that's documented in the last section of [Stream Azure monitoring data to an event hub for consumption by an external tool](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). |
-|**ArcSight** | Continue to use the Azure log integrator until a connector is available, and then migrate to the connector-based solution.  | Consider using Azure Log Analytics as an alternative. Don't onboard to Azure Log Integration unless you are willing to go through the migration process when the connector becomes available. |
+|**ArcSight** | Continue to use the Azure log integrator until a connector is available, and then migrate to the connector-based solution.  | Consider using Azure Monitor logs as an alternative. Don't onboard to Azure Log Integration unless you are willing to go through the migration process when the connector becomes available. |
 
 > [!NOTE]
 > Although Azure Log Integration is a free solution, there are Azure storage costs associated with log file information storage.

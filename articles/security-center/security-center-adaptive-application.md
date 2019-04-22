@@ -4,7 +4,7 @@ description: This document helps you to use adaptive application control in Azur
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
@@ -56,33 +56,33 @@ The **Groups of VMs** section contains three tabs:
 ### Configure a new application control policy
 1. Click on the **Recommended** tab for a list of groups with application control recommendations:
 
-  ![Recommended](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
+   ![Recommended](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
-  The list includes:
+   The list includes:
 
-  - **NAME**: the name of the subscription and group
-  - **VMs**: the number of virtual machines in the group
-  - **STATE**: the state of the recommendations
-  - **SEVERITY**: the severity level of the recommendations
+   - **NAME**: the name of the subscription and group
+   - **VMs**: the number of virtual machines in the group
+   - **STATE**: the state of the recommendations
+   - **SEVERITY**: the severity level of the recommendations
 
 2. Click on a group to open the **Create application control rules** option.
 
-  ![Application control rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
+   ![Application control rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
 3. In the **Select VMs**, review the list of recommended VMs and uncheck any you do not want to apply an application whitelisting policy to. Next, you see two lists:
 
-  - **Recommended applications**: a list of applications that are frequent on the VMs within this group, and are recommended to be allowed to run.
-  - **More applications**: a list of applications that are either less frequent on the VMs within this group or that are known as Exploitables (see more below), and recommended for review.
+   - **Recommended applications**: a list of applications that are frequent on the VMs within this group, and are recommended to be allowed to run.
+   - **More applications**: a list of applications that are either less frequent on the VMs within this group or that are known as Exploitables (see more below), and recommended for review.
 
 4. Review the applications in each of the lists, and uncheck any you do not want to apply. Each list includes:
 
-  - **NAME**: the certificate information or the full path of an application
-  - **FILE TYPES**: the application file type. This can be EXE, Script, MSI, or any permutation of these types.
-  - **EXPLOITABLE**: a warning icon indicates if a specific application could be used by an attacker to bypass an application whitelisting solution. It is recommended to review these applications prior to their approval.
-  - **USERS**: users that are recommended to be allowed to run an application
+   - **NAME**: the certificate information or the full path of an application
+   - **FILE TYPES**: the application file type. This can be EXE, Script, MSI, or any permutation of these types.
+   - **EXPLOITABLE**: a warning icon indicates if a specific application could be used by an attacker to bypass an application whitelisting solution. It is recommended to review these applications prior to their approval.
+   - **USERS**: users that are recommended to be allowed to run an application
 
 5. Once you finish your selections, select **Create**. <br>
-After you select Create, Azure Security Center automatically creates the appropriate rules on top of the built-in application whitelisting solution available on Windows servers (AppLocker).
+   After you select Create, Azure Security Center automatically creates the appropriate rules on top of the built-in application whitelisting solution available on Windows servers (AppLocker).
 
 > [!NOTE]
 > - Security Center relies on a minimum of two weeks of data in order to create a baseline and populate the unique recommendations per group of VMs. New customers of Security Center standard tier should expect a behavior in which at first their groups of VMs appear under the *no recommendation* tab.
@@ -94,23 +94,23 @@ After you select Create, Azure Security Center automatically creates the appropr
 
 1. To edit and monitor a group configured with an application whitelisting policy, return to the **Adaptive application controls** page and select **CONFIGURED** under **Groups of VMs**:
 
-  ![Groups](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
+   ![Groups](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
-  The list includes:
+   The list includes:
 
-  - **Name**: the name of the subscription and group
-  - **VMs**: the number of virtual machines in the group
-  - **Mode**: Audit mode will log attempts to run non-whitelisted applications; Enforce will not allow non-whitelisted applications to run
-  - **Alerts**: any current violations
+   - **Name**: the name of the subscription and group
+   - **VMs**: the number of virtual machines in the group
+   - **Mode**: Audit mode will log attempts to run non-whitelisted applications; Enforce will not allow non-whitelisted applications to run
+   - **Alerts**: any current violations
 
 2. Click on a group to make changes in the **Edit application control policy** page.
 
-  ![Protection](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
+   ![Protection](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
 3. Under **Protection mode**, you have the option to select between the following:
 
-  - **Audit**: in this mode, the application control solution does not enforce the rules, and only audits the activity on the protected VMs. This is recommended for scenarios where you want to first observe the overall behavior before blocking an app to run in the target VM.
-  - **Enforce**: in this mode, the application control solution does enforce the rules, and makes sure that applications that are not allowed to run are blocked.
+   - **Audit**: in this mode, the application control solution does not enforce the rules, and only audits the activity on the protected VMs. This is recommended for scenarios where you want to first observe the overall behavior before blocking an app to run in the target VM.
+   - **Enforce**: in this mode, the application control solution does enforce the rules, and makes sure that applications that are not allowed to run are blocked.
 
    > [!NOTE]
    > - 	**Enforce** protection mode is disabled until further notice.
@@ -120,14 +120,14 @@ After you select Create, Azure Security Center automatically creates the appropr
 4. Under **Policy extension**, add any application path that you want to allow. After you add these paths, Security Center updates the application whitelisting policy on the VMs within the selected group of VMS and creates the appropriate rules for these applications, in addition to the rules that are already in place.
 
 5. Review the current violations listed in the **Recent alerts** section. Click on each line to be redirected to the **Alerts** page within Azure Security Center, and view all the alerts that were detected by Azure Security Center on the associated VMs.
-  - **Alerts**: any violations that were logged.
-  - **No. of VMs**: the number of virtual machines with this alert type.
+   - **Alerts**: any violations that were logged.
+   - **No. of VMs**: the number of virtual machines with this alert type.
 
 6. Under **Publisher whitelisting rules**, **Path whitelisting rules**, and **Hash whitelisting rules**  you can see which application whitelisting rules are currently configured on the VMs within a group, according to the rule collection type. For each rule you can see:
 
-  - **Rule**: The specific parameters according to which an application is examined by AppLocker to determine if an application is allowed to run.
-  - **File type**: The file types that are covered by a specific rule. This can be any of the following: EXE, Script, MSI, or any permutation of those file types.
-  - **Users**: Name or number of users who are allowed to run an application that is covered by an application whitelisting rule.
+   - **Rule**: The specific parameters according to which an application is examined by AppLocker to determine if an application is allowed to run.
+   - **File type**: The file types that are covered by a specific rule. This can be any of the following: EXE, Script, MSI, or any permutation of those file types.
+   - **Users**: Name or number of users who are allowed to run an application that is covered by an application whitelisting rule.
 
    ![Whitelisting rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 

@@ -82,10 +82,10 @@ In this section, you create a Python app on your simulated device that updates t
 
 1. **Get your module connection string** -- now if you login to [Azure portal][lnk-portal]. Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
 
-  ![Azure portal module detail][15]
+   ![Azure portal module detail][15]
 
 1. **Create UpdateModuleTwinReportedProperties app**
-Add the following `using` statements at the top of the **Program.cs** file:
+   Add the following `using` statements at the top of the **Program.cs** file:
 
     ```python
     import sys
@@ -168,7 +168,7 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 [15]:./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md

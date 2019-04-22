@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use machine-assisted video moderation and human review tools to moderate inappropriate content
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

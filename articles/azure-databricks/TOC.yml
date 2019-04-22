@@ -31,6 +31,8 @@
     href: https://docs.azuredatabricks.net/user-guide/jobs.html 
   - name: Connect to data sources 
     href: databricks-connect-to-data-sources.md
+  - name: Use VNet injection
+    href: vnet-injection.md
   - name: Use with Azure Data Factory
     href: ../data-factory/transform-data-using-databricks-notebook.md
     maintainContext: true
@@ -42,6 +44,8 @@
     href: https://docs.azuredatabricks.net/user-guide/bi/index.html
   - name: Plan disaster recovery
     href: howto-regional-disaster-recovery.md
+  - name: MLflow Guide
+    href: https://docs.azuredatabricks.net/applications/mlflow/index.html
 - name: Reference
   items:
   - name: REST API

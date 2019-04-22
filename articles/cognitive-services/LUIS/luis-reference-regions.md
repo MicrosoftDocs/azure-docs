@@ -1,29 +1,35 @@
 ---
 title: Publishing regions & endpoints
 titleSuffix: Azure Cognitive Services
-description: The region in which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create an Azure LUIS endpoint key. When you publish an app, LUIS automatically generates an endpoint URL for the region associated with the key. 
+description: 3 authoring regions and their portals support all the many publishing regions. The region in which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create an Azure LUIS endpoint key. When you publish an app, LUIS automatically generates an endpoint URL for the region associated with the key. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 03/25/2019
 ms.author: diberry
 ---
 # Authoring and publishing regions and the associated keys
 
-The region in which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create an Azure LUIS endpoint key. When you [publish an app](./luis-how-to-publish-app.md), LUIS automatically generates an endpoint URL for the region associated with the key. To publish a LUIS app to more than one region, you need at least one key per region. 
+Three authoring regions and their portals support all the many publishing regions. The region in which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create an Azure LUIS endpoint key. When you [publish an app](./luis-how-to-publish-app.md), LUIS automatically generates an endpoint URL for the region associated with the key. To publish a LUIS app to more than one region, you need at least one key per region. 
 
-## LUIS website
+<a name="luis-website"></a>
+
+## LUIS Authoring regions
 There are three LUIS websites, based on region. You must author and publish in the same region. 
 
-|LUIS|Region|
-|--|--|
-|[www.luis.ai][www.luis.ai]|U.S.<br>not Europe<br>not Australia|
-|[au.luis.ai][au.luis.ai]|Australia|
-|[eu.luis.ai][eu.luis.ai]|Europe|
+|LUIS|Global region|Authoring region in Azure|
+|--|--|--|
+|[www.luis.ai][www.luis.ai]|U.S.<br>not Europe<br>not Australia| `westus`|
+|[au.luis.ai][au.luis.ai]|Australia| `australiaeast`|
+|[eu.luis.ai][eu.luis.ai]|Europe|`westeurope`|
+
+You can use the authoring region for interacting with deployed LUIS service in a different Azure publishing region.  
+
+Authoring regions have [paired fail-over regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 ## Regions and Azure resources
 The app is published to all regions associated with the LUIS resources added in the LUIS portal. For example, for an app created on [www.luis.ai][www.luis.ai], if you create a LUIS resource in **westus** and add it to the app as a resource, the app is published in that region. 
@@ -89,6 +95,9 @@ The following table explains the parameters, denoted with curly braces `{}`, in 
 |appID|LUIS app ID used in URL route and found on app dashboard|
 |q|utterance text sent from client application such as chat bot|
 
+## Failover regions
+
+Each region has a secondary region to fail over to. Europe fails over inside Europe and Australia fails over inside Australia.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Script sample to quickly get started using the Project URL Previewwith Python.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: url-preview

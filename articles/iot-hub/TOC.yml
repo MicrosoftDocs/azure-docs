@@ -1,6 +1,4 @@
-﻿- name: Azure IoT Fundamentals
-  href: /azure/iot-fundamentals
-- name: IoT Hub Documentation
+﻿- name: IoT Hub Documentation
   href: index.yml
 - name: Overview
   items:
@@ -179,6 +177,8 @@
         href: iot-hub-how-to-develop-for-mobile-devices.md
       - name: Manage connectivity and reliable messaging
         href: iot-hub-reliability-features-in-sdks.md
+      - name: Develop for Android Things platform
+        href: iot-hub-how-to-android-things.md
     - name: Query Avro data from a hub route
       href: iot-hub-query-avro-data.md
     - name: Order device connection state events from Event Grid
@@ -273,19 +273,16 @@
         href: iot-hub-configure-file-upload-powershell.md
       - name: Use Azure CLI
         href: iot-hub-configure-file-upload-cli.md
-    - name: Monitor with diagnostics
+    - name: Metrics in Azure Monitor
+      href: iot-hub-metrics.md
+    - name: Set up diagnostic logs
       href: iot-hub-monitor-resource-health.md
-      items:
-      - name: Migrate to diagnostics settings
-        href: iot-hub-migrate-to-diagnostics-settings.md
-      - name: Operations monitoring
-        href: iot-hub-operations-monitoring.md
     - name: Secure your hub with an X.509 certificate
       href: iot-hub-security-x509-get-started.md
     - name: Upgrade an IoT hub
       href: iot-hub-upgrade.md
-    - name: Usage metrics
-      href: iot-hub-metrics.md
+    - name: Enable message tracing
+      href: iot-hub-distributed-tracing.md  
     - name: Configure IP filtering
       href: iot-hub-ip-filtering.md
     - name: Configure devices at scale
@@ -375,6 +372,12 @@
     href: https://docs.microsoft.com/rest/api/iothub/certificates
   - name: Resource Manager template
     href: /azure/templates/microsoft.devices/iothub-allversions
+  - name: Feature and API retirement
+    items:
+    - name: Operations monitoring
+      href: iot-hub-operations-monitoring.md
+    - name: Migrate to diagnostics settings
+      href: iot-hub-migrate-to-diagnostics-settings.md
 - name: Related
   items:
   - name: Solutions
@@ -414,7 +417,7 @@
   - name: Azure IoT Samples for iOS Platform
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure Certified for IoT device catalog
-    href: https://catalog.azureiotsuite.com/
+    href: https://catalog.azurazureiotsolutionseiotsuite.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Customer data requests
@@ -436,7 +439,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=iot-hub
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-iot-hub
+    href: https://stackoverflow.com/questions/tagged/azure-iot-hub
   - name: Technical case studies
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videos

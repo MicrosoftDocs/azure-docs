@@ -106,11 +106,11 @@ After determining your target cluster VM size, scale, and type, check the curren
 1. Click on **Help and Support** on the bottom-left side of the page.
 1. Click on **New support request**.
 1. On the **New support request** page, under **Basics** tab, select the following options:
-    - **Issue type**: **Service and subscription limits (quotas)**
-    - **Subscription**: the subscription you want to modify
-    - **Quota type**: **HDInsight**
+   - **Issue type**: **Service and subscription limits (quotas)**
+   - **Subscription**: the subscription you want to modify
+   - **Quota type**: **HDInsight**
     
-    ![Create a support request to increase HDInsight core quota](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+     ![Create a support request to increase HDInsight core quota](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. Click **Next**.
 1. On the **Details** page, enter a description of the issue, select the severity of the issue, and select your preferred contact method.
@@ -122,7 +122,7 @@ After determining your target cluster VM size, scale, and type, check the curren
 
 You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-However, there are some fixed quota limits, for example a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
+However, there are some fixed quota limits, for example a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ## Next steps
 

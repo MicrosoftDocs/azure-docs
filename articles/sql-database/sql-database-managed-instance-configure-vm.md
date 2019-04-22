@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 12/13/2018
+ms.date: 02/18/2019
 ---
 # Quickstart: Configure Azure VM to connect to an Azure SQL Database Managed Instance
 
@@ -64,7 +64,7 @@ The easiest way to create a client virtual machine with all necessary tools is t
 
 1. Make sure that you're signed in to the Azure portal in another browser tab. Then, select the following button to create a client virtual machine and install SQL Server Management Studio:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 2. Fill out the form using the information in the following table:
 
@@ -78,7 +78,7 @@ The easiest way to create a client virtual machine with all necessary tools is t
    |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>You use this password any time you [connect to the VM](#connect-to-virtual-machine).|
    | **Virtual Machine Size** | Any valid size | The default in this template of **Standard_B2s** is sufficient for this quickstart. |
    | **Location**|[resourceGroup().location].| Don't change this value. |
-   | **Virtual Network Name**|The virtual netword in which you created the Managed Instance.|
+   | **Virtual Network Name**|The virtual network in which you created the Managed Instance.|
    | **Subnet name**|The name of the subnet that you created in the previous procedure| Don't choose the subnet in which you created the Managed Instance.|
    | **artifacts Location** | [deployment().properties.templateLink.uri] | Don't change this value. |
    | **artifacts Location Sas token** | leave blank | Don't change this value. |
@@ -91,7 +91,8 @@ The easiest way to create a client virtual machine with all necessary tools is t
 4. Select **Purchase** to deploy the Azure VM in your network.
 5. Select the **Notifications** icon to view the status of deployment.
 
-Don't continue until the Azure virtual machine is created. 
+> [!IMPORTANT]
+> Do not continue until approximately 15 minutes after the virtual machine is created to give time for the post-creation scripts to install SQL Server Management Studio.
 
 ## Connect to virtual machine
 

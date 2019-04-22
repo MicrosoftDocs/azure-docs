@@ -175,7 +175,7 @@ You can create a recovery plan in ASR to automate the failover process of the fi
    - *RecoveryPlanName***-StorageAccountKey**: The access key for the above storage account.
    - *RecoveryPlanName***-VMGUIDS**: Upon protecting a VM, Azure Site Recovery assigns every VM a unique ID that gives the details of the failed over VM. To obtain the VMGUID, select the **Recovery Services** tab and click **Protected Item** &gt; **Protection Groups** &gt; **Machines** &gt; **Properties**. If you have multiple VMs, then add the GUIDs as a comma-separated string.
 
-    For example, if the name of the recovery plan is fileServerpredayRP, then your **Variables**, **Connections** and **Certificates** tab should appear as follows after you add all the assets.
+     For example, if the name of the recovery plan is fileServerpredayRP, then your **Variables**, **Connections** and **Certificates** tab should appear as follows after you add all the assets.
 
       ![Assets](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
@@ -328,30 +328,30 @@ Capacity planning is made up of at least two important processes:
    - Determining the required Internet bandwidth.
 
 ## Limitations
-   - Currently, only 1 StorSimple device can be failed over (to a single StorSimple Cloud Appliance). The scenario of a file server that spans several StorSimple devices is not yet supported.
-   - If you get an error while enabling protection for a VM, make sure that you have disconnected the iSCSI targets.
-   - All the volume containers that have been grouped together because of backup policies spanning across volume containers will be failed over together.
-   - All the volumes in the volume containers you have chosen will be failed over.
-   - Volumes that add up to more than 64 TB can’t be failed over because the maximum capacity of a single StorSimple Cloud Appliance is 64 TB.
-   - If the planned/unplanned failover fails and the VMs are created in Azure, then do not clean up the VMs. Instead, do a failback. If you delete the VMs then the on-premises VMs cannot be turned on again.
-   - After a failover, if you are not able to see the volumes, go to the VMs, open Disk Management, rescan the disks, and then bring them online.
-   - In some instances, the drive letters in the DR site might be different than the letters on-premises. If this occurs, you will need to manually correct the problem after the failover is finished.
-   - Failover job timeout: The StorSimple script will time out if the failover of volume containers takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
-   - Backup job timeout: The StorSimple script times out if the backup of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
+- Currently, only 1 StorSimple device can be failed over (to a single StorSimple Cloud Appliance). The scenario of a file server that spans several StorSimple devices is not yet supported.
+- If you get an error while enabling protection for a VM, make sure that you have disconnected the iSCSI targets.
+- All the volume containers that have been grouped together because of backup policies spanning across volume containers will be failed over together.
+- All the volumes in the volume containers you have chosen will be failed over.
+- Volumes that add up to more than 64 TB can’t be failed over because the maximum capacity of a single StorSimple Cloud Appliance is 64 TB.
+- If the planned/unplanned failover fails and the VMs are created in Azure, then do not clean up the VMs. Instead, do a failback. If you delete the VMs then the on-premises VMs cannot be turned on again.
+- After a failover, if you are not able to see the volumes, go to the VMs, open Disk Management, rescan the disks, and then bring them online.
+- In some instances, the drive letters in the DR site might be different than the letters on-premises. If this occurs, you will need to manually correct the problem after the failover is finished.
+- Failover job timeout: The StorSimple script will time out if the failover of volume containers takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
+- Backup job timeout: The StorSimple script times out if the backup of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
    
-   > [!IMPORTANT]
-   > Run the backup manually from the Azure portal and then run the recovery plan again.
+  > [!IMPORTANT]
+  > Run the backup manually from the Azure portal and then run the recovery plan again.
    
-   - Clone job timeout: The StorSimple script times out if the cloning of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
-   - Time synchronization error: The StorSimple scripts errors out saying that the backups were unsuccessful even though the backup is successful in the portal. A possible cause for this might be that the StorSimple appliance’s time might be out of sync with the current time in the time zone.
+- Clone job timeout: The StorSimple script times out if the cloning of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
+- Time synchronization error: The StorSimple scripts errors out saying that the backups were unsuccessful even though the backup is successful in the portal. A possible cause for this might be that the StorSimple appliance’s time might be out of sync with the current time in the time zone.
    
-   > [!IMPORTANT]
-   > Sync the appliance time with the current time in the time zone.
+  > [!IMPORTANT]
+  > Sync the appliance time with the current time in the time zone.
    
-   - Appliance failover error: The StorSimple script might fail if there is an appliance failover when the recovery plan is running.
+- Appliance failover error: The StorSimple script might fail if there is an appliance failover when the recovery plan is running.
    
-   > [!IMPORTANT]
-   > Rerun the recovery plan after the appliance failover is complete.
+  > [!IMPORTANT]
+  > Rerun the recovery plan after the appliance failover is complete.
 
 
 ## Summary

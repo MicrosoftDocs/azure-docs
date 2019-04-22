@@ -24,6 +24,8 @@ robots: noindex
 
 This article provides troubleshooting tips for issues when using Azure Data Factory. This article does not list all the possible issues when using the service, but it covers some issues and general troubleshooting tips.   
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Troubleshooting tips
 ### Error: The subscription is not registered to use namespace 'Microsoft.DataFactory'
 If you receive this error, the Azure Data Factory resource provider has not been registered on your machine. Do the following:
@@ -32,20 +34,20 @@ If you receive this error, the Azure Data Factory resource provider has not been
 2. Log in to your Azure account using the following command.
 
 	```powershell
-	Connect-AzureRmAccount
+	Connect-AzAccount
 	```
 3. Run the following command to register the Azure Data Factory provider.
 
 	```powershell        
-	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
 	```
 
 ### Problem: Unauthorized error when running a Data Factory cmdlet
 You are probably not using the right Azure account or subscription with the Azure PowerShell. Use the following cmdlets to select the right Azure account and subscription to use with the Azure PowerShell.
 
-1. Connect-AzureRmAccount - Use the right user ID and password
-2. Get-AzureRmSubscription - View all the subscriptions for the account.
-3. Select-AzureRmSubscription &lt;subscription name&gt; - Select the right subscription. Use the same one you use to create a data factory on the Azure portal.
+1. Connect-AzAccount - Use the right user ID and password
+2. Get-AzSubscription - View all the subscriptions for the account.
+3. Select-AzSubscription &lt;subscription name&gt; - Select the right subscription. Use the same one you use to create a data factory on the Azure portal.
 
 ### Problem: Fail to launch Data Management Gateway Express Setup from Azure portal
 The Express setup for the Data Management Gateway requires Internet Explorer or a Microsoft ClickOnce compatible web browser. If the Express Setup fails to start, do one of the following:
@@ -126,9 +128,9 @@ See [Monitor Data Factory pipelines using Azure PowerShell](data-factory-build-y
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
+[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
+[json-scripting-reference]: https://go.microsoft.com/fwlink/?LinkId=516971
 
 [azure-portal]: https://portal.azure.com/
 

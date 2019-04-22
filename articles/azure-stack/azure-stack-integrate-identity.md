@@ -6,25 +6,15 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/23/19
+ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 01/23/19
-keywords:
+ms.lastreviewed: 03/04/2019
+
 ---
 
 # Azure Stack datacenter integration - Identity
-You can deploy Azure Stack using Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) as the identity providers. You must make the choice before you deploy Azure Stack. Deployment using AD FS is also referred to as deploying Azure Stack in disconnected mode.
-
-The following table shows the differences between the two identity choices:
-
-||Disconnected from the internet|Connected to the internet|
-|---------|---------|---------|
-|Billing|Must be Capacity<br> Enterprise Agreement (EA) only|Capacity or Pay-as-you-use<br>EA or Cloud Solution Provider (CSP)|
-|Identity|Must be AD FS|Azure AD or AD FS|
-|Marketplace |Supported<br>BYOL licensing|Supported<br>BYOL licensing|
-|Registration|Required, requires removable media<br> and a separate connected device.|Automated|
-|Patch and update|Required, requires removable media<br> and a separate connected device.|Update package can be downloaded directly<br> from the Internet to Azure Stack.|
+You can deploy Azure Stack using Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) as the identity providers. You must make the choice before you deploy Azure Stack. In a connected scenario, you can choose Azure AD or AD FS. For a disconnected scenario, only AD FS is supported.
 
 > [!IMPORTANT]
 > You cannot switch the identity provider without redeploying the entire Azure Stack solution.
@@ -39,7 +29,7 @@ Authentication is one part of identity. To manage Role Based Access Control (RBA
 
 The existing AD FS is the account security token service (STS) that sends claims to the Azure Stack AD FS (the resource STS). In Azure Stack, automation creates the claims provider trust with the metadata endpoint for the existing AD FS.
 
-At the existing AD FS, a relying party trust must be configured. This step is not done by the automation, and must be configured by the operator. The Azure Stack metadata endpoint is documented in the AzureStackStampDeploymentInfo.JSON file, or via the privileged endpoint by running the command `Get-AzureStackInfo`.
+At the existing AD FS, a relying party trust must be configured. This step is not done by the automation, and must be configured by the operator. The Azure Stack VIP endpoint for AD FS can be created by using the pattern `https://adfs.<Region>.<ExternalFQDN>/`.
 
 The relying party trust configuration also requires you to configure the claim transformation rules that are provided by Microsoft.
 
@@ -69,7 +59,7 @@ The following information is required as inputs for the automation parameters:
 
 For Active Directory deployments having multiple sites, configure the closest Active Directory Site to your Azure Stack deployment. The configuration avoids having the Azure Stack Graph service resolve queries using a Global Catalog Server from a remote site.
 
-Add the Azure Stack [Public VIP network](azure-stack-network.md#public-vip-network) subnet to the Azure AD Site closest to Azure Stack. For example, if your Active Directory has two sites Seattle and Redmond with Azure Stack deployed at the Seattle site, you would add the Azure Stack Public VIP network subnet to the Azure AD site for Seattle.
+Add the Azure Stack [Public VIP network](azure-stack-network.md#public-vip-network) subnet to the Active Directory Site closest to Azure Stack. For example, if your Active Directory has two sites Seattle and Redmond with Azure Stack deployed at the Seattle site, you would add the Azure Stack Public VIP network subnet to the Active Directory site for Seattle.
 
 For more information on  Active Directory Sites see [Designing the site topology](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 
@@ -128,7 +118,7 @@ The following information is required as input for the automation parameters:
 |Parameter|Description|Example|
 |---------|---------|---------|
 |CustomAdfsName|Name of the claims provider.<br>It appears that way on the AD FS landing page.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Federation metadata link|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomAD<br>FSFederationMetadataEndpointUri|Federation metadata link| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 
 
 ### Trigger automation to configure claims provider trust in Azure Stack

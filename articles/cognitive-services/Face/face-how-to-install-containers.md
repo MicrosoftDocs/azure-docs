@@ -4,16 +4,16 @@ titlesuffix: Face - Azure Cognitive Services
 description: How to download, install, and run containers for Face in this walkthrough tutorial.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 03/22/2019
 ms.author: diberry
 ---
 
-# Install and run containers
+# Install and run Face containers
 
 Face provides a standardized Linux container for Docker, named Face, which detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits.
 
@@ -36,18 +36,19 @@ You must meet the following prerequisites before using Face API containers:
 
 ### The host computer
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 
 ### Container requirements and recommendations
 
 The following table describes the minimum and recommended CPU cores and memory to allocate for each Face API container.
 
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
-|Face | 1 core, 2 GB memory | 1 core, 4 GB memory |
+| Container | Minimum | Recommended | TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Face | 1 core, 2 GB memory | 1 core, 4 GB memory |10, 20|
 
-Each core must be at least 2.6 gigahertz (GHz) or faster.
+* Each core must be at least 2.6 gigahertz (GHz) or faster.
+* TPS - transactions per second
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
@@ -63,8 +64,8 @@ Container images for Face API are available.
 
 ### Docker pull for the Face container
 
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 ```
 
 ## How to use the container
@@ -87,7 +88,7 @@ Replace these parameters with your own values in the following example `docker r
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-containerpreview.azurecr.io/microsoft/ognitive-services-face \
+containerpreview.azurecr.io/microsoft/cognitive-services-face \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}
@@ -105,11 +106,14 @@ More [examples](./face-resource-container-config.md#example-docker-run-commands)
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. 
 
-Use the host, https://localhost:5000, for container APIs.
+Use the host, `https://localhost:5000`, for container APIs.
 
 ## Stop the container
 
@@ -127,18 +131,7 @@ If you run the container with an output [mount](./face-resource-container-config
 
 The Face API containers send billing information to Azure, using a _Face API_ resource on your Azure account. 
 
-Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft. 
-
-The `docker run` command uses the following arguments for billing purposes:
-
-| Option | Description |
-|--------|-------------|
-| `ApiKey` | The API key of the _Face API_ resource used to track billing information. |
-| `Billing` | The endpoint of the _Face API_ resource used to track billing information.|
-| `Eula` | Indicates that you've accepted the license for the container.<br/>The value of this option must be set to `accept`. |
-
-> [!IMPORTANT]
-> All three options must be specified with valid values, or the container won't start.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](./face-resource-container-config.md).
 

@@ -3,14 +3,14 @@ title: 'Quickstart: Using PHP to call the Text Analytics API'
 titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-author: noellelacharite
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 10/01/2018
-ms.author: nolachar
+ms.date: 02/15/2019
+ms.author: aahi
 ---
 # Quickstart: Using PHP to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
@@ -69,7 +69,7 @@ function DetectLanguage ($host, $path, $key, $data) {
 	$data = json_encode ($data);
 
 	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-	// http://php.net/manual/en/function.stream-context-create.php
+	// https://php.net/manual/en/function.stream-context-create.php
 	$options = array (
 		'http' => array (
 			'header' => $headers,
@@ -188,7 +188,7 @@ function GetSentiment ($host, $path, $key, $data) {
 	$data = json_encode ($data);
 
 	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-	// http://php.net/manual/en/function.stream-context-create.php
+	// https://php.net/manual/en/function.stream-context-create.php
 	$options = array (
 		'http' => array (
 			'header' => $headers,
@@ -280,7 +280,7 @@ function GetKeyPhrases ($host, $path, $key, $data) {
 	$data = json_encode ($data);
 
 	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-	// http://php.net/manual/en/function.stream-context-create.php
+	// https://php.net/manual/en/function.stream-context-create.php
 	$options = array (
 		'http' => array (
 			'header' => $headers,
@@ -394,7 +394,7 @@ function GetEntities ($host, $path, $key, $data) {
 	$data = json_encode ($data);
 
 	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-	// http://php.net/manual/en/function.stream-context-create.php
+	// https://php.net/manual/en/function.stream-context-create.php
 	$options = array (
 		'http' => array (
 			'header' => $headers,

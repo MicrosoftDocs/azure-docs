@@ -32,7 +32,7 @@ The lifecycle management policy is available with both General Purpose v2 (GPv2)
 The lifecycle management feature is free of charge in preview. Customers are charged the regular operation cost for the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) and [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API calls. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Register for preview 
-To enroll in public preview, you'll need to submit a request to register this feature to your subscription. Requests are usually approved within two weeks. Upon approval, all existing and new GPv2 or Blob storage accounts in the following regions include the feature: West US 2, West Central US, East US 2, and West Europe. Preview only supports block blob. As with most previews, you shouldn't use this feature for production workloads until it reaches GA.
+To enroll in public preview, you'll need to submit a request to register this feature to your subscription. Requests are usually approved within 72 hours. Upon approval, all existing and new GPv2 or Blob storage accounts in the following regions include the feature: West US 2, West Central US, East US 2, and West Europe. Preview only supports block blob. As with most previews, you shouldn't use this feature for production workloads until it reaches GA.
 
 To submit a request, run the following PowerShell or CLI commands.
 
@@ -79,7 +79,7 @@ You can add, edit, or remove a policy using Azure portal, [PowerShell](https://w
 ### PowerShell
 
 ```powershell
-$rules = '{ ... }' 
+$rules = '{ ... }'
 
 Set-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
 
@@ -95,7 +95,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```
 
 > [!NOTE]
-If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ## Policy
 
@@ -150,10 +150,10 @@ The following sample rule filters the account to run the actions only on `contai
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "ruleFoo", 
-      "type": "Lifecycle", 
+      "name": "ruleFoo",
+      "type": "Lifecycle",
       "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
@@ -185,7 +185,7 @@ During preview, valid filters include:
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
 | blobTypes   | An array of predefined enum values. | The preview release only supports `blockBlob`. | Yes |
-| prefixMatch | An array of strings for prefixes to be match. A prefix string must start with a container name. For example, if you want to match all blobs under "https://myaccount.blob.core.windows.net/container1/foo/..." for a rule, the prefixMatch is `container1/foo`. | If you don't define prefixMatch, the rules apply to all blobs within the account. | No |
+| prefixMatch | An array of strings for prefixes to be match. A prefix string must start with a container name. For example, if you want to match all blobs under "https:\//myaccount.blob.core.windows.net/container1/foo/..." for a rule, the prefixMatch is `container1/foo`. | If you don't define prefixMatch, the rules apply to all blobs within the account. | No |
 
 ### Rule actions
 
@@ -199,8 +199,8 @@ In preview, lifecycle management supports tiering and deletion of blobs and dele
 | tierToArchive | Support blobs currently at hot or cool tier | Not supported |
 | delete        | Supported                                   | Supported     |
 
->[!NOTE] 
-If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
+> [!NOTE]
+> If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
 
 In preview, the action execution conditions are based on age. Base blobs use the last modified time to track age, and blob snapshots use the snapshot creation time to track age.
 
@@ -219,23 +219,22 @@ This example shows how to transition block blobs prefixed with `container1/foo` 
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "agingRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "container1/foo", "container2/bar" ]
-          },
-          "actions": {
-            "baseBlob": {
-              "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-              "tierToArchive": { "daysAfterModificationGreaterThan": 90 }
-            }
+      "name": "agingRule",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "container1/foo", "container2/bar" ]
+        },
+        "actions": {
+          "baseBlob": {
+            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
+            "tierToArchive": { "daysAfterModificationGreaterThan": 90 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -248,22 +247,21 @@ Some data stays idle in the cloud and is rarely, if ever, accessed once stored. 
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "archiveRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "archivecontainer" ]
-          },
-          "actions": {
-            "baseBlob": { 
-                "tierToArchive": { "daysAfterModificationGreaterThan": 0 }
-            }
+      "name": "archiveRule",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "archivecontainer" ]
+        },
+        "actions": {
+          "baseBlob": {
+              "tierToArchive": { "daysAfterModificationGreaterThan": 0 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -277,21 +275,20 @@ Some data is expected to expire days or months after creation to reduce costs or
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "expirationRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ]
-          },
-          "actions": {
-            "baseBlob": {
-              "delete": { "daysAfterModificationGreaterThan": 365 }
-            }
+      "name": "expirationRule",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ]
+        },
+        "actions": {
+          "baseBlob": {
+            "delete": { "daysAfterModificationGreaterThan": 365 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -304,22 +301,21 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "snapshotRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "activedata" ]
-          },
-          "actions": {            
-            "snapshot": {
-              "delete": { "daysAfterCreationGreaterThan": 90 }
-            }
+      "name": "snapshotRule",
+      "type": "Lifecycle",
+    "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "activedata" ]
+        },
+        "actions": {
+          "snapshot": {
+            "delete": { "daysAfterCreationGreaterThan": 90 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -332,4 +328,4 @@ The platform runs the lifecycle policy once a day. Once you set a new policy, it
 
 Learn how to recover data after accidental deletion:
 
-- [Soft delete for Azure Storage blobs ](../blobs/storage-blob-soft-delete.md)
+- [Soft delete for Azure Storage blobs](../blobs/storage-blob-soft-delete.md)

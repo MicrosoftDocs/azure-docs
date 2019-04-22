@@ -8,14 +8,15 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 02/28/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Amazon Web Services (AWS)
 
@@ -128,7 +129,7 @@ To configure Azure AD single sign-on with Amazon Web Services (AWS), perform the
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+4. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
     ![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
@@ -178,7 +179,7 @@ To configure Azure AD single sign-on with Amazon Web Services (AWS), perform the
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
@@ -268,7 +269,7 @@ To configure Azure AD single sign-on with Amazon Web Services (AWS), perform the
 
 	b. In the policy document, add the below JSON.
 
-	```
+    ```
 
 	{
 
@@ -294,7 +295,7 @@ To configure Azure AD single sign-on with Amazon Web Services (AWS), perform the
 
 	}
 
-	```
+    ```
 
 	c. Click on **Review Policy button** to validate the policy.
 
@@ -396,7 +397,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -439,11 +440,17 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Amazon Web Services (AWS) tile in the Access Panel, you should be automatically signed in to the Amazon Web Services (AWS) for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
+## Known issues
+
+ * In the **Provisioning** section, the **Mappings** sub-section will show a "Loading..." message and never display the attribute mappings. The only provisioning workflow supported today is the import of roles from AWS into Azure AD for selection during user/group assignment. The attribute mappings for this are predetermined and not configurable.
+ 
+ * The **Provisioning** section only supports entering one set of credentials for one AWS tenant at a time. All imported roles are written to the appRoles property of the Azure AD [servicePrincipal object](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) for the AWS tenant. Multiple AWS tenants (represented by servicePrincipals) can be added to Azure AD from the gallery for provisioning, however there is a known issue with not being able to automatically write all of the imported roles from the multiple AWS servicePrincipals used for provisioning into the single servicePrincipal used for single sign-on. As a workaround, the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) can be used to extract all of the appRoles imported into each AWS servicePrincipal where provisioning is configured. These role strings can be subsequently added to the AWS servicePrincipal where single sign-on is configured.
+
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

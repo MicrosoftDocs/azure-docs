@@ -18,6 +18,7 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Design concepts
 The purpose of this document is to describe areas that must be thought through during the implementation design of Azure AD Connect. This document is a deep dive on certain areas and these concepts are briefly described in other documents as well.
@@ -152,7 +153,7 @@ During the analysis (step 4), if the attribute is configured on one or more obje
 
 ![Enable ConsistencyGuid for existing deployment - error](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- If you are certain that the attribute isn't used by other existing applications, you can suppress the error by restarting the Azure AD Connect wizard with the **/SkipLdapSearchcontact** specified. To do so, run the following command in command prompt:
+ If you are certain that the attribute isn't used by other existing applications, you can suppress the error by restarting the Azure AD Connect wizard with the **/SkipLdapSearch** switch specified. To do so, run the following command in command prompt:
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -166,7 +167,7 @@ If you are managing AD FS outside of Azure AD Connect or you are using third-par
 ![Third-party federation configuration](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### Adding new directories to existing deployment
-Suppose you have deployed Azure AD Connect with the ConsistencyGuid feature enabled, and now you would like to add another directory to the deployment. When you try to add the directory, Azure AD Connect wizard checks the state of the ms-DS-ConsistencyGuid attribute in the directory. If the attribute is configured on one or more objects in the directory, the wizard concludes the attribute is being used by other applications and returns an error as illustrated in the diagram below. If you are certain that the attribute isn't used by existing applications, you need to contact Support for information on how to suppress the error.
+Suppose you have deployed Azure AD Connect with the ConsistencyGuid feature enabled, and now you would like to add another directory to the deployment. When you try to add the directory, Azure AD Connect wizard checks the state of the ms-DS-ConsistencyGuid attribute in the directory. If the attribute is configured on one or more objects in the directory, the wizard concludes the attribute is being used by other applications and returns an error as illustrated in the diagram below. If you are certain that the attribute isn't used by existing applications, you can suppress the error by restarting the Azure AD Connect wizard with the **/SkipLdapSearch** switch specified as described above or you need to contact Support for more information.
 
 ![Adding new directories to existing deployment](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

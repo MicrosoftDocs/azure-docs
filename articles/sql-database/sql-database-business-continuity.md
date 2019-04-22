@@ -12,7 +12,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ---
 # Overview of business continuity with Azure SQL Database
 
@@ -95,13 +95,14 @@ Use auto-failover groups if your application meets any of these criteria:
 
 When you take action, how long it takes you to recover, and how much data loss you incur depends upon how you decide to use these business continuity features in your application. Indeed, you may choose to use a combination of database backups and active geo-replication depending upon your application requirements. For a discussion of application design considerations for stand-alone databases and for elastic pools using these business continuity features, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
+
 The following sections provide an overview of the steps to recover using either database backups or active geo-replication. For detailed steps including planning requirements, post recovery steps, and information about how to simulate an outage to perform a disaster recovery drill, see [Recover a SQL Database from an outage](sql-database-disaster-recovery.md).
 
 ### Prepare for an outage
 
 Regardless of the business continuity feature you use, you must:
 
-- Identify and prepare the target server, including server-level firewall rules, logins, and master database level permissions.
+- Identify and prepare the target server, including server-level IP firewall rules, logins, and master database level permissions.
 - Determine how to redirect clients and client applications to the new server
 - Document other dependencies, such as auditing settings and alerts
 
@@ -126,7 +127,7 @@ If you are using the automated backups with geo-redundant storage (enabled by de
 After recovery from either recovery mechanism, you must perform the following additional tasks before your users and applications are back up and running:
 
 - Redirect clients and client applications to the new server and restored database
-- Ensure appropriate server-level firewall rules are in place for users to connect (or use [database-level firewalls](sql-database-firewall-configure.md#creating-and-managing-firewall-rules))
+- Ensure appropriate server-level IP firewall rules are in place for users to connect or use [database-level firewalls](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal) to enable appropriate rules.
 - Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - Configure auditing, as appropriate
 - Configure alerts, as appropriate

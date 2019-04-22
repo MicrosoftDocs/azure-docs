@@ -50,7 +50,7 @@ To learn more, see [What are classic alerts in Microsoft Azure?](../azure-monito
 
 ## Resolve connectivity errors
 
-When you turn on diagnostic logs and alerts for connected devices, you get alerts when errors occur. This section describes how to resolve common issues when you receive an alert. The steps below assume you've set up Azure Log Analytics for your diagnostic logs.
+When you turn on diagnostic logs and alerts for connected devices, you get alerts when errors occur. This section describes how to resolve common issues when you receive an alert. The steps below assume you've set up Azure Monitor logs for your diagnostic logs.
 
 1. Go your workspace for **Log Analytics** in the Azure portal.
 1. Select **Log Search**.

@@ -1,6 +1,6 @@
 ---
-title: Visualize Azure Network Watcher NSG flow logs using open source tools | Microsoft Docs
-description: This page describes how to use open source tools to visualize NSG flow logs.
+title: Manage and analyze Network Security Group flow logs using Network Watcher and Elastic Stack | Microsoft Docs
+description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Elastic Stack.
 services: network-watcher
 documentationcenter: na
 author: mattreatMSFT

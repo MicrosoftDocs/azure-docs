@@ -1,11 +1,11 @@
 ---
-title: Azure SignalR Service Serverless Quickstart - JavaScript
+title: Azure SignalR Service serverless quickstart - JavaScript
 description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room.
 author: sffamily
 ms.service: signalr
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/23/2018
+ms.date: 03/04/2019
 ms.author: zhshang
 ---
 # Quickstart: Create a chat room with Azure Functions and SignalR Service using JavaScript
@@ -75,7 +75,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
 ## Next steps
 
-In this quickstart, you built and ran an real-time serverless application in Visual Studio. Next, learn more about how to develop and deploy Azure Functions with Visual Studio.
+In this quickstart, you built and ran a real-time serverless application in VS Code. Next, learn more about how to deploy Azure Functions from VS Code.
 
 > [!div class="nextstepaction"]
-> [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md)
+> [Deploy Azure Functions with VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)

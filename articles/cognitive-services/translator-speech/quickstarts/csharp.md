@@ -4,15 +4,15 @@ titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Translator Speech API.
 services: cognitive-services
 author: v-jaswel
-manager: cgronlun
-
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
+ROBOTS: NOINDEX,NOFOLLOW
 ---
-# Quickstart: Translator Speech API with C# 
+# Quickstart: Translator Speech API with C#
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -153,7 +153,7 @@ A successful result is the creation of a file named "speak2.wav". The file conta
 > [!div class="nextstepaction"]
 > [Translator Speech tutorial](../tutorial-translator-speech-csharp.md)
 
-## See also 
+## See also
 
 [Translator Speech overview](../overview.md)
 [API Reference](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

@@ -100,8 +100,8 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
    1. Enter the IP address of the DATA port of your StorSimple device (for example, enter DATA 0).
    2. Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
      
-     > [!IMPORTANT]
-     > **If you are using a private network for iSCSI connections, enter the IP address of the DATA port that is connected to the private network.**
+      > [!IMPORTANT]
+      > **If you are using a private network for iSCSI connections, enter the IP address of the DATA port that is connected to the private network.**
     
 4. Repeat steps 2-3 for a second network interface (for example, DATA 1) on your device. Keep in mind that these interfaces should be enabled for iSCSI. For more information, see [Modify network interfaces](storsimple-8000-modify-device-config.md#modify-network-interfaces).
 5. Select the **Targets** tab in the **iSCSI Initiator Properties** dialog box. You should see the StorSimple device target IQN under **Discovered Targets**.

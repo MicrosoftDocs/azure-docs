@@ -21,7 +21,7 @@ ms.author: juliako
 
 This article shows how to set low latency on a [Live Event](https://docs.microsoft.com/rest/api/media/liveevents). It also discusses typical results that you see when using the low latency settings in various players. The results vary based on CDN and network latency.
 
-To use the new **LowLatency** feature, you set the **StreamOptionsFlag** to **LowLatency** on the **LiveEvent**. When creating [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) for HLS playback, set [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) to 1. Once the stream is up and running, you can use the [Azure Media Player](http://ampdemo.azureedge.net/) (AMP demo page), and set the playback options to use the "Low Latency Heuristics Profile".
+To use the new **LowLatency** feature, you set the **StreamOptionsFlag** to **LowLatency** on the **LiveEvent**. When creating [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) for HLS playback, set [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) to 1. Once the stream is up and running, you can use the [Azure Media Player](https://ampdemo.azureedge.net/) (AMP demo page), and set the playback options to use the "Low Latency Heuristics Profile".
 
 > [!NOTE]
 > Currently, the LowLatency HeuristicProfile in Azure Media Player is designed for playing back streams in DASH protocol, or HLS with CMAF. If you are targeting MacOS or iOS devices via HLS with TS (for example, `format=m3u8-aapl` or `format=m3u8-aapl-v3`), you should not use this setting because AMP directly uses the native player provided by the OS in this case.

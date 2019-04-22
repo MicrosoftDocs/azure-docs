@@ -29,7 +29,7 @@ The following Ids are used for a content definition with an ID of `api.signupors
 | **logonIdentifier_email** | Email Address |
 | **requiredField_email** | Please enter your email |
 | **invalid_email** | Please enter a valid email address |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
 | **local_intro_username** | Sign in with your user name |
 | **logonIdentifier_username** | Username |
 | **requiredField_username** | Please enter your user name |

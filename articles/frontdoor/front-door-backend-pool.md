@@ -14,7 +14,7 @@ ms.author: sharadag
 ---
 
 # Backends and backend pools in Azure Front Door Service
-This article explains the different concepts regarding how you can map your application deployment with Front Door. We will also explain you what the different terms in Front Door configuration around application backend mean.
+This article explains the different concepts regarding how you can map your application deployment with Front Door. We will also explain what the different terms in Front Door configuration around application backend mean.
 
 ## Backend pool
 A backend pool in Front Door refers to the set of equivalent backends that can receive the same type of traffic for their application. In other words, it is a logical grouping of your application instances throughout the world that can receive the same traffic and can respond with the expected behavior. These backends are usually deployed across different regions or within the same region. Additionally, these backends can all be in Active-Active deployment mode or otherwise could be defined as an Active/Passive configuration.
@@ -57,7 +57,7 @@ When you add a backend in a backend pool of your Front Door, you will need to fi
 Requests forwarded by Front Door to a backend have a Host header field that the backend uses to retrieve the targeted resource. The value for this field typically comes from the backend URI and has the host and port. For example, a request made for `www.contoso.com` will have the Host header `www.contoso.com`. If you are configuring your backend using Azure portal, then the default value that gets populated for this field is the host name of the backend. For example, if your backend is `contoso-westus.azurewebsites.net`, then in the Azure portal the auto-populated value for backend host header will be `contoso-westus.azurewebsites.net`. 
 </br>However, if you are using Resource Manager templates or other mechanism and you are not setting this field explicitly then Front Door sends the incoming host name as the value for Host header. For example, if the request was made for `www.contoso.com`, and your backend is `contoso-westus.azurewebsites.net` with the backend host header field as empty, then Front Door will set the Host header as `www.contoso.com`.
 
-Most application backends (such as Web Apps, Blob Storage, and Cloud Services) require the host header to match the domain of the backend. However, the frontend host that routes to your backend will have a different hostname like www.contoso.azurefd.net. If the backend you are setting up requires the Host header to match the host name of the backend, you should ensure that the 'Backend host header’ also has the host name of the backend.
+Most application backends (such as Web Apps, Blob Storage, and Cloud Services) require the host header to match the domain of the backend. However, the frontend host that routes to your backend will have a different hostname like www\.contoso.azurefd.net. If the backend you are setting up requires the Host header to match the host name of the backend, you should ensure that the 'Backend host header’ also has the host name of the backend.
 
 #### Configuring the backend host header for the backend
 The ‘Backend host header’ field can be configured for a backend in the backend pool section.

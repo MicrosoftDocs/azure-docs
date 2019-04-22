@@ -4,7 +4,7 @@ description: The article provides an overview of the Azure Security contribution
 services: security
 documentationcenter: na
 author: barclayn
-manager: Mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 34f4bdf0-7332-4c4a-b186-05263da700cf

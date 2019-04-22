@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 03/07/2019
 ms.author: crdun
 ---
 # How to use the Azure Mobile Apps SDK for Android
@@ -48,20 +48,28 @@ If you decide not to complete the Quickstart tutorial, complete the following ta
 
 Change both **build.gradle** files:
 
-1. Add this code to the *Project* level **build.gradle** file inside the *buildscript* tag:
+1. Add this code to the *Project* level **build.gradle** file:
 
-    ```text
+    ```gradle
     buildscript {
         repositories {
             jcenter()
+            google()
+        }
+    }
+
+    allprojects {
+        repositories {
+            jcenter()
+            google()
         }
     }
     ```
 
 2. Add this code to the *Module app* level **build.gradle** file inside the *dependencies* tag:
 
-    ```text
-    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
+    ```gradle
+    implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
     Currently the latest version is 3.4.0. The supported versions are listed [on bintray][14].
@@ -422,7 +430,7 @@ List<ToDoItem> result = mToDoTable
 If you wish to get all records in a table, implement code to iterate over all pages:
 
 ```java
-List<MyDataModel> results = new List<MyDataModel>();
+List<MyDataModel> results = new ArrayList<>();
 int nResults;
 do {
     int currentCount = results.size();
@@ -491,7 +499,7 @@ The layout is defined by several snippets of XML code. Given an existing layout,
 
 In the preceding code, the *listitem* attribute specifies the id of the layout for an individual row in the list. This code specifies a check box and its associated text and gets instantiated once for each item in the list. This layout does not display the **id** field, and a more complex layout would specify additional fields in the display. This code is in the **row_list_to_do.xml** file.
 
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -515,7 +523,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
 Override the adapters **getView** method. For example:
 
-```
+```java
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
@@ -954,7 +962,7 @@ You also need to configure the project for customtabs.  First specify a redirect
 
 Add the **redirectUriScheme** to the `build.gradle` file for your application:
 
-```text
+```gradle
 android {
     buildTypes {
         release {
@@ -969,17 +977,17 @@ android {
 }
 ```
 
-Finally, add `com.android.support:customtabs:23.0.1` to the dependencies list in the `build.gradle` file:
+Finally, add `com.android.support:customtabs:28.0.0` to the dependencies list in the `build.gradle` file:
 
-```text
+```gradle
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.google.code.gson:gson:2.3'
-    compile 'com.google.guava:guava:18.0'
-    compile 'com.android.support:customtabs:23.0.1'
-    compile 'com.squareup.okhttp:okhttp:2.5.0'
-    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
-    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@jar'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.code.gson:gson:2.3'
+    implementation 'com.google.guava:guava:18.0'
+    implementation 'com.android.support:customtabs:28.0.0'
+    implementation 'com.squareup.okhttp:okhttp:2.5.0'
+    implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
+    implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@jar'
 }
 ```
 
@@ -1071,7 +1079,7 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 1. Configure your mobile app backend for AAD sign-in by following the [How to configure App Service for Active Directory login][22] tutorial. Make sure to complete the optional step of registering a native client application.
 2. Install ADAL by modifying your build.gradle file to include the following definitions:
 
-    ```
+    ```gradle
     repositories {
         mavenCentral()
         flatDir {
@@ -1086,11 +1094,11 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
         exclude 'META-INF/MSFTSIG.SF'
     }
     dependencies {
-        compile fileTree(dir: 'libs', include: ['*.jar'])
-        compile('com.microsoft.aad:adal:1.1.1') {
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation('com.microsoft.aad:adal:1.16.1') {
             exclude group: 'com.android.support'
-        } // Recent version is 1.1.1
-        compile 'com.android.support:support-v4:23.0.0'
+        } // Recent version is 1.16.1
+        implementation 'com.android.support:support-v4:28.0.0'
     }
     ```
 

@@ -18,8 +18,9 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
-#Customer intent: As a IT admin, I want to manage all devices related tasks from a central location
+#Customer intent: As an IT admin, I want to manage all devices related tasks from a central location
 
+ms.collection: M365-identity-device-management
 ---
 # How to manage devices using the Azure portal
 
@@ -81,7 +82,7 @@ This option is a premium edition capability available through products such as A
 
 - **Users may sync settings and app data across devices** - By default, this setting is set to **NONE**. Selecting specific users or groups or ALL allows the user’s settings and app data to sync across their Windows 10 devices. Learn more on how sync works in Windows 10.
 This option is a premium capability available through products such as Azure AD Premium or the Enterprise Mobility Suite (EMS).
- 
+
 
 
 
@@ -117,7 +118,7 @@ For some iOS devices, the device names containing apostrophes can potentially us
 
 ## Device management tasks
 
-As a global administrator, you can manage the registered or joined devices. Intune Service administrators can:
+As a global administrator or cloud device administrator, you can manage the registered or joined devices. Intune Service administrators can:
  
 - Update devices  - Examples are daily operations such as enabling/disabling devices
 
@@ -149,8 +150,8 @@ To enable / disable a device, you have two options:
 
 **Remarks:**
 
-- You need to be a global administrator in Azure  AD to enable / disable a device. 
-- Disabling a device prevents a device from successfully authenticating with Azure AD, therby preventing the device from accessing your Azure AD resources that are guarded by device CA or using your WH4B credentials. 
+- You need to be a global administrator or cloud device administrator in Azure AD to enable / disable a device. 
+- Disabling a device prevents a device from successfully authenticating with Azure AD, thereby preventing the device from accessing your Azure AD resources that are guarded by device CA or using your WH4B credentials. 
 
 
 

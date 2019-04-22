@@ -18,6 +18,7 @@ ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: calebb
 #Customer intent: As an IT admin, I want to configure MFA on a per app basis, so that my users have a convenient sign-on experience and our mission critical apps are protected with strong authentication.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Require MFA for specific apps with Azure Active Directory conditional access 
@@ -160,7 +161,7 @@ To initialize the what if policy evaluation tool, set:
 - **Isabella Simonsen** as user 
 - **Microsoft Azure Management** as cloud app
 
- Clicking **What If** creates a simulation report that shows:
+  Clicking **What If** creates a simulation report that shows:
 
 - **Require MFA for Azure portal access** under **Policies that will apply** 
 - **Require multi-factor authentication** as **Grant Controls**.

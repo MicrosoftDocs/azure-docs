@@ -58,7 +58,7 @@ Azure portal marketplace name:
 - SLES 12 SP3 for HPC
 
 |SUSE VM | MeterId | Ratio|Example VM size|
-| ------- | --- | ------------------------| --- | --- |
+| ------- | --- | ------------------------| --- |
 |SLES for HPC 1-2 vCPUs |8c94ad45-b93b-4772-aab1-ff92fcec6610|1|D2s_v3|
 |SLES for HPC 3-4 vCPUs|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1.92308|D4s_v3|
 |SLES for HPC 5+ vCPUs |907a85de-024f-4dd6-969c-347d47a1bdff|2.92308|D8s_v3|
@@ -130,4 +130,4 @@ To learn more about reservations, see the following articles:
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

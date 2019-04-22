@@ -26,10 +26,10 @@ This article explains how to create a disaster recovery solution for Active Dire
 
 ## Replicate the domain controller
 
-- You must set up [Site Recovery replication](#enable-protection-using-site-recovery), on at least one VM that hosts a domain controller or DNS.
-- If you have [multiple domain controllers](#environment-with-multiple-domain-controllers) in your environment, you also must set up an [additional domain controller](#protect-active-directory-with-active-directory-replication) on the target site. The additional domain controller can be in Azure, or in a secondary on-premises datacenter.
+- You must set up Site Recovery replication, on at least one VM that hosts a domain controller or DNS.
+- If you have multiple domain controllers in your environment, you also must set up an additional domain controller on the target site. The additional domain controller can be in Azure, or in a secondary on-premises datacenter.
 - If you have only a few applications and one domain controller, you might want to fail over the entire site together. In this case, we recommend using Site Recovery to replicate the domain controller to the target site (either in Azure or in a secondary on-premises datacenter). You can use the same replicated domain controller or DNS virtual machine for [test failover](#test-failover-considerations).
-- - If you have many applications and more than one domain controller in your environment, or if you plan to fail over a few applications at a time, in addition to replicating the domain controller virtual machine with Site Recovery, we recommend that you set up an [additional domain controller](#protect-active-directory-with-active-directory-replication) on the target site (either in Azure or in a secondary on-premises datacenter). For [test failover](#test-failover-considerations), you can use domain controller that's replicated by Site Recovery. For failover, you can use the additional domain controller on the target site.
+- - If you have many applications and more than one domain controller in your environment, or if you plan to fail over a few applications at a time, in addition to replicating the domain controller virtual machine with Site Recovery, we recommend that you set up an additional domain controller on the target site (either in Azure or in a secondary on-premises datacenter). For [test failover](#test-failover-considerations), you can use domain controller that's replicated by Site Recovery. For failover, you can use the additional domain controller on the target site.
 
 ## Enable protection with Site Recovery
 

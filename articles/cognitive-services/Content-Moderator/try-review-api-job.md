@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use the Review API's job operations to initiate end-to-end content moderation jobs for image or text content in Azure Content Moderator. 
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

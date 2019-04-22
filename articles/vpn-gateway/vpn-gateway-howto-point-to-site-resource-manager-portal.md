@@ -90,17 +90,17 @@ The client address pool is a range of private IP addresses that you specify. The
 
 1. Once the virtual network gateway has been created, navigate to the **Settings** section of the virtual network gateway page. In the **Settings** section, click **Point-to-site configuration**.
 
-  ![Point-to-Site page](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png) 
+   ![Point-to-Site page](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png) 
 2. Click **Configure now** to open the configuration page.
 
-  ![Configure now](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
+   ![Configure now](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
 3. On the **Point-to-site** configuration page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. Click **Save** to validate and save the setting.
 
-  ![Client address pool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
+   ![Client address pool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
-  >[!NOTE]
-  >If you don't see Tunnel type or Authentication type in the portal on this page, your gateway is using the Basic SKU. The Basic SKU does not support IKEv2 or RADIUS authentication.
-  >
+   >[!NOTE]
+   >If you don't see Tunnel type or Authentication type in the portal on this page, your gateway is using the Basic SKU. The Basic SKU does not support IKEv2 or RADIUS authentication.
+   >
 
 ## <a name="tunneltype"></a>7. Configure tunnel type
 
@@ -122,13 +122,13 @@ You can upload additional trusted root certificates up to a total of 20. Once th
 2. Make sure that you exported the root certificate as a Base-64 encoded X.509 (.cer) file. You need to export the certificate in this format so you can open the certificate with text editor.
 3. Open the certificate with a text editor, such as Notepad. When copying the certificate data, make sure that you copy the text as one continuous line without carriage returns or line feeds. You may need to modify your view in the text editor to 'Show Symbol/Show all characters' to see the carriage returns and line feeds. Copy only the following section as one continuous line:
 
-  ![Certificate data](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
+   ![Certificate data](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
 4. Paste the certificate data into the **Public Certificate Data** field. **Name** the certificate, and then click **Save**. You can add up to 20 trusted root certificates.
 
-  ![Certificate upload](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
+   ![Certificate upload](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
 5. Click **Save** at the top of the page to save all of the configuration settings.
 
-  ![Save](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
+   ![Save](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
 
 ## <a name="installclientcert"></a>10. Install an exported client certificate
 
@@ -155,10 +155,10 @@ The VPN client configuration files contain settings to configure devices to conn
 
 2. On the **Connection** status page, click **Connect** to start the connection. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it is not, use the drop-down arrow to select the correct certificate, and then click **OK**.
 
-  ![VPN client connects to Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
+   ![VPN client connects to Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
 3. Your connection is established.
 
-  ![Connection established](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
+   ![Connection established](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
 #### Troubleshoot Windows P2S connections
 
@@ -179,8 +179,8 @@ These instructions apply to Windows clients.
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
 2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site VPN Client Address Pool that you specified in your configuration. The results are similar to this example:
 
-  ```
-  PPP adapter VNet1:
+   ```
+   PPP adapter VNet1:
       Connection-specific DNS Suffix .:
       Description.....................: VNet1
       Physical Address................:
@@ -190,7 +190,7 @@ These instructions apply to Windows clients.
       Subnet Mask.....................: 255.255.255.255
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
-  ```
+   ```
 
 ## <a name="connectVM"></a>To connect to a virtual machine
 

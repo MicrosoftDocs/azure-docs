@@ -22,7 +22,7 @@ ms.author: fryu
 
 This script calculates the size of a container in Azure Blob storage for the purpose of estimating billing costs. The script totals the size of the blobs in the container.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -97,17 +97,17 @@ Following is the breakdown:
 * For each block of metadata that's stored, add the length of the name (stored as ASCII), plus the length of the string value.
 
 * For the block blobs:
-    * 8 bytes for the block list.
-    * Number of blocks times the block ID size in bytes.
-    * The size of the data in all of the committed and uncommitted blocks.
+  * 8 bytes for the block list.
+  * Number of blocks times the block ID size in bytes.
+  * The size of the data in all of the committed and uncommitted blocks.
 
     >[!NOTE]
     >When snapshots are used, this size  includes only the unique data for this base or snapshot blob. If the uncommitted blocks are not used after a week, they are garbage-collected. After that, they don't count toward billing.
 
 * For page blobs:
-    * The number of nonconsecutive page ranges with data times 12 bytes. This is the number of unique page ranges you see when calling the **GetPageRanges** API.
+  * The number of nonconsecutive page ranges with data times 12 bytes. This is the number of unique page ranges you see when calling the **GetPageRanges** API.
 
-    * The size of the data in bytes of all of the stored pages.
+  * The size of the data in bytes of all of the stored pages.
 
     >[!NOTE]
     >When snapshots are used, this size includes only the unique pages for the base blob or the snapshot blob that's being counted.

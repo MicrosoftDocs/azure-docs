@@ -4,7 +4,7 @@ description: How to decide between custom Docker container deployment, multi-con
 keywords: azure app service, web app, linux, oss
 services: app-service
 documentationCenter: ''
-authors: msangapu
+author: msangapu
 manager: jeconnoc
 editor: ''
 

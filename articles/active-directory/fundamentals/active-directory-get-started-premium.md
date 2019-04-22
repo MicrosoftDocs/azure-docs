@@ -13,6 +13,7 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # Sign up for Azure Active Directory Premium editions
@@ -60,17 +61,17 @@ If you signed up using a new Azure AD license plan, you must activate it for you
 ### To activate your license plan
 - Open the confirmation email you received from Microsoft after you signed up, and then click either **Sign In** or **Sign Up**.
    
-    ![Sign in](media/active-directory-get-started-premium/MOLSEmail.png)
+    ![Confirmation email with sign in and sign up links](media/active-directory-get-started-premium/MOLSEmail.png)
 
     - **Sign in.** Choose this link if you have an existing tenant, and then sign in using your existing administrator account. You must be a global administrator on the tenant where the licenses are being activated.
 
     - **Sign up.** Choose this link if you want to open the **Create Account Profile** page and create a new Azure AD tenant for your licensing plan.
 
-        ![Create account profile](media/active-directory-get-started-premium/MOLSAccountProfile.png)
+        ![Create account profile page, with sample information](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 
 When you're done, you will see a confirmation box thanking you for activating the license plan for your tenant.
 
-![Confirmation](media/active-directory-get-started-premium/MOLSThankYou.png)
+![Confirmation box with thank you](media/active-directory-get-started-premium/MOLSThankYou.png)
 
 ## Activate your Azure AD access
 If you're adding new Azure AD Premium licenses to an existing subscription, your Azure AD access should already be activated. Otherwise, you need to activate Azure AD access after you receive the **Welcome email**.  
@@ -84,11 +85,11 @@ After your purchased licenses are provisioned in your directory, you'll receive 
 
 1. Open the **Welcome email**, and then click **Sign In**.
    
-    ![Welcome email](media/active-directory-get-started-premium/AADEmail.png)
+    ![Welcome email, with highlighted sign in link](media/active-directory-get-started-premium/AADEmail.png)
 
 2. After successfully signing in, you'll go through two-step verification using a mobile device.
    
-    ![Mobile verification](media/active-directory-get-started-premium/SignUppage.png)
+    ![Two-step verification page with mobile verification](media/active-directory-get-started-premium/SignUppage.png)
 
 The activation process typically takes only a few minutes and then you can use your Azure AD tenant. 
 

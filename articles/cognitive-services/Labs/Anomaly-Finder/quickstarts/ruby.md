@@ -1,4 +1,4 @@
---- 
+---
 title: How to use the Anomaly Finder API with Ruby - Microsoft Cognitive Services | Microsoft Docs
 description: Get information and code samples to help you quickly get started using Ruby and the Anomaly Finder API in Cognitive Services.
 services: cognitive-services

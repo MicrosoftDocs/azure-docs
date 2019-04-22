@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure App Configuration Preview documentation
+metadata:
+#  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
+  title: Azure App Configuration documentation - Tutorials, API reference
+  meta.description: Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely.
+  services: azure-app-configuration
+  author: yegu-ms
+  manager: balans
+  ms.service: azure-app-configuration
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 02/24/2019
+  ms.author: yegu
+abstract:
+  description: Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely.
+sections:
+- title: 5-Minute quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to develop your first web application by using Azure App Configuration:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
+      text: ASP.NET Core
+      href: /azure/azure-app-configuration/quickstart-aspnet-core-app
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
+      text: .NET Core
+      href: /azure/azure-app-configuration/quickstart-dotnet-core-app
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_net.svg
+      text: .NET Framework
+      href: /azure/azure-app-configuration/quickstart-dotnet-app
+    - image: 
+        src: https://docs.microsoft.com/azure/media/index/azurefunctions.svg
+      text: C#
+      href: /azure/azure-app-configuration/quickstart-azure-function-csharp
+    - image: 
+        src: https://docs.microsoft.com/java/docs-ref-conceptual/media/spring.svg
+      text: Java Spring
+      href: /azure/azure-app-configuration/quickstart-java-spring-app
+- title: Step-by-step tutorials
+  items:
+  - type: paragraph
+    text: Learn how to build applications with Azure App Configuration
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/azure-app-configuration/integrate-azure-managed-service-identity">Integrate with Azure Managed Service Identity</a>
+    - html: <a href="/azure/azure-app-configuration/enable-dynamic-configuration-aspnet-core">Enable dynamic configuration in ASP.NET Core</a>
+- title: Samples
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/azure-app-configuration/cli-samples">Azure CLI</a>

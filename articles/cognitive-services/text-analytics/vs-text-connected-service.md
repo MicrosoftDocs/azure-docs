@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Text Analytics with C#'
+title: 'Tutorial: Connect to the Text Analytics service with Connected Services in Visual Studio'
 titleSuffix: Azure Cognitive Services
-description: Connect to Text Analytics from an ASP.NET Core web application.
+description: Learn how to connect to Text Analytics from an ASP.NET Core web application.
 services: cognitive-services
-author: ghogen
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: ghogen
+ms.date: 02/13/2019
+ms.author: aahi
 ---
-# Tutorial: Connect to the Text Analytics Cognitive Service by using Connected Services in Visual Studio
+# Tutorial: Connect to the Text Analytics service with Connected Services in Visual Studio
 
 By using the Text Analytics Service, you can extract rich information to categorize and process visual data, and perform machine-assisted moderation of images to help curate your services.
 

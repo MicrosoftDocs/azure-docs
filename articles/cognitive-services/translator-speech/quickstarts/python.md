@@ -4,13 +4,13 @@ titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Translator Speech API.
 services: cognitive-services
 author: v-jaswel
-manager: cgronlun
-
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Quickstart: Translator Speech API with Python
 <a name="HOLTop"></a>
@@ -25,7 +25,7 @@ You will need [Python 3.x](https://www.python.org/downloads/) to run this code.
 
 You will need to install the [websocket-client package](https://pypi.python.org/pypi/websocket-client) for Python.
 
-You will need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16bit, 16kHz, mono format. 
+You will need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16bit, 16kHz, mono format.
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft Translator Speech API**. You will need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -127,7 +127,7 @@ A successful result is the creation of a file named "speak2.wav". The file conta
 > [!div class="nextstepaction"]
 > [Translator Speech tutorial](../tutorial-translator-speech-csharp.md)
 
-## See also 
+## See also
 
 [Translator Speech overview](../overview.md)
 [API Reference](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

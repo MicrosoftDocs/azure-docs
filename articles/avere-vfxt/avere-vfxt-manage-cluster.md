@@ -197,7 +197,7 @@ In addition to deleting the cluster nodes, consider removing these components:
 
 ### Delete a cluster's resource group from the Azure portal
 
-If you created a resource group specifically for the cluster, you can destroy all related resources for the cluster by destroying the resource group. 
+If you created a resource group specifically to house the cluster, you can destroy all related resources for the cluster by destroying the resource group. 
 
 > [!Caution] 
 > Only destroy the resource group if you are certain that nothing of value resides in the group. For example, make sure you have moved any needed data from any storage containers within the resource group.  

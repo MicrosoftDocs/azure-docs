@@ -5,7 +5,7 @@
  author: vhorne
  ms.service: 
  ms.topic: include
- ms.date: 12/14/2018
+ ms.date: 3/25/2019
  ms.author: victorh
  ms.custom: include file
 ---
@@ -28,7 +28,9 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 
 ### What is the typical deployment model for Azure Firewall?
 
-You can deploy Azure Firewall on any virtual network, but customers typically deploy it on a central virtual network and peer other virtual networks to it in a hub-and-spoke model. You can then set the default route from the peered virtual networks to point to this central firewall virtual network.
+You can deploy Azure Firewall on any virtual network, but customers typically deploy it on a central virtual network and peer other virtual networks to it in a hub-and-spoke model. You can then set the default route from the peered virtual networks to point to this central firewall virtual network. Global VNet peering is supported, but it is not recommended due to potential performance and latency issues across regions. For best performance, deploy one firewall per region.
+
+The advantage of this model is the ability to centrally exert control on multiple spoke VNETs across different subscriptions. There are also cost savings as you don't need to deploy a firewall in each VNet separately. The cost savings should be measured versus the associate peering cost based on the customer traffic patterns.
 
 ### How can I install the Azure Firewall?
 
@@ -115,7 +117,7 @@ Yes, you can use Azure Firewall in a hub virtual network to route and filter tra
 
 ### Can Azure Firewall forward and filter network traffic between subnets in the same virtual network or peered virtual networks?
 
-Traffic between subnets in the same virtual network or in a directly peered virtual network is routed directly even if UDR points to the Azure Firewall as the default gateway. The recommended method for internal network segmentation is to use Network Security Groups. To send subnet to subnet traffic to the firewall in this scenario, UDR must contain the target subnet network prefix explicitly on both subnets.
+Yes. However, configuring the UDRs to redirect traffic between subnets in the same VNET requires additional attention. While using the VNET address range as a target prefix for the UDR is sufficient, this also routes all traffic from one machine to another machine in the same subnet through the Azure Firewall instance. To avoid this, include a route for the subnet in the UDR with a next hop type of **VNET**. Managing these routes might be cumbersome and prone to error. The recommended method for internal network segmentation is to use Network Security Groups, which don’t require UDRs.
 
 ### Are there any firewall resource group restrictions?
 

@@ -14,6 +14,7 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 
+ms.collection: M365-identity-device-management
 ---
 # Join your work device to your organization's network
 Join your work-owned Windows 10 device to your organization's network so you can access potentially restricted resources.
@@ -21,7 +22,7 @@ Join your work-owned Windows 10 device to your organization's network so you can
 ## What happens when you join your device
 While you're joining your Windows 10 device to your organization's network, the following actions will happen:
 
-- Windows registers your device to your organization's network, letting you can access your resources using your personal account. After your device is registered, Windows then joins your device to the network, so you can use your organization's username and password to sign in and access restricted resources.
+- Windows registers your device to your organization's network, letting you access your resources using your personal account. After your device is registered, Windows then joins your device to the network, so you can use your organization's username and password to sign in and access restricted resources.
 
 - Optionally, based on your organization's choices, you might be asked to set up two-step verification through either [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) or [security info](user-help-security-info-overview.md).
 

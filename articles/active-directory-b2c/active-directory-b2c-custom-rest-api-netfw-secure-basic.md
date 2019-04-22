@@ -17,9 +17,9 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In a [related Azure AD B2C article](active-directory-b2c-custom-rest-api-netfw.md), you create a RESTful service (web API) that integrates with Azure Active Directory B2C (Azure AD B2C) user journeys without authentication. 
+In a [related Azure AD B2C article](active-directory-b2c-custom-rest-api-netfw.md), you create a RESTful service (web API) that integrates with Azure Active Directory B2C (Azure AD B2C) user journeys without authentication.
 
-In this article, you add HTTP basic authentication to your RESTful service so that only verified users, including B2C, can access your API. With HTTP basic authentication, you set the user credentials (app ID and app secret) in your custom policy. 
+In this article, you add HTTP basic authentication to your RESTful service so that only verified users, including B2C, can access your API. With HTTP basic authentication, you set the user credentials (app ID and app secret) in your custom policy.
 
 For more information, see [Basic authentication in ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
@@ -29,7 +29,7 @@ Complete the steps in the [Integrate REST API claims exchanges in your Azure AD 
 ## Step 1: Add authentication support
 
 ### Step 1.1: Add application settings to your project's web.config file
-1. Open the Visual Studio project that you created earlier. 
+1. Open the Visual Studio project that you created earlier.
 
 2. Add the following application settings to the web.config file under the `appSettings` element:
 
@@ -201,7 +201,7 @@ Add an OWIN startup class named `Startup.cs` to the API. To do so:
         {
             public void Configuration(IAppBuilder app)
             {
-                    app.Use<ClientAuthMiddleware>();
+                app.Use<ClientAuthMiddleware>();
             }
         }
     }
@@ -216,7 +216,7 @@ Open Controllers\IdentityController.cs, and add the `[Authorize]` tag to the con
 To publish your project, in Solution Explorer, right-click the **Contoso.AADB2C.API** project, and then select **Publish**.
 
 ## Step 3: Add the RESTful services app ID and app secret to Azure AD B2C
-After your RESTful service is protected by the client ID (username) and secret, you must store the credentials in your Azure AD B2C tenant. Your custom policy provides the credentials when it invokes your RESTful services. 
+After your RESTful service is protected by the client ID (username) and secret, you must store the credentials in your Azure AD B2C tenant. Your custom policy provides the credentials when it invokes your RESTful services.
 
 ### Step 3.1: Add a RESTful services client ID
 1. In your Azure AD B2C tenant, select **B2C Settings** > **Identity Experience Framework**.
@@ -271,7 +271,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
     <Item Key="AuthenticationType">Basic</Item>
     ```
 
-5. Immediately after the closing `<Metadata>` element, add the following XML snippet: 
+5. Immediately after the closing `<Metadata>` element, add the following XML snippet:
 
     ```xml
     <CryptographicKeys>

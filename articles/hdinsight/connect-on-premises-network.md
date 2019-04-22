@@ -21,6 +21,8 @@ Learn how to connect HDInsight to your on-premises network by using Azure Virtua
 * Configuring network security groups to restrict internet access to HDInsight.
 * Ports provided by HDInsight on the virtual network.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Create the Virtual network configuration
 
 Use the following documents to learn how to create an Azure Virtual Network that is connected to your on-premises network:
@@ -133,7 +135,7 @@ Once the virtual machine has been created, you will receive a **Deployment succe
 	sudo apt-get install bind9 -y
     ```
 
-3. To configure Bind to forward name resolution requests to your on-prem DNS server, use the following text as the contents of the `/etc/bind/named.conf.options` file:
+3. To configure Bind to forward name resolution requests to your on premises DNS server, use the following text as the contents of the `/etc/bind/named.conf.options` file:
 
 		acl goodclients {
 			10.0.0.0/16; # Replace with the IP address range of the virtual network
@@ -314,7 +316,7 @@ To directly connect to HDInsight through the virtual network, use the following 
 	```powershell
 	$resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
 
-	$clusterNICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
+	$clusterNICs = Get-AzNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
 
 	$nodes = @()
 	foreach($nic in $clusterNICs) {

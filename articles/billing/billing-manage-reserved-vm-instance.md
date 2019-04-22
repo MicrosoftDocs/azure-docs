@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Reservations | Microsoft Docs
-description: Learn how you can change subscription scope and manage access for Azure Reservations. 
+description: Learn how you can change subscription scope and manage access for Azure Reservations.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 03/22/2019
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -22,7 +22,7 @@ If you bought Azure Reserved Virtual Machine Instances, you can change the optim
 
 ## Change the scope for a reservation
 
- Your reservation discount applies to virtual machines, SQL databases, Azure Cosmos DB, or other resources that match your reservation and run within the reservation scope. The scope of a reservation can be single subscription or all subscriptions in your billing context. If you set the scope to single subscription, the reservation is matched to running resources in the selected subscription. If you set the scope to shared, Azure matches the reservation to resources that run in all the subscriptions within the billing context. The billing context is dependent on the subscription used to buy the reservation.
+ Your reservation discount applies to virtual machines, SQL databases, Azure Cosmos DB, or other resources that match your reservation and run in the reservation scope. The billing context is dependent on the subscription used to buy the reservation.
 
 To update the scope of a reservation:
 
@@ -30,11 +30,11 @@ To update the scope of a reservation:
 2. Select **All services** > **Reservations**.
 3. Select the reservation.
 4. Select **Settings** > **Configuration**.
-5. Change the scope. 
+5. Change the scope.
 
 If you change from shared to single scope, you can only select subscriptions where you are the owner. Only subscriptions within the same billing context as the reservation, can be selected.
 
-The scope only applies to Pay-As-You-Go offer MS-AZR-0003P, Enterprise offer MS-AZR-0017P, or CSP subscription types. For enterprise agreements, dev/test subscriptions are not eligible to get the reservation discount.
+The scope only applies to Pay-As-You-Go offer MS-AZR-0003P or MS-AZR-0023P, Enterprise offer MS-AZR-0017P or MS-AZR-0148P, or CSP subscription types.
 
 ## Add or change users who can manage a reservation
 
@@ -109,6 +109,10 @@ To update the optimize setting for the reservation:
 4. Select **Settings** > **Configuration**.
 5. Change the **Optimize for** setting.
 
+## Need help? Contact us.
+
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## Next steps
 
 To learn more about Azure Reservations, see the following articles:
@@ -124,7 +128,3 @@ To learn more about Azure Reservations, see the following articles:
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
-
-## Need help? Contact us.
-
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -64,18 +64,18 @@ Availability tests in Application Insights allow you to automatically test your 
 ## Create an alert from metrics
 In addition to sending alerts from an availability test, you can create an alert from any performance metrics that are being collected for your application.
 
-2. Select **Alerts** from the **Configure** menu.  This opens the Azure Alerts panel.  There may be other alert rules configured here for other services.
-3. Click **Add metric alert**.  This opens the panel to create a new alert rule.
+1. Select **Alerts** from the **Configure** menu.  This opens the Azure Alerts panel.  There may be other alert rules configured here for other services.
+1. Click **Add metric alert**.  This opens the panel to create a new alert rule.
 
 	![Add metric alert](media/tutorial-alert/add-metric-alert.png)
 
-4. Type in a **Name** for the alert rule, and select your application in the dropdown for **Resource**.
-5. Select a **Metric** to sample.  A graph is displayed to indicate the value of this request over the past 24 hours.  This assists you in setting the condition for the metric.
+1. Type in a **Name** for the alert rule, and select your application in the dropdown for **Resource**.
+1. Select a **Metric** to sample.  A graph is displayed to indicate the value of this request over the past 24 hours.  This assists you in setting the condition for the metric.
 
 	![Add alert rule](media/tutorial-alert/add-alert-01.png)
 
-6. Specify a **Condition** and **Threshold** for the alert. This is the number of times that the metric must be exceeded for an alert to be created. 
-6. Under **Notify via** check the **Email owners, contributors, and readers** box to send a mail to these users when the alert condition is met and add the email address of any additional recipients.  You can also specify a webhook or a logic app here that runs when the condition is met.  These could be used to attempt to mitigate the detected issue or 
+1. Specify a **Condition** and **Threshold** for the alert. This is the number of times that the metric must be exceeded for an alert to be created. 
+1. Under **Notify via** check the **Email owners, contributors, and readers** box to send a mail to these users when the alert condition is met and add the email address of any additional recipients.  You can also specify a webhook or a logic app here that runs when the condition is met.  These could be used to attempt to mitigate the detected issue or 
 
 	![Add alert rule](media/tutorial-alert/add-alert-02.png)
 

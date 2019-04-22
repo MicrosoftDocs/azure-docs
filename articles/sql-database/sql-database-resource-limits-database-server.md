@@ -9,9 +9,9 @@ ms.devlang:
 ms.topic: conceptual
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: sashan,moslake
+ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 11/13/2018
+ms.date: 03/01/2019
 ---
 # SQL Database resource limits for Azure SQL Database server
 
@@ -30,7 +30,7 @@ This article provides an overview of the SQL Database resource limits for a SQL 
 | DTU / eDTU quota per server | 54,000 |  
 | vCore quota per server/instance | 540 |
 | Max pools per server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a server can support 54 pools.|
-||||
+|||
 
 > [!NOTE]
 > To obtain more DTU /eDTU quota, vCore quota, or more servers than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”. The DTU / eDTU quota and database limit per server constrains the number of elastic pools per server.
@@ -68,9 +68,36 @@ When encountering high session or worker utilization, mitigation options include
 - Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](sql-database-elastic-pool-scale.md).
 - Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
+## Transaction Log Rate Governance 
+Transaction log rate governance is a process in Azure SQL Database used to limit high ingestion rates for workloads such as bulk insert, SELECT INTO, and index builds. These limits are tracked and enforced at the sub-second level to the rate of log record generation, limiting throughput regardless of how many IOs may be issued against data files.  Transaction log generation rates currently scale linearly up to a point that is hardware dependent, with the maximum log rate allowed being 48 MB/s with the vCore purchasing model. 
+
+> [!NOTE]
+> The actual physical IOs to transaction log files are not governed or limited. 
+
+Log rates are set such that they can be achieved and sustained in a variety of scenarios, while the overall system can maintain its functionality with minimized impact to the user load. Log rate governance ensures that transaction log backups stay within published recoverability SLAs.  This governance also prevents an excessive backlog on secondary replicas.
+
+As log records are generated, each operation is evaluated and assessed for whether it should be delayed in order to maintain a maximum desired log rate (MB/s per second). The delays are not added when the log records are flushed to storage, rather log rate governance is applied during log rate generation itself.
+
+The actual log generation rates imposed at run time may also be influenced by feedback mechanisms, temporarily reducing the allowable log rates so the system can stabilize. Log file space management, avoiding running into out of log space conditions and Availability Group replication mechanisms can temporarily decrease the overall system limits. 
+
+Log rate governor traffic shaping is surfaced via the following wait types (exposed in the [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+
+| Wait Type | Notes |
+| :--- | :--- |
+| LOG_RATE_GOVERNOR | Database limiting |
+| POOL_LOG_RATE_GOVERNOR | Pool limiting |
+| INSTANCE_LOG_RATE_GOVERNOR | Instance level limiting |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Feedback control, availability group physical replication in Premium/Business Critical not keeping up |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback control, limiting rates to avoid an out of log space condition |
+|||
+
+When encountering a log rate limit that is hampering desired scalability, consider the following options:
+- Scale up to a larger tier in order to get the maximum 48 MB/s log rate. 
+- If data being loaded is transient, i.e. staging data in an ETL process, it can be loaded into tempdb (which is minimally logged). 
+- For analytic scenarios, load into a clustered columnstore covered table. This reduces the required log rate due to compression. This technique does increase CPU utilization and is only applicable to data sets that benefit from clustered columnstore indexes. 
+
 ## Next steps
 
-- See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-- For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-service-tiers.md#dtu-based-purchasing-model).
+- For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-purchase-models.md#dtu-based-purchasing-model).
 - For information about tempdb size limits, see [TempDB in Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

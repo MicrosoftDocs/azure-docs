@@ -7,7 +7,7 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 1/14/2019
+ms.date: 2/18/2019
 ---
 
 # Azure Data Explorer data ingestion
@@ -34,15 +34,21 @@ The Azure Data Explorer data management service, which is responsible for data i
 
 Azure Data Explorer supports several ingestion methods, each with its own target scenarios, advantages, and disadvantages. Azure Data Explorer offers pipelines and connectors to common services, programmatic ingestion using SDKs, and direct access to the engine for exploration purposes.
 
-### Ingestion using pipelines
+### Ingestion using pipelines, connectors, and plugins
 
-Azure Data Explorer currently supports the Event Hub pipeline, which can be managed using the management wizard in the Azure portal. For more information, see [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md).
+Azure Data Explorer currently supports:
 
-### Ingestion using connectors and plugins
+* Event Grid pipeline, which can be managed using the management wizard in the Azure portal. For more information, see [Ingest Azure Blobs into Azure Data Explorer](ingest-data-event-grid.md).
 
-* Azure Data Explorer supports the Logstash plugin. For more information, see [Logstash Output Plugin for Azure Data Explorer](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+* Event Hub pipeline, which can be managed using the management wizard in the Azure portal. For more information, see [Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md).
 
-* Azure Data Explorer supports the Kafka connector. For more information, see [Quickstart: Ingest data from Kafka into Azure Data Explorer](ingest-data-kafka.md)
+* Logstash plugin, see [Ingest data from Logstash to Azure Data Explorer](ingest-data-logstash.md).
+
+* Kafka connector, see [Ingest data from Kafka into Azure Data Explorer](ingest-data-kafka.md).
+
+### Ingestion using integration services
+
+* Azure Data Factory (ADF), a fully managed data integration service for analytic workloads in Azure, to copy data to and from Azure Data Explorer using [supported data stores and formats](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). For more information, see [Copy data to or from Azure Data Explorer using Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
 
 ### Programmatic ingestion
 
@@ -70,7 +76,7 @@ Kusto offers client SDK that can be used to ingest and query data with:
 
 * Ingesting data directly into the Azure Data Explorer engine (most appropriate for exploration and prototyping):
 
-  * **Inline ingestion**: control command (.ingest inline) containing in-band data is intended for ad-hoc testing purposes.
+  * **Inline ingestion**: control command (.ingest inline) containing in-band data is intended for ad hoc testing purposes.
 
   * **Ingest from query**: control command (.set, .set-or-append, .set-or-replace) that points to query results is used for generating reports or small temporary tables.
 
@@ -126,21 +132,27 @@ For all ingestion methods other than ingest from query, format the data so that 
 Schema mapping helps bind source data fields to destination table columns.
 
 * [CSV Mapping](/azure/kusto/management/mappings?branch=master#csv-mapping) (optional) works with all ordinal-based formats. It can be performed using the ingest command parameter or [pre-created on the table](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) and referenced from the ingest command parameter.
-* [JSON Mapping](/azure/kusto/management/mappings?branch=master#json-mapping) (mandatory) and [Avro mapping](/azure/kusto/management/mappings?branch=master#avro-mapping) (mandatory) can be performed using the ingest command parameter or [pre-created on the table](/azure/kusto/management/tables#create-ingestion-mapping) and referenced from the ingest command parameter.
+* [JSON Mapping](/azure/kusto/management/mappings?branch=master#json-mapping) (mandatory) and [Avro mapping](/azure/kusto/management/mappings?branch=master#avro-mapping) (mandatory) can be performed using the ingest command parameter. They can also be [pre-created on the table](/azure/kusto/management/tables#create-ingestion-mapping) and referenced from the ingest command parameter.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md)
+> [Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingest data from Kafka into Azure Data Explorer](ingest-data-kafka.md)
+> [Ingest data using Event Grid subscription into Azure Data Explorer](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)
+> [Ingest data from Kafka into Azure Data Explorer](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingest data using the Azure Data Explorer Node library](node-ingest-data.md)
+> [Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)](net-standard-ingest-data.md)
+> [Ingest data using the Azure Data Explorer Node library](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)](net-standard-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Ingest data from Logstash to Azure Data Explorer](ingest-data-logstash.md)

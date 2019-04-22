@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory code samples | Microsoft Docs
+title: Azure Active Directory v1.0 code samples | Microsoft Docs
 description: Provides an index of Azure Active Directory (v1.0 endpoint) code samples, organized by scenario.
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,6 +18,7 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory code samples (v1.0 endpoint)
@@ -40,7 +41,7 @@ You can also contribute to our samples on GitHub. To learn how, see [Microsoft A
 This sample shows how to write a single-page application secured with Azure AD.
 
  Platform | Calls its own API | Calls another Web API
- -------- |  --------------------- | ------------------ | ----------------
+ -------- |  --------------------- | ------------------ 
 ![JavaScript](media/sample-v2-code/logo_js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
 ![Angular JS](media/sample-v2-code/logo_angular.png) | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
@@ -62,8 +63,8 @@ The following samples illustrate Web applications signing users. Some of these a
 
 The following samples show how to implement role-based access control (RBAC). RBAC is used to restrict the permissions of certain features in a web application to certain users. The users are authorized depending on whether they belong to an **Azure AD group** or have a given application **role**.
 
-Platform | Sample
- -------- | -------------------
+Platform | Sample |
+ -------- | ------------------- |
 ![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) <p/>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | A .NET 4.5 MVC web app that uses Azure AD **roles** for authorization
 
 ## Desktop and mobile public client applications calling Microsoft Graph or a Web API
@@ -90,7 +91,7 @@ Desktop (Console)           | ![.NET Core/C#](media/sample-v2-code/logo_NETcore.
 The following samples show desktop or web applications that access the Microsoft Graph or a web API with no user (with the application identity).
 
 Client application | Platform | Flow/Grant | Calls an ASP.NET or ASP.NET Core 2.0 Web API
------------------- | -------- | ---------- | -------------------- | -------------------------
+------------------ | -------- | ---------- | -------------------- 
 Daemon app (Console)          | ![.NET](media/sample-v2-code/logo_NETframework.png) | Client Credentials with app secret or certificate | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
 Daemon app (Console)         | ![.NET](media/sample-v2-code/logo_NETcore.png) | Client Credentials with certificate| [dotnetcore-daemon-certificate-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
 ASP.NET Web App  | ![.NET](media/sample-v2-code/logo_NETframework.png) | Client credentials | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)

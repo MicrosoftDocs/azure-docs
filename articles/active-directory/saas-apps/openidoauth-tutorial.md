@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: eedebb76-e78c-428f-9cf0-5891852e79fb
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/07/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Configure an OpenID/OAuth application from the Azure AD app gallery
 

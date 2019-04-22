@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 
----  
+---
 
 # Publishing Checklist for AppSource  
 Review required components prior to starting the publishing process.  
@@ -32,4 +32,4 @@ The following artifacts are required to publish your app on AppSource.
 ## Next steps
 *   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
 
----  
+---

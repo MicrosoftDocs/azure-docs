@@ -21,7 +21,7 @@ ms.author: bwren
 
 The Azure portal is the hub for all Azure services and offers a rich management experience with capabilities such as dashboards for pinning resources, intelligent search for finding resources, and tagging for resource management. To consolidate and streamline the monitoring and management workflow, we started adding the OMS portal capabilities into the Azure portal. All of the features of the OMS portal are now part of the Azure portal. In fact, some of the new features such as Traffic Analytics are only available in the Azure portal. You will be able to accomplish everything you were doing in the OMS portal with the Azure portal and more. If you haven’t already done so, you should start using the Azure portal today!
 
-**The OMS portal will be officially retired on January 15, 2019** for Azure commercial cloud and for Azure US Government cloud, the OMS portal **will be officially retired on March 30, 2019.** We are excited to move to the Azure portal and expect the transition to be easy. But we understand changes are difficult and can be disruptive. Send any questions, feedback, or concerns to **LAUpgradeFeedback@microsoft.com**. The rest of this article goes over the key scenarios and the roadmap for this transition.
+**The OMS portal will be officially retired on January 15, 2019** for Azure commercial cloud and for Azure US Government cloud, the OMS portal **will be officially retired on March 30, 2019.** We are excited to move to the Azure portal and expect the transition to be easy. But we understand changes are difficult and can be disruptive. Send any questions, feedback, or concerns to **LAUpgradeFeedback\@microsoft.com**. The rest of this article goes over the key scenarios and the roadmap for this transition.
 
 ## What is changing? 
 The following changes are being announced with the deprecation of the OMS portal. Each of these changes is described in more detail in the sections below.
@@ -42,7 +42,7 @@ While most features will continue to work without performing any migration, you 
 - You need to [migrate your user permissions](#user-access-and-role-migration) to the Azure portal.
 - See [Migrate your OMS Update Deployments to Azure](../../automation/migrate-oms-update-deployments.md) for details on transitioning the Update Management solution.
 
-Refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](oms-portal-faq.md) for information about how to transition to the Azure portal. Send any feedback, questions, or concerns to **LAUpgradeFeedback@microsoft.com**.
+Refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](oms-portal-faq.md) for information about how to transition to the Azure portal. Send any feedback, questions, or concerns to **LAUpgradeFeedback\@microsoft.com**.
 
 ## User access and role migration
 Azure portal access management is richer and more powerful than the access management in the OMS Portal. See [Manage workspaces](manage-access.md#manage-accounts-and-users) for details of access management in Log Analytics.

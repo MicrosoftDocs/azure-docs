@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -148,23 +148,19 @@ Unmanaged disks are stored as page blobs in Azure Storage. When a VM is running 
 4. Wait until the **Last Sync Time** has updated, and is later than the time at which you deleted the VM. This step is important, because if the secondary endpoint has not been fully updated with the VHD files when the failover occurs, then the VM may not function properly in the new primary region.
 5. Initiate the account failover.
 6. Wait until the account failover is complete and the secondary region has become the new primary region.
-6. Create a storage account in the new primary region and copy your unmanaged disk to it.
 7. Create a VM in the new primary region and reattach the VHDs.
 8. Start the new VM.
 
 Keep in mind that any data stored in a temporary disk is lost when the VM is shut down.
 
-#### Azure File Sync
-
-Azure File Sync supports account failover. However, you will need to reconfigure all Azure File Sync settings after the failover is complete.
-
 ### Unsupported features or services
-
 The following features or services are not supported for account failover for the preview release:
 
-- Azure Data Lake Storage Gen2 hierarchical file shares cannot be failed over.
+- Azure File Sync does not support storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync should not be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.  
+- Storage accounts using Azure Data Lake Storage Gen2 hierarchical namespace cannot be failed over.
 - A storage account containing archived blobs cannot be failed over. Maintain archived blobs in a separate storage account that you do not plan to fail over.
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
+- After the failover is complete the following features will stop working if originally enabled: [Event subscriptions](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-overview), [Lifecycle policies](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-lifecycle-management-concepts),  [Storage Analytics Logging](https://docs.microsoft.com/en-us/rest/api/storageservices/about-storage-analytics-logging).
 
 ## Copying data as an alternative to failover
 

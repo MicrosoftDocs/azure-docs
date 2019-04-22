@@ -29,7 +29,7 @@ Outbound rules allow you to control:
 - which virtual machines should be translated to which public IP addresses. 
 - how [outbound SNAT ports](load-balancer-outbound-connections.md#snat) should be allocated.
 - which protocols to provide outbound translation for.
-- what duration to use for outbound connection idle timeout.
+- what duration to use for outbound connection idle timeout (4-120 minutes).
 - whether to send a TCP Reset on idle timeout (in Public Preview). 
 
 Outbound rules expand [scenario 2](load-balancer-outbound-connections.md#lb) in described in the [outbound connections](load-balancer-outbound-connections.md) article and the scenario precedence remains as-is.
@@ -85,7 +85,7 @@ You can revert back to [automatic SNAT port allocation based on backend pool siz
 
 ### <a name="idletimeout"></a> Control outbound flow idle timeout
 
-Outbound rules provide a configuration parameter to control the outbound flow idle timeout and match it to the needs of your application.  Outbound idle timeouts default to 4 minutes.  The parameter accepts a value from 4 to 66 to specific the number of minutes for the idle timeout for flows matching this particular rule.
+Outbound rules provide a configuration parameter to control the outbound flow idle timeout and match it to the needs of your application.  Outbound idle timeouts default to 4 minutes.  The parameter accepts a value from 4 to 120 to specific the number of minutes for the idle timeout for flows matching this particular rule.
 
 Use the following parameter to set the outbound idle timeout to 1 hour:
 
@@ -200,7 +200,7 @@ When using an internal Standard Load Balancer, outbound NAT is not available unt
 ## Limitations
 
 - The maximum number of usable ephemeral ports per frontend IP address is 51,200.
-- The range of the configurable outbound idle timeout is 4 to 66 minutes (240 to 4000 seconds).
+- The range of the configurable outbound idle timeout is 4 to 120 minutes (240 to 7200 seconds).
 - Load Balancer does not support ICMP for outbound NAT.
 - Portal cannot be used to configure or view outbound rules.  Use templates, REST API, Az CLI 2.0, or PowerShell instead.
 - Outbound rules can only be applied to the primary NIC and primary IP configuration.

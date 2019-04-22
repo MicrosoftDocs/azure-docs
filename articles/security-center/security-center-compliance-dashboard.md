@@ -4,7 +4,7 @@ description: "Tutorial: Learn how to Improve your regulatory compliance using Az
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706

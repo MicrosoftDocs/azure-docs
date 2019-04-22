@@ -3,7 +3,7 @@ title: Configure networking modes for Azure Service Fabric container services | 
 description: Learn how to set up the different networking modes that are supported by Azure Service Fabric. 
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: twhitney, subramar
+ms.author: aljo, subramar
 
 ---
 # Service Fabric container networking modes
@@ -26,7 +26,7 @@ If you have one container service with a static endpoint in your service manifes
 When a container service restarts or moves to another node in the cluster, the IP address changes. For this reason, we don't recommend using the dynamically assigned IP address to discover container services. Only the Service Fabric Naming Service or the DNS Service should be used for service discovery. 
 
 >[!WARNING]
->Azure allows a total of 4,096 IPs per virtual network. The sum of the number of nodes and the number of container service instances (that are using Open mode) can't exceed 4,096 IPs within a virtual network. For high-density scenarios, we recommend nat networking mode.
+>Azure allows a total of 65,356 IPs per virtual network. The sum of the number of nodes and the number of container service instances (that are using Open mode) can't exceed 65,356 IPs within a virtual network. For high-density scenarios, we recommend nat networking mode. In addition, other dependencies such as the load balancer will have other [limitations](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) to consider. Currently up to 50 IPs per node have been tested and proven stable. 
 >
 
 ## Set up Open networking mode
@@ -51,15 +51,6 @@ When a container service restarts or moves to another node in the cluster, the I
                             "name": "IPProviderEnabled",
                             "value": "true"
                       }
-                    ]
-                },
-                {
-                    "name":  "Trace/Etw", 
-                    "parameters": [
-                    {
-                            "name": "Level",
-                            "value": "5"
-                    }
                     ]
                 },
                 {
@@ -219,7 +210,7 @@ When a container service restarts or moves to another node in the cluster, the I
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
       <Description>Calculator Application</Description>
       <Parameters>
         <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>

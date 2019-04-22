@@ -42,7 +42,7 @@ Diagnostics logs are disabled by default. To enable diagnostic logs, perform the
 
 	![change status diagnostic logs](./media/service-bus-diagnostic-logs/image3.png)
 
-5.	Set the archive target that you want; for example, a storage account, an event hub, or Azure Log Analytics.
+5.	Set the archive target that you want; for example, a storage account, an event hub, or Azure Monitor logs.
 
 6.	Save the new diagnostics settings.
 

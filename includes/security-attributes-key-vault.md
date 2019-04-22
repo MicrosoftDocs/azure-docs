@@ -43,7 +43,7 @@ ms.author: mbaldwin
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Control/Management Plan Logging and Audit| Yes | Using Log Analytics. |
+| Control/Management plane Logging and Audit| Yes | Using Log Analytics. |
 | Data plane Logging and Audit| Yes | Using Log Analytics. |
 
 ## Access controls

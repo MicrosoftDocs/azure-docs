@@ -17,6 +17,7 @@ ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
 
+ms.collection: M365-identity-device-management
 ---
 
 # License requirements to use PIM
@@ -29,6 +30,7 @@ To use PIM, your directory must have one of the following paid or trial licenses
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
+- Microsoft 365 M5
 
 For more information, see [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
 
@@ -59,5 +61,6 @@ If an Azure AD Premium P2, EMS E5, or trial license expires, PIM features will n
 
 ## Next steps
 
+- [Deploy PIM](pim-deployment-plan.md)
 - [Start using PIM](pim-getting-started.md)
 - [Roles you cannot manage in PIM](pim-roles.md)

@@ -4,10 +4,7 @@ description: 'This tutorial shows you how to create a scenario by using the Azur
 services: traffic-manager
 documentationcenter: ''
 author: liumichelle
-manager: vitinnan
-editor: ''
-
-ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
+manager: dkays
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -66,26 +63,26 @@ The following diagram shows the architecture of this scenario:
 1. In the Azure portal, click **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
 2. Enter the following basic information:
 
-  * **Name**: Give your Traffic Manager profile a DNS prefix name.
-  * **Routing method**: Select the traffic-routing method policy. For more information about the methods, see [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md).
-  * **Subscription**: Select the subscription that contains the profile.
-  * **Resource group**: Select the resource group that contains the profile. It can be a new or existing resource group.
-  * **Resource group location**: Traffic Manager service is global and not bound to a location. However, you must specify a region for the group where the metadata associated with the Traffic Manager profile resides. This location has no impact on the runtime availability of the profile.
+   * **Name**: Give your Traffic Manager profile a DNS prefix name.
+   * **Routing method**: Select the traffic-routing method policy. For more information about the methods, see [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md).
+   * **Subscription**: Select the subscription that contains the profile.
+   * **Resource group**: Select the resource group that contains the profile. It can be a new or existing resource group.
+   * **Resource group location**: Traffic Manager service is global and not bound to a location. However, you must specify a region for the group where the metadata associated with the Traffic Manager profile resides. This location has no impact on the runtime availability of the profile.
 
 3. Click **Create** to generate the Traffic Manager profile.
 
-  !["Create Traffic Manager" blade](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
+   !["Create Traffic Manager" blade](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
 ### Step 2: Create the application gateways
 
 1. In the Azure portal, in the left pane, click **Create a resource** > **Networking** > **Application Gateway**.
 2. Enter the following basic information about the application gateway:
 
-  * **Name**: The name of the application gateway.
-  * **SKU size**: The size of the application gateway, available as Small, Medium, or Large.
-  * **Instance count**: The number of instances, a value from 2 through 10.
-  * **Resource group**: The resource group that holds the application gateway. It can be an existing resource group or a new one.
-  * **Location**: The region for the application gateway, which is the same location as the resource group. The location is important, because the virtual network and public IP must be in the same location as the gateway.
+   * **Name**: The name of the application gateway.
+   * **SKU size**: The size of the application gateway, available as Small, Medium, or Large.
+   * **Instance count**: The number of instances, a value from 2 through 10.
+   * **Resource group**: The resource group that holds the application gateway. It can be an existing resource group or a new one.
+   * **Location**: The region for the application gateway, which is the same location as the resource group. The location is important, because the virtual network and public IP must be in the same location as the gateway.
 3. Click **OK**.
 4. Define the virtual network, subnet, front-end IP, and listener configurations for the application gateway. In this scenario, the front-end IP address is **Public**, which allows it to be added as an endpoint to the Traffic Manager profile later on.
 5. Configure the listener with one of the following options:
@@ -102,11 +99,11 @@ When you choose a back-end pool, an application gateway that's configured with a
 2. Under **Settings**, select **Backend pools**, and then select **Add** to add the VMs that you want to associate with the web-tier back-end pools.
 3. Enter the name of the back-end pool and all the IP addresses of the machines that reside in the pool. In this scenario, we are connecting two back-end server pools of virtual machines.
 
-  ![Application Gateway "Add backend pool"](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+   ![Application Gateway "Add backend pool"](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. Under **Settings** of the application gateway, select **Rules**, and then click the **Path based** button to add a rule.
 
-  ![Application Gateway Rules "Path based" button](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
+   ![Application Gateway Rules "Path based" button](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
 5. Configure the rule by providing the following information.
 
@@ -136,13 +133,13 @@ In this scenario, Traffic Manager is connected to application gateways (as confi
 1. Open your Traffic Manager profile. To do so, look in your resource group or search for the name of the Traffic Manager profile from **All Resources**.
 2. In the left pane, select **Endpoints**, and then click **Add** to add an endpoint.
 
-  ![Traffic Manager Endpoints "Add" button](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
+   ![Traffic Manager Endpoints "Add" button](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
 3. Create an endpoint by entering the following information:
 
-  * **Type**: Select the type of endpoint to load-balance. In this scenario, select **Azure endpoint** because we are connecting it to the application gateway instances that were configured previously.
-  * **Name**: Enter the name of the endpoint.
-  * **Target resource type**: Select **Public IP address** and then, under **Target resource**, select the public IP of the application gateway that was configured previously.
+   * **Type**: Select the type of endpoint to load-balance. In this scenario, select **Azure endpoint** because we are connecting it to the application gateway instances that were configured previously.
+   * **Name**: Enter the name of the endpoint.
+   * **Target resource type**: Select **Public IP address** and then, under **Target resource**, select the public IP of the application gateway that was configured previously.
 
    ![Traffic Manager "Add endpoint"](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
@@ -169,7 +166,7 @@ For more information about configuring an internal load balancer, see [Create an
 1. From your resource group, find the load balancer that was created in the previous steps.
 2. Under **Settings**, click **Backend pools**, and then click **Add** to add a back-end pool.
 
-  ![Load Balancer "Add backend pool"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+   ![Load Balancer "Add backend pool"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
 3. Enter the name of the back-end pool.
 4. Add either individual machines or an availability set to the back-end pool.
@@ -178,7 +175,7 @@ For more information about configuring an internal load balancer, see [Create an
 
 1. In your load balancer, under **Settings**, select **Probes**, and then click **Add** to add a probe.
 
- ![Load Balancer "Add probe"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+   ![Load Balancer "Add probe"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
 2. Enter the name for the probe.
 3. Select the **Protocol** for the probe. For a database, you might want a TCP probe rather than an HTTP probe. To learn more about load-balancer probes, refer to [Understand load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).

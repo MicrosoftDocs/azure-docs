@@ -267,7 +267,7 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-17013*](https://issues.apache.org/jira/browse/HIVE-17013): Delete request with a subquery based on select over a view.
 
--   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): insert overwrite partition onto a external table fail when drop partition first.
+-   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): insert overwrite partition onto an external table fail when drop partition first.
 
 -   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259): Hive JDBC does not recognize UNIONTYPE columns.
 
@@ -365,7 +365,7 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-16828*](https://issues.apache.org/jira/browse/HIVE-16828): With CBO enabled, Query on partitioned views throws IndexOutOfBoundException.
 
--   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): insert overwrite partition onto a external table fail when drop partition first.
+-   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): insert overwrite partition onto an external table fail when drop partition first.
 
 -   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259): Hive JDBC does not recognize UNIONTYPE columns.
 
@@ -987,7 +987,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-93136              | [HIVE-18189](https://issues.apache.org/jira/browse/HIVE-18189)                                                                         | Order by position does not work when cbo is disabled                                                   |
 | BUG-93595              | [HIVE-12378](https://issues.apache.org/jira/browse/HIVE-12378), [HIVE-15883](https://issues.apache.org/jira/browse/HIVE-15883)         | HBase mapped table in Hive insert fail for decimal and binary columns                                  |
 | BUG-94007              | [PHOENIX-1751](https://issues.apache.org/jira/browse/PHOENIX-1751), [PHOENIX-3112](https://issues.apache.org/jira/browse/PHOENIX-3112) | Phoenix Queries returns Null values due to HBase Partial rows                                          |
-| BUG-94144              | [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063)                                                                         | insert overwrite partition onto a external table fail when drop partition first                        |
+| BUG-94144              | [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063)                                                                         | insert overwrite partition onto an external table fail when drop partition first                        |
 | BUG-94280              | [HIVE-12785](https://issues.apache.org/jira/browse/HIVE-12785)                                                                         | View with union type and UDF to \`cast\` the struct is broken                                          |
 | BUG-94505              | [PHOENIX-4525](https://issues.apache.org/jira/browse/PHOENIX-4525)                                                                     | Integer overflow in GroupBy execution                                                                  |
 | BUG-95618              | [HIVE-18506](https://issues.apache.org/jira/browse/HIVE-18506)                                                                         | LlapBaseInputFormat - negative array index                                                             |
@@ -1149,7 +1149,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-98983              | [KNOX-1108](https://issues.apache.org/jira/browse/KNOX-1108)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | NiFiHaDispatch not failing over                                                                                                                |
 | BUG-99107              | [HIVE-19054](https://issues.apache.org/jira/browse/HIVE-19054)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Function replication shall use "hive.repl.replica.functions.root.dir" as root                                                                  |
 | BUG-99145              | [RANGER-2035](https://issues.apache.org/jira/browse/RANGER-2035)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Errors accessing servicedefs with empty implClass with Oracle backend                                                                          |
-| BUG-99160              | [SLIDER-1259](https://issues.apache.org/jira/browse/SLIDER-1259)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Slider does not work in multi homed environments                                                                                               |
+| BUG-99160              | [SLIDER-1259](https://issues.apache.org/jira/browse/SLIDER-1259)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Slider does not work in multi-homed environments                                                                                               |
 | BUG-99239              | [ATLAS-2462](https://issues.apache.org/jira/browse/ATLAS-2462)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Sqoop import for all tables throws NPE for no table provided in command                                                                        |
 | BUG-99301              | [ATLAS-2530](https://issues.apache.org/jira/browse/ATLAS-2530)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Newline at the beginning of the name attribute of a hive\_process and hive\_column\_lineage                                                    |
 | BUG-99453              | [HIVE-19065](https://issues.apache.org/jira/browse/HIVE-19065)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Metastore client compatibility check should include syncMetaStoreClient                                                                        |
@@ -1303,117 +1303,117 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
 ## Known issues
 
--   **HDInsight integration with ADLS Gen 2** 
-   There are two issues on HDInsight ESP clusters using Azure Data Lake Storage Gen 2 with user directories and permissions:
+- **HDInsight integration with ADLS Gen 2** 
+  There are two issues on HDInsight ESP clusters using Azure Data Lake Storage Gen 2 with user directories and permissions:
    
-   1. Home directories for users are not getting created on Head Node 1. As a workaround, create the directories manually and change ownership to the respective user’s UPN.
+  1. Home directories for users are not getting created on Head Node 1. As a workaround, create the directories manually and change ownership to the respective user’s UPN.
    
-   2. Permissions on /hdp directory is currently not set to 751. This needs to be set to 
-      ```bash
-      chmod 751 /hdp 
-      chmod –R 755 /hdp/apps
-      ```
+  2. Permissions on /hdp directory is currently not set to 751. This needs to be set to 
+     ```bash
+     chmod 751 /hdp 
+     chmod –R 755 /hdp/apps
+     ```
 
--   **Spark 2.3**
+- **Spark 2.3**
 
-    -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] Incorrect result caused by the rule OptimizeMetadataOnlyQuery
+  -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] Incorrect result caused by the rule OptimizeMetadataOnlyQuery
 
-    -   \[[*SPARK-23406*](https://issues.apache.org/jira/browse/SPARK-23406)\] Bugs in stream-stream self-joins
+  -   \[[*SPARK-23406*](https://issues.apache.org/jira/browse/SPARK-23406)\] Bugs in stream-stream self-joins
 
-    -   Spark sample notebooks are not available when Azure Data Lake Storage (Gen2) is default storage of the cluster.
+  -   Spark sample notebooks are not available when Azure Data Lake Storage (Gen2) is default storage of the cluster.
 
--   **Enterprise Security Package**
+- **Enterprise Security Package**
 
-    - Spark Thrift Server does not accept connections from ODBC clients.
-      Workaround steps:
-      1. Wait for about 15 minutes after cluster creation.
-      2. Check ranger UI for existence of hivesampletable_policy.
-      3. Restart Spark service.
-         STS connection should work now.
+  - Spark Thrift Server does not accept connections from ODBC clients.
+    Workaround steps:
+    1. Wait for about 15 minutes after cluster creation.
+    2. Check ranger UI for existence of hivesampletable_policy.
+    3. Restart Spark service.
+       STS connection should work now.
 
--   **Workaround for Ranger service check failure**
+- **Workaround for Ranger service check failure**
 
-    -   [RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607): Workaround for Ranger service check failure while upgrading to HDP 2.6.2 from previous HDP versions.
+  -   [RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607): Workaround for Ranger service check failure while upgrading to HDP 2.6.2 from previous HDP versions.
 
-        > [!NOTE]  
-        > Only when Ranger is SSL enabled. 
+      > [!NOTE]  
+      > Only when Ranger is SSL enabled. 
      
-    This issue arises when attempting to upgrade to HDP-2.6.1 from previous HDP versions through Ambari. Ambari uses a curl call to do a service check to Ranger service in Ambari. If the JDK version used by Ambari is JDK-1.7, the curl call will fail with the below error:
+  This issue arises when attempting to upgrade to HDP-2.6.1 from previous HDP versions through Ambari. Ambari uses a curl call to do a service check to Ranger service in Ambari. If the JDK version used by Ambari is JDK-1.7, the curl call will fail with the below error:
     
-    `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
+  `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
     
-    The reason for this error is the tomcat version used in Ranger is Tomcat-7.0.7\*. Using JDK-1.7 conflicts with default ciphers provided in Tomcat-7.0.7\*.
+  The reason for this error is the tomcat version used in Ranger is Tomcat-7.0.7\*. Using JDK-1.7 conflicts with default ciphers provided in Tomcat-7.0.7\*.
     
-    You can resolve this issue in two ways:
+  You can resolve this issue in two ways:
     
-    -   Update the JDK used in Ambari from JDK-1.7 to JDK-1.8 (see the section [Change the JDK Version](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html) in the Ambari Reference Guide).
+  -   Update the JDK used in Ambari from JDK-1.7 to JDK-1.8 (see the section [Change the JDK Version](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html) in the Ambari Reference Guide).
     
-    -   If you want to continue supporting a JDK-1.7 environment:
+  -   If you want to continue supporting a JDK-1.7 environment:
     
-        1.  Add the property ranger.tomcat.ciphers in the ranger-admin-site section in your Ambari Ranger configuration with the below value:
+      1.  Add the property ranger.tomcat.ciphers in the ranger-admin-site section in your Ambari Ranger configuration with the below value:
             
-            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+          SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
         
-        2.  If your environment is configured for Ranger-KMS, add the property ranger.tomcat.ciphers in theranger-kms-site section in your Ambari Ranger configuration with the below value:
+      2.  If your environment is configured for Ranger-KMS, add the property ranger.tomcat.ciphers in theranger-kms-site section in your Ambari Ranger configuration with the below value:
             
-            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+          SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
     
-    >[!NOTE]  
-    >The noted values are working examples and may not be indicative of your environment. Ensure that the way you set these properties matches how your environment is configured.   
+  >[!NOTE]  
+  >The noted values are working examples and may not be indicative of your environment. Ensure that the way you set these properties matches how your environment is configured.   
 
--   **RangerUI: Escape of policy condition text entered in the policy form**
+- **RangerUI: Escape of policy condition text entered in the policy form**
     
-    **Component Affected:** Ranger
+  **Component Affected:** Ranger
     
-    **​Description of Problem**
+  **Description of Problem**
     
-    If a user wants to create policy with custom policy conditions and the expression or text contains special characters, then policy enforcement will not work. Special characters are converted into ASCII before saving the policy into the database.
+  If a user wants to create policy with custom policy conditions and the expression or text contains special characters, then policy enforcement will not work. Special characters are converted into ASCII before saving the policy into the database.
     
-    **Special Characters:** & &lt; &gt; " \` '
+  **Special Characters:** & &lt; &gt; " \` '
     
-    For example, the condition tags.attributes\['type'\]='abc' would get converted to the following once the policy is saved.
+  For example, the condition tags.attributes\['type'\]='abc' would get converted to the following once the policy is saved.
     
-    tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
+  tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
     
-    You can see the policy condition with these characters by opening the policy in edit mode.
+  You can see the policy condition with these characters by opening the policy in edit mode.
     
-    **​Workaround**
+  **Workaround**
     
-    - **​Option \#1: Create/Update policy via Ranger Rest API**
+  - **Option \#1: Create/Update policy via Ranger Rest API**
         
-        REST URL: http://&lt;host&gt;:6080/service/plugins/policies
+      REST URL: http://&lt;host&gt;:6080/service/plugins/policies
         
-        **Creating policy with policy condition:**
+      **Creating policy with policy condition:**
         
-        The following example will create policy with tags as \`tags-test\` and assign it to \`public\` group with policy condition astags.attr\['type'\]=='abc' by selecting all hive component permissions like select, update, create, drop, alter, index, lock, all.
+      The following example will create policy with tags as \`tags-test\` and assign it to \`public\` group with policy condition astags.attr\['type'\]=='abc' by selecting all hive component permissions like select, update, create, drop, alter, index, lock, all.
         
-        **Example:**
+      **Example:**
         
-        `curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'`
+      `curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'`
         
-        **Update existing policy with policy condition:**
+      **Update existing policy with policy condition:**
         
-        The following example will update policy with tags as \`tags-test\` and assign it to \`public\` group with policy condition astags.attr\['type'\]=='abc' by selecting all hive component permissions like select, update, create, drop, alter, index, lock, all.
+      The following example will update policy with tags as \`tags-test\` and assign it to \`public\` group with policy condition astags.attr\['type'\]=='abc' by selecting all hive component permissions like select, update, create, drop, alter, index, lock, all.
         
-        REST URL: http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
+      REST URL: http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
         
-        **Example:**
+      **Example:**
         
-        `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
+      `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
         
-    - **​Option \#2: Apply Javascript changes**
+  - **Option \#2: Apply Javascript changes**
         
-        Steps to update JS file:
+      Steps to update JS file:
         
-        1.  Find out PermissionList.js file under /usr/hdp/current/ranger-admin
+      1.  Find out PermissionList.js file under /usr/hdp/current/ranger-admin
         
-        2.  Find out definition of renderPolicyCondtion function (line no:404).
+      2.  Find out definition of renderPolicyCondtion function (line no:404).
         
-        3.  Remove following line from that function i.e under display function(line no:434)
+      3.  Remove following line from that function i.e under display function(line no:434)
             
-            val = \_.escape(val);//Line No:460
+          val = \_.escape(val);//Line No:460
             
-            After removing the above line, the Ranger UI will allow you to create policies with policy condition that can contain special characters and policy evaluation will be successful for the same policy.
+          After removing the above line, the Ranger UI will allow you to create policies with policy condition that can contain special characters and policy evaluation will be successful for the same policy.
 
 **HDInsight Integration with ADLS Gen 2: User directories and permissions issue with ESP clusters**
     1.	Home directories for users are not getting created on Head Node 1. Workaround is to create these manually and change ownership  to the respective user’s UPN.
@@ -1423,7 +1423,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
 ## Deprecation
 
--   **OMS Portal:** We have removed the link from HDInsight resource page that was pointing to OMS portal. Log Analytics initially used its own portal called the OMS portal to manage its configuration and analyze collected data. All functionality from this portal has been moved to the Azure portal where it will continue to be developed. HDInsight has deprecated the support for OMS portal. Customers will use HDInsight Log Analytics integration in Azure portal.
+-   **OMS Portal:** We have removed the link from HDInsight resource page that was pointing to OMS portal. Azure Monitor logs initially used its own portal called the OMS portal to manage its configuration and analyze collected data. All functionality from this portal has been moved to the Azure portal where it will continue to be developed. HDInsight has deprecated the support for OMS portal. Customers will use HDInsight Azure Monitor logs integration in Azure portal.
 
 -   **Spark 2.3**
 

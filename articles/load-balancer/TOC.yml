@@ -112,7 +112,7 @@
       href: load-balancer-multiple-ip-cli.md
     - name: Using multiple IP configurations (PowerShell)
       href: load-balancer-multiple-ip-powershell.md
-  - name: Log analytics for Azure Load Balancer
+  - name: Azure Monitor logs for Azure Load Balancer
     href: load-balancer-monitor-log.md
   - name: Get Load Balancer metrics with REST
     href: load-balancer-query-metrics-rest-api.md

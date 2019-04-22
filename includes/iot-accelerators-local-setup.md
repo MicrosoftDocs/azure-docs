@@ -48,16 +48,16 @@ If you've not yet created the required Azure resources, follow these steps:
     ```
 
 1. Run the **start.cmd** script. The script prompts you for the following information:
-    * A solution name.
-    * The Azure subscription to use.
-    * The location of the Azure datacenter to use.
+   * A solution name.
+   * The Azure subscription to use.
+   * The location of the Azure datacenter to use.
 
-    The script creates resource group in Azure with your solution name. This resource group contains the Azure resources the solution accelerator uses. You can delete this resource group once you no longer need the corresponding resources.
+     The script creates resource group in Azure with your solution name. This resource group contains the Azure resources the solution accelerator uses. You can delete this resource group once you no longer need the corresponding resources.
 
-    The script also adds a set of environment variables with a prefix **PCS** to your local machine. When you launch the Docker containers or microservice projects locally, they read their configuration values from these environment variables.
+     The script also adds a set of environment variables with a prefix **PCS** to your local machine. When you launch the Docker containers or microservice projects locally, they read their configuration values from these environment variables.
 
-    > [!TIP]
-    > When the script completes, it also saves the environment variables to a file called **\<your home folder\>\\.pcs\\\<solution name\>.env**. You can use them for future solution accelerator deployments. Note that any environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
+     > [!TIP]
+     > When the script completes, it also saves the environment variables to a file called **\<your home folder\>\\.pcs\\\<solution name\>.env**. You can use them for future solution accelerator deployments. Note that any environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
 
 1. Exit from your command-line environment.
 

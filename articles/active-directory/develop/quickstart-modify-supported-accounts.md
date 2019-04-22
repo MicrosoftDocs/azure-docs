@@ -18,6 +18,7 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 #Customer intent: As an application developer, I need to know how to modify the accounts supported by my application.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Modify the accounts supported by an application (Preview)

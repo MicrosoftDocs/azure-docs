@@ -4,7 +4,7 @@ description: Provides information about the Collector appliance in Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
 ---
@@ -60,7 +60,7 @@ The Collector must pass a few prerequisite checks to ensure it can connect to th
 - **Check internet connection**: The Collector can connect to the internet directly, or via a proxy.
     - The prerequisite check verifies connectivity to [required and optional URLs](#urls-for-connectivity).
     - If you have a direct connection to the internet, no specific action is required, other than making sure that the Collector can reach the required URLs.
-    - If you're connecting via a proxy, note the [requirements below](#connect-via-a-proxy).
+    - If you're connecting via a proxy, note the requirements below.
 - **Verify time synchronization**: The Collector should synchronized with the internet time server to ensure the requests to the service are authenticated.
     - The portal.azure.com url should be reachable from the Collector so that the time can be validated.
     - If the machine isn't synchronized, you need to change the clock time on the Collector VM to match the current time. To do this open an admin prompt on the VM, run **w32tm /tz** to check the time zone. Run **w32tm /resync** to synchronize the time.
@@ -70,34 +70,32 @@ The Collector must pass a few prerequisite checks to ensure it can connect to th
     - The Collector service connects to vCenter Server, collects the VM metadata and performance data, and sends it to the Azure Migrate service.
 - **Check VMware PowerCLI 6.5 installed**: The VMware PowerCLI 6.5 PowerShell module must be installed on the Collector VM, so that it can communicate with vCenter Server.
     - If the Collector can access the URLs required to install the module, it's install automatically during Collector deployment.
-    - If the Collector can't install the module during deployment, you must [install it manually](#install-vwware-powercli-module-manually).
+    - If the Collector can't install the module during deployment, you must install it manually.
 - **Check connection to vCenter Server**: The Collector must be able to vCenter Server and query for VMs, their metadata, and performance counters. [Verify prerequisites](#connect-to-vcenter-server) for connecting.
 
 
 ### Connect to the internet via a proxy
 
 - If the proxy server requires authentication, you can specify the username and password when you set up the Collector.
-- The IP address/FQDN of the Proxy server should specified as *http://IPaddress* or *http://FQDN*.
+- The IP address/FQDN of the Proxy server should specified as *http:\//IPaddress* or *http:\//FQDN*.
 - Only HTTP proxy is supported. HTTPS-based proxy servers aren't supported by the Collector.
 - If the proxy server is an intercepting proxy, you must import the proxy certificate to the Collector VM.
-    1. In the collector VM, go to **Start Menu** > **Manage computer certificates**.
-    2. In the Certificates tool, under **Certificates - Local Computer**, find **Trusted Publishers** > **Certificates**.
+  1. In the collector VM, go to **Start Menu** > **Manage computer certificates**.
+  2. In the Certificates tool, under **Certificates - Local Computer**, find **Trusted Publishers** > **Certificates**.
 
-        ![Certificates tool](./media/concepts-intercepting-proxy/certificates-tool.png)
+      ![Certificates tool](./media/concepts-intercepting-proxy/certificates-tool.png)
 
-    3. Copy the proxy certificate to the collector VM. You might need to obtain it from your network admin.
-    4. Double-click to open the certificate, and click **Install Certificate**.
-    5. In the Certificate Import Wizard > Store Location, choose **Local Machine**.
+  3. Copy the proxy certificate to the collector VM. You might need to obtain it from your network admin.
+  4. Double-click to open the certificate, and click **Install Certificate**.
+  5. In the Certificate Import Wizard > Store Location, choose **Local Machine**.
 
-    ![Certificate store location](./media/concepts-intercepting-proxy/certificate-store-location.png)
+     ![Certificate store location](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
-    6. Select **Place all certificates in the following store** > **Browse** > **Trusted Publishers**. Click **Finish** to import the certificate.
+  6. Select **Place all certificates in the following store** > **Browse** > **Trusted Publishers**. Click **Finish** to import the certificate.
 
-    ![Certificates store](./media/concepts-intercepting-proxy/certificate-store.png)
+     ![Certificates store](./media/concepts-intercepting-proxy/certificate-store.png)
 
-    7. Check that the certificate is imported as expected, and check that the internet connectivity prerequisite check works as expected.
-
-
+  7. Check that the certificate is imported as expected, and check that the internet connectivity prerequisite check works as expected.
 
 
 ### URLs for connectivity
@@ -108,7 +106,7 @@ The connectivity check is validated by connecting to a list of URLs.
 --- | --- | ---
 *.portal.azure.com | Applicable to Azure Global. Checks connectivity with the Azure service, and time synchronization. | Access to URL required.<br/><br/> Prerequisites check fails if there's no connectivity.
 *.portal.azure.us | Applicable only to Azure Government. Checks connectivity with the Azure service, and time synchronization. | Access to URL required.<br/><br/> Prerequisites check fails if there's no connectivity.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Used to download the PowerShell vCenter PowerCLI module. | Access to URLs optional.<br/><br/> Prerequisites check won't fail.<br/><br/> Automatic module installation on the Collector VM will fail. You'll need to install the module manually.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Used to download the PowerShell vCenter PowerCLI module. | Access to URLs is required.<br/><br/> Prerequisites check won't fail.<br/><br/> Automatic module installation on the Collector VM will fail. You'll need to install the module manually in a machine that has internet connectivity and then copy the modules to the appliance. [Learn more by going to Step#4 in this troubleshooting guide](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### Install VMware PowerCLI module manually
@@ -145,6 +143,79 @@ The collector communicates as summarized in the following diagram and table.
 Azure Migrate service | TCP 443 | Collector communicates with Azure Migrate service over SSL 443.
 vCenter Server | TCP 443 | The Collector must be able to communicate with the vCenter Server.<br/><br/> By default, it connects to vCenter on 443.<br/><br/> If vCenter Server listens on a different port, that port should be available as outgoing port on the Collector.
 RDP | TCP 3389 |
+
+## Collected metadata
+
+The collector appliance discovers the following configuration metadata for each VM. The configuration data for the VMs is available an hour after you start discovery.
+
+- VM display name (on vCenter Server)
+- VM’s inventory path (the host/folder on vCenter Server)
+- IP address
+- MAC address
+- Operating system
+- Number of cores, disks, NICs
+- Memory size, Disk sizes
+- Performance counters of the VM, disk and network.
+
+### Performance counters
+
+ The collector appliance collects the following performance counters for each VM from the ESXi host at an interval of 20 seconds. These counters are vCenter counters and although the terminology says average, the 20-second samples are real time counters. The performance data for the VMs starts becoming available in the portal two hours after you have kicked off the discovery. It is strongly recommended to wait for at least a day before creating performance-based assessments to get accurate right-sizing recommendations. If you are looking for instant gratification, you can create assessments with sizing criterion as *as on-premises* which will not consider the performance data for right-sizing.
+
+**Counter** |  **Impact on assessment**
+--- | ---
+cpu.usage.average | Recommended VM size and cost  
+mem.usage.average | Recommended VM size and cost  
+virtualDisk.read.average | Calculates disk size, storage cost, VM size
+virtualDisk.write.average | Calculates disk size, storage cost, VM size
+virtualDisk.numberReadAveraged.average | Calculates disk size, storage cost, VM size
+virtualDisk.numberWriteAveraged.average | Calculates disk size, storage cost, VM size
+net.received.average | Calculates VM size                          
+net.transmitted.average | Calculates VM size     
+
+The complete list of VMware counters collected by Azure Migrate is available below:
+
+**Category** |  **Metadata** | **vCenter datapoint**
+--- | --- | ---
+Machine Details | VM ID | vm.Config.InstanceUuid
+Machine Details | VM name | vm.Config.Name
+Machine Details | vCenter Server ID | VMwareClient.InstanceUuid
+Machine Details |  VM description |  vm.Summary.Config.Annotation
+Machine Details | License product name | vm.Client.ServiceContent.About.LicenseProductName
+Machine Details | Operating system type | vm.Summary.Config.GuestFullName
+Machine Details | Operating system version | vm.Summary.Config.GuestFullName
+Machine Details | Boot type | vm.Config.Firmware
+Machine Details | Number of cores | vm.Config.Hardware.NumCPU
+Machine Details | Megabytes of memory | vm.Config.Hardware.MemoryMB
+Machine Details | Number of disks | vm.Config.Hardware.Device.ToList().FindAll(x => x is VirtualDisk).count
+Machine Details | Disk size list | vm.Config.Hardware.Device.ToList().FindAll(x => x is VirtualDisk)
+Machine Details | Network adapters list | vm.Config.Hardware.Device.ToList().FindAll(x => x is VirtualEthernetCard)
+Machine Details | CPU utilization | cpu.usage.average
+Machine Details | Memory utilization | mem.usage.average
+Disk Details (per disk) | Disk key value | disk.Key
+Disk Details (per disk) | Disk unit number | disk.UnitNumber
+Disk Details (per disk) | Disk controller key value | disk.ControllerKey.Value
+Disk Details (per disk) | Gigabytes provisioned | virtualDisk.DeviceInfo.Summary
+Disk Details (per disk) | Disk  name | This value is generated using disk.UnitNumber, disk.Key and disk.ControllerKey.Value
+Disk Details (per disk) | Number of read operations per second | virtualDisk.numberReadAveraged.average
+Disk Details (per disk) | Number of write operations per second | virtualDisk.numberWriteAveraged.average
+Disk Details (per disk) | Megabytes per second of read throughput | virtualDisk.read.average
+Disk Details (per disk) | Megabytes per second of write throughput | virtualDisk.write.average
+Network Adapter Details (per NIC) | Network adapter name | nic.Key
+Network Adapter Details (per NIC) | MAC Address | ((VirtualEthernetCard)nic).MacAddress
+Network Adapter Details (per NIC) | IPv4 Addresses | vm.Guest.Net
+Network Adapter Details (per NIC) | IPv6 Addresses | vm.Guest.Net
+Network Adapter Details (per NIC) | Megabytes per second of read throughput | net.received.average
+Network Adapter Details (per NIC) | Megabytes per second of write throughput | net.transmitted.average
+Inventory Path Details | Name | container.GetType().Name
+Inventory Path Details | Type of child object | container.ChildType
+Inventory Path Details | Reference details | container.MoRef
+Inventory Path Details | Complete inventory path | container.Name with complete path
+Inventory Path Details | Parent details | Container.Parent
+Inventory Path Details | Folder details for each VM | ((Folder)container).ChildEntity.Type
+Inventory Path Details | Datacenter details for each VM Folder | ((Datacenter)container).VmFolder
+Inventory Path Details | Datacenter details for each Host Folder | ((Datacenter)container).HostFolder
+Inventory Path Details | Cluster details for each Host | ((ClusterComputeResource)container).Host)
+Inventory Path Details | Host details for each VM | ((HostSystem)container).Vm
 
 
 ## Securing the Collector appliance
@@ -195,34 +266,6 @@ After the appliance is set up, you can run discovery. Here's how that works:
 - VMs are discovered, and their metadata and performance data is sent to Azure. These actions are part of a collection job.
     - The Collector appliance is given a specific Collector ID that's persistent for a given machine across discoveries.
     - A running collection job is given a specific session ID. The ID changes for each collection job, and can be used for troubleshooting.
-
-### Collected metadata
-
-The collector appliance discovers the following configuration metadata for each VM. The configuration data for the VMs is available an hour after you start discovery.
-
-- VM display name (on vCenter Server)
-- VM’s inventory path (the host/folder on vCenter Server)
-- IP address
-- MAC address
-- Operating system
-- Number of cores, disks, NICs
-- Memory size, Disk sizes
-- Performance counters of the VM, disk and network.
-
-#### Performance counters
-
- The collector appliance collects the following performance counters for each VM from the ESXi host at an interval of 20 seconds. These counters are vCenter counters and although the terminology says average, the 20-second samples are real time counters. The performance data for the VMs starts becoming available in the portal two hours after you have kicked off the discovery. It is strongly recommended to wait for at least a day before creating performance-based assessments to get accurate right-sizing recommendations. If you are looking for instant gratification, you can create assessments with sizing criterion as *as on-premises* which will not consider the performance data for right-sizing.
-
-**Counter** |  **Impact on assessment**
---- | ---
-cpu.usage.average | Recommended VM size and cost  
-mem.usage.average | Recommended VM size and cost  
-virtualDisk.read.average | Calculates disk size, storage cost, VM size
-virtualDisk.write.average | Calculates disk size, storage cost, VM size
-virtualDisk.numberReadAveraged.average | Calculates disk size, storage cost, VM size
-virtualDisk.numberWriteAveraged.average | Calculates disk size, storage cost, VM size
-net.received.average | Calculates VM size                          
-net.transmitted.average | Calculates VM size     
 
 ## Next steps
 

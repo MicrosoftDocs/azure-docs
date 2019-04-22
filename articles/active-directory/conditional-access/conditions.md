@@ -19,8 +19,9 @@ ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
 
-#Customer intent: As a IT admin, I need to understand the conditions in conditional access so that I can set them according to my business needs
+#Customer intent: As an IT admin, I need to understand the conditions in conditional access so that I can set them according to my business needs
 
+ms.collection: M365-identity-device-management
 ---
 
 # What are conditions in Azure Active Directory conditional access? 

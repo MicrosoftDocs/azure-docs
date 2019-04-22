@@ -22,7 +22,7 @@ Azure SQL Database can be configured using <a href="/cli/azure">Azure CLI</a>.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Single database & Elastic pools
 
@@ -46,9 +46,9 @@ The following table includes links to Azure CLI script examples for Azure SQL Da
 
 | |  |
 |---|---|
-| [Create a Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/) | This CLI script shows how to create a Managed Instance. |
-| [Update a Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/) | This CLI script shows how to update a Managed Instance. |
-| [Move a database to another Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | This CLI script shows how to restore a backup of a database from one instance to another. |
+| [Create a Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/) | This CLI script shows how to create a Managed Instance. |
+| [Update a Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/) | This CLI script shows how to update a Managed Instance. |
+| [Move a database to another Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | This CLI script shows how to restore a backup of a database from one instance to another. |
 |||
 
 Learn more about the [Managed Instance Azure CLI API](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) and find [additional examples here](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).

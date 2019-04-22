@@ -25,7 +25,7 @@ This solution provides a reference architecture for a PaaS web application with 
 
 The architecture can deliver a secure hybrid environment that extends an on-premises network to Azure, allowing web-based workloads to be accessed securely by corporate users of an organization’s private local-area network or from the internet. For on-premises solutions, the customer is both accountable and responsible for all aspects of security, operations, and compliance.
 
-The Azure resources included in this solution can connect to an on-premises network or datacentre colocation facility (e.g. CDC in Canberra) through an IPSec VPN using a VPN Gateway and through ExpressRoute. The decision to utilise a VPN should be done with the classification of the transmitted data and the network path in mind. Customers running large-scale, mission critical workloads with big data requirements should consider a hybrid network architecture using ExpressRoute for private network connectivity to Azure services. Refer to the [guidance and recommendations](#guidance-and-recommendations) section for further details on connection mechanisms to Azure.
+The Azure resources included in this solution can connect to an on-premises network or datacentre colocation facility (e.g. CDC in Canberra) through an IPSec VPN using a VPN Gateway and through ExpressRoute. The decision to utilize a VPN should be done with the classification of the transmitted data and the network path in mind. Customers running large-scale, mission critical workloads with big data requirements should consider a hybrid network architecture using ExpressRoute for private network connectivity to Azure services. Refer to the [guidance and recommendations](#guidance-and-recommendations) section for further details on connection mechanisms to Azure.
 
 Federation with Azure Active Directory should be used to enable users to authenticate using on-premises credentials and access all resources in the cloud by using an on-premises Active Directory Federation Services infrastructure. Active Directory Federation Services can provide simplified, secured identity federation and web single sign-on capabilities for this hybrid environment. Refer to the [guidance and recommendations](#guidance-and-recommendations) section for further details Azure Active Directory setup.
 
@@ -54,7 +54,7 @@ This solution uses the following Azure services. Further details are in the [dep
 - Azure Security Center
 - Azure SQL Database
 - Azure Storage
-- Azure Log Analytics
+- Azure Monitor logs
 - Azure Virtual Network
 	- (1) /16 Network
 	- (4) /24 Networks
@@ -112,7 +112,7 @@ The architecture defines a private virtual network with an address space of 10.2
 Each of the network security groups have specific ports and protocols open so that the solution can work securely and correctly. In addition, the following configurations are enabled for each network security group:
 
   -	[Diagnostic logs and events](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) are enabled and stored in a storage account
-  -	Azure Log Analytics is connected to the [network security group's diagnostics](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  -	Azure Monitor logs is connected to the [network security group's diagnostics](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Subnets**: Each subnet is associated with its corresponding network security group.
 
@@ -123,11 +123,11 @@ The Domain Name System, or DNS, is responsible for translating (or resolving) a 
 [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) allows customers to scale their applications and create high availability for services. Load Balancer supports inbound as well as outbound scenarios, and provides low latency, high throughput, and scales up to millions of flows for all TCP and UDP applications.
 
 ### Data in transit
-Azure encrypts all communications to and from Azure datacentres by default. 
+Azure encrypts all communications to and from Azure datacenters by default. 
 
 For Protected data in transit from customer owned networks, the Architecture uses Azure the Internet or ExpressRoute with a VPN Gateway configured with IPSEC.
 
-Additionally, all transactions to Azure through the Azure management portal occur via HTTPS utilising TLS v1.2.
+Additionally, all transactions to Azure through the Azure management portal occur via HTTPS utilizing TLS v1.2.
 
 ### Data at rest
 The architecture protects data at rest through encryption, database auditing, and other measures.
@@ -194,9 +194,9 @@ Azure services extensively log system and user activity, as well as system healt
 - **Activity logs**: [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into operations performed on resources in a subscription. Activity logs can help determine an operation's initiator, time of occurrence, and status.
 - **Diagnostic logs**: [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) include all logs emitted by every resource. These logs include Windows event system logs, Azure Storage logs, Key Vault audit logs, and Application Gateway access and firewall logs. All diagnostic logs write to a centralized and encrypted Azure storage account for archival. The retention is user-configurable, up to 730 days, to meet organization-specific retention requirements.
 
-**Log Analytics**: These logs are consolidated in [Log Analytics](https://azure.microsoft.com/services/log-analytics/) for processing, storing, and dashboard reporting. Once collected, the data is organized into separate tables for each data type, which allows all data to be analysed together regardless of its original source. Furthermore, Azure Security Center integrates with Log Analytics allowing customers to use Log Analytics queries to access their security event data and combine it with data from other services.
+**Azure Monitor logs**: These logs are consolidated in [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/) for processing, storing, and dashboard reporting. Once collected, the data is organized into separate tables for each data type, which allows all data to be analyzed together regardless of its original source. Furthermore, Azure Security Center integrates with Azure Monitor logs allowing customers to use Kusto queries to access their security event data and combine it with data from other services.
 
-The following Log Analytics [management solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) are included as a part of this architecture:
+The following Azure [monitoring solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) are included as a part of this architecture:
 -	[Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Active Directory Health Check solution assesses the risk and health of server environments on a regular interval and provides a prioritized list of recommendations specific to the deployed server infrastructure.
 - [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): The SQL Health Check solution assesses the risk and health of server environments on a regular interval and provides customers with a prioritized list of recommendations specific to the deployed server infrastructure.
 - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): The Agent Health solution reports how many agents are deployed and their geographic distribution, as well as how many agents which are unresponsive and the number of agents which are submitting operational data.

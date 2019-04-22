@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with InsideView
 
@@ -34,7 +35,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with InsideView, you need the following items:
 
 - An Azure AD subscription
-- A InsideView single sign-on enabled subscription
+- An InsideView single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -87,7 +88,7 @@ To configure and test Azure AD single sign-on with InsideView, you need to compl
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a InsideView test user](#creating-a-insideview-test-user)** - to have a counterpart of Britta Simon in InsideView that is linked to the Azure AD representation of user.
+1. **[Creating an InsideView test user](#creating-a-insideview-test-user)** - to have a counterpart of Britta Simon in InsideView that is linked to the Azure AD representation of user.
 1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -112,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    	In the **Reply URL** textbox, type a URL using the following pattern: `https://my.insideview.com/iv/<STS Name>/login.iv`
 
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Reply URL. Contact [InsideView support team ](mailto:support@insideview.com) to get this value.
+	> This value is not real. Update this value with the actual Reply URL. Contact [InsideView support team](mailto:support@insideview.com) to get this value.
  
 1. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
 
@@ -187,7 +188,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Creating a InsideView test user
+### Creating an InsideView test user
 
 To enable Azure AD users to log in to InsideView, they must be provisioned in to InsideView. In the case of InsideView, provisioning is a manual task.
 

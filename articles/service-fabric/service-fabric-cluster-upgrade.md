@@ -23,7 +23,7 @@ For any modern system, designing for upgradability is key to achieving long-term
 
 ## Controlling the fabric version that runs on your cluster
 
-Make sure to keep your cluster running a supported fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced on the service fabric team blog. The new release is available to choose then.
+Make sure to keep your cluster running a [supported fabric version](service-fabric-versions.md) always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced on the service fabric team blog. The new release is available to choose then.
 
 14 days prior to the expiry of the release your cluster is running, a health event is generated that puts your cluster into a warning health state. The cluster remains in a warning state until you upgrade to a supported fabric version.
 
@@ -97,8 +97,6 @@ Many different configuration settings can be customized on a cluster, such as th
 ## Patch the OS in the cluster nodes
 The patch orchestration application (POA) is a Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime. The [Patch Orchestration Application for Windows](service-fabric-patch-orchestration-application.md) or [Patch Orchestration Application for Linux](service-fabric-patch-orchestration-application-linux.md) can be deployed on your cluster to install patches in an orchestrated manner while keeping the services available all the time. 
 
-## OS upgrades on the VMs that make up the cluster
-If you must upgrade the OS image on the virtual machines of the cluster, you must do it one VM at a time. You are responsible for this upgrade--there is currently no automation for this.
 
 ## Next steps
 * Learn how to customize some of the [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md)

@@ -42,20 +42,22 @@ In this section, you will prepare a development environment used to build the [A
 
 The SDK includes the sample code for a simulated device. This simulated device will attempt provisioning during the device's boot sequence.
 
-1. Download the version 3.11.4 of the [CMake build system](https://cmake.org/download/). Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
+1. Download the [CMake build system](https://cmake.org/download/). Verify the downloaded binary using the cryptographic hash value that corresponds to the version you download. The cryptographic hash values are also located from the CMake download link already provided.
+
+    The following example used Windows PowerShell to verify the cryptographic hash for version 3.13.4 of the x64 MSI distribution:
 
     ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
-    
-    The following hash values for version 3.11.4 were listed on the CMake site at the time of this writing:
+
+    The following hash values for version 3.13.4 were listed on the CMake site at the time of this writing:
 
     ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
+    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
+    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
     It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
@@ -110,15 +112,15 @@ The SDK includes the sample code for a simulated device. This simulated device w
 
 3. On **Add enrollment**, enter the following information, and click the **Save** button.
 
-    - **Mechanism**: Select **Symmetric Key** as the identity attestation *Mechanism*.
+   - **Mechanism**: Select **Symmetric Key** as the identity attestation *Mechanism*.
 
-    - **Auto Generate Keys**: Check this box.
+   - **Auto Generate Keys**: Check this box.
 
-    - **Registration ID**: Enter a registration ID to identify the enrollment. Use only lowercase alphanumeric and dash ('-') characters. For example, `symm-key-device-007`.
+   - **Registration ID**: Enter a registration ID to identify the enrollment. Use only lowercase alphanumeric and dash ('-') characters. For example, `symm-key-device-007`.
 
-    - **IoT Hub Device ID:** Enter a device identifier. For example, **device-007**.
+   - **IoT Hub Device ID:** Enter a device identifier. For example, **device-007**.
 
-    ![Add individual enrollment for symmetric key attestation in the portal](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
+     ![Add individual enrollment for symmetric key attestation in the portal](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
 4. Once you saved your enrollment, the **Primary Key** and **Secondary Key** will be generated and added to the enrollment entry. Your symmetric key device enrollment appears as **symm-key-device-007** under the *Registration ID* column in the *Individual Enrollments* tab. 
 

@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
 
----  
+---
 
 # Azure Applications: Solution Template Offer Publishing Guide
 
@@ -35,7 +35,6 @@ These solution templates are transaction offers, which are deployed and billed t
 |Azure-compatible virtual hard disk (VHD)  |   VMs must be built on Windows or Linux.  For more information, [see Create an Azure-compatible VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md). |
 | Customer Usage Attribution | Enabling customer usage attribution is required on all solution templates published to the Azure Marketplace. For more information on customer usage attribution and how to enable it, see [Azure partner customer usage attribution](./azure-partner-customer-usage-attribution.md).  |
 |  |  |
-
 
 ## Next steps
 If you haven't already done so, [register](https://azuremarketplace.microsoft.com/sell) in the marketplace.

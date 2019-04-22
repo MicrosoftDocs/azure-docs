@@ -1,12 +1,12 @@
 ---
-title: Connect to Excel Online - Azure Logic Apps | Microsoft Docs
+title: Connect to Excel Online - Azure Logic Apps
 description: Manage data with Excel Online REST APIs and Azure Logic Apps
-ms.service: logic-apps
 services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.suite: integration
 tags: connectors
 ms.topic: article
 ms.date: 08/23/2018
@@ -18,7 +18,7 @@ With Azure Logic Apps and the Excel Online connector,
 you can create automated tasks and workflows based 
 on your data in Excel Online for Business or OneDrive. 
 This connector provides actions that help you work with 
-your data and manage spreadsheets, for example: 
+your data and manage spreadsheets, for example:
 
 * Create new worksheets and tables.
 * Get and manage worksheets, tables, and rows.
@@ -42,10 +42,10 @@ If you're new to logic apps, review
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
 * An [Office 365 account](https://www.office.com/) 
-for your work account or personal Microsoft account 
+for your work account or personal Microsoft account
 
   Your Excel data can exist as a comma-separated 
   value (CSV) file in a storage folder, for example, in OneDrive. 
@@ -69,7 +69,7 @@ logic app in the Logic App Designer, if not already open.
 1. In the search box, enter "excel" as your filter. Under the actions list, 
 select the action you want.
 
-1. If prompted to sign in to your Office 365 account, choose **Sign in**. 
+1. If prompted to sign in to your Office 365 account, choose **Sign in**.
 
    Your credentials authorize your logic app to create a 
    connection to Excel Online and access your data.
@@ -79,11 +79,12 @@ and building your logic app's workflow.
 
 ## Connector reference
 
-For technical details, such as actions and limits, described 
-by the connectors' Swagger files, see these connector reference pages:
+For technical details, such as triggers, actions, and limits, 
+as described by the connector's OpenAPI (formerly Swagger) files, 
+see these connector reference pages:
 
-* [Excel Online for Business](/connectors/excelonlinebusiness/) 
-* [Excel Online for OneDrive](/connectors/excelonline/) 
+* [Excel Online for Business](/connectors/excelonlinebusiness/)
+* [Excel Online for OneDrive](/connectors/excelonline/)
 
 ## Get support
 

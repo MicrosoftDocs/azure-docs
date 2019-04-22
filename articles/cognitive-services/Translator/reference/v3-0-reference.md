@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Reference documentation for the Translator Text API V3.0.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
@@ -47,7 +47,7 @@ To force the request to be handled by a specific datacenter, change the Global e
 
 ## Authentication
 
-Subscribe to Translator Text API or [Cognitive Services all-in-one](https://azure.microsoft.com/pricing/details/cognitive-services/) in Microsoft Cognitive Services, and use your subscription key (available in the Azure portal) to authenticate. 
+Subscribe to Translator Text API or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Microsoft Cognitive Services, and use your subscription key (available in the Azure portal) to authenticate. 
 
 There are three headers that you can use to authenticate your subscription. This table provides describes how each is used:
 
@@ -55,7 +55,7 @@ There are three headers that you can use to authenticate your subscription. This
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Use with Cognitive Services subscription if you are passing your secret key*.<br/>The value is the Azure secret key for your subscription to Translator Text API.|
 |Authorization|*Use with Cognitive Services subscription if you are passing an authentication token.*<br/>The value is the Bearer token: `Bearer <token>`.|
-|Ocp-Apim-Subscription-Region|*Use with Cognitive Services all-in-one subscription if you are passing an all-in-one secret key.*<br/>The value is the region of the all-in-one subscription. This value is optional when not using an all-in-one subscription.|
+|Ocp-Apim-Subscription-Region|*Use with Cognitive Services multi-service subscription if you are passing an multi-service secret key.*<br/>The value is the region of the multi-service subscription. This value is optional when not using an multi-service subscription.|
 
 ###  Secret key
 The first option is to authenticate using the `Ocp-Apim-Subscription-Key` header. Simply add the `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` header to your request.
@@ -85,21 +85,22 @@ Authorization: Bearer <Base64-access_token>
 
 An authentication token is valid for 10 minutes. The token should be re-used when making multiple calls to the Translator APIs. However, if your program makes requests to the Translator API over an extended period of time, then your program must request a new access token at regular intervals (e.g. every 8 minutes).
 
-### All-in-one subscription
+### Multi-service subscription
 
-The last authentication option is to use a Cognitive Service’s all-in-one subscription. This allows you to use a single secret key to authenticate requests for multiple services. 
+The last authentication option is to use a Cognitive Service’s multi-service subscription. This allows you to use a single secret key to authenticate requests for multiple services. 
 
-When you use an all-in-one secret key, you must include two authentication headers with your request. The first passes the secret key, the second specifies the region associated with your subscription. 
-* `Ocp-Api-Subscription-Key`
+When you use a multi-service secret key, you must include two authentication headers with your request. The first passes the secret key, the second specifies the region associated with your subscription. 
+* `Ocp-Apim-Subscription-Key`
 * `Ocp-Apim-Subscription-Region`
+
+Region is required for the multi-service Text API subscription. The region you select is the only region that you can use for text translation when using the multi-service subscription key, and must be the same region you selected when you signed up for your multi-service subscription through the Azure portal.
+
+Available regions are `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, and `westus2`.
 
 If you pass the secret key in the query string with the parameter `Subscription-Key`, then you must specify the region with query parameter `Subscription-Region`.
 
 If you use a bearer token, you must obtain the token from the region endpoint: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
-Available regions are `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, and `westus2`.
-
-Region is required for the all-in-one Text API subscription.
 
 ## Errors
 

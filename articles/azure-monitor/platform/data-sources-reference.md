@@ -13,6 +13,8 @@ ms.subservice: ""
 
 Across the Azure platform, we are bringing together monitoring data in a single place with the Azure Monitor pipeline, but practically acknowledge that today not all monitoring data is available in that pipeline yet. In this article, we will summarize the various ways you can programmatically access monitoring data from Azure services.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Options for data consumption
 
 | Data type | Category | Supported Services | Methods of access |
@@ -34,7 +36,7 @@ Across the Azure platform, we are bringing together monitoring data in a single 
 | Azure Monitor metric alerts | Notifications | [See list here](metrics-supported.md) | <ul><li>**Webhook:** [Azure metric alerts](alerts-webhooks.md)</li></ul> |
 | Azure Monitor Activity Log alerts | Notifications | All Azure services | <ul><li>**Webhook:** Azure Activity Log alerts</li></ul> |
 | Autoscale notifications | Notifications | [See list here](autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [Autoscale notification webhook payload schema](autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Log Search Query alerts | Notifications | Log Analytics | <ul><li>**Webhook:** [Webhook action for log alert rules](alerts-log-webhook.md)</li></ul> |
+| Log Search Query alerts | Notifications | Azure Monitor logs | <ul><li>**Webhook:** [Webhook action for log alert rules](alerts-log-webhook.md)</li></ul> |
 | Application Insights metric alerts | Notifications | Application Insights | <ul><li>**Webhook:** [Application Insights alerts](../../azure-monitor/app/alerts.md)</li></ul> |
 | Application Insights web tests | Notifications | Application Insights | <ul><li>**Webhook:** [Application Insights alerts](../../azure-monitor/app/alerts.md)</li></ul> |
 

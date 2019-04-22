@@ -36,7 +36,7 @@ For more information:
 
 ## SQL Data Warehouse
 
-To migrate Azure SQL Data Warehouse resources from Azure Germany to global Azure, follow the steps that are described in [Azure SQL Database](#azure-sql-database).
+To migrate Azure SQL Data Warehouse resources from Azure Germany to global Azure, follow the steps that are described in Azure SQL Database.
 
 ## Azure Cosmos DB
 
@@ -50,12 +50,12 @@ To migrate Azure Cosmos DB resources, we recommend that you complete the followi
 1. Clone the account configurations from Azure Germany to the new region by running the data migration tool.
 1. If using a maintenance window is possible, copy data from the source to the destination by running the data migration tool.
 1. If using a maintenance window isn't an option, copy data from the source to the destination by running the tool, and then complete these steps:
-  1. Use a config-driven approach to make changes to read/write in an application.
-  1. Complete a first-time sync.
-  1. Set up an incremental sync and catch up with the change feed.
-  1. Point reads to the new account and validate the application.
-  1. Stop writes to the old account, validate that the change feed is caught up, and then point writes to the new account.
-  1. Stop the tool and delete the old account.
+   1. Use a config-driven approach to make changes to read/write in an application.
+   1. Complete a first-time sync.
+   1. Set up an incremental sync and catch up with the change feed.
+   1. Point reads to the new account and validate the application.
+   1. Stop writes to the old account, validate that the change feed is caught up, and then point writes to the new account.
+   1. Stop the tool and delete the old account.
 1. Run the tool to validate that data is consistent across old and new accounts.
 
 For more information:
@@ -103,8 +103,8 @@ To export from the source instance and import to the destination instance:
 1. Create a new Premium tier Azure Cache for Redis instance in the target region. Use the same size as the source Azure Cache for Redis instance.
 1. [Export data from the source cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Export-AzureRmRedisCache PowerShell cmdlet](/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.4.0).
 
-  > [!NOTE]
-  > The export Azure Storage account must be in the same region as the cache instance.
+   > [!NOTE]
+   > The export Azure Storage account must be in the same region as the cache instance.
 
 1. Copy the exported blobs to a storage account in destination region (for example, by using AzCopy).
 1. [Import data to the destination cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Import-AzureRmRedisCAche PowerShell cmdlet](/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.4.0).

@@ -18,7 +18,7 @@ ms.author: microsofthelp@twilio.com
 
 ---
 # How to Make a Phone Call Using Twilio in a Java Application on Azure
-The following example shows you how you can use Twilio to make a call from a web page hosted in Azure. The resulting application will prompt the user for phone call values, as shown in the following screen shot.
+The following example shows you how you can use Twilio to make a call from a web page hosted in Azure. The resulting application will prompt the user for phone call values, as shown in the following screenshot.
 
 ![Azure Call Form Using Twilio and Java][twilio_java]
 
@@ -158,7 +158,7 @@ The following code, which is called when the user completes the form displayed b
     </body>
     </html>
 
-In addition to making the call, makecall.jsp displays the Twilio endpoint, API version, and the call status. An example is the following screen shot:
+In addition to making the call, makecall.jsp displays the Twilio endpoint, API version, and the call status. An example is the following screenshot:
 
 ![Azure Call Response Using Twilio and Java][twilio_java_response]
 
@@ -169,7 +169,7 @@ Following are the high-level steps to run your application; details for these st
 2. Modify **startup.cmd** to unzip your TwilioCloud WAR.
 3. Compile your application for the compute emulator.
 4. Start your deployment in the compute emulator.
-5. Open a browser, and run **http://localhost:8080/TwilioCloud/callform.jsp**.
+5. Open a browser, and run `http://localhost:8080/TwilioCloud/callform.jsp`.
 6. Enter values in the form, click **Make this call**, and then see the results in makecall.jsp.
 
 When you are ready to deploy to Azure, recompile for deployment to the cloud, deploy to Azure, and run http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp in the browser (substitute your value for *your_hosted_name*).

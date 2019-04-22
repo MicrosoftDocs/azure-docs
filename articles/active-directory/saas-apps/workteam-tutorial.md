@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Workteam
 
@@ -196,7 +197,7 @@ To enable Azure AD users to login to Workteam, they must be provisioned into Wor
 
 	a. In the **Name** text box, enter the first name of user like **Brittasimon**.
 
-	b. In **Email** text box, enter the email of user like **Brittasimon@contoso.com**.
+	b. In **Email** text box, enter the email of user like **Brittasimon\@contoso.com**.
 
 	c. Click **OK**.
 

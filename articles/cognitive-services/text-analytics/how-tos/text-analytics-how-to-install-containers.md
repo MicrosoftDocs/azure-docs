@@ -4,12 +4,12 @@ titleSuffix: Text Analytics -  Azure Cognitive Services
 description: How to download, install, and run containers for Text Analytics in this walkthrough tutorial.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 03/22/2019
 ms.author: diberry
 ---
 
@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-In order to run any of the Text Analytics containers, you must have the following:
+In order to run any of the Text Analytics containers, you must have the host computer and container environments.
 
 ## Preparation
 
@@ -35,19 +35,22 @@ You must meet the following prerequisites before using Text Analytics containers
 
 ### The host computer
 
-[!INCLUDE [Request access to private preview](../../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### Container requirements and recommendations
 
 The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Text Analytics container.
 
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
-|Key Phrase Extraction | 1 core, 2 GB memory | 1 core, 4 GB memory |
-|Language Detection | 1 core, 2 GB memory | 1 core, 4 GB memory |
-|Sentiment Analysis | 1 core, 2 GB memory | 1 core, 4 GB memory |
+| Container | Minimum | Recommended | TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Key Phrase Extraction | 1 core, 2 GB memory | 1 core, 4 GB memory |15, 30|
+|Language Detection | 1 core, 2 GB memory | 1 core, 4 GB memory |15, 30|
+|Sentiment Analysis | 1 core, 2 GB memory | 1 core, 4 GB memory |15, 30|
 
-Core and memory correspond to the `--cpus` and `--memory` settings which are used as part of the `docker run` command.
+* Each core must be at least 2.6 gigahertz (GHz) or faster.
+* TPS - transactions per second
+
+Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
 
@@ -59,7 +62,7 @@ Container images for Text Analytics are available from Microsoft Container Regis
 |Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Sentiment Analysis | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry..
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
 
 For a full description of available tags for the Text Analytics containers, see the following containers on the Docker Hub:
 
@@ -72,19 +75,19 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 ### Docker pull for the Key phrase extraction container
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 ```
 
 ### Docker pull for the language detection container
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 ```
 
 ### Docker pull for the sentiment container
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
@@ -120,7 +123,7 @@ ApiKey={BILLING_KEY}
 This command:
 
 * Runs a key phrase container from the container image
-* Allocates one CPU cores and 4 gigabytes (GB) of memory
+* Allocates one CPU core and 4 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer. 
 
@@ -129,11 +132,13 @@ More [examples](../text-analytics-resource-container-config.md#example-docker-ru
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
+[!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. 
 
-Use the host, https://localhost:5000, for container APIs.
+Use the host, `https://localhost:5000`, for container APIs.
 
 ## Stop the container
 
@@ -151,18 +156,7 @@ If you run the container with an output [mount](../text-analytics-resource-conta
 
 The Text Analytics containers send billing information to Azure, using a _Text Analytics_ resource on your Azure account. 
 
-Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft. 
-
-The `docker run` command uses the following arguments for billing purposes:
-
-| Option | Description |
-|--------|-------------|
-| `ApiKey` | The API key of the _Text Analytics_ resource used to track billing information. |
-| `Billing` | The endpoint of the _Text Analytics_ resource used to track billing information.|
-| `Eula` | Indicates that you've accepted the license for the container.<br/>The value of this option must be set to `accept`. |
-
-> [!IMPORTANT]
-> All three options must be specified with valid values, or the container won't start.
+[!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](../text-analytics-resource-container-config.md).
 

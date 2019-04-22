@@ -31,6 +31,9 @@ In the Azure portal, navigate to your Automation Account. Under **Monitoring**, 
 
    If you want to alert on a status or runbook that isn't shown in the dropdown, click the **\+** next to the dimension. This action opens a dialog that allows you to enter in a custom value, which hasn't emitted for that dimension recently. If you enter a value that doesn't exist for a property your alert won't be triggered.
 
+   > [!NOTE]
+   > If you don't apply a name for the **RunbookName** dimension, if there are any runbooks that meet the status criteria, which includes hidden system runbooks, you will receive an alert.
+
 3. Under **Alert logic**, define the condition and threshold for your alert. A preview of your condition defined is shown underneath.
 
 4. Under **Evaluated based on**, select the timespan for the query and how often you want that query ran. For example, if you choose **Over the last 5 minutes** for **Period** and **Every 1 Minute** for **Frequency**, the alert looks for the number of runbooks that met your criteria over the past 5 minutes. This query is run every minute, and once the alert criteria you defined is no longer found in a 5-minute window, the alert resolves itself. When finished, click **Done**.

@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ---
 # Azure SQL Database Premium RS service tier (preview) is being retired - options for migration
 
@@ -44,8 +44,8 @@ For your compute-intensive Premium RS workloads, we recommend migrating to our g
 
 |**If you are currently on…**|**Migrate to comparable vCore-based…**|**Migrate to comparable DTU-based…**|
 |---|---|---|
-|Premium RS 1|General Purpose 1 vCore (Gen 4)|Standard 3|
-|Premium RS 2|General Purpose 2 vCores (Gen 4)|Standard 4|
+|Premium RS 1|General Purpose 1 vCore (Gen4)|Standard 3|
+|Premium RS 2|General Purpose 2 vCores (Gen4)|Standard 4|
 |Premium RS 4|General Purpose 4 vCores (Gen4)|Standard 6|
 |Premium RS 6|General Purpose 6 vCores (Gen4)|Standard 7|
 
@@ -53,8 +53,8 @@ For your compute-intensive Premium RS workloads, we recommend migrating to our g
 
 |**If you are currently on…**|**Migrate to comparable vCore-based…**|**Migrate to comparable DTU-based…**|
 |---|---|---|
-|Premium RS pool 125 DTU|General Purpose 1 vCore (Gen 4)|Standard pool 100 eDTUs|
-|Premium RS pool 250 DTU|General Purpose 2 vCores (Gen 4)|Standard pool 250 eDTUs|
+|Premium RS pool 125 DTU|General Purpose 1 vCore (Gen4)|Standard pool 100 eDTUs|
+|Premium RS pool 250 DTU|General Purpose 2 vCores (Gen4)|Standard pool 250 eDTUs|
 |Premium RS pool 500 DTU|General Purpose 4 vCores (Gen4)|Standard pool 500 eDTUs|
 |Premium RS pool 1000 DTU|General Purpose 8 vCores (Gen4)|Standard pool 1000 eDTUs|
 
@@ -64,10 +64,10 @@ We recommend migrating your IO-intensive single databases to our vCore-based Hyp
 
 |**If you are currently on…**|**Migrate to comparable vCore-based…**|**Migrate to comparable DTU-based…**|
 |---|---|---|
-|Premium RS 1|(Preview) Hyperscale 1 vCore (Gen 4) or Business Critical 1 vCore (Gen 4)|Premium 1|
-|Premium RS 2|(Preview) Hyperscale 2 vCores (Gen 4) or Business Critical 2 vCores (Gen 4|Premium 2|
-|Premium RS 4|(Preview) Hyperscale 4 vCores (Gen 4) or Business Critical 4 vCores (Gen4)|Premium 4
-|Premium RS 6|(Preview) Hyperscale 6 vCores (Gen 4) or Business Critical 6 vCores (Gen4)|Premium 6|
+|Premium RS 1|(Preview) Hyperscale 1 vCore (Gen4) or Business Critical 1 vCore (Gen4)|Premium 1|
+|Premium RS 2|(Preview) Hyperscale 2 vCores (Gen4) or Business Critical 2 vCores (Gen4|Premium 2|
+|Premium RS 4|(Preview) Hyperscale 4 vCores (Gen4) or Business Critical 4 vCores (Gen4)|Premium 4
+|Premium RS 6|(Preview) Hyperscale 6 vCores (Gen4) or Business Critical 6 vCores (Gen4)|Premium 6|
 
 |**If you are currently on…**|**Migrate to comparable vCore-based…**|**Migrate to comparable DTU-based…**|
 |---|---|---|

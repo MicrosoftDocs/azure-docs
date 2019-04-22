@@ -46,6 +46,8 @@ Use these steps to create a local Jupyter Notebook server on your computer.
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
+The quickstart instructions will install the packages you need to run the quickstart and tutorial notebooks.  Other sample notebooks may require installation of additional components.  For more information about these components, see [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+
 <a name="automated-ml-setup"></a>
 
 ## Automated machine learning setup 
@@ -77,7 +79,7 @@ While you can use any of the above options, you can also install the environment
       + Starts a jupyter notebook
       
    >[!NOTE]
-   > The script takes the conda environment name as an optional parameter. The default conda environment name is `azure_automl`. The exact command depends on the operating system. This is useful if you are creating a new environment or upgrading to a new version. For example you can use 'automl_setup.cmd azure_automl_sandbox' to create an evironment name azure_automl_sandbox. 
+   > The script takes the conda environment name as an optional parameter. The default conda environment name is `azure_automl`. The exact command depends on the operating system. This is useful if you are creating a new environment or upgrading to a new version. For example you can use 'automl_setup.cmd azure_automl_sandbox' to create an environment name azure_automl_sandbox. 
       
 1. Once the script has completed, you will see a Jupyter notebook home page in your browser.
 

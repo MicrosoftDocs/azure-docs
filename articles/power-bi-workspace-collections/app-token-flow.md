@@ -101,7 +101,7 @@ The following are the available scopes for Power BI Workspace Collections.
 
 You can supply multiple scopes by using a space between the scopes like the following.
 
-```
+```csharp
 string scopes = "Dataset.Read Workspace.Report.Create";
 ```
 
@@ -177,4 +177,4 @@ After **Power BI Workspace Collections** sends a report to the user, the user ca
 [Get started with Microsoft Power BI Workspace Collections](get-started.md)  
 [PowerBI-CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)

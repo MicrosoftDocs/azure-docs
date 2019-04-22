@@ -31,7 +31,7 @@ A **Workspace Collection** is the top-level Azure resource and a container for t
 
 Let's walk through the steps to build a **Workspace Collection** using the Azure portal.
 
-1. Open and sign into **Azure portal**: [http://portal.azure.com](http://portal.azure.com).
+1. Open and sign into **Azure portal**: [https://portal.azure.com](https://portal.azure.com).
 2. Select **+ New** on the top panel.
    
    ![+ New within Azure portal](media/get-started/create-workspace-1.png)
@@ -113,5 +113,5 @@ You can create a report from a dataset directly in your application using the Ja
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)
 

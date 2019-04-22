@@ -19,8 +19,9 @@ ms.date: 11/20/2018
 ms.author: markvi
 ms.reviewer: nigu
 
-#Customer intent: As a IT admin, I want to know how to use the What If tool for my existing conditional access policies, so that I can understand the impact they have on my environment. 
+#Customer intent: As an IT admin, I want to know how to use the What If tool for my existing conditional access policies, so that I can understand the impact they have on my environment. 
 
+ms.collection: M365-identity-device-management
 ---
 
 # What is the what if tool in Azure Active Directory conditional access?

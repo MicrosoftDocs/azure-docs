@@ -78,6 +78,8 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![Eclipse Azure Config Menu](./media/java-quick-start/0007-j.png)
 
+5. After configuring the Application Insights plugin you need to [publish/republish](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#publish-the-web-app-to-azure) your application again, before it will be able to start sending telemetry.
+
 > [!NOTE]
 > The Application Insights SDK for Java is capable of capturing and visualizing live metrics, but when you first enable telemetry collection it can take a few minutes before data begins appearing in the portal. If this app is a low-traffic test app, keep in mind that most metrics are only captured when there are active requests or operations.
 

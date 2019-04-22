@@ -3,7 +3,7 @@ title: Create an Azure Service Fabric container application | Microsoft Docs
 description: Create your first Windows container application on Azure Service Fabric. Build a Docker image with a Python application, push the image to a container registry, build and deploy a Service Fabric container application.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: jpconnock
 editor: 'vturecek'
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
-ms.author: twhitney
+ms.author: aljo
 ---
 
 # Create your first Service Fabric container application on Windows
@@ -149,7 +149,7 @@ If that command does not return anything, run the following command and inspect 
 docker inspect my-web-site
 ```
 
-Connect to the running container. Open a web browser pointing to the IP address returned, for example "http://172.31.194.61". You should see the heading "Hello World!" display in the browser.
+Connect to the running container. Open a web browser pointing to the IP address returned, for example "http:\//172.31.194.61". You should see the heading "Hello World!" display in the browser.
 
 To stop your container, run:
 
@@ -356,10 +356,12 @@ Service Fabric then uses the default repository credentials which you can specif
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
 * DefaultContainerRepositoryPasswordType (string) --- Supported starting with the 6.4 runtime
 
-Here is an example of what you can add inside the `Hosting` section in the ClusterManifestTemplate.json file. For more information, see [Change Azure Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md) and [Manage Azure Service Fabric application secrets](service-fabric-application-secret-management.md)
+Here is an example of what you can add inside the `Hosting` section in the ClusterManifestTemplate.json file. The `Hosting` section can be added at cluster creation or later in a configuration upgrade. For more information, see [Change Azure Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md) and [Manage Azure Service Fabric application secrets](service-fabric-application-secret-management.md)
 
 ```json
-      {
+"fabricSettings": [
+	...,
+	{
         "name": "Hosting",
         "parameters": [
           {
@@ -384,6 +386,7 @@ Here is an example of what you can add inside the `Hosting` section in the Clust
           }
         ]
       },
+]
 ```
 
 ## Configure isolation mode
@@ -525,8 +528,8 @@ Here are the complete service and application manifests used in this article.
 <ServiceManifest Name="Guest1Pkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -572,8 +575,8 @@ Here are the complete service and application manifests used in this article.
 <ApplicationManifest ApplicationTypeName="MyFirstContainerType"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
     <Parameter Name="Guest1_InstanceCount" DefaultValue="-1" />
   </Parameters>
@@ -616,10 +619,12 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## Configure time interval before container is force terminated
 
-You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.  For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The following cluster manifest snippet shows how to set the wait interval:
+You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.  For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The `Hosting` section can be added at cluster creation or later in a configuration upgrade. The following cluster manifest snippet shows how to set the wait interval:
 
 ```json
-{
+"fabricSettings": [
+	...,
+	{
         "name": "Hosting",
         "parameters": [
           {
@@ -628,7 +633,8 @@ You can configure a time interval for the runtime to wait before the container i
           },
 	      ...
         ]
-}
+	}
+]
 ```
 The default time interval is set to 10 seconds. Since this configuration is dynamic, a config only upgrade on the cluster updates the timeout. 
 
@@ -639,7 +645,9 @@ You can configure the Service Fabric cluster to remove unused container images f
 
 
 ```json
-{
+"fabricSettings": [
+	...,
+	{
         "name": "Hosting",
         "parameters": [
           {
@@ -653,7 +661,8 @@ You can configure the Service Fabric cluster to remove unused container images f
           ...
           }
         ]
-} 
+	} 
+]
 ```
 
 For images that shouldn't be deleted, you can specify them under the `ContainerImagesToSkip` parameter.  
@@ -664,7 +673,9 @@ For images that shouldn't be deleted, you can specify them under the `ContainerI
 The Service Fabric runtime allocates 20 minutes to download and extract container images, which work for the majority of container images. For large images, or when the network connection is slow, it might be necessary to increase the time to wait before aborting the image download and extraction. This time out is set using the **ContainerImageDownloadTimeout** attribute in the **Hosting** section of the cluster manifest as shown in the following snippet:
 
 ```json
-{
+"fabricSettings": [
+	...,
+	{
         "name": "Hosting",
         "parameters": [
           {
@@ -672,7 +683,8 @@ The Service Fabric runtime allocates 20 minutes to download and extract containe
               "value": "1200"
           }
         ]
-}
+	}
+]
 ```
 
 
@@ -693,7 +705,9 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
  
 
 ```json
-{ 
+"fabricSettings": [
+	...,
+	{ 
         "name": "Hosting", 
         "parameters": [ 
           { 
@@ -701,8 +715,8 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
             "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
           } 
         ] 
-} 
-
+	} 
+]
 ```
 
 ## Next steps

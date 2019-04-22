@@ -87,16 +87,16 @@ In SSIS package design view, add an **Azure Data Lake Store File System Task**, 
     
     To create this file connection:
 
-    1. Choose **<New Connection...>** in FileConnection setting.
-    2. Set **Usage type** to **Existing file**, and set the **File** to any existing file's file path.
+   1. Choose **<New Connection...>** in FileConnection setting.
+   2. Set **Usage type** to **Existing file**, and set the **File** to any existing file's file path.
 
-        ![Configure Foreach Loop Container](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       ![Configure Foreach Loop Container](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-    3. In **Connection Managers** view, right-click the file connection created just now, and choose **Properties**.
+   3. In **Connection Managers** view, right-click the file connection created just now, and choose **Properties**.
 
-    4. In the **Properties** window, expand **Expressions**, and set **ConnectionString** to the variable defined in Foreach Loop Container, for example, `@[User::FileName]`.
+   4. In the **Properties** window, expand **Expressions**, and set **ConnectionString** to the variable defined in Foreach Loop Container, for example, `@[User::FileName]`.
 
-        ![Configure Foreach Loop Container](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
+       ![Configure Foreach Loop Container](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
 
 3. Set **AzureDataLakeAnalyticsConnection** to the Azure Data Lake Analytics account that you want to submit jobs to. Learn more about [Azure Data Lake Analytics Connection Manager](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017).
 

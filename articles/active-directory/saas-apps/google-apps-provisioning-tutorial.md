@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure G Suite for automatic user provisioning
 
@@ -49,7 +50,7 @@ Before you configure and enable the provisioning service, you need to decide whi
 
 > [!IMPORTANT]
 > We recommend  that a single Azure AD user be assigned to G Suite to test the provisioning configuration. You can assign additional users and groups later.
-
+> 
 > When you assign a user to G Suite, select the **User** or **Group** role in the assignment dialog box. The **Default Access** role doesn't work for provisioning.
 
 ## Enable automated user provisioning
@@ -76,8 +77,8 @@ This section guides you through the process of connecting your Azure AD to the u
    
     ![Select API Reference.][16]
 
-    > [!IMPORTANT]
-    > For every user that you intend to provision to G Suite, their user name in Azure Active Directory *must* be tied to a custom domain. For example, user names that look like bob@contoso.onmicrosoft.com are not accepted by G Suite. On the other hand, bob@contoso.com is accepted. You can change an existing user's domain by editing their properties in Azure AD. We've included instructions for how to set a custom domain for both Azure Active Directory and G Suite in the following steps.
+   > [!IMPORTANT]
+   > For every user that you intend to provision to G Suite, their user name in Azure Active Directory *must* be tied to a custom domain. For example, user names that look like bob@contoso.onmicrosoft.com are not accepted by G Suite. On the other hand, bob@contoso.com is accepted. You can change an existing user's domain by editing their properties in Azure AD. We've included instructions for how to set a custom domain for both Azure Active Directory and G Suite in the following steps.
       
 1. If you haven't added a custom domain name to your Azure Active Directory yet, then take the following steps:
   
@@ -101,8 +102,8 @@ This section guides you through the process of connecting your Azure AD to the u
 
     e. Repeat the preceding steps for all the domains that you intend to add to your directory.
 
-	> [!NOTE]
-	For user provisioning, the custom domain must match the domain name of the source Azure AD. If they do not match, you may be able to solve the problem by implementing attribute mapping customization.
+   > [!NOTE]
+   >  For user provisioning, the custom domain must match the domain name of the source Azure AD. If they do not match, you may be able to solve the problem by implementing attribute mapping customization.
 
 
 1. Now that you have verified all your domains with Azure AD, you must verify them again with Google Apps. For each domain that isn't already registered with Google, take the following steps:
@@ -124,7 +125,7 @@ This section guides you through the process of connecting your Azure AD to the u
     e. Repeat the preceding steps for any additional domains that you intend to add to Google Apps.
      
      > [!WARNING]
-     > If you change the primary domain for your G Suite tenant, and if you have already configured single sign-on with Azure AD, then you have to repeat step #3 under [Step 2: Enable single sign-on](#step-two-enable-single-sign-on).
+     > If you change the primary domain for your G Suite tenant, and if you have already configured single sign-on with Azure AD, then you have to repeat step #3 under Step 2: Enable single sign-on.
        
 1. In the [Google Apps Admin console](https://admin.google.com/), select **Admin Roles**.
    
@@ -145,13 +146,13 @@ This section guides you through the process of connecting your Azure AD to the u
 
 1. Set the **Provisioning Mode** to **Automatic**. 
 
-     ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
+       ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. Under the **Admin Credentials** section, select **Authorize**. It opens a Google authorization dialog box in a new browser window.
 
 1. Confirm that you want to give Azure Active Directory permission to make changes to your G Suite tenant. Select **Accept**.
     
-     ![Confirm permissions.][28]
+       ![Confirm permissions.][28]
 
 1. In the Azure portal, select **Test Connection** to ensure that Azure AD can connect to your app. If the connection fails, ensure that your G Suite account has Team Admin permissions. Then try the **Authorize** step again.
 

@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I utilize Azure AD Identity Protection to better protect the sign-in process.
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Use risk events to trigger Multi-Factor Authentication and password changes
 
@@ -58,7 +59,7 @@ Azure AD Identity Protection includes a default policy that can help you to get 
    1. Setting this policy will require all of your users to register methods to prepare to use by Multi-Factor Authentication.
 1. Click **Save**.
 
-   ![Require users to register for MFA at sign-in using Azure AD Identity Protection](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
+   ![Require users to register for MFA at sign-in](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
 
 ### Enable risk-based password changes
 

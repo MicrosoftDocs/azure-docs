@@ -12,6 +12,7 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)
@@ -103,13 +104,13 @@ There are certain sets of claims that define how and when they're used in tokens
 |hasgroups|
 |hash_alg|
 |home_oid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
 |iat|
 |identityprovider|
 |idp|
@@ -183,52 +184,52 @@ There are certain sets of claims that define how and when they're used in tokens
 
 |Claim type (URI)|
 | ----- |
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
-|http://schemas.microsoft.com/identity/claims/accesstoken|
-|http://schemas.microsoft.com/identity/claims/openid2_id|
-|http://schemas.microsoft.com/identity/claims/identityprovider|
-|http://schemas.microsoft.com/identity/claims/objectidentifier|
-|http://schemas.microsoft.com/identity/claims/puid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] |
-|http://schemas.microsoft.com/identity/claims/tenantid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
-|http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/groups|
-|http://schemas.microsoft.com/claims/groups.link|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/role|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/wids|
-|http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant|
-|http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown|
-|http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged|
-|http://schemas.microsoft.com/2014/03/psso|
-|http://schemas.microsoft.com/claims/authnmethodsreferences|
-|http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier|
-|http://schemas.microsoft.com/identity/claims/scope|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
+|`http://schemas.microsoft.com/identity/claims/accesstoken`|
+|`http://schemas.microsoft.com/identity/claims/openid2_id`|
+|`http://schemas.microsoft.com/identity/claims/identityprovider`|
+|`http://schemas.microsoft.com/identity/claims/objectidentifier`|
+|`http://schemas.microsoft.com/identity/claims/puid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] `|
+|`http://schemas.microsoft.com/identity/claims/tenantid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
+|`http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`|
+|`http://schemas.microsoft.com/claims/groups.link`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`|
+|`http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant`|
+|`http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`|
+|`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`|
+|`http://schemas.microsoft.com/2014/03/psso`|
+|`http://schemas.microsoft.com/claims/authnmethodsreferences`|
+|`http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier`|
+|`http://schemas.microsoft.com/identity/claims/scope`|
 
 ## Claims mapping policy properties
 
@@ -435,79 +436,79 @@ To get started, do the following steps:
 	 ``` powershell
 	Connect-AzureAD -Confirm
 	
-	```
+    ```
 1. To see all policies that have been created in your organization, run the following command. We recommend that you run this command after most operations in the following scenarios, to check that your policies are being created as expected.
    
     ``` powershell
 		Get-AzureADPolicy
     
-	```
-#### Example: Create and assign a policy to omit the basic claims from tokens issued to a service principal.
-In this example, you create a policy that removes the basic claim set from tokens issued to linked service principals.
+    ```
+   #### Example: Create and assign a policy to omit the basic claims from tokens issued to a service principal.
+   In this example, you create a policy that removes the basic claim set from tokens issued to linked service principals.
 
 1. Create a claims mapping policy. This policy, linked to specific service principals, removes the basic claim set from tokens.
-	1. To create the policy, run this command: 
+   1. To create the policy, run this command: 
 	
-	 ``` powershell
-	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
-	```
-	2. To see your new policy, and to get the policy ObjectId, run the following command:
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
+      ```
+   2. To see your new policy, and to get the policy ObjectId, run the following command:
 	
-	 ``` powershell
-	Get-AzureADPolicy
-	```
+      ``` powershell
+      Get-AzureADPolicy
+      ```
 1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
-	1.	To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
-	2.	When you have the ObjectId of your service principal, run the following command:  
+   1. To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
+   2. When you have the ObjectId of your service principal, run the following command:  
 	 
-	 ``` powershell
-	Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-	```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```
 
 #### Example: Create and assign a policy to include the EmployeeID and TenantCountry as claims in tokens issued to a service principal
 
 In this example, you create a policy that adds the EmployeeID and TenantCountry to tokens issued to linked service principals. The EmployeeID is emitted as the name claim type in both SAML tokens and JWTs. The TenantCountry is emitted as the country claim type in both SAML tokens and JWTs. In this example, we continue to include the basic claims set in the tokens.
 
 1. Create a claims mapping policy. This policy, linked to specific service principals, adds the EmployeeID and TenantCountry claims to tokens.
-	1. To create the policy, run this command:  
+   1. To create the policy, run this command:  
 	 
-	 ``` powershell
-	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
-	```
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
+      ```
 	
-	2. To see your new policy, and to get the policy ObjectId, run the following command:
+   2. To see your new policy, and to get the policy ObjectId, run the following command:
 	 
-	 ``` powershell  
-	Get-AzureADPolicy
-	```
+      ``` powershell  
+      Get-AzureADPolicy
+      ```
 1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
-	1.	To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
-	2.	When you have the ObjectId of your service principal, run the following command:  
+   1. To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
+   2. When you have the ObjectId of your service principal, run the following command:  
 	 
-	 ``` powershell
-	Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-	```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```
 
 #### Example: Create and assign a policy that uses a claims transformation in tokens issued to a service principal
 
 In this example, you create a policy that emits a custom claim “JoinedData” to JWTs issued to linked service principals. This claim contains a value created by joining the data stored in the extensionattribute1 attribute on the user object with “.sandbox”. In this example, we exclude the basic claims set in the tokens.
 
 1. Create a claims mapping policy. This policy, linked to specific service principals, adds the EmployeeID and TenantCountry claims to tokens.
-	1. To create the policy, run this command: 
+   1. To create the policy, run this command: 
 	 
-	 ``` powershell
-	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
-	```
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
+      ```
 	
-	2. To see your new policy, and to get the policy ObjectId, run the following command: 
+   2. To see your new policy, and to get the policy ObjectId, run the following command: 
 	 
-	 ``` powershell
-	Get-AzureADPolicy
-	```
+      ``` powershell
+      Get-AzureADPolicy
+      ```
 1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
-	1.	To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
-	2.	When you have the ObjectId of your service principal, run the following command: 
+   1. To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
+   2. When you have the ObjectId of your service principal, run the following command: 
 	 
-	 ``` powershell
-	Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-	```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```

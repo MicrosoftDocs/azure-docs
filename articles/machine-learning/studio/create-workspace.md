@@ -1,13 +1,13 @@
 ---
-title: Create a workspace
+title: Create a Machine Learning Studio workspace
 titleSuffix: Azure Machine Learning Studio
 description: To use Azure Machine Learning Studio, you need to have a Machine Learning Studio workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
@@ -17,13 +17,12 @@ ms.date: 12/07/2017
 
 To use Azure Machine Learning Studio, you need to have a Machine Learning Studio workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 
+## Create a Studio workspace
 
-
-### To create a workspace
 1. Sign in to the [Azure portal](https://portal.azure.com/)
 
     > [!NOTE]
-    > To sign in and create a workspace, you need to be an Azure subscription administrator. 
+    > To sign in and create a Studio workspace, you need to be an Azure subscription administrator. 
     >
     > 
 
@@ -33,12 +32,16 @@ To use Azure Machine Learning Studio, you need to have a Machine Learning Studio
 
 4. Enter your workspace information:
 
-    - The *workspace name* may be up to 260 characters, not ending in a space. The name can't include these characters: `< > * % & : \ ? + /`
-    - The *web service plan* you choose (or create), along with the associated *pricing tier* you select, is used if you deploy web services from this workspace.
+   - The *workspace name* may be up to 260 characters, not ending in a space. The name can't include these characters: `< > * % & : \ ? + /`
+   - The *web service plan* you choose (or create), along with the associated *pricing tier* you select, is used if you deploy web services from this workspace.
 
-    ![Create a new workspace](./media/create-workspace/create-new-workspace.png)
+     ![Create a new Studio workspace](./media/create-workspace/create-new-workspace.png)
 
 5. Click **Create**.
+
+> [!NOTE]
+> Machine Learning Studio relies on an Azure storage account that you provide to save intermediary data when it executes the workflow. After the workspace is created, if the storage account is deleted, or if the access keys are changed, the workspace will stop functioning and all experiments in that workspace will fail.
+If you accidentally delete the storage account, recreate the storage account with the same name in the same region as the deleted storage account and resync the access key. If you changed storage account access keys, resync the access keys in the workspace by using the Azure portal.
 
 Once the workspace is deployed, you can open it in Machine Learning Studio.
 
@@ -52,12 +55,12 @@ Once the workspace is deployed, you can open it in Machine Learning Studio.
 
     ![Open experiments](./media/create-workspace/my-experiments.png)
 
-For information about managing your workspace, see [Manage an Azure Machine Learning workspace](manage-workspace.md).
-If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to a Machine Learning workspace](troubleshooting-creating-ml-workspace.md).
+For information about managing your Studio workspace, see [Manage an Azure Machine Learning Studio workspace](manage-workspace.md).
+If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to a Machine Learning Studio workspace](troubleshooting-creating-ml-workspace.md).
 
 
-## Sharing an Azure Machine Learning workspace
-Once a Machine Learning workspace is created, you can invite users to your workspace to share access to your workspace and all its experiments, datasets, notebooks, etc. You can add users in one of two roles:
+## Share an Azure Machine Learning Studio workspace
+Once a Machine Learning Studio workspace is created, you can invite users to your workspace to share access to your workspace and all its experiments, datasets, notebooks, etc. You can add users in one of two roles:
 
 * **User** - A workspace user can create, open, modify, and delete experiments, datasets, etc. in the workspace.
 * **Owner** - An owner can invite and remove users in the workspace, in addition to what a user can do.
@@ -67,7 +70,7 @@ Once a Machine Learning workspace is created, you can invite users to your works
 > 
 > 
 
-### To share a workspace
+### To share a Studio workspace
 
 1. Sign in to Machine Learning Studio at [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 

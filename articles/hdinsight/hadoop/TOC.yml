@@ -17,7 +17,8 @@
   items:
   - name: Create Apache Hadoop cluster - Portal
     href: apache-hadoop-linux-create-cluster-get-started-portal.md
-  - name: Create Apache Hadoop cluster - Resource Manager
+  - name: Create Apache Hadoop cluster - Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
     href: apache-hadoop-linux-tutorial-get-started.md      
 - name: Tutorials
   items:
@@ -38,6 +39,9 @@
   - name: Compare storage options
     href: ../hdinsight-hadoop-compare-storage-options.md
     maintainContext: true
+  - name: Understand managed identities
+    href: ../hdinsight-managed-identities.md
+    maintainContext: true
 - name: How to
   items:
   - name: Use Apache Hadoop sandbox
@@ -47,11 +51,11 @@
     - name: Using Azure Storage
       href: ../hdinsight-hadoop-use-blob-storage.md
       maintainContext: true
-    - name: Using Azure Data Lake Storage
-      href: ../hdinsight-hadoop-use-data-lake-store.md
-      maintainContext: true
-    - name: Using Azure Data Lake Store Gen2
+    - name: Using Azure Data Lake Storage Gen2
       href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
+      maintainContext: true
+    - name: Using Azure Data Lake Storage Gen1
+      href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
   - name: Use Apache Hadoop for batch queries
     items:
@@ -73,11 +77,6 @@
         href: apache-hadoop-use-hive-powershell.md
       - name: Use .NET SDK
         href: apache-hadoop-use-hive-dotnet-sdk.md
-
-      - name: Use Remote Desktop
-        href: apache-hadoop-use-hive-remote-desktop.md
-      - name: Use the Query Console
-        href: apache-hadoop-use-hive-query-console.md
     - name: Use a Java UDF with Hive
       href: apache-hadoop-hive-java-udf.md
     - name: Use MapReduce with Apache Hadoop
@@ -89,8 +88,6 @@
         href: apache-hadoop-use-mapreduce-curl.md
       - name: Use Azure PowerShell
         href: apache-hadoop-use-mapreduce-powershell.md
-      - name: Use Remote Desktop
-        href: apache-hadoop-use-mapreduce-remote-desktop.md
       - name: Use .NET SDK
         href: apache-hadoop-use-mapreduce-dotnet-sdk.md
       - name: Run the MapReduce samples
@@ -106,8 +103,6 @@
         href: apache-hadoop-use-pig-dotnet-sdk.md
       - name: Use cURL
         href: apache-hadoop-use-pig-curl.md
-      - name: Use Remote Desktop
-        href: apache-hadoop-use-pig-remote-desktop.md
     - name: Use Apache DataFu with Apache Pig
       href: apache-hadoop-use-pig-datafu-udf.md
     - name: Submit Apache Hadoop jobs
@@ -131,8 +126,6 @@
       href: apache-hadoop-streaming-python.md
     - name: Process and analyze JSON documents
       href: using-json-in-hive.md
-    - name: Serialize data with Avro Library
-      href: apache-hadoop-dotnet-avro-serialization.md
     - name: Use C# user-defined functions
       href: apache-hadoop-hive-pig-udf-dotnet-csharp.md
     - name: Use Python with Apache Hive and Apache Pig
@@ -164,15 +157,11 @@
       href: apache-hadoop-connect-excel-hive-odbc-driver.md
     - name: Connect using the Apache Hive JDBC driver
       href: apache-hadoop-connect-hive-jdbc-driver.md
-    - name: Analyze stored sensor data
-      href: apache-hive-analyze-sensor-data.md
     - name: Analyze stored tweets
       href: ../hdinsight-analyze-twitter-data-linux.md
       maintainContext: true
     - name: Generate recommendations with Apache Mahout
       href: apache-hadoop-mahout-linux-mac.md
-    - name: Analyze website logs with Apache Hive
-      href: apache-hive-analyze-website-log.md
     - name: Analyze Application Insights telemetry logs
       href: ../spark/apache-spark-analyze-application-insight-logs.md
       maintainContext: true
@@ -212,9 +201,6 @@
       maintainContext: true
     - name: Use Hue
       href: ../hdinsight-hadoop-hue-linux.md
-      maintainContext: true
-    - name: Use Apache Solr
-      href: ../hdinsight-hadoop-solr-install-linux.md
       maintainContext: true
     - name: Use Apache Zeppelin
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
@@ -300,6 +286,7 @@
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
       - name: Use Azure Resource Manager templates
+        displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
     - name: Manage Apache Hadoop clusters
@@ -325,10 +312,11 @@
       - name: Use Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
-    - name: Autoscale HDInsight clusters
-      href: ../hdinsight-autoscale-clusters.md
-    - name: Scale an HDInsight cluster
+    - name: Manually scale a cluster
       href: ../hdinsight-scaling-best-practices.md
+      maintainContext: true
+    - name: Autoscale clusters
+      href: ../hdinsight-autoscale-clusters.md
       maintainContext: true
     - name: Use external metadata stores
       href: ../hdinsight-use-external-metadata-stores.md
@@ -452,12 +440,12 @@
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Monitoring using Log Analytics
+  - name: Monitoring using Azure Monitor logs
     items:
-    - name: Use Azure Log Analytics
+    - name: Use Azure Monitor logs
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
       maintainContext: true
-    - name: Use queries with Log Analytics
+    - name: Use queries with Azure Monitor logs
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
       maintainContext: true
     - name: Monitor cluster performance
@@ -470,7 +458,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.hdinsight
+    href: /powershell/module/az.hdinsight
   - name: .NET SDK
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
   - name: Python SDK
@@ -481,13 +469,12 @@
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
-  - name: .NET (Avro)
-    href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
   - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
   - name: Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
     href: /azure/templates/microsoft.hdinsight/allversions
 - name: Related
   items:
@@ -502,9 +489,6 @@
     - name: Run Apache Hadoop MapReduce samples
       href: ../hdinsight-run-samples.md
       maintainContext: true
-    - name: Use Apache Solr on clusters
-      href: ../hdinsight-hadoop-solr-install-linux.md
-      maintainContext: true
     - name: Use Apache Giraph to process large-scale graphs
       href: ../hdinsight-hadoop-giraph-install.md
       maintainContext: true
@@ -517,29 +501,14 @@
     - name: Use Apache Maven to build Java applications
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: Use the Apache Tez UI to debug Tez Jobs
-      href: ../hdinsight-debug-tez-ui.md
-      maintainContext: true
-    - name: Customize using Script Action
-      href: ../hdinsight-hadoop-customize-cluster.md
-      maintainContext: true
     - name: Access Apache Hadoop YARN application logs
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
     - name: Generate movie recommendations using Apache Mahout
       href: ../hdinsight-mahout.md
       maintainContext: true
-    - name: Analyze flight delay data
-      href: ../hdinsight-analyze-flight-delay-data.md
-      maintainContext: true
     - name: Develop script actions
       href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Analyze Twitter data
-      href: ../hdinsight-analyze-twitter-data.md
-      maintainContext: true
-    - name: Manage clusters with Azure portal
-      href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
     - name: Monitor clusters using the Apache Ambari API
       href: ../hdinsight-monitor-use-ambari-api.md

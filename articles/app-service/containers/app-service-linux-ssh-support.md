@@ -4,8 +4,8 @@ description: Learn about using SSH with Azure App Service on Linux.
 keywords: azure app service, web app, linux, oss
 services: app-service
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: wesmc
+ms.date: 02/25/2019
+ms.author: msangapu
 ms.custom: seodec18
 
 ---
@@ -56,7 +56,7 @@ These steps are shown in the Azure App Service repository as [an example](https:
     > be accessed via the Kudu / SCM Site, which is authenticated using the publishing
     > credentials.
 
-    ```docker
+    ```Dockerfile
     # ------------------------
     # SSH Server support
     # ------------------------
@@ -65,20 +65,20 @@ These steps are shown in the Azure App Service repository as [an example](https:
     	&& echo "root:Docker!" | chpasswd
     ```
 
-2. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](https://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on the sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+2. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](https://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on the sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config).
 
     > [!NOTE]
     > The *sshd_config* file must include the following or the connection fails: 
     > * `Ciphers` must include at least one of the following: `aes128-cbc,3des-cbc,aes256-cbc`.
     > * `MACs` must include at least one of the following: `hmac-sha1,hmac-sha1-96`.
 
-    ```docker
+    ```Dockerfile
     COPY sshd_config /etc/ssh/
     ```
 
 3. Include port 2222 in the [`EXPOSE` instruction](https://docs.docker.com/engine/reference/builder/#expose) for the Dockerfile. Although the root password is known, port 2222 cannot be accessed from the internet. It is an internal only port accessible only by containers within the bridge network of a private virtual network.
 
-    ```docker
+    ```Dockerfile
     EXPOSE 2222 80
     ```
 
@@ -91,7 +91,7 @@ These steps are shown in the Azure App Service repository as [an example](https:
 
 The Dockerfile uses the [`ENTRYPOINT` instruction](https://docs.docker.com/engine/reference/builder/#entrypoint) to run the script.
 
-    ```docker
+    ```Dockerfile
     COPY init_container.sh /opt/startup
     ...
     RUN chmod 755 /opt/startup/init_container.sh
@@ -108,18 +108,6 @@ The Dockerfile uses the [`ENTRYPOINT` instruction](https://docs.docker.com/engin
 Using TCP tunneling you can create a network connection between your development machine and Web App for Containers over an authenticated WebSocket connection. It enables you to open an SSH session with your container running in App Service from the client of your choice.
 
 To get started, you need to install [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). To see how it works without installing Azure CLI, open [Azure Cloud Shell](../../cloud-shell/overview.md). 
-
-Add the latest App Service extension by running [az extension add](/cli/azure/extension?view=azure-cli-latest#az-extension-add):
-
-```azurecli-interactive
-az extension add --name webapp
-```
-
-If you've already run `az extension add` before, run [az extension update](/cli/azure/extension?view=azure-cli-latest#az-extension-update) instead:
-
-```azurecli-interactive
-az extension update --name webapp
-```
 
 Open a remote connection to your app using the [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) command. Specify _\<subscription\_id>_, _\<group\_name>_ and \_<app\_name>_ for your app.
 
@@ -165,7 +153,7 @@ A P P   S E R V I C E   O N   L I N U X
 0e690efa93e2:~#
 ```
 
-You are now connected to your connector. 
+You are now connected to your connector.  
 
 Try running the [top](https://ss64.com/bash/top.html) command. You should be able to see your app's process in the process list. In the example output below, it's the one with `PID 263`.
 

@@ -43,6 +43,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
+
 Before you can complete the steps in this tutorial, you must first create a CDN profile and at least one CDN endpoint. For more information, see [Quickstart: Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
 
 In addition, you must associate an Azure CDN custom domain on your CDN endpoint. For more information, see [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
@@ -100,11 +102,11 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 Register Azure CDN as an app in your Azure Active Directory via PowerShell.
 
-1. If needed, install [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) in PowerShell on your local machine.
+1. If needed, install [Azure PowerShell](/powershell/azure/install-az-ps) on your local machine.
 
 2. In PowerShell, run the following command:
 
-     `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
 
     ![Register Azure CDN in PowerShell](./media/cdn-custom-ssl/cdn-register-powershell.png)
               
@@ -167,9 +169,9 @@ Your CNAME record should be in the following format, where *Name* is your custom
 
 | Name            | Type  | Value                 |
 |-----------------|-------|-----------------------|
-| www.contoso.com | CNAME | contoso.azureedge.net |
+| <www.contoso.com> | CNAME | contoso.azureedge.net |
 
-For more information about CNAME records, see [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
+For more information about CNAME records, see [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
 If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a dedicated certificate for your domain name. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be auto-renewed before it expires. Proceed to [Wait for propagation](#wait-for-propagation). 
 
@@ -185,7 +187,7 @@ If the CNAME record entry for your endpoint no longer exists or it contains the 
 >[!NOTE]
 >Email validation of custom domain ownership is currently unavailable for **Azure CDN from Akamai** profiles. This feature is currently in our backlog. 
 
-After you enable HTTPS on your custom domain, the DigiCert CA validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that are not approved within six business days are automatically canceled. 
+After you submit a request to enable HTTPS on your custom domain, the DigiCert CA validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that are not approved within six business days are automatically canceled. 
 
 ![WHOIS record](./media/cdn-custom-ssl/whois-record.png)
 

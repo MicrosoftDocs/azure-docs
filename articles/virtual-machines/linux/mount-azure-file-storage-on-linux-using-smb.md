@@ -15,7 +15,6 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.subservice: files
 ---
 
 # Mount Azure File storage on Linux VMs using SMB
@@ -39,7 +38,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a storage account
 
-Create a new storage account, within the resource group that you created, using [az storage account create](/cli/azure/storage/account#create). This example creates a storage account named *mySTORAGEACCT<random number>* and puts the name of that storage account in the variable **STORAGEACCT**. Storage account names must be unique, using `$RANDOM` appends a number to the end to make it unique.
+Create a new storage account, within the resource group that you created, using [az storage account create](/cli/azure/storage/account). This example creates a storage account named *mySTORAGEACCT<random number>* and puts the name of that storage account in the variable **STORAGEACCT**. Storage account names must be unique, using `$RANDOM` appends a number to the end to make it unique.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -65,7 +64,7 @@ STORAGEKEY=$(az storage account keys list \
 
 ## Create a file share
 
-Create the File storage share using [az storage share create](/cli/azure/storage/share#create). 
+Create the File storage share using [az storage share create](/cli/azure/storage/share). 
 
 Share names need to be all lower case letters, numbers, and single hyphens but can't start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 

@@ -18,6 +18,7 @@ ms.devlang: na
 ms.topic: article
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 
 # How To: Investigate risky users and sign-ins 

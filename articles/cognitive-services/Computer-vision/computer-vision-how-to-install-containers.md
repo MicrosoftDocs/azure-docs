@@ -4,11 +4,11 @@ titlesuffix: Azure Cognitive Services
 description: How to download, install, and run containers for Computer Vision in this walkthrough tutorial.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 3/22/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -38,21 +38,21 @@ You must meet the following prerequisites before using Recognize Text containers
 
 ### The host computer
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 
 ### Container requirements and recommendations
 
 The following table describes the minimum and recommended CPU cores and memory to allocate for each Recognize Text container.
 
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
-|Recognize Text|1 core, 8 GB memory, 0.5 TPS|2 cores, 8 GB memory, 1 TPS|
+| Container | Minimum | Recommended |TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Recognize Text|1 core, 8 GB memory, 0.5 TPS|2 cores, 8 GB memory, 1 TPS|0.5, 1|
 
-Each core must be at least 2.6 gigahertz (GHz) or faster.
+* Each core must be at least 2.6 gigahertz (GHz) or faster.
+* TPS - transactions per second
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
-
 
 ## Get the container image with `docker pull`
 
@@ -67,8 +67,8 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 ### Docker pull for the Recognize Text container
 
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-rocognize-text:latest
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
 ```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -111,11 +111,14 @@ More [examples](./computer-vision-resource-container-config.md#example-docker-ru
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. 
 
-Use the host, https://localhost:5000, for container APIs.
+Use the host, `https://localhost:5000`, for container APIs.
 
 ### Asynchronous text recognition
 
@@ -141,18 +144,7 @@ If you run the container with an output [mount](./computer-vision-resource-conta
 
 The Recognize Text containers send billing information to Azure, using a _Recognize Text_ resource on your Azure account. 
 
-Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft. 
-
-The `docker run` command uses the following arguments for billing purposes:
-
-| Option | Description |
-|--------|-------------|
-| `ApiKey` | The API key of the _Recognize Text_ resource used to track billing information. |
-| `Billing` | The endpoint of the _Recognize Text_ resource used to track billing information.|
-| `Eula` | Indicates that you've accepted the license for the container.<br/>The value of this option must be set to `accept`. |
-
-> [!IMPORTANT]
-> All three options must be specified with valid values, or the container won't start.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](./computer-vision-resource-container-config.md).
 

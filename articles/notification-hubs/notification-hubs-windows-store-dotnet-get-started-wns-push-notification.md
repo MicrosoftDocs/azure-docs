@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/14/2018
+ms.date: 03/22/2019
 ms.author: jowargo
 ---
 
@@ -48,7 +48,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 To send push notifications to UWP apps, associate your app to the Windows Store. Then, configure your notification hub to integrate with WNS.
 
-1. Navigate to the [Windows Dev Center](https://dev.windows.com/overview), sign in with your Microsoft account, and then select **Create a new app**.
+1. Navigate to the [Windows Dev Center](https://partner.microsoft.com/en-us/dashboard/windows/first-run-experience), sign in with your Microsoft account, and then select **Create a new app**.
 
     ![New app button](./media/notification-hubs-windows-store-dotnet-get-started/windows-store-new-app-button.png)
 2. Type a name for your app, and then select **Reserve product name**. Doing so creates a new Windows Store registration for your app.
@@ -182,6 +182,6 @@ notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
 <!-- URLs. -->
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[toast catalog]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
-[tile catalog]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[badge overview]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[toast catalog]: https://msdn.microsoft.com/library/windows/apps/hh761494.aspx
+[tile catalog]: https://msdn.microsoft.com/library/windows/apps/hh761491.aspx
+[badge overview]: https://msdn.microsoft.com/library/windows/apps/hh779719.aspx

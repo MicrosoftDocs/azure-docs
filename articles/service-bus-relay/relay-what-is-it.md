@@ -11,7 +11,7 @@ ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
 
@@ -42,7 +42,7 @@ In the relayed data transfer pattern, the basic steps involved are:
 Azure Relay has two features:
 
 - [Hybrid Connections](#hybrid-connections) - Uses the open standard web sockets enabling multi-platform scenarios.
-- [WCF Relays](#wcf-relays) - Uses Windows Communication Foundation (WCF) to enable remote procedure calls. WCF Relay is the legacy relay offering that many customers already use with their WCF programming models.
+- WCF Relays - Uses Windows Communication Foundation (WCF) to enable remote procedure calls. WCF Relay is the legacy relay offering that many customers already use with their WCF programming models.
 
 ## Hybrid Connections
 
@@ -80,7 +80,7 @@ The following diagram shows you how incoming relay requests are handled by the A
 5. The gateway forwards the connection request to the right gateway mentioned in the gateway store. 
 6. The gateway sends a request to the listening client for it to create a temporary channel to the gateway node that's closest to the sending client. 
 7. The listening client creates a temporary channel to the gateway that's closest to the sending client. Now that the connection is established between clients via a gateway, the clients can exchange messages with each other. 
-8. The gateway forwards any messages form the listening client to the sending client. 
+8. The gateway forwards any messages from the listening client to the sending client. 
 9. The gateway forwards any messages from the sending client to the listening client.  
 
 ## Next steps

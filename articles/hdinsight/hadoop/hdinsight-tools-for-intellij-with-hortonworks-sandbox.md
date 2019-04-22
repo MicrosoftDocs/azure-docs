@@ -49,20 +49,20 @@ In this section, you create a sample Scala project by using IntelliJ IDEA. In th
    1. Select **HDInsight** > **Spark on HDInsight (Scala)**.
    2. In the **Build tool** list, select one of the following, based on your scenario:
 
-    * **Maven**: For Scala project-creation wizard support.
-    * **SBT**: For managing dependencies and building for the Scala project.
+      * **Maven**: For Scala project-creation wizard support.
+      * **SBT**: For managing dependencies and building for the Scala project.
 
    ![The New Project dialog box](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. Select **Next**.
 3. In the next **New Project** dialog box, complete the following steps:
 
-    1. In the **Project name** box, enter a project name.
-    2. In the **Project location** box, enter a project location.
-    3. Next to the **Project SDK** drop-down list, select **New**, select **JDK**, and then specify the folder for Java JDK version 1.7 or later. Select **Java 1.8** for the Spark 2.x cluster. Select **Java 1.7** for the Spark 1.x cluster. The default location is C:\Program Files\Java\jdk1.8.x_xxx.
-    4. In the **Spark version** drop-down list, the Scala project creation wizard integrates the correct version for the Spark SDK and Scala SDK. If the Spark cluster version is earlier than 2.0, select **Spark 1.x**. Otherwise, select **Spark2.x**. This example uses Spark 1.6.2 (Scala 2.10.5). Ensure that you are using the repository marked **Scala 2.10.x**. Do not use the repository marked Scala 2.11.x.
+   1. In the **Project name** box, enter a project name.
+   2. In the **Project location** box, enter a project location.
+   3. Next to the **Project SDK** drop-down list, select **New**, select **JDK**, and then specify the folder for Java JDK version 1.7 or later. Select **Java 1.8** for the Spark 2.x cluster. Select **Java 1.7** for the Spark 1.x cluster. The default location is C:\Program Files\Java\jdk1.8.x_xxx.
+   4. In the **Spark version** drop-down list, the Scala project creation wizard integrates the correct version for the Spark SDK and Scala SDK. If the Spark cluster version is earlier than 2.0, select **Spark 1.x**. Otherwise, select **Spark2.x**. This example uses Spark 1.6.2 (Scala 2.10.5). Ensure that you are using the repository marked **Scala 2.10.x**. Do not use the repository marked Scala 2.11.x.
     
-    ![Create IntelliJ Scala project properties](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
+      ![Create IntelliJ Scala project properties](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
 
 4. Select **Finish**.
