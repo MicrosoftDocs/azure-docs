@@ -18,7 +18,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 ## General
 
-**Q: What is this and what can I do with it?**
+**Q: What is Direct Line Speech?**
 
 **A:** The `SpeechBotConnector` from the Speech SDK provides bidirectional, asynchronous communication to bots that are connected to the Direct Line Speech channel on the Bot Framework. This channel provides coordinated access to speech-to-text and text-to-speech from Azure Speech Services that allow bots to become fully voice in, voice out conversational experiences. With the support for wake words and Wake Word Verification, this solution makes it possible to build highly customizable voice-first virtual assistants for your brand or product.
 
