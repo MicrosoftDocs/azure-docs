@@ -88,15 +88,11 @@
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
     - name: Enable logging
-      displayName: logging
+      displayName: troubleshoot, log, files, tracing
       href: how-to-enable-logging.md  
-    - name: Visual Studio Code extension
+    - name: Use VS Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
-      items:
-      - name: Get started
-        href: how-to-vscode-tools.md
-      - name: Train and deploy
-        href: how-to-vscode-train-deploy.md
+      href: how-to-vscode-tools.md
   - name: Work with data
     items:
     - name: Add & register datasets

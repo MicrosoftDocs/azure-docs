@@ -129,7 +129,7 @@ To configure Azure AD single sign-on with RealtimeBoard, perform the following s
 
 ### Configure RealtimeBoard Single Sign-On
 
-To configure single sign-on on **RealtimeBoard** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [RealtimeBoard support team](). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **RealtimeBoard** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to RealtimeBoard support team. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
