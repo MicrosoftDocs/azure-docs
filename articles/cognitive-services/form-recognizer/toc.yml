@@ -13,6 +13,10 @@
       items:
       - name: cURL
         href: quickstarts/curl-train-extract.md
+- name: Reference
+  items:
+  - name: Form Recognizer API
+    href: https://aka.ms/form-recognizer/api
 - name: Resources
   items: 
   - name: Pricing and limits
