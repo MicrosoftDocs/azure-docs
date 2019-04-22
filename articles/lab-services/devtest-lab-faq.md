@@ -347,7 +347,7 @@ For other continuous integration (CI)/continuous delivery (CD) toolchains, you c
 ### When should I create a new virtual network for my DevTest Labs environment vs. using an existing virtual network?
 If your VMs need to interact with existing infrastructure, then consider using an existing virtual network inside your DevTest Labs environment. If you use ExpressRoute, you may want to minimize the amount of VNets / Subnets so that you don’t fragment your IP address space that gets assigned for use in the subscriptions. 
 
-Consider using the VNet peering pattern here ([Hub-Spoke model](/architecture/reference-architectures/hybrid-networking/hub-spoke)) too. This approach enables vnet/subnet communication across subscriptions. Otherwise, each DevTest Labs environment could have its own virtual network. 
+Consider using the VNet peering pattern here ([Hub-Spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) too. This approach enables vnet/subnet communication across subscriptions. Otherwise, each DevTest Labs environment could have its own virtual network. 
 
 There are [limits](../azure-subscription-service-limits.md) on the number of virtual networks per subscription. The default amount is 50, though this limit can be raised to 100.
 
