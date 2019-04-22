@@ -1,7 +1,7 @@
 ---
 title: Azure CycleCloud Cluster Template Reference | Microsoft Docs
 description: Volume reference for cluster templates for use with Azure CycleCloud
-author: KimliWl
+author: KimliW
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---
