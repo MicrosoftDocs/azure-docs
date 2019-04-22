@@ -1,6 +1,6 @@
 ---
 title: Initialize client applications (MSAL.NET) | Azure
-description: Microsoft Authentication Library (MSAL.NET) enables application developers to acquire tokens in order to call secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS, third-party Web APIs, or your own Web API. MSAL.NET supports multiple application architectures and platforms.
+description: Learn about initializing public client and confidential client applications using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -80,7 +80,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 ### Initializing a confidential client application from configuration options
 
-The same kind of pattern applies to confidential client applications. You can also add other parameters using .WithXXX modifiers (here a certificate).
+The same kind of pattern applies to confidential client applications. You can also add other parameters using `.WithXXX` modifiers (here a certificate).
 
 ```csharp
 ConfidentialClientApplicationOptions options = GetOptions(); // your own method
@@ -91,7 +91,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 ## Builder modifiers
 
-In the code snippets using application builders, a number of .With methods can be applied as modifiers (for example, `.WithCertificate` and `.WithRedirectUri`). 
+In the code snippets using application builders, a number of `.With` methods can be applied as modifiers (for example, `.WithCertificate` and `.WithRedirectUri`). 
 
 ### Modifiers common to public and confidential client applications
 
