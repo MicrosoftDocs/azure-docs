@@ -1,5 +1,5 @@
 ---
-title: Build Java HBase client using Apache Maven - Azure HDInsight
+title: Use Apache Maven to build a Java HBase client for Azure HDInsight
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to HBase on Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
@@ -165,7 +165,7 @@ This section also configures the [Apache Maven Compiler Plugin](https://maven.ap
 
 The maven-shade-plugin also produces an uber jar that contains all the dependencies required by the application.
 
-### Download `hbase-site.xml`
+### Download the hbase-site.xml
 
 Use the following command to copy the HBase configuration from the HBase cluster to the `conf` directory. Replace `CLUSTERNAME` with your HDInsight cluster name and then enter the command:
 
@@ -175,7 +175,7 @@ scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./
 
 ## Create the application
 
-### `CreateTable` class
+### Implement a CreateTable class
 
 Enter the command below to create and open a new file `CreateTable.java`. Select **Yes** at the prompt to create a new file.
 
@@ -257,7 +257,7 @@ public class CreateTable {
 
 This code is the `CreateTable` class, which creates a table named `people` and populate it with some predefined users.
 
-### `SearchByEmail` class
+### Implement a SearchByEmail class
 
 Enter the command below to create and open a new file `SearchByEmail.java`. Select **Yes** at the prompt to create a new file.
 
@@ -342,7 +342,7 @@ public class SearchByEmail {
 
 The `SearchByEmail` class can be used to query for rows by email address. Because it uses a regular expression filter, you can provide either a string or a regular expression when using the class.
 
-### `DeleteTable` class
+### Implement a DeleteTable class
 
 Enter the command below to create and open a new file `DeleteTable.java`. Select **Yes** at the prompt to create a new file.
 
@@ -594,7 +594,7 @@ The following steps use the Azure PowerShell [AZ module](https://docs.microsoft.
         $sub = Get-AzSubscription -ErrorAction SilentlyContinue
         if(-not($sub))
         {
-            throw "No active Azure subscription found! If you have a subscription, use the Connect-AzAccount cmdlet to login to your subscription."
+            Connect-AzAccount
         }
     }
 
