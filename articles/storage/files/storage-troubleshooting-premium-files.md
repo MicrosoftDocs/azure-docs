@@ -17,7 +17,7 @@ ms.subservice: files
 
 ### Cause 1: Share experiencing throttling
 
-The default quota on a share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more details on provision and its relationship to IOPS, see: [Planning for an Azure Files deployment](storage-files-planning.md).
+The default quota on a share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more details on provision and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
 
 ### Solution
 
