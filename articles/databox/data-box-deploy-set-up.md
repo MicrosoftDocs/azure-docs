@@ -1,5 +1,5 @@
 ---
-title: Set up your Azure Data Box| Microsoft Docs
+title: Tutorial: Set up your Azure Data Box| Microsoft Docs
 description: Learn how to cable and connect your Azure Data Box
 services: databox
 author: alkohli

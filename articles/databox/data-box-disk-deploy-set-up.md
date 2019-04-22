@@ -1,5 +1,5 @@
 ---
-title: Set up Microsoft Azure Data Box Disk| Microsoft Docs
+title: Tutorial: Unpack, connect to, and unlock Azure Data Box Disk| Microsoft Docs
 description: Use this tutorial to learn how to set up your Azure Data Box Disk
 services: databox
 author: alkohli

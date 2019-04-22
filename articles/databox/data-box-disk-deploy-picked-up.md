@@ -1,5 +1,5 @@
 ---
-title: Ship Microsoft Azure Data Box Disk back| Microsoft Docs
+title: Tutorial: Ship Azure Data Box Disk back| Microsoft Docs
 description: Use this tutorial to learn how to ship your Azure Data Box Disk to Microsoft
 services: databox
 author: alkohli

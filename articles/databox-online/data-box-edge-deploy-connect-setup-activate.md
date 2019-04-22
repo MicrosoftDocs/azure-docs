@@ -1,6 +1,6 @@
 ---
-title: Connect to, configure, and activate an Azure Data Box Edge device in the Azure portal | Microsoft Docs
-description: Third tutorial to deploy Data Box Edge instructs you to connect, set up, and activate your physical device.
+title: Tutorial: Connect to, configure, and activate an Azure Data Box Edge device in the Azure portal | Microsoft Docs
+description: Tutorial to deploy Data Box Edge instructs you to connect, set up, and activate your physical device.
 services: databox
 author: alkohli
 

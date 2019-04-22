@@ -1,5 +1,5 @@
 ---
-title: Transform data with Azure Data Box Edge | Microsoft Docs
+title: Tutorial: Filter, preprocess data with compute on Azure Data Box Edge| Microsoft Docs
 description: Learn how to configure compute role on Data Box Edge and use it to transform data before sending to Azure.
 services: databox
 author: alkohli
