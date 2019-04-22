@@ -53,7 +53,7 @@
       href: https://go.microsoft.com/fwlink/?linkid=2078296
 - name: Resources
   items:
-    - name: Video 
-      href: https://www.youtube.com/watch?v=EIvuLLAMLZg
+    - name: Getting started video
+      href: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration
