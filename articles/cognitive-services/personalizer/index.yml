@@ -14,7 +14,7 @@ metadata:
   ms.date: 05/07/2019
   ms.author: nitinme
 abstract:
-  description: Personalizer allows your application to choose the best experience to show to your users, learning from their real-time behavior. Your client application provides a list of possible actions, with information about them; and information about the context, which may include information about the user, device, etc. Personalizer determines the action to take. Once your client application uses the chosen action, it provides feedback to Personalizer in the form of a reward score. After the feedback loop is complete, Personalizer automatically updates its own model used for future ranks.
+  description: Personalizer allows your application to choose the best experience to show to your users, learning from their real-time behavior. Your client application provides a list of possible actions, along with data about the context. Personalizer determines the best action to take. Once your client application uses the chosen action, it provides feedback to Personalizer, closing the feedback loop. Personalizer automatically updates its own model used for future ranks.
 
 sections:
 
@@ -48,7 +48,7 @@ sections:
     style: icon48
     items:
       - image:
-          src: media/logo_Csharp.svg
+          src: ../media/index/logo_Csharp.svg
         href: csharp-quickstart-commandline-feedback-loop.md
         text: "C#"
 
