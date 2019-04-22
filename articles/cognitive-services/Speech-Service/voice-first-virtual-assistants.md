@@ -19,7 +19,7 @@ Custom virtual assistants using Azure Speech Services empower developers to crea
 
    ![Conceptual diagram of the direct line speech orchestration service flow](media/voice-first-virtual-assistants/overview.png "The Speech Channel flow")
 
-As the name implies, Direct Line Speech and its associated functionality for custom voice-first virtual assistants are an ideal supplement to the [Virtual Assistant Solution](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-virtual-assistant-introduction) and [Enterprise Template](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-enterprise-template-overview). Though Direct Line Speech can work with any compatible bot, these resources provide a reusable baseline for high-quality conversational experiences as well as common supporting skills and models for getting started quickly.
+Direct Line Speech and its associated functionality for custom voice-first virtual assistants are an ideal supplement to the [Virtual Assistant Solution](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-virtual-assistant-introduction) and [Enterprise Template](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-enterprise-template-overview). Though Direct Line Speech can work with any compatible bot, these resources provide a reusable baseline for high-quality conversational experiences as well as common supporting skills and models for getting started quickly.
 
 ## Core features
 

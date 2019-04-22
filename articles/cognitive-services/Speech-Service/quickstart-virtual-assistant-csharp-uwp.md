@@ -69,10 +69,10 @@ This quickstart will describe, step by step, how to make a simple client applica
 1. Open the code-behind source file `MainPage.xaml.cs`. You'll find it grouped under `MainPage.xaml`. Replace the contents with the code below. Here's what this sample covers: 
 
     * Using statements for the Speech and Speech.Dialog namespaces
-    * A simple implementation to ensure application microphone access, wired to a button handler
-    * Very basic UI helpers to present messages and errors in the application
+    * A simple implementation to ensure microphone access, wired to a button handler
+    * Basic UI helpers to present messages and errors in the application
     * A landing point for the initialization code path that will be populated later
-    * An empty button handler for starting listening that will be populated later
+    * An empty button handler to start listening that will be populated later
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
@@ -278,15 +278,15 @@ This quickstart will describe, step by step, how to make a simple client applica
 
 ## Build and run the app
 
-1. Build the application. From the menu bar, select **Build** > **Build Solution**. The code should compile without errors now.
+1. Build the application. From the menu bar of Visual Studio, select **Build** > **Build Solution**. The code should compile without errors now.
 
     ![Screenshot of Visual Studio application, with Build Solution option highlighted](media/sdk/qs-csharp-uwp-08-build.png "Successful build")
 
-1. Start the application. From the menu bar, select **Debug** > **Start Debugging**, or press **F5**.
+1. Start the application. From the menu bar of Visual Studio, select **Debug** > **Start Debugging**, or press **F5**.
 
     ![Screenshot of Visual Studio application, with Start Debugging option highlighted](media/sdk/qs-csharp-uwp-09-start-debugging.png "Start the app into debugging")
 
-1. A window pops up. Select **Enable Microphone**, and acknowledge the permission request that pops up.
+1. A window pops up. In your application, select **Enable Microphone**, and acknowledge the permission request that pops up.
 
     ![Screenshot of permission request](media/sdk/qs-csharp-uwp-10-access-prompt.png "Start the app into debugging")
 
