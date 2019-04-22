@@ -68,7 +68,6 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 
-
 ### Create Application Gateway with HTTPS listener attached to Key Vault and an HTTP listener
 
 ```azurepowershell
@@ -84,6 +83,7 @@ $vnet = New-AzvirtualNetwork -Name "Vnet1" -ResourceGroupName $rgname -Location 
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
   -location $location -AllocationMethod Static -Sku Standard
 ```
+
 ### Create pool and frontend ports
 
 ```azurepowershell
