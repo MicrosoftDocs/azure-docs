@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/16/2019
+ms.date: 04/22/2019
 ms.author: kumud
 ---
 
@@ -375,7 +375,7 @@ You can view the IPv6 dual stack virtual network in Azure portal as follows:
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, VM, and all related resources.
 
 ```azurecli
- az group delete --name DsResourceGroup01
+ az group delete --name DsRG1
 ```
 
 ## Next steps
