@@ -30,7 +30,7 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview]() article. T
 
    The Azure Kubernetes Engine (aks-engine) generates Azure Resource Manager templates for Kubernetes clusters on Azure. The input to aks-engine is a cluster definition file which describes the desired cluster, including orchestrator, features, and agents. The structure of the input files is very similar to the public API for Azure Kubernetes Service.
 
-1. The etcd API in Azure Cosmos DB is currently in preview. Sign up to use the preview version: https://aka.ms/cosmosetcdapi-signup. After you submit the form, your subscription will be whitelisted to use the Azure Cosmos etcd API. 
+1. The etcd API in Azure Cosmos DB is currently in preview. Sign up to use the preview version: https://aka.ms/cosmosetcdapi-signup. After you submit the form, your subscription will be whitelisted to use the Azure Cosmos etcd API. It takes at least 48 hours for the team to approve your request. 
 
 ## Deploy the cluster with Azure Cosmos DB
 
@@ -45,7 +45,7 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview]() article. T
    ```bash
    az account set --subscription "<Name of your subscription>"
    ```
-1. Next create a new resource group where you will deploy the resources required by the Azure Kubernetes cluster. Make sure to create the resource group in the "centralus" region:
+1. Next create a new resource group where you will deploy the resources required by the Azure Kubernetes cluster. Make sure to create the resource group in the "CentralUS" region. It's not mandatory for the resource group to be in "CentralUS" region however, Azure Cosmos etcd API is currently available to deploy in "CentralUS" region only. So it's best to have the Kubernetes cluster to be co-located with the Cosmos etcd instance:
 
    ```bash
    az group create --name <Name> --location "centralus"
@@ -172,7 +172,7 @@ INFO[0587] Finished ARM Deployment (sngun-aks-sg-test-546247491). Succeeded
 
 The resource group will provision resources such as- virtual machine, Azure Cosmos account (Core/SQL API), virtual network, availability set and other resources required by the Kubernetes cluster. 
 
-The Azure Cosmos account’s name will match your specified DNS prefix appended with k8s. Your Azure Cosmos account will be provisioned with a database (EtcdDB) and a container (EtcdData). The container will store all the etcd related data. The container is provisioned with a certain number of request units (10,000 RU/s) and you can [scale (increase/decrease) the throughput](scaling-throughput.md) based on your workload. 
+The Azure Cosmos account’s name will match your specified DNS prefix appended with k8s. Your Azure Cosmos account will be provisioned with a database (EtcdDB) and a container (EtcdData). The container will store all the etcd related data. The container is provisioned with a certain number of request units and you can [scale (increase/decrease) the throughput](scaling-throughput.md) based on your workload. 
 
 ## Next steps
 
