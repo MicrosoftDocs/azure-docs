@@ -174,4 +174,4 @@ In this tutorial, you completed these steps:
 * Score and evaluate the model
 
 > [!div class="nextstepaction"]
-> [Continue with part 2 of the tutorial to deploy your model as an Azure web service](ui-tutorial-automobile-price-deploy.md)
+> [Deploy your model in part 2](ui-tutorial-automobile-price-deploy.md)
