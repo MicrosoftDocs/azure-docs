@@ -1507,7 +1507,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Http5xx|Http Server Errors|Count|Total|Http Server Errors|Instance|
 |MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|Instance|
 |AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|Instance|
-|FunctionExecutionUnits|Function Execution Units|Count|Total|Function Execution Units|Instance|
+|FunctionExecutionUnits|Function Execution Units|MB / Milliseconds |Total|[Function Execution Units](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instance|
 |FunctionExecutionCount|Function Execution Count|Count|Total|Function Execution Count|Instance|
 |PrivateBytes|Private Bytes|Bytes|Average|Private Bytes|Instance|
 |IoReadBytesPerSecond|IO Read Bytes Per Second|BytesPerSecond|Total|IO Read Bytes Per Second|Instance|
