@@ -37,15 +37,15 @@ For information on how to add the HDInsight Cluster Operator role assignment to 
 The following entities and scenarios are affected:
 
 - [API](#api): Users using the `/configurations` or `/configurations/{configurationName}` endpoints.
-- [Azure HDInsight Tools for Visual Studio Code](#azure-hdinsight-tools-for-visual-studio-code) version ___ and below.
-- [Azure Toolkit for IntelliJ](#azure-toolkit-for-intellij) version __ and below.
-- [Azure Toolkit for Eclipse](#azure-toolkit-for-eclipse) version __ and below.
+- [Azure HDInsight Tools for Visual Studio Code](#azure-hdinsight-tools-for-visual-studio-code) version 1.1.1 or below.
+- [Azure Toolkit for IntelliJ](#azure-toolkit-for-intellij) version 3.21.0 or below.
+- [Azure Toolkit for Eclipse](#azure-toolkit-for-eclipse) 2019-03-29 release or older.
 - [SDK for .NET](#sdk-for-net)
     - [versions 1.x or 2.x](#versions-1x-and-2x): Users using the `GetClusterConfigurations`, `GetConnectivitySettings`, `ConfigureHttpSettings`, `EnableHttp` or `DisableHttp` methods from the ConfigurationsOperationsExtensions class.
-    - [versions 3.x and up](#versions-3x-and-up): Users using the `EnableHttp`, `DisableHttp`, `Update`, or `Get` methods from the `ConfigurationsOperationsExtensions` class.
-- [SDK for Python](#sdk-for-python): Users using the `get` or `update` methods from the ConfigurationsOperations class.
-- [SDK for Java](#sdk-for-java): Users using the `update` or `get` methods from the ConfigurationsInner class.
-- [SDK for Go](#sdk-for-go): Users using the `Get` or `Update` methods from the ConfigurationsClient struct.
+    - [versions 3.x and up](#versions-3x-and-up): Users using the `Get`, `Update`, `EnableHttp`, or `DisableHttp` methods from the `ConfigurationsOperationsExtensions` class.
+- [SDK for Python](#sdk-for-python): Users using the `get` or `update` methods from the `ConfigurationsOperations` class.
+- [SDK for Java](#sdk-for-java): Users using the `update` or `get` methods from the `ConfigurationsInner` class.
+- [SDK for Go](#sdk-for-go): Users using the `Get` or `Update` methods from the `ConfigurationsClient` struct.
 
 See the below sections (or use the above links) to see the migration steps for your scenario.
 
@@ -80,11 +80,11 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 ### Azure HDInsight Tools for Visual Studio Code
 
-If you are using version 1.1.1 or older, please update to the [latest version of Azure HDInsight Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mshdinsight.azure-hdinsight&ssr=false) to avoid interruptions.
+If you are using version 1.1.1 or below, please update to the [latest version of Azure HDInsight Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mshdinsight.azure-hdinsight&ssr=false) to avoid interruptions.
 
 ### Azure Toolkit for IntelliJ
 
-If you are using version 3.21.0 or older, please update to the [latest version of the Azure Toolkit for IntelliJ plugin](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij) to avoid interruptions.
+If you are using version 3.21.0 or below, please update to the [latest version of the Azure Toolkit for IntelliJ plugin](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij) to avoid interruptions.
 
 ### Azure Toolkit for Eclipse
 
