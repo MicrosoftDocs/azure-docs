@@ -14,7 +14,7 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) (VNet peering) allows you to seamlessly connect two Azure virtual networks. Once peered, the two virtual networks appear as one for connectivity purposes. 
+[Virtual network (VNet) peering](/azure/virtual-network/virtual-network-peering-overview) allows you to seamlessly connect two Azure virtual networks. Once peered, the two virtual networks appear as one for connectivity purposes. 
 
 Traffic is routed between VMs in the same virtual network through private IP addresses. Similarly, traffic between VMs in a peered virtual network is routed through the Microsoft backbone infrastructure. As a result, VMs in different virtual networks can communicate with each other.
 
@@ -37,7 +37,7 @@ Traffic is routed between VMs in the same virtual network through private IP add
 
 A resource group is a logical container in which Azure resources are deployed and managed.
 
-[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
+[!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objectives.md)]
 
 - Creates two resource groups 
 
@@ -54,7 +54,7 @@ A resource group is a logical container in which Azure resources are deployed an
 
 ## Create the first virtual network
 
-[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
+[!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objectives.md)]
 
 - Creates a virtual network
 - Creates a subnet within the virtual network
@@ -75,7 +75,7 @@ A resource group is a logical container in which Azure resources are deployed an
 
 ## Create the second virtual network
 
-[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
+[!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objectives.md)]
 
 - Creates a virtual network
 - Creates a subnet within the virtual network
@@ -96,7 +96,7 @@ A resource group is a logical container in which Azure resources are deployed an
 
 ## Peer the two virtual networks
 
-[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
+[!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objectives.md)]
 
 - Initializes virtual-network peering
 - Peers two previously created virtual networks
@@ -127,7 +127,7 @@ A resource group is a logical container in which Azure resources are deployed an
 
 ## Delete the virtual network peering
 
-[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
+[!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objectives.md)]
 
 - Deletes the peering between the two previously created virtual networks
 

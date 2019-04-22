@@ -38,7 +38,7 @@ For more information about networking to your applications in AKS, see [Network 
 
 ## Create a virtual network and subnet
 
-[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
+[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objectives.md)]
 
 - Create a virtual network
 - Create a subnet within the virtual network
@@ -64,7 +64,7 @@ For more information about networking to your applications in AKS, see [Network 
 
 ## Create an AKS cluster in the virtual network
 
-[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objective.md)]
+[!INCLUDE [ansible-playbook-1-objective.md](../../includes/ansible-playbook-1-objectives.md)]
 
 - Create an AKS cluster within a virtual network.
 
@@ -115,7 +115,7 @@ For more information about networking to your applications in AKS, see [Network 
 
 ## Run the sample playbook
 
-[!INCLUDE [ansible-run-playbook.md](../../includes/ansible-run-playbook.md)]
+[!INCLUDE [ansible-run-playbook.md](../../includes/ansible-run-playbook-section-intro.md)]
 
 [!INCLUDE [ansible-playbook-2-saveas.md](../../includes/ansible-playbook-2-saveas.md)] `aks-azure-cni.yml`:
 
