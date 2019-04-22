@@ -48,6 +48,9 @@ During training, the Azure Machine Learning service creates a number of pipeline
 You can inspect the logged run information, which contains metrics gathered during the run. The training run also produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
 
+## Ensemble Models
+Ensemble learning improves machine learning results and predictive performance by combing many models as opposed to using single models. When using automated machine learning, you can train ensemble models using the [Caruana ensemble selection algorithm with sorted Ensemble initialization](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). The ensemble iteration appears as the last iteration of your run.
+
 ## Next steps
 
 See examples and learn how to build models using Automated Machine Learning:
