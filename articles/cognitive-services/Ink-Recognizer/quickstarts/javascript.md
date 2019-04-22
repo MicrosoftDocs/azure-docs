@@ -80,3 +80,15 @@ var second_url = "https://cii-ppe.azure-api.net/Ink/Analysis/?api-version=1.0";
 var sampleJson = JSON.parse(JSON.stringify(jsSampleData));
 document.getElementById('request').innerHTML = sampleJson, null, 2;
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)
+
+
+* [What is the Ink Recognizer API?](overview.md)
+* Start sending digital ink stroke data using:
+    * [C#](quickstarts/csharp.md)
+    * [Java](quickstarts/java.md)
+    * [JavaScript](quickstarts/javascript.md)
