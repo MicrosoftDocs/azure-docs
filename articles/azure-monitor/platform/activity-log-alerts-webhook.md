@@ -16,6 +16,10 @@ For more information on activity log alerts, see how to [create Azure activity l
 
 For information on action groups, see how to [create action groups](../../azure-monitor/platform/action-groups.md).
 
+> [!NOTE]
+> We recommend using the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides an extensible and unified alert payload across all Azure alert types, for your webhook integrations. [Learn about the common alert schema definitions.](https://aka.ms/commonAlertSchemaDefinitions)​
+
+
 ## Authenticate the webhook
 The webhook can optionally use token-based authorization for authentication. The webhook URI is saved with a token ID, for example, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
 

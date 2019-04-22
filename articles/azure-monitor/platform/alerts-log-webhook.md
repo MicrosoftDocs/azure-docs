@@ -13,6 +13,8 @@ ms.subservice: alerts
 # Webhook actions for log alert rules
 When a [log alert is created in Azure](alerts-log.md), you have the option of [configuring using action groups](action-groups.md) to perform one or more actions.  This article describes the different webhook actions that are available and details on configuring the custom JSON-based webhook.
 
+> [!NOTE]
+> We recommend using the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides an extensible and unified alert payload across all Azure alert types, for your webhook integrations. [Learn about the common alert schema definitions.](https://aka.ms/commonAlertSchemaDefinitions)​
 
 ## Webhook actions
 
