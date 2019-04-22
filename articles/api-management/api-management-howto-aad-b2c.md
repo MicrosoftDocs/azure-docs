@@ -78,11 +78,6 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 
 14. Specify the **Signup Policy** and **Signin Policy** from the B2C Tenant policies. Optionally, you can also provide the **Profile Editing Policy** and **Password Reset Policy**.
 
-    ![Policies][api-management-howto-aad-b2c-policies]
-
-    > [!NOTE]
-    > For more information on policies, see [Azure Active Directory B2C: Extensible policy framework].
-
 15. After you've specified the desired configuration, click **Save**.
 
     After the changes are saved, developers will be able to create new accounts and sign in to the developer portal by using Azure Active Directory B2C.

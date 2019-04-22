@@ -45,11 +45,11 @@ This article shows you how to enable access to the developer portal for users fr
     
    ![Steps for adding an identity provider in the Azure portal](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. In your browser, open a different tab. 
-11. Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to register an app in Active Directory that represents the developer portal.
+11. Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to register an app in Active Directory.
 12. Under **Manage**, select **App registrations**.
 13. Select **New registration**. On the **Register an application** page, set the values as follows:
     
-* Set **Name** to a meaningful name. 
+* Set **Name** to a meaningful name. e.g., *developer-portal*
 * Set **Supported account types** to **Accounts in this organizational directory only**. 
 * Set **Redirect URI** to the value you got from step 9. 
 * Choose **Register**. 
@@ -74,8 +74,6 @@ This article shows you how to enable access to the developer portal for users fr
 
 19.  After you specify the desired configuration, select **Add**.
 
-    !["Add" button in "Add identity provider" pane](./media/api-management-howto-aad/api-management-with-aad007.png)
-
 After the changes are saved, users in the specified Azure AD instance can sign in to the developer portal by following the steps in [Sign in to the developer portal by using an Azure AD account](#log_in_to_dev_portal).
 
 
@@ -88,10 +86,10 @@ To configure an external Azure AD group, you must first configure the Azure AD i
 You add external Azure AD groups from the **Groups** tab of your API Management instance.
 
 1. Select the **Groups** tab.
-1. Select the **Add AAD group** button.
+2. Select the **Add AAD group** button.
    !["Add AAD group" button](./media/api-management-howto-aad/api-management-with-aad008.png)
-1. Select the group that you want to add.
-1. Press the **Select** button.
+3. Select the group that you want to add.
+4. Press the **Select** button.
 
 After you add an external Azure AD group, you can review and configure its properties. Select the name of the group from the **Groups** tab. From here, you can edit **Name** and **Description** information for the group.
  
