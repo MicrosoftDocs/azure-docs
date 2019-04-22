@@ -18,7 +18,7 @@ ms.author: rezas
 
 Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, Node.js SDK only supports device streams on the service side. As a result, this quickstart only covers instructions to run the service-side application. You should run an accompanying device-side application which is available in [Communicate to device apps in C via IoT Hub device streams](./quickstart-device-streams-echo-c.md) or [Communicate to device apps in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md) guides.
+[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, Node.js SDK only supports device streams on the service side. As a result, this quickstart only covers instructions to run the service-side application. You should run an accompanying device-side application which is available in [Communicate to device apps in C via IoT Hub device streams](./quickstart-device-streams-echo-c.md) or [Communicate to device apps in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md).
 
 The service-side Node.js application in this quickstart has the following functionalities:
 
@@ -42,7 +42,7 @@ The preview of device streams is currently only supported for IoT Hubs created i
 
 To run the service-side application in this quickstart you need Node.js v4.x.x or later on your development machine.
 
-You can download Node.js for multiple platforms from [Node.js.org](https://nodejs.org).
+You can download Node.js for multiple platforms from [Nodejs.org](https://nodejs.org).
 
 You can verify the current version of Node.js on your development machine using the following command:
 
@@ -116,7 +116,7 @@ Assuming the device-side application is running, follow the steps below to run t
    SET STREAMING_TARGET_DEVICE=MyDevice
    ```
   
-Change `MyDevice` to the device ID you chose for your device.
+   Change `MyDevice` to the device ID you chose for your device.
 
 * Navigate to `Quickstarts/device-streams-service` in your unzipped project folder and run the sample using node.
 

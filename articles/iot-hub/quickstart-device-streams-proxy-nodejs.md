@@ -31,6 +31,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 The preview of device streams is currently only supported for IoT Hubs created in the following regions:
 
 *  **Central US**
+
 *  **Central US EUAP**
 
 To run the service-local application in this quickstart you need Node.js v4.x.x or later on your development machine.
@@ -91,7 +92,7 @@ In this section, you establish an end-to-end stream to tunnel SSH traffic.
 
 ### Run the device-local proxy
 
-As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the service side. For device-local application, use the accompanying device proxy programs available in [SSH/RDP over IoT Hub device streams using C proxy apps](./quickstart-device-streams-proxy-c.md) or [SSH/RDP over IoT Hub device streams using C# proxy apps](./quickstart-device-streams-proxy-csharp.md) guides. Ensure the device-local proxy is running before proceeding to the next step.
+As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the service side. For device-local application, use the accompanying device proxy programs available in [SSH/RDP over IoT Hub device streams using C proxy apps](./quickstart-device-streams-proxy-c.md) or [SSH/RDP over IoT Hub device streams using C# proxy apps](./quickstart-device-streams-proxy-csharp.md). Ensure the device-local proxy is running before proceeding to the next step.
 
 ### Run the service-local proxy
 
