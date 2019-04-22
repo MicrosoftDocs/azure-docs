@@ -116,9 +116,9 @@ Using the `devops-build create` [command](https://docs.microsoft.com/cli/azure/f
 
     - You are the project administrator in Azure DevOps.
 
-    - You can create a Github Personal Access Token with sufficient permissions. Github PAT Permission Requirements
+    - You can create a GitHub Personal Access Token with sufficient permissions. [GitHub PAT Permission Requirements.](https://aka.ms/azure-devops-source-repos)
 
-    - You can commit to the master branch in your Github repository to upload the auto-generated azure-pipelines.yml file.
+    - You can commit to the master branch in your GitHub repository to upload the auto-generated azure-pipelines.yml file.
 
 ## Next steps
 
