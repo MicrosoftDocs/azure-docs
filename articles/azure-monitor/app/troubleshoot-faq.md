@@ -128,7 +128,7 @@ Learn more for [ASP.NET](api-filtering-sampling.md) or [Java](java-filter-teleme
 
 ## How are City, Country and other geo location data calculated?
 
-We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
+We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
 * Browser telemetry: We collect the sender's IP address.
 * Server telemetry: The Application Insights module collects the client IP address. It is not collected if `X-Forwarded-For` is set.
