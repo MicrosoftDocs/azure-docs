@@ -13,7 +13,7 @@ ms.author: pafarley
 #Customer intent: As a developer or data scientist familiar with cURL, I want to learn how to use Form Recognizer to extract my form data.
 ---
 
-# Quickstart: Train a Form Recognizer model and extract form data using cURL
+# Quickstart: Train a Form Recognizer model and extract form data using REST API with cURL
 
 In this quickstart, you will train and score forms to extract key-value pairs and tables using Form Recognizer's REST API with cURL.
 
