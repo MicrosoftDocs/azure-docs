@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/16/2019
+ms.date: 04/2/2019
 ms.author: bwren
 
 ---
@@ -58,7 +58,7 @@ Telemetry related to your Azure tenant is collected from tenant-wide services su
 |:---|:---|:---|
 | Azure Monitor Logs | Configure Azure AD logs to be collected in Azure Monitor. | [Integrate Azure AD logs with Azure Monitor logs (preview)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
 | Azure Storage | Export Azure AD logs to Azure Storage for archiving. | [Tutorial: Archive Azure AD logs to an Azure storage account (preview)](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Event Hub | Stream Azure AD logs to other locations using Event Hubs | [Tutorial: Stream Azure Active Directory logs to an Azure event hub (preview)](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
+| Event Hub | Stream Azure AD logs to other locations using Event Hubs. | [Tutorial: Stream Azure Active Directory logs to an Azure event hub (preview)](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
 
 
 
@@ -221,3 +221,4 @@ Other services in Azure write data to the Azure Monitor data platform. This allo
 ## Next steps
 
 - Learn more about the [types of monitoring data collected by Azure Monitor](data-platform.md) and how to view and analyze this data.
+- List the [different locations where Azure resources store data](data-locations.md) and how you can access it. 
