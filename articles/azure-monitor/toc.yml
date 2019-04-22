@@ -77,7 +77,7 @@
       href: platform/data-ingestion-time.md         
   - name: Data sources
     items:
-    - name: Data sources
+    - name: Data sources summary
       href: platform/data-sources.md
     - name: Activity log
       href: platform/activity-logs-overview.md
@@ -187,12 +187,12 @@
       items:
       - name: Activity log
         items:
+        - name: Export 
+          href: platform/activity-log-export.md
         - name: Analytics
           href: platform/collect-activity-logs.md
         - name: Collect across tenants
           href: platform/collect-activity-logs-subscriptions.md
-        - name: Export 
-          href: platform/activity-log-export.md
       - name: Diagnostic logs
         items: 
         - name: Collect in Logs
@@ -211,23 +211,6 @@
         href: platform/stream-monitoring-data-event-hubs.md   
       - name: Correlate custom data sources
         href: app/custom-data-correlation.md
-    - name: Route data
-      items:
-      - name: Application data to Log Analytics
-        href: platform/app-insights-connector.md
-      - name: Export application data
-        items:
-        - name: Continuous export
-          href: app/export-telemetry.md
-          items:
-          - name: Code samples
-            items:
-            - name: Export to SQL using Stream Analytics
-              href: app/code-sample-export-sql-stream-analytics.md
-            - name: Export to Stream Analytics
-              href: app/export-stream-analytics.md
-        - name: Export data model
-          href: app/export-data-model.md
     - name: Install and configure agents
       items:
       - name: Monitoring agents overview
@@ -454,7 +437,22 @@
           href: app/proactive-email-notification.md
       - name: Create a resource
         href: app/create-new-resource.md 
-      - name: Troubleshoot
+      - name: Application data to Log Analytics
+        href: platform/app-insights-connector.md
+      - name: Export application data
+        items:
+        - name: Continuous export
+          href: app/export-telemetry.md
+          items:
+          - name: Code samples
+            items:
+            - name: Export to SQL using Stream Analytics
+              href: app/code-sample-export-sql-stream-analytics.md
+            - name: Export to Stream Analytics
+              href: app/export-stream-analytics.md
+        - name: Export data model
+          href: app/export-data-model.md
+        - name: Troubleshoot
         items:
         - name: No data for .NET
           href: app/asp-net-troubleshoot-no-data.md

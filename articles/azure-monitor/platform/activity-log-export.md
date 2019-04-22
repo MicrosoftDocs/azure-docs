@@ -12,7 +12,7 @@ ms.subservice: logs
 # Export the Azure Activity Log
 You can view the [Azure Activity Log](activity-logs-overview.md) in the Azure portal or you can 
 
-In addition to viewing the [Azure Activity Log](activity-logs-overview.md) in the Azure portal or [copying it to a Log Analytics workspace](activity-log-collect.md) where it can be analyzed with other data collected by Azure Monitor, you can archive it to an Azure storage account or stream it to an Event Hub. Since the process to configure both of these activities is similar, they are both described together in this article.
+In addition to viewing the [Azure Activity Log](activity-logs-overview.md) in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can archive it to an Azure storage account or stream it to an Event Hub. Since the process to configure both of these activities is similar, they are both described together in this article.
 
 
 ## Archive Activity Log
@@ -41,7 +41,6 @@ You need to [create an event hub](../../event-hubs/event-hubs-create.md) if you 
 The shared access policy defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. You can create or modify shared access policies for the Event Hubs namespace in the Azure portal under the Configure tab for your Event Hubs namespace.
 
 To update the Activity Log log profile to include streaming, you must have the ListKey permission on that Event Hubs authorization rule. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions and both subscriptions are in the same AAD tenant.
-- 
 
 ## Log profile
 You define how your Azure Activity log is exported using a **log profile**. The log profile defines the follwoing.
