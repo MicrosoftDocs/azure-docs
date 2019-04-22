@@ -1,8 +1,8 @@
 ---
 title: 'Design a Real-Time Dashboard with Azure Database for PostgreSQL – Hyperscale (Citus) (preview) tutorial'
 description: This tutorial shows how to create, populate, and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus) (preview).
-author: craigkerstiens
-ms.author: crkersti
+author: jonels-msft
+ms.author: jonels
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: tutorial
