@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/19/2019
+ms.date: 4/22/2019
 ms.author: victorh
 ---
 
@@ -33,6 +33,7 @@ Install-Module -Name Az.ManagedServiceIdentity
 Connect-AzAccount
 Select-AzSubscription -Subscription <your subscription>
 ```
+
 ## Example script
 
 ```azurepowershell
@@ -55,7 +56,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $kv -PermissionsToSecrets get -ObjectId $i
 $policy = New-AzKeyVaultCertificatePolicy -ValidityInMonths 12 `
   -SubjectName "CN=www.contoso11.com" -IssuerName self `
   -RenewAtNumberOfDaysBeforeExpiry 30
-$certificate = Add-AzKeyVaultCertificate -VaultName $vaultName -Name "cert1" -CertificatePolicy $policy
+$certificate = Add-AzKeyVaultCertificate -VaultName $kv -Name "cert1" -CertificatePolicy $policy
 $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 
@@ -104,7 +105,6 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
   -FrontendPorts @($fp01, $fp02) -HttpListeners @($listener01, $listener02) `
   -RequestRoutingRules @($rule01, $rule02) -Sku $sku `
   -SslCertificates $sslCert01 -AutoscaleConfiguration $autoscaleConfig
-
 ```
 
 ## Next steps
