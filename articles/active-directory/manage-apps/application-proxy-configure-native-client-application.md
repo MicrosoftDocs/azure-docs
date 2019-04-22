@@ -85,13 +85,15 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
 ```
 
-Replace the variables in the sample code as follows:
+The required info in the sample code can be found in the Azure AD portal, as follows:
 
-- **Tenant ID** can be found in the Azure AD portal. Go to **Azure Active Directory** > **Properties**, and copy the Directory ID.
-- **External Url of Proxy App** is the front-end URL you entered in the proxy application. To find this value, go to the **Application proxy** section of the proxy application.
-- **App ID of the Native app** can be found on the **Properties** page of the native application.
-- **Redirect URI of the Native App** can be found on the **Redirect URIs** page of the native application.
-- **Proxy App API Url** is the URL associated with the proxy application API that the native application is accessing. First go to  **Azure Active Directory** > **App registrations**, and select your native application name. Then select **API permissions**, select the name of the proxy application API, and copy the URL of the API.
+| Info required | How to find it in the Azure AD portal |
+| --- | --- |
+| \<Tenant ID> | **Azure Active Directory** > **Properties** > **Directory ID** |
+| \<External Url of Proxy App> | **Enterprise applications** > *your proxy application* > **Application proxy** > **External Url** |
+| \<App ID of the Native app> | **Enterprise applications** > *your native application* > **Properties** > **Application ID** |
+| \<Redirect URI of the Native App> | **Azure Active Directory** > **App registrations** > *your native application* > **Redirect URIs** |
+| \<Proxy App API Url> | **Azure Active Directory** > **App registrations** > *your native application* > **API permissions** > **API / PERMISSIONS NAME** |
 
 After you edit the ADAL with these parameters, your users can authenticate to native client applications even when they're outside of the corporate network.
 

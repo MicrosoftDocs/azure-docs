@@ -29,18 +29,20 @@ It's easy to change the name or logo for a custom enterprise application in Azur
 3. Select an application. The application overview page appears.
 4. In the application overview pane, under the **Manage** heading, select **Properties**. The **Properties** page appears.
 5. If you want to change the name, select the **Name** box, type the new name, and press Enter.
-6. If you want to change the logo, find the **Logo** field, and select the folder icon next to the **Select a file** box, which is below the application's current logo image. The file picker appears.
+6. If you want to change the logo, find the **Logo** field, and select the folder icon next to the **Select a file** box, which is below the application's current logo image.
 
    ![Selecting the properties command](./media/change-name-or-logo-portal/change-logo.png)
-7. Select the file you want as the new logo. The name of the file appears in the box below the current logo image.
 
-   > ![NOTE]
+   Otherwise, if you aren't changing the logo, go to step 8.
+7. In the file picker, select the file you want as the new logo. The name of the file appears in the box below the current logo image.
+
+   > [!NOTE]
    > Azure requires the logo image to be a PNG file, and it applies limits on width, height, and file size.
 8. Select **Save**. If you chose a new logo, the **Logo** field's image changes to reflect the new logo file.
 
 ## Next steps
 
 * [Quickstart: View your organization's groups and members in Azure Active Directory](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Assign a user or group to an enterprise application in Azure Active Directory](assign-user-or-group-access-portal.md)
-* [Remove a user or group assignment from an enterprise application in Azure Active Directory](remove-user-or-group-access-portal.md)
-* [Disable user sign-ins for an enterprise application in Azure Active Directory](disable-user-sign-in-portal.md)
+* [Assign a user or group to an enterprise app](assign-user-or-group-access-portal.md)
+* [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)
+* [Disable user sign-ins for an enterprise app](disable-user-sign-in-portal.md)

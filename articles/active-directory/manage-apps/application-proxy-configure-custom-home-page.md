@@ -24,12 +24,12 @@ This article discusses how to configure an app to direct a user to a custom home
 
 When a user launches the app, they're directed by default to the root domain URL for the published app. The landing page is typically set as the home page URL. Use the Azure AD PowerShell module to define a custom home page URL when you want an app user to land on a specific page within the app.
 
-Here's one example of why your company would set a custom home page, and why it would be different depending on the type of user:
+Here's one scenario that explains why your company would set a custom home page, and why it would be different depending on the type of user:
 
-- Inside your corporate network, users go to `https://ExpenseApp/login/login.aspx` to sign in and access your app.
-- Because you have other assets (such as images) that Application Proxy needs to access at the top level of the folder structure, you want to publish the app with `https://ExpenseApp` as the internal URL instead.
-- The default external URL is `https://ExpenseApp-contoso.msappproxy.net`, which doesn't take your users to the sign-in page.
-- You want to set `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` as the external home page URL instead.
+- Because you have other assets (such as images) that Application Proxy needs to access at the top level of the folder structure, you publish the app with `https://ExpenseApp` as the internal URL.
+- However, inside your corporate network, a user goes to `https://ExpenseApp/login/login.aspx` to sign in and access your app.
+- The default external URL is `https://ExpenseApp-contoso.msappproxy.net`, which doesn't take an external user to the sign-in page.
+- You want to set `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` as the external home page URL instead, so an external user sees the sign-in page first.
 
 >[!NOTE]
 >When you give users access to published apps, the apps are displayed in the [Azure AD Access Panel](../user-help/my-apps-portal-end-user-access.md) and the [Office 365 app launcher](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
@@ -61,6 +61,12 @@ To change the external and internal home pages of your app through the Azure AD 
 9. Select **Save**.
 
 ## Change the home page with PowerShell
+
+To configure the home page of an app using PowerShell, you need to:
+
+1. Install the Azure AD PowerShell module.
+2. Find the ObjectId value of the app.
+3. Update the app's home page URL using PowerShell commands.
 
 ### Install the Azure AD PowerShell module
 
