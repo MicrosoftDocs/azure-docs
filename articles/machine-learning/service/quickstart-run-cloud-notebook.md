@@ -39,35 +39,34 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).  If you're not sure how to locate your workspace in the portal, see how to [find your workspace](how-to-manage-workspace.md#view).
 
-1. On your workspace page in Azure portal, select **Notebook VMs** on the left.
+1. On your workspace page in the Azure portal, select **Notebook VMs** on the left.
 
 1. Select **+Add** to create a notebook VM.
 
      ![Select Add VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-1. Provide a name for your VM. Then select **Create**.
+1. Provide a name for your VM. Then select **Create**. 
 
-    ![Create new workstation](media/quickstart-run-cloud-notebook/create-new-workstation.png)
+    ![Create a new VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
-    > [!NOTE]
-    > Your VM takes approximately five minutes to create. When finished, the status updates to "Running" and links to Jupyter and JupyterLab appear.
+1. Wait approximately 4-5 minutes, then select **Refresh**.  Try refreshing every 30 seconds or so until the status is **Running**.
+
+    ![Refresh](media/quickstart-run-cloud-notebook/refresh.png)
 
 ## Launch Jupyter web interface
 
-After your workstation is created, use the **Notebook VMs** section to launch the Jupyter web interface.
+After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
 
-* Select **Jupyter** or **Jupyter Lab** in the **Launch** column for your workstation.
 
-    ![Start Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-notebook-server.png)
+1. Select **Jupyter** in the **Launch** column for your VM.  
+
+    ![Start the Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-server.png)
 
     The link starts your notebook server and opens the server homepage in a new browser tab.  
 
-    > [!TIP]
-    > Stop the VM when you are not using it to reduce cost.  Select the resource and select **Stop** at the top of the list.  
+1. The notebook server opens in a new browser tab.  The URL can only be used by the person who creates the VM.
 
-* The notebook server opens in a new browser tab.  This URL can only be used by the person who creates the VM.
-
-* Select the **Quickstart** folder to see the quickstart notebook.
+1. Select the **samples/quickstart** folder to see the quickstart notebook.
 
 ### Run the notebook
 
@@ -75,13 +74,40 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
 1. Select **01.run-experiment.ipynb** to open the notebook.
 
-1. The status area tells you to wait until the kernel has started.  The message disappears once the kernel is ready.
+1. You may see a message that the kernel has not been set.  Select **Python 3.6 - AzureML**, then select **Set Kernel**.
+
+   ![Set the kernel](./media/quickstart-run-cloud-notebook/set-kernel.png)
+
+1. The status area tells you to wait until the kernel has started. The message disappears once the kernel is ready.
 
     ![Wait for kernel to start](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
 
-1. After the kernel has started, run the cells one at a time using **Shift+Enter**. Or select **Cells** > **Run All** to run the entire notebook. When you see an asterisk(__*__) next to a cell, the cell is still running. After the code for that cell finishes, a number appears.  
+1.  Click into the first code cell and select **Run**.
 
-After you've finished running all of the cells in the notebook, you can view the logged values in your workspace.
+    > [!NOTE]
+    > Code cells have brackets before them. If the brackets are empty (__[  ]__), the code has not been run. While the code is running, you see an asterisk(__[*]__). After the code completes, a number **[1]** appears.
+    >
+    > Use **Shift-Enter** as a shortcut to run a cell.
+
+    ![Run the first code cell](media/quickstart-run-cloud-notebook/cell1.png)
+
+1. The notebook contains instructions titled **Important note** which you can ignore.  This information is only applicable when using the notebook From Azure Notebooks.  
+
+1. Run the second code cell. If you see instructions to authenticate, copy the code and follow the link to sign in. Once you sign in, your browser will remember this setting.  
+
+    > [!TIP]
+    > Be sure not to copy the space after the code.  
+
+    ![Authenticate](media/quickstart-run-cloud-notebook/authenticate.png)
+
+1. When you are done, the cell number __[ 2 ]__ appears and you see a successful authentication status message.
+
+    ![Success message](media/quickstart-run-cloud-notebook/success.png)
+
+1. Skip the next code cell which includes `!az-login`.  You are already logged in.
+
+1. Run the rest of the cells, starting with `experiment = Experiment(workspace = ws, name = "my-first-experiment")`.
+
 
 ## View logged values
 
@@ -103,13 +129,26 @@ Because the code to approximate pi uses random values, your plots will show diff
 
 You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 
+### Stop the notebook VM
+
+If you keep your workspace, stop the notebook VM when you are not using it to reduce cost.  
+
+1. In your workspace, select **Notebook VMs**.
+ 
+   ![Stop the VM server](./media/quickstart-run-cloud-notebook/stop-server.png)
+
+1. From the list, select the VM.
+
+1. Select **Stop**.
+
+1. When you're ready to user the server again, select **Start**.
 
 ## Next steps
 
 In this quickstart, you completed these tasks:
 
-* Create a workstation
-* Start a Jupyter Notebook server on your workstation
+* Create a notebook VM
+* Start a Jupyter Notebook server on your notebook VM
 * Open a notebook that contains code to estimate pi and logs errors at each iteration.
 * Run the notebook.
 * View the logged error values in your workspace.  This example shows how the workspace can help you keep track of information generated in a script. 
