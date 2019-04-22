@@ -56,9 +56,9 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > 1. Navigate to the Microsoft identity platform for developers [App registrations](https://aka.ms/MobileAppReg) page.
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
->      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Android-Quickstart`.
+>      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `AndroidQuickstart`.
 >      - Hit the `Register` button.
-> 1. Go to `Authentication` > `Add Platform` > `Android`.    
+> 1. Click on the new app > go to `Authentication` > `Add Platform` > `Android`.    
 >      - Enter the Package Name from your Android studio project. 
 >      - Generate a Signature Hash. Refer to the portal for instructions.
 > 1. Select `Configure` and save the ***MSAL Configuration*** JSON for later. 
@@ -79,7 +79,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 #### Step 3: Configure your project
 
 > [!div renderon="docs"]
-> If you selected Option 1 above, you can skip these steps. Open the project in Android Studio and run the app. 
+> If you selected Option 1 above, you can skip these steps. 
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extract and open the Project in Android Studio.
@@ -111,6 +111,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >        </intent-filter>
 >    </activity>
 >    ```
+> > 1. Run the app! 
 
 > [!div renderon="docs"]
 > 1. Extract and open the Project in Android Studio.
@@ -139,12 +140,13 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >    </activity>
 >    ```
 > 1. Replace `<YOUR_PackageName>` and `<YOUR_SignatureHash>` with the values you registered in the Azure portal. 
+> 1. Run the app! 
 
 ## More Information
 
 Read the following sections for more info about this quickstart.
 
-### MSAL
+### Getting MSAL
 
 MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. You can use Gradle 3.0+ to install it by adding the following in **Gradle Scripts** > **build.gradle (Module: app)** under **Dependencies**:
 
@@ -177,14 +179,14 @@ Then, initialize MSAL using the following code:
 
 MSAL has two methods used acquire tokens: `acquireToken` and `acquireTokenSilentAsync`
 
-#### Getting a user token interactively
+#### acquireToken: Getting a token interactively
 
-Some situations require forcing users to interact with Microsoft identity platform endpoint, which results in a context switch to the system browser, webview, or Microsoft Authenticator or Company Portal to either validate the users's credentials or for consent. Some examples include:
+Some situations require users to interact with Microsoft identity platform. In these cases, the end user may be required to select their account, enter their credentials, or consent to your app's permissions. For example, 
 
 * The first time users sign in to the application
-* When users may need to reenter their credentials because the password has expired
-* When your application is requesting access to a resource that the user needs to consent to
-* When two factor authentication is required
+* If a user resets their password, they will need to enter their credentials 
+* When your application is requesting access to a resource for the first time
+* When MFA or other Conditional Access policies are required
 
 ```java
 sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
@@ -197,7 +199,7 @@ sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
 
 #### Getting a user token silently
 
-You don't want to require user to validate their credentials every time they need to access a resource. If the user has already signed in, this method allows you to get SSO from the browser or the Microsoft Authenticator or Company Portal:
+Apps shouldn't require their users to sign in every time they request a token. If the user has already signed in, this method allows apps to request tokens silently.
 
 ```java
     sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {

@@ -55,10 +55,10 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 > 1. Navigate to the Microsoft identity platform for developers [App registrations](https://aka.ms/MobileAppReg) page.
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
->      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app when they sign in or consent to your app, for example `iOS-Quickstart`.
+>      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app when they sign in or consent to your app, for example `iOSQuickstart`.
 >      - Hit the `Register` button.
-> 1. Go to `Authentication` > `Add Platform` > `iOS`.    
->      - Enter the Bundle Identifier for your application. Select the `TARGETS` for the application you want to configure and the Bundle Identifier will be inside the `General` tab.
+> 1. Click on the new app > go to `Authentication` > `Add Platform` > `iOS`.    
+>      - Enter the ***Bundle Identifier*** for your application. 
 > 1. Select `Configure` and save the ***MSAL Configuration*** details for later. 
 
 > [!div renderon="portal" class="sxs-lookup"]
@@ -78,7 +78,7 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 #### Step 3: Configure your project
 
 > [!div renderon="docs"]
-> If you selected Option 1 above, you can skip these steps. Open the project in XCode and run the app. 
+> If you selected Option 1 above, you can skip these steps. 
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extract the zip file and open the project in XCode.
@@ -87,8 +87,8 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 >    let kClientID = "Enter_the_Application_Id_here"
 >    let kAuthority = "Enter_the_Authority_here"
 >    ```
-> 1. Press Control + click **Info.plist** to bring up the contextual menu, and then select **Open As** > **Source Code**.
-> 1. Under the dict root node, add the following code:
+> 1. Right click **Info.plist** and select **Open As** > **Source Code**.
+> 1. Under the dict root node, replace with your ***Bundle Id***:
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -101,6 +101,7 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 >       </dict>
 >    </array>
 >    ```
+> > 1. Build & run the app! 
 
 > [!div renderon="docs"]
 >
@@ -108,10 +109,10 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following  code snippet:
 >
 >    ```swift
->    let kClientID = "ENTER_YOUR_APPLICATION/CLIENT_ID"
+>    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
 >    ```
-> 1. Press Control + click **Info.plist** to bring up the contextual menu, and then select **Open As** > **Source Code**.
-> 1. Under the dict root node, add the following code:
+> 1. Right click **Info.plist** and select **Open As** > **Source Code**.
+> 1. Under the dict root node, replace with your ***Bundle Id***:
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -124,22 +125,23 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 >       </dict>
 >    </array>
 >    ```
+> 1. Build & run the app! 
 
 ## More Information
 
 Read these sections to learn more about this quickstart.
 
-### MSAL
+### Getting MSAL
 
 MSAL ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. You can add MSAL to your application using the following process:
 
 ```
 $ vi Podfile
 ```
-Add the following to this podfile:
+Add the following to this podfile (with your project's target):
 
 ```
- target 'QuickStart' do
+ target 'MSALiOS' do
    use_frameworks!
  	 pod 'MSAL', '0.4'
  end
@@ -168,7 +170,9 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 > | `authority` | The Microsoft identity platform endpoint. In most of cases this will be *https<span/>://login.microsoftonline.com/common* |
 > | `redirectUri` | The redirect URI of the application. You can pass 'nil' to use the default value, or your custom redirect URI. |
 
-Your app must have the following in your `AppDelegate`. This lets MSAL SDK handle token response from the Auth broker app when you perform authentication.
+### Additional App Requirements  
+
+Your app must also have the following in your `AppDelegate`. This lets MSAL SDK handle token response from the Auth broker app when you perform authentication.
 
  ```swift
  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -190,18 +194,18 @@ Finally, your app must has an `LSApplicationQueriesSchemes` entry in your ***Inf
    </array>
    ```
 
-### Requesting tokens
+### Sign in users & Request tokens
 
 MSAL has two methods used to acquire tokens: `acquireToken` and `acquireTokenSilent`.
 
-#### Getting an access token interactively
+#### acquireToken: Getting a token interactively
 
-Some situations require forcing users to interact with Microsoft identity platform endpoint which will result in a context switch to the system browser to either validate users's credentials or for consent. Some examples include:
+Some situations require users to interact with Microsoft identity platform. In these cases, the end user may be required to select their account, enter their credentials, or consent to your app's permissions. For example, 
 
 * The first time users sign in to the application
-* When users may need to reenter their credentials because the password has expired
-* When your application is requesting access to a resource that the user needs to consent to
-* When two factor authentication is required
+* If a user resets their password, they will need to enter their credentials 
+* When your application is requesting access to a resource for the first time
+* When MFA or other Conditional Access policies are required
 
 ```swift
 let parameters = MSALInteractiveTokenParameters(scopes: kScopes)
@@ -212,9 +216,9 @@ applicationContext.acquireToken(with: parameters) { (result, error) in /* Add yo
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs  (`api://<Application ID>/access_as_user`) |
 
-#### Getting an access token silently
+#### acquireTokenSilent: Getting an access token silently
 
-You don't want to require the user to validate their credentials every time they need to access a resource. If the user has already signed in, this method allows you to get SSO from the browser or the Microsoft Authenticator:
+Apps shouldn't require their users to sign in every time they request a token. If the user has already signed in, this method allows apps to request tokens silently. 
 
 ```swift
 let parameters = MSALSilentTokenParameters(scopes: kScopes, account: applicationContext.allAccounts().first)
@@ -224,11 +228,11 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in /* 
 > |Where: ||
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (`api://<Application ID>/access_as_user`) |
-> | `account` | The account requesting the token. This quickstart is a single account application (one account signed in at a time).  If you want to build a multi-account app you'll need to incorporate logic to identify a specific account `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
+> | `account` | The account a token is being requested for. This quickstart is a single account application, if you want to build a multi-account app you'll need to define logic to identify which account to use for token requests `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
 
 ## Next steps
 
-Try out the iOS tutorial for a complete step-by-step guide on building applications and new features, including a full explanation of this quickstart.
+Try out the iOS tutorial for a complete step-by-step guide on building applications, including a complete explanation of this quickstart.
 
 ### Learn the steps to create the application used in this quickstart
 
