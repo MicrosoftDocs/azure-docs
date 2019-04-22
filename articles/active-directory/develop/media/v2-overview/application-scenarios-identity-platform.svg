@@ -474,7 +474,7 @@
 			<v:textRect cx="99.7499" cy="1794.13" width="199.5" height="20"/>
 			<rect x="0" y="1784.13" width="199.5" height="20" class="st17"/>
 			<text x="22.21" y="1797.73" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Portal or command-line tools</text>		</g>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-add-branding-in-azure-ad-apps">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/howto-add-branding-in-azure-ad-apps">
 			<g id="group1316-103" transform="translate(191.95,508.555) rotate(-45)" v:mID="1316" v:groupContext="group"
 					v:layerMember="0">
 				<v:userDefs>
@@ -498,7 +498,7 @@
 					<text x="3.06" y="1793.56" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Branding guidelines</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-signing-key-rollover">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover">
 			<g id="group1320-111" transform="translate(109.439,-1110.56)" v:mID="1320" v:groupContext="group" v:layerMember="0">
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -521,7 +521,7 @@
 					<text x="0" y="1793.56" class="st4" v:langID="1033"><v:paragraph/><v:tabList/>Signing key rollover</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/id-tokens">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/id-tokens">
 			<g id="group1324-119" transform="translate(109.439,-743.949)" v:mID="1324" v:groupContext="group" v:layerMember="0">
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -544,7 +544,7 @@
 					<text x="0" y="1793.56" class="st4" v:langID="1033"><v:paragraph/><v:tabList/>ID tokens</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/access-tokens">
 			<g id="group1328-127" transform="translate(111.408,-599.934)" v:mID="1328" v:groupContext="group" v:layerMember="0">
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -567,7 +567,7 @@
 					<text x="0" y="1793.56" class="st4" v:langID="1033"><v:paragraph/><v:tabList/>Access tokens</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials">
 			<g id="group1332-135" transform="translate(109.439,-1149.22)" v:mID="1332" v:groupContext="group" v:layerMember="0">
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -590,7 +590,7 @@
 					<text x="0" y="1793.56" class="st4" v:langID="1033"><v:paragraph/><v:tabList/>Certificate credentials</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-protocols-oidc">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc">
 			<g id="group1336-143" transform="translate(109.439,-777.286)" v:mID="1336" v:groupContext="group" v:layerMember="0">
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -613,7 +613,7 @@
 					<text x="0" y="1793.56" class="st4" v:langID="1033"><v:paragraph/><v:tabList/>OpenID Connect protocol</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow">
 			<g id="group1340-151" transform="translate(111.408,-638.728)" v:mID="1340" v:groupContext="group" v:layerMember="0">
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -637,7 +637,7 @@
 								dy="1.2em" class="st13">OpenID Connect<v:lf/></tspan><tspan x="0" dy="1.2em" class="st13"> </tspan>protocols</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals">
 			<g id="group1344-161" transform="translate(-29.1359,-1423.98) rotate(-30)" v:mID="1344" v:groupContext="group"
 					v:layerMember="0">
 				<v:userDefs>
@@ -661,7 +661,7 @@
 					<text x="3.06" y="1793.56" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Application and service principals</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/single-and-multi-tenant-apps">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/single-and-multi-tenant-apps">
 			<g id="group1348-169" transform="translate(108.022,-1386.62)" v:mID="1348" v:groupContext="group" v:layerMember="0">
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -685,7 +685,7 @@
 								x="0" dy="1.2em" class="st13">multi</tspan>-tenant apps</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-national-cloud">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud">
 			<g id="group1352-178" transform="translate(109.439,-1346.84)" v:mID="1352" v:groupContext="group" v:layerMember="0">
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -708,7 +708,7 @@
 					<text x="0" y="1793.56" class="st4" v:langID="1033"><v:paragraph/><v:tabList/>National cloud</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent">
 			<g id="group1356-186" transform="translate(86.0812,-1423.98) rotate(-30)" v:mID="1356" v:groupContext="group"
 					v:layerMember="0">
 				<v:userDefs>
@@ -733,7 +733,7 @@
 			</g>
 		</a>
 		<a
-				xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-add-terms-of-service-privacy-statement">
+				xlink:href="https://docs.microsoft.com/azure/active-directory/develop/howto-add-terms-of-service-privacy-statement">
 			<g id="group1364-194" transform="translate(77.9651,507.304) rotate(-45)" v:mID="1364" v:groupContext="group"
 					v:layerMember="0">
 				<v:userDefs>
@@ -773,7 +773,7 @@
 			<rect x="0" y="1784.13" width="79.5634" height="20" class="st17"/>
 			<text x="17.04" y="1790.53" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Portal or <v:lf/><tspan
 						x="16.94" dy="1.2em" class="st13">CLI tools</tspan></text>		</g>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-remove-app">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/quickstart-remove-app">
 			<g id="group1371-210" transform="translate(392.033,508.555) rotate(-45)" v:mID="1371" v:groupContext="group"
 					v:layerMember="0">
 				<v:userDefs>
@@ -797,7 +797,7 @@
 					<text x="3.06" y="1793.56" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Remove an app</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-modify-supported-accounts">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts">
 			<g id="group1391-218" transform="translate(108.022,-1426.4)" v:mID="1391" v:groupContext="group" v:layerMember="0">
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -829,7 +829,7 @@
 			<path d="M0 1804.13 A30.251 16.9799 -180 0 0 28.35 1791.4 L28.35 1689.57 A30.251 16.9799 -180 0 0 -0 1676.85"
 					class="st16"/>
 		</g>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview"
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/v2-overview"
 				xlink:title="About Microsoft identity platform (forrmerly named Azure AD) v2.0">
 			<g id="group1396-230" transform="translate(-91.5805,-1423.98) rotate(-30)" v:mID="1396" v:groupContext="group"
 					v:layerMember="0">
@@ -3640,7 +3640,7 @@
 				<text x="0" y="1786.36" class="st12" v:langID="1033"><v:paragraph/><v:tabList/>Web app <v:lf/><tspan x="0"
 							dy="1.2em" class="st13">signing in users</tspan></text>			</g>
 		</g>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users"
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users"
 				xlink:title="How to: Restrict your app to a set of users">
 			<g id="group2249-1193" transform="translate(105.266,-320.883)" v:mID="2249" v:groupContext="group" v:layerMember="0">
 				<v:userDefs>
@@ -3666,7 +3666,7 @@
 								x="0" dy="1.2em" class="st13">to a set of users</tspan></text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps">
 			<g id="group2253-1202" transform="translate(105.266,-283.385)" v:mID="2253" v:groupContext="group" v:layerMember="0">
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -3677,7 +3677,7 @@
 					<path d="M0 1789.96 A14.1732 14.1732 0 0 1 28.35 1789.96 A14.1732 14.1732 0 1 1 0 1789.96 Z" class="st9"/>
 				</g>
 				<a
-						xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps"
+						xlink:href="https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps"
 						xlink:title="How to: Add app roles in your application and receive them in the token">
 					<g id="shape2255-1205" v:mID="2255" v:groupContext="shape" v:layerMember="0"
 							transform="translate(4.25197,-4.25197)">
@@ -4079,7 +4079,7 @@
 				<text x="0" y="1786.36" class="st4" v:langID="1033"><v:paragraph/><v:tabList/>Confidential client<v:lf/><tspan
 							x="0" dy="1.2em" class="st13">configuration</tspan></text>			</g>
 		</g>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-expose-web-apis">
 			<g id="group1191-1361" transform="translate(1066.68,-1094.74)" v:mID="1191" v:groupContext="group" v:layerMember="0">
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -4103,7 +4103,7 @@
 					<text x="0" y="1793.56" class="st4" v:langID="1033"><v:paragraph/><v:tabList/>Expose API</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims">
 			<g id="group1387-1369" transform="translate(1066.68,-1038.34)" v:mID="1387" v:groupContext="group" v:layerMember="0">
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -4423,7 +4423,7 @@
 				<rect x="0" y="1775.79" width="81.1493" height="28.3465" class="st11"/>
 				<text x="3.06" y="1793.56" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Sign out users</text>			</g>
 		</g>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-expose-web-apis">
 			<g id="group2393-1484" transform="translate(875.865,-1091.22)" v:mID="2393" v:groupContext="group" v:layerMember="0">
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -4447,7 +4447,7 @@
 					<text x="0" y="1793.56" class="st4" v:langID="1033"><v:paragraph/><v:tabList/>Expose API</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims">
+		<a xlink:href="https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims">
 			<g id="group2397-1492" transform="translate(876.762,-1034.82)" v:mID="2397" v:groupContext="group" v:layerMember="0">
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>

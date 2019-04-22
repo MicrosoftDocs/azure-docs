@@ -92,3 +92,15 @@ Use the following checklist to ensure that your application is effectively integ
 |---|---|
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Test for [conditional access policies](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut) that may affect your users’ ability to use your application. |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Test your application with all possible accounts that you plan to support (for example, work or school accounts, personal Microsoft accounts, child accounts, and sovereign accounts). |
+
+## Additional resources
+
+Explore in-depth information about v2.0:
+
+* [Microsoft identity platform (v2.0 overview)](v2-overview.md)
+* [Microsoft identity platform protocols reference](active-directory-v2-protocols.md)
+* [Access tokens reference](access-tokens.md)
+* [ID tokens reference](id-tokens.md)
+* [Authentication libraries reference](reference-v2-libraries.md)
+* [Permissions and consent in Microsoft identity platform](v2-permissions-and-consent.md)
+* [Microsoft Graph API](https://developer.microsoft.com/graph)

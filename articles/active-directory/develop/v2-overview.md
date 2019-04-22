@@ -29,7 +29,7 @@ Microsoft identity platform connects and secures over 1 billion monthly active u
   
 Microsoft identity platform unifies application development for various Microsoft identities. Whether your app needs to authenticate users with work or school accounts (provisioned through Azure AD) or personal accounts (known as Microsoft accounts (MSA), such as @outlook.com), the unified platform simplifies getting authentication integrated into your app. The unified Microsoft identity platform lets developers write code once and have the code work with all the applicable user identities. Developers can build an app once and have it work across many platforms, or build an app that functions as a client and a resource application (API).
 
-# Getting started
+## Getting started
 
 Working with identity doesn’t have to be hard. However, it's important to know the basics and choose the right flow for the scenario. It's also important to follow principles and patterns necessary to ensure secure configuration of the application, and secure DevOps processes to ensure that the app won't be compromised in the course of its lifecycle.
 

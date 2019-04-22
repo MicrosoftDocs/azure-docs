@@ -163,9 +163,9 @@ If you want to have an app that has `login-east.contoso.com` and `login-west.con
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`  
 
-You can add the latter two because they're subdomains of the first redirect URL, contoso.com. This limitation will be removed in an upcoming release.
+You can add the latter two because they're subdomains of the first redirect URL, contoso.com.
 
-Also note, you can have only 20 reply URLs for a particular application - this limit applies across all app types that the registration supports (SPA, native client, web app, and service).  
+You can have only 20 reply URLs for a particular application - this limit applies across all app types that the registration supports (single-page application (SPA), native client, web app, and service).  
 
 To learn how to register an app for use with Microsoft identity platform, see [Register an app using the new App registrations experience](quickstart-register-app.md).
 
