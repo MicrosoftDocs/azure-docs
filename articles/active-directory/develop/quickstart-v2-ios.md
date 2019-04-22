@@ -56,6 +56,7 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app when they sign in or consent to your app, for example `iOSQuickstart`.
+>      - You can skip other configurations on this page. 
 >      - Hit the `Register` button.
 > 1. Click on the new app > go to `Authentication` > `Add Platform` > `iOS`.    
 >      - Enter the ***Bundle Identifier*** for your application. 
@@ -86,6 +87,7 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_here"
 >    let kAuthority = "Enter_the_Authority_here"
+>
 >    ```
 > 1. Right click **Info.plist** and select **Open As** > **Source Code**.
 > 1. Under the dict root node, replace with your ***Bundle Id***:
@@ -100,6 +102,7 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 >          </array>
 >       </dict>
 >    </array>
+> 
 >    ```
 > > 1. Build & run the app! 
 
@@ -110,6 +113,7 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 >
 >    ```swift
 >    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+> 
 >    ```
 > 1. Right click **Info.plist** and select **Open As** > **Source Code**.
 > 1. Under the dict root node, replace with your ***Bundle Id***:
@@ -124,6 +128,7 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 >          </array>
 >       </dict>
 >    </array>
+>
 >    ```
 > 1. Build & run the app! 
 
@@ -137,6 +142,7 @@ MSAL ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-libra
 
 ```
 $ vi Podfile
+
 ```
 Add the following to this podfile (with your project's target):
 
@@ -145,6 +151,7 @@ Add the following to this podfile (with your project's target):
    use_frameworks!
  	 pod 'MSAL', '0.4'
  end
+
 ```
 
 ### MSAL initialization
@@ -162,6 +169,7 @@ let authority = try MSALAADAuthority(url: URL(string: kAuthority)!)
             
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
+
 ```
 
 > |Where: ||
@@ -182,6 +190,7 @@ Your app must also have the following in your `AppDelegate`. This lets MSAL SDK 
          
          return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApplication)
      }
+
 ```
 
 Finally, your app must has an `LSApplicationQueriesSchemes` entry in your ***Info.plist*** alongside the `CFBundleURLTypes`. The sample comes with this included. 

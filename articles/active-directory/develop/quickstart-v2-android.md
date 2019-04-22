@@ -57,6 +57,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `AndroidQuickstart`.
+>      - You can skip other configurations on this page. 
 >      - Hit the `Register` button.
 > 1. Click on the new app > go to `Authentication` > `Add Platform` > `Android`.    
 >      - Enter the Package Name from your Android studio project. 
