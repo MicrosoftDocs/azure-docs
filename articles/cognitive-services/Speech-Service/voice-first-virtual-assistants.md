@@ -1,5 +1,5 @@
 ---
-title: Custom voice-first virtual assistants with Azure Speech Services (Preview)
+title: Custom voice-first virtual assistants (Preview) - Speech Services
 titleSuffix: Azure Cognitive Services
 description: An overview of the features, capabilities, and restrictions for custom voice-first virtual assistants using the Direct Line Speech channel on the Bot Framework and the Cognitive Services Speech Software Development Kit (SDK).
 services: cognitive-services
