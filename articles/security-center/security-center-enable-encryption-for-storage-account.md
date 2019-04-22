@@ -22,11 +22,6 @@ ms.author: rkarlin
 Azure Storage encryption for data at rest is enabled by default for all Azure storage accounts. Azure Storage encrypts data when it is written to Azure 
 Storage and decrypts it before retrieval. For more information, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
 
-## See also
-This document describes the Security Center recommendation "Enable encryption for Azure Storage Account." To learn more about Azure Storage encryption, see the following:
-
-* [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md)
-
 To learn more about Security Center, see the following:
 
 * [Setting security policies in Azure Security Center](tutorial-security-policy.md) - Learn how to configure security policies for your Azure subscriptions and resource groups.

@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 04/16/2019
  ms.author: tamram
- ms.custom: include file
+ ms.custom: include
 ---
 
 Azure Storage supports encryption at rest with either Microsoft-managed keys or customer-managed keys. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
