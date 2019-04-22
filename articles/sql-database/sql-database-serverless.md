@@ -73,6 +73,32 @@ The following features do not support auto-pausing and auto-resuming. That is, i
 
 ## Auto-scaling
 
+### Scaling responsiveness
+
+In general, databases are run on a machine with sufficient capacity to satisfy resource demand without interruption for any amount of compute requested within limits set by the `maxVcores` value. Occasionally, load balancing automatically occurs if the machine is unable to satisfy resource demand within a few minutes. The database remains online during load balancing except for a brief period at the end of the operation when connections are dropped.
+
+> [!IMPORTANT]
+> The latency to auto-pause or auto-resume a serverless database is generally on the order of 1 minute.
+
+### Memory management
+
+Memory for serverless databases is reclaimed more frequently than for provisioned databases. This behavior is important to control costs in serverless.
+
+#### Cache reclaiming
+
+Unlike provisioned compute, memory from the SQL cache is reclaimed from a serverless database when CPU or cache utilization is low. In both serverless and provisioned compute, cache entries can be evicted if all available memory is used.
+
+- Cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
+- When cache reclamation is triggered, the target cache size is reduced incrementally to a fraction of its previous size and reclaiming only continues if usage remains low.
+- When cache reclamation occurs, the policy for selecting cache entries to evict is the same selection policy as for provisioned compute databases when memory pressure is high.
+- The cache size is never reduced below the minimum memory as defined by minimum vCores.
+
+#### Cache hydration
+
+The SQL cache grows as data is fetched from disk in the same way and with the same speed as for provisioned databases. The cache is allowed to grow unconstrained up to the max memory limit when the database is busy.
+
+### Auto-pause and auto-resume
+
 ### Auto-pause
 
 Auto-pause is triggered if all of the following conditions are true for the duration of the auto-pause delay:
@@ -101,30 +127,6 @@ Auto-resume is triggered if any of the following conditions are true at any time
 |Database copying|Create database as copy<br>Export to a BACPAC file|
 |SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|
 |
-
-### Scaling responsiveness
-
-In general, databases are run on a machine with sufficient capacity to satisfy resource demand without interruption for any amount of compute requested within limits set by the `maxVcores` value. Occasionally, load balancing automatically occurs if the machine is unable to satisfy resource demand within a few minutes. The database remains online during load balancing except for a brief period at the end of the operation when connections are dropped.
-
-> [!IMPORTANT]
-> The latency to auto-pause or auto-resume a serverless database is generally on the order of 1 minute.
-
-### Memory management
-
-Memory for serverless databases is reclaimed more frequently than for provisioned databases. This behavior is important to control costs in serverless.
-
-#### Cache reclaiming
-
-Unlike provisioned compute, memory from the SQL cache is reclaimed from a serverless database when CPU or cache utilization is low. In both serverless and provisioned compute, cache entries can be evicted if all available memory is used.
-
-- Cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
-- When cache reclamation is triggered, the target cache size is reduced incrementally to a fraction of its previous size and reclaiming only continues if usage remains low.
-- When cache reclamation occurs, the policy for selecting cache entries to evict is the same selection policy as for provisioned compute databases when memory pressure is high.
-- The cache size is never reduced below the minimum memory as defined by minimum vCores.
-
-#### Cache hydration
-
-The SQL cache grows as data is fetched from disk in the same way and with the same speed as for provisioned databases. The cache is allowed to grow unconstrained up to the max memory limit when the database is busy.
 
 ## On-boarding into the serverless compute tier
 
