@@ -141,6 +141,6 @@ The client secret for the confidential client application. This secret (applicat
 The other options enable logging and troubleshooting. For more information, see the [Logging](msal-logging.md) page for more details on how to use them.
 
 ## Next steps
-Learn about [instantiating client applications using MSAL.NET](msal-net-instantiating-client-applications.md).
+Learn about [instantiating client applications using MSAL.NET](msal-net-initializing-client-applications.md).
 
-Learn about [instantiating client applications using MSAL.js](msal-js-instantiating-client-applications.md).
+Learn about [instantiating client applications using MSAL.js](msal-js-initializing-client-applications.md).
