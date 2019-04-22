@@ -51,7 +51,8 @@ Additionally, Form Recognizer is **not** compatible with the following types of 
 * PDF documents longer than 50 pages
 
 ## Where do I start?
-**Step 1:** Create an Form Recognizer resource in the Azure Portal
+
+**Step 1:** Create a Form Recognizer resource in the Azure portal.
 
 **Step 2:** Try our quickstart for hands-on experience
 *	[Quickstart: Train a Form Recognizer model and extract form data using REST API with cURL](quickstarts/curl-train-extract.md)
@@ -63,8 +64,8 @@ Use the following APIs to train and extract structured data from forms.
 
 | REST API | Description |
 |-----|-------------|
-| Train | Train	a new model to analyze your forms using 5 forms from the same type or an empty form  |
-| Analyze  |Analyze a single document passed in as a stream to extract key value pairs and tables from the form with your custom model.  |
+| Train | Train	a new model to analyze your forms using 5 forms from the same type or an empty form.  |
+| Analyze  |Analyze a single document passed in as a stream to extract key-value pairs and tables from the form with your custom model.  |
  
 Explore the [REST API reference document](https://aka.ms/from-recognizer/api). 
 
