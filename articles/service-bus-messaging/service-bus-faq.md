@@ -38,6 +38,13 @@ Ordering is not ensured when using partitioned entities. In the event that a par
 
  Partitioned entities are no longer supported in the [Premium SKU](service-bus-premium-messaging.md). 
 
+### What ports do I need to open on the firewall? 
+If want to use the **Advanced Message Queueing Protocol (AMQP)** protocol (recommended), open the following TCP ports: **5671** and **5672**. For more informationm, see [AMQP protocol guide](service-bus-amqp-protocol-guide.md). 
+
+If you're using the **Service Bus Message Protocol (SBMP)** protocol (old), the following ports are used: **9350** to **9354**. For more information, see [Connectivity mode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet). 
+
+If you're using **REST API**, open the port: **443**. 
+
 ## Best practices
 ### What are some Azure Service Bus best practices?
 See [Best practices for performance improvements using Service Bus][Best practices for performance improvements using Service Bus] – this article describes how to optimize performance when exchanging messages.
