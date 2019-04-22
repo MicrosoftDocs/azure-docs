@@ -1,5 +1,6 @@
 ---
-title: What is Personalizer - Azure Cognitive Services | Microsoft Docs
+title: What is Personalizer 
+titleSuffix: Azure Cognitive Services
 description: Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior. 
 services: cognitive-services
 author: edjez
@@ -24,7 +25,7 @@ Azure Personalizer is a cloud-based API service that allows you to choose the be
 
 ## How does Personalizer work?
 
-Personalizer uses machine learning models to discover what action to rank highest in a context. Your client application provides a list of possible actions, with information about them; and information about the context which may include information about the user, device, etc. Personalizer determines the action to take. Once your client application uses the chosen action, it provides feedback to Personalizer in the form of a reward score. After the feedback loop is complete, Personalizer automatically updates its own model used for future ranks.
+Personalizer uses machine learning models to discover what action to rank highest in a context. Your client application provides a list of possible actions, with information about them; and information about the context, which may include information about the user, device, etc. Personalizer determines the action to take. Once your client application uses the chosen action, it provides feedback to Personalizer in the form of a reward score. After the feedback loop is complete, Personalizer automatically updates its own model used for future ranks.
 
 ## How do I use the Personalizer?
 

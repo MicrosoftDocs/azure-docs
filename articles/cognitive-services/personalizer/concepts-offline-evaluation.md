@@ -1,6 +1,6 @@
 ---
-title: Offline Evaluation
-titleSuffix: Personalizer - Azure Cognitive Services
+title: Offline Evaluation - Personalizer
+titleSuffix: Azure Cognitive Services
 description: Create feedback loop in this C# quickstart with the Personalizer service.
 services: cognitive-services
 author: edjez
@@ -16,13 +16,13 @@ ms.author: edjez
 
 Offline evaluation is a method that allows you to test and assess the effectiveness of the Personalizer Service without changing your code or affecting user experience. Offline evaluation uses past data, sent from your application to the Rank API, to compare how different ranks have performed.
 
-Offline evaluation is performed on a date range. The range can finish as late as the current time. The beginning of the range can't be more than the number of days specified for data retention<!--[data retention](how-to-settings.md)-->.
+Offline evaluation is performed on a date range. The range can finish as late as the current time. The beginning of the range can't be more than the number of days specified for [data retention](how-to-settings.md).
 
 Offline evaluation can help you answer the following questions:
 
 * How effective are Personalizer ranks for successful personalization?
     * What are the average rewards achieved by the Personalizer online machine learning policy?
-    * How does Personalizer  compare to the effectiveness of what the application would have done by default?
+    * How does Personalizer compare to the effectiveness of what the application would have done by default?
     * What would have been the comparative effectiveness of a random choice for Personalization?
     * What would have been the comparative effectiveness of different learning policies specified manually?
 * Which features of the context are contributing more or less to successful personalization?
@@ -34,11 +34,12 @@ Offline evaluations do not provide guidance as to the percentage of events to us
 
 ## Prerequisites for offline evaluation
 
-The following are important considerations for representative offline evaluation:
-* Have enough data - we recommend at least 50,000 events.
+The following are important considerations for the representative offline evaluation:
+
+* Have enough data. The recommended minimum is at least 50,000 events.
 * Collect data from periods with representative user behavior and traffic.
 
-## Discovering optimized learning policy
+## Discovering the optimized learning policy
 
 Personalizer can use the offline evaluation process to discover a more optimal learning policy automatically.
 
@@ -46,7 +47,7 @@ After performing the offline evaluation, you can see the comparative effectivene
 
 ## Understanding the relevance of offline evaluation results
 
-When you run an offline evaluation, it is very important to analyze confidence bounds of the results. If they are wide, it means your application hasn’t received enough data for the reward estimates to be precise or significant. As the system accumulates more data, and you run offline evaluations over longer periods, the confidence intervals become narrower.
+When you run an offline evaluation, it is very important to analyze _confidence bounds_ of the results. If they are wide, it means your application hasn’t received enough data for the reward estimates to be precise or significant. As the system accumulates more data, and you run offline evaluations over longer periods, the confidence intervals become narrower.
 
 ## How offline evaluations are done
 
@@ -57,7 +58,7 @@ Personalizer is built on the assumption that users' behavior (and thus rewards) 
 This is the conceptual process used for evaluations:
 
 ```
-[For a given _learning policy), such as the online learning policy, uploaded learning policies, or optimized candidate]:
+[For a given _learning policy), such as the online learning policy, uploaded learning policies, or optimized candidate policies]:
 {
     Initialize a virtual instance of Personalizer with that policy and a blank model;
 
@@ -65,7 +66,7 @@ This is the conceptual process used for evaluations:
     {
         - Perform a Rank call
     
-        - Compare the RewardActionId of the results against the logged user behavior.
+        - Compare the reward of the results against the logged user behavior.
             - If they match, train the model on the observed reward in the logs.
             - If they don't match, then what the user would have done is unknown, so the event is discarded and not used for training or measurement.
         
@@ -75,25 +76,21 @@ This is the conceptual process used for evaluations:
 }
 ```
 
-As seen above, the offline evaluation only uses observed user behavior. This process also therefore discards large volumes of data, especially if your application does Rank calls with large numbers of actions.
+The offline evaluation only uses observed user behavior. This process discards large volumes of data, especially if your application does Rank calls with large numbers of actions.
 
 
 ## Evaluation of features
 
-Offline evaluations can provide information about how much specific features for actions or context are weighing for higher rewards. The information is computed using the evaluation against the given time period and data, and may vary with time.
+Offline evaluations can provide information about how much of the specific features for actions or context are weighing for higher rewards. The information is computed using the evaluation against the given time period and data, and may vary with time.
 
 We recommend looking at feature evaluations and asking:
 
 * What other, additional, features could your application or system provide along the lines of those that are more effective?
 * What features can be removed due to low effectiveness? Low effectiveness features add _noise_ into the machine learning.
-* Are there any features that are accidentally included? Examples of these are: personally identifiable information, duplicate IDs, etc.
+* Are there any features that are accidentally included? Examples of these are: personally identifiable information (PII), duplicate IDs, etc.
 * Are there any undesirable features that shouldn't be used to personalize due to regulatory or responsible use considerations? Are there features that could proxy (that is, closely mirror or correlate with) undesirable features?
 
 
 ## Next steps
 
-* [How to Do Offline Evaluations](concepts-offline-evaluation.md)
-<!--
-* [How to Configure Personalizer Settings](how-to-settings.md)
-
--->
+[Configure Personalizer](how-to-settings.md)
