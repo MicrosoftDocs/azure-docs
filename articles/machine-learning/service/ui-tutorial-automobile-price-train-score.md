@@ -33,6 +33,22 @@ In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial series, yo
 > A completed version of this tutorial is available as a sample experiment.
 > From the Experiments page, go to **Add New** > **Sample 1 - Regression: Automobile Price Prediction(Basic)**
 
+## Create a workspace
+
+If you have an Azure Machine Learning service workspace, skip to the [next section](#start). Otherwise, create one now.
+
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
+
+## <a name="start"></a> Open the visual interface webpage
+
+1. Open your workspace in the [Azure portal](https://portal.azure.com/).  
+
+1. In your workspace, select **Visual interface (preview)**.  Then select **Launch visual interface**.  
+
+    ![Launch visual interface](./media/ui-quickstart-run-experiment/launch-ui.png)
+
+    The interface webpage opens in a new browser page.  
+
 ## Import and clean the data
 
 The first thing you need is data, but raw data is usually too messy to be directly used in model training. Learn how to do basic data cleaning to prepare your data. If you completed the quickstart, you can reuse your data prep experiment here.
