@@ -21,7 +21,7 @@ While this application is written in Javascript and runs in your browser, the AP
 
 Usually you would call the API from an app that accepts digital inking. This quickstart simulates sending ink stroke data by using a JSON file with the ink strokes for the following drawn square. 
 
-![an image of a drawn square](../media/drawn-square.png)
+![an image of handwritten text](../media/handwriting-sample.jpg)
 
 The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
