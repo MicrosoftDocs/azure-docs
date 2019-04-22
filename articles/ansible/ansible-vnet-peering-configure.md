@@ -20,8 +20,6 @@ Traffic is routed between VMs in the same virtual network through private IP add
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
-[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
-
 > [!div class="checklist"]
 >
 > * Create two virtual networks
@@ -39,7 +37,7 @@ A resource group is a logical container in which Azure resources are deployed an
 
 [!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objectives.md)]
 
-- Creates two resource groups 
+- Create two resource groups 
 
 ```yaml
   - name: Create a resource group
@@ -56,8 +54,8 @@ A resource group is a logical container in which Azure resources are deployed an
 
 [!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objectives.md)]
 
-- Creates a virtual network
-- Creates a subnet within the virtual network
+- Create a virtual network
+- Create a subnet within the virtual network
 
 ```yml
   - name: Create first virtual network
@@ -77,8 +75,8 @@ A resource group is a logical container in which Azure resources are deployed an
 
 [!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objectives.md)]
 
-- Creates a virtual network
-- Creates a subnet within the virtual network
+- Create a virtual network
+- Create a subnet within the virtual network
 
 ```yml
   - name: Ceate second virtual network
@@ -98,8 +96,8 @@ A resource group is a logical container in which Azure resources are deployed an
 
 [!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objectives.md)]
 
-- Initializes virtual-network peering
-- Peers two previously created virtual networks
+- Initialize virtual-network peering
+- Peer two previously created virtual networks
 
 ```yml
   - name: Initial vnet peering
@@ -129,7 +127,7 @@ A resource group is a logical container in which Azure resources are deployed an
 
 [!INCLUDE [ansible-playbook-1-objectives.md](../../includes/ansible-playbook-1-objectives.md)]
 
-- Deletes the peering between the two previously created virtual networks
+- Delete the peering between the two previously created virtual networks
 
 ```yaml
   - name: Delete vnet peering

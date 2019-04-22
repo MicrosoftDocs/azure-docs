@@ -6,4 +6,4 @@
  ms.author: tarcher
 ---
 
-Here are some key notes to consider when working with the sample playbook:
+Before running the playbook, see the following notes:
