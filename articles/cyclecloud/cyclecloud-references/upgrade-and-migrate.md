@@ -1,11 +1,7 @@
 ---
 title: Azure CycleCloud Upgrade or Migrate | Microsoft Docs
 description: Upgrading to a newer CycleCloud version or migrate to a new host.
-services: azure cyclecloud
 author: mvrequa
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: mirequa
 ---

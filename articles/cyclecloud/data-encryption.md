@@ -1,12 +1,7 @@
 ---
 title: Azure CycleCloud Data Encryption | Microsoft Docs
 description: Generate encryption keys and encrypt your files within Azure CycleCloud.
-keywords: clusters alerts notifications
-services: azure cyclecloud
 author: KimliW
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: adjohnso
 ---

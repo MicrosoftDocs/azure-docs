@@ -1,11 +1,7 @@
 ---
 title: Azure CycleCloud Cluster Template Reference | Microsoft Docs
 description: Use or Build Cluster Templates within Azure CycleCloud
-services: azure cyclecloud
 author: mvrequa
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: reference
 ms.date: 08/22/2018
 ms.author: mirequa
 ---

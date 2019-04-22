@@ -1,11 +1,7 @@
 ---
 title: Azure CycleCloud Projects | Microsoft Docs
 description: Group resources into Projects within Azure CycleCloud.
-services: azure cyclecloud
 author: KimliW
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---

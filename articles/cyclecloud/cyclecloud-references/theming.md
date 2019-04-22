@@ -1,11 +1,7 @@
 ---
 title: Azure CycleCloud Theming | Microsoft Docs
 description: Theming the Azure CycleCloud user interface.
-services: azure cyclecloud
 author: dpwatrous
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: dpwatrous
 ---

@@ -1,11 +1,7 @@
 ---
 title: Azure CycleCloud Scheduler Integration | Microsoft Docs
 description: Grid Scheduling configuration for job management in Azure CycleCloud.
-services: azure cyclecloud
 author: KimliW
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---

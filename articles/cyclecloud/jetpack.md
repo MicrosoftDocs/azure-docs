@@ -1,11 +1,8 @@
 ---
 title: Azure CycleCloud Jetpack Tool | Microsoft Docs
 description: Learn about the Jetpack tool in Azure CycleCloud.
-services: azure cyclecloud
 author: KimliW
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
+ms.technology: jetpack
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---

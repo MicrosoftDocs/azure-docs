@@ -1,11 +1,7 @@
 ---
 title: Azure CycleCloud using Web Proxy | Microsoft Docs
 description: Running Azure CycleCloud from behind HTTP/HTTPs Proxy.
-services: azure cyclecloud
 author: dpwatrous
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: dpwatrous
 ---
@@ -42,7 +38,7 @@ the Azure backbone network instead of through the public management URLs.
 
 ## Export **HTTPS_PROXY** before running the CycleCloud CLI installer
 
-The [CycleCloud CLI installer](#install-cyclecloud-cli.md) requires outbound
+The [CycleCloud CLI installer](../install-cyclecloud-cli.md) requires outbound
 access to install packages via `pip`. Prior to running the install script,
 be sure to set the **HTTPS_PROXY** environment variable to point to your
 proxy server and port:
