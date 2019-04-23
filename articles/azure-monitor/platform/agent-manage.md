@@ -41,7 +41,7 @@ You can download the latest version of the Windows agent from your Log Analytics
 
 3. In your list of Log Analytics workspaces, select the workspace.
 
-4. In your Log Analytics workspace, select **Advanced settings** and then select **Connected Sources\Windows Servers**.
+4. In your Log Analytics workspace, select **Advanced settings**, then select **Connected Sources**, and finally **\Windows Servers**.
 
 5. From the **Windows Servers** page, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.
 
