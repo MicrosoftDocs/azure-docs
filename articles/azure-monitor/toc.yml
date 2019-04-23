@@ -560,6 +560,8 @@
         href: insights/containers.md
       - name: Monitor Docker applications
         href: app/docker.md
+      -name: Application Insights for Kubernetes
+        href: insights/kubernetes.md
     - name: Monitor resource groups
       href: insights/resource-group-insights.md
     - name: Monitor databases
