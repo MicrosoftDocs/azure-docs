@@ -89,4 +89,4 @@ We also run this detection for basic authentication (or legacy protocols). Becau
 **Detection Type:** Offline <br>
 **Old name:** This detection will continue to be shown in the legacy Azure AD Identity Protection reports (Users flagged for risk, Risk events) as ‘Users with leaked credentials’
 
-This risk event type indicates user activity that is unusualfor the given user or is consistent with known attack patterns based on Microsoft’s internal and external threat intelligence sources.
+This risk event type indicates user activity that is unusual for the given user or is consistent with known attack patterns based on Microsoft’s internal and external threat intelligence sources.
