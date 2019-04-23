@@ -13,7 +13,7 @@ ms.date: 04/15/2019
 
 # Quickstart: Create an Azure Database for PostgreSQL - Hyperscale (Citus) (preview) in the Azure portal
 
-Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This Quickstart shows you how to create an Azure Database for PostgreSQL - Hyperscale (Citus) (preview) server group using the Azure portal. You will explore distributed data: sharding tables across nodes, ingesting sample data, and running querieswhich execute on multiple nodes.
+Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This Quickstart shows you how to create an Azure Database for PostgreSQL - Hyperscale (Citus) (preview) server group using the Azure portal. You will explore distributed data: sharding tables across nodes, ingesting sample data, and running queries that execute on multiple nodes.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -82,15 +82,15 @@ Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) 
    psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
    ```
 
-## Creating and distributing tables
+## Create and distribute tables
 
 Once connected to the hyperscale coordinator node using psql, you can complete some basic tasks.
 
 Within Hyperscale servers there are three types of tables:
 
-1. Distributed or sharded tables (spread out to help scaling for performance and parallelization)
-2. Reference tables (multiple copies maintained)
-3. Local tables (often used for internal admin tables)
+- Distributed or sharded tables (spread out to help scaling for performance and parallelization)
+- Reference tables (multiple copies maintained)
+- Local tables (often used for internal admin tables)
 
 In this quickstart we'll primarily focus on distributed tables and getting familiar with them.
 
@@ -146,7 +146,7 @@ We're ready to load data. Download the two example files [users.csv](https://exa
 \copy github_users from 'users.csv' WITH CSV
 ```
 
-## Querying
+## Run queries
 
 Now it's time for the fun part, actually running some queries. Let's start with a simple `count (*)` to see how much data we loaded:
 
