@@ -158,6 +158,8 @@
         href: how-to-customize-voice-font.md
       - name: Record voice samples
         href: record-custom-voice-samples.md
+      - name: Fine-tune text-to-speech output
+        href: how-to-voice-tuning.md
     - name: Create a custom wake word (Devices SDK)
       href: speech-devices-sdk-create-kws.md
       displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
