@@ -23,8 +23,6 @@ ms.collection: M365-identity-device-management
 
 Now that you know how to protect your web API, here's how you can move it to production.
 
-## Improve your app
-
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## Next steps
