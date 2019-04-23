@@ -69,7 +69,13 @@ You will also need to [Configure an Azure VM to connect](sql-database-managed-in
 
 ## 3 - Create Azure Storage Account
 
-[Create an Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory.
+[Create an Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory, and then create a [file share](../storage/files/storage-how-to-create-file-share.md) within the storage account. 
+
+Copy the file share path in the format of:
+`\\storage-account-name.file.core.windows.net\file-share-name` 
+
+Copy the storage access keys in the format of:
+`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
 Be sure to copy the storage keys. See [View and copy storage access keys](../storage/common/storage-account-manage.md#access-keys). 
 
@@ -126,7 +132,7 @@ CREATE TABLE ReplTest (
 GO
 ```
 
-## 5 - Configure distribution
+## 6 - Configure distribution
 Connect to your `sql-mi-pub` managed instance using SQL Server Management Studio and run the following Transact-SQL (T-SQL) code to configure your distribution database. 
 
 ```sql
@@ -138,14 +144,14 @@ EXEC sp_adddistributiondb @database = N'distribution'​;
 GO
 ```
 
-## 6 - Configure publisher to use distributor 
+## 7 - Configure publisher to use distributor 
 On your publisher managed instance `sql-mi-pub`, change the query execution to [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) mode and run the following code to register the new distributor with your publisher. 
 
 ```sql
 :setvar username loginUsedToAccessSourceManagedInstance
 :setvar password passwordUsedToAccessSourceManagedInstance
-:setvar file_storage "\\*****.file.core.windows.net\*****"
-:setvar file_storage_key "DefaultEndpointsProtocol=https;AccountName=*****;AccountKey=**;EndpointSuffix=core.windows.net"
+:setvar file_storage "\\storage-account-name.file.core.windows.net\file-share-name"
+:setvar file_storage_key "DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net"
 
 
 USE [master]​
@@ -161,7 +167,7 @@ EXEC sp_adddistpublisher
 
 This script configures a local publisher on the managed instance, adds a linked server, and creates a set of jobs for the SQL Server Agent. 
 
-## 7 - Create publication and subscriber
+## 8 - Create publication and subscriber
 Using [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) mode, run the following Transact-SQL (T-SQL) script to enable replication for your database, and configure replication between your publisher, distributor, and subscriber. 
 
 ```sql
@@ -238,7 +244,7 @@ EXEC sp_addpushsubscription_agent
 EXEC sp_startpublication_snapshot
   @publication = N'$(publication_name)';
 ```
-## 8 - Test replication
+## 9 - Test replication
 
 Once replication has been configured, you can test it by inserting new items on the publisher and watching the changes propagate to the subscriber. 
 
@@ -254,8 +260,13 @@ Run the following Transact-SQL snippet to insert additional rows on the publishe
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
-## 9 - Clean up resources
+## 10 - Clean up resources
 Once you're done testing, you can clean up your resources by [deleting the resource group](../azure-resource-manager/manage-resources-portal.md#delete-resources) `SQLMI-Repl`. 
+
+
+## Known errors
+
+###  Agent message code 21118. Failed to connect to Azure Storage 
    
 ## See Also
 
