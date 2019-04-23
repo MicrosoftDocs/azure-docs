@@ -19,7 +19,11 @@ Datasets include public-domain data for weather, census, holidays, public safety
 ## Curated, prepared datasets
 Curated open public datasets in Azure Open Datasets are optimized for consumption in machine learning workflows. 
 
-Data scientists often spend the majority of their time cleaning and preparing data for advanced analytics. Open Datasets are preprocessed to save you time. The datasets are also cohosted with cloud compute in Azure making access and manipulation easier.  
+Data scientists often spend the majority of their time cleaning and preparing data for advanced analytics. Open Datasets are copied to the Azure cloud and preprocessed to save you time. At regular intervals, data is pulled from the sources, such as by an FTP connection to NOAA, parsed into a structured format, and then enriched as appropriate with features such as zip code or location of the nearest weather station.
+
+Datasets are cohosted with cloud compute in Azure making access and manipulation easier.  
+
+Following are examples of datasets available. 
 
 ### Weather data
  
@@ -39,36 +43,10 @@ With an Azure subscription you can access open datasets in the Azure portal, whe
 
 The Open Datasets site provides Python Pandas and Azure Databricks notebooks you can use to connect data to Azure Machine Learning service and Azure Databricks. Datasets can also be accessed through a Python SDK. [check this]
 
-## How to contribute to Open Datasets
+## Contribute to Open Datasets
 If you have a dataset to share, submit a request with a description of the dataset to [Azure Open Datasets site](https://opendatasets.azure.com). 
 
 ## Next steps
 * [Open datasets examples](samples.md)
 * [Tutorial: Regression modeling with NY taxi data](tutorial-opendatasets-automl.md)
 * [Python SDK for Open Datasets](https://aka.ms/open-datasets-sdk)
-
-
-
-<!---
-
-## Ways to use the data
-
-<Need scenarios for using public datasets>
-
-It can also be accessed through REST APIs that you can code through your applications and notebooks. ​
-Compete differentiator: Data curation (AWS offers only storage, and no curation) and ease of access (data appears in UI for AML service, Databricks, or can be accessed with a few lines of code via REST, CLI etc.)
-An Azure subscription will be required for access
-
-Value prop for Data scientists, Data analysts/engineers and Developers​
-More relevant model features == better accuracy​
-Save on data prep time with curated and optimized datasets (data scientists and engineers spend two thirds of their time cleaning and prepping data)​
-Ease of access and use from co-location with cloud compute (Moving large datasets not easy nor cheap)​
-
-Data Scientists spend two thirds of their time cleaning and prepping data. Azure Open Datasets are optimized for consumption in ML workflows.​
-Making these datasets available to the customers creates efficiencies of scale while reducing costs associated with data storage and pre-processing. ​
-Compete differentiator is the data curation and optimization (AWS offers only storage, and no curation) and ease of access (data appears in UI for AML service, Databricks or can be accessed with a few lines of code via REST, CLI etc.)​
-Data Scientists, Data engineers and developers are the primary audience. Adding scenario specific data and features lends to greater accuracy in model predictions. Datasets are co-hosted with cloud compute in Azure making access and manipulation easier.​
-They can be accessed through UX within Azure Machine Learning service, Azure Databricks and through REST APIs. Azure subscription will be required for access and creates attach for Azure services.​
-Market opportunity: Data Scientists, Developers and ISVs.. Target public preview is May 6th at build. ​
-Datasets included in preview - Weather 10 year historical and forecast, Holidays (for demand forecasting scenarios), NYC Taxi Trip datasets, Crime and Safety - top US cities , Census/population/socioeconomic data.​
--->
