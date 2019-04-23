@@ -430,7 +430,7 @@ Query Output:
 ]
 ```
 
-## ARRAY expression
+### ARRAY expression
 
 The `ARRAY` expression can be used to project the results of a query as an array. This expression can only be used within the SELECT clause of the query.
 
@@ -515,6 +515,6 @@ Query Output:
 
 ## Next steps
 
-- [SQL Query Examples][how-to-sql-query.md]
+- [SQL Query Examples](how-to-sql-query.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Model Document Data][modeling-data.md]
+- [Model Document Data](modeling-data.md)
