@@ -52,6 +52,16 @@ The following regions are supported for virtual node deployments:
 * West Europe (westeurope)
 * West US (westus)
 
+## Known limitations
+Virtual Nodes functionality is heavily dependent on ACI's feature set. The following scenarios are not yet supported with Virtual Nodes
+
+* Using service principal to pull ACR images. [Workaround](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) is to use [Kubernetes secrets](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Virtual Network Limitations](../container-instances/container-instances-vnet.md) including VNet peering, Kubernetes network policies, and outbound traffic to the internet with network security groups.
+* Init containers
+* [Host aliases](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Arguments](../container-instances/container-instances-exec.md#restrictions) for exec in ACI
+* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) will not deploy pods to the virtual node
+
 ## Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
@@ -88,7 +98,7 @@ az network vnet subnet create \
     --resource-group myResourceGroup \
     --vnet-name myVnet \
     --name myVirtualNodeSubnet \
-    --address-prefix 10.241.0.0/16
+    --address-prefixes 10.241.0.0/16
 ```
 
 ## Create a service principal
@@ -333,7 +343,7 @@ Virtual nodes are often one component of a scaling solution in AKS. For more inf
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
 [virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 

@@ -22,7 +22,7 @@ Azure DNS is a hosting service for DNS domains that provides name resolution usi
 
 ## Azure DNS metrics
 
-Azure DNS provides metrics for customers to enable them to monitor specific aspects of their DNS ones hosted in the service. In addition, with Azure DNS metrics, you can configure and receive alerts based on conditions of interest. The metrics are provided via the [Azure Monitor service](../azure-monitor/index.yml). 
+Azure DNS provides metrics for customers to enable them to monitor specific aspects of their DNS zones hosted in the service. In addition, with Azure DNS metrics, you can configure and receive alerts based on conditions of interest. The metrics are provided via the [Azure Monitor service](../azure-monitor/index.yml). 
 Azure DNS provides the following metrics via Azure Monitor for your DNS zones:
 
 -	QueryVolume
@@ -38,6 +38,7 @@ The granular level of dimension for these metrics is DNS Zone.
 ### Query volume
 
 The *Query Volume* metric in Azure DNS shows the volume of DNS queries (query traffic) that is received by Azure DNS for your DNS zone. The unit of measurement is Count and the aggregation is the total of all the queries received over a period of time. 
+
 To view this metric, select Metrics (preview) explorer experience from the Monitor tab in the Azure portal. Select your DNS zone from the Resource drop-down, select the Query Volume metric, and select Sum as the Aggregation. Below screenshot shows an example.  For more information on the Metrics Explorer experience and charting, see [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md).
 
 ![Query volume](./media/dns-alerts-metrics/dns-metrics-query-volume.png)

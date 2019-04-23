@@ -64,4 +64,5 @@ The easiest way to add an app configuration store to your application is through
 
 ## Next steps
 
-* [Quickstart: Create an ASP.NET web app](quickstart-aspnet-core-app.md) 
+> [!div class="nextstepaction"]
+> [Create an ASP.NET Core web app](./quickstart-aspnet-core-app.md)  

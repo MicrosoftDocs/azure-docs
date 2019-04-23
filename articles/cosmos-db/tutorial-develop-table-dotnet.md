@@ -164,7 +164,7 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 
 Entities map to C# objects by using a custom class derived from [TableEntity](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx). To add an entity to a table, create a class that defines the properties of your entity.
 
-Right click on your project **CosmosTableSamples**. Select **Add**, **New Folder** and name it as **Model**. Within the Model folder add a class named **CustimerEntity.cs** and add the following code to it.
+Right click on your project **CosmosTableSamples**. Select **Add**, **New Folder** and name it as **Model**. Within the Model folder add a class named **CustomerEntity.cs** and add the following code to it.
 
 ```csharp
 namespace CosmosTableSamples.Model

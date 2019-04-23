@@ -95,7 +95,7 @@ Blobs in all three access tiers can coexist within the same account. Any blob th
 
 ### Blob lifecycle management
 
-Blob Storage lifecycle management (Preview) offers a rich, rule-based policy that you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md) to learn more.  
+Blob Storage lifecycle management offers a rich, rule-based policy that you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md) to learn more.  
 
 ### Blob-level tiering billing
 

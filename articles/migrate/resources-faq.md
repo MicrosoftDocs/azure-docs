@@ -56,6 +56,10 @@ Unites States | East US or West Central US
 
 The connection can be over the internet or use ExpressRoute with public peering.
 
+### What network connectivity requirements are needed for Azure Migrate?
+
+For the URLs and ports needed for Azure Migrate to communicate with Azure, see [URLs for connectivity](https://docs.microsoft.com/azure/migrate/concepts-collector#urls-for-connectivity).
+
 ### Can I harden the VM set up with the OVA template?
 
 Additional components (for example anti-virus) can be added into the OVA template as long as the communication and firewall rules required for the Azure Migrate appliance to work are left as is.   
