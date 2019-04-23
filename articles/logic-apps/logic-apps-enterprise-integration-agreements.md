@@ -33,7 +33,7 @@ B2B messages.
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription yet, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 for storing your agreement and other B2B artifacts. This integration 
