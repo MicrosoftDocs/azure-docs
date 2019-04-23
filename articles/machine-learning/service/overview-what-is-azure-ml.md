@@ -35,7 +35,7 @@ Interactively explore and prepare data, train and test models, and deploy them u
 
 ## What can I do with Azure Machine Learning service?
 
-Using the <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> and visual interface (preview) as well as open-source Python packages , you can build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service Workspace.
+Using the <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages or using the [visual interface (preview)](ui-quickstart-run-experiment.md), you can build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service Workspace.
 
 You can choose from many machine learning components available in open-source Python packages, such as <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>, and <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
@@ -50,7 +50,10 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 ### Code-free / low code experience
 
 For code-free training, try:
+
 + The visual interface for drag-n-drop experimenting and deployment
+    
+    ![Visual interface for Azure Machine Learning service](media/overview-what-is-azure-ml/visual-interface.png)
 
 + The Azure portal option for automated ML experiments
 
@@ -70,7 +73,7 @@ To get started using Azure Machine Learning service, see [Next steps](#next-step
 
 [Machine Learning Studio](../studio/what-is-ml-studio.md) is a collaborative, drag-and-drop visual workspace where you can build, test, and deploy machine learning solutions without needing to write code. It uses prebuilt and preconfigured machine learning algorithms and data-handling modules as well as a proprietary compute platform.
 
-Azure Machine Learning service provides both SDKs **-and-** a visual interface(Preview), to quickly prep data, train and deploy machine learning models. This visual interface (Preview) provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the visual interface uses your own compute resources and is fully integrated into Azure Machine Learning service.
+Azure Machine Learning service provides both SDKs **-and-** a visual interface(preview), to quickly prep data, train and deploy machine learning models. This visual interface (preview) provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the visual interface uses your own compute resources and is fully integrated into Azure Machine Learning service.
 
 Here is a quick comparison.
 
@@ -82,7 +85,7 @@ Here is a quick comparison.
 |Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options  & Azure Kubernetes Service. <br/>([Other computes](how-to-deploy-and-where.md) supported in SDK) |
 |Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the SDK and Azure portal.) | 
 
-Try out the visual interface (Preview) with [Quickstart: Prepare and visualize data without writing code](ui-quickstart-run-experiment.md)
+Try out the visual interface (preview) with [Quickstart: Prepare and visualize data without writing code](ui-quickstart-run-experiment.md)
 
 > [!NOTE]
 > Models created in Studio can't be deployed or managed by Azure Machine Learning service. However, models created and deployed in the service visual interface can be managed through the Azure Machine Learning service workspace.
