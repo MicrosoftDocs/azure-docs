@@ -118,7 +118,7 @@ Use bind mounts to read and write data to and from the container. You can specif
 
 The Form Recognizer containers requires an  input and output mount. The input mount can be read-only and is required to access the data that will be used for training and scoring. The output mount has to be writable and will be used to store the models and temporary data.
 
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the Docker service account and the host mount location permissions.
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](form-recognizer-container-howto.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the Docker service account and the host mount location permissions.
 
 |Optional| Name | Data type | Description |
 |-------|------|-----------|-------------|
