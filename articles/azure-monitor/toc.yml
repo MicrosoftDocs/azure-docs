@@ -302,7 +302,6 @@
             href: app/iis-configurator-detailed-instructions.md
           - name: Troubleshooting and Known Issues
             href: app/iis-configurator-troubleshoot.md
-
           - name: API: Disable-InstrumentationEngine
             href: app/iis-configurator-api-disableinstrumentationengine.md
           - name: API: Disable-ApplicationInsightsMonitoring
@@ -317,7 +316,6 @@
             href: app/iis-configurator-api-getstatus.md
           - name: API: Set-ApplicationInsightsMonitoringConfig
             href: app/iis-configurator-api-setconfig.md
-
         - name: Status Monitor
           href: app/monitor-performance-live-website-now.md
         - name: Windows services

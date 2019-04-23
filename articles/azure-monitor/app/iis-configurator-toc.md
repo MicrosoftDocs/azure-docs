@@ -36,13 +36,13 @@ https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConf
 - Review our [Detailed Instructions](iis-configurator-detailed-instructions.md) for a deep dive on how to get started.
 
 ### PowerShell API Reference
-- [Disable-ApplicationInsightsMonitoring](api_DisableMonitoring.md)
-- [Disable-InstrumentationEngine](api_DisableInstrumentationEngine.md)
-- [Enable-ApplicationInsightsMonitoring](api_EnableMonitoring.md)
-- [Enable-InstrumentationEngine](api_EnableInstrumentationEngine.md)
-- [Get-ApplicationInsightsMonitoringConfig](api_GetConfig.md)
-- [Get-ApplicationInsightsMonitoringStatus](api_GetStatus.md)
-- [Set-ApplicationInsightsMonitoringConfig](api_SetConfig.md)
+- [Disable-ApplicationInsightsMonitoring](iis-configurator-api-disablemonitoring.md)
+- [Disable-InstrumentationEngine](iis-configurator-api-disableinstrumentationengine.md)
+- [Enable-ApplicationInsightsMonitoring](iis-configurator-api-enablemonitoring.md)
+- [Enable-InstrumentationEngine](iis-configurator-api-enableinstrumentationengine.md)
+- [Get-ApplicationInsightsMonitoringConfig](iis-configurator-api-getconfig.md)
+- [Get-ApplicationInsightsMonitoringStatus](iis-configurator-api-getstatus.md)
+- [Set-ApplicationInsightsMonitoringConfig](iis-configurator-api-setconfig.md)
 
 ### Troubleshooting
 - [Troubleshooting](iis-configurator-troubleshoot.md)
