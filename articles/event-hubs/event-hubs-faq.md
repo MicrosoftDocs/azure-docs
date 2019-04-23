@@ -59,7 +59,7 @@ See the following table for the outbound ports you need to open to use these pro
 
 | Protocol | Ports | Details | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 and 5672 | See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
+| AMQP | 5671 and 5672 | See [AMQP protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
 | Kafka | 9092 | See [Use Event Hubs from Kafka applications](event-hubs-for-kafka-ecosystem-overview.md)
 
