@@ -22,7 +22,7 @@ Visit [azure.com](https://www.azure.com) for the primary [Azure Functions docume
 
 **What are the supported languages?**
 
-Check the [supported languages article](supported-languages.md) 
+Check the [supported languages article](supported-languages.md)
 
 ## Limits
 
@@ -35,6 +35,7 @@ Check the [supported languages article](supported-languages.md)
 Check the [deployment option article](functions-continuous-deployment.md) **NEED NEW LINK**
 
 **Can I use Azure DevOps to deploy my functions?**
+
 Yes, check the [Azure DevOps Integration article](functions-continuous-deployment.md) **NEED NEW LINK**
 
 ## Hosting Options
