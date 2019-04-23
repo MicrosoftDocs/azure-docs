@@ -229,14 +229,9 @@ or [Add Event Hubs action](#add-action).
 ## Connector reference
 
 For technical details, such as triggers, actions, and limits, 
-as described by the connector's Swagger file, 
+as described by the connector's OpenAPI (formerly Swagger) file, 
 see the [connector's reference page](/connectors/eventhubs/).
-
-## Get support
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+Learn about other [Logic Apps connectors](../connectors/apis-list.md)
