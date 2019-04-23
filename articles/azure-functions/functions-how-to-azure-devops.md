@@ -16,19 +16,20 @@ ms.custom:
 You can automatically deploy your function to an Azure Function app using [Azure Pipelines](/devops/pipelines/).
 To define your pipeline, you can use:
 
-- YAML File: This file describes the pipeline, it may have a build steps section, and a release section. Usually that YAML file resides in the same repo as the app.
+- YAML File: This file describes the pipeline, it may have a build steps section, and a release section. The YAML file should be in the same repo as the app.
 
-- Templates: Templates are ready made pipelines that builds or deploys your app.
+- Templates: Templates are ready made tasks that build or deploy your app.
 
-## YAML Based Pipeline
+## YAML-Based Pipeline
 
 ### Build your app
 
-Building your app in Azure Pipelines depends on the programming language of your app. Each language has specific build steps to create a deployment artifact, that can be used to update your function app in Azure.
+Building your app in Azure Pipelines depends on the programming language of your app.
+Each language has specific build steps to create a deployment artifact, which can be used to deploy your function app in Azure.
 
 ### .NET
 
-You can use the following samples to create your YAML file to build your .NET app, note that the vmImage should be changed depending on which Azure Functions hosting OS your app is on:
+You can use the following samples to create your YAML file to build your .NET app, the **vmImage** should be changed depending on which Azure Functions hosting OS your app is on:
 
 ```yaml
 jobs:
@@ -61,7 +62,7 @@ steps:
 
 ### JavaScript
 
-You can use the following samples to create your YAML file to build your JavaScript app, note that the vmImage should be changed depending on which Azure Functions hosting OS your app is on:
+You can use the following samples to create your YAML file to build your JavaScript app, the **vmImage** should be changed depending on which Azure Functions hosting OS your app is on:
 
 ```yaml
 jobs:
@@ -91,7 +92,7 @@ steps:
 
 ## Python
 
-You can use the following samples to create your YAML file to build your Python app, note that Python is only supported for Linux Azure Functions:
+You can use the following samples to create your YAML file to build your Python app, Python is only supported for Linux Azure Functions:
 
 ```yaml
 jobs:
@@ -127,7 +128,7 @@ steps:
 
 ### Deploy your app
 
-Depending on the hosting OS, you will need to include the following YAML sample in your YAML file.
+Depending on the hosting OS, you need to include the following YAML sample in your YAML file.
 
 ### Windows Function App
 
@@ -155,11 +156,12 @@ steps:
     appName: '<Name of function app>'
 ```
 
-## Template Based Pipeline
+## Template-Based Pipeline
 
 ### Build your app
 
-Building your app in Azure Pipelines depends on the programming language of your app. Each language has specific build steps to create a deployment artifact, that can be used to update your function app in Azure. To use the built in build templates, when creating a new build pipeline, choose "Use the classic editor" to create a pipeline using the designer templates
+Building your app in Azure Pipelines depends on the programming language of your app. Each language has specific build steps to create a deployment artifact, that can be used to update your function app in Azure.
+To use the built-in build templates, when creating a new build pipeline, choose "Use the classic editor" to create a pipeline using the designer templates
 
 ![](media/functions-how-to-azure-devops/classic-editor.png)
 
@@ -183,7 +185,7 @@ Using [Azure CLI](/cli/azure/get-started-with-azure-cli.md) you can create a bui
 
 ### Creating an Azure Pipeline
 
-Using the `devops-build create` [command](/cli/azure/functionapp/devops-build#az-functionapp-devops-build-create) a pipeline will be created to build and release any code changes in your repo. The command will create a new YAML file that defines the build and release pipeline and commit it to your repo.
+Using the `devops-build create` [command](/cli/azure/functionapp/devops-build#az-functionapp-devops-build-create) a pipeline will get created to build and release any code changes in your repo. The command will generate a new YAML file that defines the build and release pipeline and commit it to your repo.
 The pre-requisites for this command depend on the location of your code:
 
 - If your code is in GitHub:
@@ -194,7 +196,7 @@ The pre-requisites for this command depend on the location of your code:
 
     - You have permission to create a GitHub Personal Access Token with sufficient permissions. [GitHub PAT Permission Requirements.](https://aka.ms/azure-devops-source-repos)
 
-    - You have permission to commit to the master branch in your GitHub repository to upload the auto generated YAML file.
+    - You have permission to commit to the master branch in your GitHub repository to commit the auto-generated YAML file.
 
 - If your code is in Azure Repos:
 
