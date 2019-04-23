@@ -24,7 +24,7 @@ At this time, Azure Monitor metrics are only available for Linux containers.
 
 ## Available metrics
 
-Azure Monitor provides the following [metrics for Azure Container Instances](../azure-monitor/platform/metrics-supported#microsoftcontainerinstancecontainergroups). These metrics are available for a container group and individual containers.
+Azure Monitor provides the following [metrics for Azure Container Instances][supported-metrics]. These metrics are available for a container group and individual containers.
 
 * **CPU Usage** - measured in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores (or 500 m) represents 50% utilization of a CPU core. Aggregated as average CPUs.
 
@@ -75,7 +75,7 @@ Timestamp            Name       Average
 2019-04-23 23:10:00  CPU Usage  0.5
 ```
 
-Change the value of the `--metric` parameter in the command to get other [supported metrics](../azure-monitor/platform/metrics-supported#microsoftcontainerinstancecontainergroups). For example, use the following command to get **memory** usage metrics. 
+Change the value of the `--metric` parameter in the command to get other [supported metrics][supported-metrics]. For example, use the following command to get **memory** usage metrics. 
 
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
@@ -148,3 +148,4 @@ Learn how to create [metric alerts][metric-alert] to get notified when a metric 
 [azure-monitoring]: ../azure-monitor/overview.md
 [metric-alert]: ..//azure-monitor/platform/alerts-metric.md
 [monitor-dimension]: ../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics
+[supported-metrics]: ../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups
