@@ -42,7 +42,7 @@ This tutorial uses the "Developer Tools" feature (also known as DevTools or F12)
 
 Throughout this tutorial, the Time Series Insights sample application is used to explore the source code behind the application, including the usage of the TSI JavaScript client library. The sample is a single-page web application (SPA) that demonstrates how to use the library. The sample shows how to query and visualize data from a sample TSI environment.
 
-1. Browse to the [Time Series Insights sample application](https://insights.timeseries.azure.com/clientsample). You see a page similar to the following image with a prompt to sign in:
+1. Navigate to the <a href="https://insights.timeseries.azure.com/clientsample" target="_blank" rel="external noopener noreferrer">Time Series Insights sample application</a>. You see a page similar to the following image with a prompt to sign in:
 
    ![TSI Client sample sign-in prompt](media/tutorial-explore-js-client-lib/tcs-sign-in.png)
 
