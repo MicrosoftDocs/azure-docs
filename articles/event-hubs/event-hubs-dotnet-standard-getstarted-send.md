@@ -192,8 +192,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
 6. Run the program, and ensure that there are no errors.
 
 ## Receive events
-This section shows how to write a .NET Core console application that receives messages from an event hub using the [Event Processor Host](event-hubs-event-processor-host.md). The [Event Processor Host](event-hubs-event-processor-host.md) is a .NET class that simplifies receiving events from event hubs by managing persistent checkpoints and parallel receives from those event hubs. Using the Event Processor Host, you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use the Event Processor Host for a single receiver. The [Scale out event processing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) sample shows how to use the Event Processor Host with multiple receivers.
-
+This section shows how to write a .NET Core console application that receives messages from an event hub using the [Event Processor Host](event-hubs-event-processor-host.md). The [Event Processor Host](event-hubs-event-processor-host.md) is a .NET class that simplifies receiving events from event hubs by managing persistent checkpoints and parallel receives from those event hubs. Using the Event Processor Host, you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use the Event Processor Host for a single receiver.
 > [!NOTE]
 > You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), replace `EventHubConnectionString` and `EventHubName`, `StorageAccountName`, `StorageAccountKey`, and `StorageContainerName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
 
