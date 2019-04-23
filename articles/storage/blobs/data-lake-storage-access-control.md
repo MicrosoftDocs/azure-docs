@@ -12,37 +12,40 @@ ms.author: jamesbak
 
 # Access control in Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 implements an access control model that supports both Azure Role Based Access Control (RBAC) and POSIX-like access control lists (ACLs). This article summarizes the basics of the access control model for Data Lake Storage Gen2.
+Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (RBAC) and POSIX-like *access control lists (ACLs)*. This article summarizes the basics of the access control model for Data Lake Storage Gen2.
 
-## Azure Role-based Access Control (RBAC)
+## Role-based access control
 
-Azure Role-based Access Control (RBAC) uses role assignments to effectively apply sets of permissions to *security principals*. A *security principal* is an object that represents a user, group, service principal, or managed identity that is defined in Azure AD that is requesting access to Azure resources. 
+RBAC uses role assignments to effectively apply sets of permissions to *security principals*. A *security principal* is an object that represents a user, group, service principal, or managed identity that is defined in Azure AD that is requesting access to Azure resources.
 
-Typically, those Azure resources are constrained to top-level resources (*e.g.*, Azure Storage accounts). In the case of Azure Storage, and consequently Azure Data Lake Storage Gen2, this mechanism has been extended to the file system resource.
+Typically, those Azure resources are constrained to top-level resources (For example: Azure Storage accounts). In the case of Azure Storage, and consequently Azure Data Lake Storage Gen2, this mechanism has been extended to the file system resource.
+
+To learn how to set up RBAC on your storage account, see [Authenticate access to Azure blobs and queues using Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+### The impact of role assignments on file and directory level access control lists
 
 While using RBAC role assignments is a powerful mechanism to control access permissions, it is a very coarsely grained mechanism relative to ACLs. The smallest granularity for RBAC is at the file system level and this will be evaluated at a higher priority than ACLs. Therefore, if you assign RBAC permissions on a file system, that a security principal will have that authorization for ALL directories and files in that file system, regardless of ACL assignments.
 
-Azure Storage provides three built-in RBAC roles for Blob storage:
+When a security principal is granted RBAC data permissions through a [built-in role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), or through a custom role, these permissions are evaluated first upon authorization of a request. If the requested operation is authorized by the security principal's RBAC assignments then authorization is immediately resolved and no additional ACL checks are performed. Alternatively, if the security principal does not have an RBAC assignment or the request's operation does not match the assigned permission, then ACL checks are performed to determine if the security principal is authorized to perform the requested operation.
 
-- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
-- [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
-- [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
+> [!NOTE]
+> If the security principal has been assigned the [Storage Blob Data]() Owner built-in role assignment, then the security principal is considered a *super-user* and is granted full access to all mutating operations, including setting the owner of a directory or file as well as ACLs for directories and files for which they are not the owner. Super-user access is the only authorized manner to change the owner of a resource.
 
-When a security principal is granted RBAC data permissions either through one of these built-in roles, or through a custom role, these permissions are evaluated first upon authorization of a request. If the requested operation is authorized by the security principal's RBAC assignments then authorization is immediately resolved and no additional ACL checks are performed. Alternatively, if the security principal does not have an RBAC assignment or the request's operation does not match the assigned permission, then ACL checks are performed to determine if the security principal is authorized to perform the requested operation.
+A special note should be made of the [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) built-in role, then the security principal is considered a *super-user*, and is granted full access to all mutating operations, including setting the owner of a directory or file as well as ACLs for directories and files for which they are not the owner. Super-user access is the only authorized manner to change the owner of a resource.
 
-A special note should be made of the Storage Blob Data Owner built-in role. If the security principal has this RBAC assignment, then the security principal is considered a *super-user* and is granted full access to all mutating operations, including setting the owner of a directory or file as well as ACLs for directories and files for which they are not the owner. Super-user access is the only authorized manner to change the owner of a resource.
+## Shared Key and Shared Access Signature (SAS) authentication
 
-To learn more about granting access at the storage account, resource, or subscription level by assigning roles to security principals, see [Azure Storage Security Guide](../common/storage-data-lake-storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-## Shared Key and Shared Access Signature Authentication
-
-Azure Data Lake Storage Gen2 supports Shared Key and Shared Access Signature (SAS) methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
+Azure Data Lake Storage Gen2 supports Shared Key and SAS methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
 
 In the case of Shared Key, the caller effectively gains ‘super-user’ access, meaning full access to all operations on all resources, including setting owner and changing ACLs.
 
 SAS tokens include allowed permissions as part of the token. The permissions included in the SAS token are effectively applied to all authorization decisions, but no additional ACL checks are performed.
 
-To learn more about granting access by using Shared Key and Shared Access Signature (SAS) methods of authentication, see [Azure Storage Security Guide](../common/storage-data-lake-storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+A **shared key** gives a user or application super-user access with full access to all operations on all resources. That access includes the ability to set the owner, and to modify permission levels on the file system, directory, and files.
+
+A **SAS token** provides limited access, and includes permission levels as part of the token. The permissions included in a SAS token apply to all requests for access.
+
+While these approaches seem simple, there's no identity associated with them, so you won't be able to provide identity-based access permissions. In general, we recommend that you grant access permissions to identities that are defined in your Azure Active Directory (AD) tenant. This includes role-based access control for setting permissions at the storage account level, and access control lists for setting more granular permissions at the file system, directory, and file level. We'll discuss each of these approaches in this article.
 
 ## Access control lists on files and directories
 
@@ -51,6 +54,8 @@ You can associate a security principal with an access level for files and direct
 If you assigned a role to a security principal at the storage account-level, you can use access control lists to grant that security principal elevated access to specific files and directories.
 
 You can't use access control lists to provide a level of access that is lower than a level granted by a role assignment. For example, if you assign the [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview) role to a security principal, then you can't use access control lists to prevent that security principal from writing to a directory.
+
+### Set file and directory level permissions by using access control lists
 
 To set file and directory level permissions, see any of the following articles:
 
@@ -61,6 +66,8 @@ To set file and directory level permissions, see any of the following articles:
 
 > [!IMPORTANT]
 > If the security principal is a *service* principal, it's important to use the object ID of the service principal and not the object ID of the related app registration. To get the object ID of the service principal open the Azure CLI, and then use this command: `az ad sp show --id <Your App ID> --query objectId`. make sure to replace the `<Your App ID>` placeholder with the App ID of your app registration.
+
+### Types of access control lists
 
 There are two kinds of access control lists: *access ACLs* and *default ACLs*.
 
@@ -75,7 +82,7 @@ Both access ACLs and default ACLs have the same structure.
 > [!NOTE]
 > Changing the default ACL on a parent does not affect the access ACL or default ACL of child items that already exist.
 
-## Permissions
+### Levels of permission
 
 The permissions on a file system object are **Read**, **Write**, and **Execute**, and they can be used on files and directories as shown in the following table:
 
@@ -85,7 +92,7 @@ The permissions on a file system object are **Read**, **Write**, and **Execute**
 | **Write (W)** | Can write or append to a file | Requires **Write** and **Execute** to create child items in a directory |
 | **Execute (X)** | Does not mean anything in the context of Data Lake Storage Gen2 | Required to traverse the child items of a directory |
 
-### Short forms for permissions
+#### Short forms for permissions
 
 **RWX** is used to indicate **Read + Write + Execute**. A more condensed numeric form exists in which **Read=4**, **Write=2**, and **Execute=1**, the sum of which represents the permissions. Following are some examples.
 
@@ -96,11 +103,11 @@ The permissions on a file system object are **Read**, **Write**, and **Execute**
 | 4            | `R--`        | Read                   |
 | 0            | `---`        | No permissions         |
 
-### Permissions inheritance
+#### Permissions inheritance
 
 In the POSIX-style model that's used by Data Lake Storage Gen2, permissions for an item are stored on the item itself. In other words, permissions for an item cannot be inherited from the parent items if the permissions are set after the child item has already been created. Permissions are only inherited if default permissions have been set on the parent items before the child items have been created.
 
-## Common scenarios related to permissions
+### Common scenarios related to permissions
 
 The following table lists some common scenarios to help you understand which permissions are needed to perform certain operations on a storage account.
 
@@ -117,7 +124,7 @@ The following table lists some common scenarios to help you understand which per
 > [!NOTE]
 > Write permissions on the file are not required to delete it, so long as the previous two conditions are true.
 
-## Users and identities
+### Users and identities
 
 Every file and directory has distinct permissions for these identities:
 
@@ -131,7 +138,7 @@ Every file and directory has distinct permissions for these identities:
 
 The identities of users and groups are Azure Active Directory (Azure AD) identities. So unless otherwise noted, a *user*, in the context of Data Lake Storage Gen2, can refer to an Azure AD user, service principal, managed identity, or security group.
 
-### The owning user
+#### The owning user
 
 The user who created the item is automatically the owning user of the item. An owning user can:
 
@@ -141,16 +148,16 @@ The user who created the item is automatically the owning user of the item. An o
 > [!NOTE]
 > The owning user *cannot* change the owning user of a file or directory. Only super-users can change the owning user of a file or directory.
 
-### The owning group
+#### The owning group
 
 In the POSIX ACLs, every user is associated with a *primary group*. For example, user "Alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as her primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance." The owning group otherwise behaves similarly to assigned permissions for other users/groups.
 
-#### Assigning the owning group for a new file or directory
+##### Assigning the owning group for a new file or directory
 
 * **Case 1**: The root directory "/". This directory is created when a Data Lake Storage Gen2 file system is created. In this case, the owning group is set to the user who created the file system if it was done using OAuth. If the file system is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to **$superuser**.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent directory.
 
-#### Changing the owning group
+##### Changing the owning group
 
 The owning group can be changed by:
 * Any super-users.
@@ -159,7 +166,7 @@ The owning group can be changed by:
 > [!NOTE]
 > The owning group cannot change the ACLs of a file or directory.  While the owning group is set to the user who created the account in the case of the root directory, **Case 1** above, a single user account isn't valid for providing permissions via the owning group. You can assign this permission to a valid user group if applicable.
 
-## Access check algorithm
+### Access check algorithm
 
 The following pseudocode represents the access check algorithm for storage accounts.
 
@@ -204,7 +211,7 @@ mask = get_mask( path )
 return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
-### The mask
+#### The mask
 
 As illustrated in the Access Check Algorithm, the mask limits access for named users, the owning group, and named groups.  
 
@@ -213,20 +220,20 @@ As illustrated in the Access Check Algorithm, the mask limits access for named u
 >
 > The mask may be specified on a per-call basis. This allows different consuming systems, such as clusters, to have different effective masks for their file operations. If a mask is specified on a given request, it completely overrides the default mask.
 
-### The sticky bit
+#### The sticky bit
 
 The sticky bit is a more advanced feature of a POSIX file system. In the context of Data Lake Storage Gen2, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a directory,  a child item can only be deleted or renamed by the child item's owning user.
 
 The sticky bit isn't shown in the Azure portal.
 
-## Default permissions on new files and directories
+### Default permissions on new files and directories
 
 When a new file or directory is created under an existing directory, the default ACL on the parent directory determines:
 
 - A child directory’s default ACL and access ACL.
 - A child file's access ACL (files do not have a default ACL).
 
-### umask
+#### umask
 
 When creating a file or directory, umask is used to modify how the default ACLs are set on the child item. umask is a 9-bit value on parent directories that contains an RWX value for **owning user**, **owning group**, and **other**.
 
