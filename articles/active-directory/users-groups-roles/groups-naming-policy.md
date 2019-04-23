@@ -24,13 +24,13 @@ ms.collection: M365-identity-device-management
 To enforce consistent naming conventions for Office 365 groups created or edited by your users, set up a group naming policy for your tenants in Azure Active Directory (Azure AD). For example, you could use the naming policy to communicate the function of a group, membership, geographic region, or who created the group. You could also use the naming policy to help categorize groups in the address book. You can use the policy to block specific words from being used in group names and aliases.
 
 > [!IMPORTANT]
-> Using the Office 365 Groups Naming Policy requires Azure Active Directory Premium P1 licenses or Azure AD Basic EDU licenses for each unique user that is a member of one or more Office 365 groups.
+> Using Azure AD naming policy for Office 365 groups requires that you possess but not necessarily assign an Azure Active Directory Premium P1 license or Azure AD Basic EDU license for each unique user that is a member of one or more Office 365 groups.
 
-The naming policy is applied to creating or editing groups created across workloads (for example, Outlook, Microsoft Teams, SharePoint, Exchange, or Planner). It is applied to both the group name and group alias. If you set up your naming policy In Azure AD and you have an existing Exchange group naming policy, the Azure AD naming policy is applied.
+The naming policy is applied to creating or editing groups created across workloads (for example, Outlook, Microsoft Teams, SharePoint, Exchange, or Planner). It is applied to both the group name and group alias. If you set up your naming policy in Azure AD and you have an existing Exchange group naming policy, the Azure AD naming policy is enforced in your organization.
 
 ## Naming policy features
 
-You can enforce naming policy for Office 365 groups in two different ways:
+You can enforce naming policy for groups in two different ways:
 
 - **Prefix-suffix naming policy** You can define prefixes or suffixes that are then added automatically to enforce a naming convention on your groups (for example, in the group name “GRP\_JAPAN\_My Group\_Engineering”, GRP\_JAPAN\_ is the prefix, and \_Engineering is the suffix). 
 
@@ -76,22 +76,26 @@ Selected administrators can be exempted from these policies, across all group wo
 ## Configure the group naming policy for a tenant using Azure portal (preview)
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a User administrator account.
+1. Select **Groups**, then select **Naming policy** to open the Naming policy page.
 
-2. Select **Groups**, then select **Naming policy** to open the Naming policy page.
+  ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy-preview.png)
 
 ### View or edit the Prefix-suffix naming policy
 
-1. On the **Naming policy** page, go to **Group naming policy**
-2. You can view or edit the current prefix or suffix naming policies individually by selecting the attributes or strings you want to enforce as part of the naming policy.
-3. To remove a prefix or suffix from the list, simply select the prefix or suffix, then select **Delete**. Multiple items can be deleted at the same time.
-4. Save your changes for the new policy to be effective by selecting **Save**.
+1. On the **Naming policy** page, go to **Group naming policy**.
+1. You can view or edit the current prefix or suffix naming policies individually by selecting the attributes or strings you want to enforce as part of the naming policy.
+1. To remove a prefix or suffix from the list, select the prefix or suffix, then select **Delete**. Multiple items can be deleted at the same time.
+1. Save your changes for the new policy to go into effect by selecting **Save**.
 
 ### View or edit the custom blocked words
 
 1. On the **Naming policy** page, go to **Blocked words**.
-2. View or edit the current list of custom blocked words by selecting **Download**.
-3. Upload the new list of custom blocked words by selecting the file icon.
-4. Save your changes for the new policy to be effective by selecting **Save**.
+
+  ![edit and upload blocked words list for naming policy](./media/groups-naming-policy/blockedwords-preview.png)
+
+1. View or edit the current list of custom blocked words by selecting **Download**.
+1. Upload the new list of custom blocked words by selecting the file icon.
+1. Save your changes for the new policy to go into effect by selecting **Save**.
 
 ## Install PowerShell cmdlets to configure a naming policy
 
@@ -116,7 +120,7 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
 
 1. Open a Windows PowerShell window on your computer. You can open it without elevated privileges.
 
-2. Run the following commands to prepare to run the cmdlets.
+1. Run the following commands to prepare to run the cmdlets.
   
    ```powershell
    Import-Module AzureADPreview
@@ -124,7 +128,7 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
    ```
    In the **Sign in to your Account** screen that opens, enter your admin account and password to connect you to your service, and select **Sign in**.
 
-3. Follow the steps in [Azure Active Directory cmdlts for configuring group settings](groups-settings-cmdlets.md) to create group settings for this tenant.
+1. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](groups-settings-cmdlets.md) to create group settings for this tenant.
 
 ### View the current settings
 
@@ -134,7 +138,7 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
    ```
   
-2. Display the current group settings.
+1. Display the current group settings.
   
    ```powershell
    $Setting.Values
@@ -148,13 +152,13 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
    $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
    ```
   
-2. Set the custom blocked words that you want to restrict. The following example illustrates how you can add your own custom words.
+1. Set the custom blocked words that you want to restrict. The following example illustrates how you can add your own custom words.
   
    ```powershell
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
   
-3. Save the settings for the new policy to be effective, such as in the following example.
+1. Save the settings for the new policy to go into effect, such as in the following example.
   
    ```powershell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
@@ -194,7 +198,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 ### Remove the naming policy using Azure portal (preview)
 
 1. On the **Naming policy** page, go to **Blocked words**, select **Delete policy**.
-2. Once you confirm the deletion, the naming policy will be removed, including all prefix-suffix naming policy and any custom blocked words will be removed.
+1. After you confirm the deletion, the naming policy is removed, including all prefix-suffix naming policy and any custom blocked words.
 
 ### Remove the naming policy using Azure AD Powershell
 
@@ -204,13 +208,13 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
    $Setting["PrefixSuffixNamingRequirement"] =""
    ```
   
-2. Empty the custom blocked words. 
+1. Empty the custom blocked words.
   
    ```powershell
    $Setting["CustomBlockedWordsList"]=""
    ```
   
-3. Save the settings.
+1. Save the settings.
   
    ```powershell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
