@@ -18,11 +18,11 @@
   items:
   - name: Python SDK
     items:
-    - name: Experiment with a cloud notebook
+    - name: Run experiment in the cloud
       displayName: workspace
       href: quickstart-run-cloud-notebook.md
-    - name: Experiment with a local notebook
-      displayName: workspace install sdk
+    - name: Run experiment locally
+      displayName: workspace, install, sdk
       href: quickstart-run-local-notebook.md
   - name: Visual interface
     items:
