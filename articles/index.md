@@ -2099,7 +2099,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Red Hat OpenShift</h3>
-                                                    <p>Fully managed OpenShift service, jointly operated with Red Hat </p>
+                                                    <p>Fully managed OpenShift service jointly operated with Red Hat</p>
                                                 </div>
                                             </div>
                                         </div>
