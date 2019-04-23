@@ -101,17 +101,17 @@ When planning your SCCA compliancy strategy and technical architecture, there ar
 - Which Azure services will you use?
     - There are Azure services that can meet requirements around log analytics, host-based protection, and IDS functionality. However, it is possible that some services aren’t generally available in our IL5 regions. This may lead to the need to use some 3rd party tools if these Azure services can’t meet your requirement. You will need to look at what tools you are comfortable with and the feasibility of using Azure native tooling. 
     - It is Microsoft’s recommendation that you use as many Azure native tools as possible as they are all built with cloud security in mind and seamlessly integrate with the rest of the Azure platform. Below is a list of Azure native tools that can be leveraged to meet various requirements of SCCA. 
-        - Azure Monitor - https://docs.microsoft.com/en-us/azure/azure-monitor/overview 
-        - Azure Security Center - https://docs.microsoft.com/en-us/azure/security-center/security-center-intro 
-        - Network Watcher - https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview 
-        - Azure Key Vault - https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis 
-        - Azure Active Directory - https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis 
-        - Application Gateway - https://docs.microsoft.com/en-us/azure/application-gateway/overview 
-        - Azure Firewall - https://docs.microsoft.com/en-us/azure/firewall/overview 
-        - Azure Front Door - https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview 
-        - Security Groups - https://docs.microsoft.com/en-us/azure/virtual-network/security-overview 
-        - Azure DDoS Protection - https://docs.microsoft.com/en-us/azure/virtual-network/ddos-protection-overview 
-        - Azure Sentinel- https://docs.microsoft.com/en-us/azure/sentinel/overview 
+        - [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview )
+        - [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) 
+        - [Network Watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) 
+        - [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) 
+        - [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
+        - [Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/overview)
+        - [Azure Firewall](https://docs.microsoft.com/en-us/azure/firewall/overview) 
+        - [Azure Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview)
+        - [Security Groups](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview)
+        - [Azure DDoS Protection](https://docs.microsoft.com/en-us/azure/virtual-network/ddos-protection-overview)
+        - [Azure Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/overview)
 - Sizing
     - A sizing exercise will need to be completed. You will need to look at the amount of concurrent connections you may have through the SACA instance as well as the network throughput requirements. 
     - This is a critical step as it will help to size the VMs, as well as help to identify the licenses that will be required from the various vendors you will be using in your SACA instance. 
