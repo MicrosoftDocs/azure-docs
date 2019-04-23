@@ -20,5 +20,5 @@ ms.custom: include file
 
 |   |
 |---|
-| **Applies to:**<br><ul><li>Microsoft identity platform endpoint<li>Microsoft Authentication Library (MSAL) Preview</ul><br>For a general availability (GA) library, use the Azure AD v1.0 endpoint and Azure AD Authentication Library (ADAL). For more info, see [About v1.0](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-developers-guide). |
+| **Applies to:**<br><ul><li>Microsoft identity platform endpoint<li>Microsoft Authentication Library (MSAL) Preview</ul><br>For a general availability (GA) library, use the Azure AD v1.0 endpoint and Azure AD Authentication Library (ADAL). For more info, see [About v1.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-overview). |
 |   |
