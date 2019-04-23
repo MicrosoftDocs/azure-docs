@@ -10,4 +10,4 @@ These will become links to conceptual pages of the MSAL libraries when the topic
 
 ## Test your integration
 
-- Test your integration by following the [Microsoft identity platform integration check list](../articles/active-directory/develop/active-directory-integration-checklist.md).
+- Test your integration by following the [Microsoft identity platform integration checklist](../articles/active-directory/develop/active-directory-integration-checklist.md).
