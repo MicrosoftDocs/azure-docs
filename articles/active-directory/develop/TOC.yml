@@ -60,7 +60,7 @@
     - name: Daemon apps
       items:
       - name: .NET Core console (daemon)
-        href: quickstart-v2-netcore-daemon.md    
+        href: quickstart-v2-netcore-daemon.md
       - name: ASP.NET daemon Web app
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: Tutorials
@@ -93,6 +93,22 @@
       items:
       - name: Sign-in audience
         href: v2-supported-account-types.md
+      - name: Single Page Application
+        items:
+        - name: Overview
+          href: scenario-spa-overview.md
+        - name: App registration
+          href: scenario-spa-app-registration.md
+        - name: App's code configuration
+          href: scenario-spa-app-configuration.md
+        - name: Sign in and sign out
+          href: scenario-spa-sign-in.md
+        - name: Acquire token for an api
+          href: scenario-spa-acquire-token.md
+        - name: Call a Web API
+          href: scenario-spa-call-api.md
+        - name: Move to production
+          href: scenario-spa-production.md
       - name: Web app that signs in users
         items:
         - name: Overview
@@ -176,7 +192,7 @@
       - name: Integration checklist
         href: active-directory-integration-checklist.md
     - name: Microsoft Authentication Library (MSAL)
-      items:        
+      items:
         - name: Overview
           href: msal-overview.md
         - name: Compare MSAL.NET and ADAL.Net
@@ -193,7 +209,7 @@
         href: authentication-scenarios.md
       - name: OAuth 2.0 and OpenID Connect protocols
         href: active-directory-v2-protocols.md
-      - name: OpenID Connect 
+      - name: OpenID Connect
         href: v2-protocols-oidc.md
       - name: OAuth 2.0 implicit grant flow
         href: v2-oauth2-implicit-grant-flow.md
@@ -214,7 +230,7 @@
       - name: Access tokens
         href: access-tokens.md
       - name: Certificate credentials
-        href: active-directory-certificate-credentials.md     
+        href: active-directory-certificate-credentials.md
     - name: Application configuration
       items:
       - name: Applications and service principals
@@ -230,8 +246,8 @@
         href: consent-framework.md
       - name: Application consent experiences
         href: application-consent-experience.md
-    - name: National Clouds 
-      href: authentication-national-cloud.md      
+    - name: National Clouds
+      href: authentication-national-cloud.md
   - name: How-to guides
     items:
     - name: Authentication
@@ -409,7 +425,7 @@
       - name: Access tokens
         href: access-tokens.md
       - name: Certificate credentials
-        href: active-directory-certificate-credentials.md           
+        href: active-directory-certificate-credentials.md
       - name: SAML tokens
         href: reference-saml-tokens.md
     - name: Application configuration
@@ -431,8 +447,8 @@
         href: application-consent-experience.md
     - name: Conditional access
       href: conditional-access-dev-guide.md
-    - name: National Clouds 
-      href: authentication-national-cloud.md      
+    - name: National Clouds
+      href: authentication-national-cloud.md
   - name: How-to guides
     items:
     - name: Authentication
@@ -459,7 +475,7 @@
         - name: Configure token lifetimes
           href: active-directory-configurable-token-lifetimes.md
       - name: ADAL error handling best practices
-        href: active-directory-devhowto-adal-error-handling.md      
+        href: active-directory-devhowto-adal-error-handling.md
     - name: Application configuration
       items:
       - name: Convert a single-tenant app to a multi-tenant app

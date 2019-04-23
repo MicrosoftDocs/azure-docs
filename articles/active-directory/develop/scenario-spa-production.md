@@ -1,0 +1,51 @@
+---
+title: Single Page Application - Move to production | Azure
+description: Learn how to build a Single Page Application (Move to production)
+services: active-directory
+documentationcenter: dev-center-name
+author: navyasric
+manager: CelesteDG
+editor: ''
+
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.subservice: develop
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/06/2019
+ms.author: nacanuma
+ms.custom: aaddev
+#Customer intent: As an application developer, I want to know how to write a Single Page Application using the Microsoft identity platform for developers.
+ms.collection: M365-identity-device-management
+---
+
+# Single Page Application - Move to production
+
+Now that you know how to acquire a token to call Web APIs, learn how to move to production.
+
+## Improve your app
+
+Follow the steps needed to make your app production ready.
+
+[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+
+## Next steps
+
+Here are a few other samples / tutorials:
+
+* For a deep dive of the quickstart sample which explains the code for how to sign in users and get an access token to call the MS Graph API using MSAL.js
+
+    > [!div class="nextstepaction"]
+    > [JavaScript SPA tutorial](./tutorial-v2-javascript-spa.md)
+
+* Sample demonstrating how to get tokens for your own backend web API using MSAL.js
+
+     > [!div class="nextstepaction"]
+     > [SPA with an ASP.NET backend](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+
+* Sample to show how to use MSAL.js to sign in users in an app registered with Azure AD B2C
+
+    > [!div class="nextstepaction"]
+    > [SPA with Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
