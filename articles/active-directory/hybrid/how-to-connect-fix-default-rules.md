@@ -100,89 +100,90 @@ Keep **Scoping filter** and **Join rules** empty. Fill in the transformation as 
 You now know how to make a new attribute for a user object flow from Active Directory to Azure Active Directory. You can use these steps to map any attribute from any object to source and target. For more information, see [Creating custom sync rules](how-to-connect-create-custom-sync-rule.md) and [Prepare to provision users](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
 
 ### Override the value of an existing attribute
-It’s possible that you want to override the value of already mapped attribute, for example you always want to set Null value to an attribute in Azure AD, you can do this by simply creating only an inbound rule as mentioned in previous step and flow **AuthoritativeNull** constant value for the target attribute. Please note that we have used AuthoritativeNulll instead of Null in this case. This is because the non-null value will replace the Null value even if it has lower precedence (higher number value in the rule). However, the AuthoritativeNull will be treated as Null and will not be replaced with non-null value by other rules. 
+You might want to override the value of an attribute that has already been mapped. For example, if you always want to set a null value to an attribute in Azure AD, simply create an inbound rule only. Make the constant value, `AuthoritativeNull`, flow to the target attribute. 
+
+>[!NOTE] 
+> Use `AuthoritativeNull` instead of `Null` in this case. This is because the non-null value replaces the null value, even if it has lower precedence (a higher number value in the rule). `AuthoritativeNull`, on the other hand, isn't replaced with a non-null value by other rules. 
 
 ### Don’t sync existing attribute
-If you want to exclude an attribute from syncing, then you can use the attribute filtering feature provided in Azure AD Connect. Launch **Azure AD Connect** from desktop icon, and then select **Customize synchronization options**.
+If you want to exclude an attribute from syncing, use the attribute filtering feature provided in Azure AD Connect. Launch **Azure AD Connect** from the desktop icon, and then select **Customize synchronization options**.
 
-![default rules](media/how-to-connect-fix-default-rules/default4.png)
+![Screenshot of Azure AD Connect additional tasks options](media/how-to-connect-fix-default-rules/default4.png)
 
- Make sure **Azure AD app and attribute filtering** is selected and click **Next**.
+ Make sure **Azure AD app and attribute filtering** is selected, and select **Next**.
 
-![default rules](media/how-to-connect-fix-default-rules/default5.png)
+![Screenshot of Azure AD Connect optional features](media/how-to-connect-fix-default-rules/default5.png)
 
-Uncheck the attributes that you want to exclude from syncing.
+Clear the attributes that you want to exclude from syncing.
 
-![default rules](media/how-to-connect-fix-default-rules/default6a.png)
+![Screenshot of Azure AD Connect attributes](media/how-to-connect-fix-default-rules/default6a.png)
 
-## Changing scoping filter
-Azure AD Sync takes care of most of the objects, you can reduce the scope of objects and reduce it fewer objects to be exported in a supported manner without changing the standard default sync rules. In case you want to increase the scope of objects then you can **Edit** the existing rule, clone it and disable the original rule. Microsoft recommends you not to increase the scope configured by Azure AD Connect. Increase in scope of objects will make it hard for support team to understand the customizations and support the product.
+## Change scoping filter
+Azure AD Sync takes care of most of the objects. You can reduce the scope of objects, and reduce the number of objects to be exported, without changing the standard default sync rules. 
 
-Here is how you can reduce the scope of objects synced to Azure AD. Please note that if you reduce the scope of the **users** being synced then the password hash syncing will also stop for the filtered-out users. If the objects are already syncing, then after reducing scope, the filtered-out objects will be deleted from the target directory, please work on scoping very carefully.
-Here are the supported ways to reduce the scope of the objects you are syncing.
+Use one of the following methods to reduce the scope of the objects you're syncing:
 
 - [cloudFiltered attribute](#cloudfiltered-attribute)
-- [OU filtering](#ou-filtering)
+- [Organization unit filtering](#ou-filtering)
+
+If you reduce the scope of the users being synced, the password hash syncing also stops for the filtered-out users. If the objects are already syncing, after you reduce scope, the filtered-out objects are deleted from the target directory. For this reason, ensure that you scope very carefully.
+
+>[!IMPORTANT] 
+> Increasing the scope of objects configured by Azure AD Connect isn't recommended. Doing so makes it difficult for the Microsoft support team to understand the customizations. If you must increase the scope of objects, edit the existing rule, clone it, and disable the original rule. 
 
 ### cloudFiltered attribute
-Please note that this is not an attribute which can be set in Active Directory. You need to set the value of this attribute by adding a new inbound rule as mentioned in **Overriding value of existing attribute** section. You can then use the **Transformation** and use **Expression** to set this attribute in the Metaverse. Here is an example that you don’t want to sync all the user’s whose department name starts with case insensitive **HRD**:
+You can't set this attribute in Active Directory. Set the value of this attribute by adding a new inbound rule. You can then use **Transformation** and **Expression** to set this attribute in the metaverse. The following example shows that you don’t want to sync all the users whose department name starts with **HRD** (case-insensitive):
 
 `cloudFiltered <= IIF(Left(LCase([department]), 3) = "hrd", True, NULL)`
 
-We have first converted the department from source (Active Directory) to lower case. Then using Left function, we took only first 3 characters and compared it with hrd. If it matched, then set the value to True otherwise NULL. Please note that we are setting the value NULL, so that some other rule with lower precedence (higher number value) can write to it with different condition. Please run preview on one object to validate sync rule as mentioned in [Validate Sync Rule](#validate-sync-rule) section.
+We first converted the department from source (Active Directory) to lower case. Then using `Left` function, we took only first 3 characters and compared it with `hrd`. If it matched, the value is set to `True`, otherwise `NULL`. In setting the value to null, some other rule with lower precedence (a higher number value) can write to it with a different condition. Run preview on one object to validate sync rule, as mentioned in the [Validate sync rule](#validate-sync-rule) section.
 
-![default rules](media/how-to-connect-fix-default-rules/default7a.png)
+![Screenshot of Create inbound synchronization rule options](media/how-to-connect-fix-default-rules/default7a.png)
 
+### Organizational unit filtering
+You can create one or more organizational units (OUs), and move the objects you don’t want to sync to these OUs. Then, configure the OU filtering in Azure AD Connect. Launch **Azure AD Connect** from the desktop icon, and select the following options. You can also configure the OU filtering at the time of installation of Azure AD Connect. 
 
+![Screenshot of Azure AD Connect additional tasks](media/how-to-connect-fix-default-rules/default8.png)
 
-### OU Filtering
-You can create one or more OUs and move the objects you don’t want to sync to these OUs. Then configure the OU filtering in Azure AD Connect by launching **Azure AD Connect** from the desktop icon and select the options as shown below. You can also configure the OU filtering at the time of installation of Azure AD Connect. 
+Follow the wizard, and clear the OUs you don’t want to sync.
 
-![default rules](media/how-to-connect-fix-default-rules/default8.png)
+![Screenshot of Azure AD Connect Domain and OU filtering options](media/how-to-connect-fix-default-rules/default9.png)
 
-Follow the wizard and then unselect the OUs you don’t want to sync.
-
-![default rules](media/how-to-connect-fix-default-rules/default9.png)
-
-## Changing join condition
-Microsoft recommends you that you use the default join conditions configured by Azure AD Connect. Changing default join conditions will make it hard for support team to understand the customizations and support the product.
+## Change join condition
+Use the default join conditions configured by Azure AD Connect. Changing default join conditions makes it difficult for Microsoft support to understand the customizations and support the product.
 
 ## Validate sync rule
-You can validate the newly added sync rule by using the preview feature without running full sync cycle. Launch **Synchronization Service** UI.
+You can validate the newly added sync rule by using the preview feature, without running the full sync cycle. In Azure AD Connect, select **Synchronization Service**.
 
-![default rules](media/how-to-connect-fix-default-rules/default10.png)
+![Screenshot of Azure AD Connect, with Synchronization Service highlighted](media/how-to-connect-fix-default-rules/default10.png)
 
-Click on the **Metaverse Search**, select scope object as **person**, **Add Clause** and mention your search criteria. Click on **Search** button and double-click on the object in the **Search Results** Please note that you run the import and sync on the forest before you run this step, this is to ensure the data in Azure AD Connect is up-to-date for that object.
+Select **Metaverse Search**. Select the scope object as **person**, select **Add Clause**, and mention your search criteria. Next, select **Search**, and double-click the object in the search results. Make sure that your data in Azure AD Connect is up-to-date for that object, by running import and sync on the forest before you run this step.
 
-![default rules](media/how-to-connect-fix-default-rules/default11.png)
+![Screenshot of Synchronization Service Manager](media/how-to-connect-fix-default-rules/default11.png)
 
+On **Metaverse Object Properties**, select **Connectors**, select the object in the corresponding connector (forest), and select **Properties…**.
 
+![Screenshot of Metaverse Object Properties](media/how-to-connect-fix-default-rules/default12.png)
 
-Select **Connectors**, select the object in corresponding connector(forest), click **Properties…**.
+Select **Preview…**
 
-![default rules](media/how-to-connect-fix-default-rules/default12.png)
+![Screenshot of Connector Space Object Properties](media/how-to-connect-fix-default-rules/default13a.png)
 
-Click on the **Preview…**
+In the Preview window, select **Generate Preview** and **Import Attribute Flow** in the left pane.
 
-![default rules](media/how-to-connect-fix-default-rules/default13a.png)
-
-Click on **Generate Preview** and **Import Attribute Flow** in the left pane.
-
-![default rules](media/how-to-connect-fix-default-rules/default14.png)
+![Screenshot of Preview](media/how-to-connect-fix-default-rules/default14.png)
  
-Here you will notice that the newly added rule is run on the object and has set the cloudFiltered attribute to True.
+Here, notice that the newly added rule is run on the object, and has set the `cloudFiltered` attribute to true.
 
-![default rules](media/how-to-connect-fix-default-rules/default15a.png)
+![Screenshot of Preview](media/how-to-connect-fix-default-rules/default15a.png)
  
-How to compare modified rule with default rule?
-You can export both the rules separately as text files. These rules will be exported as powershell script file. You can compare them using any file comparison tool to see what kind of changes are done. Here in this example I used windiff to compare two files.
+To compare the modified rule with the default rule, export both of the rules separately, as text files. These rules are exported as a PowerShell script file. You can compare them by using any file comparison tool (for example, windiff) to see the changes. 
  
-You can notice that in user modified rule, msExchMailboxGuid attribute is changed to **Expression** type instead of **Direct** with value as **NULL** and **ExecuteOnce** option. You can ignore Identified and Precedence differences. 
+Notice that in the modified rule, the `msExchMailboxGuid` attribute is changed to the **Expression** type, instead of **Direct**. Also, the value is changed to **NULL** and **ExecuteOnce** option. You can ignore Identified and Precedence differences. 
 
-![default rules](media/how-to-connect-fix-default-rules/default17.png)
+![Screenshot of windiff tool output](media/how-to-connect-fix-default-rules/default17.png)
  
-How to fix a modified default rule?
-To fix your rules to default settings, you can delete the modified rule and enable the default rule as shown below and then run a **Full Synchronization**. Before doing that please take corrective actions as mentioned above so that you don’t lose the customization you are trying to achieve## Next Steps
+To fix your rules to change them back to default settings, delete the modified rule and enable the default rule. Ensure that you don't lose the customization you're trying to achieve. When you're ready, run **Full Synchronization**.
 
 ## Next Steps
 - [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
