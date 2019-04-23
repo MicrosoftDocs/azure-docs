@@ -1,17 +1,19 @@
 ---
 title: 'How to get started with Knowledge Store - Azure Search'
 description: Learn the steps for sending enriched documents created by AI indexing pipelines in Azure Search to an  Azure storage account. From there, you can view, reshape, and consume enriched documents in Azure Search and in other applications. 
-manager: eladz
-author: Vkurpad
+manager: cgronlun
+author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 05/02/2019
-ms.author: vikurpad
+ms.author: heidist
 ---
 # How to get started with Knowledge Store
 
-[Knowledge Store](knowledge-store-concept-intro.md) is a new preview feature in Azure Search that saves enriched documents created in an AI-based indexing pipeline. In this exercise, get started with sample data, services, and tools to learn the basic workflow for creating and using your own knowledge store.
+[Knowledge Store](knowledge-store-concept-intro.md) is a new preview feature in Azure Search that saves AI enrichments created in an indexing pipeline for analysis, exploration, and knowledge mining in other apps. You can also use saved enrichments to understand and refine an Azure Search indexing pipeline.
+
+In this exercise, start with sample data, services, and tools to learn the basic workflow for creating and using your first knowledge store.
 
 ## Prerequisites
 
@@ -19,11 +21,15 @@ The following services, tools, and data are used in this quickstart.
 
 + [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
 
-+ [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data.
++ [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data. Your knowledge store will exist in Azure storage.
+
++ [Create a Cognitive Services resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) at the S0 pay-as-you-go tier for broad-spectrum access to the full range of skills used in AI enrichments.
 
 + [Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search.
 
-+ Sample data consists of a data.jsonl file used in this exercise originates from the [Caselaw Access Project](https://case.law/bulk/download/)Public Bulk Data download page. Specifically, the exercise uses the first 10 documents of the first download (Arkansas). We uploaded the 10-document sample plus the full 571-document version to the [Azure Search sample data repository](https://azure-search-sample-data) on GitHub.
++ [Postman collection](https://github.com/Azure-Samples/azure-search-postman-sample/tree/master/caselaw) with prepared requests for creating a data source, index, skillset, and indexer. Several object definitions are too long to include in this article. You must get this collection to see the index and skillset definitions in their entirety.
+
++ [Caselaw sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) originating from the [Caselaw Access Project](https://case.law/bulk/download/) Public Bulk Data download page. Specifically, the exercise uses the first 10 documents of the first download (Arkansas). We uploaded a 10-document sample to GitHub for this exercise.
 
 ## Get a key and URL
 
@@ -33,7 +39,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+    ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service.
 
@@ -47,125 +53,124 @@ All requests require an api-key on every request sent to your service.
 
    ![Upload on command bar](media/search-semi-structured-data/upload-command-bar.png "Upload on command bar")
 
-1. Navigate to the folder containing the sample files. Select all of them and then click **Upload**.
+1. Navigate to the folder containing the **caselaw-sample.json** sample file. Select the file and then click **Upload**.
 
-After the upload completes, the files should appear in their own subfolder inside the data container.
 
 ## Set up Postman
 
 Start Postman and set up an HTTP request. If you are unfamiliar with this tool, see [Explore Azure Search REST APIs using Postman](search-fiddler.md).
 
-The request method for every call in this walkthrough is **POST**. The header keys are "Content-type" and "api-key." The values of the header keys are "application/json" and your "admin key" (the admin key is a placeholder for your search primary key) respectively. The body is where you place the actual contents of your call. Depending on the client you're using, there may be some variations on how you construct your query, but those are the basics.
++ Request method for every call in this walkthrough is **POST**.
++ Request headers (2) include the following: "Content-type" set to "application/json", "api-key" set to your "admin key" (the admin key is a placeholder for your search primary key) respectively. 
++ Request body is where you place the actual contents of your call. 
 
   ![Semi-structured search](media/search-semi-structured-data/postmanoverview.png)
 
-We are using Postman to make API calls to your search service in order to create a data source, an index, a skillset, and an indexer. The data source includes a pointer to your storage account and your JSON data. Your search service makes the connection when importing the data.
+We are using Postman to make four API calls to your search service, creating a data source, an index, a skillset, and an indexer. The data source includes a pointer to your storage account and JSON data. Your search service makes the connection when importing the data.
 
-Query strings must specify an api-version and each call should return a **201 Created**. The preview api-version for using JSON arrays is `2019-05-06-Preview`.
+[Create a skillset](#create-skillset) is the focus of this walkthrough: it specifies the enrichment steps and how data is persisted in a knowledge store.
+
+URL endpoint must specify an api-version and each call should return a **201 Created**. The preview api-version for creating a skillset with knowledge store support is `2019-05-06-Preview`.
 
 Execute the following API calls from your REST client.
 
 ## Create a data source
 
-The [Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/create-data-source)creates an Azure Search object that specifies what data to index.
+The [Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) creates an Azure Search object that specifies what data to index.
 
-The endpoint of this call is `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Replace `[service name]` with the name of your search service. 
+The endpoint of this call is `https://[service name].search.windows.net/datasources?api-version=2019-05-06-Preview` 
 
-For this call, the request body must include the name of your storage account, storage account key, and blob container name. The storage account key can be found in the Azure portal inside your storage account's **Access Keys**. The location is shown in the following image:
+1. Replace `[service name]` with the name of your search service. 
 
-  ![Semi-structured search](media/search-semi-structured-data/storagekeys.png)
+2. For this call, the request body must include your storage account connection string and blob container name. The connection can be found in the Azure portal inside your storage account's **Access Keys**. 
 
-Make sure to replace `[storage account name]`, `[storage account key]`, and `[blob container name]` in the body of your call before executing the call.
+   Make sure to replace the connection string and blob container name in the body of the request before executing the call.
 
-```json
-{
-    "name" : "clinical-trials-json",
-    "type" : "azureblob",
-    "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=[storage account name];AccountKey=[storage account key];" },
-    "container" : { "name" : "[blob container name]"}
-}
-```
+    ```json
+    {
+        "name": "caselaw-ds",
+        "description": null,
+        "type": "azureblob",
+        "subtype": null,
+        "credentials": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your storage key>;EndpointSuffix=core.windows.net"
+        },
+        "container": {
+            "name": "<your blob container name>",
+            "query": null
+        },
+        "dataChangeDetectionPolicy": null,
+        "dataDeletionDetectionPolicy": null
+    }
+    ```
 
-The response should look like:
+3. Send the request. The response should be **201** and the response body should look almost identical to the request payload you provided.
 
-```json
-{
-    "@odata.context": "https://exampleurl.search.windows.net/$metadata#datasources/$entity",
-    "@odata.etag": "\"0x8D505FBC3856C9E\"",
-    "name": "clinical-trials-json",
-    "description": null,
-    "type": "azureblob",
-    "subtype": null,
-    "credentials": {
-        "connectionString": "DefaultEndpointsProtocol=https;AccountName=[mystorageaccounthere];AccountKey=[[myaccountkeyhere]]];"
-    },
-    "container": {
-        "name": "[mycontainernamehere]",
-        "query": null
-    },
-    "dataChangeDetectionPolicy": null,
-    "dataDeletionDetectionPolicy": null
-}
-```
+    ```json
+    {
+        "name": "caselaw-ds",
+        "description": null,
+        "type": "azureblob",
+        "subtype": null,
+        "credentials": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your storage key>;EndpointSuffix=core.windows.net"
+        },
+        "container": {
+            "name": "<your blob container name>",
+            "query": null
+        },
+        "dataChangeDetectionPolicy": null,
+        "dataDeletionDetectionPolicy": null
+    }
+    ```
 
 ## Create an index
     
-The second call is [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), creating an Azure Search index that stores all searchable data. An index specifies all the parameters and their attributes.
+The second call is [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), creating an Azure Search index that stores all searchable data. An index specifies all fields, parameters, and attributes.
 
-The URL for this call is `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Replace `[service name]` with the name of your search service.
+You don't necessarily need an index for knowledge mining, but an indexer won't run unless an index is provided. 
 
-First replace the URL. Then copy and paste the following code into your body and run the query.
+The URL for this call is `https://[service name].search.windows.net/indexes?api-version=2019-05-06-Preview`
 
-```json
-{
-  "name": "clinical-trials-json-index",  
-  "fields": [
-  {"name": "FileName", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": false, "filterable": false, "sortable": true},
-  {"name": "Description", "type": "Edm.String", "searchable": true, "retrievable": false, "facetable": false, "filterable": false, "sortable": false},
-  {"name": "MinimumAge", "type": "Edm.Int32", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": true},
-  {"name": "Title", "type": "Edm.String", "searchable": true, "retrievable": true, "facetable": false, "filterable": true, "sortable": true},
-  {"name": "URL", "type": "Edm.String", "searchable": false, "retrievable": false, "facetable": false, "filterable": false, "sortable": false},
-  {"name": "MyURL", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": false, "filterable": false, "sortable": false},
-  {"name": "Gender", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
-  {"name": "MaximumAge", "type": "Edm.Int32", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": true},
-  {"name": "Summary", "type": "Edm.String", "searchable": true, "retrievable": true, "facetable": false, "filterable": false, "sortable": false},
-  {"name": "NCTID", "type": "Edm.String", "key": true, "searchable": true, "retrievable": true, "facetable": false, "filterable": true, "sortable": true},
-  {"name": "Phase", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
-  {"name": "Date", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": false, "filterable": false, "sortable": true},
-  {"name": "OverallStatus", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
-  {"name": "OrgStudyId", "type": "Edm.String", "searchable": true, "retrievable": true, "facetable": false, "filterable": true, "sortable": false},
-  {"name": "HealthyVolunteers", "type": "Edm.String", "searchable": false, "retrievable": true, "facetable": true, "filterable": true, "sortable": false},
-  {"name": "Keywords", "type": "Collection(Edm.String)", "searchable": true, "retrievable": true, "facetable": true, "filterable": false, "sortable": false},
-  {"name": "metadata_storage_last_modified", "type":"Edm.DateTimeOffset", "searchable": false, "retrievable": true, "filterable": true, "sortable": false},
-  {"name": "metadata_storage_size", "type":"Edm.String", "searchable": false, "retrievable": true, "filterable": true, "sortable": false},
-  {"name": "metadata_content_type", "type":"Edm.String", "searchable": true, "retrievable": true, "filterable": true, "sortable": false}
-  ],
-  "suggesters": [
-  {
-    "name": "sg",
-    "searchMode": "analyzingInfixMatching",
-    "sourceFields": ["Title"]
-  }
-  ]
-}
-```
+1. Replace `[service name]` with the name of your search service.
 
-The response should look like:
+2. Copy the index definition from the Create Index request in the Postman collection into the request body. The index definition is several hundred lines, too long to print here. 
 
-```json
-{
-    "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexes/$entity",
-    "@odata.etag": "\"0x8D505FC00EDD5FA\"",
-    "name": "clinical-trials-json-index",
+   The outer shell of an index consists of the following elements. 
+
+   ```json
+   {
+      "name": "caselaw",
+      "defaultScoringProfile": null,
+      "fields": [],
+      "scoringProfiles": [],
+      "corsOptions": null,
+      "suggesters": [],
+      "analyzers": [],
+      "tokenizers": [],
+      "tokenFilters": [],
+      "charFilters": [],
+      "encryptionKey": null
+   }
+   ```
+
+3. The `fields` collection contains the bulk of the index definition. It includes simple fields, [complex fields](search-howto-complex-data-types.md) with nested substructures, and collections.
+
+   Review the field definition for `casebody` on lines 302-384. Notice that a complex field can contain other complex fields when hierarchical representations are needed.
+
+   ```json
+   {
+    "name": "casebody",
+    "type": "Edm.ComplexType",
     "fields": [
         {
-            "name": "FileName",
+            "name": "status",
             "type": "Edm.String",
-            "searchable": false,
-            "filterable": false,
+            "searchable": true,
+            "filterable": true,
             "retrievable": true,
             "sortable": true,
-            "facetable": false,
+            "facetable": true,
             "key": false,
             "indexAnalyzer": null,
             "searchAnalyzer": null,
@@ -173,38 +178,349 @@ The response should look like:
             "synonymMaps": []
         },
         {
-            "name": "Description",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": false,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": null,
-            "synonymMaps": []
+            "name": "data",
+            "type": "Edm.ComplexType",
+            "fields": [
+                {
+                    "name": "head_matter",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": false,
+                    "retrievable": true,
+                    "sortable": false,
+                    "facetable": false,
+                    "key": false,
+                    "indexAnalyzer": null,
+                    "searchAnalyzer": null,
+                    "analyzer": null,
+                    "synonymMaps": []
+                },
+                {
+                    "name": "opinions",
+                    "type": "Collection(Edm.ComplexType)",
+                    "fields": [
+                        {
+                            "name": "author",
+                            "type": "Edm.String",
+                            "searchable": true,
+                            "filterable": true,
+                            "retrievable": true,
+                            "sortable": false,
+                            "facetable": true,
+                            "key": false,
+                            "indexAnalyzer": null,
+                            "searchAnalyzer": null,
+                            "analyzer": null,
+                            "synonymMaps": []
+                        },
+                        {
+                            "name": "text",
+                            "type": "Edm.String",
+                            "searchable": true,
+                            "filterable": false,
+                            "retrievable": true,
+                            "sortable": false,
+                            "facetable": false,
+                            "key": false,
+                            "indexAnalyzer": null,
+                            "searchAnalyzer": null,
+                            "analyzer": null,
+                            "synonymMaps": []
+                        },
+                        {
+                            "name": "type",
+                            "type": "Edm.String",
+                            "searchable": true,
+                            "filterable": true,
+                            "retrievable": true,
+                            "sortable": false,
+                            "facetable": true,
+                            "key": false,
+                            "indexAnalyzer": null,
+                            "searchAnalyzer": null,
+                            "analyzer": null,
+                            "synonymMaps": []
+                        }
+                    ]
+                },
+    . . .
+   ```
+
+4. Send the request. 
+
+   The response should be **201** and look similar to the following example, showing the first several fields:
+
+    ```json
+    {
+        "name": "caselaw",
+        "defaultScoringProfile": null,
+        "fields": [
+            {
+                "name": "id",
+                "type": "Edm.String",
+                "searchable": true,
+                "filterable": true,
+                "retrievable": true,
+                "sortable": true,
+                "facetable": true,
+                "key": true,
+                "indexAnalyzer": null,
+                "searchAnalyzer": null,
+                "analyzer": null,
+                "synonymMaps": []
+            },
+            {
+                "name": "name",
+                "type": "Edm.String",
+                "searchable": true,
+                "filterable": true,
+                "retrievable": true,
+                "sortable": true,
+                "facetable": true,
+                "key": false,
+                "indexAnalyzer": null,
+                "searchAnalyzer": null,
+                "analyzer": null,
+                "synonymMaps": []
+            },
+      . . .
+    ```
+
+<a name="create-skillset"></a>
+
+## Create a skillset and knowledge store
+
+The [Create Skillset API](https://docs.microsoft.com/rest/api/searchservice/create-skillset) creates an Azure Search object that specifies what cognitive skills to call, how to chain skills together, and most importantly for this walkthrough - how to specify a knowledge store.
+
+The endpoint of this call is `https://[service name].search.windows.net/skillsets?api-version=2019-05-06-Preview`
+
+1. Replace `[service name]` with the name of your search service.
+
+2. Copy the skillset definition from the Create Skillset request in the Postman collection into the request body. The skillset definition is several hundred lines, too long to print here, but it is the focus of this walkthrough.
+
+   The outer shell of a skillset consists of the following elements. The `skills` collection defines the in-memory enrichments, but the `knowledgeStore` definition specifies how the output is stored. The `cognitiveServices` definition is your connection to the AI enrichment engines.
+
+   ```json
+   {
+    "name": "caselaw-ss",
+    "description": null,
+    "skills": [],
+    "cognitiveServices": [],
+    "knowledgeStore": []
+   }
+   ```
+
+3. First, set `cognitiveServices` and `knowledgeStore` key and connection string. In the example, these strings are located after the skillset definition, towards the end of the request body.
+
+    ```json
+    "cognitiveServices": {
+        "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
+        "description": "<your cognitive services resource name>",
+        "key": "<your cognitive services key>"
+    },
+    "knowledgeStore": {
+        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your storage account key>;EndpointSuffix=core.windows.net",
+    ```
+
+3. Review the skills collection, in particular the Shaper skills on lines 85 and 170, respectively. The Shaper skill is important because it assembles the data structures you want for knowledge mining. During skillset execution, these structures are in-memory only, but as you move to the next step, you'll see how this output can be saved to a knowledge store for further exploration.
+
+   The following snippet is from line 207. 
+
+    ```json
+    {
+    "name": "Opinions",
+    "source": null,
+    "sourceContext": "/document/casebody/data/opinions/*",
+    "inputs": [
+        {
+            "name": "Text",
+            "source": "/document/casebody/data/opinions/*/text"
         },
-        ...
-          "scoringProfiles": [],
-    "defaultScoringProfile": null,
-    "corsOptions": null,
-    "suggesters": [],
-    "analyzers": [],
-    "tokenizers": [],
-    "tokenFilters": [],
-    "charFilters": []
-}
-```
+        {
+            "name": "Author",
+            "source": "/document/casebody/data/opinions/*/author"
+        },
+        {
+            "name": "Entities",
+            "source": null,
+            "sourceContext": "/document/casebody/data/opinions/*/text/pages/*/entities/*",
+            "inputs": [
+                {
+                    "name": "Entity",
+                    "source": "/document/casebody/data/opinions/*/text/pages/*/entities/*/value"
+                },
+                {
+                    "name": "EntityType",
+                    "source": "/document/casebody/data/opinions/*/text/pages/*/entities/*/category"
+                }
+             ]
+          }
+     ]
+   }
+   . . .
+   ```
+
+3. Review the `projections` element in `knowledgeStore`, starting on line 253. Projections specify the knowledge store composition. Projections are specified in tables-objects pairs, but currently only one at time. As you can see in the first projection, `tables` is specified but `objects` is not. In the second, it's the opposite.
+
+   In Azure storage, tables will be created in Table storage for each table you create, and each object gets a container in Blob storage.
+
+   Objects typically contain the full expression of an enrichment. Tables typically contain partial enrichments, in combinations that you arrange for specific purposes. This example shows a Cases table, but not shown are other tables like Entities, Judges, and Opinions.
+
+    ```json
+    "projections": [
+    {
+        "tables": [
+            {
+              "tableName": "Opinions",
+              "generatedKeyName": "OpinionId",
+              "source": "/document/Case/OpinionsSnippets/*"
+            },
+          . . . 
+        ],
+        "objects": []
+    },
+    {
+        "tables": [],
+        "objects": [
+            {
+                "storageContainer": "enrichedcases",
+                "key": "/document/CaseFull/Id",
+                "source": "/document/CaseFull"
+            }
+          ]
+        }
+      ]
+    }
+    ```
+
+5. Send the request. The response should be **201** and look similar to the following example, showing the first part of the response.
+
+    ```json
+    {
+        "name": "caselaw-ss",
+        "description": null,
+        "skills": [
+            {
+                "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+                "name": "SplitSkill#1",
+                "description": null,
+                "context": "/document/casebody/data/opinions/*/text",
+                "defaultLanguageCode": "en",
+                "textSplitMode": "pages",
+                "maximumPageLength": 5000,
+                "inputs": [
+                    {
+                        "name": "text",
+                        "source": "/document/casebody/data/opinions/*/text",
+                        "sourceContext": null,
+                        "inputs": []
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "textItems",
+                        "targetName": "pages"
+                    }
+                ]
+            },
+            . . .
+    ```
+
+## Create and run an indexer
+
+The [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/create-indexer) creates and immediately executes an indexer. All of the definitions you have created so far are put into motion with this step. The indexer runs immediately because it doesn't exist in the service. After it exists, a POST call to an existing indexer is an update operation.
+
+The endpoint of this call is `https://[service name].search.windows.net/indexers?api-version=2019-05-06-Preview`
+
+1. Replace `[service name]` with the name of your search service. 
+
+2. For this call, the request body specifies the indexer name. A data source and index are required by the indexer. A skillset is optional for an indexer, but required for AI enrichment.
+
+    ```json
+    {
+        "name": "caselaw-idxr",
+        "description": null,
+        "dataSourceName": "caselaw-ds",
+        "skillsetName": "caselaw-ss",
+        "targetIndexName": "caselaw",
+        "disabled": null,
+        "schedule": null,
+        "parameters": {
+            "batchSize": 1,
+            "maxFailedItems": null,
+            "maxFailedItemsPerBatch": null,
+            "base64EncodeKeys": null,
+            "configuration": {
+                "parsingMode": "jsonLines"
+            }
+        },
+        "fieldMappings": [],
+        "outputFieldMappings": [
+            {
+                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/people/*",
+                "targetFieldName": "people",
+                "mappingFunction": null
+            },
+            {
+                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/organizations/*",
+                "targetFieldName": "orginizations",
+                "mappingFunction": null
+            },
+            {
+                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/locations/*",
+                "targetFieldName": "locations",
+                "mappingFunction": null
+            },
+            {
+                "sourceFieldName": "/document/Case/OpinionsSnippets/*/Entities/*",
+                "targetFieldName": "entities",
+                "mappingFunction": null
+            },
+            {
+                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/keyPhrases/*",
+                "targetFieldName": "keyPhrases",
+                "mappingFunction": null
+            }
+        ]
+    }
+    ```
+
+3. Send the request. The response should be **201** and the response body should look almost identical to the request payload you provided (trimmed for brevity).
+
+    ```json
+    {
+        "name": "caselaw-idxr",
+        "description": null,
+        "dataSourceName": "caselaw-ds",
+        "skillsetName": "caselaw-ss",
+        "targetIndexName": "caselaw",
+        "disabled": null,
+        "schedule": null,
+        "parameters": {
+            "batchSize": 1,
+            "maxFailedItems": null,
+            "maxFailedItemsPerBatch": null,
+            "base64EncodeKeys": null,
+            "configuration": {
+                "parsingMode": "jsonLines"
+            }
+        },
+        "fieldMappings": [],
+        "outputFieldMappings": [
+            {
+                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/people/*",
+                "targetFieldName": "people",
+                "mappingFunction": null
+            }
+        ]
+    }
+    ```
+
 ## Explore knowledge store
 
-You can start searching as soon as the first document is loaded. For this task, use [**Storage Explorer**](search-explorer.md) in the portal.
+You can start exploring as soon as the first document is imported. For this task, use [**Storage Explorer**](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer) in the portal.
 
-In Azure portal, open the search service **Overview** page, find the index you created in the **Indexes** list.
-
-Be sure to choose the index you just created. 
-
+It's important to realize that a knowledge store is fully detached from Azure Search. The Azure Search index and the knowledge store both contain data representation and contents, but part ways from there. Use the index for full text search, filtered search, and all the scenarios supported in Azure Search. Or, move forward with just your knowledge store, attaching other tools to analyze contents.
 
 ## Takeaways
 

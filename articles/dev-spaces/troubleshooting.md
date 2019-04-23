@@ -290,7 +290,7 @@ Restarting the agent nodes in your cluster usually resolves this issue.
 ## Azure Dev Spaces proxy can interfere with other pods running in a dev space
 
 ### Reason
-When you enable Dev Spaces on a namespace in your AKS cluster, an additional container called _mindaro-proxy_ is installed in each of the pods running inside that namespace. This container intercepts calls to the services in the pod, which is integral to Dev Spaces' team development capabilities; however, it can interfere with certain services running in those pods. It is known to interfere with pods running Azure Cache for Redis, causing connection errors and failures in master/slave communication.
+When you enable Dev Spaces on a namespace in your AKS cluster, an additional container called _mindaro-proxy_ is installed in each of the pods running inside that namespace. This container intercepts calls to the services in the pod, which is integral to Dev Spaces' team development capabilities; however, it can interfere with certain services running in those pods. It is known to interfere with pods running Azure Cache for Redis, causing connection errors and failures in primary/secondary communication.
 
 ### Try:
 You can move the affected pods to a namespace inside the cluster that does _not_ have Dev Spaces enabled. The rest of your application can continue to run inside a Dev Spaces-enabled namespace. Dev Spaces will not install the _mindaro-proxy_ container inside non-Dev Spaces enabled namespaces.
