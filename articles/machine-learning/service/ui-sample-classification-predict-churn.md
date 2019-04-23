@@ -14,7 +14,7 @@ ms.date: 05/06/2019
 
 # Sample 5 - Classification: Predict churn, appetency, and up-selling 
 
-This visual interface sample experiment shows binary classifier prediction of churn, a common task for customer relationship management (CRM).
+This visual interface sample experiment shows binary classifier prediction of churn, appetency and up-selling, a common task for customer relationship management (CRM).
 
 ## Prerequisites
 
