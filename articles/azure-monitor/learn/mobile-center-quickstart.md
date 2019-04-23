@@ -1,6 +1,6 @@
 ---
 title: Quickstart with Azure Application Insights | Microsoft Docs
-description: Provides instructions to quickly setup a mobile app for monitoring with Application Insights and App Center
+description: Provides instructions to quickly set up a mobile app for monitoring with Application Insights and App Center
 services: application-insights
 keywords:
 author: mrbullwinkle
@@ -62,7 +62,7 @@ To make sure your custom events are being received, go to the **Events** tab und
 
 Once your app is sending custom events and these events are being received by App Center, you need to create an App Center-type Application Insights resource in the Azure portal:
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **Create a resource** > **Management Tools** > **Application Insights**.
 
     ![Adding Application Insights resource](./media/mobile-center-quickstart/add-b.png)
