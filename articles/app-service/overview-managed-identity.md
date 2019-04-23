@@ -17,9 +17,6 @@ ms.author: mahender
 
 # How to use managed identities for App Service and Azure Functions
 
-> [!NOTE] 
-> Managed identity support for App Service on Linux and Web App for Containers is currently in preview.
-
 > [!Important] 
 > Managed identities for App Service and Azure Functions will not behave as expected if your app is migrated across subscriptions/tenants. The app will need to obtain a new identity, which can be done by disabling and re-enabling the feature. See [Removing an identity](#remove) below. Downstream resources will also need to have access policies updated to use the new identity.
 
