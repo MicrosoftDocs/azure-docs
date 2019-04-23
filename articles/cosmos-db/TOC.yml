@@ -455,7 +455,7 @@
     - name: Etcd API
       items:
       - name: Azure Kubernetes with Azure Cosmos DB
-        href: how-to-use-kubernetes-with-cosmosdb.md
+        href: bootstrap-kubernetes-cluster.md
   - name: How-to guides
     items:
     - name: Manage Azure Cosmos account
