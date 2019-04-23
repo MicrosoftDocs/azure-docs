@@ -55,13 +55,13 @@ The following APIs will be changed or deprecated:
 
 - [**GET /configurations/{configurationName}**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (sensitive information removed)
     - Previously used to obtain individual configuration types (including secrets).
-    - This API call will now return individual configuration types with secrets omitted. To obtain all configurations, including secrets, use the new [POST /configurations]() call. To obtain just gateway settings, use the new [POST /getGatewaySettings]() call.
+    - This API call will now return individual configuration types with secrets omitted. To obtain all configurations, including secrets, use the new POST /configurations call. To obtain just gateway settings, use the new POST /getGatewaySettings call.
 - [**GET /configurations**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configurations) (deprecated)
     - Previously used to obtain all configurations (including secrets)
-    - This API call will no longer be supported. To obtain all configurations going forward, use the new [POST /configurations]() call. To obtain configurations with sensitive parameters omitted, use the [GET /configurations/{configurationName}]() call.
+    - This API call will no longer be supported. To obtain all configurations going forward, use the new POST /configurations call. To obtain configurations with sensitive parameters omitted, use the GET /configurations/{configurationName} call.
 - [**POST /configurations/{configurationName}**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#change-connectivity-settings) (deprecated)
     - Previously used to update gateway credentials.
-    - This API call will be deprecated and no longer supported. Use the new [POST /updateGatewaySettings]() instead.
+    - This API call will be deprecated and no longer supported. Use the new POST /updateGatewaySettings instead.
 
 The following replacement APIs have been added:</span>
 
