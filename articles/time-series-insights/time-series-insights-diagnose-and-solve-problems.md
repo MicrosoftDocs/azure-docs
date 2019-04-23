@@ -17,13 +17,13 @@ ms.custom: seodec18
 
 This article describes some issues you might encounter in your Azure Time Series Insights environment. The article offers potential causes and solutions for resolution.
 
-## Video: 
+## Video
 
-In this video, we cover common Time Series Insights customer challenges and mitigations:</br>
+### In this video, we cover common Time Series Insights customer challenges and mitigations:</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
-## Problem 1: No data is shown
+## Problem one: no data is shown
 
 No data in the [Azure Time Series Insights explorer](https://insights.timeseries.azure.com) might occur for several common reasons:
 
@@ -31,30 +31,29 @@ No data in the [Azure Time Series Insights explorer](https://insights.timeseries
 
 Azure Time Series Insights only supports JSON data. For JSON samples, see [Supported JSON shapes](./how-to-shape-query-json.md).
 
-### Cause B: The event source key is missing a required permission
+### Cause B: the event source key is missing a required permission
 
 * For an IoT hub in Azure IoT Hub, you must provide the key that has **service connect** permissions. Either of the **iothubowner** or **service** policies will work because they both have **service connect** permissions.
 
    ![IoT Hub service connect permissions](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
-
 * For an event hub in Azure Event Hubs, you must provide the key that has **listen** permissions. Either of the **read** or **manage** policies will work because they both have **listen** permissions.
 
    ![Event hub listen permissions](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)
 
-### Cause C: The consumer group provided isn't exclusive to Time Series Insights
+### Cause C: the consumer group provided isn't exclusive to Time Series Insights
 
 When you register an IoT hub or an event hub, it's important to set the consumer group that you want to use to read the data. This consumer group *can't be shared*. If the consumer group is shared, the underlying IoT hub or event hub automatically and randomly disconnects one of the readers. Provide a unique consumer group for Time Series Insights to read from.
 
-## Problem 2: Some data is shown, but data is missing
+## Problem two: some data is shown, but data is missing
 
 When data appears only partially and the data appears to be lagging, you should consider several possibilities.
 
-### Cause A: Your environment is being throttled
+### Cause A: your environment is being throttled
 
-Throttling is a common issue when environments are provisioned after you create an event source that has data. Azure IoT Hub and Azure Events Hubs store data for up to seven days. Time Series Insights always start with the oldest event in the event source (first-in, first-out, or *FIFO*). 
+Throttling is a common issue when environments are provisioned after you create an event source that has data. Azure IoT Hub and Azure Events Hubs store data for up to seven days. Time Series Insights always start with the oldest event in the event source (first-in, first-out, or *FIFO*).
 
-For example, if you have 5 million events in an event source when you connect to an S1, single-unit Time Series Insights environment, Time Series Insights reads approximately 1 million events per day. It might look like Time Series Insights is experiencing five days of latency. However, what's happening is that the environment is being throttled. 
+For example, if you have 5 million events in an event source when you connect to an S1, single-unit Time Series Insights environment, Time Series Insights reads approximately 1 million events per day. It might look like Time Series Insights is experiencing five days of latency. However, what's happening is that the environment is being throttled.
 
 If you have old events in your event source, you can approach throttling in one of two ways:
 
@@ -94,20 +93,22 @@ To fix the lag:
 ## Problem 3: My event source's timestamp property name setting doesn't work
 
 Ensure that the timestamp property name and value conform to the following rules:
+
 * The timestamp property name is case-sensitive.
 * The timestamp property value that comes from your event source as a JSON string should have the format _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_. An example is **2008-04-12T12:53Z**.
 
 The easiest way to ensure that your timestamp property name is captured and working properly is to use the Time Series Insights explorer. In the Time Series Insights explorer, using the chart, select a period of time after you entered the timestamp property name. Right-click the selection, and then select the **Explore events** option. 
 
-The first column header should be your timestamp property name. Next to the word **Timestamp**, you should see **($ts)**. 
+The first column header should be your timestamp property name. Next to the word **Timestamp**, you should see **($ts)**.
 
 You should not see the following values:
+
 - *(abc)*: Indicates that Time Series Insights is reading the data values as strings.
 - *Calendar icon*: Indicates that Time Series Insights is reading the data value as *datetime*.
 - *#*: Indicates that Time Series Insights is reading the data values as an integer.
 
-
 ## Next steps
 
-- For assistance, start a conversation in the [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 
+- For assistance, start a conversation in the [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
+
 - For assisted support options, use [Azure support](https://azure.microsoft.com/support/options/).

@@ -112,7 +112,9 @@ After the guest user selects your tenant, they see the Time Series Insights envi
 ## Next steps
 
 * Learn [how to add an Azure Event Hubs event source](./time-series-insights-how-to-add-an-event-source-eventhub.md) to your Time Series Insights environment.
+
 * Send [events to the event source](./time-series-insights-send-events.md).
+
 * View [your environment in the Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
 <!-- Images -->
