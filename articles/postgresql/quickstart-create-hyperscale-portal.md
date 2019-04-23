@@ -29,8 +29,8 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 3. For the deployment option, click the **Create** button under **Hyperscale (Citus) server group - PREVIEW.**
 4. Fill out the new server details form with the following information:
    - Resource group: click the **Create new** link below the text box for this field. Enter a name such as **myresourcegroup**.
-   - Server group name: **mydemoserver** (name of a server, which maps to DNS name, and is required to be globally unique).
-   - Admin username: **myadmin** (it will be used later to connect to the database).
+   - Server group name: enter a unique name for the new server group, which will also be used for a server subdomain.
+   - Admin username: enter a unique username, it will be used later to connect to the database.
    - Password: must be at least eight characters in length and must contain characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, etc.)
    - Location: use the location that is closest to your users to give them the fastest access to the data.
 
