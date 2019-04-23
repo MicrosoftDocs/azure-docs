@@ -23,8 +23,6 @@ ms.collection: M365-identity-device-management
 
 Once you've acquired a token to call web APIs, you can move your app to production.
 
-## Next steps
-
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## Learn more
