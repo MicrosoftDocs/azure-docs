@@ -31,7 +31,7 @@ The Log Analytics agent for Windows and Linux can be upgraded to the latest rele
 
 ### Upgrade Windows agent 
 
-To update the agent on a Windows VM to the latest version not installed using the Log Analytics VM extension, you either run from the Command Prompt, script or other automation solution, or by using the MMASetup-<platform>.msi Setup Wizard.  
+To update the agent on a Windows VM to the latest version not installed using the Log Analytics VM extension, you either run from the Command Prompt, script or other automation solution, or by using the MMASetup-\<platform\>.msi Setup Wizard.  
 
 You can download the latest version of the Windows agent from your Log Analytics workspace, by performing the following steps.
 
@@ -46,14 +46,14 @@ You can download the latest version of the Windows agent from your Log Analytics
 5. From the **Windows Servers** page, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.
 
 >[!NOTE]
->During the upgrade of the Log Analytics agent for Windows, it does not support configuring or reconfiguring a workspace to report to. To configure the agent, you need to follow one of the supported methods listed under [Adding and removing a workspace](#adding-or-removing-a-workspace).
+>During the upgrade of the Log Analytics agent for Windows, it does not support configuring or reconfiguring a workspace to report to. To configure the agent, you need to follow one of the supported methods listed under [Adding or removing a workspace](#adding-or-removing-a-workspace).
 >
 
 #### To upgrade using the Setup Wizard
 
 1. Sign on to the computer with an account that has administrative rights.
 
-2. Execute **MMASetup-<platform>.exe** to start the Setup Wizard.
+2. Execute **MMASetup-\<platform\>.exe** to start the Setup Wizard.
 
 3. On the first page of the Setup Wizard, click **Next**.
 
