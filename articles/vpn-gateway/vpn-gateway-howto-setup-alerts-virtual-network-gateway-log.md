@@ -59,6 +59,7 @@ The example steps below will create an alert for a site-to-site VPN tunnel disco
     ![point-to-site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "Select")
 
 11. On the "Create rule" page, click "Create New" under the ACTION GROUPS section. Fill in the details and click OK
+
 ![point-to-site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "Select")
 
 12. On the "Create rule" page, fill in the details for "Customize Action" and make sure that the correct Action group name appears in the "Action Group Name" section. Click "Create alert rule" to create the rule.
