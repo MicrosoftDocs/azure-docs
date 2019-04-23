@@ -151,7 +151,7 @@ The serverless compute tier is only available with the vCore-based purchasing mo
 
 ### Creating a new database using the Azure portal
 
-See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md) and choose the serverless compute tier.
+See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
 
 ### Create new database using PowerShell
 
