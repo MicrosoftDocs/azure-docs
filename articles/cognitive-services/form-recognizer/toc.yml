@@ -9,8 +9,10 @@
   items:
   - name: Train model and extract data  
     items:
-    - name: cURL
-      href: quickstarts/curl-train-extract.md
+    - name: Using the REST API
+      items:
+      - name: cURL
+        href: quickstarts/curl-train-extract.md
 - name: How-to guides
   items:
   - name: Use containers
@@ -21,6 +23,10 @@
     - name: Configure containers
       href: form-recognizer-container-configuration.md    
       displayName: docker, container, run, billing, apikey, logging
+- name: Reference
+  items:
+  - name: Form Recognizer API
+    href: https://aka.ms/form-recognizer/api
 - name: Resources
   items: 
   - name: Pricing and limits

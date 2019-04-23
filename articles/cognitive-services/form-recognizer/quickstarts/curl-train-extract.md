@@ -450,4 +450,7 @@ A successful response is returned in JSON and represents the extracted key-value
 
 ## Next steps
 
-In this guide, you used the Form Recognizer REST APIs with cURL to train a model and run it in a sample case. Next, explore the Form Recognizer API in more depth.
+In this guide, you used the Form Recognizer REST APIs with cURL to train a model and run it in a sample case. Next, see the reference documentation to explore the Form Recognizer API in more depth.
+
+> [!div class="nextstepaction"]
+> [REST API reference documentation](https://aka.ms/form-recognizer/api)
