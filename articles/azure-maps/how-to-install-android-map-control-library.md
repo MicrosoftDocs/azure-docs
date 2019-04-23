@@ -19,11 +19,11 @@ The Azure Maps Android SDK is a vector map library for Android. This article gui
 
 ### Create an Azure Maps account
 
-To complete the procedures in this article, you first need to [create an Azure Maps account](how-to-manage-account-keys.md) in the S1 pricing tier.
+To complete the procedures in this article, you first need to [create an Azure Maps account](how-to-manage-account-keys.md) with S1 pricing tier.
 
 ### Download Android Studio
 
-You need to download Android Studio and create a project with an empty activity before you can install the Azure Maps Android SDK. You can [download Android Studio](https://developer.android.com/studio/) for free from Google. 
+You need to download Android Studio and create a project with an empty activity before you can install the Azure Maps Android SDK. You can [download Android Studio](https://developer.android.com/studio/) from Google for free. 
 
 ## Create a project in Android Studio
 
@@ -71,7 +71,7 @@ The next step in building your application is to install the Azure Maps Android 
     2. Update your dependencies block and add the following code to it:
 
         ```
-        implementation "com.microsoft.azure.maps:mapcontrol:0.1"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.2"
         ```
 
 3. Set up permissions by adding the following XML to your **AndroidManifest.xml** file:
@@ -85,7 +85,7 @@ The next step in building your application is to install the Azure Maps Android 
     </manifest>
     ```
 
-4. Edit **res** > **layout** > **activity_main.xml** so it looks like this XML:
+4. Edit **res** > **layout** > **activity_main.xml** so it looks like the one below:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -100,9 +100,9 @@ The next step in building your application is to install the Azure Maps Android 
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:mapcontrol_cameraTargetLat="47.64"
-            app:mapcontrol_cameraTargetLng="-122.33"
-            app:mapcontrol_cameraZoom="12"
+            app:mapcontrol_centerLat="47.64"
+            app:mapcontrol_centerLng="-122.33"
+            app:mapcontrol_zoom="12"
             />
 
     </FrameLayout>
@@ -126,77 +126,77 @@ The next step in building your application is to install the Azure Maps Android 
         }
         ```
 
-6. Edit **MainActivity.java** to create a map view activity class, so that it looks like this class:
+6. Edit **MainActivity.java** to create a map view activity class, so that it looks like the class below:
 
-            ```java
-            package com.example.myapplication;
+    ```java
+    package com.example.myapplication;
+
+    import android.support.v7.app.AppCompatActivity;
+    import android.os.Bundle;
+    import com.microsoft.azure.maps.mapcontrol.AzureMaps;
+    import com.microsoft.azure.maps.mapcontrol.MapControl;
+    import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
+    import com.microsoft.azure.maps.mapcontrol.options.MapStyle;
+    import com.microsoft.azure.maps.mapcontrol.source.DataSource;
+
+    public class MainActivity extends AppCompatActivity {
         
-            import android.support.v7.app.AppCompatActivity;
-            import android.os.Bundle;
-            import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-            import com.microsoft.azure.maps.mapcontrol.MapControl;
-            import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-            import com.microsoft.azure.maps.mapcontrol.options.MapStyle;
-            import com.microsoft.azure.maps.mapcontrol.source.DataSource;
-        
-            public class MainActivity extends AppCompatActivity {
-                
-                static {
-                    AzureMaps.setSubscriptionKey("{subscription-key}");
-                }
-        
-                MapControl mapControl;
-        
-                @Override
-                protected void onCreate(Bundle savedInstanceState) {
-                    super.onCreate(savedInstanceState);
-                    setContentView(R.layout.activity_main);
-        
-                    mapControl = findViewById(R.id.mapcontrol);
-        
-                    mapControl.onCreate(savedInstanceState);
-        
-                }
-        
-                @Override
-                public void onResume() {
-                    super.onResume();
-                    mapControl.onResume();
-                }
-        
-                @Override
-                public void onPause() {
-                    super.onPause();
-                    mapControl.onPause();
-                }
-        
-                @Override
-                public void onStop() {
-                    super.onStop();
-                    mapControl.onStop();
-                }
-        
-                @Override
-                public void onLowMemory() {
-                    super.onLowMemory();
-                    mapControl.onLowMemory();
-                }
-        
-                @Override
-                protected void onDestroy() {
-                    super.onDestroy();
-                    mapControl.onDestroy();
-                }
-        
-                @Override
-                protected void onSaveInstanceState(Bundle outState) {
-                    super.onSaveInstanceState(outState);
-                    mapControl.onSaveInstanceState(outState);
-                }
-        
-            }
-        
-            ```
+        static {
+            AzureMaps.setSubscriptionKey("{subscription-key}");
+        }
+
+        MapControl mapControl;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+
+            mapControl = findViewById(R.id.mapcontrol);
+
+            mapControl.onCreate(savedInstanceState);
+
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            mapControl.onResume();
+        }
+
+        @Override
+        public void onPause() {
+            super.onPause();
+            mapControl.onPause();
+        }
+
+        @Override
+        public void onStop() {
+            super.onStop();
+            mapControl.onStop();
+        }
+
+        @Override
+        public void onLowMemory() {
+            super.onLowMemory();
+            mapControl.onLowMemory();
+        }
+
+        @Override
+        protected void onDestroy() {
+            super.onDestroy();
+            mapControl.onDestroy();
+        }
+
+        @Override
+        protected void onSaveInstanceState(Bundle outState) {
+            super.onSaveInstanceState(outState);
+            mapControl.onSaveInstanceState(outState);
+        }
+
+    }
+
+    ```
     
 ## Import classes
 
@@ -222,5 +222,3 @@ See the following articles to add symbols and shapes to your map
 
 > [!div class="nextstepaction"]
 > [Add shapes to Android maps](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map?branch=pr-en-us-74190)
-
-

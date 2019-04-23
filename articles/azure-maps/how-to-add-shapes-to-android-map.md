@@ -38,15 +38,15 @@ You can add a line to the map using a **Line Layer**, follow the steps below to 
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:mapcontrol_cameraTargetLat="40.743270"
-            app:mapcontrol_cameraTargetLng="-74.004420"
-            app:mapcontrol_cameraZoom="12"
+            app:mapcontrol_centerLat="40.743270"
+            app:mapcontrol_centerLng="-74.004420"
+            app:mapcontrol_zoom="12"
             />
     
     </FrameLayout>
     ```
 
-2. Copy the following code snippet into the **onCreate()** method of your `MainActivity.java` class.
+2. Copy the following code snippet below into the **onCreate()** method of your `MainActivity.java` class.
 
     ```Java
     mapControl.onReady(map -> {
@@ -73,7 +73,7 @@ You can add a line to the map using a **Line Layer**, follow the steps below to 
     After adding the code snippet above, your `MainActivity.java` should look like the one below:
     
     ```Java
-    package com.example.mappins;
+    package com.example.myapplication;
     import android.app.Activity;
     import android.os.Bundle;
     import com.mapbox.geojson.LineString;
@@ -190,9 +190,9 @@ The **Polygon Layer** enables you to render the area of the polygon to the map. 
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:mapcontrol_cameraTargetLat="40.78"
-            app:mapcontrol_cameraTargetLng="-73.97"
-            app:mapcontrol_cameraZoom="12"
+            app:mapcontrol_centerLat="40.78"
+            app:mapcontrol_centerLng="-73.97"
+            app:mapcontrol_zoom="12"
             />
     
     </FrameLayout>
@@ -218,12 +218,12 @@ The **Polygon Layer** enables you to render the area of the polygon to the map. 
     });
     ```
 
-    The code snippet above first obtains a reference to the AzureMap instance using the MapControl's. It then creates a **Polygon** object from a list of **Point** data and adds it to a new data source. A **Polygon Layer** renders data wrapped in the data source on the map. The last part of the code snippet adds the data source to the maps sources then creates a polygon layer and adds the data source to it.
+    The code snippet above first obtains a reference to the AzureMap instance using the MapControl's **onReady()** callback method. It then creates a **Polygon** object from a list of **Point** data and adds it to a new data source. A **Polygon Layer** renders data wrapped in the data source on the map. The last part of the code snippet adds the data source to the maps sources then creates a polygon layer and adds the data source to it.
 
     After adding the code snippet above, your `MainActivity.java` should look like the one below:
 
     ```Java
-    package com.example.mappins;
+    package com.example.myapplication;
     import android.app.Activity;
     import android.os.Bundle;
     import java.util.Arrays;

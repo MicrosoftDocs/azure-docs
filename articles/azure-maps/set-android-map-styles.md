@@ -39,7 +39,7 @@ You can set a map style in the layout file for your activity class. Edit **res >
         android:layout_height="match_parent"
         app:mapcontrol_centerLat="47.602806"
         app:mapcontrol_centerLng="-122.329330"
-        app:mapcontrol_Zoom="12"
+        app:mapcontrol_zoom="12"
         app:mapcontrol_style="grayscale_dark"
         />
 

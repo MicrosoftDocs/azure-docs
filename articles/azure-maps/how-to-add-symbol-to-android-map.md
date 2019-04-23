@@ -16,11 +16,11 @@ This article shows you how to render point data from a data source as a Symbol l
 
 ## prerequisites
 
-To complete the process in this article, you need to install [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) to load a map.
+To completely follow steps in this article, you need to install [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) to load a map.
 
 ## Add a symbol layer
 
-To add a marker on the map using the symbol layer follow the steps below:
+To add a marker on the map using the symbol layer, follow the steps below:
 
 1. Edit **res** > **layout** > **activity_main.xml** so it looks like the following XML:
     
@@ -37,9 +37,9 @@ To add a marker on the map using the symbol layer follow the steps below:
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:mapcontrol_cameraTargetLat="47.64"
-            app:mapcontrol_cameraTargetLng="-122.33"
-            app:mapcontrol_cameraZoom="12"
+            app:mapcontrol_centerLat="47.64"
+            app:mapcontrol_centerLng="-122.33"
+            app:mapcontrol_zoom="12"
             />
 
     </FrameLayout>
@@ -93,7 +93,7 @@ To add a marker on the map using the symbol layer follow the steps below:
     
             mapControl.onCreate(savedInstanceState);
     
-            mapControl.getMapAsync(map -> {
+            mapControl.onReady(map -> {
                 DataSource dataSource = new DataSource();
                 dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
     
@@ -157,7 +157,7 @@ At this point, if you run your application you should see a marker on the map, a
 
 ## Next steps
 
-See the following articles to add more stuff to your map
+To add more stuff to your map, see:
 
 > [!div class="nextstepaction"]
 > [Add shapes to Android maps](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map?branch=pr-en-us-74190)
