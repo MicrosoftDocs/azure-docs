@@ -50,7 +50,7 @@ Before you start, verify the below:
 ## Feature consideration and limitations
 
 - SQL Server backup can be configured in the Azure portal or **PowerShell**. We do not support CLI.
-- The solution is supported on both kinds of [deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) - Azure Resource Manager VMs and classic deployment models.
+- The solution is supported on both kinds of [deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) - Azure Resource Manager VMs and classic VMs.
 - VM running SQL Server requires internet connectivity to access Azure public IP addresses.
 - SQL Server **Failover Cluster Instance (FCI)** and SQL Server Always on Failover Cluster Instance are not supported.
 - Back up and restore operations for mirror databases and database snapshots aren't supported.
