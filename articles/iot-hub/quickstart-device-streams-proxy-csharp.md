@@ -101,7 +101,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     You use this value later in the quickstart.
 
-3. You also need the _service connection string_ from your IoT hub to enable the service-side application to connect to your IoT hub and establish a device stream. The following command retrieves this value for your IoT hub:
+3. You also need the *service connection string* from your IoT hub to enable the service-side application to connect to your IoT hub and establish a device stream. The following command retrieves this value for your IoT hub:
 
    **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 

@@ -24,7 +24,7 @@ This document describes the setup for tunneling SSH traffic (using port 22) thro
 
 ## How it works
 
-The figure below illustrates the setup of how the device- and service-local proxy programs will enable end-to-end connectivity between the SSH client and SSH daemon processes. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-local proxy application. You should run one of the following service-local proxy quickstarts:
+The figure below illustrates the setup of how the device- and service-local proxy programs will enable end-to-end connectivity between the SSH client and SSH daemon processes. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-local proxy application. You should run one of the following service-side quickstarts:
 
 * [SSH/RDP over IoT Hub device streams using C# proxy](./quickstart-device-streams-proxy-csharp.md)
 
@@ -189,7 +189,7 @@ In this section, you establish an end-to-end stream to tunnel SSH traffic.
 
 ### Run the service-local proxy application
 
-As discussed in the [How It Works section](#how-it-works), establishing an end-to-end stream to tunnel SSH traffic requires a local proxy at each end (both on the service and the device). During public preview, IoT Hub C SDK only supports device streams on the device side. To build and run the service-local proxy, follow the steps available in one of the following quickstarts: 
+As discussed in the [How It Works section](#how-it-works), establishing an end-to-end stream to tunnel SSH traffic requires a local proxy at each end (both on the service and the device). During public preview, IoT Hub C SDK only supports device streams on the device side. To build and run the service-local proxy, follow the steps available for running the service-local proxy in one of the following quickstarts:
 
    * [SSH/RDP over IoT Hub device streams using C# proxy apps](./quickstart-device-streams-proxy-csharp.md)
 
