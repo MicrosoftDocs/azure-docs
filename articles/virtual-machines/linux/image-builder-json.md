@@ -3,35 +3,33 @@ title: Azure Image Builder json format (preview)
 description: Learn more about the json format used with Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 04/10/2019
+ms.date: 04/23/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ---
 # Azure Image Builder json template format
 
-Azure Image Builder uses a .json file to pass information into the Image Builder service. In this article we will go over the sections of the json sample file located here: https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json
+Azure Image Builder uses a .json file to pass information into the Image Builder service. In this article we will go over the sections of the json file. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder).
 
-The .json file we will explore is for the creation of a basic custom image. The custom image is created using a marketplace image for Ubuntu 18.04 LTS from Canonical. The marketplace image us customized using a shell script found here: https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh.
-
+This is the basic template format:
 
 ```json
  { 
     "type": "Microsoft.VirtualMachineImages/imageTemplates", 
     "apiVersion": "2019-05-01-preview", 
-     "location": "westcentralus", 
-     "tags": { 
-  	“imagetemplate_tag1” : “corpStdWin2019svr” 
- 	“imagetemplate_tag2” : “baseBuild” 
- 	}, 
-     "dependsOn": [], 
-     "properties": { 
- 	   "buildTimeoutInMinutes": {}, 
-         "build": {}, 
-         "customize": {}, 
-         "distribute": {} 
- 
-     } 
+    "location": "<region>", 
+    "tags": {
+        "<name": "<value>",
+        "<name>": "<value>"
+             }
+    "dependsOn": [], 
+    "properties": { 
+ 	    "<build timeout in minutes>": {}, 
+        "build": {}, 
+        "customize": {}, 
+        "distribute": {} 
+      } 
  } 
 ```
 
@@ -82,7 +80,7 @@ The API requires a 'SourceType' that defines the source for the image build, cur
 - ManagedImage - use this when starting from a regular managed image.
 - SharedImageVersion - this is used when you are using an image version in a Shared Image Gallery as the source.
 
-### ISO
+### ISO source
 
 Azure Image Builder only supports using published Red Hat Enterprise Linux 7.x Binary DVD ISOs, for preview. Image Builder supports:
 - RHEL 7.3 
@@ -104,7 +102,7 @@ In the list of **Installers and Images for Red Hat Enterprise Linux Server**, yo
 > [!NOTE]
 > The access tokens of the links are refreshed at frequent intervals, so every time you want to submit a template, you must check if the RH link address has changed.
  
-### PlatformImage 
+### PlatformImage source 
 Azure Image Builder will support Azure Marketplace base OS Linux images:
 - Ubuntu 18.04
 - Ubuntu 16.04
@@ -129,7 +127,7 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 > [!NOTE]
 > Version cannot be ‘latest’, you must use the command above to get a version number. 
 
-### ManagedImage
+### ManagedImage source
 
 This is an existing managed image of a generalized VHD or VM.
 
@@ -143,7 +141,7 @@ This is an existing managed image of a generalized VHD or VM.
 The `imageId` should be the ResourceId of the managed image. Use `az image list` to list available images.
 
 
-### SharedImageVersion
+### SharedImageVersion source
 
 This is an existing image version in a Shared Image Gallery.
 
@@ -238,7 +236,7 @@ Customize properties:
 **restartTimeout** - Restart timeout specified as a string of magnitude and unit. For example, `5m` (5 minutes) or `2h` (2 hours). The default is: '5m'
 
 
-### PowerShell Customizer 
+### PowerShell customizer 
 The shell customizer supports running PowerShell scripts and inline command, the scripts must be publicly accessible for the IB to access them.
 
 ```json 
@@ -256,6 +254,8 @@ The shell customizer supports running PowerShell scripts and inline command, the
          } 
  	], 
 ```
+
+OS support: Windows and Linux
 
 Customize properties:
 **type** – PowerShell.
@@ -277,7 +277,8 @@ The File customizer lets image builder download a file from a GitHub or Azure st
   
  
  ```
- 
+
+OS support: Linux and Windows 
  
 **sourceUri** - this can be either GitHub or Azure storage. You can only download one file, not an entire directory. If you need to download a directory, use a compressed file, then uncompress it using the Shell or PowerShell customizers. 
  
@@ -309,12 +310,12 @@ The image output will be a managed image resource.
 "distribute": [
         {
 "type":"managedImage",
-       "imageId": "resourceid, see note on format",
-       "location": "region",
-       "runOutputName": "imageName",
+       "imageId": "<resource ID>",
+       "location": "<region>",
+       "runOutputName": "<image name>",
        "tags": {
-            "source": "goimagebuilderarm",
-             "baseosimg": "ubuntu1804"
+            "<name": "<value>",
+             "<name>": "<value>"
                }
          }]
 ```
@@ -330,7 +331,7 @@ Distribute properties:
  
 > [!NOTE]
 > The destination resource group must exist.
-> If you want the image distributed to a different region, be aware that the Azure Image Builder service will need to transfer the image and this will increase deployment time. 
+> If you want the image distributed to a different region, it will increase the deployment time . 
 
 ## Shared Image Gallery 
 The Azure Shared Image Gallery is a new Image Management service that allows managing of image region replication, versioning and sharing custom images. Azure Image Builder supports distributing with this service, so you can distribute images to regions supported by Shared Image Galleries. 
@@ -346,15 +347,15 @@ Before you can distribute to the Image Gallery, you must create a gallery and an
 ```jason
 {
      "type": "sharedImage",
-"galleryImageId": “resourceId, see note below”,
-     "runOutputName": "imageGalleryName",
+     "galleryImageId": “<resource ID>”,
+     "runOutputName": "<image gallery name>",
      "tags": {
-        "mytag1": "someValue",
-        "mytag2": "someValue"
-      	},
+          "<name": "<value>",
+           "<name>": "<value>"
+             }
      "replicationRegions": [
-        "westcentralus",
-        "centralus"
+        "<region where the gallery is deployed>",
+        "<region>"
     ]}
 ``` 
 
@@ -362,7 +363,7 @@ Distribute properties for shared image galleries:
 **type** - sharedImage  
 **galleryImageId** – ID of the shared image gallery. The format is: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>.
 **imageName** - Image name  
-**replicationRegions** - Array of regions for r.eplication
+**replicationRegions** - Array of regions for replication. One of the regions must be the region where the Gallery is deployed.
  
 > [!NOTE]
 > You can use Azure Image Builder in a different region to the gallery, but the Azure Image Builder service will need to transfer the image between the datacenters and this will take longer. 
@@ -373,12 +374,12 @@ You can output to a VHD. You can then copy the VHD, and use it to publish to Azu
 
 ```json
  { 
-      "type": "VHD",
-      "runOutputName": "imageGalleryName",
-      "tags": {
-         "mytag1": "someValue",
-         "mytag2": "someValue"
-      	}
+     "type": "VHD",
+     "runOutputName": "<VHD name>",
+     "tags": {
+          "<name": "<value>",
+           "<name>": "<value>"
+             }
  }
 ```
  
@@ -389,7 +390,7 @@ Distribute VHD parameters:
 **runOutputName** - name to use for the VHD image.
 **tags** - Optional user specified key value pair tags.
  
-Azure Image Builder does not allow the user to specify a storage account location, but you can query the status of the ‘runOutput’ to get the location.  
+Azure Image Builder does not allow the user to specify a storage account location, but you can query the status of the `runOutput` to get the location.  
 
 ```azurecli-interactive
 az resource show \
@@ -397,7 +398,7 @@ az resource show \
 ```
 
 > [!NOTE]
-> Once the VHD has been created, copy it to a different location, as soon as possible. The VHD is stored in a storage account in the temporary resource group created when the image template is submitted to the Azure Image Builder service. If you delete the image template, then you will lose this VHD. 
+> Once the VHD has been created, copy it to a different location, as soon as possible. The VHD is stored in a storage account in the temporary resource group created when the image template is submitted to the Azure Image Builder service. If you delete the image template, then you will lose the VHD. 
  
 ## Next steps
 
