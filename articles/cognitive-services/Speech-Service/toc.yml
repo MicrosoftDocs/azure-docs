@@ -117,6 +117,8 @@
   items:
   - name: Conversation Transcription Service
     href: conversation-transcription-service.md
+  - name: Call Center Transcription
+    href: call-center-transcription.md
 - name: How-to guides
   items:
   - name: Sign up for the Speech Services
