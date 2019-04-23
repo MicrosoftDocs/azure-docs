@@ -1,16 +1,13 @@
 
-### Make your application great 
+## Make your application great 
 
 <!--
-These will become links to conceptual pages of the MSAL libraries when Ryan has introduced them
+These will become links to conceptual pages of the MSAL libraries when the topics are merged
 -->
-- Enable logging in your application
-- Enable telemetry in your application
-- Enable proxies and customize HTTP clients
+- [Enable logging](../articles/active-directory/develop/msal-logging.md) in your application.
+- Enable telemetry in your application.
+- Enable proxies and customize HTTP clients.
 
-### Test your integration
+## Test your integration
 
-<!--
-This one will become a link See PR: https://github.com/MicrosoftDocs/azure-docs-pr/pull/73471 to the release branch
--->
-- Test your integration by following the **Integration check list**
+- Test your integration by following the [Microsoft identity platform integration check list](../articles/active-directory/develop/active-directory-integration-checklist.md).
