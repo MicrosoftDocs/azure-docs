@@ -1,10 +1,10 @@
 ---
-title: Connect a bot to Direct Line Speech
+title: Connect a bot to Direct Line Speech (Preview)
 titleSuffix: Bot Service
 description: Overview and steps required to connect an existing Bot Framework bot to the Direct Line Speech channel for voice in, voice out interaction with high reliability and low latency.
 services: bot-service
 author: trrwilson
-manager: 
+manager: nitinme
 ms.service: bot-service
 ms.subservice: bot-service
 ms.topic: conceptual
