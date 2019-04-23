@@ -93,7 +93,7 @@
       items:
       - name: Sign-in audience
         href: v2-supported-account-types.md
-      - name: Web app that signs-in users
+      - name: Web app that signs in users
         items:
         - name: Overview
           href: scenario-web-app-sign-user-overview.md
