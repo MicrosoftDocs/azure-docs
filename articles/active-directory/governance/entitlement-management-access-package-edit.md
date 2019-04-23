@@ -1,6 +1,6 @@
 ---
-title: Edit and manage an existing access package in Azure AD entitlement management (Preview)
-description: #Required; article description that is displayed in search results.
+title: Edit and manage an existing access package in Azure AD entitlement management (Preview) - Azure Active Directory
+description: Learn how to edit and manage an existing access package in Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -18,7 +18,7 @@ ms.reviewer:
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+#Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
 # Edit and manage an existing access package in Azure AD entitlement management (Preview)

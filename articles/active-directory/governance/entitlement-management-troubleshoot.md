@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure AD entitlement management? (Preview)
-description: #Required; article description that is displayed in search results.
+title: Troubleshoot Azure AD entitlement management? (Preview) - Azure Active Directory
+description: Learn about some items you should check to help you troubleshoot Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -18,7 +18,7 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+#Customer intent: As an administrator, I want checklists and tips to help troubleshoot entitlement management to unblock users from performing their job.
 
 ---
 # Troubleshoot Azure AD entitlement management? (Preview)
@@ -28,13 +28,13 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article answers common questions to help you troubleshoot Azure Active Directory (Azure AD) entitlement management.
+This article describes some items you should check to help you troubleshoot Azure Active Directory (Azure AD) entitlement management.
 
 ## Checklist for adding a resource
 
 * If there are users that have already been assigned to a resource that you want to manage with an access package, be sure that the users are assigned to the access package with an appropriate policy. For example, you might want to include a group in an access package that already has users in the group. If those users in the group require continued access, they must have an appropriate policy for the access packages so that they don't lose their access to the group. You can assign the access package by either asking the users to request the access package containing that resource, or by directly assigning them to the access package. For more information, see [Edit and manage an existing access package](entitlement-management-access-package-edit.md).
 
-## Checklist for troubleshooting request issues
+## Checklist for request issues
 
 * When a user wants to request access to an access package, be sure that they are using the **My Access portal link** for the access package. For more information, see [Copy My Access portal link](entitlement-management-access-package-edit.md#copy-my-access-portal-link).
 

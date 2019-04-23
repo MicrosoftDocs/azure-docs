@@ -1,6 +1,6 @@
 ---
-title: Get a report of who has access in Azure AD entitlement management (Preview)
-description: #Required; article description that is displayed in search results.
+title: View reports and logs in Azure AD entitlement management (Preview) - Azure Active Directory
+description: Learn how to view the user assignments report and audit logs in Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -18,7 +18,7 @@ ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+#Customer intent: As an administrator, I want view resources a user has access to and view request logs for auditing purposes.
 
 ---
 # View reports and logs in Azure AD entitlement management (Preview)

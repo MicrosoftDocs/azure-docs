@@ -1,6 +1,6 @@
 ---
-title: What is Azure AD entitlement management? (Preview)
-description: #Required; article description that is displayed in search results.
+title: What is Azure AD entitlement management? (Preview) - Azure Active Directory
+description: Get an overview of Azure Active Directory entitlement management and how you can use it to manage access to groups, applications, and SharePoint Online sites for internal and external users.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -18,7 +18,7 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+#Customer intent: As a administrator, I want learn about entitlement management so that see if I can use it to manage access to resources in my organization.
 
 ---
 # What is Azure AD entitlement management? (Preview)
@@ -28,7 +28,7 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Users in organizations need access to various groups, applications, and sites to perform their job. Managing this access is challenging. In most cases, there is no organized list of all the resources a user needs for a project. The project manager has a good understanding of the resources needed, the individuals involved, and how long the project will last. However, the project manager typically does not have permissions to approve or grant access to others. This scenario gets more complicated when you try to work with external individuals or companies.
+Employees in organizations need access to various groups, applications, and sites to perform their job. Managing this access is challenging. In most cases, there is no organized list of all the resources a user needs for a project. The project manager has a good understanding of the resources needed, the individuals involved, and how long the project will last. However, the project manager typically does not have permissions to approve or grant access to others. This scenario gets more complicated when you try to work with external individuals or companies.
 
 Azure Active Directory (Azure AD) entitlement management can help you manage access to groups, applications, and SharePoint Online sites for internal users and also users outside your organization.
 

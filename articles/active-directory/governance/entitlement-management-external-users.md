@@ -1,6 +1,6 @@
 ---
-title: Manage access for external users in Azure AD entitlement management (Preview)
-description: #Required; article description that is displayed in search results.
+title: Manage access for external users in Azure AD entitlement management (Preview) - Azure Active Directory
+description: Learn how to manage access for external users in Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
 author: rolyon

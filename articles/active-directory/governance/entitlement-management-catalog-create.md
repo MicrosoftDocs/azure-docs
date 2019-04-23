@@ -1,6 +1,6 @@
 ---
-title: Create and manage a catalog in Azure AD entitlement management (Preview)
-description: #Required; article description that is displayed in search results.
+title: Create and manage a catalog in Azure AD entitlement management (Preview) - Azure Active Directory
+description: Learn how to create a new container of resources and access packages in Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -18,7 +18,7 @@ ms.reviewer: hanki
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+#Customer intent: As an administrator, I want detailed information about the options available when creating and manage catalog so that I most effectively use catalogs in my organization.
 
 ---
 # Create and manage a catalog in Azure AD entitlement management (Preview)
