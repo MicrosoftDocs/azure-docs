@@ -538,8 +538,14 @@
           href: insights/container-insights-overview.md
         - name: FAQ
           href: insights/container-insights-faq.md
-        - name: Onboard 
-          href: insights/container-insights-onboard.md
+        - name: Enable monitoring
+          items:
+          - name: Enable monitoring overview 
+            href: insights/container-insights-onboard.md
+          - name: Enable for new cluster
+            href: insights/container-insights-enable-new-cluster.md
+          - name: Enable for existing cluster
+            href: insights/container-insights-enable-existing-clusters.md
         - name: Analyze 
           href: insights/container-insights-analyze.md
         - name: Disable monitoring
