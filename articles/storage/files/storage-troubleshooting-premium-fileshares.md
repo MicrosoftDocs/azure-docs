@@ -107,14 +107,15 @@ Lack of support for directory leases.
 - For Linux VMs, increase the directory entry cache timeout by specifying **actimeo=<sec>** as a mount option. By default, it is one second, so a larger value like three or five might help.
 - For Linux VMs, upgrade the kernel to 4.20 or higher.
 
-## Low IOPS on CentOS
+## Low IOPS on CentOS/RHEL
 
 ### Cause
 
-IO depth greater than one is not supported on CentOS.
+IO depth greater than one is not supported on CentOS/RHEL.
 
 ### Workaround
 
+- Upgrade to CentOS 8 / RHEL 8.
 - Change to Ubuntu.
 
 ## Jittery/saw-tooth pattern for IOPS
