@@ -3,7 +3,7 @@
 
 # Mandatory fields.
 title: Secure Azure Computing Architecture
-description: This is a reference architecture for an enterprise level DMZ architecture, utilizing Network Virtual Appliances and other tools. This architecture was designed to meet the Department of Defense's Secure Cloud Computing Architecture Functional Requirements. However, it can be leveraged for any organization. This reference inlcudes two automated options using Citrix or F5 appliances.
+description: This is a reference architecture for an enterprise-level DMZ architecture, utilizing Network Virtual Appliances and other tools. This architecture was designed to meet the Department of Defense's Secure Cloud Computing Architecture Functional Requirements. However, it can be leveraged for any organization. This reference includes two automated options using Citrix or F5 appliances.
 author: Jason Henderson
 ms.author: jahender # Microsoft employees only
 ms.date: 4/9/2019
@@ -23,7 +23,7 @@ A rapidly increasing number of DoD customers deploying workloads to Azure have b
  
 There are four components of the SCCA. The Boundary Cloud Access Point (BCAP), Virtual Datacenter Security Stack (VDSS), Virtual Datacenter Services (VDMS), and Trusted Cloud Credential Manager (TCCM). Microsoft has developed a solution that will meet the SCCA requirements for both IL4 and IL5 workloads running in Azure. This Azure specific solution is called Secure Azure Computing Architecture (SACA). Customers who deploy SACA will be in compliance with the SCCA FRD and will enable DoD customers to move workloads into Azure once connected. 
 
-While SCCA guidance and architectures are specific to DoD customers, the latest revisions to SACA will also help Civilian customers comply with trusted internet connection (TIC)guidance, as well as commercial customers that with to implement a secure DMZ to protect their azure environments. 
+While SCCA guidance and architectures are specific to DoD customers, the latest revisions to SACA will also help Civilian customers comply with trusted internet connection (TIC) guidance, as well as commercial customers that with to implement a secure DMZ to protect their azure environments. 
 
 
 ## Secure Cloud Computing Architecture Components
@@ -75,7 +75,7 @@ When planning your SCCA compliancy strategy and technical architecture, there ar
     - DISA BCAP
         - DISA has two operational BCAPs at the Pentagon, and Camp Roberts CA, with a third coming online soon. 
         - DISA’s BCAPs all have ExpressRoute circuits to Azure, which can be leveraged by DoD customers for connectivity. 
-        - DISA already has an enterprise level Microsoft Peering session for DoD customers who want to subscribe to Microsoft SaaS tools, such as Office 365. By using DISA BCAP, you can enable connectivity and peering to your SACA instance. 
+        - DISA already has an enterprise-level Microsoft Peering session for DoD customers who want to subscribe to Microsoft SaaS tools, such as Office 365. By using DISA BCAP, you can enable connectivity and peering to your SACA instance. 
     - Build your own BCAP
         - This would require you to lease space in a co-located data center and setup an ExpressRoute circuit to Azure. 
         - This option will require additional approval 
@@ -86,9 +86,9 @@ When planning your SCCA compliancy strategy and technical architecture, there ar
     - Contact DoD NIC to obtain IP space, it will be needed as part of your SNAP submission with DISA. 
     - If you plan to NAT to private address space in Azure, you will need a minimum of a /24 subnet of address space assigned from the NIC for each region you plan to deploy SACA. 
 - Redundancy 
-    - Microsoft suggests that you deploy a SACA instance to at least two regions. In DoD cloud this would mean you deploy it to both available DoD regions. 
+    - Microsoft suggests that you deploy a SACA instance to at least two regions. In DoD cloud, this would mean you deploy it to both available DoD regions. 
     - It is also suggested that you connect to at least two BCAPs via separate ExpressRoute circuits. Both Express Routes can then be linked to each region’s SACA instance. 
-- DoD component specific requirements
+- DoD component-specific requirements
     - Does your organization have any specific requirements outside the SCCA requirements? (Some organizations have specific IPS requirements)
 - SACA is a modular architecture  
     - Use only which components you need for your environment. 
@@ -113,7 +113,7 @@ When planning your SCCA compliancy strategy and technical architecture, there ar
         - [Azure DDoS Protection](https://docs.microsoft.com/en-us/azure/virtual-network/ddos-protection-overview)
         - [Azure Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/overview)
 - Sizing
-    - A sizing exercise will need to be completed. You will need to look at the amount of concurrent connections you may have through the SACA instance as well as the network throughput requirements. 
+    - A sizing exercise will need to be completed. You will need to look at the number of concurrent connections you may have through the SACA instance as well as the network throughput requirements. 
     - This is a critical step as it will help to size the VMs, as well as help to identify the licenses that will be required from the various vendors you will be using in your SACA instance. 
     - A good cost analysis can’t be done without this sizing exercise, it is also important to ensure everything is sized correctly to allow for best performance. 
 
@@ -142,7 +142,7 @@ This architecture is highly recommended by Microsoft, as it will meet SCCA requi
         - VDMS Subnet
             - Where VMs and services used for VDMS are deployed
         - Untrusted and Trusted Subnets 
-            - Where virtual appliances are deploye
+            - Where virtual appliances are deployed
         - Gateway Subnet
             - Where the ExpressRoute Gateway will be deployed
 - Management Jump Box Virtual Machines
@@ -166,7 +166,7 @@ Citrix has created a deployment template that deploys two layers of highly avail
 ![Citrix SACA Diagram](SACAimages/CitrixSACA.jpg)
 
 
-Citrix Documentation and deployment script can be found [here](https://github.com/citrix/netscaler-azure-templates/tree/master/templates/saca)
+Citrix Documentation and deployment script can be found [here.](https://github.com/citrix/netscaler-azure-templates/tree/master/templates/saca)
 
 
  **F5 SACA Deployment**
@@ -175,7 +175,7 @@ F5 has created two separate deployment templates covering two different architec
 
 ![Citrix SACA Diagram](SACAimages/F5SACA.jpg)
 
-F5 Documentation and deployment script can be found [here](https://github.com/f5devcentral/f5-azure-saca) 
+F5 Documentation and deployment script can be found [here.](https://github.com/f5devcentral/f5-azure-saca) 
 
 
 
