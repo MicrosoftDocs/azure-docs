@@ -11,14 +11,14 @@ ms.date: 04/15/2019
 ---
 # Create and configure Enterprise Security Package clusters in Azure HDInsight
 
-The Enterprise Security Package for Azure HDInsight gives you access to Active Directory-based authentication, multi-user support, and role-based access control for your Apache Hadoop clusters in Azure. HDInsight ESP clusters enable organizations which adhere to strict corporate security policies, to process sensitive data securely.
+The Enterprise Security Package for Azure HDInsight gives you access to Active Directory-based authentication, multi-user support, and role-based access control for your Apache Hadoop clusters in Azure. HDInsight ESP clusters enable organizations, which adhere to strict corporate security policies, to process sensitive data securely.
 
-This guide walks through the steps needed to create an Enterprise Security Package enabled Azure HDInsight Cluster. Specifically, the following topics will be discussed:
+This guide walks through the steps needed to create an Enterprise Security Package enabled Azure HDInsight Cluster. Specifically, the following things will be discussed:
 
-* creating a Windows IaaS VM, with Active Directory & DNS enabled mimicking an on-Prem environment
-* create an hybrid identity environment using password hash sync with Azure Active Directory
+* creating a Windows IaaS VM, with Active Directory & Domain Name Services (DNS) enabled mimicking an on-premises environment
+* create a hybrid identity environment using password hash sync with Azure Active Directory
 
-At the end of this guide, a user created on your on-premises Active Directory should be able to login to an ESP enabled HDInsight cluster.
+At the end of this guide, a user created on your on-premises Active Directory should be able to sign in to an ESP enabled HDInsight cluster.
 
 This guide is meant to complement [Use Enterprise Security Package in HDInsight](apache-domain-joined-architecture.md)
 
@@ -33,94 +33,98 @@ Pre-requisites:
 
 ## Windows Domain Controller Setup
 
-### Deploy Windows Server Domain Controller and Windows DNS Server to new Resource Group and Virtual Network
+### Deploy Windows Server Domain Controller and Windows DNS server to new resource group and virtual network
 
-**Action**: Use Azure Quick Deployment template to Create new VMs and configure DNS and new AD Forest
+Overview: In this section, you will use an Azure Quick Deployment template to Create new VMs and configure Domain Name Services (DNS) and a new AD Forest.
 
-Reference:
-<https://azure.microsoft.com/en-gb/resources/templates/active-directory-new-domain/>
+1. Go to [Create an Azure VM with a new AD Forest](https://azure.microsoft.com/resources/templates/active-directory-new-domain/), to view the quick deployment template.
 
-Step 1: Go to [Create an Azure VM with a new AD Forest](https://azure.microsoft.com/resources/templates/active-directory-new-domain/)
+1. Click on **Deploying to Azure**.
 
-Step 2: Click on Deploy to Azure Button
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image004.png)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image004.png)
+1. Sign in to your Azure subscription where you want to configure Windows Domain Controller and DNS Server.
+1. Select the subscription where you want the resources deployed.
+1. Select **Create new** next to **Resource group** and enter the name **OnPremADVRG**
+1. Enter the following details for the rest of the template fields:
 
-Step 3: Login to your Azure Subscription where you want to configure Windows Domain Controller and DNS Server
+    * Location: Central US
+    * Admin Username: HDIFabrikamAdmin
+    * Admin Password: <YOUR_PASSWORD>
+    * Domain: HDIFabrikam.com
+    * Dns Prefix: hdifabrikam
 
-Step 4: Enter the following details.
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image006.png)
 
-Sample Details:
+1. Click **Purchase**
+1. Monitor the deployment and wait for it to complete.
 
-* Resource Group Name: OnPremADVRG
-* Location: Central US
-* Username: HDIFabrikamAdmin
-* Domain: HDIFabrikam.com
-* DNS: hdifabrikam
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image008.png)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image006.png)
+1. Confirm the resources are created under the correct resource group `OnPremADVRG`.
 
-Step 5: Monitor the Deployment and wait for it complete.
-
-![alt-text](./media/apache-domain-joined-create-configure-esp/image008.png)
-
-Step 6: Confirm the resources are created under this Resource Group
-
-![alt-text](./media/apache-domain-joined-create-configure-esp/image010.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image010.png)
 
 ### Configure Additional Users and Groups to access HDInsight Cluster
 
-End of the walk through we conclude explain on the users created in the follow section can access the HDInsight clusters.
+Overview: In this section, you will create the users that will access the HDInsight cluster by the end of this guide.
 
-Step 1: Connect to the Domain Controller Via Remote Desktop
+1. Connect to the domain controller using Remote Desktop. If you used the template mentioned at the beginning, the domain controller is a VM called **adVM** in the `OnPremADVRG` resource group. 
+    1. Go to the Azure portal > **Resource groups** > **OnPremADVRG** > **adVM** > **Connect** > **RDP** > **Download RDP File**. Save the file to your computer and open it.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image012.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image012.png)
 
-Step 2: Use your `Domain_Name\\Administrator` user you have provided in the previous step during deployment
+1. When prompted for credentials, use `HDIFabrikam\HDIFabrikamAdmin` as the username and then enter the password that you chose for the admin account.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image014.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image014.png)
 
-Step 3: Launch Active Directory Users and Computers from Server Manager Console
+1. Once your Remote Desktop session opens on the domain controller VM, launch **Active Directory Users and Computers** from the **Server Manager** dashboard. <TODO: How to launch server manager>
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image016.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image016.png)
 
-Step 4: Create two New Users, **HDIAdmin**, **HDIUser** as the usernames. These are the users names that will be will be used to login to HDInsight clusters.
+1. Create two new users, **HDIAdmin**, **HDIUser** as the usernames. These two users will be used to sign in to HDInsight clusters.
+    1. In the **Active Directory Users and Computers** screen, right-click in the right pane and then select **User** > **New**.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image018.png)
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image018.png)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image020.png)
- 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image022.png)
+    1. In the **New Object - User** screen, enter `HDIUser` as the **User logon name** and click **Next**. 
 
-Second Admin User
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image020.png)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image024.png)
+    1. In the popup that appears, enter the desired password for the new account. Click **OK**.
+    1. Click **Finish** to create the new account.
 
-Step 5: Create HDIUserGroup as a new Group
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image022.png)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image026.png)
+    1. Repeat the account creation steps 1-4 for the second new account `HDIAdmin`.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image028.png)
+        ![Second Admin User](./media/apache-domain-joined-create-configure-esp/image024.png)
 
-Step 6: Add HDIUser Created in previous step to this HDIUserGroup as a member
+1. Create `HDIUserGroup` as a new Group
 
-Go to Properties of the HDIUserGroup
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image026.png)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image030.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image028.png)
 
-Go to Members Tab
+1. Add HDIUser Created in previous step to the `HDIUserGroup` as a member.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image032.png)
+    1. Go to Properties of the `HDIUserGroup`.
 
-Add HDIUser to this group
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image030.png)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image034.png)
+    1. Go to the **Members** tab.
 
-Click OK
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image032.png)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image036.png)
+    1. Add `HDIUser` to this group.
 
-[Now that we have our Active Directory environment setup, with the Users and User group will be create on the AD Evrionment that will be synchronized with Azure AD, ]
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image034.png)
+
+    1. Click OK.
+
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image036.png)
+
+Now that we have our Active Directory environment setup, with the Users and User group will be create on the AD Evrionment that will be synchronized with Azure AD.
 
 ### Now we need an Azure AD tenant so that we can Synchronize our users and user group created on the on Prem AD to the cloud
 
@@ -141,21 +145,21 @@ Click OK
 
 ### Download and Install AAD-Connect to the On-Prem Domain Controller to sync Users to Azure AD
 
-Step 1: Download Azure AD Connect and Install Microsoft Azure Active Directory Connect
+1. Download Azure AD Connect and Install Microsoft Azure Active Directory Connect
 
 Link: <https://www.microsoft.com/en-us/download/details.aspx?id=47594>
 
-Step 2: Install Microsoft Azure Active Directory Connect on the Domain Controller
+1. Install Microsoft Azure Active Directory Connect on the Domain Controller
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image050.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image050.png)
+    
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image052.png)
+    
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image054.png)
+    
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image056.png)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image052.png)
-
-![alt-text](./media/apache-domain-joined-create-configure-esp/image054.png)
-
-![alt-text](./media/apache-domain-joined-create-configure-esp/image056.png)
-
-Step 3: Configure Sync between On-Premises Domain Controller and Azure AD
+1. Configure Sync between On-Premises Domain Controller and Azure AD
 
 1. On the Connect to Azure AD screen, enter the username and password the global administrator for Azure AD.
 Click **Next**. (Azure AD has to be configured before proceeding with this step)
@@ -163,7 +167,7 @@ Click **Next**. (Azure AD has to be configured before proceeding with this step
 1. On the Connect to Active Directory Domain Services screen, enter the username and password for an enterprise admin account. Click **Next**.
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image060.png)
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image062.png)
-1. On the Ready to configure screen, click **[Install]**.
+1. On the Ready to configure screen, click **Install**.
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image064.png)
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image066.png)
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image068.png)
@@ -172,40 +176,42 @@ Click **Next**. (Azure AD has to be configured before proceeding with this step
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image074.png)
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image076.png)
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image078.png)
-1. After the syn is complete confirm if the users that you created on the IAAS Active Directory are Synced to
+1. After the sync is complete confirm if the users that you created on the IAAS Active Directory are Synced to
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image080.jpg)
-1. Next step is to create an User assigned managed Identity that will be used to configure on AADDS. 
+1. Next step is to create an User assigned managed Identity that will be used to configure on AADDS.
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image082.png)
-1. Next step is to Enable Azure Active Directory Domain Services using Azure Portal. 
-[Refer ][[ ]<https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started>[Lets start off creating the Virtual Network to host AADDS]
+1. Enable Azure Active Directory Domain Services using the Azure portal. For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
-```powershell
-Connect-AzAccount
-Get-AzSubscription
-Set-AzContext -Subscription d3f35892-70bb-44c8-a19d-6aa86f765816
-$virtualNetwork = New-AzVirtualNetwork -ResourceGroupName HDIFabrikam-CentralUS -Location 'Central US' -Name HDIFabrikam-AADDSVNET -AddressPrefix 10.1.0.0/16
-$subnetConfig = Add-AzVirtualNetworkSubnetConfig -Name -AddressPrefix 10.1.0.0/24 -VirtualNetwork $virtualNetwork
-$virtualNetwork | Set-AzVirtualNetwork
-```
+1. Create the Virtual Network to host AADDS. Run the following powershell code.
 
-We are enabling this service in Central US region, the select the Directory Name as that of the Azure Active Directory and that would be "HDIFabrikam"
+    ```powershell
+    Connect-AzAccount
+    Get-AzSubscription
+    Set-AzContext -Subscription d3f35892-70bb-44c8-a19d-6aa86f765816
+    $virtualNetwork = New-AzVirtualNetwork -ResourceGroupName HDIFabrikam-CentralUS -Location 'Central US' -Name HDIFabrikam-AADDSVNET -AddressPrefix 10.1.0.0/16
+    $subnetConfig = Add-AzVirtualNetworkSubnetConfig -Name -AddressPrefix 10.1.0.0/24 -VirtualNetwork $virtualNetwork
+    $virtualNetwork | Set-AzVirtualNetwork
+    ```
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image084.png)
+We are enabling this service in Central US region, the select the Directory Name as that of the Azure Active Directory and that would be "HDIFabrikam".
+
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image084.png)
 
 Select the network and the subnet that we created in the previous step
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image086.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image086.png)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image088.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image088.png)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image090.png)
-![](./media/apache-domain-joined-create-configure-esp/image092.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image090.png)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image094.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image092.png)
 
-[After you enable Azure AD-DS, a local Domain Name Service (DNS) server runs on the AD Virtual Machines (VMs), To Configure your Azure AADDS Virtual Network (VNET) to use custom DNS servers.
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image094.png)
 
-First locate the right IP addresses, select **[Properties]** of HDIFabricam.com AADDS, and look at the IP Addresses listed beneath **IP Address on Virtual Network]**
+After you enable Azure AD-DS, a local Domain Name Service (DNS) server runs on the AD Virtual Machines (VMs), To Configure your Azure AADDS Virtual Network (VNET) to use custom DNS servers.
+
+First locate the right IP addresses, select **Properties** of HDIFabricam.com AADDS, and look at the IP Addresses listed beneath **IP Address on Virtual Network**
 
 ![alt-text](./media/apache-domain-joined-create-configure-esp/image096.png)
 
