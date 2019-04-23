@@ -138,10 +138,6 @@ Microsoft provides the following tools to work with Azure Storage:
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
-| [Hadoop command](#commandline) |✔ |✔ |✔ |
-
-> [!NOTE]  
-> The Hadoop command is only available on the HDInsight cluster. The command only allows loading data from the local file system into Azure Storage.  
 
 ## Use additional storage accounts
 
