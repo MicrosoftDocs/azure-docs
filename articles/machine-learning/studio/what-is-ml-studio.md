@@ -106,20 +106,22 @@ Once your predictive analytics model is ready, you can deploy it as a web servic
 <a name="compare"></a>
 ## How is Machine Learning Studio different from Azure Machine Learning service?
 
-[Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides SDKs and services to quickly prep data, train, and deploy machine learning models. Improve productivity and costs with autoscaling compute & pipelines. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn.
-
-For users who prefer a drag-and-drop experience, there is a visual interface (Preview) for Azure Machine Learning service, which allows you to build experiments, similar to Studio.  The preview release of the visual interface is fully integrated with Azure Machine Learning service.  
+[Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** a visual interface(Preview), to quickly prep data, train and deploy machine learning models. This visual interface (preview) provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the visual interface uses your own compute resources and is fully integrated into Azure Machine Learning service.
 
 Here is a quick comparison.
 
-| Azure Machine Learning Studio | Visual interface (preview) for Azure Machine Learning service 
-| --- | --- |
- Large number of modules | Small initial set of most popular modules |
- Train on proprietary compute target, CPU support only | Train on Azure Machine Learning compute, autoscaled CPU and GPU clusters.
- Deploy on proprietary webservice, not customizable | Deploy on Azure Kubernetes Service with enterprise ready security |
+|| Machine Learning Studio | Azure Machine Learning service:<br/>Visual interface|
+|---| --- | --- |
+|| Generally available (GA) | In preview|
+|Modules for interface| Many | Initial set of popular modules|
+|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute, GPU or CPU.<br/>(Other computes supported in SDK)|
+|Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options  & Azure Kubernetes Service. <br/>([Other computes](how-to-deploy-and-where.md) supported in SDK) |
+|Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the SDK and Azure portal.) | 
 
+Try out the visual interface (preview) with [Quickstart: Prepare and visualize data without writing code](ui-quickstart-run-experiment.md)
 
-Try out the preview interface with the [Quickstart: Prepare and visualize data without writing code](../service/ui-quickstart-run-experiment.md).
+> [!NOTE]
+> Models created in Studio can't be deployed or managed by Azure Machine Learning service. However, models created and deployed in the service visual interface can be managed through the Azure Machine Learning service workspace.
 
 ## Free trial
 
