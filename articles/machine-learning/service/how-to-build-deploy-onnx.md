@@ -53,7 +53,7 @@ You can convert existing models to ONNX or save them as ONNX at the end of your 
 |TensorFlow|[tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx)|
 |Chainer|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
 |MXNet|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
-|Keras, ScitKit-Learn, CoreML<br/>XGBoost, and libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
+|Keras, ScitKit-Learn, CoreML<br/>XGBoost, and libSVM|[WinMLTools](/windows/ai/windows-ml/convert-model-winmltools)|
 |Microsoft&nbsp;Cognitive&nbsp;Toolkit|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
 
 You can find the latest list of supported frameworks and converters at the [ONNX Tutorials site](https://github.com/onnx/tutorials).
