@@ -13,7 +13,7 @@ ms.custom: seodec2018
 ---
 # How to model complex data types in Azure Search
 
-External datasets used to populate an Azure Search index sometimes include hierarchical or nested substructures that do not break down neatly into a tabular rowset. Examples of such structures might include multiple locations and phone numbers for a single customer, multiple colors and sizes for a single SKU, multiple authors of a single book, and so on. In modeling terms, you might see these structures referred to as *complex data types*, *compound data types*, *composite data types*, or *aggregate data types*, to name a few. In Azure Search terminology, a complex type is a field that contains children, and a collection is a list of fields. 
+External datasets used to populate an Azure Search index sometimes include hierarchical or nested substructures. Examples might include multiple locations and phone numbers for a single customer, multiple colors and sizes for a single SKU, multiple authors of a single book, and so on. In modeling terms, you might see these structures referred to as *complex data types*, *compound data types*, *composite data types*, or *aggregate data types*,. In Azure Search terminology, a complex type is a field that contains children (sub-fields), and a collection is a list. 
 
 Azure Search natively supports complex types and collections. Together, these types allow you to model almost any hierarchical JSON structure in an Azure Search index. In previous versions of Azure Search APIs, only tabular row sets could be imported. In the newest version, your index can now more closely correspond to source data. In other words, if your source data has complex types, your index can have complex types also.
 
