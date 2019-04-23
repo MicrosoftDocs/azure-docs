@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Initializing client applications using MSAL.js
-This article describes initializing user agent applications, a form of public client applications, using Microsoft Authentication Library for JavaScript (MSAL.js).  To learn more about the client application types and application options, read the [overview](msal-client-applications.md).
+This article describes initializing user agent applications, a form of public client applications, using Microsoft Authentication Library for JavaScript (MSAL.js).  To learn more about the client application types and application configuration options, read the [overview](msal-client-applications.md).
 
 ## Pre-requisites
 Before initializing an application, you first need to [register it](quickstart-v2-javascript.md) so that your app can be integrated with the Microsoft identity platform. As part of the registration, you will also need to add the Web platform and check the **Implicit Flow** checkbox.  After registration, you may need the following information (which can be found in the Azure portal):
@@ -30,18 +30,18 @@ Before initializing an application, you first need to [register it](quickstart-v
 - The client ID (a string representing a GUID)
 - The identity provider URL (named the instance) and the sign-in audience for your application. These two parameters are collectively known as the authority.
 - The tenant ID if you are writing a line-of-business application solely for your organization (also named single-tenant application).
-- The application secret (client secret string) or certificate (of type X509Certificate2) if it's a confidential client app.
+- The application secret (client secret string) or certificate (of type X509 certificate) if it's a confidential client app.
 - For web apps, and sometimes for public client apps (in particular when your app needs to use a broker), you'll have also set the redirectUri where the identity provider will contact back your application with the security tokens.
 
 ## Initializing applications
 
-You can use MSAL.js as follows in a plain JavaScript/Typescript application. Initialize MSAL authentication context by instantiating UserAgentApplication. The minimum required config to initialize MSAL is Client ID.
+You can use MSAL.js as follows in a plain JavaScript/Typescript application. Initialize MSAL authentication context by instantiating `UserAgentApplication`. The minimum required config to initialize MSAL is client ID.
 
 ```javascript
 var userAgentApplication = new Msal.UserAgentApplication(clientId, authority, tokenReceivedCallBack);
 ```
 
-MSAL.js is designed to have a single instance and configuration of the UserAgentApplication to represent a single authentication context. Multiple instances are not recommended as they cause conflicting cache entries and behavior in the browser.
+MSAL.js is designed to have a single instance and configuration of the `UserAgentApplication` to represent a single authentication context. Multiple instances are not recommended as they cause conflicting cache entries and behavior in the browser.
 
 - clientID: The clientID of your application, you should get this from the application registration portal.
 
@@ -50,7 +50,7 @@ MSAL.js is designed to have a single instance and configuration of the UserAgent
 - `tokenReceivedCallBack`: The function that will get the call-back once this API is completed (either successfully or with a failure).
 
 ## Configuration options
-You can pass config options as an optional object to UserAgentApplication's constructor as follows:
+You can pass config options as an optional object to the `UserAgentApplication` constructor as follows:
 
 ```javascript
 var userAgentApplication = new Msal.UserAgentApplication(clientId, authority, tokenReceivedCallBack, { logger: logger, cacheLocation: 'localStorage'});
@@ -62,7 +62,7 @@ The config options are defined below:
 
 - `cacheLocation`: Optional.  Sets browser storage to either `localStorage` or `sessionStorage`. The default is `sessionStorage`.
 
-- `storeAuthStateInCookie`: Optional.  This flag was introduced in MSAL.js v0.2.2 as a fix for the authentication loop issues on Microsoft Internet Explorer and Microsoft Edge. Enable the flag storeAuthStateInCookie to true to take advantage of this fix. When this is enabled, MSAL.js will store the auth request state required for validation of the auth flows in the browser cookies. By default this flag is set to `false`.
+- `storeAuthStateInCookie`: Optional.  This flag was introduced in MSAL.js v0.2.2 as a fix for the authentication loop issues on Microsoft Internet Explorer and Microsoft Edge. Enable the flag `storeAuthStateInCookie` to true to take advantage of this fix. When this is enabled, MSAL.js will store the auth request state required for validation of the auth flows in the browser cookies. By default this flag is set to `false`.
 
 - `redirectUri`: Optional.  The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL encoded. Defaults to "window.location.href".
 

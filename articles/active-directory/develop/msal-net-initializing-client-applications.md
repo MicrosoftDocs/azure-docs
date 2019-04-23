@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Initializing client applications using MSAL.NET
-This article describes initializing public client and confidential client applications using Microsoft Authentication Library for .NET (MSAL.NET).  To learn more about the client application types and application options, read the [overview](msal-client-applications.md).
+This article describes initializing public client and confidential client applications using Microsoft Authentication Library for .NET (MSAL.NET).  To learn more about the client application types and application configuration options, read the [overview](msal-client-applications.md).
 
 With MSAL.NET 3.x, the recommended way to instantiate an application is by using the application builders: `PublicClientApplicationBuilder` and `ConfidentialClientApplicationBuilder`. They offer a powerful mechanism to configure the application either from the code, or from a configuration file, or even by mixing both approaches.
 
@@ -70,7 +70,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 ### Initializing a public client application from configuration options
 
-The following code instantiates a public client application from a configuration object, which could be filled-in programmatically or read from a configuration file
+The following code instantiates a public client application from a configuration object, which could be filled-in programmatically or read from a configuration file:
 
 ```csharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
@@ -151,7 +151,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-There is also an override for ADFS (Support for ADFS 2019 is coming soon):
+There is also an override for ADFS (ADFS 2019 is currently not supported):
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
