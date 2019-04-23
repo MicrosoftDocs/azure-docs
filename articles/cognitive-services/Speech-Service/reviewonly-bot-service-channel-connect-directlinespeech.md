@@ -37,7 +37,7 @@ Once you have [built a Bot Framework bot with the Bot Builder SDK v4.5](https://
     ![selecting direct line speech channel](media/voice-first-virtual-assistants/reviewonly-bot-service-channel-directlinespeech-connectspeechchannel.png "connecting Direct Line Speech")
 
     > [!NOTE]
-    > Direct Line Speech is in preview and requires sign-up. If you don't see the Direct Line Speech channel available in the channel selection page, please ensure you've completed registration and received approval using your active Azure Portal account.
+    > Direct Line Speech is in preview and requires [sign-up](https://aka.ms/directlinespeech/signup). If you don't see the Direct Line Speech channel available in the channel selection page, please ensure you've completed registration and received approval using your active Azure Portal account.
 
 1. This will take you to a configuration page for Direct Line Speech. Once you've reviewed the terms of use, click `Save` to confirm your channel selection.
 
@@ -54,9 +54,9 @@ With the Direct Line Speech channel connected to your bot, you now need to enabl
 
     ![configure the app service for streaming protocol](media/voice-first-virtual-assistants/reviewonly-bot-service-channel-directlinespeech-configureappservice.png "configure the app service")
 
-1. Click on `General settings` and then select the option to enable `Streaming protocol`.
+1. Click on `General settings` and then select the option to enable `Web socket` support.
 
-    ![enable streaming protocol for the app service](media/voice-first-virtual-assistants/reviewonly-bot-service-channel-directlinespeech-enablestreamingprotocol.png "enable the streaming protocol")
+    ![enable websockets for the app service](media/voice-first-virtual-assistants/reviewonly-bot-service-channel-directlinespeech-enablewebsockets.png "enable websockets")
 
 1. Click `Save` at the top of the configuration page. The Bot Framework Streaming Protocol is now enabled for your bot.
 
@@ -68,4 +68,4 @@ Client applications will need a channel secret to connect to your bot through th
 
 ## Adding protocol support to your bot
 
-With the Direct Line Speech channel connected and support for the Bot Framework Streaming protocol enabled, all that's left is to add code to your bot to support the optimized communication. Follow the instructions on [adding Steaming protocol support to your bot](https://aka.ms/botframework/addstreamingprotocolsupport) to ensure full compatibility with Direct Line Speech.
+With the Direct Line Speech channel connected and support for the Bot Framework Streaming Protocol enabled, all that's left is to add code to your bot to support the optimized communication. Follow the instructions on [adding Streaming protocol support to your bot](https://aka.ms/botframework/addstreamingprotocolsupport) to ensure full compatibility with Direct Line Speech.
