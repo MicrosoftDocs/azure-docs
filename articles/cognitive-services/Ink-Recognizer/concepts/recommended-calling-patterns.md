@@ -18,7 +18,7 @@ Digital inking refers to the technologies that enable digital representations of
 
 ## Sending ink data to the API
 
-The Ink Recognizer API requires the X,Y coordinates that represent the ink strokes created by an input device, from the moment it touches the detection surface to when it's lifted. The accuracy and performance of its results can be impacted by:
+The Ink Recognizer API requires the X and Y coordinates that represent the ink strokes created by an input device, from the moment it touches the detection surface to when it's lifted. The accuracy and performance of its results can be impacted by:
 
 * How your ink stroke data is prepared.
 * The API parameters that were used.
