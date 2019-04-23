@@ -16,13 +16,9 @@ ms.author: erhopf
 
 Digital inking refers to the technologies that enable digital representations of input such as handwriting and drawings. This is typically achieved using a digitizer that captures the movements of input devices, such as a stylus. As devices continue to enable rich digital inking experiences, artificial intelligence and machine learning enables the recognition of written shapes and text in any context. The Ink Recognizer API enables you to send ink strokes and get detailed information about them. 
 
-## The Ink Recognizer API vs. Optical Character Recognition(OCR)
-
-The Ink Recognizer API doesn't use optical character recognition. OCR-based systems interpret ink strokes visually by looking at their characteristics. This API instead requires the X,Y coordinates that represent the ink stroke created by an input device, from the moment it touches the detection surface to when it's lifted.
-
 ## Sending ink data to the API
 
-The Ink Recognizer API is a stateless service that accepts ink strokes as a time-ordered set of 2D points (X,Y coordinates). The API uses these points to achieve detailed recognition for shapes and handwritten text. The accuracy and performance of its results can be impacted by:
+The Ink Recognizer API requires the X,Y coordinates that represent the ink strokes created by an input device, from the moment it touches the detection surface to when it's lifted. The accuracy and performance of its results can be impacted by:
 
 * How your ink stroke data is prepared.
 * The API parameters that were used.
