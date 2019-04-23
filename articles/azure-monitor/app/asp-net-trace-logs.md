@@ -55,17 +55,17 @@ Use this method if your project type isn't supported by the Application Insights
 4. Select one of the following packages:
 
    - For ILogger: [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
-[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
    - For NLog: [Microsoft.ApplicationInsights.NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
    - For Log4Net: [Microsoft.ApplicationInsights.Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
-[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
    - For System.Diagnostics: [Microsoft.ApplicationInsights.TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
-[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
    - [Microsoft.ApplicationInsights.DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
-[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
    - [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
-[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
    - [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 [![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 
@@ -131,7 +131,7 @@ For each source, you can set the following parameters:
  * **ProviderName** is the name of the ETW provider to collect.
  * **ProviderGuid** specifies the GUID of the ETW provider to collect. It can be used instead of `ProviderName`.
  * **Level** sets the logging level to collect. It can be *Critical*, *Error*, *Informational*, *LogAlways*, *Verbose*, or *Warning*.
- * **Keywords (optional) set the integer value of keyword combinations to use.
+ * **Keywords** (optional) set the integer value of keyword combinations to use.
 
 ## Use the Trace API directly
 You can call the Application Insights trace API directly. The logging adapters use this API.
@@ -141,7 +141,7 @@ For example:
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
-An advantage of TrackTrace is that you can put relatively long data in the message. For example, you could encode POST data.
+An advantage of TrackTrace is that you can put relatively long data in the message. For example, you can encode POST data there.
 
 You can also add a severity level to your message. And, like other telemetry, you can add property values to help filter or search for different sets of traces. For example:
 
@@ -165,7 +165,7 @@ You can, for example:
 * Save the configuration of a page as a favorite.
 
 > [!NOTE]
->If your application sends a lot of data and you're using the Application Insights SDK for ASP.<i></i>NET version 2.0.0-beta3 or later, the *adaptive sampling* feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](../../azure-monitor/app/sampling.md)
+>If your application sends a lot of data and you're using the Application Insights SDK for ASP.<i></i>NET version 2.0.0-beta3 or later, the *adaptive sampling* feature may operate and send only a portion of your telemetry. [Learn more about sampling.](../../azure-monitor/app/sampling.md)
 >
 
 ## Troubleshooting
@@ -178,7 +178,7 @@ Use the [Java log adapters](../../azure-monitor/app/java-trace-logs.md).
 
 ### There's no log adapter option in the configuration tool
 * Install the logging framework first.
-* If you're using System.Diagnostics.Trace, make sure that you [configured it in *web.config*](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
+* If you're using System.Diagnostics.Trace, make sure that you have it [configured in *web.config*](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
 * Make sure that you have the latest version of Application Insights. In Visual Studio, go to **Tools** > **Extensions and Updates**, and open the **Updates** tab. If **Developer Analytics Tools** is there, select it to update it.
 
 ### <a name="emptykey"></a>I get the "Instrumentation key cannot be empty" error message
