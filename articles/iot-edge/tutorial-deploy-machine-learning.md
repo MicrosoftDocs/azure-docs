@@ -46,52 +46,6 @@ Cloud resources:
    * Make a note of the workspace name, resource group, and subscription ID. These values are all available on the workspace overview in the Azure portal. You'll use these values later in the tutorial to connect an Azure notebook to your workspace resources. 
 
 
-### Disable process identification
-
->[!NOTE]
->
-> While in preview, Azure Machine Learning does not support the process identification security feature enabled by default with IoT Edge.
-> Below are the steps to disable it. This is however not suitable for use in production. These steps are only necessary on Linux devices. 
-
-To disable process identification on your IoT Edge device, you'll need to provide the IP address and port for **workload_uri** and **management_uri** in the **connect** section of the IoT Edge daemon configuration.
-
-Get the IP address first. Enter `ifconfig` in your command line and copy the IP address of the **docker0** interface.
-
-Edit the IoT Edge daemon configuration file:
-
-```cmd/sh
-sudo nano /etc/iotedge/config.yaml
-```
-
-Update the **connect** section of the configuration with your IP address. For example:
-```yaml
-connect:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-Enter the same addresses in the **listen** section of the configuration. For example:
-
-```yaml
-listen:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-Save and close the configuration file.
-
-Create an environment variable IOTEDGE_HOST with the management_uri address (To set it permanently, add it to `/etc/environment`). For example:
-
-```cmd/sh
-export IOTEDGE_HOST="http://172.17.0.1:15580"
-```
-
-Restart the IoT Edge service for the changes to take effect.
-
-```cmd/sh
-sudo systemctl restart iotedge
-```
-
 ## Create and deploy Azure Machine Learning module
 
 In this section, you convert trained machine learning model files and into an Azure Machine Learning service container. All the components required for the Docker image are in the [AI Toolkit for Azure IoT Edge Git repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial). Follow these steps to upload that repository into Microsoft Azure Notebooks to create the container and push it to Azure Container Registry.
@@ -126,11 +80,11 @@ In this section, you convert trained machine learning model files and into an Az
     >[!TIP]
     >Some of the cells in the anomaly detection tutorial notebook are optional, because they create resources that some users may or may not have yet, like an IoT Hub. If you put your existing resource information in the first cell, you'll receive errors if you run the cells that create new resources because Azure won't create duplicate resources. This is fine, and you can ignore the errors or skip those optional sections entirely. 
 
-After completing all the steps in the notebook, you will have trained an anomaly detection model, built it as a Docker container image, and pushed that image to Azure Container Registry. Then, you tested the model and finally deployed it to your IoT Edge device. 
+By completing all the steps in the notebook, you trained an anomaly detection model, built it as a Docker container image, and pushed that image to Azure Container Registry. Then, you tested the model and finally deployed it to your IoT Edge device. 
 
 ## View container repository
 
-Check that your container image was successfully created and stored in the Azure container registry that is associated with your machine learning environment. The notebook that you used in the previous section automatically provided the container image and the registry credentials to your IoT Edge device, but you should know where they're stored so that you can find the information yourself later. 
+Check that your container image was successfully created and stored in the Azure container registry associated with your machine learning environment. The notebook that you used in the previous section automatically provided the container image and the registry credentials to your IoT Edge device, but you should know where they're stored so that you can find the information yourself later. 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Machine Learning service workspace. 
 
@@ -146,7 +100,7 @@ Check that your container image was successfully created and stored in the Azure
 
    These credentials can be included in the deployment manifest to give your IoT Edge device access to pull container images from the registry. 
 
-Now you know where the Machine Learning container image is stored. The next section walks through steps to see how it's performing as a deployed module on your IoT Edge device. 
+Now you know where the Machine Learning container image is stored. The next section walks through steps to view the container running as a module on your IoT Edge device. 
 
 ## View generated data
 
