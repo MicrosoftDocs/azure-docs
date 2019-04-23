@@ -10,33 +10,31 @@ services: iot-central
 manager: philmea
 ---
 
-# Toggle Live Chat
+# Toggle live chat
 
-This tutorial showcases a simple technical support that can help you with IOT Central application. It also shows you on how to show and hide the chat option.
+This how-to article shows you how to toggle the live chat in your IoT Central application. You can use live chat to access technical support.
 
+> [!NOTE]
+> The chat option is available only for trial subscriptions.
 
 ## Chat with us
 
-To get technical support, open your IOT central application and click on **Chat with us**.
+To get technical support, open your IOT Central application and click on **Chat with us**.
 
-![Chat with US](media/howto-show-hide-chat/chat-with-us.png)
+![Chat with us](media/howto-show-hide-chat/chat-with-us.png)
 
-For example, you can type your question as below:
+You can type a question as shown in the following screenshot:
 
 !["Configure Device Details" form with details for settings and properties](media/howto-show-hide-chat/sample-chat.png)
 
 ## Hide Chat
 
-If you plan to hide the chat, you can select  **Hide Chat** in the **help** panel.
+To hide the chat, choose **Hide Chat** in the **Help** panel:
 
  ![Hide Chat](media/howto-show-hide-chat/hide-chat.png)
 
 ## Enable Chat
 
-If you plan to enable the chat, you can select  **Show Chat** in the **help** panel.
+To show the chat, choose **Show Chat** in the **Help** panel:
 
- ![Hide Chat](media/howto-show-hide-chat/show-chat.png)
-
-
-> [!NOTE]
-> The chat option is available only for trial subscriptions.
+ ![Show Chat](media/howto-show-hide-chat/show-chat.png)
