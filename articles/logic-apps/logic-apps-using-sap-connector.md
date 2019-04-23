@@ -16,7 +16,7 @@ tags: connectors
 
 This article shows how you can access your on-premises SAP resources from 
 inside a logic app by using the SAP connector. 
-The connector works with both ECC and S/4 HANA systems on-premises. 
+The connector works with SAP's classical releases such R/3, ECC systems on-premises. The connector also enables integration with the SAP's newer HANA based SAP systems such as S/4 HANA, wherever they are hosted - on premises or in cloud.
 The SAP connector supports message or data integration to and from 
 SAP Netweaver-based systems through Intermediate Document (IDoc) or 
 Business Application Programming Interface (BAPI) or Remote Function Call (RFC).
