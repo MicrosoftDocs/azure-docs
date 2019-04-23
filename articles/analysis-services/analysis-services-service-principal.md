@@ -43,16 +43,14 @@ Service principal appID and password or certificate can be used in connection st
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+#### Example using Az.AnalysisServices module
+
 When using a service principal for resource management operations with the [Az.AnalysisServices](/powershell/module/az.analysisservices)  module, use `Connect-AzAccount` cmdlet. 
-
-
-#### Example
 
 In the following example, appID and a password are used to perform control plane operations for synchronization to read-only replicas and scale up/out:
 
 ```powershell
 Param (
-
         [Parameter(Mandatory=$true)] [String] $AppId,
         [Parameter(Mandatory=$true)] [String] $PlainPWord,
         [Parameter(Mandatory=$true)] [String] $TenantId
@@ -70,15 +68,12 @@ Sync-AzAnalysisServicesInstance -Instance "asazure://westus.asazure.windows.net/
 Set-AzAnalysisServicesServer -Name "testsvr" -ResourceGroupName "testRG" -Sku "S1" -ReadonlyReplicaCount 2 -DefaultConnectionMode Readonly
 ```
 
-To learn about using PowerShell to synchronize query replicas, see [Synchronize with PowerShell](analysis-services-scale-out.md#powershell).
-
-#### Example
+#### Example using SQLServer module
 
 In the following example, appID and a password are used to perform a model database refresh operation:
 
 ```powershell
 Param (
-
         [Parameter(Mandatory=$true)] [String] $AppId,
         [Parameter(Mandatory=$true)] [String] $PlainPWord,
         [Parameter(Mandatory=$true)] [String] $TenantId
