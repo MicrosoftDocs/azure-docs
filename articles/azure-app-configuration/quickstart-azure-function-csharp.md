@@ -36,6 +36,14 @@ To do this quickstart, install [Visual Studio 2017](https://visualstudio.microso
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
+6. Select **Key/Value Explorer** > **+ Create** to add the following key-value pairs:
+
+    | Key | Value |
+    |---|---|
+    | TestApp:Settings:Message | Data from Azure App Configuration |
+
+    Leave **Label** and **Content Type** empty for now.
+
 ## Create a function app
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
@@ -48,7 +56,7 @@ To do this quickstart, install [Visual Studio 2017](https://visualstudio.microso
     Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
     ```
 
-2. Open *Function1.cs*, and add a reference to an App Configuration .NET Core configuration provider.
+2. Open *Function1.cs*, and add a reference to the .NET Core App Configuration provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;

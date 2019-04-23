@@ -66,4 +66,4 @@ Export data by using either the [Azure portal](https://aka.ms/azconfig/portal) o
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an ASP.NET web app](./quickstart-aspnet-core-app.md)  
+> [Create an ASP.NET Core web app](./quickstart-aspnet-core-app.md)  
