@@ -1,6 +1,6 @@
 ---
 title: View Azure Monitor for containers logs in real time | Microsoft Docs
-description: This article describes the real time view of container logs (stdout/stderr) and events without using kubectl with Azure Monitor for containers.
+description: This article describes the real-time view of container logs (stdout/stderr) and events without using kubectl with Azure Monitor for containers.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -26,7 +26,7 @@ Live logs supports three different methods to control access to the logs:
 
 1. AKS without Kubernetes RBAC authorization enabled 
 2. AKS enabled with Kubernetes RBAC authorization
-3. AKS enabled with Azure Active Directory (AD) SAML based single-sign on 
+3. AKS enabled with Azure Active Directory (AD) SAML-based single-sign on 
 
 ## Kubernetes cluster without RBAC enabled
  
@@ -92,7 +92,7 @@ In the search bar, you can filter by key word to highlight that text in the log 
 
   ![Live logs pane filter example](./media/container-insights-live-logs/live-logs-pane-filter-example-01.png)
 
-To suspend auto-scroll and control the behavior of the pane and allow you to manually scroll through the new data read, click on the **Scroll** option. To re-enable auto-scroll, simply click the **Scroll** option again. You can also pause retrieval of log or event data by clicking on the **Pause** option and when you are ready to resume, simply click **Play**.  
+To suspend autoscroll and control the behavior of the pane and allow you to manually scroll through the new data read, click on the **Scroll** option. To re-enable autoscroll, simply click the **Scroll** option again. You can also pause retrieval of log or event data by clicking on the **Pause** option and when you are ready to resume, simply click **Play**.  
 
 ![Live logs pane pause live view](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
 
