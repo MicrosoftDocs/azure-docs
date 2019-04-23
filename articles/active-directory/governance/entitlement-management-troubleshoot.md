@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure AD entitlement management? (Preview) - Azure Active Directory
+title: Troubleshoot Azure AD entitlement management (Preview) - Azure Active Directory
 description: Learn about some items you should check to help you troubleshoot Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want checklists and tips to help troubleshoot entitlement management to unblock users from performing their job.
 
 ---
-# Troubleshoot Azure AD entitlement management? (Preview)
+# Troubleshoot Azure AD entitlement management (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.

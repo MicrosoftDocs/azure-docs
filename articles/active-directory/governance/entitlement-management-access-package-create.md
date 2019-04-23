@@ -125,4 +125,5 @@ On the **Review + create** tab, you can review your settings and check for any v
 ## Next steps
 
 - [Edit and manage an existing access package](entitlement-management-access-package-edit.md)
-- [Manage access for external users](entitlement-management-external-users.md)
+- [Create and manage a catalog](entitlement-management-catalog-create.md)
+- 

@@ -345,4 +345,3 @@ An access package can only be deleted if it has no active user assignments.
 ## Next steps
 
 - [Request process and email notifications](entitlement-management-process.md)
-- [Manage access for external users](entitlement-management-external-users.md)

@@ -78,5 +78,5 @@ After you open an access request pending approval, you can see details that will
 
 ## Next steps
 
-- [Request process and email notifications](entitlement-management-process.md)
 - [Request access to an access package](entitlement-management-request-access.md)
+- [Request process and email notifications](entitlement-management-process.md)
