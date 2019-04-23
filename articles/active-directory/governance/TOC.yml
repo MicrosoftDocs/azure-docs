@@ -21,8 +21,6 @@
     items:
     - name: Request process and emails
       href: entitlement-management-process.md
-    - name: Manage external users
-      href: entitlement-management-external-users.md
   - name: Access reviews
     items:
     - name: Manage guest access with reviews
