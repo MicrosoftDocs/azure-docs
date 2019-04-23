@@ -79,7 +79,8 @@ sections:
     className: cardsD
     items:
     - title: REST API
-      html: <p><a href="https://docs.microsoft.com/rest/api/documentation-preview/inkrecognizer/recognizeink"> REST API reference </a></p><br><p><a href="https://dev.cognitive.microsoft.com/docs/services/inkrecognizer">REST API testing console</a</p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/documentation-preview/inkrecognizer/recognizeink"> REST API reference </a></p>
+            <p><a href="https://dev.cognitive.microsoft.com/docs/services/inkrecognizer">REST API testing console</a</p>
     - title: PowerShell 
       html: <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI 
