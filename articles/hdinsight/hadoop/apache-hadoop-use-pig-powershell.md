@@ -1,7 +1,6 @@
 ---
 title: Use Apache Pig with PowerShell in HDInsight - Azure 
 description: Learn how to submit Apache Pig jobs to an Apache Hadoop cluster on HDInsight using Azure PowerShell.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
