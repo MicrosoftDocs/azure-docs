@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Azure metric charts
-description: Troubleshoot the issues with creating, customizing or interpreting metric charts
+description: Troubleshoot the issues with creating, customizing, or interpreting metric charts
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -31,9 +31,9 @@ Some resources don’t constantly emit their metrics. For example, Azure will no
 
 **Solution:** Change the time of the chart to a wider range. You may start from “Last 30 days” using a larger time granularity (or relying on the “Automatic time granularity” option).
 
-### The metric values fall outside of the locked y-axis range
+### All metric values fall outside of the locked y-axis range
 
-If the Y-axis boundaries of your chart are locked to a range from 0% to 50%, and the metric has a constant value of 100%, the chart line is always rendered outside of the visible area, making the chart appear blank.
+By [locking the boundaries of chart y-axis](metrics-charts.md#lock-boundaries-of-chart-y-axis), you can inadvertently make the chart display area misaligned with the chart line. For example, if the y-axis is locked to a range between 0% and 50%, and the metric has a constant value of 100%, the line is always rendered outside of the visible area, making the chart appear blank.
 
 **Solution:** Verify that the y-axis boundaries of the chart aren’t locked outside of the range of the metric values. If the y-axis boundaries are locked, you may want to temporarily reset them to ensure that the metric values don’t fall outside of the chart range. Locking the y-axis range isn’t recommended with automatic granularity for the charts with **sum**, **min**, and **max** aggregation because their values will change with granularity by resizing browser window or going from one screen resolution to another. Switching granularity may leave the display area of your chart empty.
 
@@ -45,7 +45,7 @@ Collection of Guest OS metrics requires configuring the Azure Diagnostic Extensi
 
 This problem is common when your dashboard is created with a metric that was deprecated and removed from Azure. To verify that it is the case, open the Metrics tab of your resource, and check the available metrics in the metric picker. If the metric is not shown, the metric has been removed from Azure. Usually, when a metric is deprecated, there is a better new metric that provides with a similar perspective on the resource health.
 
-**Solution:** Update the failing tile by picking an alternative metric for your chart. For a list of supported metrics use this link.
+**Solution:** Update the failing tile by picking an alternative metric for your chart on dashboard. You can [review a list of available metrics for Azure services](metrics-supported.md).
 
 ## I see a dashed line on the chart
 
