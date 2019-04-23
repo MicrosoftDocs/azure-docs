@@ -419,7 +419,7 @@ The following code snippet configures logs for *Warning* and above from all cate
 
    When you use the standalone package, `TelemetryClient` is not injected to the DI container, so you need to create a new instance of `TelemetryClient` and use the same configuration as the logger provider uses, as the following code shows. This ensures that the same configuration is used for all custom telemetry as well as telemetry from ILogger.
 
-   ```csharp
+      ```csharp
    public class MyController : ApiController
    {
       // This telemtryclient can be used to track additional telemetry using TrackXXX() api.
@@ -432,22 +432,23 @@ The following code snippet configures logs for *Warning* and above from all cate
            _logger = logger;
       }  
    }
-```
+   ```
 
-> [!NOTE]
-> If you use the Microsoft.ApplicationInsights.AspNetCore package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio#frequently-asked-questions).
+    > [!NOTE]
+    > If you use the Microsoft.ApplicationInsights.AspNetCore package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio#frequently-asked-questions).
 
-6. *What Application Insights telemetry type is produced from ILogger logs? Or where can I see ILogger logs in Application Insights?*
+
+1. *What Application Insights telemetry type is produced from ILogger logs? Or where can I see ILogger logs in Application Insights?*
 
    ApplicationInsightsLoggerProvider captures ILogger logs and creates TraceTelemetry from them. If an Exception object is passed to the **Log()** method on ILogger, *ExceptionTelemetry* is created instead of TraceTelemetry. These telemetry items can be found in same places as any other TraceTelemetry or ExceptionTelemetry for Application Insights, including portal, analytics, or Visual Studio local debugger.
 
    If you prefer to always send TraceTelemetry, use the snippet ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```.
 
-7. *I don't have the SDK installed, and I use Azure Web App Extension to enable Application Insights for my Asp.Net Core applications. How do I use the new provider?*
+1. *I don't have the SDK installed, and I use Azure Web App Extension to enable Application Insights for my Asp.Net Core applications. How do I use the new provider?*
 
     The Application Insights extension in Azure Web App uses the old provider. You can modify the filtering rules in the *appsettings.json* file for your application. To take advantage of the new provider, use build-time instrumentation by taking a NuGet dependency on the SDK. This article will be updated when the extension switches to use the new provider.
 
-7. *I'm using the standalone package Microsoft.Extensions.Logging.ApplicationInsights and enabling Application Insights provider by calling **builder.AddApplicationInsights("ikey")**. Is there an option to get an instrumentation key from configuration?*
+1. *I'm using the standalone package Microsoft.Extensions.Logging.ApplicationInsights and enabling Application Insights provider by calling **builder.AddApplicationInsights("ikey")**. Is there an option to get an instrumentation key from configuration?*
 
 
    Modify Program.cs and appsettings.json as follows:
