@@ -4,7 +4,7 @@ description: Learn about SQL syntax, database concepts, and SQL queries for Azur
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/21/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
 
 ---
@@ -307,6 +307,70 @@ The results are:
       "WA",
       "NY"
     ]
+```
+
+## <a id="DistinctKeyword"></a>DISTINCT Keyword
+
+The DISTINCT keyword will eliminate duplicates in the query's projection.
+
+```sql
+SELECT DISTINCT VALUE f.lastName
+FROM Families f
+```
+
+In this example, the query projects values for each last name.
+
+The results are:
+
+```json
+[
+    "Andersen"
+]
+```
+
+You can also project unique objects. In this case, the lastName field does not exist in one of the two documents, so the query returns an empty object.
+
+```sql
+SELECT DISTINCT f.lastName
+FROM Families f
+```
+
+The results are:
+
+```json
+[
+    {
+        "lastName": "Andersen"
+    },
+    {}
+]
+```
+
+DISTINCT can also be used in the projection within a subquery:
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
+```
+
+This query projects an array which contains each child's givenName with duplicates removed. This array is aliased as ChildNames and projected in the outer query.
+
+The results are:
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
 ```
 
 ## Aliasing
@@ -675,7 +739,7 @@ The results are:
     ]
 ```
 
-Additionally, you can order by multiple fields. Consider the following query:
+Additionally, you can order by multiple fields. A Multi Order By query requires a [Composite Index](index-policy.md#adding-composite-indexes). Consider the following query:
 
 ```sql
     SELECT f.id, f.creationDate
@@ -683,11 +747,12 @@ Additionally, you can order by multiple fields. Consider the following query:
     ORDER BY f.address.city ASC, f.creationDate DESC
 ```
 
-This query retrieves family `id`'s  in ascending order of the city name. If multiple items have the same city name, the query will order by the `creationDate` in descending order. A multi Order By
+This query retrieves the family `id`  in ascending order of the city name. If multiple items have the same city name, the query will order by the `creationDate` in descending order.
 
 ## <a id="OffsetLimitClause"></a>OFFSET LIMIT clause
 
 OFFSET LIMIT is an optional clause to skip then take some number of values from the query. The OFFSET count and the LIMIT count are required in the OFFSET LIMIT clause.
+
 When OFFSET LIMIT is used in conjunction with ORDER BY clause, the result set is produced by doing skip and take on the ordered values; otherwise, it will result in a fixed order of values.
 
 For example, here's a query that retrieves the second page (page size of 1) of families in order of the resident city's name:
@@ -701,7 +766,7 @@ For example, here's a query that retrieves the second page (page size of 1) of f
 
 The results are:
 
-```JSON
+```json
     [
       {
         "id": "AndersenFamily",
@@ -720,7 +785,7 @@ Here's a query that retrieves the second page (page size of 1) of families witho
 
 The results are:
 
-```JSON
+```json
     [
       {
         "id": "WakefieldFamily",
@@ -730,67 +795,6 @@ The results are:
 ```
 
 
-## <a id="DistinctKeyword"></a>DISTINCT Keyword
-
-The DISTINCT keyword will eliminate duplicates in the query's projection.
-
-```sql
-SELECT DISTINCT VALUE f.lastName
-FROM Families f
-```
-
-In this example, the query projects values for each last name.
-
-The results are:
-
-```json
-[
-    "Andersen"
-]
-```
-
-You can also project unique objects. In this case, the lastName field does not exist in one of the two documents, so the query returns an empty object.
-
-```sql
-SELECT DISTINCT f.lastName
-FROM Families f
-```
-
-The results are:
-
-```json
-[
-    {
-        "lastName": "Andersen"
-    },
-    {}
-]
-```
-
-DISTINCT can also be used in the projection within a subquery:
-
-```sql
-SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
-FROM f
-```
-
-This query projects an array which contains each child's givenName with duplicates removed. This array is aliased as ChildNames and projected in the outer query.
-
-The results are:
-
-[
-    {
-        "id": "AndersenFamily",
-        "ChildNames": []
-    },
-    {
-        "id": "WakefieldFamily",
-        "ChildNames": [
-            "Jesse",
-            "Lisa"
-        ]
-    }
-]
 
 
 ## Scalar expressions
