@@ -180,7 +180,7 @@
         - name: Overview
           href: msal-overview.md
         - name: Migrating to MSAL.NET
-          href: msal-net-migrate-from-adal-to-msal.md
+          href: msal-net-migration.md
         - name: Compare MSAL.js and ADAL.js
           href: msal-compare-msal-js-and-adal-js.md
         - name: Handling errors and exceptions
