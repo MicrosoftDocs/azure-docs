@@ -70,7 +70,7 @@ When importing the PDF document, QnA Maker determines follow-up prompts from the
 
     This created a new question-and-answer pair and linked the selected question as a follow-up prompt. The **Context** column, for both questions, indicate a follow-up prompt relationship. 
 
-    ![![The Context column, for both questions, indicate a follow-up prompt relationship.](../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    ![![The Context column, for both questions, indicates a follow-up prompt relationship.](../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
 1. Select **Add follow-up prompt** for the `Give feedback` question to add another follow-up prompt. 
 1. Create a new question by entering  `Feedback on an existing feature`, with the answer `Which feature would you like to give feedback on?`.  
@@ -117,7 +117,116 @@ When testing the question with follow-up prompts in the **Test** pane, the respo
 
 ![When testing the question in the Test pane, the response includes the follow-up prompts.](../media/conversational-context/test-pane-with-question-having-follow-up-prompts.png)
 
-## JSON response for prompts
+## JSON request to return initial answer and follow-up prompts
+
+Use the empty `context` object to request the answer to the user's question and include follow-up prompts. 
+
+```JSON
+{
+  "question": "accounts and signing in",
+  "top": 30,
+  "userId": "Default",
+  "isTest": false,
+  "context": {}
+}
+```
+
+## JSON response to return initial answer and follow-up prompts
+
+The previous section requested an answer and any follow-up prompts to `Accounts and signing in`. The response includes the prompt information, located at `answers[0].context`, include the text to display to the user. 
+
+```JSON
+{
+    "answers": [
+        {
+            "questions": [
+                "Accounts and signing in"
+            ],
+            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way he or she likes. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
+            "score": 86.96,
+            "id": 37,
+            "source": "surface-pro-4-user-guide-EN .pdf",
+            "metadata": [],
+            "context": {
+                "isContextOnly": true,
+                "prompts": [
+                    {
+                        "displayOrder": 0,
+                        "qnaId": 38,
+                        "qna": null,
+                        "displayText": "Use the sign-in screen"
+                    },
+                    {
+                        "displayOrder": 1,
+                        "qnaId": 39,
+                        "qna": null,
+                        "displayText": "Use Windows Hello to sign in"
+                    },
+                    {
+                        "displayOrder": 2,
+                        "qnaId": 40,
+                        "qna": null,
+                        "displayText": "Sign out"
+                    }
+                ]
+            }
+        },
+        {
+            "questions": [
+                "Use the sign-in screen"
+            ],
+            "answer": "**Use the sign-in screen**\n\n1.  \n\nTurn on or wake your Surface by pressing the power button. \n\n2.  \n\nSwipe up on the screen or tap a key on the keyboard. \n\n3.  \n\nIf you see your account name and account picture, enter your password and select the right arrow or press Enter on your keyboard. \n\n4.  \n\nIf you see a different account name, select your own account from the list at the left. Then enter your password and select the right arrow or press Enter on your keyboard. ",
+            "score": 32.27,
+            "id": 38,
+            "source": "surface-pro-4-user-guide-EN .pdf",
+            "metadata": [],
+            "context": {
+                "isContextOnly": true,
+                "prompts": []
+            }
+        },
+        {
+            "questions": [
+                "Sign out"
+            ],
+            "answer": "**Sign out**\n\nHere's how to sign out: \n\n Go to Start , and right-click your name. Then select Sign out. ",
+            "score": 27.0,
+            "id": 40,
+            "source": "surface-pro-4-user-guide-EN .pdf",
+            "metadata": [],
+            "context": {
+                "isContextOnly": true,
+                "prompts": []
+            }
+        }
+    ],
+    "debugInfo": null
+}
+```
+
+The `prompts` array provides text in the `displayText` property and the `qnaId` value so you can show these answers as the next displayed choices in the conversation flow. 
+
+## JSON request to return non-initial answer and follow-up prompts
+
+Fill the `context` object to include previous context.
+
+In the following JSON request, the current question is `Use Windows Hello to sign in` and the previous question was `Accounts and signing in`. 
+
+```JSON
+{
+  "question": "Use Windows Hello to sign in",
+  "top": 30,
+  "userId": "Default",
+  "isTest": false,
+  "qnaId": 39,
+  "context": {
+    "previousQnAId": 37,
+    "previousUserQuery": "accounts and signing in"
+  }
+}
+``` 
+
+##  JSON response to return non-initial answer and follow-up prompts
 
 The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in the `context` property of the first item in the `answers` object:
 
@@ -134,7 +243,7 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
             "source": "Editorial",
             "metadata": [],
             "context": {
-                "isContextOnly": false,
+                "isContextOnly": true,
                 "prompts": [
                     {
                         "displayOrder": 0,
@@ -154,8 +263,6 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
     ]
 }
 ```
-
-The `prompts` array provides text in the `displayText` property and the `qnaId` value so you can show these answers as the next displayed choices in the conversation flow. 
 
 ## Prompt order supported in API
 
