@@ -4,7 +4,7 @@ description: Learn how to set up an Azure DevOps pipeline targeting Azure Functi
 services: ''
 documentationcenter:
 author: ahmedelnably
-manager:
+manager: jeconnoc
 
 ms.assetid: 82c39c54-b18c-4707-8cd9-d16580d36b18
 ms.service: azure-functions
