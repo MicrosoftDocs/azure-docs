@@ -78,20 +78,20 @@ Selected administrators can be exempted from these policies, across all group wo
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a User administrator account.
 1. Select **Groups**, then select **Naming policy** to open the Naming policy page.
 
-  ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy-preview.png)
+    ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy-preview.png)
 
 ### View or edit the Prefix-suffix naming policy
 
-1. On the **Naming policy** page, go to **Group naming policy**.
+1. On the **Naming policy** page, select **Group naming policy**.
 1. You can view or edit the current prefix or suffix naming policies individually by selecting the attributes or strings you want to enforce as part of the naming policy.
 1. To remove a prefix or suffix from the list, select the prefix or suffix, then select **Delete**. Multiple items can be deleted at the same time.
 1. Save your changes for the new policy to go into effect by selecting **Save**.
 
 ### View or edit the custom blocked words
 
-1. On the **Naming policy** page, go to **Blocked words**.
+1. On the **Naming policy** page, select **Blocked words**.
 
-  ![edit and upload blocked words list for naming policy](./media/groups-naming-policy/blockedwords-preview.png)
+    ![edit and upload blocked words list for naming policy](./media/groups-naming-policy/blockedwords-preview.png)
 
 1. View or edit the current list of custom blocked words by selecting **Download**.
 1. Upload the new list of custom blocked words by selecting the file icon.
@@ -166,7 +166,7 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
   
 That's it. You've set your naming policy and added your blocked words.
 
-## Export or import the list of custom blocked words using Azure AD Powershell
+## Export or import the list of custom blocked words using Azure AD PowerShell
 
 For more information, see the article [Azure Active Directory cmdlets for configuring group settings](groups-settings-cmdlets.md).
 
