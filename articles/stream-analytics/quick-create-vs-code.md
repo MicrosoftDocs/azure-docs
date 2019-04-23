@@ -31,18 +31,23 @@ Install Azure Stream Analytics extension from the private VSIX package you downl
 
 1. Open Visual Studio Code.
 
-2. Select Extensions in the left pane. Click … on the top right.
+2. From **Extensions** on the left pane, select the ellipses **(…)** on the top right. Then select **Install from VSIX**.
 
-3. Select Install from VSIX and choose the vsix file you just downloaded from your disk. Click Install.
-This may take several seconds.
+   ![Install from VSIX in Visual Studio Code](./media/quick-create-vs-code/install-vsix.png)
 
-4. When installation finished successfully, select **Reload Now** in the pop up window.
+3. Choose the extension you downloaded as a prerequisite, and select **Install**.  This may take several seconds.
+
+4. When installation finished successfully, select **Reload Now** in the pop up window if you are prompted.
 
 5. Verify that **Azure Stream Analytics Tools** is visible in your **Enabled Extensions**.
+
+   ![Azure Stream Analytics Tools under enabled extensions in Visual Studio Code](./media/quick-create-vs-code/enabled-extensions.png)
 
 ## Activate the Azure Stream Analytics extension
 
 1. Select the **Azure** icon on the VS Code activity bar. **Stream Analytics** will be visible in the side bar. Under **Stream Analytics**, select **Sign in to Azure**. 
+
+   ![Sign in to Azure in Visual Studio Code](./media/quick-create-vs-code/azure-sign-in.png)
 
 2. When you are signed in, your Azure account name appears on the status bar in the lower-left corner of the VS Code window.
 
@@ -106,11 +111,19 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 1. In Visual Studio Code, press **Ctrl+Shift+P** to open the command palette. Then type **ASA** and select **ASA: Create New Project**.
 
+   ![Create new project](./media/quick-create-vs-code/create-new-project.png)
+
 2. Input your project name, like **myASAproj** and select a folder for your project.
+
+    ![Create project name](./media/quick-create-vs-code/create-project-name.png)
 
 3. The new project will be added to your workspace. An ASA project consists of the query script **(*.asaql)**, a **JobConfig.json** file, and an **asaproj.json** configuration file.
 
+   ![Stream Analytics project files in VS Code](./media/quick-create-vs-code/asa-project-files.png)
+
 4. The asaproj.json configuration file contains the inputs, outputs and job configuration file information needed for submitting the ASA job to Azure.
+
+   ![Stream Analytics job configuration file in VS Code](./media/quick-create-vs-code/job-configuration.png)
 
 > [!Note]
 > When adding inputs and outputs from the command palette, the corresponding paths will be added into **asaproj.json** automatically. If you add or remove inputs or outputs on disk directly, you need to manually add or remove them from **asaproj.json**. You can choose to put the inputs and outputs in one place then reference them in different jobs by specifying the paths in each **asaproj.json**.
@@ -119,9 +132,15 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 1. Select **Ctrl+Shift+P** to open the command palette and enter **ASA: Add Input**.
 
+   ![Add Stream Analytics input in VS Code](./media/quick-create-vs-code/add-input.png)
+
 2. Choose **IoT Hub** for the input type.
 
-3. Choose the ASA query script that will use the input.
+   ![Select IoT Hub as input option](./media/quick-create-vs-code/iot-hub.png)
+
+3. Choose the ASA query script that will use the input. It should automatically populate with the file path to **myASAproj.asaql**.
+
+   ![Select an ASA script in Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
 
 4. Enter the input file name as **IotHub.json**.
 
@@ -137,6 +156,8 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 ## Define output
 
 1. Select **Ctrl+Shift+P** to open the command palette. Then, enter **ASA: Add Output**.
+
+   ![Add Stream Analytics output in VS Code](./media/quick-create-vs-code/add-output.png)
 
 2. Choose **Blob Storage** for the Sink type.
 
@@ -164,6 +185,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
    INTO Output
    FROM Input
    HAVING Temperature > 27
+   ```
 
 ## Compile script
 
@@ -173,23 +195,29 @@ There are two ways to trigger script compilation:
 
 1. Select the script from workspace and then trigger compile from the command palette. 
 
+   ![Use the VS Code command palette to compile the script](./media/quick-create-vs-code/compile-script1.png)
+
 2. Right click on the script and select **ASA: compile script**.
+
+    ![Right-click the ASA script to compile](./media/quick-create-vs-code/compile-script2.png)
 
 3. After compilation, you can find the two generated Azure Resource Manager templates in **Deploy** folder of your project. These two files are used for auto-deployment.
 
 ## Submit a Stream Analytics job to Azure
 
-1. In the script editor window, select **Select from your subscriptions**.
+1. In the script editor window of Visual Studio Code, select **Select from your subscriptions**.
+
+   ![Select from your subscriptions text in script editor](./media/quick-create-vs-code/select-subscription.png)
 
 2. Select your subscription from the popup list.
 
 3. Select **Select a job**. Then choose Create a new job.
 
-4. Enter your job name and then follow the instructions to choose the resource group and location.
+4. Enter your job name, **myASAjob** and then follow the instructions to choose the resource group and location.
 
 5. Select **Submit to Azure**. The logs can be found in the output window. 
 
-6. When your job is created, it shows up in the Stream Analytics Explorer.
+6. When your job is created, you can see it in the Stream Analytics Explorer.
 
 ## Run the IoT simulator
 
@@ -211,7 +239,7 @@ There are two ways to trigger script compilation:
 
 4. Note the job status has changed to **Running**. Right-click on the job name and choose **Open Job View in Portal** to see the input and output event metrics. This may take a few minutes.
 
-5. To view the results, open the blob storage in the VS Code extension or in the Azure portal.
+5. To view the results, open the blob storage in the Visual Studio Code extension or in the Azure portal.
 
 ## Clean up resources
 
