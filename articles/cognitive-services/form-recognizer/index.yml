@@ -28,8 +28,13 @@ sections:
         - href: /azure/cognitive-services/form-recognizer/overview
           html: <p>Learn about Form Recognizer.</p>
           image:
-            src: ../media/index/i_overview.svg
+          src: ../media/index/i_overview.svg
           title: What is Form Recognizer?
+        - href: /azure/cognitive-services/form-recognizer/form-recognizer-container-howto.md
+          html: <p>Learn how to use the Form Recognizer container to parse form and table data.</p>
+          image:
+          src: ../media/index/i_get-started.svg
+          title: Install and run containers
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -47,6 +52,8 @@ sections:
     style: cards
     className: cardsD
     items:
+    - title: APIs
+      html: <p><a href="https://aka.ms/form-recognizer/api">Form Recognizer API</a></p>
     - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
