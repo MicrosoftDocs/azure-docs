@@ -52,10 +52,15 @@ For example, you can initially sign in the user and deny them any kind of access
 
 For example: `https://graph.microsoft.com/User.Read` and `https://graph.microsoft.com/Calendar.Read`
 
-## Acquiring tokens from the cache
+## Acquiring tokens silently (from the cache)
 MSAL maintains a token cache (or two caches in the case of confidential client applications).  MSAL caches a token after it has been acquired.  Application code should try to get a token silently (from the cache), first, before acquiring a token by other means. 
 
-In many cases, attempting to silently get a token will acquire another token with more scopes based on a token in the cache. It's also capable of refreshing a token when it's getting close to expiration (as the token cache also contains a refresh token)
+In many cases, attempting to silently get a token will acquire another token with more scopes based on a token in the cache. It's also capable of refreshing a token when it's getting close to expiration (as the token cache also contains a refresh token).
+
+However, there are two flows before which you **should not** attempt to silently acquire a token:
+
+- [client credentials flow](v2-oauth2-client-creds-grant-flow.md), which does not use the user token cache, but an application token cache. This method takes care of verifying this application token cache before sending a request to the STS.
+- [authorization code flow](v2-oauth2-auth-code-flow.md) in Web Apps, as it redeems a code that the application got by signing-in the user, and having them consent for more scopes. Since a code is passed as a parameter, and not an account, the method cannot look in the cache before redeeming the code, which requires, anyway, a call to the service.
 
 Clearing the cache is achieved by removing the accounts from the cache. This does not remove the session cookie which is in the browser, though.
 
@@ -79,7 +84,7 @@ Clearing the cache is achieved by removing the accounts from the cache. This doe
 Token acquisition methods return an authentication result, which exposes:
 
 - The access token for the web API to access resources. This is a string, usually a base64 encoded JWT but the client should never look inside the access token. The format isn't guaranteed to remain stable and it can be encrypted for the resource. People writing code depending on access token content on the client is one of the biggest sources of errors and client logic breaks.
-- The ID token for the user (this is a JWT).
+- The [ID token](id-tokens.md) for the user (this is a JWT).
 - The token expiration, which tells the date/time when the token expires.
 - The tenant ID contains the tenant in which the user was found. Note that in the case of guest users (Azure AD B2B scenarios), the tenant ID is the guest tenant, not the unique tenant. When the token is delivered in the name of a user, the authentication result also contains information about this user. For confidential client flows where tokens are requested with no user (for the application), this user information is null.
 - The scopes for which the token was issued.
