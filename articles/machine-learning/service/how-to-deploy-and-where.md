@@ -168,7 +168,8 @@ For more example scripts, see the following examples:
 * Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
 * TensorFlow: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 * Keras: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
-* Scoring against binary data (link)
+* ONNX: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
+* Scoring against binary data: [how-to-consume-web-service.md)(click here)
 
 ### 2. Define your InferenceConfiguration
 
@@ -330,6 +331,8 @@ print(service.state)
 print(service.get_logs())
 ```
 
+For more information on configuring your AKS deployment, including autoscale,see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
+
 **Time estimate:** Approximately 5 minutes.
 
 ## Consume web services
@@ -425,44 +428,6 @@ If your model is trained on Azure Machine Learning Compute, using __version 1.0.
 # Use an image built during training with SDK 1.0.22 or greater
 image_config.base_image = run.properties["AzureML.DerivedImageName"]
 ```
-
-
-### Autoscale your AKS-deployed service <a id="autoscale-service"></a>
-
-Autoscaling of your service can be controlled by setting `autoscale_target_utilization`, `autoscale_min_replicas`, and `autoscale_max_replicas` for the your deployed web service.
-
-The following example demonstrates how to enable autoscaling:
-```python
-deployment_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
-                                                autoscale_target_utilization=30,
-                                                autoscale_min_replicas=1,
-                                                autoscale_max_replicas=4)
-```
-
-Decisions to scale up/down is based off of utilization of the current container replicas. The number of replicas that are busy (processing a request) divided by the total number of current replicas is the current utilization. If this number exceeds the target utilization, then more replicas are created. If it is lower, then replicas are reduced. By default, the target utilization is 70%.
-
-Decisions to add replicas are made and implemented quickly (around 1 second). Decisions to remove replicas take longer (around 1 minute). This behavior keeps idle replicas around for a minute in case new requests arrive that they can handle.
-
-You can calculate the required replicas by using the following code:
-
-```python
-from math import ceil
-# target requests per second
-targetRps = 20
-# time to process the request (in seconds)
-reqTime = 10
-# Maximum requests per container
-maxReqPerContainer = 1
-# target_utilization. 70% in this example
-targetUtilization = .7
-
-concurrentRequests = targetRps * reqTime / targetUtilization
-
-# Number of container replicas
-replicas = ceil(concurrentRequests / maxReqPerContainer)
-```
-
-For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas`, see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
 
 ## Other inference options
 
