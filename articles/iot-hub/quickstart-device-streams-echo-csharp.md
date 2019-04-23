@@ -159,7 +159,7 @@ Console output on the device-side:
 Console output on the service-side:
 ![Console output on the service-side](./media/quickstart-device-streams-echo-csharp/service-console-output.png )
 
-The traffic being sent over the stream will be tunneled through IoT Hub rather than being sent directly. The benefits provided are detailed in [Device Streams Benefits](./iot-hub-device-streams-overview.md#benefits).
+The traffic being sent over the stream will be tunneled through IoT Hub rather than being sent directly. The benefits provided are detailed in [Device streams benefits](./iot-hub-device-streams-overview.md#benefits).
 
 ## Clean up resources
 

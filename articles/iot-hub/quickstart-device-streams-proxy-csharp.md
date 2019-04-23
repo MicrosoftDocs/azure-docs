@@ -37,7 +37,7 @@ Figure below illustrates the setup of how the device- and service-local proxy pr
 4. Service-local proxy awaits for new SSH connections from the user by listening on a designated port which in this case is port 2222 (this is also configurable, as described in the [Run The Service Local Proxy section](#run-the-service-local-proxy). When user connects via SSH client, the tunnel enables application traffic to be exchanged between the SSH client and service programs.
 
 > [!NOTE]
-> SSH traffic being sent over the stream will be tunneled through IoT Hub's streaming endpoint rather than being sent directly between service and device. For more information, see the section on [Device Streams benefits](./iot-hub-device-streams-overview.md#benefits).
+> SSH traffic being sent over the stream will be tunneled through IoT Hub's streaming endpoint rather than being sent directly between service and device. For more information, see the section on [Device streams benefits](./iot-hub-device-streams-overview.md#benefits).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

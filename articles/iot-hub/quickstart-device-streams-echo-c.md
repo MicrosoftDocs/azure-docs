@@ -18,7 +18,11 @@ ms.author: rezas
 
 Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IoT Hub device streams](iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-side application. You should run an accompanying service-side application, which is available in [Communicating to device apps in C# via IoT Hub Device Streams](./quickstart-device-streams-echo-csharp.md) or [Communicating to device apps in Nodejs via IoT Hub Device Streams](./quickstart-device-streams-echo-nodejs.md).
+[IoT Hub device streams](iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-side application. You should run an accompanying service-side application, which is available in the following quickstarts:
+ 
+   * [Communicating to device apps in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md)
+
+   * [Communicating to device apps in Nodejs via IoT Hub device streams](./quickstart-device-streams-echo-nodejs.md).
 
 The device-side C application in this quickstart has the following functionality:
 
@@ -175,9 +179,9 @@ To run the device-side application, you need to perform the following steps:
 
 As mentioned previously, the IoT Hub C SDK only supports device streams on the device side. To build and run the service-side application, follow the steps available in one of the following quickstarts:
 
-* [Communicate to device apps in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md)
+* [Communicate to a device app in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md)
 
-* [Communicate to device apps in Node.js via IoT Hub device streams](./quickstart-device-streams-echo-nodejs.md).
+* [Communicate to a device app in Node.js via IoT Hub device streams](./quickstart-device-streams-echo-nodejs.md).
 
 ## Clean up resources
 
