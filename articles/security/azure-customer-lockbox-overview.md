@@ -23,7 +23,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
 1. Someone at an organization has an issue with their Azure workload.
 
-2. After this person troubleshoots the issue, but can't fix it, they open a support request with Microsoft Support. The ticket is assigned to an Azure Customer Support Engineer.
+2. After this person troubleshoots the issue, but can't fix it, they open a support ticket from the [Azure portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac). The ticket is assigned to an Azure Customer Support Engineer.
 
 3. An Azure Support Engineer reviews the service request and determines the next steps to resolve the issue.
 
@@ -41,8 +41,10 @@ The following steps outline a typical workflow for a Customer Lockbox request.
     
     The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.
 
-7. At the customer organization, the user who has the [Owner role](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-rbac-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
-
+7. At the customer organization, the user who has the [Owner role](../role-based-access-control/rbac-and-directory-admin-roles#azure-rbac-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
+    
+    ![Azure Customer Lockbox - email notification](./media/azure-customer-lockbox/xxx.png)
+    
 `Add screenshot`
 
 8. The email notification provides a link to the **Customer Lockbox** blade in the Azure portal. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox.
@@ -51,10 +53,17 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
 9. To get the details of the pending request, the designated approver can select the lockbox request.`Add Screenshot`
 
-10. The designated approver can also select the **Ticket ID** reference to view the support ticket request that created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem. `Include screenshot`
+10. The designated approver can also select the **Ticket ID** reference to view the support ticket request that created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem.
+    
+    ![Azure Customer Lockbox - view the support ticket request](./media/azure-customer-lockbox/xxx.png)
+    
+    `Include screenshot`
 
 11. After reviewing the request, the designated approver selects **Approve** or **Deny**.
-`Include Screenshot`
+    
+    ![Azure Customer Lockbox - select Approve or Deny](./media/azure-customer-lockbox/xxx.png)
+    
+    `Include Screenshot`
     
     As a result of the selection:
     - **Approve**:  Access is granted to the Microsoft engineer. The access is granted for a default period of 8 hours.
@@ -75,7 +84,9 @@ Use the **Activity Logs** to view auditing information related to Customer Lockb
 - **Approve Lockbox Requests**
 - **Deny Lockbox Requests**
 - **Lockbox Request Expiry**
-
+    
+![Azure Customer Lockbox - use Activity Logs to view auditing information](./media/azure-customer-lockbox/xxx.png)
+    
 `Include Screenshot`
 
 ## Supported services and scenarios
@@ -90,7 +101,7 @@ Customer Lockbox is currently enabled for remote desktop access requests to virt
 - Virtual machine scale set - Windows and Linux
 
 > [!NOTE]
-> IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IaaS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+> IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IaaS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 #### Detailed audit logs 
 
@@ -100,18 +111,16 @@ For scenarios that involve direct remote desktop access to a virtual machine, yo
 
 Customer Lockbox requests aren't triggered in the following scenarios:
 
-- Law enforcement requests
+- **Law enforcement requests**
     
     In these unusual situations, Microsoft is legally required to comply with such requests.
 
-- Operations that aren't part of standard operating procedures
+- **Operations that aren't part of standard operating procedures**
    
     There are some scenarios where a Microsoft engineer needs to do an activity that falls outside of standard operating procedures. For example, to recover or restore a service.
 
-- Incidental access at the platform layer
+- **Incidental access at the platform layer**
     
-    This scenario can arise when a Microsoft engineer accesses the platform as part of troubleshooting and inadvertently has access to customer data.
-    
-    For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. However, if the customer encrypted the data while it was in transit, the engineers cannot read the data.
+    This scenario can arise when a Microsoft engineer accesses the platform as part of troubleshooting and inadvertently has access to customer data. For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. However, if the customer encrypted the data while it was in transit, the engineers cannot read the data.
 
 
