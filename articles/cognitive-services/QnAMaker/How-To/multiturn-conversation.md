@@ -75,14 +75,18 @@ When importing the PDF document, QnA Maker determines follow-up prompts from the
 
     This created a new question-and-answer pair and linked the selected question as a follow-up prompt. The **Context** column, for both questions, indicate a follow-up prompt relationship. 
 
-    ![The Context column, for both questions, indicate a follow-up prompt relationship.](../media/conversational-context/child-prompt-created.png)
+    ![![The Context column, for both questions, indicate a follow-up prompt relationship.](../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
 1. Select **Add follow-up prompt** for the `Give feedback` question to add another follow-up prompt. 
-1. Create a new question by entering the question `Feedback on an existing feature`, with the answer `Which feature would you like to give feedback on?` feature`,  check **Context-only**, then select **Save**. This created a new question and linked the question as a follow-up prompt question to the `Give feedback` question. 
+1. Create a new question by entering  `Feedback on an existing feature`, with the answer `Which feature would you like to give feedback on?`.  
+
+    Check **Context-only**, then select **Save**. 
+
+    This created a new question and linked the question as a follow-up prompt question to the `Give feedback` question.
     
     At this point, the top question has two follow-up prompts liked to the previous question, `Give feedback`.
 
-    ![At this point, the top question has two follow-up prompts liked to the previous question, `Give feedback`.](../media/conversational-context/all-child-prompts-created.png)
+    ![![At this point, the top question has two follow-up prompts liked to the previous question, `Give feedback`.](../media/conversational-context/all-child-prompts-created.png)](../media/conversational-context/all-child-prompts-created.png#lightbox)
 
 1. Select **Save and Train** to train the knowledge base with the new questions. 
 
