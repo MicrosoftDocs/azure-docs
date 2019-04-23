@@ -28,7 +28,7 @@ One of the most important aspects to operating databases is to protect them from
 
 Backing up a database, with the ability to restore it to any point in time (such as before someone deleted critical data), enables restoration to a state that is as close as possible to the way it was prior to the disruption.
 
-Two types of backups must be performed for best results:
+Two types of backups must be performed to achieve such a capability to restore:
 
 - Database backups: Full, incremental, or differential backups
 - Transaction log backups
@@ -37,7 +37,7 @@ In addition to full-database backups performed at an application level, you can 
 
 SAP HANA on Azure (Large Instances) offers two backup and restore options:
 
-- Do-it-yourself (DIY). After you calculate to ensure there is enough disk space, perform full database and log backups by using one of the following disk backup methods. You can back up either directly to volumes attached to the HANA Large Instance units, or to Network File Shares (NFS) that are set up in an Azure virtual machine (VM). In the latter case, customers set up a Linux VM in Azure, attach Azure Storage to the VM, and share the storage through a configured NFS server in that VM. If you perform the backup against volumes that directly attach to HANA Large Instance units, you need to copy the backups to an Azure storage account (after you set up an Azure VM that exports NFS shares that are based on Azure Storage). You can also use either an Azure backup vault or Azure cold storage. 
+- Do-it-yourself (DIY). After you ensure that there is enough disk space, perform full database and log backups by using one of the following disk backup methods. You can back up either directly to volumes attached to the HANA Large Instance units, or to Network File Shares (NFS) that are set up in an Azure virtual machine (VM). In the latter case, customers set up a Linux VM in Azure, attach Azure Storage to the VM, and share the storage through a configured NFS server in that VM. If you perform the backup against volumes that directly attach to HANA Large Instance units, you need to copy the backups to an Azure storage account (after you set up an Azure VM that exports NFS shares that are based on Azure Storage). You can also use either an Azure backup vault or Azure cold storage. 
 
    Another option is to use a third-party data protection tool to store the backups after they are copied to an Azure storage account. The DIY backup option might also be necessary for data that you need to store for longer periods of time for compliance and auditing purposes. In all cases, the backups are copied into NFS shares represented through a VM and Azure Storage.
 
@@ -129,7 +129,7 @@ This step is described in detail in Check for more recent releases in [Microsoft
 
 ### Step 3: Create a public key
 
-To enable access to the storage snapshot interfaces of your HANA Large Instance tenant, you need to establish a sign-in procedure through a public key. On the first SAP HANA on Azure (Large Instances) server in your tenant, create a public key to be used to access the storage infrastructure. The public key ensures that a password is not required to sign in to the storage snapshot interfaces. Creating a public key also means that you do not need to maintain password credentials. The exact steps how to generate the public key is described in This step is described in detail in Check for more recent releases in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) in chapter **'Enable communication with storage'**
+To enable access to the storage snapshot interfaces of your HANA Large Instance tenant, you need to establish a sign-in procedure through a public key. On the first SAP HANA on Azure (Large Instances) server in your tenant, create a public key to be used to access the storage infrastructure. The public key ensures that a password is not required to sign in to the storage snapshot interfaces. Creating a public key also means that you do not need to maintain password credentials. The exact steps how to generate the public key is described in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) in chapter **'Enable communication with storage'**
 
 
 ### Step 4: Create an SAP HANA user account
@@ -142,15 +142,15 @@ To initiate the creation of SAP HANA snapshots, you need to create a user accoun
 In this step, you authorize the SAP HANA user account that you created, so that the scripts don't need to submit passwords at runtime. The SAP HANA command `hdbuserstore` enables the creation of an SAP HANA user key, which is stored on one or more SAP HANA nodes. The user key lets the user access SAP HANA without having to manage passwords from within the scripting process. The scripting process is discussed later in this article.
 
 >[!IMPORTANT]
->Run the commands under the user the scripts are planned to be executed. Otherwise, the scripts cannot work properly.
+>Run these configuration commands with the same user context the snapshot commands are executed in. Otherwise, the snapshot commands cannot work properly.
 
 
 ### Step 6: Get the snapshot scripts, configure the snapshots, and test the configuration and connectivity
 
 Download the most recent version of the scripts from [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0). 
-The way the scripts are going to be installed have changed majorly with release 4.0 of the scripts. For the exact details, read [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) in chapter **'Enable communication with SAP HANA'**
+The way the scripts are going to be installed has changed majorly with release 4.0 of the scripts. For the exact details, read [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) in chapter **'Enable communication with SAP HANA'**
 
-For the exact sequence of commands, read read [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) in chapter **'Easy installation of snapshot tools (default)'**. We recommend the usage of the default installation. If you want to upgrade from a version 3.x to 4.0, read the section **'Upgrading an existing install'** of [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). For uninstalling the 4.0 tool set, follow the instructions in **'Uninstallation of the snapshot tools'** in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+For the exact sequence of commands, read chapter **'Easy installation of snapshot tools (default)'** of  the document [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). We recommend the usage of the default installation. If you want to upgrade from version 3.x to 4.0, check the section **'Upgrading an existing install'** of [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). For uninstalling the 4.0 tool set, follow the instructions in **'Uninstallation of the snapshot tools'** in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
 Don't forget to execute the steps described in **'Complete setup of snapshot tools'** of [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
@@ -158,7 +158,7 @@ The purpose of the different scripts and files as they got installed is listed a
 
 Before configuring the snapshot tools, make sure that you also configured HANA backup locations and settings correctly as described in **'SAP HANA Configuration'** of the document [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
-The configuration of the snapshot toolset is described in details in **'Config file - HANABackupCustomerDetails.txt'** of  the document [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+The configuration of the snapshot toolset is described in detail in **'Config file - HANABackupCustomerDetails.txt'** of  the document [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
 #### Testing connectivity with SAP HANA
 
@@ -335,7 +335,7 @@ In a different situation, a point-in-time recovery might be low urgency and plan
 
 Before you send the request, you need to prepare. The SAP HANA on Azure team can then handle the request and provide the restored volumes. Afterward, you restore the HANA database based on the snapshots.
 
-The possibilities to get a snapshot restored with the new tool set is documented in section **'How to restore a snapshot'** of the document [Manual Recovery Guide For SAP HANA on Azure from Storage Snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf).
+The possibilities to get a snapshot restored with the new tool set are documented in section **'How to restore a snapshot'** of the document [Manual Recovery Guide For SAP HANA on Azure from Storage Snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf).
 
 The following shows you how to prepare for the request:
 
@@ -360,7 +360,7 @@ The following shows you how to prepare for the request:
 
 
 
-Another possibility for getting, for example the HANA data files out of a storage snapshot in order to use for a restore is documented in step 7 of the document [Manual Recovery Guide For SAP HANA on Azure from Storage Snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf).
+Another possibility for getting, for example, SAP HANA data files recovered from a storage snapshot is documented in step 7 of the document [Manual Recovery Guide For SAP HANA on Azure from Storage Snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf).
 
 The document [Manual Recovery Guide For SAP HANA on Azure from Storage Snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf) illustrates the restore sequence from snapshot backup. Use that documentation for the execution of a restore. 
 
@@ -369,7 +369,7 @@ The document [Manual Recovery Guide For SAP HANA on Azure from Storage Snapshot]
 
 
 ### Recover to another point in time
-The document [Manual Recovery Guide For SAP HANA on Azure from Storage Snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf) illustrates the restore sequence to a certain point in time in the section**'Recover the database to the following point in time'**. Use that documentation for the execution of a restore to a certain point in time. 
+The document [Manual Recovery Guide For SAP HANA on Azure from Storage Snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf) illustrates the restore sequence to a certain point in time in the section **'Recover the database to the following point in time'**. Use that documentation for the execution of a restore to a certain point in time. 
 
 
 ## Next steps

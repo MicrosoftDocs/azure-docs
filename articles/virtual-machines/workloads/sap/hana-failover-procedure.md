@@ -44,7 +44,7 @@ You can test the DR failover as well without impacting the actual replication re
 If you want to have multiple SAP HANA instances to test, you need to run the script several times. When requested, type in the SAP HANA SID of the instance you want to test for failover. 
 
 >[!NOTE]
->If you need to fail over to the DR site to rescue some data that was deleted hours ago and needs the DR volumes to be set to an earlier snapshot, this procedure applies. 
+>If you need to fail over to the DR site to rescue some data that was deleted hours ago and need the DR volumes to be set to an earlier snapshot, this procedure applies. 
 
 1. Shut down the non-production instance of HANA on the disaster recovery unit of HANA Large Instances that you're running. This is because there is a dormant HANA production instance pre-installed.
 1. Make sure that no SAP HANA processes are running. Use the following command for this check: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. 
@@ -108,6 +108,5 @@ This is the sequence of steps to take:
 You can monitor the status of your storage replication progress by executing the script `azure_hana_replication_status`. This command must be run from a unit running in the disaster recovery location to function as expected. The command works regardless of whether replication is active. The command can be run for every HANA Large Instance unit of your tenant in the disaster recovery location. It cannot be used to obtain details about the boot volume. For details of the command and its output read **'Get DR replication status - azure_hana_replication_status'** of the document [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
 
-**Next steps**
-- Refer  [Monitoring and troubleshooting from HANA side](hana-monitor-troubleshoot
-- .md).
+## Next steps
+- Refer to [Monitoring and troubleshooting from HANA side](hana-monitor-troubleshoot.md).
