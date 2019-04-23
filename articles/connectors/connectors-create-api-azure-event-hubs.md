@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 04/23/2019
 tags: connectors
 ---
 
@@ -41,7 +41,8 @@ and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-fi
 ## Check permissions and get connection string
 
 For your logic app to access your Event Hub, 
-check your permissions and get the connection string for your Event Hubs namespace.
+check your permissions and get the connection 
+string for your Event Hubs namespace.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
