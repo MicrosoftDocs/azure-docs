@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of IPv6 for Azure Virtual Network (Preview)
 titlesuffix: Azure Virtual Network
 description: IPv6 description of IPv6 endpoints and data paths in an Azure virtual network.
