@@ -109,7 +109,7 @@ The following table lists the supported locales for **speech-to-text**:
 |French |`fr-ca`<br>`fr-fr`|
 |German|`de-de`|
 |Italian|`it-it`|
-|Japense|`ja-jp`|
+|Japanese|`ja-jp`|
 |Korean|`ko-kr`|
 |Portuguese|`pt-br`|
 |Spanish|`es-es`<br>`es-mx`|
@@ -129,13 +129,24 @@ The following tag is an example of the format:
 1.0.0-amd64-en-us-jessarus-preview
 ```
 
-The following table lists the supported locales for **text-to-speech**:
+The following table lists the supported locales for **text-to-speech** in the 1.1.0 version of the container:
 
 |Language locale|Tags|Supported voices|
 |--|--|--|
-|English |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
 |Chinese|`zh-cn`|huihuirus<br>kangkang-apollo<br>yaoyao-apollo|
-
+|English |`en-au`|catherine<br>hayleyrus|
+|English |`en-gb`|george-apollo<br>hazelrus<br>susan-apollo|
+|English |`en-in`|heera-apollo<br>priyarus<br>ravi-apollo<br>|
+|English |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
+|French|`fr-ca`|caroline<br>harmonierus|
+|French|`fr-fr`|hortenserus<br>julie-apollo<br>paul-apollo|
+|German|`de-de`|hedda<br>heddarus<br>stefan-apollo|
+|Italian|`it-it`|cosimo-apollo<br>luciarus|
+|Japanese|`ja-jp`|ayumi-apollo<br>harukarus<br>ichiro-apollo|
+|Korean|`ko-kr`|heamirus|
+|Portuguese|`pt-br`|daniel-apollo<br>heloisarus|
+|Spanish|`es-es`|elenarus<br>laura-apollo<br>pablo-apollo<br>|
+|Spanish|`es-mx`|hildarus<br>raul-apollo|
 
 ### Docker pull for the speech containers
 
