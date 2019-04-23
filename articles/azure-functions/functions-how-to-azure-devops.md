@@ -35,7 +35,7 @@ You can use the following samples to create your YAML file to build your .NET ap
 jobs:
   - job: Build
     pool:
-      vmImage: ubuntu-16.04 # Use 'VS2017-Win2016' for Windows Azure Functions
+      vmImage: 'VS2017-Win2016' # Use ubuntu-16.04 for Linux Azure Functions
 steps:
 - script: |
     dotnet restore
@@ -62,20 +62,47 @@ steps:
 
 #### JavaScript
 
-You can use the following samples to create your YAML file to build your JavaScript app, the **vmImage** should be changed depending on which Azure Functions hosting OS your app is on:
+You can use the following samples to create your YAML file to build your JavaScript app:
+
+##### Linux Azure Functions
 
 ```yaml
 jobs:
   - job: Build
     pool:
-      vmImage: ubuntu-16.04 # Use 'VS2017-Win2016' for Windows Azure Functions
+      vmImage: ubuntu-16.04
 steps:
 - script: |
     if [ -f extensions.csproj ]
     then
         dotnet build extensions.csproj --output ./bin
     fi
-    npm install
+    npm install 
+    npm run build --if-present
+    npm prune --production
+- task: ArchiveFiles@2
+  displayName: "Archive files"
+  inputs:
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output/s"
+    includeRootFolder: false
+    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
+    name: 'drop'
+```
+
+##### Windows Azure Functions
+
+```yaml
+jobs:
+  - job: Build
+    pool:
+      vmImage: 'VS2017-Win2016'
+steps:
+- script: |
+    IF EXIST *.csproj dotnet build extensions.csproj --output ./bin
+    npm install 
     npm run build --if-present
     npm prune --production
 - task: ArchiveFiles@2
@@ -170,6 +197,15 @@ To use the built-in build templates, when creating a new build pipeline, choose 
 After configuring the source of your code, search for Azure Functions build templates, and choose the template that matches your app language.
 
 ![](media/functions-how-to-azure-devops/build-templates.png)
+
+#### JavaScript Apps
+
+If you JavaScript app have a dependency on Windows native modules, you will need to update:
+- The Agent Pool version to **Hosted VS2017**
+![](media/functions-how-to-azure-devops/change-agent.png)
+
+- The script in the **Build extensions** step in the template to `IF EXIST *.csproj dotnet build extensions.csproj --output ./bin`
+![](media/functions-how-to-azure-devops/change-script.png)
 
 ### Deploy your app
 
