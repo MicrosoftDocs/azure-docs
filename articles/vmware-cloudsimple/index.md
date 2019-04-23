@@ -14,6 +14,6 @@ manager: dikamath
 Welcome Azure VMware Solutions by CloudSimple. You'll find details on how to use CloudSimple and how to enable solutions on the service. Search for topics or browse the table of contents.
 
 - View the [Overview](cloudsimple-vmware-solutions-overview.md) to learn more about Azure VMware Solutions by CloudSimple.
-- Select [CloudSimple private cloud overview](cloudsimple-private-cloud) to learn more about the CloudSimple private cloud solution.
+- Select [CloudSimple private cloud overview](cloudsimple-private-cloud.md) to learn more about the CloudSimple private cloud solution.
 - Select [Nodes](cloudsimple-node.md) to learn more about CloudSimple nodes.
-- Select [Initialize and purchase capacity](quickstart-create-cloudsimple-service) to start using Azure VMware Solutions by CloudSimple.
+- Select [Initialize and purchase capacity](quickstart-create-cloudsimple-service.md) to start using Azure VMware Solutions by CloudSimple.
