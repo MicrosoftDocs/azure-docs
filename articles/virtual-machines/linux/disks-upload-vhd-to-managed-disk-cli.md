@@ -17,11 +17,7 @@ This article explains how to upload a vhd file from your local machine directly 
 
 ## Pre-requisites
 
-Download the latest preview version of AzCopy:
-- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
-
+- Download the latest [preview version of AzCopy](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
 - A vhd file, stored locally
 
