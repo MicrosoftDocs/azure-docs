@@ -122,11 +122,11 @@
     items:
     - name: How to use Android map control
       href: how-to-use-android-map-control-library.md
-    - name: How to add symbols to android map
+    - name: Add symbols to android map
       href: how-to-add-symbol-to-android-map.md
-    - name: How to add shapes to Android map
+    - name: Add shapes to Android map
       href: how-to-add-shapes-to-android-map.md
-    - name: How to set map styles in Android maps
+    - name: Set map styles in Android maps
       href: set-android-map-styles.md
 - name: Reference
   items:

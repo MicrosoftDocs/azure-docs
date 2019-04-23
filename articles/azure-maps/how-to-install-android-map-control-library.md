@@ -211,3 +211,16 @@ Select the run button, as shown in the following graphic (or press Control+R on 
 Android Studio will take a few seconds to build the application. After the build is complete, you can test your application in the emulated Android device. You should see a map like this one:
 
 ![Android map](./media/how-to-use-android-map-control-library/android-map.png)
+
+
+## Next steps
+
+See the following articles to add symbols and shapes to your map
+
+> [!div class="nextstepaction"]
+> [Add symbols to Android maps](https://docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map?branch=pr-en-us-74190)
+
+> [!div class="nextstepaction"]
+> [Add shapes to Android maps](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map?branch=pr-en-us-74190)
+
+
