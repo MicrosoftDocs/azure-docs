@@ -115,7 +115,7 @@ Before you set up the Site Recovery infrastructure, access the environment to me
 
 ## Deploy additional process servers
 
-If you scale out your deployment beyond 200 source machines or if you have a total daily churn rate of more than 2 TB, you must add process servers to handle the traffic volume. To learn how to set up the process server, see [Scale for failback by using additional process servers](vmware-azure-set-up-process-server-scale.md). After you set up the process server, you can migrate source machines to use it.
+If you scale out your deployment beyond 200 source machines or if you have a total daily churn rate of more than 2 TB, you must add process servers to handle the traffic volume. We have enhanced the product in 9.24 version to provide in-product guidance on when to set up a scale-out process server. To learn when and how to set up the process server, see [Scale for failback by using additional process servers](vmware-azure-set-up-process-server-scale.md). After you set up the process server, you can migrate source machines to use it.
 
 ### Migrate machines to use the new process server
 

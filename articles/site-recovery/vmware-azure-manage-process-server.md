@@ -105,7 +105,6 @@ If the process server uses a proxy to connect to Site Recovery in Azure, use thi
    exit
    ```
 
-
 ## Remove a process server
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
@@ -123,3 +122,4 @@ If anti-virus software is active on a standalone process server or master target
 - C:\ProgramData\Microsoft Azure Site Recovery
 - Process server installation directory, Example: C:\Program Files (x86)\Microsoft Azure Site Recovery
 
+## Process Server selection
