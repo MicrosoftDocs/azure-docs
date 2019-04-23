@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 4/21/2019
+ms.date: 5/6/2019
 ms.author: mjbrown
 ms.custom: seodec18
 
