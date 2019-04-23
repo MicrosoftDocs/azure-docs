@@ -14,7 +14,7 @@ ms.custom: MVC
 
  [Azure Site Recovery](site-recovery-overview.md) helps business continuity and disaster recovery (BCDR) by keeping business apps running during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
 
-This tutorial is the first in a series that describes how to set up disaster recovery for on-premises VMs. It's also relevant when you're protecting Hyper-V VMs.
+This tutorial is the first in a series that describes how to set up disaster recovery for on-premises Hyper-V VMs.
 
 > [!NOTE]
 > We design tutorials to show the simplest deployment path for a scenario. These tutorials use default options when possible, and don't show all possible settings and paths. For more information, see the "How To" section for each corresponding scenario.
