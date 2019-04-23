@@ -37,11 +37,11 @@
       displayName: learning policy, Counterfactual, features
 - name: How-to guides
   items:
+  - name: Configure Personalizer
+    href: how-to-settings.md
+    displayName: azure, portal, settings, evaluation, offline, policy
   - name: Analyze
     items: 
-    - name: Configure Personalizer
-      href: how-to-settings.md
-      displayName: azure, portal, settings, evaluation, offline, policy
     - name: Offline evaluation
       href: how-to-offline-evaluation.md
   - name: Use containers
