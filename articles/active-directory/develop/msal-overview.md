@@ -58,6 +58,6 @@ MSAL can be used in many authentication scenarios, including the following:
 ## Differences between ADAL and MSAL
 Active Directory Authentication Library (ADAL) integrates with the Azure AD v1.0 endpoint, where MSAL integrates with the Azure AD v2.0 endpoint. The v1.0 endpoint supports work accounts, but not personal accounts. The v2.0 endpoint is the unification of Microsoft personal accounts and work accounts into a single authentication system. Additionally, with MSAL you can also get authentications for Azure AD B2C.
 
-For more specific information, read about the differences between [ADAL.NET and MSAL.NET](msal-compare-msal-net-and-adal-net.md ) and [ADAL.js and MSAL.js](msal-compare-msal-js-and-adal-js.md).
+For more specific information, read about [migrating to MSAL.NET from ADAL.NET](msal-net-migration.md) and [migrating to MSAL.js from ADAL.js](msal-compare-msal-js-and-adal-js.md).
 
             

@@ -60,7 +60,7 @@
     - name: Daemon apps
       items:
       - name: .NET Core console (daemon)
-        href: quickstart-v2-netcore-daemon.md    
+        href: quickstart-v2-netcore-daemon.md
       - name: ASP.NET daemon Web app
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: Tutorials
@@ -93,45 +93,61 @@
       items:
       - name: Sign-in audience
         href: v2-supported-account-types.md
-      - name: Web app that signs-in users
+      - name: Single Page Application
+        items:
+        - name: Overview
+          href: scenario-spa-overview.md
+        - name: App registration
+          href: scenario-spa-app-registration.md
+        - name: App's code configuration
+          href: scenario-spa-app-configuration.md
+        - name: Sign in and sign out
+          href: scenario-spa-sign-in.md
+        - name: Acquire token for an api
+          href: scenario-spa-acquire-token.md
+        - name: Call a Web API
+          href: scenario-spa-call-api.md
+        - name: Move to production
+          href: scenario-spa-production.md
+      - name: Web app that signs in users
         items:
         - name: Overview
           href: scenario-web-app-sign-user-overview.md
         - name: App registration
           href: scenario-web-app-sign-user-app-registration.md
-        - name: App's code configuration
+        - name: Code configuration
           href: scenario-web-app-sign-user-app-configuration.md
-        - name: Sign in and Sign out
+        - name: Sign-in and sign-out
           href: scenario-web-app-sign-user-sign-in.md
         - name: Move to production
           href: scenario-web-app-sign-user-production.md
-      - name: Web app that calls Web APIs
+      - name: Web app that calls web APIs
         items:
         - name: Overview
           href: scenario-web-app-call-api-overview.md
         - name: App registration
           href: scenario-web-app-call-api-app-registration.md
-        - name: App's code configuration
+        - name: Code configuration
           href: scenario-web-app-call-api-app-configuration.md
         - name: Sign-in
           href: scenario-web-app-call-api-sign-in.md
-        - name: Acquiring a token for the app
+        - name: Acquire token for the app
           href: scenario-web-app-call-api-acquire-token.md
-        - name: Calling a Web API
+        - name: Call a web API
           href: scenario-web-app-call-api-call-api.md
         - name: Move to production
           href: scenario-web-app-call-api-production.md
-      - name: Desktop app that calls Web APIs
+      - name: Desktop app that calls web APIs
         items:
         - name: Overview
           href: scenario-desktop-overview.md
         - name: App registration
           href: scenario-desktop-app-registration.md
-        - name: App's code configuration
+        - name: Code configuration
           href: scenario-desktop-app-configuration.md
-        - name: Acquiring a token for the app
+        - name: Acquire token
           href: scenario-desktop-acquire-token.md
-        - name: Calling a Web API
+        - name: Call a web API
           href: scenario-desktop-call-api.md
         - name: Move to production
           href: scenario-desktop-production.md
@@ -141,22 +157,46 @@
           href: scenario-daemon-overview.md
         - name: App registration
           href: scenario-daemon-app-registration.md
-        - name: App configuration
+        - name: Code configuration
           href: scenario-daemon-app-configuration.md
-        - name: Acquire Token for client
+        - name: Acquire token
           href: scenario-daemon-acquire-token.md
-        - name: Call Web API
+        - name: Call a web API
           href: scenario-daemon-call-api.md
         - name: Move to production
           href: scenario-daemon-production.md
+      - name: Protected Web API
+        items:
+        - name: Overview
+          href: scenario-protected-web-api-overview.md
+        - name: App registration
+          href: scenario-protected-web-api-app-registration.md
+        - name: Code configuration
+          href: scenario-protected-web-api-app-configuration.md
+        - name: Move to production
+          href: scenario-protected-web-api-production.md
+      - name: Web API that calls web APIs
+        items:
+        - name: Overview
+          href: scenario-web-api-call-api-overview.md
+        - name: App registration
+          href: scenario-web-api-call-api-app-registration.md
+        - name: Code configuration
+          href: scenario-web-api-call-api-app-configuration.md
+        - name: Acquiring token
+          href: scenario-web-api-call-api-acquire-token.md
+        - name: Call a web API
+          href: scenario-web-api-call-api-call-api.md
+        - name: Move to production
+          href: scenario-web-api-call-api-production.md
       - name: Integration checklist
         href: active-directory-integration-checklist.md
     - name: Microsoft Authentication Library (MSAL)
-      items:        
+      items:
         - name: Overview
           href: msal-overview.md
-        - name: Compare MSAL.NET and ADAL.Net
-          href: msal-compare-msal-net-and-adal-net.md
+        - name: Migrating to MSAL.NET
+          href: msal-net-migration.md
         - name: Compare MSAL.js and ADAL.js
           href: msal-compare-msal-js-and-adal-js.md
         - name: Acquiring and caching tokens
@@ -173,7 +213,7 @@
         href: authentication-scenarios.md
       - name: OAuth 2.0 and OpenID Connect protocols
         href: active-directory-v2-protocols.md
-      - name: OpenID Connect 
+      - name: OpenID Connect
         href: v2-protocols-oidc.md
       - name: OAuth 2.0 implicit grant flow
         href: v2-oauth2-implicit-grant-flow.md
@@ -194,7 +234,7 @@
       - name: Access tokens
         href: access-tokens.md
       - name: Certificate credentials
-        href: active-directory-certificate-credentials.md     
+        href: active-directory-certificate-credentials.md
     - name: Application configuration
       items:
       - name: Applications and service principals
@@ -210,8 +250,8 @@
         href: consent-framework.md
       - name: Application consent experiences
         href: application-consent-experience.md
-    - name: National Clouds 
-      href: authentication-national-cloud.md      
+    - name: National Clouds
+      href: authentication-national-cloud.md
   - name: How-to guides
     items:
     - name: Authentication
@@ -389,7 +429,7 @@
       - name: Access tokens
         href: access-tokens.md
       - name: Certificate credentials
-        href: active-directory-certificate-credentials.md           
+        href: active-directory-certificate-credentials.md
       - name: SAML tokens
         href: reference-saml-tokens.md
     - name: Application configuration
@@ -411,8 +451,8 @@
         href: application-consent-experience.md
     - name: Conditional access
       href: conditional-access-dev-guide.md
-    - name: National Clouds 
-      href: authentication-national-cloud.md      
+    - name: National Clouds
+      href: authentication-national-cloud.md
   - name: How-to guides
     items:
     - name: Authentication
@@ -439,7 +479,7 @@
         - name: Configure token lifetimes
           href: active-directory-configurable-token-lifetimes.md
       - name: ADAL error handling best practices
-        href: active-directory-devhowto-adal-error-handling.md      
+        href: active-directory-devhowto-adal-error-handling.md
     - name: Application configuration
       items:
       - name: Convert a single-tenant app to a multi-tenant app

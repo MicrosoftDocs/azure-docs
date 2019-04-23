@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -163,6 +163,10 @@ az group delete --name amsResourceGroup
 ## Multithreading
 
 The Azure Media Services v3 SDKs are not thread-safe. When working with multi-threaded application, you should generate a new  AzureMediaServicesClient object per thread.
+
+## Provide feedback
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 

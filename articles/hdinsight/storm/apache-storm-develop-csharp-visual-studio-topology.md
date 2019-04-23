@@ -1,7 +1,6 @@
 ---
 title: Apache Storm topologies with Visual Studio and C# - Azure HDInsight 
 description: Learn how to create Storm topologies in C#. Create a simple word count topology in Visual Studio by using the Hadoop tools for Visual Studio.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed

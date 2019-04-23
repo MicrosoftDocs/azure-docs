@@ -3,7 +3,7 @@ title: Add a real device to an Azure IoT Central application | Microsoft Docs
 description: As an operator, add a real device to your Azure IoT Central application.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 02/01/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
