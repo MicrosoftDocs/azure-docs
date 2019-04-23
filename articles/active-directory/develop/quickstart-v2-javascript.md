@@ -147,8 +147,9 @@ MSAL is the library used to sign in users and request tokens used to access an A
 ```html
 <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.2/js/msal.min.js"></script>
 ```
-> ![TIP] 
+> [!TIP] 
 > You can replace the version above with the latest released version under [MSAL.js releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
+
 
 Alternatively, if you have Node installed, you can download the latest preview version through npm:
 
