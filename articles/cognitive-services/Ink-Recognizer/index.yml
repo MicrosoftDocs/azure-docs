@@ -14,8 +14,8 @@ metadata:
   ms.date: 05/02/2019
   ms.author: erhopf
 abstract:
-  description: The Ink Recognizer Cognitive Service provides cloud-based REST APIs to analyze and recognize digital ink content. 
-
+  description: Digital inking refers to the technologies that enable digital representations of input such as handwriting and drawings. As devices continue to enable rich digital inking experiences, artificial intelligence and machine learning enables the recognition of written shapes and text in any context. The Ink Recognizer Cognitive Service is a cloud-based REST API that enables you to send ink strokes and get detailed information about them. 
+  
 sections:
 - items:
     - type: list
