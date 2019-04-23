@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -34,13 +34,15 @@ In this tutorial, you work for Woodgrove Bank as an IT administrator. You've bee
 
 ![Scenario overview](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an access package with a group as a resource
 > * Designate an approver
 > * Demonstrate how an internal user can request the access package
 > * Approve the access request
+
+If you don't have a Azure AD Premium P2 or Enterprise Mobility + Security E5 license, create a free [Enterprise Mobility + Security E5 trial](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1).
 
 ## Prerequisites
 
@@ -306,5 +308,6 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 ## Next steps
 
-- [Common scenarios](entitlement-management-scenarios.md)
-- [Edit and manage an existing access package](entitlement-management-access-package-edit.md)
+Advance to the next article to learn about common scenario steps in entitlement management.
+> [!div class="nextstepaction"]
+> [Common scenarios](entitlement-management-scenarios.md)
