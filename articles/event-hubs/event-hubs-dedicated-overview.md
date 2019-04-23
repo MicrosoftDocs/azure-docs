@@ -1,6 +1,6 @@
 ---
 title: Overview of dedicated event hubs - Azure Event Hubs | Microsoft Docs
-description: This article provides an overview of dedciated Azure Event Hubs, which offers single-tenant deployments of event hubs.  
+description: This article provides an overview of dedicated Azure Event Hubs, which offers single-tenant deployments of event hubs.  
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -22,7 +22,7 @@ ms.author: shvija
 
 *Event Hubs clusters* offer single-tenant deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA and is available only on our Dedicated pricing tier. An Event Hubs cluster can ingress million of events per second with guaranteed capacity and sub-second latency. Namespaces and event hubs created within the Dedicated cluster include all features of the Standard offering and more, but without any ingress limits. It also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost, allowing you to automatically batch and log data streams to Azure Storage or Azure Data Lake. 
 
-Dedicated clusters are provisioned and billed by **Capacity Units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase 1, 2, 4, 8, 12, 16 or 20 CUs for each cluster. How much you can ingest and stream per CU depends on a variety of factors, such as the number of producers and consumers, payload shape, egress rate etc (see benchmark results below for more details). 
+Dedicated clusters are provisioned and billed by **Capacity Units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase 1, 2, 4, 8, 12, 16 or 20 CUs for each cluster. How much you can ingest and stream per CU depends on a variety of factors, such as the number of producers and consumers, payload shape, egress rate (see benchmark results below for more details). 
 
 ## Why Dedicated?
 
@@ -36,7 +36,7 @@ A Dedicated cluster guarantees capacity at full scale, and can ingress up to gig
 The Dedicated offering includes features like Capture at no additional cost, as well as exclusive access to upcoming features like BYOK. The service also manages load balancing, OS updates, security patches and partitioning for the customer, so that you can spend less time on infrastructure maintenance and more time on building client-side features.  
 
 #### Cost Savings
-At 100 TUs, customers are billed $13.08/hour with a Standard Event Hub + $0.10 per TU per hour for Capture. A 1 CU Dedicated cluster will only cost $6.85/hour, and Capture is included at no additional cost. 
+At high ingress volumes (>100 TUs), a cluster costs significantly less per hour than purchasing a comparable quantity of throughput units, and Capture is included at no additional cost. 
 
 
 ## Event Hubs Standard vs. Dedicated
@@ -55,7 +55,7 @@ The following table compares the available service tiers of Event Hubs. The Even
 | Message Retention | 1 day included | Up to 7 days included |
 | Capture | Pay per hour | Included |
 
-## How much does a single Capacity Unit (CU) let me achieve?
+## What can I achieve with Capacity Unit (CU)?
 
 For a dedicated cluster, how much you can ingest and stream depends on various factors such as your producers, consumers, the rate at which you are ingesting and processing, and much more. 
 
