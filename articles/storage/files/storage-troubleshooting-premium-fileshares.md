@@ -13,6 +13,8 @@ ms.subservice: files
 
 # Troubleshooting Guide
 
+This article lists some common problems related to Microsoft Azure premium fileshares (preview). It provides potential causes and workarounds when these problems are encountered.
+
 ## High latency, low throughput, and general performance issues
 
 ### Cause 1: Share experiencing throttling
