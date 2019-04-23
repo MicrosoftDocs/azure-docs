@@ -25,7 +25,7 @@ This article outlines some of the limitations and OS concepts for Windows Server
 
 ## Limitations for Windows Server in Kubernetes
 
-Windows Server containers must run on a Windows-based container host. To run Windows Server containers in AKS, you can create a node pool that runs Windows Server as the guest OS. Window Server node pool support includes some limitations that are part of the upstream Windows Server in Kubernetes project. These limitations are not specific to AKS. For more information on this upstream support for Windows Server in Kubernetes, see [Windows Server containers in Kubernetes limitations][upstream-limitations].
+Windows Server containers must run on a Windows-based container host. To run Windows Server containers in AKS, you can [create a node pool that runs Windows Server][windows-node-cli] as the guest OS. Window Server node pool support includes some limitations that are part of the upstream Windows Server in Kubernetes project. These limitations are not specific to AKS. For more information on this upstream support for Windows Server in Kubernetes, see [Windows Server containers in Kubernetes limitations][upstream-limitations].
 
 The following upstream limitations for Windows Server containers in Kubernetes are relevant to AKS:
 
@@ -41,11 +41,11 @@ The following upstream limitations for Windows Server containers in Kubernetes a
 
 The following additional limitations apply to Windows Server node pool support in AKS:
 
-- An AKS cluster always contains a Linux node pool as the first node pool. This first Linux-based node pool can't be deleted.
+- An AKS cluster always contains a Linux node pool as the first node pool. This first Linux-based node pool can't be deleted unless the AKS cluster itself is deleted.
 - AKS clusters must use the Azure CNI (advanced) networking model.
-    - Kubenet (basic) networking isn't endorsed. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models].
+    - Kubenet (basic) networking is not supported. You can't create an AKS cluster that uses kubenet. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models].
     - The Azure CNI network model requires additional planning and considerations for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
-- Windows Server nodes in AKS must be *upgraded* to a latest Windows Server 2019 release to maintain the latest patch fixes and updates. Windows Updates are not enabled in the base node image in AKS. On a regular schedule around the Windows Update release cycle and your own validation process, you should perform an upgrade on the Windows Server node pool(s) in your AKS cluster.
+- Windows Server nodes in AKS must be *upgraded* to a latest Windows Server 2019 release to maintain the latest patch fixes and updates. Windows Updates are not enabled in the base node image in AKS. On a regular schedule around the Windows Update release cycle and your own validation process, you should perform an upgrade on the Windows Server node pool(s) in your AKS cluster. For more information on upgrading a Windows Server node pool, see [Upgrade a node pool in AKS][nodepool-upgrade].
     - These Windows Server node upgrades temporarily consume additional IP addresses in the virtual network subnet as a new node is deployed, before the old node is removed.
     - vCPU quotas are also temporarily consumed in the subscription as a new node is deployed, then the old node removed.
     - You can't automatically update and manage reboots using `kured` as with Linux nodes in AKS.
@@ -61,9 +61,11 @@ Kubernetes is historically Linux-focused. Many examples used in the upstream [Ku
     - Windows Server uses a larger binary security identifier (SID) which is stored in the Windows Security Access Manager (SAM) database. This database is not shared between the host and containers, or between containers.
 - **File permissions** - Windows Server uses an access control list based on SIDs, rather than a bitmask of permissions and UID+GID
 - **File paths** - convention on Windows Server is to use \ instead of /.
-    - In pod specs that mount volumes, specify the path correctly for Windows Server containers.
+    - In pod specs that mount volumes, specify the path correctly for Windows Server containers. For example, rather than a mount point of */mnt/volume* in a Linux container, specify a drive letter and location such as */K/Volume* to mount as the *K:* drive.
 
 ## Next steps
+
+To get started with Windows Server containers in AKS, [create a node pool that runs Windows Server in AKS][windows-node-cli].
 
 <!-- LINKS - external -->
 [upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations
@@ -73,3 +75,5 @@ Kubernetes is historically Linux-focused. Many examples used in the upstream [Ku
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
+[nodepool-upgrade]: windows-node-limitations.md
+[windows-node-cli]: windows-node-limitations.md
