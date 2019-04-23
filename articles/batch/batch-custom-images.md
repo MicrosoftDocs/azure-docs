@@ -44,9 +44,9 @@ Using a custom image configured for your scenario can provide several advantages
 
 In Azure you can prepare a managed image from snapshots of an Azure VM's OS and data disks, from a generalized Azure VM with managed disks, or from a generalized on-premises VHD that you upload. To scale Batch pools reliably with a custom image, we recommend creating a managed image using *only* the first method: using snapshots of the VM's disks. See the following steps to prepare a VM, take a snapshot, and create an image from the snapshot. 
 
-### Prepare a VM 
+### Prepare a VM
 
-If you are creating a new VM for the image, use an Azure Marketplace image supported by Batch as the base image for your managed image and then customize it.  To get a list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/rest/api/batchservice/account/listnodeagentskus) operation. 
+If you are creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image. To get a full list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/rest/api/batchservice/account/listnodeagentskus) operation.
 
 > [!NOTE]
 > You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
