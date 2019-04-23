@@ -1,6 +1,6 @@
 ---
-title: Single Page Application - sign-in | Azure
-description: Learn how to build a Single Page Application (sign-in)
+title: Single Page Application - Sign in | Azure
+description: Learn how to build a Single Page Application (Sign in)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2019
+ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a Single Page Application using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Single Page Application - sign-in
+# Single Page Application - Sign in
 
-Learn how to add sign-in to the code for your Single Page Application.
+Learn how to add sign in to the code for your Single Page Application.
 
 Before you can get tokens to access APIs in your application, you will need an authenticated user context. Use the `loginRedirect` or `loginPopup` methods to login users with MSAL.js. You can also optionally pass the scopes of the APIs for which you need the user to consent at the time of login.
 
 > [!NOTE]
-> If your application already has access to an authenticated user context or id token, you can skip the login step and directly acquire tokens. See [sso without msal.js login](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Sso#sso-to-an-app-without-msaljs-login) for more details.
+> If your application already has access to an authenticated user context or id token, you can skip the login step and directly acquire tokens. For more details, see [sso without msal.js login](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Sso#sso-to-an-app-without-msaljs-login).
 
-## Login with popup
+## Sign in with a pop-up window
 
 ### JavaScript
 
-```JS
+```javascript
 const loginRequest = {
     scopes: ["user.read", "user.write"]
 }
@@ -50,9 +50,9 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 
 ### Angular
 
-The MSAL Angular wrapper allows you to secure specific routes in your application by just adding the `MsalGuard` to the route definition. This will invoke the login method when that route is accessed.
+The MSAL Angular wrapper allows you to secure specific routes in your application by just adding the `MsalGuard` to the route definition. This guard will invoke the method to sign in when that route is accessed.
 
-```JS
+```javascript
 // In app.routes.ts
 { path: 'product', component: ProductComponent, canActivate : [MsalGuard],
     children: [
@@ -62,9 +62,9 @@ The MSAL Angular wrapper allows you to secure specific routes in your applicatio
   { path: 'myProfile' ,component: MsGraphComponent, canActivate : [MsalGuard] },
 ```
 
-For Popup experience, enable the `popUp` config option. You can also pass the scopes that require consent as follows:
+For a pop-up window experience, enable the `popUp` config option. You can also pass the scopes that require consent as follows:
 
-```JS
+```javascript
 //In app.module.ts
 @NgModule({
   imports: [ MsalModule.forRoot({
@@ -75,13 +75,13 @@ For Popup experience, enable the `popUp` config option. You can also pass the sc
          })
 ```
 
-## Login with redirect
+## Sign in with redirect
 
 ### JavaScript
 
-The redirect methods do not return a promise  due to the navigation away from the main app. To process and access the returned tokens, you will need to register success and error callbacks before calling the redirect methods.
+The redirect methods do not return a promise due to the navigation away from the main app. To process and access the returned tokens, you will need to register success and error callbacks before calling the redirect methods.
 
-```JS
+```javascript
 function tokenReceivedCallback(response) {
     // use response in callback code
 }
@@ -101,20 +101,20 @@ userAgentApplication.loginRedirect(loginRequest);
 
 ### Angular
 
-This is the same as described above under popup section. The default flow is redirect.
+The code here is the same as described above under the sign in with a pop-up window section. The default flow is redirect.
 
 > [!NOTE]
 > The ID token does not contain the consented scopes and only represents the authenticated user. The consented scopes are returned in the access token which you will acquire in the next step.
 
-## Logout
+## Sign out
 
-The MSAL library provides a logout method that will clear the cache in the browser storage and send a logout request to Azure AD. After logout, it redirects back to the application start page by default.
+The MSAL library provides a `logout` method that will clear the cache in the browser storage and sends a sign out request to Azure AD. After sign out, it redirects back to the application start page by default.
 
-You can configure the URI to which it should redirect after logout by setting the `postLogoutRedirectUri`. Note that this URI should also be registered as the Logout URI in your application registration.
+You can configure the URI to which it should redirect after sign out by setting the `postLogoutRedirectUri`. This URI should also be registered as the Logout URI in your application registration.
 
 ### JavaScript
 
-```JS
+```javascript
 const config = {
 
     auth: {
@@ -131,7 +131,7 @@ userAgentApplication.logout();
 
 ### Angular
 
-```JS
+```javascript
 //In app.module.ts
 @NgModule({
   imports: [ MsalModule.forRoot({

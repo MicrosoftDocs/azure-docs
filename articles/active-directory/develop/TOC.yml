@@ -101,7 +101,7 @@
           href: scenario-spa-app-registration.md
         - name: App's code configuration
           href: scenario-spa-app-configuration.md
-        - name: Sign-in and sign-out
+        - name: Sign in and sign out
           href: scenario-spa-sign-in.md
         - name: Acquiring a token
           href: scenario-spa-acquire-token.md

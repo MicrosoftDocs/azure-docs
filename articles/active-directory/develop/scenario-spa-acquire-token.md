@@ -1,6 +1,6 @@
 ---
-title: Single Page Application - acquiring a token to call an API | Azure
-description: Learn how to build a Single Page Application (acquiring a token to call an API)
+title: Single Page Application - Acquire a token to call an API | Azure
+description: Learn how to build a Single Page Application (Acquire a token to call an API)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2019
+ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a Single Page Application using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Single Page Application - acquiring a token to call an API
+# Single Page Application - Acquire a token to call an API
 
 The pattern for acquiring tokens for APIs with MSAL.js is to first attempt a silent token request using the `acquireTokenSilent` method. The library performs this request from a hidden iframe. This method also allows the library to renew tokens. If the silent token request fails for some reasons such as an expired Azure AD session or a password change, you can invoke an interactive method(which will prompt the user) such as `acquireTokenPopup` or `acquireTokenRedirect` to acquire tokens.
 
 You can set the API scopes that you want the access token to include when building the access token request. Note that all requested scopes may not be granted in the access token and depends on the user's consent.
 
-## Acquire token with popup
+## Acquire token with a pop-up window
 
 ### JavaScript
 
-The above pattern using Popup methods:
+The above pattern using the methods for a pop-up experience:
 
-```JS
+```javascript
 const accessTokenRequest = {
     scopes: ["user.read"]
 }
@@ -62,7 +62,7 @@ The MSAL Angular wrapper provides the convenience of adding the HTTP interceptor
 
 You can specify the scopes for APIs in the `protectedResourceMap` config option which the MsalInterceptor will request when automatically acquiring tokens.
 
-```JS
+```javascript
 //In app.module.ts
 @NgModule({
   imports: [ MsalModule.forRoot({
@@ -81,7 +81,7 @@ providers: [ ProductService, {
 
 For success and failure of the silent token acquisition, MSAL Angular provides callbacks you can subscribe to. It is also important to remember to unsubscribe.
 
-```JS
+```javascript
 // In app.component.ts
  ngOnInit() {
     this.subscription=  this.broadcastService.subscribe("msal:acquireTokenFailure", (payload) => {
@@ -104,7 +104,7 @@ Alternatively, you can also explicitly acquire tokens using the acquire token me
 
 The pattern is as described above but shown with a redirect method to acquire token interactively. Note that you will need to register the redirect callbacks as mentioned above.
 
-```JS
+```javascript
 function tokenReceivedCallback(response) {
     // use response in callback code
 }

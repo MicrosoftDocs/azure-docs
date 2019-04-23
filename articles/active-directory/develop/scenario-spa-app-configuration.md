@@ -1,6 +1,6 @@
 ---
-title: Single Page Application - app's code configuration | Azure
-description: Learn how to build a Single Page Application (app's code configuration)
+title: Single Page Application - App's code configuration | Azure
+description: Learn how to build a Single Page Application (App's code configuration)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2019
+ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a Single Page Application using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Single Page Application - app's code configuration
+# Single Page Application - App's code configuration
 
 Learn how to configure the code for your Single Page Application.
 
@@ -33,8 +33,8 @@ The libraries supporting implicit flow are:
 
   MSAL library | Description
   ------------ | ----------
-![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Plain JavaScript library that can be used in any client side web apps built using JavaScript or SPA frameworks such as Angular, Vue.js, React.js, etc.
-![MSAL Angular](media/sample-v2-code/logo_angular.png) <br/> [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Wrapper of the core MSAL.js library to simplify use in single page apps built with the Angular framework. This is a preview library and has [known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues?q=is%3Aopen+is%3Aissue+label%3Aangular) with certain Angular versions and browsers.
+![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Plain JavaScript library for use in any client side web app built using JavaScript or SPA frameworks such as Angular, Vue.js, React.js, etc.
+![MSAL Angular](media/sample-v2-code/logo_angular.png) <br/> [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Wrapper of the core MSAL.js library to simplify use in single page apps built with the Angular framework. This library is in preview and has [known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues?q=is%3Aopen+is%3Aissue+label%3Aangular) with certain Angular versions and browsers.
 
 ## Application code configuration
 
@@ -42,7 +42,7 @@ In MSAL library, the application registration information is passed as configura
 
 ### JavaScript
 
-```JS
+```javascript
 // Configuration object constructed.
 const config = {
     auth: {
@@ -54,11 +54,11 @@ const config = {
 // create UserAgentApplication instance
 const userAgentApplication = new UserAgentApplication(config);
 ```
-See the [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) for more details on the configurable options available.
+For more details on the configurable options available, see the [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options).
 
 ### Angular
 
-```JS
+```javascript
 //In app.module.ts
 @NgModule({
   imports: [ MsalModule.forRoot({

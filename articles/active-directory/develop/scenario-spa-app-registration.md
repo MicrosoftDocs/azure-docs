@@ -1,6 +1,6 @@
 ---
-title: Single Page Application - app registration | Azure
-description: Learn how to build a Single Page Application (app registration)
+title: Single Page Application - App registration | Azure
+description: Learn how to build a Single Page Application (App registration)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2019
+ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a Single Page Application using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Single Page Application - app registration
+# Single Page Application - App registration
 
 This page explains the app registration specifics for a Single Page Application.
 
