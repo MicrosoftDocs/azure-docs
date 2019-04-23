@@ -1,6 +1,6 @@
 ---
-title: Scopes for a v1.0 application (MSAL.NET) | Azure
-description: Learn about the scopes for a v1.0 application using the Microsoft Authentication Library for .NET (MSAL.NET).
+title: Scopes for a v1.0 application (MSAL) | Azure
+description: Learn about the scopes for a v1.0 application using the Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -34,11 +34,20 @@ For example, to access on behalf of the user a v1.0 web API where the app ID URI
 var scopes = new [] {  ResourceId+"/user_impersonation"};
 ```
 
+```javascript
+var scopes = [ ResourceId + "/user_impersonation"];
+```
+
 If you want to read and write with MSAL.NET Azure Active Directory using the Azure AD graph API (https://graph.windows.net/), you would create a list of scopes as in the following:
 
 ```csharp
-ResourceId = "https://graph.windows.net/";
-var scopes = new [] { ResourceId + “Directory.Read”, ResourceID + “Directory.Write”}
+string ResourceId = "https://graph.windows.net/";
+var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
+```
+
+```javascript
+var ResourceId = "https://graph.windows.net/";
+var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
 If you want to write the scope corresponding to the Azure Resource Manager API (https://management.core.windows.net/), you need to request the following scope (note the two slashes):
@@ -59,12 +68,17 @@ The logic used by Azure AD is the following:
 - For MSAL (v2.0 endpoint) asking an access token for a resource accepting a v1.0 access token (which is the case above), Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier. Therefore if https://database.windows.net expects an audience of "https://database.windows.net/", you'll need to request a scope of "https://database.windows.net//.default". See also GitHub issue [#747: Resource url's trailing slash is omitted, which caused sql auth failure](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## Scopes to request access to all the permissions of a v1.0 application
-If you want to acquire a token for all the static scopes of a v1.0 application, you need to use:
+If you want to acquire a token for all the static scopes of a v1.0 application, append ".default" to the app ID URI of the API:
 
 ```csharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
-## Scopes to request in the case of client credential flow / daemon app
+```javascript
+var ResourceId = "someAppIDURI";
+var scopes = [ ResourceId + "/.default"];
+```
+
+## Scopes to request for client credential flow / daemon app
 In the case of client credential flow, the scope to pass would also be `/.default`. This tells to Azure AD: "all the app-level permissions that the admin has consented to in the application registration.

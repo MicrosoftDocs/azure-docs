@@ -28,11 +28,52 @@ There are many ways to acquire a token using Microsoft Authentication Library (M
 
 
 ## Scopes when acquiring tokens
-Scopes are the permissions that a web API exposes for client applications to request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs.
+Scopes are the permissions that a web API exposes for client applications to request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs. MSAL allows you to get tokens to access Azure AD v1.0 and Azure AD v2.0 APIs. Azure AD v2.0 protocol uses scopes instead of resource in the requests. For more information, read [Azure AD v1.0 and v2.0 comparison](active-directory-v2-compare.md). Based on the web API's configuration of the token version it accepts, the Azure AD v2.0 endpoint returns the access token to MSAL.
 
-Whereas ADAL acquires token for resources, MSAL acquires them for scopes. A number of MSAL acquire token methods require a parameter *scopes* parameter. This parameter is a simple list of strings that declare the desired permissions and resources that are requested. Well known scopes are the [Microsoft Graph permissions](/graph/permissions-reference).
+A number of MSAL acquire token methods require a parameter *scopes* parameter. This parameter is a simple list of strings that declare the desired permissions and resources that are requested. Well known scopes are the [Microsoft Graph permissions](/graph/permissions-reference).
 
-It's also possible in MSAL.NET to access v1.0 resources. For more information, read [Scopes for a v1.0 application](msal-net-scopes-for-v1-apps.md).
+It's also possible in MSAL to access v1.0 resources. For more information, read [Scopes for a v1.0 application](msal-scopes-for-v1-apps.md).
+
+### Request specific scopes for a web API
+When your application needs to request tokens with specific permissions for any resource API, you will need to pass the scopes containing the app ID URI of the API in the below format: `&lt;app ID URI&gt;/&lt;scope&gt;`
+
+For example, scopes for Microsoft Graph API:
+
+```csharp
+var scopes = new[] {"https://graph.microsoft.com/User.Read"};
+```
+
+```javascript
+var scopes = ["https://graph.microsoft.com/User.Read"];
+```
+
+Or, for example, scopes for a custom web API:
+```csharp
+var scopes = new[] {"api://abscdefgh-1234-abcd-efgh-1234567890/api.read"};
+```
+
+```javascript
+var scopes = ["api://abscdefgh-1234-abcd-efgh-1234567890/api.read"];
+```
+
+Note: Only for the MS Graph API, a scope value user.read maps to https://graph.microsoft.com/User.Read format and can be used interchangeably.
+
+Note: Certain web APIs such as Azure Resource Manager API (https://management.core.windows.net/) expect a trailing '/' in the audience claim (aud) of the access token. In this case, it is important to pass the scope as https://management.core.windows.net//user_impersonation (note the double slash), for the token to be valid in the API.
+
+### Request dynamic scopes for incremental consent
+When building applications using Azure AD v1.0, you had to register the full set of permissions (static scopes) required by the application for the user to consent at the time of login. In Azure AD v2.0, you can request additional permissions as needed using the scope parameter. These are called dynamic scopes and allows the user to provide incremental consent to scopes.
+
+For example, you can initially sign in the user and deny them any kind of access. Later, you can give them the ability to read the calendar of the user by requesting the calendar scope in the acquire token methods and get the user's consent.
+
+For example:
+```csharp
+var scopes = new[] {"https://graph.microsoft.com/User.Read", "https://graph.microsoft.com/Calendar.Read"};
+```
+
+```javascript
+var scopes = ["https://graph.microsoft.com/User.Read", "https://graph.microsoft.com/Calendar.Read"];
+// pass scopes in acquireTokenPopup or acquireTokenRedirect call
+```
 
 ## Acquiring tokens from the cache
 MSAL maintains a token cache (or two caches in the case of confidential client applications).  MSAL caches a token after it has been acquired.  Application code should try to get a token silently (from the cache), first, before acquiring a token by other means. 
