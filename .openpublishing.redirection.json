@@ -2361,11 +2361,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-with-linux.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/iot-edge/how-to-install-iot-core.md",
       "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
       "redirect_document_id": false
