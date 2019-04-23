@@ -255,7 +255,7 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
 ## 9 - Clean up resources
-Once you're done testing, you can clean up your resources by [deleting the resource group](../azure-resource-manager/manage-resources-portal#delete-resources.md) `SQLMI-Repl`. 
+Once you're done testing, you can clean up your resources by [deleting the resource group](../azure-resource-manager/manage-resources-portal.md#delete-resources) `SQLMI-Repl`. 
    
 ## See Also
 
