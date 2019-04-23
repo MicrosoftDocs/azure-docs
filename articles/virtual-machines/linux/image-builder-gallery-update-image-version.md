@@ -43,25 +43,23 @@ az provider register -n Microsoft.Storage
 ```
 
 
-## Set Permissions & Create Shared Image Gallery (SIG)
+## Set permissions
 
->>> NOTE!!! Currently Linux Support only. 
-For Preview AIB will only support creating custom images in the same Resource Group as the source custom managed image. For example, if your existing managed custom images resides in RG1, then you must make sure the sigResourceGroup variable below is set to RG1. In the quick start below, we will create a SIG in that RG.
+For preview, Azure Image Builder will only support creating custom images in the same resource group as the source custom managed image. For example, if your existing managed custom images resides in RG1, then you must make sure the sigResourceGroup variable below is set to RG1. 
 
-This Quick Start assumes you have completed 1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image, and therefore the variables below, will be preset to those variable names, for continuity, but you can always update them yourself.
-
+If you used [Create an image and distribute to a Shared Image Gallery (preview)](image-builder-gallery.md) to create your Shared Image Gallery, you've already created the variables we need. If not, please setup some variables to be used for this example:
 
 
 ```azurecli-interactive
-# Resource group name - we are using ibsigRG in this example
+# Resource group name 
 sigResourceGroup=ibsigRG
-# Datacenter location - we are using West US 2 in this example
+# Gallery location 
 location=westus2
-# Additional region to replicate the image to - we are using East US in this example
+# Additional region to replicate the image version to 
 additionalregion=eastus
-# name of the shared image gallery - in this example we are using myGallery
+# Name of the shared image gallery 
 sigName=myIbGallery
-# name of the image definition to be created - in this example we are using myImageDef
+# Name of the image definition to use
 imageDefName=myIbImageDef
 # image distribution metadata reference name
 runOutputName=ubuntusig2sig
@@ -73,7 +71,7 @@ Create a variable for your subscription ID. You can get this using `az account s
 subscriptionID=<Subscription ID>
 ```
 
-Get the image version created that we created earlier.
+Get the image version that you want to update.
 
 ```
 sigDefImgVersionId=$(az sig image-version list \
@@ -97,22 +95,21 @@ az role assignment create \
 
 
 ## Modify HelloImage Example
+You can review the example we are about to use by opening the .json file here: [https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) along with the [Image Builder .json reference](image-builder-json.md). 
+
+
+Download the .json example and configure it with your variables. 
 
 ```bash
-# download the example and configure it with your vars
-
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json -o helloImageTemplateforSIGfromSIG.json
-
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforSIGfromSIG.json
 sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforSIGfromSIG.json
 sed -i -e "s/<imageDefName>/$imageDefName/g" helloImageTemplateforSIGfromSIG.json
 sed -i -e "s/<sharedImageGalName>/$sigName/g" helloImageTemplateforSIGfromSIG.json
 sed -i -e "s%<sigDefImgVersionId>%$sigDefImgVersionId%g" helloImageTemplateforSIGfromSIG.json
-
 sed -i -e "s/<region1>/$location/g" helloImageTemplateforSIGfromSIG.json
 sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforSIGfromSIG.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIGfromSIG.json
-
 ```
 
 ## Create the Image

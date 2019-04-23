@@ -15,14 +15,35 @@ Azure Image Builder uses a .json file to pass information into the Image Builder
 The .json file we will explore is for the creation of a basic custom image. The custom image is created using a marketplace image for Ubuntu 18.04 LTS from Canonical. The marketplace image us customized using a shell script found here: https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh.
 
 
+```json
+ { 
+    "type": "Microsoft.VirtualMachineImages/imageTemplates", 
+    "apiVersion": "2019-05-01-preview", 
+     "location": "westcentralus", 
+     "tags": { 
+  	“imagetemplate_tag1” : “corpStdWin2019svr” 
+ 	“imagetemplate_tag2” : “baseBuild” 
+ 	}, 
+     "dependsOn": [], 
+     "properties": { 
+ 	   "buildTimeoutInMinutes": {}, 
+         "build": {}, 
+         "customize": {}, 
+         "distribute": {} 
+ 
+     } 
+ } 
+```
+
+
 
 ## Type and API version
 
-The `type` is the resource type, which must be 'Microsoft.VirtualMachineImages'. The `apiVersion` will change over time as the API changes, but should be xxxxxx for preview.
+The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2019-05-01-preview"` for preview.
 
 ```json
-    "type": "Microsoft.VirtualMachineImages",
-    "apiVersion": "2019-02-01-preview",
+    "type": "Microsoft.VirtualMachineImages/imageTemplates",
+    "apiVersion": "2019-05-01-preview",
 ```
 
 ## Location
@@ -42,7 +63,7 @@ The location is the region where the custom image will be created. For the Image
 	
 ## Depends on
 
-This section isn't used in this example, but it can be used to ensure that dependencies are completed before proceeding. 
+This section can be used to ensure that dependencies are completed before proceeding. 
 
 ```json
     "dependsOn": [],
@@ -56,9 +77,10 @@ For more information, see [Define resource dependencies](https://docs.microsoft.
 The `source` section contains information about the source image that will be used by Image Builder.
 
 The API requires a 'SourceType' that defines the source for the image build, currently there are three types:
-- ISO
-- PlatformImage
-- ManagedImage
+- ISO  - use this when the source is a RHEL ISO.
+- PlatformImage - indicated the source image is a Marketplace image.
+- ManagedImage - use this when starting from a regular managed image.
+- SharedImageVersion - this is used when you are using an image version in a Shared Image Gallery as the source.
 
 ### ISO
 
@@ -75,7 +97,9 @@ Azure Image Builder only supports using published Red Hat Enterprise Linux 7.x B
 }
 ```
 
-To get the `sourceURI` and `sha256Checksum` values, go to `https://access.redhat.com/downloads`. 
+To get the `sourceURI` and `sha256Checksum` values, go to `https://access.redhat.com/downloads` then select the product **Red Hat Enterprise Linux**, and a supported version. 
+
+In the list of **Installers and Images for Red Hat Enterprise Linux Server**, you need to copy the link for Red Hat Enterprise Linux 7.x Binary DVD, and the checksum.
 
 > [!NOTE]
 > The access tokens of the links are refreshed at frequent intervals, so every time you want to submit a template, you must check if the RH link address has changed.
@@ -119,45 +143,46 @@ This is an existing managed image of a generalized VHD or VM.
 The `imageId` should be the ResourceId of the managed image. Use `az image list` to list available images.
 
 
+### SharedImageVersion
+
+This is an existing image version in a Shared Image Gallery.
+
+```json
+        "source": { 
+            "type": "SharedImageVersion", 
+            "imageVersionID": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/p  roviders/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>" 
+   } 
+```
+
+The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
+
 ## Properties: customize
 
-	
+
+Image Builder supports multiple ‘customizers’. Customizers are functions that are used to customize your image, such as running scripts, or rebooting servers. 
+
 ```json
         "customize": [
             {
                 "type": "Shell",
-                "name": "RunScripts01",
-                "script": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh"
+                "name": "<name>",
+                "script": "<path to script>"
             },
             {
                 "type": "Shell",
-                "name": "RunInlineCmds01",
+                "name": "<name>",
                 "inline": [
-                    "sudo apt install unattended-upgrades",
-                    "sudo mkdir /buildArtifacts",
-                    "sudo touch /buildArtifacts/imageBuilder.md"
+                    "<command to run inline>",
                 ]
-                }
+            }
 
         ],
-		
 ```		
 
-
-Image Builder supports multiple ‘customizers’. Customizers are functions that are used to customize your image, such as running scripts, or rebooting servers. 
  
 The customize section is an array. Azure Image Builder will run through the customizers in sequential order. Any failure in any customizer will fail the build process. 
  
-     "customize": [ 
-         { 
-                         ""typename": "S": "setupOS",hell",  
-             "script": "http://myfilelocation.com/files/osconf.sh" 
-         }, 
-                { 
-             "type": "WindowsRestart", 
-             "restartCommand": "some PowerShell cmd", 
-            "restartCheckCommand": "another PowerShell cmd", 
-  	      "restartTimeout": "10m",          }], 
+
  
 ### Shell customizer
 
@@ -168,11 +193,9 @@ The shell customizer supports running shell scripts, these must be publicly acce
         { 
             "type": "Shell", 
             "name": "setupOS", 
-            "script": "http://myfilelocation.com/files/osconf.sh"         }, 
-                { 
-            "type": "Shell", 
-            "name": "breakOS", 
-            "script": "http://myfilelocation.com/files/brokenosconf.sh"         }], 
+            "script": "<link to script>"        
+		}, 
+	], 
 ```
 
 OS Support: Linux 
@@ -187,7 +210,7 @@ When using `customize`:
 - Customizers execute in the order specified in the template.
 - If one customizer fails, then the whole customization component will fail and report back an error.
 - In preview, there is a 1-hour timeout allowance for customization.
-- It is strongly advised you test the script thoroughly before using in a template, since debugging the script on your own accessible VM will be easier.
+- It is strongly advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
 - Do not put sensitive data in the scripts. The script locations are publicly accessible.
 
 > [!NOTE]
@@ -198,10 +221,10 @@ The Restart customizer allows you to restart a Windows VM and wait for it come b
 
 ```json 
      "customize": [ 
-             "type{ ": "WindowsRestart", 
-             "restartCommand": "shutdown /r /f /t 0 /c", 
-             "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > buildArtifacts/azureImageBuilderRestart.txt",
-             "restartTimeout": "5m"
+            "type{ ": "WindowsRestart", 
+            "restartCommand": "shutdown /r /f /t 0 /c", 
+            "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > buildArtifacts/azureImageBuilderRestart.txt",
+            "restartTimeout": "5m"
          }],
 ```
 
@@ -212,7 +235,7 @@ Customize properties:
 **restartCommand** - Command to execute the restart (optional). The default is `'shutdown /r /f /t 0 /c 
 \"packer restart\"'`.
 **restartCheckCommand** – Command to check if restart succeeded (optional).  [Default: '…..'] 
-**restartTimeout** - Restart timeout specified as a string of magnitude and unit. For example, '5m' (5 minutes) or '2h' (2 hours). The default is: '5m'
+**restartTimeout** - Restart timeout specified as a string of magnitude and unit. For example, `5m` (5 minutes) or `2h` (2 hours). The default is: '5m'
 
 
 ### PowerShell Customizer 
@@ -222,14 +245,14 @@ The shell customizer supports running PowerShell scripts and inline command, the
      "customize": [
         { 
              "type": "PowerShell",
-             "name":   "setupOS",  
-             "script": "http://myfilelocation.com/files/osconf.ps" 
+             "name":   "<name>",  
+             "script": "<path to script>" 
         }, 	
         { 
              "type": "PowerShell", 
-             "name": "updateOS", 
-             "inline": "Install-Module PSWindowsUpdate", 
-  	         "valid_exit_codes": "30" 
+             "name": "<name>", 
+             "inline": "<PowerShell syntax to run>", 
+  	         "valid_exit_codes": "<exit code>" 
          } 
  	], 
 ```
@@ -240,20 +263,47 @@ Customize properties:
 **inline** – Inline commands to be run, separated by commas.
 **valid_exit_codes** – Expected, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
 
+### File customizer
 
+The File customizer lets image builder download a file from a GitHub or Azure storage. If you have an image build pipeline that relies on build artifacts, you can then set the file customizer to download from the build share, and move the artifacts into the image.  
+
+```json
+ 
+     "customize": [ 
+         { 
+            "type": "File", 
+             "name": "<name>", 
+             "sourceUri": "<source location>"                } "destination": "<destination>" 
+  
+ 
+ ```
+ 
+ 
+**sourceUri** - this can be either GitHub or Azure storage. You can only download one file, not an entire directory. If you need to download a directory, use a compressed file, then uncompress it using the Shell or PowerShell customizers. 
+ 
+**destination** – this is the full destination path and file name. Any referenced path and subdirectories must exist, use the Shell or PowerShell customizers to set these up beforehand. 
+
+This is supported by Windows directories and Linux paths, but there are some differences: 
+- Linux OS’s – the only path Image builder can write to is /tmp.
+- Windows – No path restriction, but the path must exist.
+ 
+ 
+If there is an error trying to download the file, or put it in a specified directory, the customize step will fail. 
+ 
+ 
 ## Properties: distribute
 
-IB supports three distribution targets: 
+Azure Image Builder supports three distribution targets: 
 
-- managedImage - managed images.
+- managedImage - managed image.
 - sharedImage - Shared Image Gallery.
 - VHD - VHD in a storage account.
 
 You can distribute an image to both of the target types in the same configuration. For an example, see [azplatform_image_deploy_sigmdi.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
  
-## Managed image
+### Managed image
 
-
+The image output will be a managed image resource.
 
 ```json
 "distribute": [
@@ -269,7 +319,7 @@ You can distribute an image to both of the target types in the same configuratio
          }]
 ```
  
-Distribute properties 
+Distribute properties:
 **type** – managedImage 
 **imageId** – Resource ID of the destination image, expected format: 
 /subscriptions/<subscriptionId>/resourceGroups/<destinationResourceGroupName>/providers/Microsoft.Compute/images/<imageName>
@@ -280,7 +330,7 @@ Distribute properties
  
 > [!NOTE]
 > The destination resource group must exist.
-> If you want the image distributed to a different region, be aware that the Azure Image Builder service will need to transfer the image and this will significantly increase deployment time. 
+> If you want the image distributed to a different region, be aware that the Azure Image Builder service will need to transfer the image and this will increase deployment time. 
 
 ## Shared Image Gallery 
 The Azure Shared Image Gallery is a new Image Management service that allows managing of image region replication, versioning and sharing custom images. Azure Image Builder supports distributing with this service, so you can distribute images to regions supported by Shared Image Galleries. 

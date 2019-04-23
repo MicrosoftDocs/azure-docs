@@ -1,6 +1,6 @@
 ---
 title: Use Azure Image Builder with a Shared Image Gallery
-description: Create an images with Azure Image Builder as part of a Shared Image Gallery.
+description: Create shared images with Azure Image Builder and Shared Image Gallery.
 author: cynthn
 ms.author: cynthn
 ms.date: 04/20/2019
@@ -129,7 +129,7 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIG.json
 
 This next part will create the image version in the gallery. 
 
-Submit the image confiuration to the Azure Image Builder service.
+Submit the image configuration to the Azure Image Builder service.
 
 ```azurecli-interactive
 az resource create \
@@ -188,7 +188,7 @@ You should see the image was customized with a *Message of the Day* as soon as y
 If you want to now try re-customizing the image version to create a new version of the same image, skip the next steps and go on to [Use Azure Image Builder to create another image version](image-builder-gallery-update-image-version.md).
 
 
-This will delete the image that was created, along with all of the other resource files. Make sure you are completely finished with this deployment before proceeding.
+This will delete the image that was created, along with all of the other resource files. Make sure you are finished with this deployment before deleting the resources.
 
 When deleting image gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
 
