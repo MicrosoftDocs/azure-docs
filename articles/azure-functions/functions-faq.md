@@ -47,7 +47,7 @@ Yes, check the [Azure DevOps Integration article](functions-continuous-deploymen
 
 ## Versions
 
-**What are the difference between Functions v1 and v2?**
+**What are the differences between Functions v1 and v2?**
 
 This [article](functions-versions.md) explains the difference between both versions
 
@@ -83,7 +83,7 @@ Check our [Azure Serverless Community Library](https://www.serverlesslibrary.net
 
 **Why there are two CLI tools, and what is the difference between them?**
 
-The Azure Functions Core Tools is mainly a local development tool, it helps you build, run, and debug your app locally. The Azure CLI is for all management operations. Note that, both tools provide a command to publish your app to Azure Functions, in case of the Core Tools publish command, you will need to have the Azure CLI installed, and logged in to your account.
+The Azure Functions Core Tools is mainly a local development tool, it helps you build, run, and debug your app locally. The Azure CLI is for all management operations. Both tools provide a command to publish your app to Azure Functions, in case of the Core Tools publish command, you will need to have the Azure CLI installed, and logged in to your account.
 
 **Where can I get the Azure Functions Core Tools?**
 
