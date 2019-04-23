@@ -63,7 +63,7 @@ Here's the function.json file:
       "type": "httpTrigger",
       "direction": "in",
       "route": "orchestrators/{functionName}/{instanceId}",
-      "methods": ["post", "get"]
+      "methods": ["post"]
     },
     {
       "name": "starter",
