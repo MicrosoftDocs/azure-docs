@@ -176,6 +176,8 @@
       href: use-pod-security-policies.md
     - name: Update cluster service principal credentials
       href: update-credentials.md
+    - name: Restrict and control cluster egress traffic
+      href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:
         - name: Use the Azure CLI
