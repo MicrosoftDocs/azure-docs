@@ -56,7 +56,7 @@ decoding actions to an existing logic app.
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription yet, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * The logic app from where you want to use the AS2 connector 
 and a trigger that starts your logic app's workflow. The AS2 
