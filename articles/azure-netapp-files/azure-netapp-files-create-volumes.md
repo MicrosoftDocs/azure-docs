@@ -12,8 +12,8 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
-ms.date: 3/17/2019
+ms.topic: conceptual
+ms.date: 4/12/2019
 ms.author: b-juche
 ---
 # Create a volume for Azure NetApp Files

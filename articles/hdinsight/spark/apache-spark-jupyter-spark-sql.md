@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Create an Spark cluster in HDInsight using template'
 description: This quickstart shows how to use Resource Manager template to create an Apache Spark cluster in Azure HDInsight, and run a simple Spark SQL query.
-services: azure-hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 

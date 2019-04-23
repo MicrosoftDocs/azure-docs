@@ -168,7 +168,7 @@
   items:
   - name: Start a new app
     href: luis-how-to-start-new-app.md
-    displayName: import
+    displayName: import, export, container
   - name: Build Model
     items:
     - name: Add an intent
@@ -235,7 +235,7 @@
       href: luis-interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
-      displayName: import
+      displayName: import, export
   - name: Publish
     href: luis-how-to-publish-app.md
   - name: Manage app
@@ -248,7 +248,7 @@
       href: luis-how-to-azure-subscription.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
-      diplayName: import
+      diplayName: import, export, container
     - name: Manage authors and collaborators
       displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
@@ -266,7 +266,7 @@
   - name: Use containers
     items:
     - name: Install and run containers
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container
       href: luis-container-howto.md
     - name: Configure containers
       href: luis-container-configuration.md
@@ -316,6 +316,7 @@
       href: luis-reference-prebuilt-url.md
   - name: Prebuilt domain reference
     href: luis-reference-prebuilt-domains.md
+    displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
   - name: Azure CLI
     href: https://aka.ms/az-cli-cognitiveservices
   - name: Azure RM PowerShell

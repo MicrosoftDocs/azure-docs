@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/07/2019
 ms.author: diberry
 ---
 # Understand what good utterances are for your LUIS app
@@ -68,13 +68,45 @@ LUIS builds effective models with utterances that are carefully selected by the 
 
 It is better to start with a few utterances, then [review endpoint utterances](luis-how-to-review-endpoint-utterances.md) for correct intent prediction and entity extraction.
 
-## Punctuation marks
+## Utterance normalization
 
-LUIS doesn't ignore punctuation marks, by default, because some client applications may place significance on these marks. Make sure your example utterances use both punctuation and no punctuation in order for both styles to return the same relative scores. If punctuation has no specific meaning in your client application, consider [ignoring punctuation](#ignoring-words-and-punctuation) by using patterns. 
+Utterance normalization is the process of ignoring the effects of punctuation and diacritics during training and prediction.
 
-## Ignoring words and punctuation
+## Utterance normalization for diacritics and punctuation
 
-If you want to ignore specific words or punctuation in the example utterance, use a [pattern](luis-concept-patterns.md#pattern-syntax) with the _ignore_ syntax. 
+Utterance normalization is defined when you create or import the app because it is a setting in the app JSON file. The utterance normalization settings are turned off by default. 
+
+Diacritics are marks or signs within the text, such as: 
+
+```
+İ ı Ş Ğ ş ğ ö ü
+```
+
+If your app turns normalization on, scores in the **Test** pane, batch tests, and endpoint queries will change for all utterances using diacritics or punctuation.
+
+Turn on utterance normalization for diacritics or punctuation to your LUIS JSON app file in the `settings` parameter.
+
+```JSON
+"settings": [
+    {"name": "NormalizePunctuation", "value": "true"},
+    {"name": "NormalizeDiacritics", "value": "true"}
+] 
+```
+
+Normalizing **punctuation** means that before your models get trained and before your endpoint queries get predicted, punctuation will be removed from the utterances. 
+
+Normalizing **diacritics** replaces the characters with diacritics in utterances with regular characters. For example: `Je parle français` becomes `Je parle francais`. 
+
+Normalization doesn’t mean you will not see punctuation and diacritics in your example utterances or prediction responses, merely that they will be ignored during training and prediction.
+
+
+### Punctuation marks
+
+LUIS doesn't ignore punctuation marks, by default, because some client applications may place significance on these marks. Make sure your example utterances use both punctuation and no punctuation in order for both styles to return the same relative scores. If punctuation has no specific meaning in your client application, consider [ignoring punctuation](#utterance-normalization) by normalizing punctuation. 
+
+### Ignoring words and punctuation
+
+If you want to ignore specific words or punctuation in patterns, use a [pattern](luis-concept-patterns.md#pattern-syntax) with the _ignore_ syntax of square brackets, `[]`. 
 
 ## Training utterances
 
