@@ -78,7 +78,6 @@ Hubs should generally be associated to sites that are in the same region that th
 
 ## <a name="vnet"></a>5. Create a virtual network
 
-  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
 

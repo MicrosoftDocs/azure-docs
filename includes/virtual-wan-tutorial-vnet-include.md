@@ -10,12 +10,14 @@
  ms.custom: include file
 ---
 
-If you do not already have a VNet, you can quickly create one using PowerShell. You can also create a virtual network using the Azure portal.
+If you do not already have a VNet, you can quickly create one using PowerShell or the Azure portal.
 
-* Be sure to verify that the address space for the VNet that you create does not overlap with any of the address ranges for other VNets that you want to connect to, or with your on-premises network address spaces. 
+To quickly create a VNet, you can click "Try It" in this article to open a PowerShell console. Adjust the values, then copy and paste the commands into the console window. To learn more about the new Az module and AzureRM compatibility, see
+[Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az). For
+Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+
+* Be sure to verify that the address space for the VNet that you create does not overlap with any of the address ranges for other VNets that you want to connect to, or with your on-premises network address spaces.
 * If you already have a VNet, verify that it meets the required criteria and does not have a virtual network gateway.
-
-You can easily create your VNet by clicking "Try It" in this article to open a PowerShell console. Adjust the values, then copy and paste the commands into the console window.
 
 ### Create a resource group
 
