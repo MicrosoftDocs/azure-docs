@@ -143,5 +143,4 @@ To stop the topology, use __Ctrl + C__.
 
 See the following documents for other ways to use Python with HDInsight:
 
-* [How to use Python for streaming MapReduce jobs](../hadoop/apache-hadoop-streaming-python.md)
 * [How to use Python User Defined Functions (UDF) in Apache Pig and Apache Hive](../hadoop/python-udf-hdinsight.md)
