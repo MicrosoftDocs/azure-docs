@@ -21,6 +21,8 @@
     href: azure-netapp-files-resource-limits.md
   - name: Metrics for Azure NetApp Files
     href: azure-netapp-files-metrics.md
+  - name: Performance benchmarks for Azure NetApp Files
+    href: azure-netapp-files-performance-benchmarks.md
 #  - name: FAQ for networking and security
 #    href: azure-netapp-files-faq-for-networking-security.md
 - name: How-to guides
