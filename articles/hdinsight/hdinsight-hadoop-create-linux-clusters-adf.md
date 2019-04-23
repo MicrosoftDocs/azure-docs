@@ -50,6 +50,9 @@ This section uses an Azure PowerShell script to create the storage account and c
 4. Creates a Blob container in the storage account
 5. Copies the sample HiveQL script (**hivescript.hql**) the Blob container. The script is available at [https://hditutorialdata.blob.core.windows.net/adfv2hiveactivity/hivescripts/hivescript.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). The sample script is already available in another public Blob container. The PowerShell script below makes a copy of these files into the Azure Storage account it creates.
 
+> [!WARNING]  
+> Storage account kind `BlobStorage` cannot be used for HDInsight clusters.
+
 **To create a storage account and copy the files using Azure PowerShell:**
 
 > [!IMPORTANT]  
@@ -95,7 +98,8 @@ New-AzStorageAccount `
     -Name $destStorageAccountName `
     -Kind StorageV2 `
     -Location $location `
-    -SkuName Standard_LRS
+    -SkuName Standard_LRS `
+    -EnableHttpsTrafficOnly 1
 
 $destStorageAccountKey = (Get-AzStorageAccountKey `
     -ResourceGroupName $resourceGroupName `
@@ -353,7 +357,7 @@ Alternatively, you can delete the entire resource group that you created for thi
 
 
 ## Next steps
-In this article, you learned how to use Azure Data Factory to create on-demand HDInsight cluster and run [Apache Hive](https://hive.apache.org/) jobs. Advance to the next artciel to learn how to create HDInsight clusters with custom configuration.
+In this article, you learned how to use Azure Data Factory to create on-demand HDInsight cluster and run [Apache Hive](https://hive.apache.org/) jobs. Advance to the next article to learn how to create HDInsight clusters with custom configuration.
 
 > [!div class="nextstepaction"]
 >[Create Azure HDInsight clusters with custom configuration](hdinsight-hadoop-provision-linux-clusters.md)
