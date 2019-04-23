@@ -17,14 +17,11 @@ ms.author: diberry
 
 Use follow-up prompts and context to manage the multiple turns, known as _multi-turn_, for your bot from one question to another.
 
+Learn from the [demonstration video](https://aka.ms/multiturnexample).
+
 ## What is a multi-turn conversation?
 
-Some types of conversation can't be completed in a single turn. A bot needs multiple questions to filter down to the correct answer. Some scenarios that require multiple conversational turns include:
-
-* A bot that prompts the user for additional information that it needs to complete a task. The bot needs to track whether it has all the parameters for fulfilling the task.
-* A bot that guides the user through steps in a process, such as placing an order. The bot needs to track where the user is in the sequence of steps.
-
-This flow through the questions is possible by presenting the user with follow-up prompts.
+Some types of conversation can't be completed in a single turn. When you design your client application (chat bot) conversations, a user may ask a question that needs to be filtered or refined in order to determine the correct answer. This flow through the questions is possible by presenting the user with **follow-up prompts**.
 
 When the user asks the question, QnA Maker returns the answer _and_ any follow-up prompts. This allows you to present the follow-up questions as choices. 
 
@@ -52,8 +49,6 @@ When importing the PDF document, QnA Maker determines follow-up prompts from the
 
 ![![When importing the PDF document, QnA Maker determines follow-up prompts from the structure to create conversational flow. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-
-
 ## Filter questions and answers by context
 
 1. Reduce the question and answer pairs displayed to just those with contextual conversations. Select **View options**, then select **Show context (PREVIEW)**. The list will be empty until you add the first question and answer pair with a follow-up prompt. 
@@ -80,7 +75,8 @@ When importing the PDF document, QnA Maker determines follow-up prompts from the
 1. Select **Add follow-up prompt** for the `Give feedback` question to add another follow-up prompt. 
 1. Create a new question by entering  `Feedback on an existing feature`, with the answer `Which feature would you like to give feedback on?`.  
 
-    Check **Context-only**, then select **Save**. 
+1.  Check **Context-only**. The **Context-only** option indicates that this user text will be understood _only_ if given in response to the previous question. For this scenario, the prompt text doesn't make any sense as a stand-alone question, it only makes sense from the context of the previous question.
+1.  Select **Save**. 
 
     This created a new question and linked the question as a follow-up prompt question to the `Give feedback` question.
     

@@ -80,40 +80,40 @@
     displayName: metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard
 - name: How-to guides
   items:
+  - name: Edit knowledge base
+    items: 
+    - name: Edit a knowledge base
+      href: How-To/edit-knowledge-base.md    
+    - name: Create multi-turn conversations with follow-up prompts
+      href: How-To/multiturn-conversation.md
+      displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
+    - name: Add chit-chat 
+      href: How-to/chit-chat-knowledge-base.md
+    - name: Add a secured Sharepoint file
+      href: How-To/add-sharepoint-datasources.md
+      displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
   - name: Manage knowledge base
     items:
     - name: Create and publish a knowledge base
       href: Quickstarts/create-publish-knowledge-base.md
       displayName: create bot, bot, publish to bot, test, edit
-    - name: Add chit-chat to knowledge base
-      href: How-to/chit-chat-knowledge-base.md
-    - name: Create multi-turn conversations with follow-up prompts
-      href: How-To/multiturn-conversation.md
-      displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
-    - name: Migrate a knowledge base
-      href: Tutorials/migrate-knowledge-base.md
-    - name: Edit a knowledge base
-      href: How-To/edit-knowledge-base.md
-      displayName: metadata, pair
-    - name: Add a secured Sharepoint file
-      href: How-To/add-sharepoint-datasources.md
-      displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
-    - name: Collaborate on a knowledge base
-      href: How-To/collaborate-knowledge-base.md      
+    - name: Get answer
+      href: How-To/metadata-generateanswer-usage.md  
+      displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer
+    - name: Create bot enabled with knowledge base
+      href: Tutorials/integrate-qnamaker-luis.md
     - name: Create a knowledge base in a different language
       href: How-To/language-knowledge-base.md
+    - name: Migrate a knowledge base
+      href: Tutorials/migrate-knowledge-base.md
+      displayName: metadata, pair
+    - name: Collaborate on a knowledge base
+      href: How-To/collaborate-knowledge-base.md      
     - name: Test a knowledge base
       href: How-To/test-knowledge-base.md
     - name: Use active learning to improve knowledge base
       href: How-to/improve-knowledge-base.md
       displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning
-  - name: Use knowledge base
-    items: 
-    - name: Use metadata with GenerateAnswer API
-      href: How-To/metadata-generateanswer-usage.md  
-      displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters
-    - name: With a bot  
-      href: Tutorials/integrate-qnamaker-luis.md
   - name: Manage service
     items:
     - name: Set up a QnA Maker service
