@@ -141,7 +141,7 @@ This command:
 
 ### Form Recognizer
 
-The container provides websocket-based query endpoint APIs, that are accessed through [Form Recognizer services SDK documentation](https://docs.microsoft.com/azure/cognitive-services/formrecognizer/).
+The container provides websocket-based query endpoint APIs, that are accessed through [Form Recognizer services SDK documentation](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
 
 By default, the Form Recognizer SDK uses the online services. To use the container, you need to change the initialization method. See the examples below.
 
