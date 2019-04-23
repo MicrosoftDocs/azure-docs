@@ -16,7 +16,6 @@ ms.date: 04/23/2019
 
 As a cloud service provider, we understand the importance of maintaining the integrity and confidentiality of customer data. `Need to complete this section`
 
-![Azure Customer Lockbox - landing page](./media/azure-customer-lockbox/customer-lockbox-landing-page.png)
 
 
 ## Workflow
@@ -49,7 +48,9 @@ The following steps outline a typical workflow for a Customer Lockbox request.
     
     ![Azure Customer Lockbox - email notification](./media/azure-customer-lockbox/xxx.png)
 
-8. The email notification provides a link to the **Customer Lockbox** blade in the Azure portal. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox.
+8. The email notification provides a link to the **Customer Lockbox** blade in the Azure portal. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox:
+    
+    ![Azure Customer Lockbox - landing page](./media/azure-customer-lockbox/customer-lockbox-landing-page.png)
     
    The request remains in the customer queue for four days. After this time, the access request automatically expires and no access is granted to Microsoft engineers.
 
@@ -66,7 +67,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
     ![Azure Customer Lockbox - select Approve or Deny](./media/azure-customer-lockbox/customer-lockbox-approval.png)
     
     As a result of the selection:
-    - **Approve**:  Access is granted to the Microsoft engineer. The access is granted for a default period of 8 hours.
+    - **Approve**:  Access is granted to the Microsoft engineer. The access is granted for a default period of eight hours.
     - **Deny**: The elevated access request by the Microsoft engineer is rejected and no further action is taken.
 
 For auditing purposes, the actions taken in this workflow are logged in [Customer Lockbox request logs](#auditing-logs).
@@ -95,7 +96,7 @@ The following services and scenarios are currently in general availability for C
 
 ### Remote desktop access to virtual machines
 
-Customer Lockbox is currently enabled for remote desktop access requests to virtual machines. Interactive remote desktop access to the following workloads is supported:
+Customer Lockbox is currently enabled for remote desktop access requests to virtual machines. The following workloads are supported:
 - Platform as a service (PaaS) - version 1
 - Infrastructure as a service (IaaS) - Windows and Linux (ARM-based only)
 - Virtual machine scale set - Windows and Linux
@@ -103,7 +104,7 @@ Customer Lockbox is currently enabled for remote desktop access requests to virt
 > [!NOTE]
 > IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IaaS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
-#### Detailed audit logs 
+#### Detailed audit logs
 
 For scenarios that involve direct remote desktop access to a virtual machine, you can also use the Windows Event Log. If a virtual machine agent is installed on the virtual machine, you can export these logs for analysis and alerting. This data can then be used by other monitoring solutions, such as Azure Monitor.
 
@@ -121,6 +122,5 @@ Customer Lockbox requests aren't triggered in the following scenarios:
 
 - **Incidental access at the platform layer**
     
-    This scenario can arise when a Microsoft engineer accesses the platform as part of troubleshooting and inadvertently has access to customer data. For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. However, if the customer encrypted the data while it was in transit, the engineers cannot read the data.
-
+    This scenario can arise when a Microsoft engineer accesses the Azure platform as part of troubleshooting and inadvertently has access to customer data. For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. However, if the customer encrypted the data while it was in transit, the engineers cannot read the data.
 
