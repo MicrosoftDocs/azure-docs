@@ -14,7 +14,6 @@ ms.author: aahi
 
 # Language and region support for the Ink Recognizer API
 
-
 This article explains which languages are supported for the Ink Recognizer API. Digital ink content written in the following languages can be interpreted and processed by the API.
 
 | Language                                   | Language code   |

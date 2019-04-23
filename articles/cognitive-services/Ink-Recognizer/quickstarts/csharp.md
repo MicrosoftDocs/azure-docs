@@ -13,9 +13,13 @@ ms.author: aahi
 
 # Quickstart: Recognize digital ink with the Ink Recognizer REST API and C#
 
-Use this quickstart to begin using the Ink Recognizer API on digital ink strokes. This C# application sends an API request containing JSON-formatted ink stroke data, and gets the response.
+Use this quickstart to begin sending digital ink strokes to the Ink Recognizer API. This C# application sends an API request containing JSON-formatted ink stroke data, and gets the response.
 
- While this application is written in C#, the API is a RESTful web service compatible with most programming languages.
+While this application is written in C#, the API is a RESTful web service compatible with most programming languages.
+
+Typically you would call the API from a digital inking app. This quickstart sends ink stroke data for the following handwritten sample from a JSON file.
+
+![an image of handwritten text](../media/handwriting-sample.jpg)
 
 ## Prerequisites
 
@@ -27,11 +31,7 @@ Use this quickstart to begin using the Ink Recognizer API on digital ink strokes
         3. Search for `Newtonsoft.Json` and install the package
 - If you are using Linux/MacOS, this application can be ran using [Mono](http://www.mono-project.com/).
 
-Usually you would call the API from a digital inking app. This quickstart sends ink stroke data for the following handwritten sample from a JSON file.
-
-![an image of handwritten text](../media/handwriting-sample.jpg)
-
-The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+- The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 

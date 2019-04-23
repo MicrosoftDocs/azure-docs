@@ -15,7 +15,11 @@ ms.author: aahi
 
 Use this quickstart to begin using the Ink Recognizer API on digital ink strokes. This Java application sends an API request containing JSON-formatted ink stroke data, and gets the response.
 
- While this application is written in Java, the API is a RESTful web service compatible with most programming languages.
+While this application is written in Java, the API is a RESTful web service compatible with most programming languages.
+
+Typically you would call the API from a digital inking app. This quickstart sends ink stroke data for the following handwritten sample from a JSON file.
+
+![an image of handwritten text](../media/handwriting-sample.jpg)
 
 ## Prerequisites
 
@@ -25,14 +29,7 @@ Use this quickstart to begin using the Ink Recognizer API on digital ink strokes
     - [JSON in Java](https://mvnrepository.com/artifact/org.json/json) package
     - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) package
 
-- A JSON file containing digital ink strokes. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
-
-Usually you would call the API from a digital inking app. This quickstart sends ink stroke data for the following handwritten sample from a JSON file.
-
-![an image of handwritten text](../media/handwriting-sample.jpg)
-
-
-The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+- The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 

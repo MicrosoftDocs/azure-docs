@@ -14,13 +14,11 @@ ms.author: erhopf
 
 # Send ink data to the Ink Recognizer API 
 
-Digital inking refers to the technologies that enable digital representation of input such as handwriting and drawings. This is typically achieved using a digitizer that captures the movements of input devices, such as a stylus. As devices continue to enable rich digital inking experiences, artificial intelligence and machine learning enables the recognition of written shapes and text in any context.
-
-The Ink Recognizer API enables you to send ink strokes and get detailed information about them. 
+Digital inking refers to the technologies that enable digital representations of input such as handwriting and drawings. This is typically achieved using a digitizer that captures the movements of input devices, such as a stylus. As devices continue to enable rich digital inking experiences, artificial intelligence and machine learning enables the recognition of written shapes and text in any context. The Ink Recognizer API enables you to send ink strokes and get detailed information about them. 
 
 ## The Ink Recognizer API vs. Optical Character Recognition(OCR)
 
-The Ink Recognizer API doesn't use optical character recognition. OCR-based systems interpret ink strokes visually by looking at their characteristics. Instead, the API requires the X,Y coordinates that represent the ink stroke created by an input device, from the moment it touches the detection surface to when it's lifted.
+The Ink Recognizer API doesn't use optical character recognition. OCR-based systems interpret ink strokes visually by looking at their characteristics. This API instead requires the X,Y coordinates that represent the ink stroke created by an input device, from the moment it touches the detection surface to when it's lifted.
 
 ## Sending ink data to the API
 
@@ -30,7 +28,7 @@ The Ink Recognizer API is a stateless service that accepts ink strokes as a time
 * The API parameters that were used.
 * The number of data points in your API request.
 
-Data points sent to the Anomaly Detector API must be formatted in JSON and have numerical X and Y values, like the example below
+Data points sent to the Anomaly Detector API must be formatted in JSON and have numerical X and Y values, like the example below.
 
 ```json
 {
@@ -59,17 +57,17 @@ Data points sent to the Anomaly Detector API must be formatted in JSON and have 
 
 ## Recommended calling patterns
 
-You can call the Ink Recognizer REST API in different patterns according to different scenarios. 
+You can call the Ink Recognizer REST API in different patterns according to your application. 
 
 ### User initiated API calls
 
-If you're building an app that takes user input (for example, a note taking or annotation app), you probably want to give them control of when and which ink gets sent to the Ink Recognizer API. This is especially useful when text and shapes are both present on the canvas, and users want to perform different actions for each. Consider adding selection features (like a lasso or rectangle selection tool), that enable users to choose what gets sent to the API.  
+If you're building an app that takes user input (for example, a note taking or annotation app), you may want to give them control of when and which ink gets sent to the Ink Recognizer API. This is especially useful when text and shapes are both present on the canvas, and users want to perform different actions for each. Consider adding selection features (like a lasso or geometric selection tool) that enable users to choose what gets sent to the API.  
 
 ### App initiated API calls
 
-You can also have your app call the Ink Recognizer API after a timeout. By sending the current ink strokes to the API routinely, you can store recognition results as they're created while reducing the API processing and response time. For example, you can send a line of handwritten text to the API after detecting your user has completed it. 
+You can also have your app call the Ink Recognizer API after a timeout. By sending the current ink strokes to the API routinely, you can store recognition results as they're created while improving the API's response time. For example, you can send a line of handwritten text to the API after detecting your user has completed it. 
 
-Having the recognition results in advance gives you information about the characteristics of ink strokes as they relate to each other - which strokes are grouped to form the same word, line, list, paragraph or shape. This information can enhance the ink selection features in your app by being able to select groups of strokes at once, for example.
+Having the recognition results in advance gives you information about the characteristics of ink strokes as they relate to each other. For example, which strokes are grouped to form the same word, line, list, paragraph or shape. This information can enhance your app's ink selection features by being able to select groups of strokes at once, for example.
 
 ## Integrate the Ink Recognizer API with Windows Ink
 

@@ -15,15 +15,17 @@ ms.author: aahi
 
 Use this quickstart to begin using the Ink Recognizer API on digital ink strokes. This JavaScript application sends an API request containing JSON-formatted ink stroke data, and displays the response.
 
-While this application is written in Javascript and runs in your browser, the API is a RESTful web service compatible with most programming languages.
+While this application is written in Javascript and runs in your web browser, the API is a RESTful web service compatible with most programming languages.
 
-## Prerequisites
-
-Usually you would call the API from a digital inking app. This quickstart sends ink stroke data for the following handwritten sample from a JSON file.
+Typically you would call the API from a digital inking app. This quickstart sends ink stroke data for the following handwritten sample from a JSON file.
 
 ![an image of handwritten text](../media/handwriting-sample.jpg)
 
-The ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+## Prerequisites
+
+- A web browser
+- The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
