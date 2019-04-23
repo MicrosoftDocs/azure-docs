@@ -6,7 +6,7 @@ author: MichaelHauss
 
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2018
+ms.date: 04/23/2019
 ms.author: mihauss
 ms.subservice: blobs
 ---
