@@ -1,6 +1,6 @@
 ---
 title: Webhook actions for log alerts in Azure Alerts
-description: This article describes how to an log alert rule using log analytics or application insights, will push data as HTTP webhook and details of the different customizations possible.
+description: This article describes how to an log alert rule using log analytics workspace or application insights, will push data as HTTP webhook and details of the different customizations possible.
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
@@ -197,5 +197,5 @@ Following is a sample payload for a custom webhook action for any log alert.
 - Understand [managing log alerts in Azure](alerts-log.md)
 - Create and manage [action groups in Azure](action-groups.md)
 - Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
-- Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
+- Learn more about [log queries](../log-query/log-query-overview.md). 
 

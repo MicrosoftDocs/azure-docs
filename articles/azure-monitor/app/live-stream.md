@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ---
@@ -31,7 +31,7 @@ With Live Metrics Stream, you can:
 
 [![Live Metrics Stream video](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions, and Java apps.
+Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions, Java, and Node.js apps.
 
 ## Get started
 
@@ -45,10 +45,13 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 
 4. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data such as customer names in your filters.
 
+### Node.js
+
+To use Live Metrics with Node.js you must update to version 1.30 or greater of the SDK. By default Live Metrics is disabled in the Node.js SDK. To enable Live Metrics add `setSendLiveMetrics(true)` to your [configuration methods](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) as you initialize the SDK.
+
 ### No data? Check your server firewall
 
 Check the [outgoing ports for Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) are open in the firewall of your servers. 
-
 
 ## How does Live Metrics Stream differ from Metrics Explorer and Analytics?
 
@@ -60,7 +63,6 @@ Check the [outgoing ports for Live Metrics Stream](../../azure-monitor/app/ip-ad
 |Free|There is no charge for Live Stream data|Subject to [pricing](../../azure-monitor/app/pricing.md)
 |Sampling|All selected metrics and counters are transmitted. Failures and stack traces are sampled. TelemetryProcessors are not applied.|Events may be [sampled](../../azure-monitor/app/api-filtering-sampling.md)|
 |Control channel|Filter control signals are sent to the SDK. We recommend you secure this channel.|Communication is one-way, to the portal|
-
 
 ## Select and filter your metrics
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 04/05/2019
 ms.author: monhaber
 
 ---
@@ -26,9 +26,10 @@ This article addresses recommendations that apply to your Azure resources from a
 > The **Networking** page lets you deep dive into your Azure resource health from a network perspective. The Network map and Adaptive Network Controls are available for the Azure Security Center standard tier only. [If you use the free tier, you can click the button to **View legacy networking** and receive networking resource recommendations](#legacy-networking).
 >
 
-The **Networking** blade provides an overview of the sections you can deep dive into, to get more information about the health of your network resources:
+The **Networking** page provides an overview of the sections you can deep dive into, to get more information about the health of your network resources:
 
 - Network map (Azure Security Center Standard tier only)
+- Adaptive Network Hardening
 - Networking security recommendations.
 - Legacy **Networking** blade (the previous networking blade) 
  

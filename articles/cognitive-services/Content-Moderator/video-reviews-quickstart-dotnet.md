@@ -164,7 +164,7 @@ Create a video review with **ContentModeratorClient.Reviews.CreateVideoReviews**
 **CreateVideoReviews** has the following required parameters:
 1. A string that contains a MIME type, which should be "application/json." 
 1. Your Content Moderator team name.
-1. An **IList<CreateVideoReviewsBodyItem>** object. Each **CreateVideoReviewsBodyItem** object represents a video review. This quickstart creates one review at a time.
+1. An **IList\<CreateVideoReviewsBodyItem>** object. Each **CreateVideoReviewsBodyItem** object represents a video review. This quickstart creates one review at a time.
 
 **CreateVideoReviewsBodyItem** has several properties. At a minimum, you set the following properties:
 - **Content**. The URL of the video to be reviewed.
@@ -222,18 +222,18 @@ You add video frames to a video review with **ContentModeratorClient.Reviews.Add
 1. A string that contains a MIME type, which should be "application/json."
 1. Your Content Moderator team name.
 1. The video review ID returned by **CreateVideoReviews**.
-1. An **IList<VideoFrameBodyItem>** object. Each **VideoFrameBodyItem** object represents a video frame.
+1. An **IList\<VideoFrameBodyItem>** object. Each **VideoFrameBodyItem** object represents a video frame.
 
 **VideoFrameBodyItem** has the following properties:
 - **Timestamp**. A string that contains, in seconds, the time in the video from which the video frame was taken.
 - **FrameImage**. The URL of the video frame.
-- **Metadata**. An IList<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** is simply a key/value pair. Valid keys include:
+- **Metadata**. An IList\<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** is simply a key/value pair. Valid keys include:
 - **reviewRecommended**. True if a human review of the video frame is recommended.
 - **adultScore**. A value from 0 to 1 that rates the severity of adult content in the video frame.
 - **a**. True if the video contains adult content.
 - **racyScore**. A value from 0 to 1 that rates the severity of racy content in the video frame.
 - **r**. True if the video frame contains racy content.
-- **ReviewerResultTags**. An IList<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** is simply a key/value pair. An application can use these tags to organize video frames.
+- **ReviewerResultTags**. An IList\<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** is simply a key/value pair. An application can use these tags to organize video frames.
 
 > [!NOTE]
 > This quickstart generates random values for the **adultScore** and **racyScore** properties. In a production application, you would obtain these values from the [video moderation service](video-moderation-api.md), deployed as an Azure Media Service.

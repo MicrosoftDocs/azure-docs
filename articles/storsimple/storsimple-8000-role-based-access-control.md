@@ -23,6 +23,8 @@ This article provides a brief description of how Azure Role-Based Access Control
 
 This article applies to StorSimple 8000 series devices running Update 3.0 or later in the Azure portal.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## RBAC roles for StorSimple
 
 RBAC can be assigned based on the roles. The roles ensure certain permission levels based on the available resources in the environment. There are two types of roles that StorSimple users can choose from: built-in or custom.
@@ -42,14 +44,14 @@ In the following example, we start with the built-in role **Reader** that allows
 
 2. Log in to Azure.
 
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 
 3. Export the Reader role as a JSON template on your computer.
 
     ```powershell
-    Get-AzureRMRoleDefinition -Name "Reader"
+    Get-AzRoleDefinition -Name "Reader"
 
-    Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+    Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
 4. Open the JSON file in Visual Studio. You see that a typical RBAC role consists of three main sections, **Actions**, **NotActions**, and **AssignableScopes**.
@@ -58,7 +60,7 @@ In the following example, we start with the built-in role **Reader** that allows
 
     Use PowerShell to see all the resource providers available and registered in your subscription.
 
-    `Get-AzureRMResourceProvider`
+    `Get-AzResourceProvider`
 
     You can also check for all the available PowerShell cmdlets to manage the resource providers.
 
@@ -98,7 +100,7 @@ In the following example, we start with the built-in role **Reader** that allows
 
 6. Import the custom RBAC role back into the environment.
 
-    `New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"`
+    `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 
 
 This role should now appear in the list of roles in the **Access control** blade.
@@ -110,7 +112,7 @@ For more information, go to [Custom roles](../role-based-access-control/custom-r
 ### Sample output for custom role creation via the PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ```Output
@@ -123,7 +125,7 @@ CurrentStorageAccount :
 ```
 
 ```powershell
-Get-AzureRMRoleDefinition -Name "Reader"
+Get-AzRoleDefinition -Name "Reader"
 ```
 
 ```Output
@@ -137,8 +139,8 @@ AssignableScopes : {/}
 ```
 
 ```powershell
-Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
-New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
+Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"
 ```
 
 ```Output

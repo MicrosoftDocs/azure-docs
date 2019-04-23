@@ -297,7 +297,7 @@ Learn more about the [AnchorLocatedDelegate](https://docs.microsoft.com/dotnet/a
                 // This anchor has already been reported and is being tracked
                 break;
             case LocateAnchorStatus.NotLocatedAnchorDoesNotExist:
-                // The anchor was deleted or never exited in the first place
+                // The anchor was deleted or never existed in the first place
                 // Drop it, or show UI to ask user to anchor the content anew
                 break;
             case LocateAnchorStatus.NotLocated:

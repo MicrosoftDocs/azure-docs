@@ -20,6 +20,8 @@ Graphical processing units (GPUs) are often used for compute-intensive workloads
 > [!NOTE]
 > GPU-enabled VMs contain specialized hardware that is subject to higher pricing and region availability. For more information, see the [pricing][azure-pricing] tool and [region availability][azure-availability].
 
+Currently, using GPU-enabled node pools is only available for Linux node pools.
+
 ## Before you begin
 
 This article assumes that you have an existing AKS cluster with nodes that support GPUs. Your AKS cluster must run Kubernetes 1.10 or later. If you need an AKS cluster that meets these requirements, see the first section of this article to [create an AKS cluster](#create-an-aks-cluster).

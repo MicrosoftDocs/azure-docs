@@ -3,7 +3,7 @@ title: Supported languages in Azure Maps | Microsoft Docs
 description: Learn about supported languages for the services in Azure Maps
 author: juliekohler
 ms.author: julieko
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -30,7 +30,10 @@ table provides the supported language codes for each service. 
 | da-DK      | Danish                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-NL      | Dutch                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-BE      | Dutch (belgian)        |       |    ✓   |         |                   |                |     ✓     |
-| en         | English                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-AU      | English (Australia)    |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-NZ      | English (New Zealand)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-GB      | English (Great Britain) |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-US      | English (USA)          |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | et-EE      | Estonian               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | Finnish                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | French                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

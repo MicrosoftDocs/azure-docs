@@ -163,7 +163,7 @@ You can find the full source code of the sample application used in this walk th
 
 ## Clean up resources
 
-The fastest way to clean up after a example is by deleting the resource group containing the Azure Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Search service.
+The fastest way to clean up after an example is by deleting the resource group containing the Azure Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Search service.
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Azure Active Directory conditional access settings reference | Microsoft Docs
 description: Get an overview of the supported settings in an Azure Active Directory conditional access policy.
 
-services: active-directory.
+services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
@@ -118,8 +118,8 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
 | Windows 8 / 8.1        | Internet Explorer, Chrome                     |
 | Windows 7              | Internet Explorer, Chrome                     |
-| iOS                    | Safari, Intune Managed Browser                |
-| Android                | Chrome, Intune Managed Browser                |
+| iOS                    | Safari, Microsoft Edge, Intune Managed Browser |
+| Android                | Chrome, Microsoft Edge, Intune Managed Browser |
 | Windows Phone          | Internet Explorer, Microsoft Edge             |
 | Windows Server 2016    | Internet Explorer, Microsoft Edge             |
 | Windows Server 2016    | Chrome                                        |
@@ -230,6 +230,23 @@ This setting applies to the following client apps:
 - The approved client apps support the Intune mobile application management feature.
 - The **Require approved client app** requirement:
    - Only supports the iOS and Android for [device platform condition](#device-platform-condition).
+
+## App protection policy requirement 
+
+In your conditional access policy, you can require an app protection policy be present on the client app before access is available to the selected cloud apps. 
+
+![Control access with app protection policy](./media/technical-reference/22.png)
+
+This setting applies to the following client apps:
+
+- Microsoft OneDrive
+- Microsoft Outlook
+
+**Remarks**
+
+- Apps for app protection policy support the Intune mobile application management feature with policy protection.
+- The **Require app protection policy** requirements:
+    - Only supports the iOS and Android for [device platform condition](#device-platform-condition).
 
 ## Next steps
 
