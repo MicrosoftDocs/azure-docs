@@ -4,7 +4,7 @@ description: Use an Azure IoT Edge device as a transparent gateway that can proc
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/29/2018
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -223,12 +223,24 @@ Now that you've made a certificate chain, you need to install it on the IoT Edge
 
 3. Set the **certificate** properties in the config.yaml file to the path where you placed the certificate and key files on the IoT Edge device.
 
-```yaml
-certificates:
-  device_ca_cert: "<CERTDIR>\\certs\\new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "<CERTDIR>\\private\\new-edge-device.key.pem"
-  trusted_ca_certs: "<CERTDIR>\\certs\\azure-iot-test-only.root.ca.cert.pem"
-```
+   * Windows:
+
+      ```yaml
+      certificates:
+        device_ca_cert: "<CERTDIR>\\certs\\new-edge-device-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>\\private\\new-edge-device.key.pem"
+        trusted_ca_certs: "<CERTDIR>\\certs\\azure-iot-test-only.root.ca.cert.pem"
+      ```
+   
+   * Linux: 
+      ```yaml
+      certificates:
+        device_ca_cert: "/certs/new-edge-device-full-chain.cert.pem"
+        device_ca_pk: "/certs/new-edge-device.key.pem"
+        trusted_ca_certs: "/certs/azure-iot-test-only.root.ca.cert.pem"
+      ```
+
+4. On Linux devices, make sure that the user **iotedge** has read permissions for the directory holding the certificates. 
 
 ## Deploy EdgeHub to the gateway
 
