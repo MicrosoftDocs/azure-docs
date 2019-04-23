@@ -3,8 +3,8 @@ title: Find and delete unattached Azure managed and unmanaged disks | Microsoft 
 description: How to find and delete unattached Azure managed and unmanaged (VHDs/page blobs) disks by using Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
-author: ramankumarlive
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: ramankum
+ms.author: rogarana
 ms.subservice: disks
 ---
 
