@@ -68,7 +68,7 @@ At line:1 char:1
 
 **Cause:** The user who's signed in hasn't been assigned the TenantCreator role in their Azure Active Directory.
 
-**Fix:** Follow the instructions in [Assign the TenantCreator application role to a user in your Azure Active Directory tenant](https://docs.microsoft.com/en-us/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant). After following the instructions, you'll have a user assigned to the TenantCreator role.
+**Fix:** Follow the instructions in [Assign the TenantCreator application role to a user in your Azure Active Directory tenant](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant). After following the instructions, you'll have a user assigned to the TenantCreator role.
 
 ![Screenshot of TenantCreator role assigned.](media/TenantCreatorRoleAssigned.png)
 
@@ -142,7 +142,7 @@ Example of raw error:
 
 **Cause 2:** Transient error with connection.
 
-**Fix:** Confirm Windows Virtual Desktop environment is healthy by signing in using PowerShell. Finish the VM registration manually in [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
+**Fix:** Confirm Windows Virtual Desktop environment is healthy by signing in using PowerShell. Finish the VM registration manually in [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
 **Error:** The Admin Username specified isn't allowed.
 
@@ -360,7 +360,7 @@ Use this section to troubleshoot issues when configuring the session host VMs.
 
 Follow these instructions if you're having issues joining VMs to the domain.
 
-- Join the VM manually using the process in [Join a Windows Server virtual machine to a managed domain](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/Active-directory-ds-admin-guide-join-windows-vm-portal) or using the [domain join template](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join-existing/).
+- Join the VM manually using the process in [Join a Windows Server virtual machine to a managed domain](https://docs.microsoft.com/azure/active-directory-domain-services/Active-directory-ds-admin-guide-join-windows-vm-portal) or using the [domain join template](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 - Try pinging the domain name from command line on VM.
 - Review the list of domain join error messages in [Troubleshooting Domain Join Error Messages](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx).
 
@@ -371,8 +371,8 @@ Follow these instructions if you're having issues joining VMs to the domain.
 **Fix:** Follow these instructions to correct the credentials.
 
 1. Manually add the VMs to a domain.
-2. Redeploy once credentials have been confirmed. See [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
-3. Join VMs to a domain using a template with [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join-existing/).
+2. Redeploy once credentials have been confirmed. See [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+3. Join VMs to a domain using a template with [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 
 **Error:** Timeout waiting for user input.
 
@@ -396,11 +396,11 @@ Follow these instructions if you're having issues joining VMs to the domain.
 
 **Cause 1:** VMs are in a resource group that's not associated with the virtual network (VNET) where the domain is located.
 
-**Fix 1:** Create VNET peering between the VNET where VMs were provisioned and the VNET where the domain controller (DC) is running. See [Create a virtual network peering - Resource Manager, different subscriptions](https://docs.microsoft.com/en-us/azure/virtual-network/create-peering-different-subscriptions).
+**Fix 1:** Create VNET peering between the VNET where VMs were provisioned and the VNET where the domain controller (DC) is running. See [Create a virtual network peering - Resource Manager, different subscriptions](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions).
 
 **Cause 2:** When using AadService (AADS), DNS entries have not been set.
 
-**Fix 2:** To set domain services, see [Enable Azure Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
+**Fix 2:** To set domain services, see [Enable Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
 
 ### Windows Virtual Desktop Agent and Windows Virtual Desktop Boot Loader are not installed
 
@@ -416,7 +416,7 @@ Follow these instructions to confirm the components are installed and to check f
 
 **Cause 1:** Credentials provided during input for the Azure Resource Manager template were incorrect or permissions were insufficient.
 
-**Fix 1:** Manually add the missing components to the VMs using [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
+**Fix 1:** Manually add the missing components to the VMs using [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
 **Cause 2:** PowerShell DSC was able to start and execute but failed to complete as it can't sign in to Windows Virtual Desktop and obtain needed information.
 
@@ -475,7 +475,7 @@ When the Windows Virtual Desktop Agent is first installed on session host VMs (e
 
 **Fix 2:** Follow these instructions to open port 443.
 
-1. Confirm port 443 is open by downloading the PSPing tool from [Sysinternal tools](https://docs.microsoft.com/en-us/sysinternals/downloads/psping).
+1. Confirm port 443 is open by downloading the PSPing tool from [Sysinternal tools](https://docs.microsoft.com/sysinternals/downloads/psping).
 2. Install PSPing on the session host VM where the agent is running.
 3. Open the command prompt as an administrator and issue the command below:
 
@@ -517,7 +517,7 @@ The output of **qwinsta** will list **rdp-sxs** in the output if the side-by-sid
 
 ![Side-by-side stack installed or enabled with qwinsta listed as rdp-sxs in the output.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow the instructions in [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell) on how to reinstall the side-by-side stack.
+Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow the instructions in [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell) on how to reinstall the side-by-side stack.
 
 ```registry
     HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal
@@ -537,7 +537,7 @@ Examine the registry entries listed below and confirm that their values match. I
 
 1. Use Remote Desktop Protocol (RDP) to get directly into the session host VM as local administrator.
 2. Download and import [the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
-3. Install the side-by-side stack using [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
+3. Install the side-by-side stack using [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
 ### How to fix a Windows Virtual Desktop side-by-side stack that malfunctions
 
@@ -549,14 +549,14 @@ There are known circumstances that can cause the side-by-side stack to malfuncti
 - Running enablesxsstackrc.ps1 multiple times
 - Running enablesxsstackrc.ps1 in an account that doesn't have local admin privileges
 
-The instructions in this section can help you uninstall the Windows Virtual Desktop side-by-side stack. Once you uninstall the side-by-side stack, go to “Register the VM with the Windows Virtual Desktop host pool” in [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell) to reinstall the side-by-side stack.
+The instructions in this section can help you uninstall the Windows Virtual Desktop side-by-side stack. Once you uninstall the side-by-side stack, go to “Register the VM with the Windows Virtual Desktop host pool” in [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell) to reinstall the side-by-side stack.
 
 The VM used to run remediation must be on the same subnet and domain as the VM with the malfunctioning side-by-side stack.
 
 Follow these instructions to run remediation from the same subnet and domain:
 
 1. Connect with standard Remote Desktop Protocol (RDP) to the VM from where fix will be applied.
-2. Download PsExec from https://docs.microsoft.com/en-us/sysinternals/downloads/psexec.
+2. Download PsExec from https://docs.microsoft.com/sysinternals/downloads/psexec.
 3. Unzip the downloaded file.
 4. Start command prompt as local administrator.
 5. Navigate to folder where PsExec was unzipped.
@@ -598,24 +598,24 @@ Follow these instructions to run remediation from the same subnet and domain:
 - If your operating system is Windows Server, restart the VM that had the malfunctioning side-by-side stack (either with Azure portal or from the PsExec tool).
 - If your operating system is Microsoft Windows 10, continue with these instructions:
 
-1. From the VM running PsExec, open File Explorer and copy disablesxsstackrc.ps1 to the system drive of the VM with the malfunctioned side-by-side stack.
+       A. From the VM running PsExec, open File Explorer and copy disablesxsstackrc.ps1 to the system drive of the VM with the malfunctioned side-by-side stack.
 
 ```
         \\<VMname>\c$\
 ```
 
->[!NOTE]
->VMname is the machine name of the VM with the malfunctioning side-by-side stack.
+>        [!NOTE]
+>        VMname is the machine name of the VM with the malfunctioning side-by-side stack.
 
-2. The recommended process: from the PsExec tool, start PowerShell and navigate to the folder from the previous step and run disablesxsstackrc.ps1. Alternatively, you can run the following cmdlets:
+        B. The recommended process: from the PsExec tool, start PowerShell and navigate to the folder from the previous step and run disablesxsstackrc.ps1. Alternatively, you can run the following cmdlets:
 
 ```PowerShell
-        Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
-        Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" -Recurse -Force
-        Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name "ReverseConnectionListener" -Force
+            Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
+            Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" -Recurse -Force
+            Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name "ReverseConnectionListener" -Force
 ```
 
-3. When the cmdlets are done running, restart the VM with the malfunctioning side-by-side stack.
+        C. When the cmdlets are done running, restart the VM with the malfunctioning side-by-side stack.
 
 ## Client connection issues
 
@@ -652,7 +652,7 @@ Try connecting with another client, like Remote Desktop client for Windows 7 or 
 **Fix:** Follow these instructions to troubleshoot the browser.
 
 1. Restart browser.
-2. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/en-us/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+2. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
 3. Clear browser cache. See [clear browser cache for your browser](https://binged.it/2RKyfdU).
 4. Open browser in Private mode.
 
@@ -672,7 +672,7 @@ If the Web client keeps prompting for credentials, follow these instructions.
 
 1. Confirm web client URL is correct.
 2. Confirm that credentials are for the Windows Virtual Desktop environment tied to the URL.
-3. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/en-us/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+3. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
 4. Clear browser cache. See [Clear browser cache for your browser](https://binged.it/2RKyfdU).
 5. Open browser in Private mode.
 
@@ -739,7 +739,7 @@ Time              : <Timestampt>
 
 **Cause:** VM has not been joined to the domain where user object is.
 
-**Fix:** Add VM to the correct domain. See [Join a Windows Server virtual machine to a managed domain](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
+**Fix:** Add VM to the correct domain. See [Join a Windows Server virtual machine to a managed domain](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 
 **Error:** Nslookup cannot resolve the name
 
@@ -769,7 +769,7 @@ If the web client is being used, confirm that there are no cached credentials is
 
 ## Management with PowerShell
 
-This section covers common errors and issues reported when using PowerShell. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop Powershell](https://docs.microsoft.com/en-us/powershell/module/windowsvirtualdesktop/).
+This section covers common errors and issues reported when using PowerShell. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop Powershell](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/).
 
 ### Add-RdsAppGroupUser
 
@@ -836,3 +836,9 @@ New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in th
 **Cause:** The account being used has Remote Desktop Services owner permissions but isn't part of AD or doesn't have permissions to query AD where the user is located.
 
 **Fix:** A user with AD permissions needs to execute the role assignment.
+
+## Next Steps
+
+- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
+- To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
+- To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
