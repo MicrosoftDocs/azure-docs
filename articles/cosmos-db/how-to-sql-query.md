@@ -739,7 +739,7 @@ The results are:
     ]
 ```
 
-Additionally, you can order by multiple fields. A Multi Order By query requires a [Composite Index](index-policy.md#adding-composite-indexes). Consider the following query:
+Additionally, you can order by multiple fields. A Multi Order By query requires a [Composite Index](index-policy.md#composite-indexes). Consider the following query:
 
 ```sql
     SELECT f.id, f.creationDate
