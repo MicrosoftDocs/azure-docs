@@ -294,7 +294,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. For **Internal requestor policy**, click the ellipsis (**...**) and then click **Delete**.
 
-1. Click **Resource roles** and remove the resource roles.
+1. Click **Resource roles**.
 
 1. For **Engineering Group**, click the ellipsis (**...**) and then click **Remove resource role**.
 
