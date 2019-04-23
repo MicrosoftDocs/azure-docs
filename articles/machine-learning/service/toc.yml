@@ -84,8 +84,8 @@
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
-  - name: Model management
-    displayName: deploy, deployment
+  - name: Model management (MLOps)
+    displayName: deploy, deployment, mlops, operationalize, operationalization
     href: concept-model-management-and-deployment.md
   - name: Model interpretability
     displayName: explainability
