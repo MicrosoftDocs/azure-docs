@@ -20,8 +20,6 @@ ms.author: aelnably
 
 Visit [azure.com](https://www.azure.com) for the primary [Azure Functions documentation page](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)
 
-## 
-
 ## Language Support
 
 **What are the supported languages?**
