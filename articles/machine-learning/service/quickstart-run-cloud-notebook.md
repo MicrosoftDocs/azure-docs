@@ -124,13 +124,9 @@ Because the code to approximate pi uses random values, your plots will show diff
 
 ## Clean up resources 
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
-
-You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
-
 ### Stop the notebook VM
 
-If you keep your workspace, stop the notebook VM when you are not using it to reduce cost.  
+Stop the notebook VM when you are not using it to reduce cost.  
 
 1. In your workspace, select **Notebook VMs**.
 
@@ -141,6 +137,12 @@ If you keep your workspace, stop the notebook VM when you are not using it to re
 1. Select **Stop**.
 
 1. When you're ready to user the server again, select **Start**.
+
+### Delete everything
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
+You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 
 ## Next steps
 
