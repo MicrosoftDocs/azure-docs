@@ -49,12 +49,15 @@ ms.custom: include file
 1. In the `index.html` file created during project setup, add the application registration information. Add the following code at the top within the `<script></script>` tags in the body of your `index.html` file:
 
     ```javascript
-    var applicationConfig = {
-        clientID: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
-        graphScopes: ["user.read"],
-        graphEndpoint: "https://graph.microsoft.com/v1.0/me",
-        loginType: 'POPUP'
+    var msalConfig = {
+        auth: {
+            clientId: "Enter_the_Application_Id_here",
+            authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+        },
+        cache: {
+            cacheLocation: "localStorage",
+            storeAuthStateInCookie: true
+        }
     };
     ```
 
@@ -64,6 +67,3 @@ ms.custom: include file
        - If your application supports **Accounts in this organizational directory**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
        - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
        - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`. To restrict support to *Personal Microsoft accounts only*, replace this value with `consumers`.
-
- > [!TIP]
- > You may want to use the redirect methods in this quickstart to redirect the current page to the sign-in page instead of a popup window. You can enable this option by setting `loginType` to `REDIRECT`. This is recommended when the browser used is Internet Explorer due to a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to handling of popup windows by Internet Explorer browser.

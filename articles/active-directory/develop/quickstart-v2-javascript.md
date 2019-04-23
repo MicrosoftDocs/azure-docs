@@ -79,28 +79,32 @@ You will need the following setup for this quickstart:
 #### Step 2: Download the project
 
 You can choose one of these options suitable to your development environment.
-* [Download the core project files - for a web server, such as Node.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
-* [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
+* [Download the core project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/qs.zip), to run with a web server using Node.js. To open the files, use an editor like [Visual Studio Code](https://code.visualstudio.com/).
 
-Extract the zip file to a local folder, for example, **C:\Azure-Samples**.
-To open the files in the folder, use an editor like [Visual Studio Code](https://code.visualstudio.com/).
+* (Optional) [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsqs.zip), to run with the IIS server. Extract the zip file to a local folder, for example, **C:\Azure-Samples**.
+
+
 
 #### Step 3: Configure your JavaScript app
 
 > [!div renderon="docs"]
-> Under the folder *JavaScriptSPA*, edit `index.html` and set the `clientID` and `authority` values under `applicationConfig`.
+> Under the folder *JavaScriptSPA*, edit `index.html` and set the `clientID` and `authority` values under `msalConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Under the folder *JavaScriptSPA*, edit `index.html` and replace `applicationConfig` with:
+> Under the folder *JavaScriptSPA*, edit `index.html` and replace `msalConfig` with:
 
 ```javascript
-var applicationConfig = {
-    clientID: "Enter_the_Application_Id_here",
-    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
-    graphScopes: ["user.read"],
-    graphEndpoint: "https://graph.microsoft.com/v1.0/me",
-    loginType: 'POPUP'
+var msalConfig = {
+    auth: {
+        clientId: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+    },
+    cache: {
+        cacheLocation: "localStorage",
+        storeAuthStateInCookie: true
+    }
 };
+
 ```
 > [!div renderon="docs"]
 >
@@ -114,10 +118,6 @@ var applicationConfig = {
 > > [!TIP]
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 >
-
-> [!TIP]
-> You may want to use the redirect methods in this quickstart to redirect the current page to the sign-in page instead of a popup window. You can enable this option by setting `loginType` to `REDIRECT`. This is recommended when the browser used is Internet Explorer due to a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to handling of popup windows by Internet Explorer browser.
-
 
 #### Step 4: Run the project
 
@@ -145,13 +145,15 @@ After the browser loads the application, click **Sign In**.  The first time that
 MSAL is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. The quickstart's *index.html* contains a reference to the library:
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.1/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.2/js/msal.min.js"></script>
 ```
+> ![TIP] 
+> You can replace the version above with the latest released version under [MSAL.js releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
-Alternatively, if you have Node installed, you can download it through npm:
+Alternatively, if you have Node installed, you can download the latest preview version through npm:
 
 ```batch
-npm install msal@1.0.0-preview.1
+npm install msal@preview
 ```
 
 ### MSAL initialization
@@ -159,18 +161,18 @@ npm install msal@1.0.0-preview.1
 The quickstart code also shows how to initialize the library:
 
 ```javascript
-var config = {
+var msalConfig = {
     auth: {
-        clientId: applicationConfig.clientID,
-        authority: applicationConfig.authority
+        clientId: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
     },
     cache: {
         cacheLocation: "localStorage",
         storeAuthStateInCookie: true
     }
-}
+};
 
-var myMSALObj = new Msal.UserAgentApplication(config);
+var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
 > |Where  |  |
@@ -187,11 +189,11 @@ var myMSALObj = new Msal.UserAgentApplication(config);
 The following code snippet shows how to sign in users:
 
 ```javascript
-let loginRequest = {
-    scopes: applicationConfig.graphScopes
+var request = {
+    scopes: ["user.read"]
 };
 
-myMSALObj.loginPopup(loginRequest).then(function (loginResponse) {
+myMSALObj.loginPopup(request).then(function (loginResponse) {
     //Login Success callback code here
 }).catch(function (error) {
     console.log(error);
@@ -200,7 +202,10 @@ myMSALObj.loginPopup(loginRequest).then(function (loginResponse) {
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | (Optional) Contains scopes being requested for user consent at login time. For example, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs ( that is, `api://<Application ID>/access_as_user` ). Here, `applicationConfig.graphScopes` is passed. |
+> | `scopes`   | (Optional) Contains scopes being requested for user consent at login time. For example, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs ( that is, `api://<Application ID>/access_as_user` ). |
+
+> [!TIP]
+> Alternatively, you may want to use the `loginRedirect` method to redirect the current page to the sign-in page instead of a popup window.
 
 ### Request tokens
 
@@ -211,11 +216,11 @@ MSAL has three methods used to acquire tokens: `acquireTokenRedirect`, `acquireT
 The `acquireTokenSilent` method handles token acquisitions and renewal without any user interaction. After the `loginRedirect` or `loginPopup` method is executed for the first time, `acquireTokenSilent` is the method commonly used to obtain tokens that are used to access protected resources for subsequent calls. Calls to request or renew tokens are made silently.
 
 ```javascript
-let tokenRequest = {
-    scopes: applicationConfig.graphScopes
+var request = {
+    scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenSilent(tokenRequest).then(function (tokenResponse) {
+myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {
@@ -225,7 +230,7 @@ myMSALObj.acquireTokenSilent(tokenRequest).then(function (tokenResponse) {
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | Contains scopes being requested to be returned in the access token for API. For example, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (that is, `api://<Application ID>/access_as_user`). Here, `applicationConfig.graphScopes` is passed.|
+> | `scopes`   | Contains scopes being requested to be returned in the access token for API. For example, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (that is, `api://<Application ID>/access_as_user`).|
 
 #### Get a user token interactively
 
@@ -239,17 +244,19 @@ The usual recommended pattern for most applications is to call `acquireTokenSile
 Calling the `acquireTokenPopup` results in a popup window to sign in (or `acquireTokenRedirect` results in redirecting users to the Microsoft identity platform endpoint) where users need to interact by either confirming their credentials, giving the consent to the required resource, or completing the two factor authentication.
 
 ```javascript
-let tokenRequest = {
-    scopes: applicationConfig.graphScopes
+var request = {
+    scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenPopup(tokenRequest).then(function (tokenResponse) {
+myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {
     console.log(error);
 });
 ```
+> [!NOTE]
+> This quickstart uses the `loginRedirect` and `acquireTokenRedirect` methods when the browser used is Internet Explorer due to a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to handling of popup windows by Internet Explorer browser.
 
 ## Next steps
 
