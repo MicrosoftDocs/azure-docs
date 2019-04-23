@@ -235,9 +235,9 @@ Now that you've made a certificate chain, you need to install it on the IoT Edge
    * Linux: 
       ```yaml
       certificates:
-        device_ca_cert: "/certs/new-edge-device-full-chain.cert.pem"
-        device_ca_pk: "/certs/new-edge-device.key.pem"
-        trusted_ca_certs: "/certs/azure-iot-test-only.root.ca.cert.pem"
+        device_ca_cert: "<CERTDIR>/certs/new-edge-device-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>/private/new-edge-device.key.pem"
+        trusted_ca_certs: "<CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem"
       ```
 
 4. On Linux devices, make sure that the user **iotedge** has read permissions for the directory holding the certificates. 
