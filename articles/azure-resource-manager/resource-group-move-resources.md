@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
 
 ---
@@ -59,7 +59,7 @@ The following list provides a general summary of Azure services that can be move
 * Azure Database for MariaDB
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
-* Azure DevOps - Azure DevOps organizations with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.
+* Azure DevOps - follow steps to [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops).
 * Azure Maps
 * Azure Monitor logs
 * Azure Relay
