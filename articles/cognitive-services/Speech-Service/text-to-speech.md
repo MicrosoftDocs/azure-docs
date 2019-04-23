@@ -29,9 +29,7 @@ Neural voices use deep neural networks to overcome the limits of traditional tex
 
 Neural voices can be used to make interactions with chatbots and virtual assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, Neural voices significantly reduce listening fatigue when you interact with AI systems. 
 
-Neural voices support different styles. For example, besides a neutral style, Jessa (en-US) can speak in a cheerful way, which is optimized for making a happy conversation. Check [Speech Synthesis Markup Language](speech-synthesis-markup.md) for the styles supported with different voices.   
-
-For more information about neural voices, see [supported languages](language-support.md#text-to-speech).
+Neural voices support different styles, such as neutral and cheerful. For example, the Jessa (en-US) voice can speak cheerfully, which is optimized for warm, happy conversation. You can adjust the voice output, like tone, pitch, and speed using [Speech Synthesis Markup Language](speech-synthesis-markup.md). For a full list of available voices, see [supported languages](language-support.md#text-to-speech).
 
 To learn more about the benefits of neural voices, see [Microsoft’s new neural text-to-speech service helps machines speak like people](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/).
 
