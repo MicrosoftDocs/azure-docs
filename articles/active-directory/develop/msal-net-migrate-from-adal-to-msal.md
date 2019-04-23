@@ -1,6 +1,6 @@
 ---
-title: Differences between MSAL.NET and ADAL.NET | Azure
-description: Learn about the differences between Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentication Library for .NET (ADAL.NET) and how to choose which to use.
+title: Migrating to MSAL.NET | Azure
+description: Learn about the differences between Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentication Library for .NET (ADAL.NET) and how to migrate to MSAL.NET.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -21,21 +21,18 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Comparing and choosing between MSAL.NET and ADAL.NET
+# Migrating applications to MSAL.NET
 
 Both Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentication Library for .NET (ADAL.NET) are used to authenticate Azure AD entities and request tokens from Azure AD. Up until now, most developers have worked with Azure AD v1.0 platform to authenticate Azure AD identities (work and school accounts) by requesting tokens using Azure AD Authentication Library (ADAL). Now, using MSAL.NET, you can authenticate a broader set of Microsoft identities (Azure AD identities and Microsoft accounts, and social and local accounts through Azure AD B2C) through what has been known as the Azure AD v2.0 endpoint. 
 
 This article describes how to choose between the Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentication Library for .NET (ADAL.NET) and compares the two libraries.  
 
-## Choos between ADAL and MSAL
-
+## Differences between ADAL and MSAL apps
 In most cases you want to use MSAL.NET and the Azure AD v2.0 endpoint, which is the latest generation of Microsoft authentication libraries. Using MSAL.NET, you acquire tokens for users signing-in to your application with Azure AD (work and school accounts), Microsoft (personal) accounts (MSA), or Azure AD B2C. 
 
 If you are already familiar with the v1.0 endpoint (and ADAL.NET), you might want to read [What's different about the v2.0 endpoint?](active-directory-v2-compare.md).
 
 However, you still need to use ADAL.NET if your application needs to sign in users with earlier versions of [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). For more details, see [ADFS support](https://aka.ms/msal-net-adfs-support).
-
-## Differences between ADAL and MSAL apps
 
 The following picture summarizes some of the differences between ADAL.NET and MSAL.NET
 ![Side-by-side code](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)
@@ -211,7 +208,7 @@ In the case of client credential flow, the scope to pass would also be `/.defaul
 
 ## ADAL to MSAL migration
 
-In ADAL.NET v2.X, the refresh tokens were exposed allowing you to develop solutions around the use of these tokens by caching them and using the AcquireTokenByRefreshToken methods provided by ADAL 2.x. 
+In ADAL.NET v2.X, the refresh tokens were exposed allowing you to develop solutions around the use of these tokens by caching them and using the `AcquireTokenByRefreshToken` methods provided by ADAL 2.x. 
 Some of those solutions were used in scenarios such as:
 * Long running services that do actions including refreshing dashboards on behalf of the users whereas the users are no longer connected. 
 * WebFarm scenarios for enabling the client to bring the RT to the web service (caching is done client side, encrypted cookie, and not server side)
@@ -238,7 +235,7 @@ With this method, you can provide the previously used refresh token along with a
 
 As this method is intended for scenarios that are not typical, it is not readily accessible with the `IConfidentialClientApplication` without first casting it to `IByRefreshToken`.
 
-This code snippet shows some migration code in a confidential client application. `GetCachedRefreshTokenForSignedInUser` retrieve the refresh token that was stored in some storage by a previous version of the application that used to leverage ADAL 2.x. `GetTokenCacheForSignedInUser` deserializes a cache for the signed-in user (as confidential client applications should have one cache per user)
+This code snippet shows some migration code in a confidential client application. `GetCachedRefreshTokenForSignedInUser` retrieve the refresh token that was stored in some storage by a previous version of the application that used to leverage ADAL 2.x. `GetTokenCacheForSignedInUser` deserializes a cache for the signed-in user (as confidential client applications should have one cache per user).
 
 ```csharp
 TokenCache userCache = GetTokenCacheForSignedInUser();
