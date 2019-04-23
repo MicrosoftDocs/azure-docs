@@ -70,7 +70,7 @@ It is better to start with a few utterances, then [review endpoint utterances](l
 
 ## Punctuation marks
 
-LUIS doesn't ignore punctuation marks, by default, because some client applications may place significance on these marks. Make sure your example utterances use both punctuation and no punctuation in order for both styles to return the same relative scores. If punctuation has no specific meaning in your client application, consider [ignoring punctuation](#ignoring-words-and-punctuation) by using patterns. 
+LUIS doesn't ignore punctuation marks, by default, because some client applications may place significance on these marks. Make sure your example utterances use both punctuation and no punctuation in order for both styles to return the same relative scores. If punctuation has no specific meaning in your client application, consider [ignoring punctuation](#ignoring-words-and-punctuation) by using patterns or using [utterance normalization](#utterance-normalization). 
 
 ## Ignoring words and punctuation
 
