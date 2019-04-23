@@ -124,7 +124,7 @@ To set the number of query replicas, use [Set-AzAnalysisServicesServer](https://
 
 To separate the processing server from the query pool, use [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specify the optional `-DefaultConnectionMode` parameter to use `Readonly`.
 
-To learn more, see [Using a service principal with the Az.AnalysisServices module](analysis-services-service-principal.md#example-using-az.analysisservices-module).
+To learn more, see [Using a service principal with the Az.AnalysisServices module](analysis-services-service-principal.md#using-az.analysisservices-module).
 
 ## Connections
 
