@@ -242,8 +242,9 @@ Like Azure CLI, the results show an alias supported by the storage accounts name
 another method to find properties of Azure resources. Here is a sample query for looking at a
 single storage account with Resource Graph:
 
-```Query
-where type=~'microsoft.storage/storageaccounts' | limit 1
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
 ```
 
 ```azurecli-interactive
@@ -258,8 +259,10 @@ The results look similar to what we see in the Resource Manager templates and th
 Resource Explorer. However, Azure Resource Graph results can also include [alias](../concepts/definition-structure.md#aliases)
 details by _projecting_ the _aliases_ array:
 
-```Query
-where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
+| project aliases
 ```
 
 ```azurecli-interactive

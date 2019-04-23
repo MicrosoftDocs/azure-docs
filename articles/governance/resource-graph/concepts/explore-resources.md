@@ -162,7 +162,7 @@ that have a SKU size of **Standard_B2s**. Looking at the JSON returned, we see t
 and return just the name of the VM and region.
 
 ```kusto
-where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s
+where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
 | project name, resourceGroup"
 ```
 
