@@ -74,7 +74,8 @@ choose the **Agreements** tile.
    ![Choose "Agreements"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
 
 1. Under **Agreements**, choose **Add**. 
-In the **Add** pane, provide information about your agreement.
+In the **Add** pane, provide information 
+about your agreement, for example:
 
    ![Choose "Add"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
