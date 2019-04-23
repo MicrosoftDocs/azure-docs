@@ -335,7 +335,7 @@ ms.topic: hub-page
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Web Search API</h3>
+                        <h3>Search API</h3>
                         <p><a href="/azure/cognitive-services/bing-news-search/">Bing News Search</a></p>
                         <p><a href="/azure/cognitive-services/Bing-Video-Search/">Bing Video Search</a></p>
                         <p><a href="/azure/cognitive-services/bing-web-search/">Bing Web Search</a></p>
