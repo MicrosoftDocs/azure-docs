@@ -33,8 +33,8 @@ MSAL's logger allows for several levels of detail to be capture:
 - Info: MSAL will log events intended for informational purposes not necessarily intended for debugging.
 - Verbose: Default. MSAL will log a large amount of information and give full details into what library behavior.
 
-## Personal and organizational data 
-By default, the MSAL logger does not capture any highly sensitive personal or organizational data.  You decide if you want to log personal and organizational data or not. 
+## Personal and organizational data
+By default, the MSAL logger does not capture any highly sensitive personal or organizational data.  You decide if you want to log personal and organizational data or not.
 
 ## Logging in MSAL.NET
 In MSAL 3.x, logging is set per application at app creation using the `.WithLogging` builder modifier. This method takes optional parameters:
@@ -72,22 +72,36 @@ class Program
  ```
 
  ## Logging in MSAL.js
- You can enable logging in MSAL.js by passing a logger object when creating a `UserAgentApplication` instance. This method takes the following parameters:
 
-- *logger*: a Callback instance that can be provided by the developer to consume and publish logs in a custom manner. Implement the loggerCallback method depending on how you want to redirect logs.
+ You can enable logging in MSAL.js by passing a logger object during the configuration for creating a `UserAgentApplication` instance. This logger object has the following properties:
+
+- *localCallback*: a Callback instance that can be provided by the developer to consume and publish logs in a custom manner. Implement the localCallback method depending on how you want to redirect logs.
 
 - *level* (optional): the configurable log level. The supported log levels are: Error, Warning, Info, Verbose. Default value is Info.
 
-- *piiLoggingEnabled* (optional): enables you to log personal and organizational data if set to true. By default this is set to false, so that your application does not log personal data. Personal data logs are never written to default outputs like Console, Logcat, or NSLog. Default is set to false.
+- *piiLoggingEnabled* (optional): enables you to log personal and organizational data if set to true. By default this is set to false so that your application does not log personal data. Personal data logs are never written to default outputs like Console, Logcat, or NSLog. Default is set to false.
 
 - *correlationId* (optional): a unique identifier, used to map the request with the response for debugging purposes. Defaults to RFC4122 version 4 guid (128 bits).
 
 ```javascript
-var logger = new Msal.Logger(loggerCallback, { level: Msal.LogLevel.Verbose, correlationId: '1234' });
 
-var clientApplication = new Msal.UserAgentApplication(clientID, authority, authCallback, { logger: logger });
-
-function loggerCallback(logLevel, message, piiLoggingEnabled) {
+function loggerCallback(logLevel, message, containsPii) {
    console.log(message);
 }
+
+var msalConfig = {
+    auth: {
+        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”,
+    },
+    system: {
+        logger: {
+            localCallback: loggerCallback,
+            level: Msal.LogLevel.Verbose,
+            piiLoggingEnabled: false,
+            correlationId: '1234'
+        }
+    }
+}
+
+var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
