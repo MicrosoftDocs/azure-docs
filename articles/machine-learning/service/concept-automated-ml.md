@@ -20,36 +20,37 @@ Automated machine learning is the process of taking training data with a defined
 
 ## How it works
 
-1. You configure the type of machine learning problem you are trying to solve. Categories of supervised learning are supported:
+1. Choose the type of machine learning problem you are trying to solve. Supervised learning options include:
    + Classification
    + Regression
    + Forecasting
 
-   While automated machine learning is generally available, **the forecasting feature is still in public preview.**
+   See the full [list of models](how-to-configure-auto-train.md#select-your-experiment-type).
+   
+1. Specify the training data's source and format. 
+   + Data must be labeled. 
+   + It can be stored in your development environment (alongside your training scripts) or in Azure Blob Storage. This directory is copied to the compute target you select for training.
+   + The data in your scripts can be read into Numpy arrays or a Pandas dataframe.
+   + Use split options for training and validation data, or specify separate training and validation data sets.
 
-   See the [list of models](how-to-configure-auto-train.md#select-your-experiment-type) Azure Machine Learning can try when training.
+1. Configure the [compute target](how-to-set-up-training-targets.md) on which the model will be trained.
 
-1. You specify the source and format for the training data. The data must be labeled, and can be stored on your development environment or in Azure Blob Storage. If the data is stored on your development environment, it must be in the same directory as your training scripts. This directory is copied to the compute target you select for training.
+1. Configure the automated machine learning parameters that determine how many iterations over different models, hyperparameter settings, and what metrics to look at when determining the best model.
 
-    In your training script, the data can be read into Numpy arrays or a Pandas dataframe.
-
-    You can configure split options for selecting training and validation data, or you can specify separate training and validation data sets.
-
-1. Configure the [compute target](how-to-set-up-training-targets.md) that is used to train the model.
-
-1. Configure the automated machine learning configuration. This controls the parameters used as Azure Machine Learning iterates over different models, hyperparameter settings, and what metrics to look at when determining the best model
-
-1. Submit a training run.
-
-During training, the Azure Machine Learning service creates a number of pipelines that try different algorithms and parameters. It will stop once it hits the iteration limit you provide, or when it reaches the target value for the metric you specify.
+1. Submit the training run. During training, the Azure Machine Learning service creates a number of pipelines that try different algorithms and parameters. It will stop once it hits the iteration limit you provide, or when it reaches the target value for the metric you specify.
 
 [![Automated Machine learning](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
 
 You can inspect the logged run information, which contains metrics gathered during the run. The training run also produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
 
-## Ensemble Models
+## Ensemble models
 Ensemble learning improves machine learning results and predictive performance by combing many models as opposed to using single models. When using automated machine learning, you can train ensemble models using the [Caruana ensemble selection algorithm with sorted Ensemble initialization](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). The ensemble iteration appears as the last iteration of your run.
+
+## .NET integrations
+
+To help you build your existing tools into your release process, we integrate with popular Microsoft services such as [**Visual Studio and Visual Studio Code**](https://docs.microsoft.com/en-us/dotnet/machine-learning/what-is-mldotnet
+), where you can use C# code to integrate automated ML into your .NET applications. The ML.NET automated ML API for Visual Studio and Visual Studio Code performs algorithm and hyperparameter selection, data preprocessing and generates high quality models for prediction.
 
 ## Next steps
 
