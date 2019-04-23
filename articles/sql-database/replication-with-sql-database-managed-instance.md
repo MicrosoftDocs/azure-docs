@@ -62,8 +62,9 @@ Use the [Azure portal](https://portal.azure.com) to create a resource group with
 ## 2 - Create managed instances
 
 Use the [Azure portal](https://portal.azure.com) to create two [managed instances](sql-database-managed-instance-create-tutorial-portal.md) on the same virtual network. The two managed instances should be named:
+
 - `sql-mi-pub`
-- `sql-mi-sub` 
+- `sql-mi-sub`
 
 You will also need to [Configure an Azure VM to connect](sql-database-managed-instance-configure-vm.md) to your Azure SQL Database managed instance. 
 
@@ -72,14 +73,15 @@ You will also need to [Configure an Azure VM to connect](sql-database-managed-in
 [Create an Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory, and then create a [file share](../storage/files/storage-how-to-create-file-share.md) within the storage account. 
 
 Copy the file share path in the format of:
-`\\storage-account-name.file.core.windows.net\file-share-name` 
+`\\storage-account-name.file.core.windows.net\file-share-name`
 
 Copy the storage access keys in the format of:
 `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
-Be sure to copy the storage keys. See [View and copy storage access keys](../storage/common/storage-account-manage.md#access-keys). 
+ For more information, see [View and copy storage access keys](../storage/common/storage-account-manage.md#access-keys). 
 
 ## 4 - Create a publisher database
+
 Connect to your `sql-mi-pub` managed instance using SQL Server Management Studio and run the following Transact-SQL (T-SQL) code to create your publisher database:
 
 ```sql
@@ -113,6 +115,7 @@ GO
 ```
 
 ## 5 - Create a subscriber database
+
 Connect to your `sql-mi-sub` managed instance using SQL Server Management Studio and run the following Transact-SQL (T-SQL) code to create your empty subscriber database:
 
 ```sql
@@ -133,6 +136,7 @@ GO
 ```
 
 ## 6 - Configure distribution
+
 Connect to your `sql-mi-pub` managed instance using SQL Server Management Studio and run the following Transact-SQL (T-SQL) code to configure your distribution database. 
 
 ```sql
@@ -145,6 +149,7 @@ GO
 ```
 
 ## 7 - Configure publisher to use distributor 
+
 On your publisher managed instance `sql-mi-pub`, change the query execution to [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) mode and run the following code to register the new distributor with your publisher. 
 
 ```sql
@@ -168,6 +173,7 @@ EXEC sp_adddistpublisher
 This script configures a local publisher on the managed instance, adds a linked server, and creates a set of jobs for the SQL Server Agent. 
 
 ## 8 - Create publication and subscriber
+
 Using [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) mode, run the following Transact-SQL (T-SQL) script to enable replication for your database, and configure replication between your publisher, distributor, and subscriber. 
 
 ```sql
