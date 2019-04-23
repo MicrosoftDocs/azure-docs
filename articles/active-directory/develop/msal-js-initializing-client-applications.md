@@ -62,7 +62,7 @@ The config options are defined below:
 
 - `cacheLocation`: Optional.  Sets browser storage to either `localStorage` or `sessionStorage`. The default is `sessionStorage`.
 
-- `storeAuthStateInCookie`: Optional.  This flag was introduced in MSAL.js v0.2.2 as a fix for the authentication loop issues on Microsoft Internet Explorer and Microsoft Edge. Enable the flag `storeAuthStateInCookie` to true to take advantage of this fix. When this is enabled, MSAL.js will store the auth request state required for validation of the auth flows in the browser cookies. By default this flag is set to `false`.
+- `storeAuthStateInCookie`: Optional.  This flag was introduced in MSAL.js v0.2.2 as a fix for the [authentication loop issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#1-issues-due-to-security-zones) on Microsoft Internet Explorer and Microsoft Edge. Enable the flag `storeAuthStateInCookie` to true to take advantage of this fix. When this is enabled, MSAL.js will store the auth request state required for validation of the auth flows in the browser cookies. By default this flag is set to `false`.
 
 - `redirectUri`: Optional.  The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL encoded. Defaults to "window.location.href".
 
