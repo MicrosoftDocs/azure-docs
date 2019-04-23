@@ -22,7 +22,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  Yes for server-side encryption-at-rest by default. | Customer managed keys and BYOK are not yet supported. Client side encryption is the client’s responsibility |
+| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  Yes for server-side encryption-at-rest by default. | Customer managed keys and BYOK are not yet supported. Client side encryption is the client's responsibility |
 | Encryption in transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | Supports standard HTTPS/TLS mechanism. |
 | Encryption key handling (CMK, BYOK, etc.)| No |   |
 | Column level encryption (Azure Data Services)| N/A | |
@@ -55,8 +55,8 @@ Security is integrated into every aspect of an Azure service. This article docum
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Control and management plane logging and audit| Yes | Operations logs are available, but not comprehensive.  |
-| Data plane logging and audit| Yes | Data plane logs are available, but not comprehensive. |
+| Control and management plane logging and audit| Yes | Operations logs are available; see [Service Bus diagnostic logs](service-bus-diagnostic-logs.md).  |
+| Data plane logging and audit| No |  |
 
 ## Configuration management
 
