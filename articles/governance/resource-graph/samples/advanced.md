@@ -19,7 +19,7 @@ to understand how to compose requests for the resources you're looking for.
 We'll walk through the following advanced queries:
 
 > [!div class="checklist"]
-> - [Get VMSS capacity and size](#vmss-capacity)
+> - [Get virtual machine scale set capacity and size](#vmss-capacity)
 > - [List all tag names](#list-all-tags)
 > - [Virtual machines matched by regex](#vm-regex)
 
