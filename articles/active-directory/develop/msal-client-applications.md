@@ -60,7 +60,7 @@ In your code, you initialize a new public or confidential client (or user-agent 
 ### Authority
 The authority is a URL indicating a directory that MSAL can request tokens from. Usual authorities are:
 
-- https://login.microsoftonline.com/&gt;tenant&lt;/, where &gt;tenant&lt; is the tenant ID of the Azure AD tenant or a domain associated with this Azure AD tenant.  Used only to sign in users of a specific organization.
+- https://login.microsoftonline.com/&lt;tenant&gt;/, where &lt;tenant&gt; is the tenant ID of the Azure AD tenant or a domain associated with this Azure AD tenant.  Used only to sign in users of a specific organization.
 - https://login.microsoftonline.com/common/. Used to sign in users with work and school accounts or a Microsoft personal account.
 - https://login.microsoftonline.com/organizations/. Used to sign in users with work and school accounts.
 - https://login.microsoftonline.com/consumers/. Used to sign in users with only personal Microsoft account (live).
