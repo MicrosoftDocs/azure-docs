@@ -47,7 +47,7 @@ For more information about assigning access to Cost Management data, see [Assign
 
 To review your costs in cost analysis, open the scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. Use the **Scope** pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
-The scope you select is used throughout Cost Management to provide data consolidation and to control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope which others roll up to and then filter down to the nested scopes you need. This approach is important to understand since some people may not have access to a single parent scope which covers multiple nested scopes.
+The scope you select is used throughout Cost Management to provide data consolidation and to control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope which others roll up to and then filter down to the nested scopes you need. This approach is important to understand since some people may not have access to a single parent scope, which covers multiple nested scopes.
 
 The initial cost analysis view includes the following areas:
 
@@ -88,7 +88,7 @@ Generally, you can expect to see data or notifications for consumed resources wi
 
 ![Daily view showing example daily costs for the current month](./media/quick-acm-cost-analysis/daily-view.png)
 
-**Group by** common properties, like resource group or resource tags, to break costs down and identify the top cost contributors in the main chart. To group by tags, for instance, select the tag key you want to group by. You'll see costs broken down by each value for that tag, with an extra segment for resources that don't have that tag applied.
+**Group by** common properties to break down costs and identify top contributors. To group by resource tags, for instance, select the tag key you want to group by. Costs are broken down by each tag value, with an extra segment for resources that don't have that tag applied.
 
 Most [Azure resources support tagging](../azure-resource-manager/tag-support.md), however some tags aren't available in Cost Management and billing. Additionally, resource group tags aren't supported. Cost Management only supports resource tags from the date the tags are applied directly to the resource.
 
