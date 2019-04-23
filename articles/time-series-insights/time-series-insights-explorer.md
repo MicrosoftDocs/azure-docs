@@ -20,7 +20,7 @@ You use Time Series Insights explorer in your web browser to create visualizatio
  
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, which lets you quickly validate your IoT solution and avoid costly downtime to mission-critical devices. You can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time. The Time Series Insights explorer is currently in public preview.
 
-## Video:
+## Video
 
 In this video, we cover querying data using the Time Series Insights explorer. 
 
@@ -33,11 +33,13 @@ This video builds on Video Time Series Insights:
 ## Prerequisites
 
 Before you can use Time Series Insights explorer, you must:
+
 - Create a Time Series Insights environment
 - Provide access to your account in the environment
 - Add an event source to ingest data and store it
 
 ## Explore and query data
+
 Within minutes of connecting your event source to your Time Series Insights environment, you can explore and query your time series data.
 
 1. To start, open the [Time Series Insights explorer](https://insights.timeseries.azure.com/) in your web browser, and select an environment on the left side of the window. All environments that you have access to are listed in alphabetical order.
@@ -114,5 +116,5 @@ Within minutes of connecting your event source to your Time Series Insights envi
 Now you have seen the various features and options available within the Time Series Insights explorer web app. 
 
 ## Next steps
-> [!div class="nextstepaction"]
->[Diagnose and solve problems in your Time Series Insights environment](time-series-insights-diagnose-and-solve-problems.md)
+
+- Learn about [diagnosing and solving problems](time-series-insights-diagnose-and-solve-problems.md) in your Time Series Insights environment.
