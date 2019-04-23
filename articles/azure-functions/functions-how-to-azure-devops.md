@@ -90,7 +90,7 @@ steps:
     name: 'drop'
 ```
 
-## Python
+### Python
 
 You can use the following samples to create your YAML file to build your Python app, Python is only supported for Linux Azure Functions:
 
