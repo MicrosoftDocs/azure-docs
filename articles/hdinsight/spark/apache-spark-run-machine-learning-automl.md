@@ -19,12 +19,11 @@ Azure Machine Learning is a collaborative, drag-and-drop tool you can use to bui
 > The Azure ML workspace is currently available in the following regions: eastus, eastus2 and westcentralus. The HDInsight cluster should also be created in one of these regions.
 
 For general tutorials of Azure Machine Learning and automated machine learning, see [Tutorial: Create your first data science experiment in Azure Machine Learning Studio](../../machine-learning/studio/create-experiment.md) and [Tutorial: Use automated machine learning to build your regression model](../../machine-learning/service/tutorial-auto-train-models.md).
-To install AzureML on your Azure HDInsight cluster, run the script action - [install_aml](https://commonartifacts.blob.core.windows.net/automl/install_aml.sh) - on head nodes and worker nodes of a HDInsight 3.6 Spark 2.3.0 cluster (recommended). This script action can be run either as part of the cluster creation process, or on an existing cluster through the Azure portal.
-
-For more information about script actions, read [Customize Linux-based HDInsight clusters using script actions](../hdinsight-hadoop-customize-cluster-linux.md). Along with installing Azure Machine Learning packages and dependencies, the script also downloads a sample Jupyter Notebook (into path `HdiNotebooks/PySpark` of the default store). This Jupyter Notebook demonstrates how to use an automated machine learning classifier for a simple classification problem.
+All new HDInsight-Spark clusters come pre-installed with AzureML-AutoML SDK. Along with the SDK the cluster is pre-installed with a sample Jupyter Notebook (into path `HdiNotebooks/PySpark` of the default store). This Jupyter Notebook demonstrates how to use an automated machine learning classifier for a simple classification problem.
 
 > [!Note]
 > Azure Machine Learning packages are installed into Python3 conda environment. The installed Jupyter notebook should be run using the PySpark3 kernel.
+> Zeppelin has a [known issue](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) where PySpark3 doesn't pick the right version of Python. Please use the documented work-around.
 
 ## Authentication for workspace
 
@@ -36,8 +35,8 @@ The following code snippet creates an authentication token using an **Azure AD a
 from azureml.core.authentication import ServicePrincipalAuthentication
 auth_sp = ServicePrincipalAuthentication(
 				tenant_id = '<Azure Tenant ID>',
-				username = '<Azure AD Application ID>',
-				password = '<Azure AD Application Key>'
+				service_principal_id = '<Azure AD Application ID>',
+				service_principal_password = '<Azure AD Application Key>'
 				)
 ```
 The following code snippet creates an authentication token using an **Azure AD user**.
@@ -63,9 +62,10 @@ You can also register the datastore with the workspace using a one-time registra
 
 ## Experiment submission
 
-In the automated machine learning configuration, the property `spark_context` should be set for the package to run on distributed mode. The property `concurrent_iterations`, which is the maximum number of iterations executed in parallel, should be set to a number less than the executor cores for the Spark app.
+In the [automated machine learning configuration](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlconfig), the property `spark_context` should be set for the package to run on distributed mode. The property `concurrent_iterations`, which is the maximum number of iterations executed in parallel, should be set to a number less than the executor cores for the Spark app.
 
 ## Next steps
 
-* For more information on the motivation behind automated machine learning, see [Release models at pace using Microsoft’s automated machine learning!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/).
+* For more information on the motivation behind automated machine learning, see [Release models at pace using Microsoft’s automated machine learning!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
+* For more details on using Azure ML Automated ML capabilities, see [New automated machine learning capabilities in Azure Machine Learning service](https://azure.microsoft.com/en-us/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
 * [AutoML project from Microsoft Research](https://www.microsoft.com/research/project/automl/)
