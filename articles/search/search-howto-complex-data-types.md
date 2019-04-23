@@ -8,10 +8,11 @@ tags: complex data types; compound data types; aggregate data types
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/01/2017
-ms.custom: seodec2018
+ms.date: 05/02/2019
+
 ---
 # How to model complex data types in Azure Search
+
 External datasets used to populate an Azure Search index sometimes include hierarchical or nested substructures that do not break down neatly into a tabular rowset. Examples of such structures might include multiple locations and phone numbers for a single customer, multiple colors and sizes for a single SKU, multiple authors of a single book, and so on. In modeling terms, you might see these structures referred to as *complex data types*, *compound data types*, *composite data types*, or *aggregate data types*, to name a few.
 
 Complex data types are not natively supported in Azure Search, but a proven workaround includes a two-step process of flattening the structure and then using a **Collection** data type to reconstitute the interior structure. Following the technique described in this article allows the content to be searched, faceted, filtered, and sorted.
@@ -53,7 +54,7 @@ Typically, the data in question resides as a set of JSON or XML documents, or as
 }]
 ~~~~~
 
-While the fields named ‘id’, ‘name’ and ‘company’ can easily be mapped one-to-one as fields within an Azure Search index, the ‘locations’ field contains an array of locations, having both a set of location IDs as well as location descriptions. Given that Azure Search does not have a data type that supports this, we need a different way to model this in Azure Search. 
+While the fields named `id`, `name` and `company` can easily be mapped one-to-one as fields within an Azure Search index, the `locations` field contains an array of locations, having both a set of location IDs as well as location descriptions. Given that Azure Search does not have a data type that supports this, we need a different way to model this in Azure Search. 
 
 > [!NOTE]
 > This technique is also described by Kirk Evans in a blog post [Indexing Azure Cosmos DB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), which shows a technique called "flattening the data", whereby you would have a field called `locationsID` and `locationsDescription` that are both [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (or an array of strings).   
@@ -92,7 +93,7 @@ Assuming you created the index and loaded the data, you can now test the solutio
 * Get a count of the number of people who work in a ‘Home Office’.  
 * Of the people who work at a ‘Home Office’, show what other offices they work along with a count of the people in each location.  
 
-Where this technique falls apart is when you need to do a search that combines both the location id as well as the location description. For example:
+Where this technique falls apart is when you need to do a search that combines both the location ID as well as the location description. For example:
 
 * Find all people where they have a Home Office AND has a location ID of 4.  
 
@@ -113,8 +114,8 @@ To handle this case, define another field in the index that combines all of the 
 
 Using this `locationsCombined` field, we can now accommodate even more queries, such as:
 
-* Show a count of people who work at a ‘Home Office’ with location Id of ‘4’.  
-* Search for people who work at a ‘Home Office’ with location Id ‘4’. 
+* Show a count of people who work at a ‘Home Office’ with location ID of ‘4’.  
+* Search for people who work at a ‘Home Office’ with location ID ‘4’. 
 
 ## Limitations
 This technique is useful for a number of scenarios, but it is not applicable in every case.  For example:
