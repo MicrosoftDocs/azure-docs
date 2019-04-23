@@ -14,8 +14,7 @@ ms.date: 04/23/2019
 > [!NOTE]
 > To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
 
-As a cloud service provider, we understand the importance of maintaining the integrity and confidentiality of customer data. `Need to complete this section`
-
+As a cloud service provider, we understand the importance of maintaining the integrity and confidentiality of customer data.
 
 
 ## Workflow
@@ -42,11 +41,9 @@ The following steps outline a typical workflow for a Customer Lockbox request.
     
     The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.
 
-7. At the customer organization, the user who has the [Owner role](../role-based-access-control/rbac-and-directory-admin-roles#azure-rbac-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
+7. At the customer organization, the user who has the [Owner role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
     
     Example email:
-    
-    ![Azure Customer Lockbox - email notification](./media/azure-customer-lockbox/xxx.png)
 
 8. The email notification provides a link to the **Customer Lockbox** blade in the Azure portal. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox:
     
@@ -85,10 +82,6 @@ Use the **Activity Logs** to view auditing information related to Customer Lockb
 - **Approve Lockbox Requests**
 - **Deny Lockbox Requests**
 - **Lockbox Request Expiry**
-    
-![Azure Customer Lockbox - use Activity Logs to view auditing information](./media/azure-customer-lockbox/xxx.png)
-    
-`Include Screenshot`
 
 ## Supported services and scenarios
 
@@ -102,7 +95,7 @@ Customer Lockbox is currently enabled for remote desktop access requests to virt
 - Virtual machine scale set - Windows and Linux
 
 > [!NOTE]
-> IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IaaS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+> IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IaaS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 #### Detailed audit logs
 
