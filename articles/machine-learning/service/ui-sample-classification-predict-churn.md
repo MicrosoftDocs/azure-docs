@@ -51,7 +51,7 @@ First, we do some simple data processing.
 
 ## Results
 
-Visualize the output of the **Evaluate Model** module to see the performance of the model on the test set. For the up-selling task, the ROC curve shows that the model does better than a random model. The area under the curve (AUC) is 0.857. At threshold 0.5, the precision is 0.664, recall is 0.463, and F1 score is 0.545.
+Visualize the output of the **Evaluate Model** module to see the performance of the model on the test set. For the up-selling task, the ROC curve shows that the model does better than a random model. The area under the curve (AUC) is 0.857. At threshold 0.5, the precision is 0.7, the recall is 0.463, and the F1 score is 0.545.
 
 ![Evaluate the results](./media/ui-sample-classification-predict-churn/evaluate-result.png)
 

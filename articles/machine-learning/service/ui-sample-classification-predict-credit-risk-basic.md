@@ -56,7 +56,7 @@ Here's the complete experiment graph:
 
 ![Evaluate the results](media/ui-sample-classification-predict-credit-risk-basic/evaluate-result.png)
 
-In the evaluation results, you can see that the AUC of the model is 0.757. At threshold 0.5, the precision is 0.7, the recall is 0.393, and the F1 score is 0.503.
+In the evaluation results, you can see that the AUC of the model is 0.776. At threshold 0.5, the precision is 0.621, the recall is 0.456, and the F1 score is 0.526.
 
 ## Clean up resources
 
