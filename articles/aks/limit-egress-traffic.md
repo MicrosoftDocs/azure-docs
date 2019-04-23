@@ -30,10 +30,12 @@ For management and operational purposes, nodes in an AKS cluster need to access 
 
 To increase the security of your AKS cluster, you may wish to restrict egress traffic. If you lock down the egress traffic, you must whitelist specific ports and FQDNs to allow the AKS nodes to correctly communicate with the required external service. Without these whitelisted ports and FQDNs, your AKS nodes can't communicate with the API server or install core components.
 
+You can use [Azure Firewall][azure-firewall] or a 3rd-party firewall appliance to secure your egress traffic and whitelist these required ports and addresses.
+
 In AKS, there are two sets of ports and addresses:
 
 * The [required ports and address for AKS clusters](#required-ports-and-addresses-for-aks-clusters) details the minimum requirements for whitelisting egress traffic.
-* The [Optional recommended addresses and ports for AKS clusters](#optional-recommended-addresses-and-ports-for-aks-clusters) aren't required for all scenarios, but integration with other services such as Azure Container Registry or Azure Monitor won't work correctly. Review this list of optional ports and FQDNs, and whitelist any of the services and components used in your AKS cluster.
+* The [optional recommended addresses and ports for AKS clusters](#optional-recommended-addresses-and-ports-for-aks-clusters) aren't required for all scenarios, but integration with other services such as Azure Container Registry or Azure Monitor won't work correctly. Review this list of optional ports and FQDNs, and whitelist any of the services and components used in your AKS cluster.
 
 ## Required ports and addresses for AKS clusters
 
@@ -99,3 +101,4 @@ In this article, you learned what ports and addresses to allow if you restrict e
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [network-policy]: use-network-policies.md
+[azure-firewall]: ../firewall/overview.md
