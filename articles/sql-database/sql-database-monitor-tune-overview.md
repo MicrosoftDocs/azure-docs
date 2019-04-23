@@ -81,7 +81,7 @@ If you determine that you have a running-related performance issue, your goal is
 
 ### <a name="ParamSniffing"></a> Troubleshoot queries with parameter-sensitive query execution plan issues
 
-The parameter sensitive plan (PSP) problem refers to a scenario where the query optimizer generates a query execution plan that is optimal only for a specific parameter value (or set of values) and the cached plan is then non-optimal for parameter values used in consecutive executions. Non-optimal plans can then result in query performance issues and overall workload throughput degradation. For more information on parameter sniffing and query processing, see the [Query Processing Architecture Guide](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide.md7#ParamSniffing).
+The parameter sensitive plan (PSP) problem refers to a scenario where the query optimizer generates a query execution plan that is optimal only for a specific parameter value (or set of values) and the cached plan is then non-optimal for parameter values used in consecutive executions. Non-optimal plans can then result in query performance issues and overall workload throughput degradation. For more information on parameter sniffing and query processing, see the [Query Processing Architecture Guide](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
 
 There are several workarounds used to mitigate issues, each with associated tradeoffs and drawbacks:
 
