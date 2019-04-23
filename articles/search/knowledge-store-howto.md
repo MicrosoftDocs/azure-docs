@@ -11,9 +11,9 @@ ms.author: heidist
 ---
 # How to get started with Knowledge Store
 
-[Knowledge Store](knowledge-store-concept-intro.md) is a new preview feature in Azure Search that saves AI enrichments created in indexing pipeline for analysis, exploration, and knowledge mining in other apps. You can also use saved enrichments to understand and refine an indexing pipeline.
+[Knowledge Store](knowledge-store-concept-intro.md) is a new preview feature in Azure Search that saves AI enrichments created in an indexing pipeline for analysis, exploration, and knowledge mining in other apps. You can also use saved enrichments to understand and refine an Azure Search indexing pipeline.
 
-In this exercise, get started with sample data, services, and tools to learn the basic workflow for creating and using your first knowledge store.
+In this exercise, start with sample data, services, and tools to learn the basic workflow for creating and using your first knowledge store.
 
 ## Prerequisites
 
@@ -21,15 +21,15 @@ The following services, tools, and data are used in this quickstart.
 
 + [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
 
-+ [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data.
++ [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data. Your knowledge store will exist in Azure storage.
 
-+ [Create a Cognitive Services resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) at the S0 tier for broad access to the full range of skills used in AI enrichments.
++ [Create a Cognitive Services resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) at the S0 pay-as-you-go tier for broad-spectrum access to the full range of skills used in AI enrichments.
 
 + [Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search.
 
 + [Postman collection](https://github.com/Azure-Samples/azure-search-postman-sample/tree/master/caselaw) with prepared requests for creating a data source, index, skillset, and indexer. Several object definitions are too long to include in this article. You must get this collection to see the index and skillset definitions in their entirety.
 
-+ [Caselaw sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) originating from the [Caselaw Access Project](https://case.law/bulk/download/) Public Bulk Data download page. Specifically, the exercise uses the first 10 documents of the first download (Arkansas). We uploaded a 10-document sample to GitHub.
++ [Caselaw sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) originating from the [Caselaw Access Project](https://case.law/bulk/download/) Public Bulk Data download page. Specifically, the exercise uses the first 10 documents of the first download (Arkansas). We uploaded a 10-document sample to GitHub for this exercise.
 
 ## Get a key and URL
 
@@ -78,7 +78,7 @@ Execute the following API calls from your REST client.
 
 The [Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) creates an Azure Search object that specifies what data to index.
 
-The endpoint of this call is `https://[service name].search.windows.net/datasources?api-version=2019-05-06-Preview`. 
+The endpoint of this call is `https://[service name].search.windows.net/datasources?api-version=2019-05-06-Preview` 
 
 1. Replace `[service name]` with the name of your search service. 
 
@@ -130,7 +130,7 @@ The second call is [Create Index API](https://docs.microsoft.com/rest/api/search
 
 You don't necessarily need an index for knowledge mining, but an indexer won't run unless an index is provided. 
 
-The URL for this call is `https://[service name].search.windows.net/indexes?api-version=2019-05-06-Preview`. 
+The URL for this call is `https://[service name].search.windows.net/indexes?api-version=2019-05-06-Preview`
 
 1. Replace `[service name]` with the name of your search service.
 
@@ -154,7 +154,7 @@ The URL for this call is `https://[service name].search.windows.net/indexes?api-
    }
    ```
 
-3. The `fields` collection contains the bulk of the index definition. It includes simple fields, complex fields with nested substructures, and collections.
+3. The `fields` collection contains the bulk of the index definition. It includes simple fields, [complex fields](search-howto-complex-data-types.md) with nested substructures, and collections.
 
    Review the field definition for `casebody` on lines 302-384. Notice that a complex field can contain other complex fields when hierarchical representations are needed.
 
@@ -243,8 +243,7 @@ The URL for this call is `https://[service name].search.windows.net/indexes?api-
                         }
                     ]
                 },
-
-   }
+    . . .
    ```
 
 4. Send the request. 
@@ -289,11 +288,11 @@ The URL for this call is `https://[service name].search.windows.net/indexes?api-
 
 <a name="create-skillset"></a>
 
-## Create a Skillset and knowledge store
+## Create a skillset and knowledge store
 
 The [Create Skillset API](https://docs.microsoft.com/rest/api/searchservice/create-skillset) creates an Azure Search object that specifies what cognitive skills to call, how to chain skills together, and most importantly for this walkthrough - how to specify a knowledge store.
 
-The endpoint of this call is `https://[service name].search.windows.net/skillsets?api-version=2019-05-06-Preview`. 
+The endpoint of this call is `https://[service name].search.windows.net/skillsets?api-version=2019-05-06-Preview`
 
 1. Replace `[service name]` with the name of your search service.
 
@@ -311,56 +310,54 @@ The endpoint of this call is `https://[service name].search.windows.net/skillset
    }
    ```
 
-3. First, set `cognitiveServices` and `knowledgeStore` keys. In the example, these strings are located after the skillset definition, towards the end of the request body.
+3. First, set `cognitiveServices` and `knowledgeStore` key and connection string. In the example, these strings are located after the skillset definition, towards the end of the request body.
 
-  ```json
-      "cognitiveServices": {
-          "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-          "description": "<your cognitive services resource name>",
-          "key": "<your cognitive services key>"
-      },
-      "knowledgeStore": {
-          "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your storage account key>;EndpointSuffix=core.windows.net",
-  ```
-
+    ```json
+    "cognitiveServices": {
+        "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
+        "description": "<your cognitive services resource name>",
+        "key": "<your cognitive services key>"
+    },
+    "knowledgeStore": {
+        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your storage account key>;EndpointSuffix=core.windows.net",
+    ```
 
 3. Review the skills collection, in particular the Shaper skills on lines 85 and 170, respectively. The Shaper skill is important because it assembles the data structures you want for knowledge mining. During skillset execution, these structures are in-memory only, but as you move to the next step, you'll see how this output can be saved to a knowledge store for further exploration.
 
-   The following example is from line 207. 
+   The following snippet is from line 207. 
 
-   ```json
-                   {
-                    "name": "Opinions",
-                    "source": null,
-                    "sourceContext": "/document/casebody/data/opinions/*",
-                    "inputs": [
-                        {
-                            "name": "Text",
-                            "source": "/document/casebody/data/opinions/*/text"
-                        },
-                        {
-                            "name": "Author",
-                            "source": "/document/casebody/data/opinions/*/author"
-                        },
-                        {
-                            "name": "Entities",
-                            "source": null,
-                            "sourceContext": "/document/casebody/data/opinions/*/text/pages/*/entities/*",
-                            "inputs": [
-                                {
-                                    "name": "Entity",
-                                    "source": "/document/casebody/data/opinions/*/text/pages/*/entities/*/value"
-                                },
-                                {
-                                    "name": "EntityType",
-                                    "source": "/document/casebody/data/opinions/*/text/pages/*/entities/*/category"
-                                }
-                            ]
-                        }
-                    ]
+    ```json
+    {
+    "name": "Opinions",
+    "source": null,
+    "sourceContext": "/document/casebody/data/opinions/*",
+    "inputs": [
+        {
+            "name": "Text",
+            "source": "/document/casebody/data/opinions/*/text"
+        },
+        {
+            "name": "Author",
+            "source": "/document/casebody/data/opinions/*/author"
+        },
+        {
+            "name": "Entities",
+            "source": null,
+            "sourceContext": "/document/casebody/data/opinions/*/text/pages/*/entities/*",
+            "inputs": [
+                {
+                    "name": "Entity",
+                    "source": "/document/casebody/data/opinions/*/text/pages/*/entities/*/value"
+                },
+                {
+                    "name": "EntityType",
+                    "source": "/document/casebody/data/opinions/*/text/pages/*/entities/*/category"
                 }
-            ],
-
+             ]
+          }
+     ]
+   }
+   . . .
    ```
 
 3. Review the `projections` element in `knowledgeStore`, starting on line 253. Projections specify the knowledge store composition. Projections are specified in tables-objects pairs, but currently only one at time. As you can see in the first projection, `tables` is specified but `objects` is not. In the second, it's the opposite.
@@ -429,11 +426,11 @@ The endpoint of this call is `https://[service name].search.windows.net/skillset
             . . .
     ```
 
-## Create and run an Indexer
+## Create and run an indexer
 
-The [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/create-indexer) creates and immediately executes an indexer. The indexer runs immediately because it doesn't exist in the service. After it exists, a POST call to an existing indexer is an update operation.
+The [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/create-indexer) creates and immediately executes an indexer. All of the definitions you have created so far are put into motion with this step. The indexer runs immediately because it doesn't exist in the service. After it exists, a POST call to an existing indexer is an update operation.
 
-The endpoint of this call is `https://[service name].search.windows.net/indexers?api-version=2019-05-06-Preview`.
+The endpoint of this call is `https://[service name].search.windows.net/indexers?api-version=2019-05-06-Preview`
 
 1. Replace `[service name]` with the name of your search service. 
 
