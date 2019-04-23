@@ -46,58 +46,12 @@ Cloud resources:
    * Make a note of the workspace name, resource group, and subscription ID. These values are all available on the workspace overview in the Azure portal. You'll use these values later in the tutorial to connect an Azure notebook to your workspace resources. 
 
 
-### Disable process identification
-
->[!NOTE]
->
-> While in preview, Azure Machine Learning does not support the process identification security feature enabled by default with IoT Edge.
-> Below are the steps to disable it. This is however not suitable for use in production. These steps are only necessary on Linux devices. 
-
-To disable process identification on your IoT Edge device, you'll need to provide the IP address and port for **workload_uri** and **management_uri** in the **connect** section of the IoT Edge daemon configuration.
-
-Get the IP address first. Enter `ifconfig` in your command line and copy the IP address of the **docker0** interface.
-
-Edit the IoT Edge daemon configuration file:
-
-```cmd/sh
-sudo nano /etc/iotedge/config.yaml
-```
-
-Update the **connect** section of the configuration with your IP address. For example:
-```yaml
-connect:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-Enter the same addresses in the **listen** section of the configuration. For example:
-
-```yaml
-listen:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-Save and close the configuration file.
-
-Create an environment variable IOTEDGE_HOST with the management_uri address (To set it permanently, add it to `/etc/environment`). For example:
-
-```cmd/sh
-export IOTEDGE_HOST="http://172.17.0.1:15580"
-```
-
-Restart the IoT Edge service for the changes to take effect.
-
-```cmd/sh
-sudo systemctl restart iotedge
-```
-
 ## Create and deploy Azure Machine Learning module
 
 In this section, you convert trained machine learning model files and into an Azure Machine Learning service container. All the components required for the Docker image are in the [AI Toolkit for Azure IoT Edge Git repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial). Follow these steps to upload that repository into Microsoft Azure Notebooks to create the container and push it to Azure Container Registry.
 
 
-1. Navigate to your Azure Notebooks projects. You can get there from your Azure Machine Learning service workspace in the [Azure portal](https://portal.azure.com) or by signing in to [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects) with your Azure account.
+1. Navigate to your Azure Notebooks projects. You can get their from your Azure Machine Learning service workspace in the [Azure portal](https://portal.azure.com) or by signing in to [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects) with your Azure account.
 
 2. Select **Upload GitHub Repo**.
 
