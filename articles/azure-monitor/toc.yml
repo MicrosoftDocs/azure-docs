@@ -684,6 +684,8 @@
         href: platform/metrics-charts.md
       - name: Examples of metrics charts
         href: platform/metric-chart-samples.md
+      - name: Troubleshoot Metrics Explorer
+        href: platform/metrics-troubleshoot.md
     - name: Logs
       items:
       - name: Log queries
