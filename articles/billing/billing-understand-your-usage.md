@@ -20,8 +20,8 @@ ms.author: banders
 # Understand terms from your detailed Microsoft Azure usage and charges 
 
 The detailed usage and charges file contains daily rated usage based on negotiated rates, 
-purchases (e.g. reservations, Marketplace fees), and refunds for the specified period.
-Fees do not include credits, taxes, or other charges or discounts. 
+purchases (for example, reservations, Marketplace fees), and refunds for the specified period.
+Fees don't include credits, taxes, or other charges or discounts. 
 The following table covers which charges are included for each account type.
 
 Account type | Azure usage | Marketplace usage | Purchases | Refunds
@@ -35,13 +35,13 @@ To learn more about Marketplace orders (also known as external services), see [U
 To get your detailed usage file,
 see [How to get your Azure billing invoice and daily usage
 data](billing-download-azure-invoice-daily-usage-date.md).
-It's available in a comma-separated values (.csv) file format 
+It's available in a comma-separated values (.csv) file format,
 which you can open in a spreadsheet application.
 
 ## Detailed terms and descriptions in your Azure usage and charges file
 
-The following table describes the important terms used in the latest version of the Azure usage and charges
-file for pay-as-you-go (PAYG), Enterprise Agreement (EA), and Microsoft Customer Agreement (MCA) accounts.
+The following table describes the important terms used in the latest version of the Azure usage and charges file.
+The list covers pay-as-you-go (PAYG), Enterprise Agreement (EA), and Microsoft Customer Agreement (MCA) accounts.
 
 Term | Account type | Description
 --- | --- | ---
@@ -54,8 +54,8 @@ BillingCurrency | EA, MCA | Currency associated with the billing account.
 BillingPeriod | EA | The billing period of the charge.
 BillingPeriodEndDate | EA, MCA | The end date of the billing period.
 BillingPeriodStartDate | EA, MCA | The start date of the billing period.
-BillingProfileId | EA, MCA | Unique identifier of the EA enrollment or MCA billing profile which accrued the charge.
-BillingProfileName | EA, MCA | Name of the EA enrollment or MCA billing profile which accrued the charge.
+BillingProfileId | EA, MCA | Unique identifier of the EA enrollment or MCA billing profile.
+BillingProfileName | EA, MCA | Name of the EA enrollment or MCA billing profile.
 ChargeType | EA, MCA | Indicates whether the charge represents usage (**Usage**), a purchase (**Purchase**), or a refund (**Refund**).
 ConsumedQuantity | PAYG | See Quantity.
 ConsumedService | All | Name of the service the charge is associated with.
@@ -66,8 +66,8 @@ CostInPricingCurrency | MCA | Cost of the charge in the pricing currency before 
 Currency | PAYG | See BillingCurrency.
 Date | EA, MCA | The usage or purchase date of the charge.
 ExchangeRateDate | MCA | Date the exchange rate was established.
-ExchangeRatePricingToBilling | MCA | Echange rate used to convert the cost in the pricing currency to the billing currency.
-Frequency | EA, MCA | Indicates whether a charge is based on usage (**UsageBased**), a one-time fee (**OneTime**), or recurring on a monthly or yearly basis (**Recurring**).
+ExchangeRatePricingToBilling | MCA | Exchange rate used to convert the cost in the pricing currency to the billing currency.
+Frequency | EA, MCA | Indicates whether a charge is expected to repeat. Charges can either happen once (**OneTime**), repeat on a monthly or yearly basis (**Recurring**), or be based on usage (**UsageBased**).
 IncludedQuantity | PAYG | The amount of the meter that is included at no charge in your current billing period.
 InstanceId | PAGY | See ResourceId.
 InvoiceId | EA, MCA | The unique document ID listed on the invoice PDF.
@@ -76,19 +76,19 @@ InvoiceSectionId | EA, MCA | Unique identifier for the EA department or MCA invo
 InvoiceSectionName | EA, MCA | Name of the EA department or MCA invoice section.
 IsAzureCreditEligible | EA, MCA | Indicates if the charge is eligible to be paid for using Azure credits (Values: True, False).
 Location | EA, MCA | Datacenter location where the resource is running.
-MeterCategory | All | Name of the classification category for the meter. For example, *Cloud services*, *Networking*, etc.
+MeterCategory | All | Name of the classification category for the meter. For example, *Cloud services* and *Networking*.
 MeterId | All | The unique identifier for the meter.
 MeterName | All | The name of the meter.
-MeterRegion | All | Name of the datacenter location for services which are priced based on location. See Location.
-MeterSubCategory | All | Name of the meter sub-classification category.
+MeterRegion | All | Name of the datacenter location for services priced based on location. See Location.
+MeterSubCategory | All | Name of the meter subclassification category.
 OfferId | EA, MCA | Name of the offer purchased.
 PartNumber | EA | Identifier used to get specific meter pricing.
 PlanName | EA | Marketplace plan name.
 PreviousInvoiceId | MCA | Reference to an original invoice if this line item is a refund.
 PricingCurrency | MCA | Currency used when rating based on negotiated prices.
 Product | MCA | See ProductName.
-ProductId | EA, MCA | Unique identifier for the product accruing the charges.
-ProductName | EA | Name of the product accruing the charges.
+ProductId | EA, MCA | Unique identifier for the product.
+ProductName | EA | Name of the product.
 ProductOrderId | EA, MCA | Unique identifier for the product order.
 ProductOrderName | EA, MCA | Unique name for the product order.
 PublisherName | EA, MCA | Publisher for Marketplace services.
@@ -105,12 +105,12 @@ ResourceName | EA | Name of the resource.
 ResourceType | MCA | Type of resource instance.
 ServiceFamily | EA, MCA | Service family that the service belongs to.
 ServiceInfo1 | All | Service-specific metadata.
-ServiceInfo2 | All | Legacy field which captures optional service-specific metadata.
-ServicePeriodEndDate | MCA | The end date of the rating period which has defined and locked pricing for the consumed or purchased service.
+ServiceInfo2 | All | Legacy field with optional service-specific metadata.
+ServicePeriodEndDate | MCA | The end date of the rating period that defined and locked pricing for the consumed or purchased service.
 ServicePeriodStartDate | MCA | The start date of the rating period which has defined and locked pricing for the consumed or purchased service.
-SubscriptionId | All | Unique identifier for the subscription accruing the charges.
-SubscriptionName | All | Name of the subscription accruing the charges.
-Tags | All | Tags assigned to the resource. Does not include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
+SubscriptionId | All | Unique identifier for the subscription.
+SubscriptionName | All | Name of the subscription.
+Tags | All | Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
 Unit | PAYG | See UnitOfMeasure.
 UnitOfMeasure | All | The unit of measure for billing for the service. For example, compute services are billed per hour.
 UnitPrice | EA | The price per unit for the charge.
@@ -121,10 +121,9 @@ Older versions of pay-as-you-go usage files have separate sections for the state
 
 ## How do I make sure the charges in my Azure usage and charges file are correct?
 
-If there is a charge on your detailed usage file that you would like more details on,
-learn more about how to understand your [pay-as-you-go](./billing-understand-your-bill.md) 
-or [Microsoft Customer Agreementinvoice](billing-mca-understand-your-bill.md)
-invoice.
+To learn more about detailed usage and charges, read about how to understand your 
+[pay-as-you-go](./billing-understand-your-bill.md) 
+or [Microsoft Customer Agreement](billing-mca-understand-your-bill.md) invoice.
 
 ## Need help? Contact us.
 
