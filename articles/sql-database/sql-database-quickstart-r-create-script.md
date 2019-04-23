@@ -97,9 +97,9 @@ Inputs to this stored procedure include:
 
 | | |
 |-|-|
-| *@language* | defines the language extension to call, in this case, R |
-| *@script* | defines the commands passed to the R runtime. Your entire R script must be enclosed in this argument, as Unicode text. You could also add the text to a variable of type **nvarchar** and then call the variable |
-| *@input_data_1* | data returned by the query, passed to the R runtime, which returns the data to SQL Server as a data frame |
+| @language | defines the language extension to call, in this case, R |
+| @script | defines the commands passed to the R runtime. Your entire R script must be enclosed in this argument, as Unicode text. You could also add the text to a variable of type **nvarchar** and then call the variable |
+| @input_data_1 | data returned by the query, passed to the R runtime, which returns the data to SQL Server as a data frame |
 |WITH RESULT SETS | clause defines the schema of the returned data table for SQL Server, adding "Hello World" as the column name, **int** for the data type |
 
 The command outputs the following text:
