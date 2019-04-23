@@ -42,7 +42,7 @@ There are some commonalities and differences between public client and confident
 
 - Both kinds of applications maintain a user token cache and can acquire a token silently (in cases where the token is already in the token cache). Confidential client applications also have an app token cache for tokens, which are for the app itself.
 - Both manage user accounts and can get the accounts from the user token cache, get an account from its identifier, or remove an account.
-- Public client applications have four ways of acquiring a token (four authentication flows), whereas confidential client applications have three (and one method to compute the URL of the identity provider authorize endpoint). For more details, see Scenarios and Acquiring tokens.
+- Public client applications have four ways of acquiring a token (four authentication flows), whereas confidential client applications have three (and one method to compute the URL of the identity provider authorize endpoint). For more information, see Scenarios and Acquiring tokens.
 
 If you used ADAL in the past, you might notice that, contrary to ADAL's authentication context, in MSAL the client ID (also named application ID or app ID) is passed once at the construction of the application, and no longer needs to be repeated when acquiring a token. This is the case both for public and confidential client applications. Constructors of confidential client applications are also passed client credentials: the secret they share with the identity provider.
 
@@ -51,11 +51,11 @@ If you used ADAL in the past, you might notice that, contrary to ADAL's authenti
 In your code, you initialize a new public or confidential client (or user-agent for MSAL.js) application to authenticate and acquire tokens.  There are a number of different configuration options that can be set when initializing the client application in MSAL. These options can be separated into two groups:
 
 - Registration options, including:
-    - [Authority](#authority): Identity provider [instance](#cloud-instance) and sign-in [audience](#application-audience) for the application, and possibly the tenant ID.
+    - [Authority](#authority) ( composed of the identity provider [instance](#cloud-instance) and sign-in [audience](#application-audience) for the application, and possibly the tenant ID).
     - [client ID](#client-id)
     - [redirect URI](#redirect-uri)
-    - [client secret](#client-secret) for a confidential client application
-- [Logging options](#logging), including: log level, control of the PII, name of the component using the library
+    - [client secret](#client-secret) (for confidential client applications).
+- [Logging options](#logging), including log level, control of personal data, and the name of the component using the library.
 
 ### Authority
 The authority is a URL indicating a directory that MSAL can request tokens from. Usual authorities are:
