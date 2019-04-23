@@ -67,14 +67,7 @@ On Windows:
 - To view the logs of the IoT Edge Security Manager:
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
- 
-   Get-WinEvent -ea SilentlyContinue `
-   -FilterHashtable @{ProviderName= "iotedged";
-     LogName = "application"; StartTime = [datetime]::Today} |
-   select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false} |
-   format-table -autosize -wrap
+   Get-IoTEdgeLog
    ```
 
 ### If the IoT Edge Security Manager is not running, verify your yaml configuration file

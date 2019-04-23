@@ -45,23 +45,13 @@ apt-get install libiothsm iotedge
 
 ### Windows devices
 
-On Windows devices, use the PowerShell script to uninstall and then reinstall the security daemon. The installation script automatically pulls the latest version of the security daemon. 
-
-Uninstall the security daemon in an administrator PowerShell session. 
+On Windows devices, use the PowerShell script to update the security daemon. The script automatically pulls the latest version of the security daemon. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Uninstall-SecurityDaemon
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
 ```
 
-Running the `Uninstall-SecurityDaemon` command without any parameters only removes the security daemon from your device, along with the two runtime container images. The config.yaml file is kept on the device, as well as data from the Moby container engine. Keeping the configuration information means that you don't have to provide the connection string or Device Provisioning Service information for your device again during the installation process. 
-
-Reinstall the security daemon depending on whether your IoT Edge device uses Windows containers or Linux containers. Replace the phrase **\<Windows or Linux\>** with the appropriate container operating systems. Use the **-ExistingConfig** flag to point to the existing config.yaml file on your device. 
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -ExistingConfig -ContainerOS <Windows or Linux>
-```
+Running the Update-IoTEdge command removes the security daemon from your device, along with the two runtime container images. The config.yaml file is kept on the device, as well as data from the Moby container engine (if you're using Windows containers). Keeping the configuration information means that you don't have to provide the connection string or Device Provisioning Service information for your device again during the update process. 
 
 If you want to install a specific version of the security daemon, download the appropriate iotedged-windows.zip file from [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). Then, use the `-OfflineInstallationPath` parameter to point to the file location. For more information, see [Offline installation](how-to-install-iot-edge-windows.md#offline-installation).
 

@@ -126,30 +126,33 @@ During the runtime installation, you're asked for a device connection string. Us
 
 The steps in this section all take place on your IoT Edge device, so you want to connect to that virtual machine now via remote desktop.
 
-### Prepare your device for containers
-
-The installation script automatically installs the Moby engine on your device before installing IoT Edge. Prepare your device by turning on the Containers feature.
-
-1. In the start bar, search for **Turn Windows features on or off** and open the control panel program.
-1. Find and select **Containers**.
-1. Select **OK**.
-
-Once complete, you need to restart Windows for the changes to take effect, but you can do so from your Remote Desktop session instead of restarting the virtual machine from the Azure portal.
-
-### Download and install the IoT Edge service
+### Install and configure the IoT Edge service
 
 Use PowerShell to download and install the IoT Edge runtime. Use the device connection string that you retrieved from IoT Hub to configure your device.
 
-1. On your IoT Edge device, run PowerShell as an administrator.
+1. If you haven't already, follow the steps in [Register a new Azure IoT Edge device](how-to-register-device-portal.md) to register your device and retrieve the device connection string. 
 
-2. Download and install the IoT Edge service on your device.
+2. Run PowerShell as an administrator.
+
+3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, downloads the moby runtime, and then downloads the IoT Edge runtime.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-SecurityDaemon -Manual -ContainerOs Windows
+   Deploy-IoTEdge -ContainerOs Windows
    ```
 
-3. When prompted for a **DeviceConnectionString**, provide the string that you copied in the previous section. Don't include quotes around the connection string.
+4. Your machine may restart automatically. If you are prompted by the Deploy-IoTEdge command to reboot, do so now. 
+
+5. Run PowerShell as an administrator again.
+
+6. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. 
+
+   ```powershell
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -ContainerOs Windows
+   ```
+
+7. When prompted for a **DeviceConnectionString**, provide the string that you copied in the previous section. Don't include quotes around the connection string.
 
 ### View the IoT Edge runtime status
 
@@ -164,14 +167,7 @@ Verify that the runtime was successfully installed and configured.
 2. If you need to troubleshoot the service, retrieve the service logs.
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
-
-   Get-WinEvent -ea SilentlyContinue `
-    -FilterHashtable @{ProviderName= "iotedged";
-      LogName = "application"; StartTime = [datetime]::Today} |
-    select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false} |
-    format-table -autosize -wrap
+   Get-IoTEdgeLog
    ```
 
 3. View all the modules running on your IoT Edge device. Since the service just started for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default, and helps to install and start any additional modules that you deploy to your device.
@@ -238,12 +234,9 @@ Remove the **IoTEdgeResources** group.
 
 If you want to remove the installations from your device, use the following commands.  
 
-Remove the IoT Edge runtime. If you plan on reinstalling IoT Edge, leave out the `-DeleteConfig` and `-DeleteMobyDataRoot` parameters so that you can reinstall with the same configuration that you just set up.
-
-   ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
-   ```
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Uninstall-IoTEdge
+```
 
 ## Next steps
 
