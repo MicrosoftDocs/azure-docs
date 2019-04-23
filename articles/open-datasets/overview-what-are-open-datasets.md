@@ -47,6 +47,6 @@ The Open Datasets site provides Python Pandas and Azure Databricks notebooks you
 If you have a dataset to share, submit a request with a description of the dataset to [Azure Open Datasets site](https://opendatasets.azure.com). 
 
 ## Next steps
-* [Open datasets examples](samples.md)
+* [Sample notebook](samples.md)
 * [Tutorial: Regression modeling with NY taxi data](tutorial-opendatasets-automl.md)
 * [Python SDK for Open Datasets](https://aka.ms/open-datasets-sdk)
