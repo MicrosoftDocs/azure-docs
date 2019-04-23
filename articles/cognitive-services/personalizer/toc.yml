@@ -56,6 +56,8 @@
   items:
   - name: Samples
     href: https://aka.ms/personalizer-samples
+  - name: REST API Reference
+    href: https://aka.ms/personalizer-rest-api-docs
   - name: SDKs
     items:
     - name: NuGet package
