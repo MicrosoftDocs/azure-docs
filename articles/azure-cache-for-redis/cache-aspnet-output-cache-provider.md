@@ -36,9 +36,7 @@ Install-Package Microsoft.Web.RedisOutputCacheProvider
 The Redis Output Cache Provider NuGet package has a dependency on the StackExchange.Redis.StrongName package. If the StackExchange.Redis.StrongName package is not present in your project, it is installed. For more information about the Redis Output Cache Provider NuGet package, see the [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/) NuGet page.
 
 >[!NOTE]
->In addition to the strong-named StackExchange.Redis.StrongName package, there is also the StackExchange.Redis non-strong-named version. If your project is using the non-strong-named StackExchange.Redis version you must uninstall it, otherwise you get naming conflicts in your project. For more information about these packages, see [Configure .NET cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
->
->
+>In addition to the strong-named StackExchange.Redis.StrongName package, there is also the StackExchange.Redis non-strong-named version. If your project is using the non-strong-named StackExchange.Redis version you must uninstall it; otherwise, you will experience naming conflicts in your project. For more information about these packages, see [Configure .NET cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
 The NuGet package downloads and adds the required assembly references and adds the following section into your web.config file. This section contains the required configuration for your ASP.NET application to use the Redis Output Cache Provider.
 
@@ -147,9 +145,9 @@ If you set *throwOnError* to **false**, then instead of throwing an exception wh
 
 This provides some retry logic to simplify the case where some session operation should retry on failure because of things like network glitch, while also allowing you to control the retry timeout or opt out of retry entirely.
 
-If you set *retryTimeoutInMilliseconds* to a number, say 2000, then when a session operation fails, it will retry for 2000 milliseconds before treating it as an error. So to have the session state provider to apply this retry logic, just configure the timeout. The first retry will happen after 20 milliseconds, which is sufficient in most cases when a network glitch happens. After that, it will retry every second until it times out. Right after the time out, it will retry one more time to make sure that it won’t cut off the timeout by (at most) one second.
+If you set *retryTimeoutInMilliseconds* to a number, e.g. 2000, then when a session operation fails, it will retry for 2000 milliseconds before treating it as an error. So to have the session state provider to apply this retry logic, just configure the timeout. The first retry will happen after 20 milliseconds, which is sufficient in most cases when a network glitch happens. After that, it will retry every second until it times out. Right after the time out, it will retry one more time to make sure that it won’t cut off the timeout by (at most) one second.
 
-If you don’t think you need retry (e.g. when you are running the Redis server on the same machine as your application) or if you want to handle the retry logic yourself, set this value to 0.
+If you don’t think you need retry (e.g. when you are running the Redis server on the same machine as your application) or if you want to handle the retry logic yourself, set *retryTimeoutInMilliseconds* to 0.
 
 ### About *redisSerializerType*
 
@@ -169,7 +167,7 @@ namespace MyCompany.Redis
 
         public object Deserialize(byte[] data)
         {
-            if (data == null)
+            if (data == null)6t6
             {
                 return null;
             }
