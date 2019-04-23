@@ -422,7 +422,7 @@ Azure Functions stores blob receipts in a container named *azure-webjobs-hosts* 
 * The blob name
 * The ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
 
-To force reprocessing of a blob, delete the blob receipt for that blob from the *azure-webjobs-hosts* container manually.
+To force reprocessing of a blob, delete the blob receipt for that blob from the *azure-webjobs-hosts* container manually. While reprocessing might not occur immediately, it's guarenteed to occur at a later point in time.
 
 ## Trigger - poison blobs
 
