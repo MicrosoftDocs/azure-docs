@@ -32,10 +32,10 @@ Pay-as-you-go (PAYG) | Yes | No | No | No
 
 To learn more about Marketplace orders (also known as external services), see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
 
-To get your detailed usage file,
-see [How to get your Azure billing invoice and daily usage
-data](billing-download-azure-invoice-daily-usage-date.md).
-It's available in a comma-separated values (.csv) file format,
+See [How to get your Azure billing invoice and daily usage
+data](billing-download-azure-invoice-daily-usage-date.md)
+for download instructions.
+The usage and charges file is available in a comma-separated values (.csv) file format,
 which you can open in a spreadsheet application.
 
 ## Detailed terms and descriptions in your Azure usage and charges file
@@ -107,7 +107,7 @@ ServiceFamily | EA, MCA | Service family that the service belongs to.
 ServiceInfo1 | All | Service-specific metadata.
 ServiceInfo2 | All | Legacy field with optional service-specific metadata.
 ServicePeriodEndDate | MCA | The end date of the rating period that defined and locked pricing for the consumed or purchased service.
-ServicePeriodStartDate | MCA | The start date of the rating period which has defined and locked pricing for the consumed or purchased service.
+ServicePeriodStartDate | MCA | The start date of the rating period that defined and locked pricing for the consumed or purchased service.
 SubscriptionId | All | Unique identifier for the subscription.
 SubscriptionName | All | Name of the subscription.
 Tags | All | Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
