@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create a new app in the LUIS Portal" 
+title: "Quickstart: Create a new app in the LUIS portal" 
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: In this quickstart, you create a new app in the LUIS portal. Create the basic parts of an app, intents, and entities. Test the app by providing a sample user utterance in the interactive test panel to get the predicted intent. Building an app is free; it doesn't require an Azure subscription. 
 services: cognitive-services
@@ -19,15 +19,15 @@ In this quickstart, you build a new app in the [LUIS portal](https://www.luis.ai
 
 Building an app is free and doesn't require an Azure subscription. When you're ready to deploy your app, see the [quickstart to deploy an app](get-started-portal-deploy-app.md). It shows you how to create an Azure Cognitive Service Resource and assign it to the app.
 
-## Create app
+## Create an app
 
-1. Open the [LUIS portal](https://www.luis.ai) in a browser and sign in. If it's your first-time signing in, you need to create a free LUIS portal user account.
+1. Open the [LUIS portal](https://www.luis.ai) in a browser and sign in. If it's your first time signing in, you need to create a free LUIS portal user account.
 
 1. Select **Create new app** from the context toolbar.
 
    [![Create new app in LUIS portal](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
 
-1. In the pop-up window, configure the app with the following settings then select **Done**.
+1. In the pop-up window, configure the app with the following settings and then select **Done**.
 
    |Setting name| Value | Purpose|
    |--|--|--|
@@ -62,11 +62,11 @@ To create intents, do the following steps:
 
    ![Enter the intent name of FindForm](./media/get-started-portal-build-app/create-new-intent-dialog.png)
 
-## Add example utterance
+## Add an example utterance
 
 You add example utterances after you create intents. Example utterances are text that a user enters in a chat bot or other client application. They map the intention of the user's text to a LUIS intent.
 
-For this example application's `FindForm` intent, example utterances will include the form number. The client application needs the form number to fullfil the user's request so it's important to include it in the utterance.
+For this example application's `FindForm` intent, example utterances will include the form number. The client application needs the form number to fulfill the user's request, so it's important to include it in the utterance.
 
 Add the following 15 example utterances to the `FindForm` intent.
 
@@ -100,11 +100,11 @@ By design, these example utterances vary in the following ways:
 
 ## Create a regular expression entity
 
-To get the form number returned as part of the runtime prediction response, the form must be marked as an entity. Since the form number text is highly structured, it can be marked using a regular expression entity. Create the entity with the following steps:
+To get the form number returned as part of the runtime prediction response, the form must be marked as an entity. Because the form number text is highly structured, it can be marked using a regular expression entity. Create the entity with the following steps:
 
 1. Select **Entities** from the menu on the left.
 
-1. Select **Create new entity** on the Entities page.
+1. Select **Create new entity** on the **Entities** page.
 
 1. Enter the name `Human Resources Form Number`, select the **Regex** entity type, and enter the regular expression, `hrf-[0-9]{6}`. This entry matches the literal characters, `hrf-`, and allows for exactly 6 digits.
 
@@ -118,7 +118,7 @@ The **None** intent is the fallback intent and shouldn't be left empty. This int
 
 The **None** intent's example utterances should be outside of your client application domain.
 
-1. Select **Intents** from the left menu, then select **None** from the Intents list.
+1. Select **Intents** from the left menu, and then select **None** from the intents list.
 
 1. Add the following example utterances to the intent:
 
@@ -128,7 +128,7 @@ The **None** intent's example utterances should be outside of your client applic
    |Order a pizza for me|
    |Penguins in the ocean|
 
-   For this human resources app, these example utterances are outside the domain. If your human resources domain including, animals, food, or the ocean, then you should use different example utterances for the **None** intent.
+   For this human resources app, these example utterances are outside the domain. If your human resources domain include animals, food, or the ocean, then you should use different example utterances for the **None** intent.
 
 ## Train the app
 
@@ -148,7 +148,7 @@ Use the interactive **Test** pane in the LUIS portal to validate that the entity
 
 1. Select **Test** from the upper-right menu.
 
-1. Add a new utterance then press Enter:
+1. Add a new utterance and then press Enter:
 
    ```Is there a form named hrf-234098```
 
@@ -158,7 +158,7 @@ Use the interactive **Test** pane in the LUIS portal to validate that the entity
 
 ## Clean up resources
 
-When you're done with this quickstart and aren't moving on to the next quickstart, select **My apps** from the top navigation menu. Then select the app's left-hand checkbox from the list and select  **Delete** from the context toolbar above the list.
+When you're done with this quickstart and aren't moving on to the next quickstart, select **My apps** from the top navigation menu. Then select the app's left check box from the list and select  **Delete** from the context toolbar above the list.
 
 [![Delete app from My apps list](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
