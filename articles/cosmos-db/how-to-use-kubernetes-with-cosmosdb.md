@@ -1,6 +1,6 @@
 ---
 title: How to use Azure Kubernetes with Azure Cosmos DB 
-description: Learn how to bootstrap a Kubernetes cluster on Azure that uses Azure Cosmos DB 
+description: Learn how to bootstrap a Kubernetes cluster on Azure that uses Azure Cosmos DB (preview)
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: sample
@@ -8,11 +8,11 @@ ms.date: 05/06/2019
 ms.author: sngun
 ---
 
-# How to use Azure Kubernetes with Azure Cosmos DB
+# How to use Azure Kubernetes with Azure Cosmos DB (preview)
 
-The etcd API is a distributed key-value store designed to reliably and quickly preserve and provide access to critical data. It enables reliable distributed coordination through distributed locking, leader elections, and write barriers. 
+The etcd API is a distributed key-value store. It is designed to preserve and provide access to critical data in a quick and reliable fashion. It enables reliable distributed coordination through distributed locking, leader elections, and write barriers. 
 
-The etcd API in Azure Cosmos DB allows you to use Azure Cosmos DB as the backend store for Azure Kubernetes. Azure Cosmos DB implements the etcd wire protocol, which allows the master node’s API servers to use Azure Cosmos DB just like it would access a locally installed etcd. When you use Azure Cosmos etcd API as the backing store for Kubernetes, you can enjoy benefits such as:
+The etcd API in Azure Cosmos DB allows you to use Azure Cosmos DB as the backend store for Azure Kubernetes. Azure Cosmos DB implements the etcd wire protocol, which allows the master node’s API servers to use Azure Cosmos DB just like it would access a locally installed etcd. etcd API in Azure Cosmos DB is currently in preview. When you use Azure Cosmos etcd API as the backing store for Kubernetes, you can use Azure Cosmos DB features such as:
 
 * No need to manually configure and manage etcd.
 * High availability of etcd, guaranteed by Cosmos (99.99% in single region, 99.999% in 2+ regions).
@@ -20,40 +20,40 @@ The etcd API in Azure Cosmos DB allows you to use Azure Cosmos DB as the backend
 * Secure by default & enterprise ready.
 * Industry-leading, comprehensive SLAs.
 
-To learn more about etcd API in Azure Cosmos DB, see the [overview]() article. This article shows you how to use Azure Kubernetes Engine (aks-engine) to bootstrap a Kubernetes cluster on Azure that uses [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/) instead of a locally installed and configured etcd. 
+To learn more about etcd API in Azure Cosmos DB, see the overview article. This article shows you how to use Azure Kubernetes Engine (aks-engine) to bootstrap a Kubernetes cluster on Azure that uses [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/) instead of a locally installed and configured etcd. 
 
 ## Prerequisites
 
-1. Install the latest version of [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), you download Azure CLI specific to your operating system and install.
+1. Install the latest version of [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). You can download Azure CLI specific to your operating system and install.
 
-1. Install the v0.32.3[https://github.com/Azure/aks-engine/releases/tag/v0.32.3] version of Azure Kubernetes Engine. The installation instructions for different operating systems are available in [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) page. You just need the steps from **Install AKS Engine** section of the linked doc. After downloading, extract the zip file.
+1. Install the [v0.32.3](https://github.com/Azure/aks-engine/releases/tag/v0.32.3) version of Azure Kubernetes Engine. The installation instructions for different operating systems are available in [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) page. You just need the steps from **Install AKS Engine** section of the linked doc. After downloading, extract the zip file.
 
-   The Azure Kubernetes Engine (aks-engine) generates Azure Resource Manager templates for Kubernetes clusters on Azure. The input to aks-engine is a cluster definition file which describes the desired cluster, including orchestrator, features, and agents. The structure of the input files is very similar to the public API for Azure Kubernetes Service.
+   The Azure Kubernetes Engine (aks-engine) generates Azure Resource Manager templates for Kubernetes clusters on Azure. The input to aks-engine is a cluster definition file that describes the desired cluster, including orchestrator, features, and agents. The structure of the input files is similar to the public API for Azure Kubernetes Service.
 
-1. The etcd API in Azure Cosmos DB is currently in preview. Sign up to use the preview version: https://aka.ms/cosmosetcdapi-signup. After you submit the form, your subscription will be whitelisted to use the Azure Cosmos etcd API. It takes at least 48 hours for the team to approve your request. 
+1. The etcd API in Azure Cosmos DB is currently in preview. Sign up to use the preview version: https://aka.ms/cosmosetcdapi-signup. After you submit the form, your subscription will be whitelisted to use the Azure Cosmos etcd API. It takes at least 2 business days for the team to approve your request. 
 
 ## Deploy the cluster with Azure Cosmos DB
 
 1. Open a command prompt window, and sign into azure with the following command:
 
-   ```bash
+   ```azurecli-interactive
    az login 
    ```
 
 1. If you have more than one subscription, switch to the subscription that has the Azure Cosmos DB etcd API feature whitelisted. You can switch to the required subscription using the following command:
 
-   ```bash
+   ```azurecli-interactive
    az account set --subscription "<Name of your subscription>"
    ```
-1. Next create a new resource group where you will deploy the resources required by the Azure Kubernetes cluster. Make sure to create the resource group in the "CentralUS" region. It's not mandatory for the resource group to be in "CentralUS" region however, Azure Cosmos etcd API is currently available to deploy in "CentralUS" region only. So it's best to have the Kubernetes cluster to be co-located with the Cosmos etcd instance:
+1. Next create a new resource group where you will deploy the resources required by the Azure Kubernetes cluster. Make sure to create the resource group in the "centralus" region. It's not mandatory for the resource group to be in "centralus" region however, Azure Cosmos etcd API is currently available to deploy in "centralus" region only. So it's best to have the Kubernetes cluster to be colocated with the Cosmos etcd instance:
 
-   ```bash
+   ```azurecli-interactive
    az group create --name <Name> --location "centralus"
    ```
 
 1. Next create a service principal for the Azure Kubernetes cluster so that it can communicate with the resources that are a part of the same resource group. You can create a service principal using Azure CLI, PowerShell or Azure portal, in this example you will you CLI to create it.
 
-   ```bash
+   ```azurecli-interactive
    az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<Your_Azure_subscription_ID>/resourceGroups/<Your_resource_group_name>"
    ```
    This command outputs the details of a service principal, for example:
@@ -73,11 +73,11 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview]() article. T
 
 1. From the command prompt, navigate to the folder where the Azure Kubernetes Engine executable is located. For example, on your command prompt you can navigate to the folder as:
 
-   ```bash
+   ```cmd
    cd "\aks-engine-v0.34.1-windows-amd64\aks-engine-v0.34.1-windows-amd64"
    ```
 
-1. Open a text editor of your choice and define a resource manager template that deploys the Azure Kubernetes cluster with Azure Cosmos DB as the backend. Copy the following JSON definition to your text editor and save the file as "apiModel.json":
+1. Open a text editor of your choice and define a Resource Manager template that deploys the Azure Kubernetes cluster with Azure Cosmos DB as the backend. Copy the following JSON definition to your text editor and save the file as `apiModel.json`:
 
    ```json
 
@@ -122,7 +122,7 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview]() article. T
 
 1. Deploy the Azure Kubernetes cluster that uses Azure Cosmos DB with the following command:
 
-   ```bash
+   ```cmd
    aks-engine deploy \
      --subscription-id <Your_Azure_subscription_ID> \
      --client-id <Service_ principal_appId> \
@@ -133,27 +133,28 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview]() article. T
      --force-overwrite
    ```
 
-   > [!Note]
-   > Azure Cosmos etcd API is currently available to deploy in "CentralUS" region only. Other regions will be available in the future.
-
    Azure Kubernetes Engine consumes a cluster definition that outlines the desired shape, size, and configuration of the Azure Kubernetes. There are several features that can be enabled through the cluster definition. In this example you will use the following parameters:
 
-   * **subscription-id:** Azure subscription Id that has Azure Cosmos BD etcd API enabled.
-   * **client-id:** The service principal's appId.
-   * **Client-secret:** The service principal's password or a randomly-generated password from the previous command.
+   * **subscription-id:** Azure subscription ID that has Azure Cosmos DB etcd API enabled.
+   * **client-id:** The service principal's appId. The `appId` was returned as output in step 4.
+   * **Client-secret:** The service principal's password or a randomly generated password. This value was returned as output in the 'password' parameter in step 4. 
    * **dnsPrefix:** A region-unique DNS name. This value will form part of the hostname (example values are- myprod1, staging).
-   * **location:**  Location where the cluster should be deployed to, currently only "CentralUS" is supported. 
+   * **location:**  Location where the cluster should be deployed to, currently only "centralus" is supported.
+
+   > [!Note]
+   > Azure Cosmos etcd API is currently available to deploy in "centralus" region only. Other regions will be available in the future.
+ 
    * **api-model:** Fully qualified path to the template file.
    * **force-overwrite:** This option is used to automatically overwrite existing files in the output directory.
  
-   The following is an example deployment command:
+   The following command shows an example deployment:
 
-   ```bash
+   ```cmd
    aks-engine deploy \
      --subscription-id 1234fc61-1234-1234-1234-be1234d12c1b \
      --client-id 1234a4e9-4f83-46ca-a704-107457b2e3ab \
      --client-secret 123aecd3-5e37-4f3d-8738-2ac348c2e6a7 \
-     --dns-prefix sngun-aks-sg-test \
+     --dns-prefix aks-sg-test \
      --location centralus \
      --api-model "C:\Users\demouser\Downloads\apiModel.json"  \
      --force-overwrite
@@ -163,19 +164,19 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview]() article. T
 
 The template deployment takes around 10 minutes to complete. After the deployment is successfully completed, you will see the following output in the commands prompt:
 
-```bash
-WARN[0006] apimodel: missing masterProfile.dnsPrefix will use "sngun-aks-sg-test"
-WARN[0006] --resource-group was not specified. Using the DNS prefix from the apimodel as the resource group name: sngun-aks-sg-test
-INFO[0025] Starting ARM Deployment (sngun-aks-sg-test-546247491). This will take some time...
-INFO[0587] Finished ARM Deployment (sngun-aks-sg-test-546247491). Succeeded
+```cmd
+WARN[0006] apimodel: missing masterProfile.dnsPrefix will use "aks-sg-test"
+WARN[0006] --resource-group was not specified. Using the DNS prefix from the apimodel as the resource group name: aks-sg-test
+INFO[0025] Starting ARM Deployment (aks-sg-test-546247491). This will take some time...
+INFO[0587] Finished ARM Deployment (aks-sg-test-546247491). Succeeded
 ```
 
-The resource group will provision resources such as- virtual machine, Azure Cosmos account (Core/SQL API), virtual network, availability set and other resources required by the Kubernetes cluster. 
+The resource group now contains resources such as- virtual machine, Azure Cosmos account (Core/SQL API), virtual network, availability set, and other resources required by the Kubernetes cluster. 
 
 The Azure Cosmos account’s name will match your specified DNS prefix appended with k8s. Your Azure Cosmos account will be provisioned with a database (EtcdDB) and a container (EtcdData). The container will store all the etcd related data. The container is provisioned with a certain number of request units and you can [scale (increase/decrease) the throughput](scaling-throughput.md) based on your workload. 
 
 ## Next steps
 
-* Learn how to [work with Azure Cosmos database, containers and items](databases-containers-items.md)
+* Learn how to [work with Azure Cosmos database, containers, and items](databases-containers-items.md)
 * Learn how to [optimize provisioned throughput costs](optimize-cost-throughput.md)
 
