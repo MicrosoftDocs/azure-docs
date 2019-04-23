@@ -49,6 +49,8 @@
   items:
   - name: Face detection
     href: concepts/face-detection.md
+  - name: Face recognition
+    href: concepts/face-recognition.md
 - name: How-to guides
   items:
   - name: Face detection
