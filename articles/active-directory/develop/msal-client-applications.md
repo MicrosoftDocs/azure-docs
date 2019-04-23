@@ -111,7 +111,7 @@ MSAL will throw a meaningful exception if you specify both Azure AD authority au
 If you don't specify an audience your app will target Azure AD and personal Microsoft accounts as an audience (that is `common`).
 
 #### Effective audience
-The effective audience for your application will be the minimum (if there is an intersection) of the audience you set in your application and the audience specified in the application registration. Indeed, the application registration experience ([App Registration Preview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)) lets you specify the audience (supported account types) for the application. See [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md) for more information.
+The effective audience for your application will be the minimum (if there is an intersection) of the audience you set in your application and the audience specified in the application registration. Indeed, the application registration experience ([App Registration](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)) lets you specify the audience (supported account types) for the application. See [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md) for more information.
 
 Currently, the only way to get an application to sign in users with only Microsoft personal accounts is to set:
 - set the app registration audience to "Work and school accounts and personal accounts" and,
@@ -130,7 +130,7 @@ For public client application developers using MSAL:
 - ``urn:ietf:wg:oauth:2.0:oob`` for all the Windows platforms
 - ``msal{ClientId}://auth`` for Xamarin Android and iOS
 
-However, the redirect URI needs to be configured in the [App Registration Preview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)
+However, the redirect URI needs to be configured in the [App Registration](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)
 
 ![Redirect URI in portal](media/msal-client-applications/redirect-uri.png)
 
