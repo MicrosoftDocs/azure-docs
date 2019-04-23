@@ -8,7 +8,7 @@ ms.author: banders
 ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: cost-management
-manager: dougeby
+manager: micflan
 ms.custom: seodec18
 ---
 # Quickstart: Explore and analyze costs with Cost analysis
@@ -49,8 +49,6 @@ To review your costs in cost analysis, open the desired scope in the Azure porta
 
 The scope that you select is used throughout Cost Management to provide data consolidation and to control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope that others roll up to and then you filter-down to what you want. This is important to understand because some people shouldn't have access to a parent scope that child scopes roll up to.
 
-Click **Open Cost analysis**.
-
 The initial cost analysis view includes the following areas:
 
 **Total** – Shows the total costs for the current month.
@@ -65,14 +63,20 @@ The initial cost analysis view includes the following areas:
 
 ## Customize cost views
 
-The default view provides quick answers to common questions like:
+Cost analysis has 4 built-in views, optimized for the most common goals: 
 
-- How much did I spend?
-- Will I stay within my budget?
+View | Answer questions like...
+--- | ---
+Accumulated cost | How much have I spent so far this month? Will I stay within my budget?
+Daily cost | Have there been any increases in the costs per day for the last 30 days?
+Cost by service | How has my monthly usage vary over the past 3 invoices?
+Cost by resource | Which resources are accruing the most costs this month?
+
+![View selector showing an example selection for this month](./media/quick-acm-cost-analysis/view-selector.png)
 
 However, there are many cases where you need deeper analysis. Customization starts at the top of the page, with the date selection.
 
-Cost analysis shows data for the current month by default. Use the date selector to quickly switch to: the last month, this month, this calendar quarter, this calendar year, or a custom date range of your choice. Selecting the last month is the quickest way to analyze your latest Azure invoice and easily reconcile charges. The current quarter and year options help track costs against longer-term budgets. You can also select a different date range. For example, you can select a single day, the last seven days, or anything as far back as a year before the current month.
+Cost analysis shows data for the current month by default. Use the date selector to quickly switch to commonly-used date ranges, like the last 7 days, the last calendar month, the current calendar year, or a custom date range of your choice. Pay-as-you-go subscriptions also include date ranges based on your billing period, which is not bound to the calendar month, like the current billing period or last invoice. You can also quickly navigate to the previous and next period based on the current date range using the **<PREVIOUS** and **NEXT>** links at the top of the menu. As an example, **<PREVIOUS** will go from this month to last month to 2 months ago or from the last 7 days to 8-14 days ago to 15-21 days ago. 
 
 ![Date selector showing an example selection for this month](./media/quick-acm-cost-analysis/date-selector.png)
 
