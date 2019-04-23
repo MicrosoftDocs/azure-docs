@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure CLI script sample - Configure IPv6 virtual network endpoints (preview)
 titlesuffix: Azure Virtual Network
 description: Enable IPv6 endpoints using Azure CLI in Azure Virtual Network
