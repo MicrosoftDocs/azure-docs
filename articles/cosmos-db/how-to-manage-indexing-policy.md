@@ -273,9 +273,9 @@ This policy can be used in situations where the [Time-to-Live (TTL) feature](tim
 
 ## Composite indexing policy examples
 
-In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](index-policy.md#adding-composite-indexes) on those properties is required.
+In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](index-policy.md#composite-indexes) on those properties is required.
 
-### Composite index defined for (a asc, b desc):
+### Composite index defined for (name asc, age desc):
 
     {  
         "automatic":true,
@@ -291,11 +291,11 @@ In addition to including or excluding paths for individual properties, you can a
         "compositeIndexes":[  
             [  
                 {  
-                    "path":"/a",
+                    "path":"/name",
                     "order":"ascending"
                 },
                 {  
-                    "path":"/b",
+                    "path":"/age",
                     "order":"descending"
                 }
             ]
@@ -308,19 +308,19 @@ Query #1:
 ```sql
     SELECT *
     FROM c
-    ORDER BY a asc, b desc    
+    ORDER BY name asc, age desc    
 ```
 
 Query #2:
 ```sql
     SELECT *
     FROM c
-    ORDER BY a desc, b asc
+    ORDER BY name desc, age asc
 ```
 
 You can define multiple different composite indexes within the same indexing policy. 
 
-### Composite index defined for (a asc, b asc) and (a asc, b desc):
+### Composite index defined for (name asc, age asc) and (name asc, age desc):
 
     {  
         "automatic":true,
@@ -336,21 +336,21 @@ You can define multiple different composite indexes within the same indexing pol
         "compositeIndexes":[  
             [  
                 {  
-                    "path":"/a",
+                    "path":"/name",
                     "order":"ascending"
                 },
                 {  
-                    "path":"/b",
+                    "path":"/age",
                     "order":"ascending"
                 }
             ]
             [  
                 {  
-                    "path":"/a",
+                    "path":"/name",
                     "order":"ascending"
                 },
                 {  
-                    "path":"/b",
+                    "path":"/age",
                     "order":"descending"
                 }
             ]
@@ -359,7 +359,7 @@ You can define multiple different composite indexes within the same indexing pol
 
 It is optional to specify the order. If not specified, the order is ascending.
 
-### Composite index defined for (a asc, b asc):
+### Composite index defined for (name asc, age asc):
 
 ```
 {  
@@ -376,10 +376,10 @@ It is optional to specify the order. If not specified, the order is ascending.
         "compositeIndexes":[  
             [  
                 {  
-                    "path":"/a",
+                    "path":"/name",
                 },
                 {  
-                    "path":"/b",
+                    "path":"/age",
                 }
             ]
         ]
