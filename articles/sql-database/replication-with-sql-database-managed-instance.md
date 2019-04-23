@@ -15,7 +15,15 @@ ms.date: 02/07/2019
 ---
 # Configure replication in an Azure SQL Database managed instance database
 
-Transactional replication enables you to replicate data into an Azure SQL Database managed instance database from a SQL Server database or another instance database. You can also use transactional replication to push changes made in an instance database in Azure SQL Database managed instance to a SQL Server database, to a single database in Azure SQL Database, to a pooled database in an Azure SQL Database elastic pool. Transactional replication is in the public preview on [Azure SQL Database managed instance](sql-database-managed-instance.md). A managed instance can host publisher, distributor, and subscriber databases. See [transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) for available configurations.
+Transactional replication enables you to replicate data into an Azure SQL Database managed instance database from a SQL Server database or another instance database. 
+
+You can also use transactional replication to push changes made in an instance database in Azure SQL Database managed instance to:
+
+- a SQL Server database
+- a single database in Azure SQL Database 
+- a pooled database in an Azure SQL Database elastic pool
+ 
+Transactional replication is in public preview on [Azure SQL Database managed instance](sql-database-managed-instance.md). A managed instance can host publisher, distributor, and subscriber databases. See [transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) for available configurations.
 
 ## Requirements
 
@@ -44,121 +52,210 @@ Supports:
 
 The following features are not supported in a managed instance in Azure SQL Database:
 
-- Updateable subscriptions.
+- [Updatable subscriptions](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication).
 - [Active geo replication](sql-database-active-geo-replication.md) and [Auto-failover groups](sql-database-auto-failover-group.md) should not be used if the Transactional Replication is configured.
+ 
+## 1 - Create a resource group
 
-## Configure publishing and distribution example
+Use the [Azure portal](https://portal.azure.com) to create a resource group with the name `SQLMI-Repl`.  
 
-1. [Create an Azure SQL Database managed instance](sql-database-managed-instance-create-tutorial-portal.md) in the portal.
-2. [Create an Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory.
+## 2 - Create managed instances
 
-   Be sure to copy the storage keys. See [View and copy storage access keys](../storage/common/storage-account-manage.md#access-keys
-).
-3. Create an instance database for the publisher.
+Use the [Azure portal](https://portal.azure.com) to create two [managed instances](sql-database-managed-instance-create-tutorial-portal.md) on the same virtual network. The two managed instances should be named:
+- `sql-mi-pub`
+- `sql-mi-sub` 
 
-   In the example scripts below, replace `<Publishing_DB>` with the name of the instance database.
+You will also need to [Configure an Azure VM to connect](sql-database-managed-instance-configure-vm.md) to your Azure SQL Database managed instance. 
 
-4. Create a database user with SQL Authentication for the distributor. Use a secure password.
+## 3 - Create Azure Storage Account
 
-   In the example scripts below, use `<SQL_USER>` and `<PASSWORD>` with this SQL Server Account database user and password.
+[Create an Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory.
 
-5. [Connect to the SQL Database Managed Instance](sql-database-connect-query-ssms.md).
+Be sure to copy the storage keys. See [View and copy storage access keys](../storage/common/storage-account-manage.md#access-keys). 
 
-6. Run the following query to add the distributor and the distribution database.
+## 4 - Create a publisher database
+Connect to your `sql-mi-pub` managed instance using SQL Server Management Studio and run the following Transact-SQL (T-SQL) code to create your publisher database:
 
-   ```sql
-   USE [master]​
-   GO
-   EXEC sp_adddistributor @distributor = @@ServerName​;
-   EXEC sp_adddistributiondb @database = N'distribution'​;
-   ```
+```sql
+USE [master]
+GO
 
-7. To configure a publisher to use a specified distribution database, update and run the following query.
+CREATE DATABASE [ReplTran_PUB]
+GO
 
-   Replace `<SQL_USER>` and `<PASSWORD>` with the SQL Server Account and password.
+USE [ReplTran_PUB]
+GO
+CREATE TABLE ReplTest (
+	ID INT NOT NULL PRIMARY KEY,
+	c1 VARCHAR(100) NOT NULL,
+	dt1 DATETIME NOT NULL DEFAULT getdate()
+)
+GO
 
-   Replace `\\<STORAGE_ACCOUNT>.file.core.windows.net\<SHARE>` with the value of your storage account.  
 
-   Replace `<STORAGE_CONNECTION_STRING>` with the connection string from the **Access keys** tab of your Microsoft Azure storage account.
+USE [ReplTran_PUB]
+GO
 
-   After you update the following query, run it.
+INSERT INTO ReplTest (ID, c1) VALUES (6, 'pub')
+INSERT INTO ReplTest (ID, c1) VALUES (2, 'pub')
+INSERT INTO ReplTest (ID, c1) VALUES (3, 'pub')
+INSERT INTO ReplTest (ID, c1) VALUES (4, 'pub')
+INSERT INTO ReplTest (ID, c1) VALUES (5, 'pub')
+GO
+SELECT * FROM ReplTest
+GO
+```
 
-   ```sql
-   USE [master]​
-   EXEC sp_adddistpublisher @publisher = @@ServerName,
-                @distribution_db = N'distribution',​
-                @security_mode = 0,
-                @login = N'<SQL_USER>',
-                @password = N'<PASSWORD>',
-                @working_directory = N'\\<STORAGE_ACCOUNT>.file.core.windows.net\<SHARE>',
-                @storage_connection_string = N'<STORAGE_CONNECTION_STRING>';
-   GO​
-   ```
+## 5 - Create a subscriber database
+Connect to your `sql-mi-sub` managed instance using SQL Server Management Studio and run the following Transact-SQL (T-SQL) code to create your empty subscriber database:
 
-8. Configure the publisher for replication.
+```sql
+USE [master]
+GO
 
-    In the following query, replace `<Publishing_DB>` with the name of your publisher database.
+CREATE DATABASE [ReplTran_SUB]
+GO
 
-    Replace `<Publication_Name>` with the name for your publication.
+USE [ReplTran_SUB]
+GO
+CREATE TABLE ReplTest (
+	ID INT NOT NULL PRIMARY KEY,
+	c1 VARCHAR(100) NOT NULL,
+	dt1 DATETIME NOT NULL DEFAULT getdate()
+)
+GO
+```
 
-    Replace `<SQL_USER>` and `<PASSWORD>` with the SQL Server Account and password.
+## 5 - Configure distribution
+Connect to your `sql-mi-pub` managed instance using SQL Server Management Studio and run the following Transact-SQL (T-SQL) code to configure your distribution database. 
 
-    After you update the query, run it to create the publication.
+```sql
+USE [master]​
+GO
 
-   ```sql
-   USE [<Publishing_DB>]​
-   EXEC sp_replicationdboption @dbname = N'<Publishing_DB>',
-                @optname = N'publish',
-                @value = N'true'​;
+EXEC sp_adddistributor @distributor = @@ServerName​;
+EXEC sp_adddistributiondb @database = N'distribution'​;
+GO
+```
 
-   EXEC sp_addpublication @publication = N'<Publication_Name>',
-                @status = N'active';​
+## 6 - Configure publisher to use distributor 
+On your publisher managed instance `sql-mi-pub`, change the query execution to [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) mode and run the following code to register the new distributor with your publisher. 
 
-   EXEC sp_changelogreader_agent @publisher_security_mode = 0,
-                @publisher_login = N'<SQL_USER>',
-                @publisher_password = N'<PASSWORD>',
-                @job_login = N'<SQL_USER>',
-                @job_password = N'<PASSWORD>';
+```sql
+:setvar username loginUsedToAccessSourceManagedInstance
+:setvar password passwordUsedToAccessSourceManagedInstance
+:setvar file_storage "\\*****.file.core.windows.net\*****"
+:setvar file_storage_key "DefaultEndpointsProtocol=https;AccountName=*****;AccountKey=**;EndpointSuffix=core.windows.net"
 
-   EXEC sp_addpublication_snapshot @publication = N'<Publication_Name>',
-                @frequency_type = 1,​
-                @publisher_security_mode = 0,​
-                @publisher_login = N'<SQL_USER>',
-                @publisher_password = N'<PASSWORD>',
-                @job_login = N'<SQL_USER>',
-                @job_password = N'<PASSWORD>'
-   ```
 
-9. Add the article, subscription, and push subscription agent.
+USE [master]​
+EXEC sp_adddistpublisher
+  @publisher = @@ServerName,
+  @distribution_db = N'distribution',​
+  @security_mode = 0,
+  @login = N'$(username)',
+  @password = N'$(password)',
+  @working_directory = N'$(file_storage)',
+  @storage_connection_string = N'$(file_storage_key)';
+```
 
-   To add these objects, update the following script.
+This script configures a local publisher on the managed instance, adds a linked server, and creates a set of jobs for the SQL Server Agent. 
 
-   - Replace `<Object_Name>` with the name of the publication object.
-   - Replace `<Object_Schema>` with the name of the source schema.
-   - Replace the other parameters in angle brackets `<>` to match the values in the previous scripts.
+## 7 - Create publication and subscriber
+Using [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) mode, run the following Transact-SQL (T-SQL) script to enable replication for your database, and configure replication between your publisher, distributor, and subscriber. 
 
-   ```sql
-   EXEC sp_addarticle @publication = N'<Publication_Name>',
-                @type = N'logbased',
-                @article = N'<Object_Name>',
-                @source_object = N'<Object_Name>',
-                @source_owner = N'<Object_Schema>'​
+```sql
+-- Set variables
+:setvar username sourceLogin
+:setvar password sourcePassword
+:setvar source_db ReplTran_PUB
+:setvar publication_name PublishData
+:setvar object ReplTest
+:setvar schema dbo
+:setvar target_server "sql-mi-sub.wcus17662feb9ce98.database.windows.net"
+:setvar target_username targetLogin
+:setvar target_password targetPassword
+:setvar target_db ReplTran_SUB
 
-   EXEC sp_addsubscription @publication = N'<Publication_Name>',​
-                @subscriber = @@ServerName,
-                @destination_db = N'<Subscribing_DB>',
-                @subscription_type = N'Push'​
+-- Enable replication for your source database
+USE [$(source_db)]​
+EXEC sp_replicationdboption
+  @dbname = N'$(source_db)',
+  @optname = N'publish',
+  @value = N'true'​;
 
-   EXEC sp_addpushsubscription_agent @publication = N'<Publication_Name>',
-                @subscriber = @@ServerName,​
-                @subscriber_db = N'<Subscribing_DB>',
-                @subscriber_security_mode = 0,
-                @subscriber_login = N'<SQL_USER>',
-                @subscriber_password = N'<PASSWORD>',
-                @job_login = N'<SQL_USER>',
-                @job_password = N'<PASSWORD>'
-   GO​
-   ```
+-- Create your publication
+EXEC sp_addpublication
+  @publication = N'$(publication_name)',
+  @status = N'active';​
+
+
+-- Configure your log reaer agent
+EXEC sp_changelogreader_agent
+  @publisher_security_mode = 0,
+  @publisher_login = N'$(username)',
+  @publisher_password = N'$(password)',
+  @job_login = N'$(username)',
+  @job_password = N'$(password)';
+
+-- Add the publication snapshot
+EXEC sp_addpublication_snapshot
+  @publication = N'$(publication_name)',
+  @frequency_type = 1,​
+  @publisher_security_mode = 0,​
+  @publisher_login = N'$(username)',
+  @publisher_password = N'$(password)',
+  @job_login = N'$(username)',
+  @job_password = N'$(password)';
+
+-- Add the ReplTest table to the publication
+EXEC sp_addarticle 
+  @publication = N'$(publication_name)',
+  @type = N'logbased',
+  @article = N'$(object)',
+  @source_object = N'$(object)',
+  @source_owner = N'$(schema)'​;
+
+-- Add the subscriber
+EXEC sp_addsubscription
+  @publication = N'$(publication_name)',
+  @subscriber = N'$(target_server)',
+  @destination_db = N'$(target_db)',
+  @subscription_type = N'Push'​;
+
+-- Create the push subscription agent
+EXEC sp_addpushsubscription_agent
+  @publication = N'$(publication_name)',
+  @subscriber = N'$(target_server)',​
+  @subscriber_db = N'$(target_db)',
+  @subscriber_security_mode = 0,
+  @subscriber_login = N'$(target_username)',
+  @subscriber_password = N'$(target_password)',
+  @job_login = N'$(target_username)',
+  @job_password = N'$(target_password)';
+
+-- Initialize the snapshot
+EXEC sp_startpublication_snapshot
+  @publication = N'$(publication_name)';
+```
+## 8 - Test replication
+
+Once replication has been configured, you can test it by inserting new items on the publisher and watching the changes propagate to the subscriber. 
+
+Run the following Transact-SQL snippet to view the rows on the subscriber:
+
+```sql
+select * from dbo.ReplTest
+```
+
+Run the following Transact-SQL snippet to insert additional rows on the publisher, and then check the rows again on the subscriber. 
+
+```sql
+INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
+```
+
+## 9 - Clean up resources
+Once you're done testing, you can clean up your resources by [deleting the resource group](../azure-resource-manager/manage-resources-portal#delete-resources.md) `SQLMI-Repl`. 
    
 ## See Also
 
