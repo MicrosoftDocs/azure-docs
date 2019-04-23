@@ -16,6 +16,8 @@ ms.date: 04/23/2019
 
 As a cloud service provider, we understand the importance of maintaining the integrity and confidentiality of customer data. `Need to complete this section`
 
+![Azure Customer Lockbox - landing page](./media/azure-customer-lockbox/customer-lockbox-landing-page.png)
+
 
 ## Workflow
 
@@ -43,23 +45,23 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
 7. At the customer organization, the user who has the [Owner role](../role-based-access-control/rbac-and-directory-admin-roles#azure-rbac-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
     
-    ![Azure Customer Lockbox - email notification](./media/azure-customer-lockbox/xxx.png)
+    Example email:
     
-`Add screenshot`
+    ![Azure Customer Lockbox - email notification](./media/azure-customer-lockbox/xxx.png)
 
 8. The email notification provides a link to the **Customer Lockbox** blade in the Azure portal. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox.
     
    The request remains in the customer queue for four days. After this time, the access request automatically expires and no access is granted to Microsoft engineers.
 
-9. To get the details of the pending request, the designated approver can select the lockbox request.
+9. To get the details of the pending request, the designated approver can select the lockbox request from **Pending Requests**:
     
     ![Azure Customer Lockbox - view the support ticket request](./media/azure-customer-lockbox/customer-lockbox-pending-requests.png)
 
-10. The designated approver can also select the **Ticket ID** reference to view the support ticket request that created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem.
+10. The designated approver can also select the **SERVICE REQUEST ID** to view the support ticket request that was created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem. For example:
     
     ![Azure Customer Lockbox - view the support ticket request](./media/azure-customer-lockbox/customer-lockbox-support-ticket.png)
 
-11. After reviewing the request, the designated approver selects **Approve** or **Deny**.
+11. After reviewing the request, the designated approver selects **Approve** or **Deny**:
     
     ![Azure Customer Lockbox - select Approve or Deny](./media/azure-customer-lockbox/customer-lockbox-approval.png)
     
