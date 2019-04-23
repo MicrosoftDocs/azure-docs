@@ -154,7 +154,7 @@ Now that you've trained the model using 70 percent of your data, you can use it 
 
 1. To view the output from the Evaluate Model module, click the output port, and then select Visualize.
 
-![Screenshot showing the evaluation results for the final experiment.](./media/ui-tutorial-automobile-price-train-score/evaluate-result.png)
+    ![Screenshot showing the evaluation results for the final experiment.](./media/ui-tutorial-automobile-price-train-score/evaluate-result.png)
 
 The following statistics are shown for your model:
 
