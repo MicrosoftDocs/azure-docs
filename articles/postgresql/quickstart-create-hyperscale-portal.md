@@ -1,6 +1,6 @@
 ---
 title: 'Azure Database for PostgreSQL – Hyperscale (Citus) (preview) quickstart'
-description: Create and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus) (preview).
+description: Quickstart to create and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus) (preview).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
