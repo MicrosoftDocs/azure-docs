@@ -21,19 +21,23 @@ For a complete list of supported languages, locales, and voices (neural and stan
 
 The following sections provide samples for common speech synthesis tasks.
 
-## Change speaking styles (neural)
-You can use SSML to change the style of speaking for neural voices. 
+## Adjust speaking style for neural voices
 
-By default, the text-to-speech service synthesizes text in a neutral style. The neural voices extends SSML with an <mstts:express-as> element that converts text to synthesized speech in different speaking styles. Currently, the style tags are only supported with the US English female voice `en-US-JessaNeural` and the Chinese female voice `zh-CN-XiaoxiaoNeural`.
+You can use SSML to adjust the speaking style when using one of the neural voices.
 
-Chaging style can be applied to below types defined for different voices at the sentence level. Using the style types that are not supported will return synthesized speech in the default neutral style.
+By default, the text-to-speech service synthesizes text in a neutral style. The neural voices extend SSML with an `<mstts:express-as>` element that converts text to synthesized speech in different speaking styles. Currently, the style tags are only supported with these voices:
+
+* `en-US-JessaNeural` 
+* `zh-CN-XiaoxiaoNeural`.
+
+Speaking style changes can be applied at the sentence level. The styles vary by voice. If a style type is not supported, the service will return the synthesized speech as the default netural style.
 
 | Voice | Style | Description | 
 |-----------|-----------------|----------|
-| `en-US-JessaNeural` | type=`cheerful` | expresses an emotion that is positive and happy |
-| | type=`empathy` | expresses a sense of caring and understanding |
-| `zh-CN-XiaoxiaoNeural` | type=`newscast` | broadcasts messages formally |
-| | type=`sentiment ` | conveys a touching message or a story |
+| `en-US-JessaNeural` | type=`cheerful` | Expresses an emotion that is positive and happy |
+| | type=`empathy` | Expresses a sense of caring and understanding |
+| `zh-CN-XiaoxiaoNeural` | type=`newscast` | Expresses a formal tone, similar to news broadcasts |
+| | type=`sentiment ` | Conveys a touching message or a story |
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
