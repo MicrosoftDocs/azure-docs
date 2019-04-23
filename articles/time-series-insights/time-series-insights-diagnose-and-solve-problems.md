@@ -27,7 +27,7 @@ This article describes some issues you might encounter in your Azure Time Series
 
 No data in the [Azure Time Series Insights explorer](https://insights.timeseries.azure.com) might occur for several common reasons:
 
-### Cause A: Event source data isn't in JSON format
+### Cause A: event source data isn't in JSON format
 
 Azure Time Series Insights only supports JSON data. For JSON samples, see [Supported JSON shapes](./how-to-shape-query-json.md).
 
@@ -78,7 +78,7 @@ For a high-level understanding of how flattening logic works, see [Supported JSO
 
 To fix the lag, increase the SKU capacity of your environment. For more information, see [Scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
 
-### Cause B: Initial ingestion of historical data slows ingress
+### Cause B: initial ingestion of historical data slows ingress
 
 If you connect an existing event source, it's likely that your IoT hub or event hub already contains data. The environment starts pulling data from the beginning of the event source's message retention period. This is the default processing and can't be overridden. You can engage throttling. Throttling might take a while to catch up as it ingests historical data.
 
@@ -90,7 +90,7 @@ To fix the lag:
 
 2. When the lag is caught up, decrease the SKU capacity to your normal ingress rate.
 
-## Problem 3: My event source's timestamp property name setting doesn't work
+## Problem three: my event source's timestamp property name setting doesn't work
 
 Ensure that the timestamp property name and value conform to the following rules:
 
