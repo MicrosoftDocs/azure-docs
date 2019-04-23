@@ -37,15 +37,13 @@
       displayName: learning policy, Counterfactual, features
 - name: How-to guides
   items:
-  - name: Create and use feedback loop
-    href: csharp-quickstart-commandline-feedback-loop.md
+  - name: Configure Personalizer
+    href: how-to-settings.md
+    displayName: azure, portal, settings, evaluation, offline, policy
   - name: Analyze
     items: 
     - name: Offline evaluation
       href: how-to-offline-evaluation.md
-  - name: Configure Personalizer
-    href: how-to-settings.md
-    displayName: azure, portal, settings, evaluation, offline, policy
   - name: Use containers
     items:
     - name: Install and run containers
@@ -58,12 +56,12 @@
   items:
   - name: Samples
     href: https://aka.ms/personalizer-samples
+  - name: REST API Reference
+    href: https://aka.ms/personalizer-rest-api-docs
   - name: SDKs
     items:
     - name: NuGet package
       href: https://aka.ms/personalizer-nuget-sdk
-  - name: Microsoft Recommenders GitHub repository
-    href: https://github.com/Microsoft/Recommenders
 - name: Resources
   items:
   - name: Regional availability
