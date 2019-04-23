@@ -32,7 +32,6 @@ Data points sent to the Ink Recognizer API must be formatted in JSON and have nu
 
 ```json
 {
-  "version": 1,
   "language": "en-US",
   "strokes": [
    {
