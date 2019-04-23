@@ -357,15 +357,15 @@ The following code snippet configures logs for *Warning* and above from all cate
 
 1. *What are the old and new versions of ApplicationInsightsLoggerProvider?*
 
-   [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) included a built-in ApplicationInsightsLoggerProvider (Microsoft.ApplicationInsights.AspNetCore.Logging.ApplicationInsightsLoggerProvider), which was enabled through **ILoggerFactory** extension methods. This provider is marked obsolete from version 2.7.0-beta2. It will be removed completely in the next major version change. The [Microsoft.ApplicationInsights.AspNetCore 2.6.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) package itself isn't obsolete. It's required to enable monitoring of requests, dependencies, and so on.
+   - [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) included a built-in ApplicationInsightsLoggerProvider (Microsoft.ApplicationInsights.AspNetCore.Logging.ApplicationInsightsLoggerProvider), which was enabled through **ILoggerFactory** extension methods. This provider is marked obsolete from version 2.7.0-beta2. It will be removed completely in the next major version change. The [Microsoft.ApplicationInsights.AspNetCore 2.6.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) package itself isn't obsolete. It's required to enable monitoring of requests, dependencies, and so on.
 
-   The suggested alternative is the new standalone package [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights), which contains an improved ApplicationInsightsLoggerProvider (Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider) and extension methods on ILoggerBuilder for enabling it.
+   - The suggested alternative is the new standalone package [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights), which contains an improved ApplicationInsightsLoggerProvider (Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider) and extension methods on ILoggerBuilder for enabling it.
 
-   [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.0-beta3 takes a dependency on the new package and enables ILogger capture automatically.
+   - [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.0-beta3 takes a dependency on the new package and enables ILogger capture automatically.
 
 2. *Why are some ILogger logs shown twice in Application Insights?*
 
-   Duplication can occur if you have the older (now obsolete) version of ApplicationInsightsLoggerProvider enabled by calling `AddApplicationInsights` on `ILoggerFactory`. Check if your **Configure** method has
+    Duplication can occur if you have the older (now obsolete) version of ApplicationInsightsLoggerProvider enabled by calling `AddApplicationInsights` on `ILoggerFactory`. Check if your **Configure** method has
   the following, and remove it:
 
    ```csharp
@@ -376,7 +376,7 @@ The following code snippet configures logs for *Warning* and above from all cate
     }
    ```
 
-   If you experience double logging when you debug from Visual Studio, set `EnableDebugLogger` to  *false* in the code that enables Application Insights, as follows. This duplication and fix is only relevant when you're debugging the application.
+    If you experience double logging when you debug from Visual Studio, set `EnableDebugLogger` to  *false* in the code that enables Application Insights, as follows. This duplication and fix is only relevant when you're debugging the application.
 
    ```csharp
     public void ConfigureServices(IServiceCollection services)
