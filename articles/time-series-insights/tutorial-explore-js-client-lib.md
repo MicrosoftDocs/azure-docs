@@ -6,7 +6,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 06/05/2018
+ms.date: 04/23/2019
 ms.author: anshan
 ms.custom: seodec18
 # Customer intent: As a developer, I want to learn about the TSI JavaScript client library, so I can use the APIs in my own applications.
@@ -14,9 +14,9 @@ ms.custom: seodec18
 
 # Tutorial: Explore the Azure Time Series Insights JavaScript client library
 
-To help web developers query and visualize data stored in Time Series Insights (TSI), the JavaScript D3-based TSI Client library was developed.  Using a sample web application, this tutorial will guide you through an exploration of the TSI Client library, and the related programming model.
+To help web developers query and visualize data stored in Time Series Insights (TSI), the JavaScript D3-based TSI Client library was developed. This tutorial document will guide you through an exploration of the TSI Client library, and the related programming model, using a free sample web application.
 
-The topics in this tutorial provide you with opportunities to experiment with the library, to gain an understanding of how to access TSI data and use chart controls to render and visualize data. The goal is to provide you with enough details, so that you can use the library in your own web application.
+The tutorial provides many opportunities to experiment with the library, to gain an understanding of how to access TSI data, and use chart controls to render and visualize data. At the conclusion of the tutorial, you'll be able to use the client library to incorporate TSI features into your own web app.
 
 In this tutorial, you learn about:
 
@@ -36,11 +36,12 @@ In this tutorial, you learn about:
 
 ## Prerequisites
 
-This tutorial uses the "Developer Tools" feature (also known as DevTools or F12) that's found in most modern web browsers, including [Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others. If you're not already familiar with this feature, you might want to explore it in your browser before continuing.
+This tutorial uses your browser's **Developer Tools** feature. Modern web browsers ([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others)
+typically provide access to the **Web Inspector View** through the `F12` hotkey. Otherwise, it can be accessed by right-clicking on a webpage and selecting **Inspect Element**.
 
 ## Time Series Insights sample application
 
-Throughout this tutorial, the Time Series Insights sample application is used to explore the source code behind the application, including the usage of the TSI JavaScript client library. The sample is a single-page web application (SPA) that demonstrates how to use the library. The sample shows how to query and visualize data from a sample TSI environment.
+Throughout this tutorial, the Time Series Insights sample application is used to explore the source code behind the application, including the usage of the TSI JavaScript client library. The sample is a single-page web application that demonstrates how to use the library. The sample shows how to query and visualize data from a sample TSI environment.
 
 1. Navigate to the <a href="https://insights.timeseries.azure.com/clientsample" target="_blank" rel="external noopener noreferrer">Time Series Insights sample application</a>. You see a page similar to the following image with a prompt to sign in:
 
@@ -102,11 +103,11 @@ The following concepts are universal and applicable to the TSI Client library AP
 
 ### Authentication
 
-As mentioned earlier, this sample is a SPA that uses the OAuth 2.0 support in ADAL for user authentication. Here are some points of interest in this section of the script:
+As mentioned earlier, this sample is a single-page app that uses the OAuth 2.0 support in ADAL for user authentication. Here are some points of interest in this section of the script:
 
-1. When using ADAL for authentication, the client application must register itself in the Azure Active Directory (Azure AD) application registry. As a SPA, this application is registered to use the [OAuth 2.0 implicit grant flow](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-implicit-grant-flow). Correspondingly, the application specifies some of the registration properties at runtime, such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`), to participate in the flow.
+1. When using ADAL for authentication, the client application must register itself in the Azure Active Directory (Azure AD) application registry. In fact, this single-page app is registered to use the [OAuth 2.0 implicit grant flow](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-implicit-grant-flow). Correspondingly, the application specifies some of the registration properties at runtime, such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`), to participate in the flow.
 
-2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions for a specific service/API identifier https://api.timeseries.azure.com. The service/API identifier is also known as the token "audience." The token permissions are issued on behalf of the signed-in user. The identifier for the service/API is yet another property that's contained in the application's Azure AD registration. After ADAL returns the access token to the application, it's passed as a "bearer token" when accessing the TSI service APIs.
+2. Later, the application requests an **access token** from Azure AD. The access token is issued for a finite set of permissions for a specific service/API identifier `https://api.timeseries.azure.com`. The service/API identifier is also known as the token "audience." The token permissions are issued on behalf of the signed-in user. The identifier for the service/API is yet another property that's contained in the application's Azure AD registration. After ADAL returns the access token to the application, it's passed as a "bearer token" when accessing the TSI service APIs.
 
    [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=4-9,36-39)]
 
