@@ -11,31 +11,36 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 04/25/2019
 ms.author: msalias
 ---
-
 
 # Known issues with HB-series VM sizes
 
 <Intro>
 
 ## Platform MPI
+
 Platform MPI may not automatically know which PKEY to use for InfiniBand. See Slide 8, Step 1 to discover the necessary PKEY.
 
 ## DRAM on HB-series
+
 HB-series VMs can only expose 228 GB of RAM to guest VMs at this time. This is due to a known limitation of Azure hypervisor to prevent pages from being assigned to the local DRAM of AMD CCX’s (NUMA domains) reserved for the guest VM. An upcoming update will address this issue.
 
 ## Accelerated Networking
+
 Azure Accelerated Networking is not enabled at this time, but will as we progress through the Preview period. We will notify customers when this feature is supported.
 
 ## UD Transport
+
 At launch, HB-series does not support Dynamically Connected Transport (DCT). Support for DCT will be implemented over time. Reliable Connection (RC) and Unreliable Datagram (UD) transports are supported.
 
-## Azure Batch 
+## Azure Batch
+
 While HB-series VMs are in preview, use a Batch account in User Subscription mode not in Service mode.
 
 ## GSS Proxy
+
 GSS Proxy has a known bug in CentOS/RHEL 7.5 that can manifest as a significant performance and responsiveness penalty when used with NFS. This can be mitigated with:
 
 ```console
@@ -43,6 +48,7 @@ sed -i 's/GSS_USE_PROXY="yes"/GSS_USE_PROXY="no"/g' /etc/sysconfig/nfs
 ```
 
 ## Cache Cleaning
+
 On HPC systems it is often useful to clean up the memory after a job has finished before the next user is assigned the same node. After running applications in Linux you may find that your available memory reduces while your buffer memory increases, despite not running any applications.
 
 ![Screenshot of command prompt](./media/known-issues/cache-cleaning-1.png)
@@ -56,7 +62,6 @@ echo 3 > /proc/sys/vm/drop_caches [cleans page-cache and slab objects]
 ```
 
 ![Screenshot of command prompt](./media/known-issues/cache-cleaning-2.png)
-
 
 ## Kernel warnings
 
@@ -85,6 +90,3 @@ You can ignore this warning. This is due to a known limitation of the Azure hype
 ## Next steps
 
 Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
-
-
-

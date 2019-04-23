@@ -11,9 +11,10 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 04/25/2019
 ms.author: msalias
 ---
+
 # HB-Series overview
 
 Maximizing HPC application performance on AMD EPYC requires a thoughtful approach memory locality and process placement. Below, we outline the AMD EPYC architecture and our implementation of it on Azure for HPC applications. We will use the term “pNUMA” to refer to a physical NUMA domain, and “vNUMA” to refer to a virtualized NUMA domain.
@@ -28,11 +29,7 @@ The VM, itself, doesn't know that pNUMA 0 wasn't given to it. The VM understands
 
 Process pinning will work on HB-series VMs because we expose the underlying silicon as-is to the guest VM. We strongly recommend process pinning for optimal performance and consistency.
 
-
 More on AMD EPYC architecture at: https://bit.ly/2GpQIMb and https://bit.ly/2Epv3kC, and an HPC Tuning Guide for AMD EPYC Processors at: https://bit.ly/2T3AWZ9
-
-
-
 
 Topology of EPYC 2P Server
 
@@ -51,20 +48,19 @@ Segregation of cores reserved for Azure Hypervisor and HB-series VM
 | Memory                           | 4 GB/core (240 total)            |
 | Local Disk                       | 700 GB NVMe                      |
 | Infiniband                       | 100 Gb EDR Mellanox ConnectX-5** |
-| Network                          | 50 Gb Ethernet (40 Gb usable) Azure 2nd Gen SmartNIC***        |
+| Network                          | 50 Gb Ethernet (40 Gb usable) Azure 2nd Gen SmartNIC*** |
 
-##Software specifications
+## Software specifications
 
 | SW Specifications           |HB-series VM           |
 |-----------------------------|-----------------------|
-| Max MPI Job Size            | 6000 cores  (100 VMSS) 12000 cores (200 VMSS)  | 
+| Max MPI Job Size            | 6000 cores  (100 VMSS) 12000 cores (200 VMSS)  |
 | MPI Support                 | MVAPICH2, OpenMPI, MPICH, Platform MPI, Intel MPI  |
 | Additional Frameworks       | Unified Communication X, libfabric, PGAS |
-| Azure Storage Support       | Std + Premium (max 4 disks) |         
+| Azure Storage Support       | Std + Premium (max 4 disks) |
 | OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+  |
-| Azure CycleCloud Support    | Yes                         |   
-| Azure Batch Support         | Yes                         |      
-
+| Azure CycleCloud Support    | Yes                         |
+| Azure Batch Support         | Yes                         |
 
 ## Next steps
 

@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 04/25/2019
 ms.author: msalias
 ---
 
@@ -19,8 +19,7 @@ ms.author: msalias
 
 We recommend CentOS/RHEL 7.6 if deploying VMs using a Standard Image. If deploying using a Custom Images (e.g. for an older OS such as CentOS/RHEL 7.4 or 7.5), please also follow Step (2) below:
 
-
-##  Create the VM(s)
+## Create the VM(s)
 
 Sample PowerShell commands here; provide values and templates:
 

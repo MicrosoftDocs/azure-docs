@@ -5,10 +5,6 @@
   - name: Configuration
     href: configure.md
     items:
-    - name: RDMA capabilities
-      href: rdma-capabilities.md
-    - name: Cluster configuration
-      href: cluster-configuration.md
     - name: Enable Infiniband with SRIOV
       href: enable-infiniband-with-sriov.md  
   - name: Setup MPI
@@ -24,18 +20,12 @@
     - name: HB-series 
       href: hb-series-overview.md
       items:
-      - name: HB-series preview
-        href: hb-series-preview.md
       - name: HB-series performance
         href: hb-series-performance.md  
-      - name: Known issues
-        href: hb-known-issues.md
     - name: HC-series
       href: hc-series-overview.md
       items:  
-      - name: HC-series preview
-        href: hc-series-preview.md
       - name: HC-series performance
         href: hc-series-performance.md   
-      - name: Known issues
-        href: hc-known-issues.md
+    - name: HB and HC-series Known issues
+      href: hb-hc-known-issues.md

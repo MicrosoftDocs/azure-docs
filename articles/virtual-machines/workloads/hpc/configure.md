@@ -11,11 +11,11 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 04/25/2019
 ms.author: msalias
 ---
-# Optimization for Linux
 
+# Optimization for Linux
  
 ## Update LIS
 

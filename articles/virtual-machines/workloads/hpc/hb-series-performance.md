@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 04/25/2019
 ms.author: msalias
 ---
 
@@ -89,7 +89,7 @@ OSU MPI Bandwidth Test v5.4.3.
 ```
 
 | #Size            | Bandwidth (MB/s) | Bandwidth (Gb/s) |
-|------------------|
+|------------------|------------------|------------------|
 | 2                | 4.03             | 0.03             |
 | 4                | 8.2              | 0.07             |
 | 8                | 16.15            | 0.13             |
