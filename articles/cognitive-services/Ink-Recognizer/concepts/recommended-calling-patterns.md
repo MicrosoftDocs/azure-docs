@@ -55,7 +55,7 @@ Data points sent to the Anomaly Detector API must be formatted in JSON and have 
 }
 ```
 
-# Shapes recognized by the Ink Recognizer API
+## Shapes recognized by the Ink Recognizer API
 
 The Ink Recognizer API can identify the most commonly used shapes in note taking. The below image shows some basic examples. For a full list of shapes and other ink content recognized by the API, see the [API reference article](https://docs.microsoft.com/rest/api/documentation-preview/inkrecognizer/recognizeink#shape). 
 
