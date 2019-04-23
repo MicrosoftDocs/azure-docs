@@ -37,26 +37,11 @@ It's also possible in MSAL to access v1.0 resources. For more information, read 
 ### Request specific scopes for a web API
 When your application needs to request tokens with specific permissions for any resource API, you will need to pass the scopes containing the app ID URI of the API in the below format: `&lt;app ID URI&gt;/&lt;scope&gt;`
 
-For example, scopes for Microsoft Graph API:
+For example, scopes for Microsoft Graph API: `https://graph.microsoft.com/User.Read`
 
-```csharp
-var scopes = new[] {"https://graph.microsoft.com/User.Read"};
-```
+Or, for example, scopes for a custom web API: `api://abscdefgh-1234-abcd-efgh-1234567890/api.read`
 
-```javascript
-var scopes = ["https://graph.microsoft.com/User.Read"];
-```
-
-Or, for example, scopes for a custom web API:
-```csharp
-var scopes = new[] {"api://abscdefgh-1234-abcd-efgh-1234567890/api.read"};
-```
-
-```javascript
-var scopes = ["api://abscdefgh-1234-abcd-efgh-1234567890/api.read"];
-```
-
-Note: Only for the MS Graph API, a scope value user.read maps to https://graph.microsoft.com/User.Read format and can be used interchangeably.
+Note: Only for the MS Graph API, a scope value `user.read` maps to `https://graph.microsoft.com/User.Read` format and can be used interchangeably.
 
 Note: Certain web APIs such as Azure Resource Manager API (https://management.core.windows.net/) expect a trailing '/' in the audience claim (aud) of the access token. In this case, it is important to pass the scope as https://management.core.windows.net//user_impersonation (note the double slash), for the token to be valid in the API.
 
@@ -65,15 +50,7 @@ When building applications using Azure AD v1.0, you had to register the full set
 
 For example, you can initially sign in the user and deny them any kind of access. Later, you can give them the ability to read the calendar of the user by requesting the calendar scope in the acquire token methods and get the user's consent.
 
-For example:
-```csharp
-var scopes = new[] {"https://graph.microsoft.com/User.Read", "https://graph.microsoft.com/Calendar.Read"};
-```
-
-```javascript
-var scopes = ["https://graph.microsoft.com/User.Read", "https://graph.microsoft.com/Calendar.Read"];
-// pass scopes in acquireTokenPopup or acquireTokenRedirect call
-```
+For example: `https://graph.microsoft.com/User.Read` and `https://graph.microsoft.com/Calendar.Read`
 
 ## Acquiring tokens from the cache
 MSAL maintains a token cache (or two caches in the case of confidential client applications).  MSAL caches a token after it has been acquired.  Application code should try to get a token silently (from the cache), first, before acquiring a token by other means. 
@@ -86,24 +63,24 @@ Clearing the cache is achieved by removing the accounts from the cache. This doe
 
 ### Public client applications
 
-- will often [acquire token interactively](Acquiring-tokens-interactively), having the user sign in.
+- will often acquire token interactively, having the user sign in through a UI or pop-up window.
 - But it's also possible for a desktop application running on a Windows machine which is joined to a domain or to Azure AD, to [get a token silently for the user signed-in on the machine](https://aka.ms/msal-net-iwa), leveraging Integrated Windows Authentication (IWA/Kerberos). 
-- On .NET framework desktop client applications , it's also possible (but not recommended) to [get a token with a username and password](https://aka.ms/msal-net-up) (U/P). Note that you should not use username/password in confidential client applications.
-- Finally, for applications running on devices which don't have a Web browser, it's possible to acquire a token through the [device code flow](https://aka.ms/msal-net-device-code-flow) mechanism, which provides the user with a URL and a code. The user goes to a web browser on another device, enters the code and signs-in, which has Azure AD get them a token back on the browser-less device.
+- On .NET framework desktop client applications, it's also possible (but not recommended) to [get a token with a username and password](v2-oauth-ropc.md) (U/P). Note that you should not use username/password in confidential client applications.
+- Finally, for applications running on devices which don't have a Web browser, it's possible to acquire a token through the [device code flow](v2-oauth2-device-code.md) mechanism, which provides the user with a URL and a code. The user goes to a web browser on another device, enters the code and signs-in, which has Azure AD get them a token back on the browser-less device.
 
 ### Confidential client applications 
 
-- Acquire token **for the application itself**, not for a user, using [client credentials](Client-credential-flows). This can be used for syncing tools, or tools which process users in general, not a particular user. 
-- In the case of Web APIs calling and API on behalf of the user, using the [On Behalf Of flow](on-behalf-of) and still identifying the application itself with client credentials to acquire a token based on some User assertion (SAML for instance, or a JWT token). This can be used for applications which need to access resources of a particular user in service to service calls.
-- **For Web apps**, acquire tokens [by authorization code](Acquiring-tokens-with-authorization-codes-on-web-apps) after letting the user sign-in through the authorization request URL. This is typically the mechanism used by an open id connect application, which lets the user sign-in using Open ID connect, but then wants to access Web APIs on behalf of this particular user.
+- Acquire token **for the application itself**, not for a user, using [client credentials](v2-oauth2-client-creds-grant-flow.md). This can be used for syncing tools, or tools which process users in general, not a particular user. 
+- In the case of Web APIs calling and API on behalf of the user, using the [On Behalf Of flow](v2-oauth2-on-behalf-of-flow.md) and still identifying the application itself with client credentials to acquire a token based on some User assertion (SAML for instance, or a JWT token). This can be used for applications which need to access resources of a particular user in service to service calls.
+- **For Web apps**, acquire tokens [by authorization code](v2-oauth2-auth-code-flow.md) after letting the user sign-in through the authorization request URL. This is typically the mechanism used by an OpenID Cnnect application, which lets the user sign-in using Open ID connect, but then wants to access web APIs on behalf of this particular user.
 
 
 ## Authentication results 
 Token acquisition methods return an authentication result, which exposes:
 
-- AccessToken for the Web API to access resources. This is a string, usually a base64 encoded JWT but the client should never look inside the access token. The format isn't guaranteed to remain stable and it can be encrypted for the resource. People writing code depending on access token content on the client is one of the biggest sources of errors and client logic breaks
-- IdToken for the user (this is a JWT)
-- ExpiresOn tells the date/time when the token expires
-- TenantId contains the tenant in which the user was found. Note that in the case of guest users (Azure AD B2B scenarios), the TenantId is the guest tenant, not the unique tenant. When the token is delivered in the name of a user, AuthenticationResult also contains information about this user. For confidential client flows where tokens are requested with no user (for the application), this User information is null.
-- The Scopes for which the token was issued (See Scopes not resources)
-- The unique Id for the user.
+- The access token for the web API to access resources. This is a string, usually a base64 encoded JWT but the client should never look inside the access token. The format isn't guaranteed to remain stable and it can be encrypted for the resource. People writing code depending on access token content on the client is one of the biggest sources of errors and client logic breaks.
+- The ID token for the user (this is a JWT).
+- The token expiration, which tells the date/time when the token expires.
+- The tenant ID contains the tenant in which the user was found. Note that in the case of guest users (Azure AD B2B scenarios), the tenant ID is the guest tenant, not the unique tenant. When the token is delivered in the name of a user, the authentication result also contains information about this user. For confidential client flows where tokens are requested with no user (for the application), this user information is null.
+- The scopes for which the token was issued.
+- The unique ID for the user.
