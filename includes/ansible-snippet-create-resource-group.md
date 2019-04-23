@@ -2,17 +2,15 @@
  author: tomarchermsft
  ms.service: ansible
  ms.topic: include
- ms.date: 08/09/2018
+ ms.date: 04/22/2019
  ms.author: tarcher
 ---
 
 1. In Cloud Shell, create a file named `rg.yml`.
 
     ```bash
-    vi rg.yml
+    code rg.yml
     ```
-
-1. Enter insert mode by selecting the **I** key.
 
 1. Paste the following code into the editor:
 
@@ -30,21 +28,15 @@
            var: rg
    ```
 
-1. Exit insert mode by selecting the **Esc** key.
+1. Save the file and exit the editor.
 
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
-
-1. Run the playbook `rg.yml`:
+1. Run the playbook using the `ansible-playbook` command:
 
    ```bash
    ansible-playbook rg.yml
    ```
 
-The results of running the ansible command should look similar to the following output:
+After running the playbook, you see output similar to the following results:
 
 ```output
 PLAY [localhost] *********************************************************************************
