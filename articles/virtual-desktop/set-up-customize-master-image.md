@@ -199,7 +199,7 @@ Here's how to install OneDrive in per-machine mode:
 5. Run this command to install OneDrive in per-machine mode:
 
     ```batch
-    Run "[staged location]\OneDriveSetup.exe /allusers"
+    Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
 6. Run this command to configure OneDrive to start at sign in for all users:
@@ -308,7 +308,7 @@ This section covers application and operating system configuration. All configur
 For feedback hub collection of telemetry data on Windows 10 Enterprise multi-session, run this command:
 
 ```batch
-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection "AllowTelemetry"=dword:00000003
+reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection "AllowTelemetry"=dword:00000003
 reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection /v AllowTelemetry /d 3
 ```
 

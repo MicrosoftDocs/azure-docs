@@ -14,7 +14,7 @@ ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
 
-#Customer intent: I want to use Azure managed identities to simplify secrets management for my app.
+#Customer intent: I want to use Azure App Configuration data in my CI/CD pipeline.
 ---
 # Integrate with a CI/CD pipeline
 
@@ -89,4 +89,7 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](ht
 
 ## Next steps
 
-* [Managed identities for Azure resources integration](./howto-integrate-azure-managed-service-identity.md)
+In this tutorial, you exported Azure App Configuration data to be used in a deployment pipeline. To learn more about how to use App Configuration, continue to the Azure CLI samples.
+
+> [!div class="nextstepaction"]
+> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
