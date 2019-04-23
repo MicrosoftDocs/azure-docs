@@ -7,7 +7,7 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/04/2019
+ms.date: 04/22/2019
 ---
 
 # Tutorial: Configure Azure Container Networking Interface (CNI) networking in Azure Kubernetes Service (AKS) using Ansible

@@ -7,7 +7,7 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/04/2019
+ms.date: 04/22/2019
 ---
 
 # Quickstart: Install Ansible on Linux virtual machines in Azure
@@ -152,7 +152,7 @@ In this section, you export the service principal values to configure your Ansib
 
 ## Verify the configuration
 
-To verify the successful configuration, use Ansible to create a resource group.
+To verify the successful configuration, use Ansible to create an Azure resource group.
 
 [!INCLUDE [create-resource-group-with-ansible.md](../../../includes/ansible-snippet-create-resource-group.md)]
 

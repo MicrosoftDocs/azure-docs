@@ -7,7 +7,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 04/04/2019
+ms.date: 04/22/2019
 ---
 
 # Tutorial: Configure labs in Azure DevTest Labs using Ansible
