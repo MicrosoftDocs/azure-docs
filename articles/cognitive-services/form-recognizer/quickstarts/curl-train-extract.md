@@ -32,11 +32,12 @@ First, you will need a set of training data. You can use data in an Azure Blob o
 
 To train a Form Recognizer model using the documents in your Azure Blob container, call the **Train** API by executing the cURL command below. Before running the command, make the following changes:
 
-* Replace `<Azure region>` with the Azure region where you obtained your Form Recognizer subscription key. You can find it in your Form Recognizer resource overview tab.
+* Replace `<Endpoint>` with the endpoint you obtained your Form Recognizer subscription key. You can find it in your Form Recognizer resource overview tab.
 * Replace `<SAS URL>` with an Azure Blob Storage container shared access signature (SAS) URL where the training data is located.  
+* Replace `<subscription key>` with your subscription key.
 
 ```bash
-curl -X POST "http://<Azure region>/formrecognizer/v1.0-preview/custom/train" -H "accept: application/json" -H "Content-Type: application/json-patch+json" -d "{ \"source\": \"<SAS URL>\"}"
+curl -v -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json-patch+json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{{  "source": "<SAS URL>" }}"
 ```
 
 You will receive a `200 (Success)` response with the following JSON output:
@@ -91,13 +92,13 @@ Take note of the `"modelId"` value; you will need it for the following steps.
 
 Next, you will analyze a document and extract key-value pairs and tables from it. Call the **Model - Analyze** API by executing the cURL command below. Before running the command, make the following changes:
 
-* Replace `<Azure region>` with the Azure region where you obtained your Form Recognizer subscription key.
+* Replace `<Endpoint>` with the endpoint you obtained your Form Recognizer subscription key. You can find it in your Form Recognizer resource overview tab.
 * Replace `<modelID>` with the model ID you received in the previous step of training the model.
-* Replace `</path/to/my/Invoice_1.pdf>` with the path to the file you would like to analyze from the sample data.
-* Replace `<pdf>` with the file type you are analyzing. Supported values are `pdf`, `image/jpeg`, and `image/png`.
+* Replace `<SAS URL>` with an Azure Blob Storage container shared access signature (SAS) URL where the form to extract data is located. 
+* Replace `<subscription key>` with your subscription key.
 
 ```bash
-curl -X POST "http://<Azure region>/formrecognizer/v1.0-preview/custom/model/<modelID>/analyze" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "form=@</path/to/my/Invoice_1.pdf>;type=application/<pdf>"
+curl -v -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/model/<modelID>/analyze" -H "Content-Type: multipart/form-data" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{{  "source": "<SAS URL>" }}"
 ```
 
 ### Examine the response

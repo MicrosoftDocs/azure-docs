@@ -50,6 +50,26 @@ Additionally, Form Recognizer is **not** compatible with the following types of 
 * Images which appear tilted
 * PDF documents longer than 50 pages
 
+## Where do I start?
+
+**Step 1:** Create a Form Recognizer resource in the Azure portal.
+
+**Step 2:** Try our quickstart for hands-on experience
+*	[Quickstart: Train a Form Recognizer model and extract form data using REST API with cURL](quickstarts/curl-train-extract.md)
+
+We recommend the Free service for learning purposes, but be aware that the number of free pages is limited to 500 pages per month.
+
+**Step 3:** Review the REST API 
+Use the following APIs to train and extract structured data from forms. 
+
+| REST API | Description |
+|-----|-------------|
+| Train | Train	a new model to analyze your forms using 5 forms from the same type or an empty form.  |
+| Analyze  |Analyze a single document passed in as a stream to extract key-value pairs and tables from the form with your custom model.  |
+ 
+Explore the [REST API reference document](https://aka.ms/from-recognizer/api). 
+
+
 ## Data privacy and security
 
 The service is offered as a [Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) of an Azure Service under the [Online Service Terms](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). You will retain ownership of your data and we only use it to provide the Online Services as explained in your agreement:
@@ -62,4 +82,4 @@ As with all the Cognitive Services, developers using the Form Recognizer service
 
 ## Next steps
 
-Follow a quickstart to get started using the Form Recognizer APIs.
+Follow a [quickstart](quickstarts/curl-train-extract.md) to get started using the [Form Recognizer APIs](https://aka.ms/from-recognizer/api).
