@@ -11,7 +11,7 @@ ms.date: 04/15/2019
 ---
 # Create and configure Enterprise Security Package clusters in Azure HDInsight
 
-The Enterprise Security Package for Azure HDInsight, gives you access to Active Directory-based authentication, multi-user support, and role-based access control for your Apache Hadoop clusters in Azure. HDInsight ESP clusters enable organizations which adhere to strict corporate security policies, to process sensitive data securely. 
+The Enterprise Security Package for Azure HDInsight gives you access to Active Directory-based authentication, multi-user support, and role-based access control for your Apache Hadoop clusters in Azure. HDInsight ESP clusters enable organizations which adhere to strict corporate security policies, to process sensitive data securely.
 
 This guide walks through the steps needed to create an Enterprise Security Package enabled Azure HDInsight Cluster. Specifically, the following topics will be discussed:
 
@@ -29,7 +29,7 @@ Pre-requisites:
 
 ![alt-text](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
-![A close up of a map Description automatically generated](./media/apache-domain-joined-create-configure-esp/image002.png)
+![alt-text](./media/apache-domain-joined-create-configure-esp/image002.png)
 
 ## Windows Domain Controller Setup
 
@@ -122,7 +122,7 @@ Click OK
 
 [Now that we have our Active Directory environment setup, with the Users and User group will be create on the AD Evrionment that will be synchronized with Azure AD, ]
 
-### Now we need an Azure AD tenant so that we can Synchronize our users and user group created on the on Prem AD to the cloud.
+### Now we need an Azure AD tenant so that we can Synchronize our users and user group created on the on Prem AD to the cloud
 
 ![alt-text](./media/apache-domain-joined-create-configure-esp/image038.png)
 
@@ -132,15 +132,16 @@ Click OK
 
 ![alt-text](./media/apache-domain-joined-create-configure-esp/image044.png)
 
-Note : If you want to change the password for the newly created user <fabrikamazureadmin@hdifabrikam.com>. Login to azure portal using the identity and then you will prompted to change the password.
+> [!Note]
+> If you want to change the password for the newly created user <fabrikamazureadmin@hdifabrikam.com>. Login to the Azure portal using the identity and then you will prompted to change the password.
 
 ![alt-text](./media/apache-domain-joined-create-configure-esp/image046.png)
 
 ![alt-text](./media/apache-domain-joined-create-configure-esp/image048.png)
 
-### Download and Install AAD-Connect to the On-Prem Domain Controller to sync Users to Azure AD 
+### Download and Install AAD-Connect to the On-Prem Domain Controller to sync Users to Azure AD
 
-Step 1: Download [ ]Azure AD Connect and Install Microsoft Azure Active Directory Connect
+Step 1: Download Azure AD Connect and Install Microsoft Azure Active Directory Connect
 
 Link: <https://www.microsoft.com/en-us/download/details.aspx?id=47594>
 
