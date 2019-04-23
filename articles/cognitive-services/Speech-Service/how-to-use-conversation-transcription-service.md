@@ -20,7 +20,7 @@ The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetin
 
 * Conversation transcriber is supported for C++, C#, and Java on Windows, Linux, and Android.
 * The ROOBO DevKit is the supported hardware environment for creating conversations as that provides circular multi-microphone array that can be utilized efficiently by the Conversation Transcription service for the speaker identification. [For more information, see Speech Devices SDK](speech-devices-sdk.md). 
-* Speech SDK support is limited to use of audio pull and push mode streams with 8-channels of PCM audio.
+* Speech SDK support is limited to use of audio pull and push mode streams with eight channels of PCM audio.
 
 ## Prerequisites
 
