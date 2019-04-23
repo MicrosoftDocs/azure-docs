@@ -16,7 +16,7 @@ ms.author: aahi
 # Quickstart: Call the Text Analytics Service using the Python SDK 
 <a name="HOLTop"></a>
 
-Use this quickstart to begin analyzing language with the Text Analytics SDK for Python. [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications.
+Use this quickstart to begin analyzing language with the Text Analytics SDK for Python. While the [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications.
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
@@ -32,7 +32,7 @@ You can run this example from the command line or as a Jupyter notebook on [MyBi
 You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 
 > [!Tip]
->  While you could call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) directly from C#, the Microsoft.Azure.CognitiveServices.Language SDK makes it much easier to call the service without having to worry about serializing and deserializing JSON.
+>  While you could call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) directly from Python, the azure.cognitiveservices.language.textanalytics SDK makes it much easier to call the service without having to worry about serializing and deserializing JSON.
 
 ### Command Line 
 
