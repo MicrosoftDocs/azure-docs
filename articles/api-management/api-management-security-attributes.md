@@ -1,10 +1,11 @@
 ---
-title: Common security attributes for API Management
+title: Common security attributes for Azure API Management
 description: A checklist of common security attributes for evaluating API Management
 services: api-management
 documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
+ms.service: api-management
 
 ms.topic: conceptual
 ms.date: 04/16/2019
@@ -28,7 +29,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 | API calls encrypted| Yes | Management plane calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) over TLS. A valid JSON web token (JWT) is required.  Data plane calls can be secured with TLS and one of supported authentication mechanisms (e.g. client certificate or JWT).
  |
 
-## Network Segmentation
+## Network segmentation
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -51,14 +52,14 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Authorization| Yes | |
 
 
-## Audit Trail
+## Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Control and management plane logging and audit| Yes | [Azure Monitor activity logs](../azure-monitor/platform/activity-logs-overview.md) |
 | Data plane logging and audit| Yes | [Azure Monitor diagnostic logs logs](../azure-monitor/platform/diagnostic-logs-overview.md) and (optionally) [Azure Application Insights](../azure-monitor/app/app-insights-overview.md).  |
 
-## Configuration Management
+## Configuration management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
