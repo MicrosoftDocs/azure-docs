@@ -30,7 +30,7 @@ The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetin
 ## Create voice signatures for participants
 
 The first step is to create voice signatures for the conversation participants. Creating voice signatures is required for efficient speaker identification.
-In the following sample, we'll [use the REST API to get the voice signature.](https://westus.signature.speech.microsoft.com/ui)
+In the following sample, we'll [use the REST API to get the voice signature.](https://aka.ms/cts/signaturegenservice)
 
 The example below shows two different ways to create voice signatures:
 ```csharp
