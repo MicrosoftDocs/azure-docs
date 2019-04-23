@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # ONNX and Azure Machine Learning: Create and accelerate ML models
 
-Optimizing machine learning models for inference is difficult since you need to tune the model and the inference library to make the most of the hardware capabilities. The problem becomes extremely hard if you want to get optimal performance on different kinds of platforms (cloud/edge, CPU/GPU, etc), since each one has different capabilities and characteristics. The complexity explodes if you have models from a variety of frameworks that need to run on a variety of platforms. It's very time consuming to optimize all the different combinations of frameworks and hardware. A solution to train once in your preferred framework and run anywhere on the cloud or edge is needed. This is where ONNX comes in.
+Optimizing machine learning models for inference is difficult since you need to tune the model and the inference library to make the most of the hardware capabilities. The problem becomes extremely hard if you want to get optimal performance on different kinds of platforms (cloud/edge, CPU/GPU, etc.), since each one has different capabilities and characteristics. The complexity explodes if you have models from a variety of frameworks that need to run on a variety of platforms. It's very time consuming to optimize all the different combinations of frameworks and hardware. A solution to train once in your preferred framework and run anywhere on the cloud or edge is needed. This is where ONNX comes in.
 
 Microsoft has partnered with a community of partners to create [Open Neural Network Exchange](https://onnx.ai) (ONNX), an open standard for representing machine learning models. Models from [many frameworks](https://onnx.ai/supported-tools) including TensorFlow, PyTorch, SciKit-Learn, Keras, Chainer, MXNet, and MATLAB can be exported or converted to the standard ONNX format. Once the models are in the ONNX format, they can be run on a variety of platforms and devices.
 
@@ -34,7 +34,7 @@ You can obtain ONNX models in several ways:
 + Convert existing model from another format to ONNX (see the [tutorials](https://github.com/onnx/tutorials)) 
 + Train a new ONNX model in Azure Machine Learning service (see examples at the bottom of this article)
 
-Many models including image classification, object detection, and text processing can be represented as ONNX models. However some models may not be able to be converted successfully. If you run into this situation, please file an issue in the Github of the respective converter. You can continue using your existing format model until the issue is addressed.
+Many models including image classification, object detection, and text processing can be represented as ONNX models. However some models may not be able to be converted successfully. If you run into this situation, please file an issue in the GitHub of the respective converter. You can continue using your existing format model until the issue is addressed.
 
 ## Deploy ONNX models in Azure
 
