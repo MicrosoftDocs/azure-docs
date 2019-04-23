@@ -47,7 +47,7 @@ You will need the following setup for this quickstart:
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
 > 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. Go to the new [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) pane.
+> 1. Go to the new [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) pane.
 > 1. Enter a name for your application and click **Register**.
 > 1. Follow the instructions to download and automatically configure your new application for you in one click.
 >
@@ -79,9 +79,9 @@ You will need the following setup for this quickstart:
 #### Step 2: Download the project
 
 You can choose one of these options suitable to your development environment.
-* [Download the core project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/qs.zip), to run with a web server using Node.js. To open the files, use an editor like [Visual Studio Code](https://code.visualstudio.com/).
+* [Download the core project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip), to run with a web server using Node.js. To open the files, use an editor like [Visual Studio Code](https://code.visualstudio.com/).
 
-* (Optional) [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsqs.zip), to run with the IIS server. Extract the zip file to a local folder, for example, **C:\Azure-Samples**.
+* (Optional) [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip), to run with the IIS server. Extract the zip file to a local folder, for example, **C:\Azure-Samples**.
 
 
 
@@ -145,9 +145,9 @@ After the browser loads the application, click **Sign In**.  The first time that
 MSAL is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. The quickstart's *index.html* contains a reference to the library:
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.2/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.3/js/msal.min.js"></script>
 ```
-> [!TIP] 
+> [!TIP]
 > You can replace the version above with the latest released version under [MSAL.js releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
 
