@@ -22,7 +22,7 @@ This quickstart shows how to create a cloud resource in your Azure Machine Learn
 In this quickstart, you take the following actions:
 
 * Create a new cloud-based notebook server in your workspace
-* Start a Jupyter Notebook server on your new computer resource
+* Launch the Jupyter web interface
 * Open a notebook that contains code to estimate pi and logs errors at each iteration.
 * Run the notebook.
 * View the logged error values in your workspace.  This example shows how the workspace can help you keep track of information generated in a script. 
@@ -41,9 +41,9 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 1. On your workspace page in the Azure portal, select **Notebook VMs** on the left.
 
-1. Select **+Add** to create a notebook VM.
+1. Select **+New** to create a notebook VM.
 
-     ![Select Add VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
+     ![Select New VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
 1. Provide a name for your VM. Then select **Create**. 
 
