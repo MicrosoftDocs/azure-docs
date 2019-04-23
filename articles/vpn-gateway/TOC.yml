@@ -183,9 +183,9 @@
   - name: Monitoring and alerts
     items:
     - name: Set up alerts based on metrics
-      href: vpn-gateway-howto-setup-alerts-for-virtual-network-gateway-metric.md
+      href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
     - name: Set up alerts based on diagnostic log
-      href: vpn-gateway-howto-setup-alerts-for-virtual-network-gateway-log.md    
+      href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md    
   - name: Troubleshoot
     href: vpn-gateway-troubleshoot.md
     items:

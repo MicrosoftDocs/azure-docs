@@ -42,25 +42,25 @@ The example steps below will create an alert on a gateway for: <br>
 
 1. Navigate to the virtual network gateway resource and select "Alerts" from the Monitoring tab, then create a new alert rule or edit an existing alert rule.
 
-![point-to-site](./media/vpn-gateway-howto-setup-alerts-for-virtual-network-gateway-metric/metric-alert1.png "Create")
+![point-to-site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert1.png "Create")
 
 2. Select your VPN gateway as the resource.
 
-![point-to-site](./media/vpn-gateway-howto-setup-alerts-for-virtual-network-gateway-metric/metric-alert2.png "Select")
+![point-to-site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "Select")
 
 3. Select a metric to configure for the alert
-![point-to-site](./media/vpn-gateway-howto-setup-alerts-for-virtual-network-gateway-metric/metric-alert3.png "Select")
+![point-to-site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "Select")
 4. Configure the signal logic. There are three components to signal logic:
 
     a. Dimensions: If the metric has dimensions, specific dimension values can be selected so that the alert only evaluates data of that dimension. These are optional.<br>
     b. Condition: The operation to evaluate the metric value.<br>
     c. Time: Specify the granularity of metric data, and the period of time to evaluate the alert on.<br>
 
-![point-to-site](./media/vpn-gateway-howto-setup-alerts-for-virtual-network-gateway-metric/metric-alert4.png "Select")
+![point-to-site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "Select")
 
 5. To view the configured rules, click on "Manage alert rules"
-![point-to-site](./media/vpn-gateway-howto-setup-alerts-for-virtual-network-gateway-metric/metric-alert8.png "Select")
+![point-to-site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "Select")
 
 ## Next steps
 
-To configure alerts on tunnel diagnostics logs, see [How to setup alerts on VPN Gateway diagnostic logs](vpn-gateway-howto-setup-alerts-for-virtual-network-gateway-log.md).
+To configure alerts on tunnel diagnostics logs, see [How to setup alerts on VPN Gateway diagnostic logs](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
