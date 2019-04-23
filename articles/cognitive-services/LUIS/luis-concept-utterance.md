@@ -76,6 +76,21 @@ LUIS doesn't ignore punctuation marks, by default, because some client applicati
 
 If you want to ignore specific words or punctuation in the example utterance, use a [pattern](luis-concept-patterns.md#pattern-syntax) with the _ignore_ syntax. 
 
+## Utterance normalization
+
+The utterance normalization setting is turned off by default. This setting affects diacritics, which are marks or signs within the text such as punctuation. 
+
+If you turn utterance normalization on and train, scores in the **Test** pane, batch tests, and endpoint queries will change for all utterances with diacritics.
+
+Turn on utterance normalization by adding the following JSON to your query prediction endpoint requires body.
+
+```JSON
+[
+    {"name": "NormalizePunctuation", "value": "true"},
+    {"name": "NormalizeDiacritics", "value": "true"}
+] 
+```
+
 ## Training utterances
 
 Training is generally non-deterministic: the utterance prediction could vary slightly across versions or apps. 
