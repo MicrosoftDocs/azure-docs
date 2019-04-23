@@ -15,16 +15,16 @@ ms.custom: seodec2018
 
 External datasets used to populate an Azure Search index sometimes include hierarchical or nested substructures. Examples might include multiple locations and phone numbers for a single customer, multiple colors and sizes for a single SKU, multiple authors of a single book, and so on. In modeling terms, you might see these structures referred to as *complex data types*, *compound data types*, *composite data types*, or *aggregate data types*,. In Azure Search terminology, a complex type is a field that contains children (sub-fields), and a collection is a list. 
 
-Azure Search natively supports complex types and collections. Together, these types allow you to model almost any hierarchical JSON structure in an Azure Search index. In previous versions of Azure Search APIs, only tabular row sets could be imported. In the newest version, your index can now more closely correspond to source data. In other words, if your source data has complex types, your index can have complex types also.
+Azure Search natively supports complex types and collections. Together, these types allow you to model almost any nested JSON structure in an Azure Search index. In previous versions of Azure Search APIs, only flattened row sets could be imported. In the newest version, your index can now more closely correspond to source data. In other words, if your source data has complex types, your index can have complex types also.
 
-To get started, we recommend the [Hotels demo dat set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), which you can load in the **Import data** wizard. The wizard detects complex types in the data and infers those structures in the default index schema.
+To get started, we recommend the [Hotels demo dat set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), which you can load in the **Import data** wizard. The wizard detects complex types in the source and infers those structures in the default index schema.
 
 > [!Note]
 > Support for complex types is generally available in `api-version=2019-05-06`. 
 >
 > If your search solution is built on earlier versions using a two-step workaround of flattened datasets in a collection, you can modify your index to include complex types as described in this article. For more information, see [Upgrade to the newest REST API version](search-api-migration.md) or [Upgrade to the newest .NET SDK version](search-dotnet-sdk-migration.md).
 
-## Example of a complex data field
+## Example of a complex structure
 
 The following JSON document is composed of simple fields and complex fields. Complex fields, such as the `Address` and `Room` arrays, have multiple fields and groups of fields, respectively. You can refer to this example to understand the concepts and behaviors described in this article.
 
@@ -138,6 +138,13 @@ Indexers are a different story. When defining an indexer, in particular one used
 	]
 }
 ```
+## Updating complex fields
+
+All of the [reindexing rules](search-howto-reindex.md) that apply to fields in general still apply to complex fields. Restating a few of the main ones here, adding a field does not require an index rebuild, but modifying a field does.
+
+For complex fields containing sub-fields (Addresses), or for collections of complex fields (Rooms), the unit of operation for adding or modifying fields is at the parent level. If you want to add a sub-field to Address, or change a field name, you will need to rebuild the index. 
+
+Data refresh, where you pick up new or changed rows but leave the index structure intact, is always at the document level (assuming that the document has been updated in the source). 
 
 ## Searching complex fields
 
