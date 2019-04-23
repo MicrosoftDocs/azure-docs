@@ -13,7 +13,7 @@ manager: femila
 #Customer intent: As a network operator, I want to manage members in the consortium so that I can control access to a private blockchain.
 ---
 
-# Manage consortium members in Azure Blockchain Service using PowerShell
+# How to manage consortium members in Azure Blockchain Service using PowerShell
 
 You can use PowerShell to manage blockchain consortium members for your Azure Blockchain Service.
 

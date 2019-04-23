@@ -19,6 +19,11 @@ In this article, you learn how to grant access and connect to Azure Blockchain S
 
 Azure AD provides cloud-based identity management and allows you to use a single identity across an entire enterprise and access applications in Azure. Azure Blockchain Service is integrated with Azure AD and offers benefits such as ID federation, single sign-on and multi-factor authentication.
 
+## Prerequisites
+
+* [Create a blockchain member using the Azure portal](create-member.md)
+* For more information about data security in Azure Blockchain Service, see [Azure Blockchain Service security](data-security.md).
+
 ## Grant access
 
 You can grant access at both the member level and the node level. Granting access rights at the member level will in turn grant access to all nodes under the member.
@@ -102,4 +107,4 @@ connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAA
 
 ## Next steps
 
-For more information on security, see [Azure Blockchain Service security](data-security.md).
+For more information about data security in Azure Blockchain Service, see [Azure Blockchain Service security](data-security.md).

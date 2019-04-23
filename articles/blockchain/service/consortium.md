@@ -80,4 +80,4 @@ You can reset your Ethereum account by clicking on your member account and enter
 
 ## Next steps
 
-[How to manage members in Azure Blockchain Service](manage-consortium.md)
+[How to manage members in Azure Blockchain Service using PowerShell](manage-consortium-powershell.md)
