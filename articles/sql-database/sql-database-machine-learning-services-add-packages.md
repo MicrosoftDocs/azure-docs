@@ -21,28 +21,22 @@ This article explains how to add an R package to Azure SQL Database Machine Lear
 
 ## Prerequisites
 
-- Install [R](https://www.r-project.org/) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer. R is available for Windows, MacOS, and Linux. This tutorial assumes you're using Windows.
+- Install <a href=https://www.r-project.org/ target=_blank>R</a> and <a href=https://www.rstudio.com/products/rstudio/download/ target=_blank>RStudio Desktop</a> on your local computer. R is available for Windows, MacOS, and Linux. This article assumes you're using Windows.
+
+- Make sure you've installed the latest [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). You can run R scripts using other database management or query tools, but this example uses SSMS.
 
 ## List R packages
 
-Microsoft provides a number of R packages pre-installed with Machine Learning Services in your SQL database.
+Microsoft provides a number of R packages pre-installed with Machine Learning Services in your Azure SQL database.
 
-You can see a list of installed R packages by running the following script. The list displays information including version, dependencies, license, and library path information.
+You can see a list of installed R packages by running the following R script. The list displays information for each package, including version, dependencies, license, and library path information.
 
-    ```sql
-    EXECUTE sp_execute_external_script @language = N'R'
-        , @script = N'
-    OutputDataSet <- data.frame(installed.packages()[,c("Package", "Version", "Depends", "License", "LibPath")]);'
-    WITH RESULT SETS((
-                Package NVARCHAR(255)
-                , Version NVARCHAR(100)
-                , Depends NVARCHAR(4000)
-                , License NVARCHAR(1000)
-                , LibPath NVARCHAR(2000)
-                ));
-    ```
+```R
+r=installed.packages()[,c("Package", "Version", "Depends", "License", "LibPath")]
+View(r)
+```
 
-The output is from `installed.packages()` in R and is returned as a result set. It looks similar to the following.
+The output looks similar to the following.
 
 **Results**
 
@@ -63,7 +57,7 @@ For example, follow the steps below to install the **[glue](https://cran.r-proje
     > [!TIP]
     > If you get the error, " 'R' is not recognized as an internal or external command, operable program or batch file", it likely means that the path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the path to the environment variable or navigate to the folder in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`) and then retry the command.
 
-1. Download the latest **sqlmlutils** zip file from https://github.com/Microsoft/sqlmlutils/tree/master/R/dist to your local computer. You don't need to unzip the file.
+1. Download the latest **sqlmlutils** zip file from <a href=https://github.com/Microsoft/sqlmlutils/tree/master/R/dist target=_blank>https://github.com/Microsoft/sqlmlutils/tree/master/R/dist</a> to your local computer. You don't need to unzip the file.
 
 1. Use the **R CMD INSTALL** command in **Command Prompt** to install **sqlmlutils**. Specify the full path to the zip file you downloaded. For example:
 
@@ -76,23 +70,27 @@ For example, follow the steps below to install the **[glue](https://cran.r-proje
 
     ```text
     In R CMD INSTALL
-    * installing to library 'C:/Users/<youruser>/Documents/R/win-library/3.5'
+    * installing to library 'C:/Users/<username>/Documents/R/win-library/3.5'
     package 'sqlmlutils' successfully unpacked and MD5 sums checked
     ```
 
-1. Open **RStudio** and create a new **R Script** file. Use the following R code to install the **glue** package using `sqlmlutils`.
+1. Open **RStudio** and create a new **R Script** file. Use the following R code to install the **glue** package using `sqlmlutils`. Insert your own connection information.
 
     ```R
-    library(sqlmlutils) 
-    connection <- connectionInfo(server= "yourserver.database.windows.net",
-    database = "yourdatabase", uid = "yoursqluser", pwd = "yoursqlpassword")
+    library(sqlmlutils)
+    connection <- connectionInfo(
+    server= "yourserver.database.windows.net",
+    database = "yourdatabase",
+    uid = "yoursqluser",
+    pwd = "yoursqlpassword")
+    
     sql_install.packages(connectionString = connection, pkgs = "glue", verbose = TRUE, scope = "PUBLIC")
     ```
 
     > [!TIP]
     > The **scope** can be either **PUBLIC** or **PRIVATE**. Public scope is useful for the database administrator to install packages that all users can use. Private scope makes the package  available only to the user who installs it. If you don't specify the scope, the default scope is **PRIVATE**.
 
-1. Verify that the **glue** package has been installed.
+1. Verify that the **glue** package has been installed with the following R script.
 
     ```R
     r<-sql_installed.packages(connectionString = connection, fields=c("Package", "LibPath", "Attributes", "Scope"))
@@ -112,16 +110,17 @@ Once the package is installed, you can use it in an R script through **sp_execut
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
         , @script = N'
-        library(glue)
+    library(glue)
     
-        name <- "Fred"
-        age <- 50
-        anniversary <- as.Date("2020-06-14")
-        text <- glue(''My name is {name}, '',
-        ''my age next year is {age + 1}, '',
-        ''my anniversary is {format(anniversary, "%A, %B %d, %Y")}.'')
-        print(text)
-        ';
+    name <- "Fred"
+    age <- 50
+    anniversary <- as.Date("2020-06-14")
+    text <- glue(''My name is {name}, '',
+    ''my age next year is {age + 1}, '',
+    ''my anniversary is {format(anniversary, "%A, %B %d, %Y")}.'')
+    
+    print(text)
+    ';
     ```
 
     You'll see the following result in the **Messages** tab.
@@ -133,12 +132,16 @@ Once the package is installed, you can use it in an R script through **sp_execut
     My name is Fred, my age next year is 51, my anniversary is Sunday, June 14, 2020.
     ```
 
-If you would like to remove the package, run the following R script in **RStudio** on your local computer.
+If you would like to remove the package, run the following R script in **RStudio** on your local computer. Insert your own connection information.
 
 ```R
-library(sqlmlutils) 
-connection <- connectionInfo(server= "yourserver.database.windows.net",
-database = "yourdatabase", uid = "yoursqluser", pwd = "yoursqlpassword")
+library(sqlmlutils)
+connection <- connectionInfo(
+server= "yourserver.database.windows.net",
+database = "yourdatabase",
+uid = "yoursqluser",
+pwd = "yoursqlpassword")
+
 sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLIC")
 ```
 
