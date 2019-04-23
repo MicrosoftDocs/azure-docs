@@ -22,10 +22,17 @@
     href: concepts/recommended-calling-patterns.md
 - name: Samples
   items:
-  - name: C#
-    href: overview.md
-  - name: Javascript
-    href: overview.md
+  - name: C# and Universal Windows Platform(UWP)
+    href: https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet
+  - name: C# and Windows Presentation Foundation(WPF)
+    href: https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet
+  - name: Javascript web-browser app
+    href: https://github.com/Azure-Samples/cognitive-services-REST-api-samples/
+  - name: Java and Android mobile app
+    href: https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/javascript
+  - name: Swift and iOS mobile app
+    href: https://github.com/Azure-Samples/cognitive-services-REST-api-samples/
+
 - name: Reference
   items:
   - name: REST API reference
