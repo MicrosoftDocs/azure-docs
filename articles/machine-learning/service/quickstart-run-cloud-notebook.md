@@ -57,7 +57,6 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
 
-
 1. Select **Jupyter** in the **Launch** column for your VM.  
 
     ![Start the Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-server.png)
@@ -134,7 +133,7 @@ You can also keep the resource group but delete a single workspace. Display the 
 If you keep your workspace, stop the notebook VM when you are not using it to reduce cost.  
 
 1. In your workspace, select **Notebook VMs**.
- 
+
    ![Stop the VM server](./media/quickstart-run-cloud-notebook/stop-server.png)
 
 1. From the list, select the VM.
