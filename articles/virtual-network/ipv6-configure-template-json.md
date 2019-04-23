@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy an IPv6 dual stack application in Azure virtual network - Resource Manger template (preview)
 titlesuffix: Azure Virtual Network
 description: This article shows how deploy an IPv6 dual stack application in Azure virtual network using Azure Resource Manager VM templates.
