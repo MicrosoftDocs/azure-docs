@@ -25,10 +25,10 @@ This article guides you through using the Maven command line tool to build and p
 
 To develop functions using Java, you must have the following installed:
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
-- [Apache Maven](https://maven.apache.org), version 3.0 or above.
+- [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8
+- [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
-- [Azure Functions Core Tools](functions-run-local.md#v2)
+- [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
 
 > [!IMPORTANT]
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
