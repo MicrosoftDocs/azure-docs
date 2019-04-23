@@ -28,7 +28,7 @@ To develop functions using Java, you must have the following installed:
 - [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
 - [Apache Maven](https://maven.apache.org), version 3.0 or above.
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
-- [Azure Functions Core Tools](functions-run-local.md#v2) (requires **.NET Core 2.x SDK**)
+- [Azure Functions Core Tools](functions-run-local.md#v2)
 
 > [!IMPORTANT]
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
