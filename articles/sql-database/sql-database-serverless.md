@@ -73,35 +73,6 @@ The following features do not support auto-pausing and auto-resuming. That is, i
 
 ## Auto-scaling
 
-### Auto-pause
-
-Auto-pause is triggered if all of the following conditions are true for the duration of the auto-pause delay:
-
-- Number sessions = 0
-- CPU = 0 (for user workload running in the user pool)
-
-An option is provided to disable auto-pause if desired.
-
-![serverless pause and resume](./media/sql-database-serverless/serverless-pause-resume.png)
-
-### Auto-resume
-
-Auto-resume is triggered if any of the following conditions are true at any time:
-
-|Feature|Auto-resume trigger|
-|---|---|
-|Authentication and authorization|Login|
-|Threat detection|Enabling/disabling threat detection settings at the database or server level<br>Modifying threat detection settings at the database or server level|
-|Data discovery and classification|Adding, modifying, deleting, or viewing sensitivity labels|
-|Auditing|Viewing auditing records.<br>Updating or viewing auditing policy|
-|Data masking|Adding, modifying, deleting, or viewing data masking rules|
-|Transparent data encryption|View state or status of transparent data encryption|
-|Query (performance) data store|Modifying or viewing query store settings; automatic tuning|
-|Auto-tuning|Application and verification of auto-tuning recommendations such as auto-indexing|
-|Database copying|Create database as copy<br>Export to a BACPAC file|
-|SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|
-|
-
 ### Scaling responsiveness
 
 In general, databases are run on a machine with sufficient capacity to satisfy resource demand without interruption for any amount of compute requested within limits set by the `maxVcores` value. Occasionally, load balancing automatically occurs if the machine is unable to satisfy resource demand within a few minutes. The database remains online during load balancing except for a brief period at the end of the operation when connections are dropped.
@@ -125,6 +96,35 @@ Unlike provisioned compute, memory from the SQL cache is reclaimed from a server
 #### Cache hydration
 
 The SQL cache grows as data is fetched from disk in the same way and with the same speed as for provisioned databases. The cache is allowed to grow unconstrained up to the max memory limit when the database is busy.
+
+### Auto-pause and auto-resume
+
+### Auto-pause
+
+Auto-pause is triggered if all of the following conditions are true for the duration of the auto-pause delay:
+
+- Number sessions = 0
+- CPU = 0 (for user workload running in the user pool)
+
+An option is provided to disable auto-pause if desired.
+
+### Auto-resume
+
+Auto-resume is triggered if any of the following conditions are true at any time:
+
+|Feature|Auto-resume trigger|
+|---|---|
+|Authentication and authorization|Login|
+|Threat detection|Enabling/disabling threat detection settings at the database or server level<br>Modifying threat detection settings at the database or server level|
+|Data discovery and classification|Adding, modifying, deleting, or viewing sensitivity labels|
+|Auditing|Viewing auditing records.<br>Updating or viewing auditing policy|
+|Data masking|Adding, modifying, deleting, or viewing data masking rules|
+|Transparent data encryption|View state or status of transparent data encryption|
+|Query (performance) data store|Modifying or viewing query store settings; automatic tuning|
+|Auto-tuning|Application and verification of auto-tuning recommendations such as auto-indexing|
+|Database copying|Create database as copy<br>Export to a BACPAC file|
+|SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|
+|
 
 ## On-boarding into the serverless compute tier
 
@@ -151,7 +151,7 @@ The serverless compute tier is only available with the vCore-based purchasing mo
 
 ### Creating a new database using the Azure portal
 
-See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md) and choose the serverless compute tier.
+See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
 
 ### Create new database using PowerShell
 
