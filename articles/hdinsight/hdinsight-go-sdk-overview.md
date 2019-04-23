@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight Go SDK
 description: Reference for Azure HDInsight Go SDK
-services: hdinsight
 author: tylerfox
 
 ms.service: hdinsight

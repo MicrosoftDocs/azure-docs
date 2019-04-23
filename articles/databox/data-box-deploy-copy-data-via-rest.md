@@ -7,10 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 04/19/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
+
 # Tutorial: Copy data to Azure Data Box Blob storage via REST APIs  
 
 This tutorial describes procedures to connect to Azure Data Box Blob storage via REST APIs over *http* or *https*. Once connected, the steps required to copy the data to Data Box Blob storage and prepare the Data Box to ship, are also described.
@@ -35,9 +36,14 @@ Before you begin, make sure that:
 5. [Download AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) on your host computer. You'll use AzCopy to copy data to Azure Data Box Blob storage from your host computer.
 
 
-## Connect to Data Box Blob storage
+## Connect via http or https
 
-You can connect to Data Box Blob storage over *http* or *https*. In general, *https* is the secure and recommended way to connect to Data Box Blob storage. *Http* is used  when connecting over trusted networks. Depending on whether you are connecting to Data Box Blob storage over *http* or *https*, the steps can be different.
+You can connect to Data Box Blob storage over *http* or *https*.
+
+- *Https* is the secure and recommended way to connect to Data Box Blob storage.
+- *Http* is used  when connecting over trusted networks.
+
+The steps to connect are different when you connect to Data Box Blob storage over *http* or *https*, .
 
 ## Connect via http
 
@@ -48,11 +54,11 @@ Connection to Data Box Blob storage REST APIs over *http* requires the following
 
 Each of these steps is described in the following sections.
 
-#### Add device IP address and blob service endpoint to the remote host
+### Add device IP address and blob service endpoint
 
 [!INCLUDE [data-box-add-device-ip](../../includes/data-box-add-device-ip.md)]
 
-#### Configure partner software and verify connection
+### Configure partner software and verify connection
 
 [!INCLUDE [data-box-configure-partner-software](../../includes/data-box-configure-partner-software.md)]
 
@@ -63,8 +69,8 @@ Each of these steps is described in the following sections.
 Connection to Azure Blob storage REST APIs over https requires the following steps:
 
 - Download the certificate from Azure portal
-- Prepare the host computer for remote management
-- Add the device IP and blob service endpoint to the remote host
+- Import the certificate on the client or remote host
+- Add the device IP and blob service endpoint to the client or remote host
 - Configure third-party software and verify the connection
 
 Each of these steps is described in the following sections.
@@ -79,20 +85,15 @@ Use the Azure portal to download certificate.
 
     ![Download certificate in Azure portal](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  
-### Prepare the host for remote management
+### Import certificate 
 
-Follow these steps to prepare the Windows client for a remote connection that uses an *https* session:
+Accessing Data Box Blob storage over HTTPS requires an SSL certificate for the device. The way in which this certificate is made available to the client application varies from application to application and across operating systems and distributions. Some applications can access the certificate after it is imported into the system’s certificate store, while other applications do not make use of that mechanism.
 
-- Import the .cer file into the root store of the client or remote host.
-- Add the device IP address and blob service endpoint to the hosts file on your Windows client.
+Specific information for some applications is mentioned in this section. For more information on other applications, consult the documentation for the application and the operating system used.
 
-Each of the preceding procedures, is described below.
+Follow these steps to import the `.cer` file into the root store of a Windows or Linux client. On a Windows system, you can use Windows PowerShell or the Windows Server UI to import and install the certificate on your system.
 
-#### Import the certificate on the remote host
-
-You can use Windows PowerShell or the Windows Server UI to import and install the certificate on your host system.
-
-**Using PowerShell**
+#### Use Windows PowerShell
 
 1. Start a Windows PowerShell session as an administrator.
 2. At the command prompt, type:
@@ -101,9 +102,9 @@ You can use Windows PowerShell or the Windows Server UI to import and install th
     Import-Certificate -FilePath C:\temp\localuihttps.cer -CertStoreLocation Cert:\LocalMachine\Root
     ```
 
-**Using Windows Server UI**
+#### Use Windows Server UI
 
-1.	Right-click the .cer file and select **Install certificate**. This starts the Certificate Import Wizard.
+1.	Right-click the `.cer` file and select **Install certificate**. This action starts the Certificate Import Wizard.
 2.	For **Store location**, select **Local Machine**, and then click **Next**.
 
     ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
@@ -116,13 +117,29 @@ You can use Windows PowerShell or the Windows Server UI to import and install th
 
     ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
-### To add device IP address and blob service endpoint to the remote host
+#### Use a Linux system
 
-The steps to follow are identical to what you used while connecting over *http*.
+The method to import a certificate varies by distribution.
 
-### Configure partner software to establish connection
+Several, such as Ubuntu and Debian, use the `update-ca-certificates` command.  
 
-The steps to follow are identical to what you used while connecting over *http*. The only difference is that you should leave the *Use http option* unchecked.
+- Rename the Base64-encoded certificate file to have a `.crt` extension and copy it into the `/usr/local/share/ca-certificates directory`.
+- Run the command `update-ca-certificates`.
+
+Recent versions of RHEL, Fedora, and CentOS use the `update-ca-trust` command.
+
+- Copy the certificate file into the `/etc/pki/ca-trust/source/anchors` directory.
+- Run `update-ca-trust`.
+
+Consult the documentation specific to your distribution for details.
+
+### Add device IP address and blob service endpoint 
+
+Follow the same steps to [add device IP address and blob service endpoint when connecting over *http*](#add-device-ip-address-and-blob-service-endpoint).
+
+### Configure partner software and verify connection
+
+Follow the steps to [Configure partner software that you used while connecting over *http*](#configure-partner-software-and-verify-connection). The only difference is that you should leave the *Use http option* unchecked.
 
 ## Copy data to Data Box
 
@@ -195,7 +212,6 @@ If you only want to copy source resources that do not exist in the destination, 
 #### Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
-
 
 Next step is to prepare your device to ship.
 
