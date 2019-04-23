@@ -197,7 +197,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ### Remove the naming policy using Azure portal (preview)
 
-1. On the **Naming policy** page, go to **Blocked words**, select **Delete policy**.
+1. On the **Naming policy** page, select **Delete policy**.
 1. After you confirm the deletion, the naming policy is removed, including all prefix-suffix naming policy and any custom blocked words.
 
 ### Remove the naming policy using Azure AD Powershell
