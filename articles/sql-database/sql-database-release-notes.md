@@ -45,6 +45,7 @@ This article lists the new features and improvements in the SQL Database service
 ### Service improvements
 
 | Service improvements | Details |
+| --- | --- |
 | Public endpoints for managed instance | For more information, see [Using Azure SQL Database managed instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md)
 | Time zone support for managed instance | For more information, see [Time Zone in Azure SQL Database Managed Instance (Preview)](sql-database-managed-instance-timezone.md)
 
