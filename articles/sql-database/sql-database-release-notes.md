@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 05/08/2019
 ms.author: carlrab
 ---
 # SQL Database release notes
@@ -38,6 +38,7 @@ This article lists the new features and improvements in the SQL Database service
 |Table Variable Deferred Compilation (under compatibility level 150)|For information, see [Table Variable Deferred Compilation](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
 |SQL Analytics|For information, see [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
 | Time zone support for managed instances|For more information, see [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
+| Serverless compute tier| For information, see [Serverless compute tier](sql-database-serverless.md).
 |||
 
 ## March 2019
