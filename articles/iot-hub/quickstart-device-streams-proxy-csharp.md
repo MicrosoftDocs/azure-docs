@@ -12,7 +12,7 @@ ms.date: 03/14/2019
 ms.author: rezas
 ---
 
-# Quickstart: SSH/RDP over IoT Hub device streams using C# proxy applications (preview)
+# Quickstart: SSH/RDP over an IoT Hub device stream using a C# proxy application (preview)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
@@ -22,7 +22,7 @@ Microsoft Azure IoT Hub currently supports device streams as a [preview feature]
 
 We first describe the setup for SSH (using port 22). We then describe how to modify the setup's port for RDP. Since device streams are application and protocol agnostic, the same sample can be modified to accommodate other types of application traffic. This usually only involves changing the communication port to the one used by the intended application.
 
-## How it works?
+## How it works
 
 Figure below illustrates the setup of how the device- and service-local proxy programs in this sample will enable end-to-end connectivity between SSH client and SSH daemon. Here, we assume that the daemon is running on the same device as the device-local proxy.
 

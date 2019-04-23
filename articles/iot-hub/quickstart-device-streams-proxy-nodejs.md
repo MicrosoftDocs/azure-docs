@@ -12,13 +12,17 @@ ms.date: 03/14/2019
 ms.author: rezas
 ---
 
-# Quickstart: SSH/RDP over IoT Hub device streams using Node.js proxy application (preview)
+# Quickstart: SSH/RDP over an IoT Hub device stream using a Node.js proxy application (preview)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
 Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart guide describes execution of a Node.js proxy application running on the service side to enable SSH and RDP traffic to be sent to the device over a device stream. See [Local proxy sample for SSH or RDP](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) for an overview of the setup. During public preview, Node.js SDK only supports device streams on the service side. As a result, this quickstart guide only covers instructions to run the service-local proxy. You should run an accompanying device-local proxy which is available in [SSH/RDP over IoT Hub device streams using C proxy apps](./quickstart-device-streams-proxy-c.md) or [SSH/RDP over IoT Hub device streams using C# proxy apps](./quickstart-device-streams-proxy-csharp.md) guides.
+[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart guide describes execution of a Node.js proxy application running on the service side to enable SSH and RDP traffic to be sent to the device over a device stream. See [Local proxy sample for SSH or RDP](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) for an overview of the setup. During public preview, Node.js SDK only supports device streams on the service side. As a result, this quickstart guide only covers instructions to run the service-local proxy. You should run one of the following device-local proxy quickstarts:  
+
+   * [SSH/RDP over IoT Hub device streams using a C proxy app](./quickstart-device-streams-proxy-c.md)
+
+   * [SSH/RDP over IoT Hub device streams using a C# proxy app](./quickstart-device-streams-proxy-csharp.md)
 
 We first describe the setup for SSH (using port 22). We then describe how to modify the setup for RDP (which uses port 3389). Since device streams are application and protocol agnostic, the same sample can be modified to accommodate other types of client/server application traffic (usually by modifying the communication port).
 
@@ -28,15 +32,15 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-The preview of device streams is currently only supported for IoT Hubs created in the following regions:
+* The preview of device streams is currently only supported for IoT Hubs created in the following regions:
 
-*  **Central US**
+   * **Central US**
 
-*  **Central US EUAP**
+   * **Central US EUAP**
 
 To run the service-local application in this quickstart you need Node.js v4.x.x or later on your development machine.
 
-You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
+* Download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
 
 You can verify the current version of Node.js on your development machine using the following command:
 
@@ -44,13 +48,13 @@ You can verify the current version of Node.js on your development machine using 
 node --version
 ```
 
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+* Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
 
-If you haven't already done so, download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip and extract the ZIP archive.
+* If you haven't already done so, download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip and extract the ZIP archive.
 
 ## Create an IoT hub
 
@@ -92,7 +96,13 @@ In this section, you establish an end-to-end stream to tunnel SSH traffic.
 
 ### Run the device-local proxy
 
-As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the service side. For device-local application, use the accompanying device proxy programs available in [SSH/RDP over IoT Hub device streams using C proxy apps](./quickstart-device-streams-proxy-c.md) or [SSH/RDP over IoT Hub device streams using C# proxy apps](./quickstart-device-streams-proxy-csharp.md). Ensure the device-local proxy is running before proceeding to the next step.
+As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the service side. For the device-local application, use one of the device proxy programs available in one of the following quickstarts:
+
+   * [SSH/RDP over IoT Hub device streams using C proxy apps](./quickstart-device-streams-proxy-c.md)
+
+   * [SSH/RDP over IoT Hub device streams using C# proxy apps](./quickstart-device-streams-proxy-csharp.md). 
+
+Ensure the device-local proxy is running before proceeding to the next step.
 
 ### Run the service-local proxy
 

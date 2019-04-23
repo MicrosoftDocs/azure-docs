@@ -12,7 +12,7 @@ ms.date: 03/14/2019
 ms.author: rezas
 ---
 
-# Quickstart: Communicate to device applications in C# via IoT Hub device streams (preview)
+# Quickstart: Communicate to a device application in C# via IoT Hub device streams (preview)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
@@ -159,7 +159,7 @@ Console output on the device-side:
 Console output on the service-side:
 ![Console output on the service-side](./media/quickstart-device-streams-echo-csharp/service-console-output.png )
 
-The traffic being sent over the stream will be tunneled through IoT Hub rather than being sent directly. The benefits provided are in [Device Streams Benefits](./iot-hub-device-streams-overview.md#benefits).
+The traffic being sent over the stream will be tunneled through IoT Hub rather than being sent directly. The benefits provided are detailed in [Device Streams Benefits](./iot-hub-device-streams-overview.md#benefits).
 
 ## Clean up resources
 
