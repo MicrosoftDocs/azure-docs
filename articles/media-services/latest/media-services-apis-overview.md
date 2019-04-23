@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -86,6 +86,10 @@ Media Services has the following long-running operations:
 ## Filtering, ordering, paging of Media Services entities
 
 See [Filtering, ordering, paging of Azure Media Services entities](entities-overview.md)
+
+## Provide feedback
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 
