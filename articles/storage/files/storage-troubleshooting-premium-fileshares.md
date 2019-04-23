@@ -1,5 +1,5 @@
 ---
-title: Premium Files troubleshooting guide
+title: Premium fileshares troubleshooting guide
 description: An overview of Azure Files, a service that enables you to create and use network file shares in the cloud using the industry standard SMB protocol.
 services: storage
 author: roygara
@@ -19,6 +19,24 @@ ms.subservice: files
 
 The default quota on a share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information on provision and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
 
+To confirm if your share is being throttled, you can leverage Azure Metrics in the portal.
+
+1. Log in to the [Azure portal](https://portal.azure.com).
+
+1. Select **All services** and then search for **Metrics**.
+
+1. Select **Metrics**.
+
+1. Select your storage account as the resource.
+
+1. Select **File** as the metric namespace.
+
+1. Select **Transactions** as the metric.
+
+1. Add a filter for **ResponseType** and check to see if any requests have a response code of **SuccessWithThrottling**.
+
+![Metrics options for premium fileshares](media/storage-troubleshooting-premium-fileshares/metrics.png)
+
 ### Solution
 
 - Increase share provisioned capacity by specifying a higher quota on your share.
@@ -26,6 +44,10 @@ The default quota on a share is 100 GiB, which provides 100 baseline IOPS (with 
 ### Cause 2: Metadata/namespace heavy workload
 
 If the majority of your requests are metadata centric, (such as createfile/openfile/closefile/queryinfo/querydirectory) then the latency will be worse when compared to read/write operations.
+
+To confirm if most of your requests are metadata centric, you can use the same steps as above. Except instead of adding a filter for **ResponseType**, add a filter for **API Name**.
+
+![FIlter for API Name in your metrics](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
 ### Workaround
 
@@ -38,7 +60,7 @@ If the application being used by the customer is single-threaded, this can resul
 ### Solution
 
 - Increase application parallelism by increasing the number of threads.
-- Switch to applications where parallelism is possible. For example, for copy operations, customers could use AzCopy from Windows clients or the **parallel** command on Linux clients.
+- Switch to applications where parallelism is possible. For example, for copy operations, customers could use AzCopy or RoboCopy from Windows clients or the **parallel** command on Linux clients.
 
 ## Very high latency for requests
 

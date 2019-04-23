@@ -1,6 +1,6 @@
 ---
-title: Create an Azure premium file storage account
-description: In this article, you learn how to create an Azure premium file storage account and a premium file share.
+title: Create an Azure filestorage storage account
+description: In this article, you learn how to create a filestorage (preview) and a premium file share.
 services: storage
 author: roygara
 ms.service: storage
@@ -13,7 +13,7 @@ ms.subservice: files
 
 # How to create an Azure premium file share
 
-The FileStorage (preview) storage account type represents a new tier for Azure Files, allowing you to create file shares with premium performance characteristics. These file shares are designed for high performance and enterprise scale applications, providing consistent low latency, high IOPS, and high throughput shares.
+The filestorage (preview) storage account type represents a new tier for Azure Files, allowing you to create file shares with premium performance characteristics. These file shares are designed for high performance and enterprise scale applications, providing consistent low latency, high IOPS, and high throughput shares.
 
 This article shows you how to create this new account type using [Azure portal](https://portal.azure.com/), Azure PowerShell, and Azure CLI.
 
@@ -27,7 +27,7 @@ To access Azure Storage, you'll need an Azure subscription. If you don't already
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-### Create a FileStorage (preview) storage account
+### Create a filestorage (preview) storage account
 
 Now you're ready to create your storage account.
 
@@ -111,7 +111,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ### Create a filestorage (preview) storage account
 
-To create a FileStorage (preview) storage account from PowerShell, use the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command:
+To create a filestorage (preview) storage account from PowerShell, use the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command:
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -119,7 +119,7 @@ $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fil
 
 ### Create a premium file share
 
-Now that you have a FileStorage account, you can create a premium file share. Use the [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet to create one.
+Now that you have a filestorage account, you can create a premium file share. Use the [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet to create one.
 
 > [!NOTE]
 > Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
@@ -164,9 +164,9 @@ az group create `
     --location westus2
 ```
 
-### Create a FileStorage (preview) storage account
+### Create a filestorage (preview) storage account
 
-To create a FileStorage (preview) storage account from the Azure CLI, use the [az storage account create](/cli/azure/storage/account) command.
+To create a filestorage (preview) storage account from the Azure CLI, use the [az storage account create](/cli/azure/storage/account) command.
 
 ```azurecli-interactive
 az storage account create `
@@ -190,7 +190,7 @@ STORAGEKEY=$(az storage account keys list \
 
 ### Create a premium file share
 
-Now that you have a FileStorage account, you can create a premium file share. Use the [az storage share create](/cli/azure/storage/share) command to create one.
+Now that you have a filestorage account, you can create a premium file share. Use the [az storage share create](/cli/azure/storage/share) command to create one.
 
 > [!NOTE]
 > Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.

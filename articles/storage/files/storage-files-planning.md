@@ -110,7 +110,7 @@ Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next si
 >
 > ingress rate = 40 MiB/s + 0.04 * provisioned GiB
 
-Share size can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a size increase, you can decrease the share size as many times until you increase it again. IOPS/Throughput scale changes will be effective within a few minutes after the size change.
+Share size can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a size increase, you can decrease the share size as many times as you like, until you increase it again. IOPS/Throughput scale changes will be effective within a few minutes after the size change.
 
 The following table illustrates a few examples of these formulae for the provisioned share sizes:
 
@@ -136,7 +136,7 @@ Premium file shares can burst their IOPS up to a factor of three. Bursting is au
 Credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. For example, a 100 GiB share has 100 baseline IOPS. If actual traffic on the share was 40 IOPS for a specific 1-second interval, then the 60 unused IOPS are credited to a burst bucket. These credits will then be used later when operations would exceed the baseline IOPs.
 
 > [!TIP]
-> Size of the burst bucket = Baseline_IOPS * 2 * 3600.
+> Size of the burst bucket = Baseline IOPS * 2 * 3600.
 
 Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst. Shares can continue to burst as long as credits are remaining, though shares smaller than 50 TiB will only stay at the burst limit for up to an hour. Shares larger than 50 TiB can technically exceed this one hour limit, up to two hours but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to baseline IOPS.
 
