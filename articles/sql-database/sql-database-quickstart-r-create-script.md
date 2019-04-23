@@ -255,7 +255,7 @@ To create a machine learning model using R in SQL Database, follow this quicksta
 > [!div class="nextstepaction"]
 > [Create and train a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-train-score-model.md)
 
-For more information on Azure SQL Database Machine Learning Services with R (preview), see the articles below.
+For more information on Azure SQL Database Machine Learning Services with R (preview), see the following articles.
 
 - [Azure SQL Database Machine Learning Services with R (preview)](sql-database-machine-learning-services-overview.md)
 - [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](sql-database-machine-learning-services-functions.md)
