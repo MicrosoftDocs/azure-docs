@@ -336,11 +336,11 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 
 In this configuration, `KestrelCommunicationListener` will automatically select an unused port from the application port range.
 
-## Service Fabric Configuration Provider
+## Service Fabric configuration provider
 App configuration in ASP.NET Core is based on key-value pairs established by the configuration provider. Read 
 [Configuration in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/) to understand more on general ASP.NET Core configuration support.
 
-This section describes how Service Fabric Configuration Provider integrates with ASP.NET Core configuration by importing the `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet package.
+This section describes how the Service Fabric configuration provider integrates with ASP.NET Core configuration by importing the `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet package.
 
 ### AddServiceFabricConfiguration startup extensions
 After you import the `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet package, you need to register the Service Fabric Configuration source with ASP.NET Core configuration API. You do this by checking **AddServiceFabricConfiguration** extensions in the `Microsoft.ServiceFabric.AspNetCore.Configuration` namespace against `IConfigurationBuilder`.
@@ -372,7 +372,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 ### Default key mapping
-By default, Service Fabric Configuration Provider includes the package name, section name, and property name. Together, these form the ASP.NET Core configuration key, as follows:
+By default, the Service Fabric configuration provider includes the package name, section name, and property name. Together, these form the ASP.NET Core configuration key, as follows:
 ```csharp
 $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
 ```
@@ -387,10 +387,10 @@ For example, if you have a configuration package named `MyConfigPackage` with th
 </Settings>
 ```
 ### Service Fabric configuration options
-Service Fabric Configuration Provider also supports `ServiceFabricConfigurationOptions` to change the default behavior of key mapping.
+The Service Fabric configuration provider also supports `ServiceFabricConfigurationOptions` to change the default behavior of key mapping.
 
 #### Encrypted settings
-Service Fabric supports encrypted settings, as does Service Fabric Configuration Provider. The encrypted settings aren't decrypted to ASP.NET Core `IConfiguration` by default. The encrypted values are stored there instead. But if you want to decrypt the value to store in ASP.NET Core IConfiguration, you can set the *DecryptValue* flag to false in the `AddServiceFabricConfiguration` extension, as follows:
+Service Fabric supports encrypted settings, as does the Service Fabric configuration provider. The encrypted settings aren't decrypted to ASP.NET Core `IConfiguration` by default. The encrypted values are stored there instead. But if you want to decrypt the value to store in ASP.NET Core IConfiguration, you can set the *DecryptValue* flag to false in the `AddServiceFabricConfiguration` extension, as follows:
 
 ```csharp
 public Startup()
@@ -414,7 +414,7 @@ public Startup()
 }
 ```
 #### Custom key mapping, value extraction, and data population
-Service Fabric Configuration Provider also supports more advanced scenarios to customize the key mapping with `ExtractKeyFunc` and custom-extract the values with `ExtractValueFunc`. You can even change the whole process of populating data from Service Fabric configuration to ASP.NET Core configuration by using `ConfigAction`.
+The Service Fabric configuration provider also supports more advanced scenarios to customize the key mapping with `ExtractKeyFunc` and custom-extract the values with `ExtractValueFunc`. You can even change the whole process of populating data from Service Fabric configuration to ASP.NET Core configuration by using `ConfigAction`.
 
 The following examples illustrate how to use `ConfigAction` to customize data population:
 ```csharp
@@ -450,7 +450,7 @@ public Startup()
 }
 ```
 ### Configuration updates
-Service Fabric Configuration Provider also supports configuration updates. You can use ASP.NET Core `IOptionsMonitor` to receive change notifications, and then use `IOptionsSnapshot` to reload configuration data. For more information, see [Options pattern in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options).
+The Service Fabric configuration provider also supports configuration updates. You can use ASP.NET Core `IOptionsMonitor` to receive change notifications, and then use `IOptionsSnapshot` to reload configuration data. For more information, see [Options pattern in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options).
 
 These options are supported by default. No further coding is needed to enable configuration updates.
 
