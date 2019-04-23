@@ -159,6 +159,15 @@ The `imageVersionId` should be the ResourceId of the image version. Use [az sig 
 
 Image Builder supports multiple ‘customizers’. Customizers are functions that are used to customize your image, such as running scripts, or rebooting servers. 
 
+When using `customize`: 
+- You can use multiple customizers, but they must have a unique `name`.
+- Customizers execute in the order specified in the template.
+- If one customizer fails, then the whole customization component will fail and report back an error.
+- In preview, there is a 1-hour timeout allowance for customization.
+- It is strongly advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
+- Do not put sensitive data in the scripts. 
+- The script locations need to be publicly accessible.
+
 ```json
         "customize": [
             {
@@ -180,7 +189,6 @@ Image Builder supports multiple ‘customizers’. Customizers are functions tha
  
 The customize section is an array. Azure Image Builder will run through the customizers in sequential order. Any failure in any customizer will fail the build process. 
  
-
  
 ### Shell customizer
 
@@ -199,18 +207,11 @@ The shell customizer supports running shell scripts, these must be publicly acce
 OS Support: Linux 
  
 Customize properties:
-**type** – Shell 
-**name** - name for tracking the customization 
-**script** - URI to the location of the file 
- 
-When using `customize`: 
-- You can use multiple customizers, but they must have a unique `name`.
-- Customizers execute in the order specified in the template.
-- If one customizer fails, then the whole customization component will fail and report back an error.
-- In preview, there is a 1-hour timeout allowance for customization.
-- It is strongly advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
-- Do not put sensitive data in the scripts. The script locations are publicly accessible.
 
+- **type** – Shell 
+- **name** - name for tracking the customization 
+- **script** - URI to the location of the file 
+ 
 > [!NOTE]
 > When running the shell customizer with RHEL, you need to ensure your first customization shell handles registering with a Red Hat entitlement server before any customization occurs. Once customization is complete, the script should unregister with the entitlement server.
 
@@ -229,11 +230,10 @@ The Restart customizer allows you to restart a Windows VM and wait for it come b
 OS Support: Windows
  
 Customize properties:
-**Type**: WindowsRestart
-**restartCommand** - Command to execute the restart (optional). The default is `'shutdown /r /f /t 0 /c 
-\"packer restart\"'`.
-**restartCheckCommand** – Command to check if restart succeeded (optional).  [Default: '…..'] 
-**restartTimeout** - Restart timeout specified as a string of magnitude and unit. For example, `5m` (5 minutes) or `2h` (2 hours). The default is: '5m'
+- **Type**: WindowsRestart
+- **restartCommand** - Command to execute the restart (optional). The default is `'shutdown /r /f /t 0 /c \"packer restart\"'`.
+- **restartCheckCommand** – Command to check if restart succeeded (optional).  [Default: '…..'] 
+- **restartTimeout** - Restart timeout specified as a string of magnitude and unit. For example, `5m` (5 minutes) or `2h` (2 hours). The default is: '5m'
 
 
 ### PowerShell customizer 
@@ -258,10 +258,11 @@ The shell customizer supports running PowerShell scripts and inline command, the
 OS support: Windows and Linux
 
 Customize properties:
-**type** – PowerShell.
-**script** - URI to the location of the PowerShell script file. 
-**inline** – Inline commands to be run, separated by commas.
-**valid_exit_codes** – Expected, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
+
+- **type** – PowerShell.
+- **script** - URI to the location of the PowerShell script file. 
+- **inline** – Inline commands to be run, separated by commas.
+- **valid_exit_codes** – Expected, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
 
 ### File customizer
 
@@ -279,10 +280,11 @@ The File customizer lets image builder download a file from a GitHub or Azure st
  ```
 
 OS support: Linux and Windows 
- 
-**sourceUri** - this can be either GitHub or Azure storage. You can only download one file, not an entire directory. If you need to download a directory, use a compressed file, then uncompress it using the Shell or PowerShell customizers. 
- 
-**destination** – this is the full destination path and file name. Any referenced path and subdirectories must exist, use the Shell or PowerShell customizers to set these up beforehand. 
+
+File customizer properties:
+
+- **sourceUri** - this can be either GitHub or Azure storage. You can only download one file, not an entire directory. If you need to download a directory, use a compressed file, then uncompress it using the Shell or PowerShell customizers. 
+- **destination** – this is the full destination path and file name. Any referenced path and subdirectories must exist, use the Shell or PowerShell customizers to set these up beforehand. 
 
 This is supported by Windows directories and Linux paths, but there are some differences: 
 - Linux OS’s – the only path Image builder can write to is /tmp.
@@ -296,13 +298,13 @@ If there is an error trying to download the file, or put it in a specified direc
 
 Azure Image Builder supports three distribution targets: 
 
-- managedImage - managed image.
-- sharedImage - Shared Image Gallery.
-- VHD - VHD in a storage account.
+- **managedImage** - managed image.
+- **sharedImage** - Shared Image Gallery.
+- **VHD** - VHD in a storage account.
 
 You can distribute an image to both of the target types in the same configuration. For an example, see [azplatform_image_deploy_sigmdi.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
  
-### Managed image
+### Distribute: managedImage
 
 The image output will be a managed image resource.
 
@@ -321,19 +323,18 @@ The image output will be a managed image resource.
 ```
  
 Distribute properties:
-**type** – managedImage 
-**imageId** – Resource ID of the destination image, expected format: 
-/subscriptions/<subscriptionId>/resourceGroups/<destinationResourceGroupName>/providers/Microsoft.Compute/images/<imageName>
-**location** - location of the managed image.  
-**runOutputName** – this must be the same as the image name.  
-**tags** - Optional user specified key value pair tags.
+- **type** – managedImage 
+- **imageId** – Resource ID of the destination image, expected format: /subscriptions/<subscriptionId>/resourceGroups/<destinationResourceGroupName>/providers/Microsoft.Compute/images/<imageName>
+- **location** - location of the managed image.  
+- **runOutputName** – this must be the same as the image name.  
+- **tags** - Optional user specified key value pair tags.
  
  
 > [!NOTE]
 > The destination resource group must exist.
 > If you want the image distributed to a different region, it will increase the deployment time . 
 
-## Shared Image Gallery 
+### Distribute: sharedImage 
 The Azure Shared Image Gallery is a new Image Management service that allows managing of image region replication, versioning and sharing custom images. Azure Image Builder supports distributing with this service, so you can distribute images to regions supported by Shared Image Galleries. 
  
 A Shared Image Gallery is made up of: 
@@ -360,16 +361,17 @@ Before you can distribute to the Image Gallery, you must create a gallery and an
 ``` 
 
 Distribute properties for shared image galleries:
-**type** - sharedImage  
-**galleryImageId** – ID of the shared image gallery. The format is: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>.
-**imageName** - Image name  
-**replicationRegions** - Array of regions for replication. One of the regions must be the region where the Gallery is deployed.
+
+- **type** - sharedImage  
+- **galleryImageId** – ID of the shared image gallery. The format is: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>.
+- **imageName** - Image name  
+- **replicationRegions** - Array of regions for replication. One of the regions must be the region where the Gallery is deployed.
  
 > [!NOTE]
 > You can use Azure Image Builder in a different region to the gallery, but the Azure Image Builder service will need to transfer the image between the datacenters and this will take longer. 
 > Image Builder will automatically version the image, based on a monotonic integer, you cannot specify it currently. 
 
-## VHD  
+### Distribute: VHD  
 You can output to a VHD. You can then copy the VHD, and use it to publish to Azure MarketPlace, or use with Azure Stack.  
 
 ```json
@@ -386,9 +388,10 @@ You can output to a VHD. You can then copy the VHD, and use it to publish to Azu
 OS Support: Windows  and Linux
 
 Distribute VHD parameters:
-**type** - VHD.
-**runOutputName** - name to use for the VHD image.
-**tags** - Optional user specified key value pair tags.
+
+- **type** - VHD.
+- **runOutputName** - name to use for the VHD image.
+- **tags** - Optional user specified key value pair tags.
  
 Azure Image Builder does not allow the user to specify a storage account location, but you can query the status of the `runOutput` to get the location.  
 

@@ -68,8 +68,6 @@ imageName=myWinBuilderImage
 runOutputName=aibWindows
 # name of the image to be created
 imageName=aibWinImage
-# Password for the VM
-vmpassword=<password>
 ```
 
 Create a variable for your subscription ID. You can get this using `az account show | grep id`.
@@ -142,7 +140,7 @@ az vm create \
   --resource-group $imageResourceGroup \
   --name aibImgWinVm00 \
   --admin-username aibuser \
-  --admin-password $vmpassword \
+  --admin-password <password> \
   --image $imageName \
   --location $location
 ```
