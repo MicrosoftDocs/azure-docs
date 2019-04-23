@@ -161,8 +161,8 @@ In this section, you author a Databricks linked service. This linked service con
            dbutils.widgets.text("input", "","")
            dbutils.widgets.get("input")
            y = getArgument("input")
-           print "Param -\'input':"
-           print y
+           print ("Param -\'input':")
+           print (y)
            ```
 
            ![Create widgets for parameters](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image16.png)

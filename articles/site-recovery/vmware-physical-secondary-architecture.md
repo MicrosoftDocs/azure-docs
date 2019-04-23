@@ -6,7 +6,7 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 04/08/2019
 ms.author: raynew
 ---
 
@@ -27,7 +27,7 @@ This article describes the architecture and processes used when set up disaster 
 **VMware ESX/ESXi and vCenter server** |  VMs are hosted on ESX/ESXi hosts. Hosts are managed with a vCenter server | You need a VMware infrastructure to replicate VMware VMs.
 **VMs/physical servers** |  Unified Agent installed on VMware VMs and physical servers you want to replicate. | The agent acts as a communication provider between all of the components.
 
-### Replication process
+## Replication process
 
 1. You set up the component servers in each site (configuration, process, master target), and install the Unified Agent on machines that you want to replicate.
 2. After initial replication, the agent on each machine sends delta replication changes to the process server.

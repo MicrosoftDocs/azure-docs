@@ -12,6 +12,8 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
+search.appverid:
+- MET150
 
 ms.collection: M365-identity-device-management
 ---

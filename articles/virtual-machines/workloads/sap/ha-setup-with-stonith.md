@@ -259,7 +259,7 @@ Run the command *crm_mon* to ensure **both** the nodes are online. You can run i
 crm_mon
 ```
 ![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png)
-You can also log in to hawk to check the cluster status *https://<node IP>:7630*. The default user is hacluster and the password is linux. If needed, you can change the password using *passwd* command.
+You can also log in to hawk to check the cluster status *https://\<node IP>:7630*. The default user is hacluster and the password is linux. If needed, you can change the password using *passwd* command.
 
 ## 7. Configure Cluster Properties and Resources 
 This section describes the steps to configure the cluster resources.
@@ -324,7 +324,7 @@ crm configure load update crm-vip.txt
 When you run command *crm_mon*, you can see the two resources there.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-Also, you can see the status at *https://<node IP address>:7630/cib/live/state*
+Also, you can see the status at *https://\<node IP address>:7630/cib/live/state*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 

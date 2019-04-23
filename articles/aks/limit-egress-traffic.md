@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 05/06/2019
 ms.author: iainfou
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
@@ -14,7 +14,9 @@ ms.author: iainfou
 
 # Limit egress traffic for cluster nodes and control access to required ports and services in Azure Kubernetes Service (AKS)
 
-This article details what network ports and FQDNs are required and then optional if you wish to restrict egress traffic in an AKS cluster.
+By default, AKS clusters have unrestricted outbound (egress) internet access. This level of network access allows nodes and services you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks.
+
+This article details what network ports and fully qualified domain names (FQDNs) are required and optional if you restrict egress traffic in an AKS cluster.
 
 ## Before you begin
 
@@ -44,13 +46,13 @@ The following FQDN / application rules are required. This list only applies to n
 
 | FQDN                    | Use |
 |-------------------------|----------|
-| *<region>.azmk8s.io     | The is the API server endpoint. |
-| k8s.gcr.io              | This is Google’s Container Registry that allows `az aks upgrade` to work properly. |
-| storage.googleapis.com  | This is the underlying data store for Google’s Container Registry used by the previous entry. |
-| *auth.docker.io         | This is to authenticate to Docker Hub, even if you are not logged in. |
-| *cloudflare.docker.io   | This is a CDN endpoint for cached Container Images on Docker Hub. |
-| *.cloudflare.docker.com | This is a CDN endpoint for cached Container Images on Docker Hub. |
-| *registry-1.docker.io   | This is Docker Hub’s registry. |
+| *<region>.azmk8s.io     | This address is the API server endpoint. |
+| k8s.gcr.io              | This address is Google’s Container Registry that allows `az aks upgrade` to work properly. |
+| storage.googleapis.com  | This address is the underlying data store for Google’s Container Registry used by the previous entry. |
+| *auth.docker.io         | This address is to authenticate to Docker Hub, even if you are not logged in. |
+| *cloudflare.docker.io   | This address is a CDN endpoint for cached Container Images on Docker Hub. |
+| *.cloudflare.docker.com | This address is a CDN endpoint for cached Container Images on Docker Hub. |
+| *registry-1.docker.io   | This address is Docker Hub’s registry. |
 
 ### Additional required addresses for GPU-based clusters
 
@@ -78,8 +80,8 @@ The following FQDN / application rules are recommended for AKS clusters to funct
 | FQDN                         | Use |
 |------------------------------|----------|
 | *.ubuntu.com                 | This address lets the cluster nodes download the required security patches and updates. If you only create new, short-lived clusters and won't update nodes, this address is not needed. |
-| *azurecr.io                  | If you use Azure Container Registry (ACR) to store your container images, this address is needed. To restrict egress traffic to a specific registry, add the FQDN of the ACR instead of a wild card entry. |
-| *blob.core.windows.net       | If you use Azure Container Registry (ACR), Azure Blob Storage is the underlying data store. This address is needed correctly pull from those container images. |
+| *azurecr.io                  | If you use Azure Container Registry (ACR) to store your container images, this address is needed. To restrict egress traffic to a specific registry, add the FQDN of the ACR instead of a wild-card entry. |
+| *blob.core.windows.net       | If you use Azure Container Registry (ACR), Azure Blob Storage is the underlying data store. This address is needed to correctly pull from those container images. |
 | *login.microsoftonline.com   | If you use Azure Active Directory (AD) integration, this address is needed for the authentication flow for cluster resource management. |
 | *snapcraft.io                | If you install Ubuntu packages, this address is needed. |
 | *packages.microsoft.com      | If you install Microsoft packages, this address is needed. |
@@ -90,7 +92,10 @@ The following FQDN / application rules are recommended for AKS clusters to funct
 
 ## Next steps
 
+In this article, you learned what ports and addresses to allow if you restrict egress traffic for the cluster. You can also define how the pods themselves can communicate and what restrictions they have within the cluster. For more information, see [Secure traffic between pods using network policies in AKS][network-policy].
+
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[network-policy]: use-network-policies.md

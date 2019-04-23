@@ -29,6 +29,8 @@
       href: azure-to-azure-tutorial-migrate.md 
     - name: Move Azure VMs to Availability Zones
       href: move-Azure-VMs-AVset-Azone.md
+    - name: Move Azure VMs between Government & Public regions
+      href: region-move-cross-geos.md
   - name: VMware VM disaster recovery to Azure
     items:
     - name: Prepare Azure
@@ -44,7 +46,7 @@
   - name: Hyper-V VM disaster recovery to Azure
     items:
     - name: Prepare Azure
-      href: tutorial-prepare-azure.md
+      href: tutorial-prepare-azure-for-hyperv.md
     - name: Prepare on-premises Hyper-V
       href: hyper-v-prepare-on-premises-tutorial.md
     - name: Set up replication for Hyper-V VMs
@@ -91,7 +93,7 @@
       href: vmware-azure-about-disaster-recovery.md
     - name: Common questions
       href: vmware-azure-common-questions.md
-    - name: Support matrix
+    - name: VMware/Physical to Azure support matrix
       href: vmware-physical-azure-support-matrix.md
     - name: Support requirements for configuration server deployment
       href: vmware-azure-configuration-server-requirements.md
@@ -111,7 +113,7 @@
       href: hyper-v-azure-architecture.md
   - name: About physical server disaster recovery to Azure
     items:
-    - name: Support matrix
+    - name: VMware/Physical to Azure support matrix
       href: vmware-physical-azure-support-matrix.md
     - name: Physical server to Azure architecture
       href: physical-azure-architecture.md
@@ -175,6 +177,10 @@
         href: azure-to-azure-autoupdate.md
       - name: Updates in Azure Site Recovery
         href: service-updates-how-to.md
+      - name: Remove servers and disable protection
+        href: site-recovery-manage-registration-and-protection.md
+      - name: Delete a vault
+        href: delete-vault.md
   - name: VMware to Azure disaster recovery
     items:
     - name: Set up networking

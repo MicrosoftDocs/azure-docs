@@ -106,7 +106,7 @@ The PySpark kernels that are provided with Jupyter notebooks have a preset conte
 The PySpark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
 
 * **%%local** Specified that the code in subsequent lines is executed locally. Code must be valid Python code.
-* **%%sql -o <variable name>** 
+* **%%sql -o \<variable name>** 
 * Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas dataframe.
 
 For more information on the kernels for Jupyter notebooks and the predefined "magics" that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).

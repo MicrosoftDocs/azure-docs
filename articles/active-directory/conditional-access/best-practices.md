@@ -105,7 +105,7 @@ For every sign-in, Azure Active Directory evaluates all policies and ensures tha
 
 ### Does conditional access work with Exchange ActiveSync?
 
-Yes, you can use Exchange ActiveSync in a conditional access policy.
+Yes, you can use Exchange ActiveSync in a conditional access policy with some [limitations](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync). 
 
 ### How should you configure conditional access with Office 365 apps?
 
@@ -134,6 +134,7 @@ In your environment, you should avoid the following configurations:
 
 - **Require domain join** - This policy block access has also the potential to block access for all users in your organization if you don't have a domain-joined device yet.
 
+- **Require app protection policy** - This policy block access has also the potential to block access for all users in your organization if you don't have an Intune policy. If you are an administrator without a client application that has an Intune app protection policy, this policy blocks you from getting back into portals such as Intune and Azure.
 
 **For all users, all cloud apps, all device platforms:**
 

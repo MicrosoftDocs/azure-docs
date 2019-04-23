@@ -20,7 +20,7 @@
     displayName: workspace
     href: quickstart-run-cloud-notebook.md
   - name: Experiment with a local notebook
-    displayName: workspace install sdk
+    displayName: workspace, install, sdk
     href: quickstart-run-local-notebook.md
 - name: Tutorials
   items:
@@ -40,7 +40,7 @@
       displayName: automl, automated, auto ml,
       href: tutorial-auto-train-models.md
 - name: Samples
-  displayName: example, examples, jupyter, azure notebooks, python, notebook, github
+  displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub
   href: samples-notebooks.md
 - name: Concepts
   items:
@@ -53,6 +53,9 @@
   - name: Model management
     displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
+  - name: Model interpretability
+    displayName: explainability
+    href: machine-learning-interpretability-explainability.md
   - name: Accelerate with FPGAs
     href: concept-accelerate-with-fpgas.md
   - name: Machine learning pipelines
@@ -80,20 +83,16 @@
   - name: Set up development environment 
     items:
     - name: Configure dev environments
-      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
+      displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
-    - name: Visual Studio Code extension
-      displayName: Visual Studio Code, vscode, tools, ai, vs
-      items:
-      - name: Get started
-        href: how-to-vscode-tools.md
-      - name: Train and deploy
-        href: how-to-vscode-train-deploy.md
+    - name: Use Visual Studio Code extension
+      displayName: Visual Studio Code, VSCode, tools, ai, vs
+      href: how-to-vscode-tools.md
   - name: Work with data
-    displayName: data prep, etl, elt, data preparation
+    displayName: data prep, ETL, ELT, data preparation
     items:
     - name: Explore and prep data
-      displayName: data prep, etl, elt, data preparation
+      displayName: data prep, ETL, ELT, data preparation
       items:
       - name: Load data
         href: how-to-load-data.md
@@ -107,7 +106,7 @@
   - name: Train models
     items:
     - name: Set up training environments
-      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, Databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
       href: how-to-set-up-training-targets.md
     - name: Create estimators in training
       href: how-to-train-ml-models.md
@@ -118,17 +117,24 @@
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
+  - name: Track and monitor experiments
+    items:
+    - name: Start, monitor or cancel runs
+      displayName: cancel, fail, status, child run
+      href: how-to-manage-runs.md
     - name: Log metrics for training runs
       href: how-to-track-experiments.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
-    - name: Configure auto training
+    - name: Use automated ML (Python)
+      displayName: SDK automl
       href: how-to-configure-auto-train.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
-    - name: Auto-train forecast models
+    - name: Auto-train a forecast model
+      displayName: time series
       href: how-to-auto-train-forecast.md
   - name: ONNX models
     href: how-to-build-deploy-onnx.md
@@ -168,7 +174,7 @@
     displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: Export and delete data
-    displayName: gdpr
+    displayName: GDPR
     href: how-to-export-delete-data.md
 - name: Reference
   items:

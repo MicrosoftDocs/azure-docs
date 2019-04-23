@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Create an Azure Data Explorer cluster and database by using C#'
 description: Learn how to create an Azure Data Explorer cluster and database by using the C#
-services: data-explorer
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek

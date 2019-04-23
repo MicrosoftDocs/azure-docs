@@ -1,11 +1,11 @@
 ---
 title: Consistency levels and Azure Cosmos DB APIs
 description: Understanding the consistency levels across APIs in Azure Cosmos DB.
-author: markjbrown
-ms.author: mjbrown
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 04/08/2019
 ms.reviewer: sngun
 ---
 
@@ -28,7 +28,7 @@ Unlike AzureCosmos DB, Apache Cassandra does not natively provide precisely defi
 
 The following table illustrates how the native Cassandra consistency levels are mapped to the Azure Cosmos DB’s consistency levels when using Cassandra API:  
 
-[ ![Cassandra consistency model mapping](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+[![Cassandra consistency model mapping](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
 ## <a id="mongo-mapping"></a>Mapping between MongoDB and Azure Cosmos DB consistency levels
 
@@ -46,7 +46,7 @@ While using Azure Cosmos DB’s API for MongoDB:
 
 The following table illustrates how the native MongoDB write/read concerns are mapped to the Azure Cosmos consistency levels when using Azure Cosmos DB’s API for MongoDB:
 
-[ ![MongoDB consistency model mapping](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+[![MongoDB consistency model mapping](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## Next steps
 

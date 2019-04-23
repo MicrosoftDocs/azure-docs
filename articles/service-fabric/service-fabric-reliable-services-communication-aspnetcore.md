@@ -366,7 +366,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 ### Default Key Mapping
-By default, Service Fabric configuraiton provider includes package name, section name, and property name together to form the asp.net core configuration Key using following function:
+By default, Service Fabric configuration provider includes package name, section name, and property name together to form the asp.net core configuration Key using following function:
 ```csharp
 $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
 ```

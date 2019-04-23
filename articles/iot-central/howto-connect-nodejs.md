@@ -3,7 +3,7 @@ title: Connect a generic Node.js client application to Azure IoT Central | Micro
 description: As a device developer, how to connect a generic Node.js device to your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/04/2019
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -330,4 +330,4 @@ As an operator in your Azure IoT Central application, for your real device you c
 
 ## Next steps
 
-Now that you've learned how to connect a generic Node.js client to your Azure IoT Central application, the suggested next step is to learn how to [prepare and connect a Raspberry Pi](howto-connect-raspberry-pi-python.md).
+Now that you've learned how to connect a generic Node.js client to your Azure IoT Central application, the suggested next step is to learn how to [set up a custom device template](howto-set-up-template.md) for your own IoT device.

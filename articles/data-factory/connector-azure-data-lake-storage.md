@@ -100,7 +100,7 @@ To use service principal authentication, follow these steps:
     - **As sink**, in Storage Explorer, grant at least **Write + Execute** permission to create child items in the folder. Alternatively, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
 
 >[!NOTE]
->To list folders starting from the account level, you need to set the permission of the service principal being granted to **storage account with "Execute" permission** or permission on IAM. This is true when you use the:
+>To list folders starting from the account level or to test connection, you need to set the permission of the service principal being granted to **storage account with "Execute" permission in IAM**. This is true when you use the:
 >- **Copy Data Tool** to author copy pipeline.
 >- **Data Factory UI** to test connection and navigating folders during authoring. 
 >If you have concern on granting permission at account level, you can skip test connection and input path manually during authoring. Copy activity will still work as long as the service principal is granted with proper permission at the files to be copied.
@@ -154,7 +154,7 @@ To use managed identities for Azure resources authentication, follow these steps
     - **As sink**, in Storage Explorer, grant at least **Write + Execute** permission to create child items in the folder. Alternatively, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
 
 >[!NOTE]
->To list folders starting from the account level, you need to set the permission of the managed identity being granted to **storage account with "Execute" permission** or permission on IAM. This is true when you use the:
+>To list folders starting from the account level or to test connection, you need to set the permission of the managed identity being granted to **storage account with "Execute" permission in IAM**. This is true when you use the:
 >- **Copy Data Tool** to author copy pipeline.
 >- **Data Factory UI** to test connection and navigating folders during authoring. 
 >If you have concern on granting permission at account level, you can skip test connection and input path manually during authoring. Copy activity will still work as long as the managed identity is granted with proper permission at the files to be copied.

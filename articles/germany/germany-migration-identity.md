@@ -132,8 +132,6 @@ Azure AD Connect is a tool that syncs your identity data between an on-premises 
 - Define a new sign-in name for your users. The domain part (after **\@**) of the sign-in name must be different in each environment.
 - Define a clear "source of truth" when you also sync backward (from Azure AD to on-premises Active Directory).
 
-For more information about how to sync in different cloud environments by using Azure AD Connect, see the blog post [Use Azure AD Connect with multiple clouds](https://blogs.technet.microsoft.com/ralfwi/2017/01/24/using-adconnect-with-multiple-clouds/).
-
 If you already use Azure AD Connect to sync to and from Azure Germany, make sure that you migrate any manually created users. The following PowerShell cmdlet lists all users that aren't synced by using Azure AD Connect:
 
 ```powershell

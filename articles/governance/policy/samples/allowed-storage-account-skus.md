@@ -1,7 +1,6 @@
 ---
 title: Sample - Allowed storage account SKUs
 description: This sample policy definition requires that storage accounts use an approved SKU.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy

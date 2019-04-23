@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
@@ -31,9 +31,9 @@ To on-board Azure Sentinel, you first need to connect to your data sources. Azur
 
 ![Data collectors](./media/collect-data/collect-data-page.png)
 
-## Data collection methods
+## Data connection methods
 
-The following data collection methods are supported by Azure Sentinel:
+The following data connection methods are supported by Azure Sentinel:
 
 - **Microsoft services**:<br> Microsoft services are connected natively, leveraging the Azure foundation for out-of-the box integration, the following solutions can be connected in a few clicks:
     - [Office 365](connect-office-365.md)
@@ -49,7 +49,7 @@ The following data collection methods are supported by Azure Sentinel:
 
 - **External solutions via API**: Some data sources are connected using APIs that are provided by the connected data source. Typically, most security technologies provide a set of APIs through which event logs can be retrieved.The APIs connect to Azure Sentinel and gather specific data types and send them to Azure Log Analytics. Appliances connected via API include:
     - [Barracuda](connect-barracuda.md)
-    - Symantec
+    - [Symantec](connect-symantec.md)
 - **External solutions via agent**: Azure Sentinel can be connected to all other data sources that can perform real-time log streaming using the Syslog protocol, via an agent. <br>Most appliances use the Syslog protocol to send event messages that include the log itself and data about the log. The format of the logs varies, but most appliances support the Common Event Format (CEF) standard. <br>The Azure Sentinel agent, which is based on the OMS agent, converts CEF formatted logs into a format that can be ingested by Log Analytics. Depending on the appliance type, the agent is installed either directly on the appliance, or on a dedicated Linux server. The agent for Linux receives events from the Syslog daemon over UDP, but in cases where a Linux machine is expected to collect a high volume of Syslog events, they are sent over TCP from the Syslog daemon to the agent and from there to Log Analytics.
     - Firewalls, proxies, and endpoints:
         - [F5](connect-f5.md)

@@ -55,5 +55,5 @@ sections:
     style: unordered
     items:
      - html: <a href="https://docs.microsoft.com/powershell/module/az.notificationhubs">Azure PowerShell</a>
-     - html: <a href="/dotnet/api/microsoft.azure.notificationhubs">.NET SDK</a>
-     - html: <a href="/rest/api/notificationhubs">REST API</a>  
+     - html: <a href="/dotnet/api/microsoft.azure.notificationhubs">.NET SDK</a>   
+     - html: <a href="/rest/api/notificationhubs">REST API Reference</a>  

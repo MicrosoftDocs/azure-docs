@@ -1,13 +1,12 @@
 ---
 title: 'Azure Data Explorer data ingestion'
 description: 'Learn about the different ways you can ingest (load) data in Azure Data Explorer'
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 2/18/2019
+ms.date: 02/18/2019
 ---
 
 # Azure Data Explorer data ingestion
@@ -48,7 +47,7 @@ Azure Data Explorer currently supports:
 
 ### Ingestion using integration services
 
-* Azure Data Factory (ADF), a fully managed data integration service for analytic workloads in Azure, to copy data to and from Azure Data Explorer using [supported data stores and formats](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). For more information, see [Copy data to or from Azure Data Explorer using Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
+* Azure Data Factory (ADF), a fully managed data integration service for analytic workloads in Azure, to copy data to and from Azure Data Explorer using [supported data stores and formats](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). For more information, see [Copy data from Azure Data Factory to Azure Data Explorer](/azure/data-explorer/data-factory-load-data).
 
 ### Programmatic ingestion
 

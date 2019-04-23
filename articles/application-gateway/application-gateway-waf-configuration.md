@@ -49,6 +49,7 @@ The following are the supported match criteria operators:
 - **Starts with**: This operator matches all fields that start with the specified selector value.
 - **Ends with**:  This operator matches all request fields that end with the specified selector value.
 - **Contains**: This operator matches all request fields that contain the specified selector value.
+- **Equals any**: This operator matches all request fields. * will be the selector value.
 
 In all cases matching is case insensitive and regular expression aren't allowed as selectors.
 
