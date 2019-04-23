@@ -266,7 +266,7 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
 
 ## Prompt order supported in API
 
-The prompt order, returned in the [JSON](#json-response-for-prompts) response, is supported for editing by the API only. 
+The prompt order, returned in the JSON response, is supported for editing by the API only. 
 
 ## Next steps
 
