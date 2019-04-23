@@ -17,11 +17,7 @@ ms.author: pafarley
 
 This article explains the concepts of the various face recognition operations (verification, find similar, grouping, identification) and the underlying data structures. Broadly, recognition describes the work of comparing two different faces to determine if they are similar or belong to the same person.
 
-See the [Overview](../Overview.md) for a description of each recognition operation.
-
-## Recognition
-
-### Recognition-related data structures
+## Recognition-related data structures
 
 The ID must be unique within the subscription. name can be duplicated
 
@@ -29,7 +25,7 @@ The ID must be unique within the subscription. name can be duplicated
 denoted by ID. Deleted after 24 hours
 
 **PersistedFace**
-Like DetectedFace, but they become permanent once they're added to a group. 
+Like DetectedFace, but they become permanent once they're added to a group.
 
 **FaceList**/**LargeFaceList**
 an assorted list of PersistedFace objects.
@@ -52,9 +48,17 @@ Not real data types: just lists of IDs
 group
 messygroup
 
-## Verification
+## Recognition operations
 
-This API is used to verify whether two faces are the same or not. Both faces are represented as face IDs in the request. Verified results contain a Boolean field (isIdentical) indicating same if true and a number field ([confidence](#confidence)) indicating the level of confidence.
+This section details what the four recognition operations do with the above data structures. See the [Overview](../Overview.md) for a description of each recognition operation.
+
+### Verification
+
+### Find similar
+
+### Grouping
+
+### Identification
 
 ## Input data
 
