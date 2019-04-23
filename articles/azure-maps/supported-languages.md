@@ -74,26 +74,26 @@ Azure Maps have been localized in a variety of languages across the services. Th
 
 # Azure Maps supported views
 
-Azure Maps `View` parameter (also referred to as “user region parameter”) is a 2-letter ISO-3166 Country Code that will show the correct maps for that country/region specifying, which set of geo-politically disputed borders and labels are displayed on the map.  By default `View` parameter is set to **“Unified”**.  Country/Regions that are not on the view list will default to the “Unified” View. It is your responsibility to determine the location of your users, and then set the `View` parameter correctly for that location. The `View` parameter in Azure Maps must be used in compliance with applicable laws, including those regarding mapping of the country where maps, images and other data and third party content that you are authorized to access via Azure Maps is made available.
+Azure Maps `View` parameter (also referred to as “user region parameter”) is a 2-letter ISO-3166 Country Code that will show the correct maps for that country/region specifying, which set of geo-politically disputed borders and labels are displayed on the map.  By default `View` parameter is set to **“Unified”**.  Country/Regions that are not on the view list will default to the “Unified” View. It is your responsibility to determine the location of your users, and then set the `View` parameter correctly for that location. The `View` parameter in Azure Maps must be used in compliance with applicable laws, including those regarding mapping of the country where maps, images, and other data and third-party content that you are authorized to access via Azure Maps is made available.
 
 The following table provides supported Views.
 
 | View         | Description                            |  Maps | Search | JS Map Control |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
-| AE           | United Arab Emirates (Arabic View )    |   ✓   |        |     ✓          |
+| AE           | United Arab Emirates (Arabic View)    |   ✓   |        |     ✓          |
 | Ar           | Argentina (Argentinian View)           |   ✓   |        |     ✓          |
-| BH           | Bahrain (Arabic View )                 |   ✓   |        |     ✓          |
+| BH           | Bahrain (Arabic View)                 |   ✓   |        |     ✓          |
 | IN           | India (Indian View)                    |   ✓   |        |     ✓          |
-| IQ           | Iraq (Arabic View )                    |   ✓   |        |     ✓          |
-| JO           | Jordan (Arabic View )                  |   ✓   |        |     ✓          |
-| KW           | Kuwait (Arabic View )                  |   ✓   |        |     ✓          |
-| LB           | Lebanon (Arabic View )                 |   ✓   |        |     ✓          |
+| IQ           | Iraq (Arabic View)                    |   ✓   |        |     ✓          |
+| JO           | Jordan (Arabic View)                  |   ✓   |        |     ✓          |
+| KW           | Kuwait (Arabic View)                  |   ✓   |        |     ✓          |
+| LB           | Lebanon (Arabic View)                 |   ✓   |        |     ✓          |
 | MA           | Morocco (Moroccan View)                |   ✓   |        |     ✓          |
-| OM           | Oman (Arabic View )                    |   ✓   |        |     ✓          |
+| OM           | Oman (Arabic View)                    |   ✓   |        |     ✓          |
 | PK           | Pakistan (Pakistani View)              |   ✓   |        |     ✓          |
 | PS           | Palestinian Authority (Arabic View)    |   ✓   |        |     ✓          |
-| QA           | Qatar (Arabic View )                   |   ✓   |        |     ✓          |
-| SA           | Saudi Arabia (Arabic View )            |   ✓   |        |     ✓          |
-| SY           | Syria (Arabic View )                   |   ✓   |        |     ✓          |
-| YE           | Yemen (Arabic View )                   |   ✓   |        |     ✓          |
+| QA           | Qatar (Arabic View)                   |   ✓   |        |     ✓          |
+| SA           | Saudi Arabia (Arabic View)            |   ✓   |        |     ✓          |
+| SY           | Syria (Arabic View)                   |   ✓   |        |     ✓          |
+| YE           | Yemen (Arabic View)                   |   ✓   |        |     ✓          |
 | Unified      | Unified View (Others)                  |   ✓   |        |     ✓          |
