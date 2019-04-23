@@ -4371,6 +4371,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/logic-apps/logic-apps-enterprise-integration-as2-encode.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-as2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-enterprise-integration-as2-decode.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-as2",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/logic-apps/custom-connector-build-web-api-app-tutorial.md",
       "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors/create-web-api-connector",
       "redirect_document_id": true
