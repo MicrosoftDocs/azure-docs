@@ -13,27 +13,15 @@ ms.date: 04/15/2019
 
 The Enterprise Security Package for Azure HDInsight gives you access to Active Directory-based authentication, multi-user support, and role-based access control for your Apache Hadoop clusters in Azure. HDInsight ESP clusters enable organizations, which adhere to strict corporate security policies, to process sensitive data securely.
 
-This guide walks through the steps needed to create an Enterprise Security Package enabled Azure HDInsight Cluster. Specifically, the following things will be discussed:
-
-* creating a Windows IaaS VM, with Active Directory & Domain Name Services (DNS) enabled mimicking an on-premises environment
-* create a hybrid identity environment using password hash sync with Azure Active Directory
-
-At the end of this guide, a user created on your on-premises Active Directory should be able to sign in to an ESP enabled HDInsight cluster.
+The goal of this guide is correctly configure the necessary resources so that on-premises users can sign in to an ESP enabled HDInsight cluster. This article walks through the steps needed to create an Enterprise Security Package enabled Azure HDInsight Cluster. The steps will cover creating a Windows IaaS VM with Active Directory & Domain Name Services (DNS) enabled. This server will act as a replacement for your **actual** on premises environment and will enable you to proceed through the setup and configuration steps so that you can repeat them later in your own environment. This guide will also help you create a hybrid identity environment using password hash sync with Azure Active Directory.
 
 This guide is meant to complement [Use Enterprise Security Package in HDInsight](apache-domain-joined-architecture.md)
 
-Pre-requisites:
-
-* Create an On-Prem environment with Active Directory and DNS
-* Enable Azure Active Directory and Sync the user to Azure Active Directory
-
-![alt-text](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
+Before using this process in your own environment, setup Active Directory and Domain Name Services (DNS). Also, enable Azure Active Directory and sync on premises user accounts to Azure Active Directory.
 
 ![alt-text](./media/apache-domain-joined-create-configure-esp/image002.png)
 
-## Windows Domain Controller Setup
-
-### Deploy Windows Server Domain Controller and Windows DNS server to new resource group and virtual network
+## Deploy Windows Server Domain Controller and Windows DNS server to new resource group and virtual network
 
 Overview: In this section, you will use an Azure Quick Deployment template to Create new VMs and configure Domain Name Services (DNS) and a new AD Forest.
 
@@ -65,7 +53,7 @@ Overview: In this section, you will use an Azure Quick Deployment template to Cr
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image010.png)
 
-### Configure Additional Users and Groups to access HDInsight Cluster
+## Configure Additional Users and Groups to access your HDInsight Cluster
 
 Overview: In this section, you will create the users that will access the HDInsight cluster by the end of this guide.
 
@@ -87,7 +75,7 @@ Overview: In this section, you will create the users that will access the HDInsi
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image018.png)
 
-    1. In the **New Object - User** screen, enter `HDIUser` as the **User logon name** and click **Next**. 
+    1. In the **New Object - User** screen, enter `HDIUser` as the **User logon name** and click **Next**.
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image020.png)
 
@@ -106,27 +94,24 @@ Overview: In this section, you will create the users that will access the HDInsi
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image028.png)
 
-1. Add HDIUser Created in previous step to the `HDIUserGroup` as a member.
+1. Add the **HDIUser** created in the previous step to the **HDIUserGroup** as a member.
 
-    1. Go to Properties of the `HDIUserGroup`.
+    1. Go to properties of the **HDIUserGroup**.
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image030.png)
 
-    1. Go to the **Members** tab.
+    1. Go to **Members** and click **Add**.
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image032.png)
 
-    1. Add `HDIUser` to this group.
+    1. Enter `HDIUser` in the box labeled **Enter the object names to select** and click **OK**.
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image034.png)
 
-    1. Click OK.
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image036.png)
+Now that we have our Active Directory environment setup, with the Users and User group will be create on the AD environment that will be synchronized with Azure AD.
 
-Now that we have our Active Directory environment setup, with the Users and User group will be create on the AD Evrionment that will be synchronized with Azure AD.
-
-### Now we need an Azure AD tenant so that we can Synchronize our users and user group created on the on Prem AD to the cloud
+## Now we need an Azure AD tenant so that we can Synchronize our users and user group created on the on Prem AD to the cloud
 
 ![alt-text](./media/apache-domain-joined-create-configure-esp/image038.png)
 
@@ -143,7 +128,7 @@ Now that we have our Active Directory environment setup, with the Users and User
 
 ![alt-text](./media/apache-domain-joined-create-configure-esp/image048.png)
 
-### Download and Install AAD-Connect to the On-Prem Domain Controller to sync Users to Azure AD
+## Download and Install AAD-Connect to the On-Prem Domain Controller to sync Users to Azure AD
 
 1. Download Azure AD Connect and Install Microsoft Azure Active Directory Connect
 
@@ -234,7 +219,7 @@ Reference : [Configure secure LDAP (LDAPS) for an Azure AD Domain Services manag
 This section details the steps to create a self-signed certification, download the certificate and [ ]configure secure LDAP (LDAPS) for **hdifabrikam** Azure AD Domain Services managed domain. HDIFabrikam being the domain name, following powerShell script would create a certificate for hdifabrikam and will be saved under
 certificates path "LocalMachine" here is the powershell command.
 
-### Creating the certificate request
+## Creating the certificate request
 
 Any utility or application that creates a valid PKCS \#10 request can be used to form the SSL certificate request. In this case we are using PowerShell
 
