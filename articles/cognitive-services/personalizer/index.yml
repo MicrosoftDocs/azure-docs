@@ -57,6 +57,8 @@ sections:
     style: cards
     className: cardsD
     items:
+    - title: REST APIs 
+      html: <p><a href="https://aka.ms/personalizer-rest-api-docs"> Personalizer API</a></p>   
     - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
