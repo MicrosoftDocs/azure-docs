@@ -35,7 +35,7 @@ In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial series, yo
 
 ## Create a workspace
 
-If you have an Azure Machine Learning service workspace, skip to the [next section](#Open-the-visual-interface-webpage). Otherwise, create one now.
+If you have an Azure Machine Learning service workspace, skip to the [next section](#open-the-visual-interface-webpage). Otherwise, create one now.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
