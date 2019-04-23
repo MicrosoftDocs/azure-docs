@@ -77,7 +77,7 @@
       href: application-gateway-probe-overview.md
     - name: Diagnostics
       href: application-gateway-diagnostics.md 
-  - name: Autoscaling and zone-redundancy
+  - name: v2 SKU
     href: application-gateway-autoscaling-zone-redundant.md
   - name: App service webapp and multi-tenant support
     href: application-gateway-web-app-overview.md
