@@ -48,7 +48,7 @@ If you used ADAL in the past, you might notice that, contrary to ADAL's authenti
 
 ## Application configuration options
 
-There are a number of different configuration options that can be set when initializing the client application in MSAL. These options can be separated into two groups:
+In your code, you initialize a new public or confidential client (or user-agent for MSAL.js) application to authenticate and acquire tokens.  There are a number of different configuration options that can be set when initializing the client application in MSAL. These options can be separated into two groups:
 
 - Registration options, including:
     - [Authority](#authority): Identity provider [instance](#cloud-instance) and sign-in [audience](#application-audience) for the application, and possibly the tenant ID.
@@ -58,14 +58,23 @@ There are a number of different configuration options that can be set when initi
 - [Logging options](#logging), including: log level, control of the PII, name of the component using the library
 
 ### Authority
-The authority is a URL indicating a directory that MSAL can request tokens from. The authority URL is composed of the instance and the audience.
+The authority is a URL indicating a directory that MSAL can request tokens from. Usual authorities are:
+
+- https://login.microsoftonline.com/&gt;tenant&lt;/, where &gt;tenant&lt; is the tenant ID of the Azure AD tenant or a domain associated with this Azure AD tenant.  Used only to sign in users of a specific organization.
+- https://login.microsoftonline.com/common/. Used to sign in users with work and school accounts or a Microsoft personal account.
+- https://login.microsoftonline.com/organizations/. Used to sign in users with work and school accounts.
+- https://login.microsoftonline.com/consumers/. Used to sign in users with only personal Microsoft account (live).
+
+The authority setting must be consistent with what is declared in the application registration portal.
+
+The authority URL is composed of the instance and the audience.
 
 The authority can be:
 - an Azure Active directory Cloud authority
-- an Azure AD B2C authority. See [B2C specifics](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics)
-- an ADFS authority (coming soon. See [ADFS support](https://aka.ms/msal-net-adfs-support)
+- an Azure AD B2C authority. See [B2C specifics](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics).
+- an ADFS authority (coming soon. See [ADFS support](https://aka.ms/msal-net-adfs-support).
 
-Azure Active directory cloud authorities have two parts:
+Azure AD cloud authorities have two parts:
 - the identity provider **instance**
 - the sign-in **audience** for the application
 
