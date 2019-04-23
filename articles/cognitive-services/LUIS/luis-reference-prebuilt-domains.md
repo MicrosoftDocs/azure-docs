@@ -37,7 +37,7 @@ LUIS offers the following prebuilt domains.
 | [Weather](#weather) | Getting weather reports and forecasts.| 
 | [Web](#web) | Navigating to a website.|
 
-# Supported domains across cultures
+## Supported domains across cultures
 
 The table below summarizes the currently supported domains. Support for English is usually more complete than others.
 
