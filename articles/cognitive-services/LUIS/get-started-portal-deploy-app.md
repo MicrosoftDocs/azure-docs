@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Deploy an app with the LUIS Portal" 
+title: "Quickstart: Deploy an app with the LUIS portal" 
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Learn how to deploy your LUIS app to the prediction endpoint after the app is ready to return utterance predictions to a client application, such as a chat bot. This quickstart walks you through how to deploy an application by creating a prediction endpoint resource, assigning the resource to the app, training the app, and publishing the app. 
 services: cognitive-services
@@ -28,9 +28,9 @@ In this quickstart, you learn to deploy an application. You create a prediction 
 
 You create the prediction endpoint resource in the Azure portal. This resource should only be used for endpoint prediction queries. Do not use this resource for authoring changes to the app.
 
-1. Sign in to the **[Azure portal](https://ms.portal.azure.com/)**.
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 
-1. Select the green **+** sign in the upper left-hand panel. Search for `Cognitive Services` in the marketplace and select it.
+1. Select the green **+** sign in the upper-left panel. Search for `Cognitive Services` in the marketplace and select it.
 
 1. Configure the subscription with the following settings:
 
@@ -38,12 +38,12 @@ You create the prediction endpoint resource in the Azure portal. This resource s
    |--|--|--|
    |Name|`my-cognitive-service-resource`|The name of the Azure resource. You need this name when you assign the resource to the app in the LUIS portal.|
    |Subscription|Your subscription|Select one of the subscriptions associated with your account.|
-   |Location|**West US**|The azure region for this resource.|
+   |Location|**West US**|The Azure region for this resource.|
    |Pricing tier|**S0**|The default pricing tier for this resource.|
    |Resource group|`my-cognitive-service-resource-group`|Create a new resource group for all your cognitive service resources. When you're done with the resources, you can delete the resource group to clean up your subscription. |
    | | | |
 
-   ![Azure API Choice](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png)
+   ![Azure API choice](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png)
 
 1. Select **Create** to create the Azure resource.
 
@@ -123,7 +123,7 @@ Train the app when you're ready to test it. Publish the app when you want the cu
 
 ## Clean up resources
 
-When you're done with this quickstart, select **My apps** from the top navigation menu. Select the app's checkbox from the list, and then select **Delete** from the context toolbar above the list.
+When you're done with this quickstart, select **My apps** from the top navigation menu. Select the app's check box from the list, and then select **Delete** from the context toolbar above the list.
 
 [![Delete app from My apps list](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
