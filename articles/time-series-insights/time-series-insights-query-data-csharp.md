@@ -452,4 +452,4 @@ namespace TimeSeriesInsightsQuerySample
 
 ## Next steps
 
-- To learn more about queriny, read the [Query API reference](/rest/api/time-series-insights/ga-query-api).
+- To learn more about querying, read the [Query API reference](/rest/api/time-series-insights/ga-query-api).
