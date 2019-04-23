@@ -53,7 +53,7 @@ You can train ensemble models using automated machine learning with the [Caruana
 
 ## .NET integrations
 
-To help you build your existing tools into your release process, we integrate with popular Microsoft services such as [**Visual Studio and Visual Studio Code**](https://docs.microsoft.com/en-us/dotnet/machine-learning/what-is-mldotnet
+To help you build your existing tools into your release process, we integrate with popular Microsoft services such as [**Visual Studio and Visual Studio Code**](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet
 ), where you can use C# code to integrate automated ML into your .NET applications. The ML.NET automated ML API for Visual Studio and Visual Studio Code performs algorithm and hyperparameter selection, data preprocessing and generates high quality models for prediction.
 
 ## Next steps
