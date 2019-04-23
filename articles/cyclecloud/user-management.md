@@ -32,7 +32,7 @@ Select **Save** to save the new user record in CycleCloud.
 
 ## Edit User
 
-The **Edit** button on the user management page allows an administrator to modify roles and user properties. The administrator can also set the Unix **UID** for the user's local account on the cluster nodes. By default, CycleCloud will reserve UIDs 50000 and above for node users.[See Cluster User Management for details](user-cluster-access.md).  
+The **Edit** button on the user management page allows an administrator to modify roles and user properties. The administrator can also set the Unix **UID** for the user's local account on the cluster nodes. By default, CycleCloud will reserve UIDs 50000 and above for node users. [See Cluster User Management for details](user-cluster-access.md).  
 
 ## User Roles
 
@@ -63,6 +63,6 @@ It is possible to share these privileges to other CycleCloud user accounts after
 
 ## User Authentication
 
-User authentication is provided by either the built-in authentication system or by integrating with a third-party authentication service [See User Authentication](user-authentication.md) for more information.
+User authentication is provided by either the built-in authentication system or by integrating with a third-party authentication service. [See User Authentication](user-authentication.md) for more information.
 
 
