@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure IPv6 endpoints in a Resource Manager template (preview)
 titlesuffix: Azure Virtual Network
 description: Enable IPv6 endpoints in Azure Virtual Network using Azure Resource Manager VM templates.
