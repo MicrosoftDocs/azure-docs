@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 04/19/2019
 ms.author: magoedte
 ---
 
@@ -22,8 +22,16 @@ This article will help you understand the experience between the two perspective
 
 For information about enabling Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
 
-Azure Monitor provides a multi-cluster view showing the health status of all monitored AKS clusters deployed across resource groups in your subscriptions.  It shows AKS clusters discovered that are not monitored by the solution. Immediately you can understand cluster health, and from here you can drill down to the node and controller performance page, or navigate to see performance charts for the cluster.  For AKS clusters discovered and identified as unmonitored, you can enable monitoring for that cluster at any time.  ​
-​
+Azure Monitor provides a multi-cluster view showing the health status of all monitored AKS clusters deployed across resource groups in your subscriptions.  It shows AKS clusters discovered that are not monitored by the solution. Immediately you can understand cluster health, and from here you can drill down to the node and controller performance page, or navigate to see performance charts for the cluster.  For AKS clusters discovered and identified as unmonitored, you can enable monitoring for that cluster at any time.  
+
+The main differences monitoring a Windows cluster with Azure Monitor for containers compared to a Linux cluster are the following:
+
+- Memory RSS metric is not available for Windows node and containers 
+- Disk capacity information is not available for Windows nodes
+- Live logs support is available with the exception of Windows container logs.
+- Only pod environments are monitored, not Docker environments.
+- With the preview release for monitoring Windows clusters, a maximum of 30 windows containers are supported. This limitation does not apply to Linux containers.  
+
 ## Sign in to the Azure portal
 Sign in to the [Azure portal](https://portal.azure.com). 
 
