@@ -65,19 +65,19 @@ cd scenarios/intelligent-routing-with-istio
 
 First, create a namespace in your AKS cluster for the sample AKS voting app named `voting` as follows:
 
-```console
+```azurecli
 kubectl create namespace voting
 ```
 
 Label the namespace with `istio-injection=enabled`. This label instructs Istio to automatically inject the istio-proxies as sidecars into all of your pods in this namespace.
 
-```console
+```azurecli
 kubectl label namespace voting istio-injection=enabled
 ```
 
 Now let's create the components for the AKS Voting app. Create these components in the `voting` namespace created in a previous step.
 
-```console
+```azurecli
 kubectl apply -f kubernetes/step-1-create-voting-app.yaml --namespace voting
 ```
 
@@ -97,7 +97,7 @@ service/voting-app created
 
 To see the pods that have been created, use the [kubectl get pods][kubectl-get] command as follows:
 
-```console
+```azurecli
 kubectl get pods -n voting
 ```
 
@@ -114,7 +114,7 @@ voting-storage-1-0-5d8fcc89c4-2jhms     2/2       Running   0          39s
 
 To see information about the pod, use the [kubectl describe pod][kubectl-describe]. Replace the pod name with the name of a pod in your own AKS cluster from the previous output:
 
-```console
+```azurecli
 kubectl describe pod voting-app-1-0-956756fd-d5w7z --namespace voting
 ```
 
@@ -140,7 +140,7 @@ You can't connect to the voting app until you create the Istio [Gateway][istio-r
 
 Use the `kubectl apply` command to deploy the Gateway and Virtual Service yaml. Remember to specify the namespace that these resources are deployed into.
 
-```console
+```azurecli
 kubectl apply -f istio/step-1-create-voting-app-gateway.yaml --namespace voting
 ```
 
@@ -153,7 +153,7 @@ gateway.networking.istio.io/voting-app-gateway created
 
 Obtain the IP address of the Istio Ingress Gateway using the following command:
 
-```console
+```azurecli
 kubectl get service istio-ingressgateway --namespace istio-system -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
 ```
 
@@ -237,9 +237,7 @@ Use the `kubectl apply` command to replace the Virtual Service definition on you
 * We also set the `trafficPolicy.tls.mode` to `ISTIO_MUTUAL` in all our Destination Rules. Istio provides services with strong identities and secures communications between services using mutual TLS and client certificates that Istio transparently manages.
 
 ```azurecli
-# TODO - merge into a single yaml file now that istioctl is no longer required
-kubectl apply -f istio/step-2a-update-voting-app-virtualservice.yaml --namespace voting
-kubectl apply -f istio/step-2b-add-routing-for-all-components.yaml --namespace voting
+kubectl apply -f istio/step-2-update-and-add-routing-for-all-components.yaml --namespace voting
 ```
 
 The following example output shows the new Policy, Destination Rules, and Virtual Services being updated/created:
@@ -284,68 +282,114 @@ The following example output shows the relevant part of the returned web site:
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
 ```
 
-Confirm that Istio uses mutual TLS to secure communications between each of our services. The following commands check the TLS settings for each of our voting app services:
+Let's now confirm that Istio is using mutual TLS to secure communications between each of our services. For this we will use the [authn tls-check][istioctl-authn-tls-check] command on the `istioctl` client binary, which takes the following form.
 
 ```console
-# TODO - update with new behaviour ...
-istioctl authn tls-check voting-app.voting.svc.cluster.local
-istioctl authn tls-check voting-analytics.voting.svc.cluster.local
-istioctl authn tls-check voting-storage.voting.svc.cluster.local
+istioctl authn tls-check <pod-name[.namespace]> [<service>]
 ```
 
-This following example output shows that mutual TLS is enforced for each of the services via the Policy and Destination Rules:
+This set of commands provide information about the access to the specified services, from all pods that are in a namespace and match a set of labels:
 
+Bash
+
+```bash
+# mTLS configuration between each of the istio ingress pods and the voting-app service
+kubectl get pod -n istio-system -l app=istio-ingressgateway | grep Running | cut -d ' ' -f1 | xargs -n1 -I{} istioctl authn tls-check {}.istio-system voting-app.voting.svc.cluster.local
+
+# mTLS configuration between each of the voting-app pods and the voting-analytics service
+kubectl get pod -n voting -l app=voting-app | grep Running | cut -d ' ' -f1 | xargs -n1 -I{} istioctl authn tls-check {}.voting voting-analytics.voting.svc.cluster.local
+
+# mTLS configuration between each of the voting-app pods and the voting-storage service
+kubectl get pod -n voting -l app=voting-app | grep Running | cut -d ' ' -f1 | xargs -n1 -I{} istioctl authn tls-check {}.voting voting-storage.voting.svc.cluster.local
+
+# mTLS configuration between each of the voting-analytics version 1.1 pods and the voting-storage service
+kubectl get pod -n voting -l app=voting-analytics,version=1.1 | grep Running | cut -d ' ' -f1 | xargs -n1 -I{} istioctl authn tls-check {}.voting voting-storage.voting.svc.cluster.local
 ```
+
+Powershell
+
+```powershell
+# mTLS configuration between each of the istio ingress pods and the voting-app service
+(kubectl get pod -n istio-system -l app=istio-ingressgateway | Select-String -Pattern "Running").Line |% { $_.Split()[0] |% { istioctl authn tls-check $($_ + ".istio-system") voting-app.voting.svc.cluster.local } }
+
+# mTLS configuration between each of the voting-app pods and the voting-analytics service
+(kubectl get pod -n voting -l app=voting-app | Select-String -Pattern "Running").Line |% { $_.Split()[0] |% { istioctl authn tls-check $($_ + ".voting") voting-analytics.voting.svc.cluster.local } }
+
+# mTLS configuration between each of the voting-app pods and the voting-storage service
+(kubectl get pod -n voting -l app=voting-app | Select-String -Pattern "Running").Line |% { $_.Split()[0] |% { istioctl authn tls-check $($_ + ".voting") voting-storage.voting.svc.cluster.local } }
+
+# mTLS configuration between each of the voting-analytics version 1.1 pods and the voting-storage service
+(kubectl get pod -n voting -l app=voting-analytics,version=1.1 | Select-String -Pattern "Running").Line |% { $_.Split()[0] |% { istioctl authn tls-check $($_ + ".voting") voting-storage.voting.svc.cluster.local } }
+```
+
+This following example output shows that mutual TLS is enforced for each of our queries above. The output also shows the Policy and Destination Rules that enforces the mutual TLS:
+
+```console
+# mTLS configuration between istio ingress pods and the voting-app service
 HOST:PORT                                    STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
 voting-app.voting.svc.cluster.local:8080     OK         mTLS       mTLS       default/voting     voting-app/voting
 
+# mTLS configuration between each of the voting-app pods and the voting-analytics service
+HOST:PORT                                          STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
+voting-analytics.voting.svc.cluster.local:8080     OK         mTLS       mTLS       default/voting     voting-analytics/voting
+HOST:PORT                                          STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
+voting-analytics.voting.svc.cluster.local:8080     OK         mTLS       mTLS       default/voting     voting-analytics/voting
 HOST:PORT                                          STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
 voting-analytics.voting.svc.cluster.local:8080     OK         mTLS       mTLS       default/voting     voting-analytics/voting
 
+# mTLS configuration between each of the voting-app pods and the voting-storage service
+HOST:PORT                                        STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
+voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS       default/voting     voting-storage/voting
+HOST:PORT                                        STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
+voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS       default/voting     voting-storage/voting
+HOST:PORT                                        STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
+voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS       default/voting     voting-storage/voting
+
+# mTLS configuration between each of the voting-analytics version 1.1 pods and the voting-storage service
 HOST:PORT                                        STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
 voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS       default/voting     voting-storage/voting
 ```
 
 ## Roll out a canary release of the application
 
-Now let's deploy a new version *2.0* of the *voting-app*, *voting-analytics*, and *voting-storage* components. The new *voting-storage* component use MySQL instead of Redis, and the *voting-app* and *voting-analytics* components are updated to allow them to use this new *voting-storage* component.
+Now let's deploy a new version `2.0` of the `voting-app`, `voting-analytics`, and `voting-storage` components. The new `voting-storage` component use MySQL instead of Redis, and the `voting-app` and `voting-analytics` components are updated to allow them to use this new `voting-storage` component.
 
-The *voting-app* component now supports feature flag functionality. This feature flag allows you to test the canary release capability of Istio for a subset of users.
+The `voting-app` component now supports feature flag functionality. This feature flag allows you to test the canary release capability of Istio for a subset of users.
 
-The following diagram shows what runs at the end of this section.
+The following diagram shows what you will have running at the end of this section.
 
-* Version *1.0* of the *voting-app* component, version *1.1* of the *voting-analytics* component and version *1.0* of the *voting-storage* component are able to communicate with each other.
-* Version *2.0* of the *voting-app* component, version *2.0* of the *voting-analytics* component and version *2.0* of the *voting-storage* component are able to communicate with each other.
-* Version *2.0* of the *voting-app* component are only accessible to users that have a specific feature flag set. This change is managed using a feature flag via a cookie.
+* Version `1.0` of the `voting-app` component, version `1.1` of the `voting-analytics` component and version `1.0` of the `voting-storage` component are able to communicate with each other.
+* Version `2.0` of the `voting-app` component, version `2.0` of the `voting-analytics` component and version `2.0` of the `voting-storage` component are able to communicate with each other.
+* Version `2.0` of the `voting-app` component are only accessible to users that have a specific feature flag set. This change is managed using a feature flag via a cookie.
 
 ![The AKS Voting app components and routing.](media/istio/components-and-routing-03.png)
 
 First, update the Istio Destination Rules and Virtual Services to cater for these new components. These updates ensure that you don't route traffic incorrectly to the new components and users don't get unexpected access:
 
-```console
-istioctl replace -f istio/step-3-add-routing-for-2.0-components.yaml --namespace voting
+```azurecli
+kubectl apply -f istio/step-3-add-routing-for-2.0-components.yaml --namespace voting
 ```
 
-The following example output shows the Destination Rules and Virtual Services are successfully updated:
-
-```
-Updated config destination-rule/voting/voting-app to revision 150930
-Updated config virtual-service/voting/voting-app to revision 150931
-Updated config destination-rule/voting/voting-analytics to revision 150937
-Updated config virtual-service/voting/voting-analytics to revision 150939
-Updated config destination-rule/voting/voting-storage to revision 150940
-Updated config virtual-service/voting/voting-storage to revision 150941
-```
-
-Next, let's add the Kubernetes objects for the new version *2.0* components. You also update the *voting-storage* service to include the *3306* port for MySQL:
+The following example output shows the Destination Rules and Virtual Services being updated:
 
 ```console
+destinationrule.networking.istio.io/voting-app configured
+virtualservice.networking.istio.io/voting-app configured
+destinationrule.networking.istio.io/voting-analytics configured
+virtualservice.networking.istio.io/voting-analytics configured
+destinationrule.networking.istio.io/voting-storage configured
+virtualservice.networking.istio.io/voting-storage configured
+```
+
+Next, let's add the Kubernetes objects for the new version `2.0` components. You also update the `voting-storage` service to include the `3306` port for MySQL:
+
+```azurecli
 kubectl apply -f kubernetes/step-3-update-voting-app-with-new-storage.yaml --namespace voting
 ```
 
 The following example output shows the Kubernetes objects are successfully updated or created:
 
-```
+```console
 service/voting-storage configured
 secret/voting-storage-secret created
 deployment.apps/voting-storage-2-0 created
@@ -354,13 +398,13 @@ deployment.apps/voting-analytics-2-0 created
 deployment.apps/voting-app-2-0 created
 ```
 
-Wait until all the version *2.0* pods are running. Use the [kubectl get pods][kubectl-get] command to view all pods in the *voting* namespace:
+Wait until all the version `2.0` pods are running. Use the [kubectl get pods][kubectl-get] command to view all pods in the `voting` namespace:
 
 ```azurecli-interactive
 kubectl get pods --namespace voting
 ```
 
-You should now be able to switch between the version *1.0* and version *2.0* (canary) of the voting application. The feature flag toggle at the bottom of the screen sets a cookie. This cookie is used by the *voting-app* Virtual Service to route users to the new version *2.0*.
+You should now be able to switch between the version `1.0` and version `2.0` (canary) of the voting application. The feature flag toggle at the bottom of the screen sets a cookie. This cookie is used by the `voting-app` Virtual Service to route users to the new version `2.0`.
 
 ![Version 1.0 of the AKS Voting app - feature flag IS NOT set.](media/istio/canary-release-01.png)
 
@@ -370,7 +414,7 @@ The vote counts are different between the versions of the app. This difference h
 
 ## Finalize the rollout
 
-Once you've successfully tested the canary release, update the *voting-app* Virtual Service to route all traffic to version *2.0* of the *voting-app* component. All users then see version *2.0* of the application, regardless of whether the feature flag is set or not:
+Once you've successfully tested the canary release, update the `voting-app` Virtual Service to route all traffic to version `2.0` of the `voting-app` component. All users then see version `2.0` of the application, regardless of whether the feature flag is set or not:
 
 ![The AKS Voting app components and routing.](media/istio/components-and-routing-04.png)
 
@@ -398,6 +442,7 @@ You can explore additional scenarios using the [Istio Bookinfo Application examp
 [istio-reference-virtualservice]: https://istio.io/docs/reference/config/networking/v1alpha3/virtual-service/
 [istio-reference-destinationrule]: https://istio.io/docs/reference/config/networking/v1alpha3/destination-rule/
 [istio-bookinfo-example]: https://istio.io/docs/examples/bookinfo/
+[istioctl-authn-tls-check]: https://istio.io/docs/reference/commands/istioctl/#istioctl-authn-tls-check
 
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
