@@ -27,7 +27,7 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | **Region** | **Lower Gen2 available** | **Automatic upgrades begin** |
 |:--- |:--- |:--- |
 | Australia East |Available |June 1, 2019 |
-| Australia Southeast |April 15, 2019 |May 1, 2019 |
+| Australia Southeast |April 26, 2019 |May 1, 2019 |
 | Brazil South |May 15, 2019 |June 1, 2019 |
 | Canada Central |Available |June 1, 2019 |
 | Canada East |\* |\* |
@@ -43,16 +43,16 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | Germany Central |\* |\* |
 | Germany West Central |September 1, 2019|January 2, 2020 |
 | India Central |Available |June 1, 2019 |
-| India South |April 15, 2019 |June 1, 2019 |
+| India South |April 26, 2019 |June 1, 2019 |
 | Japan East |Available |June 1, 2019 |
 | Japan West |Available |May 1, 2019 |
-| Korea Central |April 15, 2019 |June 1, 2019 |
-| Korea South |April 15, 2019 |May 1, 2019 |
-| North Central US |April 15, 2019 |May 1, 2019 |
+| Korea Central |April 26, 2019 |June 1, 2019 |
+| Korea South |April 26, 2019 |May 1, 2019 |
+| North Central US |April 26, 2019 |May 1, 2019 |
 | North Europe |Available |June 1, 2019 |
 | South Central US |Available |June 1, 2019 |
 | South East Asia |Available |June 1, 2019 |
-| UK South |April 15, 2019 |June 1, 2019 |
+| UK South |April 26, 2019 |June 1, 2019 |
 | UK West |\*|\* |
 | West Central US |September 2, 2019 |January 2, 2020|
 | West Europe |Available |June 1, 2019 |
