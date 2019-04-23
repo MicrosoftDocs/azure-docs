@@ -67,7 +67,7 @@ The instructions in this article will install all the packages you need to run t
 
 ### Create an isolated Python environment
 
-1. Open Anaconda Prompt or a command-line window (cmd may need some extra configuration step), then create a new conda environment named *myenv* and install Python 3.6.5. Azure Machine Learning SDK will work with Python 3.5.2 or later, but the automated machine learning components are not fully functional on Python 3.7.  It will take several minutes to create the environment while components and packages are downloaded. 
+1. Open Anaconda Prompt , then create a new conda environment named *myenv* and install Python 3.6.5. Azure Machine Learning SDK will work with Python 3.5.2 or later, but the automated machine learning components are not fully functional on Python 3.7.  It will take several minutes to create the environment while components and packages are downloaded. 
 
     ```shell
     conda create -n myenv python=3.6.5
