@@ -168,6 +168,7 @@ For more example scripts, see the following examples:
 * Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
 * TensorFlow: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 * Keras: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
+* Scoring against binary data (link)
 
 ### 2. Define your InferenceConfiguration
 
@@ -362,7 +363,7 @@ For more information, see [Create client applications to consume webservices](ho
 
 ## <a id="update"></a> Update the web service
 
-When you create a new image, you must manually update each service that you want to use the new image. To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new image:
+When you create a new model, you must manually update each service that you want to use the new model. To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new model:
 
 ```python
 from azureml.core.webservice import Webservice
@@ -382,13 +383,14 @@ service = Webservice(name = service_name, workspace = ws)
 # Update to new model(s)
 service.update(models = [new_model])
 print(service.state)
+print(service.get_logs())
 ```
 
 ## Clean up
 To delete a deployed web service, use `service.delete()`.
 To delete a registered model, use `model.delete()`.
 
-For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## Advanced configuration settings <a id="advanced-config"></a>
 
@@ -469,20 +471,12 @@ Azure Machine Learning Compute targets are created and managed by the Azure Mach
 
 For a walkthrough of batch inference with Azure Machine Learning Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) document.
 
-For more information, see the reference documentation for the [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class.
-
-## <a id="iotedge"></a> Inference on the edge
+## <a id="iotedge"></a> Inference on IoT Edge
 Support for deploying to the edge is in preview. For more info check out [this article](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning).
 
 ## Next steps
-
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
-* [How to run batch predictions](how-to-run-batch-predictions.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
-* [Azure Machine Learning service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Use Azure Machine Learning service with Azure Virtual Networks](how-to-enable-virtual-network.md)
-* [Best practices for building recommendation systems](https://github.com/Microsoft/Recommenders)
-* [Build a real-time recommendation API on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)
