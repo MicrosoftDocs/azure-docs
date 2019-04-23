@@ -5,8 +5,6 @@ services: functions
 author: ahmedelnably
 manager: 
 
-ms.assetid: 5ecbbb9d-6e47-441a-98ea-ed75082fdb2d
-ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/19/2019
