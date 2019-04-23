@@ -166,7 +166,7 @@ Citrix has created a deployment template that deploys two layers of highly avail
 ![Citrix SACA Diagram](SACAimages/CitrixSACA.jpg)
 
 
-Citrix Documentation and deployment script can be found here - https://github.com/citrix/netscaler-azure-templates/tree/master/templates/saca
+Citrix Documentation and deployment script can be found [here](https://github.com/citrix/netscaler-azure-templates/tree/master/templates/saca)
 
 
  **F5 SACA Deployment**
@@ -175,7 +175,7 @@ F5 has created two separate deployment templates covering two different architec
 
 ![Citrix SACA Diagram](SACAimages/F5SACA.jpg)
 
-F5 Documentation and deployment script can be found here - https://github.com/f5devcentral/f5-azure-saca 
+F5 Documentation and deployment script can be found [here](https://github.com/f5devcentral/f5-azure-saca) 
 
 
 
