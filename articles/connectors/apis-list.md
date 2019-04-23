@@ -161,7 +161,7 @@ use BizTalk Server, these connectors might seem familiar already.
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![API icon][as2-icon]<br/>**AS2</br> decoding**][as2-decode-doc] | [![API icon][as2-icon]<br/>**AS2</br> encoding**][as2-encode-doc] | [![API icon][edifact-icon]<br/>**EDIFACT</br> decoding**][edifact-decode-doc] | [![API icon][edifact-icon]<br/>**EDIFACT</br> encoding**][edifact-encode-doc] | 
+| [![API icon][as2-icon]<br/>**AS2</br> decoding**][as2-doc] | [![API icon][as2-icon]<br/>**AS2</br> encoding**][as2-doc] | [![API icon][edifact-icon]<br/>**EDIFACT</br> decoding**][edifact-decode-doc] | [![API icon][edifact-icon]<br/>**EDIFACT</br> encoding**][edifact-encode-doc] | 
 | [![API icon][flat-file-decode-icon]<br/>**Flat file</br> decoding**][flat-file-decode-doc] | [![API icon][flat-file-encode-icon]<br/>**Flat file</br> encoding**][flat-file-encode-doc] | [![API icon][integration-account-icon]<br/>**Integration<br/>account**][integration-account-doc] | [![API icon][liquid-icon]<br/>**Liquid**</br>**transforms**][json-liquid-transform-doc] | 
 | [![API icon][x12-icon]<br/>**X12</br> decoding**][x12-decode-doc] | [![API icon][x12-icon]<br/>**X12</br> encoding**][x12-encode-doc] | [![API icon][xml-transform-icon]<br/>**XML**</br>**transforms**][xml-transform-doc] | [![API icon][xml-validate-icon]<br/>**XML <br/>validation**][xml-validate-doc] |  
 ||||| 
@@ -346,8 +346,6 @@ visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 <!--Enterprise Intregation Pack doc links-->
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Learn about enterprise integration AS2."
-[as2-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-as2-decode.md "Learn about enterprise integration AS2 decode"
-[as2-encode-doc]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Learn about enterprise integration AS2 encode"
 [edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Learn about enterprise integration EDIFACT decode"
 [edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Learn about enterprise integration EDIFACT encode"
 [flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file."
