@@ -18,7 +18,7 @@ This article shows how you can monitor and manage events sent to
 [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) 
 from inside a logic app with the Azure Event Hubs connector. 
 That way, you can create logic apps that automate tasks and workflows 
-for checking, sending, and receiving events from your Event Hub.
+for checking, sending, and receiving events from your Event Hub. 
 For connector-specific technical information, see the 
 [Azure Event Hubs connector reference](https://docs.microsoft.com/connectors/eventhubs/)</a>.
 
@@ -52,12 +52,12 @@ Under **Claims**, check that you have **Manage** permissions for that namespace.
 
    ![Manage permissions for your Event Hub namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
-3. If you want to later manually enter your connection information, 
+1. If you want to later manually enter your connection information, 
 get the connection string for your Event Hubs namespace.
 
    1. Under **Policy**, choose **RootManageSharedAccessKey**.
 
-   2. Find your primary key's connection string. Choose the copy button, 
+   1. Find your primary key's connection string. Choose the copy button, 
    and save the connection string for later use.
 
       ![Copy Event Hubs namespace connection string](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
@@ -69,7 +69,7 @@ get the connection string for your Event Hubs namespace.
       > If you find this parameter, the connection string is for a specific 
       > Event Hub "entity" and is not the correct string to use with your logic app.
 
-4. Now continue with [Add an Event Hubs trigger](#add-trigger) 
+1. Now continue with [Add an Event Hubs trigger](#add-trigger) 
 or [Add an Event Hubs action](#add-action).
 
 <a name="add-trigger"></a>
@@ -84,7 +84,7 @@ the Logic Apps engine creates a logic app instance
 and starts running your app's workflow.
 
 This example shows how you can start a logic app workflow
-when new events are sent to your Event Hub.
+when new events are sent to your Event Hub. 
 
 1. In the Azure portal or Visual Studio, 
 create a blank logic app, which opens Logic Apps Designer. 
@@ -92,17 +92,16 @@ This example uses the Azure portal.
 
 1. In the search box, enter "event hubs" as your filter. 
 From the triggers list, select this trigger:
-**When events are available in Event Hub**
+**When events are available in Event Hub - Event Hubs**
 
    ![Select trigger](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
 1. If you're prompted for connection details, 
 [create your Event Hubs connection now](#create-connection). 
-Or, if your connection already exists, 
-provide the necessary information for the trigger.
 
 1. In the trigger, provide information about the Event Hub that you want to monitor. 
-For more properties, open the **Add new parameter** list 
+For more properties, open the **Add new parameter** list. Selecting a parameter 
+adds that property to the trigger card.
 
    ![Trigger properties](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
@@ -130,7 +129,12 @@ For more properties, open the **Add new parameter** list
 1. When you're done, on the designer toolbar, choose **Save**.
 
 1. Now continue adding one or more actions to your logic app 
-for the tasks you want to perform with the trigger results.
+for the tasks you want to perform with the trigger results. 
+
+   For example, to filter events based on a specific value, 
+   such as a category, you can add a condition so that the 
+   **Send event - Event Hubs** action sends only events that 
+   meet your condition. 
 
 > [!NOTE]
 > All Event Hub triggers are *long-polling* triggers, 
@@ -154,37 +158,41 @@ that checks for new events in your Event Hub.
 open your logic app in Logic Apps Designer. 
 This example uses the Azure portal.
 
-2. Under the trigger or action, choose **New step** > **Add an action**.
+1. Under the trigger or action, choose **New step**.
 
    To add an action between existing steps, 
    move your mouse over the connecting arrow. 
    Choose the plus sign (**+**) that appears, 
-   and then choose **Add an action**.
+   and then select **Add an action**.
 
-3. In the search box, enter "event hubs" as your filter.
-From the actions list, select the action you want.
+1. In the search box, enter "event hubs" as your filter.
+From the actions list, select this action: 
+**Send event - Event Hubs**
 
-   For this example, select this action: **Event Hubs - Send event**
+   ![Select "Send event" action](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
 
-   ![Select "Event Hubs - Send event"](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
-
-4. If you're prompted for connection details, 
+1. If you're prompted for connection details, 
 [create your Event Hubs connection now](#create-connection). 
-Or, if your connection already exists, 
-provide the necessary information for the action.
 
-   | Property | Required | Description |
-   |----------|----------|-------------|
-   | **Event Hub name** | Yes | Select the Event Hub where you want to send the event |
-   | **Event content** | No | The content for the event you want to send |
-   | **Properties** | No | The app properties and values to send |
-   ||||
-
-   For example:
+1. In the action, provide information about the events that you want to send. 
+For more properties, open the **Add new parameter** list. Selecting a parameter 
+adds that property to the action card.
 
    ![Select Event Hub name and provide event content](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-5. When you're done, on the designer toolbar, choose **Save**.
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Event Hub name** | Yes | The Event Hub where you want to send the event |
+   | **Content** | No | The content for the event you want to send |
+   | **Properties** | No | The app properties and values to send |
+   | **Partition key** | No | The [partition](../event-hubs/event-hubs-features.md#partitions) ID for where to send the event |
+   ||||
+
+   For example, you can send the output from your Event Hubs trigger to another Event Hub:
+
+   ![Send event example](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action-example.png)
+
+1. When you're done, on the designer toolbar, choose **Save**.
 
 <a name="create-connection"></a>
 
