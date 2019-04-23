@@ -20,7 +20,7 @@ The etcd API in Azure Cosmos DB allows you to use Azure Cosmos DB as the backend
 * Secure by default & enterprise ready.
 * Industry-leading, comprehensive SLAs.
 
-To learn more about etcd API in Azure Cosmos DB, see the overview article. This article shows you how to use Azure Kubernetes Engine (aks-engine) to bootstrap a Kubernetes cluster on Azure that uses [Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/) instead of a locally installed and configured etcd. 
+To learn more about etcd API in Azure Cosmos DB, see the overview article. This article shows you how to use Azure Kubernetes Engine (aks-engine) to bootstrap a Kubernetes cluster on Azure that uses [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) instead of a locally installed and configured etcd. 
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ To learn more about etcd API in Azure Cosmos DB, see the overview article. This 
    ```
    This command outputs the details of a service principal, for example:
    
-   ```
+   ```cmd
    Retrying role assignment creation: 1/36
    {
      "appId": "8415a4e9-4f83-46ca-a704-107457b2e3ab",
@@ -142,7 +142,7 @@ To learn more about etcd API in Azure Cosmos DB, see the overview article. This 
    * **location:**  Location where the cluster should be deployed to, currently only "centralus" is supported.
 
    > [!Note]
-   > Azure Cosmos etcd API is currently available to deploy in "centralus" region only. Other regions will be available in the future.
+   > Azure Cosmos etcd API is currently available to deploy in "centralus" region only. 
  
    * **api-model:** Fully qualified path to the template file.
    * **force-overwrite:** This option is used to automatically overwrite existing files in the output directory.
