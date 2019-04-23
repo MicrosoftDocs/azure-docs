@@ -454,6 +454,10 @@
             href: table-sdk-python.md  
           - name: Table storage REST APIs
             href: /rest/api/storageservices/Table-Service-Concepts
+    - name: Etcd API
+      items:
+      - name: Azure Kubernetes with Azure Cosmos DB
+        href: bootstrap-kubernetes-cluster.md
   - name: How-to guides
     items:
     - name: Manage Azure Cosmos account
