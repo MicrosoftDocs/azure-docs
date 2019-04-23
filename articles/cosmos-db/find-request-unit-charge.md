@@ -4,7 +4,7 @@ description: Learn how to find the request unit charge for any operation execute
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: thweiss
 ---
 
@@ -12,7 +12,7 @@ ms.author: thweiss
 
 This article presents the different ways to find the [request unit](request-units.md) consumption for any operation executed against an Azure Cosmos container. It's currently possible to measure this consumption either by using the Azure portal or by inspecting the response sent back from Azure Cosmos DB through one of the SDKs.
 
-## Core API
+## SQL (Core) API
 
 ### Use the Azure portal
 
@@ -20,13 +20,13 @@ The Azure portal currently lets you find the request charge for a SQL query only
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos DB account](create-sql-api-dotnet.md#create-account) and feed it with data, or select an existing account that already contains data.
+1. [Create a new Azure Cosmos account](create-sql-api-dotnet.md#create-account) and feed it with data, or select an existing Azure Cosmos account that already contains data.
 
 1. Open the **Data Explorer** pane and select the container that you want to work on.
 
 1. Click on **New SQL Query**.
 
-1. Enter a valid query then click on **Execute Query**.
+1. Enter a valid query, then click on **Execute Query**.
 
 1. Click on **Query Stats** to display the actual request charge for the request you have just executed.
 
@@ -34,7 +34,7 @@ The Azure portal currently lets you find the request charge for a SQL query only
 
 ### Use the .NET SDK V2
 
-Objects returned from the [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) (see [this quickstart](create-sql-api-dotnet.md) regarding its usage) expose a `RequestCharge` property.
+Objects returned from the [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) (see [this Quickstart](create-sql-api-dotnet.md) regarding its usage) expose a `RequestCharge` property.
 
 ```csharp
 ResourceResponse<Document> fetchDocumentResponse = await client.ReadDocumentAsync(
@@ -69,7 +69,7 @@ while (query.HasMoreResults)
 
 ### Use the Java SDK
 
-Objects returned from the [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) (see [this quickstart](create-sql-api-java.md) regarding its usage) expose a `getRequestCharge()` method.
+Objects returned from the [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) (see [this Quickstart](create-sql-api-java.md) regarding its usage) expose a `getRequestCharge()` method.
 
 ```java
 RequestOptions requestOptions = new RequestOptions();
@@ -97,7 +97,7 @@ feedResponse.forEach(result -> {
 
 ### Use the Node.js SDK
 
-Objects returned from the [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) (see [this quickstart](create-sql-api-nodejs.md) regarding its usage) expose a `headers` sub-object that maps all the headers returned by the underlying HTTP API. The request charge is available under the `x-ms-request-charge` key.
+Objects returned from the [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) (see [this Quickstart](create-sql-api-nodejs.md) regarding its usage) expose a `headers` sub-object that maps all the headers returned by the underlying HTTP API. The request charge is available under the `x-ms-request-charge` key.
 
 ```javascript
 const item = await client
@@ -130,7 +130,7 @@ while (query.hasMoreResults()) {
 
 ### Use the Python SDK
 
-The `CosmosClient` object from the [Python SDK](https://pypi.org/project/azure-cosmos/) (see [this quickstart](create-sql-api-python.md) regarding its usage) exposes a `last_response_headers` dictionary that maps all the headers returned by the underlying HTTP API for the last operation executed. The request charge is available under the `x-ms-request-charge` key.
+The `CosmosClient` object from the [Python SDK](https://pypi.org/project/azure-cosmos/) (see [this Quickstart](create-sql-api-python.md) regarding its usage) exposes a `last_response_headers` dictionary that maps all the headers returned by the underlying HTTP API for the last operation executed. The request charge is available under the `x-ms-request-charge` key.
 
 ```python
 response = client.ReadItem('dbs/database/colls/container/docs/itemId', { 'partitionKey': 'partitionKey' })
@@ -142,7 +142,7 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 
 ## Azure Cosmos DB's API for MongoDB
 
-Request unit charge is exposed by a custom [database command](https://docs.mongodb.com/manual/reference/command/) named `getLastRequestStatistics`. This command returns a document containing the name of the last operation executed, its request charge and its duration.
+Request unit charge is exposed by a custom [database command](https://docs.mongodb.com/manual/reference/command/) named `getLastRequestStatistics.` This command returns a document containing the name of the last operation executed, its request charge and its duration.
 
 ### Use the Azure portal
 
@@ -150,7 +150,7 @@ The Azure portal currently lets you find the request charge for a query only.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos DB account](create-mongodb-dotnet.md#create-a-database-account) and feed it with data, or select an existing account that already contains data.
+1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-a-database-account) and feed it with data, or select an existing account that already contains data.
 
 1. Open the **Data Explorer** pane and select the collection that you want to work on.
 
@@ -164,7 +164,7 @@ The Azure portal currently lets you find the request charge for a query only.
 
 ### Use the MongoDB .NET driver
 
-When using the [official MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/) (see [this quickstart](create-mongodb-dotnet.md) regarding its usage), commands can be executed by calling the `RunCommand` method on a `IMongoDatabase` object. This method requires an implementation of the `Command<>` abstract class.
+When using the [official MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/) (see [this Quickstart](create-mongodb-dotnet.md) regarding its usage), commands can be executed by calling the `RunCommand` method on a `IMongoDatabase` object. This method requires an implementation of the `Command<>` abstract class.
 
 ```csharp
 class GetLastRequestStatisticsCommand : Command<Dictionary<string, object>>
@@ -181,7 +181,7 @@ double requestCharge = (double)stats["RequestCharge"];
 
 ### Use the MongoDB Java driver
 
-When using the [official MongoDB Java driver](http://mongodb.github.io/mongo-java-driver/) (see [this quickstart](create-mongodb-java.md) regarding its usage), commands can be executed by calling the `runCommand` method on a `MongoDatabase` object.
+When using the [official MongoDB Java driver](http://mongodb.github.io/mongo-java-driver/) (see [this Quickstart](create-mongodb-java.md) regarding its usage), commands can be executed by calling the `runCommand` method on a `MongoDatabase` object.
 
 ```java
 Document stats = database.runCommand(new Document("getLastRequestStatistics", 1));
@@ -190,7 +190,7 @@ Double requestCharge = stats.getDouble("RequestCharge");
 
 ### Use the MongoDB Node.js driver
 
-When using the [official MongoDB Node.js driver](https://mongodb.github.io/node-mongodb-native/) (see [this quickstart](create-mongodb-nodejs.md) regarding its usage), commands can be executed by calling the `command` method on a `Db` object.
+When using the [official MongoDB Node.js driver](https://mongodb.github.io/node-mongodb-native/) (see [this Quickstart](create-mongodb-nodejs.md) regarding its usage), commands can be executed by calling the `command` method on a `db` object.
 
 ```javascript
 db.command({ getLastRequestStatistics: 1 }, function(err, result) {
@@ -205,7 +205,7 @@ When performing operations against Azure Cosmos DB's Cassandra API, request unit
 
 ### Use the .NET SDK
 
-When using the [.NET SDK](https://www.nuget.org/packages/CassandraCSharpDriver/) (see [this quickstart](create-cassandra-dotnet.md) regarding its usage), the incoming payload can be retrieved under the `Info` property of a `RowSet` object.
+When using the [.NET SDK](https://www.nuget.org/packages/CassandraCSharpDriver/) (see [this Quickstart](create-cassandra-dotnet.md) regarding its usage), the incoming payload can be retrieved under the `Info` property of a `RowSet` object.
 
 ```csharp
 RowSet rowSet = session.Execute("SELECT table_name FROM system_schema.tables;");
@@ -225,11 +225,11 @@ Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("Re
 
 ### Use drivers and SDK
 
-Headers returned by the Gremlin API are mapped to custom status attributes which are currently surfaced by the Gremlin .NET and Java SDK. The request charge is available under the `x-ms-request-charge` key.
+Headers returned by the Gremlin API are mapped to custom status attributes, which are currently surfaced by the Gremlin .NET and Java SDK. The request charge is available under the `x-ms-request-charge` key.
 
 ### Use the .NET SDK
 
-When using the [Gremlin.NET SDK](https://www.nuget.org/packages/Gremlin.Net/) (see [this quickstart](create-graph-dotnet.md) regarding its usage), status attributes are available under the `StatusAttributes` property of the `ResultSet<>` object.
+When using the [Gremlin.NET SDK](https://www.nuget.org/packages/Gremlin.Net/) (see [this Quickstart](create-graph-dotnet.md) regarding its usage), status attributes are available under the `StatusAttributes` property of the `ResultSet<>` object.
 
 ```csharp
 ResultSet<dynamic> results = client.SubmitAsync<dynamic>("g.V().count()").Result;
@@ -238,7 +238,7 @@ double requestCharge = (double)results.StatusAttributes["x-ms-request-charge"];
 
 ### Use the Java SDK
 
-When using the [Gremlin Java SDK](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) (see [this quickstart](create-graph-java.md) regarding its usage), status attributes can be retrieved by calling the `statusAttributes()` method on the `ResultSet` object.
+When using the [Gremlin Java SDK](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) (see [this Quickstart](create-graph-java.md) regarding its usage), status attributes can be retrieved by calling the `statusAttributes()` method on the `ResultSet` object.
 
 ```java
 ResultSet results = client.submit("g.V().count()");
@@ -247,7 +247,7 @@ Double requestCharge = (Double)results.statusAttributes().get().get("x-ms-reques
 
 ## Table API
 
-The only SDK currently returning request unit charge for table operations is the [.NET Standard SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) (see [this quickstart](create-table-dotnet.md) regarding its usage). The `TableResult` object exposes a `RequestCharge` property that gets populated by the SDK when used against Azure Cosmos DB's Table API.
+The only SDK currently returning request unit charge for table operations is the [.NET Standard SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) (see [this Quickstart](create-table-dotnet.md) regarding its usage). The `TableResult` object exposes a `RequestCharge` property that gets populated by the SDK when used against Azure Cosmos DB's Table API.
 
 ```csharp
 CloudTable tableReference = client.GetTableReference("table");
@@ -262,5 +262,9 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 
 See the following articles to learn about optimizing your request unit consumption:
 
+* [Request units and throughput in Azure Cosmos DB](request-units.md)
 * [Optimize provisioned throughput cost in Azure Cosmos DB](optimize-cost-throughput.md)
 * [Optimize query cost in Azure Cosmos DB](optimize-cost-queries.md)
+* [Globally scale provisioned throughput](scaling-throughput.md)
+* [Provision throughput on containers and databases](set-throughput.md)
+* [How to provision throughput for a container](how-to-provision-container-throughput.md)

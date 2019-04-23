@@ -109,7 +109,7 @@ To install the connector:
 
 ### General remarks
 
-If you've previously installed a connector, reinstall to get the latest version.
+If you've previously installed a connector, reinstall to get the latest version. To see information about previously released versions and what changes they include, see [Application Proxy- Version Release History](application-proxy-release-version-history.md).
 
 If you choose to have more than one Windows server for your on-premises applications, you'll need to install and register the connector on each server. You can organize the connectors into connector groups. For more information, see [Connector groups](application-proxy-connector-groups.md). 
 
@@ -117,7 +117,6 @@ If your organization uses proxy servers to connect to the internet, you need to 
 
 For information about connectors, capacity planning, and how they stay up-to-date, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md). 
 
-If you're using the Qlik Sense application, always install the latest connector. Qlik Sense uses WebSockets, which is only supported on connector versions 1.5.612.0 or later.
 
 ## Verify the connector installed and registered correctly
 

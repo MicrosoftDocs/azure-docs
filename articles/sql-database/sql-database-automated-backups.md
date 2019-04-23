@@ -15,7 +15,7 @@ ms.date: 04/12/2019
 ---
 # Automated backups
 
-SQL Database automatically creates database backups that are kept between 7 and 35 days, and uses Azure read-access geo-redundant storage (RA-GRS) to ensure that they preserved even if data center is unavailable. These backups are created automatically and at no additional charge. You don't need to do anything to make them happen and you can [change Backup Retention Period](#how-to-change-the-pitr-backup-retention-period). Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. If your security rules require that your backups are available for an extended period of time (up to 10 years), you can configure a [long-term retention](sql-database-long-term-retention.md).
+SQL Database automatically creates database backups that are kept between 7 and 35 days, and uses Azure read-access geo-redundant storage (RA-GRS) to ensure that they are preserved even if the data center is unavailable. These backups are created automatically and at no additional charge. You don't need to do anything to make them happen and you can [change Backup Retention Period](#how-to-change-the-pitr-backup-retention-period). Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. If your security rules require that your backups are available for an extended period of time (up to 10 years), you can configure a [long-term retention](sql-database-long-term-retention.md).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

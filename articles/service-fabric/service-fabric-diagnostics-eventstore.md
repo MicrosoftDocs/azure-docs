@@ -70,7 +70,7 @@ In [fabricSettings.json in your cluster](service-fabric-cluster-fabric-settings.
 
 ### Azure cluster
 
-In your cluster's Azure Resource Manager template, you can turn on the EventStore service by performing a [cluster config upgrade](service-fabric-cluster-config-upgrade-azure.md) and adding the following code. The `upgradeDescription` section configures the config upgrade to trigger a restart on the nodes. You can remove the section in another update.
+In your cluster's Azure Resource Manager template, you can turn on the EventStore service by performing a [cluster config upgrade](service-fabric-cluster-config-upgrade-azure.md) and adding the following code, you can use PlacementConstraints to put the replicas of the EventStore service on a specific NodeType e.g. a NodeType dedicated for the system services. The `upgradeDescription` section configures the config upgrade to trigger a restart on the nodes. You can remove the section in another update.
 
 ```json
     "fabricSettings": [
@@ -87,6 +87,10 @@ In your cluster's Azure Resource Manager template, you can turn on the EventStor
               {
                 "name": "MinReplicaSetSize",
                 "value": "1"
+              }
+              {
+                "name": "PlacementConstraints",
+                "value": "(NodeType==<node_type_name_here>)"
               }
             ]
           }
