@@ -203,6 +203,8 @@
           href: msal-handling-exceptions.md
         - name: Logging
           href: msal-logging.md
+        - name: Provide your own HttpClient (.NET)
+          href: msal-net-provide-httpclient.md
     - name: Authentication
       items:
       - name: Authentication basics
