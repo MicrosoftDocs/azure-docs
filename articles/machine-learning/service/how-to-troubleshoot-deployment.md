@@ -9,15 +9,15 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author:  clauren
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2018
 ms.custom: seodec18
 ---
 
 # Troubleshooting Azure Machine Learning service AKS and ACI deployments
 
-In this article, you will learn how to work around or solve the common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning service.
+Learn how to work around or solve common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning service.
 
-When deploying a model in Azure Machine Learning service, the system performs a number of tasks. This is a complex sequence of events and sometimes issues arise. The deployment tasks are:
+When deploying a model in Azure Machine Learning service, the system performs a number of tasks. The deployment tasks are:
 
 1. Register the model in the workspace model registry.
 
@@ -28,6 +28,9 @@ When deploying a model in Azure Machine Learning service, the system performs a 
     4. Build a new Docker image using the dockerfile.
     5. Register the Docker image with the Azure Container Registry associated with the workspace.
 
+    > [!IMPORTANT]
+    > Depending on your code, image creation happen automatically without your input.
+
 3. Deploy the Docker image to Azure Container Instance (ACI) service or to Azure Kubernetes Service (AKS).
 
 4. Start up a new container (or containers) in ACI or AKS. 
@@ -36,9 +39,9 @@ Learn more about this process in the [Model Management](concept-model-management
 
 ## Before you begin
 
-If you run into any issue, the first thing to do is to break down the deployment task (previous described) into individual steps to isolate the problem. 
+If you run into any issue, the first thing to do is to break down the deployment task (previous described) into individual steps to isolate the problem.
 
-This is helpful if you are using the `Webservice.deploy` API, or `Webservice.deploy_from_model` API, since those functions group together the aforementioned steps into a single action. Typically those APIs are convenient, but it helps to break up the steps when troubleshooting by replacing them with the below API calls.
+Breaking the deployment into tasks is helpful if you are using the [Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) API, or [Webservice.deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) API, as both of these functions perform the aforementioned steps as a single action. Typically those APIs are convenient, but it helps to break up the steps when troubleshooting by replacing them with the below API calls.
 
 1. Register the model. Here's some sample code:
 
@@ -81,7 +84,8 @@ This is helpful if you are using the `Webservice.deploy` API, or `Webservice.dep
 Once you have broken down the deployment process into individual tasks, we can look at some of the most common errors.
 
 ## Image building fails
-If system is unable to build the Docker image, the `image.wait_for_creation()` call fails with some error messages that can offer some clues. You can also find out more details about the errors from the image build log. Below is some sample code showing how to discover the image build log uri.
+
+If the Docker image cannot be built, the [image.wait_for_creation()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-) or [service.wait_for_deployment()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-) call fails with some error messages that can offer some clues. You can also find out more details about the errors from the image build log. Below is some sample code showing how to discover the image build log uri.
 
 ```python
 # if you already have the image object handy
@@ -94,13 +98,14 @@ print(ws.images['myimg'].image_build_log_uri)
 for name, img in ws.images.items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
+
 The image log uri is a SAS URL pointing to a log file stored in your Azure blob storage. Simply copy and paste the uri into a browser window and you can download and view the log file.
 
 ### Azure Key Vault access policy and Azure Resource Manager templates
 
-The image build can also fail due to a problem with the access policy on Azure Key Vault. This can occur when you use an Azure Resource Manager template to create the workspace and associated resources (including Azure Key Vault), multiple times. For example, using the template multiple times with the same parameters as part of a continuous integration and deployment pipeline.
+The image build can also fail due to a problem with the access policy on Azure Key Vault. This situation can occur when you use an Azure Resource Manager template to create the workspace and associated resources (including Azure Key Vault), multiple times. For example, using the template multiple times with the same parameters as part of a continuous integration and deployment pipeline.
 
-Most resource creation operations through templates are idempotent, but Key Vault clears the access policies each time the template is used. This breaks access to the Key Vault for any existing workspace that is using it. This results in errors when you try to create new images. The following are examples of the errors that you can receive:
+Most resource creation operations through templates are idempotent, but Key Vault clears the access policies each time the template is used. Clearing the access policies breaks access to the Key Vault for any existing workspace that is using it. This condition results in errors when you try to create new images. The following are examples of the errors that you can receive:
 
 __Portal__:
 ```text
@@ -139,16 +144,81 @@ b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server 
 To avoid this problem, we recommend one of the following approaches:
 
 * Do not deploy the template more than once for the same parameters. Or delete the existing resources before using the template to recreate them.
-* Examine the Key Vault access policies and use this to set the `accessPolicies` property of the template.
+* Examine the Key Vault access policies and then use these policies to set the `accessPolicies` property of the template.
 * Check if the Key Vault resource already exists. If it does, do not recreate it through the template. For example, add a parameter that allows you to disable the creation of the Key Vault resource if it already exists.
 
-## Service launch fails
-After the image is successfully built, the system attempts to start a container in either ACI or AKS depending on your deployment configuration. It is recommended to try an ACI deployment first, since it is a simpler single-container deployment. This way you can then rule out any AKS-specific problem.
+## Debug locally
 
-As part of container starting-up process, the `init()` function in your scoring script is invoked by the system. If there are uncaught exceptions in the `init()` function, you might see **CrashLoopBackOff** error in the error message. Below are some tips to help you troubleshoot the problem.
+If you encounter problems deploying a model to ACI or AKS, try deploying it as a local web service. Using a local web service makes it easier to troubleshoot problems. The Docker image containing the model is downloaded and started on your local system.
 
-### Inspect the Docker log
-You can print out detailed Docker engine log messages from the service object.
+> [!IMPORTANT]
+> Local web service deployments require a working Docker installation on your local system. Docker must be running before you deploy a local web service. For information on installing and using Docker, see [https://www.docker.com/](https://www.docker.com/).
+
+> [!WARNING]
+> Local web service deployments are not supported for production scenarios.
+
+To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the `model` variable) as a local web service:
+
+```python
+from azureml.core.model import InferenceConfig
+from azureml.core.webservice import LocalWebservice
+
+# Create inferencing configuration. This creates a docker image that contains the model.
+inference_config = InferenceConfig(runtime= "python", 
+                                   execution_script="score.py",
+                                   conda_file="myenv.yml")
+
+# Create a local deployment, using port 8890 for the web service endpoint
+deployment_config = LocalWebservice.deploy_configuration(port=8890)
+# Deploy the service
+service = Model.deploy(ws, "mymodel", [model], inference_config, deployment_config)
+# Wait for the deployment to complete
+service.wait_for_deployment(True)
+# Display the port that the web service is available on
+print(service.port)
+```
+
+At this point, you can work with the service as normal. For example, the following code demonstrates sending data to the service:
+
+```python
+import json
+
+test_sample = json.dumps({'data': [
+    [1,2,3,4,5,6,7,8,9,10], 
+    [10,9,8,7,6,5,4,3,2,1]
+]})
+
+test_sample = bytes(test_sample,encoding = 'utf8')
+
+prediction = service.run(input_data=test_sample)
+print(prediction)
+```
+
+### Update the service
+
+During local testing, you may need to update the `score.py` file to add logging or attempt to resolve any problems that you've discovered. To reload changes to the `score.py` file, use `reload()`. For example, the following code reloads the script for the service, and then sends data to it. The data is scored using the updated `score.py` file:
+
+```python
+service.reload()
+print(service.run(input_data=test_sample))
+```
+
+> [!NOTE]
+> The script is reloaded from the location specified by the `InferenceConfig` object used by the service.
+
+To change the model, Conda dependencies, or deployment configuration, use [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). The following example updates the model used by the service:
+
+```python
+service.update([different_model], inference_config, deployment_config)
+```
+
+### Delete the service
+
+To delete the service, use [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--).
+
+### <a id="dockerlog"></a> Inspect the Docker log
+
+You can print out detailed Docker engine log messages from the service object. You can view the log for ACI, AKS, and Local deployments. The following example demonstrates how to print the logs.
 
 ```python
 # if you already have the service object handy
@@ -158,82 +228,15 @@ print(service.get_logs())
 print(ws.webservices['mysvc'].get_logs())
 ```
 
-### Debug the Docker image locally
-Some times the Docker log does not emit enough information about what is going wrong. You can go one step further and pull down the built Docker image, start a local container, and debug directly inside the live container interactively. To start a local container, you must have a Docker engine running locally, and it would be a lot easier if you also have [azure-cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
+## Service launch fails
 
-First we need to find out the image location:
+After the image is successfully built, the system attempts to start a container using your deployment configuration. As part of container starting-up process, the `init()` function in your scoring script is invoked by the system. If there are uncaught exceptions in the `init()` function, you might see **CrashLoopBackOff** error in the error message.
 
-```python
-# print image location
-print(image.image_location)
-```
-
-The image location has this format: `<acr-name>.azurecr.io/<image-name>:<version-number>`, such as `myworkpaceacr.azurecr.io/myimage:3`. 
-
-Now go to your command-line window. If you have azure-cli installed, you can type the following commands to sign in to the ACR (Azure Container Registry) associated with the workspace where the image is stored. 
-
-```sh
-# log on to Azure first if you haven't done so before
-$ az login
-
-# make sure you set the right subscription in case you have access to multiple subscriptions
-$ az account set -s <subscription_name_or_id>
-
-# now let's log in to the workspace ACR
-# note the acr-name is the domain name WITHOUT the ".azurecr.io" postfix
-# e.g.: az acr login -n myworkpaceacr
-$ az acr login -n <acr-name>
-```
-If you don't have azure-cli installed, you can use `docker login` command to log into the ACR. But you need to retrieve the user name and password of the ACR from Azure portal first.
-
-Once you have logged in to the ACR, you can pull down the Docker image and start a container locally, and then launch a bash session for debugging by using the `docker run` command:
-
-```sh
-# note the image_id is <acr-name>.azurecr.io/<image-name>:<version-number>
-# for example: myworkpaceacr.azurecr.io/myimage:3
-$ docker run -it <image_id> /bin/bash
-```
-
-Once you launch a bash session the running container, you can find your scoring scripts in the `/var/azureml-app` folder. You can then launch a Python session to debug your scoring scripts. 
-
-```sh
-# enter the directory where scoring scripts live
-cd /var/azureml-app
-
-# find what Python packages are installed in the python environment
-pip freeze
-
-# sanity-check on score.py
-# you might want to edit the score.py to trigger init().
-# as most of the errors happen in init() when you are trying to load the model.
-python score.py
-```
-In case you need a text editor to modify your scripts, you can install vim, nano, Emacs, or your other favorite editor.
-
-```sh
-# update package index
-apt-get update
-
-# install a text editor of your choice
-apt-get install vim
-apt-get install nano
-apt-get install emacs
-
-# launch emacs (for example) to edit score.py
-emacs score.py
-
-# exit the container bash shell
-exit
-```
-
-You can also start up the web service locally and send HTTP traffic to it. The Flask server in the Docker container is running on port 5001. You can map to any other ports available on the host machine.
-```sh
-# you can find the scoring API at: http://localhost:8000/score
-$ docker run -p 8000:5001 <image_id>
-```
+Use the info in the [Inspect the Docker log](#dockerlog) section to check the logs.
 
 ## Function fails: get_model_path()
-Often, in the `init()` function in the scoring script, `Model.get_model_path()` function is called to locate a model file or a folder of model files in the container. This is often a source of failure if the model file or folder cannot be found. The easiest way to debug this error is to run the below Python code in the Container shell:
+
+Often, in the `init()` function in the scoring script, [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder cannot be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
 
 ```python
 import logging
@@ -242,11 +245,12 @@ from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-This would print out the local path (relative to `/var/azureml-app`) in the container where your scoring script is expecting to find the model file or folder. Then you can verify if the file or folder is indeed where it is expected to be.
+This example prints out the local path (relative to `/var/azureml-app`) in the container where your scoring script is expecting to find the model file or folder. Then you can verify if the file or folder is indeed where it is expected to be.
 
-Setting the logging level to DEBUG may provide cause additional information to be logged, which may be useful in identifying the failure.
+Setting the logging level to DEBUG may cause additional information to be logged, which may be useful in identifying the failure.
 
 ## Function fails: run(input_data)
+
 If the service is successfully deployed, but it crashes when you post data to the scoring endpoint, you can add error catching statement in your `run(input_data)` function so that it returns detailed error message instead. For example:
 
 ```python
@@ -261,7 +265,8 @@ def run(input_data):
         # return error message back to the client
         return json.dumps({"error": result})
 ```
-**Note**: Returning error messages from the `run(input_data)` call should be done for debugging purpose only. It might not be a good idea to do this in a production environment for security reasons.
+
+**Note**: Returning error messages from the `run(input_data)` call should be done for debugging purpose only. For security reasons, you should not return error messages this way in a production environment.
 
 ## HTTP status code 503
 
@@ -302,12 +307,11 @@ There are two things that can help prevent 503 status codes:
     > [!NOTE]
     > If you receive request spikes larger than the new minimum replicas can handle, you may receive 503s again. For example, as traffic to your service increases, you may need to increase the minimum replicas.
 
-For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas` for, see the [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) module reference.
-
+For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas` for, see the [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) module reference.
 
 ## Next steps
 
-Learn more about deployment: 
-* [How to deploy and where](how-to-deploy-and-where.md)
+Learn more about deployment:
 
+* [How to deploy and where](how-to-deploy-and-where.md)
 * [Tutorial: Train & deploy models](tutorial-train-models-with-aml.md)
