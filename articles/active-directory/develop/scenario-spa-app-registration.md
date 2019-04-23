@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 This page explains the app registration specifics for a Single Page Application.
 
-Follow the steps to [register a new application with Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app), and select the supported accounts for your application. Note that the SPA scenario can support authentication with accounts in your organization or any organization and personal Microsoft accounts.
+Follow the steps to [register a new application with Azure AD](quickstart-register-app.md), and select the supported accounts for your application. Note that the SPA scenario can support authentication with accounts in your organization or any organization and personal Microsoft accounts.
 
 Next, here are the specific aspects of application registration that apply to single page applications.
 
