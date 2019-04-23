@@ -2,7 +2,7 @@
 title: Durable Functions patterns and technical concepts in Azure Functions
 description: Learn how the Durable Functions extension in Azure Functions gives you the benefits of stateful code execution in the cloud.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
