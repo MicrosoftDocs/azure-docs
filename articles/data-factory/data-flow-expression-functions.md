@@ -348,14 +348,14 @@ This expression returns the largest integer that's not greater than the number.
 <code>fromUTC</code>
 ==============================
 <code><b>fromUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts to the timestamp from UTC. You can optionally pass the timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezone
+Converts to the timestamp from UTC. You can optionally pass the timezone in the form of `'GMT'`, `'PST'`, `'UTC'`, `'America/Cayman'`. It is defaulted to the current timezone
 * ``fromUTC(currentTimeStamp()) -> 12-12-2030T19:18:12``
 * ``fromUTC(currentTimeStamp(), 'Asia/Seoul') -> 12-13-2030T11:18:12``
 *********************************
 <code>greater</code>
 ==============================
 <code><b>greater(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-The GREATER operator is a comparison greater operator. It's the same as the > operator.
+The **GREATER** operator is a comparison greater operator. It's the same as the **>** operator.
 * ``greater(12, 24) -> false``
 * ``'abcd' > 'abc' -> true``
 *********************************
