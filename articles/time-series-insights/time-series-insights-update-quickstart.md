@@ -15,11 +15,11 @@ ms.date: 04/22/2019
 
 # Quickstart: Explore the Azure Time Series Insights Preview demo environment
 
-A quickstart is provided to get started with the Azure Time Series Insights Preview in a free demonstration environment. Through the demo, you'll tour key features that have been added in the Time Series Insights Preview.
+This quickstart gets you started with the Azure Time Series Insights Preview. Through the free demo, you'll tour key features that have been added in the Time Series Insights Preview.
 
-The Preview demo environment involves a fictitious electric power company, Contoso. The company operates two wind turbine farms, each with 10 turbines. Each turbine has 20 sensors that report data every minute to Azure IoT Hub. The sensors gather information about weather conditions, blade pitch and yaw position, generator performance, gearbox behavior, and safety monitors.
+The Preview demo environment contains a scenario company, Contoso, that operates two wind turbine farms, each with 10 turbines. Each turbine has 20 sensors that report data every minute to Azure IoT Hub. The sensors gather information about weather conditions, blade pitch, and yaw position. Also, generator performance, gearbox behavior, and safety monitors.
 
- You'll learn to use Time Series Insights to find actionable insights in Contoso data and conduct a short root-cause analysis and to better understand and predict critical failures and improve maintenance.
+ You'll learn to use Time Series Insights to find actionable insights in Contoso data. You'll also conduct a short root-cause analysis to better predict critical failures and perform maintenance.
 
 ## Explore the Time Series Insights explorer in a demo environment
 
@@ -31,7 +31,7 @@ The Time Series Insights Preview explorer demonstrates historical data and root 
 
 1. If you're prompted, sign in to the Time Series Insights explorer using your Azure account credentials.
 
-### Work with historical data
+## Work with historical data
 
 1. Look at wind turbine **W7** in **Contoso Plant 1**.  
 
@@ -54,7 +54,7 @@ The Time Series Insights Preview explorer demonstrates historical data and root 
 
       ![Quickstart three][3]
 
-1. The oil pressure and active warning sensors spiked prior to the fire. Expand the displayed time series to see other signs present leading up to the fire. Both sensors fluctuated consistently over time indicating a persistent and worrisome pattern.
+1. The oil pressure and active warning sensors spiked right before the fire. Expand the displayed time series to see other signs present leading up to the fire. Both sensors fluctuated consistently over time indicating a persistent and worrisome pattern.
 
     * Update the view range to **2/24/17 20:00 to 3/10/17 20:00 (UTC)**.
 
@@ -73,7 +73,7 @@ Using Azure Time Series Insights and our sensor telemetry, we've discovered a lo
 > * Correct the problem
 > * Put superior alert notification systems into place.
 
-### Root cause analysis
+## Root-cause analysis
 
 1. Some scenarios require sophisticated analysis to uncover subtle clues in data. Select the windmill **W6** on date **6/25**
 
@@ -105,7 +105,7 @@ Using Azure Time Series Insights and our sensor telemetry, we've discovered a lo
 
     The three voltage sensors are operating comparably and within normal parameters. It looks like the **GridVoltagePhase3** sensor is the culprit.
 
-1. With highly contextual data added, the phase 3 drop-off appears even more as the problem. At this point, we’re ready to refer the issue to our maintenance team with a good lead on the cause of the warning.  
+1. With highly contextual data added, the phase 3 drop-off appears even more as the problem. We’re now ready to refer the issue to our maintenance team with a good lead on the cause of the warning.  
 
     * Update the display to overlay all **Generator System** sensors on the same chart scale.
 
