@@ -84,7 +84,7 @@ The config options are defined below:
 
 - `protectedResourceMap`: Optional.  This is mapping of resources to scopes used by MSAL for automatically attaching access tokens in web API calls. A single access token is obtained for the resource. So you can map a specific resource path as follows: {"https://graph.microsoft.com/v1.0/me", ["user.read"]}, or the app URL of the resource as: {"https://graph.microsoft.com/", ["user.read", "mail.send"]}. This is required for CORS calls.
 
-- `state`: Optional.  A value included in the request that will also be returned in the token response typically used for preventing cross-site request forgery attacks. By default, MSAL.js passes a randomly generated unique value for this purpose. You can also pass the user's state in the app, such as the page or view they were on as input to this parameter. The passed in state appended to the unique guid set by MSAL.js would come back in the `tokenReceivedCallback` as follows:
+- `state`: Optional.  A value included in the request that will also be returned in the token response typically used for preventing [cross-site request forgery attacks](https://tools.ietf.org/html/rfc6749#section-10.12). By default, MSAL.js passes a randomly generated unique value for this purpose. You can also pass the user's state in the app, such as the page or view they were on as input to this parameter. The passed in state appended to the unique guid set by MSAL.js would come back in the `tokenReceivedCallback` as follows:
 
     ```javascript
     function tokenReceivedCallback(errorDesc, token, error, tokenType, state) {}
