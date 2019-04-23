@@ -53,7 +53,7 @@ For code-free training, try:
 
 + The visual interface for drag-n-drop experimenting and deployment
     
-    ![Visual interface for Azure Machine Learning service](media/overview-what-is-azure-ml/visual-interface.png)
+  <!--  ![Visual interface for Azure Machine Learning service](media/overview-what-is-azure-ml/visual-interface.png)-->
 
 + The Azure portal option for automated ML experiments
 
