@@ -28,7 +28,7 @@ In this tutorial, you learn about:
 > [!NOTE]
 > The Time Series Insights sample application source files can be found in the provided [GitHub sample repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 
-## Video: 
+## Video
 
 ### In this video, we introduce the open source Time Series Insights JavaScript SDK.</br>
 
@@ -56,34 +56,34 @@ Throughout this tutorial, the Time Series Insights sample application is used to
 
 ### Page source and structure
 
-First, let's view the [HTML and JavaScript source code](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) that's behind the page that's rendered in your browser. We don't walk through all of the elements, but you learn about the major sections and you get a sense of how the page works:
+First, let's view the [HTML and JavaScript source code](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) that's behind the page that's rendered in your browser. We don't walk through all of the elements, but you'll learn about the major sections and you get a sense of how the page works:
 
 1. Open **Developer Tools** in your browser. Inspect the HTML elements that make up the current page (also known as the HTML or DOM tree).
 
 2. Expand the `<head>` and `<body>` elements and notice the following sections:
 
-   - Under the `<head>` element, you find elements that pull in additional files to assist in the functioning of the page:
-     - A `<script>` element that's used for referencing the Azure Active Directory Authentication Library **adal.min.js** (also known as ADAL). ADAL is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs.
-     - Multiple `<link>` elements for style sheets (also known as CSS) like **sampleStyles.css** and **tsiclient.css**. The style sheets are used to control visual page styling details, such as colors, fonts, spacing, and so on.
-     - A `<script>` element that's used for referencing the TSI Client JavaScript library **tsiclient.js**. The library is used by the page to call TSI service APIs and render chart controls on the page.
+   * Under the `<head>` element, you find elements that pull in additional files to assist in the functioning of the page:
+     * A `<script>` element that's used for referencing the Azure Active Directory Authentication Library **adal.min.js** (also known as ADAL). ADAL is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs.
+     * Multiple `<link>` elements for style sheets (also known as CSS) like **sampleStyles.css** and **tsiclient.css**. The style sheets are used to control visual page styling details, such as colors, fonts, spacing, and so on.
+     * A `<script>` element that's used for referencing the TSI Client JavaScript library **tsiclient.js**. The library is used by the page to call TSI service APIs and render chart controls on the page.
 
      >[!NOTE]
      > The source code for the ADAL JavaScript library is available from the [azure-activedirectory-library-for-js repository](https://github.com/AzureAD/azure-activedirectory-library-for-js).
      > The source code for the TSI Client JavaScript library is available from the [tsiclient repository](https://github.com/Microsoft/tsiclient).
 
-   - Under the `<body>` element, you find `<div>` elements, which act as containers to define the layout of items on the page, and another `<script>` element:
-     - The first `<div>` element specifies the **Log in** dialog (`id="loginModal"`).
-     - The second `<div>` element acts as a parent for:
-       - A header `<div>` element that's used for status messages and sign-in information near the top of the page (`class="header"`).
-       - A `<div>` element for the remainder of the page body elements, including all of the charts (`class="chartsWrapper"`).
-       - A `<script>` section that contains all of the JavaScript that's used to control the page.
+   * Under the `<body>` element, you find `<div>` elements, which act as containers to define the layout of items on the page, and another `<script>` element:
+     * The first `<div>` element specifies the **Log in** dialog (`id="loginModal"`).
+     * The second `<div>` element acts as a parent for:
+       * A header `<div>` element that's used for status messages and sign-in information near the top of the page (`class="header"`).
+       * A `<div>` element for the remainder of the page body elements, including all of the charts (`class="chartsWrapper"`).
+       * A `<script>` section that contains all of the JavaScript that's used to control the page.
 
    [![TSI Client sample with Developer Tools](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
 
 3. Expand the `<div class="chartsWrapper">` element and you find more child `<div>` elements. These elements are used to position each chart control example. Notice that there are several pairs of `<div>` elements, one for each chart example:
 
-   - The first (`class="rowOfCardsTitle"`) element contains a descriptive title to summarize what the chart(s) illustrate. For example: "Static Line Charts With Full-Size Legends."
-   - The second (`class="rowOfCards"`) element is a parent that contains additional child `<div>` elements that position the actual chart control(s) within a row.
+   * The first (`class="rowOfCardsTitle"`) element contains a descriptive title to summarize what the chart(s) illustrate. For example: "Static Line Charts With Full-Size Legends."
+   * The second (`class="rowOfCards"`) element is a parent that contains additional child `<div>` elements that position the actual chart control(s) within a row.
 
    ![Body div elements](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
 
@@ -95,16 +95,16 @@ First, let's view the [HTML and JavaScript source code](https://github.com/Micro
 
 Although we don't review it in detail, fundamentally, the TSI Client library **tsclient.js** provides an abstraction for two important categories:
 
-- **Wrapper methods for calling the TSI Query APIs**: REST APIs that allow you to query for TSI data by using aggregate expressions. The methods are organized under the `TsiClient.Server` namespace of the library.
-- **Methods for creating and populating several types of charting controls**: Methods that are used for rendering the TSI aggregate data in a web page. The methods are organized under the `TsiClient.UX` namespace of the library.
+* **Wrapper methods for calling the TSI Query APIs**: REST APIs that allow you to query for TSI data by using aggregate expressions. The methods are organized under the `TsiClient.Server` namespace of the library.
+* **Methods for creating and populating several types of charting controls**: Methods that are used for rendering the TSI aggregate data in a web page. The methods are organized under the `TsiClient.UX` namespace of the library.
 
 The following concepts are universal and applicable to the TSI Client library APIs in general.
 
 ### Authentication
 
-As mentioned earlier, this sample is an SPA that uses the OAuth 2.0 support in ADAL for user authentication. Here are some points of interest in this section of the script:
+As mentioned earlier, this sample is a SPA that uses the OAuth 2.0 support in ADAL for user authentication. Here are some points of interest in this section of the script:
 
-1. When using ADAL for authentication, the client application must register itself in the Azure Active Directory (Azure AD) application registry. As an SPA, this application is registered to use the "implicit" OAuth 2.0 authorization grant flow. Correspondingly, the application specifies some of the registration properties at runtime, such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`), to participate in the flow.
+1. When using ADAL for authentication, the client application must register itself in the Azure Active Directory (Azure AD) application registry. As a SPA, this application is registered to use the [OAuth 2.0 implicit grant flow](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-implicit-grant-flow). Correspondingly, the application specifies some of the registration properties at runtime, such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`), to participate in the flow.
 
 2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions for a specific service/API identifier https://api.timeseries.azure.com. The service/API identifier is also known as the token "audience." The token permissions are issued on behalf of the signed-in user. The identifier for the service/API is yet another property that's contained in the application's Azure AD registration. After ADAL returns the access token to the application, it's passed as a "bearer token" when accessing the TSI service APIs.
 
@@ -171,13 +171,13 @@ The populating and rendering of chart controls follows a general pattern. You fi
 5. Create a chart control by using the `TsiClient.UX` APIs, and bind it to one of the `<div>` elements on the page:
 
    ```javascript
-   var lineChart = new tsiClient.ux.BarChart(document.getElementById('chart3'));
+   var barChart = new tsiClient.ux.BarChart(document.getElementById('chart3'));
    ```
 
 6. Populate the chart control with the transformed JSON data object(s) and render the control on the page:
 
    ```javascript
-   lineChart.render(transformedResult, {grid: true, legend: 'compact', theme: 'light'}, aes);
+   barChart.render(transformedResult, {grid: true, legend: 'compact', theme: 'light'}, aes);
    ```
 
 ## Rendering controls
@@ -212,10 +212,10 @@ Look at the code that's behind the section of HTML that's under the `// Example 
 
 1. First, a structure named `events4` is defined, to hold the state-change elements to track. The structure contains:
 
-   - A string key named `Component States`.
-   - An array of value objects that represent the states. Each object includes:
-     - A string key that contains a JavaScript ISO timestamp.
-     - An array that contains the characteristics of the state: a color and a description.
+   * A string key named `Component States`.
+   * An array of value objects that represent the states. Each object includes:
+     * A string key that contains a JavaScript ISO timestamp.
+     * An array that contains the characteristics of the state: a color and a description.
 
 2. Next, the `events5` structure is defined for "Incidents," which holds an array of the event elements to track. The array structure is the same shape as the structure that's outlined for `events4`.
 
@@ -235,15 +235,15 @@ Look at the code that's behind the section of HTML that's under the `// Example 
 
 1. First a series of custom actions are defined. Each action contains an array with one or more elements. Each element defines a single context menu item:
 
-   - `barChartActions`: This action defines the context menu for the pie chart, which contains one element to define a single item:
-     - `name`: The text that's used for the menu item: "Print parameters to console."
-     - `action`: The action that's associated with the menu item. The action is always an anonymous function that takes three arguments that are based on the aggregate expression that's used to create the chart. In this case, the arguments are written to the browser console window:
-       - `ae`: The aggregate expression array.
-       - `splitBy`: The splitBy value.
-       - `timestamp`: The timestamp.
+   * `barChartActions`: This action defines the context menu for the pie chart, which contains one element to define a single item:
+     * `name`: The text that's used for the menu item: "Print parameters to console."
+     * `action`: The action that's associated with the menu item. The action is always an anonymous function that takes three arguments that are based on the aggregate expression that's used to create the chart. In this case, the arguments are written to the browser console window:
+       * `ae`: The aggregate expression array.
+       * `splitBy`: The splitBy value.
+       * `timestamp`: The timestamp.
 
-   - `pieChartActions`: This action defines the context menu for the bar chart, which contains one element to define a single item. The shape and schema is the same as the previous `barChartActions` element, but notice that the `action` function is dramatically different: it instantiates and renders the bar chart. Also note that the `ae` argument is used to specify the aggregate expression array that's passed at runtime when the menu item opens. The function also sets the `ae.contextMenu` property with the `barChartActions` context menu.
-   - `contextMenuActions`: This action defines the context menu for the line chart, which contains three elements to define three menu items. The shape and schema for each element is the same as the previous elements that were described. Just like the `barChartActions` element, the first item writes the three function arguments to the browser console window. Similar to the `pieChartActions` element, the second two items instantiate and render the pie and bar charts, respectively. The second two items also set their `ae.contextMenu` properties with the `pieChartActions` and `barChartActions` context menus, respectively.
+   * `pieChartActions`: This action defines the context menu for the bar chart, which contains one element to define a single item. The shape and schema is the same as the previous `barChartActions` element, but notice that the `action` function is dramatically different: it instantiates and renders the bar chart. Also note that the `ae` argument is used to specify the aggregate expression array that's passed at runtime when the menu item opens. The function also sets the `ae.contextMenu` property with the `barChartActions` context menu.
+   * `contextMenuActions`: This action defines the context menu for the line chart, which contains three elements to define three menu items. The shape and schema for each element is the same as the previous elements that were described. Just like the `barChartActions` element, the first item writes the three function arguments to the browser console window. Similar to the `pieChartActions` element, the second two items instantiate and render the pie and bar charts, respectively. The second two items also set their `ae.contextMenu` properties with the `pieChartActions` and `barChartActions` context menus, respectively.
 
 2. Next, two aggregate expressions are pushed onto the `aes` aggregate expression array and specify the `contextMenuActions` array for each item. These expressions are used with the line chart control.
 
@@ -262,10 +262,10 @@ Brushes are used to scope a time range to define actions like zoom and explore.
 The code that's used to illustrate brushes is shown in the previous "Line Chart with Context Menu to Create Pie/Bar Chart" example that describes Pop-up context menus.
 
 1. Brush actions are similar to a context menu in that they define a series of custom actions for the brush. Each action contains an array with one or more elements. Each element defines a single context menu item:
-   - `name`: The text that's used for the menu item: "Print parameters to console."
-   - `action`: The action that's associated with the menu item, which is always an anonymous function that takes two arguments. In this case, the arguments are written to the browser console window:
-      - `fromTime`: The "from" timestamp of the brush selection.
-      - `toTime`: The "to" timestamp of the brush selection.
+   * `name`: The text that's used for the menu item: "Print parameters to console."
+   * `action`: The action that's associated with the menu item, which is always an anonymous function that takes two arguments. In this case, the arguments are written to the browser console window:
+      * `fromTime`: The "from" timestamp of the brush selection.
+      * `toTime`: The "to" timestamp of the brush selection.
 
 2. Brush actions are added as another chart option property. Notice the `brushContextMenuActions: brushActions` property that's passed to the `linechart.Render` call.
 
