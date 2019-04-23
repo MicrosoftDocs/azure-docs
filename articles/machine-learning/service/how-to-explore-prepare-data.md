@@ -14,8 +14,7 @@ ms.date: 05/02/19
 
 ---
 
-# Explore and prepare data using the Dataset class
-
+# Explore and prepare data with the Dataset class
 
 In this article, you will learn how to create data profiles and different transformation methods to get your data ready for machine learning.
 
