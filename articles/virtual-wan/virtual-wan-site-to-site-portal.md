@@ -57,7 +57,7 @@ Create as many sites as you need that correspond to your physical locations. For
    * **Private address space** - This is the IP address space that is located on your on-premises site. Traffic destined for this address space is routed to your local site.
    * **Subscription** - Verify the subscription.
    * **Resource Group** - The resource group you want to use.
-   * **Location**.
+   * **Location**
 4. Click **Show advanced** to view additional settings. You can select **BGP** to enable BGP, which will enable BGP functionality on all connections created for this site in Azure. You can also enter **Device information** (optional fields). Doing so can help the Azure Team better understand your environment to add additional optimization possibilities in the future, or to help you troubleshoot.
 5. Click **Confirm**.
 6. After you click **Confirm**, view the status on the VPN sites page. The site will go from **Provisioning** to **Provisioned**.
@@ -78,6 +78,7 @@ Hubs should generally be associated to sites that are in the same region that th
 
 ## <a name="vnet"></a>5. Create a virtual network
 
+If you do not already have a VNet, you can quickly create one using PowerShell or the Azure portal. If you already have a VNet, verify that it meets the required criteria and does not have a virtual network gateway.
 
 [!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
 
