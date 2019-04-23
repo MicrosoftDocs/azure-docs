@@ -10,7 +10,7 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/16/2019
+ms.date: 04/23/2019
 ms.author: kumud
 ---
 
@@ -22,10 +22,27 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+## Prerequisites
+To use the IPv6 for Azure virtual network feature, you must configure your subscription as follows:
+
+```azurecli
+az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
+```
+It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure CLI command:
+
+```azurelci
+az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
+```
+After the registration is complete, run the following command:
+
+```azurelci
+az provider register --namespace Microsoft.Network
+```
+
 ## Sample script
 
 
-```azurecli-interactive
+```azurecli
 # Create a resource group
 az group create \
 --name DsResourceGroup01 \
