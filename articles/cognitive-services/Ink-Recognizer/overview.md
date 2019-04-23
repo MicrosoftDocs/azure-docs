@@ -25,9 +25,9 @@ With the Ink Recognizer API, you can easily recognize handwritten content in you
 
 |Feature  |Description  |
 |---------|---------|
-| Handwriting recognition | Recognize handwritten content in 63 core languages and locales. | 
+| Handwriting recognition | Recognize handwritten content in 63 core [languages and locales](language-support). | 
 | Layout recognition | Get structural information about the digital ink content. Break the content into writing regions, paragraphs, lines, words, bulleted lists. Your applications can then use the layout information to build additional features like automatic list formatting, and shape alignment. |
-| Shape recognition | Recognize the most commonly used geometric shapes when taking notes. |
+| Shape recognition | Recognize the most commonly used [geometric shapes](concepts/recommended-calling-patterns.md#shapes-recognized-by-the-ink-recognizer-api) when taking notes. |
 | Combined shapes and text recognition | Recognize which ink strokes belong to shapes or handwritten content, and separately classify them.|
 
 ## Workflow

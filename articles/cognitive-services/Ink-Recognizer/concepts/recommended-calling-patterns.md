@@ -18,14 +18,11 @@ Digital inking refers to the technologies that enable digital representations of
 
 ## Sending ink data to the API
 
-The Ink Recognizer API requires the X and Y coordinates that represent the ink strokes created by an input device, from the moment it touches the detection surface to when it's lifted. The accuracy and performance of its results can be impacted by:
+The Ink Recognizer API requires the X and Y coordinates that represent the ink strokes created by an input device, from the moment it touches the detection surface to when it's lifted. Data points sent to the Ink Recognizer API must be formatted in JSON and have numerical X and Y values, like the example below.
 
-* How your ink stroke data is prepared.
-* The API parameters that were used.
-* The number of data points in your API request.
-
-Data points sent to the Ink Recognizer API must be formatted in JSON and have numerical X and Y values, like the example below.
-
+> [!NOTE]
+> The following example isn't valid JSON. You can find a full Ink Recognizer JSON request on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples).
+ 
 ```json
 {
   "language": "en-US",
@@ -49,6 +46,11 @@ Data points sent to the Ink Recognizer API must be formatted in JSON and have nu
   ]
 }
 ```
+
+## Ink Recognizer response
+
+The Ink Recognizer API returns a set of recognition features that describes the relationship between different ink strokes,
+
 
 ## Shapes recognized by the Ink Recognizer API
 
