@@ -68,7 +68,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 
 ## Load the example JSON data
 
-1. Within the `<script>` tag, create a variable for the sampleJson. Then create a JavaScript function named `openFile()` that opens a file explorer so you can select your JSON file. When the `Recognize ink` button is clicked, it will call this function and and begin reading the file.
+1. Within the `<script>` tag, create a variable for the sampleJson. Then create a JavaScript function named `openFile()` that opens a file explorer so you can select your JSON file. When the `Recognize ink` button is clicked, it will call this function and begin reading the file.
 2. Use a `FileReader` object's `onload()` function to process the file asynchronously. 
     1. Replace any `\n` or `\r` characters in the file with an empty string. 
     2. Use `JSON.parse()` to convert the text to valid JSON
@@ -124,7 +124,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
         }
         ```
 
-    4. Create a function for the request object's `onreadystatechange` property. When the request object's readiness state changes, the above return and error functions will be applied.   
+    4. Create a function for the request object's `onreadystatechange` property. When the request object's readiness state changes, the above return and error functions will be applied.
             
         ```javascript
         xhttp.onreadystatechange = function () {
@@ -138,7 +138,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
         };
         ```
     
-    5. Send the the API request. Add your subscription key to the `Ocp-Apim-Subscription-Key` header, and set the `content-type` to `application/json`
+    5. Send the API request. Add your subscription key to the `Ocp-Apim-Subscription-Key` header, and set the `content-type` to `application/json`
     
         ```javascript
         xhttp.open("PUT", ENDPOINT_URL, true);

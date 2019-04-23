@@ -52,7 +52,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     using System.Threading.Tasks;
     ```
 
-2. Create variables for your subscription key and your endpoint. Below is the URIs you can use for anomaly detection. These will be appended to your service endpoint later to create the API request URLs.
+2. Create variables for your subscription key and your endpoint. Below is the URI you can use for ink recognition. It will be appended to your service endpoint later to create the API request URl.
 
     ```csharp
     // Replace the subscriptionKey string value with your valid subscription key.

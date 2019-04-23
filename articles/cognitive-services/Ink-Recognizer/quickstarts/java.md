@@ -54,7 +54,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     import java.nio.file.Paths;
     ```
 
-2. Create variables for your subscription key and your endpoint. Below is the URI you can use for ink recognition. These will be appended to your service endpoint later to create the API request URLs.
+2. Create variables for your subscription key and your endpoint. Below is the URI you can use for ink recognition. It will be appended to your service endpoint later to create the API request URL.
 
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -113,7 +113,7 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 
 ## Send an ink recognition request
 
-1. Create a method called `recognizeInk()` to detect recognize your ink stroke data. Call the `sendRequest()` method created above with your endpoint, url, subscription key, and json data. Get the result, and print it to the console.
+1. Create a method called `recognizeInk()` to recognize your ink stroke data. Call the `sendRequest()` method created above with your endpoint, url, subscription key, and json data. Get the result, and print it to the console.
 
 ```java
 static void recognizeInk(String requestData) {
