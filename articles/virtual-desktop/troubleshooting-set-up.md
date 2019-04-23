@@ -595,19 +595,20 @@ Follow these instructions to run remediation from the same subnet and domain:
 
 12. After all Windows Virtual Desktop components have been uninstalled, follow the instructions for your operating system:
 
-- If your operating system is Windows Server, restart the VM that had the malfunctioning side-by-side stack (either with Azure portal or from the PsExec tool).
-- If your operating system is Microsoft Windows 10, continue with these instructions:
+13. If your operating system is Windows Server, restart the VM that had the malfunctioning side-by-side stack (either with Azure portal or from the PsExec tool).
 
-       A. From the VM running PsExec, open File Explorer and copy disablesxsstackrc.ps1 to the system drive of the VM with the malfunctioned side-by-side stack.
+If your operating system is Microsoft Windows 10, continue with the instructions below:
+
+14. From the VM running PsExec, open File Explorer and copy disablesxsstackrc.ps1 to the system drive of the VM with the malfunctioned side-by-side stack.
 
 ```
-        \\<VMname>\c$\
+   \\<VMname>\c$\
 ```
 
->        [!NOTE]
->        VMname is the machine name of the VM with the malfunctioning side-by-side stack.
+>[!NOTE]
+>VMname is the machine name of the VM with the malfunctioning side-by-side stack.
 
-        B. The recommended process: from the PsExec tool, start PowerShell and navigate to the folder from the previous step and run disablesxsstackrc.ps1. Alternatively, you can run the following cmdlets:
+15. The recommended process: from the PsExec tool, start PowerShell and navigate to the folder from the previous step and run disablesxsstackrc.ps1. Alternatively, you can run the following cmdlets:
 
 ```PowerShell
             Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
@@ -615,7 +616,7 @@ Follow these instructions to run remediation from the same subnet and domain:
             Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name "ReverseConnectionListener" -Force
 ```
 
-        C. When the cmdlets are done running, restart the VM with the malfunctioning side-by-side stack.
+16. When the cmdlets are done running, restart the VM with the malfunctioning side-by-side stack.
 
 ## Client connection issues
 
