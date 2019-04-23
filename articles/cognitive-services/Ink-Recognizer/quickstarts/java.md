@@ -31,7 +31,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     - [JSON in Java](https://mvnrepository.com/artifact/org.json/json) package
     - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) package
 
-- The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+- The example ink stroke data for this quickstart can be found on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -77,7 +77,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 
 1. Create a new function called `sendRequest()` that takes the variables created above. Then perform the following steps.
 
-2. Create a `CloseableHttpClient` object that can send requests to the API. Send the request to an `HttpPost` request object by combining your endpoint, and an Anomaly Detector URL.
+2. Create a `CloseableHttpClient` object that can send requests to the API. Send the request to an `HttpPost` request object by combining your endpoint, and the Ink Recognizer URL.
 
 3. Use the request's `setHeader()` function to set the `Content-Type` header to `application/json`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
@@ -104,7 +104,7 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
             respEx.printStackTrace();
         }
     } catch (IOException ex) {
-        System.err.println("Exception on Anomaly Detector: " + ex.getMessage());
+        System.err.println("Exception recognizing ink: " + ex.getMessage());
         ex.printStackTrace();
     }
     return null;
@@ -127,13 +127,12 @@ static void recognizeInk(String requestData) {
 
 1. In the main method of your application, read in the JSON file containing the data that will be added to the requests.
 
-2. Call the two anomaly detection functions created above.
+2. Call the ink recognition function created above.
     
     ```java
     public static void main(String[] args) throws Exception {
         String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
-        detectAnomaliesBatch(requestData);
-        detectAnomaliesLatest(requestData);
+        recognizeInk(requestData);
     }
     ```
 

@@ -26,7 +26,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 ## Prerequisites
 
 - A web browser
-- The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+- The example ink stroke data for this quickstart can be found on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
 
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]

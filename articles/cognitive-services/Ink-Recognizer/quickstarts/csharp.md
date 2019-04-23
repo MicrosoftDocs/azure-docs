@@ -33,7 +33,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
         3. Search for `Newtonsoft.Json` and install the package
 - If you are using Linux/MacOS, this application can be ran using [Mono](http://www.mono-project.com/).
 
-- The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+- The example ink stroke data for this quickstart can be found on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -116,7 +116,7 @@ static void recognizeInk(string requestData){
 
 1. In the main method of your application, load your JSON data with `File.ReadAllText()`. 
 
-2. Call the Ink recognition function created above. Use `System.Console.ReadKey()` to keep the console window open after running the application.
+2. Call the ink recognition function created above. Use `System.Console.ReadKey()` to keep the console window open after running the application.
 
 ```csharp
 static void Main(string[] args){

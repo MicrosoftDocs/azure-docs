@@ -28,7 +28,7 @@ The Ink Recognizer API is a stateless service that accepts ink strokes as a time
 * The API parameters that were used.
 * The number of data points in your API request.
 
-Data points sent to the Anomaly Detector API must be formatted in JSON and have numerical X and Y values, like the example below.
+Data points sent to the Ink Recognizer API must be formatted in JSON and have numerical X and Y values, like the example below.
 
 ```json
 {
