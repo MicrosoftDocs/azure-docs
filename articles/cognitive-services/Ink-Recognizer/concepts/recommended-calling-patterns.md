@@ -67,7 +67,7 @@ You can call the Ink Recognizer REST API in different patterns according to your
 
 ### User initiated API calls
 
-If you're building an app that takes user input (for example, a note taking or annotation app), you may want to give them control of when and which ink gets sent to the Ink Recognizer API. This is especially useful when text and shapes are both present on the canvas, and users want to perform different actions for each. Consider adding selection features (like a lasso or geometric selection tool) that enable users to choose what gets sent to the API.  
+If you're building an app that takes user input (for example, a note taking or annotation app), you may want to give them control of when and which ink gets sent to the Ink Recognizer API. This is especially useful when text and shapes are both present on the canvas, and users want to perform different actions for each. Consider adding selection features (like a lasso or other geometric selection tool) that enable users to choose what gets sent to the API.  
 
 ### App initiated API calls
 
