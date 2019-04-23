@@ -12,7 +12,7 @@ ms.date: 04/23/2019
 ms.author: mbaldwin
 
 ---
-# Common security attributes for API Management
+# Common security attributes for Azure Service Bus Messaging
 
 Security is integrated into every aspect of an Azure service. This article documents the common security attributes built into Azure Service Bus Messaging.
 
@@ -41,14 +41,15 @@ Security is integrated into every aspect of an Azure service. This article docum
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Supported via [Azure Monitor and Alerts](../azure-monitor/index.yml). |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Supported via [Azure Monitor and Alerts](service-bus-metrics-azure-monitor.md). |
 
 ## Identity and access management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Authentication| Yes | Managed through [Azure Active Directory Managed Service Identity](../active-directory/managed-identities-azure-resources/index.yml).|
-| Authorization| Yes | Supports authorization via [RBAC](../role-based-access-control/index.yml) (Preview) and SAS token |
+| Authentication| Yes | Managed through [Azure Active Directory Managed Service Identity](service-bus-managed-service-identity.md); see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md).|
+| Authorization| Yes | Supports authorization via [RBAC](service-bus-role-based-access-control.md) (Preview) and SAS token; see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md). |
+
 
 
 ## Audit trail
