@@ -479,11 +479,13 @@ For complete details on each effect, order of evaluation, properties, and exampl
 
 All [Resource Manager template
 functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to
-use within a policy rule, except the following functions:
+use within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
 - deployment()
 - list*
+- newGuid()
+- pickZones()
 - providers()
 - reference()
 - resourceId()
@@ -492,7 +494,7 @@ use within a policy rule, except the following functions:
 The following functions are available to use in a policy rule:
 
 - addDays(dateTime, numberOfDaysToAdd)
-- utcNow() - Unlike a Resource Manager template, this can be used outside defaultValue
+- utcNow() - Unlike a Resource Manager template, this can be used outside defaultValue.
 
 Additionally, the `field` function is available to policy rules. `field` is primarily used with
 **AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being
