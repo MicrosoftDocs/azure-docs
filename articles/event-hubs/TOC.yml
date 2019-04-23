@@ -8,6 +8,8 @@
     href: event-hubs-for-kafka-ecosystem-overview.md
   - name: Event Hubs Capture
     href: event-hubs-capture-overview.md
+  - name: Event Hubs Dedicated
+    href: event-hubs-dedicated-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -20,8 +22,8 @@
     - name: Azure PowerShell
       href: event-hubs-quickstart-powershell.md
     - name: Azure Resource Manager template
-      href: event-hubs-resource-manager-namespace-event-hub.md
-  - name: Send events to event hub 
+      href: event-hubs-resource-manager-namespace-event-hub.md  
+  - name: Send and receive events
     items:
     - name: .NET Core
       href: event-hubs-dotnet-standard-getstarted-send.md
@@ -29,29 +31,15 @@
       href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Java
       href: event-hubs-java-get-started-send.md
-    - name: C
-      href: event-hubs-c-getstarted-send.md
-    - name: Go 
-      href: event-hubs-go-get-started-send.md 
     - name: Python
       href: event-hubs-python-get-started-send.md
     - name: Node.js
       href: event-hubs-node-get-started-send.md
-  - name: Receive events from event hub
-    items:
-    - name: .NET Core
-      href: event-hubs-dotnet-standard-getstarted-receive-eph.md
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
-    - name: Java
-      href: event-hubs-java-get-started-receive-eph.md
     - name: Go 
-      href: event-hubs-go-get-started-receive-eph.md 
-    - name: Python
-      href: event-hubs-python-get-started-receive.md
-    - name: Node.js
-      href: event-hubs-node-get-started-receive.md    
-    - name: Apache Storm
+      href: event-hubs-go-get-started-send.md 
+    - name: C (send only)
+      href: event-hubs-c-getstarted-send.md
+    - name: Apache Storm (receive only)
       href: event-hubs-storm-getstarted-receive.md
   - name: Capture events
     items:
@@ -102,8 +90,6 @@
     href: event-hubs-role-based-access-control.md
   - name: Geo-disaster recovery and Geo-replication
     href: event-hubs-geo-dr.md
-  - name: Event Hubs Dedicated
-    href: event-hubs-dedicated-overview.md
   - name: Authentication and security model overview
     href: event-hubs-authentication-and-security-model-overview.md
   - name: Availability and consistency
@@ -174,6 +160,8 @@
       href: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
     - name: Microsoft.Azure.Management.EventHub
       href: /dotnet/api/microsoft.azure.management.eventhub
+  - name: Node.js
+    href: /javascript/api/overview/azure/event-hub?view=azure-node-latest
   - name: REST
     href: /rest/api/eventhub
   - name: Resource Manager template

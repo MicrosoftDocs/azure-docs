@@ -64,7 +64,7 @@ Assign the managed identity to the **Storage Blob Data Owner** role on the stora
         ![Identity settings for using Data Lake Storage Gen2 with Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
         
 > [!Note]
-> You can add one or more Data Lake Storage Gen2 accounts as secondary storage on the same cluster. Just repeat the above steps on each Data Lake Storage Gen2 account that you want to add using the same managed identity.
+> To add a secondary Data Lake Storage Gen2 account, at the storage account level, simply assign the managed identity created earlier to the new Data Lake Storage Gen2 storage account that you wish to add.Please be advised that adding a secondary Data Lake Storage Gen2 account via the "Additional storage accounts" blade on HDInsight is not supported. 
 
 ## Create a cluster with Data Lake Storage Gen2 through the Azure CLI
 
@@ -134,6 +134,5 @@ To set permissions for users to query data, use Azure AD security groups as the 
 
 ## Next steps
 
-* [Use Azure Data Lake Storage Gen2 Preview with Azure HDInsight clusters](../storage/blobs/data-lake-storage-use-hdi-cluster.md)
 * [Azure HDInsight integration with Data Lake Storage Gen2 preview - ACL and security update](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/)
-* [Introduction to Azure Data Lake Storage Gen2 Preview](../storage/blobs/data-lake-storage-introduction.md)
+* [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
