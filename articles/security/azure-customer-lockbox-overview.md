@@ -1,5 +1,5 @@
 ---
-title: Overview - Customer Lockbox
+title: Overview of Azure Customer Lockbox
 description: This article provides an overview of Microsoft Azure Customer Lockbox.
 author: cabailey
 ms.service: security
@@ -91,7 +91,7 @@ The following services and scenarios are currently in general availability for C
 
 Customer Lockbox is currently enabled for remote desktop access requests to virtual machines. The following workloads are supported:
 - Platform as a service (PaaS) - version 1
-- Infrastructure as a service (IaaS) - Windows and Linux (ARM-based only)
+- Infrastructure as a service (IaaS) - Windows and Linux (Azure Resource Manager only)
 - Virtual machine scale set - Windows and Linux
 
 > [!NOTE]
