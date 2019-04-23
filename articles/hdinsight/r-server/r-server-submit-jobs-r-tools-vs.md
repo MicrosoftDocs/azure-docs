@@ -1,7 +1,6 @@
 ---
 title: Submit jobs from R Tools for Visual Studio - Azure HDInsight 
 description: Submit R jobs from your local Visual Studio machine to an HDInsight cluster.
-services: hdinsight
 ms.service: hdinsight
 author: maxluk
 ms.author: maxluk
