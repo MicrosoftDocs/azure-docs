@@ -43,7 +43,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Create feedback loop using:'
+    text: ''
   - type: list
     style: icon48
     items:

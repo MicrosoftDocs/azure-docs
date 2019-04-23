@@ -37,15 +37,13 @@
       displayName: learning policy, Counterfactual, features
 - name: How-to guides
   items:
-  - name: Create and use feedback loop
-    href: csharp-quickstart-commandline-feedback-loop.md
   - name: Analyze
     items: 
+    - name: Configure Personalizer
+      href: how-to-settings.md
+      displayName: azure, portal, settings, evaluation, offline, policy
     - name: Offline evaluation
       href: how-to-offline-evaluation.md
-  - name: Configure Personalizer
-    href: how-to-settings.md
-    displayName: azure, portal, settings, evaluation, offline, policy
   - name: Use containers
     items:
     - name: Install and run containers
