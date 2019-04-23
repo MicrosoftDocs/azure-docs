@@ -121,11 +121,11 @@ The user who created the item is automatically the owning user of the item. An o
 
 ### The owning group
 
-In the POSIX ACLs, every user is associated with a *primary group*. For example, user "alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as her primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance." The owning group otherwise behaves similarly to assigned permissions for other users/groups.
+In the POSIX ACLs, every user is associated with a *primary group*. For example, user "Alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as her primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance." The owning group otherwise behaves similarly to assigned permissions for other users/groups.
 
 #### Assigning the owning group for a new file or directory
 
-* **Case 1**: The root directory "/". This directory is created when a Data Lake Storage Gen2 file system is created. In this case, the owning group is set to the user who created the file system if it was done using OAuth. If the filesystem is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to **$superuser**.
+* **Case 1**: The root directory "/". This directory is created when a Data Lake Storage Gen2 file system is created. In this case, the owning group is set to the user who created the file system if it was done using OAuth. If the file system is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to **$superuser**.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent directory.
 
 #### Changing the owning group
@@ -280,7 +280,7 @@ A GUID is shown if the entry represents a user and that user doesn't exist in Az
 
 When you define ACLs for service principals, it's important to use the Object ID (OID) of the *service principal* for the app registration that you created. It's important to note that registered apps have a separate service principal in the specific Azure AD tenant. Registered apps have an OID that's visible in the Azure portal, but the *service principal* has another (different) OID.
 
-To get the OID for the service principal that corresponds to an app registration, you can use the `az ad sp show` command. Specify the Application ID as the parameter. Here's an example on obtaining the OID for the service principal that corresponds to an app registration with App Id = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Run the following command in the Azure CLI:
+To get the OID for the service principal that corresponds to an app registration, you can use the `az ad sp show` command. Specify the Application ID as the parameter. Here's an example on obtaining the OID for the service principal that corresponds to an app registration with App ID = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Run the following command in the Azure CLI:
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`

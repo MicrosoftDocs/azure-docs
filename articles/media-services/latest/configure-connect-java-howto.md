@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/18/2019
 ms.author: juliako
 
 ---
@@ -55,22 +55,22 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
 1. Add the needed dependencies
 
     ```xml
-    <dependency>
-      <groupId>com.microsoft.azure.mediaservices.v2018_07_01</groupId>
-      <artifactId>azure-mgmt-media</artifactId>
-      <version>1.0.0-beta</version>
-    </dependency>
-    <dependency>
-      <groupId>com.microsoft.rest</groupId>
-      <artifactId>client-runtime</artifactId>
-      <version>1.6.5</version>
-    </dependency>
-    <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-client-authentication</artifactId>
-      <version>1.6.5</version>
-    </dependency>
-    ```
+   <dependency>
+     <groupId>com.microsoft.azure.mediaservices.v2018_07_01</groupId>
+     <artifactId>azure-mgmt-media</artifactId>
+     <version>1.0.0-beta-3</version>
+   </dependency>
+   <dependency>
+     <groupId>com.microsoft.rest</groupId>
+     <artifactId>client-runtime</artifactId>
+     <version>1.6.6</version>
+   </dependency>
+   <dependency>
+     <groupId>com.microsoft.azure</groupId>
+     <artifactId>azure-client-authentication</artifactId>
+     <version>1.6.6</version>
+   </dependency>
+```
 
 ## Connect to the Java client
 

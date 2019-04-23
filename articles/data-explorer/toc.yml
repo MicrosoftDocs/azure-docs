@@ -94,7 +94,7 @@
       href: connect-from-databricks.md
     - name: Analyze data in Jupyter Notebooks & Kqlmagic
       href: kqlmagic.md
-    - name: Copy data in Azure Data Factory
+    - name: Copy data using Azure Data Factory
       href: data-factory-load-data.md 
     - name: Visualize data in Grafana
       href: grafana.md

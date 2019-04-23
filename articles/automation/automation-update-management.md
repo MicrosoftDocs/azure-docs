@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -202,7 +202,7 @@ To run a log search that returns information about the machine, update, or deplo
 
 ## Install updates
 
-After updates are assessed for all the Linux and Windows computers in your workspace, you can install required updates by creating an *update deployment*. To create an Update Deployment, you must have write access to the Automation Account and write access to the any Azure VMs that are are targeted in the deployment. An update deployment is a scheduled installation of required updates for one or more computers. You specify the date and time for the deployment and a computer or group of computers to include in the scope of a deployment. To learn more about computer groups, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md).
+After updates are assessed for all the Linux and Windows computers in your workspace, you can install required updates by creating an *update deployment*. To create an Update Deployment, you must have write access to the Automation Account and write access to the any Azure VMs that are targeted in the deployment. An update deployment is a scheduled installation of required updates for one or more computers. You specify the date and time for the deployment and a computer or group of computers to include in the scope of a deployment. To learn more about computer groups, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md).
 
 When you include computer groups in your update deployment, group membership is evaluated only once, at the time of schedule creation. Subsequent changes to a group aren't reflected. To get around this use [Dynamic groups](#using-dynamic-groups), these groups are resolved at deployment time and are defined by a query for Azure VMs or a saved search for Non-Azure VMs.
 
@@ -327,8 +327,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="third-party"></a> Third-party patches on Windows
 
-Update Management relies on WSUS or Windows Update to patch supported Windows systems. Tools like [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
-) (Updates Publisher) allow you to publish custom updates into WSUS. This scenario allows Update Management to patch machines that use WSUS as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/sccm/sum/tools/install-updates-publisher).
+Update Management relies on the locally configured update repository to patch supported Windows systems. This is either WSUS or Windows Update. Tools like [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) allow you to publish custom updates into WSUS. This scenario allows Update Management to patch machines that use System Center Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Network Planning
 
