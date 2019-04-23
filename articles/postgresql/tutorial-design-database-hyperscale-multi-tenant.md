@@ -1,5 +1,5 @@
 ---
-title: 'Design a Multi-Tenant Database with Azure Database for PostgreSQL – Hyperscale (Citus) (preview) tutorial'
+title: 'Design a multi-tenant database with Azure Database for PostgreSQL – Hyperscale (Citus) (preview) tutorial'
 description: This tutorial shows how to create, populate, and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus) (preview).
 author: jonels-msft
 ms.author: jonels
@@ -12,7 +12,7 @@ ms.date: 04/09/2019
 #Customer intent: As an developer, I want to design a hyperscale database so that my multi-tenant application runs efficiently for all tenants.
 ---
 
-# Tutorial: Design a Multi-Tenant Database by using Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
+# Tutorial: design a multi-tenant database by using Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
 
 In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) (preview) to learn how to:
 
