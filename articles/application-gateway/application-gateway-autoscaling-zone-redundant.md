@@ -1,17 +1,19 @@
 ---
-title: Autoscaling and Zone-redundant Application Gateway in Azure (Public Preview)
+title: Azure Application Gateway v2 SKU
 description: This article introduces the Azure Application v2 SKU, which includes Autoscaling and Zone-redundant features.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/6/2019
+ms.date: 4/30/2019
 ms.author: victorh
 ---
 
-# Autoscaling and Zone-redundant Application Gateway (Public Preview)
+# Azure Application Gateway v2 SKU
 
-Application Gateway and Web Application Firewall (WAF) are now available in Public Preview under a new v2 SKU that offers performance enhancements and adds support for critical new features like autoscaling, zone redundancy, and support for static VIPs. Existing features under the generally available SKU continue to be supported in the new v2 SKU, with a few exceptions listed in known limitations section. The new v2 SKUs include the following enhancements:
+Azure Application Gateway and Web Application Firewall (WAF) is available in the v2 SKU, which offers performance enhancements and adds support for critical new features like autoscaling, zone redundancy, and support for static VIPs. Existing features in the v1 SKU continue to be supported in the v2 SKU, with a few exceptions listed in [known issues and limitations section](#known-issues-and-limitations).
+
+The v2 SKUs include the following enhancements:
 
 - **Autoscaling**: Application Gateway or WAF deployments under the autoscaling SKU can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. This SKU offers true elasticity. In the new SKU, Application Gateway can operate both in fixed capacity (autoscaling disabled) and in autoscaling enabled mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Autoscaling mode is beneficial in applications that see lots of variances in the application traffic.
 
@@ -20,13 +22,10 @@ Application Gateway and Web Application Firewall (WAF) are now available in Publ
 - **Faster deployment and update time** The autoscaling SKU provides faster deployment and update time as compared to the generally available SKU.
 - **Static VIP**: The application gateway VIP now supports the static VIP type exclusively. This ensures that the VIP associated with application gateway doesn't change even after a restart.
 
-> [!IMPORTANT]
-> The autoscaling and zone-redundant application gateway SKU is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
-
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 > [!NOTE]
-> The autoscaling and zone-redundant application gateway SKU now supports [default health probe](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) to automatically monitor the health of all resources in its back-end pool and highlight those backend members that are considered unhealthy. The default health probe wil be automatically configured for all those backends for which you haven't set up any custom probe configuration. To learn more, see [health probes in application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
+> The v2 SKU supports [default health probes](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) to automatically monitor the health of all resources in its back-end pool and highlight those backend members that are considered unhealthy. The default health probe wil be automatically configured for all those backends for which you haven't set up any custom probe configuration. To learn more, see [Health probes in application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
 ## Feature comparison between v1 SKU and v2 SKU
 
@@ -53,11 +52,11 @@ The following table compares the features available with each SKU.
 
 ## Supported regions
 
-The autoscaling SKU is available in the following regions: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West.
+The v2 SKU is available in the following regions: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West.
 
 ## Pricing
 
-During preview, there's no charge. You are billed for resources other than application gateway, such as Key Vault, virtual machines, and so on.
+For pricing information, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ## Known issues and limitations
 
@@ -71,9 +70,10 @@ During preview, there's no charge. You are billed for resources other than appli
 |Billing|There is no billing currently.|
 |FIPS mode|These are currently not supported.|
 |ILB only mode|This is currently not supported. Public and ILB mode together is supported.|
-|Netwatcher integration|Not supported in the Public Preview.|
+|Netwatcher integration|Not supported.|
 
 ## Next steps
+
 - [Create an autoscaling, zone redundant application gateway with a reserved virtual IP address using Azure PowerShell](tutorial-autoscale-ps.md)
 - Learn more about [Application Gateway](overview.md).
 - Learn more about [Azure Firewall](../firewall/overview.md).

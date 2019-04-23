@@ -2,10 +2,10 @@
 title: Quickstart - Configure end-to-end SSL encryption with Azure Application Gateway - Azure portal | Microsoft Docs
 description: Learn how to use the Azure portal to create an Azure Application Gateway with end-to-end SSL encryption.
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/19/2019
+ms.date: 4/30/2019
 ms.author: absha
 ms.custom: mvc
 ---
@@ -14,7 +14,7 @@ ms.custom: mvc
 This article shows you how to use the Azure portal to configure end-to-end SSL encryption with an application gateway v1 SKU.  
 
 > [!NOTE]
-> Application Gateway v2 SKU requires trusted root certificates for enabling end-to-end configuration. Portal support for adding trusted root certificates is not available yet. Therefore, in case of V2 SKU see [configure end-to-end SSL using PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+> Application Gateway v2 SKU requires trusted root certificates for enabling end-to-end configuration. Portal support for adding trusted root certificates is not available yet. Therefore, in case of v2 SKU see [configure end-to-end SSL using PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

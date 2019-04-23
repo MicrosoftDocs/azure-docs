@@ -6,7 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 4/18/2019
+ms.date: 4/30/2019
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.
 ---
@@ -25,9 +25,11 @@ This type of routing is known as application layer (OSI layer 7) load balancing.
 
 The following features are included with Azure Application Gateway:
 
-## Autoscaling public preview
+## v2 SKU
 
-In addition to the features described in this article, Application Gateway also offers a public preview of a new SKU [Standard_V2], which offers autoscaling and other critical performance enhancements.
+In addition to the features described in this article, Application Gateway also is available in the v2 SKU [Standard_V2], which offers autoscaling and other critical performance enhancements.
+
+### v2 SKU features
 
 - **Autoscaling** -
 Application Gateway or WAF deployments under the autoscaling SKU can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. 
@@ -42,7 +44,7 @@ The application gateway VIP now supports the static VIP type exclusively. This e
 
 - **5X better SSL offload performance** as compared to the generally available SKU.
 
-For more information about the Application Gateway public preview features, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md).
+For more information about the Application Gateway v2 SKU features, see [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md).
 
 ## Secure Sockets Layer (SSL) termination
 
