@@ -17,10 +17,22 @@ ms.date: 04/10/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
+#Customer intent: As an application developer, I want to learn about acquiring and caching tokens so I can decide if this platform meets my application development needs and requirements.
+ms.collection: M365-identity-device-management
 ---
 
 # Acquiring and caching tokens using MSAL
-There are many ways to acquiring a token using Microsoft Authentication Library (MSAL). Some ways require user interactions through a web browser. Some don't require any user interactions. In general, the way to acquire a token depends on if the application is a public client application (desktop or mobile app) or a confidential client application (Web App, Web API, or daemon application like a Windows service).
+Access tokens enable clients to securely call web APIs protected by Azure. When your client requests an access token, Azure AD also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it's valid. This data allows your app to do intelligent caching of access tokens without having to parse the access token itself.  To learn more about tokens, read [access tokens](access-tokens.md).
+
+There are many ways to acquire a token using Microsoft Authentication Library (MSAL). Some ways require user interactions through a web browser. Some don't require any user interactions. In general, the way to acquire a token depends on if the application is a public client application (desktop or mobile app) or a confidential client application (Web App, Web API, or daemon application like a Windows service).
+
+
+## Scopes when acquiring tokens
+Scopes are the permissions that a web API exposes for client applications to request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs.
+
+Whereas ADAL acquires token for resources, MSAL acquires them for scopes. A number of MSAL acquire token methods require a parameter *scopes* parameter. This parameter is a simple list of strings that declare the desired permissions and resources that are requested. Well known scopes are the [Microsoft Graph permissions](/graph/permissions-reference).
+
+It's also possible in MSAL.NET to access v1.0 resources. For more information, read [Scopes for a v1.0 application](msal-net-scopes-for-v1-apps.md).
 
 ## Acquiring tokens from the cache
 MSAL maintains a token cache (or two caches in the case of confidential client applications).  MSAL caches a token after it has been acquired.  Application code should try to get a token silently (from the cache), first, before acquiring a token by other means. 
