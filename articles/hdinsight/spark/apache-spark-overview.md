@@ -1,7 +1,6 @@
 ---
 title: What is Apache Spark - Azure HDInsight
 description: This article provides an introduction to Spark in HDInsight and the different scenarios in which you can use Spark cluster in HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 

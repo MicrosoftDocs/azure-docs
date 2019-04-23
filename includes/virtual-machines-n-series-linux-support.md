@@ -29,7 +29,7 @@ Microsoft redistributes NVIDIA GRID driver installers for NV and NVv2-series VMs
 
 | Distribution | Driver |
 | --- | -- |
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>CentOS-based 7.3, 7.4, 7.5, 7.6 | NVIDIA GRID 7.1, driver branch R410|
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>CentOS-based 7.3, 7.4, 7.5, 7.6 | NVIDIA GRID 8.0, driver branch R418|
 
 > [!WARNING] 
 > Installation of third-party software on Red Hat products can affect the Red Hat support terms. See the [Red Hat Knowledgebase article](https://access.redhat.com/articles/1067).
