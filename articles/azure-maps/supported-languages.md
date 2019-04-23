@@ -81,19 +81,19 @@ The following table provides supported Views.
 | View         | Description                            |  Maps | Search | JS Map Control |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | United Arab Emirates (Arabic View)    |   ✓   |        |     ✓          |
-| Ar           | Argentina (Argentinian View)           |   ✓   |        |     ✓          |
+| Ar           | Argentina (Argentinian View)           |   ✓   |    ✓   |     ✓          |
 | BH           | Bahrain (Arabic View)                 |   ✓   |        |     ✓          |
-| IN           | India (Indian View)                    |   ✓   |        |     ✓          |
+| IN           | India (Indian View)                    |   ✓   |   ✓     |     ✓          |
 | IQ           | Iraq (Arabic View)                    |   ✓   |        |     ✓          |
 | JO           | Jordan (Arabic View)                  |   ✓   |        |     ✓          |
 | KW           | Kuwait (Arabic View)                  |   ✓   |        |     ✓          |
 | LB           | Lebanon (Arabic View)                 |   ✓   |        |     ✓          |
-| MA           | Morocco (Moroccan View)                |   ✓   |        |     ✓          |
+| MA           | Morocco (Moroccan View)                |   ✓   |   ✓     |     ✓          |
 | OM           | Oman (Arabic View)                    |   ✓   |        |     ✓          |
-| PK           | Pakistan (Pakistani View)              |   ✓   |        |     ✓          |
+| PK           | Pakistan (Pakistani View)              |   ✓   |    ✓    |     ✓          |
 | PS           | Palestinian Authority (Arabic View)    |   ✓   |        |     ✓          |
 | QA           | Qatar (Arabic View)                   |   ✓   |        |     ✓          |
 | SA           | Saudi Arabia (Arabic View)            |   ✓   |        |     ✓          |
 | SY           | Syria (Arabic View)                   |   ✓   |        |     ✓          |
 | YE           | Yemen (Arabic View)                   |   ✓   |        |     ✓          |
-| Unified      | Unified View (Others)                  |   ✓   |        |     ✓          |
+| Unified      | Unified View (Others)                  |   ✓   |   ✓     |     ✓          |
