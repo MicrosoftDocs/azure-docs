@@ -4,7 +4,7 @@ description: How to convert a Linux VM from unmanaged disks to managed disks by 
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
