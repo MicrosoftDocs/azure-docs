@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/21/2019
 ms.author: juliako
 
 ---
@@ -88,6 +88,10 @@ To understand the live streaming workflow in Media Services v3, you have to firs
 - [Live Event types feature comparison](live-event-types-comparison.md)
 - [States and billing](live-event-states-billing.md)
 - [Latency](live-event-latency.md)
+
+## Provide feedback
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 
