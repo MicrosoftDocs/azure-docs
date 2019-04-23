@@ -58,6 +58,8 @@
     href: machine-learning-interpretability-explainability.md
   - name: Accelerate with FPGAs
     href: concept-accelerate-with-fpgas.md
+  - name: Optimize with ONNX and ONNX Runtime
+    href: concept-onnx.md
   - name: Machine learning pipelines
     href: concept-ml-pipelines.md
   - name: Security
@@ -85,24 +87,40 @@
     - name: Configure dev environments
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
-    - name: Use Visual Studio Code extension
+    - name: Enable logging
+      displayName: troubleshoot, log, files, tracing
+      href: how-to-enable-logging.md  
+    - name: Use VS Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
       href: how-to-vscode-tools.md
   - name: Work with data
-    displayName: data prep, ETL, ELT, data preparation
     items:
-    - name: Explore and prep data
-      displayName: data prep, ETL, ELT, data preparation
+    - name: Add & register datasets
+      displayName: data, dataset
+      href: how-to-create-register-datasets.md
+    - name: 'Prepare with azureml.dataprep'
       items:
       - name: Load data
+        displayName: data, etl, data prep, dataprep
         href: how-to-load-data.md
       - name: Transform data
+        displayName: data, etl, dataprep, data prep
         href: how-to-transform-data.md
       - name: Write data
+        displayName: data, etl, data prep, dataprep
         href: how-to-write-data.md
-  - name: Get data in datastore
-    displayName: blob get fileshare access storage
-    href: how-to-access-data.md
+    - name: 'Prepare with datasets (preview)'
+      displayName: data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep
+      href: how-to-explore-prepare-data.md
+    - name: Version & manage data definitions
+      displayName: data, etl, dataset, data preparation, dataprep, version
+      href: how-to-manage-dataset-definitions.md
+    - name: Snapshot your data
+      displayName: snapshots, profile, summary statistics, data copy
+      href: how-to-create-dataset-snapshots.md
+    - name: Get data from a datastore
+      displayName: blob get fileshare access storage
+      href: how-to-access-data.md
   - name: Train models
     items:
     - name: Set up training environments
@@ -117,27 +135,29 @@
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
-  - name: Track and monitor experiments
+  - name: Track & monitor experiments
     items:
     - name: Start, monitor or cancel runs
       displayName: cancel, fail, status, child run
       href: how-to-manage-runs.md
     - name: Log metrics for training runs
       href: how-to-track-experiments.md
+    - name: Track metrics with MLflow
+      href: how-to-use-mlflow.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
     - name: Use automated ML (Python)
       displayName: SDK automl
       href: how-to-configure-auto-train.md
+    - name: Automate training in portal
+      href: how-to-create-portal-experiments.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
     - name: Auto-train a forecast model
       displayName: time series
       href: how-to-auto-train-forecast.md
-  - name: ONNX models
-    href: how-to-build-deploy-onnx.md
   - name: Deploy models
     items:
     - name: Where and how to deploy
@@ -162,27 +182,27 @@
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights
       href: how-to-enable-app-insights.md
-  - name: Create your first pipeline
-    href: how-to-create-your-first-pipeline.md
-  - name: Enable logging
-    displayName: logging
-    href: how-to-enable-logging.md
+  - name: Use the machine learning CLI
+    displayName: cli extension command line command-line az ci/cd automate automated
+    href: reference-azure-machine-learning-cli.md
+  - name: Create reusable workflows
+    displayName: pipelines
+    items:
+    - name: Create an ML pipeline
+      href: how-to-create-your-first-pipeline.md  
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: Use the Machine Learning CLI
-    displayName: cli extension command line command-line az ci/cd automate automated
-    href: reference-azure-machine-learning-cli.md
   - name: Export and delete data
     displayName: GDPR
     href: how-to-export-delete-data.md
 - name: Reference
   items:
   - name: Machine learning SDK
-    displayName: api core package python
+    displayName: api core package python data prep
     href: https://aka.ms/aml-sdk
   - name: Data prep SDK
-    displayName: api preparation package python
+    displayName: api core package python data prep
     href: https://aka.ms/data-prep-sdk
   - name: Monitoring SDK
     displayName: api package python monitor

@@ -33271,6 +33271,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-build-deploy-onnx.md",
+      "redirect_url": "/azure/machine-learning/service/concept-onnx",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md",
       "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
       "redirect_document_id": true
