@@ -116,10 +116,6 @@ Use Traffic Manager to distribute traffic across multiple application gateways i
 
 Yes, the Application Gateway v2 SKU supports autoscaling. For more information, see [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md).
 
-### Does Application Gateway support Key Vault?
-
-Yes, the Application Gateway v2 SKU supports Key Vault. For more information, see [SSL termination with Key Vault certificates](key-vault-certs.md)
-
 ### Does manual scale up or scale down cause downtime?
 
 No. Instances are distributed across upgrade domains and fault domains.
@@ -266,7 +262,7 @@ Application Gateway supports up to 10 authentication certificates. The default i
 
 ### Does Application Gateway natively integrate with Azure Key Vault?
 
-No.
+Yes, the Application Gateway v2 SKU supports Key Vault. For more information, see [SSL termination with Key Vault certificates](key-vault-certs.md).
 
 ### How do I configure HTTPS listeners for .com and .net sites? 
 
