@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ---
 
@@ -432,6 +432,11 @@ Videos that are found to contain adult or racy content might be available for pr
 }
 ] 
 ```
+
+## Provide feedback
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
+
 ## Next steps
 
 [Tutorial: Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md)
