@@ -15,16 +15,38 @@ ms.custom: seodec18
 
 # Speech Synthesis Markup Language (SSML)
 
-The Speech Synthesis Markup Language (SSML) is an XML-based markup language that provides a way to control the pronunciation and *prosody* of text-to-speech. Prosody refers to the rhythm and pitch of speech—its music, if you will. You can specify words phonetically, provide hints for interpreting numbers, insert pauses, control pitch, volume, and rate, and more. For more information, see [Speech Synthesis Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/).
+The Speech Synthesis Markup Language (SSML) is an XML-based markup language that provides a way to control the pronunciation and *prosody* of text-to-speech. Prosody refers to the rhythm and pitch of speech—its music, if you will. You can specify words phonetically, provide hints for interpreting numbers, insert pauses, control pitch, volume, and rate, and more. For more information, see [Speech Synthesis Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). 
 
 For a complete list of supported languages, locales, and voices (neural and standard), see [language support](language-support.md#text-to-speech).
 
 The following sections provide samples for common speech synthesis tasks.
 
+## Change speaking styles (neural)
+You can use SSML to change the style of speaking for neural voices. 
+
+By default, the text-to-speech service synthesizes text in a neutral style. The neural voices extends SSML with an <mstts:express-as> element that converts text to synthesized speech in different speaking styles. Currently, the style tags are only supported with the US English female voice `en-US-JessaNeural` and the Chinese female voice `zh-CN-XiaoxiaoNeural`.
+
+Chaging style can be applied to below types defined for different voices at the sentence level. Using the style types that are not supported will return synthesized speech in the default neutral style.
+
+| Voice | Style | Description | 
+|-----------|-----------------|----------|
+| `en-US-JessaNeural` | type=`cheerful` | expresses an emotion that is positive and happy |
+| | type=`empathy` | expresses a sense of caring and understanding |
+| `zh-CN-XiaoxiaoNeural` | type=`newscast` | broadcasts messages formally |
+| | type=`sentiment ` | conveys a touching message or a story |
+
+```xml
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+<voice name='en-US-JessaNeural'>
+<mstts:express-as type="cheerful"> 
+    That'd be just amazing! 
+</mstts:express-as></voice></speak>
+```
+
 ## Add a break
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
+<voice  name='en-US-Jessa24kRUS'>
     Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
 </voice> </speak>
 ```
@@ -35,7 +57,7 @@ Speaking rate can be applied to standard voices at the word or sentence-level. W
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
+<voice  name='en-US-Guy24kRUS'>
 <prosody rate="+30.00%">
     Welcome to Microsoft Cognitive Services Text-to-Speech API.
 </prosody></voice> </speak>
@@ -44,7 +66,7 @@ Speaking rate can be applied to standard voices at the word or sentence-level. W
 ## Pronunciation
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
+<voice  name='en-US-Jessa24kRUS'>
     <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
 </voice> </speak>
 ```
@@ -55,7 +77,7 @@ Volume changes can be applied to standard voices at the word or sentence-level. 
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
+<voice  name='en-US-Jessa24kRUS'>
 <prosody volume="+20.00%">
     Welcome to Microsoft Cognitive Services Text-to-Speech API.
 </prosody></voice> </speak>
@@ -67,7 +89,7 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-    <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
+    <voice  name='en-US-Guy24kRUS'>
     Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
 </voice> </speak>
 ```
@@ -79,7 +101,7 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
+<voice  name='en-US-Jessa24kRUS'>
 <prosody contour="(80%,+20%) (90%,+30%)" >
     Good morning.
 </prosody></voice> </speak>
@@ -88,10 +110,10 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 ## Use multiple voices
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
+<voice  name='en-US-Jessa24kRUS'>
     Good morning!
 </voice>
-<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
+<voice  name='en-US-Guy24kRUS'>
     Good morning to you too Jessa!
 </voice> </speak>
 ```
