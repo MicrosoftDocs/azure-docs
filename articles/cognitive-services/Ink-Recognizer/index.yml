@@ -6,7 +6,7 @@ metadata:
   description: Learn how to use Translator Text to translate text in multiple languages.
   services: cognitive-services
   author: erhopf
-  manager: dongli
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -60,11 +60,11 @@ sections:
 - title: Samples
   items:
   - type: paragraph
-    text: "Use the examples to start integrating the Ink Recognizer API into your applications:"
+    text: "Use these example programs to start integrating the Ink Recognizer API into your applications:"
   - type: paragraph
     text: <a href="https://github.com/Azure-Samples/cognitive-services-csharp-ink-recognition">C# and Universal Windows Platform(UWP)</a>
   - type: paragraph
-    text: <a href="https://github.com/Azure-Samples/cognitive-services-javascript-ink-recognition">Javascript web-browser app</a>
+    text: <a href="https://github.com/Azure-Samples/cognitive-services-csharp-wpf-ink-recognition">C# and Windows Presentation Foundation(WPF)</a>
   - type: paragraph
     text: <a href="https://github.com/Azure-Samples/cognitive-services-javascript-ink-recognition">Javascript web-browser app</a>
   - type: paragraph
@@ -79,7 +79,7 @@ sections:
     className: cardsD
     items:
     - title: REST API
-      html: <p><a href="https://aka.ms/luis-endpoint-apis"> Ink Recognizer REST API </a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/documentation-preview/inkrecognizer/recognizeink"> REST API reference </a></p><br><p><a href="https://dev.cognitive.microsoft.com/docs/services/inkrecognizer">REST API testing console</a</p>
     - title: PowerShell 
       html: <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI 

@@ -28,7 +28,9 @@
     href: overview.md
 - name: Reference
   items:
-  - name: Ink Recognizer REST API
+  - name: REST API reference
+    href: https://docs.microsoft.com/rest/api/documentation-preview/inkrecognizer/recognizeink
+  - name: REST API testing console
     href: https://dev.cognitive.microsoft.com/docs/services/inkrecognizer
   - name: PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
