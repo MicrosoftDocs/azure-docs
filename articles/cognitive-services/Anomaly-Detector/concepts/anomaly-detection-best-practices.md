@@ -21,20 +21,18 @@ The Anomaly Detector API is a stateless anomaly detection service. The accuracy 
 
 Use this article to learn about best practices for using the API getting the best results for your data. 
 
-## When to use batch (entire) anomaly detection or latest (last) point detection
+## When to use batch (entire) or latest (last) point anomaly detection
 
 The Anomaly Detector API's batch detection endpoint lets you detect anomalies through your entire times series data. In this detection mode, a single statistical model is created and applied to each point in the data set. If your time series has the below characteristics, we recommend using batch detection to preview your data in one API call.
 
-1.	A seasonal time series, with occasional anomalies.
-2.	A flat trend time series, with occasional spikes/dips. 
+* A seasonal time series, with occasional anomalies.
+* A flat trend time series, with occasional spikes/dips. 
 
 We don't recommend using batch anomaly detection for real-time data monitoring, or using it on time series data that doesn't have above characteristics. 
 
-1. Batch detection creates and applies only one model, the detection for each point is done in the context of whole series.
+* Batch detection creates and applies only one model, the detection for each point is done in the context of whole series. If the time series data trends up and down without seasonality, some points of change (dips and spikes in the data) may be missed by the model. Similarly, some points of change that are less significant than ones later in the data set may not be counted as significant enough to be incorporated into the model.
 
-    If the time series data trends up and down without seasonality, some points of change (dips and spikes in the data) may be missed by the model. Similarly, some points of change that are less significant than ones later in the data set may not be counted as significant enough to be incorporated into the model.
-
-2. Batch detection is slower than detecting the anomaly status of the latest point when doing real-time data monitoring, because of the number of points being analyzed. 
+* Batch detection is slower than detecting the anomaly status of the latest point when doing real-time data monitoring, because of the number of points being analyzed.
 
 For real-time data monitoring, we recommend detecting the anomaly status of your latest data point only. By continuously applying latest point detection, streaming data monitoring can be done more efficiently and accurately.
 
@@ -88,7 +86,7 @@ For best results, provide 4 `period`'s worth of data point, plus an additional o
 
 If your streaming data is sampled at a short interval (for example seconds or minutes), sending the recommended number of data points may exceed the Anomaly Detector API's maximum number allowed (8640 data points). If your data shows a stable seasonal pattern, consider sending a sample of your time series data at a larger time interval, like hours. Sampling your data in this way can also noticeably improve the API response time. 
 
-## Next Steps
+## Next steps
 
 * [What is the Anomaly Detector API?](../overview.md)
 * [Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API](../quickstarts/detect-data-anomalies-csharp.md)
