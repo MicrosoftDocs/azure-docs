@@ -27,8 +27,8 @@ AKS can be configured to use [Azure Active Directory (AD)](/azure/active-directo
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
-- [!INCLUDE [open-source-devops-prereqs-create-sp.md](../../includes/open-source-devops-prereqs-create-sp.md)]
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
 - [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create a managed AKS cluster
@@ -37,7 +37,7 @@ The sample playbook creates a resource group and an AKS cluster within the resou
 
 Save the following playbook as `azure_create_aks.yml`:
 
-```yaml
+```yml
 - name: Create Azure Kubernetes Service
   hosts: localhost
   connection: local
@@ -110,7 +110,7 @@ The sample playbook in the previous section defines two nodes. You adjust the nu
 
 Save the following playbook as `azure_configure_aks.yml`:
 
-```yaml
+```yml
 - name: Scale AKS cluster
   hosts: localhost
   connection: local
@@ -173,7 +173,7 @@ The sample playbook deletes an AKS cluster.
 Save the following playbook as `azure_delete_aks.yml`:
 
 
-```yaml
+```yml
 - name: Delete a managed Azure Container Services (AKS) cluster
   hosts: localhost
   connection: local

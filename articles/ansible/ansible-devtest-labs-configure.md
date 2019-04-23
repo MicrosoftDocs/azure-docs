@@ -34,15 +34,15 @@ ms.date: 04/22/2019
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
-- [!INCLUDE [open-source-devops-prereqs-create-sp.md](../../includes/open-source-devops-prereqs-create-sp.md)]
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
 - [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create resource group
 
 The sample playbook snippet creates an Azure resource group. A resource group is a logical container in which Azure resources are deployed and managed.
 
-```yaml
+```yml
   - name: Create a resource group
     azure_rm_resourcegroup:
       name: "{{ resource_group }}"
@@ -53,7 +53,7 @@ The sample playbook snippet creates an Azure resource group. A resource group is
 
 The next task creates the sample lab.
 
-```yaml
+```yml
 - name: Create the lab
   azure_rm_devtestlab:
     resource_group: "{{ resource_group }}"
@@ -77,7 +77,7 @@ You can set up lab policy settings. The following values can be set:
 - `user_owned_lab_vm_count_in_subnet` is the maximum number of user’s VMs in a subnet
 - `lab_target_cost` is the target cost of the lab
 
-```yaml
+```yml
 - name: Set the lab policies
   azure_rm_devtestlabpolicy:
     resource_group: "{{ resource_group }}"
@@ -94,7 +94,7 @@ The sample task in this section configures the lab schedule.
 
 In the following code snippet, the `lab_vms_startup` value is used to specify the VM startup time. Likewise, setting the `lab_vms_shutdown` value establishes the lab VM shutdown time.
 
-```yaml
+```yml
 - name: Set the lab schedule
   azure_rm_devtestlabschedule:
     resource_group: "{{ resource_group }}"
@@ -109,7 +109,7 @@ In the following code snippet, the `lab_vms_startup` value is used to specify th
 
 This following task creates the default lab virtual network.
 
-```yaml
+```yml
 - name: Create the lab virtual network
   azure_rm_devtestlabvirtualnetwork:
     resource_group: "{{ resource_group }}"
@@ -124,7 +124,7 @@ This following task creates the default lab virtual network.
 
 An artifacts source is a properly structured GitHub repository that contains artifact definition and Azure Resource Manager templates. Every lab comes with predefined public artifacts. The follow tasks shows you how to create an artifact source for a lab.
 
-```yaml
+```yml
 - name: Define the lab artifacts source
   azure_rm_devtestlabartifactsource:
     resource_group: "{{ resource_group }}"
@@ -140,7 +140,7 @@ An artifacts source is a properly structured GitHub repository that contains art
 
 Create a VM within the lab.
 
-```yaml
+```yml
 - name: Create a VM within the lab
   azure_rm_devtestlabvirtualmachine:
     resource_group: "{{ resource_group }}"
@@ -172,7 +172,7 @@ Create a VM within the lab.
 
 To list all default and custom artifacts sources in the lab, use the following task:
 
-```yaml
+```yml
 - name: List the artifact sources
   azure_rm_devtestlabartifactsource_facts:
     resource_group: "{{ resource_group }}"
@@ -184,7 +184,7 @@ To list all default and custom artifacts sources in the lab, use the following t
 
 The following task lists all the artifacts:
 
-```yaml
+```yml
 - name: List the artifact facts
   azure_rm_devtestlabartifact_facts:
     resource_group: "{{ resource_group }}"
@@ -199,7 +199,7 @@ The following task lists all the artifacts:
 
 To list all the Azure Resource Manager templates in `public environment repository`, the predefined repository with templates:
 
-```yaml
+```yml
 - name: List the Azure Resource Manager template facts
   azure_rm_devtestlabartifactsource_facts:
     resource_group: "{{ resource_group }}"
@@ -211,7 +211,7 @@ To list all the Azure Resource Manager templates in `public environment reposito
 
 And the following task retrieves details of a specific Azure Resource Manager template from the repository:
 
-```yaml
+```yml
 - name: Get Azure Resource Manager template facts
   azure_rm_devtestlabarmtemplate_facts:
     resource_group: "{{ resource_group }}"
@@ -227,7 +227,7 @@ And the following task retrieves details of a specific Azure Resource Manager te
 
 The following task creates the lab environment based on one of the templates from public environment repository.
 
-```yaml
+```yml
 - name: Create the lab environment
       azure_rm_devtestlabenvironment:
         resource_group: "{{ resource_group }}"
@@ -243,7 +243,7 @@ The following task creates the lab environment based on one of the templates fro
 
 The following task creates an image from a VM. The image allows you to create identical VMs.
 
-```yaml
+```yml
 - name: Create the lab image
   azure_rm_devtestlabcustomimage:
     resource_group: "{{ resource_group }}"
@@ -257,7 +257,7 @@ The following task creates an image from a VM. The image allows you to create id
 
 To delete the lab, use the following task:
 
-```yaml
+```yml
 - name: Delete the lab
   azure_rm_devtestlab:
     resource_group: "{{ resource_group }}"

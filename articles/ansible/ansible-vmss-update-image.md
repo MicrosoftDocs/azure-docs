@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Update custom image of Azure virtual machine scale sets using Ansible | Microsoft Docs
+title: Tutorial - Update the custom image of Azure virtual machine scale sets using Ansible | Microsoft Docs
 description: Learn how to use Ansible to update virtual machine scale sets in Azure with custom image
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
@@ -10,7 +10,7 @@ ms.author: tarcher
 ms.date: 04/22/2019
 ---
 
-# Tutorial: Update custom image of Azure virtual machine scale sets using Ansible
+# Tutorial: Update the custom image of Azure virtual machine scale sets using Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-28-note.md)]
 
@@ -29,7 +29,7 @@ After a VM is deployed, you configure the VM with the software your app needs. I
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 - [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Configure two VMs
@@ -237,7 +237,7 @@ In this section, a playbook is used to configure the following Azure resources:
 * Load balancer
 * Scale set that references `image_vmforimageA`
 
-"There are two ways to get the sample playbook:
+There are two ways to get the sample playbook:
 
 * [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/03-create-vmss.yml) and save it to `create-vmss.yml`.
 * Create a new file named `create-vmss.yml` and copy into it the following contents:"

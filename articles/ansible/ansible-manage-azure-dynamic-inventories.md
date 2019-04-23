@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure dynamics inventories of your Azure resources using Ansible | Microsoft Docs
+title: Tutorial - Configure dynamic inventories of your Azure resources using Ansible | Microsoft Docs
 description: Learn how to use Ansible to manage your Azure dynamic inventories
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 ms.topic: tutorial
@@ -10,7 +10,7 @@ ms.author: tarcher
 ms.date: 04/22/2019
 ---
 
-# Tutorial: Configure dynamics inventories of your Azure resources using Ansible
+# Tutorial: Configure dynamic inventories of your Azure resources using Ansible
 
 Ansible can be used to pull inventory information from various sources (including cloud sources such as Azure) into a *dynamic inventory*. 
 
@@ -25,8 +25,8 @@ Ansible can be used to pull inventory information from various sources (includin
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
-- [!INCLUDE [open-source-devops-prereqs-create-sp.md](../../includes/open-source-devops-prereqs-create-sp.md)]
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
 - [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create the test VMs
@@ -118,7 +118,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](
 
 1. The inventory plugin requires a configuration file. The configuration file must end in `azure_rm` and have an extension of either `yml` or `yaml`. For this tutorial example, save the following playbook as `myazure_rm.yml`:
 
-    ```yaml
+    ```yml
     plugin: azure_rm
     include_vm_resource_groups:
     - ansible-inventory-test-rg
@@ -269,7 +269,7 @@ This section illustrates one technique to test that Nginx is installed on your v
     tom@ansible-inventory-test-vm1:~$
     ```
 
-1. Click the `&lt;Ctrl>D` keyboard combination to disconnect the SSH session.
+1. Click the `<Ctrl>D` keyboard combination to disconnect the SSH session.
 
 1. Doing the preceding steps for the `ansible-inventory-test-vm2` virtual machine yields an informational message indicating where you can get Nginx (which implies that you don't have it installed at this point):
 

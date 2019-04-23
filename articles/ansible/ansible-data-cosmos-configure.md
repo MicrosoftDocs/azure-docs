@@ -26,15 +26,15 @@ ms.date: 04/22/2019
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
-- [!INCLUDE [open-source-devops-prereqs-create-sp.md](../../includes/open-source-devops-prereqs-create-sp.md)]
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
 - [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create a random postfix
 
 The sample playbook snippet creates a random postfix. The postfix is used as part of the Azure Cosmos DB account name.
 
-```yaml
+```yml
   - hosts: localhost
     tasks:
       - name: Prepare random postfix
@@ -47,7 +47,7 @@ The sample playbook snippet creates a random postfix. The postfix is used as par
 
 The sample playbook snippet creates an Azure resource group. A resource group is a logical container in which Azure resources are deployed and managed.
 
-```yaml
+```yml
   - name: Create a resource group
     azure_rm_resourcegroup:
       name: "{{ resource_group }}"
@@ -58,7 +58,7 @@ The sample playbook snippet creates an Azure resource group. A resource group is
 
 The following code creates a virtual network and subnet for the Azure Cosmos DB account:
 
-```yaml
+```yml
   - name: Create virtual network
     azure_rm_virtualnetwork:
       resource_group: "{{ resource_group }}"
@@ -82,7 +82,7 @@ The following code creates a virtual network and subnet for the Azure Cosmos DB 
 
 The following code creates the Cosmos DB account:
 
-```yaml
+```yml
   - name: Create instance of Cosmos DB Account
     azure_rm_cosmosdbaccount:
       resource_group: "{{ resource_group }}"
@@ -111,7 +111,7 @@ The account creation takes a few minutes to complete.
 
 The following code fetches the keys to use in your app.
 
-```yaml
+```yml
   - name: Get Cosmos DB Account facts with keys
     azure_rm_cosmosdbaccount_facts:
       resource_group: "{{ resource_group }}"
@@ -128,7 +128,7 @@ The following code fetches the keys to use in your app.
 
 Finally, the last snippet shows how to delete an Azure Cosmos DB account.
 
-```yaml
+```yml
   - name: Delete instance of Cosmos DB Account
     azure_rm_cosmosdbaccount:
       resource_group: "{{ resource_group }}"

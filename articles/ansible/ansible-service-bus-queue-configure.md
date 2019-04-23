@@ -28,7 +28,7 @@ ms.date: 04/22/2019
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 - [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create the Service Bus queue
@@ -81,7 +81,7 @@ The sample playbook code creates two SAS policies for a Service Bus queue with d
 
 Save the following playbook as `servicebus_queue_policy.yml`:
 
-```yaml
+```yml
 ---
 - hosts: localhost
   vars:
@@ -116,7 +116,7 @@ The sample playbook code queries the namespace information.
 
 Save the following playbook as `servicebus_namespace_info.yml`:
 
-```yaml
+```yml
 ---
 - hosts: localhost
   vars:
@@ -149,7 +149,7 @@ The sample playbook code queries queue information.
 
 Save the following playbook as `servicebus_queue_info.yml`:
 
-```yaml
+```yml
 ---
 - hosts: localhost
   vars:
@@ -184,7 +184,7 @@ The sample playbook code deletes a queue SAS policy.
 
 Save the following playbook as `servicebus_queue_policy_delete.yml`:
 
-```yaml
+```yml
 ---
 - hosts: localhost
   vars:

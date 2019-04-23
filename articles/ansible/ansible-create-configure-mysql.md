@@ -10,7 +10,7 @@ ms.author: tarcher
 ms.date: 04/22/2019
 ---
 
-# Tutorial: Configure databases in Azure Database for MySQL using Ansible | Microsoft Docs
+# Tutorial: Configure databases in Azure Database for MySQL using Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -29,7 +29,7 @@ ms.date: 04/22/2019
 
 ## Prerequisites
 
-* [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
+* [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 * [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create a resource group

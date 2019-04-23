@@ -27,14 +27,14 @@ ms.date: 04/22/2019
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 - [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create a random postfix
 
-The first task in the [sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) creates a random postfix to use as part of the Azure HDInsight cluster name.
+The playbook code in this section creates a random postfix to use as part of the Azure HDInsight cluster name.
 
-```yaml
+```yml
 - hosts: localhost
   vars:
     resource_group: "{{ resource_group_name }}"  
@@ -47,9 +47,12 @@ The first task in the [sample playbook](https://github.com/Azure-Samples/ansible
 
 ## Create resource group
 
-The next task creates a resource group; a logical container in which Azure resources are deployed and managed.
+An Azure resource group is a logical container in which Azure resources are deployed and managed.
 
-```yaml
+The playbook code in this section creates a resource group.
+
+
+```yml
   tasks:
     - name: Create a resource group
       azure_rm_resourcegroup:
@@ -59,9 +62,11 @@ The next task creates a resource group; a logical container in which Azure resou
 
 ## Create a storage account and retrieve key
 
-A storage account is used as the default storage for the HDInsight cluster. You also need to retrieve the key used to access the storage account.
+An Azure storage account is used as the default storage for the HDInsight cluster. 
 
-```yaml
+The playbook code in this section retrieves the key used to access the storage account.
+
+```yml
 - name: Create storage account
   azure_rm_storageaccount:
       resource_group: "{{ resource_group }}"
@@ -87,12 +92,9 @@ A storage account is used as the default storage for the HDInsight cluster. You 
 
 ## Create an HDInsight Spark cluster
 
-The next sample playbook section includes codes to create the Azure HDInsight cluster.
+The playbook code in this section creates the Azure HDInsight cluster.
 
-> [!Tips]
-> HDInsight clusters are available in various types, each for a single workload or technology. Currently, we support Hadoop, Spark, Hbase and Storm. Below sample creates a Spark cluster.
-
-```yaml
+```yml
 - name: Create instance of Cluster
   azure_rm_hdinsightcluster:
     resource_group: "{{ resource_group }}"
@@ -131,13 +133,15 @@ The next sample playbook section includes codes to create the Azure HDInsight cl
           password: MuABCPassword!!@123
 ```
 
-The instance creation takes a few minutes to complete.
+The instance creation can take several minutes to complete.
 
 ## Resize the cluster
 
-After cluster creation, the only setting you can change is the number of worker nodes. The following task increments the number of worker nodes by updating `target_instance_count` within `workernode`.
+After cluster creation, the only setting you can change is the number of worker nodes. 
 
-```yaml
+The playbook code in this section increments the number of worker nodes by updating `target_instance_count` within `workernode`.
+
+```yml
 - name: Resize cluster
   azure_rm_hdinsightcluster:
     resource_group: "{{ resource_group }}"
@@ -181,9 +185,11 @@ After cluster creation, the only setting you can change is the number of worker 
 
 ## Delete the cluster instance
 
-Billing for HDInsight clusters is prorated per minute, whether you use them or not. You can run the following section to delete your cluster after you finish using it.
+Billing for HDInsight clusters is prorated per minute. 
 
-```yaml
+The playbook code in this section deletes the cluster.
+
+```yml
 - name: Delete instance of Cluster
   azure_rm_hdinsightcluster:
     resource_group: "{{ resource_group }}"

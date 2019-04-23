@@ -28,14 +28,14 @@ ms.date: 04/22/2019
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 - [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create a cache
 
 Create an Azure Cache for Redis within a new resource group.
 
-```yaml
+```yml
   - name: Create resource group
     azure_rm_resourcegroup:
       name: "{{ resource_group }}"
@@ -52,7 +52,7 @@ Create an Azure Cache for Redis within a new resource group.
 
 It can take several minutes to provision a cache. The following code tells Ansible wait for the operation to complete:
 
-```yaml
+```yml
   - name: Wait for Redis provisioning to complete
     azure_rm_rediscache_facts:
       resource_group: "{{ resource_group }}"
@@ -85,7 +85,7 @@ Azure Cache for Redis has different cache offerings depending on your app's need
 
 The following sample code scales the cache to **Standard**:
 
-```yaml
+```yml
 - name: Scale up Azure Cache for Redis
     azure_rm_rediscache:
       resource_group: "{{ resource_group }}"
@@ -97,7 +97,7 @@ The following sample code scales the cache to **Standard**:
 
 It can take several minutes to scale a cache. The following code tells Ansible wait for the operation to complete:
 
-```yaml
+```yml
   - name: Wait for Redis scaling up to complete
     azure_rm_rediscache_facts:
       resource_group: "{{ resource_group }}"
@@ -118,7 +118,7 @@ Similar to the task to provision Azure Cache for Redis, output like the followin
 
 The following code reboots the cache created in previous sections.
 
-```yaml
+```yml
   - name: Reboot Azure Cache for Redis
     azure_rm_rediscache:
       resource_group: "{{ resource_group }}"
@@ -131,7 +131,7 @@ The following code reboots the cache created in previous sections.
 
 The following code adds a firewall rule to the cache:
 
-```yaml
+```yml
   - name: Add Firewall rule
     azure_rm_rediscachefirewallrule:
       resource_group: "{{ resource_group }}"
@@ -145,7 +145,7 @@ The following code adds a firewall rule to the cache:
 
 The following code deletes the cache:
 
-```yaml
+```yml
   - name: Delete Azure Cache for Redis
     azure_rm_rediscache:
       resource_group: "{{ resource_group }}"

@@ -26,7 +26,7 @@ ms.date: 04/22/2019
 
 ## Prerequisites
 
-* [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
+* [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 * [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create a resource group
@@ -281,7 +281,7 @@ It might take several minutes for the application gateway to be created.
 
 1. If you see the following page, the application gateway is working as expected.
 
-    ![Successful test of a working application gateway](media/ansible-application-gateway-configure/applicationgateway.jpg)
+    ![Successful test of a working application gateway](media/ansible-application-gateway-configure/application-gateway.png)
 
 ## Clean up resources
 

@@ -27,8 +27,8 @@ AKS can be configured to use [Azure Active Directory (AD)](/azure/active-directo
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
-- [!INCLUDE [open-source-devops-prereqs-create-sp.md](../../includes/open-source-devops-prereqs-create-sp.md)]
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
 - [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 - **Install the RedHat OpenShift library** - `pip install openshift`
 
@@ -132,7 +132,7 @@ To create an RBAC binding, you first need to get the Azure AD Object ID.
 
 1. In the **Identity** section, copy the **Object ID**.
 
-    ![Copy the Azure AD Object ID.](./media/ansible-aks-configure-rbac/ansible-aad-objectid.png)
+    ![Copy the Azure AD Object ID.](./media/ansible-aks-configure-rbac/ansible-aad-object-id.png)
 
 ## Create RBAC binding
 

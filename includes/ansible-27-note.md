@@ -7,4 +7,4 @@
 ---
 
 > [!Important]
-> Ansible 2.7 (or greater) is required to run the sample playbooks in this article.
+> Ansible 2.7 (or later) is required to run the sample playbooks in this article.

@@ -28,7 +28,7 @@ Traffic is routed between VMs in the same virtual network through private IP add
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 - [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create two resource groups
@@ -39,7 +39,7 @@ The sample playbook code in this section is used to:
 
 - Create two resource groups 
 
-```yaml
+```yml
   - name: Create a resource group
     azure_rm_resourcegroup:
       name: "{{ resource_group }}"
@@ -129,7 +129,7 @@ The sample playbook code in this section is used to:
 
 - Delete the peering between the two previously created virtual networks
 
-```yaml
+```yml
   - name: Delete vnet peering
     azure_rm_virtualnetworkpeering:
       resource_group: "{{ resource_group }}"

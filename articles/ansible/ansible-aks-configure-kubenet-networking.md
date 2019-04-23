@@ -19,7 +19,7 @@ ms.date: 04/22/2019
 Using AKS,  you can deploy a cluster using the following network models:
 
 - [Kubenet networking](/azure/aks/configure-kubenet) - Network resources are typically created and configured as the AKS cluster is deployed.
-- [Azure Container Networking Interface (CNI) networking](/azure/aks/configure-azure-cni) - AKS cluster is connected to existing virtual network (VNET) resources and configurations.
+- [Azure Container Networking Interface (CNI) networking](/azure/aks/configure-azure-cni) - AKS cluster is connected to existing virtual network resources and configurations.
 
 For more information about networking to your applications in AKS, see [Network concepts for applications in AKS](/azure/aks/concepts-network).
 
@@ -32,11 +32,11 @@ For more information about networking to your applications in AKS, see [Network 
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
-- [!INCLUDE [open-source-devops-prereqs-create-sp.md](../../includes/open-source-devops-prereqs-create-sp.md)]
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
 - [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## Create a VNET and subnet
+## Create a virtual network and subnet
 
 The playbook code in this section creates the following Azure resources:
 
@@ -62,7 +62,7 @@ Save the following playbook as `vnet.yml`:
   register: subnet
 ```
 
-## Create an AKS cluster in the VNET
+## Create an AKS cluster in the virtual network
 
 The playbook code in this section creates an AKS cluster within a virtual network. 
 
