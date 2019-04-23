@@ -7,7 +7,7 @@ ms.author: mhopkins
 ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
-ms.date: 04/03/2019
+ms.date: 04/24/2019
 # Customer intent: As a developer, I want to use queues in my app so that my service will scale automatically during high demand times without losing data.
 ---
 
@@ -59,9 +59,9 @@ Create a .NET Core application named **QueueApp**. For simplicity, this app will
    dotnet build
    ```
 
-You should see results as follows:
+   You should see results similar to the following:
 
-   ```console
+   ```output
    C:\Tutorials>dotnet new console -n QueueApp
    The template "Console Application" was created successfully.
 
@@ -97,7 +97,7 @@ Since the app uses cloud resources, the code runs asynchronously. However, C#'s 
 
 2. Open the **QueueApp.csproj** file in the editor.
 
-3. Add `<LangVersion>7.1</LangVersion>` into the first **PropertyGroup** in the build file.
+3. Add `<LangVersion>7.1</LangVersion>` into the first **PropertyGroup** in the build file. Make sure that you only add the **LangVersion** tag as your **TargetFramework** may be different depending on which version of .NET you have installed.
 
    ```xml
    <Project Sdk="Microsoft.NET.Sdk">
@@ -148,7 +148,7 @@ The client library uses a connection string to establish your connection. Your c
 
 2. Navigate to your storage account in the Azure portal.
 
-3. Select **Access keys**
+3. Select **Access keys**.
 
 4. Click the **Copy** button to the right of the **Connection string** field.
 
@@ -441,7 +441,7 @@ Here is the complete code listing for this project.
 
 You should see this output:
 
-   ```console
+   ```output
    C:\Tutorials\QueueApp>dotnet run First queue message
    The queue was created.
    Sent: First queue message
@@ -456,7 +456,7 @@ You should see this output:
 
 4. Continue to run the app until all the messages are removed. If you run it one more time, you'll get a message that the queue is empty and a prompt to delete the queue.
 
-   ```console
+   ```output
    C:\Tutorials\QueueApp>dotnet run First queue message
    The queue was created.
    Sent: First queue message
