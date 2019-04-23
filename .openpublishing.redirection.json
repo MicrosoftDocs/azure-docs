@@ -38515,6 +38515,11 @@
       "source_path": "articles/app-service/app-service-jre-support.md",
       "redirect_url": "/azure/app-service/configure-language-java",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-data-lake-storage-security-guide.md",
+      "redirect_url": "/azure/storage/common/storage-security-guide",
+      "redirect_document_id": false
     }
   ]
 }
