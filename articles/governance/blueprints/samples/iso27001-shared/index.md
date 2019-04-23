@@ -50,7 +50,7 @@ composed of:
   ASGs for full micro-segmentation containing:
   - A jumpbox or bastion host used for management purposes, which can only be accessed over an [Azure Firewall](../../../../firewall/overview.md)
     deployed in the ingress stack subnet
-  - Two virtual machines running Active Directory Directory Services (ADDS) and DNS only accessible
+  - Two virtual machines running Active Directory Domain Services (ADDS) and DNS only accessible
     through the jumpbox, and can be configured only to replicate AD over a VPN or [ExpressRoute](../../../../expressroute/expressroute-introduction.md)
     connection (not deployed by the blueprint)
   - Use of [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md)

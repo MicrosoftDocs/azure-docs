@@ -6,7 +6,6 @@ author: spelluru
 manager: timlt
 
 ms.service: service-bus-messaging
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019

@@ -13,7 +13,7 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 04/10/2019
+ms.date: 04/15/2019
 ms.author: curtand
 ms.reviewer: ajayanti1
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -32,7 +32,7 @@ When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Mic
 - **Service plans included (friendly names)**: A list of service plans (friendly names) in the product that correspond to the string ID and GUID
 
 >[!NOTE]
->This information is accurate as of August 17, 2018.
+>This information is accurate as of April 15, 2019.
 
 | Product name | String ID | GUID | Service plans included | Service plans included (friendly names) |
 | --- | --- | --- |--- |

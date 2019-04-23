@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 04/18/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications). 
 ---
@@ -32,36 +32,34 @@ To achieve comprehensive business continuity on Azure, build your application ar
  
 ![conceptual view of one zone going down in a region](./media/az-overview/az-graphic-two.png)
 
-## Regions that support Availability Zones
+## Services support by region
 
-- Central US
-- East US
-- East US 2
-- France Central
-- North Europe
-- Southeast Asia 
-- UK South &#42;
-- West Europe
-- West US 2
+The combinations of Azure services and regions that support Availability Zones are:
 
 
+|                                 |Americas |              |           |           | Europe |              |          |              | Asia Pacific |                 |
+|----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|
+|          |Central US|East US|East US 2|West US 2|France Central|North Europe|UK South|West Europe|Japan East|Southeast Asia|
+| **Compute**                         |            |              |           |           |                |              |          |             |            |                |
+| Linux Virtual Machines          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Windows Virtual Machines        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Virtual Machine Scale Sets      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| **Storage**   |            |              |           |           |                |              |          |             |            |                |
+| Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Zone-redundant Storage          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| **Networking**                     |            |              |           |           |                |              |          |             |            |                |
+| Standard IP Address        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; &#42;| &#10003;    | &#10003;   | &#10003;       |
+| Standard Load Balancer     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; &#42;| &#10003;    | &#10003;   | &#10003;       |
+| VPN Gateway                     | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| ExpressRoute                    | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| Application Gateway (Preview)   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| **Databases**                     |            |              |           |           |                |              |          |             |            |                |
+| SQL Database                    | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |            | &#10003;       |
+| **Analytics**                       |            |              |           |           |                |              |          |             |            |                |
+| Event Hubs                      | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| **Integration**                     |            |              |           |           |                |              |          |             |            |                |
+| Service Bus (Premium Tier Only) | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 
-## Services that support Availability Zones
-The Azure services that support Availability Zones are:
-
-- Linux Virtual Machines
-- Windows Virtual Machines
-- Virtual Machine Scale Sets
-- Managed Disks
-- Standard Load Balancer &#42;
-- Standard public IP address &#42;
-- Zone-redundant storage
-- SQL Database
-- Event Hubs
-- Service Bus (Premium Tier Only)
-- VPN Gateway
-- ExpressRoute
-- Application Gateway (preview)
 
 &#42; Resources created in UK South before March 25, 2019 will soon be converted to be zone-redundant. Resources created after March 25, 2019 will be zone-redundant immediately.
 

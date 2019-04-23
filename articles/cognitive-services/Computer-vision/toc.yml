@@ -139,8 +139,6 @@
       href: Tutorials/javascript-tutorial.md
     - name: Python
       href: Tutorials/PythonTutorial.md
-  - name: Obtain subscription keys
-    href: Vision-API-How-to-Topics/HowToSubscribe.md
   - name: Call the Computer Vision API
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
   - name: Use containers
@@ -187,12 +185,14 @@
       href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: FAQ
     href: FAQ.md
+  - name: Category taxonomy
+    href: Category-Taxonomy.md
+  - name: Language support
+    href: language-support.md
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/430309-computer-vision-api
-  - name: Category taxonomy
-    href: Category-Taxonomy.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure roadmap
