@@ -23391,6 +23391,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-service-encryption-customer-managed-keys.md",
+      "redirect_url": "/azure/storage/common/storage-encryption-keys-portal",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-service-encryption.md",
       "redirect_url": "/azure/storage/common/storage-service-encryption",
       "redirect_document_id": true
