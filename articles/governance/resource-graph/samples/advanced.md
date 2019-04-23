@@ -42,7 +42,7 @@ virtual machine size and the capacity of the scale set. The query uses the `toin
 cast the capacity to a number so that it can be sorted. Finally, the columns are renamed into
 custom named properties.
 
-```Query
+```kusto
 where type=~ 'microsoft.compute/virtualmachinescalesets'
 | where name contains 'contoso'
 | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name
@@ -62,7 +62,7 @@ Search-AzGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' 
 This query starts with the tag and builds a JSON object listing all unique tag names and their
 corresponding types.
 
-```Query
+```kusto
 project tags
 | summarize buildschema(tags)
 ```
@@ -91,7 +91,7 @@ The **matches regex \@** allows us to define the regex to match, which is `^Cont
 
 After matching by name, the query projects the name and orders by name ascending.
 
-```Query
+```kusto
 where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$'
 | project name
 | order by name asc

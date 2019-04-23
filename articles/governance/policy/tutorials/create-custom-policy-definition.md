@@ -3,7 +3,7 @@ title: Create a custom policy definition
 description: Craft a custom policy definition for Azure Policy to enforce custom business rules.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/12/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
@@ -254,10 +254,23 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-The results look similar to what we see in the Resource Manager templates and through the
-Azure Resource Explorer. However, Azure Resource Graph results also include
-[alias](../concepts/definition-structure.md#aliases) details. Here is example output from a
-storage account for aliases:
+The results look similar to what we see in the Resource Manager templates and through the Azure
+Resource Explorer. However, Azure Resource Graph results can also include [alias](../concepts/definition-structure.md#aliases)
+details by _projecting_ the _aliases_ array:
+
+```Query
+where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases
+```
+
+```azurecli-interactive
+az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+Here is example output from a storage account for aliases:
 
 ```json
 "aliases": {
