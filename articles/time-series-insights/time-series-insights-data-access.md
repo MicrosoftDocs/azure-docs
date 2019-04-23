@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Configure security to access and manage Azure Time Series Insights Preview | Microsoft Docs'
 description: This article describes how to configure security and permissions as management access policies and data access policies to secure Azure Time Series Insights Preview.
 ms.service: time-series-insights
