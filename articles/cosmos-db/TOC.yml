@@ -452,6 +452,10 @@
             href: table-sdk-python.md  
           - name: Table storage REST APIs
             href: /rest/api/storageservices/Table-Service-Concepts
+    - name: Etcd API
+      items:
+      - name: Azure Kubernetes with Azure Cosmos DB
+        href: how-to-use-kubernetes-with-cosmosdb.md
   - name: How-to guides
     items:
     - name: Manage Azure Cosmos account
@@ -524,10 +528,6 @@
       items:
       - name: Restore data from a backup
         href: how-to-backup-and-restore.md
-    - name: Use etcd API
-      items:
-      - name: Azure Kubernetes with Azure Cosmos DB
-        href: how-to-use-kubernetes-with-cosmosdb.md
     - name : Manage Azure Cosmos DB resources
       items:
       - name: Manage using PowerShell 
