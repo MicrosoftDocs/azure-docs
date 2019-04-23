@@ -290,12 +290,12 @@ Restarting the agent nodes in your cluster usually resolves this issue.
 ## "Error: release azds-<identifier>-<spacename>-<servicename> failed: services '<servicename>' already exists" or "Pull access denied for <servicename>, repository does not exist or may require 'docker login'"
 
 ### Reason
-These errors can occur if you mix running direct Helm commands (e.g. `helm install`, `helm upgrade`, `helm delete`) with Dev Spaces commands (e.g. `azds up`, `azds down`) inside the same dev space. They occur because Dev Spaces has its own Tiller instance, which conflicts with your own Tiller instance running in the same dev space.
+These errors can occur if you mix running direct Helm commands (such as `helm install`, `helm upgrade`, or `helm delete`) with Dev Spaces commands (such as `azds up` and `azds down`) inside the same dev space. They occur because Dev Spaces has its own Tiller instance, which conflicts with your own Tiller instance running in the same dev space.
 
 ### Try:
-It is fine to use both Helm commands and Dev Spaces commands against the same AKS cluster, but each Dev Spaces-enabled namespace should use either one or the other.
+It's fine to use both Helm commands and Dev Spaces commands against the same AKS cluster, but each Dev Spaces-enabled namespace should use either one or the other.
 
-A common scenario is that you might use a Helm command to run your entire application in a parent dev space. Then you can create child dev spaces off that parent, use Dev Spaces to run individual services inside the child dev spaces, and test the services together. When you are ready to check in your changes, use a Helm command to deploy the updated code to the parent dev space. You should *not* use `azds up` to run the updated service in the parent dev space, because it will conflict with the service initially run using Helm.
+For example, suppose you use a Helm command to run your entire application in a parent dev space. You can create child dev spaces off that parent, use Dev Spaces to run individual services inside the child dev spaces, and test the services together. When you're ready to check in your changes, use a Helm command to deploy the updated code to the parent dev space. Don't use `azds up` to run the updated service in the parent dev space, because it will conflict with the service initially run using Helm.
 
 ## Azure Dev Spaces proxy can interfere with other pods running in a dev space
 
