@@ -241,7 +241,7 @@
   - name: Machine Learning CLI
     displayName: cli, extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
- - name: Visual interface modules (Preview)
+  - name: Visual interface modules (Preview)
     displayName: module reference
     items:
     - name: Overview
