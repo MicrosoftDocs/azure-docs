@@ -1,5 +1,5 @@
 ---
-title: 'Design a Real-Time Dashboard with Azure Database for PostgreSQL – Hyperscale (Citus) (preview) tutorial'
+title: 'Design a real-time dashboard with Azure Database for PostgreSQL – Hyperscale (Citus) (preview) tutorial'
 description: This tutorial shows how to create, populate, and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus) (preview).
 author: jonels-msft
 ms.author: jonels
@@ -11,7 +11,7 @@ ms.date: 04/09/2019
 #Customer intent: As a developer, I want to parallelize queries so that I can make a realtime dashboard application.
 ---
 
-# Tutorial: Design a Real-Time Analytics Dashboard by using Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
+# Tutorial: Design a real-time analytics dashboard by using Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
 
 In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) (preview) to learn how to:
 
@@ -262,7 +262,7 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-With our function in place, execute it to roll up the data data:
+With our function in place, execute it to roll up the data:
 
 ```sql
 SELECT rollup_http_request();
