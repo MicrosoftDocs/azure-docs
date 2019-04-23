@@ -95,7 +95,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >    "tenant_id" : "Enter_the_Tenant_Info_Here"
 >    ```
 > 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
-> 1. Add the following activity to the **manifest\application** node. This code allows Microsoft to callback to your app:	
+> 1. Replace the Package Name & Signature hash, then paste the following activity to the **manifest\application** node:	
 >    ```xml
 >    <!--Intent filter to catch Microsoft's callback after Sign In-->
 >    <activity
@@ -106,9 +106,8 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >            <category android:name="android.intent.category.BROWSABLE" />
 > 
 >            <!--Add in your scheme/host from registered redirect URI-->
->            <!--By default, the scheme should be similar to 'msal[appId]' -->
 >            <data android:scheme="msauth"
->                android:host="packageName/signatureHash" />
+>                android:host="<PACKAGE_NAME>/<SIGNATURE_HASH>" />
 >        </intent-filter>
 >    </activity>
 >    ```
@@ -134,7 +133,6 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >            <category android:name="android.intent.category.BROWSABLE" />
 > 
 >            <!--Add in your scheme/host from registered redirect URI-->
->            <!--By default, the scheme should be similar to 'msal[appId]' -->
 >            <data android:scheme="msauth"
 >                android:host="<YOUR_PackageName>/<YOUR_SignatureHash>" />
 >        </intent-filter>

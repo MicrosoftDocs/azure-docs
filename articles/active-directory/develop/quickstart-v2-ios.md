@@ -83,10 +83,9 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extract the zip file and open the project in XCode.
-> 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following  code snippet:
+> 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet:
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_here"
->    let kAuthority = "Enter_the_Authority_here"
 >
 >    ```
 > 1. Right click **Info.plist** and select **Open As** > **Source Code**.
@@ -104,7 +103,7 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 >    </array>
 > 
 >    ```
-> > 1. Build & run the app! 
+> 1. Build & run the app! 
 
 > [!div renderon="docs"]
 >
@@ -147,10 +146,11 @@ $ vi Podfile
 Add the following to this podfile (with your project's target):
 
 ```
- target 'MSALiOS' do
-   use_frameworks!
- 	 pod 'MSAL', '0.4'
- end
+use_frameworks!
+
+target 'MSALiOS' do
+   pod 'MSAL', '0.4'
+end
 
 ```
 
