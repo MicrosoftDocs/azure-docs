@@ -660,6 +660,8 @@
         href: sql-database-machine-learning-services-functions.md
       - name: Work with R and SQL data
         href: sql-database-machine-learning-services-data-issues.md
+      - name: Add R packages
+        href: sql-database-machine-learning-services-add-packages.md
 - name: Reference
   items:
   - name: Azure PowerShell
