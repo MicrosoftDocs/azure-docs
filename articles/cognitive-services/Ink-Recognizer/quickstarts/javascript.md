@@ -21,6 +21,8 @@ Typically you would call the API from a digital inking app. This quickstart send
 
 ![an image of handwritten text](../media/handwriting-sample.jpg)
 
+The source code for this quickstart can be found on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+
 ## Prerequisites
 
 - A web browser
@@ -147,11 +149,17 @@ Typically you would call the API from a digital inking app. This quickstart send
 
 ## Run the application and view the response
 
-This application can be run within your web browser. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](http://github.com/):
+This application can be run within your web browser. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502):
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [REST API reference](https://dev.cognitive.microsoft.com/docs/services/inkrecognizer)
 
-* [What is the Ink Recognizer API?](../overview.md)
+
+To see how the Ink Recognition API works in a digital inking app, take a look at the following sample applications on GitHub:
+* [C# and Universal Windows Platform(UWP)](https://github.com/Azure-Samples/cognitive-services-csharp-ink-recognition)  
+* [C# and Windows Presentation Foundation(WPF)](https://github.com/Azure-Samples/cognitive-services-csharp-wpf-ink-recognition)
+* [Javascript web-browser app](https://github.com/Azure-Samples/cognitive-services-javascript-ink-recognition)       
+* [Java and Android mobile app](https://github.com/Azure-Samples/cognitive-services-java-android-ink-recognition)
+* [Swift and iOS mobile app](https://github.com/Azure-Samples/cognitive-services-swift-ios-ink-recognition)
