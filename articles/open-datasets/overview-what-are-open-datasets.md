@@ -19,7 +19,7 @@ Datasets include public-domain data for weather, census, holidays, public safety
 ## Curated, prepared datasets
 Curated open public datasets in Azure Open Datasets are optimized for consumption in machine learning workflows. 
 
-Data scientists often spend the majority of their time cleaning and preparing data for advanced analytics. Open Datasets are copied to the Azure cloud and preprocessed to save you time. At regular intervals, data is pulled from the sources, such as by an FTP connection to NOAA, parsed into a structured format, and then enriched as appropriate with features such as zip code or location of the nearest weather station.
+Data scientists often spend the majority of their time cleaning and preparing data for advanced analytics. Open Datasets are copied to the Azure cloud and preprocessed to save you time. At regular intervals data is pulled from the sources, such as by an FTP connection to the National Oceanic and Atmospheric Administration (NOAA), parsed into a structured format, and then enriched as appropriate with features such as zip code or location of the nearest weather station.
 
 Datasets are cohosted with cloud compute in Azure making access and manipulation easier.  
 
@@ -29,7 +29,7 @@ Following are examples of datasets available.
  
 |Dataset         | Notebooks     | Description                                    |
 |----------------|---------------|------------------------------------------------|
-|[NOAA Integrated Surface Data (ISD)](https://publicdataset.azurewebsites.net/dataDetail/isd) | [Pandas](https://publicdataset.azurewebsites.net/dataDetail/isd/access?tab2=AzureNotebooks) <br> [Azure Databricks](https://publicdataset.azurewebsites.net/dataDetail/isd/access?tab2=AzureDatabricks) | Worldwide hourly weather history data from the National Oceanic and Atmospheric Administration (NOAA) with the best spatial coverage in North America, Europe, Australia, and parts of Asia. Updated daily. |
+|[NOAA Integrated Surface Data (ISD)](https://publicdataset.azurewebsites.net/dataDetail/isd) | [Pandas](https://publicdataset.azurewebsites.net/dataDetail/isd/access?tab2=AzureNotebooks) <br> [Azure Databricks](https://publicdataset.azurewebsites.net/dataDetail/isd/access?tab2=AzureDatabricks) | Worldwide hourly weather history data from NOAA with the best spatial coverage in North America, Europe, Australia, and parts of Asia. Updated daily. |
 |[NOAA Global Forecast System (GFS)](https://publicdataset.azurewebsites.net/dataDetail/gfs) | [Pandas](https://publicdataset.azurewebsites.net/dataDetail/gfs/access?tab2=AzureNotebooks) <br> [Azure Databricks](https://publicdataset.azurewebsites.net/dataDetail/gfs/access?tab2=AzureDatabricks) | 15-day U.S. hourly weather forecast data from NOAA. Updated daily. |
 
 ### Calendar data
@@ -41,7 +41,7 @@ Following are examples of datasets available.
 ## Access to datasets in Azure 
 With an Azure subscription you can access open datasets in the Azure portal, where the data is accessible to your machine learning solution and colocated with cloud compute resources. 
 
-The Open Datasets site provides Python Pandas and Azure Databricks notebooks you can use to connect data to Azure Machine Learning service and Azure Databricks. Datasets can also be accessed through a Python SDK. [check this]
+The Open Datasets site provides Python Pandas and Azure Databricks notebooks you can use to connect data to Azure Machine Learning service and Azure Databricks. Datasets can also be accessed through a Python SDK. 
 
 ## Contribute to Open Datasets
 If you have a dataset to share, submit a request with a description of the dataset to [Azure Open Datasets site](https://opendatasets.azure.com). 
