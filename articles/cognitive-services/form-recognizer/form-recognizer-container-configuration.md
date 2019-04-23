@@ -46,7 +46,7 @@ This setting can be found in the following place:
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
+|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
 
 ## Eula setting
 
@@ -73,7 +73,7 @@ Replace {_argument_name_} with your own values:
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
 |{BILLING_KEY} | The endpoint key of the Form Recognizer resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | The billing endpoint value including region.|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|{BILLING_ENDPOINT_URI} | The billing endpoint value including region.|`https://westus2.api.cognitive.microsoft.com/`|
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing-configuration-setting).
