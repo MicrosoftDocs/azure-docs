@@ -117,7 +117,7 @@ As discussed earlier, the `<div>` elements within the `<body>` element provide t
 
 ### Aggregate expressions
 
-The TSI Client library APIs make heavy use of aggregate expressions. An aggregate expression provides the ability to construct one or more "search terms." The APIs are designed similar to the way the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo), which uses search span, where predicate, measures, and split-by value. Most library APIs take an array of aggregate expressions that are used by the service to build a TSI data query.
+The TSI Client library APIs make heavy use of aggregate expressions. An aggregate expression provides the ability to construct one or more **search terms**. The APIs are designed similar to the way the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo), which uses search span, where predicate, measures, and split-by value. Most library APIs take an array of aggregate expressions that are used by the service to build a TSI data query.
 
 ### Call pattern
 
@@ -189,7 +189,7 @@ The TSI Client library currently exposes eight unique analytics controls: line c
 
 Look at the code that's behind some of the standard chart controls that are demonstrated in the application and the programming model/patterns for creating the controls. Specifically, examine the section of HTML under the `// Example 3/4/5` comment, which renders controls with the ID values `chart3`, `chart4`, and `chart5`.
 
-Recall from step #3 in the [Page source and structure section](#page-source-and-structure) that chart controls are arranged in rows on the page, each of which has a descriptive title row. In this example, the three charts are populated under the "Multiple Chart Types From the Same Data" title `<div>` element, and are bound to the three `<div>` elements that are beneath the title:
+Recall from step #3 in the [Page source and structure section](#page-source-and-structure) that chart controls are arranged in rows on the page, each of which has a descriptive title row. In this example, the three charts are populated under the title "Multiple Chart Types From the Same Data" `<div>` element, and are bound to the three `<div>` elements that are beneath the title:
 
 [!code-html[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
@@ -209,7 +209,7 @@ The TSI Client library also exposes some optional advanced features that you mig
 
 One example of the advanced functionality that's provided is the ability to add state transitions and discrete events to charts. This feature is useful for highlighting incidents, alerting, and state switches like on/off.
 
-Look at the code that's behind the section of HTML that's under the `// Example 10` comment. The code renders a line control under the "Line Charts with Multiple Series Types" title, and binds it to the `<div>` element with the ID value `chart10`.
+Look at the code that's behind the section of HTML that's under the `// Example 10` comment. The code renders a line control under the title "Line Charts with Multiple Series Types", and binds it to the `<div>` element with the ID value `chart10`.
 
 1. First, a structure named `events4` is defined, to hold the state-change elements to track. The structure contains:
 
@@ -218,7 +218,7 @@ Look at the code that's behind the section of HTML that's under the `// Example 
      * A string key that contains a JavaScript ISO timestamp.
      * An array that contains the characteristics of the state: a color and a description.
 
-2. Next, the `events5` structure is defined for "Incidents," which holds an array of the event elements to track. The array structure is the same shape as the structure that's outlined for `events4`.
+2. Next, the `events5` structure is defined for `Incidents`, which holds an array of the event elements to track. The array structure is the same shape as the structure that's outlined for `events4`.
 
 3. Finally, the line chart is rendered, passing in the two structures with the chart options parameters: `events:` and `states:`. Notice the other option parameters for specifying a `tooltip:`, `theme:`, or `grid:`.
 
@@ -232,7 +232,9 @@ Visually, the diamond markers/pop-up windows that are used to indicate incidents
 
 Another example of advanced functionality is custom context menus (right-click pop-up menus). Custom context menus are useful for enabling actions and logical next steps within the scope of your application.
 
-Look at the code that's behind the section of HTML that's under the `// Example 13/14/15` comment. This code initially renders a line chart under the "Line Chart with Context Menu to Create Pie/Bar Chart" title, and the chart is bound to the `<div>` element with the ID value `chart13`. By using context menus, the line chart provides the capability to dynamically create a pie and bar chart that are bound to `<div>` elements with the IDs `chart14` and `chart15`. In addition, both the pie and bar charts also use context menus to enable their own features: the ability to copy data from the pie to bar chart, and print the bar chart data to the browser console window, respectively.
+Look at the code that's behind the section of HTML that's under the `// Example 13/14/15` comment. This code initially renders a line chart under the title "Line Chart with Context Menu to Create Pie/Bar Chart", and the chart is bound to the `<div>` element with the ID value `chart13`.
+
+By using context menus, the line chart provides the capability to dynamically create a pie and bar chart that are bound to `<div>` elements with the IDs `chart14` and `chart15`. In addition, both the pie and bar charts also use context menus to enable their own features: the ability to copy data from the pie to bar chart, and print the bar chart data to the browser console window, respectively.
 
 1. First a series of custom actions are defined. Each action contains an array with one or more elements. Each element defines a single context menu item:
 
@@ -240,7 +242,7 @@ Look at the code that's behind the section of HTML that's under the `// Example 
      * `name`: The text that's used for the menu item: "Print parameters to console."
      * `action`: The action that's associated with the menu item. The action is always an anonymous function that takes three arguments that are based on the aggregate expression that's used to create the chart. In this case, the arguments are written to the browser console window:
        * `ae`: The aggregate expression array.
-       * `splitBy`: The splitBy value.
+       * `splitBy`: The `splitBy` value.
        * `timestamp`: The timestamp.
 
    * `pieChartActions`: This action defines the context menu for the bar chart, which contains one element to define a single item. The shape and schema is the same as the previous `barChartActions` element, but notice that the `action` function is dramatically different: it instantiates and renders the bar chart. Also note that the `ae` argument is used to specify the aggregate expression array that's passed at runtime when the menu item opens. The function also sets the `ae.contextMenu` property with the `barChartActions` context menu.
@@ -265,8 +267,8 @@ The code that's used to illustrate brushes is shown in the previous "Line Chart 
 1. Brush actions are similar to a context menu in that they define a series of custom actions for the brush. Each action contains an array with one or more elements. Each element defines a single context menu item:
    * `name`: The text that's used for the menu item: "Print parameters to console."
    * `action`: The action that's associated with the menu item, which is always an anonymous function that takes two arguments. In this case, the arguments are written to the browser console window:
-      * `fromTime`: The "from" timestamp of the brush selection.
-      * `toTime`: The "to" timestamp of the brush selection.
+      * `fromTime`: The `from` timestamp of the brush selection.
+      * `toTime`: The `to` timestamp of the brush selection.
 
 2. Brush actions are added as another chart option property. Notice the `brushContextMenuActions: brushActions` property that's passed to the `linechart.Render` call.
 
