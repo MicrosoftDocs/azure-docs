@@ -106,7 +106,7 @@ Once your predictive analytics model is ready, you can deploy it as a web servic
 <a name="compare"></a>
 ## How is Machine Learning Studio different from Azure Machine Learning service?
 
-[Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** a visual interface(Preview), to quickly prep data, train and deploy machine learning models. This visual interface (preview) provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the visual interface uses your own compute resources and is fully integrated into Azure Machine Learning service.
+[Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** a visual interface(preview), to quickly prep data, train and deploy machine learning models. This visual interface (preview) provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the visual interface uses your own compute resources and is fully integrated into Azure Machine Learning service.
 
 Here is a quick comparison.
 
