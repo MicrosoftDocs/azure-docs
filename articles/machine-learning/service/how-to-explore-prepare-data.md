@@ -94,7 +94,7 @@ sample_dataset.to_pandas_dataframe()
 3|10525877|HZ268138|4/15/2016 15:00|023XX W EASTWOOD AVE|1153|DECEPTIVE PRACTICE|...
 
 
-## Explore data through summary statistics
+## Explore with summary statistics
 
 Data exploration is essential to help you understand the input data, identify anomalies and missing values, and verify that data preparation operations produced the desired result.
 
@@ -128,7 +128,7 @@ Latitude|FieldType.DECIMAL|41.6928|41.9032|10.0|7.0|3.0|0.7|0.0|0.0|41.6928|41.6
 Longitude|FieldType.DECIMAL|-87.6764|-87.6043|10.0|7.0|3.0|0.7|0.0|0.0|-87.6764|-87.6764|-87.6764|-87.6734|-87.6645|-87.6194|-87.6043|-87.6043|-87.6043|-87.6484|0.0386264|0.001492|0.344429|-2.33333
 Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7.0||||||||||||||
 
-## How to impute missing values
+## Impute missing values
 
 Missing values in Datasets include Null values, and values that contain no content or non-existent. They can impact the performance of your machine learning models, or even lead to invalid conclusions. Imputation is one common approach to deal with missing values by filling values in the place of missing data. It is useful when you have relatively high percentage of missing values in your Datasets, and you cannot simply drop all records with missing values. 
 
@@ -211,7 +211,7 @@ dataset.head(5)
 3|10519591|False|41.780049|-87.000000
 4|10534446|False|41.780049|-87.000000
 
-## How to use assertion rules for anomalies
+## Use assertion rules for anomalies
 
 Frequently, the data we work with while cleaning and preparing data is just a subset of the total data we will need to work with in production. It is also common to be working on a snapshot of a live data set that is continuously updated and augmented. In these cases, some of the assumptions we make as part of our cleaning might turn out to be false. Columns that originally only contained numbers within a certain range might contain a wider range of values in later executions. These errors often result in either broken pipelines or bad data.
 
@@ -252,7 +252,7 @@ print(error.originalValue)
 
     -87.60431945
 
-## How to derive column by example
+## Derive column by example
 
 One of the more advanced tools in Datasets is the ability to derive columns using examples of desired results. This lets you give the SDK an example so it can generate code to achieve the intended transformation.
 
@@ -297,7 +297,7 @@ ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(5)
 dataset = dataset.update_definition(ds_def, 'Derive Date_Time_Range')
 ```
 
-## How to do fuzzy groupings
+## Fuzzy groupings
 
 Unprepared data often represents the same entity with multiple values due to different spellings, varying capitalizations, and abbreviations. This is common when working with data gathered from multiple sources or through human input. One way to canonicalize and reconcile these variants is to use `fuzzy_group_column` (also known as "text clustering") functionality.
 
