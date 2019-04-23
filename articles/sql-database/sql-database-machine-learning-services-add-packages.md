@@ -46,7 +46,7 @@ The output is from `installed.packages()` in R and is returned as a result set. 
 
 **Results**
 
-![Installed packages in R](./media/sql-database-machine-learning-add-packages/r-installed-packages.png)
+![Installed packages in R](./media/sql-database-machine-learning-services-add-packages/r-installed-packages.png)
 
 ## Add a package
 
@@ -101,7 +101,7 @@ For example, follow the steps below to install the **[glue](https://cran.r-proje
 
     **Results**
 
-    ![Contents of the RTestData table](./media/sql-database-quickstart-r-create-script/r-verify-package-install.png)
+    ![Contents of the RTestData table](./media/sql-database-machine-learning-services-add-packages/r-verify-package-install.png)
 
 Once the package is installed, you can use it in an R script through **sp_execute_external_script**.
 
