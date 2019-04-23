@@ -7,7 +7,7 @@ author: shizn
 manager: philmea
 
 ms.author: xshi
-ms.date: 04/04/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: "mvc, seodec18"
@@ -21,8 +21,8 @@ Use Visual Studio Code to develop C code and deploy it to a Linux device running
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Use Visual Studio 2017 to create an IoT Edge module in C
-> * Use Visual Studio 2017 and Docker to create a docker image and publish it to a container registry
+> * Use Visual Studio Code to create an IoT Edge module in C
+> * Use Visual Studio Code and Docker to create a docker image and publish it to a container registry
 > * Deploy the module to your IoT Edge device
 > * View generated data
 
