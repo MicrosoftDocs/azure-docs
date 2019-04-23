@@ -46,7 +46,7 @@ Azure Cognitive Services are APIs, SDKs, and services available to help develope
 |[Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator Text")|Translator text provides for machine-based text translation in near real-time.|
 |[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer enables you to extract insights from your video.|
 
-## Web Search APIs
+## Search APIs
 
 |Service Name|Service Description|
 |:-----------|:------------------|
