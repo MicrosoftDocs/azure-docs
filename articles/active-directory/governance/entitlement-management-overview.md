@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/22/2019
+ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -108,13 +108,13 @@ The following diagram shows an example of the different elements in entitlement 
 
 ## External users
 
-Currently with [Azure AD business-to-business (B2B)](../b2b/what-is-b2b.md), you must have the email address of the guest users you want to work with. This works great when you're working on a smaller project, but this requirement is harder to manage if you have lots of users you want to invite.
+When using the [Azure AD business-to-business (B2B)](../b2b/what-is-b2b.md) invite experience, you must already know the email addresses of the external guest users you want to bring into your resource directory and work with. This works great when you're working on a smaller or short-term project and you already know all the participants, but this is harder to manage if you have lots of users you want to work with or if the participants change over time.  For example, you might be working with another organization and have one point of contact with that organization, but over time additional users from that organization will also need access.
 
-With entitlement management, you can define a policy that allows users from specific organizations, using Azure AD, to be able to request an access package. You can specify whether approval is required and an expiration date. If approval is required, you can also designate an approver from the external organization since they are likely to know which external users need access. Once you have configured the access package, you can send a link to the access package to the external organization. Any users in the external organization with the criteria you define can use this link to request the access package.
+With entitlement management, you can define a policy that allows users from organizations you specify, that are also using Azure AD, to be able to request an access package. You can specify whether approval is required and an expiration date for the access. If approval is required, you can also designate as an approver one or more users from the external organization that you previously invited - since they are likely to know which external users from their organization need access. Once you have configured the access package, you can send a link to the access package to your contact person at the external organization. That contact can share with others users in the external organization, and they can use this link to request the access package.  Users from that organizational who have already been invited into your directory can also use that link.
 
-When a request is approved, entitlement management will provision the user with the necessary access, which may include creating a B2B account. The B2B account will be based on the B2B allow/deny list, so creating the B2B account may fail.
+When a request is approved, entitlement management will provision the user with the necessary access, which may include inviting the user if they're not already in your directory. Azure AD will automatically create a B2B account for them.  Note that an administrator may have previously limited which organizations are permitted for collaboration, by setting a [B2B allow or deny list](../b2b/allow-deny-list.md) to allow or block invites to other organizations.  If the user is not permitted by the allow or block list, then they will not be invited.
 
-Since you do not want the external user's access to last forever, you specify an expiration date in the policy, such as 180 days. After 180 days, if their access is not renewed, entitlement management will remove all access associated with that access package, including the B2B accounts, thus removing the problem of creating zombie accounts.
+Since you do not want the external user's access to last forever, you specify an expiration date in the policy, such as 180 days. After 180 days, if their access is not renewed, entitlement management will remove all access associated with that access package.  If the user who was invited through entitlement management has no other access package assignments, then when they lose their last assignment, their B2B account will be blocked from sign in for 30 days, and subsequently removed.  This prevents the proliferation of unnecessary accounts.  
 
 ## Terminology
 
