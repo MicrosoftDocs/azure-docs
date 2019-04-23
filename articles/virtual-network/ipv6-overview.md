@@ -10,7 +10,7 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/16/2019
+ms.date: 04/22/2019
 ms.author: kumud
 ---
 
@@ -51,7 +51,7 @@ IPv6 support for virtual machines includes the following capabilities:
 
 ## Limitations
 The preview release of IPv6 for Azure virtual network has the following limitations:
-- IPv6 for Azure virtual network (Preview) is available in all public Azure regions, but only in Public Azure- not the government or sovereign clouds.   
+- IPv6 for Azure virtual network (Preview) is available in all global Azure regions, but only in Global Azure- not the government clouds.   
 - Portal support for the preview is limited to view only for much but not all IPv6 configuration, however IPv6 for virtual network has full support and documentation (with samples) for IPv6 deployment using Azure Powershell and Command Line Interface (CLI).
 - Network Watcher support for the preview is limited to NSG flow logs and network packet captures.
 - Load Balancing support for the preview is initially limited to Basic Load Balancer.
