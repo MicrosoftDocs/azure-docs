@@ -26,7 +26,7 @@ Visit [azure.com](https://www.azure.com) for the primary [Azure Functions docume
 
 **What are the supported languages?**
 
-Currently we support .NET, JavaScript, Java, Python (In Preview), and PowerShell (In Preview) 
+Check the [supported languages article](supported-languages.md) 
 
 ## Limits
 
@@ -65,7 +65,7 @@ For new projects, you should use v2
 
 **Where can I open an issue about Azure Functions?**
 
-Please open it in the Azure Functions [GitHub repo](https://github.com/Azure/azure-functions/issues)
+It depends on what is the issue, for guidance check [here](https://github.com/Azure/azure-functions#issues--feature-requests)
 
 **What is the Twitter handle for Azure Functions?**
 
@@ -99,8 +99,10 @@ Instructions of how to install and update the Azure CLI tools is provided in the
 
 ## Connectivity
 
-Please check the [Networking FAQ article](functions-networking-faq.md)
+Check the [Networking FAQ article](functions-networking-faq.md)
 
 ## Other Questions
 
-**??**
+**How does billing work?**
+
+Check the [Billing FAQ article](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ)
