@@ -51,19 +51,17 @@ The following steps outline a typical workflow for a Customer Lockbox request.
     
    The request remains in the customer queue for four days. After this time, the access request automatically expires and no access is granted to Microsoft engineers.
 
-9. To get the details of the pending request, the designated approver can select the lockbox request.`Add Screenshot`
+9. To get the details of the pending request, the designated approver can select the lockbox request.
+    
+    ![Azure Customer Lockbox - view the support ticket request](./media/azure-customer-lockbox/customer-lockbox-pending-requests.png)
 
 10. The designated approver can also select the **Ticket ID** reference to view the support ticket request that created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem.
     
-    ![Azure Customer Lockbox - view the support ticket request](./media/azure-customer-lockbox/xxx.png)
-    
-    `Include screenshot`
+    ![Azure Customer Lockbox - view the support ticket request](./media/azure-customer-lockbox/customer-lockbox-support-ticket.png)
 
 11. After reviewing the request, the designated approver selects **Approve** or **Deny**.
     
-    ![Azure Customer Lockbox - select Approve or Deny](./media/azure-customer-lockbox/xxx.png)
-    
-    `Include Screenshot`
+    ![Azure Customer Lockbox - select Approve or Deny](./media/azure-customer-lockbox/customer-lockbox-approval.png)
     
     As a result of the selection:
     - **Approve**:  Access is granted to the Microsoft engineer. The access is granted for a default period of 8 hours.
