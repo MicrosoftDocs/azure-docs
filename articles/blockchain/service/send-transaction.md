@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-* [Create a blockchain member using the Azure portal](create-member-portal.md)
+* [Create a blockchain member using the Azure portal](create-member.md)
 * [Use Truffle to connect to a consortium network](connect-truffle.md)
 * Install VS Code
 * Install web3

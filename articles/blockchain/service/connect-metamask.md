@@ -23,7 +23,7 @@ MetaMask is an easy way to interact with blockchain. It provides a browser exten
 
 * Install [MetaMask browser extension](https://metamask.io)
 * A MetaMask [wallet](https://metamask.zendesk.com/hc/en-us/articles/360015488971-New-to-MetaMask-Learn-How-to-Setup-MetaMask-the-First-Time)
-* [Create an Azure Blockchain member](create-member-portal.md)
+* [Create an Azure Blockchain member](create-member.md)
 
 ## Get node details
 
