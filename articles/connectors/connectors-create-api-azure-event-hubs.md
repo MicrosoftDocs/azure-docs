@@ -19,22 +19,22 @@ This article shows how you can monitor and manage events sent to
 from inside a logic app with the Azure Event Hubs connector. 
 That way, you can create logic apps that automate tasks and workflows 
 for checking, sending, and receiving events from your Event Hub.
-
-If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
-If you're new to logic apps, review 
-[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 For connector-specific technical information, see the 
-<a href="https://docs.microsoft.com/connectors/eventhubs/" target="blank">Azure Event Hubs connector reference</a>.
+[Azure Event Hubs connector reference](https://docs.microsoft.com/connectors/eventhubs/)</a>.
 
 ## Prerequisites
+
+* An Azure subscription. If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * An [Azure Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md)
 
 * The logic app where you want to access your Event Hub. 
 To start your logic app with an Azure Event Hubs trigger, you need a 
 [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+If you're new to logic apps, review 
+[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 
@@ -43,10 +43,11 @@ To start your logic app with an Azure Event Hubs trigger, you need a
 For your logic app to access your Event Hub, 
 check your permissions and get the connection string for your Event Hubs namespace.
 
-1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Go to your Event Hubs *namespace*, not a specific Event Hub. 
-On the namespace page, under **Settings**, choose **Shared access policies**. 
+1. Go to your Event Hubs *namespace*, not a specific Event Hub. 
+
+1. On the namespace menu, under **Settings**, select **Shared access policies**. 
 Under **Claims**, check that you have **Manage** permissions for that namespace.
 
    ![Manage permissions for your Event Hub namespace](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
@@ -73,7 +74,7 @@ or [Add an Event Hubs action](#add-action).
 
 <a name="add-trigger"></a>
 
-## Add an Event Hubs trigger
+## Add Event Hubs trigger
 
 In Azure Logic Apps, every logic app must start with a 
 [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), 
@@ -89,44 +90,46 @@ when new events are sent to your Event Hub.
 create a blank logic app, which opens Logic Apps Designer. 
 This example uses the Azure portal.
 
-2. In the search box, enter "event hubs" as your filter. 
-From the triggers list, select the trigger you want.
-
-   This example uses this trigger:
-
-   **Event Hubs - When events are available in Event Hub**
+1. In the search box, enter "event hubs" as your filter. 
+From the triggers list, select this trigger:
+**When events are available in Event Hub**
 
    ![Select trigger](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
-3. If you're prompted for connection details, 
+1. If you're prompted for connection details, 
 [create your Event Hubs connection now](#create-connection). 
 Or, if your connection already exists, 
 provide the necessary information for the trigger.
 
-   1. From the **Event Hub name** list, select the Event Hub you want to monitor.
+1. In the trigger, provide information about the Event Hub that you want to monitor. 
+For more properties, open the **Add new parameter** list 
 
-      ![Specify Event Hub or consumer group](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
+   ![Trigger properties](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
-   2. Select the interval and frequency for how often you want 
-   the trigger to check the Event Hub.
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Event Hub name** | Yes | The name for the Event Hub that you want to monitor |
+   | **Content type** | No | The event's content type. The default is `application/octet-stream`. |
+   | **Consumer group name** | No | The [name for the Event Hub consumer group](../event-hubs/event-hubs-features.md#consumer-groups) to use for reading events. If not specified, the default consumer group is used. |
+   | **Maximum events count** | No | The maximum number of events. The trigger returns between one and the number of events specified by this property. |
+   | **Interval** | Yes | A positive integer that describes how often the workflow runs based on the frequency |
+   | **Frequency** | Yes | The unit of time for the recurrence |
+   ||||
 
-   3. To optionally select some of the advanced trigger options, choose **Show advanced options**.
+   **Additional properties**
 
-      ![Trigger advanced options](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Content schema** | No | The JSON content schema for the events to read from the Event Hub. For example, if you specify the content schema, you can trigger the logic app for only those events that match the schema. |
+   | **Minimum partition key** | No | Enter the minimum [partition](../event-hubs/event-hubs-features.md#partitions) ID to read. By default, all partitions are read. |
+   | **Maximum partition key** | No | Enter the maximum [partition](../event-hubs/event-hubs-features.md#partitions) ID to read. By default, all partitions are read. |
+   | **Time zone** | No | Applies only when you specify a start time because this trigger doesn't accept UTC offset. Select the time zone that you want to apply. <p>For more information, see [Create and run recurring tasks and workflows with Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
+   | **Start time** | No | Provide a start time in this format: <p>YYYY-MM-DDThh:mm:ss if you select a time zone<p>-or-<p>YYYY-MM-DDThh:mm:ssZ if you don't select a time zone<p>For more information, see [Create and run recurring tasks and workflows with Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
+   ||||
 
-      | Property | Details | 
-      |----------|---------| 
-      | Content type  | Select the event's content type. The default is "application/octet-stream". |
-      | Content schema | Enter the content schema in JSON for the events that are read from the Event Hub. |
-      | Consumer group name | Enter the Event Hub [consumer group name](../event-hubs/event-hubs-features.md#consumer-groups) for reading events. If not specified, the default consumer group is used. |
-      | Minimum partition key | Enter the minimum [partition](../event-hubs/event-hubs-features.md#partitions) ID to read. By default, all partitions are read. |
-      | Maximum partition key | Enter the maximum [partition](../event-hubs/event-hubs-features.md#partitions) ID to read. By default, all partitions are read. |
-      | Maximum events count | Enter a value for the maximum number of events. The trigger returns between one and the number of events specified by this property. |
-      |||
+1. When you're done, on the designer toolbar, choose **Save**.
 
-4. When you're done, on the designer toolbar, choose **Save**.
-
-5. Now continue adding one or more actions to your logic app 
+1. Now continue adding one or more actions to your logic app 
 for the tasks you want to perform with the trigger results.
 
 > [!NOTE]
@@ -140,7 +143,7 @@ for the tasks you want to perform with the trigger results.
 
 <a name="add-action"></a>
 
-## Add an Event Hubs action
+## Add Event Hubs action
 
 In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 is a step in your workflow that follows a trigger or another action. 
@@ -172,9 +175,9 @@ provide the necessary information for the action.
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | Event Hub name | Yes | Select the Event Hub where you want to send the event |
-   | Event content | No | The content for the event you want to send |
-   | Properties | No | The app properties and values to send |
+   | **Event Hub name** | Yes | Select the Event Hub where you want to send the event |
+   | **Event content** | No | The content for the event you want to send |
+   | **Properties** | No | The app properties and values to send |
    ||||
 
    For example:
@@ -194,8 +197,8 @@ provide these details:
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | Connection Name | Yes | <*connection-name*> | The name to create for your connection |
-   | Event Hubs Namespace | Yes | <*event-hubs-namespace*> | Select the Event Hubs namespace you want to use. |
+   | **Connection Name** | Yes | <*connection-name*> | The name to create for your connection |
+   | **Event Hubs Namespace** | Yes | <*event-hubs-namespace*> | Select the Event Hubs namespace you want to use. |
    |||||  
 
    For example:
