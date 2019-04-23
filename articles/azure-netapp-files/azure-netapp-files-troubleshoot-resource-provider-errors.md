@@ -13,7 +13,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: concepts article
+ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: b-juche
 ---
