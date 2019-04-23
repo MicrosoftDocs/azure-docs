@@ -1,10 +1,10 @@
 ---
-title: 'Quickstart: Using Python to call the Text Analytics API'
+title: 'Quickstart: Call the Text Analytics Service using the Python SDK'
 titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
 services: cognitive-services
-author: aahill
-manager: nitinme
+author: chtufts
+manager: assafi
 
 ms.service: cognitive-services
 ms.subservice: text-analytics
