@@ -78,9 +78,7 @@ Subqueries can help optimize queries with expensive expressions such as user-def
 The following query executes the UDF GetMaxNutritionValue twice:
 
 ```sql
-
-
-c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
+SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
 FROM c
 WHERE udf.GetMaxNutritionValue(c.nutrients) > 100
 ```
