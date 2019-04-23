@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 04/22/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
@@ -82,9 +82,9 @@ If your app supports multiple platforms (iOS, Android, etc.), it's best to creat
 
 ## Export to Application Insights
 
-In your new Application Insights resource on the **Overview** page.
+In your new Application Insights resource on the **Overview** page. Copy the instrumentation key from your resource.
 
-   ![Analytics button in Application Insights](./media/mobile-center-quickstart/overview.png)
+   ![Analytics button in Application Insights](./media/mobile-center-quickstart/overview-01.png)
 
 In the App Center instance for your app:
 
