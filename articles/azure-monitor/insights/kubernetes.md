@@ -2,7 +2,7 @@
 title: Application Insights for Kubernetes | Microsoft Docs
 description: Application Insight for Kubernetes is a monitoring solution that allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your Kubernetes cluster. 
 services: application-insights
-author: lagayhar
+author: lgayhardt
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.author: lagayhar
 
 # Application Insights for Kubernetes
 
-Application Insight for Kubernetes is a monitoring solution that allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your Kubernetes cluster without the need for instrumenting the application with an SDK. We utilize service mesh technology called Istio to collect data, so the only requirement is that your Kubernetes deployment is [configured to run with Istio](#Deploy-Istio).
+Application Insight for Kubernetes is a monitoring solution that allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your Kubernetes cluster without the need for instrumenting the application with an SDK. We utilize service mesh technology called Istio to collect data, so the only requirement is that your Kubernetes deployment is [configured to run with Istio](#deploy-Istio).
 
 Since service mesh lifts data off the wire, we cannot intercept encrypted traffic. For traffic that doesn't leave the cluster, use plain unencrypted protocol (for example, HTTP). For external traffic that must be encrypted, consider setting up SSL termination at the ingress controller.
 
