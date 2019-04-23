@@ -12,7 +12,7 @@ ms.date: 04/23/2019
 ms.author: mbaldwin
 
 ---
-# Common security attributes for API Management
+# Common security attributes for Azure Service Bus Relay
 
 Security is integrated into every aspect of an Azure service. This article documents the common security attributes built into Azure Service Bus Relay.
 
@@ -33,7 +33,6 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| No |  |
-| vNET injection support| N/A  Relay is a web socket, not a hosted service.  |
 | Network isolation and firewalling support| No |  |
 | Forced tunneling support| N/A | Relay is the SSL tunnel  |
 
