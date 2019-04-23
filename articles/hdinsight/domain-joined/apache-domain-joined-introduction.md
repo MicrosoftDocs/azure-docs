@@ -1,7 +1,6 @@
 ---
 title: An introduction to Apache Hadoop security with Enterprise Security Package
 description: Learn how Enterprise Security Package supports the four pillars of enterprise security.
-services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
