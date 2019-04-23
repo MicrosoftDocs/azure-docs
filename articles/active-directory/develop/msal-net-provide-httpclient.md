@@ -1,5 +1,5 @@
 ---
-title: Provide a HttpClient and proxy (MSAL.NET) | Azure
+title: Provide an HttpClient and proxy (MSAL.NET) | Azure
 description: Learn about providing your own HttpClient and proxy to connect to Azure AD using Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -22,10 +22,10 @@ ms.collection: M365-identity-device-management
 ---
 
 # Providing your own HttpClient and proxy using MSAL.NET
-When initializing a public client application, you can use the `.WithHttpClientFactory method` to provide your own HttpClient.  Providing your own HttpClient enables advanced scenarios such fine-grained control of a HTTP proxy, customizing user agent headers, or forcing MSAL to use a specific HttpClient (for example in ASP.NET Core web apps/APIs).
+When initializing a public client application, you can use the `.WithHttpClientFactory method` to provide your own HttpClient.  Providing your own HttpClient enables advanced scenarios such fine-grained control of an HTTP proxy, customizing user agent headers, or forcing MSAL to use a specific HttpClient (for example in ASP.NET Core web apps/APIs).
 
 ## Initialize with HttpClientFactory
-The following example shows to to create a HttpClientFactory and then initialize a public client application with it:
+The following example shows to create an `HttpClientFactory` and then initialize a public client application with it:
 
 ```csharp
 IMsalHttpClientFactory httpClientFactory = new MyHttpClientFactory();
@@ -36,4 +36,4 @@ var pca = PublicClientApplicationBuilder.Create(MsalTestConstants.ClientId)
 ```
 
 ## HttpClient and Xamarin iOS
-When using Xamarin iOS, it is recommended to create an `HttpClient` that explicitly uses the NSURLSession-based handler for iOS 7 and newer. MSAL.NET automatically creates an `HttpClient` that uses NSURLSessionHandler for iOS 7 and newer. For more information, read the [Xamarin iOS documentation for HttpClient](/xamarin/cross-platform/macios/http-stack).
+When using Xamarin iOS, it is recommended to create an `HttpClient` that explicitly uses the `NSURLSession`-based handler for iOS 7 and newer. MSAL.NET automatically creates an `HttpClient` that uses `NSURLSessionHandler` for iOS 7 and newer. For more information, read the [Xamarin iOS documentation for HttpClient](/xamarin/cross-platform/macios/http-stack).
