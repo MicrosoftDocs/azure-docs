@@ -4,7 +4,7 @@ description: Use this article to learn standard diagnostic skills for Azure IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2019
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,13 +13,90 @@ ms.custom: seodec18
 
 # Common issues and resolutions for Azure IoT Edge
 
-If you experience issues running Azure IoT Edge in your environment, use this article as a guide for troubleshooting and resolution. 
+If you experience issues running Azure IoT Edge in your environment, use this article as a guide for troubleshooting and resolution.
 
-## Standard diagnostic steps 
+## Run the iotedge.exe 'check' command
 
-When you encounter an issue, learn more about the state of your IoT Edge device by reviewing the container logs and the messages that pass to and from the device. Use the commands and tools in this section to gather information. 
+Your first step when troubleshooting IoT Edge should be to use the `check` command, which performs a collection of tests for common issues:
 
-### Check the status of the IoT Edge Security Manager and its logs:
+* Configuration checks:
+  * Checks that *config.yaml* is well-formed and
+    * Includes the `Hostname`, `DeviceId`, and `SharedAccessKey` parameters if using a manual connection string;
+    * Has a value for `Hostname` that matches the device's hostname; and
+    * Has the correct URIs for the daemon management endpoint.
+  * A container engine is installed, running, and accessible through the `connect.management_uri` address in *config.yaml*.
+  * The container time is close to the time reported by the host device.
+  * The time on the host device is close to the time reported by an NTP server.
+  * The installed security daemon is the latest public release.
+  * A DNS server address has been defined for the container engine, which can help prevent connection errors with the IoT Hub. (Defining a DNS server in each module's deployment is also valid but isn't verified by this check.)
+  * Production readiness tests are warnings rather than errors, but resolving any issues is strongly suggested for a production environment:
+    * Both device certificate authority (CA) and trusted CA certificates are defined in the *config.yaml*. If no certificates are defined there, the device is using temporary, self-signed certificates which are not supported in production.
+    * The device CA certificate is valid for at least seven days; this check reports an error if the certificate is already expired and a warning if it will expire in less than seven days
+    * Confirms that the container engine is moby-engine, which is the only container engine supported for production environments. (Other container engines, such as Docker Desktop, are supported when developing and testing your device.)
+    * Logs have been configured to limit storage usage.
+* Connection checks using the AMQP (5671), HTTPS (443), and MQTT (8883) ports on the IoT Hub:
+  * The host can connect and perform a TLS handshake with the IoT Hub.
+  * The container can use the default container network to connect to the IoT Hub. (This check doesn't run when using Windows containers.)
+  * The container on the IoT Edge module network can connect to the IoT Hub.
+  * The IoT Edge hub can bind to ports on the host.
+
+You can run the `check` command as follows:
+
+* On Linux:
+
+  ```bash
+  sudo iotedge check
+  ```
+
+* On Windows:
+
+  ```powershell
+  iotedge check
+  ```
+
+Sample output from the tool using the `--help` flag:
+
+```cmd
+iotedge.exe-check
+Check for common config and deployment issues
+
+USAGE:
+    iotedge.exe check [FLAGS] [OPTIONS]
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+        --verbose    Increases verbosity of output.
+
+OPTIONS:
+    -c, --config-file <FILE>
+            Sets daemon configuration file [default: C:\ProgramData\iotedge\config.yaml]
+        --container-engine-config-file <FILE>
+            Sets the path of the container engine configuration file [default: C:\ProgramData\iotedge
+            -moby\config\daemon.json]
+        --diagnostics-image-name <IMAGE_NAME>
+            Sets the name of the azureiotedge-diagnostics image. [default: mcr.microsoft.com/azureiotedge
+            -diagnostics:1.0.7-rc2 (03dff5f270fabe34e7903c04e334dca2665780a6)]
+        --expected-iotedged-version <VERSION>
+            Sets the expected version of the iotedged binary. Defaults to the value contained in <http://aka.ms/latest
+            -iotedge-stable>
+    -H, --host <HOST>
+            Daemon socket to connect to [env: IOTEDGE_HOST=unix:///C:/ProgramData/iotedge/mgmt/sock]  [default:
+            unix:///C:/ProgramData/iotedge/mgmt/sock]
+        --iotedged <PATH_TO_IOTEDGED>
+            Sets the path of the iotedged binary. [default: C:\Program Files\iotedge\iotedged.exe]
+        --iothub-hostname <IOTHUB_HOSTNAME>
+            Sets the hostname of the Azure IoT Hub that this device would connect to. If using manual provisioning, this
+            does not need to be specified.
+        --ntp-server <NTP_SERVER>
+            Sets the NTP server to use when checking host local time. [default: pool.ntp.org:123]
+```
+
+## Standard diagnostic steps
+
+If you encounter an issue, you can learn more about the state of your IoT Edge device by reviewing the container logs and the messages that pass to and from the device. Use the commands and tools in this section to gather information.
+
+### Check the status of the IoT Edge Security Manager and its logs
 
 On Linux:
 - To view the status of the IoT Edge Security Manager:
@@ -80,7 +157,7 @@ On Windows:
 ### If the IoT Edge Security Manager is not running, verify your yaml configuration file
 
 > [!WARNING]
-> YAML files cannot contain tabs as identation. Use 2 spaces instead.
+> YAML files cannot contain tabs as indentation. Use 2 spaces instead.
 
 On Linux:
 
