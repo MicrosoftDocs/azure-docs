@@ -82,7 +82,7 @@ To create a Data Box Edge resource, take the following steps in the Azure portal
 
 1. Use your Microsoft Azure credentials to sign in to 
     
-    - The Azure portal at this URL: [https://portal.azure.com](http://portal.azure.com).
+    - The Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
     - Or, the Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us). For more details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. In the left-pane, select **+ Create a resource**. Search for **Data Box Edge / Data Box Gateway**. Select **Data Box Edge / Data Box Gateway**. Select **Create**.
