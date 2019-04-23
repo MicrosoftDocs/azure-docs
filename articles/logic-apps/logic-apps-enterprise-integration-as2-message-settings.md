@@ -55,3 +55,7 @@ properties based on your agreement with the partner that exchanges messages with
 | **Enable NRR** | No | Specifies whether to require non-repudiation receipt (NRR). This communication attribute provides evidence that the data was received as addressed. |
 | **SHA2 Algorithm format** | No | Specifies the MIC algorithm format to use for signing in the headers for the outgoing AS2 messages or MDN |
 ||||
+
+## Next steps
+
+[Exchange AS2 messages](../logic-apps/logic-apps-enterprise-integration-as2.md)
