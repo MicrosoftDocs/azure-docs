@@ -31,6 +31,9 @@ Learn more about:
 - [Support from Microsoft for Azure](https://azure.microsoft.com/support/plans/?b=16.44).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
+> [!Note]
+> Clusters running on a bronze reliability tier allow you to run test workloads only. If you experience issues with a cluster running on bronze reliability, the Microsoft support team will assist you in mitigating the issue, but will not perform a Root Cause Analysis. Please refer [The reliability characteristics of the cluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) for more details about reliability levels.
+
 <a id="getlivesitesupportonprem"></a>
 
 ## Report production issues or request paid support for standalone Service Fabric clusters

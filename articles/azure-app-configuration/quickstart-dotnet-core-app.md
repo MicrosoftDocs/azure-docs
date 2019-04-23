@@ -107,4 +107,4 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 In this quickstart, you created a new app configuration store and used it with a .NET Core console app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
 
 > [!div class="nextstepaction"]
-> [Managed identities for Azure resources integration](./howto-integrate-azure-managed-service-identity.md)
+> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

@@ -191,7 +191,5 @@ App Configuration providers for .NET Framework and Java Spring also have built-i
 
 ## Next steps
 
-In this tutorial, you added an Azure managed service identity to streamline access to App Configuration and improve credential management for your app. To learn more about how to use App Configuration, continue to the Azure CLI samples.
-
 > [!div class="nextstepaction"]
 > [CLI samples](./cli-samples.md)
