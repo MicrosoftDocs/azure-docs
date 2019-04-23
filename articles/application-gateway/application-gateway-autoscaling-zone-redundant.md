@@ -49,8 +49,8 @@ The following table compares the features available with each SKU.
 | HTTP/2 support                                    | &#x2713; | &#x2713; |
 | Connection draining                               | &#x2713; | &#x2713; |
 | Azure Kubernetes Service (AKS) Ingress controller |          | &#x2713; |
-| Key Vault                                         |          | &#x2713; |
-| Custom rules                                      |          | &#x2713; |
+| Key Vault (preview)                               |          | &#x2713; |
+| Custom rules (preview)                            |          | &#x2713; |
 
 ## Supported regions
 
