@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/08/2019
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.author: raynew
 ---
@@ -239,11 +239,15 @@ Yes, but note that physical machine can only be failed back to a VMware VM.
 
 In the Recovery Services vault, click **Configuration Servers** in **Site Recovery Infrastructure** > **Manage**. Then in **Servers**, select **Download registration key** to download the vault credentials file.
 
+## Process Server
 
+### Unable to select process server during enable replication
 
+From 9.24 version, enhancements are made to provide [in-product guidance](vmware-azure-manage-process-server.md#process-server-selection-guidance) on when to set up a scale-out process server. This is to avoid process server throttling and avoid usage of unhealthy process server.
 
+### What should I do to obtain accurate health status of process server?
 
-
+Upgrade Site Recovery components to the [latest versions](service-updates-how-to.md#links-to-currently-supported-update-rollups) (at least 9.24 or above).
 
 ## Failover and failback
 ### Can I use the process server at on-premises for failback?

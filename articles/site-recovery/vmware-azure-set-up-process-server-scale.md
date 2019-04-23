@@ -1,6 +1,6 @@
 ---
-title: Set up a process server in Azure to fail back during disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs'
-description: This article describes how to set up a process server in Azure, to fail back from Azure to on-premises during disaster recovery of VMware VMs and physical servers.
+title: Set up a scale-out process server during disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs'
+description: This article describes how to set up scale-out process server during disaster recovery of VMware VMs and physical servers.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -11,34 +11,15 @@ ms.author: ramamill
 
 # Scale with additional process servers
 
-By default, when you're replicating VMware VMs or physical servers to Azure using [Site Recovery](site-recovery-overview.md), a process server is installed on the configuration server machine, and is used to coordinate data transfer between Site Recovery and your on-premises infrastructure. To increase capacity and scale out your replication deployment, you can add additional standalone process servers. This article describes how to do this.
-
-## Process Server selection guidance
-
-Azure Site Recovery automatically identifies if Process Server is approaching it's usage limits and guide you to set up a scale out process server.
-
-|Health Status  |Explanation  | Resource availability  | Recommendation|
-|---------|---------|---------|---------|
-| Healthy (Green)    |   Process server is connected and is healthy      |CPU and memory utilization is below 80%; Free space availability is above 30%| This process server can be used to protect additional servers. Ensure that the new workload is within the [defined process server limits](#sizing-requirements).
-|Warning (Orange)    |   Process server is connected but certain resources are about to reach maximum limits  |   CPU and memory utilization is between 80% - 95%; Free space availability is between 25% - 30%       | Usage of process server is close to threshold values. Adding new servers to same process server will lead to crossing the threshold values and can impact existing protected items. So, it is advised to [setup a scale-out process server](#before-you-start) for new replications.
-|Warning (Orange)   |   Process server is connected but data wasn't uploaded to Azure in last 30 min  |   Resource utilization is within threshold limits       | Troubleshoot [data upload failures](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) before adding new workloads to same process server OR [setup a scale-out process server](#before-you-start) for new replications.
-|Critical (Red)    |     Process server might be disconnected  |  Resource utilization is within threshold limits      | Troubleshoot [Process server connectivity issues](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) OR [setup a scale-out process server](#before-you-start) for new replications.
-|Critical (Red)    |     Resource utilization has crossed threshold limits |  CPU and memory utilization is above 95%; Free space availability is less than 25%.   | Adding new workloads to same process server is disabled as resource threshold limits are already met. So, [setup a scale-out process server](#before-you-start) for new replications.
-Critical (Red)    |     Data wasn't uploaded from Azure to Azure in last 45 min. |  CPU and memory utilization is above 95%; Free space availability is less than 25%.      | Troubleshoot [data upload failures](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) before adding new workloads to same process server OR [setup a scale-out process server](#before-you-start)
-
-### 
-
-A process server selected during Prepare Source step is marked green if
-
-- it is in a connected state
-- has sufficient resources (CPU, Memory, Free space) to handle on-going replication workload and is capable to handling at least 30% more of additional workload.
-
+By default, when you're replicating VMware VMs or physical servers to Azure using [Site Recovery](site-recovery-overview.md), a process server is installed on the configuration server machine, and is used to coordinate data transfer between Site Recovery and your on-premises infrastructure. To increase capacity and scale out your replication deployment, you can add additional standalone process servers. This article describes how to setup a scale-out process server.
 
 ## Before you start
 
 ### Capacity planning
 
 Make sure you've performed [capacity planning](site-recovery-plan-capacity-vmware.md) for VMware replication. This helps you to identify how and when you should deploy additional process servers.
+
+From 9.24 version, guidance is added during selection of process server for new replications. Process server will be marked Healthy, Warning and Critial based on certain criteria. To understand different scenarios that can influence state of process server, visit [process server selection guidance](vmware-azure-manage-process-server.md#process-server-selection-guidance).
 
 > [!NOTE]
 > Use of a cloned Process Server component is not supported. Follow the steps in this article for each PS scale-out.
