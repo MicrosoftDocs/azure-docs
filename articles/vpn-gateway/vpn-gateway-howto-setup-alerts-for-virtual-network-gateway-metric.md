@@ -1,13 +1,13 @@
 ---
-title: 'How to setup alerts on VPN Gateway metrics'
+title: 'How to set up alerts on Azure VPN Gateway metrics'
 description: Steps to configure alerts on VPN Gateway metrics
 services: vpn-gateway
 author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: conceptional
-ms.date: 04/15/2019
-ms.author: anzaman
+ms.date: 04/22/2019
+ms.author: alzam
 
 ---
 # Setting up alerts on VPN Gateway metrics
@@ -40,26 +40,25 @@ The example steps below will create an alert on a gateway for: <br>
 
 
 
-### 1. Navigate to the virtual network gateway resource and select "Alerts" from the Monitoring tab, then create a new alert rule or edit an existing alert rule.
+1. Navigate to the virtual network gateway resource and select "Alerts" from the Monitoring tab, then create a new alert rule or edit an existing alert rule.
 
 ![point-to-site](./media/vpn-gateway-howto-setup-alerts-for-virtual-network-gateway-metric/metric-alert1.png "Create")
 
-### <a name="cmdlets"></a>2. Select your VPN gateway as the resource.
+2. Select your VPN gateway as the resource.
 
 ![point-to-site](./media/vpn-gateway-howto-setup-alerts-for-virtual-network-gateway-metric/metric-alert2.png "Select")
 
-### <a name="cmdlets"></a>3. Select a metric to configure for the alert
+3. Select a metric to configure for the alert
 ![point-to-site](./media/vpn-gateway-howto-setup-alerts-for-virtual-network-gateway-metric/metric-alert3.png "Select")
+4. Configure the signal logic. There are three components to signal logic:
 
-### <a name="cmdlets"></a>4. Configure the signal logic. There are three components to signal logic:
-
-a. Dimensions: If the metric has dimensions, specific dimension values can be selected so that the alert only evaluates data of that dimension. These are optional.<br>
-b. Condition: The operation to evaluate the metric value.<br>
-c. Time: Specify the granularity of metric data, and the period of time to evaluate the alert on.<br>
+    a. Dimensions: If the metric has dimensions, specific dimension values can be selected so that the alert only evaluates data of that dimension. These are optional.<br>
+    b. Condition: The operation to evaluate the metric value.<br>
+    c. Time: Specify the granularity of metric data, and the period of time to evaluate the alert on.<br>
 
 ![point-to-site](./media/vpn-gateway-howto-setup-alerts-for-virtual-network-gateway-metric/metric-alert4.png "Select")
 
-### <a name="cmdlets"></a>4. To view the configured rules, click on "Manage alert rules"
+5. To view the configured rules, click on "Manage alert rules"
 ![point-to-site](./media/vpn-gateway-howto-setup-alerts-for-virtual-network-gateway-metric/metric-alert8.png "Select")
 
 ## Next steps
