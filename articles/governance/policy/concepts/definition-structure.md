@@ -64,7 +64,7 @@ For example, the following JSON shows a policy that limits where resources are d
 }
 ```
 
-All Azure Policy samples are at [Policy samples](../samples/index.md).
+All Azure Policy samples are at [Azure Policy samples](../samples/index.md).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -112,9 +112,11 @@ A parameter has the following properties that are used in the policy definition:
   - `description`: The explanation of what the parameter is used for. Can be used to provide examples of acceptable values.
   - `displayName`: The friendly name shown in the portal for the parameter.
   - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides a context aware list. For more information, see [strongType](#strongtype).
-  - `assignPermissions`: (Optional) Set to _true_ to have the Portal create a role assignment during
-    policy assignment for the identity on the resource or scope outside the assignment scope. The
-    parameter must be a valid resource or scope.
+  - `assignPermissions`: (Optional) Set as _true_ to have Azure portal create role assignments
+    during policy assignment. This property is useful in case you wish to assign permissions outside
+    the assignment scope. There is one role assignment per role definition in the policy (or per
+    role definition in all of the policies in the initiative). The parameter value must be a valid
+    resource or scope.
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during assignment.
 
@@ -432,7 +434,7 @@ evaluation.
 
 ### Effect
 
-Policy supports the following types of effect:
+Azure Policy supports the following types of effect:
 
 - **Deny**: generates an event in the activity log and fails the request
 - **Audit**: generates a warning event in activity log but doesn't fail the request
@@ -473,7 +475,7 @@ definition](../how-to/remediate-resources.md#configure-policy-definition).
 ```
 
 For complete details on each effect, order of evaluation, properties, and examples, see
-[Understanding Policy Effects](effects.md).
+[Understanding Azure Policy Effects](effects.md).
 
 ### Policy functions
 
@@ -678,9 +680,9 @@ and `productName`. It uses two built-in policies to apply the default tag value.
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md)
-- Review [Understanding policy effects](effects.md)
-- Understand how to [programmatically create policies](../how-to/programmatically-create.md)
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md)
-- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md)
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md)
+- Review examples at [Azure Policy samples](../samples/index.md).
+- Review [Understanding policy effects](effects.md).
+- Understand how to [programmatically create policies](../how-to/programmatically-create.md).
+- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
+- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).
