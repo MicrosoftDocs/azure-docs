@@ -119,7 +119,7 @@ If you are evaluating MongoDB, you must use the REST API to create the data sour
 In your Cosmos DB account you can choose whether you want the collection to automatically index all documents. By default, all documents are automatically indexed, but you can turn off automatic indexing. When indexing is turned off, documents can be accessed only through their self-links or by queries by using the document ID. Azure Search requires Cosmos DB automatic indexing to be turned on in the collection that will be indexed by Azure Search. 
 
 > [!WARNING]
-> Azure Cosmos DB is the next generation of DocumentDB. Previously with API version **2017-11-11** you could use the `documentdb` syntax. Starting with API version **2019-05-06** both the Azure Search APIs and Portal only support the `cosmosdb` syntax as instructed in this article.
+> Azure Cosmos DB is the next generation of DocumentDB. Previously with API version **2017-11-11** you could use the `documentdb` syntax. This meant that you could specify your data source type as `cosmosdb` or `documentdb`. Starting with API version **2019-05-06** both the Azure Search APIs and Portal only support the `cosmosdb` syntax as instructed in this article. This means that the data source type must `cosmosdb` if you would like to connect to a Cosmos DB endpoint.
 
 ### 1 - Assemble inputs for the request
 
