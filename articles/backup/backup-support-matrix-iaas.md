@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 04/23/2019
 ms.author: raynew
 ---
 
@@ -163,7 +163,7 @@ Resize disk on protected VM | Supported.
 Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out File Server is not recommended. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
 
 > [!NOTE]
-> Azure Backup does not support striped disks. Resizing of disk is not recommended by Azure Backup.
+> Resizing of disk is not recommended by Azure Backup.
 
 
 ## VM network support
