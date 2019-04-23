@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -206,6 +206,9 @@ If you get the `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` error, make sure 
 
 If you get errors that end with `_NOT_SPECIFIED_IN_URL`, make sure that you specify the encryption format in the URL. For example, `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types).
 
+## Provide feedback
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 
