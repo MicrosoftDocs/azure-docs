@@ -1,6 +1,6 @@
 ---
 title: Migrate to granular role-based access for cluster configurations - Azure HDInsight
-description: Learn about the changes needed to migrate to granular role-based access for cluster configurations.
+description: Learn about the changes required as part of the migration to granular role-based access for HDInsight cluster configurations.
 author: tylerfox
 ms.author: tyfox
 ms.reviewer: jasonh
