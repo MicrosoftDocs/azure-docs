@@ -222,7 +222,7 @@ In V3, the same result with the `verbose` flag to return entity metadata:
 
 ## External entities passed in at prediction time
 
-External entities give your LUIS app the ability to identify and label entities during runtime, which can be used as features to existing entities. This allows you to provide your own separate and custom entity extractors to the query prediction endpoint. Because this is done at the query prediction endpoint, you don't need to retrain and publish your model.
+External entities give your LUIS app the ability to identify and label entities during runtime, which can be used as features to existing entities. This allows you to use your own separate and custom entity extractors before sending queries to your prediction endpoint. Because this is done at the query prediction endpoint, you don't need to retrain and publish your model.
 
 The client-application is providing its own entity extractor by managing entity matching and determining the location within the utterance of that matched entity and then sending that information with the request. 
 
@@ -294,7 +294,7 @@ not sure what to do here
 
 Dynamic lists allow you to update and extend an existing trained and published list entity, already in the LUIS app. 
 
-Use this feature when your list entity values need to change periodically. This feature allows up to update an already trained and published list entity:
+Use this feature when your list entity values need to change periodically. This feature allows you to update an already trained and published list entity:
 
 * At the time of the query prediction endpoint request.
 * For a single request.
@@ -334,7 +334,7 @@ The prediction response includes that list entity, with all the other predicted 
 
 ## Detect multiple intents within single utterance
 
-This feature identifies multiple intents from as utterance, enabling better understanding of complex and compound utterances that include more than one action. There is not prerequisite, or change needed to support this, in the LUIS app for this feature to work. It happens at the query prediction runtime if the associated query string parameter is passed in. 
+This feature identifies multiple intents from an utterance, enabling better understanding of complex and compound utterances that include more than one action. There is not prerequisite, or change needed to support this, in the LUIS app for this feature to work. It happens at the query prediction runtime if the associated query string parameter is passed in. 
 
 The V3 query prediction endpoint supports multi-intent query predictions if `multiple-segments=true` is passed in the query string. This means each sentence can have its own intent prediction.
 
