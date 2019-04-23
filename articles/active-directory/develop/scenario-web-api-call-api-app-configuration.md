@@ -1,37 +1,33 @@
 ---
-title: Web API that calls Web APIs - app's code configuration | Azure
-description: Learn how to build a web API that calls Web APIs (app's code configuration)
+title: Web API that calls downstream web APIs - app's code configuration | Azure
+description: Learn how to build a web API that calls web APIs (app's code configuration)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2019
+ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a web API that calls Web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Web API that calls Web APIs - app's code configuration
+# Web API that calls web APIs - app's code configuration
 
-Now that you have registered your Web API, learn how to configure the code of the application.
+After you've registered your web API, you can configure the code for the application.
 
-## This is a protected API
+The code to configure your web API so that it calls downstream web APIs builds on top of the code used to project a web API. For more info, see [Protected Web API - app configuration](scenario-protected-web-api-app-configuration.md).
 
-The code to configure your web API so that it calls downstream Web APIs builds on top of the code used to project Web API. See also [Protected Web API - app configuration](scenario-protected-web-api-app-configuration.md).
+## Code subscribed to OnTokenValidated
 
-## It subscribes to OnTokenValidated
-
-Then, on top of the code configuration for any protected Web APIs, you need to subscribe to the validation of the bearer token received when your API is called:
+On top of the code configuration for any protected web APIs, you need to subscribe to the validation of the bearer token that's received when your API is called:
 
 ```CSharp
 /// <summary>
@@ -66,16 +62,16 @@ public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollec
 }
 ```
 
-## On behalf of flow
+## On-behalf-of flow
 
 The AddAccountToCacheFromJwt() method needs to:
 
-- instantiate an MSAL confidential client application
-- Call `AcquireTokenOnBehalf` to exchange the bearer token that was acquired by the client for our Web API, against a bearer token for the same user, but for our API to call a downstream API.
+- Instantiate an MSAL confidential client application.
+- Call `AcquireTokenOnBehalf` to exchange the bearer token that was acquired by the client for the web API, against a bearer token for the same user, but for our API to call a downstream API.
 
-### Instantiating a confidential client application 
+### Instantiate a confidential client application 
 
-This flow is only available in the confidential client flow; therefore the protected Web API provides client credentials (client secret or certificate) to the [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.confidentialclientapplicationbuilder?view=azure-dotnet-preview) via the `WithClientSecret` or `WithCertificate` methods respectively.
+This flow is only available in the confidential client flow so the protected web API provides client credentials (client secret or certificate) to the [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.confidentialclientapplicationbuilder?view=azure-dotnet-preview) via the `WithClientSecret` or `WithCertificate` methods, respectively.
 
 ![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
@@ -96,15 +92,15 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 #endif
 ```
 
-### How to call OBO
+### How to call on-behalf-of
 
-The OBO call is done by calling the [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenonbehalfofparameterbuilder?view=azure-dotnet-preview) method on the `IConfidentialClientApplication` interface.
+The on-behalf-of (OBO) call is done by calling the [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenonbehalfofparameterbuilder?view=azure-dotnet-preview) method on the `IConfidentialClientApplication` interface.
 
-The `ClientAssertion` is built from the bearer token received by the Web API from its own clients. There are [two constructors](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), one taking a JWT bearer token, and one taking any kind of user assertion (another kind of security token, which type is then specified in an additional parameter named `assertionType`)
+The `ClientAssertion` is built from the bearer token received by the web API from its own clients. There are [two constructors](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), one that takes a JWT bearer token, and one that takes any kind of user assertion (another kind of security token, which type is then specified in an additional parameter named `assertionType`).
 
 ![image](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
-In practice, the OBO flow is often used to acquire a token for a downstream API, and store it in the MSAL.NET user token cache, so that other parts of the Web API can, later call on of the [overrides](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) of ``AcquireTokenOnSilent`` to call the downstream APIs (which also has the effect of refreshing the tokens if needed):
+In practice, the OBO flow is often used to acquire a token for a downstream API and store it in the MSAL.NET user token cache so that other parts of the web API can later call on the [overrides](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) of ``AcquireTokenOnSilent`` to call the downstream APIs. This has the effect of refreshing the tokens, if needed.
 
 ```CSharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
@@ -142,7 +138,7 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 
 ## Protocol
 
-For more information about the on-behalf-of protocol, see [Azure Active Directory v2.0 and OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)
+For more information about the on-behalf-of protocol, see [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)
 
 ## Next steps
 
