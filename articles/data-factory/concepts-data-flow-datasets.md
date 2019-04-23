@@ -23,8 +23,8 @@ By defining the schema from the dataset, you'll get the related data types, data
 
 In Data Flow, you'll find four dataset types:
 
-* Delimited text (from Data Lake Storage and Blob storage)
-* Parquet (from Azure Data Lake Storage and Blob storage)
+* Delimited text (from Azure Data Lake Storage and Blob storage)
+* Parquet (from Data Lake Storage and Blob storage)
 * Azure SQL Database
 * Azure SQL Data Warehouse
 
