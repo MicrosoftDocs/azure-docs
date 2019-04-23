@@ -6,20 +6,20 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: raynew
 
 
 ---
 # About SQL Server Backup in Azure VMs
 
-SQL Server databases are critical workloads that require a low recovery point objective (RPO) and long-term retention. You can backup SQL Server databases running on Azure VMs using [Azure Backup](backup-overview.md).
+SQL Server databases are critical workloads that require a low recovery point objective (RPO) and long-term retention. You can back up SQL Server databases running on Azure VMs using [Azure Backup](backup-overview.md).
 
 ## Backup process
 
 This solution leverages the SQL native APIs to take backups of your SQL databases.
 
-* Once you specify the SQL Server VM that you want to protect and query for the databases in the it, Azure Backup service will install a workload backup extension on the VM by the name `AzureBackupWindowsWorkload` extension.
+* Once you specify the SQL Server VM that you want to protect and query for the databases in it, Azure Backup service will install a workload backup extension on the VM by the name `AzureBackupWindowsWorkload` extension.
 * This extension consists of a coordinator and a SQL plugin. While the coordinator is responsible for triggering workflows for various operations like configure backup, backup and restore, the plugin is responsible for actual data flow.
 * To be able to discover databases on this VM, Azure Backup creates the account `NT SERVICE\AzureWLBackupPluginSvc`. This account is used for backup and restore and requires SQL sysadmin permissions. Azure Backup leverages the `NT AUTHORITY\SYSTEM` account for database discovery/inquiry, so this account need to be a public login on SQL. If you didn't create the SQL Server VM from the Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If this occurs [follow these instructions](backup-azure-sql-database.md).
 * Once you trigger configure protection on the selected databases, the backup service sets up the coordinator with the backup schedules and other policy details, which the extension caches locally on the VM 
@@ -31,7 +31,7 @@ This solution leverages the SQL native APIs to take backups of your SQL database
 
 ## Before you start
 
-Before you start, verify the following:
+Before you start, verify the below:
 
 1. Make sure you have a SQL Server instance running in Azure. You can [quickly create a SQL Server instance](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) in the marketplace.
 2. Review the [feature consideration](#feature-consideration-and-limitations) and [scenario support](#scenario-support).
@@ -50,20 +50,27 @@ Before you start, verify the following:
 ## Feature consideration and limitations
 
 - SQL Server backup can be configured in the Azure portal or **PowerShell**. We do not support CLI.
+- The solution is supported on both kinds of [deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) - Azure Resource Manager VMs and classic deployment models.
 - VM running SQL Server requires internet connectivity to access Azure public IP addresses.
 - SQL Server **Failover Cluster Instance (FCI)** and SQL Server Always on Failover Cluster Instance are not supported.
-- Backup and restore operations for mirror databases and database snapshots aren't supported.
-- Using more than one backup solutions to backup your standalone SQL Server instance or SQL Always on availability group may lead to backup failure; refrain from doing so.
-- Backing up two nodes of an availability group individually with same or different solutions, may also lead to backup failure. Azure Backup can detect and protect all nodes that are in the same region as the vault. If your SQL Server Always on availability group spans multiple Azure regions, set up the backup from the region that has the primary node. Azure Backup can detect and protect all databases in the availability group according to your backup preference.  
+- Back up and restore operations for mirror databases and database snapshots aren't supported.
+- Using more than one backup solutions to back up your standalone SQL Server instance or SQL Always on availability group may lead to backup failure; refrain from doing so.
+- Backing up two nodes of an availability group individually with same or different solutions, may also lead to backup failure.
 - Azure Backup supports only Full and Copy-only Full backup types for **Read-only** databases
 - Databases with large number of files can't be protected. The maximum number of files that is supported is **~1000**.  
 - You can back up to **~2000** SQL Server databases in a vault. You can create multiple vaults in case you have a greater number of databases.
 - You can configure backup for up to **50** databases in one go; this restriction helps optimize backup loads.
 - We support databases up to **2TB** in size; for sizes greater than that, performance issues may come up.
-- To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. We are working on a planner that would help you calculate these number on you own. We will be publishing it shortly.
+- To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. We are working on a planner that would help you calculate these numbers on you own. We will be publishing it shortly.
 - In case of availability groups, backups are taken from the different nodes based on a few factors. The backup behavior for an availability group is summarized below.
 
-### Backup behavior in case of Always on availability groups
+### Back up behavior in case of Always on availability groups
+
+It is recommended that the backup is configured on only one node of an AG. Backup should always be configured in the same region as the primary node. In other words, you always need the primary node to be present in the region in which you are configuring backup. If all the nodes of the AG are in the same region in which the backup is configured, there isn’t any concern.
+
+**For cross-region AG**
+- Regardless of the backup preference, backups won’t happen from the nodes that are not in the same region where the backup is configured. This is because the cross-region backups are not supported. If you have only 2 nodes and the secondary node is in the other region; in this case, the backups will continue to happen from primary node (unless your backup preference is ‘secondary only’).
+- If a fail-over happens to a region different than the one in which the backup is configured, backups would fail on the nodes in the failed-over region.
 
 Depending on the backup preference and backups types (full/differential/log/copy-only full), backups are taken from a particular node (primary/secondary).
 
@@ -105,7 +112,7 @@ Copy-Only Full |  Secondary
 
 ## Fix SQL sysadmin permissions
 
-  If you need to fix permissions because of an **UserErrorSQLNoSysadminMembership** error, do the following:
+  If you need to fix permissions because of **UserErrorSQLNoSysadminMembership** error, perform the below steps:
 
   1. Use an account with SQL Server sysadmin permissions to sign in to SQL Server Management Studio (SSMS). Unless you need special permissions, Windows authentication should work.
   2. On the SQL Server, open the **Security/Logins** folder.
