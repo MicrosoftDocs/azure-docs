@@ -28,7 +28,7 @@ Only *Warning* or higher ILogger logs (from all categories) are sent to Applicat
 
 If you use an earlier version of Microsoft.ApplicationInsights.AspNet SDK or you want to just use ApplicationInsightsLoggerProvider without any other Application Insights monitoring, use the following procedure:
 
-1.Install the NuGet package:
+1. Install the NuGet package:
 
    ```xml
        <ItemGroup>
@@ -36,7 +36,7 @@ If you use an earlier version of Microsoft.ApplicationInsights.AspNet SDK or you
        </ItemGroup>
    ```
 
-2.Modify **Program.cs* as shown here:
+1. Modify **Program.cs* as shown here:
 
    ```csharp
    using Microsoft.AspNetCore;
@@ -442,7 +442,7 @@ The following code snippet configures logs for *Warning* and above from all cate
 
    ApplicationInsightsLoggerProvider captures ILogger logs and creates TraceTelemetry from them. If an Exception object is passed to the **Log()** method on ILogger, *ExceptionTelemetry* is created instead of TraceTelemetry. These telemetry items can be found in same places as any other TraceTelemetry or ExceptionTelemetry for Application Insights, including portal, analytics, or Visual Studio local debugger.
 
-   If you prefer to always send TraceTelemetry, use the snippet ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```.
+   If you prefer to always send TraceTelemetry, use this snippet: ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```
 
 1. *I don't have the SDK installed, and I use Azure Web App Extension to enable Application Insights for my Asp.Net Core applications. How do I use the new provider?*
 
