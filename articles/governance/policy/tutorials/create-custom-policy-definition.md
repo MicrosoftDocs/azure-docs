@@ -81,10 +81,10 @@ that includes the property you're looking to manage.
 
 The simplest way to find properties is to look at an existing resource of the same type. Resources
 already configured with the setting you want to enforce also provide the value to compare against.
-Look at the **Automation script** page (under **Settings**) in the Azure portal for that specific
+Look at the **Export template** page (under **Settings**) in the Azure portal for that specific
 resource.
 
-![Export template page on existing resource](../media/create-custom-policy-definition/automation-script.png)
+![Export template page on existing resource](../media/create-custom-policy-definition/export-template.png)
 
 Doing so for a storage account reveals a template similar to this example:
 
