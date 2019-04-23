@@ -524,6 +524,10 @@
       items:
       - name: Restore data from a backup
         href: how-to-backup-and-restore.md
+    - name: Use etcd API
+      items:
+      - name: Azure Kubernetes with Azure Cosmos DB
+        href: how-to-use-kubernetes-with-cosmosdb.md
     - name : Manage Azure Cosmos DB resources
       items:
       - name: Manage using PowerShell 
