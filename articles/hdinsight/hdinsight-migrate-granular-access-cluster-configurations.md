@@ -39,7 +39,6 @@ The following entities and scenarios are affected:
 - [API](#api): Users using the `/configurations` or `/configurations/{configurationName}` endpoints.
 - [Azure HDInsight Tools for Visual Studio Code](#azure-hdinsight-tools-for-visual-studio-code) version 1.1.1 or below.
 - [Azure Toolkit for IntelliJ](#azure-toolkit-for-intellij) version 3.20.0 or below.
-- [Azure Toolkit for Eclipse](#azure-toolkit-for-eclipse) 2019-03-29 release or older.
 - [SDK for .NET](#sdk-for-net)
     - [versions 1.x or 2.x](#versions-1x-and-2x): Users using the `GetClusterConfigurations`, `GetConnectivitySettings`, `ConfigureHttpSettings`, `EnableHttp` or `DisableHttp` methods from the ConfigurationsOperationsExtensions class.
     - [versions 3.x and up](#versions-3x-and-up): Users using the `Get`, `Update`, `EnableHttp`, or `DisableHttp` methods from the `ConfigurationsOperationsExtensions` class.
@@ -79,10 +78,6 @@ If you are using version 1.1.1 or below, please update to the [latest version of
 ### Azure Toolkit for IntelliJ
 
 If you are using version 3.20.0 or below, please update to the [latest version of the Azure Toolkit for IntelliJ plugin](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij) to avoid interruptions.
-
-### Azure Toolkit for Eclipse
-
-If you are using the 2019-03-29 release or older, please update to the latest version of Azure Toolkit for Eclipse to avoid interruptions.
 
 ### SDK for .NET
 
