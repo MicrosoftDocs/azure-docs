@@ -61,22 +61,22 @@ On the main Azure menu, select **All services**.
 In the search box, enter "integration" as your filter. 
 From the results, select this resource: **Integration accounts**
 
-   ![Find your integration account](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+   ![Find your integration account](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
 
 1. Under **Integration accounts**, select the integration 
 account where you want to create the agreement.
 
-   ![Select the integration account where to create the agreement](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![Select the integration account where to create the agreement](./media/logic-apps-enterprise-integration-agreements/select-integration-account.png)
 
 1. In the right-hand pane, under **Components**, 
 choose the **Agreements** tile.
 
-   ![Choose "Agreements"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![Choose "Agreements"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
 
 1. Under **Agreements**, choose **Add**. 
-In the **Add** pane, provide information about your agreement. 
+In the **Add** pane, provide information about your agreement.
 
-   ![Choose "Add"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
+   ![Choose "Add"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
