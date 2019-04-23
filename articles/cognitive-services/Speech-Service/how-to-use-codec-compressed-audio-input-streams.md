@@ -5,13 +5,13 @@ description: Learn how to stream compressed audio to Azure Speech Services with 
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 05/02/2019
 ms.author: amishu
 ---
+
 # Using codec compressed audio input with the Speech SDK
 
 The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech Service using PullStream or PushStream.
