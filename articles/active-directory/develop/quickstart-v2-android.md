@@ -87,15 +87,22 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
 > 1. Edit **auth_config.json** and replace it with the JSON from the Azure portal. If instead you want to manually make the changes:
 >    ```javascript
->    "client_id" : "Enter_the_Application_Id_Here",
->    "redirect_uri" : "Enter_the_Redirect_Uri_Here",
->    [...]
->    "type": "Enter_the_Audience_Info_Here",
->    [...]
->    "tenant_id" : "Enter_the_Tenant_Info_Here"
->    ```
+>    {
+>       "client_id" : "Enter_the_Application_Id_Here",
+>       "authorization_user_agent" : "DEFAULT",
+>       "redirect_uri" : "Enter_the_Redirect_Uri_Here",
+>       "authorities" : [
+>          {
+>             "type": "AAD",
+>             "audience": {
+>                "type": "Enter_the_Audience_Info_Here",
+>                "tenant_id": "Enter_the_Tenant_Info_Here"
+>             }
+>          }
+>       ]
+>    }
 > 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
-> 1. Replace the Package Name & Signature hash, then paste the following activity to the **manifest\application** node:	
+> 1. Paste the following activity to the **manifest\application** node:	
 >    ```xml
 >    <!--Intent filter to catch Microsoft's callback after Sign In-->
 >    <activity
@@ -107,7 +114,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > 
 >            <!--Add in your scheme/host from registered redirect URI-->
 >            <data android:scheme="msauth"
->                android:host="<PACKAGE_NAME>/<SIGNATURE_HASH>" />
+>                android:host="Enter_the_Package_Name/"Enter_the_Signature_Hash" />
 >        </intent-filter>
 >    </activity>
 >    ```

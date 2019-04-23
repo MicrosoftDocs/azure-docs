@@ -86,10 +86,11 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet:
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_here"
+>    let kAuthority = "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
 >
 >    ```
 > 1. Right click **Info.plist** and select **Open As** > **Source Code**.
-> 1. Under the dict root node, replace with your ***Bundle Id***:
+> 1. Under the dict root node, paste the following:
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
