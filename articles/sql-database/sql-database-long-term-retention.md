@@ -23,8 +23,7 @@ Many applications have regulatory, compliance, or other business purposes that r
 
 ## How SQL Database long-term retention works
 
-Long-term backup retention (LTR) leverages the full database backups that are [automatically created](sql-database-automated-backups.md) to enable point-time restore (PITR). These backups are copied to different storage blobs if LTR policy is configured.
-You can configure a LTR policy for each SQL database and specify how frequently you need to copy the backups to the long-term storage blobs. To enable that flexibility you can define the policy using a combination of four parameters: weekly backup retention (W), monthly backup retention (M), yearly backup retention (Y) and week of year (WeekOfYear). If you specify W, one backup every week will be copied to the long-term storage. If you specify M, one backup during the first week of each month will be copied to the long-term storage. If you specify Y, one backup during the week specified by WeekOfYear will be copied to the long-term storage. Each backup will be kept in the long-term storage for the period specified by these parameters. 
+Long-term backup retention (LTR) leverages the full database backups that are [automatically created](sql-database-automated-backups.md) to enable point-time restore (PITR). If an LTR policy is configured, these backups are copied to different blobs for long-term storage. The LTR backups are retained for a period of time set by the LTR policy. The LTR policy for each SQL database can also specify how frequently the LTR backups are created. To enable that flexibility you can define the policy using a combination of four parameters: weekly backup retention (W), monthly backup retention (M), yearly backup retention (Y) and week of year (WeekOfYear). If you specify W, one backup every week will be copied to the long-term storage. If you specify M, one backup during the first week of each month will be copied to the long-term storage. If you specify Y, one backup during the week specified by WeekOfYear will be copied to the long-term storage. Each backup will be kept in the long-term storage for the period specified by these parameters. 
 
 Examples:
 
@@ -54,9 +53,9 @@ W=12 weeks (84 days), M=12 months (365 days), Y=10 years (3650 days), WeekOfYear
 If you were to modify the above policy and set W=0 (no weekly backups), the cadence of backup copies would change as shown in the above table by the highlighted dates. The storage amount needed to keep these backups would reduce accordingly. 
 
 > [!NOTE]
-> - The LTR copies are created by Azure storage service so the copy process has no performance impact on the database workload.
-> - The policy applies to the future backups. E.g. if the specified WeekOfYear is in the past when the policy is configured, the first LTR backup will be created next year. 
-> - The timing of the individual backup copies is controlled by Azure SQL Database. The user cannot manually create a backup copy or control the timing of the copy creation.
+> - The LTR backups are created by Azure storage service and this process has no performance impact on the database workload.
+> - The policy applies to the future LTR backups. E.g. if the specified WeekOfYear is in the past when the policy is configured, the first LTR backup will be created next year. 
+> - The timing of the individual LTR backups is controlled by Azure SQL Database. You cannot manually create a LTR backup or control the timing of the backup creation.
 > - To restore a database from the LTR storage, you can select a specific backup based on its timestamp.   The database can be restored to any existing server under the same subscription as the original database. 
 > 
 
