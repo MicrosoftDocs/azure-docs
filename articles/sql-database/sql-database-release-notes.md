@@ -40,7 +40,7 @@ This article lists the new features and improvements in the SQL Database service
 | Time zone support for managed instances|For more information, see [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
 |||
 
-## April
+## April 2019
 
 ### Service improvements
 
