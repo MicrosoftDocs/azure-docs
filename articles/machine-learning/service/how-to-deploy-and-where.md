@@ -257,10 +257,32 @@ For more information, see the reference documentation for the [AciWebservice](ht
 ### <a id="aks"></a> Deploy to Azure Kubernetes Service (PRODUCTION)
 
 You can use an existing AKS cluster or create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
-Creating an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments.
+
 
 > [!IMPORTANT]
-> If you have already created or attached an AKS cluster go <a href="#deploy-aks">here</a>.
+> Creating an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments.
+> If you have NOT created or attached an AKS cluster go <a href="#create-attach-aks">here</a>.
+
+#### Deploy to AKS <a id="deploy-aks"></a>
+
+You can deploy to AKS with the Azure ML CLI:
+```azurecli-interactive
+az ml model deploy -ct myaks -ic inferenceconfig.json -dc deploymentconfig.json
+```
+
+You can also use the Python SDK:
+```python
+aks_target = AksCompute(ws,"myaks")
+deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
+service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
+service.wait_for_deployment(show_output = True)
+print(service.state)
+print(service.get_logs())
+```
+
+For more information on configuring your AKS deployment, including autoscale,see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
+
+**Time estimate:** Approximately 5 minutes.
 
 #### Create or attach an AKS cluster <a id="create-attach-aks"></a>
 Creating or attaching an AKS cluster is a **one time process** for your workspace. 
@@ -312,28 +334,6 @@ attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                          cluster_name = cluster_name)
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 ```
-
-
-#### Deploy to AKS <a id="deploy-aks"></a>
-
-You can deploy to AKS with the Azure ML CLI:
-```azurecli-interactive
-az ml model deploy -ct myaks -ic inferenceconfig.json -dc deploymentconfig.json
-```
-
-You can also use the Python SDK:
-```python
-aks_target = AksCompute(ws,"myaks")
-deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
-service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
-service.wait_for_deployment(show_output = True)
-print(service.state)
-print(service.get_logs())
-```
-
-For more information on configuring your AKS deployment, including autoscale,see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
-
-**Time estimate:** Approximately 5 minutes.
 
 ## Consume web services
 Every deployed web service provides a REST API, so you can create client applications in a variety of programming languages. 
