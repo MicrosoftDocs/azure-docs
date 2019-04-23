@@ -23,7 +23,7 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
-To use the IPv6 for Azure virtual network feature, you must configure your subscription as follows:
+To use the IPv6 for Azure virtual network feature, you must configure your subscription only once as follows:
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network

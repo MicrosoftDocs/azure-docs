@@ -23,7 +23,7 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
-Before you deploy a dual stack application in Azure, you must configure your subscription for this preview feature using the following Azure PowerShell:
+Before you deploy a dual stack application in Azure, you must configure your subscription only once for this preview feature using the following Azure PowerShell:
 
 Register as follows:
 ```azurepowershell
