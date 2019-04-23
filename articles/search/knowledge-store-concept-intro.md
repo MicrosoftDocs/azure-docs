@@ -36,7 +36,7 @@ Enumerated, the benefits of Knowledge Store include the following:
 + Shape the data into new forms. The reshaping is codified in skillsets, but the point is that a skillset can now provide this capability. The [Shaper skill](cognitive-search-skill-shaper.md) in Azure Search has been extended to accommodate this task.
 
 > [!Note]
-> Not familiar with AI-based indexing using Cognitive Services? Azure Search integrates with Cognitive Services Vision and Language features to extract and rich source data using Optical Character Recognition (OCR) over image files, entity recognition and key phrase extraction from text files, and more. For more information, see [What is cognitive search](cognitive-search-concept-intro.md).
+> Not familiar with AI-based indexing using Cognitive Services? Azure Search integrates with Cognitive Services Vision and Language features to extract and enrich source data using Optical Character Recognition (OCR) over image files, entity recognition and key phrase extraction from text files, and more. For more information, see [What is cognitive search](cognitive-search-concept-intro.md).
 
 ## Create a knowledge store
 
@@ -107,7 +107,7 @@ If you are already familiar with AI-based indexing, the skillset definition dete
 
 ## Components backing a knowledge store
 
-To create a knowledge store, you need the following services and artifacts to use this feature.
+To create a knowledge store, you need the following services and artifacts.
 
 ### 1 - Source data
 
@@ -115,9 +115,9 @@ The data or documents you want to enrich must exist in an Azure data source supp
 
 * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+* [Azure Blob storage](search-howto-indexing-azure-blob-storage.md)
 
-[Azure Table Storage](search-howto-indexing-azure-tables.md) can be used for outbound data in a knowledge store, but cannot be used as a resource for inbound data to an AI-based indexing pipeline.
+[Azure Table storage](search-howto-indexing-azure-tables.md) can be used for outbound data in a knowledge store, but cannot be used as a resource for inbound data to an AI-based indexing pipeline.
 
 ### 2 - Azure Search service
 
@@ -146,7 +146,7 @@ The storage account is specified in the skillset. In `api-version=2019-05-06-Pre
 
 ### 5 - Access and consume
 
-Once the enrichments exist in storage, any tool or technology that connects to Azure blob or table storage can be used to explore, analyze, or consume the contents. The following list is a start:
+Once the enrichments exist in storage, any tool or technology that connects to Azure Blob or Table storage can be used to explore, analyze, or consume the contents. The following list is a start:
 
 + [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to view enriched document structure and content. Consider this as your baseline tool for viewing knowledge store contents.
 + [Power BI with Power Query](https://support.office.com/article/connect-to-microsoft-azure-blob-storage-power-query-f8165faa-4589-47b1-86b6-7015b330d13e) for natural language queries, or use the reporting and analysis tools if you have numeric data.
@@ -157,7 +157,7 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 Within the storage account, the enrichments can be expressed as tables within Azure Table storage or as objects in Azure Blob storage. Recall that enrichments, once stored, can be used as a source to load data into other databases and tools,
 
-+ Table storage is useful when you want a schema-aware representation of the data in tabular form. If you want to reshape or recombine elements in new ways, table storage gives you the necessary granularity.
++ Table storage is useful when you want a schema-aware representation of the data in tabular form. If you want to reshape or recombine elements in new ways, Table storage gives you the necessary granularity.
 
 + Blob storage creates one all-inclusive JSON representation of each document. You can use both storage options in one skillset to get a full range of expressions.
 
@@ -188,10 +188,10 @@ Generally speaking, pipeline processing can be an all-or-nothing operation, but 
 If a document is new or updated, all skills are run. If only the skillset changes, reprocessing is scoped to just those skills and documents affected by your edit.
 
 ### Changes to a skillset
-Suppose that you have a pipeline composed of multiple skills, operating over a large body of static data (for example, scanned documents), that takes 8 hours and costs $200 to create the knowledge store (hypothetical). Now suppose you need to tweak one of the skills in the skillset. Rather than starting over, Azure Search can determine which skill is affected, and reprocess only that skill. Cached data and projections that are unaffected by the change remain intact in the knowledge store.
+Suppose that you have a pipeline composed of multiple skills, operating over a large body of static data (for example, scanned documents), that takes 8 hours and costs $200 to create the knowledge store. Now suppose you need to tweak one of the skills in the skillset. Rather than starting over, Azure Search can determine which skill is affected, and reprocess only that skill. Cached data and projections that are unaffected by the change remain intact in the knowledge store.
 
 ### Changes in the data
-Scenarios can vary considerably, but lets supposed instead of static data, you have volatile data that changes between indexer invocations. Given no changes to the skillset, you are charged for processing the delta of new and modified document. The timestamp information varies by data source, but for illustration, in a Blob container, Azure Search looks at the `lastmodified` date to determine which blobs need to be ingested.
+Scenarios can vary considerably, but lets suppose instead of static data, you have volatile data that changes between indexer invocations. Given no changes to the skillset, you are charged for processing the delta of new and modified document. The timestamp information varies by data source, but for illustration, in a Blob container, Azure Search looks at the `lastmodified` date to determine which blobs need to be ingested.
 
 > [!Note]
 > While you can edit the data in the projections, any edits will be overwritten on the next pipeline invocation, assuming the document in source data is updated. 
