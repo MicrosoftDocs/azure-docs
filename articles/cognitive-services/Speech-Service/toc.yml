@@ -138,7 +138,12 @@
   - name: Improve recognition with Phrase Lists
     href: how-to-phrase-lists.md
     displayname: phrase lists, phrase, list, recognition accuracy
-  - name: Customization
+  - name: Transcribe conversations (SDK)
+    href: how-to-use-conversation-transcription-service.md
+    displayName: conversation, transcription, speech recognition
+- name: Customization
+  items:
+  - name: Speech-to-text
     items:
     - name: Speech-to-text
       items:
