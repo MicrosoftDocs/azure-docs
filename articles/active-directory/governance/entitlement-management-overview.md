@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/18/2019
+ms.date: 04/22/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -105,6 +105,16 @@ The following diagram shows an example of the different elements in entitlement 
 - **Access package 2** includes a group, an application, and a SharePoint Online site as resources. Access is defined with two different policies. The first policy enables a set of users in the directory to request access. The second policy enables users in an external directory to request access.
 
 ![Entitlement management overview](./media/entitlement-management-overview/elm-overview.png)
+
+## External users
+
+Currently with [Azure AD business-to-business (B2B)](../b2b/what-is-b2b.md), you must have the email address of the guest users you want to work with. This works great when you're working on a smaller project, but this requirement is harder to manage if you have lots of users you want to invite.
+
+With entitlement management, you can define a policy that allows users from specific organizations, using Azure AD, to be able to request an access package. You can specify whether approval is required and an expiration date. If approval is required, you can also designate an approver from the external organization since they are likely to know which external users need access. Once you have configured the access package, you can send a link to the access package to the external organization. Any users in the external organization with the criteria you define can use this link to request the access package.
+
+When a request is approved, entitlement management will provision the user with the necessary access, which may include creating a B2B account. The B2B account will be based on the B2B allow/deny list, so creating the B2B account may fail.
+
+Since you do not want the external user's access to last forever, you specify an expiration date in the policy, such as 180 days. After 180 days, if their access is not renewed, entitlement management will remove all access associated with that access package, including the B2B accounts, thus removing the problem of creating zombie accounts.
 
 ## Terminology
 
