@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -88,6 +88,10 @@ Media Services fully supports customizing all values in presets to meet your spe
 ## Scaling encoding in v3
 
 To scale media processing, see [Scale with CLI](media-reserved-units-cli-how-to.md).
+
+## Provide feedback
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 
