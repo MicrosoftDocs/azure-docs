@@ -16,7 +16,7 @@ ms.custom:
 
 # Continuous delivery using Azure DevOps
 
-You can automatically deploy your function to an Azure Function app using [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/?toc=%2Fazure%2Fdevops%2Fpipelines%2Ftoc.json&view=azure-devops).
+You can automatically deploy your function to an Azure Function app using [Azure Pipelines](/devops/pipelines/).
 
 ## Build your app
 
