@@ -11,7 +11,6 @@ ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
-
 # Service limits in Azure Search
 Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you [provision Azure Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
 
