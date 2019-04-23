@@ -51,30 +51,41 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 The model registry is a way to store and organize your trained models in the Azure cloud. Models are registered in your Azure Machine Learning service workspace. The model can be trained using Azure Machine Learning, or imported from a model trained elsewhere. The following examples demonstrates how to register a model from file:
 
+### Register a model from a run
 **Using the SDK**
 
-**Scikit-learn example:**
+**Scikit-learn example with the Python SDK:**
 ```python
-from azureml.core.model import Model
-
-# Register the model.
-# You can specify either a single file or a path to a folder which contains your model files here.
-model = Model.register(model_path = "sklearn_mnist.pkl",
-                       model_name = "sklearn_mnist",
-                       tags = {"key": "0.1"},
-                       description = "test",
-                       workspace = ws)
+model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
+print(model.name, model.id, model.version, sep='\t')
 ```
 
 **Using the CLI**
+```azurecli-interactive
+az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name plktexperiment  -f output.json -t model-output.json
+```
 
-```azurecli
+### Register an externally created model
+
+**ONNX example with the Python SDK:**
+```python
+onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
+urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
+!tar xvzf mnist.tar.gz
+
+model = Model.register(workspace = ws,
+                       model_path ="mnist/model.onnx",
+                       model_name = "mnist_1",
+                       tags = {"onnx": "demo"},
+                       description = "MNIST image classification CNN from ONNX Model Zoo",)
+```
+
+**Using the CLI**
+```azurecli-interactive
 az ml model register -n sklearn_mnist -p sklearn_mnist_model.pkl
 ```
 
 **Time estimate**: Approximately 10 seconds.
-
-For an example of registering an ONNX model, see the [example ONNX notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/onnx).
 
 For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
@@ -93,7 +104,7 @@ The script contains two functions that load and run the model:
 
 * `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization. You can also work with raw binary data. You can transform the data before sending to the model, or before returning to the client.
 
-#### Automatic Swagger schema generation
+#### (Optional) Automatic Swagger schema generation
 
 To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects, and the type and sample are used to automatically create the schema. This creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service.
 
@@ -118,10 +129,9 @@ dependencies:
     - inference-schema[numpy-support]
 ```
 
-The entry script **must** import the `inference-schema` packages. 
+If you want to use automatic schema generation, your entry script **must** import the `inference-schema` packages. 
 
 Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The scikit-learn example below uses schema generation.
-
 
 > [!TIP]
 > After deploying the service, use the `swagger_uri` property to retrieve the schema JSON document.
@@ -169,7 +179,7 @@ For more example scripts, see the following examples:
 * TensorFlow: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 * Keras: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 * ONNX: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
-* Scoring against binary data: [how-to-consume-web-service.md)(click here)
+* Scoring against binary data: [./how-to-consume-web-service.md)(click here)
 
 ### 2. Define your InferenceConfiguration
 
@@ -224,7 +234,7 @@ print(service.state)
 
 **Using the CLI**
 
-```azurecli
+```azurecli-interactive
 az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
 ```
 
@@ -246,7 +256,7 @@ print(service.state)
 
 **Using the CLI**
 
-```azurecli
+```azurecli-interactive
 az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
 ```
 
