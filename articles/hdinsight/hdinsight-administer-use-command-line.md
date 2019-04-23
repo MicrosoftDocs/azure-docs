@@ -1,7 +1,6 @@
 ---
 title: Manage Apache Hadoop clusters using Azure Classic CLI - Azure HDInsight
 description: Learn how to use the Azure classic CLI to manage Apache Hadoop clusters in Azure HDInsight.
-services: hdinsight
 ms.reviewer: jasonh
 author: tylerfox
 
