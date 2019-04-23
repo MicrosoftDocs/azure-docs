@@ -10,7 +10,7 @@ manager: jeconnoc
 ---
 # Azure Image Builder json template format
 
-Azure Image Builder uses a .json file to pass information into the Image Builder service. In this article we will go over the sections of the json file. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder).
+Azure Image Builder uses a .json file to pass information into the Image Builder service. In this article we will go over the sections of the json file, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder).
 
 This is the basic template format:
 
