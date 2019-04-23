@@ -31,7 +31,7 @@ PHP 7.0 and PHP 7.2 versions are also available, but not enabled by default. To 
 
 ### Azure portal
 
-1. Browse to your app in the [Azure portal](https://portal.azure.com) and scroll to **Configuration** in the **Settings** blade.
+1. Browse to your app in the [Azure portal](https://portal.azure.com) and scroll to the **Configuration** page.
 
 2. From **Configuration**, select **General Settings** and choose the new PHP version.
 
@@ -128,8 +128,6 @@ As noted in the previous section, the best way to see the default PHP version, i
 5. From the **Configuration** blade, select **Application Settings**.
 6. In the **Application settings** section, click on **+ New application setting** and create a **PHP_EXTENSIONS** key. The value for this key would be a path relative to website root: **bin\your-ext-file**.
 7. Click the **Update** button at the bottom then click **Save** above the **Application settings** tab.
-
-    ![Save configuration settings][save-button]
 
 Zend extensions are also supported by using a **PHP_ZENDEXTENSIONS** key. To enable multiple extensions, include a comma-separated list of `.dll` files for the app setting value.
 
