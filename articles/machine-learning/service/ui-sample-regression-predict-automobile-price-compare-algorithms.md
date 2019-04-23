@@ -48,7 +48,7 @@ In this experiment, we use the **Automobile price data (Raw)** dataset, which is
 
 ## Pre-process the data
 
-The main data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In Azure Machine Learning Studio, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
+The main data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In visual interface, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
 
 In this experiment, we use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. We then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
 
