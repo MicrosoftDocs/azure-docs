@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Predict automobile price with the visual interface'
 titleSuffix: Azure Machine Learning service
-description: Learn how to train, score, and deploy a machine learning model using a drag and drop visual interface. This tutorial is part one of a two-part series on predicting automobiles prices using linear regression.
+description: Learn how to train, score, and deploy a machine learning model using a drag and drop visual interface. This tutorial is part one of a two-part series on predicting automobile prices using linear regression.
 
 author: peterlu
 ms.author: peterlu
@@ -35,17 +35,17 @@ In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial series, yo
 
 ## Create a workspace
 
-If you have an Azure Machine Learning service workspace, skip to the [next section](#start). Otherwise, create one now.
+If you have an Azure Machine Learning service workspace, skip to the [next section](#Open-the-visual-interface-webpage). Otherwise, create one now.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="start"></a> Open the visual interface webpage
+## Open the visual interface webpage
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).  
 
 1. In your workspace, select **Visual interface (preview)**.  Then select **Launch visual interface**.  
 
-    ![Launch visual interface](./media/ui-quickstart-run-experiment/launch-ui.png)
+    ![Screenshot of the Azure portal showing how to access the Visual interface from a Machine Learning service workspace](./media/ui-quickstart-run-experiment/launch-ui.png)
 
     The interface webpage opens in a new browser page.  
 
@@ -60,10 +60,12 @@ The first thing you need is data, but raw data is typically too messy to train a
 1. Select **Save As** at the bottom of the window.
 
 1. Give it a new name in the pop-up dialog that appears.
-    ![save-a-copy](./media/ui-tutorial-automobile-price-train-score/save-a-copy.png)
+
+    ![Screenshot showing how to rename an experiment to "Tutorial - Predict Automobile Price"](./media/ui-tutorial-automobile-price-train-score/save-a-copy.png)
 
 1. The experiment should now look something like this:
-    ![save-a-copy](./media/ui-tutorial-automobile-price-train-score/save-copy-result.png)
+
+    ![Screenshot showing the expected state of the experiment. The automobile data set connects to the Select Columns module that connects to the Clean Missing Data](./media/ui-tutorial-automobile-price-train-score/save-copy-result.png)
 
 If you successfully reused your quickstart experiment, skip the next section to begin [training your model](#train-the-model).
 
@@ -87,10 +89,13 @@ If you didn't complete the quickstart, follow these steps to quickly create a ne
 
 1. Click the Select Columns in Dataset module and click **Launch column selector** in the **Properties** pane.
 
-   * On the left, click **With rules**
-   * Under **Begin With**, click **All columns**. These rules direct **Select Columns in Dataset** to pass through all the columns (except those columns we're about to exclude).
-   * From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. A list of columns is displayed. Select **normalized-losses**, and it's added to the text box.
-   * Click the check mark (OK) button to close the column selector (on the lower right).
+   1. On the left, click **With rules**
+
+   1. Under **Begin With**, click **All columns**. These rules direct **Select Columns in Dataset** to pass through all the columns (except those columns we're about to exclude).
+
+   1. From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. A list of columns is displayed. Select **normalized-losses**, and it's added to the text box.
+
+   1. Click the check mark (OK) button to close the column selector (on the lower right).
 
      Now the properties pane for **Select Columns in Dataset** indicates that it will pass through all columns from the dataset except **normalized-losses**.
 
@@ -110,24 +115,24 @@ Train the model by giving it a set of data that includes the price. The model sc
 
 Use your data for both training the model and testing it by splitting the data into separate training and testing datasets.
 
-1. Select and drag the **Split Data** module to the experiment canvas and connect it to the right port of **Clear Missing Data** module.
+1. Select and drag the **Split Data** module to the experiment canvas and connect it to the right port of the **Clear Missing Data** module.
 
 1. Click the **Split Data** module to select it. Find the Fraction of rows in the first output dataset (in the Properties pane to the right of the canvas) and set it to 0.7. This way, we'll use 70 percent of the data to train the model, and hold back 30 percent for testing.
 
-    ![split-data](./media/ui-tutorial-automobile-price-train-score/split-data.png)
+    ![Screenshot showing the correct configuration of the properties pane. Values of "Split Data" should be "Split Rows", 0.7, Randomized split, 0, False.](./media/ui-tutorial-automobile-price-train-score/split-data.png)
 
 1. To select the learning algorithm, expand the **Machine Learning** category in the module palette to the left of the canvas, and then expand **Initialize Model**. This displays several categories of modules that can be used to initialize machine learning algorithms. For this experiment, select the **Linear Regression** module under the Regression category, and drag it to the experiment canvas. (You can also find the module by typing "linear regression" in the palette Search box.)
 
 1. Find and drag the **Train Model** module to the experiment canvas. Connect the output of the Linear Regression module to the left input of the Train Model module, and connect the training data output (left port) of the **Split Data** module to the right input of the **Train Model** module.
 
-    ![train-model](./media/ui-tutorial-automobile-price-train-score/train-model.png)
+    ![Screenshot showing the correct configuration of the Train Model module. The Linear Regression module connects to left port of Train Model module and the Split Data module connects to right port of Train Model](./media/ui-tutorial-automobile-price-train-score/train-model.png)
 
 1. Click the **Train Model** module, click Launch column selector in the Properties pane, and then select the price column. Price is the value that your model is going to predict
 
-     ![select-price](./media/ui-tutorial-automobile-price-train-score/select-price.png)
+     ![Screenshot showing the correct configuration for the column selector module. With rules > Include column names > "price"](./media/ui-tutorial-automobile-price-train-score/select-price.png)
 
     Now the experiment should look like.
-     ![select-price](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
+     ![Screenshot showing the correct configuration of the experiment after adding the Train Model module.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
      You can click **Run** to train the model.
 
@@ -139,16 +144,17 @@ Now that you've trained the model using 70 percent of your data, you can use it 
 
 1. Select and drag the **Evaluate Model** module to the experiment canvas, and connect the output of the **Score Model** module to the left input of **Evaluate Model**. The final experiment should look something like this:
 
-    ![final-graph](./media/ui-tutorial-automobile-price-train-score/final-graph.png)
+    ![Screenshot showing the final correct configuration of the experiment.](./media/ui-tutorial-automobile-price-train-score/final-graph.png)
 
 1. Run the experiment.
 
 1. View the output from the **Score Model** module by clicking the output port of **Score Model** and select Visualize. The output shows the predicted values for price and the known values from the test data.
 
-    ![score-result](./media/ui-tutorial-automobile-price-train-score/score-result.png)
+    ![Screenshot of the output visualization highlighting the "Scored Label" column](./media/ui-tutorial-automobile-price-train-score/score-result.png)
 
 1. To view the output from the Evaluate Model module, click the output port, and then select Visualize.
-![evaluate-result](./media/ui-tutorial-automobile-price-train-score/evaluate-result.png)
+
+![Screenshot showing the evaluation results for the final experiment.](./media/ui-tutorial-automobile-price-train-score/evaluate-result.png)
 
 The following statistics are shown for your model:
 

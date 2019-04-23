@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Deploy a machine learning model with the visual interface'
 titleSuffix: Azure Machine Learning service
-description: Learn how to build a predictive analytics solution in the Azure Machine Learning service visual interface. Train, score, and deploy a machine learning model using drag and drop modules. This tutorial is part two of a two-part series on predicting automobiles prices using linear regression.
+description: Learn how to build a predictive analytics solution in the Azure Machine Learning service visual interface. Train, score, and deploy a machine learning model using drag and drop modules. This tutorial is part two of a two-part series on predicting automobile prices using linear regression.
 
 author: peterlu
 ms.author: peterlu
@@ -66,11 +66,11 @@ You can see that the experiment is saved in two parts under the new tabs at the 
 
 Your experiment should now look like this:  
 
-![predictive-graph](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
+![Screenshot showing the expected configuration of the experiment after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
-Run the experiment one last time (click **Run**). Choose the compute target you want the experiment to run on in the popup dialog. To verify the model is still working, click the output of the [Score Model][score-model] module and select **View Results**. You can see the original data is displayed, along with the predicted price("Scored Labels").
+Run the experiment one last time (click **Run**). Choose the compute target you want the experiment to run on in the popup dialog. To verify the model is still working, click the output of the Score Model module and select **View Results**. You can see the original data is displayed, along with the predicted price ("Scored Labels").
 
-## Deploy The web service
+## Deploy the web service
 
 To deploy a New web service derived from your experiment:
 
@@ -79,11 +79,11 @@ To deploy a New web service derived from your experiment:
 
     Currently, Studio V2 only supports deployment to Azure Kubernetes Service (AKS) compute targets. You can choose from available AKS compute targets in your machine learning service workspace or configure a new AKS environment in the dialog that appears. Creating a new AKS compute target may take several minutes.
 
-    ![deploy-compute](./media/ui-tutorial-automobile-price-deploy/deploy-compute.png)
+    ![Screenshot showing a possible configuration for a new compute target](./media/ui-tutorial-automobile-price-deploy/deploy-compute.png)
 
 1. Select **Deploy Web Service**. You'll see the following notification when deployment completes. Deployment may take a few minutes.
 
-    ![deploy-success](./media/ui-tutorial-automobile-price-deploy/deploy-succeed.png)
+    ![Screenshot showing the confirmation message for a successful deployment.](./media/ui-tutorial-automobile-price-deploy/deploy-succeed.png)
 
 ## Test the web service
 
@@ -93,19 +93,17 @@ You can test a web service in the web service tab in the visual interface.
 
 1. Go to the web service section. You'll see the web service you deployed with the name **Tutorial - Predict Automobile Price[Predictive Exp]**.
 
-     ![web-services](./media/ui-tutorial-automobile-price-deploy/web-services.png)
+     ![Screenshot showing the web service tab with the recently created web service highlighted](./media/ui-tutorial-automobile-price-deploy/web-services.png)
 
 1. Select the web service name to view additional details.
 
-     ![web-services-detail](./media/ui-tutorial-automobile-price-deploy/web-service-detail.png)
+     ![Screenshot showing the additional details available in the web service view](./media/ui-tutorial-automobile-price-deploy/web-service-detail.png)
 
 1. Select **Test**.
 
-    ![test](./media/ui-tutorial-automobile-price-deploy/test.png)
+    ![Screenshot showing the web service testing page](./media/ui-tutorial-automobile-price-deploy/test.png)
 
 1. Input testing data or use the autofilled sample data and click **Test** at the bottom. The test request is submitted to the web service and the results are shown on page.
-
-     ![test-result](./media/ui-tutorial-automobile-price-deploy/test-result.png)
 
 ## Manage the web service
 
@@ -113,7 +111,7 @@ Once you've deployed your web service, you can manage it from the **Web Services
 
 You can delete a web service by selecting **Delete** in the web service detail page.
 
-   ![delete](./media/ui-tutorial-automobile-price-deploy/delete.png)
+   ![Screenshot showing the location of the Delete web service button at the bottom of the window](./media/ui-tutorial-automobile-price-deploy/delete.png)
 
 ## Consume the web service
 
@@ -123,13 +121,13 @@ In the previous steps of this tutorial, you deployed an automobile prediction mo
 
 You can find sample REST calls in the **Consume** tab of the web service details page.
 
-   ![consume](./media/ui-tutorial-automobile-price-deploy/consume.png)
+   ![Screenshot showing a sample REST call that users can find in the Consume tab](./media/ui-tutorial-automobile-price-deploy/consume.png)
 
 Navigate to the **API Doc** tab, to find more API details.
 
-  ![API](./media/ui-tutorial-automobile-price-deploy/API.png)
+  ![Screenshot showing additional API details that users can find in the API Doc tab](./media/ui-tutorial-automobile-price-deploy/api.png)
 
-## Clean up resource
+## Clean up resources
 
 [!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
