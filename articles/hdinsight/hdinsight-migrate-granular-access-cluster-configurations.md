@@ -19,7 +19,9 @@ Previously, secrets could be obtained via the HDInsight API by cluster users
 possessing the Owner, Contributor, or Reader [RBAC
 roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles).
 Going forward, these secrets will no longer be accessible to users with the
-Reader role. We are also introducing a new ‘HDInisght Cluster Operator’ Role
+Reader role. Secrets are defined as values that could be used to obtain more elevated access than a user's role should allow. These include values such as cluster gateway HTTP credentials, storage account keys, and database credentials.
+
+We are also introducing a new ‘HDInisght Cluster Operator’ Role
 that will be able to retrieve secrets without being granted the administrative
 permissions of Contributor or Owner. To summarize:
 
