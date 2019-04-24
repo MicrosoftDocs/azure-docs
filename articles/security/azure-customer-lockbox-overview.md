@@ -84,7 +84,7 @@ Use the **Activity Logs** to view auditing information related to Customer Lockb
 - **Deny Lockbox Requests**
 - **Lockbox Request Expiry**
 
-    ![Azure Customer Lockbox - activity logs](./media/azure-customer-lockbox/customer-lockbox-email-notification.png)
+    ![Azure Customer Lockbox - activity logs](./media/azure-customer-lockbox/customer-lockbox-activitylogs.png)
 
 ## Supported services and scenarios
 
