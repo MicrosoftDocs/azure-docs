@@ -274,7 +274,7 @@
     displayName: blueprint, privacy, certifications
     items:
     - name: Secure Azure Computing Architecture 
-      href: ./compliance/Secure-Azure-Computing-Architecture.md
+      href: ./compliance/secure-azure-computing-architecture.md
   - name: TIC
     displayName: blueprint, privacy, certifications
     items:
