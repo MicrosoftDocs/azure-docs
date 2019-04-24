@@ -36,7 +36,7 @@ You must meet the following prerequisites before using Anomaly Detector containe
 
 ## Request access to the container registry
 
-You must first complete and submit the [Cognitive Services Anamoly Detector Containers Request form](https://aka.ms/adcontainer) to request access to the container.
+You must first complete and submit the [Cognitive Services Anomaly Detector Containers Request form](https://aka.ms/adcontainer) to request access to the container.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
