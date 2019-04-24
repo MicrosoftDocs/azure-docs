@@ -68,7 +68,7 @@ lock outside Blueprints.
 
 ![Blueprint deny assignment on resource group](../media/resource-locking/blueprint-deny-assignment.png)
 
-The deny assignment properties of each mode is as follows:
+The deny assignment properties of each mode are as follows:
 
 |Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |DoNotApplyToChildScopes |
 |-|-|-|-|-|
