@@ -692,7 +692,7 @@ You can pass an optional time zone in the form of `'GMT'`, `'PST'`, `'UTC'`, `'A
 <code>multiply</code>
 ==============================
 <code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-This expression multiplies a pair of numbers. The **multiply** operator is the same as the **/*/** operator.
+This expression multiplies a pair of numbers. The **multiply** operator is the same as the * operator.
 * ``multiply(20, 10) -> 200``
 * ``20 * 10 -> 200``
 *********************************
