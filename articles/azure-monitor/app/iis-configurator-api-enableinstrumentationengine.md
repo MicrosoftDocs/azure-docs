@@ -1,6 +1,6 @@
 ---
 title: IIS Configurator | Microsoft Docs
-description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
 author: tilee
@@ -26,13 +26,12 @@ This module is a prototype application, and is not recommended for your producti
 
 ## Description
 
-Enable the Instrumentation Engine. 
-This will set some registry keys.
+This cmdlet will enable the Instrumentation Engine by setting some registry keys.
 You will need to restart IIS for your changes to take effect.
 
 The Instrumentation Engine is used in addition to the .NET SDKs and will collect events and messages of what is happening to during the execution of a managed process. Including but not limited to Dependency Result Codes, HTTP Verbs, and SQL Command Text. 
 
-You should enable the Instrumentation Engine if..
+You should enable the Instrumentation Engine if:
 - You've already enabled monitoring using the IISConfigurator but didn't enable the InstrumentationEngine, this will execute that step.
 - You've manually instrumented your application with the .NET SDKs and want to collect additional telemetry.
 

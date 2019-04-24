@@ -1,6 +1,6 @@
 ---
 title: IIS Configurator | Microsoft Docs
-description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
 author: tilee
@@ -18,7 +18,7 @@ ms.author: tilee
 IISConfigurator is a PowerShell Module published to the [PowerShellGallery](https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator) 
 and is the replacement for [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now). 
 This provides code-less instrumentation of .NET web applications hosted on-prem. 
-Once your application is instrumented, your telemetry will be sent to the Azure Portal where you can [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) your application.
+Once your application is instrumented, your telemetry will be sent to the Azure portal where you can [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) your application.
 
 ## Disclaimer
 This module is a prototype application, and is not recommended for your production environments.
@@ -52,7 +52,10 @@ https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConf
 
 - Does IISConfigurator support proxy installations?
 
-  **Yes**. You have multiple options to download the IISConfigurator. If your computer has internet access, you can onboard to the PowerShell Gallery using `-Proxy` parameters. Alternatively, you can manually download this module and either install it on your machine or use the module directly. Each of these options are described in our [Detailed Instructions](iis-configurator-detailed-instructions.md).
+  **Yes**. You have multiple options to download the IISConfigurator. 
+If your computer has internet access, you can onboard to the PowerShell Gallery using `-Proxy` parameters. 
+Alternatively, you can manually download this module and either install it on your machine or use the module directly. 
+Each of these options is described in our [Detailed Instructions](iis-configurator-detailed-instructions.md).
   
 - How to verify the enablement was successful?
 
