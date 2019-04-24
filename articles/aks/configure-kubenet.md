@@ -161,7 +161,7 @@ az aks create \
     --client-secret <password>
 ```
 
-When you create an AKS cluster, a network security group and route table are created. These network resources are managed by the AKS control plane. The network security group is automatically associated with the virtual NICs on your nodes. Network security group rules and route tables and are automatically updated as you create and expose services.
+When you create an AKS cluster, a network security group and route table are created. These network resources are managed by the AKS control plane. The network security group is automatically associated with the virtual NICs on your nodes. The route table is automatically associated with the virtual network subnet. Network security group rules and route tables and are automatically updated as you create and expose services.
 
 ## Next steps
 
