@@ -50,7 +50,7 @@ https:/go.microsoft.com/fwlink/?LinkID=135170.
 
 ## Prerequisites for PowerShell
 
-To audit your current version PowerShell run cmd: `$PSVersionTable`
+Audit your current version PowerShell by running the cmd: `$PSVersionTable`
 These instructions were written and tested on a Windows 10 machine with these versions:
 
 ```
@@ -72,7 +72,7 @@ SerializationVersion           1.1.0.1
 For older versions, review this document: [Installing PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget)
 
 
-1. Run PowerShell as Administrator with Elevated Execution Policies
+1. Run PowerShell as Administrator with "Elevated Execution Policies"
 2. Nuget package provider 
 	- Description: This provider is required to interact with NuGet-based repositories such as PowerShellGallery
 	- Reference: [Install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6)
@@ -130,7 +130,7 @@ For older versions, review this document: [Installing PowerShellGet](https://doc
 ## Download & Install IISConfigurator via PowerShell Gallery
 
 1. Prerequisites for PowerShell Gallery are required.
-2. Run PowerShell as Administrator with Elevated Execution Policies
+2. Run PowerShell as Administrator with "Elevated Execution Policies"
 3. Install IISConfigurator Module
 	- Reference: [Install-Module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6)
 	- Cmd: `Install-Module -Name Microsoft.ApplicationInsights.IISConfigurator`
@@ -146,7 +146,7 @@ For older versions, review this document: [Installing PowerShellGet](https://doc
 
 1. Navigate to: https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator
 2. Select the latest version from the version history
-3. At the top under "Installation Options" select "Manual Download"
+3. Under "Installation Options" select "Manual Download"
 
 ### Option 1: Install into PowerShell Modules Directory
 Install the manually downloaded PowerShell Module to a PowerShell directory so it can be discoverable by PowerShell sessions.
@@ -155,7 +155,7 @@ For more information, see: [Installing a PowerShell Module](https://docs.microso
 
 #### Unzip nupkg as zip using Expand-Archive (v1.0.1.0)
 
-- Description: The base version of Microsoft.PowerShell.Archive (v1.0.1.0) can't unzip nupkg files. You must first rename the file with the ".zip" extension.
+- Description: The base version of Microsoft.PowerShell.Archive (v1.0.1.0) can't unzip nupkg files. Rename the file with the ".zip" extension.
 - Reference: [Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6)
 - Cmd: 
 
@@ -188,9 +188,9 @@ If installing into any other directory, you must manually import the module usin
 **IMPORTANT**: Installation will install DLLs via relative paths. Store the contents of this package into your intended runtime directory and confirm that access permissions allow read but not write.
 
 - Change the extension to ".zip" and extract contents of package into your intended installation directory.
-- Find the file path to "microsoft.applicationinsights.iisconfigurator.psd1"
-- Run PowerShell as Administrator with Elevated Execution Policies 
-- Load the module via cmd: `Import-Module microsoft.applicationinsights.iisconfigurator.psd1`
+- Find the file path to "microsoft.applicationinsights.iisconfigurator.psd1".
+- Run PowerShell as Administrator with "Elevated Execution Policies". 
+- Load the module via cmd: `Import-Module microsoft.applicationinsights.iisconfigurator.psd1`.
 	
 
 ## Proxy

@@ -20,20 +20,19 @@ This module is a prototype application, and isn't recommended for your productio
 
 # Enable-ApplicationInsightsMonitoring (v0.2.0-alpha)
 
-**IMPORTANT**: This cmdlet must be run in a PowerShell Session with Administrator permissions and with Elevated Execution Policies. Read [here](iis-configurator-detailed-instructions.md#run-powershell-as-administrator-with-elevated-execution-policies) for more information.
+**IMPORTANT**: This cmdlet requires a PowerShell Session with Administrator permissions and with Elevated Execution Policies. Read [here](iis-configurator-detailed-instructions.md#run-powershell-as-administrator-with-elevated-execution-policies) for more information.
 
 **NOTE**: This cmdlet will require you to review and accept our license and privacy statement.
 
 ## Description
 
 Enable code-less attach monitoring of IIS applications on a target machine.
-This cmdelt will modify the IIS applicationHost.config and set some registry keys.
-This will also create an applicationinsights.ikey.config, which defines which instrumentation key is used by which application.
+This cmdlet will modify the IIS applicationHost.config and set some registry keys.
+This cmdlet will also create an applicationinsights.ikey.config, which defines which instrumentation key is used by which application.
 IIS will load the RedfieldModule at startup, which will inject the Application Insights SDK into applications as those applications start up.
-You will need to restart IIS for your changes to take effect.
+Restart IIS for your changes to take effect.
 
-As of v0.2.0-alpha, we don't have a setting to verify that enablement was successful. 
-We recommend using [Live Metrics](live-stream.md) to quickly observe if your application is sending us telemetry.
+After enabling monitoring, we recommend using [Live Metrics](live-stream.md) to quickly observe if your application is sending us telemetry.
 
 
 **NOTE**: To get started, you must have an instrumentation key. Read [here](create-new-resource.md#copy-the-instrumentation-key) for more information.
@@ -51,7 +50,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ### Example with instrumentation key map
 In this example, 
 - `MachineFilter` will match the current machine using the `'.*'` wildcard.
-- `AppFilter='WebAppExclude'` provides a `null` InstrumentationKey. This app will not be instrumented.
+- `AppFilter='WebAppExclude'` provides a `null` InstrumentationKey. This app won't be instrumented.
 - `AppFilter='WebAppOne'` will assign this specific app a unique instrumentation key.
 - `AppFilter='WebAppTwo'` will also assign this specific app a unique instrumentation key.
 - Lastly, `AppFilter` also uses the `'.*'` wildcard to match all other web apps not matched by the earlier rules and assigns a default instrumentation key.
@@ -76,12 +75,12 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 **Required.** Use this parameter to supply multiple ikeys and a mapping of which apps to use which ikey. 
 You can create a single installation script for several machines by setting the MachineFilter. 
 
-**IMPORTANT:** Applications will match against rules in the order that they are provided. As such you should specify the most specific rules first and the most generic rules last.
+**IMPORTANT:** Applications will match against rules in the order that they're provided. As such you should specify the most specific rules first and the most generic rules last.
 
 #### Schema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
-**Required**:
+**Required parameters**:
 - MachineFilter is a required c# regex of the computer or vm name.
 	- '.*' will match all
 	- 'ComputerName' will match only computers with that exact name.
@@ -89,7 +88,7 @@ You can create a single installation script for several machines by setting the 
 	- '.*' will match all
 	- 'ApplicationName' will match only IIS applications with that exact name.
 
-**Optional**: 
+**Optional parameters**: 
 - InstrumentationKey
 	- InstrumentationKey is required to enable monitoring of the applications that match the above two filters.
 	- Leave this value null if you wish to define rules to exclude monitoring
@@ -98,7 +97,7 @@ You can create a single installation script for several machines by setting the 
 ### -EnableInstrumentationEngine
 **Optional.** Use this switch to enable the Instrumentation Engine to collect events and messages of what is happening to during the execution of a managed process. 
 Including but not limited to Dependency Result Codes, HTTP Verbs, and SQL Command Text. 
-Using this will add additional overhead and is off by default.
+The Instrumentation Engine will add additional overhead and is off by default.
 
 ### -AcceptLicense
 **Optional.** Use this switch to accept the license and privacy statement in headless installations.

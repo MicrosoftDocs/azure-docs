@@ -20,7 +20,7 @@ This module is a prototype application, and isn't recommended for your productio
 
 # Get-ApplicationInsightsMonitoringConfig (v0.2.0-alpha)
 
-**IMPORTANT**: This cmdlet must be run in a PowerShell Session with Administrator permissions.
+**IMPORTANT**: This cmdlet requires a PowerShell Session with Administrator permissions.
 
 ## Description
 

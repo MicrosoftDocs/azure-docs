@@ -20,7 +20,7 @@ This module is a prototype application, and isn't recommended for your productio
 
 # Enable-InstrumentationEngine (v0.2.0-alpha)
 
-**IMPORTANT**: This cmdlet must be run in a PowerShell Session with Administrator permissions.
+**IMPORTANT**: This cmdlet requires a PowerShell Session with Administrator permissions.
 
 **NOTE**: This cmdlet will require you to review and accept our license and privacy statement.
 
@@ -29,13 +29,14 @@ This module is a prototype application, and isn't recommended for your productio
 This cmdlet will enable the Instrumentation Engine by setting some registry keys.
 Restart IIS for these changes to take effect.
 
-The Instrumentation Engine is used in addition to the .NET SDKs and will collect events and messages of what is happening to during the execution of a managed process. Including but not limited to Dependency Result Codes, HTTP Verbs, and SQL Command Text. 
+The Instrumentation Engine can supplement data collected by the .NET SDKs with the events and messages describing the execution of a managed process. 
+Including but not limited to Dependency Result Codes, HTTP Verbs, and SQL Command Text. 
 
-You should enable the Instrumentation Engine if:
-- You've already enabled monitoring using the IISConfigurator but didn't enable the InstrumentationEngine, this will execute that step.
+Enable the Instrumentation Engine if:
+- You've already enabled monitoring using the IISConfigurator but didn't enable the InstrumentationEngine.
 - You've manually instrumented your application with the .NET SDKs and want to collect additional telemetry.
 
-**NOTE:** The Instrumentation Engine adds additional overhead and is therefore off by default.
+**NOTE:** The Instrumentation Engine adds additional overhead and is off by default.
 
 ## Examples
 

@@ -20,12 +20,12 @@ This module is a prototype application, and isn't recommended for your productio
 
 # Get-ApplicationInsightsMonitoringStatus (v0.2.0-alpha)
 
-**IMPORTANT**: This cmdlet must be run in a PowerShell Session with Administrator permissions.
+**IMPORTANT**: This cmdlet requires a PowerShell Session with Administrator permissions.
 
 ## Description
 
 This cmdlet is provided for troubleshooting the PowerShell Module in use.
-This will report version information and key files required for monitoring.
+This cmdlet will report version information and key files required for monitoring.
 Additional parameters provide extra reports on the current status of monitoring.
 
 
@@ -101,15 +101,16 @@ listdlls64.exe -accepteula w3wp
 
 By **default**, this cmdlet will report version numbers and paths of DLLs required for monitoring.
 
-Use this if you need to identify the version of any DLL, including the Application Insights SDK.
+Use this option if you need to identify the version of any DLL, including the Application Insights SDK.
 
 
 ### -InspectProcess
 
-**Optional**. This cmdlet will download and use external exes to report if IIS is running and also if required DLLs have been loaded into the IIS runtime.
+**Optional**. This cmdlet will report if IIS is running.
+ This cmdlet will also download external tools to inspect if the necessary DLLs are loaded into the IIS runtime.
 
 
-If this fails for any reason, you can run these commands manually:
+If this process fails for any reason, you can run these commands manually:
 - iisreset.exe /status
 - [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr /I "InstrumentationEngine AI. ApplicationInsights"
 - [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr /I "InstrumentationEngine AI ApplicationInsights"
@@ -117,6 +118,6 @@ If this fails for any reason, you can run these commands manually:
 
 ### -Force
 
-**Optional**. Used only with InspectProcess. This will skip the user prompt to download the additional tools.
+**Optional**. Used only with InspectProcess. This switch will skip the user prompt to download the additional tools.
 
 

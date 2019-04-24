@@ -17,8 +17,8 @@ ms.author: tilee
 
 IISConfigurator is a PowerShell Module published to the [PowerShellGallery](https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator) 
 and is the replacement for [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now). 
-This provides code-less instrumentation of .NET web applications hosted on-prem. 
-Once your application is instrumented, your telemetry will be sent to the Azure portal where you can [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) your application.
+This module provides code-less instrumentation of .NET web applications hosted on-prem. 
+Telemetry will be sent to the Azure portal where you can [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) your application.
 
 ## Disclaimer
 This module is a prototype application, and isn't recommended for your production environments.
@@ -54,10 +54,10 @@ https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConf
 
   **Yes**. You have multiple options to download the IISConfigurator. 
 If your computer has internet access, you can onboard to the PowerShell Gallery using `-Proxy` parameters. 
-Alternatively, you can manually download this module and either install it on your machine or use the module directly. 
+You can also manually download this module and either install it on your machine or use the module directly. 
 Each of these options is described in our [Detailed Instructions](iis-configurator-detailed-instructions.md).
   
 - How to verify the enablement was successful?
 
-   As of v0.2.0-alpha, we don't have a cmdlet to verify that enablement was successful. 
+   We don't have a cmdlet to verify that enablement was successful. 
 We recommend using [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) to quickly observe if your application is sending us telemetry.

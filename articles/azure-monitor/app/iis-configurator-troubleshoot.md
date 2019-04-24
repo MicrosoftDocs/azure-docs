@@ -56,7 +56,8 @@ Symptomatic behavior can be seen using troubleshooting tools:
 ### Conflict with IIS Shared Configuration
 
 If you have a cluster of web servers, you might be using a [Shared Configuration](https://docs.microsoft.com/en-us/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211). 
-We can't automatically inject our HttpModule into this shared config because it would break any web server that hasn't yet installed our DLL into its GAC.
+We can't automatically inject our HttpModule into this shared config.
+Each web server must first run the Enable command to install our DLL into its GAC.
 
 After you run the Enable command, 
 - browse to your Shared Configuration directory and find your `applicationHost.config` file.
@@ -179,9 +180,9 @@ If attach is working, 17 DLLS should be loaded.
 
 #### Collecting Logs
 
-- in a cmd window with admin privileges , execute `iisreset /stop` To turn off IIS and all web apps.
+- in a cmd window with admin privileges, execute `iisreset /stop` To turn off IIS and all web apps.
 - In PerfView, click "Start Collection"
-- in a cmd window with admin privileges , execute `iisreset /start` To start IIS.
+- in a cmd window with admin privileges, execute `iisreset /start` To start IIS.
 - try to browse to your app.
 - after your app is loaded, In PerfView, click "Stop Collection"
 
