@@ -39,30 +39,7 @@ For more information on VM types and their compute resources, see [Sizes for vir
 
 ## Region availability
 
-Azure Kubernetes Service (AKS) is available in the following regions:
-
-- Australia East
-- Australia Southeast
-- Canada Central
-- Canada East
-- Central India
-- Central US
-- East Asia
-- East US
-- East US2
-- France Central
-- Japan East
-- Korea Central
-- Korea South
-- North Europe
-- Southeast Asia
-- South Central US
-- South India
-- UK South
-- UK West
-- West Europe
-- West US
-- West US 2
+For the latest list of where you can deploy and run clusters, see [AKS region availability][region-availability].
 
 ## Next steps
 
@@ -70,6 +47,7 @@ Certain default limits and quotas can be increased. To request an increase of on
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+[region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 
 <!-- LINKS - Internal -->
 [vm-skus]: ../virtual-machines/linux/sizes.md
