@@ -46,13 +46,13 @@ Here are the limits for a single logic app definition:
 
 Here are the limits for a single logic app run:
 
-| Name | Limit | Notes |
-|------|-------|-------|
-| Run duration | 90 days | To change this limit, see [change run duration](#change-duration). |
-| Minimum recurrence interval | 1 second | |
-| Maximum recurrence interval | 500 days | |
-| Storage retention | 90 days from the run's start time | To change this limit to a value between 7 days and 90 days, see [change storage retention](#change-retention). |
-||||
+| Name | Multi-tenant limit | Integration service environment limit | Notes |
+|------|--------------------|---------------------------------------|-------|
+| Run duration | 90 days | 365 days | To change the multi-tenant limit, see [change run duration](#change-duration). |
+| Storage retention | 90 days from the run's start time | 365 days | To change the multi-tenant limit to a value between 7 days and 90 days, see [change storage retention](#change-retention). |
+| Minimum recurrence interval | 1 second |||
+| Maximum recurrence interval | 500 days |||
+|||||
 
 <a name="change-duration"></a>
 <a name="change-retention"></a>
@@ -94,7 +94,7 @@ Here are the limits for a single logic app run:
 
 Here are the limits for a single logic app run:
 
-### Global Logic Apps service
+### Multi-tenant Logic Apps service
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
