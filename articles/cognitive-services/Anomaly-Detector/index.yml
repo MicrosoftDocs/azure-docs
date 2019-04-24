@@ -65,9 +65,9 @@ sections:
     className: cardsD
     items:
     - title: REST API
-      html: <p><a href="https://aka.ms/anomaly-detector-rest-api-ref">Bing Web Search API v7</a></p>
+      html: <p><a href="https://aka.ms/anomaly-detector-rest-api-ref">Anomaly Detector API</a></p>
     - title: SDKs
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-dotnet">.NET</a></p>
+      html: <p><a href="https://aka.ms/anomaly-detector-dotnet-ref">.NET</a></p>
             <p><a href="https://go.microsoft.com/fwlink/?linkid=2089915">Go</a></p>
     - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
