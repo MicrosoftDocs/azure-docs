@@ -96,12 +96,13 @@ Window Server node pool support includes some limitations that are part of the u
 In a service level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS itself is free, there is no cost available to reimburse and thus no formal SLA. However, AKS seeks to maintain availability of at least 99.5% for the Kubernetes API server.
 
 <!-- LINKS - internal -->
-[aks-regions]: ./container-service-quotas.md#region-availability
+
+[aks-regions]: ./quotas-skus-regions.md#region-availability
 [aks-upgrade]: ./upgrade-cluster.md
 [aks-cluster-autoscale]: ./autoscaler.md
 [virtual-kubelet]: virtual-kubelet.md
 [aks-advanced-networking]: ./configure-azure-cni.md
-[aks-rbac-aad]: ./aad-integration.md
+[aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: faq.md
