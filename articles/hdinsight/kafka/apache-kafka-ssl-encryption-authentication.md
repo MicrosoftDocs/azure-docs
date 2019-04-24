@@ -8,68 +8,108 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: hrasheed
-
 ---
 # Setup Secure Sockets Layer (SSL) encryption and authentication for Apache Kafka in Azure HDInsight
 
-This article describes how to setup SSL encryption between Apache Kafka clients and Apache Kafka brokers. It also gives the steps needed to setup authentication of clients (sometimes referred to as two-way SSL).
+This article shows you how to setup SSL encryption between Apache Kafka clients and Apache Kafka brokers. It also shows you how to setup authentication of clients (sometimes referred to as two-way SSL).
 
-## Server setup
-
-The first step is to create a keystore and truststore on each Kafka broker. After these are created, import the Certificate Authority (CA) and broker certificates into these stores.
+## Apache Kafka Broker setup
 
 > [!Note] 
 > This guide will use self-signed certificates, but the most secure solution is to use certificates issued by trusted CAs.
 
-Do the following to complete the server setup:
+The Kafka SSL broker setup will use four HDInsight cluster VMs in the following way:
 
-1. Create a folder named ssl and export the server password as an environment variable. For the remainder of this guide, replace `<server_password>` with the actual administrator password for the server.
-1. Next, create a java keystore (kafka.server.keystore.jks) and a CA certificate.
-1. Then, create a signing request to get the certificate created in the previous step signed by the CA.
-1. Now, send the signing request to the CA and get this certificate signed. Because we are using a self-signed certificate, we sign the certificate with our CA using the `openssl` command.
-1. Create a trust store and import the certificate of the CA.
-1. Import the public CA certificate into the keystore.
-1. Import the signed certificate into the keystore.
+* headnode 0 - Certificate Authority (CA)
+* worker node 0, 1, and 2 - brokers
 
-The commands to complete these steps are shown in the following code snippet.
+The summary of the broker setup process is as follows:
 
-```bash
-export SRVPASS=<server_password>
-mkdir ssl
-cd ssl
+1. The following steps are repeated on each of the three worker nodes:
 
-# Create a java keystore (kafka.server.keystore.jks) and a CA certificate.
+    * Generate a certificate.
+    * Create a cert signing request.
+    * Send the cert signing request to the Certificate Authority (CA).
+    * Sign in to the CA and sign the request.
+    * SCP the signed certificate back to the worker node.
 
-keytool -genkey -keystore kafka.server.keystore.jks -validity 365 -storepass $SRVPASS -keypass $SRVPASS -dname "CN=wn0-umakaf.xvbseke35rbuddm4fyvhm2vz2h.cx.internal.cloudapp.net" -storetype pkcs12
+1. Once you have all of the certificates, put the certs into the cert store.
+1. Go to Ambari and change the configurations.
 
-# Create a signing request to get the certificate created in the previous step signed by the CA.
+Use the following detailed instructions to complete the broker setup:
 
-keytool -keystore kafka.server.keystore.jks -certreq -file cert-file -storepass $SRVPASS -keypass $SRVPASS
+> [!Important]
+> In the following code snippets wnX is an abbreviation for one of the three worker nodes and should be substituted with `wn0`, `wn1` or `wn2` as appropriate. `WorkerNode0_Name` and `HeadNode0_Name` should be substituted with the names of the respective machines, such as `wn0-abcxyz` or `hn0-abcxyz`.
 
-# Send the signing request to the CA and get this certificate signed.
+1. Perform initial setup on head node 0, which for HDInsight will fill the role of the Certificate Authority (CA).
 
-openssl x509 -req -CA ca-cert -CAkey ca-key -in cert-file -out cert-signed -days 365 -CAcreateserial -passin pass:$SRVPASS
+    ```bash
+    # Create a new directory 'ssl' and change into it
+    mkdir ssl
+    cd ssl
 
-# Create a trust store and import the certificate of the CA.
+    # Export
+    export SRVPASS=MyServerPassword123
+    ```
 
-keytool -keystore kafka.server.truststore.jks -alias CARoot -import -file ca-cert -storepass $SRVPASS -keypass $SRVPASS -noprompt
+1. Perform the same initial setup on each of the brokers (worker nodes 0, 1 and 2).
 
-# Import the public CA certificate into the keystore.
+    ```bash
+    # Create a new directory 'ssl' and change into it
+    mkdir ssl
+    cd ssl
 
-keytool -keystore kafka.server.keystore.jks -alias CARoot -import -file ca-cert -storepass $SRVPASS -keypass $SRVPASS -noprompt
+    # Export
+    export SRVPASS=MyServerPassword123
+    ```
 
-# Import the signed certificate into the keystore.
+1. On each of the worker nodes, execute the following steps using the code snippet below.
+    1. Create a keystore and populate it with a new private certificate.
+    1. Create a certificate signing request.
+    1. SCP the certificate signing request to the CA (headnode0)
 
-keytool -keystore kafka.server.keystore.jks -alias CARoot -import -file ca-cert -storepass $SRVPASS -keypass $SRVPASS -noprompt
+    ```bash
+    keytool -genkey -keystore kafka.server.keystore.jks -validity 365 -storepass $SRVPASS -keypass $SRVPASS -dname "CN=FQDN_WORKER_NODE" -storetype pkcs12
+    keytool -keystore kafka.server.keystore.jks -certreq -file cert-file -storepass $SRVPASS -keypass $SRVPASS
+    scp cert-file sshuser@HeadNode0_Name:~/ssl/wnX-cert-sign-request
+    ```
 
-# The output should say "Certificate reply was added to keystore"
-```
+1. Change to the CA machine and sign all of the received cert signing requests:
 
-Importing the signed certificate into the keystore is the final step needed to configure the truststore and keystore for a Kafka broker.
+    ```bash
+    openssl x509 -req -CA ca-cert -CAkey ca-key -in wn0-cert-sign-request -out wn0-cert-signed -days 365 -CAcreateserial -passin pass:$SRVPASS
+    openssl x509 -req -CA ca-cert -CAkey ca-key -in wn1-cert-sign-request -out wn1-cert-signed -days 365 -CAcreateserial -passin pass:$SRVPASS
+    openssl x509 -req -CA ca-cert -CAkey ca-key -in wn2-cert-sign-request -out wn2-cert-signed -days 365 -CAcreateserial -passin pass:$SRVPASS
+    ```
+
+1. Send the signed certificates back to the worker nodes from the CA (headnode0).
+
+    ```bash
+    scp wnX-cert-signed sshuser@WorkerNode0_Name:~/ssl/cert-signed
+    scp wnY-cert-signed sshuser@WorkerNode1_Name:~/ssl/cert-signed
+    scp wnZ-cert-signed sshuser@WorkerNode2_Name:~/ssl/cert-signed
+    ```
+
+1. Send the public certificate of the CA to each worker node.
+
+    ```bash
+    scp ca-cert sshuser@WorkerNode0_Name:~/ssl/ca-cert
+    scp ca-cert sshuser@WorkerNode1_Name:~/ssl/ca-cert
+    scp ca-cert sshuser@WorkerNode2_Name:~/ssl/ca-cert
+    ```
+
+1. On each worker node, add the CAs public certificate to the truststore and keystore. Then add the worker node's own signed certificate to the keystore
+
+    ```bash
+    keytool -keystore kafka.server.truststore.jks -alias CARoot -import -file ca-cert -storepass $SRVPASS -keypass $SRVPASS -noprompt
+    keytool -keystore kafka.server.keystore.jks -alias CARoot -import -file ca-cert -storepass $SRVPASS -keypass $SRVPASS -noprompt
+    keytool -keystore kafka.server.keystore.jks -import -file cert-signed -storepass $SRVPASS -keypass $SRVPASS -noprompt
+
+    ```
 
 ## Update Kafka configuration to use SSL and restart brokers
 
-You have now setup each Kafka broker with a keystore and truststore, and imported the correct certificates.  Next, modify related Kafka configuration properties using Ambari and then restart the Kafka brokers. 
+You have now setup each Kafka broker with a keystore and truststore, and imported the correct certificates. Next, modify related Kafka configuration properties using Ambari and then restart the Kafka brokers.
 
 To complete the configuration modification, do the following steps:
 
@@ -80,7 +120,7 @@ To complete the configuration modification, do the following steps:
 
     ![Editing Kafka ssl configuration properties in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
 
-1. Under **Custom kafka-broker** set the **ssl.client.auth** property to `required`. This step is only required if you are setting up authentication as well as encryption.
+1. Under **Custom kafka-broker** set the **ssl.client.auth** property to `required`. This step is only required if you are setting up authentication and encryption.
 
     ![Editing kafka ssl configuration properties in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
@@ -116,12 +156,12 @@ To complete the configuration modification, do the following steps:
 > [!Note]
 > The following steps are required only if you are setting up both SSL encryption **and** authentication. If you are only setting up encryption, please proceed to [Client setup without authentication](apache-kafka-ssl-encryption-authentication.md#client-setup-without-authentication)
 
-Do the following steps to complete the client setup:
+Complete the following steps to finish the client setup:
 
-1. Log in to the client machine (hn1).
+1. Sign in to the client machine (hn1).
 1. Export the client password. Replace `<client_password>` with the actual administrator password on the Kafka client machine.
 1. Create a java keystore and get a signed certificate for the broker. Then copy the certificate to the VM where the CA is running.
-1. Switch to the CA machine (wn0) to sign the client certificate.
+1. Switch to the CA machine (hn0) to sign the client certificate.
 1. Go to the client machine (hn1) and navigate to the `~/ssl` folder. Copy the signed cert to client machine.
 
 ```bash
@@ -134,15 +174,15 @@ keytool -genkey -keystore kafka.client.keystore.jks -validity 365 -storepass $CL
 
 keytool -keystore kafka.client.keystore.jks -certreq -file client-cert-sign-request -alias my-local-pc1 -storepass $CLIPASS -keypass $CLIPASS
 
-# Copy the cert to the vm where the CA is
-scp client-cert-sign-request3 sshuser@wn0-umakaf:~/tmp1/client-cert-sign-request
+# Copy the cert to the CA
+scp client-cert-sign-request3 sshuser@HeadNode0_Name:~/tmp1/client-cert-sign-request
 
-# Switch to the CA machine (wn0) to sign the client certificate.
+# Switch to the CA machine (hn0) to sign the client certificate.
 cd ssl
 openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:<server_password>
 
-# Return to the client machine (hn1), navigate to ~/ssl folder and copy signed cert to client machine
-scp -i ~/kafka-security.pem sshuser@wn0-umakaf:/tmp1/client-cert-signed
+# Return to the client machine (hn1), navigate to ~/ssl folder and copy signed cert from the CA (hn0) to client machine
+scp -i ~/kafka-security.pem sshuser@HeadNode0_Name:/tmp1/client-cert-signed
 
 # Import CA cert to trust store
 keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass $CLIPASS -keypass $CLIPASS -noprompt
