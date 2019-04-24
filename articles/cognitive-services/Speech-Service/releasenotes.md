@@ -20,7 +20,7 @@ ms.custom: seodec18
 **New features**
 
 * Keyword spotting functionality (KWS) is available for Windows and Linux. KWS functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK.
-* Phrase hint functionality is available through the SDK. See [this article for more details](how-to-phrase-lists.md).
+* Phrase hint functionality is available through the SDK. For more information, see [here](how-to-phrase-lists.md).
 * Conversation transcription functionality is available through the SDK. See [here](conversation-transcription-service.md).
 * Add support for voice-first virtual assistants using the Direct Line Speech channel.
 
@@ -49,7 +49,7 @@ This is a JavaScript-only release. No features have been added. The following fi
 
 **New features** 
 
-* The SDK now supports the text-to-speech service as a beta version. It is supported on Windows and Linux Desktop from C++ and C#. For more information check the [text-to-speech overview](text-to-speech.md#get-started-with-text-to-speech).
+* The SDK now supports the text-to-speech service as a beta version. It is supported on Windows and Linux Desktop from C++ and C#. For more information, check the [text-to-speech overview](text-to-speech.md#get-started-with-text-to-speech).
 * The SDK now supports MP3 and Opus/Ogg audio files as stream input files. This feature is available only on Linux from C++ and C# and is currently in beta (more details [here](how-to-use-compressed-audio-input-streams.md)).
 * The Speech SDK for Java, .NET core, C++ and Objective-C have gained macOS support. The Objective-C support for macOS is currently in beta.
 * iOS: The Speech SDK for iOS (Objective-C) is now also published as a CocoaPod.
@@ -64,7 +64,7 @@ This is a JavaScript-only release. No features have been added. The following fi
 **Improvements / Changes**
 
 * Python: Additional properties of recognition results are now exposed via the `properties` property.
-* For additional development and debug support you can redirect SDK logging and diagnostics information into a log file (more details [here](how-to-use-logging.md)).
+* For additional development and debug support, you can redirect SDK logging and diagnostics information into a log file (more details [here](how-to-use-logging.md)).
 * JavaScript: Improve audio processing performance.
 
 **Bug fixes**
@@ -85,8 +85,8 @@ This is a bug fix release and only affecting the native/managed SDK. It is not a
 
 **New Features**
 
-* The Speech SDK supports selection of the input microphone through the AudioConfig class. This allows you to stream audio data to the Speech Services from a non-default microphone. For more information, see the documentation describing [audio input device selection](how-to-select-audio-input-devices.md). This is not yet available from JavaScript.
-* The Speech SDK now supports Unity in a beta version. Please provide feedback through the issue section in the [GitHub sample repository](https://aka.ms/csspeech/samples). This release supports Unity on Windows x86 and x64 (desktop or Universal Windows Platform applications), and Android (ARM32/64, x86). More information is available in our [Unity quickstart](quickstart-csharp-unity.md).
+* The Speech SDK supports selection of the input microphone through the AudioConfig class. This allows you to stream audio data to the Speech Services from a non-default microphone. For more information, see the documentation describing [audio input device selection](how-to-select-audio-input-devices.md). This feature is not yet available from JavaScript.
+* The Speech SDK now supports Unity in a beta version. Provide feedback through the issue section in the [GitHub sample repository](https://aka.ms/csspeech/samples). This release supports Unity on Windows x86 and x64 (desktop or Universal Windows Platform applications), and Android (ARM32/64, x86). More information is available in our [Unity quickstart](quickstart-csharp-unity.md).
 * The file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (shipped in previous releases) isn't needed anymore. The functionality is now integrated into the core SDK.
 
 
@@ -122,9 +122,9 @@ The following new content is available in our [sample repository](https://aka.ms
 **Bug fixes**
 
 * Empty proxy username and proxy password were not handled correctly. With this release, if you set proxy username and proxy password to an empty string, they will not be submitted when connecting to the proxy.
-* SessionId's created by the SDK were not always truly random for some languages&nbsp;/ environments. Added random generator initialization to fix this.
+* SessionId's created by the SDK were not always truly random for some languages&nbsp;/ environments. Added random generator initialization to fix this issue.
 * Improve handling of authorization token. If you want to use an authorization token, specify in the SpeechConfig and leave the subscription key empty. Then create the recognizer as usual.
-* In some cases the Connection object wasn't released correctly. This has been fixed.
+* In some cases the Connection object wasn't released correctly. This issue has been fixed.
 * The JavaScript sample was fixed to support audio output for translation synthesis also on Safari.
 
 ## Speech SDK 1.2.1
@@ -149,7 +149,7 @@ This is a JavaScript-only release. No features have been added. The following fi
   * The length restriction for audio sessions has been removed, reconnection will happen automatically under the cover.
 * Connection Object
   * From the Recognizer, you can access a Connection object. This object allows you to explicitly initiate the service connection and subscribe to connect and disconnect events.
-    (This is not yet available from JavaScript and Python.)
+    (This feature is not yet available from JavaScript and Python.)
 * Support for Ubuntu 18.04.
 * Android
   * Enabled ProGuard support during APK generation.
@@ -157,7 +157,7 @@ This is a JavaScript-only release. No features have been added. The following fi
 **Improvements**
 
 * Improvements in the internal thread usage, reducing the number of threads, locks, mutexes.
-* Improved error reporting / information. In several cases error messages have not been propagated all the way out.
+* Improved error reporting / information. In several cases, error messages have not been propagated out all the way out.
 * Updated development dependencies in JavaScript to use up-to-date modules.
 
 **Bug fixes**
@@ -233,7 +233,7 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 **Breaking changes**
 
 * With this release, a number of breaking changes are introduced.
-  Please check [this page](https://aka.ms/csspeech/breakingchanges_1_0_0) for details.
+  Check [this page](https://aka.ms/csspeech/breakingchanges_1_0_0) for details.
 
 ## Cognitive Services Speech SDK 0.6.0: 2018-August release
 
