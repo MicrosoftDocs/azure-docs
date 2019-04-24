@@ -36,8 +36,6 @@ The Import Data module supports the following data sources. Click the links for 
  
 If you are not sure how or where you should store your data, see this guide to common data scenarios in the data science process:  [Scenarios for advanced analytics in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-plan-sample-scenarios). 
 
-@@ will more data source come for public preview?
-update the table 
 
 |Data source| Use with|
 |-----------|-----------|  
