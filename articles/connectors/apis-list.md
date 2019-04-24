@@ -23,7 +23,7 @@ While Logic Apps offers [~200+ connectors](https://docs.microsoft.com/connectors
 this article describes popular and more commonly used connectors that are successfully 
 used by thousands of apps and millions of executions for processing data and information. 
 To find the full list of connectors and each connector's reference information, 
-such as triggers, actions, and limits, review the connector references pages under 
+such as triggers, actions, and limits, review the connector reference pages under 
 [Connectors overview](https://docs.microsoft.com/connectors). 
 Also, learn more about [triggers and actions](#triggers-actions).
 
@@ -49,7 +49,7 @@ SQL Server, Salesforce, and more. Some connectors require that
 you first create connections, which are managed by Azure Logic Apps. 
 These connectors are classified as either Standard or Enterprise, 
 but for specific information about each connector, review the connector 
-references pages under [Connectors overview](https://docs.microsoft.com/connectors):
+reference pages under [Connectors overview](https://docs.microsoft.com/connectors):
 
   * **Standard**
 
