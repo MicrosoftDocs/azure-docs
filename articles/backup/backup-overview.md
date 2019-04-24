@@ -1,12 +1,11 @@
 ---
 title: What is Azure Backup?
-description: Provides an overview of the Azure Backup service, and how to deploy it as part of your business continuity and disaster recovery (BCDR) strategy.
-services: backup
+description: Provides an overview of the Azure Backup service, and how it contributes to your business continuity and disaster recovery (BCDR) strategy.
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: overview
-ms.date: 04/05/2019
+ms.date: 04/24/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -25,11 +24,7 @@ Azure Backup delivers these key benefits:
 - **Get unlimited data transfer**: Azure Backup does not limit the amount of inbound or outbound data you transfer, or charge for the data that is transferred.
     - Outbound data refers to data transferred from a Recovery Services vault during a restore operation.
     - If you perform an offline initial backup using the Azure Import/Export service to import large amounts of data, there is a cost associated with inbound data.  [Learn more](backup-azure-backup-import-export.md).
-- **Keep data secure**:
-    - On-premises, data in transit is encrypted on the on-premises machine using AES256. The data transmitted is protected by HTTPS between storage and backup. The iSCSI protocol secures the data transmitted between backup and the user machine. Secure tunneling is used to protect the iSCSI channel.
-    - For on-premises to Azure backup, data in Azure is encrypted at-rest using the passphrase you provide when you set up backup. The passphrase or key it is never transmitted or stored in Azure. If it is necessary to restore any of the data, only you have encryption passphrase, or key.
-    - For Azure VMs, data is encrypted at-reset using Storage Service Encryption (SSE). Backup automatically encrypts data before storing it. Azure Storage decrypts data before retrieving it.
-    - Backup also supports Azure VMs encrypted using Azure Disk Encryption (ADE). [Learn more](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
+- **Keep data secure**: Azure Backup provides solutions for securing data in transit and at rest.
 - **Get app-consistent backups**: An application-consistent backup means a recovery point has all required data to restore the backup copy. Azure Backup provides application-consistent backups, which ensure additional fixes are not required to restore the data. Restoring application-consistent data reduces the restoration time, allowing you to quickly return to a running state.
 - **Retain short and long-term data**: You can use Recovery Services vaults for short-term and long-term data retention. Azure doesn't limit the length of time data can remain in a Recovery Services vault. You can keep it for as long as you like. Azure Backup has a limit of 9999 recovery points per protected instance. [Learn more](backup-introduction-to-azure-backup.md#backup-and-retention)about how this limit impacts your backup needs.
 - **Automatic storage management** - Hybrid environments often require heterogeneous storage - some on-premises and some in the cloud. With Azure Backup, there is no cost for using on-premises storage devices. Azure Backup automatically allocates and manages backup storage, and it uses a pay-as-you-use model, so that you only pay for the storage you consume. [Learn more](https://azure.microsoft.com/pricing/details/backup) about pricing.
@@ -93,21 +88,27 @@ Learn more about [how backup works](backup-architecture.md#architecture-back-up-
 **Scenario** | **Agent**
 --- | ---
 **Back up Azure VMs** | No agent needed. Azure VM extension for backup is installed on the Azure VM when you run the first Azure VM backup.<br/><br/> Support for Windows and Linux support.
-**Back up of on-premises Windows machines** | Download, install and run the MARS agent directly on the machine.
-**Backup Azure VMs with the MARS agent** | Download, install, and run the MARS agent directly on the machine. The MARS agent can run alongside the backup extension.
+**Back up of on-premises Windows machines** | Download, install, and run the MARS agent directly on the machine.
+**Back up Azure VMs with the MARS agent** | Download, install, and run the MARS agent directly on the machine. The MARS agent can run alongside the backup extension.
 **Back up on-premises machines and Azure VMs to DPM/MABS** | The DPM or MABS protection agent runs on the machines you want to protect. The MARS agent runs on the DPM server/MABS to back up to Azure.
 
 ## Which backup agent should I use?
 
 **Backup** | **Solution** | **Limitation**
 --- | --- | ---
-**I want to back up an entire Azure VM** | Enable backup for the VM. The backup extension will automatically be configured on the Windows or Linux Azure VM. | Entire VM is backed up <br/><br/> For Windows VMs the backup is app-consistent. for Linux the backup is file-consistent. If you need app-aware for Linux VMs you have to configure this with custom scripts.
+**I want to back up an entire Azure VM** | Enable backup for the VM. The backup extension will automatically be configured on the Windows or Linux Azure VM. | Entire VM is backed up <br/><br/> For Windows VMs the backup is app-consistent. for Linux the backup is file-consistent. If you need app-aware for Linux VMs, you have to configure this with custom scripts.
 **I want to back up specific files/folders on Azure VM** | Deploy the MARS agent on the VM.
 **I want to directly back on-premises Windows machines** | Install the MARS agent on the machine. | You can back up files, folders, and system state to Azure. Backups aren't app-aware.
-**I want to directly back up on-premises Linux machines** | You need to deploy DPM or MABS to back up to Azure. | Backup of Linux host is not supported, you can only backup Linux guest machine hosted on Hyper-V or VMWare.
+**I want to directly back up on-premises Linux machines** | You need to deploy DPM or MABS to back up to Azure. | Backup of Linux host is not supported, you can only back up Linux guest machine hosted on Hyper-V or VMWare.
 **I want to back up apps running on on-premises** | For app-aware backups machines must be protected by DPM or MABS.
 **I want granular and flexible backup and recovery settings for Azure VMs** | Protect Azure VMs with MABS/DPM running in Azure for additional flexibility in backup scheduling, and full flexibility for protecting and restoring files, folder, volumes, apps, and system state.
 
+## How does Azure Backup work with encryption?
+
+**Encryption** | **Back up on-premises** | **Back up Azure VMs** | **Back up SQL on Azure VMs**
+--- | --- | --- | ---
+Encryption at rest<br/> (Encryption of data where it's persisted/stored) | Customer-specified passphrase is used to encrypt data | Azure [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) is used to encrypt data stored in the vault.<br/><br/> Backup automatically encrypts data before storing it. Azure Storage decrypts data before retrieving it. Use of customer-managed keys for SSE is not currently supported.<br/><br/> You can back up VMs that use [Azure disk encryption (ADE)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) to encrypt OS and data disks. Azure Backup supports VMs encrypted with BEK-only, and with both BEK and [KEK](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/). Review the [limitations](backup-azure-vms-encryption.md#encryption-support). | Azure Backup supports backup of SQL Server databases or server with [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) enabled. Backup supports TDE with keys managed by Azure, or with customer-managed keys (BYOK).<br/><br/> Backup doesn't perform any SQL encryption as part of the backup process.
+Encryption in transit<br/> (Encryption of data moving from one location to another) | Data is encrypted using AES256 and sent to the vault in Azure over HTTPS | Within Azure, data between Azure storage and the vault is protected by HTTPS. This data remains on the Azure backbone network.<br/><br/> For file recovery, iSCSI secures the data transmitted between the vault and the Azure VM. Secure tunneling protects the iSCSI channel. | Within Azure, data between Azure storage and the vault is protected by HTTPS.<br/><br/> File recovery not relevant for SQL.
 
 ## Next steps
 
