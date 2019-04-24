@@ -49,7 +49,7 @@ The purpose of the VDSS is to protect DoD Mission Owner applications that are ho
 
 The purpose of VDMS is to provide host security as well as shared data center services. The functions of VDMS can either run in the hub of your SCCA or the mission owner can deploy pieces of it in their own specific Azure subscription. This component can be provided within your Azure environment.
 
-***VDMS Security Requirements***
+***VDMS security requirements***
 
 ![VDMS requirements matrix](media/vdmsreqs.png)
 
