@@ -215,6 +215,8 @@
           href: msal-net-provide-httpclient.md
         - name: Platform specific considerations (.NET)
           items:
+          - name: Web browsers
+            href: msal-net-web-browsers.md
           - name: Xamarin Android
             href: msal-net-xamarin-android-considerations.md
           - name: System browser on Android
