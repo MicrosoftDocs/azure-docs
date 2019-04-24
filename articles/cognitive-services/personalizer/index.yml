@@ -30,10 +30,10 @@ sections:
             src: ../media/index/i_guidelines.svg
           title: What is Personalizer?
         - href: /azure/cognitive-services/personalizer/how-personalizer-works
-          html: <p>Learn how the Personalizer service works.</p>
+          html: <p>Learn how the Personalizer feedback loop works with the Rank and Reward APIs.</p>
           image:
             src: ../media/index/i_overview.svg
-          title: Overview
+          title: How Personalizer works
         - href: /azure/cognitive-services/personalizer/ethics-responsible-use
           html: <p>Implement personalization in a way that builds trust in your company and service.</p>
           image:
