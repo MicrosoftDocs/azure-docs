@@ -22,7 +22,7 @@ With automated ML, anyone can successfully extract and leverage the business ins
 
 You provide some goals, constraints, or blacklists, and then automated machine learning generates the model for you. Behind the scenes, training data is taken with a defined target feature, and iterated upon through combinations of algorithms and feature selections. Then, the best model (based on training scores) is automatically selected.  
 
-Using **Azure Machine Learning service**, you can configure the settings for automatic training experiment [in Azure portal](how-to-create-portal-experiments.md) or directly in Python [with the SDK](how-to-configure-auto-train.md).
+Using **Azure Machine Learning service**, you can run automatic training experiments [in Azure portal](how-to-create-portal-experiments.md) or using Python [with the SDK](how-to-configure-auto-train.md).  Automated ML is also available with Visual Studio and Visual Studio Code for [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet) and PowerBI.
 
 ## How automated ML works
 
@@ -90,14 +90,9 @@ In addition to the preceding pre-processing list, data is automatically scaled/n
 
 You can train ensemble models using automated machine learning with the [Caruana ensemble selection algorithm with sorted Ensemble initialization](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). Ensemble learning improves machine learning results and predictive performance by combing many models as opposed to using single models. The ensemble iteration appears as the last iteration of your run.
 
-## ONNX - Build models in Python and use them for prediction in C# apps without recoding
+## Use with ONNX in C# apps
 
-Data Scientists build models in Python, but often line-of-business applications are C# apps. The models can be deployed as a REST end point, but then it introduces the latency and this latency may not be acceptable for certain apps. Models need to be integrated into the line-of-business apps. Software developers end up recoding the python model into C#. This introduces friction and delays. Now, with ONNX framework, recoding is eliminated. With Azure Machine Learning, automated ML you can configure to build a Python model and ask automated ML API to convert into ONNX format. With ONNX run time support for C#, you can use the ONNX converted model in your app without the network latencies or recoding.
-
-## .NET integrations
-
-To help you build your existing tools into your release process, we integrate with popular Microsoft services such as [**Visual Studio and Visual Studio Code**](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet
-), where you can use C# code to integrate automated ML into your .NET applications. The ML.NET automated ML API for Visual Studio and Visual Studio Code performs algorithm and hyperparameter selection, data preprocessing and generates high quality models for prediction.
+With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. The ONNX runtime supports  C#, so you can use the ONNX model in your C# app without any need for recoding or any of the network latencies introduced by REST endpoints. Try an example of this flow [in this Juptyer notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-with-onnx/auto-ml-classification-with-onnx.ipynb).
 
 ## Next steps
 
