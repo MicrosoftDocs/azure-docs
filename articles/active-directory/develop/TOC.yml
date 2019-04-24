@@ -404,7 +404,11 @@
     - name: Conditional access
       href: conditional-access-dev-guide.md
     - name: National Clouds 
-      href: authentication-national-cloud.md      
+      items:
+      - name: Authentication
+        href: authentication-national-cloud.md  
+      - name: Application
+        href: msal-national-cloud.md
   - name: How-to guides
     items:
     - name: Authentication

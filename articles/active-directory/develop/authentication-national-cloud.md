@@ -72,14 +72,15 @@ The following table lists the base URLs for the Azure Active Directory (Azure AD
 
 To learn how to call the Microsoft Graph APIs in National Cloud environment go to [Microsoft Graph in national cloud](https://developer.microsoft.com/graph/docs/concepts/deployments).
 
-
-
 > [!IMPORTANT]
 > Certain services and features that are in specific regions of the global service might not be available in all of the National clouds. To find out what services are available go to [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
 
+Follow this Microsoft Authentication Library (MSAL) [tutorial](#msal-national-cloud.md) to learn how to build an application using Microsoft identity platform. Specifically, this app will sign in a user, get an access token to call the Microsoft Graph API.
+
 ## Next steps
 
-- Learn more about [Azure Government](https://docs.microsoft.com/azure/azure-government/).
-- Learn more about [Azure China 21Vianet](https://docs.microsoft.com/azure/china/).
-- Learn more about [Azure Germany](https://docs.microsoft.com/azure/germany/).
-- Learn about the [Azure AD authentication basics](authentication-scenarios.md).
+### Learn more about 
+- [Azure Government](https://docs.microsoft.com/azure/azure-government/).
+- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/).
+- [Azure Germany](https://docs.microsoft.com/azure/germany/).
+- [Azure AD authentication basics](authentication-scenarios.md).
