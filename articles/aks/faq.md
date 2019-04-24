@@ -104,8 +104,8 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 [aks-rbac-aad]: ./aad-integration.md
 [node-updates-kured]: node-updates-kured.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
-[aks-windows-cli]: windows-container-cli.md
+[nodepool-upgrade]: faq.md
+[aks-windows-cli]: faq.md
 [aks-windows-limitations]: windows-node-limitations.md
 
 <!-- LINKS - external -->
