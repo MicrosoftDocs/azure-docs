@@ -111,7 +111,7 @@ Azure Service Bus supports the following dimensions for metrics in Azure Monitor
 1. On the **Metrics** tab of the **Service Bus Namespace** page, select **Configure alerts**. 
 
     ![Metrics page - Configure alerts menu](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
-2. Select **Select target**, and do the following actions on the **Select a resource** page: 
+2. Select the **Select target** option, and do the following actions on the **Select a resource** page: 
     1. Select **Service Bus Namespaces** for the **Filter by resource type** field. 
     2. Select your subscription for the **Filter by subscription** field.
     3. Select the **service bus namespace** from the list. 
