@@ -285,7 +285,7 @@ Run the following Transact-SQL snippet to insert additional rows on the publishe
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
-## 10 - Clean up resources
+## Clean up resources
 Once you're done testing, you can clean up your resources by [deleting the resource group](../azure-resource-manager/manage-resources-portal.md#delete-resources) `SQLMI-Repl`. 
 
    
