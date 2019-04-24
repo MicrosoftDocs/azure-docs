@@ -42,7 +42,8 @@ Or, for example, scopes for a custom web API: `api://abscdefgh-1234-abcd-efgh-12
 
 For the Microsoft Graph API, only, a scope value `user.read` maps to `https://graph.microsoft.com/User.Read` format and can be used interchangeably.
 
-Note: Certain web APIs such as Azure Resource Manager API (https://management.core.windows.net/) expect a trailing '/' in the audience claim (aud) of the access token. In this case, it is important to pass the scope as https://management.core.windows.net//user_impersonation (note the double slash), for the token to be valid in the API.
+> [!NOTE]
+> Certain web APIs such as Azure Resource Manager API (https://management.core.windows.net/) expect a trailing '/' in the audience claim (aud) of the access token. In this case, it is important to pass the scope as https://management.core.windows.net//user_impersonation (note the double slash), for the token to be valid in the API.
 
 ### Request dynamic scopes for incremental consent
 When building applications using Azure AD v1.0, you had to register the full set of permissions (static scopes) required by the application for the user to consent at the time of login. In Azure AD v2.0, you can request additional permissions as needed using the scope parameter. These are called dynamic scopes and allows the user to provide incremental consent to scopes.
