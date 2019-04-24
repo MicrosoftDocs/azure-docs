@@ -216,7 +216,7 @@
           href: vnet-service-endpoint.md
         - name: Role-based Access Control
           displayName: rbac
-          href: database-security-rbac.md  
+          href: role-based-access-control.md  
     - name: Enterprise readiness 
       items:
       - name: Online backup and on-demand restore
