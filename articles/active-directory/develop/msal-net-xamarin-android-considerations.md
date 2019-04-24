@@ -67,7 +67,7 @@ The `AndroidManifest.xml` should contain the following values:
 
 ## Use the embedded web view (optional)
 
-By default MSAL.NET uses the system web browser, which enables you to get SSO with Web applications and other apps. In some rare cases, you might want to specify that you want to use the embedded web view. For more information, see [MSAL.NET uses a Web browser](MSAL.NET-uses-web-browser) and [Android system browser](msal-net-system-browser-considerations.md).
+By default MSAL.NET uses the system web browser, which enables you to get SSO with Web applications and other apps. In some rare cases, you might want to specify that you want to use the embedded web view. For more information, see [MSAL.NET uses a Web browser](msal-net-web-browsers.md) and [Android system browser](msal-net-system-browser-considerations.md).
 
 ```csharp
 bool useEmbeddedWebView = !app.IsSystemWebViewAvailable;
