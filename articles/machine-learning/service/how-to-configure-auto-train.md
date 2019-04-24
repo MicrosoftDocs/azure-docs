@@ -46,7 +46,7 @@ Classification | Regression | Time Series Forecasting
 [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[DNN Classifer](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
+[DNN Classifier](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [DNN Linear Classifier](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Linear Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Linear Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
 [Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
 [Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
@@ -120,8 +120,8 @@ label |	string	| X, y, X_valid, y_valid |	Which column in data_train represents 
 columns	| Array of strings	||	_Optional_ Whitelist of columns to use for features
 cv_splits_indices	| Array of integers	||	_Optional_ List of indexes to split the data for cross validation
 
-### Load and prepare data using DataPrep SDK
-Automated machine learning experiments supports data loading and transforms using the dataprep SDK. Using the SDK provides the ability to
+### Load and prepare data using data prep SDK
+Automated machine learning experiments supports data loading and transforms using the data prep SDK. Using the SDK provides the ability to
 
 >* Load from many file types with parsing parameter inference (encoding, separator, headers)
 >* Type-conversion using inference during file loading
@@ -154,7 +154,7 @@ You can specify separate train and validation set either through get_data() or d
 
 Use `n_cross_validations` setting to specify the number of cross validations. The training data set will be randomly split into `n_cross_validations` folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for `n_cross_validations` rounds until each fold is used once as validation set. The average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set. 
 
-### Monte Carlo Cross Validation (a.k.a. Repeated Random Sub-Sampling)
+### Monte Carlo Cross Validation (Repeated Random Sub-Sampling)
 
 Use `validation_size` to specify the percentage of the training dataset that should be used for validation, and use `n_cross_validations` to specify the number of cross validations. During each cross validation round, a subset of size `validation_size` will be randomly selected for validation of the model trained on the remaining data. Finally, the average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set. Monte Carlo is not supported for time series forecasting.
 
@@ -295,7 +295,7 @@ There a few options you can define to complete your experiment.
 1. No Criteria - If you do not define any exit parameters the experiment will continue until no further progress is made on your primary metric. 
 1. Number of iterations - You define the number of iterations for the experiment to run. You can optional add iteration_timeout_minutes to define a time limit in minutes per each iteration.
 1. Exit after a length of time - Using experiment_timeout_minutes in your settings you can define how long in minutes should an experiment continue in run.
-1. Exit after a score has been reached - Using experiment_exit_score you can choose to complete the experiement after a score based on your primary metric has been reached.
+1. Exit after a score has been reached - Using experiment_exit_score you can choose to complete the experiment after a score based on your primary metric has been reached.
 
 ## Explore model metrics
 You can view your results in a widget or inline if you are in a notebook. See [Track and evaluate models](how-to-track-experiments.md#view-run-details) for more details.
@@ -429,7 +429,7 @@ To understand the scaling/normalization and algorithm/hyperparameter values for 
 
 To get more details, use this helper function.  See [this sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification/auto-ml-classification.ipynb).
 
-    ```python
+```python
     from pprint import pprint
     def print_model(model, prefix=""):
         for step in model.steps:
@@ -444,7 +444,7 @@ To get more details, use this helper function.  See [this sample notebook](https
                 print()
                 
     print_model(fitted_model)
-    ```
+```
 
 Here is sample output:
 
