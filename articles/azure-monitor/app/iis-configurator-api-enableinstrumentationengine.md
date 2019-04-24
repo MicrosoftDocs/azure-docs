@@ -16,7 +16,7 @@ ms.author: tilee
 # IISConfigurator API Reference
 
 ## Disclaimer
-This module is a prototype application, and is not recommended for your production environments.
+This module is a prototype application, and isn't recommended for your production environments.
 
 # Enable-InstrumentationEngine (v0.2.0-alpha)
 

@@ -16,11 +16,11 @@ ms.author: tilee
 # IISConfigurator Detailed Instructions
 
 ## Disclaimer
-This module is a prototype application, and is not recommended for your production environments.
+This module is a prototype application, and isn't recommended for your production environments.
 
 ## Instrumentation Key
 
-To get started you must have an instrumentation key. Read [here](create-new-resource.md#copy-the-instrumentation-key) for more information.
+To get started, you must have an instrumentation key. For more information, read ["Create new resource."](create-new-resource.md#copy-the-instrumentation-key)
 
 ## Run PowerShell as Administrator with Elevated Execution Policies
 
@@ -69,19 +69,19 @@ SerializationVersion           1.1.0.1
 ## Prerequisites for PowerShell Gallery
 
 **NOTE**: Support for PowerShell Gallery is included on Windows 10, Windows Server 2016, and PowerShell 6.
-For older versions, please review this document: [Installing PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget)
+For older versions, review this document: [Installing PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget)
 
 
 1. Run PowerShell as Administrator with Elevated Execution Policies
-2. Nuget Package Provider 
-	- Description: This is required to interact with NuGet-based repositories such as PowerShellGallery
+2. Nuget package provider 
+	- Description: This provider is required to interact with NuGet-based repositories such as PowerShellGallery
 	- Reference: [Install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6)
 	- Cmd: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`
 	- Optional Parameters:
 		- `-Proxy` Specifies a proxy server for the request.
 		- `-Force` This will skip the confirmation prompt. 
 	
-	Will receive this prompt if not setup:
+	Will receive this prompt if not set up:
 		
 		NuGet provider is required to continue
 		PowerShellGet requires NuGet provider version '2.8.5.201' or newer to interact with NuGet-based repositories. The NuGet
@@ -91,14 +91,14 @@ For older versions, please review this document: [Installing PowerShellGet](http
 		 the NuGet provider now?
 		[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 	
-3. Trusted Repositories
+3. Trusted repositories
 	- Description: By default, PowerShellGallery is an untrusted repository.
 	- Reference: [Set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6)
 	- Cmd: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`
 	- Optional Parameters:
 		- `-Proxy` Specifies a proxy server for the request.
 
-	Will receive this prompt if not setup:
+	Will receive this prompt if not set up:
 
 		Untrusted repository
 		You are installing the modules from an untrusted repository. If you trust this repository, change its
@@ -109,7 +109,7 @@ For older versions, please review this document: [Installing PowerShellGet](http
 	- Can confirm this change and audit all PSRepositories by running the cmd: `Get-PSRepository`
 
 4. PowerShellGet version 
-	- Description: This is the tooling used to get other modules from PowerShell Gallery. v1.0.0.1 ships with Windows 10 and Windows Server. Min version required is v1.6.0. To audit which version is installed run cmd: `Get-Command`
+	- Description: This module contains the tooling used to get other modules from PowerShell Gallery. v1.0.0.1 ships with Windows 10 and Windows Server. Min version required is v1.6.0. To audit which version is installed run cmd: `Get-Command`
 	- Reference: [Installing PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget)
 	- Cmd: `Install-Module -Name PowerShellGet`
 	- Optional Parameters:
@@ -150,12 +150,12 @@ For older versions, please review this document: [Installing PowerShellGet](http
 
 ### Option 1: Install into PowerShell Modules Directory
 Install the manually downloaded PowerShell Module to a PowerShell directory so it can be discoverable by PowerShell sessions.
-For more information see: [Installing a PowerShell Module](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module)
+For more information, see: [Installing a PowerShell Module](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module)
 
 
 #### Unzip nupkg as zip using Expand-Archive (v1.0.1.0)
 
-- Description: The base version of Microsoft.PowerShell.Archive (v1.0.1.0) will not unzip .nupkg files. You must first rename the file with the ".zip" extension.
+- Description: The base version of Microsoft.PowerShell.Archive (v1.0.1.0) can't unzip nupkg files. You must first rename the file with the ".zip" extension.
 - Reference: [Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6)
 - Cmd: 
 
@@ -181,7 +181,7 @@ For more information see: [Installing a PowerShell Module](https://docs.microsof
 
 ### Option 2: Unzip and import manually
 Install the manually downloaded PowerShell Module to a PowerShell directory so it can be discoverable by PowerShell sessions.
-For more information see: [Installing a PowerShell Module](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module)
+For more information, see: [Installing a PowerShell Module](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module)
 
 If installing into any other directory, you must manually import the module using [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6)
 
@@ -195,16 +195,16 @@ If installing into any other directory, you must manually import the module usin
 
 ## Proxy
 
-When monitoring a machine on your private intranet, it will be necessary to perform actions through a proxy.
+When monitoring a machine on your private intranet, it will be necessary to route http traffic through a proxy.
 
 The PowerShell commands to download and install the IISConfigurator from the PowerShell Gallery do support a `-Proxy` parameter.
-Please review the instructions above when writing your installation scripts.
+Review the instructions above when writing your installation scripts.
 
-The Application Insights SDK will need send your application's telemetry to Microsoft. We recommend configuring proxy settings for your application in your web.config. See [Application Insights FAQ: Proxy Passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough) for more information.
+The Application Insights SDK will need to send your application's telemetry to Microsoft. We recommend configuring proxy settings for your application in your web.config. See [Application Insights FAQ: Proxy Passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough) for more information.
 
 
 ## Enable Application Insights Monitoring 
 
 Cmd: `Enable-ApplicationInsightsMonitoring`
 
-Please review our [API Reference](iis-configurator-api-enablemonitoring.md) for a detailed description of how to use this cmdlet. 
+Review our [API Reference](iis-configurator-api-enablemonitoring.md) for a detailed description of how to use this cmdlet. 

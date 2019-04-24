@@ -16,7 +16,7 @@ ms.author: tilee
 # IISConfigurator Troubleshooting
 
 ## Disclaimer
-This module is a prototype application, and is not recommended for your production environments.
+This module is a prototype application, and isn't recommended for your production environments.
 
 ## Known Issues
 
@@ -28,7 +28,7 @@ If any of these dlls are present in the bin directory, attach may fail.
 - Microsoft.AspNet.TelemetryCorrelation.dll
 - System.Diagnostics.DiagnosticSource.dll
 
-Some of these are included in Visual Studio's default application templates, even if your application doesn't use them.
+Some of these DLLs are included in Visual Studio's default application templates, even if your application doesn't use them.
 Symptomatic behavior can be seen using troubleshooting tools:
 
 - PerfView:
@@ -55,7 +55,8 @@ Symptomatic behavior can be seen using troubleshooting tools:
 
 ### Conflict with IIS Shared Configuration
 
-If you have a cluster of web servers, it's likely you setup a [Shared Configuration](https://docs.microsoft.com/en-us/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211). We cannot automatically inject our HttpModule into this shared config because it would break any web server that has not yet installed our DLL into it's GAC.
+If you have a cluster of web servers, you might be using a [Shared Configuration](https://docs.microsoft.com/en-us/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211). 
+We can't automatically inject our HttpModule into this shared config because it would break any web server that hasn't yet installed our DLL into its GAC.
 
 After you run the Enable command, 
 - browse to your Shared Configuration directory and find your `applicationHost.config` file.
@@ -80,7 +81,7 @@ Can audit installed Modules using cmd: `Get-Module -ListAvailable`
 ### Troubleshooting PowerShell Module
 
 
-- If the Module has not been loaded into a PowerShell session, can manually load using the command `Import-Module <path to psd1>`
+- If the Module hasn't been loaded into a PowerShell session, can manually load using the command `Import-Module <path to psd1>`
 
 
 - Run the cmd: `Get-Command -Module microsoft.applicationinsights.iisconfigurator` to get the available commands
@@ -178,9 +179,9 @@ If attach is working, 17 DLLS should be loaded.
 
 #### Collecting Logs
 
-- in a cmd window with admin priveleges , execute `iisreset /stop` To turn off IIS and all web apps.
+- in a cmd window with admin privileges , execute `iisreset /stop` To turn off IIS and all web apps.
 - In PerfView, click "Start Collection"
-- in a cmd window with admin priveleges , execute `iisreset /start` To start IIS.
+- in a cmd window with admin privileges , execute `iisreset /start` To start IIS.
 - try to browse to your app.
 - after your app is loaded, In PerfView, click "Stop Collection"
 

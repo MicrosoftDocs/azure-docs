@@ -21,7 +21,7 @@ This provides code-less instrumentation of .NET web applications hosted on-prem.
 Once your application is instrumented, your telemetry will be sent to the Azure portal where you can [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) your application.
 
 ## Disclaimer
-This module is a prototype application, and is not recommended for your production environments.
+This module is a prototype application, and isn't recommended for your production environments.
 
 ## PowerShell Gallery
 

@@ -24,7 +24,7 @@ instructions on how to customize, and how to troubleshoot.
 
 
 ## Disclaimer
-This module is a prototype application, and is not recommended for your production environments.
+This module is a prototype application, and isn't recommended for your production environments.
 
 
 ### Install Prerequisites
