@@ -399,33 +399,31 @@ The endpoint of this call is `https://[service name].search.windows.net/skillset
 
     ```json
     {
-        "name": "caselaw-ss",
-        "description": null,
-        "skills": [
-            {
-                "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-                "name": "SplitSkill#1",
-                "description": null,
-                "context": "/document/casebody/data/opinions/*/text",
-                "defaultLanguageCode": "en",
-                "textSplitMode": "pages",
-                "maximumPageLength": 5000,
-                "inputs": [
-                    {
-                        "name": "text",
-                        "source": "/document/casebody/data/opinions/*/text",
-                        "sourceContext": null,
-                        "inputs": []
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "textItems",
-                        "targetName": "pages"
-                    }
-                ]
-            },
-            . . .
+    "name": "caselaw-ss",
+    "description": null,
+    "skills": [
+        {
+            "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+            "name": "SplitSkill#1",
+            "description": null,
+            "context": "/document/casebody/data/opinions/*/text",
+            "defaultLanguageCode": "en",
+            "textSplitMode": "pages",
+            "maximumPageLength": 5000,
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/casebody/data/opinions/*/text
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "textItems",
+                    "targetName": "pages"
+                }
+            ]
+        },
+        . . .
     ```
 
 ## Create and run an indexer

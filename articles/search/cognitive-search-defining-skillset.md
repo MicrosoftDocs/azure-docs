@@ -230,7 +230,7 @@ Notice that the "context" field is set to ```"/document/organizations/*"``` with
 
 Output, in this case a company description, is generated for each organization identified. When referring to the description in a downstream step (for example, in key phrase extraction), you would use the path ```"/document/organizations/*/description"``` to do so. 
 
-## Enrichments create structure out of unstructured information
+## Add structure
 
 The skillset generates structured information out of unstructured data. Consider the following example:
 
@@ -240,11 +240,11 @@ A likely outcome would be a generated structure similar to the following illustr
 
 ![Sample output structure](media/cognitive-search-defining-skillset/enriched-doc.png "Sample output structure")
 
-Until now, this structure has been internal-only, memory-only, and used only in Azure Search indexes. The addition of  [Knowledge Store](knowledge-store-concept-intro.md) gives you a way to save shaped enrichments for use outside of search.
+Until now, this structure has been internal-only, memory-only, and used only in Azure Search indexes. The addition of a knowledge store gives you a way to save shaped enrichments for use outside of search.
 
-### Knowledge Store
+## Add a knowledge store
 
-Knowledge Store is a preview feature in Azure Search for saving your enriched document. A knowledge store that you create, backed by an Azure storage account, is the repository where your enriched data lands. 
+[Knowledge Store](knowledge-store-concept-intro.md) is a preview feature in Azure Search for saving your enriched document. A knowledge store that you create, backed by an Azure storage account, is the repository where your enriched data lands. 
 
 A knowledge store definition is added to a skillset. For a  walkthrough of the entire process, see [How to get started with knowledge store](knowledge-store-howto.md).
 
