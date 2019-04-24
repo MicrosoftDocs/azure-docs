@@ -47,15 +47,20 @@ these connectors provide triggers and actions for accessing
 other services and systems such as Office 365, Azure Blob Storage, 
 SQL Server, Salesforce, and more. Some connectors require that 
 you first create connections, which are managed by Azure Logic Apps. 
-Managed connectors are organized into these groups:
+These connectors are classified as either Standard or Enterprise:
 
-  |   |   |
-  |---|---|
-  | [**Managed API connectors**](#managed-api-connectors) | Create logic apps that use services such as Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, and many more. | 
-  | [**On-premises connectors**](#on-premises-connectors) | After you install and set up the [on-premises data gateway][gateway-doc], these connectors help your logic apps access on-premises systems such as SQL Server, SharePoint Server, Oracle DB, file shares, and others. | 
-  | [**Integration account connectors**](#integration-account-connectors) | Available when you create and pay for an integration account, these connectors transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages with AS2, EDIFACT, and X12 protocols. | 
-  | [**Enterprise connectors**](#enterprise-connectors) | Provide access to enterprise systems such as SAP and IBM MQ for an additional cost. |
-  ||| 
+  * **Standard**
+
+    |   |   |
+    |---|---|
+    | [**Managed API connectors**](#managed-api-connectors) | Create logic apps that use services such as Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online, and many more. |
+    | [**On-premises connectors**](#on-premises-connectors) | After you install and set up the [on-premises data gateway][gateway-doc], these connectors help your logic apps access on-premises systems such as SQL Server, SharePoint Server, Oracle DB, file shares, and others. |
+    | [**Integration account connectors**](#integration-account-connectors) | Available when you create and pay for an integration account, these connectors transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages with AS2, EDIFACT, and X12 protocols. |
+    |||
+
+  * **Enterprise**
+
+    [**Enterprise connectors**](#enterprise-connectors) provide access to enterprise systems such as SAP, IBM MQ, and IBM 3270 for an additional cost.
 
   For example, if you're using Microsoft BizTalk Server, your logic apps 
   can connect to and communicate with your BizTalk Server by using the 
