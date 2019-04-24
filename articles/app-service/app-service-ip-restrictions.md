@@ -13,24 +13,24 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 04/22/2018
 ms.author: ccompy
 ms.custom: seodec18
 
 ---
-# Azure App Service Static Access Restrictions #
+# Azure App Service Access Restrictions #
 
-Access Restrictions allow you to define a priority ordered allow/deny list of IP addresses that are allowed to access your app. The allow list can include IPv4 and IPv6 addresses. When there are one or more entries, there is then an implicit deny all that exists at the end of the list.
+Access Restrictions allow you to define a priority ordered allow/deny list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, there is then an implicit "deny all" that exists at the end of the list.
 
-The Access Restrictions capability works with all App Service hosted work loads, which include; web apps, API apps, Linux apps, Linux container apps, and Functions.
+The Access Restrictions capability works with all App Service hosted work loads including; web apps, API apps, Linux apps, Linux container apps, and Functions.
 
-When a request is made to your app, the FROM IP address is evaluated against the Access Restrictions list. If the address is not allowed access based on the rules in the list, the service replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
+When a request is made to your app, the FROM address is evaluated against the IP address rules in your access restrictions list. If the FROM address is in a subnet that is configured with service endpoints to Microsoft.Web, then the source subnet is compared against the virtual network rules in your access restrictions list. If the address is not allowed access based on the rules in the list, the service replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
 
-The Access Restrictions capability is implemented in the App Service front-end roles, which are upstream of the worker hosts where your code runs. Therefore, Access Restrictions are effectively network ACLs.  
+The access restrictions capability is implemented in the App Service front-end roles, which are upstream of the worker hosts where your code runs. Therefore, access restrictions are effectively network ACLs.
+
+The ability to restrict access to your web app from an Azure Virtual Network (VNet) is called [service endpoints][serviceendpoints]. Service endpoints enable you to restrict access to a multi-tenant service from selected subnets. It must be enabled on both the networking side as well as the service that it is being enabled with. 
 
 ![access restrictions flow](media/app-service-ip-restrictions/ip-restrictions-flow.png)
-
-For a time, the Access Restrictions capability in the portal was a layer on top of the ipSecurity capability in IIS. The current Access Restrictions capability is different. You can still configure ipSecurity within your application web.config but the front-end based Access Restrictions rules will be applied before any traffic reaches IIS.
 
 ## Adding and editing Access Restriction rules in the portal ##
 
@@ -42,7 +42,7 @@ From the Access Restrictions UI, you can review the list of access restriction r
 
 ![list access restrictions](media/app-service-ip-restrictions/ip-restrictions-browse.png)
 
-If your rules were configured as in this image, then your app would only accept traffic from 131.107.159.0/24 and would be denied from any other IP address.
+The list will show all of the current restrictions that are on your app. If you have a VNet restriction on your app, the table will show if service endpoints are enabled for Microsoft.Web. When there are no defined restrictions on your app, your app will be accessible from anywhere.  
 
 You can click on **[+] Add** to add a new access restriction rule. Once you add a rule, it will become effective immediately. Rules are enforced in priority order starting from the lowest number and going up. There is an implicit deny all that is in effect once you add even a single rule.
 
