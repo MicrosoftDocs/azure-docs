@@ -1,13 +1,13 @@
 ---
-title: Fail back Azure IaaS VMs replicated to a secondary Azure region for disaster recovery with the Azure Site Recovery service.
+title: Fail back Azure VMs replicated to a secondary Azure region for disaster recovery with the Azure Site Recovery service.
 description: Learn how to fail back Azure VMs with the Azure Site Recovery service.
 services: site-recovery
-author: sideeksh
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/07/2019
-ms.author: sideeksh
+ms.date: 03/18/2019
+ms.author: raynew
 ms.custom: mvc
 ---
 
@@ -19,51 +19,47 @@ This tutorial describes how to fail back a single Azure VM. After you've failed 
 
 > [!div class="checklist"]
 > 
-> * Fail back the secondary VM
-> * Re-protect the primary VM back to the secondary region
+> * Fail back the Azure VM in the secondary region.
+> * Re-protect the primary Azure VM back to the secondary region.
 > 
 > [!NOTE]
 > 
-> This tutorial is intended to guide the user through the steps to failover to a target region and back with minimum customization; in case you want to learn more about the various aspects associated with failover, including networking considerations, automation or troubleshooting, refer to the documents under 'How To' for Azure VMs.
+> This tutorial helps you to fail over a few VMs to a target region and back to the source region with minimum customizations. For more in-depth instructions, review the articles under 'How To' for Azure VMs.
 
-## Prerequisites
+## Before you start
 
-> * Make sure that the VM is in the Failover committed state, and check that the primary region is available, and you're able to create and access new resources in it.
+> * Make sure that the VM is in the **Failover committed** state.
+> * Check that the primary region is available, and you're able to create and access new resources in it.
 > * Make sure that re-protection is enabled.
 
 ## Fail back to the primary region
 
-After VMs are re-protected, you can fail back to the primary region as and when you want to.
+After VMs are re-protected, you can fail back to the primary region as needed.
 
-1. Go to your Recovery Services Vault. Click on Replicated Items and select the VM that has been re-protected.
+1. In the vault, click on **Replicated Items** and select the VM that was re-protected.
 
-2. You should see the following. Note that it is similar to the blade for test failover and failover from the primary region.
-![Failback to primary](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
+    ![Failback to primary](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
 
-3. Click on Test Failover to perform a test failover back to your primary region. Choose the Recovery Point and Virtual Network for the test failover and select OK. You can see the test VM created in the primary region which you can access and inspect.
+3. Click **Test Failover** to perform a test failover back to the primary region.
+4. Select the recovery point and virtual network for the test failover, and click **OK**. You can review the test VM created in the primary region.
+5. After test failover finishes successfully, click **Cleanup test failover** to clean up resources created in the source region for the test failover.
+6. In **Replicated items**, select the VM, and click **Failover**.
+7. In **Failover**, select a recovery point to failover to.
+    - **Latest (default)**: Processes all the data in the Site Recovery service and provides the lowest Recovery Point Objective (RPO).
+    - **Latest processed**: Reverts the VM to the latest recovery point that has been processed by Site Recovery.
+    - **Custom**: Fails over to a particular recovery point. This option is useful for performing a test failover.
 
-4. Once Test Failover is satisfactory, you can click on Cleanup test failover to clean up resources created in the source region for the test failover.
+8. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt to do a shutdown of source VMs before triggering the failover. Failover continues even if shutdown fails. Note that Site Recovery doesn't clean up the source after failover.
+9. Follow the failover progress on the **Jobs** page.
+10. After the failover, validate the VM by logging in to it. You can change the recovery point as needed.
+11. After you've verified the failover, click **Commit the failover**. Committing deletes all the available recovery points. The change recovery point option is no longer available.
+12. The VM should show as failed over and failed back.
 
-5. In Replicated items, select the VM that you want to failover > Failover.
-
-6. In Failover, select a Recovery Point to failover to. You can use one of the following options:
-    1. Latest (default): This option processes all the data in the Site Recovery service and provides the lowest Recovery Point Objective (RPO)
-    2. Latest processed: This option reverts the virtual machine to the latest recovery point that has been processed by Site Recovery service
-    3. Custom: Use this option to failover to a particular recovery point. This option is useful for performing a test failover
-
-7. Select Shut down machine before beginning failover if you want Site Recovery to attempt to do a shutdown of source virtual machines before triggering the failover. Failover continues even if shutdown fails. Note that Site Recovery does not clean up source after failover.
-
-8. Follow the failover progress on the Jobs page
-
-9. After the failover, validate the virtual machine by logging in to it. If you want to go another recovery point for the virtual machine, then you can use Change recovery point option.
-
-10. Once you are satisfied with the failed over virtual machine, you can Commit the failover. Committing deletes all the recovery points available with the service. The Change recovery point option is no longer available.
-
-![VM at primary and secondary regions](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
-
-If you see the preceding screenshot, "ContosoWin2016" VM failed over from Central US to East US and failed back from East US to Central US.
-
-Please note that the DR VMs will remain in the shutdown de-allocated state. This behavior is by design because Azure Site Recovery saves the information of the virtual machine, which may be useful in failover for the primary to the secondary region later. You aren't charged for the de-allocated virtual machines, so it should be kept as it is.
+    ![VM at primary and secondary regions](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
-> See the ["how to" section](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) for more details about the re-protection work flow and what happens during re-protection.
+> The disaster recovery VMs will remain in the shutdown deallocated state. This is by design because Site Recovery saves the VM information, which might be useful for failover from the primary to the secondary region later. You aren't charged for the deallocated VMs, so they should be kept as they are.
+
+## Next steps
+
+[Learn more](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) about the reprotection flow.

@@ -115,7 +115,7 @@ Now that you have an application in Azure AD, you can install ADAL and write you
 
 ## Step 4: Use ADAL to get tokens from Azure AD
 
-The basic principle behind ADAL is that whenever your app needs an access token, it simply calls a completionBlock `+(void) getToken : `, and ADAL does the rest.
+The basic principle behind ADAL is that whenever your app needs an access token, it simply calls a completionBlock `+(void) getToken :`, and ADAL does the rest.
 
 1. In the `QuickStart` project, open `GraphAPICaller.m` and locate the `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` comment near the top.
 

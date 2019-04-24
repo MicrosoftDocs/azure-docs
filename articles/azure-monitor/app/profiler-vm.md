@@ -55,7 +55,7 @@ This article shows you how to get Application Insights Profiler running on your 
 
    Applying the modifications usually involves a full template deployment or a cloud service-based publish through PowerShell cmdlets or Visual Studio.  
 
-   The following PowerShell commands are an alternate approach for existing virtual machines that touches only the Azure Diagnostics extension. Add the previously mentioned ProfilerSink to the config that's returned by the Get-AzVMDiagnosticsExtension command, and then pass the updated config to the Set-AzVMDiagnosticsExtension command.
+   The following PowerShell commands are an alternate approach for existing virtual machines that touch only the Azure Diagnostics extension. Add the previously mentioned ProfilerSink to the config that's returned by the Get-AzVMDiagnosticsExtension command. Then pass the updated config to the Set-AzVMDiagnosticsExtension command.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
@@ -81,6 +81,30 @@ This article shows you how to get Application Insights Profiler running on your 
 
 1. Deploy your application.
 
+## Set Profiler Sink using Azure Resource Explorer
+We don't yet have a way to set the Application Insights Profiler sink from the portal. Instead of using powershell like described above, you can use Azure Resource Explorer to set the sink. But note, if you deploy the VM again, the sink will be lost. You'll need to update the config you use when deploying the VM to preserve this setting.
+
+1. Check that the Windows Azure Diagnostics extension is installed by viewing the extensions installed for your virtual machine.  
+
+    ![Check if WAD extension is installed][wadextension]
+
+1. Find the VM Diagnostics extension for your VM. Expand your resource group, Microsoft.Compute virtualMachines, virtual machine name, and extensions.  
+
+    ![Navigate to WAD config in Azure Resource Explorer][azureresourceexplorer]
+
+1. Add the Application Insights Profiler sink to the SinksConfig node under WadCfg. If you don't already have a SinksConfig section, you may need to add one. Be sure to specify the proper Application Insights iKey in your settings. You'll need to switch the explorers mode to Read/Write in the upper right corner and Press the blue 'Edit' button.
+
+    ![Add Application Insights Profiler Sink][resourceexplorersinksconfig]
+
+1. When you're done editing the config, press 'Put'. If the put is successful, a green check will appear in the middle of the screen.
+
+    ![Send put request to apply changes][resourceexplorerput]
+
+
+
+
+
+
 ## Can Profiler run on on-premises servers?
 We have no plan to support Application Insights Profiler for on-premises servers.
 
@@ -89,3 +113,8 @@ We have no plan to support Application Insights Profiler for on-premises servers
 - Generate traffic to your application (for example, launch an [availability test](monitor-web-app-availability.md)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
 - See [Profiler traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json) in the Azure portal.
 - For help with troubleshooting Profiler issues, see [Profiler troubleshooting](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+
+[azureresourceexplorer]: ./media/profiler-vm/azure-resource-explorer.png
+[resourceexplorerput]: ./media/profiler-vm/resource-explorer-put.png
+[resourceexplorersinksconfig]: ./media/profiler-vm/resource-explorer-sinks-config.png
+[wadextension]: ./media/profiler-vm/wad-extension.png

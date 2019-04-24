@@ -5,13 +5,14 @@ services: active-directory-b2c
 author: davidmu1
 manager: daveba
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
-
+ms.subservice: B2C
 ---
+
 # Tutorial: Create user flows in Azure Active Directory B2C
 
 In your applications, you may have [user flows](active-directory-b2c-reference-policies.md) that enable users to sign up, sign in, or manage their profile. You can create multiple user flows of different types in your Azure Active Directory (Azure AD) B2C tenant and use them in your applications as needed. User flows can be reused across applications.

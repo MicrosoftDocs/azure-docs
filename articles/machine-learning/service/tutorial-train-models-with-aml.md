@@ -9,7 +9,7 @@ ms.topic: tutorial
 
 author: sdgilley
 ms.author: sgilley
-ms.date: 01/28/2019
+ms.date: 04/25/2019
 ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter notebook.
 ---
@@ -62,9 +62,11 @@ After you complete the steps below, run the **tutorials/img-classification-part1
 
 ### <a name="server"></a>Use your own Jupyter notebook server
 
-Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/img-classification-part1-training.ipynb** notebook.
+Use these steps to create a local Jupyter Notebook server on your computer. 
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+ After you complete the steps, run the **tutorials/img-classification-part1-training.ipynb** notebook.
 
 ## <a name="start"></a>Set up your development environment
 
@@ -312,18 +314,16 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 Notice how the script gets data and saves models:
 
 + The training script reads an argument to find the directory that contains the data. When you submit the job later, you point to the datastore for this argument:
-`parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`.
+```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
 
-+ The training script saves your model into a directory named **outputs**: <br/>
-`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`.<br/>
-Anything written in this directory is automatically uploaded into your workspace. You access your model from this directory later in the tutorial.
-The file `utils.py` is referenced from the training script to load the dataset correctly. Copy this script into the script folder, so that it can be accessed along with the training script on the remote resource.
++ The training script saves your model into a directory named **outputs**. Anything written in this directory is automatically uploaded into your workspace. You access your model from this directory later in the tutorial. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
 
++ The training script requires the file `utils.py` to load the dataset correctly. The following code copies `utils.py` into `script_folder` so that the file can be accessed along with the training script on the remote resource.
 
-```python
-import shutil
-shutil.copy('utils.py', script_folder)
-```
+  ```python
+  import shutil
+  shutil.copy('utils.py', script_folder)
+  ```
 
 
 ### Create an estimator

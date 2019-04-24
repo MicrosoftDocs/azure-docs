@@ -35,7 +35,7 @@ Using Azure Active Directory (Azure AD), you can edit a group's settings, includ
 
 4. Select the group **MDM policy - West**, and then select **Properties** from the **Manage** area.
 
-    ![Group Overview page with number and members and Member option highlighted](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![Group Overview page, with Member option and information highlighted](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. Update the **General settings** information as needed, including:
 

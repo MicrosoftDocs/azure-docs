@@ -1,41 +1,24 @@
 ---
-title: Azure Site Recovery - Backup Interoperability  | Microsoft Docs
+title: Support for using Azure Site Recovery with Azure Backup  | Microsoft Docs
 description: Provides an overview of how Azure Site Recovery and Azure Backup can be used together.
 services: site-recovery
 author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/18/2019
 ms.author: sideeksh
 
 ---
-# About Site Recovery and Backup Interoperability
+# Support for using Site Recovery with Azure Backup
 
-This article provides guidance for successfully using Azure IaaS VM Backup and Azure VM disaster recovery.
+This article summarizes support for using the [Site Recovery service](site-recovery-overview.md) together with the [Azure Backup service](https://docs.microsoft.com/azure/backup/backup-overview).
 
-## Azure Backup
-
-Azure Backup helps protect data for on-premises servers, virtual machines, virtualized workloads, SQL servers, SharePoint servers, and more. Azure Site Recovery orchestrates and manages disaster recovery for Azure VMs, on-premises VMs, and physical servers.
-
-## Azure Site Recovery
-
-It's possible to configure both Azure Backup and Azure Site Recovery on a VM or a group of VMs. Both products are interoperable. A few scenarios where the interoperability between Backup and Azure Site Recovery becomes important are as follows:
-
-### File Backup/Restore
-
-If Backup and Replication are both enabled, and a backup is taken, there is no issue with restoring any file(s) on the source-side VM or the group of VMs. Replication will continue as usual with no change in Replication Health.
-
-### Disk Backup/Restore
-
-If you restore disk from the backup then protection of the virtual machine has to be enabled again.
-
-### VM Backup/Restore
-
-Backup and restore of a VM or group of VMs is not supported. To make it work, protection needs to be re-enabled.
-
-**Scenario** | **Supported by Azure Site Recovery?** | **Workaround, if any**  
+**Action** | **Site Recovery support** | **Details**
 --- | --- | ---
-File/folder backup | Yes | Not Applicable
-Disk backup | Not currently | Disable and Enable Protection
-VM backup | No | Disable and Enable Protection
+**Deploy services together** | Supported | Services are interoperable and can be configured together.
+**File backup/restore** | Supported | When backup and replication are enabled for a VM and backups are taken, there's no issue in restoring files on the source-side VMs, or group of VMs. Replication continues as usual with no change in replication health.
+**Disk backup/restore** | No current support | If you restore a backed up disk, you need to disable and reenable replication for the VM again.
+**VM backup/restore** | No current support | If you back up or restore a VM or group of VMs, you need to disable and reenable replication for the VM.  
+
+

@@ -32,8 +32,10 @@ In this tutorial, you enable users to reset their passwords from the Windows 10 
    or
    * [Hybrid Azure AD-joined](../device-management-hybrid-azuread-joined-devices-setup.md), with network connectivity to a domain controller.
 * You must enable Azure AD self-service password reset.
-* If your Windows 10 devices are behind a proxy server or a firewall, you must add the URLs, `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com` to your HTTPS traffic (port 443) Allowed URLs list.
+* If your Windows 10 devices are behind a proxy server or a firewall, you must add the URLs, `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com` to your HTTPS traffic (port 443) allowed URLs list.
+* SSPR for Windows 10 is only supported with machine-level proxies
 * Review limitations below before trying this feature in your environment.
+* If using an image, prior to sysprep ensure that the web cache is cleared for the built-in Administrator prior to performing the CopyProfile step. More information about this can be found in the support article [Performance poor when using custom default user profile](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 
 ## Configure Reset password link using Intune
 

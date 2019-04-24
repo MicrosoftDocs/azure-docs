@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 03/19/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -151,8 +151,8 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
                        "project_param_1": {
                            "value": "123"
                        },
-					   "project_param_2": {
-						   "value": {
+                       "project_param_2": {
+                           "value": {
                                "value": "@pipeline().parameters.MyPipelineParameter",
                                "type": "Expression"
                            }
@@ -162,7 +162,7 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
                        "package_param_1": {
                            "value": "345"
                        },
-					   "package_param_2": {
+                       "package_param_2": {
                            "value": {
                                "type": "AzureKeyVaultSecret",
                                "store": {
@@ -189,7 +189,7 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
                    "packageConnectionManagers": {
                        "MyOledbCM": {
                            "userName": {
-						       "value": {
+                               "value": {
                                    "value": "@pipeline().parameters.MyUsername",
                                    "type": "Expression"
                                }

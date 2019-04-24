@@ -51,7 +51,7 @@ The following shows an example [RankingResponse](https://docs.microsoft.com/rest
             },
             . . .  
         ]  
-    },  
+    }],  
     "images" : {
         "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#Images",
         "readLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images...",

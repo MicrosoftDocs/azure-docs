@@ -4,19 +4,19 @@ description: How to deploy a Docker image running a Go application to Web App fo
 keywords: azure app service, web app, go, docker, container
 services: app-service
 author: msangapu 
-manager: cfowler
+manager: jeconnoc
 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/17/2018
+ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
 ---
 
-# Deploy a Docker/Go web app in Web App for Containers
+# Run a custom Linux container in Azure App Service
 
 [App Service Linux](app-service-linux-intro.md) provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that is not already defined in Azure. This quickstart shows how to create a web app and deploy a Go image from Docker Hub. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
@@ -25,8 +25,6 @@ ms.custom: seodec18
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
@@ -74,4 +72,10 @@ http://<app_name>.azurewebsites.net/hello
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use a custom Docker image](tutorial-custom-docker-image.md)
+> [Tutorial: Deploy from private container repository](tutorial-custom-docker-image.md)
+
+> [!div class="nextstepaction"]
+> [Configure a custom container](configure-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Multi-container WordPress app](tutorial-multi-container-app.md)

@@ -17,12 +17,12 @@ You can perform basic JSON transformations in your logic apps with
 native data operation actions such as **Compose** or **Parse JSON**. 
 To perform advanced JSON transformations, you can create templates 
 or maps with [Liquid](https://shopify.github.io/liquid/), which is 
-an open-source template language for flexible web apps. Liquid templates 
-let you define how to transform JSON output and supports more complex JSON 
+an open-source template language for flexible web apps. A Liquid template 
+defines how to transform JSON output and supports more complex JSON 
 transformations, such as iterations, control flows, variables, and so on. 
 
-So, before you can perform a Liquid transformation in your logic app, 
-you first define the JSON to JSON mapping with a Liquid template 
+Before you can perform a Liquid transformation in your logic app, 
+you must first define the JSON to JSON mapping with a Liquid template 
 and store that map in your integration account. This article shows 
 you how to create and use this Liquid template or map. 
 
@@ -34,7 +34,7 @@ Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/prici
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* A basic [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+* A basic [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 * Basic knowledge about [Liquid template language.](https://shopify.github.io/liquid/)
 
@@ -44,8 +44,10 @@ Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/prici
 in this step. In your Liquid template, you can use 
 [Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters), 
 which use [DotLiquid](https://dotliquidmarkup.org/) and C# naming conventions. 
-However, make sure you *start filter names with uppercase characters*, 
-not lowercase characters. 
+
+   > [!NOTE]
+   > Make sure the filter names use *sentence casing* in your template. 
+   > Otherwise, the filters won't work.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}

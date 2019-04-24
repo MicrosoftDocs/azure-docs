@@ -26,6 +26,8 @@
       href: understand-cost-mgt-data.md
     - name: Understand and work with scopes
       href: understand-work-scopes.md
+    - name: Migrate from EA to MCA APIs 
+      href: migrate-cost-management-api.md
   - name: How-to guides
     items:
     - name: Assign access to data

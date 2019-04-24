@@ -47,7 +47,7 @@ Network Watcher troubleshooting provides the ability troubleshoot issues that ar
 
 ## Log in with ARMClient
 
-```PowerShell
+```powershell
 armclient login
 ```
 

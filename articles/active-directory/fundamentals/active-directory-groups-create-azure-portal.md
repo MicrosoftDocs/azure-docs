@@ -27,7 +27,7 @@ You can create a basic group and add your members at the same time.
 
 2. Select **Azure Active Directory**, **Groups**, and then select **New group**.
 
-    ![Azure AD with Groups showing](media/active-directory-groups-create-azure-portal/group-full-screen.png)
+    ![Azure AD page, with Groups showing](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
 3. In the **Group** page, fill out the required information.
 

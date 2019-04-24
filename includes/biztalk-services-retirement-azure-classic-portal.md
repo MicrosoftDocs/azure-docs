@@ -13,4 +13,4 @@ ms.custom: include file
 > [!IMPORTANT]
 > BizTalk Services is deprecated in the Azure portal. 
 > To manage your MABS instances, see 
-> [REST API for Managing BizTalk Services on Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
+> [REST API for Managing BizTalk Services on Azure](/previous-versions/azure/reference/dn232347(v=azure.100)).

@@ -6,7 +6,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/20/2019
 ms.author: mayg
 
 ---
@@ -271,7 +271,7 @@ The following table provides the Site Recovery limits. These limits are based on
 ---|---|---|---
 Standard storage | 8 KB	| 2 MB/s per VM | 168 GB per VM
 Premium storage | 8 KB	| 5 MB/s per VM | 421 GB per VM
-Premium storage | 16 KB or higher| 10 MB/s per VM |	842 GB per VM
+Premium storage | 16 KB or higher| 20 MB/s per VM |	1684 GB per VM
 
 These limits are average numbers assuming a 30 percent I/O overlap. Site Recovery is capable of handling higher throughput based on overlap ratio, larger write sizes, and actual workload I/O behavior. The preceding numbers assume a typical backlog of approximately five minutes. That is, after data is uploaded, it's processed and a recovery point is created within five minutes.
 

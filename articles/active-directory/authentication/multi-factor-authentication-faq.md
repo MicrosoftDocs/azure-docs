@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Authentication FAQ | Microsoft Docs
+title: Azure Multi-Factor Authentication FAQ - Azure Active Directory
 description: Frequently asked questions and answers related to Azure Multi-Factor Authentication. 
 
 services: multi-factor-authentication
@@ -84,7 +84,7 @@ Learn more about your options in [How to get Azure Multi-Factor Authentication](
 
 In some instances, yes.
 
-Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost for access to Microsoft online services, including the Azure and Office 365 administrator portals. This offer only applies to global administrators in Azure Active Directory instances that don't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. If your admins use the free version, and then you purchase a full version of Azure MFA, then all global administrators are elevated to the paid version automatically.
+Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost for access to Microsoft online services, including the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). This offer only applies to global administrators in Azure Active Directory instances that don't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. If your admins use the free version, and then you purchase a full version of Azure MFA, then all global administrators are elevated to the paid version automatically.
 
 Multi-Factor Authentication for Office 365 users offers a subset of Azure MFA features at no cost for access to Office 365 services, including Exchange Online and SharePoint Online. This offer applies to users who have an Office 365 license assigned, when the corresponding instance of Azure Active Directory doesn't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider.
 
@@ -139,7 +139,7 @@ If your organization doesn't have legacy clients, you should not allow your user
 > [!NOTE]
 > Modern authentication for Office 2013 clients
 >
-> App passwords are only necessary for apps that don't support modern authentication. Office 2013 clients support modern authentication protocols, but need to be configured. Newer Office clients automatically support modern authentication protocols. For more information, see the [Office 2013 modern authentication public preview announcement](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> App passwords are only necessary for apps that don't support modern authentication. Office 2013 clients support modern authentication protocols, but need to be configured. Now modern authentication is available to any customer running the March 2015 or later update for Office 2013. For more information, see the [Office 2013 modern authentication public preview announced](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 **Q: My users say that sometimes they don't receive the text message, or they reply to two-way text messages but the verification times out.**
 

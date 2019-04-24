@@ -51,12 +51,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Learn the cognitive skills REST APIs</a> 
+    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Index with AI (Cognitive Services)</a> 
     - html: <a href="/azure/search/search-howto-dotnet-sdk">How to use Azure Search with .NET</a> 
     - html: <a href="/azure/search/search-indexer-tutorial">Index Azure SQL Database content with .NET</a>
     - html: <a href="/azure/search/search-semi-structured-data">Index semi-structured data in Azure Blob storage with REST</a>
-    - html: <a href="/azure/search/search-synonyms-tutorial-sdk">Add synonyms to return results for equivalent terms</a> 
-    - html: <a href="/azure/search/search-autocomplete-tutorial">Add autocomplete to a search box with .NET</a>    
     - html: <a href="/azure/search/search-get-started-portal">Use the portal for indexing and query testing</a> 
 - title: Reference
   items:

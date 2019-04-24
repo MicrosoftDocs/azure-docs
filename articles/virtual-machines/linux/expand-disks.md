@@ -137,7 +137,7 @@ To use an expanded disk, expand the underlying partition and filesystem.
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. To verify the OS disk has been resized, use `df -h`. The following example output shows the data drive */dev/sdc1* is now 200 GB:
+1. To verify the data disk has been resized, use `df -h`. The following example output shows the data drive */dev/sdc1* is now 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

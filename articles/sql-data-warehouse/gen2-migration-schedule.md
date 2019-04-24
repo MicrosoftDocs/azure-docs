@@ -9,14 +9,14 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 04/03/2019
 ---
 # Upgrade your data warehouse to Gen2
 
 Microsoft is helping drive down the entry-level cost of running a data warehouse.  Lower compute tiers capable of handling demanding queries are now available for Azure SQL Data Warehouse. Read the full announcement [Lower compute tier support for Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). The new offering is available in the regions noted in the table below. For supported regions, existing Gen1 data warehouses can be upgraded to Gen2 through either:
 
 - **The automatic upgrade process:** Automatic upgrades don't start as soon as the service is available in a region.  When automatic upgrades start in a specific region, individual DW upgrades will take place during your selected maintenance schedule.
-- [**Self-upgrade to Gen2:**](#Self-upgrade-to-Gen2) You can control when to upgrade by doing a self-upgrade to Gen2. If your region is not yet supported, you can restore from a restore point directly to a Gen2 instance in a supported region.
+- [**Self-upgrade to Gen2:**](#self-upgrade-to-gen2) You can control when to upgrade by doing a self-upgrade to Gen2. If your region is not yet supported, you can restore from a restore point directly to a Gen2 instance in a supported region.
 
 ## Automated Schedule and Region Availability Table
 
@@ -26,38 +26,38 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 
 | **Region** | **Lower Gen2 available** | **Automatic upgrades begin** |
 |:--- |:--- |:--- |
-| Australia East |Available |May 1, 2019 |
-| Australia Southeast |April 2, 2019 |June 1, 2019 |
-| Brazil South |May 15, 2019 |\* |
-| Canada Central |Available |May 1, 2019 |
+| Australia East |Available |June 1, 2019 |
+| Australia Southeast |April 26, 2019 |May 1, 2019 |
+| Brazil South |May 15, 2019 |June 1, 2019 |
+| Canada Central |Available |June 1, 2019 |
 | Canada East |\* |\* |
-| Central US |Available |May 1, 2019 |
+| Central US |Available |June 1, 2019 |
 | China East |\* |\* |
 | China East 2 |\* |\* |
 | China North |\* |\* |
 | China North 2 |\* |\* |
-| East Asia |Available |May 1, 2019 |
-| East US |Available |April 2, 2019 |
-| East US 2 |Available |April 2, 2019 |
-| France Central |\* |\* |
+| East Asia |Available |June 1, 2019 |
+| East US |Available |June 1, 2019 |
+| East US 2 |Available |June 1, 2019 |
+| France Central |\* |June 1, 2019 |
 | Germany Central |\* |\* |
 | Germany West Central |September 1, 2019|January 2, 2020 |
-| India Central |Available |May 1, 2019 |
-| India South |April 2, 2019 |June 1, 2019 |
-| Japan East |Available |May 1, 2019 |
-| Japan West |Available |June 1, 2019 |
-| Korea Central |April 2, 2019 |May 1, 2019 |
-| Korea South |April 2, 2019 |June 1, 2019 |
-| North Central US |April 2, 2019 |June 1, 2019 |
-| North Europe |Available |April 2, 2019 |
-| South Central US |Available |May 1, 2019 |
-| South East Asia |Available |April 2, 2019 |
-| UK South |April 2, 2019 |May 1, 2019 |
+| India Central |Available |June 1, 2019 |
+| India South |April 26, 2019 |June 1, 2019 |
+| Japan East |Available |June 1, 2019 |
+| Japan West |Available |May 1, 2019 |
+| Korea Central |April 26, 2019 |June 1, 2019 |
+| Korea South |April 26, 2019 |May 1, 2019 |
+| North Central US |April 26, 2019 |May 1, 2019 |
+| North Europe |Available |June 1, 2019 |
+| South Central US |Available |June 1, 2019 |
+| South East Asia |Available |June 1, 2019 |
+| UK South |April 26, 2019 |June 1, 2019 |
 | UK West |\*|\* |
 | West Central US |September 2, 2019 |January 2, 2020|
-| West Europe |Available |April 2, 2019 |
-| West US |April 2, 2019 |June 1, 2019 |
-| West US 2 |Available |April 2, 2019 |
+| West Europe |Available |June 1, 2019 |
+| West US |April 15, 2019 |June 1, 2019 |
+| West US 2 |Available |June 1, 2019 |
 
 ## Automatic upgrade process
 

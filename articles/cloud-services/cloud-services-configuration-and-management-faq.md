@@ -105,7 +105,7 @@ You can automate this task by using a startup script (batch/cmd/PowerShell) and 
 
 ### What is the purpose of the "Microsoft Azure Service Management for MachineKey" certificate?
 
-This certificate is used to encrypt machine keys on Azure Web Roles. To learn more, check out this advisory[https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
+This certificate is used to encrypt machine keys on Azure Web Roles. To learn more, check out [this advisory](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
 For more information, see the following articles:
 - [How to configure and run startup tasks for a Cloud Service](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)

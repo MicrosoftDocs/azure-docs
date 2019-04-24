@@ -1,6 +1,6 @@
 ---
-title: Review access to groups or applications in Azure AD Access Reviews | Microsoft Docs
-description: Learn how to review access of group members or application access in Azure Active Directory Access Reviews.
+title: Review access to groups or applications in access reviews - Azure Active Directory | Microsoft Docs
+description: Learn how to review access of group members or application access in Azure Active Directory access reviews.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Review access to groups or applications in Azure AD Access Reviews
+# Review access to groups or applications in Azure AD access reviews
 
-Azure Active Directory (Azure AD) simplifies how enterprises manage access to groups and applications in Azure AD and other Microsoft Online Services with a feature called Azure AD Access Reviews.
+Azure Active Directory (Azure AD) simplifies how enterprises manage access to groups and applications in Azure AD and other Microsoft Online Services with a feature called Azure AD access reviews.
 
 This article describes how a designated reviewer performs an access review for members of a group or users with access to an application.
 
@@ -41,7 +41,7 @@ If you don't have the email, you can find your pending access reviews by followi
 
 1. In the upper-right corner of the page, click the user symbol, which displays your name and default organization. If more than one organization is listed, select the organization that requested an access review.
 
-1. On the right side of the page, click the **Access reviews** tile to see a list of the pending access reviews.
+1. Click the **Access reviews** tile to see a list of the pending access reviews.
 
     If the tile isn't visible, there are no access reviews to perform for that organization and no action is needed at this time.
 
@@ -66,11 +66,13 @@ There are two ways that you can approve or deny access:
 
 1. Review the list of users to decide whether to approve or deny their continued access.
 
-1. To approve or deny each request, click the row to open the window to specify the action to take.
+1. To approve or deny each request, click the row to open a window to specify the action to take.
 
 1. Click **Approve** or **Deny**. If you are unsure, you can click **Don't know**. Doing so will result in the user maintaining his/her access, but the selection will be reflected in the audit logs.
 
     ![Perform access review](./media/perform-access-review/approve-deny.png)
+
+1. If necessary, enter a reason in the **Reason** box.
 
     The administrator of the access review might require that you supply a reason for approving continued access or group membership.
 

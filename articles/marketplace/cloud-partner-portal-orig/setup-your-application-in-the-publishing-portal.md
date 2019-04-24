@@ -49,7 +49,7 @@ The offer settings form is a basic form to specify the offer settings. The diffe
 
 This is a unique identifier for the offer within a publisher profile. This ID will be visible in product URLs. It can only be composed of lowercase alphanumeric characters or dashes (-). The ID cannot end in a dash and can have a maximum of 50 characters. This field is locked once an offer goes live.
 
-for example, if a publisher **"contoso"** publishers creates an offer with offer ID **"sample-WebApp"**, it will show up in AppSource as "https://appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
+for example, if a publisher **"contoso"** publishers creates an offer with offer ID **"sample-WebApp"**, it will show up in AppSource as "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
 
 ### Publisher ID
 

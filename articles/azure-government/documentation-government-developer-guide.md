@@ -79,12 +79,12 @@ The following table shows the mapping between some Azure services and Azure Gove
 
 | Name | Azure Government endpoint | Azure Commercial endpoint |
 | --- | --- | --- |
-| Portal | https://portal.azure.us | https://portal.azure.com |
-| Active Directory Endpoint and Authority | https://login.microsoftonline.us | https://login.microsoftonline.com <br/> https://login.windows.net |
+| Portal | https:\//portal.azure.us | https:\//portal.azure.com |
+| Active Directory Endpoint and Authority | https:\//login.microsoftonline.us | https:\//login.microsoftonline.com <br/> https:\//login.windows.net |
 | Active Directory tenant names | [yourtenantname].onmicrosoft.com | [yourtenantname].onmicrosoft.com |
-| Active Directory Graph API | https://graph.windows.net/ | https://graph.windows.net/ |
-| Microsoft Graph API | https://graph.microsoft.us/ | https://graph.microsoft.com/ |
-| Azure API | https://management.usgovcloudapi.net/ | https://management.azure.com/ |
+| Active Directory Graph API | https:\//graph.windows.net/ | https:\//graph.windows.net/ |
+| Microsoft Graph API | https:\//graph.microsoft.us/ | https:\//graph.microsoft.com/ |
+| Azure API | https:\//management.usgovcloudapi.net/ | https:\//management.azure.com/ |
 | SQL Database DNS Suffix | \*.database.usgovcloudapi.net | \*.database.windows.net |
 | Storage DNS Suffix | \*.core.usgovcloudapi.net | \*.core.windows.net |
 | Traffic Manager DNS Suffix | \*.usgovtrafficmanager.net | \*.trafficmanager.net |
@@ -92,10 +92,10 @@ The following table shows the mapping between some Azure services and Azure Gove
 | Service Bus DNS Suffix | \*.servicebus.usgovcloudapi.net | \*.servicebus.windows.net |
 | API Management | \*.azure-api.us | \*.azure-api.net |
 | Container Registry Suffix | \*.azurecr.us | \*.azurecr.io |
-| Gallery Url | https://gallery.azure.us/ | https://gallery.azure.com/ |
-| Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ | https://management.core.windows.net/ |
-| Publish Settings File Url | https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade | https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade |
-| LUIS Portal | https://luis.azure.us | https://www.luis.ai/home
+| Gallery Url | https:\//gallery.azure.us/ | https:\//gallery.azure.com/ |
+| Classic Deployment Model Url | https:\//management.core.usgovcloudapi.net/ | https:\//management.core.windows.net/ |
+| Publish Settings File Url | https:\//portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade | https:\//portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade |
+| LUIS Portal | https:\//luis.azure.us | https:\//www.luis.ai/home
 
 ## Next steps
 For more information about Azure Government, see the following resources:

@@ -1,5 +1,5 @@
 ---
-title: Azure MFA Server Mobile App Web Service | Microsoft Docs
+title: Azure MFA Server Mobile App Web Service - Azure Active Directory
 description: Configure MFA server to send push notifications to users with the Microsoft Authenticator App.
 
 services: multi-factor-authentication

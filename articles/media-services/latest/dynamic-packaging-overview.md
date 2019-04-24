@@ -12,34 +12,36 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 04/21/2019
 ms.author: juliako
 
 ---
-# Dynamic packaging
+# Dynamic Packaging
 
 Microsoft Azure Media Services can be used to deliver many media source file formats, media streaming formats, and content protection formats to a variety of client technologies (for example, iOS and XBOX). These clients understand different protocols, for example iOS requires an HTTP Live Streaming (HLS) format and Xbox require Smooth Streaming. If you have a set of adaptive bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) files or a set of adaptive bitrate Smooth Streaming files that you want to serve to clients that understand HLS, MPEG DASH, or Smooth Streaming, you can take advantage of Dynamic Packaging. The packaging is agnostic to the video resolution, SD/HD/UHD-4K are supported.
 
-[Streaming Endpoints](streaming-endpoint-concept.md) is the dynamic packaging service in Media Services used to deliver media content to client players. Dynamic Packaging is a feature that comes standard on all **Streaming Endpoints** (Standard or Premium). There is no extra cost associated with this feature in Media Services v3. 
+[Streaming Endpoints](streaming-endpoint-concept.md) is the dynamic packaging service in Media Services used to deliver media content to client players. Dynamic Packaging is a feature that comes standard on all **Streaming Endpoints** (Standard or Premium). 
 
 To take advantage of **Dynamic Packaging**, you need to have an **Asset** with a set of adaptive bitrate MP4 files and streaming configuration files needed by Media Services Dynamic Packaging. One way to get the files is to encode your mezzanine (source) file with Media Services. To make videos in the encoded Asset available to clients for playback, you have to create a **Streaming Locator** and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, DASH, or Smooth), you receive the stream in the protocol you have chosen.
 
 As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. 
 
-In Media Services, Dynamic Packaging is used whether you are streaming live or on-demand. The following diagram shows the on-demand streaming with dynamic packaging workflow.
+In Media Services, Dynamic Packaging is used whether you are streaming live or on-demand. 
 
-![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
-
-## Common video on-demand workflow
+## Common on-demand workflow
 
 The following is a common Media Services streaming workflow where Dynamic Packaging is used.
 
-1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see [Formats Supported by the Media Encoder Standard](media-encoder-standard-formats.md).
+1. Upload an input file (called a mezzanine file). For example, MP4, MOV, or MXF (for the list of supported formats see [Formats Supported by the Media Encoder Standard](media-encoder-standard-formats.md).
 2. Encode your mezzanine file to H.264 MP4 adaptive bitrate sets.
 3. Publish the asset that contains the adaptive bitrate MP4 set. You publish by creating a **Streaming Locator**.
 4. Build URLs that target different formats (HLS, Dash, and Smooth Streaming). The **Streaming Endpoint** would take care of serving the correct manifest and requests for all these different formats.
 
-## Encode to adaptive bitrate MP4s
+The following diagram shows the on-demand streaming with dynamic packaging workflow.
+
+![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+
+### Encode to adaptive bitrate MP4s
 
 For information about [how to encode a video with Media Services](encoding-concept.md), see the following examples:
 
@@ -48,6 +50,26 @@ For information about [how to encode a video with Media Services](encoding-conce
 * [Build a custom preset to target your specific scenario or device requirements](customize-encoder-presets-how-to.md)
 
 For a list of Media Encoder Standard formats and codecs, see [formats and codecs](media-encoder-standard-formats.md)
+
+## Common live streaming workflow
+
+Here are the steps for a live streaming workflow:
+
+1. Create a [Live Event](live-events-outputs-concept.md).
+1. Get the ingest URL(s) and configure your on-premises encoder to use the URL to send the contribution feed.
+1. Get the preview URL and use it to verify that the input from the encoder is actually being received.
+1. Create a new **Asset**.
+1. Create a **Live Output** and use the asset name that you created.<br/>The **Live Output** will archive the stream into the **Asset**.
+1. Create a **Streaming Locator** with the built-in **Streaming Policy** types.<br/>If you intend to encrypt your content, review [Content protection overview](content-protection-overview.md).
+1. List the paths on the **Streaming Locator** to get back the URLs to use.
+1. Get the hostname for the **Streaming Endpoint** you wish to stream from.
+1. Build URLs that target different formats (HLS, Dash, and Smooth Streaming). The **Streaming Endpoint** would take care of serving the correct manifest and requests for all these different formats.
+
+A Live Event can be one of two types: pass-through and live encoding. For details about live streaming in Media Services v3, see [Live streaming overview](live-streaming-overview.md).
+
+The following diagram shows the live streaming with dynamic packaging workflow.
+
+![pass-through](./media/live-streaming/pass-through.svg)
 
 ## Delivery protocols
 
@@ -66,10 +88,14 @@ Dynamic Packaging supports MP4 files, which contain video encoded with [H.264](h
 
 ## Audio codecs supported by dynamic packaging
 
-Dynamic Packaging supports MP4 files, which contain audio encoded with [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 or E-AC3), or [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, DTS HD, DTS HD Lossless).
+Dynamic Packaging supports MP4 files, which contain audio encoded with [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 or E-AC3), Dolby Atmos, or [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, DTS HD, DTS HD Lossless). Streaming of Dolby Atmos content is supported for standards like MPEG-DASH protocol with either Common Streaming Format (CSF) or Common Media Application Format (CMAF) fragmented MP4, and via HTTP Live Streaming (HLS) with CMAF.
 
 > [!NOTE]
 > Dynamic Packaging does not support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it is a legacy codec).
+
+## Dynamic Encryption
+
+**Dynamic Encryption** enables you to dynamically encrypt your live or on-demand content with AES-128 or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. For more information, see [Dynamic Encryption](content-protection-overview.md).
 
 ## Manifests 
  
@@ -160,6 +186,18 @@ Here is an example of a Smooth Streaming manifest:
    </StreamIndex>
 </SmoothStreamingMedia>
 ```
+
+## Dynamic Manifest
+
+Dynamic filtering is used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. For more information, see  [filters and dynamic manifests](filters-dynamic-manifest-overview.md).
+
+> [!NOTE]
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
+
+## Provide feedback
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
+
 ## Next steps
 
 [Upload, encode, stream videos](stream-files-tutorial-with-api.md)

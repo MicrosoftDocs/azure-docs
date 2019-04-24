@@ -52,14 +52,11 @@
   - name: Image resize with Event Grid
     href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Create a serverless web app
-    href: https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database 
-  - name: Functions on Linux
-    items: 
-    - name: Custom image
-      href: functions-create-function-linux-custom-image.md
-    - name: IoT Edge device
-      href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
-
+    href: https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database  
+  - name: Create a custom Linux image
+    href: functions-create-function-linux-custom-image.md
+  - name: Functions on IoT Edge device
+    href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Samples
   items:
   - name: Code samples
@@ -71,6 +68,8 @@
   - name: Compare versions 1.x and 2.x
     href: functions-versions.md
     displayName: migrate, migration
+  - name: Premium plan
+    href: functions-premium-plan.md
   - name: Scale and hosting
     href: functions-scale.md
   - name: Triggers and bindings
@@ -109,6 +108,8 @@
     href: functions-best-practices.md 
   - name: Functions Proxies
     href: functions-proxies.md 
+  - name: Networking options
+    href: functions-networking-options.md
   - name: IP addresses
     href: ip-addresses.md 
   - name: On-premises functions
@@ -117,32 +118,32 @@
   items:
   - name: Develop
     items: 
-     - name: Developer guide
-       href: functions-reference.md
-     - name: Testing functions
-       href: functions-test-a-function.md
-     - name: Develop and debug locally
-       href: functions-develop-local.md
-     - name: Visual Studio development
-       href: functions-develop-vs.md
-     - name: Core Tools development
-       href: functions-run-local.md
-     - name: IntelliJ IDEA development
-       href: functions-create-maven-intellij.md
-     - name: Eclipse development
-       href: functions-create-maven-eclipse.md
-     - name: Create Linux function app  
-       href: create-function-app-linux-app-service-plan.md
-     - name: Manage connections
-       href: manage-connections.md
-     - name: Error handling
-       href: functions-bindings-error-pages.md
-     - name: Manually run a non HTTP-triggered function
-       href: functions-manually-run-non-http.md
-     - name: Debug Event Grid trigger locally
-       href: functions-debug-event-grid-trigger-local.md
-     - name: Azure for Students Starter
-       href: functions-create-student-starter.md
+    - name: Developer guide
+      href: functions-reference.md
+    - name: Testing functions
+      href: functions-test-a-function.md
+    - name: Develop and debug locally
+      href: functions-develop-local.md
+    - name: Visual Studio development
+      href: functions-develop-vs.md
+    - name: Core Tools development
+      href: functions-run-local.md
+    - name: IntelliJ IDEA development
+      href: functions-create-maven-intellij.md
+    - name: Eclipse development
+      href: functions-create-maven-eclipse.md
+    - name: Create Linux function app  
+      href: create-function-app-linux-app-service-plan.md
+    - name: Manage connections
+      href: manage-connections.md
+    - name: Error handling
+      href: functions-bindings-error-pages.md
+    - name: Manually run a non HTTP-triggered function
+      href: functions-manually-run-non-http.md
+    - name: Debug Event Grid trigger locally
+      href: functions-debug-event-grid-trigger-local.md
+    - name: Azure for Students Starter
+      href: functions-create-student-starter.md
   - name: Deploy
     items:
     - name: Continuous deployment
@@ -269,6 +270,8 @@
       href: functions-host-json.md  
     - name: Functions 1.x
       href: functions-host-json-v1.md    
+  - name: Networking FAQ
+    href: functions-networking-faq.md
   - name: OpenAPI reference
     href: functions-api-definition.md
 - name: Resources

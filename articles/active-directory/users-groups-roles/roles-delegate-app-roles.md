@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -56,7 +56,7 @@ When a user registers an application, they are automatically added as the first 
 
 ## Delegate app ownership
 
-App owners and app registration owners can each manage only the app applications or app registrations that they own. For example, when you add an owner for the Salesforce application, that owner can manage access to and configuration for Salesforce but not any other applications. An app can have many owners, and a user can be the owner of many apps.
+App owners and app registration owners can each manage only the applications or app registrations that they own. For example, when you add an owner for the Salesforce application, that owner can manage access to and configuration for Salesforce but not any other applications. An app can have many owners, and a user can be the owner of many apps.
 
 An application owner can:
 

@@ -62,23 +62,23 @@ Partitioning data on your SQL DB source is optional, but is useful for large que
 
 Select a column to partition on from your source table. You must also set the max number of connections.
 
-### Query Condition
+### Query condition
 
 You can optionally choose to partition the connections based on a query. For this option, simply put in the contents of a WHERE predicate. I.e. year > 1980
 
 ## Source file management
 ![New Source Settings](media/data-flow/source2.png "New settings")
 
-* Wilcard path to pick a series of files from your source folder that match a pattern. This will override any file that you have set in your dataset definition.
+* Wildcard path to pick a series of files from your source folder that match a pattern. This will override any file that you have set in your dataset definition.
 * List of Files. Same as a file set. Point to a text file that you create with a list of relative path files to process.
 * Column to store file name will store the name of the file from the source in a column in your data. Enter a new name here to store the file name string.
 * After Completion (You can choose to do nothing with the source file after the data flow executes, delete the source file(s) or move the source files. The paths for move are relative paths.
 
-### SQL Datasets
+### SQL datasets
 
 When you are using Azure SQL DB or Azure SQL DW as your source, you will have additional options.
 
-* Query: Enter a SQL query for your source. Setting a query will override any table that you've chosen in the dataset. Note that Order By clauses are not supported here.
+* Query: Enter a SQL query for your source. Setting a query will override any table that you've chosen in the dataset. Note that Order By clauses are not supported here. However, you can, set a full SELECT FROM statement here.
 
 * Batch size: Enter a batch size to chunk large data into batch-sized reads.
 

@@ -26,7 +26,7 @@ Before working through these examples, you need a DC/OS cluster that is configur
 * [Connecting to an Azure Container Service cluster](../container-service-connect.md)
 
 ## Access the DC/OS APIs
-After you are connected to the Azure Container Service cluster, you can access the DC/OS and related REST APIs through http://localhost:local-port. The examples in this document assume that you are tunneling on port 80. For example, the Marathon endpoints can be reached at URIs beginning with `http://localhost/marathon/v2/`. 
+After you are connected to the Azure Container Service cluster, you can access the DC/OS and related REST APIs through http:\//localhost:local-port. The examples in this document assume that you are tunneling on port 80. For example, the Marathon endpoints can be reached at URIs beginning with http:\//localhost/marathon/v2/. 
 
 For more information on the various APIs, see the Mesosphere documentation for the [Marathon
 API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the
@@ -126,7 +126,7 @@ You can use the Marathon API to scale out or scale in application deployments. I
 From your tunneled connection, run the following command to scale out the application.
 
 > [!NOTE]
-> The URI is http://localhost/marathon/v2/apps/ followed by the ID of the application to scale. If you are using the Nginx sample that is provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
+> The URI is http:\//localhost/marathon/v2/apps/ followed by the ID of the application to scale. If you are using the Nginx sample that is provided here, the URI would be http:\//localhost/marathon/v2/apps/nginx.
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -183,7 +183,7 @@ You can also use the Marathon API to scale out or scale in application deploymen
 Run the following command to scale out the application:
 
 > [!NOTE]
-> The URI is http://localhost/marathon/v2/apps/ followed by the ID of the application to scale. If you are using the Nginx sample provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
+> The URI is http:\//localhost/marathon/v2/apps/ followed by the ID of the application to scale. If you are using the Nginx sample provided here, the URI would be http:\//localhost/marathon/v2/apps/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'

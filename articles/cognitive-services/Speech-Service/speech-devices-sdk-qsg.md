@@ -60,7 +60,7 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
     ![Linear dev kit orientation](media/speech-devices-sdk/qsg-2.png)
 
-1. Install the certificates and the wake word (keyword) table file, and set the permissions of the sound device. Type the following commands in a Command Prompt window:
+1. Install the certificates and set the permissions of the sound device. Type the following commands in a Command Prompt window:
 
    ```
    adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/

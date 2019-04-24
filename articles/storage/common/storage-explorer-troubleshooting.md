@@ -228,14 +228,46 @@ If you accidentally attached using an invalid SAS URL and are unable to detach, 
 
 ## Linux dependencies
 
-For Linux distributions other than Ubuntu 16.04, you may need to manually install some dependencies. In general, the following packages are required:
+In general, the following packages are required to run Storage Explorer on Linux:
 
-* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
-* `libsecret`
+* [.NET Core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* `libgnome-keyring-common` and `libgnome-keyring-dev`
 * `libgconf-2-4`
-* Up-to-date GCC
 
-Depending on your distribution, there may be other packages you need to install. The Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distributions.
+Depending on your distribution, there may be different or more packages you need to install.
+
+Storage Explorer is officially supported on Ubuntu 18.04, 16.04 and 14.04. Installation steps for a clean machines are as follows:
+
+# [Ubuntu 18.04](#tab/1804)
+
+1. Download Storage Explorer
+2. Install the .NET Core Runtime, most recent verified version is: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8) (if you have already installed a newer version, you may need to patch Storage Explorer, see below)
+3. Run `sudo apt-get install libgconf-2-4`
+4. Run `sudo apt install libgnome-keyring-common libgnome-keyring-dev`
+
+# [Ubuntu 16.04](#tab/1604)
+
+1. Download Storage Explorer
+2. Install the .NET Core Runtime, most recent verified version is: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8) (if you have already installed a newer version, you may need to patch Storage Explorer, see below)
+3. Run `sudo apt install libgnome-keyring-dev`
+
+# [Ubuntu 14.04](#tab/1404)
+
+1. Download Storage Explorer
+2. Install the .NET Core Runtime, most recent verified version is: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8) (if you have already installed a newer version, you may need to patch Storage Explorer, see below)
+3. Run `sudo apt install libgnome-keyring-dev`
+
+---
+
+### Patching Storage Explorer for newer versions of .NET Core 
+If you have a version of .NET Core greater than 2.0 installed and are running Storage Explorer version 1.7.0 or older, you will most likely need to patch Storage Explorer by completing the following steps:
+1. Download version 1.5.43 of StreamJsonRpc [from nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Look for the "Download package" link on the right hand side of the page.
+2. After downloading the package, change its file extension from `.nupkg` to `.zip`
+3. Unzip the package
+4. Go to `streamjsonrpc.1.5.43/lib/netstandard1.1/`
+5. Copy `StreamJsonRpc.dll` to the following locations inside the Storage Explorer folder:
+    1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+    2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## Open In Explorer From Azure portal Doesn't Work
 

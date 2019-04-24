@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 experimental: false
-experiment_id: c80d19c3-428d-4b
+experiment_id: 80e4ff38-5174-43
 ---
 
 # Work with Azure Functions Core Tools
@@ -411,10 +411,6 @@ For example, to call an HTTP-triggered function and pass content body, run the f
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
-### Viewing log files locally
-
-[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
-
 ## <a name="publish"></a>Publish to Azure
 
 Core Tools supports two types of deployment, deploying function project files directly to your function app and deploying a custom Linux container, which is supported only in version 2.x. You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create).
@@ -480,6 +476,15 @@ The following custom container deployment options are available:
 | **`--min`**  | Optionally, sets the minimum number of function app instances to deploy to. |
 | **`--config`** | Sets an optional deployment configuration file. |
 
+## Monitoring functions
+
+The recommended way to monitor the execution of your functions is by integrating with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app by using the Azure CLI, the integration in your function app in Azure isn't done.
+
+To enable Application Insights for your function app:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 ## Next steps
 
 Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli).  

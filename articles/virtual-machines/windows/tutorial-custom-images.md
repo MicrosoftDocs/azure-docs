@@ -63,7 +63,7 @@ Sysprep removes all your personal account information, among other things, and p
 
 To create an image, the VM needs to be deallocated and marked as generalized in Azure.
 
-Deallocated the VM using [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+Deallocate the VM using [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -160,7 +160,7 @@ In this tutorial, you created a custom VM image. You learned how to:
 > * List all the images in your subscription
 > * Delete an image
 
-Advance to the next tutorial to learn about how highly available virtual machines.
+Advance to the next tutorial to learn about how to create highly available virtual machines.
 
 > [!div class="nextstepaction"]
 > [Create highly available VMs](tutorial-availability-sets.md)

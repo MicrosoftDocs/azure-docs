@@ -154,7 +154,7 @@ As previously discussed, in addition to the Azure portal, database recovery can 
   | Cmdlet | Description |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |Gets one or more managed instances. |
-  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Gets a instance databases. |
+  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Gets an instance databases. |
   | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase) |Restores an instance database. |
 
 ### REST API
@@ -169,7 +169,7 @@ To restore a single or pooled database using the REST API:
 ### Azure CLI
 
 - To restore a single or pooled database using Azure CLI, see [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
-- To restore a managed instance using Azure CLI, see [az sql midb restore](/cli/azure/sql/db)
+- To restore a managed instance using Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore)
 
 ## Summary
 

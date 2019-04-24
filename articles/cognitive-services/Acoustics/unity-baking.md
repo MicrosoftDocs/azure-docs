@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
 ---
 # Project Acoustics Unity Bake Tutorial
@@ -23,7 +23,7 @@ Software requirements:
 ## Open the Project Acoustics bake window
 Choose **Window > Acoustics** from the Unity menu:
 
-![Open Acoustics Window](media/window-acoustics.png)
+![Screenshot of Unity editor with Acoustics window menu option highlighted](media/window-acoustics.png)
 
 ## Create a navigation mesh
 Project Acoustics uses a navigation mesh to place listener probe points for simulation. You can use Unity's [navigation mesh workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html), or use another 3D modeling package to design your own mesh. 
@@ -63,15 +63,15 @@ The parts of the tab page are:
 
 If you have nothing selected in your scene, the Objects tab will look like the following picture:
 
-![Objects Tab No Selection](media/objects-tab-no-selection-detail.png)
+![Screenshot of Acoustics Objects tab with no selection](media/objects-tab-no-selection-detail.png)
 
 If you have something selected in your scene or hierarchy window, it will look like the following picture:
 
-![Objects Tab No Selection](media/objects-tab-selection-detail.png)
+![Screenshot of Acoustics Objects Tab with selection shown](media/objects-tab-selection-detail.png)
 
 If some objects are marked and some aren't, the appropriate checkbox will show a "mixed" value:
 
-![Mixed Value Checkbox](media/mixed-object-selection-detail.png)
+![Screenshot of Acoustics Objects tab with mixed selection icon highlighted](media/mixed-object-selection-detail.png)
 
 Clicking the checkbox will force all objects to be marked, and clicking again will unmark all the objects.
 
@@ -84,10 +84,10 @@ The acoustic materials control the amount of sound energy reflected back from ea
 
 The reverberation time of a given material in a room is inversely related to its absorption coefficient, with most materials having absorption values in the 0.01 to 0.20 range. Materials with absorption coefficients outside this range are very absorbent.
 
-![Reverb Time Graph](media/reverb-time-graph.png)
+![Graph showing negative correlation of reverberation time with absorption coefficient](media/reverb-time-graph.png)
 
 ### For reference: Parts of the Materials tab
-![Materials Tab Detail](media/materials-tab-detail.png)
+![Screenshot of Acoustics Materials tab in Unity](media/materials-tab-detail.png)
 
 1. The **Materials** tab button, used to bring up this page.
 2. A brief description of what you need to do using this page.
@@ -112,27 +112,27 @@ Depending on the size of your scene and the speed of your machine, these calcula
 ### Review voxel and probe placement
 Preview both the voxel data and the probe point locations to ensure you're ready to bake your scene. An incomplete navigation mesh or missing or extra acoustic geometry will usually be quickly visible in the preview. Voxel and probe placement can be enabled or disabled using the Gizmos menu:
 
-![Gizmos Menu](media/gizmos-menu.png)
+![Screenshot of Gizmos menu in Unity](media/gizmos-menu.png)
 
 Voxels containing acoustic geometry are shown as green cubes. Explore your scene and verify that everything that should be geometry has voxels. The scene camera has to be within about 5 meters of the object for the voxels to show.
 
 If you compare the voxels created with coarse resolution vs fine resolution, you will see that the coarse voxels are twice as large.
 
-![Voxel Preview](media/voxel-cubes-preview.png)
+![Screenshot of coarse voxels preview in Unity editor](media/voxel-cubes-preview.png)
 
 Simulation results are interpolated between listener probe point locations at runtime. Check there are probe points near any place the player is expected to travel in the scene.
 
-![Probes Preview](media/probes-preview.png)
+![Screenshot of probes preview in Unity editor](media/probes-preview.png)
 
 ### Take care with scene renames
 The scene name is used to connect the scene to files storing the probe point placement and voxelization. If the scene is renamed after probe points are calculated, the material assignment and placement data is lost and should be rerun.
 
 ### For reference: Parts of the Probes tab
-![Probes Tab Detail](media/probes-tab-detail.png)
+![Screenshot of Acoustics Probes tab in Unity](media/probes-tab-detail.png)
 
 1. The **Probes** tab button used to bring up this page
 2. A brief description of what you need to do using this page
-3. Use these to choose a coarse or fine simulation resolution. Coarse is faster, but has certain tradeoffs. See [Choosing coarse vs fine resolution](#Coarse-vs-Fine-Resolution) below for details.
+3. Use these to choose a coarse or fine simulation resolution. Coarse is faster, but has certain tradeoffs. See [Bake Resolution](bake-resolution.md) below for details.
 4. Choose the location where the acoustics data files should be placed using this field. Click the button with "..." to use a folder picker. The default is **Assets/AcousticsData**. An **Editor** subfolder will also be created under this location. For more information about data files, see [Data Files](#Data-Files) below.
 5. The data files for this scene will be named using the prefix provided here. The default is "Acoustics_[Scene Name]".
 6. After the probes have been calculated, the controls above will be disabled. Click the **Clear** button to erase the calculations and enable the controls so that you can recalculate using new settings.
@@ -140,27 +140,13 @@ The scene name is used to connect the scene to files storing the probe point pla
 
 In this version of Project Acoustics, probes can't be placed manually and must be placed through the automated process provided in the **Probes** tab.
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Choosing coarse vs. fine resolution
-
-The only difference between the coarse and fine resolution settings is the frequency at which the simulation is performed. Fine uses a frequency twice as high as coarse.
-While this may seem simple, it has a number of implications on the acoustic simulation:
-
-* The wavelength for coarse is twice as long as fine, and therefore the voxels are twice as large.
-* The simulation time is directly related to the voxel size, making a coarse bake about 16 times faster than a fine bake.
-* Portals (for example, doors or windows) smaller than the voxel size cannot be simulated. The coarse setting may cause some of these smaller portals to not be simulated; therefore, they will not pass sound through at runtime. You can see if this is happening by viewing the voxels.
-* The lower simulation frequency results in less diffraction around corners and edges.
-* Sound sources cannot be located inside "filled" voxels, that is voxels that contain geometry - this results in no sound. It is more difficult to locate sound sources so they are not inside the larger voxels of coarse than it is using the fine setting.
-* The larger voxels will intrude more into portals, as shown below. The first image was created using coarse, while the second is the same doorway using fine resolution. As indicated by the red markings, there is much less intrusion into the doorway using the fine setting. The blue line is the doorway as defined by the geometry, while the red line is the effective acoustic portal defined by the voxel size. How this intrusion plays out in a given situation depends completely on how the voxels line up with the geometry of the portal, which is determined by the size and locations of your objects in the scene.
-
-![Coarse Doorway](media/coarse-voxel-doorway.png)
-
-![Fine Doorway](media/fine-voxel-doorway.png)
+See [Bake Resolution](bake-resolution.md) for more details on coarse vs fine resolution.
 
 ## Bake your scene using Azure Batch
 You can bake your scene with a compute cluster in the cloud using the Azure Batch service. The Project Acoustics Unity plugin connects directly to Azure Batch to instantiate, manage, and tear down an Azure Batch cluster for each bake. On the **Bake** tab, enter your Azure credentials, select a cluster machine type and size, and click **Bake**.
 
 ### For reference: Parts of the Bake tab
-![Bake Tab Detail](media/bake-tab-details.png)
+![Screenshot of Acoustics Bake tab in Unity](media/bake-tab-details.png)
 
 1. The Bake Tab button used to bring up this page.
 2. A brief description of what to do on this page.
@@ -204,8 +190,8 @@ As an example, in our testing on an 8 core machine with Intel Xeon E5-1660 @ 3 G
 ### Setup Docker
 Install and configure Docker on the PC that will process the simulation -
 1. Install the [Docker toolset](https://www.docker.com/products/docker-desktop).
-2. Launch Docker settings, navigate to the "Advanced" options and configure resources to have at least 8GB RAM. The more CPUs you can allocate to Docker, the faster the bake will complete. ![Example Docker settings](media/docker-settings.png)
-3. Navigate to "Shared Drives" and turn on sharing for the drive used for processing.![DockerDriveSharing](media/docker-shared-drives.png)
+2. Launch Docker settings, navigate to the "Advanced" options and configure resources to have at least 8GB RAM. The more CPUs you can allocate to Docker, the faster the bake will complete. ![Screenshot of example Docker settings](media/docker-settings.png)
+3. Navigate to "Shared Drives" and turn on sharing for the drive used for processing.![Screenshot of Docker shared drive options](media/docker-shared-drives.png)
 
 ### Run local bake
 1. Click on "Prepare Local Bake" button on the **Bake** tab and select a folder where the input files and execution scripts will be saved. You can then run the bake on any machine as long as it meets the minimum hardware requirements and has Docker installed by copying the folder to that machine.
@@ -229,11 +215,11 @@ Editor data files:
 ## Set up the acoustics lookup table
 Drag and drop the **Project Acoustics** prefab from the project panel into your scene:
 
-![Acoustics Prefab](media/acoustics-prefab.png)
+![Screenshot of Acoustics prefab in Unity](media/acoustics-prefab.png)
 
 Click on the **ProjectAcoustics** Game Object and go to its inspector panel. Specify the location of your bake result (the .ACE file, in **Assets/AcousticsData**) by drag-and-dropping it into the Acoustics Manager script, or by clicking on the circle button next to the text box.
 
-![Acoustics Manager](media/acoustics-manager.png)  
+![Screenshot of Acoustics Manager prefab in Unity](media/acoustics-manager.png)  
 
 ## Next steps
 * Explore the [design controls for Unity](unity-workflow.md)

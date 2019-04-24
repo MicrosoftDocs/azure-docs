@@ -77,6 +77,9 @@
     - name: Storage optimized
       displayName: ls
       href: sizes-storage.md    
+      items:
+      - name: Optimize performance
+        href: storage-performance.md
     - name: GPU optimized
       displayName: NV NVv2 NC NCv2 NCv3 ND
       href: sizes-gpu.md   
@@ -146,6 +149,7 @@
     - name: Use Python
       href: python.md
     - name: Use a template
+      displayName: Azure Resource Manager template, ARM
       href: ps-template.md
     - name: Connect to a VM
       href: connect-logon.md
@@ -440,6 +444,7 @@
   - name: Managed Disks REST
     href: /rest/api/compute/disks
   - name: Resource Manager template
+    displayName: ARM
     href: /azure/templates/microsoft.compute/allversions
 - name: Resources
   items:

@@ -9,9 +9,11 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
+search.appverid:
+- MET150
 
 ms.collection: M365-identity-device-management
 ---
@@ -41,7 +43,7 @@ A user must enter their corporate credentials a second time to authenticate to A
 ### Detailed description of how password hash synchronization works
 The following section describes, in-depth, how password hash synchronization works between Active Directory and Azure AD.
 
-![Detailed password flow](./media/how-to-connect-password-hash-synchronization/arch3.png)
+![Detailed password flow](./media/how-to-connect-password-hash-synchronization/arch3b.png)
 
 
 1. Every two minutes, the password hash synchronization agent on the AD Connect server requests stored password hashes (the unicodePwd attribute) from a DC.  This request is via the standard [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) replication protocol used to synchronize data between DCs. The service account must have Replicate Directory Changes and Replicate Directory Changes All AD permissions (granted by default on installation) to obtain the password hashes.

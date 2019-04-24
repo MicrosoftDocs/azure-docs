@@ -1,5 +1,5 @@
 ---
-title: Azure AD self-service password reset Windows 7 and 8.1
+title: Azure AD self-service password reset Windows 7 and 8.1 - Azure Active Directory
 description: How to enable self-service password reset using forgot password at the Windows 7 or 8.1 logon screen 
 
 services: active-directory
@@ -43,7 +43,7 @@ Unlike Windows 10 machines, Windows 7, 8, and 8.1 machines do not have an Azure 
 1. After the reboot, at the logon screen choose a user and click "Forgot password?" to initiate the password reset workflow.
 1. Complete the workflow following the onscreen steps to reset your password.
 
-![Example Windows 7 clicked "Forgot password?" self-service password reset flow](media/howto-sspr-windows-7-8/windows-7-sspr.png)
+![Example Windows 7 clicked "Forgot password?" SSPR flow](media/howto-sspr-windows-7-8/windows-7-sspr.png)
 
 ### Silent installation
 
@@ -64,13 +64,11 @@ Events will be logged both on the machine and in Azure AD.
 
 Azure AD Events will include information about the IP address and ClientType where the password reset occurred.
 
-![Example Windows 7 logon screen password reset in the Azure AD Audit log](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
+![Example Windows 7 password reset in the Azure AD Audit log](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
 
 If additional logging is required, a registry key on the machine can be changed to enable verbose logging. Enable verbose logging for troubleshooting purposes only.
 
-```
-HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
-```
+`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
 * To enable verbose logging, create a REG_DWORD: “EnableLogging”, and set it to 1.
 * To disable verbose logging, change the REG_DWORD “EnableLogging” to 0.
@@ -79,4 +77,4 @@ If your Windows 7, 8, and 8.1 machines are behind a proxy server or firewall, HT
 
 ## Next steps
 
-[Enable Windows 10 users to reset their password at the logon screen](tutorial-sspr-windows.md)
+* [Enable Windows 10 users to reset their password at the logon screen](tutorial-sspr-windows.md)

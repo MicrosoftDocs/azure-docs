@@ -4,7 +4,7 @@ description: Improve the reliability and performance of your services by develop
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4

@@ -1,5 +1,5 @@
 ---
-title: On-premises Azure AD Password Protection agent version release history
+title: On-premises Azure AD Password Protection agent version release history - Azure Active Directory
 description: Documents version release and behavior change history
 
 services: active-directory
@@ -15,12 +15,17 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 
-# Preview:  Azure AD Password Protection agent version history
+# Azure AD Password Protection agent version history
 
-|     |
-| --- |
-| Azure AD Password Protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+## 1.2.125.0
+
+Release date: 3/22/2019
+
+* Fix minor typo errors in event log messages
+* Update EULA agreement to final General Availability version
+
+> [!NOTE]
+> Build 1.2.125.0 is the General Availability build. Thank you again to everyone has provided feedback on the product!
 
 ## 1.2.116.0
 

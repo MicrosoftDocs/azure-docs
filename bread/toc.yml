@@ -99,6 +99,9 @@
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
+  - name: ASC for IoT
+    tocHref: /azure/asc-for-iot/
+    topicHref: /azure/asc-for-iot/
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
@@ -225,6 +228,9 @@
     - name: Academic Knowledge
       tocHref: /azure/cognitive-services/academic-knowledge/
       topicHref: /azure/cognitive-services/academic-knowledge/home
+    - name: Anomaly Detector
+      tocHref: /azure/cognitive-services/anomaly-detector/
+      topicHref: /azure/cognitive-services/anomaly-detector/
     - name: Bing Autosuggest
       tocHref: /azure/cognitive-services/Bing-Autosuggest/
       topicHref: /azure/cognitive-services/Bing-Autosuggest/
@@ -252,6 +258,9 @@
     - name: Bing Web Search
       tocHref: /azure/cognitive-services/bing-web-search/
       topicHref: /azure/cognitive-services/bing-web-search/
+    - name: Bing Local Business Search
+      tocHref: /azure/cognitive-services/bing-local-business-search/
+      topicHref: /azure/cognitive-services/bing-local-business-search/
     - name: Computer Vision
       tocHref: /azure/cognitive-services/computer-vision/
       topicHref: /azure/cognitive-services/computer-vision/
@@ -479,6 +488,9 @@
   - name: Key Vault
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/
+  - name: Lab Services
+    tocHref: /azure/lab-services/
+    topicHref: /azure/lab-services/    
   - name: Load Balancer
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/
@@ -688,3 +700,6 @@
   - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
+  - name: Windows Virtual Desktop
+    tocHref: /azure/virtual-desktop/
+    topicHref: /azure/virtual-desktop/

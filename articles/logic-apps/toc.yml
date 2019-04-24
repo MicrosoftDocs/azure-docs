@@ -103,11 +103,8 @@
         href: logic-apps-enterprise-integration-b2b.md
       - name: Exchange AS2 messages
         href: logic-apps-enterprise-integration-as2.md
-        items: 
-        - name: AS2 encoding
-          href: logic-apps-enterprise-integration-as2-encode.md
-        - name: AS2 decoding
-          href: logic-apps-enterprise-integration-as2-decode.md
+      - name: AS2 message settings
+        href: logic-apps-enterprise-integration-as2-message-settings.md
       - name: Exchange EDIFACT messages
         href: logic-apps-enterprise-integration-edifact.md
         items: 
@@ -290,10 +287,10 @@
         href: test-logic-apps-mock-data-static-results.md
   - name: Deploy
     items:
-      - name: Define and deploy logic apps
-        href: logic-apps-create-deploy-azure-resource-manager-templates.md
-      - name: Create deployment templates - Visual Studio
+      - name: Create logic app templates
         href: logic-apps-create-deploy-template.md
+      - name: Deploy logic app templates
+        href: logic-apps-create-deploy-azure-resource-manager-templates.md        
   - name: Monitor
     items: 
       - name: Monitor logic apps
@@ -323,7 +320,6 @@
 - name: Reference
   items:
   - name: Architecture patterns
-    href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
     items:
     - name: Basic enterprise integration
       href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration

@@ -45,6 +45,16 @@ In the **Build provider** page, choose the build provider and click > **Continue
 
 In the **Configure** page, select the organization, repository, and branch from which you want to deploy continuously. When finished, click **Continue**.
 
+To deploy from a repository in a GitHub organization, browse to GitHub and go to **Settings** > **Applications** > **Authorized OAuth Apps**. Then click "Azure App Service".
+
+![Settings > Applications > Authorized OAuth Apps > Azure App Service](media/app-service-continuous-deployment/github-settings-navigation.png)
+
+In the next page, grant App Service access to your organization's repositories by clicking the "Grant" button on the right-hand side.
+
+![Click "Grant" to grant App Service access to the organization's repositories](media/app-service-continuous-deployment/grant-access.png)
+
+Your organization should now show in the "Organization" list in the **Configure** page of the Deployment Center.
+
 ### Option 2: use Azure Pipelines (preview)
 
 > [!NOTE]

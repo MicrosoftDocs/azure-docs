@@ -4,7 +4,7 @@ description: Learn how to configure the Azure AD Identity Protection multi-facto
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
@@ -14,20 +14,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
-ms.author: markvi
-ms.reviewer: raluthra
+ms.date: 04/17/2019
+ms.author: joflore
+ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---
 
 # How To: Configure the multi-factor authentication registration policy
 
-Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication (MFA) registration by configuring a policy. This article explains what the policy can be used for an how to configure it.
+Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication (MFA) registration by configuring a policy to require MFA registration. This article explains what the policy can be used for and how to configure it.
 
 ## What is the multi-factor authentication registration policy?
 
-Azure multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides a second layer of security to user sign-ins and transactions.  
+Azure multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides a second layer of security to user sign-ins and transactions. In order for users to be able to respond to MFA prompts, they must first register for MFA. 
 
 We recommend that you require Azure multi-factor authentication for user sign-ins because it:
 
@@ -36,7 +36,7 @@ We recommend that you require Azure multi-factor authentication for user sign-in
 - Plays a key role in preparing your organization to protect and recover from account compromises
 
 
-For more details, see [What is Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
+For more details on MFA, see [What is Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
 
 
 ## How do I access the MFA registration policy?
@@ -50,15 +50,15 @@ The MFA registration policy is in the **Configure** section on the [Azure AD Ide
 
 ## Policy settings
 
-When you configure the sign-in risk policy, you need to set:
+When you configure the MFA registration policy, you need to set:
 
 - The users and groups the policy applies to:
 
     ![Users and groups](./media/howto-mfa-policy/11.png)
 
-- The type of access you want to be enforced:  
+- The control you want to enforce- requirement of MFA registration:  
 
-    ![Users and groups](./media/howto-mfa-policy/12.png)
+    ![Access](./media/howto-mfa-policy/12.png)
 
 - The state of your policy:
 

@@ -1,5 +1,5 @@
 ---
-title: RADIUS Authentication and Azure MFA Server | Microsoft Docs
+title: RADIUS Authentication and Azure MFA Server - Azure Active Directory
 description: Deploying RADIUS Authentication and Azure Multi-Factor Authentication Server.
 
 services: multi-factor-authentication
@@ -23,7 +23,7 @@ RADIUS is a standard protocol to accept authentication requests and to process t
 >
 > In this configuration, one-way SMS and OATH tokens don't work since the MFA Server can't initiate a successful RADIUS Challenge response using alternative protocols.
 
-![Radius Authentication](./media/howto-mfaserver-dir-radius/radius.png)
+![Radius Authentication in MFA Server](./media/howto-mfaserver-dir-radius/radius.png)
 
 ## Add a RADIUS client
 
@@ -62,9 +62,10 @@ Repeat steps 4 through 8 to add as many additional RADIUS clients as you need.
 
 Repeat these steps to add more RADIUS servers. Configure the order in which the Azure MFA Server should call them with the **Move Up** and **Move Down** buttons.
 
-You've successfully configured the Azure Multi-Factor Authentication Server. The Server is now listening on the configured ports for RADIUS access requests from the configured clients.   
+You've successfully configured the Azure Multi-Factor Authentication Server. The Server is now listening on the configured ports for RADIUS access requests from the configured clients.
 
 ## RADIUS Client configuration
+
 To configure the RADIUS client, use the guidelines:
 
 * Configure your appliance/server to authenticate via RADIUS to the Azure Multi-Factor Authentication Server’s IP address, which acts as the RADIUS server.

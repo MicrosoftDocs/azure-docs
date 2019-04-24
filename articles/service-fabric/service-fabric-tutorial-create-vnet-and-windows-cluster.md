@@ -3,8 +3,8 @@ title: Create a Service Fabric cluster running Windows in Azure | Microsoft Docs
 description: In this tutorial, you learn how to deploy a Windows Service Fabric cluster into an Azure virtual network and network security group by using PowerShell.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/19/2019
-ms.author: ryanwi
+ms.date: 03/13/2019
+ms.author: aljo
 ms.custom: mvc
 ---
 # Tutorial: Deploy a Service Fabric cluster running Windows into an Azure virtual network
@@ -26,21 +26,27 @@ This tutorial describes a production scenario. If you want to create a smaller c
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a virtual network in Azure by using PowerShell.
-> * Create a key vault and upload a certificate.
-> * Set up Azure Active Directory authentication.
-> * Create a secure Service Fabric cluster in Azure PowerShell.
-> * Secure the cluster with an X.509 certificate.
-> * Connect to the cluster by using PowerShell.
-> * Remove a cluster.
+> * Create a VNET in Azure using PowerShell
+> * Create a key vault and upload a certificate
+> * Setup Azure Active Directory authentication
+> * Configure diagnostics collection
+> * Set up the EventStore service
+> * Set up Azure Monitor logs
+> * Create a secure Service Fabric cluster in Azure PowerShell
+> * Secure the cluster with an X.509 certificate
+> * Connect to the cluster using PowerShell
+> * Remove a cluster
 
-In this tutorial series, you learn how to:
-
+In this tutorial series you learn how to:
 > [!div class="checklist"]
-> * Create a secure cluster on Azure.
-> * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md).
-> * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md).
-> * [Delete a cluster](service-fabric-tutorial-delete-cluster.md).
+> * Create a secure cluster on Azure
+> * [Monitor a cluster](service-fabric-tutorial-monitor-cluster.md)
+> * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
+> * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
+> * [Delete a cluster](service-fabric-tutorial-delete-cluster.md)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -48,8 +54,9 @@ Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
-* Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+* Install [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 * Review the key concepts of [Azure clusters](service-fabric-azure-clusters-overview.md).
+* [Plan and prepare](service-fabric-cluster-azure-deployment-preparation.md) for a production cluster deployment.
 
 The following procedures create a seven-node Service Fabric cluster. Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to calculate cost incurred by running a Service Fabric cluster in Azure.
 
@@ -149,7 +156,7 @@ The [azuredeploy.parameters.json][parameters] parameters file declares many valu
 |clusterName|mysfcluster123| Name of the cluster. Can contain letters and numbers only. Length can be between 3 and 23 characters.|
 |location|southcentralus| Location of the cluster. |
 |certificateThumbprint|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate SHA1 thumbprint value. For example, "6190390162C988701DB5676EB81083EA608DCCF3".</p> |
-|certificateUrlValue|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file. </p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate URL. For example, "<https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346>".</p>|
+|certificateUrlValue|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file. </p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate URL. For example, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the source vault value. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
 ## Set up Azure Active Directory client authentication
@@ -173,7 +180,7 @@ Create two Azure AD applications to control access to the cluster: one web appli
 
 Run `SetupApplications.ps1`, and provide the tenant ID, cluster name, and web application reply URL as parameters. Specify usernames and passwords for the users. For example:
 
-```PowerShell
+```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
@@ -261,6 +268,336 @@ Add the parameter values in the [azuredeploy.parameters.json][parameters] parame
 "value": "7a8f3b37-cc40-45cc-9b8f-57b8919ea461"
 }
 ```
+<a id="configurediagnostics" name="configurediagnostics_anchor"></a>
+
+## Configure diagnostics collection on the cluster
+When you're running a Service Fabric cluster, it's a good idea to collect the logs from all the nodes in a central location. Having the logs in a central location helps you analyze and troubleshoot issues in your cluster, or issues in the applications and services running in that cluster.
+
+One way to upload and collect logs is to use the Azure Diagnostics (WAD) extension, which uploads logs to Azure Storage, and also has the option to send logs to Azure Application Insights or Event Hubs. You can also use an external process to read the events from storage and place them in an analysis platform product, such as Azure Monitor logs or another log-parsing solution.
+
+If you are following this tutorial, diagnostics collection is already configured in the [template][template].
+
+If you have an existing cluster that doesn't have Diagnostics deployed, you can add or update it via the cluster template. Modify the Resource Manager template that's used to create the existing cluster or download the template from the portal. Modify the template.json file by performing the following tasks:
+
+Add a new storage resource to the resources section in the template:
+```json
+"resources": [
+...
+{
+  "apiVersion": "2015-05-01-preview",
+  "type": "Microsoft.Storage/storageAccounts",
+  "name": "[parameters('applicationDiagnosticsStorageAccountName')]",
+  "location": "[parameters('computeLocation')]",
+  "sku": {
+    "accountType": "[parameters('applicationDiagnosticsStorageAccountType')]"
+  },
+  "tags": {
+    "resourceType": "Service Fabric",
+    "clusterName": "[parameters('clusterName')]"
+  }
+},
+...
+]
+```
+
+Next, add parameters for the storage account name and type to the parameters section of the template. Replace the placeholder text storage account name goes here with the name of the storage account you'd like.
+
+```json
+"parameters": {
+...
+"applicationDiagnosticsStorageAccountType": {
+    "type": "string",
+    "allowedValues": [
+    "Standard_LRS",
+    "Standard_GRS"
+    ],
+    "defaultValue": "Standard_LRS",
+    "metadata": {
+    "description": "Replication option for the application diagnostics storage account"
+    }
+},
+"applicationDiagnosticsStorageAccountName": {
+    "type": "string",
+    "defaultValue": "**STORAGE ACCOUNT NAME GOES HERE**",
+    "metadata": {
+    "description": "Name for the storage account that contains application diagnostics data from the cluster"
+    }
+},
+...
+}
+```
+
+Next, add the **IaaSDiagnostics** extension to the extensions array of the **VirtualMachineProfile** property of each **Microsoft.Compute/virtualMachineScaleSets** resource in the cluster.  If you're using the [sample template][template], there are three virtual machine scale sets (one for each node type in the cluster).
+
+```json
+"apiVersion": "2018-10-01",
+"type": "Microsoft.Compute/virtualMachineScaleSets",
+"name": "[variables('vmNodeType1Name')]",
+"properties": {
+    ...
+    "virtualMachineProfile": {
+        "extensionProfile": {
+            "extensions": [
+                {
+                    "name": "[concat(parameters('vmNodeType0Name'),'_Microsoft.Insights.VMDiagnosticsSettings')]",
+                    "properties": {
+                        "type": "IaaSDiagnostics",
+                        "autoUpgradeMinorVersion": true,
+                        "protectedSettings": {
+                        "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",
+                        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName')),'2015-05-01-preview').key1]",
+                        "storageAccountEndPoint": "https://core.windows.net/"
+                        },
+                        "publisher": "Microsoft.Azure.Diagnostics",
+                        "settings": {
+                        "WadCfg": {
+                            "DiagnosticMonitorConfiguration": {
+                            "overallQuotaInMB": "50000",
+                            "EtwProviders": {
+                                "EtwEventSourceProviderConfiguration": [
+                                {
+                                    "provider": "Microsoft-ServiceFabric-Actors",
+                                    "scheduledTransferKeywordFilter": "1",
+                                    "scheduledTransferPeriod": "PT5M",
+                                    "DefaultEvents": {
+                                    "eventDestination": "ServiceFabricReliableActorEventTable"
+                                    }
+                                },
+                                {
+                                    "provider": "Microsoft-ServiceFabric-Services",
+                                    "scheduledTransferPeriod": "PT5M",
+                                    "DefaultEvents": {
+                                    "eventDestination": "ServiceFabricReliableServiceEventTable"
+                                    }
+                                }
+                                ],
+                                "EtwManifestProviderConfiguration": [
+                                {
+                                    "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                                    "scheduledTransferLogLevelFilter": "Information",
+                                    "scheduledTransferKeywordFilter": "4611686018427387904",
+                                    "scheduledTransferPeriod": "PT5M",
+                                    "DefaultEvents": {
+                                    "eventDestination": "ServiceFabricSystemEventTable"
+                                    }
+                                }
+                                ]
+                            }
+                            }
+                        },
+                        "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountName')]"
+                        },
+                        "typeHandlerVersion": "1.5"
+                    }
+                }
+            ...
+            ]
+        }
+    }
+}
+```
+<a id="configureeventstore" name="configureeventstore_anchor"></a>
+
+## Configure the EventStore service
+The EventStore service is a monitoring option in Service Fabric. EventStore provides a way to understand the state of your cluster or workloads at a given point in time. The EventStore is a stateful Service Fabric service that maintains events from the cluster. The event are exposed through the Service Fabric Explorer, REST and APIs. EventStore queries the cluster directly to get diagnostics data on any entity in your cluster and should be used to help:
+
+* Diagnose issues in development or testing, or where you might be using a monitoring pipeline
+* Confirm that management actions you are taking on your cluster are being processed correctly
+* Get a "snapshot" of how Service Fabric is interacting with a particular entity
+
+
+
+To enable the EventStore service on your cluster, add the following to the **fabricSettings** property of the **Microsoft.ServiceFabric/clusters** resource:
+
+```json
+"apiVersion": "2018-02-01",
+"type": "Microsoft.ServiceFabric/clusters",
+"name": "[parameters('clusterName')]",
+"properties": {
+    ...
+    "fabricSettings": [
+        ...
+        {
+            "name": "EventStoreService",
+            "parameters": [
+                {
+                "name": "TargetReplicaSetSize",
+                "value": "3"
+                },
+                {
+                "name": "MinReplicaSetSize",
+                "value": "1"
+                }
+            ]
+        }
+    ]
+}
+```
+<a id="configureloganalytics" name="configureloganalytics_anchor"></a>
+
+## Set up Azure Monitor logs for the cluster
+
+Azure Monitor logs is our recommendation to monitor cluster level events. To set up Azure Monitor logs to monitor your cluster, you need to have [diagnostics enabled to view cluster-level events](#configure-diagnostics-collection-on-the-cluster).  
+
+The workspace needs to be connected to the diagnostics data coming from your cluster.  This log data is stored in the *applicationDiagnosticsStorageAccountName* storage account, in the WADServiceFabric*EventTable, WADWindowsEventLogsTable, and WADETWEventTable tables.
+
+Add the Azure Log Analytics workspace and add the solution to the workspace:
+
+```json
+"resources": [
+    ...
+    {
+        "apiVersion": "2015-11-01-preview",
+        "location": "[parameters('omsRegion')]",
+        "name": "[parameters('omsWorkspacename')]",
+        "type": "Microsoft.OperationalInsights/workspaces",
+        "properties": {
+            "sku": {
+                "name": "Free"
+            }
+        },
+        "resources": [
+            {
+                "apiVersion": "2015-11-01-preview",
+                "name": "[concat(variables('applicationDiagnosticsStorageAccountName'),parameters('omsWorkspacename'))]",
+                "type": "storageinsightconfigs",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]",
+                    "[concat('Microsoft.Storage/storageAccounts/', variables('applicationDiagnosticsStorageAccountName'))]"
+                ],
+                "properties": {
+                    "containers": [],
+                    "tables": [
+                        "WADServiceFabric*EventTable",
+                        "WADWindowsEventLogsTable",
+                        "WADETWEventTable"
+                    ],
+                    "storageAccount": {
+                        "id": "[resourceId('Microsoft.Storage/storageaccounts/', variables('applicationDiagnosticsStorageAccountName'))]",
+                        "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('applicationDiagnosticsStorageAccountName')),'2015-06-15').key1]"
+                    }
+                }
+            },
+            {
+                "apiVersion": "2015-11-01-preview",
+                "type": "datasources",
+                "name": "sampleWindowsPerfCounter",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+                ],
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "Memory",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Available MBytes"
+                }
+            },
+            {
+                "apiVersion": "2015-11-01-preview",
+                "type": "datasources",
+                "name": "sampleWindowsPerfCounter2",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+                ],
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "Service Fabric Service",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Average milliseconds per request"
+                }
+            }
+        ]
+    },
+    {
+        "apiVersion": "2015-11-01-preview",
+        "location": "[parameters('omsRegion')]",
+        "name": "[variables('solution')]",
+        "type": "Microsoft.OperationsManagement/solutions",
+        "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+        ],
+        "properties": {
+            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+        },
+        "plan": {
+            "name": "[variables('solution')]",
+            "publisher": "Microsoft",
+            "product": "[Concat('OMSGallery/', variables('solutionName'))]",
+            "promotionCode": ""
+        }
+    }
+]
+```
+
+Next, add parameters
+```json
+"parameters": {
+    ...
+    "omsWorkspacename": {
+        "type": "string",
+        "defaultValue": "mysfomsworkspace",
+        "metadata": {
+            "description": "Name of your OMS Log Analytics Workspace"
+        }
+    },
+    "omsRegion": {
+        "type": "string",
+        "defaultValue": "West Europe",
+        "allowedValues": [
+            "West Europe",
+            "East US",
+            "Southeast Asia"
+        ],
+        "metadata": {
+            "description": "Specify the Azure Region for your OMS workspace"
+        }
+    }
+}
+```
+
+Next, add variables:
+```json
+"variables": {
+    ...
+    "solution": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
+    "solutionName": "ServiceFabric"
+}
+```
+
+Add the Log Analytics agent extension to each virtual machine scale set in the cluster and connect the agent to the Log Analytics workspace. This enables collecting diagnostics data about containers, applications, and performance monitoring. By adding it as an extension to the virtual machine scale set resource, Azure Resource Manager ensures that it gets installed on every node, even when scaling the cluster.
+
+```json
+"apiVersion": "2018-10-01",
+"type": "Microsoft.Compute/virtualMachineScaleSets",
+"name": "[variables('vmNodeType1Name')]",
+"properties": {
+    ...
+    "virtualMachineProfile": {
+        "extensionProfile": {
+            "extensions": [
+                {
+                    "name": "[concat(variables('vmNodeType0Name'),'OMS')]",
+                    "properties": {
+                        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                        "type": "MicrosoftMonitoringAgent",
+                        "typeHandlerVersion": "1.0",
+                        "autoUpgradeMinorVersion": true,
+                        "settings": {
+                            "workspaceId": "[reference(resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename')), '2015-11-01-preview').customerId]"
+                        },
+                        "protectedSettings": {
+                            "workspaceKey": "[listKeys(resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename')),'2015-11-01-preview').primarySharedKey]"
+                        }
+                    }
+                }
+            ...
+            ]
+        }
+    }
+}
+```
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 
@@ -272,7 +609,7 @@ The template in this article deploys a cluster that uses the certificate thumbpr
 
 ### Create a cluster by using an existing certificate
 
-The following script uses the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet and a template to deploy a new cluster in Azure. The cmdlet creates a new key vault in Azure and uploads your certificate.
+The following script uses the [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) cmdlet and a template to deploy a new cluster in Azure. The cmdlet creates a new key vault in Azure and uploads your certificate.
 
 ```powershell
 # Variables.
@@ -287,22 +624,22 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # Sign in to your Azure account and select your subscription
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 
 # Create a new resource group for your deployment, and give it a name and a location.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+New-AzServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
 ### Create a cluster by using a new, self-signed certificate
 
-The following script uses the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet and a template to deploy a new cluster in Azure. The cmdlet creates a new key vault in Azure, adds a new self-signed certificate to the key vault, and downloads the certificate file locally.
+The following script uses the [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) cmdlet and a template to deploy a new cluster in Azure. The cmdlet creates a new key vault in Azure, adds a new self-signed certificate to the key vault, and downloads the certificate file locally.
 
 ```powershell
 # Variables.
@@ -318,15 +655,15 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # Sign in to your Azure account and select your subscription
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 
 # Create a new resource group for your deployment, and give it a name and a location.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+New-AzServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateSubjectName $subname
 
@@ -378,8 +715,21 @@ The other articles in this tutorial series use the cluster you've created. If yo
 
 Advance to the following tutorial to learn how to scale your cluster.
 
+> [!div class="checklist"]
+> * Create a VNET in Azure using PowerShell
+> * Create a key vault and upload a certificate
+> * Setup Azure Active Directory authentication
+> * Configure diagnostics collection
+> * Set up the EventStore service
+> * Set up Azure Monitor logs
+> * Create a secure Service Fabric cluster in Azure PowerShell
+> * Secure the cluster with an X.509 certificate
+> * Connect to the cluster using PowerShell
+> * Remove a cluster
+
+Next, advance to the following tutorial to learn how to monitor your cluster.
 > [!div class="nextstepaction"]
-> [Scale a cluster](service-fabric-tutorial-scale-cluster.md)
+> [Monitor a Cluster](service-fabric-tutorial-monitor-cluster.md)
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

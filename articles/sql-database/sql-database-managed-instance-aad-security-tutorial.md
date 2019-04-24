@@ -50,7 +50,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 
 ## Limiting access to your managed instance
 
-Managed instances can only be accessed through a private IP address. There are no service endpoints that are available to connect to a managed instance from outside the managed instance network. Much like an isolated SQL Server on-premise environment, applications or users need access to the managed instance network (VNet) before a connection can be established. For more information, see the following article, [Connect your application to a managed instance](sql-database-managed-instance-connect-app.md).
+Managed instances can only be accessed through a private IP address. There are no service endpoints that are available to connect to a managed instance from outside the managed instance network. Much like an isolated SQL Server on-premises environment, applications or users need access to the managed instance network (VNet) before a connection can be established. For more information, see the following article, [Connect your application to a managed instance](sql-database-managed-instance-connect-app.md).
 
 > [!NOTE] 
 > Since managed instances can only be accessed inside of its VNET, [SQL Database firewall rules](sql-database-firewall-configure.md) do not apply. Managed instance has its own [built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
@@ -166,7 +166,7 @@ Once the Azure AD server principal (login) has been created, and provided with `
 
     This example creates a login for the Azure AD user bob@aadsqlmi.net, whose domain aadsqlmi.net is federated with the Azure AD aadsqlmi.onmicrosoft.com.
 
-    Execute the following T-SQL command. Federated Azure AD accounts are the managed instance replacements for on-premise Windows logins and users.
+    Execute the following T-SQL command. Federated Azure AD accounts are the managed instance replacements for on-premises Windows logins and users.
 
     ```sql
     USE master
@@ -201,10 +201,10 @@ Once the Azure AD server principal (login) has been created, and provided with `
 1. In **Object Explorer**, right-click the server and choose **New Query** for the new connection.
 1. Check server permissions for the newly created Azure AD server principal (login) by executing the following command:
 
-     ```sql
-     SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
-     GO
-     ```
+      ```sql
+      SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
+      GO
+      ```
 
 > [!NOTE]
 > Azure AD guest users are supported for managed instance logins, only when added as part of an Azure AD Group. An Azure AD guest user is an account that is invited to the Azure AD that the managed instance belongs to, from another Azure AD. For example, joe@contoso.com (Azure AD Account) or steve@outlook.com (MSA Account) can be added to a group in the Azure AD aadsqlmi. Once the users are added to a group, a login can be created in the managed instance **master** database for the group using the **CREATE LOGIN** syntax. Guest users who are members of this group can connect to the managed instance using their current logins (For example, joe@contoso.com or steve@outlook.com).

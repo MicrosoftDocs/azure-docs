@@ -473,7 +473,7 @@ await deviceClient.SendEventAsync(message);
 ### Example
 **Node.JS: Authentication**
 #### Symmetric key
-* Create a IoT hub on azure
+* Create an IoT hub on azure
 * Create an entry in the device identity registry
     ```javascript
     var device = new iothub.Device(null);

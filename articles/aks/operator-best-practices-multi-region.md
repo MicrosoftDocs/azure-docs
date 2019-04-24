@@ -29,7 +29,7 @@ This best practices article focuses on considerations that help you plan for bus
 
 An AKS cluster is deployed into a single region. To protect yourself from region failure, deploy your application into multiple AKS clusters across different regions. When you plan what regions to deploy your AKS cluster, the following considerations apply:
 
-* [AKS region availability](https://docs.microsoft.com/azure/aks/container-service-quotas#region-availability)
+* [AKS region availability](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability)
   * Choose regions close to your users. AKS is continually expanding into new regions.
 * [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * For your geographic area, choose two regions that are paired with each other. These regions coordinate platform updates, and prioritize recovery efforts where needed.
@@ -58,7 +58,7 @@ For steps on how to set up these endpoints and routing, see [Configure the geogr
 
 ### Layer 7 application routing with Azure Front Door
 
-Azure Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door (preview)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) provides an HTTP/HTTPS (layer 7) routing option. Additional features of Front Door include SSL termination, custom domain, Web Application Firewall, URL Rewrite, and Session Affinity.
+Azure Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door (currently in preview)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) provides an HTTP/HTTPS (layer 7) routing option. Additional features of Front Door include SSL termination, custom domain, Web Application Firewall, URL Rewrite, and Session Affinity.
 
 Review the needs of your application traffic to understand which solution is the most suitable.
 

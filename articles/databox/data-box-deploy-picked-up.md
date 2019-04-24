@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/19/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -40,7 +40,13 @@ Before you begin, make sure:
 
 1. Ensure that the device is powered off and cables are removed. Spool and securely place the power cord that was provided with device in the back of the device.
 2. Ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, contact Microsoft Support. If the Support suggests, then you can go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device. 
-3. Schedule a pickup with UPS if returning the device. To schedule a pickup, call the local UPS (country-specific toll free number) or drop off the Data Box at the nearest drop-off location.
+3. Schedule a pickup with UPS if returning the device. To schedule a pickup:
+
+    - Call the local UPS (country-specific toll free number).
+    - In your call, quote the reverse shipment tracking number as shown in the E-ink display or your printed label.
+    - If the tracking number is not quoted, UPS will require you to pay an additional charge during pickup.
+
+    Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
 ## Verify data upload to Azure

@@ -64,7 +64,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2S
 Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
-Once the feature shows as registered, reregister the subscription to Microsoft.Network namespace.
+Once the feature shows as registered, register the subscription to Microsoft.Network namespace.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network

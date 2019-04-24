@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -50,7 +50,7 @@ The Microsoft speech recognition API supports the following languages. Different
  ru-RU | Russian (Russia) | Yes | Yes | No
  sv-SE | Swedish (Sweden) | No | No | No
  zh-CN | Chinese (Mandarin, simplified) | Yes | Yes | No
- zh-HK | Chinese (Mandarin, Traditional) | No | Yes | No
+ zh-HK | Chinese (Cantonese, Traditional) | No | Yes | No
  zh-TW | Chinese (Taiwanese Mandarin) | No | Yes | No
  th-TH | Thai (Thailand) | No | No | No
 
@@ -71,13 +71,18 @@ Neural voices can be used to make interactions with chatbots and virtual assista
 For a full list of neural voices and regional availability, see [regions](regions.md#neural-voices).
 
 | Locale | Language | Gender | Service name mapping|
-|--------|----------|---------|--------------------|
+|--------|----------|--------|---------------------|
+| de-DE | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)" |
 | en-US | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
 | en-US | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+| it-IT | Italian (Italy) | Female | "Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural)" |
 | zh-CN | Chinese | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" |
 
 > [!IMPORTANT]
 > Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural) is only available via the Southeast Asia endpoint: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
+
+> [!IMPORTANT]
+> Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural) and Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural) are only available via the West Europe endpoint: https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1.
 
 ### Standard voices
 

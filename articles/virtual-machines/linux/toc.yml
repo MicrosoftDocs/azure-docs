@@ -80,6 +80,9 @@
         href: constrained-vcpu.md
     - name: Storage optimized
       href: sizes-storage.md
+      items:
+      - name: Optimize performance
+        href: storage-performance.md
     - name: GPU optimized
       href: sizes-gpu.md
       items:
@@ -136,6 +139,7 @@
     - name: Use the CLI
       href: create-cli-complete.md
     - name: Use a template
+      displayName: Azure Resource Manager, ARM
       href: create-ssh-secured-vm-from-template.md
     - name: Use REST API
       href: create-vm-rest-api.md
@@ -241,7 +245,7 @@
     items:
     - name: Prepay for VMs - Azure reservations
       href: prepay-reserved-vm-instances.md
-    - name: Prepay for SUSE software
+    - name: Prepay for Azure software plans
       href: prepay-suse-software-charges.md
     - name: What are Azure reservations?
       href: ../../billing/billing-save-compute-costs-reservations.md
@@ -366,8 +370,8 @@
         href: openshift-prerequisites.md
       - name: OpenShift Container Platform
         href: openshift-container-platform.md
-      - name: OKD
-        href: openshift-okd.md
+      - name: OpenShift Marketplace Self-Managed
+        href: openshift-marketplace-self-managed.md
       - name: Azure Stack
         href: openshift-azure-stack.md
       - name: OpenShift post-deployment tasks
@@ -413,6 +417,7 @@
     - name: Detach a disk
       href: detach-disk.md
     - name: Deploy disks with template
+      displayName: Azure Resource Manager, ARM
       href: using-managed-disks-template-deployments.md
     - name: Resize a disk
       href: expand-disks.md
@@ -480,6 +485,7 @@
     - name: PowerShell
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
     - name: Azure Resource Manager Template
+      displayName: ARM
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
     - name: REST
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/linux/context/linux-vm-context
@@ -540,13 +546,15 @@
 - name: Resources
   items:
   - name: Author templates
-    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    displayName: Azure Resource Manager, ARM
+    href: /azure/azure-resource-manager/
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Community templates
-    href: https://azure.microsoft.com/documentation/templates
+  - name: Azure Quickstart templates
+    displayName: Azure Resource Manager, ARM
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/#Linux
   - name: Regional availability

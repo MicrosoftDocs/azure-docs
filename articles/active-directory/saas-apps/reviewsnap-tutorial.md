@@ -108,8 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Identifier** textbox, type a URL: `https://app.reviewsnap.com`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>
-`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>`
 
 1. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 

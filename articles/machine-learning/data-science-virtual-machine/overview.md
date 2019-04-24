@@ -84,7 +84,7 @@ The Data Science Virtual Machine has many popular data science and deep learning
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git and GitBash | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | Y | N |
-| PowerBI Desktop | Y | N |
+| Power BI Desktop | Y | N |
 | SDKs to access Azure and Cortana Intelligence Suite of services | Y | Y |
 | **Data Movement and management Tools** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Storage Explorer | Y | Y |
@@ -136,4 +136,4 @@ The Data Science Virtual Machine has many popular data science and deep learning
 * For a walkthrough that shows you how to perform several common data science tasks with the Linux VM, both CentOS and Ubuntu, see [Data science on the Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md).
 
 ## Next steps
-[R developer's guide to Azure](../r-developers-guide.md)
+[R developer's guide to Azure](/azure/architecture/data-guide/technology-choices/r-developers-guide)

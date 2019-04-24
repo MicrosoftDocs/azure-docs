@@ -3,8 +3,8 @@ title: Create a .NET app on Service Fabric in Azure | Microsoft Docs
 description: In this tutorial, you learn how to create an application with an ASP.NET Core front-end and a reliable service stateful back-end and deploy the application to a cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/14/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
 
 ---
@@ -463,7 +463,7 @@ This tutorial uses [ASP.NET Core Web API](service-fabric-reliable-services-commu
         ],
 ```
 To find the reverse proxy port used in your local development cluster, view the **HttpApplicationGatewayEndpoint** element in the local Service Fabric cluster manifest:
-1. Open a browser window and navigate to http://localhost:19080 to open the Service Fabric Explorer tool.
+1. Open a browser window and navigate to http:\//localhost:19080 to open the Service Fabric Explorer tool.
 2. Select **Cluster -> Manifest**.
 3. Make a note of the HttpApplicationGatewayEndpoint element port. By default this should be 19081. If it is not 19081, you will need to change the port in the GetProxyAddress method of the following VotesController.cs code.
 

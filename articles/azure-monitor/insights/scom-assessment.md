@@ -292,7 +292,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 *Why display only the top 10 recommendations?* Instead of giving you an exhaustive, overwhelming list of tasks, we recommend that you focus on addressing the prioritized recommendations first. After you address them, additional recommendations will become available. If you prefer to see the detailed list, you can view all recommendations using Log Search.
 
-*Is there a way to ignore a recommendation?* Yes, see the [Ignore recommendations](#Ignore-recommendations).
+*Is there a way to ignore a recommendation?* Yes, see the [Ignore recommendations](#ignore-recommendations).
 
 
 ## Next steps

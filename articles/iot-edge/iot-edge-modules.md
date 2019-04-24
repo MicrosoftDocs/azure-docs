@@ -4,7 +4,7 @@ description: Azure IoT Edge modules are containerized units of logic that can be
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 # Understand Azure IoT Edge modules
 
-Azure IoT Edge lets you deploy and manage business logic on the edge in the form of *modules*. Azure IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics) or your own solution-specific code. To understand how modules are developed, deployed, and maintained, it helps to think of four conceptual pieces that make up a module:
+Azure IoT Edge lets you deploy and manage business logic on the edge in the form of *modules*. Azure IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics) or your own solution-specific code. To understand how modules are developed, deployed, and maintained, it helps to think of the four conceptual elements of a module:
 
 * A **module image** is a package containing the software that defines a module.
 * A **module instance** is the specific unit of computation running the module image on an IoT Edge device. The module instance is started by the IoT Edge runtime.
@@ -38,6 +38,7 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 ## Module identities
 
 When a new module instance is created by the IoT Edge runtime, the instance is associated with a corresponding module identity. The module identity is stored in IoT Hub, and is employed as the addressing and security scope for all local and cloud communications for that specific module instance.
+
 The identity associated with a module instance depends on the identity of the device on which the instance is running and the name you provide to that module in your solution. For instance, if you call `insight` a module that uses an Azure Stream Analytics, and you deploy it on a device called `Hannover01`, the IoT Edge runtime creates a corresponding module identity called `/devices/Hannover01/modules/insight`.
 
 Clearly, in scenarios when you need to deploy one module image multiple times on the same device, you can deploy the same image multiple times with different names.
@@ -63,7 +64,7 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## Offline capabilities
 
-Azure IoT Edge supports offline operations on your IoT Edge devices. These capabilities are limited for now. 
+Azure IoT Edge supports offline operations on your IoT Edge devices. These capabilities are limited for now. Additional offline capabilities are available in public preview. For more information, see [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md).
 
 IoT Edge modules can be offline for extended periods as long as the following requirements are met: 
 
@@ -72,11 +73,8 @@ IoT Edge modules can be offline for extended periods as long as the following re
 * **The module that sent the messages while offline is still functional when connectivity resumes**. Upon reconnecting to IoT Hub, the IoT Edge hub needs to validate a new module token (if the previous one expired) before it can forward the module messages. If the module is not available to provide a new token, the IoT Edge hub cannot act on the module's stored messages. 
 * **The IoT Edge hub has disk space to store the messages**. By default, messages are stored in the IoT Edge hub container's filesystem. There is a configuration option to specify a mounted volume to store the messages instead. In either case, there needs to be space available to store the messages for deferred delivery to IoT Hub.  
 
-Additional offline capabilities are available in public preview. For more information, see [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md).
 
 ## Next steps
  - [Understand the requirements and tools for developing IoT Edge modules](module-development.md)
  - [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md)
 
-<!-- Images -->
-[2]: ./media/iot-edge-modules/identity.png

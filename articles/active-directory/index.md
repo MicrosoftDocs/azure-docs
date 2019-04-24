@@ -252,7 +252,7 @@ ms.collection: M365-identity-device-management
                                                         <p>
                                                             <a href="governance/create-access-review.md">Create an access review</a><br>
                                                             <a href="governance/perform-access-review.md">Start an access review</a><br>
-                                                            <a href="governance/active-directory-tou.md">Using Terms of use</a><br>
+                                                            <a href="conditional-access/terms-of-use.md">Using Terms of use</a><br>
                                                             <a href="governance/index.yml"><i>See more &gt;</i></a>
                                                         </p>
                                                         <br><br>
@@ -277,7 +277,7 @@ ms.collection: M365-identity-device-management
                                                         <p>
                                                             <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">Use Windows VM to access Azure SQL</a><br>
                                                             <a href="managed-identities-azure-resources/how-to-use-vm-token.md">Use Azure VM for token acquisition</a><br>
-                                                            <a href="managed-identities-azure-resources/services-support-msi.md">Services that support managed identity</a><br>
+                                                            <a href="managed-identities-azure-resources/services-support-managed-identities.md">Services that support managed identity</a><br>
                                                             <a href="managed-identities-azure-resources/index.yml"><i>See more &gt;</i></a>
                                                         </p>
                                                         <br><br>

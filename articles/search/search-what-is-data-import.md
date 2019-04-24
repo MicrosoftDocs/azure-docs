@@ -34,18 +34,25 @@ For an introduction to each methodology, see [Quickstart: Create an Azure Search
 
 <a name="indexing-actions"></a>
 
-### Indexing actions: upload, merge, uploadOrMerge, delete
+### Indexing actions: upload, merge, mergeOrUpload, delete
 
-When using the REST API, you will issue HTTP POST requests with JSON request bodies to your Azure Search index's endpoint URL. The JSON object in your HTTP request body will contain a single JSON array named "value" containing JSON objects representing documents you would like to add to your index, update, or delete.
+You can control the type of indexing action on a per-document basis, specifying whether the document should be uploaded in full, merged with existing document content, or deleted.
 
-Each JSON object in the "value" array represents a document to be indexed. Each of these objects contains the document's key and specifies the desired indexing action (upload, merge, delete). Depending on which of the below actions you choose, only certain fields must be included for each document:
+In the REST API, issue HTTP POST requests with JSON request bodies to your Azure Search index's endpoint URL. Each JSON object in the "value" array contains the document's key and specifies an indexing action adds, updates, or deletes document content. For a code example, see [Load documents](search-create-index-rest-api.md#load-documents).
+
+In the .NET SDK, package up your data into an `IndexBatch` object. An `IndexBatch` encapsulates a collection of `IndexAction` objects, each of which contains a document and a property that tells Azure Search what action to perform on that document. For a code example, see [Construct IndexBatch](search-import-data-dotnet.md#construct-indexbatch).
+
 
 | @search.action | Description | Necessary fields for each document | Notes |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |An `upload` action is similar to an "upsert" where the document will be inserted if it is new and updated/replaced if it exists. |key, plus any other fields you wish to define |When updating/replacing an existing document, any field that is not specified in the request will have its field set to `null`. This occurs even when the field was previously set to a non-null value. |
-| `merge` |Updates an existing document with the specified fields. If the document does not exist in the index, the merge will fail. |key, plus any other fields you wish to define |Any field you specify in a merge will replace the existing field in the document. This includes fields of type `Collection(Edm.String)`. For example, if the document contains a field `tags` with value `["budget"]` and you execute a merge with value `["economy", "pool"]` for `tags`, the final value of the `tags` field will be `["economy", "pool"]`. It will not be `["budget", "economy", "pool"]`. |
+| `merge` |Updates an existing document with the specified fields. If the document does not exist in the index, the merge will fail. |key, plus any other fields you wish to define |Any field you specify in a merge will replace the existing field in the document. In the .NET SDK, this includes fields of type `DataType.Collection(DataType.String)`. In the REST API, this includes fields of type `Collection(Edm.String)`. For example, if the document contains a field `tags` with value `["budget"]` and you execute a merge with value `["economy", "pool"]` for `tags`, the final value of the `tags` field will be `["economy", "pool"]`. It will not be `["budget", "economy", "pool"]`. |
 | `mergeOrUpload` |This action behaves like `merge` if a document with the given key already exists in the index. If the document does not exist, it behaves like `upload` with a new document. |key, plus any other fields you wish to define |- |
 | `delete` |Removes the specified document from the index. |key only |Any fields you specify other than the key field will be ignored. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to null. |
+
+## Decide which indexing action to use
+To import data using the .NET SDK, (upload, merge, delete, and mergeOrUpload). Depending on which of the below actions you choose, only certain fields must be included for each document:
+
 
 ### Formulate your query
 There are two ways to [search your index using the REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). One way is to issue an HTTP POST request where your query parameters are defined in a JSON object in the request body. The other way is to issue an HTTP GET request where your query parameters are defined within the request URL. POST has more [relaxed limits](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) on the size of query parameters than GET. For this reason, we recommend using POST unless you have special circumstances where using GET would be more convenient.
