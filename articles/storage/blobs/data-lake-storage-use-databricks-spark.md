@@ -105,6 +105,32 @@ In this section, you create an Azure Databricks service by using the Azure porta
 
     * Select **Create cluster**. After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
+## Ingest data
+
+### Copy source data into the storage account
+
+Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 account.
+
+1. Open a command prompt window, and enter the following command to log into your storage account.
+
+   ```bash
+   azcopy login
+   ```
+
+   Follow the instructions the appear in the command prompt window to authenticate your user account.
+
+2. To copy data from the *.csv* account, enter the following command.
+
+   ```bash
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
+   ```
+
+   * Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
+
+   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+
+   * Replace the `<file-system-name>` placeholder with any name that you want to give your file system.
+
 ## Create a file system and mount it
 
 In this section, you'll create a file system and a folder in your storage account.
@@ -135,7 +161,7 @@ In this section, you'll create a file system and a folder in your storage accoun
     extra_configs = configs)
     ```
 
-18. In this code block, replace the `appId`, `password`, `tenant`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `file-system-name` placeholder value with whatever name you want to give the file system.
+18. In this code block, replace the `appId`, `password`, `tenant`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `file-system-name` placeholder value with the name that you gave to the ADLS File System on the previous step.
 
 Use these values to replace the mentioned placeholders.
 
@@ -145,38 +171,14 @@ Use these values to replace the mentioned placeholders.
 
    * The `storage-account-name` is the name of your Azure Data Lake Storage Gen2 storage account.
 
+   * The `file-system-name` is the name of the File System you created on ADLS Gen2.
+
    > [!NOTE]
    > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
 
 19. Press the **SHIFT + ENTER** keys to run the code in this block.
 
    Keep this notebook open as you will add commands to it later.
-
-## Ingest data
-
-### Copy source data into the storage account
-
-Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 account.
-
-1. Open a command prompt window, and enter the following command to log into your storage account.
-
-   ```bash
-   azcopy login
-   ```
-
-   Follow the instructions the appear in the command prompt window to authenticate your user account.
-
-2. To copy data from the *.csv* account, enter the following command.
-
-   ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
-   ```
-
-   * Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
-
-   * Replace the `storage-account-name` placeholder value with the name of your storage account.
-
-   * Replace the `file-system-name` placeholder with any name that you want to give your file system.
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
