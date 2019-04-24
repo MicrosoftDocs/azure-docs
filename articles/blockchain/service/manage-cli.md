@@ -17,9 +17,7 @@ manager: femila
 
 In addition to the Azure portal, you can use Azure CLI to quickly create and manage blockchain members and transaction nodes for your Azure Blockchain Service.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged to an Azure account in with [az login](/cli/azure/reference-index).
+Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged to an Azure account in with [az login](/cli/azure/reference-index). To start, run `az login` to create a connection with Azure.
 
 In the following examples, replace example `<parameter names>` with your own values.
 
@@ -191,15 +189,19 @@ az role assignment create --role <role> --assignee <assignee> --scope /subscript
 
 Grant node access for Azure AD user to blockchain **member**:
 
+```cli
 az role assignment create --role "myRole" --assignee user@contoso.com --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
+```
 
 **Example:**
 
 Grant node access for Azure AD user to blockchain **transaction node**:
 
+```cli
 az role assignment create --role "MyRole" --assignee user@contoso.com --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1/transactionNodes/contosoTransactionNode1
+```
 
-### Grant node access for Azure AD usergroup or application role
+### Grant node access for Azure AD group or application role
 
 ```cli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id>
@@ -214,7 +216,9 @@ az role assignment create --role <role> --assignee-object-id <assignee_object_id
 
 Grant node access for **application role**
 
+```cli
 az role assignment create --role "myRole" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
+```
 
 ### Remove Azure AD node access
 

@@ -15,9 +15,7 @@ manager: femila
 
 # Manage consortium members in Azure Blockchain Service using PowerShell
 
-You can use PowerShell to manage blockchain consortium members for your Azure Blockchain Service.
-
-As a consortium administrator, you can invite, add, remove, and change roles for all participants in the blockchain consortium.
+You can use PowerShell to manage blockchain consortium members for your Azure Blockchain Service. As a consortium administrator, you can invite, add, remove, and change roles for all participants in the blockchain consortium.
 
 ## Prerequisites
 
@@ -169,8 +167,8 @@ Import-Web3Account -ManagedAccountAddress <String> -ManagedAccountPassword <Stri
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
-| ManagedAccountAddress |  | Yes |
-| ManagedAccountPassword |  | Yes |
+| ManagedAccountAddress | Blockchain member account address | Yes |
+| ManagedAccountPassword | Account address password | Yes |
 
 **Example**
 
@@ -183,7 +181,7 @@ Import-Web3Account -ManagedAccountAddress $config.FromNode.AccountAddress -Manag
 ```
 Password      Address                                    TransactionManager
 --------      -------                                    ------------------
-<Password>    0x85b911c9e103d6405573151258d668479e9ebeef Nethereum.Web3.Accounts.Managed.ManagedAccountTransactionMa...
+<Password>    0x85b911c9e103d6405573151258d668475ca1ab1e Nethereum.Web3.Accounts.Managed.ManagedAccountTransactionMa...
 ```
 
 ## New-BlockchainMemberInvitation
@@ -217,7 +215,7 @@ New-Web3Connection [-RemoteRPCEndpoint <String>]
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
-| RemoteRPCEndpoint |  | No |
+| RemoteRPCEndpoint | Blockchain member endpoint address | No |
 
 
 **Example**
