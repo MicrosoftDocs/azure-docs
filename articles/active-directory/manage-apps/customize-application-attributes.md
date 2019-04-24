@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ---
 # Customizing User Provisioning Attribute-Mappings for SaaS Applications in Azure Active Directory
-Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, Google Apps and others. If you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute-mappings.
+Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, G Suite and others. If you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute-mappings.
 
 There's a pre-configured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects along with Users, such as Groups.
 
@@ -81,7 +81,7 @@ Along with this property, attribute-mappings also support the following attribut
 
 ## Editing group attribute-mappings
 
-A selected number of applications, such as ServiceNow, Box, and Google Apps, support the ability to provision Group objects and User objects. Group objects can contain group properties such as display names and email aliases, along with group members.
+A selected number of applications, such as ServiceNow, Box, and G Suite, support the ability to provision Group objects and User objects. Group objects can contain group properties such as display names and email aliases, along with group members.
 
 ![ServiceNow](./media/customize-application-attributes/24.png)
 
