@@ -39,7 +39,7 @@ For more information on VM types and their compute resources, see [Sizes for vir
 
 ## Region availability
 
-For the latest list of where you can deploy and run clusters, see [AKS region availability][region-availaiblity].
+For the latest list of where you can deploy and run clusters, see [AKS region availability][region-availability].
 
 ## Next steps
 
