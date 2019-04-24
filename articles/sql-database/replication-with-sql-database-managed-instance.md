@@ -61,12 +61,12 @@ Use the [Azure portal](https://portal.azure.com) to create a resource group with
 
 ## 2 - Create managed instances
 
-Use the [Azure portal](https://portal.azure.com) to create two [managed instances](sql-database-managed-instance-create-tutorial-portal.md) on the same virtual network. The two managed instances should be named:
+Use the [Azure portal](https://portal.azure.com) to create two [managed instances](sql-database-managed-instance-create-tutorial-portal.md) on the same virtual network and subnet. The two managed instances should be named:
 
 - `sql-mi-pub`
 - `sql-mi-sub`
 
-You will also need to [Configure an Azure VM to connect](sql-database-managed-instance-configure-vm.md) to your Azure SQL Database managed instance. 
+You will also need to [Configure an Azure VM to connect](sql-database-managed-instance-configure-vm.md) to your Azure SQL Database managed instances. 
 
 ## 3 - Create Azure Storage Account
 
@@ -184,7 +184,7 @@ Using [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) mode, 
 :setvar publication_name PublishData
 :setvar object ReplTest
 :setvar schema dbo
-:setvar target_server "sql-mi-sub.wcus17662feb9ce98.database.windows.net"
+:setvar target_server "sql-mi-sub.wdec33262scj9dr27.database.windows.net"
 :setvar target_username targetLogin
 :setvar target_password targetPassword
 :setvar target_db ReplTran_SUB
@@ -264,6 +264,7 @@ where subsystem in ('Distribution','LogReader','Snapshot') and command not like 
 SQL Database managed instances do not support named pipes. Run the following T-SQL command on the publisher and distributor to force the three replication agents to utilize TCP: 
 
 ```sql
+-- Force replication agents to use TCP over named pipes
 update msdb..sysjobsteps set command = replace(command,' -Distributor [',' -Distributor [tcp:') 
 where subsystem in ('Distribution','LogReader','Snapshot') and command not like '% -Distributor \[tcp:%' escape '\'
 GO
@@ -290,10 +291,6 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ## 10 - Clean up resources
 Once you're done testing, you can clean up your resources by [deleting the resource group](../azure-resource-manager/manage-resources-portal.md#delete-resources) `SQLMI-Repl`. 
 
-
-## Known errors
-
-###  Agent message code 21118. Failed to connect to Azure Storage 
    
 ## See Also
 
