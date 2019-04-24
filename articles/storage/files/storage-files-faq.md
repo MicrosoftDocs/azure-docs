@@ -2,10 +2,10 @@
 title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Find answers to frequently asked questions about Azure Files.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.date: 01/02/2019
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
 ---
