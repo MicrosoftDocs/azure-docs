@@ -194,13 +194,13 @@ For more information, see [Logic Apps pricing](https://azure.microsoft.com/prici
 
 | Artifact | Free | Basic | Standard |
 |----------|------|-------|----------|
-| Assemblies | 10 | 25 | 50 |
-| Batch configurations | 5 | 1 | 50 |
-| Certificates | 25 | 2 | 500 |
 | EDI trading agreements | 10 | 1 | 500 |
 | EDI trading partners | 25 | 2 | 500 |
 | Maps | 25 | 500 | 1,000 |
 | Schemas | 25 | 500 | 1,000 |
+| Assemblies | 10 | 25 | 50 |
+| Certificates | 25 | 2 | 500 |
+| Batch configurations | 5 | 1 | 50 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
