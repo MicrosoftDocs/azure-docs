@@ -14,11 +14,8 @@ Azure Machine Learning is a collaborative, drag-and-drop tool you can use to bui
 
 ## Install Azure Machine Learning on an HDInsight cluster
 
-> [!Note]
-> The Azure ML workspace is currently available in the following regions: eastus, eastus2 and westcentralus. The HDInsight cluster should also be created in one of these regions.
-
 For general tutorials of Azure Machine Learning and automated machine learning, see [Tutorial: Create your first data science experiment in Azure Machine Learning Studio](../../machine-learning/studio/create-experiment.md) and [Tutorial: Use automated machine learning to build your regression model](../../machine-learning/service/tutorial-auto-train-models.md).
-All new HDInsight-Spark clusters come pre-installed with AzureML-AutoML SDK. Along with the SDK the cluster is pre-installed with a sample Jupyter Notebook (into path `HdiNotebooks/PySpark` of the default store). This Jupyter Notebook demonstrates how to use an automated machine learning classifier for a simple classification problem.
+All new HDInsight-Spark clusters come pre-installed with AzureML-AutoML SDK. You can get started with AutoML on HDInsight with this [sample Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi). This Jupyter Notebook demonstrates how to use an automated machine learning classifier for a simple classification problem.
 
 > [!Note]
 > Azure Machine Learning packages are installed into Python3 conda environment. The installed Jupyter notebook should be run using the PySpark3 kernel.
