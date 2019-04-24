@@ -161,7 +161,7 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
     | Key | Value |
     |---|---|
-    | TestAppSettings:BackgroundColor | blue |
+    | TestAppSettings:BackgroundColor | green |
     | TestAppSettings:FontColor | lightGray |
     | TestAppSettings:Message | Data from Azure App Configuration - now with live updates! |
 
