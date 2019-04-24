@@ -25352,8 +25352,8 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-streaming-python.md",
-      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-streaming-python",
-      "redirect_document_id": true
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-use-hive-ambari-view.md",
@@ -36854,6 +36854,16 @@
     {
       "source_path": "articles/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md",
       "redirect_url": "/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/FAQ.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/Glossary.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
       "redirect_document_id": false
     },
     {
