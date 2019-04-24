@@ -12,17 +12,18 @@ ms.author: vikurpad
 ms.custom: seomay2019
 ---
 # Working with projections
-Projections are views of the enriched documents that can be saved to storage, and are part of the [Knowledge Store](knowledge-store-concept-intro.md) preview feature in Azure Search. The knowledge store allows you to "project" your data into a shape that aligns with your needs and preserves the relationships so tools like Power BI can read the data with no additional effort. Projections can be tabular, with data stored in rows and columns or objects, data stored in JSON blobs. 
 
-You can define multiple projections of your data as it is being enriched. This is useful when you want the same data shaped differently for individual use cases. For an example of how to define projections in a skillset, see [define a skillset](cognitive-search-defining-skillset.md).
+Projections are views of enriched documents that can be saved to storage. Projections are part of [Knowledge Store](knowledge-store-concept-intro.md), a preview feature in Azure Search. A projection lets you "project" your data into a shape that aligns with your needs, preserviing relationships so that tools like Power BI can read the data with no additional effort. Projections can be tabular, with data stored in rows and columns in Azure Table storage, or JSON objects stored in Azure Blob storage. 
 
-Azure Search enables you to enrich your content with AI skills before you insert them into the index. These enrichments add structure to your documents and make your search service more effective. In many instances, the enriched documents are useful for scenarios other than search as well. Projections are a feature in the knowledge store that allows you to save your enriched document in the shape that best enables these other applications.
+You can define multiple projections of your data as it is being enriched. This is useful when you want the same data shaped differently for individual use cases. For an example of how to define projections in a skillset, see [How to create a skillset](cognitive-search-defining-skillset.md).
+
+Azure Search enables you to enrich your content with cognitive skills before you insert them into the index. These enrichments add structure to your documents and make your search service more effective. In many instances, the enriched documents are useful for scenarios other than search as well.
 
 The knowledge store supports two types of projections:
 
-+ Tables: For scenarios where you have data that is best represented as rows and columns, table projections allow you to define a schematized shape or projection in table storage.
++ **Tables**: For data that is best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage.
 
-+ Objects: When you need a JSON representation of your data and enrichments, object projections you define are saved as blobs.
++ **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs.
 
 For getting started with projections, see [knowledge store walkthrough](cognitive-search-defining-skillset.md)
 

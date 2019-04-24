@@ -16,7 +16,7 @@ ms.custom: seodec2018
 
 #	Shaper cognitive skill
 
-The **Shaper** skill consolidates several inputs into a complex type that can be referenced later in the enrichment pipeline. The **Shaper** skill allows you to essentially create a structure, define the name of the members of that structure, and assign values to each member. Examples of consolidated fields useful in search scenarios include combining a first and last name into a single structure, city and state into a single structure, or name and birthdate into a single structure to establish unique identity.
+The **Shaper** skill consolidates several inputs into a [complex type](search-howto-complex-data-types.md) that can be referenced later in the enrichment pipeline. The **Shaper** skill allows you to essentially create a structure, define the name of the members of that structure, and assign values to each member. Examples of consolidated fields useful in search scenarios include combining a first and last name into a single structure, city and state into a single structure, or name and birthdate into a single structure to establish unique identity.
 
 > [!NOTE]
 > This feature in the only available starting with the **2019-05-06-Preview** version of the API. If you are using an earlier version of the API, the shaperskill only supports objects that are one level deep. For more complex objects, you can chain several **Shaper** steps.
@@ -31,11 +31,13 @@ In the response, the output name is always "output". Internally, the pipeline ca
 ## @odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
-## Sample 1: complex types
+## Scenario 1: complex types
 
-Consider a scenario where you want to create a structure called *analyzedText* that has two members: *text* and *sentiment*, respectively. In Azure Search, a multi-part searchable field is called a *complex type*, and it's not yet supported out of the box. In this preview, a **Shaper** skill can be used to generate fields of a complex type in your index. 
+Consider a scenario where you want to create a structure called *analyzedText* that has two members: *text* and *sentiment*, respectively. In an Azure Search index, a multi-part searchable field is called a *complex type* and it's often created when source data has a corresponding complex structure that maps to it.
 
-The following example provides the member names as the input. The output structure (your complex field in Azure Search) is specified through *targetName*. 
+However, another approach for creating complex types is through the **Shaper** skill. By including this skill in a skillset, the in-memory operations during skillset processing can output data shapes with nested structures, which can then be mapped to a complex type in your index. 
+
+The following example skill definition provides the member names as the input. 
 
 
 ```json
@@ -61,8 +63,36 @@ The following example provides the member names as the input. The output structu
 }
 ```
 
-###	Sample input
-A JSON document providing usable input for this **Shaper** skill could be:
+###	Sample index
+
+A skillset is invoked by an indexer, and an indexer requires an index. A complex field representation in your index might look like the following example. 
+
+```json
+
+	"name": "my-index",
+	"fields": [
+		{	"name": "myId", "type": "Edm.String", "key": true, "filterable": true 	},
+		{	"name": "analyzedText", "type": "Edm.ComplexType",
+			"fields": [{
+					"name": "text",
+					"type": "Edm.String",
+					"filterable": false,
+					"sortable": false,
+					"facetable": false,
+					"searchable": true 	},
+          {
+					"name": "sentiment",
+					"type": "Edm.Double",
+					"searchable": true,
+					"filterable": true,
+					"sortable": true,
+					"facetable": true
+				},
+```
+
+###	Sample document input
+
+An incoming JSON document providing usable input for this **Shaper** skill could be:
 
 ```json
 {
@@ -79,8 +109,9 @@ A JSON document providing usable input for this **Shaper** skill could be:
 ```
 
 
-###	Sample output
-The **Shaper** skill generates a new element called *analyzedText* with the combined elements of *text* and *sentiment*. 
+###	Sample skill output
+
+The **Shaper** skill generates a new element called *analyzedText* with the combined elements of *text* and *sentiment*. This output conforms to the index schema. It will be imported and indexed in an Azure Search index.
 
 ```json
 {
@@ -100,11 +131,11 @@ The **Shaper** skill generates a new element called *analyzedText* with the comb
 }
 ```
 
-## Sample 2: input consolidation
+## Scenario 2: input consolidation
 
 In another example, imagine that at different stages of pipeline processing, you have extracted the title of a book, and chapter titles on different pages of the book. You could now create a single structure composed of these various inputs.
 
-The Shaper skill definition for this scenario might look like the following example:
+The **Shaper** skill definition for this scenario might look like the following example:
 
 ```json
 {
@@ -130,7 +161,7 @@ The Shaper skill definition for this scenario might look like the following exam
 ```
 
 ###	Sample output
-In this case, the Shaper flattens all chapter titles to create a single array. 
+In this case, the **Shaper** flattens all chapter titles to create a single array. 
 
 ```json
 {
@@ -151,10 +182,15 @@ In this case, the Shaper flattens all chapter titles to create a single array.
     ]
 }
 ```
-## Sample 3: input consolidation from nested contexts
-*Only supported starting with the 2019-05-06-Preview* api version. Imagine you have the title, chapters and contents of a book and have run entity recognition and key phrases on the contents and now need to aggregate results from the different skills into a single shape with the chapter name, entities and key phrases.
+## Scenario 3: input consolidation from nested contexts in a knowledge store
 
-The Shaper skill definition for this scenario might look like the following example:
+> [Important]
+> Nested structures targeting a [knowledge store](knowledge-store-concept-intro.md) is supported in the api-version=2019-05-06-Preview. 
+
+Imagine you have the title, chapters and contents of a book and have run entity recognition and key phrases on the contents and now need to aggregate results from the different skills into a single shape with the chapter name, entities and key phrases.
+
+The **Shaper** skill definition for this scenario might look like the following example:
+
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
@@ -190,7 +226,7 @@ The Shaper skill definition for this scenario might look like the following exam
 ```
 
 ###	Sample output
-In this case, the Shaper creates a complex type. 
+In this case, the **Shaper** creates a complex type. 
 
 ```json
 {
@@ -216,3 +252,6 @@ In this case, the Shaper creates a complex type.
 
 + [Predefined skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
++ [How to use complex types](search-howto-complex-data-types.md)
++ [Knowledge store overview](knowledge-store-concept-intro.md)
++ [How to get started with Knowledge Store](knowledge-store-howto.md)
