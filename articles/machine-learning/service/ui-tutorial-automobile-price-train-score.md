@@ -3,7 +3,7 @@ title: 'Tutorial: Predict automobile price with the visual interface'
 titleSuffix: Azure Machine Learning service
 description: Learn how to train, score, and deploy a machine learning model using a drag and drop visual interface. This tutorial is part one of a two-part series on predicting automobile prices using linear regression.
 
-author: peterlu
+author: peterlu**
 ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
@@ -14,9 +14,7 @@ ms.date: 04/06/2019
 
 # Tutorial: Predict automobile price with the visual interface
 
-In this tutorial, you take an extended look at developing a predictive analytics solution in the Azure Machine Learning service visual interface. You'll learn how to create a machine learning model, deploy it as an Azure web service, and consume your web service to make predictions on new data.
-
-By the end of this tutorial, you'll have a solution that can predict the price of any car based on technical specifications you send it.
+In this tutorial, you take an extended look at developing a predictive solution in the Azure Machine Learning service visual interface. By the end of this tutorial, you'll have a solution that can predict the price of any car based on technical specifications you send it.
 
 This tutorial [continues from the quickstart](ui-quickstart-run-experiment.md) and is **part one of a two-part tutorial series**. However, you don't have to complete the quickstart before starting.
 
@@ -49,9 +47,9 @@ If you have an Azure Machine Learning service workspace, skip to the [next secti
 
     The interface webpage opens in a new browser page.  
 
-## Import and clean the data
+## Import and clean your data
 
-The first thing you need is data, but raw data is typically too messy to train a model directly. You'll have to do some basic data cleaning to prepare your data. If you completed the quickstart, you can reuse your data prep experiment here.
+The first thing you need is clean data. If you completed the quickstart, you can reuse your data prep experiment here.
 
 ### Reuse the quickstart experiment
 
@@ -101,9 +99,9 @@ If you didn't complete the quickstart, follow these steps to quickly create a ne
 
      Now the properties pane for **Select Columns in Dataset** indicates that it will pass through all columns from the dataset except **normalized-losses**.
 
-    ![Screenshot showing correct configuration of the Select Columns module](./media/ui-tutorial-automobile-price-train-score/select-columns.png)
-
 1. Add a comment to the **Select Columns in Dataset** module by double-clicking the module and entering "Exclude normalized losses.". This can help you see, at a glance, what the module is doing in your experiment.
+
+    ![Screenshot showing correct configuration of the Select Columns module](./media/ui-tutorial-automobile-price-train-score/select-columns.png)
 
 1. Type **Clean** in the Search box to find the **Clean Missing Data** module.
 
@@ -144,7 +142,7 @@ Use your data for both training the model and testing it by splitting the data i
     Now the experiment should look like.
      ![Screenshot showing the correct configuration of the experiment after adding the Train Model module.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
-1. Click **Run** to train the model.
+### Run the training experiment
 
 [!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
@@ -204,12 +202,14 @@ The experiments you create in the visual interface can be managed from the Azure
 
 ## Next steps
 
-In this tutorial, you completed these steps:
+In part one of this tutorial, you completed these steps:
 
 * Reuse the experiment created in the Quickstart
 * Prepare the data
 * Train the model
 * Score and evaluate the model
 
+In part two, you'll learn how to deploy your model as an Azure web service.
+
 > [!div class="nextstepaction"]
-> [Deploy your model in part 2](ui-tutorial-automobile-price-deploy.md)
+> [Continue to deploying models](ui-tutorial-automobile-price-deploy.md)
