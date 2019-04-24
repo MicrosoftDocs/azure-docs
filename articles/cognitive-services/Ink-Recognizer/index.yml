@@ -42,13 +42,13 @@ sections:
     style: dataMatrix
     columns:
     - image:
-        src: media/index/logo_csharp.svg
+        src: media/index/logo-csharp.svg
       title: C#
     - image:
-        src: media/index/logo_java.svg
+        src: media/index/logo-java.svg
       title: Java
     - image:
-        src: media/index/logo_js.svg
+        src: media/index/logo-js.svg
       title: Javascript
     rows:
     - title: Recognize digital ink strokes

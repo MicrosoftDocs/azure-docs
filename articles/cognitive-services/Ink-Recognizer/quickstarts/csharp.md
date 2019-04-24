@@ -72,59 +72,59 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 2. Set the client's security protocol and header information using an `HttpClient` object. Be sure to add your subscription key to the `Ocp-Apim-Subscription-Key` header. Then create a `StringContent` object for the request.
  
 3. Send the request with `PostAsync()`. If the request is successful, return the response.  
-
-```csharp
-static async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData){
-    using (HttpClient client = new HttpClient { BaseAddress = new Uri(baseAddress) }){
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-
-        var content = new StringContent(requestData, Encoding.UTF8, "application/json");
-        var res = await client.PostAsync(endpoint, content);
-        if (res.IsSuccessStatusCode){
-            return await res.Content.ReadAsStringAsync();
-        }
-        else{
-            return $"ErrorCode: {res.StatusCode}";
+    
+    ```csharp
+    static async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData){
+        using (HttpClient client = new HttpClient { BaseAddress = new Uri(baseAddress) }){
+            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+    
+            var content = new StringContent(requestData, Encoding.UTF8, "application/json");
+            var res = await client.PostAsync(endpoint, content);
+            if (res.IsSuccessStatusCode){
+                return await res.Content.ReadAsStringAsync();
+            }
+            else{
+                return $"ErrorCode: {res.StatusCode}";
+            }
         }
     }
-}
-```
+    ```
 
 ## Send an ink recognition request
 
 1. Create a new function called `recognizeInk()`. Construct the request and send it by calling the `Request()` function with your endpoint, subscription key, the URL for the API, and the digital ink stroke data.
 
 2. Deserialize the JSON object, and write it to the console. 
-
-```csharp
-static void recognizeInk(string requestData){
-    System.Console.WriteLine("Sending an ink recognition request");
-    var result = Request(
-        endpoint,
-        inkRecognitionUrl,
-        subscriptionKey,
-        requestData).Result;
-    dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-    System.Console.WriteLine(jsonObj);
-}
-```
+    
+    ```csharp
+    static void recognizeInk(string requestData){
+        System.Console.WriteLine("Sending an ink recognition request");
+        var result = Request(
+            endpoint,
+            inkRecognitionUrl,
+            subscriptionKey,
+            requestData).Result;
+        dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+        System.Console.WriteLine(jsonObj);
+    }
+    ```
 
 ## Load your digital ink data and send the request
 
 1. In the main method of your application, load your JSON data with `File.ReadAllText()`. 
 
 2. Call the ink recognition function created above. Use `System.Console.ReadKey()` to keep the console window open after running the application.
-
-```csharp
-static void Main(string[] args){
-
-    recognizeInk(requestData);
-    System.Console.WriteLine("\nPress any key to exit ");
-    System.Console.ReadKey();
-}
-```
+    
+    ```csharp
+    static void Main(string[] args){
+    
+        recognizeInk(requestData);
+        System.Console.WriteLine("\nPress any key to exit ");
+        System.Console.ReadKey();
+    }
+    ```
 
 ## Run the application and view the response
 

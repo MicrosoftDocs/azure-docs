@@ -86,34 +86,34 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 5. Use the client's `execute()` function to send the request, and save it to a `CloseableHttpResponse` object. 
 
 6. Create an `HttpEntity` object to store the response content. Get the content with `getEntity()`. If the response isn't empty, return it.
-
-```java
-static String sendRequest(String apiAddress, String endpoint, String subscriptionKey, String requestData) {
-    try (CloseableHttpClient client = HttpClients.createDefault()) {
-        HttpPost request = new HttpPost(endpoint + apiAddress);
-        // Request headers.
-        request.setHeader("Content-Type", "application/json");
-        request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-        request.setEntity(new StringEntity(requestData));
-        try (CloseableHttpResponse response = client.execute(request)) {
-            HttpEntity respEntity = response.getEntity();
-            if (respEntity != null) {
-                return EntityUtils.toString(respEntity, "utf-8");
+    
+    ```java
+    static String sendRequest(String apiAddress, String endpoint, String subscriptionKey, String requestData) {
+        try (CloseableHttpClient client = HttpClients.createDefault()) {
+            HttpPost request = new HttpPost(endpoint + apiAddress);
+            // Request headers.
+            request.setHeader("Content-Type", "application/json");
+            request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.setEntity(new StringEntity(requestData));
+            try (CloseableHttpResponse response = client.execute(request)) {
+                HttpEntity respEntity = response.getEntity();
+                if (respEntity != null) {
+                    return EntityUtils.toString(respEntity, "utf-8");
+                }
+            } catch (Exception respEx) {
+                respEx.printStackTrace();
             }
-        } catch (Exception respEx) {
-            respEx.printStackTrace();
+        } catch (IOException ex) {
+            System.err.println("Exception recognizing ink: " + ex.getMessage());
+            ex.printStackTrace();
         }
-    } catch (IOException ex) {
-        System.err.println("Exception recognizing ink: " + ex.getMessage());
-        ex.printStackTrace();
+        return null;
     }
-    return null;
-}
-```
+    ```
 
 ## Send an ink recognition request
 
-1. Create a method called `recognizeInk()` to recognize your ink stroke data. Call the `sendRequest()` method created above with your endpoint, url, subscription key, and json data. Get the result, and print it to the console.
+Create a method called `recognizeInk()` to recognize your ink stroke data. Call the `sendRequest()` method created above with your endpoint, url, subscription key, and json data. Get the result, and print it to the console.
 
 ```java
 static void recognizeInk(String requestData) {

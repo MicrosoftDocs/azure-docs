@@ -16,6 +16,8 @@ ms.author: aahi
 
 This article explains which languages are supported for the Ink Recognizer API. Digital ink content written in the following languages can be interpreted and processed by the API.
 
+## Supported languages
+
 | Language                                   | Language code   |
 |:-------------------------------------------|:---------------:|
 | Afrikaans                                  |    `af-ZA`      |
