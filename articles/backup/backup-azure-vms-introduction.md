@@ -26,10 +26,14 @@ Here's how Azure Backup completes a backup for Azure VMs:
     - By default, Backup takes full VSS backups.
     - If Backup can't take an app-consistent snapshot, then it takes a file-consistent snapshot of the underlying storage (because no application writes occur while the VM is stopped).
 1. For Linux VMs, Backup takes a file-consistent backup. For app-consistent snapshots, you need to manually customize pre/post scripts.
-1. After Backup takes the snapshot, it transfers the data to the vault. 
+1. After Backup takes the snapshot, it transfers the data to the vault.
     - The backup is optimized by backing up each VM disk in parallel.
     - For each disk that's being backed up, Azure Backup reads the blocks on the disk and identifies and transfers only the data blocks that changed (the delta) since the previous backup.
     - Snapshot data might not be immediately copied to the vault. It might take some hours at peak times. Total backup time for a VM will be less than 24 hours for daily backup policies.
+ 1. Changes made to a Windows VM after Azure Backup is enabled on it are:
+    -	Microsoft Visual C++ 2013 Redistributable(x64) - 12.0.40660 is installed in the VM
+    -	Startup type of Volume Shadow Copy service changed to Automatic from Manual
+    -	IaaSVmProvider windows service is added
 
 1. When the data transfer is complete, the snapshot is removed, and a recovery point is created.
 
@@ -52,7 +56,7 @@ BEKs are also backed up. So, if the BEKs are lost, authorized users can restore 
 
 ## Snapshot creation
 
-Azure Backup takes snapshots according to the backup schedule. 
+Azure Backup takes snapshots according to the backup schedule.
 
 - **Windows VMs:** For Windows VMs, the Backup service coordinates with VSS to take an app-consistent snapshot of the VM disks.
 
@@ -77,7 +81,7 @@ The following table explains the different types of snapshot consistency:
 **File-system consistent** | File-system consistent backups provide consistency by taking a snapshot of all files at the same time.<br/><br/> | When you're recovering a VM with a file-system consistent snapshot, the VM boots up. There's no data corruption or loss. Apps need to implement their own "fix-up" mechanism to make sure that restored data is consistent. | Windows: Some VSS writers failed <br/><br/> Linux: Default (if pre/post scripts aren't configured or failed)
 **Crash-consistent** | Crash-consistent snapshots typically occur if an Azure VM shuts down at the time of backup. Only the data that already exists on the disk at the time of backup is captured and backed up.<br/><br/> A crash-consistent recovery point doesn't guarantee data consistency for the operating system or the app. | Although there are no guarantees, the VM usually boots, and then it starts a disk check to fix corruption errors. Any in-memory data or write operations that weren't transferred to disk before the crash are lost. Apps implement their own data verification. For example, a database app can use its transaction log for verification. If the transaction log has entries that aren't in the database, the database software rolls transactions back until the data is consistent. | VM is in shutdown state
 
-## Backup and restore considerations 
+## Backup and restore considerations
 
 **Consideration** | **Details**
 --- | ---
@@ -94,8 +98,8 @@ The following table explains the different types of snapshot consistency:
 These common scenarios can affect the total backup time:
 
 - **Adding a new disk to a protected Azure VM:** If a VM is undergoing incremental backup and a new disk is added, the backup time will increase. The total backup time might last more than 24 hours because of initial replication of the new disk, along with delta replication of existing disks.
-- **Fragmented disks:** Backup operations are faster when disk changes are contiguous. If changes are spread out and fragmented across a disk, backup will be slower. 
-- **Disk churn:** If protected disks that are undergoing incremental backup have a daily churn of more than 200 GB, backup can take a long time (more than eight hours) to complete. 
+- **Fragmented disks:** Backup operations are faster when disk changes are contiguous. If changes are spread out and fragmented across a disk, backup will be slower.
+- **Disk churn:** If protected disks that are undergoing incremental backup have a daily churn of more than 200 GB, backup can take a long time (more than eight hours) to complete.
 - **Backup versions:** The latest version of Backup (known as the Instant Restore version) uses a more optimized process than checksum comparison for identifying changes. But if you're using Instant Restore and have deleted a backup snapshot, the backup switches to checksum comparison. In this case, the backup operation will exceed 24 hours (or fail).
 
 ## Best practices
