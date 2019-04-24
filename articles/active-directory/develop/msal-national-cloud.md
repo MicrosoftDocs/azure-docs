@@ -93,7 +93,7 @@ Follow steps in [Javascript tutorial](https://docs.microsoft.com/azure/active-di
 
 1. In the `index.html` file created during project setup, add the application registration information. Add the following code at the top within the `<script></script>` tags in the body of your `index.html` file:
 
-    ```javascript
+    ```javascripts
     const msalConfig = {
         auth:{
             clientId: "Enter_the_Application_Id_here",
