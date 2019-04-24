@@ -2,17 +2,17 @@
 title: Application Insights for Kubernetes | Microsoft Docs
 description: Application Insight for Kubernetes is a monitoring solution that allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your Kubernetes cluster. 
 services: application-insights
-author: lgayhardt
+author: tokaplan
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 04/23/2019
-ms.author: lagayhar
+ms.date: 04/24/2019
+ms.author: alkaplan
 ---
 
 # Application Insights for Kubernetes
 
-Application Insight for Kubernetes is a monitoring solution that allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your Kubernetes cluster without the need for instrumenting the application with an SDK. We utilize service mesh technology called Istio to collect data, so the only requirement is that your Kubernetes deployment is [configured to run with Istio](#deploy-istio).
+Application Insight for Kubernetes is a monitoring solution that allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your Kubernetes cluster without the need for instrumenting the application with an SDK. We utilize service mesh technology to collect data, so the only requirement is that your Kubernetes deployment is configured to run with Istio.
 
 Since service mesh lifts data off the wire, we cannot intercept encrypted traffic. For traffic that doesn't leave the cluster, use plain unencrypted protocol (for example, HTTP). For external traffic that must be encrypted, consider setting up SSL termination at the ingress controller.
 
@@ -23,26 +23,22 @@ Applications running outside of the service mesh are not affected.
 - A [Kubernetes cluster](https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads).
 - Console access to the cluster to run *kubectl*.
 - An [Application Insight resource](create-new-resource.md)
+- Have a service mesh. If your cluster doesn't have Istio deployed, you can learn how to [install and use Istio in Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/istio-install).
 
 
 ## Installation steps
 
 To enable the solution, we'll be performing the following steps:
-- Deploy the service mesh (if not already deployed)
 - Deploy the application (if not already deployed)
 - Ensure the application is part of the service mesh
 - Observe collected telemetry
 
-### Deploy Istio
-
-We are currently using [Istio](https://istio.io/docs/concepts/what-is-istio/) as the service mesh technology. If your cluster doesn't have Istio deployed, you can learn how to [install and use Istio in Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/istio-install) or follow installation instructions on [Istio's official documentation](https://istio.io/docs/setup/kubernetes/).
-
-### Configure your app to work with Istio
+### Configure your app to work with a service mesh
 
 Istio supports two ways of [instrumenting a pod](https://istio.io/docs/setup/kubernetes/additional-setup/sidecar-injection/).
 In most cases, it's easiest to mark the Kubernetes namespace containing your application with the *istio-injection* label:
 
-```
+```console
 kubectl label namespace <my-app-namespace> istio-injection=enabled
 ```
 
@@ -62,14 +58,15 @@ rolling update or delete individual pods and wait for them to be recreated.
     - If necessary, edit the value of *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* environment variable to contain a comma-separated list of namespaces for which you would like to enable monitoring. Leave it blank to monitor all namespaces.
 4. Apply *every* YAML file found under *src/kubernetes/* by running the following (you must still be inside */src/kubernetes/*):
 
-   ```
+   ```console
    kubectl apply -f .
    ```
 
 ### Verify Application Insights for Kubernetes deployment
 
 - Ensure Application Insights for Kubernetes adapter has been deployed:
-  ```
+
+  ```console
   kubectl get pods -n istio-system -l "app=application-insights-istio-mixer-adapter"
   ```
 > [!NOTE]
@@ -89,14 +86,14 @@ Below is the troubleshooting flow to use when telemetry doesn't appear in Azure 
 3. Ensure the correct Kubernetes namespace is provided in *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* environment variable in *application-insights-istio-mixer-adapter-deployment.yaml*. Leave it blank to monitor all namespaces.
 4. Ensure your application's pods have been sidecar-injected by Istio. Verify that Istio's sidecar exists on each pod.
 
-   ```
+   ```console
    kubectl describe pod -n <my-app-namespace> <my-app-pod-name>
    ```
    Verify that there is a container named *istio-proxy* running on the pod.
 
 5. View *Application Insights for Kubernetes* adapter's traces.
 
-   ```
+   ```console
    kubectl get pods -n istio-system -l "app=application-insights-istio-mixer-adapter"
    kubectl logs -n istio-system application-insights-istio-mixer-adapter-<fill in from previous command output>
    ```
@@ -105,12 +102,11 @@ Below is the troubleshooting flow to use when telemetry doesn't appear in Azure 
    Look for any errors in the log.
 6. If it has been established that *Application Insight for Kubernetes* adapter is not being fed telemetry, check Istio's Mixer logs to figure out why it's not sending data to the adapter:
 
-   ```
+   ```console
    kubectl get pods -n istio-system -l "istio=mixer,app=telemetry"
    kubectl logs -n istio-system istio-telemetry-<fill in from previous command output> -c mixer
    ```
    Look for any errors, especially pertaining to communications with *applicationinsightsadapter* adapter.
-1. To learn more about how Istio functions, see [Istio's official documentation](https://istio.io/docs/concepts/what-is-istio/).
 
 ## FAQ
 
@@ -120,11 +116,10 @@ For the latest info for the progress on this project, visit the [Application Ins
 
 To uninstall the product, for *every* YAML file found under *src/kubernetes/* run:
 
-```
+```console
 kubectl delete -f <filename.yaml>
 ```
 
-To uninstall Istio, follow instructions [on Istio's documentation](https://istio.io/docs/setup/kubernetes/install/helm/#uninstall).
 
 ## Next steps
 
