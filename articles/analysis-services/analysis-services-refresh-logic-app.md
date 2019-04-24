@@ -76,7 +76,7 @@ Configure the HTTP activity as follows:
 |Property  |Value  |
 |---------|---------|
 |**Method**     |POST         |
-|**URI**     | https://<your server region>/servers/<aas server name> /models/<your database name>/ <br /> <br /> For example:  https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
+|**URI**     | https://*your server region*/servers/*aas server name*/models/*your database name*/ <br /> <br /> For example:  https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
 |**Headers**     |   Content-Type, application/json <br /> <br />  ![Headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Body**     |   See the following article for more information on forming the body:  https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-async-refresh#post-refreshes |
 |**Authentication**     |Active Directory OAuth         |
@@ -86,9 +86,11 @@ Configure the HTTP activity as follows:
 |**Credential Type**     |Secret         |
 |**Secret**     |Enter your Service Principal Name Secret         |
 
+Example:
+
 ![Completed HTTP activity](./media/analysis-services-async-refresh-logic-app/7.png)
 
-Now test the Logic App.
+Now test the Logic App.  In the Logic App designer, click **Run**.
 
 ![Test the Logic App](./media/analysis-services-async-refresh-logic-app/8.png)
 
@@ -122,5 +124,5 @@ Save the Logic App.
 
 ## See also
 
-[Samples](analysis-services-samples.md)
+[Samples](analysis-services-samples.md)  
 [REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)
