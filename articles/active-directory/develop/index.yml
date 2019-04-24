@@ -38,16 +38,16 @@ sections:
         image:
           src: ./media/index/i_get-started.svg
         title: About Microsoft identity platform
+      - href: /azure/active-directory/develop/v2-overview
+        html: <p>Build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs, such as Microsoft Graph, or APIs that developers have built.</p>
+        image: 
+          src: ./media/index/i_investigate.svg
+        title: v2.0
       - href: /azure/active-directory/develop/azure-ad-developers-guide/
         html: <p>Authenticate Azure AD identities (work and school accounts) by requesting tokens from the Azure AD v1.0 endpoint, using Azure AD Authentication Library (ADAL), Azure portal, and Azure AD Graph API.</p>
         image:
           src: ./media/index/i_advanced.svg
         title: v1.0
-      - href: /azure/active-directory/develop/v2-overview
-        html: <p>Authenticate a broader set of Microsoft identities through what has been known as the Azure AD v2.0 endpoint, using Microsoft Authentication Library (MSAL), Azure portal, and Microsoft Graph API.</p>
-        image: 
-          src: ./media/index/i_investigate.svg
-        title: v2.0
   
   - title: Application scenarios
     items:
