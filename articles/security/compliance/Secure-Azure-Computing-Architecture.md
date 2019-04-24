@@ -4,12 +4,12 @@
 # Mandatory fields.
 title: Secure Azure Computing Architecture
 description: This is a reference architecture for an enterprise-level DMZ architecture, utilizing Network Virtual Appliances and other tools. This architecture was designed to meet the Department of Defense's Secure Cloud Computing Architecture Functional Requirements. However, it can be leveraged for any organization. This reference includes two automated options using Citrix or F5 appliances.
-author: Jason Henderson
-ms.author: jahender # Microsoft employees only
+author: jahender
+ms.author: jahender 
 ms.date: 4/9/2019
-ms.topic: article-type-from-white-list
+ms.topic: article
 # Use ms.service for services or ms.prod for on-prem products. Remove the # before the relevant field.
-# ms.service: service-name-from-white-list
+ms.service: security
 # ms.prod: product-name-from-white-list
 
 # Optional fields. Don't forget to remove # if you need a field.
