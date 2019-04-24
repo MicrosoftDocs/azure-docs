@@ -14,7 +14,7 @@ ROBOTS: NOINDEX
 ---
 # Export Data
 
-*Writes a dataset to Azure bolb storage*
+*Writes a dataset to Azure blob storage*
 
 Category: Data Input and Output
 
