@@ -16,7 +16,7 @@ ms.date: 05/02/19
 
 # Explore and prepare data with the Dataset class (Preview)
 
-The Azure Machine Learning SDK, offers data exploration and preparation functionality with the new Datasets class. This functionality includes sampling,summary statistics generation, and intelligent transformation methods powered by AI. Transformation steps are saved in Dataset definitions, with the capability to handle multiple large files of different schemas in a highly scalable manner.
+The Azure Machine Learning SDK, offers data exploration and preparation functionality with the new Datasets class. This functionality includes sampling,summary statistics generation, and intelligent transformation methods powered by AI. Transformation steps are saved in Dataset definitions with the capability to handle multiple large files of different schemas in a highly scalable manner.
 
 Some Dataset classes (preview) have dependencies on the Data Prep SDK (GA). While transformation functions can be done directly with the GA'ed [Data Prep SDK functions](how-to-transform-data.md), we recommend the Dataset package wrappers described in this article if you are building a new solution. Azure Machine Learning Datasets (preview) allow you to not only transform your data, but also [snapshot data](how-to-create-dataset-snapshots.md) and store [versioned dataset definitions](how-to-manage-dataset-definitions.md). Datasets is the next version of the data prep SDK, offering expanded functionality for managing datasets in AI solutions.
 
