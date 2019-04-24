@@ -203,7 +203,6 @@
           href: msal-acquiring-and-caching-tokens.md
         - name: Scopes for v1 apps
           href: msal-scopes-for-v1-apps.md
-        - name: Handling errors and exceptions
         - name: Client applications
           href: msal-client-applications.md
         - name: Initializing applications
