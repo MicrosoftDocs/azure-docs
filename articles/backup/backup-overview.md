@@ -1,7 +1,6 @@
 ---
 title: What is Azure Backup?
-description: Provides an overview of the Azure Backup service, and how to deploy it as part of your business continuity and disaster recovery (BCDR) strategy.
-services: backup
+description: Provides an overview of the Azure Backup service, and how it contributes to your business continuity and disaster recovery (BCDR) strategy.
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
@@ -89,18 +88,18 @@ Learn more about [how backup works](backup-architecture.md#architecture-back-up-
 **Scenario** | **Agent**
 --- | ---
 **Back up Azure VMs** | No agent needed. Azure VM extension for backup is installed on the Azure VM when you run the first Azure VM backup.<br/><br/> Support for Windows and Linux support.
-**Back up of on-premises Windows machines** | Download, install and run the MARS agent directly on the machine.
-**Backup Azure VMs with the MARS agent** | Download, install, and run the MARS agent directly on the machine. The MARS agent can run alongside the backup extension.
+**Back up of on-premises Windows machines** | Download, install, and run the MARS agent directly on the machine.
+**Back up Azure VMs with the MARS agent** | Download, install, and run the MARS agent directly on the machine. The MARS agent can run alongside the backup extension.
 **Back up on-premises machines and Azure VMs to DPM/MABS** | The DPM or MABS protection agent runs on the machines you want to protect. The MARS agent runs on the DPM server/MABS to back up to Azure.
 
 ## Which backup agent should I use?
 
 **Backup** | **Solution** | **Limitation**
 --- | --- | ---
-**I want to back up an entire Azure VM** | Enable backup for the VM. The backup extension will automatically be configured on the Windows or Linux Azure VM. | Entire VM is backed up <br/><br/> For Windows VMs the backup is app-consistent. for Linux the backup is file-consistent. If you need app-aware for Linux VMs you have to configure this with custom scripts.
+**I want to back up an entire Azure VM** | Enable backup for the VM. The backup extension will automatically be configured on the Windows or Linux Azure VM. | Entire VM is backed up <br/><br/> For Windows VMs the backup is app-consistent. for Linux the backup is file-consistent. If you need app-aware for Linux VMs, you have to configure this with custom scripts.
 **I want to back up specific files/folders on Azure VM** | Deploy the MARS agent on the VM.
 **I want to directly back on-premises Windows machines** | Install the MARS agent on the machine. | You can back up files, folders, and system state to Azure. Backups aren't app-aware.
-**I want to directly back up on-premises Linux machines** | You need to deploy DPM or MABS to back up to Azure. | Backup of Linux host is not supported, you can only backup Linux guest machine hosted on Hyper-V or VMWare.
+**I want to directly back up on-premises Linux machines** | You need to deploy DPM or MABS to back up to Azure. | Backup of Linux host is not supported, you can only back up Linux guest machine hosted on Hyper-V or VMWare.
 **I want to back up apps running on on-premises** | For app-aware backups machines must be protected by DPM or MABS.
 **I want granular and flexible backup and recovery settings for Azure VMs** | Protect Azure VMs with MABS/DPM running in Azure for additional flexibility in backup scheduling, and full flexibility for protecting and restoring files, folder, volumes, apps, and system state.
 
@@ -109,7 +108,7 @@ Learn more about [how backup works](backup-architecture.md#architecture-back-up-
 **Encryption** | **Back up on-premises** | **Back up Azure VMs** | **Back up SQL on Azure VMs**
 --- | --- | --- | ---
 Encryption at rest<br/> (Encryption of data where it's persisted/stored) | Customer-specified passphrase is used to encrypt data | Azure [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) is used to encrypt data stored in the vault.<br/><br/> Backup automatically encrypts data before storing it. Azure Storage decrypts data before retrieving it. Use of customer-managed keys for SSE is not currently supported.<br/><br/> You can back up VMs that use [Azure disk encryption (ADE)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) to encrypt OS and data disks. Azure Backup supports VMs encrypted with BEK-only, and with both BEK and [KEK](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/). Review the [limitations](backup-azure-vms-encryption.md#encryption-support). | Azure Backup supports backup of SQL Server databases or server with [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) enabled. Backup supports TDE with keys managed by Azure, or with customer-managed keys (BYOK).<br/><br/> Backup doesn't perform any SQL encryption as part of the backup process.
-Encryption in transit<br/> (Encryption of data moving from one location to another) | Data is encrypted usng AES256 and sent to the vault in Azure over HTTPS | Within Azure, data between Azure storage and the vault is protected by HTTPS. This data remains on the Azure backbone network.<br/><br/> For file recovery, iSCSI secures the data transmitted between the vault and the Azure VM. Secure tunneling protects the iSCSI channel. | Within Azure, data between Azure storage and the vault is protected by HTTPS.<br/><br/> File recovery not relevant for SQL.
+Encryption in transit<br/> (Encryption of data moving from one location to another) | Data is encrypted using AES256 and sent to the vault in Azure over HTTPS | Within Azure, data between Azure storage and the vault is protected by HTTPS. This data remains on the Azure backbone network.<br/><br/> For file recovery, iSCSI secures the data transmitted between the vault and the Azure VM. Secure tunneling protects the iSCSI channel. | Within Azure, data between Azure storage and the vault is protected by HTTPS.<br/><br/> File recovery not relevant for SQL.
 
 ## Next steps
 
