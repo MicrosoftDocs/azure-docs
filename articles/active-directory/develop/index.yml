@@ -52,7 +52,7 @@ sections:
   - title: Application scenarios
     items:
     - type: paragraph
-      text: Learn how to collect and analyze metrics and logs collected from Azure resources.
+      text: Working with identity doesn’t have to be hard. Choose a scenario that applies to you — each scenario path has an overview, app registration and app code configuration guidance, code examples for acquiring a token and calling an API, and recommendations for moving your app to production.
     - type: list
       style: unordered
       items: 
