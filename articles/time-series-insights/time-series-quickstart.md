@@ -33,13 +33,13 @@ The Time Series Insights explorer is a guided tour of features presently in gene
 
 1. The Time Series Insights quick tour page is displayed. Click **Next** to begin the quick tour.
 
-   [![Click Next](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png)
+   [![Click Next](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
 
 ## Explore the demo environment
 
 1. The **Time selection panel** is displayed. Use this panel to select a time frame to visualize.
 
-   [![Time selection panel](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png)
+   [![Time selection panel](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
 
 1. Click and drag in the region, then click the **Search** button.
 
