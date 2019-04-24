@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 5/6/2019
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
 ---
@@ -20,7 +20,9 @@ ms.custom: seodec18
 **New features**
 
 * Keyword spotting functionality (KWS) is available for Windows and Linux. KWS functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK.
-* Phrase hint functionality is available though the SDK. See [this article for more details](how-to-phrase-lists.md).
+* Phrase hint functionality is available through the SDK. See [this article for more details](how-to-phrase-lists.md).
+* Conversation transcription functionality is available through the SDK. See [here](conversation-transcription-service.md).
+* Add support for voice-first virtual assistants using the Direct Line Speech channel.
 
 **Samples**
 
@@ -31,7 +33,7 @@ ms.custom: seodec18
 * Added various recognizer properties to adjust service behaviour or service results (like masking profanity and others).
 * You can now configure the recognizer through the standard configuration properties, even if you created the recognizer `FromEndpoint`.
 * Objective-C: `OutputFormat` property was added to SPXSpeechConfiguration.
-* The SDK now supports MP3 and Opus/Ogg audio files as stream input files on Android.
+* The SDK now supports Debian 9 as a Linux distribution.
 
 **Bug fixes**
 

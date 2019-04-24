@@ -73,7 +73,7 @@
         displayName: 'recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform'
       - name: 'C++ (Windows)'
         href: quickstart-translate-speech-cpp-windows.md
-      - name: 'Java (Windows, Linux)'
+      - name: 'Java (Windows, macOS, Linux)'
         href: quickstart-translate-speech-java-jre.md
     - name: Text-to-speech
       items:
