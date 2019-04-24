@@ -296,7 +296,7 @@
         - name: IIS Configurator
           href: app/iis-configurator-toc.md
           items:
-          - name: Quick Start Instructions
+          - name: Quickstart Instructions
             href: app/iis-configurator-quick-start.md
           - name: Detailed Instructions
             href: app/iis-configurator-detailed-instructions.md
