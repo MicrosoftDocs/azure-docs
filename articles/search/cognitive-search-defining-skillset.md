@@ -14,7 +14,7 @@ ms.custom: seodec2018
 
 # How to create a skillset in an enrichment pipeline
 
-Cognitive search extracts and enriches data to make it searchable in Azure Search. We call extraction and enrichment steps *cognitive skills*, combined into a *skillset* referenced during indexing. A skillset can use [predefined skills](cognitive-search-predefined-skills.md) or custom skills (see [Example: create a custom skill](cognitive-search-create-custom-skill-example.md) for more information).
+Cognitive search extracts and enriches data to make it searchable in Azure Search. We call extraction and enrichment steps *cognitive skills*, combined into a *skillset* referenced during indexing. A skillset can use [built-in skills](cognitive-search-predefined-skills.md) or custom skills (see [Example: create a custom skill](cognitive-search-create-custom-skill-example.md) for more information).
 
 In this article, you learn how to create an enrichment pipeline for the skills you want to use. A skillset is attached to an Azure Search [indexer](search-indexer-overview.md). One part of pipeline design, covered in this article, is constructing the skillset itself. 
 
@@ -133,11 +133,11 @@ While creating a skillset, you can provide a description to make the skillset se
 }
 ```
 
-The next piece in the skillset is an array of skills. You can think of each skill as a primitive of enrichment. Each skill performs a small task in this enrichment pipeline. Each one takes an input (or a set of inputs), and returns some outputs. The next few sections focus on how to specify predefined and custom skills, chaining skills together through input and output references. Inputs can come from source data or from another skill. Outputs can be mapped to a field in a search index or used as an input to a downstream skill.
+The next piece in the skillset is an array of skills. You can think of each skill as a primitive of enrichment. Each skill performs a small task in this enrichment pipeline. Each one takes an input (or a set of inputs), and returns some outputs. The next few sections focus on how to specify built-in and custom skills, chaining skills together through input and output references. Inputs can come from source data or from another skill. Outputs can be mapped to a field in a search index or used as an input to a downstream skill.
 
-## Add predefined skills
+## Add built-in skills
 
-Let's look at the first skill, which is the predefined [entity recognition skill](cognitive-search-skill-entity-recognition.md):
+Let's look at the first skill, which is the built-in [entity recognition skill](cognitive-search-skill-entity-recognition.md):
 
 ```json
     {
@@ -160,7 +160,7 @@ Let's look at the first skill, which is the predefined [entity recognition skill
     }
 ```
 
-* Every predefined skill has `odata.type`, `input`, and `output` properties. Skill-specific properties provide additional information applicable to that skill. For entity recognition, `categories` is one entity among a fixed set of entity types that the pretrained model can recognize.
+* Every built-in skill has `odata.type`, `input`, and `output` properties. Skill-specific properties provide additional information applicable to that skill. For entity recognition, `categories` is one entity among a fixed set of entity types that the pretrained model can recognize.
 
 * Each skill should have a ```"context"```. The context represents the level at which operations take place. In the skill above, the context is the whole document, meaning that the named entity recognition skill is called once per document. Outputs are also produced at that level. More specifically, ```"organizations"``` are generated as a member of ```"/document"```. In downstream skills, you can refer to this newly created information as ```"/document/organizations"```.  If the ```"context"``` field is not explicitly set, the default context is the document.
 
@@ -230,7 +230,7 @@ Notice that the "context" field is set to ```"/document/organizations/*"``` with
 
 Output, in this case a company description, is generated for each organization identified. When referring to the description in a downstream step (for example, in key phrase extraction), you would use the path ```"/document/organizations/*/description"``` to do so. 
 
-## Enrichments create structure out of unstructured information
+## Add structure
 
 The skillset generates structured information out of unstructured data. Consider the following example:
 
@@ -240,34 +240,38 @@ A likely outcome would be a generated structure similar to the following illustr
 
 ![Sample output structure](media/cognitive-search-defining-skillset/enriched-doc.png "Sample output structure")
 
-Until now, this structure has been internal only. Now, with the knowledge store you can save the shaped enrichment for use outside of search.
+Until now, this structure has been internal-only, memory-only, and used only in Azure Search indexes. The addition of a knowledge store gives you a way to save shaped enrichments for use outside of search.
 
-## Knowledge Store
-The knowledge store is a preview feature in Azure Search for saving your enriched document. The knowledge store, backed by a storage account, is the repository where your enriched data lands. To learn more about the knowledge store see [how to get started with knowledge store](knowledge-store-howto.md).
+## Add a knowledge store
 
-To get started with the knowledge store, add the knowledge store definition to the skillset.
+[Knowledge Store](knowledge-store-concept-intro.md) is a preview feature in Azure Search for saving your enriched document. A knowledge store that you create, backed by an Azure storage account, is the repository where your enriched data lands. 
+
+A knowledge store definition is added to a skillset. For a  walkthrough of the entire process, see [How to get started with knowledge store](knowledge-store-howto.md).
+
 ```json
-    "knowledgeStore": {
-      "storageConnectionString": "<a storage connection string>",
-      "projections" : [
+"knowledgeStore": {
+  "storageConnectionString": "<an Azure storage connection string>",
+  "projections" : [
+    {
+      "tables": [ ]
+    },
+    {
+      "objects": [
         {
-          "tables": [ ]
-        },
-        {
-          "objects": [
-            {
-              "storageContainer": "containername",
-              "source": "/document/EnrichedShape/",
-              "key": "/document/Id"
-            }
-          ]
+          "storageContainer": "containername",
+          "source": "/document/EnrichedShape/",
+          "key": "/document/Id"
         }
       ]
     }
+  ]
+}
 ```
+
 You can choose to save the enriched documents as tables with hierarchical relationships preserved or as JSON documents in blob storage. Output from any of the skills in the skillset can be sourced as the input for the projection. If you are looking to project the data into a specific shape, the updated [shaper skill](cognitive-search-skill-shaper.md) can now model complex types for you to use. 
 
 <a name="next-step"></a>
+
 ## Next steps
 
 Now that you are familiar with the enrichment pipeline and skillsets, continue with [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md) or [How to map outputs to fields in an index](cognitive-search-output-field-mapping.md). 

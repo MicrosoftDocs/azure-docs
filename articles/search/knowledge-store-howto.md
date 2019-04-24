@@ -11,9 +11,11 @@ ms.author: heidist
 ---
 # How to get started with Knowledge Store
 
-[Knowledge Store](knowledge-store-concept-intro.md) is a new preview feature in Azure Search that saves AI enrichments created in an indexing pipeline for analysis, exploration, and knowledge mining in other apps. You can also use saved enrichments to understand and refine an Azure Search indexing pipeline.
+[Knowledge Store](knowledge-store-concept-intro.md) is a new preview feature in Azure Search that saves AI enrichments created in an indexing pipeline for knowledge mining in other apps. You can also use saved enrichments to understand and refine an Azure Search indexing pipeline.
 
-In this exercise, start with sample data, services, and tools to learn the basic workflow for creating and using your first knowledge store.
+A knowledge store is defined by a skillset. For regular Azure Search full-text search scenarios, the purpose of a skillset is providing AI enrichments to make content more searchable. For knowledge store scenarios, the role of a skillset is creating and populating multiple data structures for knowledge mining.
+
+In this exercise, start with sample data, services, and tools to learn the basic workflow for creating and using your first knowledge store, with emphasis on skillset definition.
 
 ## Prerequisites
 
@@ -397,33 +399,31 @@ The endpoint of this call is `https://[service name].search.windows.net/skillset
 
     ```json
     {
-        "name": "caselaw-ss",
-        "description": null,
-        "skills": [
-            {
-                "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-                "name": "SplitSkill#1",
-                "description": null,
-                "context": "/document/casebody/data/opinions/*/text",
-                "defaultLanguageCode": "en",
-                "textSplitMode": "pages",
-                "maximumPageLength": 5000,
-                "inputs": [
-                    {
-                        "name": "text",
-                        "source": "/document/casebody/data/opinions/*/text",
-                        "sourceContext": null,
-                        "inputs": []
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "textItems",
-                        "targetName": "pages"
-                    }
-                ]
-            },
-            . . .
+    "name": "caselaw-ss",
+    "description": null,
+    "skills": [
+        {
+            "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+            "name": "SplitSkill#1",
+            "description": null,
+            "context": "/document/casebody/data/opinions/*/text",
+            "defaultLanguageCode": "en",
+            "textSplitMode": "pages",
+            "maximumPageLength": 5000,
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/casebody/data/opinions/*/text
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "textItems",
+                    "targetName": "pages"
+                }
+            ]
+        },
+        . . .
     ```
 
 ## Create and run an indexer
