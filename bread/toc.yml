@@ -504,6 +504,10 @@
       - name: Service
         tocHref: /azure/machine-learning/service
         topicHref: /azure/machine-learning/service/
+        items:
+        - name: Algorithm and Module Reference
+          tocHref: /azure/machine-learning/algorithm-module-reference
+          topicHref: /azure/machine-learning/algorithm-module-reference/module-reference.md
       - name: Studio
         tocHref: /azure/machine-learning/studio
         topicHref: /azure/machine-learning/studio/

@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ---
 
@@ -146,6 +146,10 @@ CDN integration is enabled in all the Azure data centers except China and Federa
 ### Determine if DNS change has been made
 
 You can determine if DNS change has been made on a Streaming Endpoint (the traffic is being directed to the Azure CDN) by using https://www.digwebinterface.com. If the results has azureedge.net domain names in the results, the traffic is now being pointed to the CDN.
+
+## Provide feedback
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 

@@ -13,7 +13,7 @@ ms.date: 04/08/2019
 ms.custom: seodec18
 ---
 
-# Configure automated machine learning experiments
+# Configure automated ML experiments in Python
 
 Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure automated machine learning experiments. In this guide, learn how to define various configuration settings.
 
@@ -169,6 +169,10 @@ Next determine where the model will be trained. An automated machine learning tr
 *	A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
 
 See the [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for example notebooks with local and remote compute targets.
+
+*   An Azure Databricks cluster in your Azure subscription. You can find more details here - [Setup Azure Databricks cluster for Automated ML](how-to-configure-environment.md#azure-databricks)
+
+See the [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) for example notebooks with Azure Databricks.
 
 <a name='configure-experiment'></a>
 

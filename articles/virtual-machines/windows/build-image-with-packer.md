@@ -22,7 +22,7 @@ Each virtual machine (VM) in Azure is created from an image that defines the Win
 
 This article was last tested on 2/21/2019 using the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.3.0 and [Packer](https://www.packer.io/docs/install/index.html) version 1.3.4.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Create Azure resource group
 During the build process, Packer creates temporary Azure resources as it builds the source VM. To capture that source VM for use as an image, you must define a resource group. The output from the Packer build process is stored in this resource group.

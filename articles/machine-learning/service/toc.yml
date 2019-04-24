@@ -16,12 +16,19 @@
     href: setup-create-workspace.md
 - name: Quickstarts
   items:
-  - name: Experiment with a cloud notebook
-    displayName: workspace
-    href: quickstart-run-cloud-notebook.md
-  - name: Experiment with a local notebook
-    displayName: workspace, install, sdk
-    href: quickstart-run-local-notebook.md
+  - name: Python SDK
+    items:
+    - name: Run experiment in the cloud
+      displayName: workspace
+      href: quickstart-run-cloud-notebook.md
+    - name: Run experiment locally
+      displayName: workspace, install, sdk
+      href: quickstart-run-local-notebook.md
+  - name: Visual interface
+    items:
+    - name: Prepare and visualize data
+      displayName: experiment drag-and-drop
+      href: ui-quickstart-run-experiment.md
 - name: Tutorials
   items:
   - name: Image classification (MNIST data)
@@ -39,9 +46,36 @@
     - name: 2. Auto-train an ML model
       displayName: automl, automated, auto ml,
       href: tutorial-auto-train-models.md
+  - name: Visual interface
+    items:
+    - name: Train regression model
+      displayName: experiment drag-and-drop visual interface Tutorial 1
+      href: ui-tutorial-automobile-price-train-score.md
+    - name: Deploy regression model
+      displayName: experiment drag-and-drop visual interface Tutorial 2
+      href: ui-tutorial-automobile-price-deploy.md
 - name: Samples
-  displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub
-  href: samples-notebooks.md
+  items:
+  - name: Notebooks
+    displayName: example, examples, jupyter, azure notebooks, python, notebook, github
+    href: samples-notebooks.md
+  - name: Visual interface experiments
+    items:
+    - name: "Predict price"
+      displayName: Sample 1, training, regression
+      href:  ui-sample-regression-predict-automobile-price-basic.md
+    - name: "Predict price (advanced)"
+      displayName: Sample 2, training, regression
+      href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
+    - name: "Predict credit risk"
+      displayName: Sample 3, training, classification
+      href: ui-sample-classification-predict-credit-risk-basic.md
+    - name: "Predict credit risk (advanced)"
+      displayName: Sample 4, training, classification
+      href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
+    - name: "Predict churn"
+      displayName: Sample 5, training, CRM, classification
+      href: ui-sample-classification-predict-churn.md
 - name: Concepts
   items:
   - name: How the service works
@@ -50,8 +84,8 @@
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
-  - name: Model management
-    displayName: deploy, deployment
+  - name: Model management (MLOps)
+    displayName: deploy, deployment, mlops, operationalize, operationalization
     href: concept-model-management-and-deployment.md
   - name: Model interpretability
     displayName: explainability
@@ -150,7 +184,7 @@
     - name: Use automated ML (Python)
       displayName: SDK automl
       href: how-to-configure-auto-train.md
-    - name: Automate training in portal
+    - name: Use automated ML (Azure portal)
       href: how-to-create-portal-experiments.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
@@ -158,7 +192,7 @@
     - name: Auto-train a forecast model
       displayName: time series
       href: how-to-auto-train-forecast.md
-  - name: Deploy models
+  - name: Deploy & serve models
     items:
     - name: Where and how to deploy
       displayName: publish azure kubernetes azure container instances
@@ -182,9 +216,6 @@
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights
       href: how-to-enable-app-insights.md
-  - name: Use the machine learning CLI
-    displayName: cli extension command line command-line az ci/cd automate automated
-    href: reference-azure-machine-learning-cli.md
   - name: Create reusable workflows
     displayName: pipelines
     items:
@@ -207,6 +238,88 @@
   - name: Monitoring SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
+  - name: Machine Learning CLI
+    displayName: cli, extension, command line, command-line, az, ci/cd, automate, automated
+    href: reference-azure-machine-learning-cli.md
+  - name: Visual interface modules (Preview)
+    displayName: module reference
+    items:
+    - name: Overview
+      href: ../algorithm-module-reference/module-reference.md
+    - name: Data format conversions
+      items:
+      - name: Convert to CSV
+        href: ../algorithm-module-reference/convert-to-csv.md
+    - name: Data input & output
+      items:
+      - name: Import Data
+        href: ../algorithm-module-reference/import-data.md
+      - name: Export Data
+        href: ../algorithm-module-reference/export-data.md
+      - name: Enter Data Manually
+        href: ../algorithm-module-reference/enter-data-manually.md
+    - name: Data transformations
+      items:
+      - name: Select Columns in Dataset
+        href: ../algorithm-module-reference/select-columns-in-dataset.md
+      - name: Edit Metadata
+        href: ../algorithm-module-reference/edit-metadata.md
+      - name: Clean Missing Data
+        href: ../algorithm-module-reference/clean-missing-data.md
+      - name: Add Columns
+        href: ../algorithm-module-reference/add-columns.md
+      - name: Add Rows
+        href: ../algorithm-module-reference/add-rows.md
+      - name: Remove Duplicate Rows
+        href: ../algorithm-module-reference/remove-duplicate-rows.md
+      - name: Split Data
+        href: ../algorithm-module-reference/split-data.md
+      - name: Normalize Data
+        href: ../algorithm-module-reference/normalize-data.md
+      - name: Partition and Sample
+        href: ../algorithm-module-reference/partition-and-sample.md
+    - name: Machine learning
+      items:  
+      - name: Score Model
+        href: ../algorithm-module-reference/score-model.md
+      - name: Train Model
+        href: ../algorithm-module-reference/train-model.md
+      - name: Evaluate Model
+        href: ../algorithm-module-reference/evaluate-model.md
+      - name: Apply Transformation
+        href: ../algorithm-module-reference/apply-transformation.md
+      - name: Linear Regression
+        href: ../algorithm-module-reference/linear-regression.md
+      - name: Neural Network Regression
+        href: ../algorithm-module-reference/neural-network-regression.md
+      - name: Decision Forest Regression
+        href: ../algorithm-module-reference/decision-forest-regression.md
+      - name: Boosted Decision Tree Regression
+        href: ../algorithm-module-reference/boosted-decision-tree-regression.md
+      - name: Two-class Boosted Decision Tree
+        href: ../algorithm-module-reference/two-class-boosted-decision-tree.md
+      - name: Two-Class Logistic Regression
+        href: ../algorithm-module-reference/two-class-logistic-regression.md
+      - name: Multiclass Logistic Regression
+        href: ../algorithm-module-reference/multiclass-logistic-regression.md
+      - name: Multiclass Neural Network
+        href: ../algorithm-module-reference/multiclass-neural-network.md
+      - name: Multiclass Decision Forest
+        href: ../algorithm-module-reference/multiclass-decision-forest.md
+      - name: Two-Class Averaged Perceptron
+        href: ../algorithm-module-reference/two-class-averaged-perceptron.md
+      - name: Two-Class Decision Forest
+        href: ../algorithm-module-reference/two-class-decision-forest.md
+      - name: Two-Class Neural Network
+        href: ../algorithm-module-reference/two-class-neural-network.md
+      - name: Two-Class Support Vector Machine
+        href: ../algorithm-module-reference/two-class-support-vector-machine.md
+    - name: Python language modules
+      items:  
+      - name: Execute Python Script
+        href: ../algorithm-module-reference/execute-python-script.md
+    - name: Error messages & codes
+      href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resources
   items:
   - name: Release notes

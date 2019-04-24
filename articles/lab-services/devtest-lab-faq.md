@@ -36,7 +36,7 @@ We're currently working on migrating existing blog posts (excluding outage updat
 ### Where do I see outage updates?
 We'll be posting outage updates using our Twitter handle from now onwards. Follow us on Twitter to get latest updates on outages and known bugs.
 
-### Twitter 
+### Twitter
 Our Twitter handle: [@azlabservices](https://twitter.com/azlabservices)
 
 ## General
@@ -91,7 +91,6 @@ You also can create custom roles in DevTest Labs. To learn how to create custom 
 
 Because scopes are hierarchical, when a user has permissions at a certain scope, the user is automatically granted those permissions at every lower-level scope in the scope. For instance, if a user is assigned the role of subscription owner, the user has access to all resources in a subscription. These resources include VMs, virtual networks, and labs. A subscription owner automatically inherits the role of lab owner. However, the opposite is not true. A lab owner has access to a lab, which is a lower scope than the subscription level. So, a lab owner can't see VMs, virtual networks, or any other resources that are outside the lab.
 
-
 ### How do I define role-based access control for my DevTest Labs environments to ensure that IT can govern while developers/test can do their work?
 There is a broad pattern, however the detail depends on your organization.
 
@@ -144,6 +143,7 @@ Ultimately, the same type of restrictions needs to be applied across the organiz
 
 ### How do I create a lab from a Resource Manager template?
 We offer a [GitHub repository of lab Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/101-dtl-create-lab) that you can deploy as-is or modify to create custom templates for your labs. Each template has a link to deploy the lab as it's in your own Azure subscription. Or, you can customize the template and [deploy by using PowerShell or Azure CLI](../azure-resource-manager/resource-group-template-deploy.md).
+
 
 ### Can I have all virtual machines to be created in a common resource group instead having each machine in its own resource group? 
 Yes, as a lab owner, you can either let the lab handle resource group allocation for you or have all virtual machines created in a common resource group that you specify. 
@@ -204,6 +204,7 @@ To copy your existing VMs to DevTest Labs:
 3.	Create a VM in the lab from your custom image.
 
 ### Can I attach multiple disks to my VMs?
+
 Yes, you can attach multiple disks to your VMs.
 
 ### If I want to use a Windows OS image for my testing, do I have to purchase an MSDN subscription?
@@ -291,7 +292,6 @@ To find the destination storage account that's associated with your lab:
 
 When should I use an Azure Marketplace image vs. my own custom organizational image?
 
-
 ### When should I use an Azure Marketplace image vs. my own custom organizational image?
 Azure Marketplace should be used by default unless you have specific concerns or organizational requirements. Some common examples include;
 
@@ -347,7 +347,7 @@ For other continuous integration (CI)/continuous delivery (CD) toolchains, you c
 ### When should I create a new virtual network for my DevTest Labs environment vs. using an existing virtual network?
 If your VMs need to interact with existing infrastructure, then consider using an existing virtual network inside your DevTest Labs environment. If you use ExpressRoute, you may want to minimize the amount of VNets / Subnets so that you don’t fragment your IP address space that gets assigned for use in the subscriptions. 
 
-Consider using the VNet peering pattern here ([Hub-Spoke model](/architecture/reference-architectures/hybrid-networking/hub-spoke)) too. This approach enables vnet/subnet communication across subscriptions. Otherwise, each DevTest Labs environment could have its own virtual network. 
+Consider using the VNet peering pattern here ([Hub-Spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) too. This approach enables vnet/subnet communication across subscriptions. Otherwise, each DevTest Labs environment could have its own virtual network. 
 
 There are [limits](../azure-subscription-service-limits.md) on the number of virtual networks per subscription. The default amount is 50, though this limit can be raised to 100.
 

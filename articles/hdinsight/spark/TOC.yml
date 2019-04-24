@@ -154,6 +154,9 @@
           href: apache-spark-creating-ml-pipelines.md
     - name: Analyze big data
       items:
+        - name: Apache Hive with Apache Spark
+          href: ../interactive-query/apache-hive-warehouse-connector.md
+          maintainContext: true
         - name: Use Apache Spark to read and write Apache HBase data
           href: ../hdinsight-using-spark-query-hbase.md
           maintainContext: true

@@ -89,7 +89,7 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 
 <!-- LINKS - internal -->
 
-[aks-regions]: ./container-service-quotas.md#region-availability
+[aks-regions]: ./quotas-skus-regions.md#region-availability
 [aks-upgrade]: ./upgrade-cluster.md
 [aks-cluster-autoscale]: ./autoscaler.md
 [virtual-kubelet]: virtual-kubelet.md

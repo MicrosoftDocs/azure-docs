@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/20/2019
+ms.date: 04/24/2019
 ---
 
 # Tutorial: Migrate RDS SQL Server to Azure SQL Database or an Azure SQL Database managed instance online using DMS
@@ -194,7 +194,7 @@ After the service is created, locate it within the Azure portal, open it, and th
     ![Create Database Migration Service Project](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-create-project4.png)
 
     > [!NOTE]
-    > Alternately, you can chose **Create project only** to create the migration project now and execute the migration later.
+    > Alternately, you can choose **Create project only** to create the migration project now and execute the migration later.
 
 6. Select **Save**.
 

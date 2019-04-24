@@ -14,24 +14,38 @@ ms.date: 05/02/19
 
 ---
 
-# Explore and prepare data using the Dataset class
+# Explore and prepare data with the Dataset class (Preview)
 
+The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), offers data exploration and preparation functionality with the new [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) class (preview). This functionality includes sampling, summary statistics generation, and intelligent transformation methods powered by AI. Transformation steps are saved in Dataset definitions with the capability to handle multiple large files of different schemas in a highly scalable manner.
 
-In this article, you will learn how to create data profiles and different transformation methods to get your data ready for machine learning.
+Some Dataset classes (preview) have dependencies on the Data Prep SDK (GA). While transformation functions can be done directly with the GA'ed [Data Prep SDK functions](how-to-transform-data.md), we recommend the Dataset package wrappers described in this article if you are building a new solution. Azure Machine Learning Datasets (preview) allow you to not only transform your data, but also [snapshot data](how-to-create-dataset-snapshots.md) and store [versioned dataset definitions](how-to-manage-dataset-definitions.md). Datasets is the next version of the Data Prep SDK, offering expanded functionality for managing datasets in AI solutions.
 
-Historically, data preparation has been very time consuming. With Azure Machine Learning SDK, you are now able to explore Datasets easily through summary statistics and prepare your data with intelligent transformation methods powered by AI. Transformation steps are saved in Dataset definitions, with the capability to handle multiple large files of different schemas in a highly scalable manner. 
+This article, shows examples of the following data preparation tasks:
 
-Some Dataset classes (preview) have dependencies on the Data Prep SDK (GA). While transformation functions can be done directly with the GA'ed [Data Prep SDK functions](how-to-transform-data.md), we recommend the Dataset package wrappers described in this article if you are building a new solution. Azure Machine Learning Datasets (preview) allow you to not only transform your data, but also [snapshot data](how-to-create-dataset-snapshots.md) and store [versioned dataset definitions](how-to-manage-dataset-definitions.md). Datasets is the next version of the data prep SDK, offering expanded functionality for managing datasets in AI solutions.
+* Data exploration
+  * Sampling
+  * Summary statistics
+* Data transformation
+  * Impure missing values
+  * Assertion
+  * Derive column by example
+  * Fuzzy groupings
 
 ## Prerequisites
 
-You do not need Azure subscriptions or workspaces to explore and prepare data. You can take create a Dataset locally, explore and prepare your data, then register the Dataset with Azure workspace for reuse and sharing.
+To explore and prepare your data, you'll need:
 
-To download the sample files used in the following examples: [crime.csv](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv), [city.json](https://dprepdata.blob.core.windows.net/dataset-sample-files/city.json).
+* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+
+* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+
+* The Azure Machine Learning SDK for Python (version 1.0.21 or later). To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+
+* (Optional) Download the sample files to follow along with the examples: [crime.csv](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) and [city.json](https://dprepdata.blob.core.windows.net/dataset-sample-files/city.json).
 
 ## Sampling
 
-When dealing with big data, it is common practice to sample your data before preparation in order to save processing time and compute cost. Datasets support Top N, Simple Random, and Stratified sampling.
+Take a sample of your data to get an initial understanding of your data architecture and content. At this time, the [`sample()`](https://docs.microsoft.com//python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#sample-sample-strategy--arguments-) method from the Dataset class supports Top N, Simple Random, and Stratified sampling strategies.
 
 ```Python
 from azureml.core import Dataset
@@ -44,9 +58,11 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 seed = random.randint(0, 4294967295)
 ```
 
-Top N sampling will keep the number of records specified from the top of your Dataset and return a modified Dataset.
+### Top N sample
 
-```python
+For Top N sampling, the first n records of your Dataset are your sample. This is helpful if you are just trying  to get an idea of what your data records look like or to see what fields are in your data.
+
+```Python
 top_n_sample_dataset = dataset.sample('top_n', {'n': 5})
 top_n_sample_dataset.to_pandas_dataframe()
 ```
@@ -59,9 +75,11 @@ top_n_sample_dataset.to_pandas_dataframe()
 3|10519591|HZ261534|4/15/2016 9:00|113XX S PRAIRIE AVE|1120|DECEPTIVE PRACTICE|...
 4|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
 
-Simple Random sampling will keep the records from your Dataset based on the probability specified and return a modified Dataset. The seed parameter is optional.
+### Simple random sample
 
-```python
+In Simple Random sampling, every member of the data population has an equal chance of being selected as a part of the sample. In the `simple_random` sample strategy, the records from your Dataset are selected based on the probability specified and returns a modified Dataset. The seed parameter is optional.
+
+```Python
 simple_random_sample_dataset = dataset.sample('simple_random', {'probability':0.3, 'seed': seed})
 simple_random_sample_dataset.to_pandas_dataframe()
 ```
@@ -73,16 +91,20 @@ simple_random_sample_dataset.to_pandas_dataframe()
 2|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
 3|10525877|HZ268138|4/15/2016 15:00|023XX W EASTWOOD AVE|1153|DECEPTIVE PRACTICE|...
 
-Stratified sampling will keep the records from your Dataset based on the strata, strata weights and the probability to sample each stratum with. For all records, we will group each record by the columns specified to stratify and based on the stratum X weight information in fractions, include said record. If a stratum is not specified or the record cannot be grouped by said stratum, the default weight to sample is 0.
+### Stratified sample
 
-```python
-# we will take 50% of records with `Primary Type` as `THEFT` and 20% of records with `Primary Type` as `DECEPTIVE PRACTICE` into sample Dataset
+Stratified samples ensure that certain groups of a population are represented in the sample. In the `stratified` sample strategy, the population is divided into strata, or subgroups, based on similarities, and records are randomly selected from each strata according to the strata weights indicated by the `fractions` parameter.
+
+In the following example, we group each record by the specified columns, and include said record based on the strata X weight information in `fractions`. If a strata is not specified or the record cannot be grouped, the default weight to sample is 0.
+
+```Python
+# take 50% of records with `Primary Type` as `THEFT` and 20% of records with `Primary Type` as `DECEPTIVE PRACTICE` into sample Dataset
 fractions = {}
 fractions[('THEFT',)] = 0.5
 fractions[('DECEPTIVE PRACTICE',)] = 0.2
 
 sample_dataset = dataset.sample('stratified', {'columns': ['Primary Type'], 'fractions': fractions, 'seed': seed})
-      
+
 sample_dataset.to_pandas_dataframe()
 ```
 
@@ -93,13 +115,11 @@ sample_dataset.to_pandas_dataframe()
 2|10535059|HZ278872|4/15/2016 4:30|004XX S KILBOURN AVE|810|THEFT|...
 3|10525877|HZ268138|4/15/2016 15:00|023XX W EASTWOOD AVE|1153|DECEPTIVE PRACTICE|...
 
+## Explore with summary statistics
 
-## Explore data through summary statistics
-
-Data exploration is essential to help you understand the input data, identify anomalies and missing values, and verify that data preparation operations produced the desired result.
+ Detect anomalies, missing values, or error counts with the [`get_profile()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) method. This function gets the profile and summary statistics of your data, which in turn helps determine the necessary data preparation operations to apply.
 
 ```Python
-# generate profile with local compute
 dataset.get_profile()
 ```
 
@@ -128,13 +148,18 @@ Latitude|FieldType.DECIMAL|41.6928|41.9032|10.0|7.0|3.0|0.7|0.0|0.0|41.6928|41.6
 Longitude|FieldType.DECIMAL|-87.6764|-87.6043|10.0|7.0|3.0|0.7|0.0|0.0|-87.6764|-87.6764|-87.6764|-87.6734|-87.6645|-87.6194|-87.6043|-87.6043|-87.6043|-87.6484|0.0386264|0.001492|0.344429|-2.33333
 Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7.0||||||||||||||
 
-## How to impute missing values
+## Impute missing values
 
-Missing values in Datasets include Null values, and values that contain no content or non-existent. They can impact the performance of your machine learning models, or even lead to invalid conclusions. Imputation is one common approach to deal with missing values by filling values in the place of missing data. It is useful when you have relatively high percentage of missing values in your Datasets, and you cannot simply drop all records with missing values. 
+In Datasets,  null values, NaN's and values that contain no content are considered missing values. These can impact the performance of your machine learning models, or lead to invalid conclusions. Imputation is one common approach to address missing values, and is useful when you have a high percentage of missing value records that you cannot simply delete.
 
-From the Dataset profile generated above, we can see that `Latitude` and `Longitude` columns have high percentage of missing values. In this example, we will impute missing values for those 2 columns.
+From the Dataset profile generated in the preceding section, we see that `Latitude` and `Longitude` columns have a high percentage of missing values. In this example, we calculate the mean and impute missing values for those two columns.
 
-```python
+First, get the latest definition of the Dataset with [`get_definition()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) and pare down the data with [`keep_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow), so we only view the columns we want to address.
+
+```Python
+from azureml.core import Dataset
+import azureml.dataprep as dprep
+
 # get the latest definition of Dataset
 ds_def = dataset.get_definition()
 
@@ -151,15 +176,13 @@ ds_def.head(5)
 |3|10519591|False| NaN|NaN|
 |4|10534446|False| NaN|NaN|
 
-Some records miss latitude and longitude values. To impute those missing values, you use `ImputeMissingValuesBuilder` to learn a fixed expression. It can impute the columns with either a calculated `MIN`, `MAX`, `MEAN` value, or a `CUSTOM` value. When `group_by_columns` is specified, missing values will be imputed by group with `MIN`, `MAX`, and `MEAN` calculated per group.
-Check the `MEAN` value of the latitude column using the `summarize()` function. This function accepts an array of columns in the `group_by_columns` parameter to specify the aggregation level. The `summary_columns` parameter accepts a `SummaryColumnsValue` call. This function call specifies the current column name, the new calculated field name, and the `SummaryFunction` to perform.
+Next, check the `MEAN` value of the latitude column using the [`summarize()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) function. This function accepts an array of columns in the `group_by_columns` parameter to specify the aggregation level. The `summary_columns` parameter accepts the `SummaryColumnsValue` function, which specifies the current column name, the new calculated field name, and the `SummaryFunction` to perform.
 
-```python
-import azureml.dataprep as dprep
-lat_mean = ds_def.summarize(group_by_columns=['Arrest'],
-                       summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
-                                                                 summary_column_name='Latitude_MEAN',
-                                                                 summary_function=dprep.SummaryFunction.MEAN)])
+```Python
+lat_mean = ds_def.summarize(group_by_columns = ['Arrest'],
+                            summary_columns = [dprep.SummaryColumnsValue(column_id = 'Latitude',
+                                                                         summary_column_name = 'Latitude_MEAN',
+                                                                         summary_function = dprep.SummaryFunction.MEAN)])
 lat_mean = lat_mean.filter(dprep.col('Arrest') == False)
 lat_mean.head(1)
 ```
@@ -168,25 +191,38 @@ lat_mean.head(1)
 --|-----|--------|
 |0|False|41.780049|
 
-The `MEAN` value of latitudes looks accurate. The `ImputeColumnArguments` function accepts a column_id string, and a ReplaceValueFunction to specify the impute type. For the missing longitude value, impute it with -87 based on external knowledge.
-Impute steps can be chained together into a ImputeMissingValuesBuilder object, using the builder function impute_missing_values(). The impute_columns parameter accepts an array of ImputeColumnArguments objects. Call the learn() function to store the impute steps, and then apply to a dataflow object using to_dataflow().
+Once we verify the values to impute, use [`ImputeMissingValuesBuilder`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) to learn a fixed expression that imputes the columns with either a calculated `MIN`, `MAX`, `MEAN` value, or a `CUSTOM` value. When `group_by_columns` is specified, missing values will be imputed by group with `MIN`, `MAX`, and `MEAN` calculated per group.
 
-```python
+The [`ImputeColumnArguments`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputecolumnarguments?view=azure-dataprep-pyfunction) accepts a column_id string, and a `ReplaceValueFunction` to specify the impute type. For the missing longitude value, impute it with -87 based on external knowledge.
+
+```Python
 # impute with MEAN
-impute_mean = dprep.ImputeColumnArguments(column_id='Latitude',
-                                          impute_function=dprep.ReplaceValueFunction.MEAN)
-# impute with custom value 42
+impute_mean = dprep.ImputeColumnArguments(column_id = 'Latitude',
+                                          impute_function = dprep.ReplaceValueFunction.MEAN)
+
+# impute with custom value -87
 impute_custom = dprep.ImputeColumnArguments(column_id='Longitude',
                                             custom_impute_value=-87)
+```
+
+Impute steps can be chained together into a `ImputeMissingValuesBuilder` object using the [`Builders`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.builders?view=azure-dataprep-py) class function [`impute_missing_values()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.builders?view=azure-dataprep-py#impute-missing-values-impute-columns--typing-list-azureml-dataprep-api-builders-imputecolumnarguments----none--group-by-columns--typing-union-typing-list-str---nonetype----none-----azureml-dataprep-api-builders-imputemissingvaluesbuilder). The `impute_columns` parameter accepts an array of `ImputeColumnArguments` objects.
+
+```Python
 # get instance of ImputeMissingValuesBuilder
 impute_builder = ds_def.builders.impute_missing_values(impute_columns=[impute_mean, impute_custom],
                                                    group_by_columns=['Arrest'])
+```
 
+Call the [`learn()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py#learn------none) function to store the impute steps, and apply them to a dataflow object using [`to_dataflow()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py#to-dataflow------azureml-dataprep-api-dataflow-dataflow).
+
+```Python
 impute_builder.learn()
 ds_def = impute_builder.to_dataflow()
 ds_def.head(5)
 ```
 
+As shown in the following output table, the missing latitude was imputed with the `MEAN` value of `Arrest==False` group, and the missing longitude was imputed with -87.
+
 ||ID|Arrest|Latitude|Longitude
 -|---------|-----|---------|----------
 0|10498554|False|41.692834|-87.604319
@@ -195,14 +231,12 @@ ds_def.head(5)
 3|10519591|False|41.780049|-87.000000
 4|10534446|False|41.780049|-87.000000
 
-As shown in the result above, the missing latitude was imputed with the `MEAN` value of `Arrest==False` group. The missing longitude was imputed with -87.
+Update the Dataset definition with, [`update_definition()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) to keep the performed transformation steps.
 
-```python
-# update Dataset definition to keep the transformation steps performed. 
+```Python
 dataset = dataset.update_definition(ds_def, 'Impute Missing')
 dataset.head(5)
 ```
-
 ||ID|Arrest|Latitude|Longitude
 -|---------|-----|---------|----------
 0|10498554|False|41.692834|-87.604319
@@ -211,15 +245,15 @@ dataset.head(5)
 3|10519591|False|41.780049|-87.000000
 4|10534446|False|41.780049|-87.000000
 
-## How to use assertion rules for anomalies
+## Create assertion rules
 
-Frequently, the data we work with while cleaning and preparing data is just a subset of the total data we will need to work with in production. It is also common to be working on a snapshot of a live data set that is continuously updated and augmented. In these cases, some of the assumptions we make as part of our cleaning might turn out to be false. Columns that originally only contained numbers within a certain range might contain a wider range of values in later executions. These errors often result in either broken pipelines or bad data.
+Frequently, the data we work with while cleaning and preparing data is just a subset of the total data we need for production. As a result, some of the assumptions we make as part of our cleaning might turn out to be false. For example, in a data set that updates continuously, a column that originally only contained numbers within a certain range might contain a wider range of values in later executions. These errors often result in either broken pipelines or bad data.
 
-Datasets supports creating assertions on data, which are evaluated as the pipeline is executed. These assertions enable us to verify that our assumptions on the data continue to be accurate and, when not, to handle failures in a clean way.
+Datasets supports creating assertions on data, which are evaluated as the pipeline executes. These assertions let us verify that our assumptions on the data continue to be accurate and, when not, to handle failures accordingly.
 
-For example, if you want to make sure `Latitude` and `Longitude` values in your Dataset are constrained to specific ranges. To verify this is the case, use assert_value().
+For example, if you want to constrain `Latitude` and `Longitude` values in your Dataset to specific numeric ranges, the [`assert_value()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#assert-value-columns--multicolumnselection--expression--azureml-dataprep-api-expressions-expression--policy--azureml-dataprep-api-engineapi-typedefinitions-assertpolicy----assertpolicy-errorvalue--1---error-code--str----assertionfailed------azureml-dataprep-api-dataflow-dataflow) method ensures this is always the case.
 
-```python
+```Python
 from azureml.dataprep import value
 
 # get the latest definition of the Dataset
@@ -239,9 +273,9 @@ Arrest|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Latitude|FieldType.DECIMAL|41.6928|41.9032|10.0|0.0|10.0|0.0|0.0|0.0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1.05
 Longitude|FieldType.INTEGER|-87|-87|10.0|0.0|10.0|0.0|3.0|0.0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
 
-From the profile, you see that the `Error Count` for `Longitude` column is 3. The following code filters the Dataset to retrieve the error and see what value causes the assertion to fail. From here you can adjust your code and cleanse your data accordingly.
+From the profile, you see that the `Error Count` for the `Longitude` column is 3. The following code filters the Dataset, retrieves the error, and sees what value causes the assertion to fail. From here, adjust your code and cleanse your data appropriately.
 
-```python
+```Python
 from azureml.dataprep import col
 
 ds_error = ds_def.filter(col('Longitude').is_error())
@@ -252,11 +286,11 @@ print(error.originalValue)
 
     -87.60431945
 
-## How to derive column by example
+## Derive columns by example
 
-One of the more advanced tools in Datasets is the ability to derive columns using examples of desired results. This lets you give the SDK an example so it can generate code to achieve the intended transformation.
+One of the more advanced tools for Datasets is the ability to derive columns using examples of desired results. This lets you give the SDK an example, so it can generate code to achieve the intended transformations.
 
-```python
+```Python
 from azureml.dataset import Dataset
 
 # create an in-memory Dataset from a local file
@@ -272,9 +306,11 @@ dataset.head(5)
 3|10519591|HZ261534|2016-04-15 09:00:00|113XX S PRAIRIE AVE|...
 4|10534446|HZ277630|2016-04-15 10:00:00|055XX N KEDZIE AVE|...
 
-Assuming that you need to transform the date and time format to '2016-04-04 10PM-12AM', you can achieve it through `derive_column_by_example`. In `example_data` argument, you need to pass value pairs of original record in `source_columns` and the expected value for the derived column.
+Say you need to transform the date and time format to '2016-04-04 10PM-12AM'. In the [`derive_column_by_example()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) argument, provide examples of your desired output in the `example_data` parameter in this format: *(original output, desired output)*.
 
-```python
+The following code provides two examples of desired output, ("2016-04-04 23:56:00", "2016-04-04 10PM-12AM") and ("2016-04-15 17:00:00", "2016-04-15 4PM-6PM")
+
+```Python
 ds_def = dataset.get_definition()
 ds_def = ds_def.derive_column_by_example(
         source_columns = "Date", 
@@ -283,6 +319,8 @@ ds_def = ds_def.derive_column_by_example(
     )
 ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(5)
 ```
+
+In the following table, notice that a new column, Date_Time_Range contains records in the format specified.
 
 ||ID|Date|Date_Time_Range
 -|--------|-----|----
@@ -297,11 +335,13 @@ ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(5)
 dataset = dataset.update_definition(ds_def, 'Derive Date_Time_Range')
 ```
 
-## How to do fuzzy groupings
+## Fuzzy groupings
 
-Unprepared data often represents the same entity with multiple values due to different spellings, varying capitalizations, and abbreviations. This is common when working with data gathered from multiple sources or through human input. One way to canonicalize and reconcile these variants is to use `fuzzy_group_column` (also known as "text clustering") functionality.
+When you gather data from different sources you might encounter variations in spelling, capitalization, or abbreviations of the same entities. Automatically standardize and reconcile these variants with the SDK's fuzzy grouping, or text clustering, functionality.
 
-```python
+For example, the column `inspections.business.city` contains several forms of the city name "San Francisco".
+
+```Python
 from azureml.Dataset import Dataset
 
 # create an in-memoery Dataset from a local json file
@@ -317,9 +357,13 @@ dataset.head(5)
 3|68701|Grindz|832 Clement St|SF|...
 4|69186|Premier Catering & Events, Inc.|1255 22nd St|S.F.|...
 
-As you can see above, the column `inspections.business.city` contains several forms of the city name "San Francisco". Let's add a column with values replaced by the automatically detected canonical form. To do so, call `fuzzy_group_column()` on Dataset definition:
+Let's use the [`fuzzy_group_column()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#fuzzy-group-column-source-column--str--new-column-name--str--similarity-threshold--float---0-8--similarity-score-column-name--str---none-----azureml-dataprep-api-dataflow-dataflow)  method to add a column with the automatically detected canonical form of "San Francisco". The arguments `source_column` and `new_column_name` are required. You also have the option to:
 
-```python
+* Create a new column, `similarity_score_column_name`, that shows the similarity score between every pair of original and canonical values.
+
+* Provide a `similarity_threshold`, which is the minimum similarity score for the values to be grouped together.
+
+```Python
 # get the latest Dataset definition
 ds_def = dataset.get_definition()
 ds_def = ds_def.fuzzy_group_column(source_column='inspections.business.city',
@@ -337,10 +381,18 @@ ds_def.head(5)
 3|68701|Grindz|832 Clement St|SF|San Francisco|0.814806|...
 4|69186|Premier Catering & Events, Inc.|1255 22nd St|S.F.|San Francisco|0.814806|...
 
-The arguments `source_column` and `new_column_name` are required, whereas the others are optional. If `similarity_threshold` is provided, it will be used to control the required similarity level for the values to be grouped together. If `similarity_score_column_name` is provided, a second new column will be added to show similarity score between every pair of original and canonical values.
+In the resulting Dataset definition, all the different variations of representing "San Francisco" in the data were normalized to the same string, "San Francisco".
 
-In the resulting Dataset definition, you can see that all the different variations of representing "San Francisco" in the data were normalized to the same string, "San Francisco". Now, you can update the Dataset definition to save this fuzzy grouping step into the latest Dataset definition.
+Save this fuzzy grouping step into the latest Dataset definition with `update_definition()`.
 
 ```Python
 dataset = dataset.update_definition(ds_def, 'fuzzy grouping')
 ```
+
+## Next steps
+
+* [Manage the life cycle of Dataset definitions](how-to-manage-dataset-definitions.md).
+
+* See the automated machine learning [tutorial](tutorial-auto-train-models.md) for a regression model example.
+
+* See the SDK [overview](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) for design patterns and usage examples.

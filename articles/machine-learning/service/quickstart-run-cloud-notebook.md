@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/06/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
 
 ---
@@ -22,7 +22,7 @@ This quickstart shows how to create a cloud resource in your Azure Machine Learn
 In this quickstart, you take the following actions:
 
 * Create a new cloud-based notebook server in your workspace
-* Start a Jupyter Notebook server on your new computer resource
+* Launch the Jupyter web interface
 * Open a notebook that contains code to estimate pi and logs errors at each iteration.
 * Run the notebook.
 * View the logged error values in your workspace.  This example shows how the workspace can help you keep track of information generated in a script. 
@@ -41,9 +41,9 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 1. On your workspace page in the Azure portal, select **Notebook VMs** on the left.
 
-1. Select **+Add** to create a notebook VM.
+1. Select **+New** to create a notebook VM.
 
-     ![Select Add VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
+     ![Select New VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
 1. Provide a name for your VM. Then select **Create**. 
 
@@ -56,7 +56,6 @@ If you don’t have an Azure subscription, create a free account before you begi
 ## Launch Jupyter web interface
 
 After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
-
 
 1. Select **Jupyter** in the **Launch** column for your VM.  
 
@@ -125,16 +124,12 @@ Because the code to approximate pi uses random values, your plots will show diff
 
 ## Clean up resources 
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
-
-You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
-
 ### Stop the notebook VM
 
-If you keep your workspace, stop the notebook VM when you are not using it to reduce cost.  
+Stop the notebook VM when you are not using it to reduce cost.  
 
 1. In your workspace, select **Notebook VMs**.
- 
+
    ![Stop the VM server](./media/quickstart-run-cloud-notebook/stop-server.png)
 
 1. From the list, select the VM.
@@ -142,6 +137,12 @@ If you keep your workspace, stop the notebook VM when you are not using it to re
 1. Select **Stop**.
 
 1. When you're ready to user the server again, select **Start**.
+
+### Delete everything
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
+You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 
 ## Next steps
 
