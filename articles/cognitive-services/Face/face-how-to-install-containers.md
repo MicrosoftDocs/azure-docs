@@ -29,10 +29,9 @@ You must meet the following prerequisites before using Face API containers:
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Azure `Cognitive Services` resource |In order to use the container, you must have:<br><br>A _Cognitive Services_ Azure resource and the associated billing key the billing endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container. You need to add the `face/v1.0` routing to the endpoint URI as shown in the following BILLING_ENDPOINT_URI example. <br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
-
 ## Request access to the private container registry
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### The host computer
 

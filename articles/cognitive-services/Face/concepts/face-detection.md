@@ -21,13 +21,13 @@ You use the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/serv
 
 ## Face ID
 
-The face ID is simply a unique identifier string for each detected face in an image. You can request a face ID in your [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+The face ID is simply a unique identifier string for each detected face in an image. You can request a face ID in your [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API call.
 
-## Face Landmarks
+## Face landmarks
 
 Face landmarks are a set of easy-to-find points on a face such as the pupils or the tip of nose. By default, there are 27 predefined landmark points. The following figure shows all 27 points:
 
-![A face diagram with all 27 landmarks labelled](../Images/landmarks.1.jpg)
+![A face diagram with all 27 landmarks labeled](../Images/landmarks.1.jpg)
 
 The coordinates of the points are returned in units of pixels.
 

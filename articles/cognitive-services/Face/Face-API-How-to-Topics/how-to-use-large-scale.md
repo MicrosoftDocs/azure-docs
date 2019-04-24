@@ -61,7 +61,7 @@ FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, Sub
 The subscription key with corresponding endpoint can be obtained from the Marketplace page of your Azure portal.
 See [Subscriptions](https://azure.microsoft.com/services/cognitive-services/directory/vision/).
 
-## Step 2: Code Migration in action
+## Step 2: Code migration in action
 
 This section only focuses on migrating PersonGroup/FaceList implementation to LargePersonGroup/LargeFaceList.
 Although LargePersonGroup/LargeFaceList differs from PersonGroup/FaceList in design and internal implementation,
@@ -218,7 +218,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 As is shown above, the data management and the FindSimilar part are almost the same.
 The only exception is that a fresh pre-processing Train operation must complete in the LargeFaceList before FindSimilar works.
 
-## Step 3: Train Suggestions
+## Step 3: Train suggestions
 
 Although the Train operation speeds up the
 [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)
@@ -236,7 +236,7 @@ The estimated training time in different scales is listed in the following table
 
 To better utilize the large-scale feature, some strategies are recommended to take into consideration.
 
-## Step 3.1: Customize Time Interval
+## Step 3.1: Customize time interval
 
 As is shown in the `TrainLargeFaceList()`,
 there is a `timeIntervalInMilliseconds` to delay the infinite training status checking process.
@@ -245,7 +245,7 @@ The time interval should be customized according to the expected capacity of the
 
 Same strategy also applies to LargePersonGroup.
 For example, when training a LargePersonGroup with 1,000,000 persons,
-the `timeIntervalInMilliseconds` could be 60,000 (a.k.a. 1-minute interval).
+the `timeIntervalInMilliseconds` could be 60,000 (1-minute interval).
 
 ## Step 3.2 Small-scale buffer
 
@@ -265,7 +265,7 @@ An example workflow:
 1. When buffer collection size increases to a threshold or at a system idle time, create a new buffer collection and trigger the train on master collection.
 1. Delete the old buffer collection after the finish of training on the master collection.
 
-## Step 3.3 Standalone Training
+## Step 3.3 Standalone training
 
 If a relatively long latency is acceptable,
 it is not necessary to trigger the Train operation right after adding new data.
@@ -314,7 +314,9 @@ In this guide, you have learned how to migrate the existing PersonGroup/FaceList
 - LargePersonGroup and LargeFaceList works similar to the PersonGroup/FaceList, except Train operation is required by LargeFaceList.
 - Take proper train strategy to dynamic data update for large-scale dataset.
 
-## Related Topics
+## Next steps
 
-- [How to Identify Faces in Image](HowtoIdentifyFacesinImage.md)
+Follow a how-to guide to learn how to add faces to a PersonGroup or execute the Identify operation on a PersonGroup.
+
 - [How to Add Faces](how-to-add-faces.md)
+- [How to Identify Faces in Image](HowtoIdentifyFacesinImage.md)
