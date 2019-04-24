@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/22/2019
+ms.date: 04/24/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -13,7 +13,7 @@ manager: femila
 #Customer intent: As a network operator, I want to manage members in the consortium so that I can control access to a private blockchain.
 ---
 
-# How to manage consortium members in Azure Blockchain Service using PowerShell
+# Manage consortium members in Azure Blockchain Service using PowerShell
 
 You can use PowerShell to manage blockchain consortium members for your Azure Blockchain Service.
 
@@ -57,25 +57,21 @@ $global:ContractConnection=Import-ConsortiumManagementContracts -RootContractAdd
 
 Replace \<Member account password\> with the member account password used when you created the member.
 
-Replace \<Endpoint address\>, \<Member account\>, and \<RootContract address\> using the following sections to find the values in the Azure portal.
-
-### Get account and member details
+Find the other values in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to your default Azure Blockchain Service member overview page.
+1. Navigate to your default Azure Blockchain Service member **Overview** page.
 
-    [screenshot]
+    ![Member overview](./media/manage-consortium-powershell/member-overview.png)
 
-### Get endpoint address
+    Replace \<Member account\>, and \<RootContract address\> with the values from the portal.
 
-1. Navigate to your default Azure Blockchain Service member transaction node.
+1. For the endpoint address, select **Transaction nodes** and select a transaction node.
+1. Select **Connection strings**.
 
-    [screenshot]
+    ![Connection strings](./media/manage-consortium-powershell/connection-strings.png)
 
-1. Select **Connection security > Access keys**.
-1. Copy the endpoint address from **Access key 1 > HTTPS**. You need the address for the next section.
-
-    [screenshot]
+    Replace \<Endpoint address\> with the value from **HTTPS (Access key 1)**.
 
 ## Get-BlockchainMember
 
@@ -87,9 +83,9 @@ Get-BlockchainMember [[-Name] <String>] -Members <IContract> -Web3Client <IClien
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
-| Name |  | No |
-| Members | | Yes |
-| Web3Client |  | Yes |
+| Name | Name that identifies your Azure Blockchain Service member. | No |
+| Members | Members object obtained from Import-ConsortiumManagementContracts | Yes |
+| Web3Client | Web3Client object obtained from New-Web3Connection | Yes |
 
 **Example**
 
@@ -119,8 +115,8 @@ Get-BlockchainMemberInvitation [[-SubscriptionId] <String>] -Members <IContract>
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
 | SubscriptionId | Azure subscription ID of invited member | No |
-| Members |  | Yes |
-| Web3Client |  | Yes |
+| Members | Members object obtained from Import-ConsortiumManagementContracts | Yes |
+| Web3Client | Web3Client object obtained from New-Web3Connection | Yes |
 
 **Example**
 
@@ -146,8 +142,8 @@ Import-ConsortiumManagementContracts -RootContractAddress <String> -Web3Client <
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
-| RootContractAddress |  | Yes |
-| Web3Client |  | Yes |
+| RootContractAddress | RootContract address for the member | Yes |
+| Web3Client | Web3Client object obtained from New-Web3Connection | Yes |
 
 **Example**
 
@@ -203,9 +199,9 @@ New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
 |-----------|-------------|:--------:|
 | SubscriptionId | Azure subscription ID of invited member | No |
 | Role | Consortium role. Values can be ADMIN or USER. ADMIN is the consortium administrator role. USER is the consortium member role. | Yes |
-| Members |  | Yes |
-| Web3Account |  | Yes |
-| Web3Client |  | Yes |
+| Members | Members object obtained from Import-ConsortiumManagementContracts | Yes |
+| Web3Account | Web3Account object obtained from Import-Web3Account | Yes |
+| Web3Client | Web3Client object obtained from New-Web3Connection | Yes |
 
 **Example**
 
@@ -240,10 +236,10 @@ Remove-BlockchainMember -Name <String> -Members <IContract> -Web3Account <IAccou
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
-| Name |  | Yes |
-| Members | | Yes |
-| Web3Account |  | Yes |
-| Web3Client |  | Yes |
+| Name | Member name to remove | Yes |
+| Members | Members object obtained from Import-ConsortiumManagementContracts | Yes |
+| Web3Account | Web3Account object obtained from Import-Web3Account | Yes |
+| Web3Client | Web3Client object obtained from New-Web3Connection | Yes |
 
 **Example**
 
@@ -262,10 +258,10 @@ Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> 
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
-| SubscriptionId |  | Yes |
-| Members | | Yes |
-| Web3Account |  | Yes |
-| Web3Client |  | Yes |
+| SubscriptionId | Azure subscription ID of member to revoke | Yes |
+| Members | Members object obtained from Import-ConsortiumManagementContracts | Yes |
+| Web3Account | Web3Account object obtained from Import-Web3Account | Yes |
+| Web3Client | Web3Client object obtained from New-Web3Connection | Yes |
 
 **Example**
 
@@ -286,11 +282,11 @@ Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <St
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
-| Name |  | Yes |
-| DisplayName |  | No |
-| Members | | Yes |
-| Web3Account |  | Yes |
-| Web3Client |  | Yes |
+| Name | Name of the blockchain member | Yes |
+| DisplayName | New display name | No |
+| Members | Members object obtained from Import-ConsortiumManagementContracts | Yes |
+| Web3Account | Web3Account object obtained from Import-Web3Account | Yes |
+| Web3Client |  Web3Client object obtained from New-Web3Connection| Yes |
 
 **Example**
 
@@ -310,10 +306,10 @@ Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
 | SubscriptionId | Azure subscription ID of invited member | Yes |
-| Role |  | Yes |
-| Members |  | Yes |
-| Web3Account |  | Yes |
-| Web3Client |  | Yes |
+| Role | New consortium role for invitation. Values can be **USER** or **ADMIN** | Yes |
+| Members |  Members object obtained from Import-ConsortiumManagementContracts | Yes |
+| Web3Account | Web3Account object obtained from Import-Web3Account | Yes |
+| Web3Client | Web3Client object obtained from New-Web3Connection | Yes |
 
 **Example**
 
