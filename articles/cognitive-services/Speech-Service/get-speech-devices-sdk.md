@@ -30,7 +30,7 @@ The Speech Devices SDK is a pretuned library designed to work with purpose-built
 
 ## Download the Speech Devices SDK
 
-Go to the [Speech Devices SDK download site](https://aka.ms/sdsdk-download).
+Download the [Speech Devices SDK](https://aka.ms/sdsdk-download).
 
 ## Next steps
 

@@ -1,20 +1,19 @@
 ---
-title: Speech Devices SDK Microphone array recommendations - Speech Services
+title: Speech Devices SDK microphone array recommendations - Speech Services
 titleSuffix: Azure Cognitive Services
-description: Speech Devices SDK Microphone array recommendations.
+description: Speech Devices SDK microphone array recommendations. The following array geometries are recommended for use with the Microsoft Audio Stack. Location of sound sources and rejection of ambient noise is generally improved with greater number of microphones with dependencies on specific applications, user scenarios, and the device form factor.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/02/2019
 ms.author: erhopf
-ms.custom: seodec18
 ---
 # Speech Devices SDK Microphone array recommendations
 
-## Microphone Geometry
+## Microphone geometry
 
 The following array geometries are recommended for use with the
 Microsoft Audio Stack. Location of sound sources and rejection of
@@ -28,10 +27,9 @@ device form factor.
 | \# Mics  | 7                 | 4                 | 4              | 2              |
 | Geometry | 6 Outer, 1 Center, Radius = 42.5mm,  Evenly Spaced| 3 Outer, 1 Center, Radius = 42.5mm, Evenly Spaced | Length = 120mm, Spacing = 40mm | Spacing = 40mm |
 
-## Component Selection
+## Component selection
 
-Microphone components should be selected in such that accurately
-reproduces a signal free of noise and distortion.
+Microphone components should be selected to accurately reproduce a signal free of noise and distortion.
 
 The recommended properties when selecting microphones are:
 
@@ -54,9 +52,9 @@ for high quality communications (VoIP) applications*
 Note that good component selection must be paired with good
 electroacoustic integration in order to avoid impairing the performance
 of the components used. Unique use cases may also necessitate additional
-requirements (e.g. operating temperature ranges).
+requirements (for example: operating temperature ranges).
 
-## Microphone Array (System) Integration
+## Microphone array integration
 
 The performance of the arrays when integrated into a device and after
 any fixed gain or EQ should meet the following recommendations:
@@ -73,7 +71,7 @@ any fixed gain or EQ should meet the following recommendations:
 *\*"Wider" frequency ranges may be necessary for high quality
 communications (VoIP) applications*
 
-## Speaker Integration Recommendations
+## Speaker integration recommendations
 
 As echo cancellation is necessary for speech recognition devices that
 contain speakers, additional recommendations are provided for speaker
@@ -88,7 +86,7 @@ selection and integration.
 |                                   | TCLw = TCLwmeasured \+ (Measured Level - Target Output Sensitivity)         |
 |                                   | TCLw = TCLwmeasured \+ (Measured Level - (-26))|
 
-## Integration Design Architecture
+## Integration design architecture
 
 The following guidelines for architecture are necessary when integrating
 microphones into a device:
@@ -107,9 +105,9 @@ microphones into a device:
 | Discoverability                   | Devices must not have any undiscoverable or uncontrollable hardware, firmware or 3rd party software-based non-linear audio processing algorithms to/from the device|
 | Capture Format                    | Capture formats must use a minimum sampling rate of 16kHz  and recommended 24-bit depth      |
 
-## Electrical Architecture Considerations
+## Electrical architecture considerations
 
-Where applicable, arrays may be connected to a USB host (i.e. SoC that
+Where applicable, arrays may be connected to a USB host (such as an SoC that
 runs the Microsoft Audio Stack) and interfaces to speech services or
 other applications.
 
@@ -118,5 +116,5 @@ dynamic range and SNR of the microphones is preserved within
 re-samplers.
 
 High speed USB Audio Class 2.0 should be supported within any audio MCUs
-in order to provide the necessary bandwidth for up to 7 channels at
+in order to provide the necessary bandwidth for up to seven channels at
 higher sample rates and bit depths.

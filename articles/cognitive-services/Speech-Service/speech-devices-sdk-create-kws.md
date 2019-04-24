@@ -56,7 +56,7 @@ Before you can use a custom wake word with your device, you'll need to create a 
 
     ![Review your wake word](media/speech-devices-sdk/wake-word-6.png)
 
-1. It might take up to 1 minute for the model to be generated. You will be prompted to download the file.
+1. It might take up to one minute for the model to be generated. You will be prompted to download the file.
 
     ![Download your wake word](media/speech-devices-sdk/wake-word-7.png)
 
