@@ -24,7 +24,7 @@ Consortium networks can be a mix of participant roles and can have an arbitrary 
 
 The following diagram shows a consortium network with multiple participants:
 
-[Private consortium network diagram](./media/consortium/network-diagram.png)
+![Private consortium network diagram](./media/consortium/network-diagram.png)
 
 With consortium management in Azure Blockchain Service, you can manage participants in the consortium network. Management of the consortium is based on the consensus model of the network. In the current preview release, Azure Blockchain Service provides a centralized consensus model for consortium management. Any privileged participant with an administer role can take consortium management actions, such as adding or removing participants from a network.
 
