@@ -30,7 +30,7 @@ ms.collection: M365-identity-device-management
 
 ## View resources a user has access to
 
-1. Click **Azure Active Directory** and then click **Identity governance**.
+1. Click **Azure Active Directory** and then click **Identity Governance**.
 
 1. In the left menu, click **User assignments report**.
 

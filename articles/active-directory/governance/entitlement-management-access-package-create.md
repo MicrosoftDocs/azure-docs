@@ -46,7 +46,7 @@ The following diagram shows the high-level process to create a new access packag
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Click **Azure Active Directory** and then click **Identity governance**.
+1. Click **Azure Active Directory** and then click **Identity Governance**.
 
 1. In the left menu, click **Access packages**.
 

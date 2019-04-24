@@ -1,6 +1,6 @@
 ---
-title: Identity governance - Azure Active Directory | Microsoft Docs
-description: Azure Active Directory identity governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.
+title: Identity Governance - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -18,11 +18,11 @@ ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
 
-# What is Azure AD identity governance?
+# What is Azure AD Identity Governance?
 
-Azure Active Directory (Azure AD) identity governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. It provides you with capabilities to ensure that the right users have the right access to the right resources, and it allows you to protect, monitor, and audit access to critical assets -- while ensuring employee productivity.  
+Azure Active Directory (Azure AD) Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. It provides you with capabilities to ensure that the right users have the right access to the right resources, and it allows you to protect, monitor, and audit access to critical assets -- while ensuring employee productivity.  
 
-Identity governance give organizations the ability to do the following tasks across employees, business partners and vendors, and services and applications:
+Identity Governance give organizations the ability to do the following tasks across employees, business partners and vendors, and services and applications:
 
 - Govern the identity lifecycle
 - Govern access lifecycle
@@ -37,7 +37,7 @@ Specifically, it is intended to help organizations address these four key questi
 
 ## Identity lifecycle
 
-Identity governance helps organizations achieve a balance between *productivity* - How quickly can a person have access to the resources they need, such as when they join my organization? And *security* - How should their access change over time, such as due to changes to that person's employment status?  Identity lifecycle management is the foundation for identity governance, and effective governance at scale requires modernizing the identity lifecycle management infrastructure for applications.
+Identity Governance helps organizations achieve a balance between *productivity* - How quickly can a person have access to the resources they need, such as when they join my organization? And *security* - How should their access change over time, such as due to changes to that person's employment status?  Identity lifecycle management is the foundation for Identity Governance, and effective governance at scale requires modernizing the identity lifecycle management infrastructure for applications.
 
 ![Identity lifecycle](./media/identity-governance-overview/identity-lifecycle.png)
 
@@ -59,7 +59,7 @@ When a user attempts to access applications, Azure AD enforces [conditional acce
 
 ## Privileged access lifecycle
 
-Historically, privileged access has been described by other vendors as a separate capability from identity governance. However, at Microsoft, we think governing privileged access is a key part of identity governance -- especially given the potential for misuse associated with those administrator rights can cause to an organization. The employees, vendors, and contractors that take on administrative rights need to be governed.
+Historically, privileged access has been described by other vendors as a separate capability from Identity Governance. However, at Microsoft, we think governing privileged access is a key part of Identity Governance -- especially given the potential for misuse associated with those administrator rights can cause to an organization. The employees, vendors, and contractors that take on administrative rights need to be governed.
 
 ![Privileged access lifecycle](./media/identity-governance-overview/privileged-access-lifecycle.png)
 

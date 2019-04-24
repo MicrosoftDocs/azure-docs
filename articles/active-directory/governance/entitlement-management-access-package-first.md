@@ -86,7 +86,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 1. In the Azure portal, in the left navigation, click **Azure Active Directory**.
 
-1. In the left menu, click **Identity governance**
+1. In the left menu, click **Identity Governance**
 
 1. In the left menu, click **Access packages**.
 
@@ -254,7 +254,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the **Admin1**.
 
-1. Click **Azure Active Directory** and then click **Identity governance**.
+1. Click **Azure Active Directory** and then click **Identity Governance**.
 
 1. In the left menu, click **Access packages**.
 
@@ -282,7 +282,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 **Prerequisite role:**  Global administrator or User administrator
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity governance**.
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
 1. Open **Web project access package**.
 

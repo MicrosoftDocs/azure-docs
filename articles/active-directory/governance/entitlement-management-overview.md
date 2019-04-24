@@ -58,7 +58,7 @@ Here are some of capabilities of entitlement management:
 - Designate approvers to approve requests
 - Create reports to track history
 
-For an overview of identity governance and entitlement management, watch the following video from the Ignite 2018 conference:
+For an overview of Identity Governance and entitlement management, watch the following video from the Ignite 2018 conference:
 
 >[!VIDEO https://www.youtube.com/embed/aY7A0Br8u5M]
 

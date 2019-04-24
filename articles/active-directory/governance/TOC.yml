@@ -1,9 +1,9 @@
-- name: Azure AD identity governance documentation
+- name: Azure AD Identity Governance documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is identity governance?
+  - name: What is Identity Governance?
     href: identity-governance-overview.md
   - name: What is entitlement management? (Preview)
     href: entitlement-management-overview.md

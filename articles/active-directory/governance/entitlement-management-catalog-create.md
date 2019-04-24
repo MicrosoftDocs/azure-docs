@@ -36,7 +36,7 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Click **Azure Active Directory** and then click **Identity governance**.
+1. Click **Azure Active Directory** and then click **Identity Governance**.
 
 1. In the left menu, click **Catalogs**.
 
@@ -62,7 +62,7 @@ To include resources in an access package, the resources must exist in a catalog
 
 **Prerequisite role:** User administrator or Catalog owner
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity governance**.
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
 1. In the left menu, click **Catalogs** and then open the catalog you want to add resources to.
 
@@ -88,7 +88,7 @@ You can remove resources from a catalog. A resource can only be removed from a c
 
 **Prerequisite role:** User administrator or Catalog owner
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity governance**.
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
 1. In the left menu, click **Catalogs** and then open the catalog you want to remove resources from.
 
@@ -104,7 +104,7 @@ If you want to delegate management of the catalog or the access packages in the 
 
 **Prerequisite role:** User administrator or Catalog owner
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity governance**.
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
 1. In the left menu, click **Catalogs** and then open the catalog you want to add administrators to.
 
@@ -120,7 +120,7 @@ You can edit the name and description for a catalog. Users see this information 
 
 **Prerequisite role:** User administrator or Catalog owner
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity governance**.
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
 1. In the left menu, click **Catalogs** and then open the catalog you want to edit.
 
@@ -136,7 +136,7 @@ You can delete a catalog, but only if it does not have any access packages.
 
 **Prerequisite role:** User administrator or Catalog owner
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity governance**.
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
 1. In the left menu, click **Catalogs** and then open the catalog you want to delete.
 
