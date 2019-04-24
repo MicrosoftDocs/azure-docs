@@ -70,7 +70,7 @@ Let's now have a look at the batch processing and the real-time pipelines for sp
 
 ## Batch transcription of call center data
 
-For transcribing bulk of audio we developed the [Batch Transcription API](batch-trascription). The Batch Transcription API was developed to transcribe large amounts of audio data asynchronously. With regards to transcribing call center data, our solution is based on these pillars:
+For transcribing bulk of audio we developed the [Batch Transcription API](batch-trascription.md). The Batch Transcription API was developed to transcribe large amounts of audio data asynchronously. With regards to transcribing call center data, our solution is based on these pillars:
 
 * **Accuracy**: With fourth-generation Unified models, we offer unsurpassed transcription quality.
 * **Latency**: We understand that when doing bulk transcriptions, the transcriptions are needed quickly. The transcription jobs initiated via the [Batch Transcription API]((batch-transcription.md) will be queued immediately, and once the job is executed it's performed faster than real-time transcription.
@@ -86,7 +86,7 @@ A typical solution uses these services:
 * [WebHooks](webhooks.md) are used to get notifications when transcriptions are completed.
 
 Internally we are using the above technologies to support Microsoft customer calls 
-![Batch Achitecture](media/scenarios/call-center-batch-pipeline.png) for transcrining Microsoft support calls.
+![Batch Achitecture](media/scenarios/call-centre-batch-pipeline.png) for transcrining Microsoft support calls.
 
 ## Real-time transcription for call center data
 
@@ -95,7 +95,7 @@ Some businesses are required to transcribe conversations in real time. Real-time
 For scenarios that require real-time transcription, we recommend using the [Speech SDK](speech-sdk.md). Currently, speech-to-text is available in [more than 20 languages](language-support.md), and the SDK is available in C++, C#, Java, Python, Node.js, and Javascript. Samples are available in each language on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). For the latest news and updates, see [Release notes](releasenotes.md).
 
 Internally we are using the above technologies to support Microsoft customer calls.
-![Batch Achitecture](media/scenarios/call-center-realtime-pipeline.png) for transcrining Microsoft support calls as they happen
+![Batch Achitecture](media/scenarios/call-centre-realtime-pipeline.png) for transcrining Microsoft support calls as they happen
 
 ## A word on IVRs
 
