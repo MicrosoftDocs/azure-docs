@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
 
@@ -155,6 +155,10 @@ You can remove your peering configuration by selecting the delete icon, as shown
 ## <a name="public"></a>Azure public peering
 
 This section helps you create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit.
+
+> [!NOTE]
+> Azure public peering is deprecated for new circuits.
+>
 
 ### To create Azure public peering
 
