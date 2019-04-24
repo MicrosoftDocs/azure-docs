@@ -8,12 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 4/5/2019
+ms.date: 4/24/2019
 ms.author: wolfma
 ms.custom: seodec18
 ---
 
 # Release notes
+
+## Speech SDK 1.4.2
+
+This is a bug fix release and only affecting the native/managed SDK. It is not affecting the JavaScript version of the SDK.
 
 ## Speech SDK 1.4.1
 
