@@ -27,16 +27,6 @@ abstract:
     width: 250
 
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
-    items:
-      - image:
-          src: media/index/azure-government.svg
-        text: Learn about Azure Government
-        href: /azure/azure-government/documentation-government-welcome
 
 - title: 5-Minute Quickstarts
   items:
