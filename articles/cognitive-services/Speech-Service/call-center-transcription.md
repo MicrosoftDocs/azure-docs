@@ -16,7 +16,7 @@ ms.author: erhopf
 
 Telephony data that is generated through landlines, mobile phones, and radios are typically low quality, and narrowband in the range of 8 KHz, which creates challenges when converting speech-to-text. The latest speech recognition models from Azure Speech Services excel at transcribing this telephony data, even in cases when the data is difficult for a human to understand. These models are trained with large volumes of telephony data, and have best in market recognition accuracy, even in noisy environments.
 
-A common scenario for speech-to-text is transcribing large volumes of telephony data that may come from various systems, such as Interactive Voice Response (IVR). The audio these systems provide can be stereo or mono, and raw with little-to-no post processing performed on the signal. Using Speech Services and the Unified speech model, a business can get high-quality transcriptions, regardless of the systems used to capture audio.
+A common scenario for speech-to-text is transcribing large volumes of telephony data that may come from various systems, such as Interactive Voice Response (IVR). The audio these systems provide can be stereo or mono, and raw with little-to-no post processing done on the signal. Using Speech Services and the Unified speech model, a business can get high-quality transcriptions, whatever the systems used to capture audio.
 
 The telephony data can be used to better understand your customers' needs, identify new marketing opportunities, or evaluate the performance of call center agents. After the data is transcribed, a business can use the output for improved telemetry, identifying key phrases, or analyzing customer sentiment.
 
@@ -29,7 +29,7 @@ Let's review some of the technology and related features Azure Speech Services o
 
 Beyond the functional aspect of the Speech Services their primary purpose -when applied to the call center- is to improve the customer experience. Three clear domains exist in this regard 
 
-* Post-call analytics i.e. batch processing of call recordings 
+* Post-call analytics  batch processing of call recordings 
 * Real-time analytics processing of the audio signal to extract various insights as the call is taking place (with sentiment being a prominent use case) and
 * Virtual Assistants (Bots), either driving the dialogue between the customer and the bot in an attempt to solve the customer's issue with no agent participation, or being the application of AI protocols to assist the agent.
 
@@ -48,7 +48,7 @@ Whether the domain is post-call or real-time, Azure offers a set of mature and e
 Gauging whether the customer had a good experience is one of the most important areas of Speech analytics when applied to the call center space. Our [Batch Transcription API](batch-transcription.md) offers sentiment analysis per utterance. You can aggregate the set of values obtained as part of a call transcript to determine the sentiment of the call for both your agents and the customer.
 
 ### Silence (non-talk)
-it is not uncommon for thirty five percent of a support call to be what we call non-talk time. Some scenarios which non-talk occurs are: agents looking up prior case history with a customer, agents using tools which allow them to access the customer's desktop and perform functions, customers sitting on hold waiting for a transfer etc. It is extremely important to be able to gauge when silence is occurring in a call as there are number of important customer sensitivities that occur around these types of scenarios and where they occur in the call.
+it is not uncommon for thirty five percent of a support call to be what we call non-talk time. Some scenarios which non-talk occurs are: agents looking up prior case history with a customer, agents using tools which allow them to access the customer's desktop and perform functions, customers sitting on hold waiting for a transfer and so on. It is extremely important to can gauge when silence is occurring in a call as there are number of important customer sensitivities that occur around these types of scenarios and where they occur in the call.
 
 ### Translation
 Some companies are experimenting with providing translated transcripts from foreign languages support calls so that delivery managers can understand the world-wide experience of their customers. Our [translation](translation.md) capabilities are unsurpassed. We can translate audio to audio or audio to text from a large number of locales.
@@ -61,7 +61,7 @@ Our end-to-end latency is pretty low considering the various technologies involv
 Our new voices are also indistinguishable from human voices. You can use out voices to give your bot its unique personality.
 
 ### Search
-Another staple of analytics is being able to identify interactions where a specific event or experience has occurred. This is typically done with one of two approaches, either an ad hoc search where the user simply types a phrase and the system responds, or a more structured query, where an analyst can create a set of logical statements that identify a scenario in a call, and then each call can be indexed against those set of queries. A good search example is the ubiquitous compliance statement “this call shall be recorded for quality purposes… “ – as many companies want to make sure that their agents are providing this disclaimer to customers before the call is actually recorded. Most analytics systems have the ability to trend the behaviors found by query /search algorithms – as this reporting of trends is ultimately one of the most important functions of an analytics system. Through [Cognitive services directory](https://azure.microsoft.com/en-us/services/cognitive-services/directory/search/) your end to end solution can be significantly enhanced with indexing and search capabilities.
+Another staple of analytics is to identify interactions where a specific event or experience has occurred. This is typically done with one of two approaches, either an ad hoc search where the user simply types a phrase and the system responds, or a more structured query, where an analyst can create a set of logical statements that identify a scenario in a call, and then each call can be indexed against those set of queries. A good search example is the ubiquitous compliance statement “this call shall be recorded for quality purposes… “ – as many companies want to make sure that their agents are providing this disclaimer to customers before the call is actually recorded. Most analytics systems have the ability to trend the behaviors found by query /search algorithms – as this reporting of trends is ultimately one of the most important functions of an analytics system. Through [Cognitive services directory](https://azure.microsoft.com/en-us/services/cognitive-services/directory/search/) your end to end solution can be significantly enhanced with indexing and search capabilities.
 
 ### Key Phrase Extraction
 This area is one of the more challenging analytics applications and one that is benefiting from the application of AI and ML. The primary scenario here is to infer the customer intent. Why is the customer calling? What is the customer problem? Why did the customer have a negative experience? Our [Text analytics service](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) provides a set of analytics out of the box for quickly upgrading your end to end solution to extract those important keywords or phrases.
@@ -82,7 +82,7 @@ A typical solution uses these services:
 
 * Azure Speech Services are used to transcribe speech-to-text. A standard subscription (SO) for the Speech Services is required to use the Batch Transcription API. Free subscriptions (F0) will not work.
 * [Azure Storage](https://azure.microsoft.com/services/storage/) is used to store telephony data, and the transcripts returned by the Batch Transcription API. This storage account should use notifications, specifically for when new files are added. These notifications are used to trigger the transcription process.
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) is used to create the shared access signatures (SAS) URI for each recording, and trigger the HTTP POST request to initiate a transcription. Additionally, Azure Functions is used to create requests to retrieve and delete transcriptions using the Batch Transcription API.
+* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) is used to create the shared access signatures (SAS) URI for each recording, and trigger the HTTP POST request to start a transcription. Additionally, Azure Functions is used to create requests to retrieve and delete transcriptions using the Batch Transcription API.
 * [WebHooks](webhooks.md) are used to get notifications when transcriptions are completed.
 
 Internally we are using the above technologies to support Microsoft customer calls in Batch mode.
@@ -90,7 +90,7 @@ Internally we are using the above technologies to support Microsoft customer cal
 
 ## Real-time transcription for call center data
 
-Some businesses are required to transcribe conversations in real-time. Real-time transcription can be used to identify key-words and trigger searches for content and resources relevant to the conversation, for monitoring sentiment, to improve accessibility, or to provide translations for customers and/or agents who aren't native speakers.
+Some businesses are required to transcribe conversations in real-time. Real-time transcription can be used to identify key-words and trigger searches for content and resources relevant to the conversation, for monitoring sentiment, to improve accessibility, or to provide translations for customers and agents who aren't native speakers.
 
 For scenarios that require real-time transcription, we recommend using the [Speech SDK](speech-sdk.md). Currently, speech-to-text is available in [more than 20 languages](language-support.md), and the SDK is available in C++, C#, Java, Python, Node.js, and Javascript. Samples are available in each language on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). For the latest news and updates, see [Release notes](releasenotes.md).
 
@@ -104,7 +104,7 @@ Speech Services can be easily integrated in any solution by using either the [Sp
 
 Several IVR or telephony service products (such as Genesys or AudioCodes) offer integration capabilities that can be leveraged to enable inbound and outbound audio passthrough to an Azure Service. Basically, a custom Azure service might provide a specific interface to define phone call sessions (such as Call Start or Call End) and expose a WebSocket API to receive inbound stream audio that is used with the Speech Services. Outbound responses, such as conversation transcription or connections with the Bot Framework, can be synthesized with Microsoft's text-to-speech service and returned to the IVR for playback.
 
-Another scenario is Direct SIP integration. An Azure service connects to a SIP Server, thus getting an inbound stream as well as an outbound stream, which is used for the speech-to-text and text-to-speech phases. To connect to a SIP Server there are commercial software offerings, such as Ozieki SDK, or [The Teams calling and meetings API](https://docs.microsoft.com/graph/api/resources/calls-api-overview?view=graph-rest-beta) (currently in beta), that are designed to support this type of scenario for audio calls.
+Another scenario is Direct SIP integration. An Azure service connects to a SIP Server, thus getting an inbound stream and an outbound stream, which is used for the speech-to-text and text-to-speech phases. To connect to a SIP Server there are commercial software offerings, such as Ozieki SDK, or [The Teams calling and meetings API](https://docs.microsoft.com/graph/api/resources/calls-api-overview?view=graph-rest-beta) (currently in beta), that are designed to support this type of scenario for audio calls.
 
 ## Customize existing experiences
 
