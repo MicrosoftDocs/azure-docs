@@ -472,6 +472,18 @@ WorkloadName     Operation            Status               StartTime            
 master           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
 
+### Re-register SQL VMs
+
+> [!WARNING]
+> Make sure to read this [document](backup-sql-server-azure-troubleshoot.md#re-registration-failures) to understand the failure symptoms and causes before attempting re-registration
+
+To trigger re-registration of the SQL VM, fetch the relevant backup container and pass it to the register cmdlet.
+
+````powershell
+$SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName <VM name> -VaultId $targetvault.ID
+Register-AzRecoveryServicesBackupContainer -Container $SQLContainer -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $targetVault.ID
+````
+
 ### Stop protection
 
 #### Retain data
