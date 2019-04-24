@@ -35,12 +35,15 @@ The service is available in generally available Azure regions. Not all API versi
 
 Regions                                        | Availability?                                 | Supported Versions
 -----------------------------------------------|-----------------------------------------------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure China](https://www.azure.cn/)                                                           | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure China](https://www.azure.cn/)                                                     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-
+[Public West Central US](https://azure.microsoft.com/regions/)                           | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01
 This table is updated when there are service updates and or new supported versions are available.
+
+> [!NOTE]
+> 2019-02-01 is currently getting rolled out and will be available in other regions shortly. 
 
 To try out the Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](https://portal.azure.com) in the above regions and follow the examples below.
 
@@ -363,6 +366,7 @@ macAddress | VM mac address | 2017-04-02
 scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
 identity | Managed identities for Azure resources. See [acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 attested | See [Attested Data](#attested-data) | 2018-10-01
+customData | See [Custom Data](#custom-data) | 2019-02-01
 
 ## Attested Data
 
@@ -427,6 +431,27 @@ Nonce is an optional 10-digit string provided. Nonce can be used to track the re
 ```
 
 > The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, nonce, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
+
+## Custom Data
+Instance Metadata Service provides the ability for the VM to have access to its custom data. The binary data must be less than 64KB and is provided to the VM in base64 encoded form. For more information about custom data and how to create a VM with custom data, see [Custom Data and Cloud-Init on Microsoft Azure](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/). 
+
+### Retrieving custom data in Virtual Machine
+Instance Metadata Service provides custom data to the VM in base64 encoded form. The following example decodes the base64 encoded string.
+
+> [!NOTE]
+> The custom data in this example is interpreted as an ASCII string that reads, "My super secret data.".
+
+**Request**
+
+```bash
+curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/customData?api-version=2019-02-01&&format=text" | base64 --decode
+```
+
+**Response**
+
+```text
+My super secret data.
+```
 
 ## Example scenarios for usage  
 
