@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/22/2019
 ms.author: b-juche
 ---
 # Performance benchmarks for Azure NetApp Files
@@ -22,7 +22,7 @@ This article describes results of performance benchmark tests for Azure NetApp F
 
 ## Sample application used for the tests
 
-Performance tests were run with a sample application with Azure NetApp Files. The application has the following characteristics: 
+Performance tests were run with a sample application using Azure NetApp Files. The application has the following characteristics: 
 
 * A Linux-based application built for the cloud
 * Can scale linearly with added virtual machines (VMs) to increase compute power as needed
@@ -50,9 +50,9 @@ The following tests were run:
 
 ## Bandwidth
 
-Azure NetApp Files offers multiple [service levels](azure-netapp-files-service-levels.md). Each service level offers a different amount of bandwidth per TiB of provisioned capacity (storage quota).  Bandwidth for a volume is provisioned based on the combination of the service level and the storage quota.  
+Azure NetApp Files offers multiple [service levels](azure-netapp-files-service-levels.md). Each service level offers a different amount of bandwidth per TiB of provisioned capacity (volume quota). The bandwidth limit for a volume is provisioned based on the combination of the service level and the volume quota. Note that the bandwidth limit is only one factor in determining the actual amount of throughput that will be realized.  
 
-The bandwidth test uses the formula below.  With the Premium service level, the volume sampleVol in the test has 4500 MiB/s of provisioned bandwidth.  It has the highest throughput achieved by any workload driven against a single volume: 
+Currently, 4,500 MiB is the highest throughput that has been achieved by a workload against a single volume in testing.  With the Premium service level, a volume quota of 70.31 TiB will provision enough bandwidth to realize this throughput per the calculation below: 
 
 ![Bandwidth formula](../media/azure-netapp-files/azure-netapp-files-bandwidth-formula.png)
 
@@ -60,24 +60,24 @@ The bandwidth test uses the formula below.  With the Premium service level, the 
 
 ## Throughput-intensive workloads
 
-The throughput test used Vdbench and a combination of 12 D32s V3 storage VMs. The volume sampleVol in the test achieved the following throughput numbers:
+The throughput test used Vdbench and a combination of 12xD32s V3 storage VMs. The sample volume in the test achieved the following throughput numbers:
 
 ![Throughput test](../media/azure-netapp-files/azure-netapp-files-throughput-test.png)
 
 ## I/O-intensive workloads
 
-The I/O test used Vdbench and a combination of 12 D32s V3 storage VMs. The volume sampleVol in the test achieved the following I/O numbers:
+The I/O test used Vdbench and a combination of 12xD32s V3 storage VMs. The sample volume in the test achieved the following I/O numbers:
 
 ![I/O test](../media/azure-netapp-files/azure-netapp-files-io-test.png)
 
 ## Latency
 
-Azure VMs do not support the concept of availability zones.  So VM placement is nondeterministic.  Reads against a volume can exceed 300,000 IOPS.  The arrows on the following graph connect similar thread counts: 
+The distance between the test VMs and the Azure NetApp Files volume has an impact on the IO performance.  The chart below compares the IOPS versus latency response curves for two different sets of VMs.  One set of VMs is near Azure NetApp Files and the other set is further away.  Note that the increased latency for the further set of VMs has an impact on the amount of IOPS achieved at a given level of parallelism.  Regardless, reads against a volume can exceed 300,000 IOPS as illustrated below: 
 
 ![Latency study](../media/azure-netapp-files/azure-netapp-files-latency-study.png)
 
 ## Summary
 
-Latency-sensitive workloads (databases) can have a submillisecond response time. The transactional performance can be over 300k IOPS for a single volume. 
+Latency-sensitive workloads (databases) can have a one millisecond response time. The transactional performance can be over 300k IOPS for a single volume.
 
-Throughput-sensitive applications (for streaming and imaging) can have 4.5GiB/s throughput.  
+Throughput-sensitive applications (for streaming and imaging) can have 4.5GiB/s throughput.
