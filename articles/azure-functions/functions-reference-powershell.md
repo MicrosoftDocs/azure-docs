@@ -15,7 +15,7 @@ ms.author: tyleonha, glenga
 
 # Azure Functions PowerShell developer guide
 
-This guide contains information about the intricacies of writing Azure Functions with PowerShell.
+This article provides details about how you write Azure Functions using PowerShell.
 
 [!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
@@ -236,7 +236,7 @@ Logging in PowerShell functions works like regular PowerShell logging. You can u
 In addition to these cmdlets, anything written to the pipeline is redirected to the `Information` log level and displayed with the default PowerShell formatting.
 
 > [!IMPORTANT]
-> Using the `Write-Verbose` or `Write-Debug` cmdlets is not enough to see verbose and debug level logging. You must also configure the log level threshold, which declares what level of logs you actually care about. To learn more, see [Configuring the log level for a function app](#configuring-the-log-level-for-a-function-app).
+> Using the `Write-Verbose` or `Write-Debug` cmdlets is not enough to see verbose and debug level logging. You must also configure the log level threshold, which declares what level of logs you actually care about. To learn more, see [Configure the function app log level](#configure-the-function-app-log-level).
 
 ### Configure the function app log level
 
