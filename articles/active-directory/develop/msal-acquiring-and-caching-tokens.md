@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 04/24/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -34,7 +34,7 @@ A number of MSAL acquire token methods require a *scopes* parameter. This parame
 It's also possible in MSAL to access v1.0 resources. For more information, read [Scopes for a v1.0 application](msal-scopes-for-v1-apps.md).
 
 ### Request specific scopes for a web API
-When your application needs to request tokens with specific permissions for a resource API, you will need to pass the scopes containing the app ID URI of the API in the below format: `&lt;app ID URI&gt;/&lt;scope&gt;`
+When your application needs to request tokens with specific permissions for a resource API, you will need to pass the scopes containing the app ID URI of the API in the below format: *&lt;app ID URI&gt;/&lt;scope&gt;*
 
 For example, scopes for Microsoft Graph API: `https://graph.microsoft.com/User.Read`
 
@@ -53,16 +53,23 @@ For example, you can initially sign in the user and deny them any kind of access
 For example: `https://graph.microsoft.com/User.Read` and `https://graph.microsoft.com/Calendar.Read`
 
 ## Acquiring tokens silently (from the cache)
-MSAL maintains a token cache (or two caches for confidential client applications).  MSAL caches a token after it has been acquired.  Application code should try to get a token silently (from the cache), first, before acquiring a token by other means. 
+MSAL maintains a token cache (or two caches for confidential client applications) and caches a token after it has been acquired.  In many cases, attempting to silently get a token will acquire another token with more scopes based on a token in the cache. It's also capable of refreshing a token when it's getting close to expiration (as the token cache also contains a refresh token).
+
+You can also clear the token cache, which is achieved by removing the accounts from the cache. This does not remove the session cookie which is in the browser, though.
+
+### Recommended call pattern for public client applications
+Application code should try to get a token silently (from the cache), first.  If the method call returns a "UI required" error or exception, try acquiring a token by other means. 
 
 However, there are two flows before which you **should not** attempt to silently acquire a token:
 
 - [client credentials flow](v2-oauth2-client-creds-grant-flow.md), which does not use the user token cache, but an application token cache. This method takes care of verifying this application token cache before sending a request to the STS.
 - [authorization code flow](v2-oauth2-auth-code-flow.md) in Web Apps, as it redeems a code that the application got by signing-in the user, and having them consent for more scopes. Since a code is passed as a parameter, and not an account, the method cannot look in the cache before redeeming the code, which requires, anyway, a call to the service.
 
-In many cases, attempting to silently get a token will acquire another token with more scopes based on a token in the cache. It's also capable of refreshing a token when it's getting close to expiration (as the token cache also contains a refresh token).
+### Recommended call pattern in Web Apps using the Authorization Code flow 
+For Web applications that use the [OpenID Connect authorization code flow](v2-protocols-oidc.md), the recommended pattern in the controllers is to:
 
-You can also clear the token cache, which is achieved by removing the accounts from the cache. This does not remove the session cookie which is in the browser, though.
+- Instantiate a confidential client application with a token cache with customized serialization. 
+- Acquire the token using the authorization code flow
 
 ## Acquiring tokens
 Generally, the method of acquiring a token depends on whether it's a public client or confidential client application.

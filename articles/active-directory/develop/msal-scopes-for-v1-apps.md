@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Scopes for a Web API accepting v1.0 tokens
 
-OAuth2 permissions are permission scopes that a v1.0 web API (resource) application exposes to client applications. These permission scopes may be granted to client applications during consent. See the section about `oauth2Permissions` in the [Azure Active Directory application manifest reference](active-directory-application-manifest.md#manifest-reference).
+OAuth2 permissions are permission scopes that a v1.0 web API (resource) application exposes to client applications. These permission scopes may be granted to client applications during consent. See the section about `oauth2Permissions` in the [Azure Active Directory application manifest reference](reference-app-manifest.md#manifest-reference).
 
 ## Scopes to request access to specific OAuth2 permissions of a v1.0 application
 If you want to acquire tokens for specific scopes of a v1.0 application (for example the Azure AD graph, which is https://graph.windows.net), you need to create scopes by concatenating a desired resource identifier with a desired OAuth2 permission for that resource.
