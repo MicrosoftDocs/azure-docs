@@ -43,35 +43,35 @@ The Time Series Insights explorer is a guided tour of features presently in gene
 
 1. Click and drag in the region, then click the **Search** button.
 
-   [![Select a time frame](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png)
+   [![Select a time frame](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
 
    Time Series Insights displays a chart visualization for the time frame you specified. You can do various actions within with the line chart, such as filtering, pinning, sorting, and stacking.
 
    To return to the **Time selection panel**, click the down arrow as shown:
 
-   [![Chart](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png)
+   [![Chart](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
 
 1. Click **Add** in the **Terms panel** to add a new search term.
 
-   [![Add item](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png)
+   [![Add item](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
 
 1. In the chart, you can select a region, right-click the region, and select **Explore Events**.
 
-   [![Explore Events](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png)
+   [![Explore Events](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
 
    A grid of your raw data is displayed from the region you are exploring:
 
-   [![Grid view](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png)
+   [![Grid view](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
 
 ## Select and filter data
 
 1. Edit your terms to change the values in the chart, and add another term to cross-correlate different types of values:
 
-   [![Add a term](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png)
+   [![Add a term](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
 
 1. Enter a filter term in the **Filter series...** box for improvised series filtering. For the quickstart, enter **Station5** to cross-correlate temperature and pressure for that station.
 
-   [![Filter series](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png)
+   [![Filter series](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
 
 After you finish the quickstart, you can experiment with the sample data set to create different visualizations.
 
