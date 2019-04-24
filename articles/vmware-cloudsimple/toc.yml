@@ -48,8 +48,6 @@
       items:
       - name: Purchase nodes
         href: create-nodes.md
-      - name: Reserve nodes
-        href: reserve-nodes.md
     - name: Manage private cloud resources
       items: 
       - name: Create a private cloud

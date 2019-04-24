@@ -23,14 +23,6 @@ Nodes are building blocks of a private cloud.  To create a private cloud, you ne
 
 Purchased nodes provide pay as you go capacity. Purchasing nodes helps you quickly scale your VMware cluster on demand. You can add nodes as needed, or delete a purchased node to scale down your VMware cluster. Purchased nodes are billed on a monthly basis, and charged to the subscription where they're purchased. If you pay for your Azure subscription by credit card, the card is billed immediately. If you're billed by invoice, the charges appear on your next invoice.
 
-## Reserved nodes
-
-You can reserve nodes by prepaying for one year or three years. Reservations can reduce the cost of nodes up to 50%, compared to the cost of purchased nodes.
-
-The reservation is charged to the payment method tied to the Azure subscription. With an Enterprise subscription, the reservation cost is deducted from your monetary commitment balance. If your monetary commitment balance doesn't cover the cost of the reservation, you're billed the overage.
-
-At the end of the reservation term, the billing discount expires and your nodes are billed at the pay-as-you-go price. Reservations don't auto-renew. To continue getting the billing discount, you must buy a new reservation for eligible nodes.
-
 ## VMware Solution by CloudSimple nodes SKU
 
 The following types nodes are available for purchase or reservation.
@@ -57,4 +49,4 @@ The following node limits apply to private clouds.
 ## Next steps
 
 * Learn how to [Purchase nodes](create-nodes.md)
-* Learn how to [Reserve nodes](reserve-nodes.md)
+* Learn about [Private Cloud](cloudsimple-private-cloud.md)
