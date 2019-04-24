@@ -98,7 +98,7 @@ corrective action to ensure authenticators aren't compromised.
 ## A.9.2.5 Review of user access rights
 
 Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to helps you manage who has access to resources in Azure. Using the Azure portal, you can
+(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint assigns four [Azure
 Policy](../../../policy/overview.md) definitions to audit accounts that should be prioritized for
 review, including depreciated accounts and external accounts with elevated permissions.
@@ -111,7 +111,7 @@ review, including depreciated accounts and external accounts with elevated permi
 ## A.9.2.6 Removal or adjustment of access rights
 
 Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to helps you manage who has access to resources in Azure. Using [Azure Active
+(RBAC) to help you manage who has access to resources in Azure. Using [Azure Active
 Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) and RBAC, you can
 update user roles to reflect organizational changes. When needed, accounts can be blocked from
 signing in (or removed), which immediately removes access rights to Azure resources. This blueprint
