@@ -302,19 +302,19 @@
             href: app/iis-configurator-detailed-instructions.md
           - name: Troubleshooting and Known Issues
             href: app/iis-configurator-troubleshoot.md
-          - name: API: Disable-InstrumentationEngine
+          - name: API Disable-InstrumentationEngine
             href: app/iis-configurator-api-disableinstrumentationengine.md
-          - name: API: Disable-ApplicationInsightsMonitoring
+          - name: API Disable-ApplicationInsightsMonitoring
             href: app/iis-configurator-api-disablemonitoring.md
-          - name: API: Enable-InstrumentationEngine
+          - name: API Enable-InstrumentationEngine
             href: app/iis-configurator-api-enableinstrumentationengine.md
-          - name: API: Enable-ApplicationInsightsMonitoring
+          - name: API Enable-ApplicationInsightsMonitoring
             href: app/iis-configurator-api-enablemonitoring.md
-          - name: API: Get-ApplicationInsightsMonitoringConfig
+          - name: API Get-ApplicationInsightsMonitoringConfig
             href: app/iis-configurator-api-getconfig.md
-          - name: API: Get-ApplicationInsightsMonitoringStatus
+          - name: API Get-ApplicationInsightsMonitoringStatus
             href: app/iis-configurator-api-getstatus.md
-          - name: API: Set-ApplicationInsightsMonitoringConfig
+          - name: API Set-ApplicationInsightsMonitoringConfig
             href: app/iis-configurator-api-setconfig.md
         - name: Status Monitor
           href: app/monitor-performance-live-website-now.md
