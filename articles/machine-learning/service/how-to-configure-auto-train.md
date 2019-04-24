@@ -332,9 +332,9 @@ root_mean_squared_log_error|Root mean squared log error is the square root of th
 normalized_root_mean_squared_log_error|Normalized Root mean squared log error is root mean squared log error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divide by range of the data|
 
 
-## Understand model pipeline
+## Understand automated ML models
 
-Any model pipeline suggested by automated ML includes the following steps:
+Any model produced using automated ML includes the following steps:
 + Automated feature engineering (if preprocess=True)
 + Scaling/Normalization and algorithm with hypermeter values
 
