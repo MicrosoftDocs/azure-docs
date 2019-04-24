@@ -17,7 +17,7 @@ manager: jeconnoc
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
-This article shows you how to use command line tools to create a Python project that runs in Azure Functions. The function you create is triggered by anonymous HTTP requests. Finally, you publish your project to run as a [serverless function](functions-scale.md#consumption-plan) in Azure.
+This article shows you how to use command-line tools to create a Python project that runs in Azure Functions. The function you create is triggered by anonymous HTTP requests. Finally, you publish your project to run as a [serverless function](functions-scale.md#consumption-plan) in Azure.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Before you start, you must have the following:
 
 ## Create and activate a virtual environment
 
-To develop and test Python functions, it is required that you work in a Python 3.6 environment. Run the following commands to create and activate a virtual environment named `.env`.
+To locally develop and test Python functions, you must work in a Python 3.6 environment. Run the following commands to create and activate a virtual environment named `.env`.
 
 ```bash
 # In Bash or a terminal window:
@@ -53,7 +53,7 @@ The remaining commands are run inside the virtual environment.
 
 ## Create a local Functions project
 
-A Functions project is the equivalent of a function app in Azure. It can contain multiple functions that all share the same local and hosting configuration.
+A Functions project is the equivalent of a function app in Azure. It can have multiple functions that all share the same local and hosting configurations.
 
 In the virtual environment, run the following command, choosing **python** as your worker runtime.
 
@@ -80,11 +80,11 @@ func new
 
 Choose the **HTTP trigger** template, type `HttpTrigger` as the  name for the function, then press Enter.
 
-A sub-folder named _HttpTrigger_ is created, which contains the following files:
+A subfolder named _HttpTrigger_ is created, which contains the following files:
 
-* `function.json`: contains configuration settings for the function. The value for `scriptFile` points to the file containing the function while the invocation trigger and bindings are defined in the `bindings` array. Each binding requires a direction, type and a unique name.
+* `function.json`: contains configuration settings for the function. When you review this file, you see that the value for `scriptFile` points to the file containing the function, while the invocation trigger and bindings are defined in the `bindings` array.
 
-   The template uses an input binding of type [httpTrigger](functions-bindings-http-webhook#trigger) and output binding of type [http](functions-bindings-http-webhook#output).
+  Each binding requires a direction, type and a unique name. The HTTP trigger has an input binding of type [`httpTrigger`](functions-bindings-http-webhook.md#trigger) and output binding of type [`http`](functions-bindings-http-webhook.md#output).
 
 * `__init__.py`: script file that is your HTTP triggered function. This script contains a default `main()`. HTTP data from the trigger is passed to this function using the `req` named binding parameter. Defined in function.json, `req` is an instance of the [azure.functions.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). 
 
@@ -155,7 +155,7 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 > [!NOTE]
 > Linux and Windows apps cannot be hosted in the same resource group. If you have an existing resource group named `myResourceGroup` with a Windows function app or web app, you must use a different resource group.
 
-You are now ready to publish your local functions project to the function app in Azure.
+You're now ready to publish your local functions project to the function app in Azure.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
