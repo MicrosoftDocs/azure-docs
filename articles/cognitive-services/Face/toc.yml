@@ -47,12 +47,14 @@
       href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: How-to guides
   items:
-  - name: Face detection
+  - name: Detect faces
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-  - name: Face identification
+  - name: Identify faces
     href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
   - name: Add faces
     href: Face-API-How-to-Topics/how-to-add-faces.md
+  - name: Use HeadPose to rotate rectangle
+    href: Face-API-How-to-Topics/how-to-use-headpose.md
   - name: Specify a face recognition model
     href: Face-API-How-to-Topics/specify-recognition-model.md
   - name: Use the large-scale feature
