@@ -29,7 +29,8 @@ This module is a prototype application, and isn't recommended for your productio
 This cmdlet will enable the Instrumentation Engine by setting some registry keys.
 Restart IIS for these changes to take effect.
 
-The Instrumentation Engine can supplement data collected by the .NET SDKs with the events and messages describing the execution of a managed process. 
+The Instrumentation Engine can supplement data collected by the .NET SDKs.
+Events and messages will be collected that describe the execution of a managed process. 
 Including but not limited to Dependency Result Codes, HTTP Verbs, and SQL Command Text. 
 
 Enable the Instrumentation Engine if:

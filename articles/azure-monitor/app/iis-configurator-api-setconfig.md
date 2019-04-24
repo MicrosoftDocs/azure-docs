@@ -70,17 +70,17 @@ You can create a single installation script for several machines by setting the 
 #### Schema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
-**Required parameters**:
-- MachineFilter is a required c# regex of the computer or vm name.
+
+#### Schema
+`@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
+
+- **MachineFilter** is a required c# regex of the computer or vm name.
 	- '.*' will match all
 	- 'ComputerName' will match only computers with that exact name.
-- AppFilter is a required c# regex of the computer or vm name.
+- **AppFilter** is a required c# regex of the computer or vm name.
 	- '.*' will match all
 	- 'ApplicationName' will match only IIS applications with that exact name.
-
-**Optional parameters**: 
-- InstrumentationKey
-	- InstrumentationKey is required to enable monitoring of the applications that match the above two filters.
+- **InstrumentationKey** is required to enable monitoring of the applications that match the above two filters.
 	- Leave this value null if you wish to define rules to exclude monitoring
 
 

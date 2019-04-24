@@ -22,12 +22,12 @@ This module is a prototype application, and isn't recommended for your productio
 
 To get started, you must have an instrumentation key. For more information, read ["Create new resource."](create-new-resource.md#copy-the-instrumentation-key)
 
-## Run PowerShell as Administrator with Elevated Execution Policies
+## Run PowerShell as Administrator with elevated execution policies
 
 **PowerShell as Administrator**: 
 - Description: PowerShell will need Administrator level permissions to make changes to your computer.
 
-**Elevated Execution Policies** 
+**Elevated execution policies** 
 - Description: By default, running PowerShell scripts will be disabled. We recommend allowing RemoteSigned scripts for the Current Scope only.
 - Reference: [About Execution Policies](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) and [Set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
@@ -72,7 +72,7 @@ SerializationVersion           1.1.0.1
 For older versions, review this document: [Installing PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget)
 
 
-1. Run PowerShell as Administrator with "Elevated Execution Policies"
+1. Run PowerShell as Administrator with elevated execution policies.
 2. Nuget package provider 
 	- Description: This provider is required to interact with NuGet-based repositories such as PowerShellGallery
 	- Reference: [Install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6)
@@ -130,7 +130,7 @@ For older versions, review this document: [Installing PowerShellGet](https://doc
 ## Download & Install IISConfigurator via PowerShell Gallery
 
 1. Prerequisites for PowerShell Gallery are required.
-2. Run PowerShell as Administrator with "Elevated Execution Policies"
+2. Run PowerShell as Administrator with elevated execution policies.
 3. Install IISConfigurator Module
 	- Reference: [Install-Module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6)
 	- Cmd: `Install-Module -Name Microsoft.ApplicationInsights.IISConfigurator`
@@ -145,8 +145,8 @@ For older versions, review this document: [Installing PowerShellGet](https://doc
 ### Manually download the latest nupkg
 
 1. Navigate to: https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator
-2. Select the latest version from the version history
-3. Under "Installation Options" select "Manual Download"
+2. Select the latest version from the version history.
+3. Find "Installation Options" and select "Manual Download".
 
 ### Option 1: Install into PowerShell Modules Directory
 Install the manually downloaded PowerShell Module to a PowerShell directory so it can be discoverable by PowerShell sessions.
@@ -189,7 +189,7 @@ If installing into any other directory, you must manually import the module usin
 
 - Change the extension to ".zip" and extract contents of package into your intended installation directory.
 - Find the file path to "microsoft.applicationinsights.iisconfigurator.psd1".
-- Run PowerShell as Administrator with "Elevated Execution Policies". 
+- Run PowerShell as Administrator with elevated execution policies. 
 - Load the module via cmd: `Import-Module microsoft.applicationinsights.iisconfigurator.psd1`.
 	
 
