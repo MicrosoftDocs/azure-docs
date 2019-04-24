@@ -28,9 +28,8 @@ When you use Azure Machine Learning service to automate ML modeling and tuning, 
    
 1. **Specify the training data's source and format.** 
    + Data must be labeled. 
-   
-   + It can be stored in your development environment (alongside your training scripts) or in Azure Blob Storage. This directory is copied to the compute target you select for training.
-   + The data in your scripts can be read into Numpy arrays or a Pandas dataframe.
+   + Store data in your development environment (alongside your training scripts) or in Azure Blob Storage. This directory is copied to the compute target you select for training.
+   + Script data can be read into Numpy arrays or a Pandas dataframe.
    + Use split options for training and validation data, or specify separate training and validation data sets.
 
 1. **Configure the compute target for model training.** 
@@ -38,9 +37,8 @@ When you use Azure Machine Learning service to automate ML modeling and tuning, 
    Options include [your local computer, an Azure Machine Learning Compute, a remote VM, Azure Databricks](how-to-set-up-training-targets.md).  Learn more about using automated training [on a remote resource](how-to-auto-train-remote.md)
 
 1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, and what metrics to look at when determining the best model. You can configure the experiment: 
-   + For the Python SDK, [use these steps](how-to-configure-auto-train.md) 
-   
-   + For Azure portal, [use these steps](how-to-create-portal-experiments.md) 
+   + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
+   + In Azure portal, [use these steps](how-to-create-portal-experiments.md).
 
 1. **Submit the training run.** 
 
