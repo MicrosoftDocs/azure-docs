@@ -51,6 +51,8 @@ Each core must be at least 2.6 gigahertz (GHz) or faster.
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
+The container must be able to connect to Azure EventHub in order to relay information in the Rank and Reward calls to the Personalizer server in Azure, and it must be able to connect to the Personalizer API in order to load required configuration and latest machine learning models.
+
 ## Get the container image with `docker pull`
 
 Container images for Personalizer Service are available. 
@@ -201,7 +203,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
-> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. The Personalizer containers will also send the request data to Microsoft for the purposes of online training.
+> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. The Personalizer containers will also send the request data to the corresponding service in Azure for the purposes of online training, and will get updated models periodically from Azure.
 
 ## Next steps
 
