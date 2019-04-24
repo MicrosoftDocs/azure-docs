@@ -3,7 +3,7 @@ title: mobile app that calls Web APIs - overview | Azure
 description: Learn how to build a mobile app that calls Web APIs (overview)
 services: active-directory
 documentationcenter: dev-center-name
-author: dadobali
+author: danieldobalian
 manager: CelesteDG
 editor: ''
 
