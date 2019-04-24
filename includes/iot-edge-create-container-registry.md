@@ -1,13 +1,9 @@
 ---
-title: include file
-description: include file
-services: iot-edge
 author: kgremban
 ms.service: iot-edge
 ms.topic: include
-ms.date: 04/15/2019
+ms.date: 04/25/2019
 ms.author: kgremban
-ms.custom: include file
 ---
 
 ## Create a container registry

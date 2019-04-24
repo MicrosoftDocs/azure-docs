@@ -36,7 +36,7 @@ The Azure function that you create in this tutorial filters the temperature data
 
 ## Prerequisites
 
-Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-vs-code.md). By completing that tutorial, you should have the following prerequisites in place: 
+Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place: 
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * A [Linux device running Azure IoT Edge](quickstart-linux.md)
@@ -93,9 +93,9 @@ Currently, Visual Studio Code can develop C modules for Linux AMD64 and Linux AR
 
 Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub.
 
-4. In Visual Studio Code, open **modules** > **CSharpFunction** > **CSharpFunction.cs**.
+1. In Visual Studio Code, open **modules** > **CSharpFunction** > **CSharpFunction.cs**.
 
-5. Replace the contents of the **CSharpFunction.cs** file with the following code. This code receives telemetry about ambient and machine temperature, and only forwards the message on to IoT Hub if the machine temperature is above a defined threshold.
+1. Replace the contents of the **CSharpFunction.cs** file with the following code. This code receives telemetry about ambient and machine temperature, and only forwards the message on to IoT Hub if the machine temperature is above a defined threshold.
 
    ```csharp
    using System;
@@ -166,7 +166,7 @@ Let's add some additional code so that the module processes the messages at the 
    }
    ```
 
-6. Save the file.
+1. Save the file.
 
 ## Build your IoT Edge solution
 

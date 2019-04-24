@@ -114,7 +114,7 @@ Start the Azure IoT Edge runtime on your IoT Edge device.
 
 ![Diagram - Start the runtime on device](./media/quickstart-linux/start-runtime.png)
 
-The IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub.
+The IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** starts each time an IoT Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub.
 
 During the runtime configuration, you provide a device connection string. Use the string that you retrieved from the Azure CLI. This string associates your physical device with the IoT Edge device identity in Azure.
 
@@ -141,13 +141,13 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 >[!TIP]
 >You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use **sudo** in front of the commands.
 
-1. Check to see that the Edge Security Daemon is running as a system service.
+1. Check to see that the IoT Edge security daemon is running as a system service.
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-   ![See the Edge Daemon running as a system service](./media/quickstart-linux/iotedged-running.png)
+   ![See the IoT Edge daemon running as a system service](./media/quickstart-linux/iotedged-running.png)
 
 2. If you need to troubleshoot the service, retrieve the service logs.
 
@@ -219,4 +219,4 @@ In this quickstart, you created an IoT Edge device and used the Azure IoT Edge c
 The next step is to set up your local development environment so that you can start creating IoT Edge modules that run your business logic. 
 
 > [!div class="nextstepaction"]
-> [Start developing IoT Edge modules for Linux devices](tutorial-develop-vs-code.md)
+> [Start developing IoT Edge modules for Linux devices](tutorial-develop-for-linux.md)

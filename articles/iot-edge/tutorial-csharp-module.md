@@ -32,7 +32,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Solution scope
 
-This tutorial demonstrates how to develop a module in **C#** using **Visual Studio Code**, and how to deploy it to a **Linux device**. If you're developing modules for Windows devices, go to [Develop a C# IoT Edge module for Windows devices](tutorial-csharp-module-visual-studio.md) instead.
+This tutorial demonstrates how to develop a module in **C#** using **Visual Studio Code**, and how to deploy it to a **Linux device**. If you're developing modules for Windows devices, go to [Develop a C# IoT Edge module for Windows devices](tutorial-csharp-module-windows.md) instead.
 
 Use the following table to understand your options for developing and deploying C modules to Linux: 
 
@@ -43,7 +43,7 @@ Use the following table to understand your options for developing and deploying 
 
 ## Prerequisites
 
-Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment, [Develop an IoT Edge module for a Windows device](tutorial-develop-visual-studio.md). After completing that tutorial, you already should have the following prerequisites: 
+Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment, [Develop an IoT Edge module for a Windows device](tutorial-develop-for-windows.md). After completing that tutorial, you already should have the following prerequisites: 
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * A [Linux device running Azure IoT Edge](quickstart-linux.md).

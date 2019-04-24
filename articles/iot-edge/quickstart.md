@@ -239,4 +239,4 @@ In this quickstart, you created an IoT Edge device and used the Azure IoT Edge c
 The next step is to set up your local development environment so that you can start creating IoT Edge modules that run your business logic. 
 
 > [!div class="nextstepaction"]
-> [Start developing IoT Edge modules for Windows devices](tutorial-develop-visual-studio.md)
+> [Start developing IoT Edge modules for Windows devices](tutorial-develop-for-windows.md)

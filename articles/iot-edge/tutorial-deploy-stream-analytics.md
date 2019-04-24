@@ -1,6 +1,6 @@
 ---
 title: Tutorial deploy an Azure Stream Analytics job to a device - Azure IoT Edge | Microsoft Docs 
-description: In this tutorial, you deploy Azure Stream Analytics as a module to an Iot Edge device
+description: In this tutorial, you deploy Azure Stream Analytics as a module to an IoT Edge device
 author: kgremban
 manager: philmea
 ms.author: kgremban

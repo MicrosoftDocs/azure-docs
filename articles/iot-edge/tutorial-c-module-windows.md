@@ -42,7 +42,7 @@ Use the following table to understand your options for developing and deploying 
 
 ## Prerequisites
 
-Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Windows container development: [Develop IoT Edge modules for Windows devices](tutorial-develop-visual-studio.md). After completing that tutorial, you should have the following prerequisites in place: 
+Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Windows container development: [Develop IoT Edge modules for Windows devices](tutorial-develop-for-windows.md). After completing that tutorial, you should have the following prerequisites in place: 
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * A [Windows device running Azure IoT Edge](quickstart.md).
@@ -65,7 +65,7 @@ Create a C solution template that you can customize with your own code.
 
 3. In the new project window, select the **Azure IoT** project type and choose the **Azure IoT Edge** project. Rename the project and solution to something descriptive like **CTutorialApp**. Select **OK** to create the project. 
 
-   ![Create a new Azure IoT Edge project](./media/tutorial-c-module-visual-studio/new-project.png)
+   ![Create a new Azure IoT Edge project](./media/tutorial-c-module-windows/new-project.png)
 
 4. In the IoT Edge application and module window, configure your project with the following values: 
 
@@ -76,7 +76,7 @@ Create a C solution template that you can customize with your own code.
    | Module project name | Name your module **CModule**. | 
    | Docker image repository | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the module project name value. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br> The final image repository looks like \<registry name\>.azurecr.io/cmodule. |
 
-   ![Configure your project for target device, module type, and container registry](./media/tutorial-c-module-visual-studio/add-application-and-module.png)
+   ![Configure your project for target device, module type, and container registry](./media/tutorial-c-module-windows/add-application-and-module.png)
 
 5. Select **OK** to apply your changes. 
 
@@ -280,7 +280,7 @@ The default module code receives messages on an input queue and passes them alon
    }
    ```
 
-   ![Add CModule twin to deployment template](./media/tutorial-c-module-visual-studio/module-twin.png)
+   ![Add CModule twin to deployment template](./media/tutorial-c-module-windows/module-twin.png)
 
 1. Save the **deployment.template.json** file.
 
@@ -331,7 +331,7 @@ You can use the IoT Edge Tools extension to view messages as they arrive at your
 
 3. View the messages arriving at your IoT Hub. It may take a while for the messages to arrive, because the IoT Edge device has to receive its new deployment and start all the modules. Then, the changes we made to the CModule code wait until the machine temperature reaches 25 degrees before sending messages. It also adds the message type **Alert** to any messages that reach that temperature threshold. 
 
-   ![View messages arriving at IoT Hub](./media/tutorial-c-module-visual-studio/view-d2c-message.png)
+   ![View messages arriving at IoT Hub](./media/tutorial-c-module-windows/view-d2c-message.png)
 
 ## Edit the module twin
 

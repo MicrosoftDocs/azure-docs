@@ -45,9 +45,9 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Set up your development machine and learn about IoT Edge modules for <a href="/azure/iot-edge/tutorial-develop-vs-code">Linux devices</a> or <a href="/azure/iot-edge/tutorial-develop-visual-studio">Windows devices</a>.
+    - html: Set up your development machine and learn about IoT Edge modules for <a href="/azure/iot-edge/tutorial-develop-for-linux">Linux devices</a> or <a href="/azure/iot-edge/tutorial-develop-for-windows">Windows devices</a>.
     - html: Develop custom code modules for Linux devices in <a href="/azure/iot-edge/tutorial-c-module">C</a>, <a href="/azure/iot-edge/tutorial-csharp-module">C#</a>, <a href="/azure/iot-edge/tutorial-python-module">Python</a>, <a href="/azure/iot-edge/tutorial-node-module">Node.js</a>, or <a href="/azure/iot-edge/tutorial-java-module">Java</a>.
-    - html: Develop custom code modules for Windows devices in <a href="/azure/iot-edge/tutorial-c-module-visual-studio">C</a> or <a href="/azure/iot-edge/tutorial-csharp-module-visual-studio">C#</a>.
+    - html: Develop custom code modules for Windows devices in <a href="/azure/iot-edge/tutorial-c-module-windows">C</a> or <a href="/azure/iot-edge/tutorial-csharp-module-windows">C#</a>.
     - html: <a href="/azure/iot-edge/tutorial-deploy-function">Filter messages with Azure Functions</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Find averages with Azure Stream Analytics as a module</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Score data with Azure Machine Learning as a module</a>

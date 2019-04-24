@@ -106,7 +106,7 @@ Use the IoT extensions for Visual Studio 2017 to develop IoT Edge modules. These
 
 7. Expand your subscription, then **IoT Hubs**, then your IoT hub. You should see a list of your IoT devices, and can use this explorer to manage them. 
 
-   ![Access IoT Hub resources in Cloud Explorer](./media/tutorial-develop-visual-studio/cloud-explorer-view-hub.png)
+   ![Access IoT Hub resources in Cloud Explorer](./media/tutorial-develop-for-windows/cloud-explorer-view-hub.png)
 
 [!INCLUDE [iot-edge-create-container-registry](../../includes/iot-edge-create-container-registry.md)]
 
@@ -120,7 +120,7 @@ The Azure IoT Edge Tools extension provides project templates for all supported 
 
 3. In the new project window, select the **Azure IoT** project type and choose the **Azure IoT Edge** project. Rename the project and solution, or accept the default **AzureIoTEdgeApp1**. Select **OK** to create the project. 
 
-   ![Create a new Azure IoT Edge project](./media/tutorial-develop-visual-studio/new-project.png)
+   ![Create a new Azure IoT Edge project](./media/tutorial-develop-for-windows/new-project.png)
 
 4. In the IoT Edge application and module window, configure your project with the following values: 
 
@@ -131,7 +131,7 @@ The Azure IoT Edge Tools extension provides project templates for all supported 
    | Module project name | Accept the default **IoTEdgeModule1**. | 
    | Docker image repository | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the module project name value. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br> The final image repository looks like \<registry name\>.azurecr.io/iotedgemodule1. |
 
-   ![Configure your project for target device, module type, and container registry](./media/tutorial-develop-visual-studio/add-application-and-module.png)
+   ![Configure your project for target device, module type, and container registry](./media/tutorial-develop-for-windows/add-application-and-module.png)
 
 5. Select **OK** to apply your changes. 
 
@@ -175,13 +175,13 @@ Each module can have multiple *input* and *output* queues declared in their code
 
 2. This function sets up an input queue to receive incoming messages. It calls the C SDK module client function [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback). Review this function and see that it initializes an input queue called **input1**. 
 
-   ![Find the input name in the SetInputMessageCallback constructor](./media/tutorial-develop-visual-studio/SetInputMessageCallback-input1.png)
+   ![Find the input name in the SetInputMessageCallback constructor](./media/tutorial-develop-for-windows/declare-input-queue.png)
 
 3. Next, find the **InputQueue1Callback** function.
 
 4. This function processes received messages and sets up an output queue to pass them along. It calls the C SDK module client function [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync). Review this function and see that it initializes an output queue called **output1**. 
 
-   ![Find the output name in the SendEventToOutputAsync constructor](./media/tutorial-develop-visual-studio/SendEventToOutputAsync-output1.png)
+   ![Find the output name in the SendEventToOutputAsync constructor](./media/tutorial-develop-for-windows/declare-output-queue.png)
 
 5. Open the **deployment.template.json** file.
 
@@ -195,7 +195,7 @@ Each module can have multiple *input* and *output* queues declared in their code
 
    One of the functions if the IoT Edge hub module is to route messages between all the modules in a deployment. Review the values in the routes property. The first route, **IotEdgeModule1ToIoTHub**, uses a wildcard character (**\***) to include any message coming from any output queue in the IoTEdgeModule1 module. These messages go into *$upstream*, which is a reserved name that indicates IoT Hub. The second route, **sensorToIotEdgeModule1**, takes messages coming from the tempSensor module and routes them to the *input1* input queue of the IotEdgeModule1 module. 
 
-   ![Review routes in deployment.template.json](./media/tutorial-develop-visual-studio/edgeHub-routes.png)
+   ![Review routes in deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
 
 
 ## Build and push your solution
@@ -222,7 +222,7 @@ Your development machine now has access to your container registry, and your IoT
 
 1. Right-click the **AzureIotEdgeApp1.Windows.Amd64** project folder and select **Build and Push IoT Edge Modules**. 
 
-   ![Build and push IoT Edge modules](./media/tutorial-develop-visual-studio/build-and-push-modules.png)
+   ![Build and push IoT Edge modules](./media/tutorial-develop-for-windows/build-and-push-modules.png)
 
    The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry. 
 
@@ -249,7 +249,7 @@ Your development machine now has access to your container registry, and your IoT
 
 10. In your container registry, select **Repositories** then **iotedgemodule1**. Verify that both versions of the image were pushed to the registry.
 
-   ![View both image versions in container registry](./media/tutorial-develop-visual-studio/view-repository-versions.png)
+    ![View both image versions in container registry](./media/tutorial-develop-for-windows/view-repository-versions.png)
 
 ### Troubleshoot
 
@@ -268,7 +268,7 @@ You verified that the built container images are stored in your container regist
 
 2. Select the name of the device that you want to deploy to. In the **Actions** list, select **Create Deployment**.
 
-   ![Create deployment for single device](./media/tutorial-develop-visual-studio/create-deployment.png)
+   ![Create deployment for single device](./media/tutorial-develop-for-windows/create-deployment.png)
 
 
 3. In the file explorer, navigate to the config folder of your project and select the **deployment.windows-amd64.json** file. This file is often located at `C:\Users\<username>\source\repos\AzureIotEdgeApp1\AzureIotEdgeApp1.Windows.Amd64\config\deployment.windows-amd64.json`
@@ -280,7 +280,7 @@ You verified that the built container images are stored in your container regist
 5. Use the **Refresh** button to update the device status to see that the tempSensor and IotEdgeModule1 modules are deployed your device. 
 
 
-   ![View modules running on your IoT Edge device](./media/tutorial-develop-visual-studio/view-running-modules.png)
+   ![View modules running on your IoT Edge device](./media/tutorial-develop-for-windows/view-running-modules.png)
 
 ## View messages from device
 
@@ -294,7 +294,7 @@ The IotEdgeModule1 code receives messages through its input queue and passes the
 
    It may take a few minutes for both modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module. If you 
 
-   ![View incoming device to cloud messages](./media/tutorial-develop-visual-studio/view-d2c-messages.png)
+   ![View incoming device to cloud messages](./media/tutorial-develop-for-windows/view-d2c-messages.png)
 
 ## View changes on device
 
@@ -325,5 +325,5 @@ The commands in this section are for your IoT Edge device, not your development 
 In this tutorial, you set up Visual Studio 2017 on your development machine and deployed your first IoT Edge module from it. Now that you know the basic concepts, try adding functionality to a module so that it can analyze the data passing through it. Choose your preferred language: 
 
 > [!div class="nextstepaction"] 
-> [C](tutorial-c-module-visual-studio.md)
-> [C#](tutorial-csharp-module-visual-studio.md)
+> [C](tutorial-c-module-windows.md)
+> [C#](tutorial-csharp-module-windows.md)
