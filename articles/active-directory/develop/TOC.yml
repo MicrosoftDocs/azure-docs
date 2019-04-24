@@ -228,6 +228,7 @@
           - name: Xamarin iOS
             href: msal-net-xamarin-ios-considerations.md
           - name: UWP
+            href: msal-net-uwp-considerations.md
           - name: Applying an AAD B2C policy
     - name: Authentication
       items:
