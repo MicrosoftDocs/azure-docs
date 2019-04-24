@@ -127,9 +127,9 @@ The `language` parameter allows you to set in which language search results shou
 
 ### Predictive mode (Auto-suggest)
 
-To find more matches for partial queries, `typeHead` parameter should be set to be 'true'. The query will be interpreted as a partial input and the search will enter predictive mode. Otherwise the service will assume all relevant information has been passed in.
+To find more matches for partial queries, `typeahead` parameter should be set to be 'true'. The query will be interpreted as a partial input and the search will enter predictive mode. Otherwise the service will assume all relevant information has been passed in.
 
-In the sample query below you can see that the search Address service is queried for "Microso" with the `typehead` parameter set to **true**. If you observe the response, you can see that the search service interpreted the query as partial query and response contains results for auto-suggested query.
+In the sample query below you can see that the search Address service is queried for "Microso" with the `typeahead` parameter set to **true**. If you observe the response, you can see that the search service interpreted the query as partial query and response contains results for auto-suggested query.
 
 **Sample query:**
 
