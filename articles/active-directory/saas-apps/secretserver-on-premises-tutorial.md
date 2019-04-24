@@ -58,11 +58,11 @@ To configure the integration of Secret Server (On-Premises) into Azure AD, you n
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, click the **New application** button on the top of dialog.
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Secret Server (On-Premises)**, select **Secret Server (On-Premises)** from result panel then click **Add** button to add the application.
+4. In the search box, type **Secret Server (On-Premises)**, select **Secret Server (On-Premises)** from result panel, and then click **Add** button to add the application.
 
 	![Secret Server (On-Premises) in the results list](common/search-new-app.png)
 
@@ -90,11 +90,11 @@ To configure Azure AD single sign-on with Secret Server (On-Premises), perform t
 
     ![Configure single sign-on link](common/select-sso.png)
 
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
+2. On the **Select a Single sign-on method** dialog, select the **SAML/WS-Fed** mode to enable single sign-on.
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set up Single Sign-On with SAML** page, click the **Edit** icon to open **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -102,7 +102,7 @@ To configure Azure AD single sign-on with Secret Server (On-Premises), perform t
 
     ![Secret Server (On-Premises) Domain and URLs single sign-on information](common/idp-intiated.png)
 
-    a. In the **Identifier** text box, enter the user chosen value as an example: :
+    a. In the **Identifier** text box, enter the user chosen value as an example:
     `https://secretserveronpremises.azure`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
@@ -125,11 +125,11 @@ To configure Azure AD single sign-on with Secret Server (On-Premises), perform t
 
 	![The Certificate download link](common/certificatebase64.png)
 
-7. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **SAML Signing Certificate** dialog.
+7. On the **Set up Single Sign-On with SAML** page, click the **Edit** icon to open **SAML Signing Certificate** dialog.
 
     ![Signing options](./media/secretserver-on-premises-tutorial/edit-saml-signon.png)
 
-8. Select **Signing Option** as **Sign SAML response and assertion**
+8. Select **Signing Option** as **Sign SAML response and assertion**.
 
     ![Signing options](./media/secretserver-on-premises-tutorial/signing-option.png)
 
@@ -143,9 +143,9 @@ To configure Azure AD single sign-on with Secret Server (On-Premises), perform t
 
 	c. Logout URL
 
-### Configure Secret Server (On-Premises) Single Sign-On
+### Configure Secret Server (On-Premises) single sign-on
 
-To configure single sign-on on **Secret Server (On-Premises)** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Secret Server (On-Premises) support team](https://thycotic.force.com/support/s/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **Secret Server (On-Premises)** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the Azure portal to the [Secret Server (On-Premises) support team](https://thycotic.force.com/support/s/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -193,7 +193,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+6. If you are expecting any role value in the SAML assertion, in the **Select Role** dialog select the appropriate role for the user from the list, and then click the **Select** button at the bottom of the screen.
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
@@ -207,7 +207,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Secret Server (On-Premises) tile in the Access Panel, you should be automatically signed in to the Secret Server (On-Premises) for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
