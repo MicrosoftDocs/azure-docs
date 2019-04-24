@@ -3,8 +3,8 @@ title: Azure DDoS Protection Standard Overview | Microsoft Docs
 description: Learn about the Azure DDoS Protection service.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2018
-ms.author: jdial
+ms.author: kumud
 
 ---
 # Azure DDoS Protection Standard overview
