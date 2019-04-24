@@ -185,13 +185,13 @@ istio-init-crd-11   1/1           15s        18s
 
 Now that we've confirmed the successful completion of the jobs, let's verify that we have the correct number of Istio CRDs installed. You can verify that all 53 Istio CRDs have been installed by running the appropriate command for your environment. The command should return the number `53`.
 
-#### Bash
+Bash
 
 ```bash
 kubectl get crds | grep 'istio.io' | wc -l
 ```
 
-#### Powershell
+Powershell
 
 ```powershell
 (kubectl get crds | Select-String -Pattern 'istio.io').Count
@@ -210,9 +210,9 @@ Before we can install the Istio components, we must create the secrets for both 
 
 ### Add Grafana Secret
 
-#### MacOS, Linux
-
 Replace the `REPLACE_WITH_YOUR_SECURE_PASSWORD` token with your password and run the following commands:
+
+#### MacOS, Linux
 
 ```bash
 GRAFANA_USERNAME=$(echo -n "grafana" | base64)
@@ -235,8 +235,6 @@ EOF
 
 #### Windows
 
-Replace the `REPLACE_WITH_YOUR_SECURE_PASSWORD` token with your password and run the following commands:
-
 ```powershell
 $GRAFANA_USERNAME=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("grafana"))
 $GRAFANA_PASSPHRASE=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("REPLACE_WITH_YOUR_SECURE_PASSWORD"))
@@ -256,9 +254,9 @@ data:
 
 ### Add Kiali Secret
 
-#### MacOS, Linux
-
 Replace the `REPLACE_WITH_YOUR_SECURE_PASSWORD` token with your password and run the following commands:
+
+#### MacOS, Linux
 
 ```bash
 KIALI_USERNAME=$(echo -n "kiali" | base64)
@@ -281,8 +279,6 @@ EOF
 
 #### Windows
 
-Replace the `REPLACE_WITH_YOUR_SECURE_PASSWORD` token with your password and run the following commands:
-
 ```powershell
 $KIALI_USERNAME=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("kiali"))
 $KIALI_PASSPHRASE=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("REPLACE_WITH_YOUR_SECURE_PASSWORD"))
@@ -302,7 +298,7 @@ data:
 
 ### Install Istio components
 
-Now that we've successfully created the Grafana and Kiali secrets in our AKS cluster, it's time to install the Istio components. Use Helm and the `istio` chart to install the Istio components into the `istio-system` namespace in your AKS cluster:
+Now that we've successfully created the Grafana and Kiali secrets in our AKS cluster, it's time to install the Istio components. Use Helm and the `istio` chart to install the Istio components into the `istio-system` namespace in your AKS cluster. Use the appropriate commands for your environment.
 
 > [!NOTE]
 > We are using the following options as part of our installation:
@@ -313,12 +309,25 @@ Now that we've successfully created the Grafana and Kiali secrets in our AKS clu
 > - `tracing.enabled=true` - enable the Jaeger deployment for tracing
 > - `kiali.enabled=true` - enable the Kiali deployment for a service mesh observability dashboard
 
-```azurecli
+Bash
+
+```bash
 helm install install/kubernetes/helm/istio --name istio --namespace istio-system \
   --set global.controlPlaneSecurityEnabled=true \
   --set mixer.adapters.useAdapterCRDs=false \
   --set grafana.enabled=true --set grafana.security.enabled=true \
   --set tracing.enabled=true \
+  --set kiali.enabled=true
+```
+
+Powershell
+
+```powershell
+helm install install/kubernetes/helm/istio --name istio --namespace istio-system `
+  --set global.controlPlaneSecurityEnabled=true `
+  --set mixer.adapters.useAdapterCRDs=false `
+  --set grafana.enabled=true --set grafana.security.enabled=true `
+  --set tracing.enabled=true `
   --set kiali.enabled=true
 ```
 
@@ -486,7 +495,7 @@ kubectl delete ns istio-system
 
 ### Remove Istio CRDs
 
-The above commands delete all the Istio components and namespace, but we are still left with the Istio CRDs. To delete the CRDs, you can use one the following approaches. 
+The above commands delete all the Istio components and namespace, but we are still left with the Istio CRDs. To delete the CRDs, you can use one the following approaches.
 
 Approach #1 - This command assumes that you are running this step from the top-level folder of the downloaded and extracted release of Istio that you used to install Istio with.
 
@@ -494,7 +503,7 @@ Approach #1 - This command assumes that you are running this step from the top-l
 kubectl delete -f install/kubernetes/helm/istio-init/files
 ```
 
-Approach #2 - Use one of these commands if you no longer have access to the downloaded and extracted release of Istio that you used to install Istio with.
+Approach #2 - Use one of these commands if you no longer have access to the downloaded and extracted release of Istio that you used to install Istio with. This command will take a little longer - expect it to take a few minutes to complete.
 
 Bash
 ```bash

@@ -400,7 +400,7 @@ deployment.apps/voting-app-2-0 created
 
 Wait until all the version `2.0` pods are running. Use the [kubectl get pods][kubectl-get] command to view all pods in the `voting` namespace:
 
-```azurecli-interactive
+```azurecli
 kubectl get pods --namespace voting
 ```
 
