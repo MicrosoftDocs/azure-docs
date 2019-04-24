@@ -140,19 +140,27 @@ A user with the [Contributor](https://docs.microsoft.com/azure/role-based-access
 
 ### Using the Azure CLI
 
-The simplest way to add this role assignment is by using the following command in Azure CLI:
-
-```azurecli-interactive
-az role assignment create --role "HDInsight Cluster Operator" --assignee user@domain.com
-```
+The simplest way to add this role assignment is by using the `az role assignemnt create` command in Azure CLI.
 
 > [!NOTE]
 > This command must be run by a user with the Contributor or Owner roles, as only they can grant these permissions. The `--assignee` is the email address of the user to whom you want to assign the HDInsight Cluster Operator role.
 
-The above command grants this role at the subscription level. To instead just grant this role at the resource group level, you can modify the command like so:
+#### Grant role at the resource (cluster) level
+
+```azurecli-interactive
+az role assignment create --role "HDInsight Cluster Operator" --assignee <user@domain.com> --scope /subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.HDInsight/clusters/<ClusterName>
+```
+
+#### Grant role at the resource group level
 
 ```azurecli-interactive
 az role assignment create --role "HDInsight Cluster Operator" --assignee user@domain.com -g <ResourceGroupName>
+```
+
+#### Grant role at the subscription level
+
+```azurecli-interactive
+az role assignment create --role "HDInsight Cluster Operator" --assignee user@domain.com
 ```
 
 ### Using the Azure portal
