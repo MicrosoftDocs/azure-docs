@@ -51,6 +51,8 @@
   - name: How-to guides
     expanded: true
     items:
+    - name: Manage B2B sharing
+      href: delegate-invitations.md
     - name: Manage invitations
       items:
       - name: Admins adding B2B users
@@ -61,8 +63,6 @@
         href: google-federation.md
       - name: One-time passcode authentication
         href: one-time-passcode.md
-      - name: B2B sharing policies
-        href: delegate-invitations.md
       - name: Allow or block invitations
         href: allow-deny-list.md
       - name: Add B2B users without an invitation

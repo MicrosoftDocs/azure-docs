@@ -42,7 +42,7 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
 ## Reload data from App Configuration
 
-1. Open Program.cs, and update the `CreateWebHostBuilder` method by adding the `config.AddAzureAppConfiguration()` method.
+1. Open *Program.cs*, and update the `CreateWebHostBuilder` method by adding the `config.AddAzureAppConfiguration()` method.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -61,7 +61,7 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
     The second parameter in the `.Watch` method is the polling interval at which the ASP.NET client library queries an app configuration store. The client library checks the specific configuration setting to see if any change occurred.
 
-2. Add a Settings.cs file that defines and implements a new `Settings` class.
+2. Add a *Settings.cs* file that defines and implements a new `Settings` class.
 
     ```csharp
     namespace TestAppConfig
@@ -76,7 +76,7 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
     }
     ```
 
-3. Open Startup.cs, and update the `ConfigureServices` method to bind configuration data to the `Settings` class.
+3. Open *Startup.cs*, and update the `ConfigureServices` method to bind configuration data to the `Settings` class.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -95,7 +95,13 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
 ## Use the latest configuration data
 
-1. Open HomeController.cs in the Controllers directory. Update the `HomeController` class to receive `Settings` through dependency injection, and make use of its values.
+1. Open *HomeController.cs* in the Controllers directory, and add a reference to the `Microsoft.Extensions.Options` package.
+
+    ```csharp
+    using Microsoft.Extensions.Options;
+    ```
+
+2. Update the `HomeController` class to receive `Settings` through dependency injection, and make use of its values.
 
     ```csharp
     public class HomeController : Controller
@@ -118,7 +124,7 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
     }
     ```
 
-2. Open Index.cshtml in the Views > Home directory, and replace its content with the following script:
+3. Open *Index.cshtml* in the Views > Home directory, and replace its content with the following script:
 
     ```html
     <!DOCTYPE html>
@@ -161,7 +167,7 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
     | Key | Value |
     |---|---|
-    | TestAppSettings:BackgroundColor | blue |
+    | TestAppSettings:BackgroundColor | green |
     | TestAppSettings:FontColor | lightGray |
     | TestAppSettings:Message | Data from Azure App Configuration - now with live updates! |
 
