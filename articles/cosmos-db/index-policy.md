@@ -4,7 +4,7 @@ description:  Learn how to configure and change the default indexing policy for 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
 ---
 
@@ -65,6 +65,36 @@ Any indexing policy has to include the root path `/*` as either an included or a
 - Exclude the root path to selectively include paths that need to be indexed.
 
 See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) for indexing policy examples.
+
+## Composite indexes
+
+Queries that `ORDER BY` two or more properties require a composite index. Currently, composite indexes are only utilized by Multi `ORDER BY` queries. By default, no composite indexes are defined so you should [add composite indexes](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) as needed.
+
+When defining a composite index, you specify:
+
+- Two or more property paths. The sequence in which property paths are defined matters.
+- The order (ascending or descending).
+
+The following considerations are used when using composite indexes:
+
+- If the composite index paths do not match the sequence of the properties in the ORDER BY clause, then the composite index can't support the query
+
+- The order of composite index paths (ascending or descending) should also match the order in the ORDER BY clause.
+
+- The composite index also supports an ORDER BY clause with the opposite order on all paths.
+
+Consider the following example where a composite index is defined on properties a, b, and c:
+
+| **Composite Index**     | **Sample `ORDER BY` Query**      | **Supported by Index?** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
+| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+
+You should customize your indexing policy so you can serve all necessary `ORDER BY` queries.
 
 ## Modifying the indexing policy
 
