@@ -123,7 +123,7 @@ When planning your SCCA compliancy strategy and technical architecture, there ar
 Microsoft has several customers who have already gone through the full deployment or at least planning stages of their SACA environments. This has allowed us to get insight into the most common deployment scenario. The diagram below depicts the most common architecture. 
 
 
-![SACA Reference Architecture Diagram](media/sacav2commonScenario.png) 
+![SACA Reference Architecture Diagram](media/sacav2commonscenario.png) 
 
 
 As you can see from the diagram, DoD customers typically subscribe to two of the DISA BCAPs, one of these lives on the west coast and the other lives on the east coast. An ExpressRoute Private peer is enabled to Azure at each DISA BCAP location. These ExpressRoute Peers are then linked to the Virtual Network Gateway in the DoD East and DoD Central Azure Regions. A SACA instance is deployed in the DoD East and DoD Central Azure region and all ingress and egress traffic flows through it to and from the Express Route connection to the DISA BCAP. 
