@@ -56,7 +56,7 @@ In Canada Microsoft uses the following SMS short codes:
    * 759731 
    * 673801
 
-Microsoft does not guarantee consistent SMS or Voice-based Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, Microsoft may add or remove Short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft does not support short codes for countries besides the United States and Canada
+Microsoft does not guarantee consistent SMS or Voice-based Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, Microsoft may add or remove Short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft does not support short codes for countries/regions besides the United States and Canada
 
 ## Billing
 
