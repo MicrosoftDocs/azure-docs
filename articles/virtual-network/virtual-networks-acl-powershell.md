@@ -4,7 +4,11 @@ description: Learn how to manage ACLs with PowerShell
 services: virtual-network
 documentationcenter: na
 author: KumudD
+<<<<<<< HEAD
 manager: carmonm
+=======
+manager: twooley
+>>>>>>> 2f48cd6dc989f1a429ebef6ea7c8153e178885e0
 editor: tysonn
 
 ms.assetid: c84e40af-f351-4572-b3f0-d572d46bafe7

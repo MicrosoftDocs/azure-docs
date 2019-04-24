@@ -5,6 +5,7 @@ description: Learn how to add, change, or delete a virtual network subnet in Azu
 services: virtual-network
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

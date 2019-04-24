@@ -5,6 +5,7 @@ description: Learn how to enable event and rule counter diagnostic logs for an A
 services: virtual-network
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

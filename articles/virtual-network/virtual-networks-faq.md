@@ -5,6 +5,7 @@ description: Answers to the most frequently asked questions about Microsoft Azur
 services: virtual-network
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

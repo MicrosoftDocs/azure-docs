@@ -5,6 +5,7 @@ description: Learn what a network interface is and how to create, change setting
 services: virtual-network
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article

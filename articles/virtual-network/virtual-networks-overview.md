@@ -4,6 +4,7 @@ description: Learn about Azure Virtual Network concepts and features.
 services: virtual-network
 documentationcenter: na
 author: KumudD
+manager: twooley
 tags: azure-resource-manager
 Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure Virtual Network, so that my Azure resources such as VMs, can securely communicate with each other, the internet, and my on-premises resources.
 ms.service: virtual-network

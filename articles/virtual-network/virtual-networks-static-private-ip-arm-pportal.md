@@ -4,7 +4,7 @@ description: Learn how to configure private IP addresses for virtual machines us
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: twooley
 editor: tysonn
 tags: azure-resource-manager
 
@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: kumud
-ms.custom: H1Hack27Feb2017
 
 ---
 # Configure private IP addresses for a virtual machine using the Azure portal
