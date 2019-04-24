@@ -361,7 +361,7 @@ best_run, fitted_model = automl_run.get_output()
 
 Automated feature engineering:
 
-See [here](concept-automated-ml) for details on automated feature engineering that happens when preprocess=True.  Consider this example:
+See [here](concept-automated-ml.md) for details on automated feature engineering that happens when preprocess=True.  Consider this example:
 + There are 4 input features: A (Numeric), B (Numeric), C (Numeric), D (DateTime)
 + Numeric feature C is dropped because it is an ID column with all unique values
 + Numeric features A and B have missing values and hence are imputed by mean
