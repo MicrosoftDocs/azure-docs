@@ -72,7 +72,7 @@ The I/O test used Vdbench and a combination of 12xD32s V3 storage VMs. The sampl
 
 ## Latency
 
-The distance between the test VMs and the Azure NetApp Files volume has an impact on the IO performance.  The chart below compares the IOPS versus latency response curves for two different sets of VMs.  One set of VMs is near Azure NetApp Files and the other set is further away.  Note that the increased latency for the further set of VMs has an impact on the amount of IOPS achieved at a given level of parallelism.  Regardless, reads against a volume can exceed 300,000 IOPS as illustrated below: 
+The distance between the test VMs and the Azure NetApp Files volume has an impact on the I/O performance.  The chart below compares the IOPS versus latency response curves for two different sets of VMs.  One set of VMs is near Azure NetApp Files and the other set is further away.  Note that the increased latency for the further set of VMs has an impact on the amount of IOPS achieved at a given level of parallelism.  Regardless, reads against a volume can exceed 300,000 IOPS as illustrated below: 
 
 ![Latency study](../media/azure-netapp-files/azure-netapp-files-latency-study.png)
 
