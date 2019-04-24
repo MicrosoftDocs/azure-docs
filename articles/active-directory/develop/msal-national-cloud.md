@@ -75,14 +75,14 @@ Once decided, the special consideration is where you perform your app registrati
 11. Select **Save**.
 
 
-### Step 2:  Setting up your web server or project
+### Step 2  Setting up your web server or project
 
 - [Download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) for a local web server, such as Node
 
  or
  - [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 
- And then  skip to the ['Configure your JavaScript SPA'](#Step-4:-Configure-your-JavaScript-SPA) to configure the code sample before executing it.
+ And then  skip to the ['Configure your JavaScript SPA'](#step-4-configure-your-javascript-spa) to configure the code sample before executing it.
 
 
 ### Step 3: Use the Microsoft Authentication Library (MSAL) to sign in the user
