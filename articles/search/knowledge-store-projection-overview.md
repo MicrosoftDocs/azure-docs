@@ -25,9 +25,4 @@ Azure Search enables you to enrich your content with AI skills before you insert
 
 + **Objects**: When you need a JSON representation of your data and enrichments, object projections you define are saved as blobs. 
 
-## Next steps
-
-Create your first knowledge store using sample data and instructions
-
-> [!div class="nextstepaction"]
-> [How to create a knowlege store](knowledge-store-howto.md)
+As a next step, create your first knowledge store using sample data and instructions. For more information, see [How to create a knowlege store](knowledge-store-howto.md).
