@@ -15,9 +15,9 @@ ms.subservice: disks
 ---
 # Preview: Ephemeral OS disks for Azure VMs
  
-Ephemeral OS disk is now in public preview for Virtual Machines  (VMs)and Virtual Machine Scale Sets. Ephemeral OS disks are created on the host node and not persisted to Azure Storage. Ephemeral disks work well for stateless workloads that can tolerate individual VM instance failures due to unexpected events such as hardware failures, and are more focused on read/write latency to the OS disk and frequent VM instance reimaging. 
+Ephemeral OS disk is now in public preview for Virtual Machines  (VMs) and Virtual Machine Scale Sets. Ephemeral OS disks are created on the host node and not persisted to Azure Storage. Ephemeral disks work well for stateless workloads that can tolerate individual VM instance failures due to unexpected events such as hardware failures, and are more focused on read/write latency to the OS disk and frequent VM instance reimaging. 
  
-The key features of Ephemeral disks are: 
+The key features of ephemeral disks are: 
 1.	They can be used with both Marketplace images and custom images up to 30GiB.
 2.	Lower run-time latency similar to a temporary disk. 
 3.	Ability to fast reset or reimage their VMs to the original boot state.  
@@ -26,7 +26,7 @@ The key features of Ephemeral disks are:
  
 To join the preview, please fill in the form at http://aka.ms/ephemeralpreviewform  
  
-Key differentces between persistent and ephemeral OS disks:
+Key differences between persistent and ephemeral OS disks:
 
 |                             | Persistent OS Disk                          | Ephemeral OS Disk                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
@@ -42,9 +42,9 @@ Key differentces between persistent and ephemeral OS disks:
 
 
 
-## Scale set depployment  
+## Scale set deployment  
 The process to create a scale set that uses an ephemeral OS disk is to add the 'diffDiskSettings' property to the 
-`Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` resource type in the resource manager template. Also, the caching policy must be set to `ReadOnly` for the ephemeral OS disk. 
+`Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` resource type in the template. Also, the caching policy must be set to `ReadOnly` for the ephemeral OS disk. 
 
 
 ```json
@@ -88,7 +88,7 @@ The process to create a scale set that uses an ephemeral OS disk is to add the '
 ```
 
 ## VM deployment 
-You can deploy a VM with an ephemeral OS disk using an Azure Resource Manager Template. The process to create a VM that uses ephemeral OS disks is to add the `diffDiskSettings` property to the Microsoft.Compute/virtualMachines resource type in the template. Also, the caching policy must be set to `ReadOnly` for the ephemeral OS disk. 
+You can deploy a VM with an ephemeral OS disk using a template. The process to create a VM that uses ephemeral OS disks is to add the `diffDiskSettings` property to the Microsoft.Compute/virtualMachines resource type in the template. Also, the caching policy must be set to `ReadOnly` for the ephemeral OS disk. 
 
 ```json
 { 
@@ -137,7 +137,7 @@ id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}
 
 **Q: What is the size of the local OS Disks?**
 
-A: For preview, we will support platform images up to 30GB OS disk, where all read/writes to the OS disk will be local on the same node as the Virtual Machine. For general availability, due to limited OS image size on the drive, we will probably limit the OS disk size based on vCPU count. Currently we think this limit should be 8GiB per vCPU with a minimum of 16GiB, going up to 128GiB. 
+A: For preview, we will support platform images up to 30 GB OS disk, where all read/writes to the OS disk will be local on the same node as the Virtual Machine. For general availability, due to limited OS image size on the drive, we will probably limit the OS disk size based on vCPU count. Currently we think this limit should be 8 GiB per vCPU with a minimum of 16 GiB, going up to 128 GiB. 
 
 **Q: Can the ephemeral OS disk be resized?**
 
@@ -147,13 +147,13 @@ A: No, once the ephemeral OS disk is provisioned, the OS disk cannot be resized.
 
 A: Yes, you can attach a managed data disk to a VM that uses an ephemeral OS disk. 
 
-**Q: Will all VM sizes will be supported for ephemeral OS disks?**
+**Q: Will all VM sizes be supported for ephemeral OS disks?**
 
 A: No, all VM sizes are supported except the B-series, M-series, N-series, and H-series sizes.  
  
-**Q: Can the ephemeral OS disk be applied to existing VMs and VM Scale Sets?**
+**Q: Can the ephemeral OS disk be applied to existing VMs and scale sets?**
 
-A: No, ephemeral OS disk can only be used during VM and VM Scale Set creation. 
+A: No, ephemeral OS disk can only be used during VM and scale set creation. 
 
 **Q: Can you mix ephemeral and normal OS disks in a scale set?**
 
@@ -161,7 +161,7 @@ A: No, you can't have a mix of ephemeral and persistent OS disk instances within
 
 **Q: Can the ephemeral OS disk be created using Powershell or CLI?**
 
-A: For preview, only resource manager template deployments are supported for creating ephemeral OS disks.
+A: For preview, only Resource Manager template deployments are supported for creating ephemeral OS disks.
 
 **Q: What features are not supported with ephemeral OS disk?**
 
