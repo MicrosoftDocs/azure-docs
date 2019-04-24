@@ -23,12 +23,9 @@ ms.collection: M365-identity-device-management
 
 # Using MSAL in National cloud environment
 
+[National cloud](authentication-national-cloud.md) (aka Sovereign clouds) are physically isolated instances of Azure. These regions of Azure are designed to make sure that data residency, sovereignty, and compliance requirements are honored within geographical boundaries.
 
-
-
-[National cloud](articles\active-directory\develop\authentication-national-cloud.md) (aka Sovereign clouds) are physically isolated instances of Azure. These regions of Azure are designed to make sure that data residency, sovereignty, and compliance requirements are honored within geographical boundaries.
-
-In addition to Microsoft worldwide cloud, Microsoft Authentication Library (MSAL) also enables application developers in national clouds to acquire tokens in order to authenticate and call secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS, 
+In addition to Microsoft worldwide cloud, Microsoft Authentication Library (MSAL) also enables application developers in national clouds to acquire tokens in order to authenticate and call secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS.
 
 Including global cloud, Azure Active Directory is deployed in the following National clouds:  
 
@@ -67,7 +64,7 @@ Once decided, the special consideration is where you perform your app registrati
 > or
 > - [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 >
-> And then  skip to the [Configuration step](#Step-3:-Configure-your-JavaScript-SPA) to configure the code sample before executing it.
+> And then  skip to the [Configuration step](#Step-4:-Configure-your-JavaScript-SPA) to configure the code sample before executing it.
 >
 >
 
@@ -85,13 +82,13 @@ Once decided, the special consideration is where you perform your app registrati
 6. Under the **Redirect URI** section, select the **Web** platform and set the value to the application's URL based on your web server. See the sections below for instructions on how to set and obtain the redirect URL in Visual Studio and Node.
 7. When finished, select **Register**.
 8. On the app **Overview** page, note down the **Application (client) ID** value.
-9. This quickstart requires the [Implicit grant flow](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) to be enabled. In the left-hand navigation pane of the registered application, select **Authentication**.
+9. This quickstart requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled. In the left-hand navigation pane of the registered application, select **Authentication**.
 10. In **Advanced settings**, under **Implicit grant**, enable both **ID tokens** and **Access tokens** checkboxes. ID tokens and access tokens are required since this app needs to sign in users and call an API.
 11. Select **Save**.
 
 ### Step 3: Use the Microsoft Authentication Library (MSAL) to sign in the user
 
-Follow this [Javascript tutorial](tutorial-v2-javascript-spa.md#Create-your-project) to build a single page application to acquire token and call Microsoft Graph APIs.
+Follow steps in [Javascript tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-spa#create-your-project) to create you project and integrate with Microsoft Authentication Library (MSAL) to sign in the user. 
 
 ### Step 4: Configure your JavaScript SPA
 
