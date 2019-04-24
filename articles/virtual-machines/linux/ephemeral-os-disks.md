@@ -1,6 +1,6 @@
 ---
 title: Ephemeral OS disks for Azure VMs | Microsoft Docs
-description: Preview: Ephemeral OS disks for Azure VMs.Use the portal to attach new or existing data disk to a Linux VM.
+description: Ephemeral OS disks for Azure VMs.Use the portal to attach new or existing data disk to a Linux VM.
 services: virtual-machines-linux
 author: cynthn
 manager: jeconnoc
@@ -135,25 +135,32 @@ id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}
  
 ## Frequently asked questions
 
-Q: What is the size of the local OS Disks? 
+**Q: What is the size of the local OS Disks?**
+
 A: For preview,we will support platform images up to 30GB OS disk, where all read/writes to the OS disk will be local on the same node as the Virtual Machine. For general availability, due to limit OS image size in drive, we propose to limit the OS disk size based on vCPU. Current thinking is that we should limit it to 8GiB per vCPU with min 16GiB up to 128GiB for OS images. 
 
-Q: Can the ephemeral OS disk be resized? 
+**Q: Can the ephemeral OS disk be resized? **
+
 A: No, once the ephemeral OS disk is provisioned, the OS disk cannot be resized. 
 
-Q: Can I attach a Managed Disks to an Ephemeral VM? 
+**Q: Can I attach a Managed Disks to an Ephemeral VM? **
+
 A: Yes, this functionality to attach managed data disk is supported. 
 
-Q: What VM sizes will be supported for ephemeral VM? 
+**Q: What VM sizes will be supported for ephemeral VM? **
+
 A: All *S VM sizes are supported except B-, M-, N-, H- sizes.  
  
-Q: Can the ephemeral OS disk be applied to existing VM and VM Scale Set? 
+**Q: Can the ephemeral OS disk be applied to existing VM and VM Scale Set? **
+
 A: No, ephemeral OS disk can only be leveraged during VM and VM Scale Set creation. It is also not supported to have a mix of Ephemeral OS Disk and persistent OS Disks VM instances within the same VM Scaleset. 
 
-Q: Can the ephemeral OS disk be created using Powershell or CLI? 
+**Q: Can the ephemeral OS disk be created using Powershell or CLI? **
+
 A: For preview, only ARM template is supported for creating ephemeral OS disk.
 
-Q: What features are not supported with ephemeral OS disk? 
+**Q: What features are not supported with ephemeral OS disk? **
+
 A: Ephermeral disks do not support:
 -	Capturing VM 
 -	Disk snapshots 
@@ -163,5 +170,5 @@ A: Ephermeral disks do not support:
  
 ## Next steps
 
-
+For more information, see [Ephemeral OS Disk in limited preview](https://azure.microsoft.com/en-us/blog/ephemeral-os-disk-limited-public-preview/).
 
