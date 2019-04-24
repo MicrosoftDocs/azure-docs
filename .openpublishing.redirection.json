@@ -25353,7 +25353,7 @@
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-streaming-python.md",
       "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-use-hive-ambari-view.md",
