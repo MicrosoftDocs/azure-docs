@@ -124,7 +124,7 @@ containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}   
-  Logging:Console:LogLevel=Information
+  Logging:Console:LogLevel:Default=Information
 ```
 
 ### Logging example for text to speech
@@ -135,7 +135,7 @@ containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}  
-  Logging:Console:LogLevel=Information
+  Logging:Console:LogLevel:Default=Information
 ```
 
 ## Next steps
