@@ -119,7 +119,9 @@ The sign-in activity reports for MFA give you access to the following informatio
 - Session controls
 - Result
 
-## PowerShell reporting
+## PowerShell reporting on users registered for MFA
+
+First, ensure that you have the [MSOnline V1 PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-1.0) installed.
 
 Identify users who have registered for MFA using the PowerShell that follows.
 
