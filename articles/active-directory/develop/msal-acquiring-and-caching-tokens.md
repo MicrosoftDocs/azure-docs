@@ -26,6 +26,8 @@ ms.collection: M365-identity-device-management
 
 MSAL caches a token after it has been acquired.  Application code should try to get a token silently (from the cache), first, before acquiring a token by other means.
 
+You can also clear the token cache, which is achieved by removing the accounts from the cache. This does not remove the session cookie which is in the browser, though.
+
 ## Scopes when acquiring tokens
 [Scopes](v2-permissions-and-consent.md) are the permissions that a web API exposes for client applications to request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs. MSAL allows you to get tokens to access Azure AD v1.0 and Azure AD v2.0 APIs. Azure AD v2.0 protocol uses scopes instead of resource in the requests. For more information, read [Azure AD v1.0 and v2.0 comparison](active-directory-v2-compare.md). Based on the web API's configuration of the token version it accepts, the Azure AD v2.0 endpoint returns the access token to MSAL.
 
@@ -54,8 +56,6 @@ For example: `https://graph.microsoft.com/User.Read` and `https://graph.microsof
 
 ## Acquiring tokens silently (from the cache)
 MSAL maintains a token cache (or two caches for confidential client applications) and caches a token after it has been acquired.  In many cases, attempting to silently get a token will acquire another token with more scopes based on a token in the cache. It's also capable of refreshing a token when it's getting close to expiration (as the token cache also contains a refresh token).
-
-You can also clear the token cache, which is achieved by removing the accounts from the cache. This does not remove the session cookie which is in the browser, though.
 
 ### Recommended call pattern for public client applications
 Application code should try to get a token silently (from the cache), first.  If the method call returns a "UI required" error or exception, try acquiring a token by other means. 
