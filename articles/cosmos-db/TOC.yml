@@ -214,6 +214,8 @@
           href: firewall-support.md
         - name: Access from virtual networks
           href: vnet-service-endpoint.md
+        - name: Role-based Access Control
+          href: database-security-rbac.md  
     - name: Enterprise readiness 
       items:
       - name: Online backup and on-demand restore
