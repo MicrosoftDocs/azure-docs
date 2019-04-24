@@ -24,9 +24,7 @@ You provide some goals, constraints, or blacklists, and then automated machine l
 
 ## How automated ML works
 
-Using **Azure Machine Learning service**, you can design and run your automated ML training experiments [in Azure portal](how-to-create-portal-experiments.md) interface or using the [Python SDK](how-to-configure-auto-train.md).  Note that automated ML is also available for .NET apps using Visual Studio and Visual Studio Code with [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet) as well as in Power BI.
-
-When you use Azure Machine Learning service to automate ML modeling and tuning, you'll go through these steps:
+Using **Azure Machine Learning service**, you can design and run your automated ML training experiments [in Azure portal](how-to-create-portal-experiments.md) interface or using the [Python SDK](how-to-configure-auto-train.md).  When you use Azure Machine Learning to automate ML modeling and tuning, you go through these steps:
 
 1. **Identify the ML problem (**Classification**, **Forecasting**, or **Regression**) to be solved.** See the full [list of models](how-to-configure-auto-train.md#select-your-experiment-type).
    
@@ -52,6 +50,8 @@ During training, the Azure Machine Learning service creates a number of pipeline
 You can also inspect the logged run information, which contains metrics gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
 While model building is automated, you can also [learn how important or relevant features were](how-to-configure-auto-train.md#explain) to the generation of your model. 
+
+<a name="preprocess"></a>
 
 ## Scale, normalize, and more
 
@@ -79,6 +79,10 @@ You can train ensemble models using automated machine learning with the [Caruana
 
 With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. The ONNX runtime supports  C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Try an example of this flow [in this Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-with-onnx/auto-ml-classification-with-onnx.ipynb).
 
+## Automated ML in other Microsoft solutions.
+
+Automated ML is also available for .NET apps using Visual Studio and Visual Studio Code with [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet) as well as in Power BI.
+
 ## Next steps
 
 See examples and learn how to build models using Automated Machine Learning:
@@ -90,4 +94,3 @@ See examples and learn how to build models using Automated Machine Learning:
    + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
 
 + Try out [Jupyter Notebook samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
-
