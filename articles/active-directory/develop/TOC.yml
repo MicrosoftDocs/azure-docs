@@ -218,6 +218,7 @@
           - name: Xamarin Android
             href: msal-net-xamarin-android-considerations.md
           - name: System browser on Android
+            href: msal-net-system-browser-android-considerations.md
           - name: Xamarin iOS
           - name: UWP
           - name: Applying an AAD B2C policy
