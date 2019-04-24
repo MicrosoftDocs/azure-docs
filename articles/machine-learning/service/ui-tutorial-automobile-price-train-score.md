@@ -87,21 +87,31 @@ If you didn't complete the quickstart, follow these steps to quickly create a ne
 
 1. Connect the output port of the **Automobile price data (Raw)** dataset to the input port of the Select Columns in Dataset.
 
+![Animated gif showing how to connect the Automobile Price Data module to the Select Columns module](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
+
 1. Click the Select Columns in Dataset module and click **Launch column selector** in the **Properties** pane.
 
    1. On the left, click **With rules**
 
-   1. Under **Begin With**, click **All columns**. These rules direct **Select Columns in Dataset** to pass through all the columns (except those columns we're about to exclude).
+   1. Next to  **Begin With**, click **All columns**. These rules direct **Select Columns in Dataset** to pass through all the columns (except those columns we're about to exclude).
 
-   1. From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. A list of columns is displayed. Select **normalized-losses**, and it's added to the text box.
+   1. From the drop-downs, select **Exclude** and **column names**, and then type **normalized-losses** inside the text box.
 
-   1. Click the check mark (OK) button to close the column selector (on the lower right).
+   1. Click the OK button to close the column selector (on the lower right).
 
      Now the properties pane for **Select Columns in Dataset** indicates that it will pass through all columns from the dataset except **normalized-losses**.
 
+    ![Screenshot showing correct configuration of the Select Columns module](./media/ui-tutorial-automobile-price-train-score/select-columns.png)
+
 1. Add a comment to the **Select Columns in Dataset** module by double-clicking the module and entering "Exclude normalized losses.". This can help you see, at a glance, what the module is doing in your experiment.
 
-1. Drag the **Clean Missing Data** module to the experiment canvas and connect it to the **Select Columns in Dataset** module. In the **Properties** pane, select **Remove entire row** under **Cleaning mode**. These options direct **Clean Missing Data** to clean the data by removing rows that have any missing values. Double-click the module and type the comment "Remove missing value rows."
+1. Type **Clean** in the Search box to find the **Clean Missing Data** module.
+
+1. Drag the **Clean Missing Data** module to the experiment canvas and connect it to the **Select Columns in Dataset** module.
+
+1. In the **Properties** pane, select **Remove entire row** under **Cleaning mode**. These options direct **Clean Missing Data** to clean the data by removing rows that have any missing values. Double-click the module and type the comment "Remove missing value rows."
+
+![Screenshot showing correct configuration of the Clean Missing Data module](./media/ui-tutorial-automobile-price-train-score/clean-missing-data.png)
 
 ## Train the model
 
@@ -115,26 +125,28 @@ Train the model by giving it a set of data that includes the price. The model sc
 
 Use your data for both training the model and testing it by splitting the data into separate training and testing datasets.
 
-1. Select and drag the **Split Data** module to the experiment canvas and connect it to the right port of the **Clear Missing Data** module.
+1. Select and drag the **Split Data** module to the experiment canvas and connect it to the left port of the **Clean Missing Data** module.
 
-1. Click the **Split Data** module to select it. Find the Fraction of rows in the first output dataset (in the Properties pane to the right of the canvas) and set it to 0.7. This way, we'll use 70 percent of the data to train the model, and hold back 30 percent for testing.
+1. Click the **Split Data** module to select it. In the Properties pane, set the Fraction of rows in the first output dataset to 0.7. This way, we'll use 70 percent of the data to train the model, and hold back 30 percent for testing.
 
     ![Screenshot showing the correct configuration of the properties pane. Values of "Split Data" should be "Split Rows", 0.7, Randomized split, 0, False.](./media/ui-tutorial-automobile-price-train-score/split-data.png)
 
-1. To select the learning algorithm, expand the **Machine Learning** category in the module palette to the left of the canvas, and then expand **Initialize Model**. This displays several categories of modules that can be used to initialize machine learning algorithms. For this experiment, select the **Linear Regression** module under the Regression category, and drag it to the experiment canvas. (You can also find the module by typing "linear regression" in the palette Search box.)
+1. To select the learning algorithm, expand the **Machine Learning** category in the module palette to the left of the canvas, and then expand **Initialize Model**. This displays several categories of modules that can be used to initialize machine learning algorithms. For this experiment, select **Regression** > **Linear Regression** and drag it to the experiment canvas. (You can also find the module by typing "linear regression" in the palette Search box.)
 
 1. Find and drag the **Train Model** module to the experiment canvas. Connect the output of the Linear Regression module to the left input of the Train Model module, and connect the training data output (left port) of the **Split Data** module to the right input of the **Train Model** module.
 
     ![Screenshot showing the correct configuration of the Train Model module. The Linear Regression module connects to left port of Train Model module and the Split Data module connects to right port of Train Model](./media/ui-tutorial-automobile-price-train-score/train-model.png)
 
-1. Click the **Train Model** module, click Launch column selector in the Properties pane, and then select the price column. Price is the value that your model is going to predict
+1. Click the **Train Model** module. In the Properties pane, click Launch column selector and then select the **price** column. Price is the value that your model is going to predict
 
      ![Screenshot showing the correct configuration for the column selector module. With rules > Include column names > "price"](./media/ui-tutorial-automobile-price-train-score/select-price.png)
 
     Now the experiment should look like.
      ![Screenshot showing the correct configuration of the experiment after adding the Train Model module.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
-     You can click **Run** to train the model.
+1. Click **Run** to train the model.
+
+[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
 ## Score and evaluate the model
 
@@ -165,6 +177,26 @@ The following statistics are shown for your model:
 * **Coefficient of Determination**: Also known as the R squared value, this is a statistical metric indicating how well a model fits the data.
 
 For each of the error statistics, smaller is better. A smaller value indicates that the predictions more closely match the actual values. For Coefficient of Determination, the closer its value is to one (1.0), the better the predictions.
+
+## Manage experiments
+
+The experiments you create in the visual interface can be managed from the Azure Machine Learning service workspace. Use the workspace to see more detailed information such as individuals experiment runs, diagnostic logs, execution graphs, and more.
+
+1. Open your workspace in the [Azure portal](https://portal.azure.com/).  
+
+1. In your workspace, select **Experiments**. Then select the experiment you created.
+
+    ![Screenshot showing how to navigate to experiments in the Azure portal](./media/ui-tutorial-automobile-price-train-score/portal-experiments.png)
+
+    On this page, you'll see an overview of the experiment and its latest runs.
+
+    ![Screenshot showing overview of experiment statistics in the Azure portal](./media/ui-tutorial-automobile-price-train-score/experiment-overview.png)
+
+1. Click a run number to see more details about a specific execution.
+
+    ![Screenshot detailed run report](./media/ui-tutorial-automobile-price-train-score/run-details.png)
+
+    The run report is updated in real time. If you used an **Execute Python Script** module in your experiment, you can specify script logs to output in the **Logs** tab.
 
 ## Clean up resources
 
