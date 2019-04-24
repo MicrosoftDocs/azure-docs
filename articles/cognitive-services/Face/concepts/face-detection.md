@@ -43,7 +43,7 @@ Attributes are a set of additional face features that can optionally be detected
 * **Gender** The estimated gender of the given face. Possible values are "male", "female", and "genderless".
 * **Glasses** Whether the given face has eyeglasses. Possible values are "NoGlasses", "ReadingGlasses", "Sunglasses", and "Swimming Goggles".
 * **Hair** The hair style of the face. This shows whether the hair is visible, whether baldness is detected, and what hair colors are detected.
-* **Head pose** The face's orientation in 3D space. This is described by the pitch, roll, and yaw angles in degrees. The value ranges of roll and yaw are [-180, 180] and [-90, 90] degrees respectively. Pitch calculation is currently unavailable and will always return 0. See the following diagram for angle mappings:
+* **Head pose** The face's orientation in 3D space. This is described by the pitch, roll, and yaw angles in degrees. The value ranges are [-90, 90], [-180, 180] and [-90, 90] degrees respectively. See the following diagram for angle mappings:
 
     ![A head with the pitch, roll, and yaw axes labeled](../Images/headpose.1.jpg)
 * **Makeup** Whether the face has makeup. This returns a boolean value for "eyeMakeup" and "lipMakeup".
