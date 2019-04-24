@@ -110,6 +110,7 @@ Here are the limits for a single logic app run:
 
 | Name | Limit | Notes |
 |------|-------|-------|
+| Action: Executions per 5 minutes | System-throttled limit | Throttling takes effect when infrastructure reaches 80% capacity |
 | Base unit execution limit | 10,000 action executions per 5 minutes, <br>which is ~80 million action executions per month | |
 | Scale unit execution limit | 5,000 action executions per 5 minutes, <br>which is ~40 million action executions per month | |
 | Maximum scale units that you can add | 3 | |
@@ -131,20 +132,20 @@ request or synchronous connector call:
 
 Some connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than these limits. For more information, see the technical details for the specific connector and also [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Name | Limit | Notes |
-| ---- | ----- | ----- |
-| Outgoing request | 120 seconds | For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
-| Synchronous response | 120 seconds | For the original request to get the response, all steps in the response must finish within the limit unless you call another logic app as a nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
-|||| 
+| Name | Multi-tenant limit | Integration service environment limit | Notes |
+|------|--------------------|---------------------------------------|-------|
+| Outgoing request | 120 seconds | 240 seconds | For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Synchronous response | 120 seconds | 240 seconds | For the original request to get the response, all steps in the response must finish within the limit unless you call another logic app as a nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
+|||||
 
 #### Message size
 
-| Name | Limit | Notes |
-| ---- | ----- | ----- |
-| Message size | 100 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. |
-| Message size with chunking | 1 GB | This limit applies to actions that natively support chunking or let you enable chunking in their runtime configuration. For more information, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
-| Expression evaluation limit | 131,072 characters | The `@concat()`, `@base64()`, `@string()` expressions can't be longer than this limit. |
-||||
+| Name | Multi-tenant limit | Integration service environment limit | Notes |
+|------|--------------------|---------------------------------------|-------|
+| Message size | 100 MB | 200 MB| To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. |
+| Message size with chunking | 1 GB | | This limit applies to actions that natively support chunking or let you enable chunking in their runtime configuration. For more information, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
+| Expression evaluation limit | 131,072 characters | | The `@concat()`, `@base64()`, `@string()` expressions can't be longer than this limit. |
+|||||
 
 #### Retry policy
 
