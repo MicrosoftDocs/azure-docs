@@ -97,7 +97,7 @@ Unlike provisioned compute, memory from the SQL cache is reclaimed from a server
 
 The SQL cache grows as data is fetched from disk in the same way and with the same speed as for provisioned databases. The cache is allowed to grow unconstrained up to the max memory limit when the database is busy.
 
-### Auto-pause and auto-resume
+## Auto-pause and auto-resume
 
 ### Auto-pause
 
@@ -124,7 +124,7 @@ Auto-resume is triggered if any of the following conditions are true at any time
 |Auto-tuning|Application and verification of auto-tuning recommendations such as auto-indexing|
 |Database copying|Create database as copy<br>Export to a BACPAC file|
 |SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|
-|
+
 
 ## On-boarding into the serverless compute tier
 
