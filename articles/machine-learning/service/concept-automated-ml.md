@@ -49,7 +49,7 @@ During training, the Azure Machine Learning service creates a number of pipeline
 
 You can also inspect the logged run information, which contains metrics gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
-While model building is automated, you can also [learn how important or relevant features were to the generation of your model](how-to-configure-auto-train.md#explain-the-model). 
+While model building is automated, you can also [learn how important or relevant features were](how-to-configure-auto-train.md#explain-the-model) to the generation of your model. 
 
 [![Automated Machine learning](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
 
