@@ -16,11 +16,15 @@ ms.custom: seodec18
 
 # What is automated machine learning?
 
-Automated machine learning is the process of taking training data with a defined target feature, and iterating through combinations of algorithms and feature selections to automatically select the best model for your data based on the training scores. 
+Automated machine learning, also referred to as AutoML, will build a set of ML models automatically, fine-tune them, and pick the best one for you automatically. The traditional machine learning model development process is highly resource-intensive, and requires significant domain knowledge and time investment to run and compare the results of dozens of models. 
 
-The traditional machine learning model development process is highly resource-intensive, and requires significant domain knowledge and time investment to run and compare the results of dozens of models. Automated machine learning simplifies this process by generating models tuned from the goals and constraints you defined for your experiment, such as the time for the experiment to run or which models to blacklist.
+With automated ML, anyone can successfully extract and leverage the business insights hidden in their data. While still a newer ML option, it has quickly become popular with non-ML experts, those who don't want to code, and those looking for a quick prototype. 
 
-## How it works with Azure Machine Learning service
+You provide some goals, constraints, or blacklists, and then automated machine learning generates the model for you. Behind the scenes, training data is taken with a defined target feature, and iterated upon through combinations of algorithms and feature selections. Then, the best model (based on training scores) is automatically selected.  
+
+Using **Azure Machine Learning service**, you can configure the settings for automatic training experiment [in Azure portal](how-to-create-portal-experiments.md) or directly in Python [with the SDK](how-to-configure-auto-train.md).
+
+## How automated ML works
 
 When you use Azure Machine Learning service to automate ML modeling and tuning, you'll go through these steps:
 
@@ -43,18 +47,18 @@ When you use Azure Machine Learning service to automate ML modeling and tuning, 
 1. **Submit the training run.** 
 
 
+[![Automated Machine learning](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
+
 During training, the Azure Machine Learning service creates a number of pipelines that try different algorithms and parameters. It will stop once it hits the iteration limit you provide, or when it reaches the target value for the metric you specify.  
 
 You can also inspect the logged run information, which contains metrics gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
 While model building is automated, you can also [learn how important or relevant features were](how-to-configure-auto-train.md#explain-the-model) to the generation of your model. 
 
-[![Automated Machine learning](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
 
+## Preprocessing
 
-## Data pre-processing and featurization
-
-If you use `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py), the following data preprocessing steps are performed automatically for you:
+If you use `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py), the following data preprocessing and featurization steps are performed automatically for you:
 
 |Preprocessing&nbsp;steps| Description |
 | ------------- | ------------- |
@@ -68,7 +72,7 @@ If you use `"preprocess": True` for the [`AutoMLConfig` class](https://docs.micr
 |Weight of Evidence (WoE)|Calculates WoE as a measure of correlation of categorical columns to the target column. It is calculated as the log of the ratio of in-class vs out-of-class probabilities. This step outputs one numerical feature column per class and removes the need to explicitly impute missing values and outlier treatment.|	
 |Cluster Distance|Trains a k-means clustering model on all numerical columns.  Outputs k new features, one new numerical feature per cluster, containing the distance of each sample to the centroid of each cluster.|	
 
-## Scaling and normalization
+## Scale & normalize
 
 In addition to the preceding pre-processing list, data is automatically scaled/normalized to help algorithms perform well.  The `preprocess` flag in AutoMLConfig does not control behavior of scaling and normalization described here.  See this table for details:
 

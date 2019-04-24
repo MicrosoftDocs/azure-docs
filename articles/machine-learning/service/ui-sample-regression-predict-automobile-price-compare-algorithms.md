@@ -9,7 +9,7 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/06/2019
+ms.date: 05/02/2019
 ---
  
 # Sample 2 - Regression: Predict price and compare algorithms

@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/06/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
 
 ---
