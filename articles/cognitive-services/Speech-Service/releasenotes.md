@@ -43,7 +43,7 @@ ms.custom: seodec18
 
 This is a JavaScript-only release. No features have been added. The following fixes were made:
 
-* Prevent webpack from loading https-proxy-agent.
+* Prevent web pack from loading https-proxy-agent.
 
 ## Speech SDK 1.4.0: 2019-April release
 
