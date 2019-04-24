@@ -16,11 +16,13 @@ ms.custom: seodec18
 
 # What is automated machine learning?
 
-Automated machine learning, also referred to as AutoML, will build a set of ML models automatically, fine-tune them, and pick the best one for you automatically. The traditional machine learning model development process is highly resource-intensive, and requires significant domain knowledge and time investment to run and compare the results of dozens of models. 
+Automated machine learning, also referred to as AutoML, allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. 
 
-With automated ML, anyone can successfully extract and leverage the business insights hidden in their data. While still a newer ML option, it has quickly become popular with non-ML experts, those who don't want to code, and those looking for a quick prototype. 
+Automated ML builds a set of ML models automatically, fine-tunes them, and then recommends the best one for you. Traditional machine learning model development is resource-intensive-- requiring significant domain knowledge and time to produce and compare dozens of models. With automated ML, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
-You provide some goals, constraints, or blacklists, and then automated machine learning generates the model for you. Behind the scenes, training data is taken with a defined target feature, and iterated upon through combinations of algorithms and feature selections. Then, the best model (based on training scores) is automatically selected.  
+Behind the scenes, your training data is taken with a defined target feature, and intelligently iterated upon through combinations of ML algorithms and feature selections. Then, based on training scores, the best fitted model is identified and recommended to you. 
+
+You still have control over your experiment and transparency into what is happening. You can define constraints and experiment goals based on time, accuracy or number of iterations, for example. You can see each model that was generated for your experiment, the training flow for each iteration, and the most influencial features for a given model.
 
 ## How automated ML works
 
