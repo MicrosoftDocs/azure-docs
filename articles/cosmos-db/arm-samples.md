@@ -30,6 +30,10 @@ The following table includes links to Azure Resource Manager templates for Azure
 
 The following example creates an Azure Cosmos DB Cassandra API from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-cassandra/azuredeploy.json). This template will create an Azure Cosmos account for Cassandra API with two tables which share 400 RU/s throughput at the keyspace-level. 
 
+Here is a copy of the template:
+
+[!code-json[create-cosmos-cassandra](~/101-cosmosdb-create-arm-template/azuredeploy.json)]
+
 To deploy the Resource Manager template using Azure CLI. Select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
 
 ```azurecli-interactive
