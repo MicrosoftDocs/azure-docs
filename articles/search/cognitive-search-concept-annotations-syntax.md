@@ -93,7 +93,7 @@ When annotations are arrays or collections of strings, you might want to target 
 
 Sometimes you need to group all annotations of a particular type to pass them to a particular skill. Consider a hypothetical custom skill that identifies the most common last name from all the last names extracted in Example 2. To provide just the last names to the custom skill, specify the context as `"/document"` and the input as `"/document/people/*/lastname"`.
 
-Note that the cardinality of `"/document/people/*/lastname"` is larger than that of document. There may be 10 lastname nodes while there is only one document node for this document. In that case, the system will automatically create an array of  `"/document/people/*/lastname"` containing all of the elements in the document.
+Notice that the cardinality of `"/document/people/*/lastname"` is larger than that of document. There may be 10 lastname nodes while there is only one document node for this document. In that case, the system will automatically create an array of  `"/document/people/*/lastname"` containing all of the elements in the document.
 
 ```json
   {

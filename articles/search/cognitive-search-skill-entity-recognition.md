@@ -52,8 +52,8 @@ These are entities that are well known but not classified as part of the current
 
 ## Skill outputs
 
-**NOTE**: Not all entity categories are supported for all languages.
-Only _en_, _es_ support extraction of `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` types.
+> [!NOTE]
+> Not all entity categories are supported for all languages. Only _en_, _es_ support extraction of `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` types.
 
 | Output name	  | Description                   |
 |---------------|-------------------------------|

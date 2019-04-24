@@ -1,5 +1,5 @@
 ---
-title: Working with projections in knowledge store - Azure Search
+title: Working with projections in a knowledge store - Azure Search
 description: Save and shape your enriched data from the AI indexing pipeline for use in scenarios other than search
 manager: eladz
 author: vkurpad
@@ -11,7 +11,7 @@ ms.date: 05/02/2019
 ms.author: vikurpad
 ms.custom: seomay2019
 ---
-# Working with projections
+# Working with projections in a knowledge store in Azure Search
 
 Projections are views of enriched documents that can be saved to storage. Projections are part of [Knowledge Store](knowledge-store-concept-intro.md), a preview feature in Azure Search. A projection lets you "project" your data into a shape that aligns with your needs, preserviing relationships so that tools like Power BI can read the data with no additional effort. Projections can be tabular, with data stored in rows and columns in Azure Table storage, or JSON objects stored in Azure Blob storage. 
 
@@ -58,65 +58,39 @@ When projecting to multiple tables, the complete shape will be projected into ea
 When defining a table projection within the knowledgeStore object of your skillset, you start by mapping a node on the enrichment tree to the table source. Typically this node is the output of a shaper skill that you added to the list of skills to produce a specific shape that you need to project into tables. The node you choose to project can be sliced to project into multiple tables. The tables definition is a list of tables that you want to project. Each table requires three properties:
 
 + tableName: The name of the table in Azure Storage.
+
 + generatedKeyName: The column name for the key that uniquely identifies this row.
+
 + source: The node from the enrichment tree you are sourcing your enrichments from. This is usually the output of a shaper, but could be the output of any of the skills.
 
 ```json
 {
  
-    "name": "your-skillset",
-    "skills": [
-      …your skills
-      
-    ],
-"cognitiveServices": {
-… your cognitive services key info
+  "name": "your-skillset",
+  "skills": [
+    …your skills
+    
+  ],
+  "cognitiveServices": {
+  … your cognitive services key info
     },
-
-    "knowledgeStore": {
-      "storageConnectionString": "a storage connection string",
-      "projections" : [
-        {
-          "tables": [
-            { "tableName": "MainTable", "generatedKeyName": "SomeId", "source": "/document/EnrichedShape" },
-            { "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "source": "/document/EnrichedShape/*/KeyPhrases/*" },
-            { "tableName": "Entities", "generatedKeyName": "EntityId", "source": "/document/EnrichedShape/*/Entities/*" }
-          ]
-        },
-        {
-          "objects": [
-            
-          ]
-        }
-      ]
-{
- 
-    "name": "your-skillset",
-    "skills": [
-      …your skills
-      
-    ],
-"cognitiveServices": {
-… your cognitive services key info
-    },
-
-    "knowledgeStore": {
-      "storageConnectionString": "a storage connection string",
-      "projections" : [
-        {
-          "tables": [
-            { "tableName": "MainTable", "generatedKeyName": "SomeId", "source": "/document/EnrichedShape" },
-            { "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "source": "/document/EnrichedShape/*/KeyPhrases/*" },
-            { "tableName": "Entities", "generatedKeyName": "EntityId", "source": "/document/EnrichedShape/*/Entities/*" }
-          ]
-        },
-        {
-          "objects": [
-            
-          ]
-        }
-      ]
-    }
+  "knowledgeStore": {
+    "storageConnectionString": "a storage connection string",
+    "projections" : [
+      {
+        "tables": [
+          { "tableName": "MainTable", "generatedKeyName": "SomeId", "source": "/document/EnrichedShape" },
+          { "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "source": "/document/EnrichedShape/*/KeyPhrases/*" },
+          { "tableName": "Entities", "generatedKeyName": "EntityId", "source": "/document/EnrichedShape/*/Entities/*" }
+        ]
+      },
+      {
+        "objects": [
+          
+        ]
+      }
+    ]
+  }
 }
 ```
 As demonstrated in this example, the key phrases and entities are modeled into different tables and will contain a reference back to the parent (MainTable) for each row. For example in  scenario a scenario where a case has multiple opinions and each opinion is being enriched by identifying entities contained within. You could model the projections as shown here.
@@ -150,7 +124,6 @@ As described earlier, object projections are JSON representations of the enrichm
               "source": "/document/EnrichedShape/",
               "key": "/document/Id"
             }
-
           ]
         }
       ]
@@ -164,7 +137,8 @@ Generating an object projection requires a few object-specific attributes:
 + source: The path to the node of the enrichment tree that is the root of the projection
 + key: A path that represents a unique key for the object to be stored. It will be used to create the name of the blob in the container.
 
-## Using the Projections
+## Using the projections
+
 After the indexer is run, you will be able to read the projected data in the containers or tables you specified when defining the projections. 
 
 If you need to do analytics on your enriched data, exploring it in Power BI is as simple as setting Azure Table Storage as the data source in Power BI. You can very easily create a set of visualizations on your data that leverages the relationships within.
