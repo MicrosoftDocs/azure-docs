@@ -157,11 +157,11 @@ To configure Azure AD single sign-on with Zscaler ZSCloud, perform the following
 
 	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **setup Zscaler ZSCloud** will direct you to the Zscaler ZSCloud application. From there, provide the admin credentials to sign into Zscaler ZSCloud. The browser extension will automatically configure the application for you and automate steps 3-6.
+2. After adding extension to the browser, click on **Setup Zscaler ZSCloud** will direct you to the Zscaler ZSCloud application. From there, provide the admin credentials to sign into Zscaler ZSCloud. The browser extension will automatically configure the application for you and automate steps 3-6.
 
 	![Setup sso](common/setup-sso.png)
 
-3. If you want to setup Zscaler ZSCloud manually, open a new web browser window and log into your Zscaler ZSCloud company site as an administrator and perform the following steps:
+3. If you want to Setup Zscaler ZSCloud manually, open a new web browser window and sign into your Zscaler ZSCloud company site as an administrator and perform the following steps:
 
 4. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
    
