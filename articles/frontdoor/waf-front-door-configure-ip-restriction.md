@@ -25,7 +25,7 @@ By default, your web application is accessible from internet. If you want to lim
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a id="configure-ip-firewall-cli"></a>Configure an IP access control policy by using the Azure CLI
+## <a id="configure-ip-firewall-cli"></a>Configure WAF policy with Azure CLI
 
 ### Prerequisites
 Before you begin to configure an IP restriction policy, set up your CLI environment and create a Front Door profile.
@@ -104,7 +104,7 @@ In this example, the WAF policy is applied to FrontendEndpoints[0]. You may link
 > [!Note]
 > You only need to set the **WebApplicationFirewallPolicyLink** property once to link a WAF policy to a Front Door front-end. Subsequent policy updates are automatically applied to the front-end.
 
-## <a id="configure-ip-firewall-powershell"></a>Configure an IP access control policy by using PowerShell
+## <a id="configure-ip-firewall-powershell"></a>Configure WAF policy with Azure PowerShell
 
 ### Prerequisites
 Before you begin to configure an IP restriction policy, set up your PowerShell environment and create a Front Door profile.
@@ -200,7 +200,7 @@ Link the WAF policy object to an existing Front Door front-end host and update F
 > In this example, the WAF policy is applied to FrontendEndpoints[0]. You may link WAF policy to any of your front-ends.You only need to set *WebApplicationFirewallPolicyLink* property once to link a WAF policy to a Front Door front-end. Subsequent policy updates are automatically applied to the front-end.
 
 
-## <a id="configure-ip-firewall-template"></a>Configure an IP access control policy by using Resource Manager template
+## <a id="configure-ip-firewall-template"></a>Configure WAF policy with Resource Manager template
 View the template that creates a Front Door and a WAF policy with custom IP restriction rules [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip).
 
 
