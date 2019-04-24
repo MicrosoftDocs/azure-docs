@@ -34,7 +34,7 @@ This article describes how to edit and manage existing access packages.
 
 ## When are changes applied
 
-In entitlement management, a job runs approximately every 2 hours to apply assignment and policy changes to your access packages. So, if you make an assignment or policy change to your access package, it can take up to 2 hours plus the amount of time it takes to apply your change. If your change affects just a few objects, the change will likely only take a few minutes to apply once the job starts. If your change affects thousands or a million objects, the change will take longer. For example, if you have an access package with 2 applications and 100 user assignments, and you decide to add a group to the access package, it can take up to 2 hours to start adding the 100 users to the group.
+In entitlement management, a job runs approximately every 2 hours to apply assignment and policy changes to your access packages. So, if you make an assignment or policy change to your access package, it can take up to 2 hours plus the amount of time it takes to apply your change. If your change affects just a few objects, the change will likely only take a few minutes to apply once the job starts. If your change affects thousands of objects, the change will take longer. For example, if you have an access package with 2 applications and 100 user assignments, and you decide to add a group to the access package, it can take up to 2 hours to start adding the 100 users to the group.
 
 ## Add resource roles
 
@@ -44,8 +44,8 @@ A resource role is a collection of permissions associated with a resource. The w
 
 You can add users to a group when they are assigned an access package. You can use any Office 365 group or Azure AD security group. Here are some considerations when selecting a group:
 
-- When a group is part of an access package, then a user who is assigned that access package is added to that group, if not already present.
-- When a user's access package assignment expires, they will be removed from the group, unless they have access to another access package that includes that group.
+- When a group is part of an access package and a user is assigned to that access package, the user is added to that group, if not already present.
+- When a user's access package assignment expires, they are removed from the group, unless they have access to another access package that includes that group.
 - When a user is added to a group, they can see all the other members of that group.
 - Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect.  
 - The membership of dynamic groups cannot be updated using entitlement management.
