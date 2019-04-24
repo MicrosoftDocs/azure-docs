@@ -124,9 +124,9 @@ In this section, you'll create a file system and a folder in your storage accoun
     ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-           "fs.azure.account.oauth2.client.id": "<application-id>",
-           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
-           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+           "fs.azure.account.oauth2.client.id": "<appId>",
+           "fs.azure.account.oauth2.client.secret": "<password>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant>/oauth2/token",
            "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
 
     dbutils.fs.mount(
@@ -135,9 +135,11 @@ In this section, you'll create a file system and a folder in your storage accoun
     extra_configs = configs)
     ```
 
-18. In this code block, replace the `application-id`, `authentication-id`, `tenant-id`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `file-system-name` placeholder value with whatever name you want to give the file system.
+18. In this code block, replace the `appId`, `password`, `tenant`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `file-system-name` placeholder value with whatever name you want to give the file system.
 
-   * The `application-id`, and `authentication-id` are from the app that you registered with active directory as part of creating a service principal.
+Use these values to replace the mentioned placeholders.
+
+   * The `appId`, and `password` are from the app that you registered with active directory as part of creating a service principal.
 
    * The `tenant-id` is from your subscription.
 
