@@ -30,10 +30,10 @@ Here's how Azure Backup completes a backup for Azure VMs:
     - The backup is optimized by backing up each VM disk in parallel.
     - For each disk that's being backed up, Azure Backup reads the blocks on the disk and identifies and transfers only the data blocks that changed (the delta) since the previous backup.
     - Snapshot data might not be immediately copied to the vault. It might take some hours at peak times. Total backup time for a VM will be less than 24 hours for daily backup policies.
- 1. Changes made to a VM after Azure Backup is enabled on it are:
-    -	Microsoft Visual C++ 2013 Redistributable(x64) - 12.0.40660 is added to Program
+ 1. Changes made to a Windows VM after Azure Backup is enabled on it are:
+    -	Microsoft Visual C++ 2013 Redistributable(x64) - 12.0.40660 is installed in the VM
     -	Startup type of Volume Shadow Copy service changed to Automatic from Manual
-    -	IaaSVmProvider service is added
+    -	IaaSVmProvider windows service is added
 
 1. When the data transfer is complete, the snapshot is removed, and a recovery point is created.
 
