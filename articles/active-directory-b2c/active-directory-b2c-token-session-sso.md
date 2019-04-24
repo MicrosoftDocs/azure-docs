@@ -3,7 +3,7 @@ title: Session and single sign-on configuration - Azure Active Directory B2C | M
 description: Session and single sign-on configuration in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity

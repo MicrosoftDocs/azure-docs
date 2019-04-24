@@ -27,7 +27,7 @@ Azure Time Series Insights is a fully managed analytics, storage, and visualizat
 > [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 >[!NOTE]
->See tbe preceding video <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Getting started with TSI using an Azure IoT Solution Accelerator"</a>.
+>See the preceding video <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Getting started with TSI using an Azure IoT Solution Accelerator"</a>.
 
 ## Prerequisites
 
