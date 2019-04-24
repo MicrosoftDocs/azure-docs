@@ -149,13 +149,13 @@ In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You als
 
 ## Get a Cognitive Services access key
 
-In this tutorial, you use the [Microsoft Cognitive Services Text Analytics APIs](../cognitive-services/text-analytics/overview.md) to run anomaly detection on a stream of tweets in near real time. Before you use the APIs, you must create a Microsoft Cognitive Services account on Azure and retrieve an access key to use the Text Analytics APIs.
+In this tutorial, you use the [Microsoft Cognitive Services Anomaly Detector APIs](../cognitive-services/Anomaly-Detector/overview.md) to run anomaly detection on a stream of tweets in near real time. Before you use the APIs, you must create a Microsoft Cognitive Services account on Azure and retrieve an access key to use the Text Analytics APIs.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Select **+ Create a resource**.
 
-3. Under Azure Marketplace, Select **AI + Cognitive Services** > **Text Analytics API**.
+3. Under Azure Marketplace, Select **AI + Cognitive Services** > **Anomaly Detector API**.
 
     ![Create cognitive services account](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-text-api.png "Create cognitive services account")
 
@@ -259,18 +259,33 @@ val twitter = twitterFactory.getInstance()
 val query = new Query(" #Azure ")
 query.setCount(100)
 query.lang("en")
+
 var finished = false
+var maxStatusId = Long.MinValue
+var preMaxStatusId = Long.MinValue
+val innerLoop = new Breaks
 while (!finished) {
   val result = twitter.search(query)
   val statuses = result.getTweets()
   var lowestStatusId = Long.MaxValue
-  for (status <- statuses.asScala) {
-    if(!status.isRetweet()){
-      sendEvent(status.getText())
+  innerLoop.breakable {
+    for (status <- statuses.asScala) {
+      if (status.getId() <= preMaxStatusId) {
+        preMaxStatusId = maxStatusId
+        innerLoop.break
+      }
+      if(!status.isRetweet()) {
+        sendEvent(gson.toJson(new MessageBody(status.getCreatedAt(), status.getFavoriteCount())))
+      }
+      lowestStatusId = Math.min(status.getId(), lowestStatusId)
+      maxStatusId = Math.max(status.getId(), maxStatusId)
     }
-    lowestStatusId = Math.min(status.getId(), lowestStatusId)
-    Thread.sleep(2000)
   }
+  
+  if (lowestStatusId == Long.MaxValue) {
+    preMaxStatusId = maxStatusId
+  }
+  Thread.sleep(10000)
   query.setMaxId(lowestStatusId - 1)
 }
 
@@ -280,17 +295,21 @@ while (!finished) {
 
 To run the notebook, press **SHIFT + ENTER**. You see an output as shown in the following snippet. Each event in the output is a tweet that is ingested into the Event Hubs.
 
-    Sent event: @Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence
+    Sent event: {"timestamp":"2019-04-24T09:39:40.000Z","favorite":0}
 
-    Sent event: Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
-    https://t.co/7vs7cKtvah
-    #cloudcomputing #Azure
+    Sent event: {"timestamp":"2019-04-24T09:38:48.000Z","favorite":1}
 
-    Sent event: 4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie
+    Sent event: {"timestamp":"2019-04-24T09:38:36.000Z","favorite":0}
 
-    Sent event: Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk
+    Sent event: {"timestamp":"2019-04-24T09:37:27.000Z","favorite":0}
 
-    Sent event: Top 10 Tricks to #Save Money with #Azure Virtual Machines https://t.co/F2wshBXdoz #Cloud
+    Sent event: {"timestamp":"2019-04-24T09:37:00.000Z","favorite":2}
+
+    Sent event: {"timestamp":"2019-04-24T09:31:11.000Z","favorite":0}
+
+    Sent event: {"timestamp":"2019-04-24T09:30:15.000Z","favorite":0}
+
+    Sent event: {"timestamp":"2019-04-24T09:30:02.000Z","favorite":1}
 
     ...
     ...
@@ -300,74 +319,203 @@ To run the notebook, press **SHIFT + ENTER**. You see an output as shown in the 
 In the **AnalyzeTweetsFromEventHub** notebook, paste the following code, and replace the placeholder with values for your Azure Event Hubs that you created earlier. This notebook reads the tweets that you earlier streamed into Event Hubs using the **SendTweetsToEventHub** notebook.
 
 ```scala
-import org.apache.spark.eventhubs._
 
-// Build connection string with the above information
-val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
-  .setEventHubName("<EVENT HUB NAME>")
-  .build
+//
+// Anomaly Detection Client
+//
 
-val customEventhubParameters =
-  EventHubsConf(connectionString)
-  .setMaxEventsPerTrigger(5)
+import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
+import java.net.URL
+import java.sql.Timestamp
 
-val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
+import com.google.gson.{Gson, GsonBuilder, JsonParser}
+import javax.net.ssl.HttpsURLConnection
 
-incomingStream.printSchema
+case class Point(var timestamp: Timestamp, var value: Double)
+case class Series(var series: Array[Point], var maxAnomalyRatio: Double, var sensitivity: Int, var granularity: String)
+case class AnomalySingleResponse(var isAnomaly: Boolean, var isPositiveAnomaly: Boolean, var isNegativeAnomaly: Boolean, var period: Int, var expectedValue: Double, var upperMargin: Double, var lowerMargin: Double, var suggestedWindow: Int)
+case class AnomalyBatchResponse(var expectedValues: Array[Double], var upperMargins: Array[Double], var lowerMargins: Array[Double], var isAnomaly: Array[Boolean], var isPositiveAnomaly: Array[Boolean], var isNegativeAnomaly: Array[Boolean], var period: Int)
 
-// Sending the incoming stream into the console.
-// Data comes in batches!
-incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+object AnomalyDetector extends Serializable {
+
+  // Cognitive Services API connection settings
+  val subscriptionKey = "[Your subscription key]"
+  val endpoint = "https://westus2.api.cognitive.microsoft.com/"
+  val latestPointDetectionPath = "/anomalydetector/v1.0/timeseries/last/detect"
+  val batchDetectionPath = "/anomalydetector/v1.0/timeseries/entire/detect";
+  val latestPointDetectionUrl = new URL(endpoint + latestPointDetectionPath)
+  val batchDetectionUrl = new URL(endpoint + batchDetectionPath)
+  val gson: Gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").setPrettyPrinting().create()
+
+  def getConnection(path: URL): HttpsURLConnection = {
+    val connection = path.openConnection().asInstanceOf[HttpsURLConnection]
+    connection.setRequestMethod("POST")
+    connection.setRequestProperty("Content-Type", "text/json")
+    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey)
+    connection.setDoOutput(true)
+    return connection
+  }
+
+  // Handles the call to Cognitive Services API.
+  def processUsingApi(request: String, path: URL): String = {
+    val encoded_text = request.getBytes("UTF-8")
+    val connection = getConnection(path)
+    val wr = new DataOutputStream(connection.getOutputStream())
+    wr.write(encoded_text, 0, encoded_text.length)
+    wr.flush()
+    wr.close()
+
+    val response = new StringBuilder()
+    val in = new BufferedReader(new InputStreamReader(connection.getInputStream()))
+    var line = in.readLine()
+    while (line != null) {
+      response.append(line)
+      line = in.readLine()
+    }
+    in.close()
+    return response.toString()
+  }
+
+  // Calls the Latest Point Detection API for timeserie.
+  def detectLatestPoint(series: Series): Option[AnomalySingleResponse] = {
+    try {
+      val response = processUsingApi(gson.toJson(series), latestPointDetectionUrl)
+      // Deserializing the JSON response from the API into Scala types
+      val anomaly = gson.fromJson(response, classOf[AnomalySingleResponse])
+      Thread.sleep(5000)
+      return Some(anomaly)
+    } catch {
+      case e: Exception => {
+        println(e)
+        return None
+      }
+    }
+  }
+
+  // Calls the Batch Detection API for timeserie.
+  def detectBatch(series: Series): Option[AnomalyBatchResponse] = {
+    try {
+      val response = processUsingApi(gson.toJson(series), batchDetectionUrl)
+      // Deserializing the JSON response from the API into Scala types
+      val anomaly = gson.fromJson(response, classOf[AnomalyBatchResponse])
+      Thread.sleep(5000)
+      return Some(anomaly)
+    } catch {
+      case e: Exception => {
+        println(e)
+        return None
+      }
+    }
+  }
+}
+
 ```
 
 You get the following output:
 
-    root
-     |-- body: binary (nullable = true)
-     |-- offset: long (nullable = true)
-     |-- seqNumber: long (nullable = true)
-     |-- enqueuedTime: long (nullable = true)
-     |-- publisher: string (nullable = true)
-     |-- partitionKey: string (nullable = true)
+    import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
+    import java.net.URL
+    import java.sql.Timestamp
+    import com.google.gson.{Gson, GsonBuilder, JsonParser}
+    import javax.net.ssl.HttpsURLConnection
+    defined class Point
+    defined class Series
+    defined class AnomalySingleResponse
+    defined class AnomalyBatchResponse
+    defined object AnomalyDetector
 
-    -------------------------------------------
-    Batch: 0
-    -------------------------------------------
-    +------+------+--------------+---------------+---------+------------+
-    |body  |offset|sequenceNumber|enqueuedTime   |publisher|partitionKey|
-    +------+------+--------------+---------------+---------+------------+
-    |[50 75 62 6C 69 63 20 70 72 65 76 69 65 77 20 6F 66 20 4A 61 76 61 20 6F 6E 20 41 70 70 20 53 65 72 76 69 63 65 2C 20 62 75 69 6C 74 2D 69 6E 20 73 75 70 70 6F 72 74 20 66 6F 72 20 54 6F 6D 63 61 74 20 61 6E 64 20 4F 70 65 6E 4A 44 4B 0A 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 37 76 73 37 63 4B 74 76 61 68 20 0A 23 63 6C 6F 75 64 63 6F 6D 70 75 74 69 6E 67 20 23 41 7A 75 72 65]                              |0     |0             |2018-03-09 05:49:08.86 |null     |null        |
-    |[4D 69 67 72 61 74 65 20 79 6F 75 72 20 64 61 74 61 62 61 73 65 73 20 74 6F 20 61 20 66 75 6C 6C 79 20 6D 61 6E 61 67 65 64 20 73 65 72 76 69 63 65 20 77 69 74 68 20 41 7A 75 72 65 20 53 51 4C 20 44 61 74 61 62 61 73 65 20 4D 61 6E 61 67 65 64 20 49 6E 73 74 61 6E 63 65 20 7C 20 23 41 7A 75 72 65 20 7C 20 23 43 6C 6F 75 64 20 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 73 4A 48 58 4E 34 74 72 44 6B]            |168   |1             |2018-03-09 05:49:24.752|null     |null        |
-    +------+------+--------------+---------------+---------+------------+
+Then run aggregatetion functions for future usage.
+```scala
+//
+// User Defined Aggregation Function for Anomaly Detection
+//
 
-    -------------------------------------------
-    Batch: 1
-    -------------------------------------------
-    ...
-    ...
+import org.apache.spark.sql.Row
+import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
+import org.apache.spark.sql.types.{StructType, TimestampType, FloatType, MapType, BooleanType, DataType}
+import scala.collection.immutable.ListMap
 
-Because the output is in a binary mode, use the following snippet to convert it into string.
+class AnomalyDetectorAggregationFunction extends UserDefinedAggregateFunction {
+    override def inputSchema: StructType = new StructType().add("timestamp", TimestampType).add("value", FloatType)
+
+    override def bufferSchema: StructType = new StructType().add("point", MapType(TimestampType, FloatType))
+
+    override def dataType: DataType = BooleanType
+
+    override def deterministic: Boolean = false
+
+    override def initialize(buffer: MutableAggregationBuffer): Unit = {
+        buffer(0) = Map()
+    }
+
+    override def update(buffer: MutableAggregationBuffer, input: Row): Unit = {
+        buffer(0) = buffer.getAs[Map[java.sql.Timestamp, Float]](0) + (input.getTimestamp(0) -> input.getFloat(1))
+    }
+
+    override def merge(buffer1: MutableAggregationBuffer, buffer2: Row): Unit = {
+        buffer1(0) = buffer1.getAs[Map[java.sql.Timestamp, Float]](0) ++ buffer2.getAs[Map[java.sql.Timestamp, Float]](0)
+    }
+
+    override def evaluate(buffer: Row): Any = {
+        val points = buffer.getAs[Map[java.sql.Timestamp, Float]](0)
+        if (points.size > 24) {
+        val sorted_points = ListMap(points.toSeq.sortBy(_._1.getTime):_*)
+        var detect_points: List[Point] = List()
+        sorted_points.keys.foreach {
+            key => detect_points = detect_points :+ new Point(key, sorted_points(key))
+        }
+        
+        val series: Series = new Series(detect_points.toArray, 0.25, 95, "hourly")
+        val response: Option[AnomalySingleResponse] = AnomalyDetector.detectLatestPoint(series)
+        if (!response.isEmpty) {
+            println(response)
+            return response.get.isAnomaly
+        }
+        }
+        
+        return None
+    }
+}
+```
+
+Then load data from scala.
 
 ```scala
+//
+// Load Data from Eventhub
+//
+
+import org.apache.spark.eventhubs._
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.functions._
 
-// Event Hub message format is JSON and contains "body" field
-// Body is binary, so we cast it to string to see the actual content of the message
+val connectionString = ConnectionStringBuilder("Endpoint=sb://ad-databricks.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=NOXojBfXQZ+phyR86VVvBmtRzrctIS9APu+CPond5eE=")
+  .setEventHubName("demo-eventhub")
+  .build
+
+val customEventhubParameters =
+  EventHubsConf(connectionString)
+  .setConsumerGroup("ad-con-grp")
+  .setMaxEventsPerTrigger(100)
+
+val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
+
 val messages =
   incomingStream
-  .withColumn("Offset", $"offset".cast(LongType))
-  .withColumn("Time (readable)", $"enqueuedTime".cast(TimestampType))
-  .withColumn("Timestamp", $"enqueuedTime".cast(LongType))
-  .withColumn("Body", $"body".cast(StringType))
-  .select("Offset", "Time (readable)", "Timestamp", "Body")
+  .withColumn("enqueuedTime", $"enqueuedTime".cast(TimestampType))
+  .withColumn("body", $"body".cast(StringType))
+  .select("enqueuedTime", "body")
 
-messages.printSchema
+val bodySchema = new StructType().add("timestamp", TimestampType).add("favorite", IntegerType)
 
-messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+val msgStream = messages.select(from_json('body, bodySchema) as 'fields).select("fields.*")
+
+msgStream.printSchema
+
+display(msgStream)
 ```
 
-The output now resembles the following snippet:
+The output now shows like below (./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-tutorial.png )./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-tutorial.png 
 
     root
      |-- Offset: long (nullable = true)
@@ -396,29 +544,27 @@ The output now resembles the following snippet:
 
 You have now streamed data from Azure Event Hubs into Azure Databricks at near real time using the Event Hubs connector for Apache Spark. For more information on how to use the Event Hubs connector for Spark, see the [connector documentation](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
+
+
 ## Run anomaly detection on tweets
 
 In this section, you run anomaly detection on the tweets received using the Twitter API. For this section, you add the code snippets to the same **AnalyzeTweetsFromEventHub** notebook.
 
-Start by adding a new code cell in the notebook and paste the code snippet provided below. This code snippet defines data types for working with the Language and Sentiment API.
-
+To do anomaly detection, first, you can aggregate your metric count by hour.
 ```scala
-import java.io._
-import java.net._
-import java.util._
+//
+// Aggregate Metric Count by Hour
+//
 
-case class Language(documents: Array[LanguageDocuments], errors: Array[Any]) extends Serializable
-case class LanguageDocuments(id: String, detectedLanguages: Array[DetectedLanguages]) extends Serializable
-case class DetectedLanguages(name: String, iso6391Name: String, score: Double) extends Serializable
+val groupStream = msgStream.groupBy(window($"timestamp", "1 hour"))
+  .agg(avg("favorite").alias("average"))
+  .withColumn("groupTime", $"window.start")
+  .select("groupTime", "average")
 
-case class Sentiment(documents: Array[SentimentDocuments], errors: Array[Any]) extends Serializable
-case class SentimentDocuments(id: String, score: Double) extends Serializable
+groupStream.printSchema
 
-case class RequestToTextApi(documents: Array[RequestToTextApiDocument]) extends Serializable
-case class RequestToTextApiDocument(id: String, text: String, var language: String = "") extends Serializable
+display(groupStream)
 ```
-
-Add a new code cell and paste the snippet provided below. This snippet defines an object that contains functions to call the Text Analysis API to run language detection and anomaly detection. Make sure you replace the placeholders, `<PROVIDE ACCESS KEY HERE>` and `<PROVIDE REGION HERE>`, with the values you retrieved for your Cognitive Services account.
 
 ```scala
 import javax.net.ssl.HttpsURLConnection
@@ -507,69 +653,129 @@ object SentimentDetector extends Serializable {
 }
 ```
 
-Add another cell to define a Spark UDF (User-defined function) that determines sentiment.
 
+ 
+That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then ran anomaly detection on streaming data in near real time.
+
+
+First, you can aggregate your metric count by hour.
 ```scala
-// User Defined Function for processing content of messages to return their sentiment.
-val toSentiment =
-    udf((textContent: String) =>
-        {
-            val inputObject = new RequestToTextApi(Array(new RequestToTextApiDocument(textContent, textContent)))
-            val detectedLanguage = SentimentDetector.getLanguage(inputObject)
-            detectedLanguage match {
-                case Some(language) =>
-                    if(language.documents.size > 0) {
-                        inputObject.documents(0).language = language.documents(0).detectedLanguages(0).iso6391Name
-                        val sentimentDetected = SentimentDetector.getSentiment(inputObject)
-                        sentimentDetected match {
-                            case Some(sentiment) => {
-                                if(sentiment.documents.size > 0) {
-                                    sentiment.documents(0).score.toString()
-                                }
-                                else {
-                                    "Error happened when getting sentiment: " + sentiment.errors(0).toString
-                                }
-                            }
-                            case None => "Couldn't detect sentiment"
-                        }
-                    }
-                    else {
-                        "Error happened when getting language" + language.errors(0).toString
-                    }
-                case None => "Couldn't detect language"
-            }
-        }
-    )
+//
+// Aggregate Metric Count by Hour
+//
+
+val groupStream = msgStream.groupBy(window($"timestamp", "1 hour"))
+  .agg(avg("favorite").alias("average"))
+  .withColumn("groupTime", $"window.start")
+  .select("groupTime", "average")
+
+groupStream.printSchema
+
+display(groupStream)
 ```
 
-Add a final code cell to prepare a dataframe with the content of the tweet and the sentiment associated with the tweet.
-
+Then, show the aggregate result.
 ```scala
-// Prepare a dataframe with Content and Sentiment columns
-val streamingDataFrame = incomingStream.selectExpr("cast (body as string) AS Content").withColumn("Sentiment", toSentiment($"Content"))
+//
+// Show Aggregate Result
+//
 
-// Display the streaming data with the sentiment
-streamingDataFrame.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+val twitterCount = spark.sql("SELECT COUNT(*) FROM twitter")
+twitterCount.show()
+
+val twitterData = spark.sql("SELECT * FROM twitter ORDER BY groupTime")
+twitterData.show(200, false)
+
+display(twitterData)
+```
+
+Then, reload aggragation stream.
+```scala
+//
+// Reload Aggregation Stream
+//
+
+val detectStream = spark.readStream.format("delta").option("ignoreChanges", "true").table("twitter")
+
+detectStream.printSchema
+
+display(detectStream)
+  
+```
+
+Then, do anomaly detection on the obtained series.
+```scala
+//
+// Anomaly Detection in window data
+//
+
+val detect = new AnomalyDetectorAggregationFunction
+
+val anomalyStream = detectStream.groupBy(window($"groupTime", "72 hour", "1 hour"))
+    .agg(detect(col("groupTime"), col("average")).alias("isAnomaly"))
+    .withColumn("dataTime", $"window.end")
+    .select("dataTime", "isAnomaly")
+
+anomalyStream.printSchema
+
+display(anomalyStream)
+  
+```
+
+You can also outpuy your anomaly detection result to external store.
+```scala
+//
+// Output Anomaly Detect Result to External Store
+//
+
+anomalyStream.writeStream
+  .format("delta")
+  .outputMode("complete")
+  .option("checkpointLocation", "/delta/anomaly/_checkpoints/etl-from-eventhub-20190423100")
+  .table("anomaly")
+
+```
+
+You can also show your anomaly result directly.
+```scala
+//
+// Show Anomaly Detection Result
+//
+
+val count = spark.sql("SELECT COUNT(*) FROM anomaly")
+count.show()
+
+val anomalyData = spark.sql("SELECT * FROM anomaly ORDER BY dataTime")
+anomalyData.show(300, false)
 ```
 
 You should see an output like the following snippet:
+```
+    --------+
+    |count(1)|
+    +--------+
+    |     310|
+    +--------+
 
-    -------------------------------------------
-    Batch: 0
-    -------------------------------------------
-    +--------------------------------+------------------+
-    |Content                         |Sentiment         |
-    +--------------------------------+------------------+
-    |Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
-    https://t.co/7vs7cKtvah   #cloudcomputing #Azure          |0.7761918306350708|
-    |Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |0.8558163642883301|
-    |@Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence|0.5               |
-    |4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie                                                    |0.5               |
-    +--------------------------------+------------------+
-
-A value closer to **1** in the **Sentiment** column suggests a great experience with Azure. A value closer to **0** suggests issues that users faced while working with Microsoft Azure.
-
-That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then ran anomaly detection on streaming data in near real time.
+    +-------------------+---------+
+    |dataTime           |isAnomaly|
+    +-------------------+---------+
+    |2019-04-13 15:00:00|null     |
+    |2019-04-13 16:00:00|null     |
+    |2019-04-13 17:00:00|null     |
+    |2019-04-13 18:00:00|null     |
+    |2019-04-13 19:00:00|null     |
+    |2019-04-13 20:00:00|null     |
+    |2019-04-13 21:00:00|null     |
+    |2019-04-13 22:00:00|null     |
+    |2019-04-13 23:00:00|null     |
+    |2019-04-14 00:00:00|null     |
+    |2019-04-14 01:00:00|null     |
+    |2019-04-14 02:00:00|null     |
+    
+    ...
+    ...
+```
 
 ## Clean up resources
 
