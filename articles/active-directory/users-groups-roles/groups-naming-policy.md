@@ -1,5 +1,5 @@
 ---
-title: Enforce group naming policy - Office 365 groups - Azure Active Directory | Microsoft Docs
+title: Enforce group naming policy on Office 365 groups - Azure Active Directory | Microsoft Docs
 description: How to set up naming policy for Office 365 groups in Azure Active Directory (preview)
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 04/24/2019
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -19,7 +19,7 @@ ms.custom: "it-pro;seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
-# Enforce a naming policy for Office 365 groups in Azure Active Directory
+# Enforce a naming policy on Office 365 groups in Azure Active Directory
 
 To enforce consistent naming conventions for Office 365 groups created or edited by your users, set up a group naming policy for your tenants in Azure Active Directory (Azure AD). For example, you could use the naming policy to communicate the function of a group, membership, geographic region, or who created the group. You could also use the naming policy to help categorize groups in the address book. You can use the policy to block specific words from being used in group names and aliases.
 
@@ -104,13 +104,13 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
 1. Open the Windows PowerShell app as an administrator.
 2. Uninstall any previous version of AzureADPreview.
   
-   ```powershell
+   ``` PowerShell
    Uninstall-Module AzureADPreview
    ```
 
 3. Install the latest version of AzureADPreview.
   
-   ```powershell
+   ``` PowerShell
    Install-Module AzureADPreview
    ```
 
@@ -122,7 +122,7 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
 
 1. Run the following commands to prepare to run the cmdlets.
   
-   ```powershell
+   ``` PowerShell
    Import-Module AzureADPreview
    Connect-AzureAD
    ```
@@ -134,13 +134,13 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
 
 1. Fetch the current naming policy to view the current settings.
   
-   ```powershell
+   ``` PowerShell
    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
    ```
   
 1. Display the current group settings.
   
-   ```powershell
+   ``` PowerShell
    $Setting.Values
    ```
   
@@ -148,19 +148,19 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
 
 1. Set the group name prefixes and suffixes in Azure AD PowerShell. For the feature to work properly, [GroupName] must be included in the setting.
   
-   ```powershell
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
    ```
   
 1. Set the custom blocked words that you want to restrict. The following example illustrates how you can add your own custom words.
   
-   ```powershell
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
   
 1. Save the settings for the new policy to go into effect, such as in the following example.
   
-   ```powershell
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
@@ -172,14 +172,14 @@ For more information, see the article [Azure Active Directory cmdlets for config
 
 Here is an example of a PowerShell script to export multiple blocked words:
 
-```powershell
+``` PowerShell
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
 ```
 
 Here is an example PowerShell script to import multiple blocked words:
 
-```powershell
+``` PowerShell
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
 $BadWords = [string]::join(",", $BadWords)
 $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
@@ -189,7 +189,6 @@ if ($Settings.Count -eq 0)
     New-AzureADDirectorySetting -DirectorySetting $Settings
     $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}}
 $Settings["CustomBlockedWordsList"] = $BadWords
-$Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ```
 
@@ -200,23 +199,23 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 1. On the **Naming policy** page, select **Delete policy**.
 1. After you confirm the deletion, the naming policy is removed, including all prefix-suffix naming policy and any custom blocked words.
 
-### Remove the naming policy using Azure AD Powershell
+### Remove the naming policy using Azure AD PowerShell
 
 1. Empty the group name prefixes and suffixes in Azure AD PowerShell.
   
-   ```powershell
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =""
    ```
   
 1. Empty the custom blocked words.
   
-   ```powershell
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=""
    ```
   
 1. Save the settings.
   
-   ```powershell
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 

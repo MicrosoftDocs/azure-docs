@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 03/18/2019
+ms.date: 04/24/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -29,13 +29,9 @@ Expiration policy is simple:
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Prerequisite
-
-You must be a Global administrator or User administrator in the organization to set up group expiration.
-
 ## Turn on user creation for groups
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a Global administrator or User administrator for the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an accounted that's assigned to the User administrator role in the organization.
 
 2. Select **Groups**, and then select **General**.
   
