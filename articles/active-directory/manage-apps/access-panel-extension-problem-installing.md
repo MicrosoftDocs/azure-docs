@@ -60,7 +60,7 @@ You can also download the extension for Chrome and Microsoft Edge directly from 
 
 - [Chrome extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 - [Microsoft Edge extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
-- [Firefox extension (Windows only)](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
+- [Firefox extension](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
 ## Use the My Apps Secure Sign-in Extension
 * If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL by doing the following:
