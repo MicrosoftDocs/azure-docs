@@ -195,15 +195,24 @@
       items:
         - name: Overview
           href: msal-overview.md
-        - name: Migrating to MSAL.NET
+        - name: Migrate to MSAL.NET
           href: msal-net-migration.md
         - name: Compare MSAL.js and ADAL.js
           href: msal-compare-msal-js-and-adal-js.md
-        - name: Acquiring and caching tokens
+        - name: Acquire and cache tokens
           href: msal-acquiring-and-caching-tokens.md
         - name: Scopes for v1 apps
           href: msal-scopes-for-v1-apps.md
         - name: Handling errors and exceptions
+        - name: Client applications
+          href: msal-client-applications.md
+        - name: Initializing applications
+          items:            
+          - name: Initialize applications (.NET)
+            href: msal-net-initializing-client-applications.md
+          - name: Initialize applications (JS)
+            href: msal-js-initializing-client-applications.md
+        - name: Handle errors and exceptions
           href: msal-handling-exceptions.md
         - name: Logging
           href: msal-logging.md
