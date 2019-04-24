@@ -15,7 +15,8 @@ ms.author: tilee
 ---
 # IISConfigurator Troubleshooting
 
-[!CAUTION] This module is a prototype application, and isn't recommended for your production environments.
+> [!CAUTION] 
+> This module is a prototype application, and isn't recommended for your production environments.
 
 ## Known Issues
 
