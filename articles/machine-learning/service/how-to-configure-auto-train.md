@@ -222,24 +222,11 @@ The primary metric; as shown in the examples above determines the metric to be u
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
-## Data pre-processing and featurization
+## Data preprocessing & featurization
 
-If you use `preprocess=True`, the following data preprocessing steps are performed automatically for you:
-1.	Drop high cardinality or no variance features
-    * Drop features with no useful information from training and validation sets. These include features with all values missing, same value across all rows or with extremely high cardinality (e.g., hashes, IDs or GUIDs).
-1.	Missing value imputation
-    *	For numerical features, impute missing values with average of values in the column.
-    *	For categorical features, impute missing values with most frequent value.
-1.	Generate additional features
-    * For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.
-    * For Text features: Term frequency based on word unigram, bi-grams, and tri-gram, Count vectorizer.
-1.	Transformations and encodings
-    * Numeric features with very few unique values transformed into categorical features.
-    * Depending on cardinality of categorical features, perform label encoding or (hashing) one-hot encoding.
+In every automated machine learning experiment, your data is [automatically scaled and normalized](concept-automated-ml.md#preprocess) to help algorithms perform well.  However, you can also enable additional preprocessing/featurization, such as missing values imputation, encoding, transforms, WoE. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). 
 
-
-## Ensemble Models
-Ensemble learning improves machine learning results and predictive performance by combing many models as opposed to using single models. When using automated machine learning, you can train ensemble models using the [Caruana ensemble selection algorithm with sorted Ensemble initialization](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). The ensemble iteration appears as the last iteration of your run.
+To enable this featurization, specify `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 ## Time Series Forecasting
 For time series forecasting task type you have additional parameters to define.
