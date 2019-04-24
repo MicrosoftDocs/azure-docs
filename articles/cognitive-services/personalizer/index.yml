@@ -24,16 +24,16 @@ sections:
       className: cardsM
       columns: 3
       items:
-        - href: /azure/cognitive-services/personalizer/overview
-          html: <p>Learn about the Personalizer service</p>
-          image:
-            src: ../media/index/i_overview.svg
-          title: Overview
         - href: /azure/cognitive-services/personalizer/what-is-personalizer
           html: <p>Understand what Personalizer does and how you use it.</p>
           image:
             src: ../media/index/i_guidelines.svg
           title: What is Personalizer?
+        - href: /azure/cognitive-services/personalizer/how-personalizer-works
+          html: <p>Learn how the Personalizer feedback loop works with the Rank and Reward APIs.</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: How Personalizer works
         - href: /azure/cognitive-services/personalizer/ethics-responsible-use
           html: <p>Implement personalization in a way that builds trust in your company and service.</p>
           image:
