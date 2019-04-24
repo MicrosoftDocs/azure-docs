@@ -15,13 +15,9 @@ ms.date: 05/02/2019
 
 # Create Dataset snapshots (Preview)
 
+Use the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) to take a Dataset snapshot, access a snapshot's data profile and saved data copy and delete a snapshot.
+
 When you create a snapshot of an Azure Machine Learning Dataset, you generate the current data profile, and have the option to save a copy of that data. With snapshots, you can compare your data between training runs and model production, or use them to monitor the evolution of your data as it changes.
-
-In this article, you use the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) to do the following tasks:
-
-* Take a Dataset snapshot
-* Access a snapshot's data profile and saved data copy
-* Delete a snapshot
 
 ## Prerequisites
 
@@ -31,7 +27,7 @@ To create a snapshot, you need:
 
 * An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
-* The Azure Machine Learning SDK for Python (version 1.0.21 or later). To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* The Azure Machine Learning SDK for Python. To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 * A registered Dataset. If you do not have one, see [Create and register datasets](how-to-create-register-datasets.md).
 
@@ -101,7 +97,7 @@ Every snapshot generates a profile of the dataset, which includes summary statis
 
 Use [`get_profile()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) to access the profile of your data. Save this profile to compare training and production data.
 
-```python
+```Python
 snapshot.get_profile()
 ```
 
@@ -132,7 +128,7 @@ Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7
 
 Access a saved copy of your data in the snapshot by converting it to a pandas DataFrame with [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#to-pandas-dataframe--).
 
-```python
+```Python
 # this method will fail if you did not save a data copy while creating the snapshot
 snapshot.to_pandas_dataframe().head(5)
 ```
