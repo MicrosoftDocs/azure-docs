@@ -157,7 +157,7 @@ You can remove your peering configuration by selecting the delete icon, as shown
 This section helps you create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit.
 
 > [!NOTE]
-> Azure public peering is deprecated for new circuits.
+> Azure public peering is deprecated for new circuits. For more information, see [ExpressRoute peering](expressroute-circuit-peerings.md).
 >
 
 ### To create Azure public peering
