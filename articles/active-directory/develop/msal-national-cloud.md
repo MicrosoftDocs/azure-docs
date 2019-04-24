@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Using MSAL in National cloud environment
 
-third-party Web APIs, or your own Web API.
+
 
 
 [National cloud](articles\active-directory\develop\authentication-national-cloud.md) (aka Sovereign clouds) are physically isolated instances of Azure. These regions of Azure are designed to make sure that data residency, sovereignty, and compliance requirements are honored within geographical boundaries.
