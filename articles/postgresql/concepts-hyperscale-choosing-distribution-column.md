@@ -41,7 +41,8 @@ query between Accounts and Campaigns would have all the necessary data
 together on one node when restricting both tables to the same
 account\_id.
 
-![multi-tenant colocation](media/multi-tenant-colocation.png)
+![multi-tenant
+colocation](media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
 
 To apply this design in your own schema the first step is identifying
 what constitutes a tenant in your application. Common instances include
