@@ -142,7 +142,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-Where it becomes interesting is that programming for national clouds has now simplified. If you want your application to be a multi-tenant application in a national or sovereign cloud, you could write for instance, write:
+Where it becomes interesting is that programming for national clouds has now simplified. If you want your application to be a multi-tenant application in a national cloud, you could write, for instance:
 
 ```csharp
 IPublicClientApplication app;
