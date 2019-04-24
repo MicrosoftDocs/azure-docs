@@ -71,7 +71,7 @@ The **Import data** wizard creates a persistent data source object specifying co
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md) (not supported for [cognitive search](cognitive-search-concept-intro.md) pipelines)
 
-A flattened dataset is a required input. You can only import from a single table, database view, or equivalent data structure. 
+You can only import from a single table, database view, or equivalent data structure, however the structure can include hierarchical or nested substructures. For more information, see [How to model complex types](search-howto-complex-data-types.md).
 
 You should create this data structure before running the wizard, and it must contain content. Do not run the **Import data** wizard on an empty data source.
 

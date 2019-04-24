@@ -55,6 +55,8 @@
     href: cognitive-search-concept-intro.md
   - name: Knowledge Store 
     href: knowledge-store-concept-intro.md
+  - name: Projections
+    href: knowledge-store-projection-overview.md
 - name: How-to guides
   items:
   - name: Planning
@@ -191,10 +193,10 @@
       items:
       - name: Integrate custom skills
         href: cognitive-search-custom-skill-interface.md
-      - name: Example - Text Translation
+      - name: Example - Azure Functions
         href: cognitive-search-create-custom-skill-example.md
-      - name: Example - Job Recommender
-        href: https://github.com/kabirkhan/MicrosoftBuild2019-AzureSearchSkillsExtractor 
+      - name: Example - Containers
+        href: https://go.microsoft.com/fwlink/?linkid=2089500 
     - name: Troubleshooting tips
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
