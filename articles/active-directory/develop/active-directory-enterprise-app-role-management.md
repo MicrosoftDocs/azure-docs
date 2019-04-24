@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
@@ -148,7 +148,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
 8. Update the **Attributes** table to define a customized mapping of the role claim.
 
-9. In the **User Attributes & Claims** section of the **Single sign-on** dialog box, configure the SAML token attribute as shown in the image and perform the following steps.
+9. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
     | Attribute name | Attribute value |
     | -------------- | ----------------|
@@ -157,11 +157,11 @@ If your application expects custom roles to be passed in a SAML response, you ne
 	>[!NOTE]
 	>If the role claim value is null, then Azure AD will not send this value in the token and this is default as per design.
 
-    a. click **Edit** button to open **User Attributes** dialog.
+    a. click **Edit** icon to open **User Attributes & Claims** dialog.
 
       !["Add attribute" button](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Select **Add attribute** to open the **Manage user claims** pane.
+    b. In the **Manage user claims** dialog, add the SAML token attribute by clicking on **Add new claim**.
 
       !["Add attribute" button](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 

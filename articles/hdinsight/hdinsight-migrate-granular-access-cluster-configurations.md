@@ -19,7 +19,9 @@ Previously, secrets could be obtained via the HDInsight API by cluster users
 possessing the Owner, Contributor, or Reader [RBAC
 roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles).
 Going forward, these secrets will no longer be accessible to users with the
-Reader role. We are also introducing a new ‘HDInisght Cluster Operator’ Role
+Reader role. Secrets are defined as values that could be used to obtain more elevated access than a user's role should allow. These include values such as cluster gateway HTTP credentials, storage account keys, and database credentials.
+
+We are also introducing a new ‘HDInisght Cluster Operator’ Role
 that will be able to retrieve secrets without being granted the administrative
 permissions of Contributor or Owner. To summarize:
 
@@ -138,19 +140,27 @@ A user with the [Contributor](https://docs.microsoft.com/azure/role-based-access
 
 ### Using the Azure CLI
 
-The simplest way to add this role assignment is by using the following command in Azure CLI:
-
-```azurecli-interactive
-az role assignment create --role "HDInsight Cluster Operator" --assignee user@domain.com
-```
+The simplest way to add this role assignment is by using the `az role assignemnt create` command in Azure CLI.
 
 > [!NOTE]
 > This command must be run by a user with the Contributor or Owner roles, as only they can grant these permissions. The `--assignee` is the email address of the user to whom you want to assign the HDInsight Cluster Operator role.
 
-The above command grants this role at the subscription level. To instead just grant this role at the resource group level, you can modify the command like so:
+#### Grant role at the resource (cluster) level
+
+```azurecli-interactive
+az role assignment create --role "HDInsight Cluster Operator" --assignee <user@domain.com> --scope /subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.HDInsight/clusters/<ClusterName>
+```
+
+#### Grant role at the resource group level
 
 ```azurecli-interactive
 az role assignment create --role "HDInsight Cluster Operator" --assignee user@domain.com -g <ResourceGroupName>
+```
+
+#### Grant role at the subscription level
+
+```azurecli-interactive
+az role assignment create --role "HDInsight Cluster Operator" --assignee user@domain.com
 ```
 
 ### Using the Azure portal
