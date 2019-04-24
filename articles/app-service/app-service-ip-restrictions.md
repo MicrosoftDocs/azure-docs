@@ -1,5 +1,5 @@
 ---
-title: "Restrict client IPs - Azure App Service | Microsoft Docs" 
+title: "Restrict access - Azure App Service | Microsoft Docs" 
 description: "How to use Access Restrictions with Azure App Service" 
 author: ccompy
 manager: stefsch
@@ -20,7 +20,7 @@ ms.custom: seodec18
 ---
 # Azure App Service Access Restrictions #
 
-Access Restrictions allow you to define a priority ordered allow/deny list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, there is then an implicit "deny all" that exists at the end of the list.
+Access Restrictions enable you to define a priority ordered allow/deny list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, there is then an implicit "deny all" that exists at the end of the list.
 
 The Access Restrictions capability works with all App Service hosted work loads including; web apps, API apps, Linux apps, Linux container apps, and Functions.
 
@@ -62,7 +62,9 @@ To delete a rule, click the **...** on your rule and then click **remove**.
 
 ![delete access restriction rule](media/app-service-ip-restrictions/ip-restrictions-delete.png)
 
-In addition to being able to control access to your app, you can also restrict access to the scm site used by your app. The scm site is the web deploy endpoint and also the Kudu console. You can separately assign access restrictions to the scm site from the app or use the same set for both the app and the scm site.
+### SCM site 
+
+In addition to being able to control access to your app, you can also restrict access to the scm site used by your app. The scm site is the web deploy endpoint and also the Kudu console. You can separately assign access restrictions to the scm site from the app or use the same set for both the app and the scm site. When you check the box to have the same restrictions as your app, everything is blanked out. If you uncheck the box, whatever settings you had earlier on the scm site are applied. 
 
 ![list access restrictions](media/app-service-ip-restrictions/ip-restrictions-scm-browse.png)
 
@@ -91,8 +93,6 @@ The JSON syntax for the earlier example is:
 IP restrictions are available for both Function Apps with the same functionality as App Service plans. Note that enabling IP restrictions will disable the portal code editor for any disallowed IPs.
 
 [Learn more here](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
-
-
 
 
 <!--Links-->
