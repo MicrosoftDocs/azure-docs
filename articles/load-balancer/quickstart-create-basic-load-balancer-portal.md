@@ -254,7 +254,7 @@ Open a browser and paste your load balancer's public IP address into the browser
 
 ![IIS web server](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
-To see the Load Balancer distribute traffic across **myVM1** and **myVM2**, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
+To see the load balancer distribute traffic across all three VMs running your app, you can force-refresh your web browser.
 ## Clean up resources
 
 To delete the load balancer and all related resources when you no longer need them, open the **MyResourceGroupLB** resource group and select **Delete resource group**.

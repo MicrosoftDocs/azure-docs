@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/18/2019
+ms.date: 01/25/2019
 ms.author: kumud
 ms.custom: mvc
 ---
 # Quickstart: Create a Standard Load Balancer to load balance VMS using Azure CLI
 
-This quickstart shows you how to create Standard Load Balancer. To test the load balancer, you deploy three virtual machines (VMs) running Ubuntu server and load balance a web app across the three VMs.
+This quickstart shows you how to create Standard Load Balancer. To test the load balancer, you deploy two virtual machines (VMs) running Ubuntu server and load balance a web app between the two VMs.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -146,7 +146,7 @@ Create a network security group rule to allow inbound connections through port 8
 Create three network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate them with the Public IP address and the network security group. 
 
 ```azurecli-interactive
-for i in `seq 1 3`; do
+for i in `seq 1 2`; do
   az network nic create \
     --resource-group myResourceGroupSLB \
     --name myNic$i \
@@ -173,7 +173,7 @@ Create an availability set with [az vm availabilityset create](/cli/azure/networ
     --name myAvailabilitySet
 ```
 
-### Create virtual machines
+### Create two virtual machines
 
 You can use a cloud-init configuration file to install NGINX and run a 'Hello World' Node.js app on a Linux virtual machine. In your current shell, create a file named cloud-init.txt and copy and paste the following configuration into the shell. Make sure that you copy the whole cloud-init file correctly, especially the first line:
 
@@ -222,7 +222,7 @@ runcmd:
 Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
 
  ```azurecli-interactive
-for i in `seq 1 3`; do
+for i in `seq 1 2`; do
   az vm create \
     --resource-group myResourceGroupSLB \
     --name myVM$i \
@@ -248,8 +248,6 @@ To get the public IP address of the load balancer, use [az network public-ip sho
     --output tsv
 ``` 
    ![Test load balancer](./media/load-balancer-standard-public-cli/running-nodejs-app.png)
-
-To see the Load Balancer distribute traffic across the three virtual machines, you can force-refresh your web browser from the client machine.
 
 ## Clean up resources
 

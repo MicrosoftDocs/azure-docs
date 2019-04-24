@@ -247,8 +247,6 @@ To get the public IP address of the load balancer, use [az network public-ip sho
 ``` 
 ![Test load balancer](./media/load-balancer-get-started-internet-arm-cli/running-nodejs-app.png)
 
-To see the Load Balancer distribute traffic across **myVM1** and **myVM2**, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
-
 ## Clean up resources
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
