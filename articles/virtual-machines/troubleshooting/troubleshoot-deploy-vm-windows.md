@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
 manager: jeconnoc
-editor: ''
+editor: '' 
 tags: azure-resource-manager
 
 ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
