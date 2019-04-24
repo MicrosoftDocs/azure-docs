@@ -1,16 +1,22 @@
 ---
 title: Localization support in Azure Maps | Microsoft Docs
 description: Learn about supported languages for the services in Azure Maps
-author: juliekohler
-ms.author: julieko
-ms.date: 04/08/2019
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: 
 ---
 
-# Azure Maps supported languages
+# Localization support in Azure Maps
+
+Azure Maps supports various languages and views based on region. This article provides the supported languages and views to help guide your Azure Maps implementation.
+
+
+## Azure Maps supported languages
+
 Azure Maps have been localized in a variety of languages across the services. The following table provides the supported language codes for each service.  
   
 
@@ -72,7 +78,7 @@ Azure Maps have been localized in a variety of languages across the services. Th
 | vi-VN      | Vietnamese             |       |    ✓   |         |                   |                |     ✓     |
 
 
-# Azure Maps supported views
+## Azure Maps supported views
 
 Azure Maps `View` parameter (also referred to as “user region parameter”) is a 2-letter ISO-3166 Country Code that will show the correct maps for that country/region specifying, which set of geo-politically disputed borders and labels are displayed on the map.  By default `View` parameter is set to **“Unified”**.  Country/Regions that are not on the view list will default to the “Unified” View. It is your responsibility to determine the location of your users, and then set the `View` parameter correctly for that location. The `View` parameter in Azure Maps must be used in compliance with applicable laws, including those regarding mapping of the country where maps, images, and other data and third-party content that you are authorized to access via Azure Maps is made available.
 
