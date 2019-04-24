@@ -12,7 +12,7 @@ ms.date: 05/02/2019
 ms.author: erhopf
 ---
 
-# Speech-to-text for telephony data
+# Speech Services for telephony data
 
 Telephony data that is generated through landlines, mobile phones, and radios are typically low quality, and narrowband in the range of 8 KHz, which creates challenges when converting speech-to-text. The latest speech recognition models from Azure Speech Services excel at transcribing this telephony data, even in cases when the data is difficult for a human to understand. These models are trained with large volumes of telephony data, and have best in market recognition accuracy, even in noisy environments.
 
@@ -85,8 +85,8 @@ A typical solution uses these services:
 * [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) is used to create the shared access signatures (SAS) URI for each recording, and trigger the HTTP POST request to initiate a transcription. Additionally, Azure Functions is used to create requests to retrieve and delete transcriptions using the Batch Transcription API.
 * [WebHooks](webhooks.md) are used to get notifications when transcriptions are completed.
 
-Internally we are using the above technologies to support Microsoft customer calls 
-![Batch Achitecture](media/scenarios/call-centre-batch-pipeline.png) for transcrining Microsoft support calls.
+Internally we are using the above technologies to support Microsoft customer calls in Batch mode.
+![Batch Achitecture](media/scenarios/call-centre-batch-pipeline.png)
 
 ## Real-time transcription for call center data
 
@@ -94,8 +94,9 @@ Some businesses are required to transcribe conversations in real time. Real-time
 
 For scenarios that require real-time transcription, we recommend using the [Speech SDK](speech-sdk.md). Currently, speech-to-text is available in [more than 20 languages](language-support.md), and the SDK is available in C++, C#, Java, Python, Node.js, and Javascript. Samples are available in each language on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). For the latest news and updates, see [Release notes](releasenotes.md).
 
-Internally we are using the above technologies to support Microsoft customer calls.
-![Batch Achitecture](media/scenarios/call-centre-reatime-pipeline.png) for transcrining Microsoft support calls as they happen
+Internally we are using the above technologies to analyze in real time Microsoft customer calls as they happen.
+
+![Batch Achitecture](media/scenarios/call-centre-reatime-pipeline.png)
 
 ## A word on IVRs
 
