@@ -47,7 +47,7 @@ Certain default limits and quotas can be increased. To request an increase of on
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
-[region-availability]: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=kubernetes-service
+[region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 
 <!-- LINKS - Internal -->
 [vm-skus]: ../virtual-machines/linux/sizes.md
