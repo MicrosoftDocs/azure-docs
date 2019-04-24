@@ -100,23 +100,7 @@ To suspend autoscroll and control the behavior of the pane and allow you to manu
 
 ![Live logs pane pause live view](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
 
-
-
-To view streaming log and event data, perform the following steps.
-
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-
-2. From the **Microsoft Azure** menu, select **Monitor** and then select **Containers**.  
-
-3. Select a container from the list under the **Monitored containers** view.  
-
-4. Select the **Containers** view and on the properties panel for a selected container, the  link **View container live logs** is listed. 
-
-    ![Containers properties pane live logs option](./media/container-insights-live-logs/container-properties-live-logs-01.png)  
-
-5. 
-
-
+You can go to Azure Monitor Logs to see historical container logs by selecting **View container logs**.
 
 ## Next steps
 - To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
