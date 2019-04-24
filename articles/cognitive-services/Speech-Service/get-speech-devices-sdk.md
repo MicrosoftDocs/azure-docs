@@ -1,7 +1,7 @@
 ---
 title: Get the Speech Devices SDK
 titleSuffix: Azure Cognitive Services
-description: The Speech Services work with a wide variety of devices and audio sources. Now, you can take your speech applications to the next level with matched hardware and software. In this article you'll learn how to get access to the Speech Devices SDK and start developing.
+description: The Speech Services work with a wide variety of devices and audio sources. Now, you can take your speech applications to the next level with matched hardware and software. In this article, you'll learn how to get access to the Speech Devices SDK and start developing.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -21,7 +21,7 @@ The Speech Devices SDK is a pretuned library designed to work with purpose-built
 
 |Devices|Specification|Description|Scenarios|
 |--|--|--|--|
-|[Roobo Smart Audio Dev Kit](http://ddk.roobo.com)</br>[Setup](speech-devices-sdk-roobov1.md) / [Quickstart](speech-devices-sdk-android-qsg.md)![Roobo Smart Audio Dev Kit](media/speech-devices-sdk/device-roobov1.jpg)|7 Mic Array, ARM SOC, WIFI, Audio Out, IO. </br>Android|The first Speech Devices SDK to adapt Microsoft Mic Array and front processing SDK, for developing high quality transcription and speech scenarios|Conversation Transcription, Smart Speaker, Voice Agent, Wearable|
+|[Roobo Smart Audio Dev Kit](http://ddk.roobo.com)</br>[Setup](speech-devices-sdk-roobov1.md) / [Quickstart](speech-devices-sdk-android-qsg.md)![Roobo Smart Audio Dev Kit](media/speech-devices-sdk/device-roobov1.jpg)|7 Mic Array, ARM SOC, WIFI, Audio Out, IO. </br>Android|The first Speech Devices SDK to adapt Microsoft Mic Array and front processing SDK, for developing high-quality transcription and speech scenarios|Conversation Transcription, Smart Speaker, Voice Agent, Wearable|
 
 ## Development kits coming soon
 
