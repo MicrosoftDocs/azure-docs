@@ -70,7 +70,7 @@ Neural voices can be used to make interactions with chatbots and virtual assista
 
 For a full list of neural voices and regional availability, see [regions](regions.md#standard-and-neural-voices).
 
-Locale | Language | Gender | Full service name mapping | Short voice Name 
+Locale | Language | Gender | Full service name mapping | Short voice name 
 --------|----------|--------|---------|------------
 de-DE | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)" | "de-DE-KatjaNeural" 
 en-US | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | "en-US-GuyNeural" 
@@ -85,7 +85,7 @@ zh-CN | Chinese (Mainland) | Female | "Microsoft Server Speech Text to Speech Vo
 
 More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
 
-Locale | Language | Gender | Full service name mapping | Short voice Name 
+Locale | Language | Gender | Full service name mapping | Short voice name 
 -------|----------|---------|----------|----------
 ar-EG\* | Arabic (Egypt) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-Hoda"
 ar-SA | Arabic (Saudi Arabia) | Male | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)" | "ar-SA-Naayf"
