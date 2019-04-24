@@ -20,7 +20,7 @@ This module is a prototype application, and isn't recommended for your productio
 
 # Enable-ApplicationInsightsMonitoring (v0.2.0-alpha)
 
-**IMPORTANT**: This cmdlet requires a PowerShell Session with Administrator permissions and with Elevated Execution Policies. Read [here](iis-configurator-detailed-instructions.md#run-powershell-as-administrator-with-elevated-execution-policies) for more information.
+**IMPORTANT**: This cmdlet requires a PowerShell Session with Administrator permissions and with an elevated execution policy. Read [here](iis-configurator-detailed-instructions.md#run-powershell-as-administrator-with-elevated-execution-policies) for more information.
 
 **NOTE**: This cmdlet will require you to review and accept our license and privacy statement.
 
