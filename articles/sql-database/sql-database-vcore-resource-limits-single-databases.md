@@ -219,30 +219,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-## Hyperscale service tier (preview)
-
-### Generation 4 compute platform: Storage sizes and compute sizes
-
-|Performance level|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
-|:--- | --: |--: |--: |--: |--: |--: |
-|H/W generation|4|4|4|4|4|4|
-|vCores|1|2|4|8|16|24|
-|Memory (GB)|7|14|28|56|112|168|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
-|Max data size (TB)|100 |100 |100 |100 |100 |100 |
-|Max log size (TB)|1 |1 |1 |1 |1 |1 |
-|TempDB size (GB)|32|64|128|256|384|384|
-|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Target IOPS (64 KB)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
-|IO latency (approximate)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
-|Max concurrent workers (requests)|200|400|800|1600|3200|4800|
-|Max allowed sessions|30000|30000|30000|30000|30000|30000|
-|Number of replicas|2|2|2|2|2|2|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
-|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
-|Included backup storage|7|7|7|7|7|7|
-|||
+## Hyperscale service tier
 
 ### Generation 5 compute platform
 
@@ -264,7 +241,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Number of replicas|2|2|2|2|2|2|2|2|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Included backup storage (preview limit)|7|7|7|7|7|7|7|7|
+|Included backup storage |7|7|7|7|7|7|7|7|
 |||
 
 ## Next steps
