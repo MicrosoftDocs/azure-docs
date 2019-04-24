@@ -20,7 +20,9 @@ Automated machine learning is the process of taking training data with a defined
 
 The traditional machine learning model development process is highly resource-intensive, and requires significant domain knowledge and time investment to run and compare the results of dozens of models. Automated machine learning simplifies this process by generating models tuned from the goals and constraints you defined for your experiment, such as the time for the experiment to run or which models to blacklist.
 
-## How it works
+## How it works with Azure Machine Learning service
+
+When you use Azure Machine Learning service to automate ML modeling and tuning, you'll go through these steps:
 
 1. **Identify the ML problem (**Classification**, **Forecasting**, or **Regression**) to be solved.** See the full [list of models](how-to-configure-auto-train.md#select-your-experiment-type).
    
