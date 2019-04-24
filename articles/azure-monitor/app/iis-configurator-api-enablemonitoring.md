@@ -15,14 +15,16 @@ ms.author: tilee
 ---
 # IISConfigurator API Reference
 
-## Disclaimer
+[!CAUTION]
 This module is a prototype application, and isn't recommended for your production environments.
 
 # Enable-ApplicationInsightsMonitoring (v0.2.0-alpha)
 
-**IMPORTANT**: This cmdlet requires a PowerShell Session with Administrator permissions and with an elevated execution policy. Read [here](iis-configurator-detailed-instructions.md#run-powershell-as-administrator-with-an-elevated-execution-policy) for more information.
+[!IMPORTANT]
+This cmdlet requires a PowerShell Session with Administrator permissions and with an elevated execution policy. Read [here](iis-configurator-detailed-instructions.md#run-powershell-as-administrator-with-an-elevated-execution-policy) for more information.
 
-**NOTE**: This cmdlet will require you to review and accept our license and privacy statement.
+[!NOTE]
+This cmdlet will require you to review and accept our license and privacy statement.
 
 ## Description
 
@@ -35,7 +37,8 @@ Restart IIS for your changes to take effect.
 After enabling monitoring, we recommend using [Live Metrics](live-stream.md) to quickly observe if your application is sending us telemetry.
 
 
-**NOTE**: To get started, you must have an instrumentation key. Read [here](create-new-resource.md#copy-the-instrumentation-key) for more information.
+[!NOTE]
+To get started, you must have an instrumentation key. For more information, read [create new resource](create-new-resource.md#copy-the-instrumentation-key).
 
 
 ## Examples
@@ -75,7 +78,8 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 **Required.** Use this parameter to supply multiple ikeys and a mapping of which apps to use which ikey. 
 You can create a single installation script for several machines by setting the MachineFilter. 
 
-**IMPORTANT:** Applications will match against rules in the order that they're provided. As such you should specify the most specific rules first and the most generic rules last.
+[!IMPORTANT]
+Applications will match against rules in the order that they're provided. As such you should specify the most specific rules first and the most generic rules last.
 
 #### Schema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`

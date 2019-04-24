@@ -15,7 +15,7 @@ ms.author: tilee
 ---
 # IISConfigurator Detailed Instructions
 
-## Disclaimer
+[!CAUTION]
 This module is a prototype application, and isn't recommended for your production environments.
 
 ## Instrumentation Key
@@ -68,7 +68,8 @@ SerializationVersion           1.1.0.1
 
 ## Prerequisites for PowerShell Gallery
 
-**NOTE**: Support for PowerShell Gallery is included on Windows 10, Windows Server 2016, and PowerShell 6.
+[!NOTE]
+Support for PowerShell Gallery is included on Windows 10, Windows Server 2016, and PowerShell 6.
 For older versions, review this document: [Installing PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget)
 
 
@@ -185,7 +186,8 @@ For more information, see: [Installing a PowerShell Module](https://docs.microso
 
 If installing into any other directory, you must manually import the module using [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6)
 
-**IMPORTANT**: Installation will install DLLs via relative paths. Store the contents of this package into your intended runtime directory and confirm that access permissions allow read but not write.
+[!IMPORTANT]
+Installation will install DLLs via relative paths. Store the contents of this package into your intended runtime directory and confirm that access permissions allow read but not write.
 
 - Change the extension to ".zip" and extract contents of package into your intended installation directory.
 - Find the file path to "microsoft.applicationinsights.iisconfigurator.psd1".

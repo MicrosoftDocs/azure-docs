@@ -15,14 +15,16 @@ ms.author: tilee
 ---
 # IISConfigurator API Reference
 
-## Disclaimer
+[!CAUTION]
 This module is a prototype application, and isn't recommended for your production environments.
 
 # Enable-InstrumentationEngine (v0.2.0-alpha)
 
-**IMPORTANT**: This cmdlet requires a PowerShell Session with Administrator permissions.
+[!IMPORTANT]
+This cmdlet requires a PowerShell Session with Administrator permissions.
 
-**NOTE**: This cmdlet will require you to review and accept our license and privacy statement.
+[!NOTE]
+This cmdlet will require you to review and accept our license and privacy statement.
 
 ## Description
 
@@ -37,7 +39,8 @@ Enable the Instrumentation Engine if:
 - You've already enabled monitoring using the IISConfigurator but didn't enable the InstrumentationEngine.
 - You've manually instrumented your application with the .NET SDKs and want to collect additional telemetry.
 
-**NOTE:** The Instrumentation Engine adds additional overhead and is off by default.
+[!NOTE]
+The Instrumentation Engine adds additional overhead and is off by default.
 
 ## Examples
 
