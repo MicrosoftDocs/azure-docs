@@ -302,7 +302,7 @@
     },
     {
       "path_to_root": "create-cosmos-cassandra",
-      "url": "https://github.com/Azure/azure-quickstart-templates/tree/master/",
+      "url": "https://github.com/Azure/azure-quickstart-templates/tree/master",
       "branch": "master", 
       "branch_mapping": {
         "release-build-cosmos-db": "release-build"
