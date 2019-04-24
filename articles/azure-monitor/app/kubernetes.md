@@ -22,6 +22,7 @@ Applications running outside of the service mesh are not affected.
 
 - A [Kubernetes cluster](https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads).
 - Console access to the cluster to run *kubectl*.
+- An [Application Insight resource](create-new-resource.md)
 
 
 ## Installation steps
@@ -76,7 +77,7 @@ rolling update or delete individual pods and wait for them to be recreated.
 
 ### View Application Insights telemetry
 
-- Issue requests against the application being monitored, or otherwise produce load on the application
+- Generate a sample request against your application to confirm that monitoring is functioning properly.
 - Within 3-5 minutes, you should start seeing telemetry appear in Azure portal. Be sure to check out the *Application Map* section of your Application Insights resource in the Portal.
 
 ### Troubleshooting
@@ -84,7 +85,7 @@ rolling update or delete individual pods and wait for them to be recreated.
 Below is the troubleshooting flow to use when telemetry doesn't appear in Azure portal as expected.
 
 1. Ensure the application is under load and is sending/receiving requests in plain HTTP. Since telemetry is lifted off the wire, encrypted traffic is not supported. If there are no incoming or outgoing requests, there will be no telemetry either.
-2. Ensure the correct instrumentation key is provided in *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* environment variable in *application-insights-istio-mixer-adapter-deployment.yaml*. The instrumentation key is found on the *Overview* blade of the Application Insights resource in Azure portal.
+2. Ensure the correct instrumentation key is provided in *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* environment variable in *application-insights-istio-mixer-adapter-deployment.yaml*. The instrumentation key is found on the *Overview* tab of the Application Insights resource in Azure portal.
 3. Ensure the correct Kubernetes namespace is provided in *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* environment variable in *application-insights-istio-mixer-adapter-deployment.yaml*. Leave it blank to monitor all namespaces.
 4. Ensure your application's pods have been sidecar-injected by Istio. Verify that Istio's sidecar exists on each pod.
 
@@ -124,3 +125,7 @@ kubectl delete -f <filename.yaml>
 ```
 
 To uninstall Istio, follow instructions [on Istio's documentation](https://istio.io/docs/setup/kubernetes/install/helm/#uninstall).
+
+## Next steps
+
+To learn more about how Azure Monitor and containers work together visit [Azure Monitor for containers overview](../../azure-monitor/insights/container-insights-overview.md)
