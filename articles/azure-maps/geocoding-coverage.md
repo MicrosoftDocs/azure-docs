@@ -92,12 +92,12 @@ The ability to geocode in a country is dependent upon the road data coverage and
 | British Indian Ocean Territory                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Cambodia                                            |                 |                |              |      ✓     |          ✓         |
-| China                                               |        ✓        |        ✓       |              |      ✓     |          ✓         |
+| China                                               |                 |                |              |      ✓     |          ✓         |
 | Christmas Island                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Cocos (Keeling) Islands                             |                 |                |              |      ✓     |          ✓         |
 | Comoros                                             |                 |                |              |      ✓     |          ✓         |
 | Cook Islands                                        |                 |                |              |      ✓     |          ✓         |
-| Fiji                                                |                  |                |              |      ✓     |          ✓         |
+| Fiji                                                |                  |                |              |      ✓     |          ✓        |
 | French Polynesia                                    |                 |                |              |      ✓     |          ✓         |
 | Heard Island and McDonald Islands                   |                 |                |              |      ✓     |          ✓         |
 | Hong Kong SAR                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
