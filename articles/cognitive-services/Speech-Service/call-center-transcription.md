@@ -27,9 +27,9 @@ Let's review some of the technology and related features Azure Speech Services o
 
 ## Azure Technology for Call Centers
 
-Beyond the functional aspect of the Speech Services their primary purpose -when applied to the call center- is to improve the customer experience. Three clear domains exist in this regard 
+Beyond, the functional aspect of the Speech Services their primary purpose -when applied to the call center- is to improve the customer experience. Three clear domains exist in this regard 
 
-* Post-call analytics  batch processing of call recordings 
+* Post-call analytics that is, batch processing of call recordings 
 * Real-time analytics processing of the audio signal to extract various insights as the call is taking place (with sentiment being a prominent use case) and
 * Virtual Assistants (Bots), either driving the dialogue between the customer and the bot in an attempt to solve the customer's issue with no agent participation, or being the application of AI protocols to assist the agent.
 
@@ -42,13 +42,13 @@ Whether the domain is post-call or real-time, Azure offers a set of mature and e
 
 ### Speech to text (STT) 
 
-[Speech-to-text](speech-to-text.md) is the most sought after feature in any call center solution. Since many of the downstream analytics processes rely on transcribed text, the word error rate (WER) is of utmost importance. One of the key challenges in call center transcription is the noise that’s prevalent in the call center (eg – other agents speaking in the background), the rich variety of language locales and dialects as well as the low quality of the actual telephone signal. WER is highly correlated with how well the acoustic and language models are trained for a given locale, thus being able to customize the model to your locale is important. Our latest Unified version 4.x models are the solution to both transcription accuracy and latency. Trained with 10s of thousands of hours of acoustic data and billions of lexical information Unified models are the most accurate models in the market to transcribe call center data.
+[Speech-to-text](speech-to-text.md) is the most sought after feature in any call center solution. Since many of the downstream analytics processes rely on transcribed text, the word error rate (WER) is of utmost importance. One of the key challenges in call center transcription is the noise that’s prevalent in the call center (for example – other agents speaking in the background), the rich variety of language locales and dialects as well as the low quality of the actual telephone signal. WER is highly correlated with how well the acoustic and language models are trained for a given locale, thus being able to customize the model to your locale is important. Our latest Unified version 4.x models are the solution to both transcription accuracy and latency. Trained with tens of thousands of hours of acoustic data and billions of lexical information Unified models are the most accurate models in the market to transcribe call center data.
 
 ### Sentiment
 Gauging whether the customer had a good experience is one of the most important areas of Speech analytics when applied to the call center space. Our [Batch Transcription API](batch-transcription.md) offers sentiment analysis per utterance. You can aggregate the set of values obtained as part of a call transcript to determine the sentiment of the call for both your agents and the customer.
 
 ### Silence (non-talk)
-it is not uncommon for thirty five percent of a support call to be what we call non-talk time. Some scenarios which non-talk occurs are: agents looking up prior case history with a customer, agents using tools which allow them to access the customer's desktop and perform functions, customers sitting on hold waiting for a transfer and so on. It is extremely important to can gauge when silence is occurring in a call as there are number of important customer sensitivities that occur around these types of scenarios and where they occur in the call.
+it is not uncommon for 35 percent of a support call to be what we call non-talk time. Some scenarios which non-talk occurs are: agents looking up prior case history with a customer, agents using tools which allow them to access the customer's desktop and perform functions, customers sitting on hold waiting for a transfer and so on. It is extremely important to can gauge when silence is occurring in a call as there are number of important customer sensitivities that occur around these types of scenarios and where they occur in the call.
 
 ### Translation
 Some companies are experimenting with providing translated transcripts from foreign languages support calls so that delivery managers can understand the world-wide experience of their customers. Our [translation](translation.md) capabilities are unsurpassed. We can translate audio to audio or audio to text from a large number of locales.
