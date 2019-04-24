@@ -69,6 +69,8 @@
     - name: Deploy from Visual Studio (SSDT)
       href: analysis-services-deploy.md
     - name: Refresh with REST API
+      href: analysis-services-refresh-logic-app.md
+    - name: Refresh with Logic Apps
       href: analysis-services-async-refresh.md
     - name: Data modeling in Visual Studio - Adventure Works (1400) tutorial
       href: tutorials/aas-adventure-works-tutorial.md
