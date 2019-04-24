@@ -10,15 +10,15 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/06/19
+ms.date: 05/02/19
 
 ---
 
-# Create and register Azure Machine Learning Datasets
+# Create and register Azure Machine Learning Datasets (Preview)
 
-Azure Machine Learning Datasets manage data in various scenarios such as, model training and pipeline creation. With the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), you can access underlying storage, explore and prepare data, manage the life cycle of different Dataset definitions, and compare between datasets used in training and in production.
+The [Azure Machine Learning SDK's](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) new Datasets class lets you manage data in various scenarios such as, model training and pipeline creation. With the Azure Machine Learning SDK, you can access underlying storage, explore and prepare data, manage the life cycle of different Dataset definitions, and compare between datasets used in training and in production.
 
-In this article, you learn the Azure Machine Learning workflows to create and register Datasets for data preparation.
+In this article, you learn the Azure Machine Learning workflows to create and register Datasets, and how to access them for reuse across local and remote experiments throughout your organization.
 
 ## Prerequisites
 
@@ -29,7 +29,6 @@ To create and register Datasets you need:
 * An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
 * The Azure Machine Learning SDK for Python (version 1.0.21 or later). To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-
 
 ## Create Datasets from local files
 
@@ -46,7 +45,7 @@ from azureml.core import Dataset
 dataset = Dataset.auto_read_files('./data/crime.csv')
 ```
 
-Alternatively, use the file-specific functions to explicitly control the parsing of your file. Currently the Datasets SDK supports  delimited, Excel,Parquet, binary, and json file formats.
+Alternatively, use the file-specific functions to explicitly control the parsing of your file. Currently, the Datasets SDK supports  delimited, Excel, Parquet, binary, and json file formats.
 
 ## Create Datasets from Azure Datastores
 
@@ -75,7 +74,7 @@ workspace = Workspace(subscription_id, resource_group, workspace_name)
 dstore = Datastore.get(workspace, datastore_name)
 ```
 
-Use the `from_delimited_files()` method to read in delimited files and create in-memory Datasets.
+Use the `from_delimited_files()` method to read in delimited files, and create in-memory Datasets.
 
 ```Python
 # create an in-memory Dataset on your local machine
@@ -129,6 +128,16 @@ The preceding code results in the following:
 ```Python
 [Dataset(Name: dataset_crime,
          Workspace: workspace_name)]
+```
+
+## Access Datasets in workspace
+
+Registered Datasets are accessible and consumable locally,remotely and on compute clusters like on an Azure Machine Learning compute. To reuse your registered Dataset across experiments or compute environments, use the following code to get your workspace and registered dataset by name.
+
+```Python
+workspace = Workspace(subscription_id, resource_group, workspace_name)
+
+dataset = workspace.datasets['dataset_crime']
 ```
 
 ## Next Steps

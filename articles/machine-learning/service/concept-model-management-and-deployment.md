@@ -1,7 +1,7 @@
 ---
-title: Manage, register, deploy, & monitor ML models
+title: 'MLOps: Manage, deploy, & monitor ML models'
 titleSuffix: Azure Machine Learning service
-description: Learn how to use Azure Machine Learning Service to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning Service, on your local machine, or from other sources.  
+description: 'Learn how to use Azure Machine Learning Service for MLOps: deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning Service, on your local machine, or from other sources.'  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,14 +13,14 @@ ms.date: 05/02/2019
 ms.custom: seodec18
 ---
 
-# Manage, deploy, and monitor models with Azure Machine Learning Service
+# MLOps: Manage, deploy, and monitor models with Azure Machine Learning Service
 
 In this article, you can learn how to use Azure Machine Learning Service to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources. 
 
 The following diagram illustrates the complete deployment workflow:
 [![Deployment workflow for Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png)](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
-The deployment workflow includes the following steps:
+The MLOps / deployment workflow includes the following steps:
 1. **Register the model** in a registry hosted in your Azure Machine Learning Service workspace
 1. **Use** the model in a web service in the cloud, on an IoT device, or for analytics with Power BI.
 1. **Monitor and collect data**

@@ -16,19 +16,24 @@ ms.custom: seodec18
 
 # What is automated machine learning?
 
-Automated machine learning is the process of taking training data with a defined target feature, and iterating through combinations of algorithms and feature selections to automatically select the best model for your data based on the training scores. 
+Automated machine learning, also referred to as AutoML, will build a set of ML models automatically, fine-tune them, and pick the best one for you automatically. The traditional machine learning model development process is highly resource-intensive, and requires significant domain knowledge and time investment to run and compare the results of dozens of models. 
 
-The traditional machine learning model development process is highly resource-intensive, and requires significant domain knowledge and time investment to run and compare the results of dozens of models. Automated machine learning simplifies this process by generating models tuned from the goals and constraints you defined for your experiment, such as the time for the experiment to run or which models to blacklist.
+With automated ML, anyone can successfully extract and leverage the business insights hidden in their data. While still a newer ML option, it has quickly become popular with non-ML experts, those who don't want to code, and those looking for a quick prototype. 
 
-## How it works
+You provide some goals, constraints, or blacklists, and then automated machine learning generates the model for you. Behind the scenes, training data is taken with a defined target feature, and iterated upon through combinations of algorithms and feature selections. Then, the best model (based on training scores) is automatically selected.  
+
+Using **Azure Machine Learning service**, you can configure the settings for automatic training experiment [in Azure portal](how-to-create-portal-experiments.md) or directly in Python [with the SDK](how-to-configure-auto-train.md).
+
+## How automated ML works
+
+When you use Azure Machine Learning service to automate ML modeling and tuning, you'll go through these steps:
 
 1. **Identify the ML problem (**Classification**, **Forecasting**, or **Regression**) to be solved.** See the full [list of models](how-to-configure-auto-train.md#select-your-experiment-type).
    
 1. **Specify the training data's source and format.** 
    + Data must be labeled. 
-   
-   + It can be stored in your development environment (alongside your training scripts) or in Azure Blob Storage. This directory is copied to the compute target you select for training.
-   + The data in your scripts can be read into Numpy arrays or a Pandas dataframe.
+   + Store data in your development environment (alongside your training scripts) or in Azure Blob Storage. This directory is copied to the compute target you select for training.
+   + Script data can be read into Numpy arrays or a Pandas dataframe.
    + Use split options for training and validation data, or specify separate training and validation data sets.
 
 1. **Configure the compute target for model training.** 
@@ -36,48 +41,38 @@ The traditional machine learning model development process is highly resource-in
    Options include [your local computer, an Azure Machine Learning Compute, a remote VM, Azure Databricks](how-to-set-up-training-targets.md).  Learn more about using automated training [on a remote resource](how-to-auto-train-remote.md)
 
 1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, and what metrics to look at when determining the best model. You can configure the experiment: 
-   + For the Python SDK, [use these steps](how-to-configure-auto-train.md) 
-   
-   + For Azure portal, [use these steps](how-to-create-portal-experiments.md) 
+   + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
+   + In Azure portal, [use these steps](how-to-create-portal-experiments.md).
 
 1. **Submit the training run.** 
 
 
-During training, the Azure Machine Learning service creates a number of pipelines that try different algorithms and parameters. It will stop once it hits the iteration limit you provide, or when it reaches the target value for the metric you specify.  You can also inspect the logged run information, which contains metrics gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
-
 [![Automated Machine learning](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
 
+During training, the Azure Machine Learning service creates a number of pipelines that try different algorithms and parameters. It will stop once it hits the iteration limit you provide, or when it reaches the target value for the metric you specify.  
 
-## Data pre-processing and featurization
+You can also inspect the logged run information, which contains metrics gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
-If you use [`preprocess=True`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py), the following data preprocessing steps are performed automatically for you:
-1. Drop high cardinality or no variance features from training and validation sets. These include features with all values missing, same value across all rows or with extremely high cardinality (for example, hashes, IDs, or GUIDs).
+While model building is automated, you can also [learn how important or relevant features were](how-to-configure-auto-train.md#explain-the-model) to the generation of your model. 
 
-2. Missing value imputation 
-   * For numerical features, impute missing values with average of values in the column.
-   * For categorical features, impute missing values with most frequent value.
 
-3. Generate additional features 
-   * For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.
-   * For Text features: Term frequency based on unigrams, bi-grams, and tri-character-grams.
+## Preprocessing
 
-4. Transformations and encodings 
-   * Numeric features with few unique values are transformed into categorical features.
-   * One-hot encoding is performed for low cardinality categorical; for high cardinality, one-hot-hash encoding.
+If you use `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py), the following data preprocessing and featurization steps are performed automatically for you:
 
-5. Word Embeddings, which transform is a text featurizer that converts vectors of text tokens into sentence vectors using a pre-trained model. Each word’s embedding vector in a document is aggregated together to produce a document feature vector.
+|Preprocessing&nbsp;steps| Description |
+| ------------- | ------------- |
+|Drop high cardinality or no variance features|Drop these from training and validation sets, including features with all values missing, same value across all rows or with extremely high cardinality (for example, hashes, IDs, or GUIDs).|	
+|Impute missing values|For numerical features, impute with average of values in the column.<br/><br/>For categorical features, impute with most frequent value.|
+|Generate additional features|For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br/><br/>For Text features: Term frequency based on unigrams, bi-grams, and tri-character-grams.|	
+|Transform and encode |Numeric features with few unique values are transformed into categorical features.<br/><br/>One-hot encoding is performed for low cardinality categorical; for high cardinality, one-hot-hash encoding.|
+|Word embeddings|Transforms is a text featurizer that converts vectors of text tokens into sentence vectors using a pre-trained model. Each word’s embedding vector in a document is aggregated together to produce a document feature vector.|	
+|Target encodings|For categorical features, maps each category with averaged target value for regression problems, and to the class probability for each class for classification problems. Frequency-based weighting and k-fold cross validation is applied to reduce overfitting of the mapping and noise caused by sparse data categories.|	
+|Text target encoding|For text input, a stacked linear model with bag-of-words is used to generate the probability of each class.|	
+|Weight of Evidence (WoE)|Calculates WoE as a measure of correlation of categorical columns to the target column. It is calculated as the log of the ratio of in-class vs out-of-class probabilities. This step outputs one numerical feature column per class and removes the need to explicitly impute missing values and outlier treatment.|	
+|Cluster Distance|Trains a k-means clustering model on all numerical columns.  Outputs k new features, one new numerical feature per cluster, containing the distance of each sample to the centroid of each cluster.|	
 
-6. Target Encodings: For categorical features, maps each category with averaged target value for regression problems, and to the class probability for each class for classification problems. Frequency-based weighting and k-fold cross validation is applied to reduce overfitting of the mapping and noise caused by sparse data categories.
-
-7. Text target encoding: For text input, a stacked linear model with bag-of-words is used to generate the probability of each class. 
-
-8. Weight of Evidence (WoE)
-   * Calculates Weight of Evidence as a measure of correlation of categorical columns to the target column. WoE is calculated as the log of the ratio of in-class vs out-of-class probabilities.
-   * Outputs one numerical feature column per class. Removes the need to explicitly impute missing values and outlier treatment.
-
-9. Cluster Distance: Trains a k-means clustering model on all numerical columns.  Outputs k new features, one new numerical feature per cluster, containing the distance of each sample to the centroid of each cluster.
-
-## Scaling and normalization
+## Scale & normalize
 
 In addition to the preceding pre-processing list, data is automatically scaled/normalized to help algorithms perform well.  The `preprocess` flag in AutoMLConfig does not control behavior of scaling and normalization described here.  See this table for details:
 

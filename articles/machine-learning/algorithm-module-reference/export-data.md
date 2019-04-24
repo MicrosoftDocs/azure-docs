@@ -9,12 +9,12 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 05/06/2019
+ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 # Export Data
 
-*Writes a dataset to various forms of cloud-based storage in Azure, such as tables, blobs, and Azure SQL databases*
+*Writes a dataset to Azure blob storage*
 
 Category: Data Input and Output
 
