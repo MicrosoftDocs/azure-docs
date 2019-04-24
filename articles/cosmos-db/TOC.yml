@@ -456,6 +456,8 @@
             href: /rest/api/storageservices/Table-Service-Concepts
     - name: Etcd API
       items:
+      - name: Introduction
+        href: etcd-api-introduction.md
       - name: Azure Kubernetes with Azure Cosmos DB
         href: bootstrap-kubernetes-cluster.md
   - name: How-to guides
