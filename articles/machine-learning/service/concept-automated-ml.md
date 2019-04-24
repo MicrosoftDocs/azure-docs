@@ -90,6 +90,10 @@ In addition to the preceding pre-processing list, data is automatically scaled/n
 
 You can train ensemble models using automated machine learning with the [Caruana ensemble selection algorithm with sorted Ensemble initialization](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). Ensemble learning improves machine learning results and predictive performance by combing many models as opposed to using single models. The ensemble iteration appears as the last iteration of your run.
 
+## ONNX - Build models in Python and use them for prediction in C# apps without recoding
+
+Data Scientists build models in Python, but often line-of-business applications are C# apps. The models can be deployed as a REST end point, but then it introduces the latency and this latency may not be acceptable for certain apps. Models need to be integrated into the line-of-business apps. Software developers end up recoding the python model into C#. This introduces friction and delays. Now, with ONNX framework, recoding is eliminated. With Azure Machine Learning, automated ML you can configure to build a Python model and ask automated ML API to convert into ONNX format. With ONNX run time support for C#, you can use the ONNX converted model in your app without the network latencies or recoding.
+
 ## .NET integrations
 
 To help you build your existing tools into your release process, we integrate with popular Microsoft services such as [**Visual Studio and Visual Studio Code**](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet
