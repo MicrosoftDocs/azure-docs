@@ -226,6 +226,7 @@
           - name: System browser on Android
             href: msal-net-system-browser-android-considerations.md
           - name: Xamarin iOS
+            href: msal-net-xamarin-ios-considerations.md
           - name: UWP
           - name: Applying an AAD B2C policy
     - name: Authentication
