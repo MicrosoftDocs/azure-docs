@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
+ms.custom: fasttrack-edit
 ---
 
 # Web sign-in with OpenID Connect in Azure Active Directory B2C

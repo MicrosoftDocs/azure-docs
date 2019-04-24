@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
+ms.custom: fasttrack-edit
 ---
 
 # OAuth 2.0 authorization code flow in Azure Active Directory B2C
