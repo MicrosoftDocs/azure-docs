@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 04/23/2019
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
 ms.custom: seodec18
@@ -21,7 +21,7 @@ ms.custom: seodec18
 ---
 # Create your first Java web app in Azure
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a Java web app to App Service by using the [Eclipse IDE for Java EE Developers](https://www.eclipse.org/).
+Azure App Service provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a Java web app to App Service by using the Eclipse IDE for Java EE Developers.
 
 > [!IMPORTANT]
 > Azure App Service on Linux is also an option to host Java web apps natively on Linux using managed Tomcat, Java SE, and WildFly offerings. If you're interested in getting started with App Service on Linux, see [Quickstart: Create a Java app in App Service on Linux](containers/quickstart-java.md).
