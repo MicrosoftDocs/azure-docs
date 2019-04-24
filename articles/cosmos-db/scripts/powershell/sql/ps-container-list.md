@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/sql/ps-container-list.ps1 "List all containers in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-list.ps1 "List all containers in an Azure Cosmos account")]
 
 ## Clean up deployment
 

@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/sql/ps-database-create-shared.ps1 "Create an Azure Cosmos database with shared throughput")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-database-create-shared.ps1 "Create an Azure Cosmos database with shared throughput")]
 
 ## Clean up deployment
 

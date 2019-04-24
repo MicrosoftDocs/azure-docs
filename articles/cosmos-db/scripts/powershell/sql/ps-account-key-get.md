@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/sql/ps-account-key-get.ps1 "Get keys for an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-key-get.ps1 "Get keys for an Azure Cosmos account")]
 
 ## Clean up deployment
 

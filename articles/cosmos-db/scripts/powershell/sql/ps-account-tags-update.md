@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/sql/ps-account-tags-update.ps1 "Update tags for an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-tags-update.ps1 "Update tags for an Azure Cosmos account")]
 
 ## Clean up deployment
 

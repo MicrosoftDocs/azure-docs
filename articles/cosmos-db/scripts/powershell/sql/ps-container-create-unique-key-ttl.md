@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/sql/ps-container-create-unique-key-ttl.ps1 "Create a container with unique key policy and TTL in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-create-unique-key-ttl.ps1 "Create a container with unique key policy and TTL in an Azure Cosmos account")]
 
 ## Clean up deployment
 

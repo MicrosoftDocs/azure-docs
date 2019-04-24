@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/sql/ps-container-create-index-custom.ps1 "Create a container with custom index policy in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-create-index-custom.ps1 "Create a container with custom index policy in an Azure Cosmos account")]
 
 ## Clean up deployment
 

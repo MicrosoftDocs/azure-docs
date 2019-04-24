@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/sql/ps-database-create.ps1 "Create an Azure Cosmos database")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-database-create.ps1 "Create an Azure Cosmos database")]
 
 ## Clean up deployment
 

@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/sql/ps-database-get.ps1 "Get the properties of a database in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-database-get.ps1 "Get the properties of a database in an Azure Cosmos account")]
 
 ## Clean up deployment
 
