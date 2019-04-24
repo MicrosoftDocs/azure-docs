@@ -287,7 +287,7 @@ This error occurs if the Helm client can no longer talk to the Tiller pod runnin
 ### Try:
 Restarting the agent nodes in your cluster usually resolves this issue.
 
-## "Error: release azds-<identifier>-<spacename>-<servicename> failed: services '<servicename>' already exists" or "Pull access denied for <servicename>, repository does not exist or may require 'docker login'"
+## "Error: release azds-\<identifier\>-\<spacename\>-\<servicename\> failed: services '\<servicename\>' already exists" or "Pull access denied for \<servicename\>, repository does not exist or may require 'docker login'"
 
 ### Reason
 These errors can occur if you mix running direct Helm commands (such as `helm install`, `helm upgrade`, or `helm delete`) with Dev Spaces commands (such as `azds up` and `azds down`) inside the same dev space. They occur because Dev Spaces has its own Tiller instance, which conflicts with your own Tiller instance running in the same dev space.
