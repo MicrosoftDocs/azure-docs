@@ -19,6 +19,9 @@ All new HDInsight-Spark clusters come pre-installed with AzureML-AutoML SDK. You
 
 > [!Note]
 > Azure Machine Learning packages are installed into Python3 conda environment. The installed Jupyter notebook should be run using the PySpark3 kernel.
+
+You can alternatively use Zeppelin notebooks to use AutoML as well.
+> [!Note]
 > Zeppelin has a [known issue](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) where PySpark3 doesn't pick the right version of Python. Please use the documented work-around.
 
 ## Authentication for workspace
