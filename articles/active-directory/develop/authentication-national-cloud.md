@@ -75,7 +75,7 @@ To learn how to call the Microsoft Graph APIs in National Cloud environment go t
 > [!IMPORTANT]
 > Certain services and features that are in specific regions of the global service might not be available in all of the National clouds. To find out what services are available go to [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
 
-Follow this Microsoft Authentication Library (MSAL) [tutorial](#msal-national-cloud.md) to learn how to build an application using Microsoft identity platform. Specifically, this app will sign in a user, get an access token to call the Microsoft Graph API.
+Follow this Microsoft Authentication Library (MSAL) [tutorial](msal-national-cloud.md) to learn how to build an application using Microsoft identity platform. Specifically, this app will sign in a user, get an access token to call the Microsoft Graph API.
 
 ## Next steps
 
