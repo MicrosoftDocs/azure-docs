@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Open Datasets Documentation
+title: Open Datasets Preview Documentation
 metadata:
-  title: Azure Open Datasets Documentation – Tutorials, API reference | Microsoft Docs
+  title: Azure Open Datasets Preview Documentation – Tutorials, API reference | Microsoft Docs
   description: Learn how to use Azure Open Datasets, curated and cleansed data that you can use with minimal preparation. Open Datasets are public data such as weather, census, and holidays that can enrich machine learning models. Tutorials, examples, and API reference docs show you how. 
   ms.service: open-datasets
   ms.topic: landing-page
@@ -23,7 +23,7 @@ sections:
 - title: Samples
   items:
   - type: paragraph
-    text: <a href="samples">Notebooks with enriched by datasets</a> 
+    text: <a href="samples">Notebooks for enriching datasets</a> 
  
     
 - title: Reference
