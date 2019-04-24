@@ -140,7 +140,7 @@ The following solutions help resolve the entity prediction discrepancy:
 |Incorrectly labeled text|blue entity highlight, red underline|Correct prediction| Provide more utterances with the correctly labeled entity in a variety of places and usages. 
 
 > [!Note]
-> When a red box is around the labeled intent in the row of the example utterance, an [intent prediction error](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) has occurred. You need to correct it. 
+> When a red box is around the labeled intent in the row of the example utterance, an [intent prediction error](luis-how-to-add-intents.md#intent-prediction-errors) has occurred. You need to correct it. 
 
 ## Other actions
 

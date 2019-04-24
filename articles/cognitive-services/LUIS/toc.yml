@@ -218,12 +218,15 @@
             href: luis-tutorial-bot-csharp-appinsights.md
   - name: Improve prediction accuracy
     items:
-    - name: Review endpoint utterances
-      displayName: active learning
-      href: luis-how-to-review-endpoint-utterances.md
+    - name: Using the dashboard
+      displayName: dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage
+      href: luis-how-to-use-dashboard.md        
     - name: Add Phrase list
       displayName: synonym, interchange
       href: luis-how-to-add-features.md
+    - name: Review endpoint utterances
+      displayName: active learning
+      href: luis-how-to-review-endpoint-utterances.md
     - name: Add Patterns
       displayName: syntax, template, roles
       href: luis-how-to-model-intent-pattern.md
@@ -240,9 +243,6 @@
     href: luis-how-to-publish-app.md
   - name: Manage app
     items:
-    - name: Using the dashboard
-      displayName: analytics, usage
-      href: luis-how-to-use-dashboard.md
     - name: Using subscription keys with your LUIS app
       displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription
       href: luis-how-to-azure-subscription.md
@@ -274,7 +274,7 @@
   items:
   - name: User privacy
     href: luis-user-privacy.md
-  - name: Authoring and publishing regions
+  - name: Regions
     href: luis-reference-regions.md
     displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
   - name: Boundaries
