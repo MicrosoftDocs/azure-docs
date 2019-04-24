@@ -220,7 +220,10 @@ Once you are finished migrating face data, we recommend you manually delete the 
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 ```
 
-## Related Topics
+## Next steps
+
+Next, see the relevant API reference documentation, explore
+a sample app that uses the Snapshot feature, or follow a how-to guide to start using the other API operations mentioned here.
 
 - [Snapshot reference documentation (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Face API Snapshot Sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)

@@ -62,7 +62,7 @@ When you are using a client library, you must pass your subscription key to the 
 FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
 
-The subscription key can be obtained from the Marketplace page of your Azure portal. See [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up).
+The subscription key can be obtained from the Marketplace page of your Azure portal. See [Subscriptions](https://www.microsoft.com/cognitive-services/sign-up).
 
 ## Step 3: Create the PersonGroup
 
