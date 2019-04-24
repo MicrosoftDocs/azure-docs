@@ -10,7 +10,7 @@ ms.author: mjbrown
 
 # Create Azure Cosmos DB Table API resources from a Resource Manager template
 
-Learn how to create Azure Cosmos DB Table API resources using an Azure Resource Manager template. The following example creates an Azure Cosmos DB Table API from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-table/azuredeploy.json). This template will create an Azure Cosmos account for Table API with one table with 400 RU/s throughput.
+Learn how to create an Azure Cosmos DB Table API resources using an Azure Resource Manager template. The following example creates an Azure Cosmos DB Table API from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-table/azuredeploy.json). This template will create an Azure Cosmos account for Table API with one table with 400 RU/s throughput.
 
 Here is a copy of the template:
 
@@ -18,7 +18,7 @@ Here is a copy of the template:
 
 ## Deploy via PowerShell
 
-To deploy the Resource Manager template using PowerShell, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
+To deploy the Resource Manager template using PowerShell, **Copy** the script and select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
 
 ```azurepowershell-interactive
 
@@ -40,14 +40,14 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2015-04-08" --ResourceGroupName $resourceGroupName).name
 ```
 
-If you choose to install and use the PowerShell locally instead of from the Azure Cloud shell, you have to install the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). 
+If you choose to use a locally installed version of PowerShell instead of from the Azure Cloud shell, you have to [install](/powershell/azure/install-az-ps) the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version. 
 
-In the previous example, you have referenced a template that is stored in GitHub. You can also download it to your local computer or create a new template and specify the local path with the `--template-file` parameter.
+In the previous example, you have referenced a template that is stored in GitHub. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
 
 
 ## Deploy via Azure CLI
 
-To deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
+To deploy the Resource Manager template using Azure CLI, **Copy** the script and select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -65,9 +65,9 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-The 'az cosmosdb show' command shows the newly created Azure Cosmos account after it has been provisioned. If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](/cli/azure/) .
+The 'az cosmosdb show' command shows the newly created Azure Cosmos account after it has been provisioned. If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](/cli/azure/) article.
 
-In the previous example, you have referenced a template that is stored in GitHub. You can also download it to your local computer or create a new template and specify the local path with the `--template-file` parameter.
+In the previous example, you have referenced a template that is stored in GitHub. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
 
 
 ## Next Steps
