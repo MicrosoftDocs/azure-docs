@@ -250,7 +250,28 @@ EXEC sp_addpushsubscription_agent
 EXEC sp_startpublication_snapshot
   @publication = N'$(publication_name)';
 ```
-## 9 - Test replication
+
+## 9 - Modify agent parameters
+
+Run the following T-SQL command on the publisher to increase the login timeout: 
+
+```sql
+-- Increase login timeout to 150s
+update msdb..sysjobsteps set command = command + N' -LoginTimeout 150' 
+where subsystem in ('Distribution','LogReader','Snapshot') and command not like '%-LoginTimeout %'
+```
+
+SQL Database managed instances do not support named pipes. Run the following T-SQL command on the publisher and distributor to force the three replication agents to utilize TCP: 
+
+```sql
+update msdb..sysjobsteps set command = replace(command,' -Distributor [',' -Distributor [tcp:') 
+where subsystem in ('Distribution','LogReader','Snapshot') and command not like '% -Distributor \[tcp:%' escape '\'
+GO
+```
+
+Restart all three agents to apply these changes. 
+
+## 10 - Test replication
 
 Once replication has been configured, you can test it by inserting new items on the publisher and watching the changes propagate to the subscriber. 
 
