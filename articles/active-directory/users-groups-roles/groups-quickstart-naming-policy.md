@@ -63,8 +63,8 @@ That's it. You've set your naming policy and added your custom blocked words.
 
 ## Next steps
 
-In this quickstart, you’ve learned how to use PowerShell cmdlets to set the naming policy for your Azure AD tenant.
+In this quickstart, you’ve learned how to set the naming policy for your Azure AD organization through the Azure portal.
 
-For more information about technical constraints, adding a list of custom blocked words, or the end user experiences across Office 365 apps, advance to the next article to learn more about naming policy details.
+Advance to the next article for more information including the PowerShell cmdlets for naming policy, technical constraints, adding a list of custom blocked words, and the end user experiences across Office 365 apps.
 > [!div class="nextstepaction"]
-> [Naming policy all details](groups-naming-policy.md)
+> [Naming policy PowerShell](groups-naming-policy.md)

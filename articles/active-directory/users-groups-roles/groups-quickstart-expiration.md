@@ -31,7 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Turn on user creation for groups
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an accounted that's assigned to the User administrator role in the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with a User administrator account.
 
 2. Select **Groups**, and then select **General**.
   
