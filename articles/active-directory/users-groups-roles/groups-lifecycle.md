@@ -98,10 +98,10 @@ The retention policy is configured by way of the Security and Compliance Center.
 ## PowerShell examples
 Here are examples of how you can use PowerShell cmdlets to configure the expiration settings for Office 365 groups in your tenant:
 
-1. Install the PowerShell v2.0 Preview module (2.0.0.137) and sign in at the PowerShell prompt:
+1. Install the PowerShell v2.0 module and sign in at the PowerShell prompt:
    ```powershell
-   Install-Module -Name AzureADPreview
-   connect-azuread 
+   Install-Module -Name AzureAD
+   Connect-AzureAD
    ```
 2. Configure the expiration settings
    New-AzureADMSGroupLifecyclePolicy:  This cmdlet sets the lifetime for all Office 365 groups in the tenant to 365 days. Renewal notifications for Office 365 groups without owners will be sent to ‘emailaddress@contoso.com’
