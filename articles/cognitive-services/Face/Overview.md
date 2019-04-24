@@ -62,7 +62,7 @@ The following image depicts an example of a database named "myfriends." Each gro
 
 After a database has been created and trained, you can perform identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
 
-For more information about person identification, see the [Face recognition](concepts/face-recognition.md) concepts guide or th [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) reference documentation.
+For more information about person identification, see the [Face recognition](concepts/face-recognition.md) concepts guide or the [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) reference documentation.
 
 ## Use containers
 
