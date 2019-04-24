@@ -43,7 +43,7 @@ The default database option is Titan, which is $3.50. We don’t show the cost d
 ## I am running MySQL on my own Azure virtual machine. Can I connect my Azure web app to my database?
 Yes. You can connect your web app to your database as long as your Azure VM has given remote access to your web app. For more information, see [Install MySQL on a virtual machine](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## In which countries are ClearDB Premium MySQL clusters supported?
+## In which countries/regions are ClearDB Premium MySQL clusters supported?
 ClearDB Premium MySQL clusters are available in all Azure regions worldwide with the exception of India, Australia, Brazil South, and China.
 
 ## Can I create a new cluster prior to creating a database with ClearDB premium cluster solution?
