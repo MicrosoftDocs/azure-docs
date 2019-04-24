@@ -11,9 +11,9 @@ manager: jeconnoc
 ---
 # Azure Functions bindings extensions
 
-As of Azure Functions version 2.x, bindings are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow non-.NET functions access to all bindings through a configuration setting.
+As of Azure Functions version 2.x, bindings are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles also allow functions access to all bindings through a configuration setting.
 
-## Extensions via NuGet for .NET functions
+## Extensions via NuGet
 
 To reference binding extensions in your .NET function, install the packages as required by your application using NuGet. The following table lists the binding extensions available as NuGet packages:
 
@@ -28,11 +28,11 @@ To reference binding extensions in your .NET function, install the packages as r
 |Microsoft.Azure.WebJobs.Extensions.Storage|3.0.0|
 <!-- Missing: SendGrid, Twilio, SignalR  -->
 
-## Extension bundles for non-.NET functions
+## Extension via bundles
 
-Extension bundles make all bindings published by the Azure Functions team available to non-.NET functions through a setting in the *host.json* file.
+Extension bundles make all bindings published by the Azure Functions team available through a setting in the *host.json* file.
 
-To make bindings available to your non-.NET function, update the *host.json* file to include the following entry for `extensionBundle`:
+To use extension bundles, update the *host.json* file to include the following entry for `extensionBundle`:
 
 ```json
 {
