@@ -16,11 +16,11 @@ ms.date: 05/02/19
 
 # Explore and prepare data with the Dataset class (Preview)
 
-The Azure Machine Learning SDK, offers data exploration and preparation functionality with the new Datasets class. This functionality includes sampling,summary statistics generation, and intelligent transformation methods powered by AI. Transformation steps are saved in Dataset definitions, with the capability to handle multiple large files of different schemas in a highly scalable manner.
+The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), offers data exploration and preparation functionality with the new [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) class (preview). This functionality includes sampling, summary statistics generation, and intelligent transformation methods powered by AI. Transformation steps are saved in Dataset definitions with the capability to handle multiple large files of different schemas in a highly scalable manner.
 
-Some Dataset classes (preview) have dependencies on the Data Prep SDK (GA). While transformation functions can be done directly with the GA'ed [Data Prep SDK functions](how-to-transform-data.md), we recommend the Dataset package wrappers described in this article if you are building a new solution. Azure Machine Learning Datasets (preview) allow you to not only transform your data, but also [snapshot data](how-to-create-dataset-snapshots.md) and store [versioned dataset definitions](how-to-manage-dataset-definitions.md). Datasets is the next version of the data prep SDK, offering expanded functionality for managing datasets in AI solutions.
+Some Dataset classes (preview) have dependencies on the Data Prep SDK (GA). While transformation functions can be done directly with the GA'ed [Data Prep SDK functions](how-to-transform-data.md), we recommend the Dataset package wrappers described in this article if you are building a new solution. Azure Machine Learning Datasets (preview) allow you to not only transform your data, but also [snapshot data](how-to-create-dataset-snapshots.md) and store [versioned dataset definitions](how-to-manage-dataset-definitions.md). Datasets is the next version of the Data Prep SDK, offering expanded functionality for managing datasets in AI solutions.
 
-This article shows examples of the following data preparation tasks:
+This article, shows examples of the following data preparation tasks:
 
 * Data exploration
   * Sampling
@@ -33,7 +33,7 @@ This article shows examples of the following data preparation tasks:
 
 ## Prerequisites
 
-To explore and prepare your data you'll need:
+To explore and prepare your data, you'll need:
 
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
@@ -45,7 +45,7 @@ To explore and prepare your data you'll need:
 
 ## Sampling
 
-Take a sample of your data to get an initial understanding of your data's architecture and integrity. At this time, the [`sample()`](https://docs.microsoft.com//python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#sample-sample-strategy--arguments-) method from the Dataset class supports Top N, Simple Random, and Stratified sampling strategies.
+Take a sample of your data to get an initial understanding of your data architecture and content. At this time, the [`sample()`](https://docs.microsoft.com//python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#sample-sample-strategy--arguments-) method from the Dataset class supports Top N, Simple Random, and Stratified sampling strategies.
 
 ```Python
 from azureml.core import Dataset
@@ -93,9 +93,9 @@ simple_random_sample_dataset.to_pandas_dataframe()
 
 ### Stratified sample
 
-Stratified samples ensure that certain groups of a population are represented in the sample. In the `stratified` sample strategy, the population is divided into strata, or subgroups, based on similarities and records are randomly selected from each strata based on the strata weights indicated by the `fractions` parameter.
+Stratified samples ensure that certain groups of a population are represented in the sample. In the `stratified` sample strategy, the population is divided into strata, or subgroups, based on similarities, and records are randomly selected from each strata according to the strata weights indicated by the `fractions` parameter.
 
-In the following example, we group each record by the specified columns and include said record based on the strata X weight information in `fractions`. If a strata is not specified or the record cannot be grouped, the default weight to sample is 0.
+In the following example, we group each record by the specified columns, and include said record based on the strata X weight information in `fractions`. If a strata is not specified or the record cannot be grouped, the default weight to sample is 0.
 
 ```Python
 # take 50% of records with `Primary Type` as `THEFT` and 20% of records with `Primary Type` as `DECEPTIVE PRACTICE` into sample Dataset
@@ -117,7 +117,7 @@ sample_dataset.to_pandas_dataframe()
 
 ## Explore with summary statistics
 
- Detect anomalies and missing value or error counts with the [`get_profile()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) method. This function gets the profile and summary statistics of your data, which in turn helps determine the necessary data preparation operations.
+ Detect anomalies, missing values, or error counts with the [`get_profile()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) method. This function gets the profile and summary statistics of your data, which in turn helps determine the necessary data preparation operations to apply.
 
 ```Python
 dataset.get_profile()
@@ -150,9 +150,9 @@ Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7
 
 ## Impute missing values
 
-In Datasets,  null values, NaN's and values that contain no content are considered missing values. These can impact the performance of your machine learning models, or lead to invalid conclusions. Imputation is one common approach to deal with missing values is useful when you have a high percentage of missing values records that you cannot simply delete.
+In Datasets,  null values, NaN's and values that contain no content are considered missing values. These can impact the performance of your machine learning models, or lead to invalid conclusions. Imputation is one common approach to address missing values, and is useful when you have a high percentage of missing value records that you cannot simply delete.
 
-From the Dataset profile generated in the preceding section, we see that `Latitude` and `Longitude` columns have a high percentage of missing values. In this example, we calculate the mean and  impute missing values for those two columns.
+From the Dataset profile generated in the preceding section, we see that `Latitude` and `Longitude` columns have a high percentage of missing values. In this example, we calculate the mean and impute missing values for those two columns.
 
 First, get the latest definition of the Dataset with [`get_definition()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) and pare down the data with [`keep_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow), so we only view the columns we want to address.
 
@@ -176,7 +176,7 @@ ds_def.head(5)
 |3|10519591|False| NaN|NaN|
 |4|10534446|False| NaN|NaN|
 
-Next, check the `MEAN` value of the latitude column using the `summarize()` function. This function accepts an array of columns in the `group_by_columns` parameter to specify the aggregation level. The `summary_columns` parameter accepts the `SummaryColumnsValue` function, which specifies the current column name, the new calculated field name, and the `SummaryFunction` to perform.
+Next, check the `MEAN` value of the latitude column using the [`summarize()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) function. This function accepts an array of columns in the `group_by_columns` parameter to specify the aggregation level. The `summary_columns` parameter accepts the `SummaryColumnsValue` function, which specifies the current column name, the new calculated field name, and the `SummaryFunction` to perform.
 
 ```Python
 lat_mean = ds_def.summarize(group_by_columns = ['Arrest'],
