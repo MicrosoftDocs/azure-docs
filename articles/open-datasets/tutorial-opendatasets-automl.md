@@ -1,5 +1,5 @@
 ---
-title: 'Use Azure Open Datasets with automated machine learning'
+title: 'Tutorial: Enrich an automated machine learning model'
 titleSuffix: Azure Open Datasets
 description: Learn how to leverage the convenience of Azure Open Datasets along with the power of Azure Machine Learning service to create a regression model to predict NYC taxi fare prices.
 services: open-datasets
@@ -12,17 +12,17 @@ ms.reviewer: trbye
 ms.date: 05/02/2019
 ---
 
-# Tutorial: Use Azure Open Datasets with automated machine learning
+# Tutorial: Build a regression model with automated machine learning and Open Datasets 
 
 In this tutorial, you leverage the convenience of Azure Open Datasets along with the power of Azure Machine Learning service to create a regression model to predict NYC taxi fare prices. Easily download publicly available taxi, holiday and weather data, and configure an automated machine learning experiment using Azure Machine Learning service. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
 
 In this tutorial you learn the following tasks:
 
-1. Configure an Azure Machine Learning service workspace
-1. Set up a local Python environment
-1. Access, transform, and join data using Azure Open Datasets
-1. Train an automated machine learning regression model
-1. Calculate model accuracy
+- Configure an Azure Machine Learning service workspace
+- Set up a local Python environment
+- Access, transform, and join data using Azure Open Datasets
+- Train an automated machine learning regression model
+- Calculate model accuracy
 
 ## Prerequisites
 
@@ -49,23 +49,23 @@ This example uses an Anaconda environment with Jupyter notebooks, but you can ru
     conda activate tutorialenv
     ```
 1. Enable environment-specific ipython kernels.
-```
-conda install notebook ipykernel
-```
+    ```
+    conda install notebook ipykernel
+    ```
 1. Create the kernel.
-```
-ipython kernel install --user
-```
+    ```
+    ipython kernel install --user
+    ```
 1. Install the packages you need for this tutorial. These packages are large and will take 5-10 minutes to install.
-```
-pip install azureml-sdk[automl] azureml-contrib-opendatasets
+    ```
+    pip install azureml-sdk[automl] azureml-contrib-opendatasets
 ```
 1. Start a notebook kernel from your environment.
-```
-jupyter notebook
-```
+    ```
+    jupyter notebook
+    ```
 
-After you complete these steps, clone the [repo](https://github.com/Azure/OpenDatasetsNotebooks) and open the **tutorials/tutorial-opendatasets-automl.ipynb** notebook to run it.
+After you complete these steps, clone the [Open Datasets notebook repo](https://github.com/Azure/OpenDatasetsNotebooks) and open the **tutorials/tutorial-opendatasets-automl.ipynb** notebook to run it.
 
 ## Download and prepare data
 

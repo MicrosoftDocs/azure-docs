@@ -18,7 +18,7 @@ sections:
 - title: Step-by-Step Tutorial
   items:
   - type: paragraph
-    text: <a href="tutorial-opendatasets-automl">Learn how to use open datasets with automated machine learning </a>
+    text: <a href="tutorial-opendatasets-automl">Build a regression model with automated machine learning and open datasets</a>
 
 - title: Samples
   items:
