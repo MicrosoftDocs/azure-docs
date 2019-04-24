@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
 ---
 
@@ -20,6 +20,9 @@ Ordinal number is a numeric representation of an object inside a set: `first`, `
 Ordinal is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) GitHub repository
 
 ## Resolution for prebuilt ordinal entity
+
+### API version 2.x
+
 The following example shows the resolution of the **builtin.ordinal** entity.
 
 ```json
@@ -50,6 +53,64 @@ The following example shows the resolution of the **builtin.ordinal** entity.
       }
     }
   ]
+}
+```
+
+### Preview API version 3.x
+
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+{
+    "query": "Order the second option",
+    "prediction": {
+        "normalizedQuery": "order the second option",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.7124502
+            }
+        },
+        "entities": {
+            "ordinal": [
+                2
+            ]
+        }
+    }
+}
+```
+
+The following JSON is with the `verbose` parameter set to `true`:
+
+```json
+{
+    "query": "Order the second option",
+    "prediction": {
+        "normalizedQuery": "order the second option",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.7124502
+            }
+        },
+        "entities": {
+            "ordinal": [
+                2
+            ],
+            "$instance": {
+                "ordinal": [
+                    {
+                        "type": "builtin.ordinal",
+                        "text": "second",
+                        "startIndex": 10,
+                        "length": 6,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 
