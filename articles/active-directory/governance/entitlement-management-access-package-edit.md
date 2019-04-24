@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 04/24/2019
 ms.author: rolyon
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -32,6 +32,10 @@ An access package enables you to do a one-time setup of resources and policies t
 
 This article describes how to edit and manage existing access packages.
 
+## When are changes applied
+
+In entitlement management, a job runs approximately every 2 hours to apply assignment and policy changes to your access packages. So, if you make an assignment or policy change to your access package, it can take up to 2 hours plus the amount of time it takes to apply your change. If your change affects just a few objects, the change will likely only take a few minutes to apply once the job starts. If your change affects thousands or a million objects, the change will take longer. For example, if you have an access package with 2 applications and 100 user assignments, and you decide to add a group to the access package, it can take up to 2 hours to start adding the 100 users to the group.
+
 ## Add resource roles
 
 A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is add resource roles to your access package. You can add resource roles for groups, applications, and SharePoint sites.
@@ -41,7 +45,7 @@ A resource role is a collection of permissions associated with a resource. The w
 You can add users to a group when they are assigned an access package. You can use any Office 365 group or Azure AD security group. Here are some considerations when selecting a group:
 
 - When a group is part of an access package, then a user who is assigned that access package is added to that group, if not already present.
-- When a user's access package assignment expires, they will be removed from the group, unless they they have access to another access package that includes that group.
+- When a user's access package assignment expires, they will be removed from the group, unless they have access to another access package that includes that group.
 - When a user is added to a group, they can see all the other members of that group.
 - Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect.  
 - The membership of dynamic groups cannot be updated using entitlement management.
@@ -74,7 +78,7 @@ You can add users to a group when they are assigned an access package. You can u
 
 ### Add an application resource role
 
-You can assign users access to an Azure AD enterprise application, including both SaaS applications and your own applications federated to Azure AD, when they are assigned an access package. For applications that integrate with Azure AD through federated single sign on, Azure AD will issue federation tokens for users assigned to the application. Here are some considerations when selecting an application:
+You can assign users access to an Azure AD enterprise application, including both SaaS applications and your own applications federated to Azure AD, when they are assigned an access package. For applications that integrate with Azure AD through federated single sign-on, Azure AD will issue federation tokens for users assigned to the application. Here are some considerations when selecting an application:
 
 - When an application's role is part of an access package, then a user who is assigned that access package is added to that application role, if not already present.
 - When a user's access package assignment expires, their access will be removed from the application, unless they have access to another access package that includes that application.
