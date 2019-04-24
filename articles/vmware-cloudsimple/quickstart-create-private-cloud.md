@@ -19,7 +19,7 @@ In this article, learn how to create a CloudSimple private cloud and set up your
 2. On the **Resources** or **CloudSimple Dedicated VMware Nodes** page, select **Create Private Cloud**.
 3. Select the location to host the private cloud resources.
 4. Select the node type for your private cloud. You can choose the [CS28 or CS36 option](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). The latter option includes the maximum compute and memory capacity.
-5. Select the number of nodes for the private cloud. You can select up to the number of nodes that you've [purchased](create-nodes.md) or [reserved](reserve-nodes.md).
+5. Select the number of nodes for the private cloud. You can select up to the number of nodes that you've [purchased](create-nodes.md).
 6. Select **Next: Advanced options**.
 7. Enter the CIDR range for vSphere/vSAN subnets. Make sure that the CIDR range doesn't overlap with any of your on-premises or other Azure subnets.
 8. Select **Next: Review and create**.

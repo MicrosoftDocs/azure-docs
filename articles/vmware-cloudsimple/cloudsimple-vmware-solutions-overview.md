@@ -14,6 +14,8 @@ manager: dikamath
 **VMware Solution on Azure by CloudSimple** is a fully managed service that lets you run the VMware platform in Azure. This solution includes vSphere, vCenter, vSAN, NSX-T, and corresponding tools.
 Your VMware environment runs natively on Azure Bare Metal infrastructure, on Azure cloud locations. The service includes all the features required to consume the VMware platforms efficiently and securely.
 
+![VMware Solution on Azure by CloudSimple Overview](media/azure-vmware-solution-by-cloudsimple.png)
+
 ## Features
 
 * On-demand self-service provisioning of VMware cloud environments. Ability to add and remove capacity on demand
@@ -54,6 +56,8 @@ Your VMware environment runs natively on Azure Bare Metal infrastructure, on Azu
 * **Disaster Recovery and Virtual Desktops in the Azure Cloud:** Establish remote access to data, apps, and desktops in the Azure Cloud. With high-bandwidth connections, you upload / download data fast to recover from incidents. Low-latency networks give you fast response times that users expect from a desktop app. With CloudSimple, it's easy to replicate all your policies and networking in the Cloud using the CloudSimple portal and familiar VMware tools. The ease of recovery and replication greatly reduces the effort and risk of creating and managing DR and VDI implementations.
 * **High-Performance Applications and Databases:** CloudSimple provides a hyperconverged architecture designed to run your most demanding VMware workloads. Run Oracle, Microsoft SQL server, middleware systems, and high-performance no-SQL databases. Experience the cloud as your own data center with high speed 25-Gbps network connections that let you run hybrid apps that span on-premises, VMware on Azure and Azure private workloads without compromising performance.
 * **True Hybrid:** Unify DevOps across VMware and Azure. Optimize VMware administration for Azure services and solutions that can be applied across all your workloads. Access public cloud services without having to expand your data center or rearchitect your applications. Centralize identities, access control policies, logging and monitoring for VMware applications on Azure.
+
+![Scenarios](media/cloudsimple-scenarios.png)
 
 ## Next steps
 
