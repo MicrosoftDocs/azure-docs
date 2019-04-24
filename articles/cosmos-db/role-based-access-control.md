@@ -18,9 +18,9 @@ The following are the built-in roles supported by Azure Cosmos DB:
 
 |**Built-in role**  |**Description**  |
 |---------|---------|
-|[DocumentDB Account Contributor](../role-based-access-control/built-in-roles#documentdb-account-contributor)   | Can manage Azure Cosmos DB accounts.  |
-|[Cosmos DB Account Reader](../role-based-access-control/built-in-roles#cosmos-db-account-reader-role)  | Can read Azure Cosmos DB account data.        |
-|[Cosmos Backup Operator](../role-based-access-control/built-in-roles#cosmosbackupoperator)     |  Can submit restore request for an Azure Cosmos database or a container.       |
+|[DocumentDB Account Contributor](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)   | Can manage Azure Cosmos DB accounts.  |
+|[Cosmos DB Account Reader](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)  | Can read Azure Cosmos DB account data.        |
+|[Cosmos Backup Operator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)     |  Can submit restore request for an Azure Cosmos database or a container.       |
 |[Cosmos DB Operator]()  | Can provision Azure Cosmos accounts, databases, and containers but cannot access the keys that are required to access the data.         |
 
 > [!IMPORTANT]
@@ -30,7 +30,7 @@ The following are the built-in roles supported by Azure Cosmos DB:
 
 The **Access control (IAM)** blade in the Azure portal is used to configure Role-based Access Control on Azure Cosmos resources. The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups. The following screenshot shows Active Directory integration (RBAC) using access control (IAM) in the Azure portal:
 
-![Access control (IAM) in the Azure portal - demonstrating database security](./media/database-security-rbac/database-security-identity-access-management-rbac.png)
+![Access control (IAM) in the Azure portal - demonstrating database security](./media/role-based-access-control/database-security-identity-access-management-rbac.png)
 
 ## Custom Roles
 
