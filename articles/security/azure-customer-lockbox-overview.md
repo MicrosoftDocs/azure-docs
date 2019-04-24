@@ -44,6 +44,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 7. At the customer organization, the user who has the [Owner role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
     
     Example email:
+    ![Azure Customer Lockbox - landing page](./media/azure-customer-lockbox/customer-lockbox-email-notification.png)
 
 8. The email notification provides a link to the **Customer Lockbox** blade in the Azure portal. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox:
     
@@ -82,6 +83,8 @@ Use the **Activity Logs** to view auditing information related to Customer Lockb
 - **Approve Lockbox Requests**
 - **Deny Lockbox Requests**
 - **Lockbox Request Expiry**
+
+    ![Azure Customer Lockbox - select Approve or Deny](./media/azure-customer-lockbox/customer-lockbox-support-ticket.png)
 
 ## Supported services and scenarios
 
