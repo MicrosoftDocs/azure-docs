@@ -301,14 +301,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "create-cosmos-cassandra",
-      "url": "https://github.com/Azure/azure-quickstart-templates",
-      "branch": "release-build-cosmos-db", 
-      "branch_mapping": {
-        "release-build-cosmos-db": "release-build"
-      }
-    },
-    {
       "path_to_root": "cognitive-services-content-moderator-samples",
       "url": "https://github.com/Azure-Samples/cognitive-services-content-moderator-samples",
       "branch": "master",
