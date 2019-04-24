@@ -12,7 +12,9 @@ ms.author: iainfou
 
 # Upgrade an Azure Kubernetes Service (AKS) cluster
 
-As part of the lifecycle of an AKS cluster, you often need to upgrade to the latest Kubernetes version. It is important you apply the latest Kubernetes security releases, or upgrade to get the latest features. This article shows you how to upgrade an existing AKS cluster.
+As part of the lifecycle of an AKS cluster, you often need to upgrade to the latest Kubernetes version. It is important you apply the latest Kubernetes security releases, or upgrade to get the latest features. This article shows you how to upgrade the master components or a single, default node pool in an AKS cluster.
+
+For AKS clusters that use multiple node pools or Windows Server nodes (both currently in preview in AKS), see [Upgrade a node pool in AKS][nodepool-upgrade].
 
 ## Before you begin
 
@@ -79,3 +81,4 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[nodepool-upgrade]: upgrade-cluster.md
