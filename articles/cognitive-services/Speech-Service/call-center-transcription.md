@@ -27,7 +27,7 @@ Let's review some of the technology and related features Azure Speech Services o
 
 ## Azure Technology for Call Centres
 
-Beyond the functional aspect of the Speech Services their primary purpose -when applied to the call center- is to improve the customer experience. Two clear domains exist in this regard 
+Beyond the functional aspect of the Speech Services their primary purpose -when applied to the call center- is to improve the customer experience. Three clear domains exist in this regard 
 
 * Post call analytics i.e. batch processing of call recordings 
 * Real time analytics processing of the audio signal to extract various insights as the call is taking place (with sentiment being a prominent use case) and
