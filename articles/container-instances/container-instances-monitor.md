@@ -26,7 +26,7 @@ At this time, Azure Monitor metrics are only available for Linux containers.
 
 Azure Monitor provides the following [metrics for Azure Container Instances][supported-metrics]. These metrics are available for a container group and individual containers.
 
-* **CPU Usage** - measured in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores (or 500 m) represents 50% utilization of a CPU core. Aggregated as **average CPUs**.
+* **CPU Usage** - measured in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores (or 500 m) represents 50% usage of a CPU core. Aggregated as **average usage** across all cores.
 
 * **Memory Usage** -  aggregated as **average bytes**.
 
