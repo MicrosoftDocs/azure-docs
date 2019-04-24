@@ -612,7 +612,7 @@ The second query is joined to the first query to find the power value in the mos
 And then, provided the conditions are met, an alert is generated for the device.
 
 ## Query example: Process events independent of Device Clock Skew (substreams)
-**Description**: Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or network latency. In the following example, the device clock for TollID 2 is ten seconds behind TollID 1, and the device clock for TollID 3 is five seconds behind TollID 1. 
+**Description**: Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or network latency. In the following example, the device clock for TollID 2 is five seconds behind TollID 1, and the device clock for TollID 3 is ten seconds behind TollID 1. 
 
 
 **Input**:

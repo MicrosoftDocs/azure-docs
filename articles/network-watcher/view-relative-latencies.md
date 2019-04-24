@@ -3,8 +3,8 @@ title: View relative latencies to Azure regions from specific locations | Micros
 description: Learn how to view relative latencies across Internet providers to Azure regions from specific locations.
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
-ms.author: jdial
+ms.author: kumud
 ms.custom: 
 
 ---
