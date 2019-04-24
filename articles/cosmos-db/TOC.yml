@@ -676,7 +676,7 @@
     - name: REST Resource Provider
       href: /rest/api/cosmos-db-resource-provider/
     - name: Resource Manager template
-      href: /azure/templates/microsoft.documentdb/allversions.md
+      href: /templates/microsoft.documentdb/allversions.md
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn
