@@ -1,5 +1,5 @@
 ---
-title: Initialize client applications (MSAL.js) | Azure
+title: Initialize client applications (Microsoft Authentication Library for JavaScript) | Azure
 description: Learn about initializing public client and confidential client applications using the Microsoft Authentication Library for JavaScript (MSAL.js). 
 services: active-directory
 documentationcenter: dev-center-name
@@ -21,10 +21,10 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Initializing client applications using MSAL.js
+# Initialize client applications using MSAL.js
 This article describes initializing user agent applications, a form of public client applications, using Microsoft Authentication Library for JavaScript (MSAL.js).  To learn more about the client application types and application configuration options, read the [overview](msal-client-applications.md).
 
-## Pre-requisites
+## Prerequisites
 Before initializing an application, you first need to [register it](quickstart-v2-javascript.md) so that your app can be integrated with the Microsoft identity platform. As part of the registration, you will also need to add the Web platform and check the **Implicit Flow** checkbox.  After registration, you may need the following information (which can be found in the Azure portal):
 
 - The client ID (a string representing a GUID)

@@ -1,5 +1,5 @@
 ---
-title: Client applications (MSAL) | Azure
+title: Client applications (Microsoft Authentication Library) | Azure
 description: Learn about public client and confidential client applications in the Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
@@ -72,7 +72,7 @@ The authority URL is composed of the instance and the audience.
 The authority can be:
 - an Azure Active directory Cloud authority
 - an Azure AD B2C authority. See [B2C specifics](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics).
-- an ADFS authority (coming soon. See [ADFS support](https://aka.ms/msal-net-adfs-support).
+- an ADFS authority. See [ADFS support](https://aka.ms/msal-net-adfs-support).
 
 Azure AD cloud authorities have two parts:
 - the identity provider **instance**
@@ -83,7 +83,7 @@ The instance and audience can be concatenated and provided as the authority URL.
 ![Authority](media/msal-client-applications/authority.png)
 
 ### Cloud instance
-The **instance** is used to specify if your application is signing users from the Microsoft Azure public cloud, or from national or sovereign clouds. Using MSAL in your code, the Azure cloud instance can be set by using an enumeration or by passing the URL to the [sovereign cloud instance](authentication-national-cloud.md#azure-ad-authentication-endpoints) as the `Instance` member (if you know it).
+The **instance** is used to specify if your application is signing users from the Microsoft Azure public cloud, or from national clouds. Using MSAL in your code, the Azure cloud instance can be set by using an enumeration or by passing the URL to the [national cloud instance](authentication-national-cloud.md#azure-ad-authentication-endpoints) as the `Instance` member (if you know it).
 
 MSAL.NET will throw an explicit exception if both `Instance` and `AzureCloudInstance` are specified. 
 

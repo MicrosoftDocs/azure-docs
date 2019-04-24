@@ -1,5 +1,5 @@
 ---
-title: Initialize client applications (MSAL.NET) | Azure
+title: Initialize client applications (Microsoft Authentication Library for .NET) | Azure
 description: Learn about initializing public client and confidential client applications using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -21,12 +21,12 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Initializing client applications using MSAL.NET
+# Initialize client applications using MSAL.NET
 This article describes initializing public client and confidential client applications using Microsoft Authentication Library for .NET (MSAL.NET).  To learn more about the client application types and application configuration options, read the [overview](msal-client-applications.md).
 
 With MSAL.NET 3.x, the recommended way to instantiate an application is by using the application builders: `PublicClientApplicationBuilder` and `ConfidentialClientApplicationBuilder`. They offer a powerful mechanism to configure the application either from the code, or from a configuration file, or even by mixing both approaches.
 
-## Pre-requisites
+## Prerequisites
 Before initializing an application, you first need to [register it](quickstart-register-app.md) so that your app can be integrated with the Microsoft identity platform.  After registration, you may need the following information (which can be found in the Azure portal):
 
 - The client ID (a string representing a GUID)
