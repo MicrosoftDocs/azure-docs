@@ -134,4 +134,4 @@
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
   - name: FAQ
-    herf: container-instances-faq.md
+    href: container-instances-faq.md
