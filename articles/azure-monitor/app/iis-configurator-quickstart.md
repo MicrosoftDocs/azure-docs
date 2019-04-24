@@ -23,8 +23,7 @@ Review our [Detailed instructions](iis-configurator-detailed-instructions.md) pa
 instructions on how to customize, and how to troubleshoot.
 
 
-[!CAUTION]
-This module is a prototype application, and isn't recommended for your production environments.
+[!CAUTION] This module is a prototype application, and isn't recommended for your production environments.
 
 
 ### Install Prerequisites

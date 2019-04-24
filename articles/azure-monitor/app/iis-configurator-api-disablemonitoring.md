@@ -15,13 +15,11 @@ ms.author: tilee
 ---
 # IISConfigurator API Reference
 
-[!CAUTION]
-This module is a prototype application, and isn't recommended for your production environments.
+[!CAUTION] This module is a prototype application, and isn't recommended for your production environments.
 
 # Disable-ApplicationInsightsMonitoring (v0.2.0-alpha)
 
-[!IMPORTANT]
-This cmdlet requires a PowerShell Session with Administrator permissions.
+[!IMPORTANT] This cmdlet requires a PowerShell Session with Administrator permissions.
 
 ## Description
 

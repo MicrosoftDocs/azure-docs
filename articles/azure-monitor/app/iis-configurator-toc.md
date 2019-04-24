@@ -20,8 +20,7 @@ and is the replacement for [Status Monitor](https://docs.microsoft.com/azure/azu
 This module provides code-less instrumentation of .NET web applications hosted on-prem. 
 Telemetry will be sent to the Azure portal where you can [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) your application.
 
-[!CAUTION]
-This module is a prototype application, and isn't recommended for your production environments.
+[!CAUTION] This module is a prototype application, and isn't recommended for your production environments.
 
 ## PowerShell Gallery
 
