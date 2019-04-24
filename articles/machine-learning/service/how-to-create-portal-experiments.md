@@ -201,7 +201,7 @@ Automated ML helps you with deploying the model without writing code:
 
 1. Check the checkbox next to the model you registered, and select "Create image".
 
-    You can identify the model by its description, which will include the run id, iteration number, in the following format: "<Run_ID>_<Iteration_number>_Model.
+    You can identify the model by its description, which will include the run ID, iteration number, in the following format: "<Run_ID>_<Iteration_number>_Model.
 
 1. Enter a name for the image and upload the scoring file you previously downloaded. For the Conda file, you can download and use the following file:
 
