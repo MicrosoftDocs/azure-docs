@@ -16,7 +16,7 @@ ms.date: 05/02/2019
 
 # Create and explore automated machine learning experiments in the Azure portal
 
- Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. In this article, you learn how to create, run, and explore automated machine learning experiments in the Azure portal without a single line of code. [Learn more about automated machine learning](https://docs.microsoft.com/azure/machine-learning/service/concept-automated-ml)
+ Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. In this article, you learn how to create, run, and explore automated machine learning experiments in the Azure portal without a single line of code. [Learn more about automated machine learning](https://docs.microsoft.com/azure/machine-learning/service/concept-automated-ml).
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ ms.date: 05/02/2019
 
 ## Get Started
 
-Navigate to the left pane. Select Automated Machine Learning under the Applications section.
+Navigate to the left pane. Select Automated Machine Learning under the Authoring (Preview) section.
 
 ![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)
 
@@ -201,7 +201,7 @@ Automated ML helps you with deploying the model without writing code:
 
 1. Check the checkbox next to the model you registered, and select "Create image".
 
-    You can identify the model by its description, which will include the run id, iteration number, in the following format: "<Run_ID>_<Iteration_number>_Model.
+    You can identify the model by its description, which includes the run ID and iteration number, in the following format: "<Run_ID>_<Iteration_number>_Model.
 
 1. Enter a name for the image and upload the scoring file you previously downloaded. For the Conda file, you can download and use the following file:
 
