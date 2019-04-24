@@ -85,9 +85,7 @@ Time Series Insights is a high-availability service that uses redundancies at th
 For information on built-in features in Azure for business continuity and disaster recovery (BCDR), see [Azure business continuity technical guidance](https://docs.microsoft.com/azure/resiliency/resiliency-technical-guidance). For architecture guidance on strategies for Azure applications to achieve high availability and disaster recovery, see the paper on [Disaster recovery and high availability for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/index).
 
 > [!NOTE]
-> 
->  Time Series Insights doesn't have built-in BCDR.
-> By default, Azure Storage, Azure IoT Hub, and Azure Event Hubs have recovery built in.
+> Time Series Insights doesn't have built-in BCDR. By default, Azure Storage, Azure IoT Hub, and Azure Event Hubs have recovery built in.
 
 To learn more, read about:
 
@@ -110,7 +108,6 @@ Follow these steps to create and use a secondary Time Series Insights environmen
 
 ## Next steps
 
-To learn more, read about:
+- Read more about [storage and ingress](./time-series-insights-update-storage-ingress.md) in the Time Series Insights Preview.
 
-- [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md)
-- [Data modeling](./time-series-insights-update-tsm.md)
+- Learn about  [Data modeling](./time-series-insights-update-tsm.md) in the Time Series Insights Preview.
