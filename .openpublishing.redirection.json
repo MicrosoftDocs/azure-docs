@@ -25352,7 +25352,7 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-streaming-python.md",
-      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-streaming-python",
+      "redirect_url": "/azure/hdinsight/apache-hadoop-develop-deploy-java-mapreduce-linux",
       "redirect_document_id": true
     },
     {
