@@ -16,15 +16,9 @@ ms.author: kgremban
 
 Test IoT Edge modules for Linux devices using a Windows machine. 
 
-In a production scenario, Windows devices should only run Windows containers. However, a common development scenario is to use a Windows computer to build IoT Edge modules for Linux devices. The IoT Edge runtime for Windows allows you to run Linux containers for testing and development purposes. 
+In a production scenario, Windows devices should only run Windows containers. However, a common development scenario is to use a Windows computer to build IoT Edge modules for Linux devices. The IoT Edge runtime for Windows allows you to run Linux containers for **testing and development** purposes. 
 
 This article lists the steps to install the Azure IoT Edge runtime using Linux containers on your Windows x64 (AMD/Intel) system. To learn more about the IoT Edge runtime installer, including details about all the installation parameters, see [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
-
-
-> [!NOTE]
-> A known Windows operating system issue prevents transition to sleep and hibernate power states when IoT Edge modules (process-isolated Windows Nano Server containers) are running. This issue impacts battery life on the device.
->
-> As a workaround, use the command `Stop-Service iotedge` to stop any running IoT Edge modules before using these power states. 
 
 ## Prerequisites
 
@@ -57,13 +51,13 @@ A PowerShell script downloads and installs the Azure IoT Edge security daemon. T
 
 When you install the IoT Edge runtime for the first time on a device, you need to provision the device with an identity from an IoT hub. A single IoT Edge device can be provisioned manually using a device connections string provided by IoT Hub. Or, you can use the Device Provisioning Service to automatically provision devices, which is helpful when you have many devices to set up. 
 
-You can read more about the different installation options and parameters in the article [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md). Once you have Docker Desktop installed and configured for Linux containers, the main installation difference is declaring Linux with the **-ContainerOs** perameter. For example: 
+You can read more about the different installation options and parameters in the article [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md). Once you have Docker Desktop installed and configured for Linux containers, the main installation difference is declaring Linux with the **-ContainerOs** parameter. For example: 
 
 1. If you haven't already, follow the steps in [Register a new Azure IoT Edge device](how-to-register-device-portal.md) to register your device and retrieve the device connection string. 
 
 2. Run PowerShell as an administrator.
 
-3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature if it's not on already, and then downloads the IoT Edge runtime. Declare Linux as the container operating system so that the Deploy-IoTEdge command doesn't install the Moby engine for Windows containers.
+3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature if necessary, and then downloads the IoT Edge runtime. Declare Linux as the container operating system so that the Deploy-IoTEdge command doesn't install the Moby engine for Windows containers.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
