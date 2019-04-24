@@ -3,8 +3,8 @@ title: Azure virtual machine network throughput | Microsoft Docs
 description: Learn about Azure virtual machine network throughput.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
-ms.author: jdial
+ms.author: kumud
 
 ---
 
