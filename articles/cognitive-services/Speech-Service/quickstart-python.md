@@ -32,14 +32,14 @@ This article shows how to use the Speech Services through the Speech SDK for Pyt
 
     ```sh
     sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.0 libasound2 wget
+    sudo apt-get install build-essential libssl1.0.0 libasound2
     ```
 
   * On Debian 9:
 
     ```sh
     sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.2 libasound2 wget
+    sudo apt-get install build-essential libssl1.0.2 libasound2
     ```
 
 * On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform.

@@ -56,14 +56,14 @@ On Ubuntu, the GNU C libraries should already be installed by default. The last 
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2
 ```
 
 On Debian 9 install these packages:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.2 libasound2 wget
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 ## Next steps

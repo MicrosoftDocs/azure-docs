@@ -36,14 +36,14 @@ If you're running Linux, make sure these dependencies are installed before start
 
   ```sh
   sudo apt-get update
-  sudo apt-get install libssl1.0.0 libasound2 wget
+  sudo apt-get install libssl1.0.0 libasound2
   ```
 
 * On Debian 9:
 
   ```sh
   sudo apt-get update
-  sudo apt-get install libssl1.0.2 libasound2 wget
+  sudo apt-get install libssl1.0.2 libasound2
   ```
 
 If you're running Windows (64-bit) ensure you have installed Microsoft Visual C++ Redistributable for your platform.
