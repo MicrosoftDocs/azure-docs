@@ -29,7 +29,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Prerequisites
 
-To create an AKS cluster using a Resource Manager template, you provide an SSH public key and Azure Active Directory service principal. If you need either of these resources, see the following section, otherwise skip to the [Create an AKS cluster](#create-an-aks-cluster) section.
+To create an AKS cluster using a Resource Manager template, you provide an SSH public key and Azure Active Directory service principal. If you need either of these resources, see the following section; otherwise skip to the [Create an AKS cluster](#create-an-aks-cluster) section.
 
 ### Create an SSH key pair
 
@@ -71,7 +71,7 @@ The template used in this quickstart is to [deploy an Azure Kubernetes Service c
 
 1. Select the following image to sign in to Azure and open a template.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json"><img src="./media/kubernetes-walkthrough-rm-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+    [![Deploy to Azure](./media/kubernetes-walkthrough-rm-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
 2. Select or enter the following values.  
 
