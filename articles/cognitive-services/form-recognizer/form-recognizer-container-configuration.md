@@ -124,7 +124,7 @@ Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
 formrecognizer:computervisionapikey={COMPUTER_VISION_API_KEY} \
 formrecognizer:computervisionendpointuri={COMPUTER_VISION_API_ENDPOINT_URI}
-Logging:Console:LogLevel=Information
+Logging:Console:LogLevel:Default=Debug=Information
 ```
 
 
