@@ -304,6 +304,8 @@
       href: ssh.md
     - name: Windows Server limitations
       href: windows-node-limitations.md
+    - name: RDP node access
+      href: rdp.md
 - name: Reference
   items:
   - name: Azure CLI
