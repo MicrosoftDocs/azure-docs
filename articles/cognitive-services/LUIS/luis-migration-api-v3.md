@@ -1,5 +1,5 @@
 ---
-title: V2 to V3 API Migration  
+title: V2 to V3 API migration  
 titleSuffix: Azure Cognitive Services
 description: The version 3 endpoint APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
 services: cognitive-services
