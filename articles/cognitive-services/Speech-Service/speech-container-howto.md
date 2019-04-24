@@ -18,10 +18,10 @@ Speech containers enable customers to build one speech application architecture 
 
 The two speech containers are **speech-to-text** and **text-to-speech**. 
 
-|Function|Features|
-|-|-|
-|Speech-to-text| <li>Transcribes continuous real-time speech into text.<li>Can batch-transcribe speech from audio recordings. <li>Supports intermediate results, end-of-speech detection, automatic text formatting, and profanity masking. <li>Can call on [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from transcribed speech.\*|
-|Text-to-Speech| <li>Converts text to natural-sounding speech. <li>Offers multiple genders and/or dialects for many supported languages. <li>Supports plain text input or Speech Synthesis Markup Language (SSML). |
+|Function|Features|Lastest|
+|-|-|--|
+|Speech-to-text| <li>Transcribes continuous real-time speech into text.<li>Can batch-transcribe speech from audio recordings. <li>Supports intermediate results, end-of-speech detection, automatic text formatting, and profanity masking. <li>Can call on [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from transcribed speech.\*|1.1.1|
+|Text-to-Speech| <li>Converts text to natural-sounding speech. <li>Offers multiple genders and/or dialects for many supported languages. <li>Supports plain text input or Speech Synthesis Markup Language (SSML). |1.1.0|
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -61,11 +61,11 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-|cognitive-services-speech-to-text | 2 core, 2 GB memory | 4 core, 4 GB memory |
-|cognitive-services-text-to-speech | 1 core, 0.5 GB memory | 2 core, 1 GB memory |
+|cognitive-services-speech-to-text | 2 core<br>2 GB memory  | 4 core<br>4 GB memory  |
+|cognitive-services-text-to-speech | 1 core, 0.5 GB memory| 2 core, 1 GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
-* TPS - transactions per second
+
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
@@ -100,7 +100,7 @@ The following tag is an example of the format:
 1.0.0-amd64-en-us-preview
 ```
 
-The following table lists the supported locales for **speech-to-text**:
+The following table lists the supported locales for **speech-to-text** in the 1.1.1 version of the container:
 
 |Language locale|Tags|
 |--|--|
