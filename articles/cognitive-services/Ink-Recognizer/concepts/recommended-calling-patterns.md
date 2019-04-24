@@ -21,7 +21,7 @@ Digital inking refers to the technologies that enable digital representations of
 The Ink Recognizer API requires the X and Y coordinates that represent the ink strokes created by an input device, from the moment it touches the detection surface to when it's lifted. Data points sent to the Ink Recognizer API must be formatted in JSON and have numerical X and Y values, like the example below.
 
 > [!NOTE]
-> The following example isn't valid JSON. You can find a full Ink Recognizer JSON request on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples).
+> The following example isn't valid JSON. You can find a full Ink Recognizer JSON request on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089909).
  
 ```json
 {
@@ -47,14 +47,9 @@ The Ink Recognizer API requires the X and Y coordinates that represent the ink s
 }
 ```
 
-## Ink Recognizer response
-
-The Ink Recognizer API returns a set of recognition features that describes the relationship between different ink strokes,
-
-
 ## Shapes recognized by the Ink Recognizer API
 
-The Ink Recognizer API can identify the most commonly used shapes in note taking. The below image shows some basic examples. For a full list of shapes and other ink content recognized by the API, see the [API reference article](https://docs.microsoft.com/rest/api/documentation-preview/inkrecognizer/recognizeink#shape). 
+The Ink Recognizer API can identify the most commonly used shapes in note taking. The below image shows some basic examples. For a full list of shapes and other ink content recognized by the API, see the [API reference article](https://go.microsoft.com/fwlink/?linkid=2089907). 
 
 ![The list of shapes recognized by the Ink Recognizer API](../media/shapes.png)
 
@@ -79,6 +74,8 @@ Having the recognition results in advance gives you information about the charac
 ## Next steps
 
 * [What is the Ink Recognizer API?](../overview.md)
+* [Ink Recognizer REST API reference](https://go.microsoft.com/fwlink/?linkid=2089907)
+
 * Start sending digital ink stroke data using:
     * [C#](../quickstarts/csharp.md)
     * [Java](../quickstarts/java.md)

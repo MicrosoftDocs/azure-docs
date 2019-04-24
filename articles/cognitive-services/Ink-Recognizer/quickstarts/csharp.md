@@ -103,10 +103,9 @@ static void recognizeInk(string requestData){
     System.Console.WriteLine("Sending an ink recognition request");
     var result = Request(
         endpoint,
-        latestPointDetectionUrl,
+        inkRecognitionUrl,
         subscriptionKey,
         requestData).Result;
-
     dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
     System.Console.WriteLine(jsonObj);
 }
@@ -121,10 +120,8 @@ static void recognizeInk(string requestData){
 ```csharp
 static void Main(string[] args){
 
-    var requestData = File.ReadAllText(dataPath);
-
     recognizeInk(requestData);
-
+    System.Console.WriteLine("\nPress any key to exit ");
     System.Console.ReadKey();
 }
 ```
@@ -137,12 +134,12 @@ Run the application. A successful response is returned in JSON format. You can a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [REST API reference](https://dev.cognitive.microsoft.com/docs/services/inkrecognizer)
+> [REST API reference](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
 To see how the Ink Recognition API works in a digital inking app, take a look at the following sample applications on GitHub:
-* [C# and Universal Windows Platform(UWP)](https://github.com/Azure-Samples/cognitive-services-csharp-ink-recognition)  
-* [C# and Windows Presentation Foundation(WPF)](https://github.com/Azure-Samples/cognitive-services-csharp-wpf-ink-recognition)
-* [Javascript web-browser app](https://github.com/Azure-Samples/cognitive-services-javascript-ink-recognition)       
-* [Java and Android mobile app](https://github.com/Azure-Samples/cognitive-services-java-android-ink-recognition)
-* [Swift and iOS mobile app](https://github.com/Azure-Samples/cognitive-services-swift-ios-ink-recognition)
+* [C# and Universal Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# and Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [Javascript web-browser app](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Java and Android mobile app](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Swift and iOS mobile app](https://go.microsoft.com/fwlink/?linkid=2089805)

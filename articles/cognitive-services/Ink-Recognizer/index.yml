@@ -62,15 +62,15 @@ sections:
   - type: paragraph
     text: "Use these example programs to start integrating the Ink Recognizer API into your applications:"
   - type: paragraph
-    text: <a href="https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet">C# and Universal Windows Platform(UWP)</a>
+    text: <a href="https://go.microsoft.com/fwlink/?linkid=2089502">C# and Universal Windows Platform(UWP)</a>
   - type: paragraph
-    text: <a href="https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet">C# and Windows Presentation Foundation(WPF)</a>
+    text: <a href="https://go.microsoft.com/fwlink/?linkid=2089804">C# and Windows Presentation Foundation(WPF)</a>
   - type: paragraph
-    text: <a href="https://github.com/Azure-Samples/cognitive-services-REST-api-samples/">Javascript web-browser app</a>
+    text: <a href="https://go.microsoft.com/fwlink/?linkid=2089908">Javascript web-browser app</a>
   - type: paragraph
-    text: <a href="https://github.com/Azure-Samples/cognitive-services-REST-api-samples/java">Java and Android mobile app</a>
+    text: <a href="https://go.microsoft.com/fwlink/?linkid=2089906">Java and Android mobile app</a>
   - type: paragraph
-    text: <a href="https://github.com/Azure-Samples/cognitive-services-REST-api-samples/">Swift and iOS mobile app</a>
+    text: <a href="https://go.microsoft.com/fwlink/?linkid=2089805">Swift and iOS mobile app</a>
 
 - title: Reference
   items:
@@ -79,7 +79,7 @@ sections:
     className: cardsD
     items:
     - title: REST API
-      html: <p><a href="https://docs.microsoft.com/rest/api/documentation-preview/inkrecognizer/recognizeink"> REST API reference </a></p>
+      html: <p><a href="https://go.microsoft.com/fwlink/?linkid=2089907"> REST API reference </a></p>
     - title: PowerShell 
       html: <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI 

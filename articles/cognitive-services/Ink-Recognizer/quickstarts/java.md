@@ -21,7 +21,7 @@ Typically you would call the API from a digital inking app. This quickstart send
 
 ![an image of handwritten text](../media/handwriting-sample.jpg)
 
-The source code for this quickstart can be found on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+The source code for this quickstart can be found on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     - [JSON in Java](https://mvnrepository.com/artifact/org.json/json) package
     - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) package
 
-- The example ink stroke data for this quickstart can be found on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+- The example ink stroke data for this quickstart can be found on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -118,7 +118,7 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 ```java
 static void recognizeInk(String requestData) {
     System.out.println("Sending an ink recognition request");
-    String result = sendRequest(inkRecognition, endpoint, subscriptionKey, requestData);
+    String result = sendRequest(inkRecognitionUrl, endpoint, subscriptionKey, requestData);
     System.out.println(result);
 }
 ```
@@ -138,17 +138,17 @@ static void recognizeInk(String requestData) {
 
 ## Run the application and view the response
 
-Run the application. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+Run the application. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [REST API reference](https://dev.cognitive.microsoft.com/docs/services/inkrecognizer)
+> [REST API reference](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
 To see how the Ink Recognition API works in a digital inking app, take a look at the following sample applications on GitHub:
-* [C# and Universal Windows Platform(UWP)](https://github.com/Azure-Samples/cognitive-services-csharp-ink-recognition)  
-* [C# and Windows Presentation Foundation(WPF)](https://github.com/Azure-Samples/cognitive-services-csharp-wpf-ink-recognition)
-* [Javascript web-browser app](https://github.com/Azure-Samples/cognitive-services-javascript-ink-recognition)       
-* [Java and Android mobile app](https://github.com/Azure-Samples/cognitive-services-java-android-ink-recognition)
-* [Swift and iOS mobile app](https://github.com/Azure-Samples/cognitive-services-swift-ios-ink-recognition)
+* [C# and Universal Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# and Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [Javascript web-browser app](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Java and Android mobile app](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Swift and iOS mobile app](https://go.microsoft.com/fwlink/?linkid=2089805)
