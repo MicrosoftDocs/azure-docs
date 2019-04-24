@@ -116,7 +116,7 @@ Once the activity has been added, configure the Interval and Frequency, then add
 
 ![Schedule Activity](./media/analysis-services-async-refresh-logic-app/16.png)
 
-Select the desired hours
+Select the desired hours.
 
 ![Schedule Activity](./media/analysis-services-async-refresh-logic-app/15.png)
 
