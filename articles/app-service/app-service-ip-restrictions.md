@@ -62,7 +62,7 @@ To delete a rule, click the **...** on your rule and then click **remove**.
 
 ![delete access restriction rule](media/app-service-ip-restrictions/ip-restrictions-delete.png)
 
-You can also restrict deployment access in the next tab. To add/edit/delete each rule, follow the same step as above.
+In addition to being able to control access to your app, you can also restrict access to the scm site used by your app. The scm site is the web deploy endpoint and also the Kudu console. You can separately assign access restrictions to the scm site from the app or use the same set for both the app and the scm site.
 
 ![list access restrictions](media/app-service-ip-restrictions/ip-restrictions-scm-browse.png)
 
