@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/29/2019
+ms.date: 04/24/2019
 ms.author: jeedes
 
 ---
@@ -154,9 +154,17 @@ To configure Azure AD single sign-on with Zscaler, perform the following steps:
 
 ### Configure Zscaler Single Sign-On
 
-1. In a different web browser window, sign in to your ZScaler company site as an administrator.
+1. To automate the configuration within Zscaler, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Setup Zscaler** will direct you to the Zscaler application. From there, provide the admin credentials to sign into Zscaler. The browser extension will automatically configure the application for you and automate steps 3-6.
+
+	![Setup sso](common/setup-sso.png)
+
+3. If you want to setup Zscaler manually, open a new web browser window and sign into your Zscaler company site as an administrator and perform the following steps:
+
+4. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
    
 	![Administration](./media/zscaler-tutorial/ic800206.png "Administration")
 
@@ -164,7 +172,7 @@ To configure Azure AD single sign-on with Zscaler, perform the following steps:
 
 	b. Click **Configure SAML**.
 
-3. On the **Edit SAML** window, perform the following steps: and click Save.  
+5. On the **Edit SAML** window, perform the following steps: and click Save.  
    			
 	![Manage Users & Authentication](./media/zscaler-tutorial/ic800208.png "Manage Users & Authentication")
 	
@@ -184,7 +192,7 @@ To configure Azure AD single sign-on with Zscaler, perform the following steps:
 
 	h. Click **Save**.
 
-4. On the **Configure User Authentication** dialog page, perform the following steps:
+6. On the **Configure User Authentication** dialog page, perform the following steps:
 
     ![Administration](./media/zscaler-tutorial/ic800207.png)
 
@@ -242,7 +250,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
