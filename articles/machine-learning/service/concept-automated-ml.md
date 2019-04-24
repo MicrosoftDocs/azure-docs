@@ -66,32 +66,6 @@ If you use `"preprocess": True` for the [`AutoMLConfig` class](https://docs.micr
 |Weight of Evidence (WoE)|Calculates WoE as a measure of correlation of categorical columns to the target column. It is calculated as the log of the ratio of in-class vs out-of-class probabilities. This step outputs one numerical feature column per class and removes the need to explicitly impute missing values and outlier treatment.|	
 |Cluster Distance|Trains a k-means clustering model on all numerical columns.  Outputs k new features, one new numerical feature per cluster, containing the distance of each sample to the centroid of each cluster.|	
 
-1. Drop high cardinality or no variance features from training and validation sets. These include features with all values missing, same value across all rows or with extremely high cardinality (for example, hashes, IDs, or GUIDs).
-
-2. Missing value imputation 
-   * For numerical features, impute missing values with average of values in the column.
-   * For categorical features, impute missing values with most frequent value.
-
-3. Generate additional features 
-   * For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.
-   * For Text features: Term frequency based on unigrams, bi-grams, and tri-character-grams.
-
-4. Transformations and encodings 
-   * Numeric features with few unique values are transformed into categorical features.
-   * One-hot encoding is performed for low cardinality categorical; for high cardinality, one-hot-hash encoding.
-
-5. Word Embeddings, which transforms is a text featurizer that converts vectors of text tokens into sentence vectors using a pre-trained model. Each word’s embedding vector in a document is aggregated together to produce a document feature vector.
-
-6. Target Encodings: For categorical features, maps each category with averaged target value for regression problems, and to the class probability for each class for classification problems. Frequency-based weighting and k-fold cross validation is applied to reduce overfitting of the mapping and noise caused by sparse data categories.
-
-7. Text target encoding: For text input, a stacked linear model with bag-of-words is used to generate the probability of each class. 
-
-8. Weight of Evidence (WoE)
-   * Calculates Weight of Evidence as a measure of correlation of categorical columns to the target column. WoE is calculated as the log of the ratio of in-class vs out-of-class probabilities.
-   * Outputs one numerical feature column per class. Removes the need to explicitly impute missing values and outlier treatment.
-
-9. Cluster Distance: Trains a k-means clustering model on all numerical columns.  Outputs k new features, one new numerical feature per cluster, containing the distance of each sample to the centroid of each cluster.
-
 ## Scaling and normalization
 
 In addition to the preceding pre-processing list, data is automatically scaled/normalized to help algorithms perform well.  The `preprocess` flag in AutoMLConfig does not control behavior of scaling and normalization described here.  See this table for details:
