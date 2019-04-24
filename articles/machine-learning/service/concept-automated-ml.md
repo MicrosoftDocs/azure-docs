@@ -40,7 +40,7 @@ When you use Azure Machine Learning service to automate ML modeling and tuning, 
    
    Options include [your local computer, an Azure Machine Learning Compute, a remote VM, Azure Databricks](how-to-set-up-training-targets.md).  Learn more about using automated training [on a remote resource](how-to-auto-train-remote.md)
 
-1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, and what metrics to look at when determining the best model. You can configure the settings for automatic training experiment [in Azure portal](how-to-create-portal-experiments.md) or [with the SDK](how-to-configure-auto-train.md).
+1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  You can configure the settings for automatic training experiment [in Azure portal](how-to-create-portal-experiments.md) or [with the SDK](how-to-configure-auto-train.md).
 
 1. **Submit the training run.** 
 
