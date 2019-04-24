@@ -14,7 +14,7 @@ manager: philmea
 
 This article shows you how to render point data from a data source as a Symbol layer on a map using the Azure Maps Android SDK.
 
-## prerequisites
+## Prerequisites
 
 To completely follow steps in this article, you need to install [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) to load a map.
 
@@ -49,19 +49,25 @@ To add a marker on the map using the symbol layer, follow the steps below:
 
     ```Java
     mapControl.onReady(map -> {
+    
+        //Create a data source and add it to the map.
         DataSource dataSource = new DataSource();
+        map.sources.add(dataSource);
+    
+        //Create a point feature and add it to the data source.
         dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
     
-        SymbolLayer symbolLayer = new SymbolLayer(dataSource);
-        symbolLayer.setOptions(iconImage("my-icon"));
-    
+        //Add a custom image icon to the map resources.
         map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
-        map.sources.add(dataSource);
-        map.layers.add(symbolLayer);
-    });
+    
+        //Create a symbol layer and add it to the map.
+        map.layers.add(new SymbolLayer(dataSource,
+            iconImage("my-icon")));
+        });
+    
     ```
     
-    The code snippet above first obtains a reference to the AzureMap instance using the MapControl's **onReady()** callback method. It then creates a data source object using the **DataSource** class and adds a **Feature** containing a Point geometry to it. A **symbol layer** uses text or icons to render point-based data wrapped in the DataSource as symbols on the map. A symbol layer is then created and the data source is passed to it to render. The last part of the code snippet sets the red marker image as icon for the symbol, it then adds the data source to the maps sources and the symbol layer to the map.
+    The code snippet above first obtains an Azure Maps map control instance using the **onReady()** callback method. It then creates a data source object using the **DataSource** class and adds it to the map. It then adds a **Feature** containing a Point geometry to it. A red marker image is then set as icon for the symbol. A **symbol layer** uses text or icons to render point-based data wrapped in the DataSource as symbols on the map. A symbol layer is then created and the data source is passed to it to render, and is then added to the map's layers.
     
     After adding the code snippet above, your `MainActivity.java` should look like the one below:
     
@@ -80,7 +86,7 @@ To add a marker on the map using the symbol layer, follow the steps below:
     public class MainActivity extends AppCompatActivity {
         
         static{
-                AzureMaps.setSubscriptionKey("{subscription-key}");
+                AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
             }
     
         MapControl mapControl;
@@ -94,15 +100,20 @@ To add a marker on the map using the symbol layer, follow the steps below:
             mapControl.onCreate(savedInstanceState);
     
             mapControl.onReady(map -> {
+    
+                //Create a data source and add it to the map.
                 DataSource dataSource = new DataSource();
-                dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
-    
-                SymbolLayer symbolLayer = new SymbolLayer(dataSource);
-                symbolLayer.setOptions(iconImage("my-icon"));
-    
-                map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
                 map.sources.add(dataSource);
-                map.layers.add(symbolLayer);
+            
+                //Create a point feature and add it to the data source.
+                dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
+            
+                //Add a custom image icon to the map resources.
+                map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
+            
+                //Create a symbol layer and add it to the map.
+                map.layers.add(new SymbolLayer(dataSource,
+                    iconImage("my-icon")));
             });
         }
     
@@ -160,4 +171,4 @@ At this point, if you run your application you should see a marker on the map, a
 To add more stuff to your map, see:
 
 > [!div class="nextstepaction"]
-> [Add shapes to Android maps](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map?branch=pr-en-us-74190)
+> [Add shapes to an Android map](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map?branch=pr-en-us-74190)

@@ -74,11 +74,11 @@
     items:
     - name: Map control
       items:
-      - name: Use the map control
+      - name: Getting started with web map control
         href: how-to-use-map-control.md
       - name: Create a map
         href: map-create.md
-      - name: Choose a map style
+      - name: Change style of the map
         href: choose-map-style.md
       - name: Add controls to the map
         href: map-add-controls.md
@@ -120,13 +120,13 @@
         href: map-route.md
   - name: Develop with the Android SDK
     items:
-    - name: How to use Android map control
+    - name: Getting started with Android map control
       href: how-to-use-android-map-control-library.md
-    - name: Add symbols to android map
+    - name: Add a symbol layer
       href: how-to-add-symbol-to-android-map.md
-    - name: Add shapes to Android map
+    - name: Add shapes
       href: how-to-add-shapes-to-android-map.md
-    - name: Set map styles in Android maps
+    - name: Change the style of the map
       href: set-android-map-styles.md
 - name: Reference
   items:

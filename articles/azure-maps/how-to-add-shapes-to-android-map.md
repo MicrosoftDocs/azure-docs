@@ -14,7 +14,7 @@ manager: philmea
 
 This article shows you how to render shapes on a map using Azure Maps Android SDK.
 
-## prerequisites
+## Prerequisites
 
 To complete the process in this article, you need to install [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) to load a map.
 
@@ -50,25 +50,28 @@ You can add a line to the map using a **Line Layer**, follow the steps below to 
 
     ```Java
     mapControl.onReady(map -> {
+
+        //Create a data source and add it to the map.
+        DataSource dataSource = new DataSource();
+        map.sources.add(dataSource);
     
+        //Create an array of points.
         List<Point> points = Arrays.asList(
             Point.fromLngLat(-73.972340, 40.743270),
             Point.fromLngLat(-74.004420, 40.756800));
     
-        DataSource lineSource = new DataSource();
-        lineSource.add(LineString.fromLngLats(points));
+        //Create a LineString feature and add it to the data source.
+        dataSource.add(LineString.fromLngLats(points));
     
-        LineLayer linelayer = new LineLayer(lineSource,
+        //Create a line layer and add it to the map.
+        map.layers.add(new LineLayer(dataSource,
             strokeColor("blue"),
-            strokeWidth(5f));
-    
-        map.sources.add(lineSource);
-        map.layers.add(linelayer);
-    
+            strokeWidth(5f)));
     });
+
     ```
     
-    The code snippet above first obtains a reference to the AzureMap instance using the MapControl's **onReady()** callback method. A list of **Point** objects is then created. A **LineString** is created from the list of points and added to a new **DataSource**. A **Line Layer** renders line objects wrapped in a data source on the map. A Line Layer is then created and the data source is added to it. The last part of the code snippet adds the data source to the map's sources and then the line layer to the map.
+    The code snippet above first obtains an Azure Maps map control instance using the **onReady()** callback method. It then creates a data source object using the **DataSource** class and adds it to the map. It then adds a **Feature** containing a Point geometry to it. A list of **Point** objects is then created. A **LineString** is created from the list of points and added to a new **DataSource**. A **Line Layer** renders line objects wrapped in a data source on the map. A line layer is then created and the data source is added to it.
 
     After adding the code snippet above, your `MainActivity.java` should look like the one below:
     
@@ -93,7 +96,7 @@ You can add a line to the map using a **Line Layer**, follow the steps below to 
     public class MainActivity extends AppCompatActivity {
     
         static{
-            AzureMaps.setSubscriptionKey("PQqKQ7G5hL0_uVSZeB6nrdsnSNDpu34TnPPKWloxNq0");
+            AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
         }
     
         MapControl mapControl;
@@ -108,21 +111,23 @@ You can add a line to the map using a **Line Layer**, follow the steps below to 
             mapControl.onCreate(savedInstanceState);
     
             mapControl.onReady(map -> {
-    
+
+                //Create a data source and add it to the map.
+                DataSource dataSource = new DataSource();
+                map.sources.add(dataSource);
+            
+                //Create an array of points.
                 List<Point> points = Arrays.asList(
-                        Point.fromLngLat(-73.972340, 40.743270),
-                        Point.fromLngLat(-74.004420, 40.756800));
-    
-                DataSource lineSource = new DataSource();
-                lineSource.add(LineString.fromLngLats(points));
-    
-                LineLayer linelayer = new LineLayer(lineSource,
-                        strokeColor("blue"),
-                        strokeWidth(5f));
-    
-                map.sources.add(lineSource);
-                map.layers.add(linelayer);
-    
+                    Point.fromLngLat(-73.972340, 40.743270),
+                    Point.fromLngLat(-74.004420, 40.756800));
+            
+                //Create a LineString feature and add it to the data source.
+                dataSource.add(LineString.fromLngLats(points));
+            
+                //Create a line layer and add it to the map.
+                map.layers.add(new LineLayer(dataSource,
+                    strokeColor("blue"),
+                    strokeWidth(5f)));
             });
     
         }
@@ -202,28 +207,39 @@ The **Polygon Layer** enables you to render the area of the polygon to the map. 
 
     ```Java
     mapControl.onReady(map -> {
-
-        DataSource datasource = new DataSource();
-
-        datasource.add(Polygon.fromLngLats(Collections.singletonList(Arrays.asList(Point.fromLngLat(-73.98235, 40.76799),
-                Point.fromLngLat(-73.95785, 40.80044),
-                Point.fromLngLat(-73.94928, 40.7968),
-                Point.fromLngLat(-73.97317, 40.76437),
-                Point.fromLngLat(-73.98235, 40.76799)
-                ))));
-
-        map.sources.add(datasource);
-        map.layers.add(new PolygonLayer(datasource, fillColor("red")));
-
+        //Create a data source and add it to the map.
+        DataSource dataSource = new DataSource();
+        map.sources.add(dataSource);
+    
+        //Create an array of point arrays to create polygon rings.
+        List<List<Point>> rings = Arrays.asList(Arrays.asList(
+            Point.fromLngLat(-73.98235, 40.76799),
+            Point.fromLngLat(-73.95785, 40.80044),
+            Point.fromLngLat(-73.94928, 40.7968),
+            Point.fromLngLat(-73.97317, 40.76437),
+            Point.fromLngLat(-73.98235, 40.76799)));
+    
+        //Create a Polygon feature and add it to the data source.
+        dataSource.add(Feature.fromGeometry(Polygon.fromLngLats(rings)));
+    
+        //Add a polygon layer for rendering the polygon area.
+        map.layers.add(new PolygonLayer(dataSource,
+            fillColor("red")));
+    
+        //Add a line layer for rendering the polygon outline.
+        map.layers.add(new LineLayer(dataSource,
+            strokeColor("blue"),
+            strokeWidth(2f)));
     });
     ```
 
-    The code snippet above first obtains a reference to the AzureMap instance using the MapControl's **onReady()** callback method. It then creates a **Polygon** object from a list of **Point** data and adds it to a new data source. A **Polygon Layer** renders data wrapped in the data source on the map. The last part of the code snippet adds the data source to the maps sources then creates a polygon layer and adds the data source to it.
+    The code snippet above first obtains an Azure Maps map control instance using the **onReady()** callback method. It then creates a data source object using the **DataSource** class and adds it to the map. A **Polygon** object is then created from an array of **Point** arrays and is added to the data source. A **Polygon Layer** renders data wrapped in the data source on the map. It then creates a polygon layer to render the polygon area and adds the data source to it. A **Line Layer** renders line objects wrapped in a data source on the map. The last part of the code snippet creates a line layer to render the outline of the polygon and adds the data source to it.
 
     After adding the code snippet above, your `MainActivity.java` should look like the one below:
 
     ```Java
     package com.example.myapplication;
+    
     import android.app.Activity;
     import android.os.Bundle;
     import java.util.Arrays;
@@ -232,16 +248,21 @@ The **Polygon Layer** enables you to render the area of the polygon to the map. 
     import android.support.v7.app.AppCompatActivity;
     import com.mapbox.geojson.Point;
     import com.mapbox.geojson.Polygon;
+    import com.mapbox.geojson.Feature;
+    import com.microsoft.azure.maps.mapcontrol.layer.LineLayer;
+    import com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions;
     import com.microsoft.azure.maps.mapcontrol.layer.PolygonLayer;
     import com.microsoft.azure.maps.mapcontrol.source.DataSource;
     import com.microsoft.azure.maps.mapcontrol.AzureMaps;
     import com.microsoft.azure.maps.mapcontrol.MapControl;
+    import static com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions.strokeColor;
+    import static com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions.strokeWidth;
     import static com.microsoft.azure.maps.mapcontrol.options.PolygonLayerOptions.fillColor;
     
     public class MainActivity extends AppCompatActivity {
     
         static{
-            AzureMaps.setSubscriptionKey("PQqKQ7G5hL0_uVSZeB6nrdsnSNDpu34TnPPKWloxNq0");
+            AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
         }
     
         MapControl mapControl;
@@ -256,19 +277,29 @@ The **Polygon Layer** enables you to render the area of the polygon to the map. 
             mapControl.onCreate(savedInstanceState);
     
             mapControl.onReady(map -> {
-    
-                DataSource datasource = new DataSource();
-    
-                datasource.add(Polygon.fromLngLats(Collections.singletonList(Arrays.asList(Point.fromLngLat(-73.98235, 40.76799),
-                        Point.fromLngLat(-73.95785, 40.80044),
-                        Point.fromLngLat(-73.94928, 40.7968),
-                        Point.fromLngLat(-73.97317, 40.76437),
-                        Point.fromLngLat(-73.98235, 40.76799)
-                        ))));
-    
-                map.sources.add(datasource);
-                map.layers.add(new PolygonLayer(datasource, fillColor("red")));
-    
+                //Create a data source and add it to the map.
+                DataSource dataSource = new DataSource();
+                map.sources.add(dataSource);
+            
+                //Create an array of point arrays to create polygon rings.
+                List<List<Point>> rings = Arrays.asList(Arrays.asList(
+                    Point.fromLngLat(-73.98235, 40.76799),
+                    Point.fromLngLat(-73.95785, 40.80044),
+                    Point.fromLngLat(-73.94928, 40.7968),
+                    Point.fromLngLat(-73.97317, 40.76437),
+                    Point.fromLngLat(-73.98235, 40.76799)));
+            
+                //Create a Polygon feature and add it to the data source.
+                dataSource.add(Feature.fromGeometry(Polygon.fromLngLats(rings)));
+            
+                //Add a polygon layer for rendering the polygon area.
+                map.layers.add(new PolygonLayer(dataSource,
+                    fillColor("red")));
+            
+                //Add a line layer for rendering the polygon outline.
+                map.layers.add(new LineLayer(dataSource,
+                    strokeColor("blue"),
+                    strokeWidth(2f)));
             });
     
         }
@@ -322,4 +353,4 @@ If you run your application now, you should see a polygon on the map as seen bel
 See the following article to learn more about ways to set map styles
 
 > [!div class="nextstepaction"]
-> [Set map styles in Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles?branch=pr-en-us-74190)
+> [Change map styles in Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles?branch=pr-en-us-74190)

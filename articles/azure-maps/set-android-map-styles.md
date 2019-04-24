@@ -15,7 +15,7 @@ manager: philmea
 Azure Maps has six different maps styles to choose from. For more about map styles, see [supported map styles in Azure Maps](./supported-map-styles.md). This article shows you two ways to set map styles using the Azure Maps Android SDK.
 
 
-## prerequisites
+## Prerequisites
 
 To complete the process in this article, you need to install [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) to load a map.
 
@@ -57,12 +57,13 @@ Map style can be set in the activity class. Follow the steps below to set the ma
 1. Add the following code snippet to your `MainActivity.java`. 
 
     ```Java
-     mapControl = new MapControl(this,
-        center(47.64,-122.33),
-        zoom(10),
-        style(MapStyle.SATELLITE_ROAD_LABELS));
+     mapControl.onReady(map -> {
+        //Set the camera of the map.
+        map.setCamera(center(47.64, -122.33), zoom(14));
     
-        setContentView(mapControl);
+        //Set the style of the map.
+        map.setStyle(style(MapStyle.SATELLITE));
+    });
     ```
 
 2. Remove the following lines of code from your `MainActivity.java`:
