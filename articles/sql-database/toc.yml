@@ -358,7 +358,7 @@
       href: sql-database-temporal-tables.md
     - name: Job automation 
       href: sql-database-job-automation-overview.md
-    - name: Machine learning
+    - name: Machine Learning Services
       items:
       - name: Machine learning overview
         href: sql-database-machine-learning-services-overview.md
