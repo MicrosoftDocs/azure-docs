@@ -4,7 +4,7 @@ description: Shows how resource types handle complete mode deletion in Azure Res
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 04/24/2019
 ms.author: tomfitz
 ---
 
@@ -628,7 +628,7 @@ To get the same data as a file of comma-separated values, download [complete-mod
 ## Microsoft.HDInsight
 | Resource type | Complete mode deletion |
 | ------------- | ----------- |
-| clusters | No | 
+| clusters | Yes | 
 | clusters/applications | No | 
 
 ## Microsoft.ImportExport
