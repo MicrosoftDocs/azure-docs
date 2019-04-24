@@ -33,7 +33,7 @@ This tutorial requires the following prerequisites.
 
 ### Create a workspace
 
-Follow the [instructions](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace#portal) to create a workspace through the Azure portal, if you don't already have one. After creation, make note of your workspace name, resource group name, and subscription id.
+Follow the [instructions](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace#portal) to create a workspace through the Azure portal, if you don't already have one. After creation, make note of your workspace name, resource group name, and subscription ID.
 
 ### Create a Python environment
 
@@ -48,7 +48,7 @@ This example uses an Anaconda environment with Jupyter notebooks, but you can ru
     ```
     conda activate tutorialenv
     ```
-1. Enable environment-specific ipython kernels.
+1. Enable environment-specific IPython kernels.
     ```
     conda install notebook ipykernel
     ```
@@ -1582,7 +1582,7 @@ taxi_holidays_weather_df.describe()
 </table>
 </div>
 
-From the summary statistics, you see that there are several fields that have outliers or values that will reduce model accuracy. First filter the lat/long fields to be within the same bounds you used for filtering weather data. The `tripDistance` field has some bad data, because the minimum value is negative. The `passengerCount` field has bad data as well, with the max value being 210 passengers. Lastly, the `totalAmount` field has negative values, which doesn't make sense in the context of our model.
+From the summary statistics, you see that there are several fields that have outliers or values that will reduce model accuracy. First filter the lat/long fields to be within the same bounds you used for filtering weather data. The `tripDistance` field has some bad data, because the minimum value is negative. The `passengerCount` field has bad data as well, with the max value being 210 passengers. Lastly, the `totalAmount` field has negative values, which don't make sense in the context of our model.
 
 Filter out these anomalies using query functions, and then remove the last few columns unnecessary for training.
 
