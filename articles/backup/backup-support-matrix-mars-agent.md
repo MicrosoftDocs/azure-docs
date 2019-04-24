@@ -74,7 +74,6 @@ Windows 10 (Enterprise, Pro, Home) | Yes | No
 Windows 8.1 (Enterprise, Pro)| Yes |No
 Windows 8 (Enterprise, Pro) | Yes | No
 Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes | No
-Windows Server 2019 Datacenter | Yes | Yes
 Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes
 Windows Server 2012 (Standard, Datacenter, Foundation) | Yes | Yes
