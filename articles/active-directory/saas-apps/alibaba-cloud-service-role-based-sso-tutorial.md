@@ -116,7 +116,7 @@ To configure Azure AD single sign-on with Alibaba Cloud Service (Role-based SSO)
     | `https://signin.aliyun.com/saml-role/SSO` |
 	| `https://signin.alibabacloud.com/saml-role/SSO` |
 
-5. Alibaba Cloud Service (Role-based SSO) application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+5. Alibaba Cloud Service (Role-based SSO) application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 
@@ -216,7 +216,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Alibaba Cloud Service (Role-based SSO) test user
 
-In this section, you create a user called Britta Simon in Alibaba Cloud Service (Role-based SSO). Work with [Alibaba Cloud Service (Role-based SSO) support team](https://www.aliyun.com/service/) to add the users in the Alibaba Cloud Service (Role-based SSO) platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Alibaba Cloud Service (Role-based SSO). Work with [Alibaba Cloud Service (Role-based SSO) support team](https://www.aliyun.com/service/) to add the users in the Alibaba Cloud Service (Role-based SSO) platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 
