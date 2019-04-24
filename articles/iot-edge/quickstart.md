@@ -167,7 +167,7 @@ Verify that the runtime was successfully installed and configured.
 2. If you need to troubleshoot the service, retrieve the service logs.
 
    ```powershell
-   Get-IoTEdgeLog
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 3. View all the modules running on your IoT Edge device. Since the service just started for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default, and helps to install and start any additional modules that you deploy to your device.

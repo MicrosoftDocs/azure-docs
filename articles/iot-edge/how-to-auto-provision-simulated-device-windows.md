@@ -79,7 +79,7 @@ Examine service logs from the last 5 minutes.
 
 
 ```powershell
-Get-IoTEdgeLog
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
 List running modules.

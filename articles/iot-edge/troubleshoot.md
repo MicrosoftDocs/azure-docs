@@ -67,7 +67,7 @@ On Windows:
 - To view the logs of the IoT Edge Security Manager:
 
    ```powershell
-   Get-IoTEdgeLog
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 ### If the IoT Edge Security Manager is not running, verify your yaml configuration file
