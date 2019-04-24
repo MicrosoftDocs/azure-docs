@@ -126,4 +126,3 @@ On the **Review + create** tab, you can review your settings and check for any v
 
 - [Edit and manage an existing access package](entitlement-management-access-package-edit.md)
 - [Create and manage a catalog](entitlement-management-catalog-create.md)
-- 
