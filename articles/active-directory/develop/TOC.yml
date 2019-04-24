@@ -199,6 +199,10 @@
           href: msal-net-migration.md
         - name: Compare MSAL.js and ADAL.js
           href: msal-compare-msal-js-and-adal-js.md
+        - name: Acquire and cache tokens
+          href: msal-acquire-cache-tokens.md
+        - name: Scopes for v1 apps
+          href: msal-v1-app-scopes.md
         - name: Client applications
           href: msal-client-applications.md
         - name: Initializing applications
