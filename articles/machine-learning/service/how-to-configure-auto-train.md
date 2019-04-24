@@ -13,7 +13,7 @@ ms.date: 04/08/2019
 ms.custom: seodec18
 ---
 
-# Configure automated machine learning experiments
+# Configure automated ML experiments in Python
 
 Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure automated machine learning experiments. In this guide, learn how to define various configuration settings.
 
