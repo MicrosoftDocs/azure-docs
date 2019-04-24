@@ -3,7 +3,7 @@ title: mobile app that calls Web APIs - acquiring a token for the app | Azure
 description: Learn how to build a mobile app that calls Web APIs (acquiring a token for the app)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: dadobali
 manager: CelesteDG
 editor: ''
 
@@ -23,10 +23,12 @@ ms.collection: M365-identity-device-management
 
 # Mobile app that calls web APIs - acquiring a token
 
-Through the MSAL libraries, you will construct a `PublicClientApplication` that contains all the app configurations from your app registration.  Now your app is able to begin getting tokens through the Acquire Token methods in MSAL iOS, Android, and Xamarin. 
+Before you can begin calling protected web APIs, your app will need an access token. This section walks you through the process to get a token using the Microsoft Authentication Library (MSAL). 
 
 ## Scopes to request
-When asking for tokens, a scope is always required. The simplest approach is to combine the desired web API's `App ID URI` with the scope `.default`. This indicates to Microsoft identity your app needs all registered scopes.
+When asking for tokens, a scope is always required. The scope determines what data your app can access.  
+
+The simplest approach is to combine the desired web API's `App ID URI` with the scope `.default`. This tells Microsoft identity your app requires all scopes set in the portal.
 
 Android
 ```Java
@@ -34,20 +36,20 @@ String[] SCOPES = {"https://graph.microsoft.com/.default"};
 ```
 
 iOS
-```objective-c
+```swift
 let scopes: [String] = ["https://graph.microsoft.com/.default"]
 ```
 
 Xamarin
 ```CSharp 
-var scopes = new [] {"https://graph.microsoft.cmo/.default"};
+var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
 ## Acquiring Tokens
 
-MSAL allows apps to acquire tokens silently and interactively. Just call these methods, and MSAL execute the specified response and return back an Access token for the scopes requested.  The best practice is to attempt a silent request and fallback to an interactive request. 
-
 ### via MSAL
+
+MSAL allows apps to acquire tokens silently and interactively. Just call these methods and MSAL returns back an Access token for the scopes requested. The correct pattern is to perform a silent request and fallback to an interactive request. 
 
 Android
 ```Java
@@ -63,6 +65,7 @@ sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
     public void onAccountsLoaded(final List<IAccount> accounts) {
 
         if (accounts.isEmpty() && accounts.size() == 1) {
+            // TODO: Create a silent callback to catch successful or failed request
             sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
         } else {
             /* No accounts or >1 account */
@@ -72,8 +75,8 @@ sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
 
 [...]
 
-// No accounts, interactively request a token 
-// Result is in our interactive callback (success or error)
+// No accounts found, interactively request a token 
+// TODO: Create an interactive callback to catch successful or failed request
 sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());        
 ```
 
@@ -136,7 +139,7 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
 
 Xamarin
 ```CSharp
-string[] scopes = new string["https://graph.microsoft.cmo/.default"];
+string[] scopes = new string["https://graph.microsoft.com/.default"];
 var app = PublicClientApplicationBuilder.Create(clientId).Build();
 var accounts = await app.GetAccountsAsync();
 AuthenticationResult result;
@@ -145,7 +148,7 @@ try
  result = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
              .ExecuteAsync();
 }
-catch(MsalUiRequiredException)
+catch(MsalUiRequiredException e)
 {
  result = await app.AcquireTokenInteractive(scopes)
              .ExecuteAsync();
@@ -154,9 +157,9 @@ catch(MsalUiRequiredException)
 
 ## via Protocol 
 
-When getting tokens for mobile apps on the protocol, you'll need to make 2 requests: get an authorization code and exchange it for a token. 
+We do not advise going directly against the protocol. Your app will not be capable of many SSO scenarios and will not be able to support all device management and Conditional Access scenarios.
 
-It's important to note, we do advise going directly against the protocol. Your app will not be capable of many SSO scenarios and will not be able to support all device management and Conditional Access scenarios.
+When getting tokens for mobile apps using the protocol, you'll need to make 2 requests: get an authorization code and exchange it for a token. 
 
 ### Getting Authorization code
 

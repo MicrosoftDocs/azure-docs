@@ -3,7 +3,7 @@ title: mobile app that calls Web APIs - move to production | Azure
 description: Learn how to build a mobile app that calls Web APIs (move to production)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: dadobali
 manager: CelesteDG
 editor: ''
 
@@ -29,18 +29,22 @@ This article provides details on improving the quality and reliability of your a
 
 In the different flows we've highlighted so far, there are a variety of error conditions that can be caused. The primary scenario to handle is silent failures and fallback to interaction. There are additional conditions you should also consider for production including no network situations, service outages, admin consent required, and other scenario-specific cases. 
 
-Each MSAL library has sample code and wiki content that dives deeper into handle each of these conditions.
+Each MSAL library has sample code and wiki content that dives deeper into handling these conditions.
+
+[MSAL Android Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android)
+[MSAL iOS Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)
+[MSAL.NET Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)
 
 ## Mitigating and investigating issues
 
-While you may not be able to prevent all issues, a best practice is to arm your app with all the data possible to help debug future issues.
+Collecting data will help your app diagnose issues. For more detail on the type of data you can collect, see each MSAL platforms wiki.
 
-- Enable logging and store these temporarily. Provide users a way to send you their logs. 
-- If available, enable telemetry through MSAL and store this.
+- Users may ask for help when encountering a problem. A best practice is to capture and store logs temporarily, and allow users to upload them somewhere. MSAL provies logging extensions to capture detailed information about Auth. 
+- If available, enable telemetry through MSAL to gather data about how users are signing into your app. 
 
 ## Testing your app
 
-Be sure to test your app against the ***Integration check list***.
+Be sure to test your app against the [Integration check list](active-directory-integration-checklist.md).
 
 ## Next steps
 

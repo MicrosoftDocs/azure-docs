@@ -3,7 +3,7 @@ title: mobile app that calls Web APIs - calling a Web API | Azure
 description: Learn how to build a mobile app that calls Web APIs (calling a Web API)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: dadobali
 manager: CelesteDG
 editor: ''
 
@@ -23,27 +23,26 @@ ms.collection: M365-identity-device-management
 
 # Mobile app that calls web APIs - calling a web API
 
-Now that you have a token, you can call a protected Web API!
+Once your app has signed in a user and receievd tokens, MSAL exposes several pieces of information about the user, their environment, and the tokens issued. Your app can use these values to call a web API or display a welcome message to a user. 
 
-## Calling a web API 
+First, we will explore the MSAL result, then how to use an access token from the `AuthenticationResult` or `result` to call a protected web API. 
 
-### Basics 
-When your app has successfully gotten a token for a user, you can begin calling web APIs. In addition to this token, MSAL also provides apps with several properties (via `AuthenticationResult` or `result`):
+## MSAL Result 
 
-- `AccessToken`: Used to call protected web APIs in a HTTP request. 
+- `AccessToken`: Used to call protected web APIs in a HTTP Bearer request. 
 - `IdToken`: Contains useful claims about the signed in user like their name, home tenant, and unique identifier for storage.
 - `ExpiresOn`: the expiration time of the token. MSAL handles auto-refresh for apps. 
 - `TenantId`: The identifier of the user's tenant used to sign in. For guest users (Azure AD B2B), this will be the tenant the user signed in with, not their home tenant.  
 - `Scopes`: the scopes that were granted with your token. This may be a subset of what you requested. 
 
-Additionally, MSAL also provides an abstraction for an `Account`. An Account represents the current user's signed in account. It contains several properties:
+Additionally, MSAL also provides an abstraction for an `Account`. An Account represents the current user's signed in account. 
 - `HomeAccountIdentifier`: The identifier of the user's home tenant. 
 - `UserName`: The user's preferred username. This may be empty for Azure AD B2C users. 
 - `AccountIdentifier`: The identifier of the signed in user. This will be the same as the `HomeAccountIdentifier` in most cases unless the user is a guest in another tenant. 
 
-### Calling an API
+## Calling an API
 
-Once you have the Access token ready, it's simple to call a web API! Your app will need to take this token, construct an HTTP request, and execute it. 
+Once you have the Access token ready, it's simple to call a web API. Your app will take this token, construct an HTTP request, and execute it. 
 
 Android
 ```Java
@@ -70,6 +69,8 @@ Android
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<>();
+                
+                // Put Access Token in HTTP request 
                 headers.put("Authorization", "Bearer " + authResult.getAccessToken());
                 return headers;
             }
@@ -86,6 +87,8 @@ iOS
 ```swift
         let url = URL(string: kGraphURI)
         var request = URLRequest(url: url!)
+
+        // Put Access token in HTTP Request
         request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
 
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -97,6 +100,8 @@ iOS
                 self.updateLogging(text: "Couldn't deserialize result JSON")
                 return
             }
+
+            // Successfully got data from Graph
             self.updateLogging(text: "Result from Graph: \(result))")
         }.resume()
 ```
@@ -104,9 +109,11 @@ iOS
 Xamarin
 ```CSharp
 httpClient = new HttpClient();
+
+// Put Access token in HTTP request 
 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
-// Call Web API.
+// Call Graph
 HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ...
 }
@@ -114,9 +121,10 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 
 ## Making several API requests
 
-If you need to call the same API several times or multiple APIs, there are additional considerations when building your app,
-- ***Incremental Consent***: Microsoft identity platform allows apps to progressively request user consent for permissions. Each time your app is ready to call an API, it should request only the scopes it intends to use. 
-- ***Conditional Access***: In certain scenarios, you may get additional Conditional Access requirements when making several API requests. To handle this scenario, be sure to catch errors from silent requests and be prepared to make an interactive request. This can happen if the first request has no Conditional Access policies applied and your app attempts to silently access a new API that requires Conditional Access. 
+If you need to call the same API several times or multiple APIs, there are additional considerations when building your app:
+
+- ***Incremental Consent***: Microsoft identity platform allows apps to get user consent as permission are required, rather than all up-front. Each time your app is ready to call an API, it should request only the scopes it intends to use. 
+- ***Conditional Access***: In certain scenarios, you may get additional Conditional Access requirements when making several API requests. To handle this scenario, be sure to catch errors from silent requests and be prepared to make an interactive request. This can happen if the first request has no Conditional Access policies applied and your app attempts to silently access a new API that requires Conditional Access. To learn more, checkout [guidance for Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/develop/conditional-access-dev-guide).
 
 ## Next steps
 
