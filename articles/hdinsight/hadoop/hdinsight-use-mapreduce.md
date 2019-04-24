@@ -48,7 +48,7 @@ For examples of using Hadoop streaming with HDInsight, see the following documen
 
 ## <a id="data"></a>Example data
 
-HDInsight provides various example data sets, which are stored in the `/example/data` and `/HdiSamples` directory. These directories are in the default storage for your cluster. In this document, we use the `/example/data/gutenberg/davinci.txt` file. This file contains the notebooks of Leonardo Da Vinci.
+HDInsight provides various example data sets, which are stored in the `/example/data` and `/HdiSamples` directory. These directories are in the default storage for your cluster. In this document, we use the `/example/data/gutenberg/davinci.txt` file. This file contains the notebooks of Leonardo da Vinci.
 
 ## <a id="job"></a>Example MapReduce
 
