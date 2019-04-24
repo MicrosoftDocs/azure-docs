@@ -52,8 +52,6 @@
       href: waf-overview.md
     - name: Custom rules
       href: waf-front-door-custom-rules.md
-    - name: IP restrictions
-      href: waf-front-door-ip-restriction-overview.md
     - name: Policy settings
       href: waf-front-door-policy-settings.md
     - name: Monitoring and logging
