@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
 ---
 
@@ -344,9 +344,205 @@ normalized_root_mean_squared_error|Normalized root mean squared error is root me
 root_mean_squared_log_error|Root mean squared log error is the square root of the expected squared logarithmic error|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|None|
 normalized_root_mean_squared_log_error|Normalized Root mean squared log error is root mean squared log error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divide by range of the data|
 
-## Explain the model
 
-While automated machine learning capabilities are generally available, **the model explainability feature is still in public preview.**
+## Understand model pipeline
+
+Any model pipeline suggested by automated ML includes the following steps:
+1. Automated feature engineering (if preprocess=True)
+2. Scaling/Normalization and algorithm with hypermeter values
+
+We make it transparent to get this information from the fitted_model output from automated ML.
+
+```python
+automl_config = AutoMLConfig(…)
+automl_run = experiment.submit(automl_config …)
+best_run, fitted_model = automl_run.get_output()
+```
+
+Automated feature engineering:
+
+See [here](concept-automated-ml) for details on automated feature engineering that happens when preprocess=True.  Consider this example:
++ There are 4 input features: A (Numeric), B (Numeric), C (Numeric), D (DateTime)
++ Numeric feature C is dropped because it is an ID column with all unique values
++ Numeric features A and B have missing values and hence are imputed by mean
++ DateTime feature D is featurized into 11 different engineered features
+
+Use these 2 APIs on the first step of fitted model to understand more.  See [this sample notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+
+1. `get_engineered_Feature_names()` – This API returns a list of engineered feature names
+
+   Usage: 
+   ```python
+   fitted_model.named_steps['timeseriestransformer']. get_engineered_Feature_names ()
+   ```
+
+   Output: ['A', 'B', 'A_WASNULL', 'B_WASNULL', 'year', 'half', 'quarter', 'month', 'day', 'hour', 'am_pm', 'hour12', 'wday', 'qday', 'week']
+
+   This list includes all engineered feature names.
+
+   >[!Note]
+   >Use 'timeseriestransformer' for task=’forecasting’, else use 'datatransformer' for ‘regression’ or ‘classification’ task. 
+
+2. `get_featurization_summary()` – This API returns featurization summary for all the input features
+
+   Usage: 
+   ```python
+    fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+   ```
+   >[!Note]
+   >Use 'timeseriestransformer' for task=’forecasting’, else use 'datatransformer' for ‘regression’ or ‘classification’ task.
+
+Output:
+[{'RawFeatureName': 'A',
+  'TypeDetected': 'Numeric',
+  'Dropped': 'No',
+  'EngineeredFeatureCount': 2,
+  'Tranformations': ['MeanImputer', 'ImputationMarker']},
+ {'RawFeatureName': 'B',
+  'TypeDetected': 'Numeric',
+  'Dropped': 'No',
+  'EngineeredFeatureCount': 2,
+  'Tranformations': ['MeanImputer', 'ImputationMarker']},
+ {'RawFeatureName': 'C',
+  'TypeDetected': 'Numeric',
+  'Dropped': 'Yes',
+  'EngineeredFeatureCount': 0,
+  'Tranformations': []},
+ {'RawFeatureName': 'D',
+  'TypeDetected': 'DateTime',
+  'Dropped': 'No',
+  'EngineeredFeatureCount': 11,
+  'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
+
++ RawFeatureName: Input feature/column name from the dataset provided. 
++ TypeDetected: Detected datatype of the input feature.
++ Dropped: Indicates if the input feature was dropped or used.
++ EngineeringFeatureCount: Number of features generated through automated feature engineering transforms.
++ Transformations: List of transformations applied to input features to generate engineered features.  
+
+Scaling/Normalization and algorithm with hypermeter values:
+
+To understand the scaling/normalization and algorithm/hyperparameter values for a pipeline, use fitted_model.steps.  Here is a sample output:
+[('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
+
+[Learn more about scaling/normalization](concept-automated-ml.md).
+
+To get more details, use this helper function.  See [this sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification/auto-ml-classification.ipynb).
+
+    ```python
+    from pprint import pprint
+    def print_model(model, prefix=""):
+        for step in model.steps:
+            print(prefix + step[0])
+            if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
+                pprint({'estimators': list(e[0] for e in step[1].estimators), 'weights': step[1].weights})
+                print()
+                for estimator in step[1].estimators:
+                    print_model(estimator[1], estimator[0]+ ' - ')
+            else:
+                pprint(step[1].get_params())
+                print()
+                
+    print_model(fitted_model)
+    ```
+
+Here is sample output:
+
++ Pipeline using a specific algorithm (LogisticRegression with RobustScalar in this case):
+
+RobustScaler
+{'copy': True,
+ 'quantile_range': [10, 90],
+ 'with_centering': True,
+ 'with_scaling': True}
+
+LogisticRegression
+{'C': 0.18420699693267145,
+ 'class_weight': 'balanced',
+ 'dual': False,
+ 'fit_intercept': True,
+ 'intercept_scaling': 1,
+ 'max_iter': 100,
+ 'multi_class': 'multinomial',
+ 'n_jobs': 1,
+ 'penalty': 'l2',
+ 'random_state': None,
+ 'solver': 'newton-cg',
+ 'tol': 0.0001,
+ 'verbose': 0,
+ 'warm_start': False}
+
++ Pipeline using ensemble approach: In this case, it is an ensemble of 2 different pipelines
+
+prefittedsoftvotingclassifier
+{'estimators': ['1', '18'],
+ 'weights': [0.6666666666666667,
+            0.3333333333333333]}
+
+1 - RobustScaler
+{'copy': True,
+ 'quantile_range': [25, 75],
+ 'with_centering': True,
+ 'with_scaling': False}
+
+1 - LightGBMClassifier
+{'boosting_type': 'gbdt',
+ 'class_weight': None,
+ 'colsample_bytree': 0.2977777777777778,
+ 'importance_type': 'split',
+ 'learning_rate': 0.1,
+ 'max_bin': 30,
+ 'max_depth': 5,
+ 'min_child_samples': 6,
+ 'min_child_weight': 5,
+ 'min_split_gain': 0.05263157894736842,
+ 'n_estimators': 200,
+ 'n_jobs': 1,
+ 'num_leaves': 176,
+ 'objective': None,
+ 'random_state': None,
+ 'reg_alpha': 0.2631578947368421,
+ 'reg_lambda': 0,
+ 'silent': True,
+ 'subsample': 0.8415789473684211,
+ 'subsample_for_bin': 200000,
+ 'subsample_freq': 0,
+ 'verbose': -10}
+
+18 - StandardScalerWrapper
+{'class_name': 'StandardScaler',
+ 'copy': True,
+ 'module_name': 'sklearn.preprocessing.data',
+ 'with_mean': True,
+ 'with_std': True}
+
+18 - LightGBMClassifier
+{'boosting_type': 'goss',
+ 'class_weight': None,
+ 'colsample_bytree': 0.2977777777777778,
+ 'importance_type': 'split',
+ 'learning_rate': 0.07894947368421053,
+ 'max_bin': 30,
+ 'max_depth': 6,
+ 'min_child_samples': 47,
+ 'min_child_weight': 0,
+ 'min_split_gain': 0.2631578947368421,
+ 'n_estimators': 400,
+ 'n_jobs': 1,
+ 'num_leaves': 14,
+ 'objective': None,
+ 'random_state': None,
+ 'reg_alpha': 0.5789473684210527,
+ 'reg_lambda': 0.7894736842105263,
+ 'silent': True,
+ 'subsample': 1,
+ 'subsample_for_bin': 200000,
+ 'subsample_freq': 0,
+ 'verbose': -10}
+ 
+## Explain the model (interpretability)
+
+While automated machine learning capabilities are generally available, **the model explainability/interpretability feature is still in public preview.**
 
 Automated machine learning allows you to understand feature importance.  During the training process, you can get global feature importance for the model.  For classification scenarios, you can also get class-level feature importance.  You must provide a validation dataset (X_valid) to get feature importance.
 
