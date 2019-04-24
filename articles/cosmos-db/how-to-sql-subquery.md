@@ -43,7 +43,7 @@ Multi-Value subqueries return a set of documents and are always used within the 
 
 ### Optimize JOIN expressions
 
-Multi-Value subqueries can optimize JOIN expressions by pushing predicates after each select-many expression rather than after all cross-joins in the WHERE clause
+Multi-Value subqueries can optimize JOIN expressions by pushing predicates after each select-many expression rather than after all cross-joins in the WHERE clause.
 
 Consider the following query:
 
