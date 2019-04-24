@@ -7,7 +7,7 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/15/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -59,35 +59,36 @@ In Azure Search, there are three ways to incur costs in Aure Search, and there a
 
 ### 1. Core service costs (fixed and variable)
 
-For the service itself, the minimum charge is the first search unit (1 replica x 1 partition), and this amount is constant for the lifetime of the service because the service cannot run on anything less than this configuration. 
+For the service itself, the minimum charge is the first search unit (1 replica x 1 partition), and this amount is fixed for the lifetime of the service because the service cannot run on anything less than this configuration. 
 
-In the following screenshot, per unit pricing is indicated for Free, Basic, and S1 (S2, S3, L1, and L2 are not shown). If you created a **Basic**, **Standard**, or **Storage Optimized** service, your monthly cost would average the value that appears for *price-1* and *price-2* respectively. Unit costs go up for each tier because the computational power and storage capacity is greater at each consecutive tier.
+Beyond the minimum, you can add replicas and partitions independently. For example, you can add only replicas or only partitions. Incremental increases in capacity through replicas and partitions constitute the variable cost component. 
+
+Billing is based on a [formula (replicas x partitions x rate)](#search-units). The rate you are charged depends on the pricing tier you select.
+
+In the following screenshot, per unit pricing is indicated for Free, Basic, and S1 (S2, S3, L1, and L2 are not shown). If you created a **Basic**, **Standard**, or **Storage Optimized** service, your monthly cost would average the value that appears for *price-1* and *price-2* respectively. Unit costs go up for each tier because the computational power and storage capacity is greater at each consecutive tier. The rates for Azure Search are published on the [Azure Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
 ![Per unit pricing](./media/search-sku-tier/per-unit-pricing.png "Per unit pricing")
 
-Additional replicas and partitions are an add-on to the initial charge. A search service requires a replica and partition so the minimum configuration is one of each. Beyond the minimum, you add replicas and partitions independently. For example, you could add only replicas or only partitions. 
+When costing out a search solution, notice that pricing and capacity are not linear (doubling capacity more than doubles the cost). For an example of how of the formula works, see ["How to allocate replicas and partitions"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
-Additional replicas and partitions are charged based on a [formula](#search-units). The costs are not linear (doubling capacity more than doubles the cost). For an example of how of the formula works, see ["How to allocate replicas and partitions"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### 2. Data egress charges during indexing
 
-Use of [Azure Search indexers](search-indexer-overview.md) can result in billing impact depending where the services are located. You can eliminate data egress charges entirely if you create the Azure Search service in the same region as your data.
+Use of [Azure Search indexers](search-indexer-overview.md) can result in billing impact depending on where the services are located. You can eliminate data egress charges entirely if you create the Azure Search service in the same region as your data. The following points are from the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-+ No charges for any inbound data to any service on Azure.
++ Microsoft does not charge for any inbound data to any service on Azure, or for any outbound data from Azure Search.
 
-+ No charges for any outbound data from Azure Search.
++ In multi-service solutions, there are no charges for data crossing the wire when all services are in the same region.
 
-+ No charges for data or files outbound from SQL DB, Cosmos, Blob storage (inbound to Azure Search) as long as all services are in the same region.
-
-+ Charges do apply for outbound data or files if storage and Azure Search are in different regions.
-
-When routing data across Azure regions, you will see bandwidth charges in the bill for those resources. Those charges are not part of your Azure Search bill, but they are mentioned here because if you are using indexers to pull data or files over the wire, you'll see that charge in your overall bill.
-
-If you are not using indexers, there are no bandwidth charges. 
+Charges do apply for outbound data if services are in different regions. Such charges are not part of your Azure Search bill per se, but they are mentioned here because if you are using data or AI-enriched indexers to pull data from different regions, you'll see those costs reflected in your overall bill. 
 
 ### 3. AI-enriched indexing using Cognitive Services
 
-For [AI-indexing with Cognitive Services](cognitive-search-concept-intro.md) only, image extraction during document cracking is billed based on the number of images extracted from your documents. Text extraction is currently free. Other enrichments, such as natural language processing, are based on [built-in cognitive skills](cognitive-search-predefined-skills.md) are billed against a Cognitive Services resource. Enrichments are billed at the same rate as if you had performed the task using Cognitive Services directly.
+For [AI-indexing with Cognitive Services](cognitive-search-concept-intro.md), you should plan on attaching a billable Cognitive Services resource at the S0 pricing tier for pay-as-you-go processing. There is no "fixed cost" associated with attaching Cognitive Services. You pay only for the processing you need.
+
+Image extraction during document cracking is an Azure Search charge, billed based on the number of images extracted from your documents. Text extraction is currently free. 
+
+Other enrichments, such as natural language processing, are based on [built-in cognitive skills](cognitive-search-predefined-skills.md) are billed against a Cognitive Services resource, at the same rate as if you had performed the task using Cognitive Services directly. For more information, see [Attach a Cognitive Services resource with a skillset](cognitive-search-attach-cognitive-services.md).
 
 <a name="search-units"></a>
 

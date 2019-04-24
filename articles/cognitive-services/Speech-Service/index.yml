@@ -97,6 +97,18 @@ sections:
         - href:
         - href: quickstart-js-node
         - href:
+      - title: Windows UWP (ARM32/64)
+        values:
+        - href: quickstart-csharp-uwp
+        - href:
+        - href:
+        - href:
+        - href: quickstart-csharp-unity
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
       - title: Linux (x64)
         values:
         - href:

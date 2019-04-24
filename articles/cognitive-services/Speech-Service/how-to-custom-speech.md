@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # What is Custom Speech?
 
-[Custom Speech](https://portal.cris.ai/customspeech.html) is a set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your applications, tools, and products. All it takes to get started are a handful of test audio files. Follow the links below to start creating a custom speech-to-text experience.
+[Custom Speech](https://speech.microsoft.com/app.html#/CustomSpeech) is a set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your applications, tools, and products. All it takes to get started are a handful of test audio files. Follow the links below to start creating a custom speech-to-text experience.
 
 ## What's in Custom Speech?
 
@@ -32,13 +32,16 @@ This diagram highlights the pieces that make up the Custom Speech portal. Use th
 
 4. [Evaluate accuracy](how-to-custom-speech-evaluate-data.md) - Evaluate the accuracy of the speech-to-text model. The Custom Speech portal will provide a *Word Error Rate*, which can be used to determine if additional training is required. If you're satisfied with the accuracy, you can use the Speech Service APIs directly. If you'd like to improve accuracy by a relative average of 5% - 20%, use the **Training** tab in the portal to upload additional training data, such as human-labeled transcripts and related text.
 
-5. [Train the model](how-to-custom-speech-train-model.md) - Improve the accuracy of your speech-to-text model by providing written transcripts (10-1,000 hours) and related text (<50 MB) along with your audio test data. This data helps to train the speech-to-text model. After training, retest, and if you're satisfied with the result, you can deploy your model.
+5. [Train the model](how-to-custom-speech-train-model.md) - Improve the accuracy of your speech-to-text model by providing written transcripts (10-1,000 hours) and related text (<200 MB) along with your audio test data. This data helps to train the speech-to-text model. After training, retest, and if you're satisfied with the result, you can deploy your model.
 
 6. [Deploy the model](how-to-custom-speech-deploy-model.md) - Create a custom endpoint for your speech-to-text model and use it in your applications, tools, or products.
 
 ## Set up your Azure account
 
-A Speech Services subscription is required before you can use the Custom Speech portal to create a custom model. Follow these instructions to create an account: [Try Speech Services for free](get-started.md).
+A Speech Services subscription is required before you can use the Custom Speech portal to create a custom model. Follow these instructions to create a standard Speech Services subscription: [Create a Speech Subscription](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#new-azure-account).
+
+> [!NOTE]
+> Please be sure to create standard (S0) subscriptions, free trial (F0) subscriptions are not supported.
 
 Once you've created an Azure account and a Speech Services subscription, you'll need to sign in to Custom Speech portal and connect your subscription.
 
