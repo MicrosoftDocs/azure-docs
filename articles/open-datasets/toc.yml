@@ -25,9 +25,6 @@
   items:
   - name: Azure Open Datasets portal
     href: https://opendatasets.azure.com
-  - name: Release notes
-    displayName: what's new issues bugs
-    href: open-datasets-release-notes.md
   - name: Microsoft Research Open Data
     href: https://msropendata.com/
   - name: Azure roadmap

@@ -23,7 +23,7 @@ sections:
 - title: Samples
   items:
   - type: paragraph
-    text: <a href="samples">Notebooks with demo data enriched by datasets</a> 
+    text: <a href="samples">Notebooks with enriched by datasets</a> 
  
     
 - title: Reference
