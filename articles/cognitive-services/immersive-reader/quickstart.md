@@ -30,9 +30,9 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 Create a new project in Visual Studio, using the ASP.NET Core Web Application template with built-in Model-View-Controller.
 
-![New Project](./media/VSWebApp.png)
+![New Project](./media/vswebapp.png)
 
-![New ASP.NET Core Web Application](./media/VSMVC.png)
+![New ASP.NET Core Web Application](./media/vsmvc.png)
 
 ## Acquire an access token
 
