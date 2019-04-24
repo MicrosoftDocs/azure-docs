@@ -77,7 +77,7 @@ Select the Create Experiment button to populate the following form.
 
         ![Data preview](media/how-to-create-portal-experiments/data-preview.png)
 
-    1. On the Profile tab, you can view the profile of your data by feature, as well as the distribution, type, and summary statistics (mean, median, max/min, and so on) of each.
+    1. On the Profile tab, you can view the [data profile](#profile) by feature, as well as the distribution, type, and summary statistics (mean, median, max/min, and so on) of each.
 
         ![Data profile tab](media/how-to-create-portal-experiments/data-profile.png)
 
@@ -107,6 +107,8 @@ Select the Create Experiment button to populate the following form.
 
 > [!NOTE]
 > For more information on fields click the information tool tip.
+
+<a name="profile"></a>
 
 ### Data profiling
 
@@ -213,7 +215,7 @@ Automated ML helps you with deploying the model without writing code:
 
 1. Go to the "Images" tab, check the checkbox next to the image you want to deploy, and select "Create deployment"
 
-    ![Image-create deployment screen](media/how-to-create-portal-experiments/images-create-deployment.png)
+    ![Image create deployment screen](media/how-to-create-portal-experiments/images-create-deployment.png)
 
 1. Enter a unique deployment name.
 
