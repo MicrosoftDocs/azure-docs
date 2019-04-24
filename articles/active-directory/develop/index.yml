@@ -199,6 +199,7 @@ sections:
           - href:
           - href:
         - title: Mobile & desktop app
+          values:
           - href:
           - href:
           - href: tutorial-v2-android.md
