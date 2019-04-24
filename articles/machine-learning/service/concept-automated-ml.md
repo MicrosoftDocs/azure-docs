@@ -16,9 +16,13 @@ ms.custom: seodec18
 
 # What is automated machine learning?
 
-Automated machine learning is the process of taking training data with a defined target feature, and iterating through combinations of algorithms and feature selections to automatically select the best model for your data based on the training scores. 
+Automated machine learning, also referred to as AutoML, will build a set of ML models automatically, fine-tune them, and pick the best one for you automatically. The traditional machine learning model development process is highly resource-intensive, and requires significant domain knowledge and time investment to run and compare the results of dozens of models. 
 
-The traditional machine learning model development process is highly resource-intensive, and requires significant domain knowledge and time investment to run and compare the results of dozens of models. Automated machine learning simplifies this process by generating models tuned from the goals and constraints you defined for your experiment, such as the time for the experiment to run or which models to blacklist.
+With automated ML, anyone can successfully extract and leverage the business insights hidden in their data. While still a newer ML option, it has quickly become popular with non-ML experts, those who don't want to code, and those looking for a quick prototype. 
+
+You provide some goals, constraints, or blacklists, and then automated machine learning generates the model for you. Behind the scenes, training data is taken with a defined target feature, and iterated upon through combinations of algorithms and feature selections. Then, the best model (based on training scores) is automatically selected.  
+
+Using Azure Machine Learning service, you can configure the settings for automatic training experiment [in Azure portal](how-to-create-portal-experiments.md) or directly in Python [with the SDK](how-to-configure-auto-train.md).
 
 ## How it works with Azure Machine Learning service
 
