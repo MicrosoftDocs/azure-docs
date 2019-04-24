@@ -26,7 +26,7 @@ Application Insights Profiler is included with Azure Diagnostics. You can instal
 
 To set up your environment, take the following actions:
 
-1. To ensure that you're using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later, it's sufficient to confirm that the deployed OS is `Windows Server 2012 R2` or later.
+1. Profiler supports .net framework and .net core. If you are using .net framework, make sure you're using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later. It's sufficient to confirm that the deployed OS is `Windows Server 2012 R2` or later. Profiler supports .net core 2.1 and newer applications.
 
 1. Search for the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) extension in the deployment template file.
 
@@ -53,8 +53,6 @@ To set up your environment, take the following actions:
 
 1. Redeploy your application.
 
-> [TIP]
-> For virtual machines, an alternative to the preceding JSON-based steps is to navigate in the Azure portal to **Virtual Machines** > **Diagnostic Settings** > **Sinks** > **Set send diagnostic data to Application Insights to Enabled** and then select either an Application Insights account or a specific ikey.
 
 ## Next steps
 
