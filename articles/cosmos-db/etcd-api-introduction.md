@@ -24,7 +24,9 @@ The etcd API in Azure Cosmos DB allows you to use Azure Cosmos DB as the backend
 ## Wire level compatibility
 
 Azure Cosmos DB implements the wire-protocol of etcd, and allows the [master node's](https://kubernetes.io/docs/concepts/overview/components/) API servers to use Azure Cosmos DB just like it would do in a locally installed etcd environment. 
- 
+
+![Azure Cosmos DB implementing the etcd wire-protocol](./media/etcd-api-introduction/etcd-api-wire-protocol.png)
+
 ## Key benefits
 
 ### No etcd operations management
