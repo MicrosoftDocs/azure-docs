@@ -17,7 +17,7 @@ ms.service: security
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
-# Secure Azure Computing Architecture
+# Secure azure computing architecture
 
 A rapidly increasing number of DoD customers deploying workloads to Azure have been asking for guidance setting up secure virtual networks and configuring the security tools and services stipulated by DoD standards and practice. DISA published the [Secure Cloud Computing Architecture (SCCA) Functional Requirements Document](https://iasecontent.disa.mil/stigs/pdf/SCCA_FRD_v2-9.pdf) in 2017. SCCA describes the functional objectives for securing the Defense Information System Network’s (DISN) and Commercial Cloud Provider connection points and how mission owners secure cloud applications at the connection boundary. It is mandated that every DoD entity that connects to the commercial cloud follows the guidelines set forth in the SCCA FRD.
  
@@ -26,13 +26,13 @@ There are four components of the SCCA. The Boundary Cloud Access Point (BCAP), V
 While SCCA guidance and architectures are specific to DoD customers, the latest revisions to SACA will also help Civilian customers comply with trusted internet connection (TIC) guidance, as well as commercial customers that with to implement a secure DMZ to protect their azure environments. 
 
 
-## Secure Cloud Computing Architecture Components
+## Secure cloud computing architecture components
 
 **BCAP**
 
 The purpose of the BCAP is to protect the DISN from attacks originating in the cloud environment. BCAP will perform intrusion detection and prevention as well as filter out unauthorized traffic. This component can be co-located with other components of the SCCA. It is highly recommended that this component is deployed using physical hardware. Below you will find the list of BCAP security requirements.
 
-***BCAP Security Requirements***
+***BCAP security requirements***
 
 ![BCAP requirements matrix](media/bcapreqs.png)
 
@@ -41,7 +41,7 @@ The purpose of the BCAP is to protect the DISN from attacks originating in the c
 
 The purpose of the VDSS is to protect DoD Mission Owner applications that are hosted in Azure. VDSS performs the bulk of the security operations in the SCCA. It will conduct traffic inspection in order to secure the applications running in Azure. This component can be provided within your Azure environment.
 
-***VDSS Security Requirements***
+***VDSS security requirements***
 
 ![VDSS requirements matrix](media/vdssreqs.png)
 
@@ -58,11 +58,11 @@ The purpose of VDMS is to provide host security as well as shared data center se
 
 TCCM is a business role. This individual will be responsible for managing the SCCA. Their duties include establishing plans and policies for account access to the cloud environment, ensuring identity and access management is operating properly, and to maintain the Cloud Credential Management Plan. This individual is appointed by the Authorizing Official. The BCAP, VDSS, and VDMS will provide the capabilities needed for the TCCM to perform their job function.
 
-***TCCM Security Requirements***
+***TCCM security requirements***
 
 ![TCCM requirements matrix](media/tccmreqs.png) 
 
-## SACA Components and Planning Considerations 
+## SACA components and planning considerations 
 
 The SACA reference architecture is designed to deploy the VDSS and VDMS components in azure, as well as enable the TCCM. This architecture is modular, which means that all of the pieces of VDSS and VDMS can live in a centralized hub or some of the controls can be met in the mission owner space or even on-premises. The recommendation of our Microsoft team is to co-locate the VDSS and VDMS components into a central Virtual Net that all Mission Owners can connect through. The diagram below depicts our recommended architecture. 
 
@@ -118,7 +118,7 @@ When planning your SCCA compliancy strategy and technical architecture, there ar
     - A good cost analysis can’t be done without this sizing exercise, it is also important to ensure everything is sized correctly to allow for best performance. 
 
 
-## Most Common Deployment Scenario
+## Most common deployment scenario
 
 Microsoft has several customers who have already gone through the full deployment or at least planning stages of their SACA environments. This has allowed us to get insight into the most common deployment scenario. The diagram below depicts the most common architecture. 
 
@@ -132,7 +132,7 @@ Mission Owner applications then choose which Azure region(s) they will deploy th
 
 This architecture is highly recommended by Microsoft, as it will meet SCCA requirements, it’s highly available, easily scalable, and it simplifies deployment and management.
 
-## Automated SACA Deployment Options
+## Automated SACA deployment options
 
  Earlier we mentioned that Microsoft has partnered with two vendors to create an automated SACA infrastructure template. Both templates will deploy the following Azure components. 
 
@@ -159,7 +159,7 @@ This architecture is highly recommended by Microsoft, as it will meet SCCA requi
     - Used for controlling which types of traffic can traverse to certain endpoints
 
 
-**Citrix SACA Deployment**
+**Citrix SACA deployment**
 
 Citrix has created a deployment template that deploys two layers of highly available Citrix ADC appliances. This architecture meets the requirements of VDSS. 
 
@@ -169,7 +169,7 @@ Citrix has created a deployment template that deploys two layers of highly avail
 Citrix Documentation and deployment script can be found [here.](https://github.com/citrix/netscaler-azure-templates/tree/master/templates/saca)
 
 
- **F5 SACA Deployment**
+ **F5 SACA deployment**
 
 F5 has created two separate deployment templates covering two different architectures. The first one has only one layer of F5 appliances in an active-active highly available configuration. This architecture meets the requirements for VDSS. The second adds a second layer of active-active highly available F5s. The purpose of this second layer is to allow for customers to add their own IPS separate from F5 in between the F5 layers. Not all DoD components have specific IPS prescribed for use. If that is the case, the single layer of F5 appliances will work for most since that architecture includes IPS on the F5 devices.  
 
