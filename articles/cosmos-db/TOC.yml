@@ -214,7 +214,7 @@
           href: firewall-support.md
         - name: Access from virtual networks
           href: vnet-service-endpoint.md
-        - name: Role-based Access Control
+        - name: Role-based access control
           displayName: rbac
           href: role-based-access-control.md  
     - name: Enterprise readiness 

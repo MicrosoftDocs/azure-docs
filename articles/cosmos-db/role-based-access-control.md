@@ -8,9 +8,9 @@ ms.date: 05/06/2019
 ms.author: mjbrown
 ---
 
-## Role-based access control in Azure Cosmos DB
+# Role-based access control in Azure Cosmos DB
 
-Azure Cosmos DB provides built-in Role-based Access Control (RBAC) for common management scenarios in Azure Cosmos DB. These RBAC roles can be assigned to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources. Role assignments are scoped to control-plane access only, which includes access to Azure Cosmos accounts, databases, containers, and offers (throughput).
+Azure Cosmos DB provides built-in role-based access control (RBAC) for common management scenarios in Azure Cosmos DB. An individual who has a profile in Azure Active Directory can assign these RBAC roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources. Role assignments are scoped to control-plane access only, which includes access to Azure Cosmos accounts, databases, containers, and offers (throughput).
 
 ## Built-in roles
 
@@ -21,14 +21,14 @@ The following are the built-in roles supported by Azure Cosmos DB:
 |[DocumentDB Account Contributor](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)   | Can manage Azure Cosmos DB accounts.  |
 |[Cosmos DB Account Reader](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)  | Can read Azure Cosmos DB account data.        |
 |[Cosmos Backup Operator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)     |  Can submit restore request for an Azure Cosmos database or a container.       |
-|[Cosmos DB Operator]()  | Can provision Azure Cosmos accounts, databases, and containers but cannot access the keys that are required to access the data.         |
+|Cosmos DB Operator  | Can provision Azure Cosmos accounts, databases, and containers but cannot access the keys that are required to access the data.         |
 
 > [!IMPORTANT]
 > RBAC support in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured using master keys or resource tokens. To learn more, see [Secure access to data in Azure Cosmos DB](secure-access-to-data.md)
 
 ## Identity and Access Management (IAM)
 
-The **Access control (IAM)** blade in the Azure portal is used to configure Role-based Access Control on Azure Cosmos resources. The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups. The following screenshot shows Active Directory integration (RBAC) using access control (IAM) in the Azure portal:
+The **Access control (IAM)** pane in the Azure portal is used to configure role-based access control on Azure Cosmos resources. The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups. The following screenshot shows Active Directory integration (RBAC) using access control (IAM) in the Azure portal:
 
 ![Access control (IAM) in the Azure portal - demonstrating database security](./media/role-based-access-control/database-security-identity-access-management-rbac.png)
 
