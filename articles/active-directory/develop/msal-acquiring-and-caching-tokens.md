@@ -65,13 +65,14 @@ In many cases, attempting to silently get a token will acquire another token wit
 You can also clear the token cache, which is achieved by removing the accounts from the cache. This does not remove the session cookie which is in the browser, though.
 
 ## Acquiring tokens
+Generally, the method of acquiring a token depends on whether it's a public client or confidential client application.
 
 ### Public client applications
 
-- will often acquire token interactively, having the user sign in through a UI or pop-up window.
-- But it's also possible for a desktop application running on a Windows machine which is joined to a domain or to Azure AD, to [get a token silently for the user signed-in on the machine](https://aka.ms/msal-net-iwa), leveraging Integrated Windows Authentication (IWA/Kerberos). 
-- On .NET framework desktop client applications, it's also possible (but not recommended) to [get a token with a username and password](v2-oauth-ropc.md) (U/P). Note that you should not use username/password in confidential client applications.
-- Finally, for applications running on devices which don't have a Web browser, it's possible to acquire a token through the [device code flow](v2-oauth2-device-code.md) mechanism, which provides the user with a URL and a code. The user goes to a web browser on another device, enters the code and signs-in, which has Azure AD get them a token back on the browser-less device.
+- Often acquire tokens interactively, having the user sign in through a UI or pop-up window.
+- It's also possible for a desktop application running on a Windows computer joined to a domain or to Azure AD to [get a token silently for the signed-in user](https://aka.ms/msal-net-iwa), leveraging Integrated Windows Authentication (IWA/Kerberos). 
+- On .NET framework desktop client applications, it's also possible (but not recommended) to [get a token with a username and password](v2-oauth-ropc.md). Note that you should not use username/password in confidential client applications.
+- Finally, for applications running on devices which don't have a web browser, it's possible to acquire a token through the [device code flow](v2-oauth2-device-code.md) mechanism, which provides the user with a URL and a code. The user goes to a web browser on another device, enters the code and signs-in, which has Azure AD get them a token back on the browser-less device.
 
 ### Confidential client applications 
 
