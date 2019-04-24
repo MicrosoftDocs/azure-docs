@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create Unity iOS app with Azure Spatial Anchors | Microsoft Docs
+title: Quickstart - Create a Unity iOS app with Azure Spatial Anchors | Microsoft Docs
 description: In this quickstart, you learn how to build an iOS app with Unity using Spatial Anchors.
 author: craigktreasure
 manager: aliemami
@@ -12,9 +12,9 @@ ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my Unity iOS app that can place and locate a 3D object that persists across devices and platforms.
 ---
-# Quickstart: Create an Unity iOS app with Azure Spatial Anchors
+# Quickstart: Create a Unity iOS app with Azure Spatial Anchors
 
-This quickstart covers how to create an Unity iOS app using [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an ARKit iOS app built with Unity that can save and recall a spatial anchor.
+This quickstart covers how to create a Unity iOS app using [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an ARKit iOS app built with Unity that can save and recall a spatial anchor.
 
 You'll learn how to:
 
