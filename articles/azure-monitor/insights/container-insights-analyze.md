@@ -131,7 +131,7 @@ You can apply [splitting](../platform/metrics-charts.md#apply-splitting-to-a-cha
 
 ## Analyze nodes, controllers, and container health
 
-When you switch to **Nodes**, **Controllers**, and **Containers** tab, automatically displayed on the right-side of the page is the property pane.  It shows the properties of the item-selected, including labels you define to organize Kubernetes objects. Click on the **>>** link in the pane to view\hide the pane.  
+When you switch to **Nodes**, **Controllers**, and **Containers** tab, automatically displayed on the right-side of the page is the property pane. It shows the properties of the item-selected, including labels you define to organize Kubernetes objects. When a Linux node is selected, it also shows under the section **Local Disk Capacity** the available disk space for each drive presented to the node. Click on the **>>** link in the pane to view\hide the pane. 
 
 ![Example Kubernetes perspectives properties pane](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
