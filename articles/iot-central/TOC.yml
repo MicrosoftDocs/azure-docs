@@ -114,6 +114,8 @@
         href: howto-personalize-dashboard.md
       - name: Manage your preferences
         href: howto-manage-preferences.md
+      - name: Toggle live chat
+        href: howto-show-hide-chat.md
 - name: Related
   items:
   - name: Solutions
