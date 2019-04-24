@@ -120,7 +120,7 @@ Disaster recovery for Azure VMs incurs VM licensing costs, and network and stora
 **Update** | **Details**
 --- | ---
 **Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup)
-**Disaster recovery for Linux** | **Azure VMs**: Added supported for RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> **VMware VMs**: RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Linux-based VMs that use the GUID partition table (GPT) partition style in legacy BIOS compatibility mode are now supported.
+**Disaster recovery for Linux** | **Azure VMs**: Added supported for RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> **VMware VMs**: RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Linux-based VMs that use the GUID partition table (GPT) partition style in legacy BIOS compatibility mode are now supported. See [Frequently asked questions about Azure IaaS VM disks](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/faq-for-disks) for more information. 
 **Cloud support** | Supported disaster recovery for Azure VMs in the Germany cloud.
 **Cross-subscription disaster recovery** | Support for replicating Azure VMs in one region to another region in a different subscription, within the same Azure Active Directory tenant. [Learn more](https://aka.ms/cross-sub-blog).
 **Windows Server 2008** | Support for migrating machines running Windows Server 2008 R2/2008 64-bit and 32-bit.<br/><br/> Migration only (replication and failover). Failback isn't supported.

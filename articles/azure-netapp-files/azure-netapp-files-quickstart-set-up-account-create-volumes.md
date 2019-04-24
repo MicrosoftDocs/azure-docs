@@ -1,5 +1,5 @@
 ---
-title: Set up Azure NetApp Files and create a volume | Microsoft Docs
+title: Set up Azure NetApp Files and create an NFS volume | Microsoft Docs
 description: Describes how to quickly set up Azure NetApp Files and create a volume.
 services: azure-netapp-files
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: b-juche
 ---
-# Set up Azure NetApp Files and create a volume 
+# Set up Azure NetApp Files and create an NFS volume 
 
 This article shows you how to quickly set up Azure NetApp Files and create a volume. 
 
@@ -83,7 +83,7 @@ You need to be part of the Public Preview program and whitelisted for accessing 
 
 5. Click **OK**.
 
-## Create a volume for Azure NetApp Files
+## Create an NFS volume for Azure NetApp Files
 
 1. From the Azure NetApp Files management blade of your NetApp account, click **Volumes**.
 
@@ -95,7 +95,6 @@ You need to be part of the Public Preview program and whitelisted for accessing 
 
 3. In the Create a Volume window, provide information for the volume: 
    1. Enter **myvol1** as the volume name. 
-   2. Enter **myfilepath1** as the file path that will be used to create the export path for the volume.
    3. Select your capacity pool (**mypool1**).
    4. Use the default value for quota. 
    5. Under virtual network, click **Create new** to create a new Azure virtual network (Vnet).  Then fill in the following information:
@@ -111,7 +110,13 @@ You need to be part of the Public Preview program and whitelisted for accessing 
 
       ![Create virtual network window](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
-4. Click **Review + create**.
+4. Click **Protocol**, then select **NFS** as the protocol type for the volume.   
+
+    Enter **myfilepath1** as the file path that will be used to create the export path for the volume. 
+
+    ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+
+5. Click **Review + create**.
 
     ![Review and create window](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)  
 
