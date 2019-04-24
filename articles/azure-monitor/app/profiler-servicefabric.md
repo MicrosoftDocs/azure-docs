@@ -26,7 +26,7 @@ Application Insights Profiler is included with Azure Diagnostics. You can instal
 
 To set up your environment, take the following actions:
 
-1. Profiler supports .net framework and .net core. If you're using .net framework, make sure you're using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later. It's sufficient to confirm that the deployed OS is `Windows Server 2012 R2` or later. Profiler supports .net core 2.1 and newer applications.
+1. Profiler supports .NET Framework and .Net Core. If you're using .NET Framework, make sure you're using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later. It's sufficient to confirm that the deployed OS is `Windows Server 2012 R2` or later. Profiler supports .NET Core 2.1 and newer applications.
 
 1. Search for the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) extension in the deployment template file.
 
