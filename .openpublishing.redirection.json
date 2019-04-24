@@ -36857,6 +36857,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Face/FAQ.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/Glossary.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Computer-vision/Home-v1.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/home",
       "redirect_document_id": false
