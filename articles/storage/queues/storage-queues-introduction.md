@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
+ms.topic: overview
 ms.date: 02/06/2019
 ms.author: tamram
 ms.subservice: queues

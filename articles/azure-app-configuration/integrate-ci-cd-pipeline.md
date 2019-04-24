@@ -45,7 +45,7 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](ht
 
     Add the *ConnectionString* associated with your app configuration store as an environment variable.
 
-2. Open Program.cs, and update the `CreateWebHostBuilder` method to use the exported JSON file by calling the `config.AddJsonFile()` method.
+2. Open *Program.cs*, and update the `CreateWebHostBuilder` method to use the exported JSON file by calling the `config.AddJsonFile()` method.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

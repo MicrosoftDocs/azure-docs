@@ -38,11 +38,11 @@ Request parameters passed on the query string are:
   </tr>
   <tr>
     <td>from</td>
-    <td><em>Optional parameter</em>.<br/>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](./v3-0-languages.md) using the <code>translation</code> scope. If the <code>from</code> parameter is not specified, automatic language detection is applied to determine the source language.</td>
+    <td><em>Optional parameter</em>.<br/>Specifies the language of the input text. Find which languages are available to translate from by looking up <a href="./v3-0-languages.md">supported languages</a> using the <code>translation</code> scope. If the <code>from</code> parameter is not specified, automatic language detection is applied to determine the source language.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td><em>Required parameter</em>.<br/>Specifies the language of the output text. The target language must be one of the [supported languages](./v3-0-languages.md) included in the <code>translation</code> scope. For example, use <code>to=de</code> to translate to German.<br/>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use <code>to=de&to=it</code> to translate to German and Italian.</td>
+    <td><em>Required parameter</em>.<br/>Specifies the language of the output text. The target language must be one of the <a href="./v3-0-languages.md">supported languages</a> included in the <code>translation</code> scope. For example, use <code>to=de</code> to translate to German.<br/>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use <code>to=de&to=it</code> to translate to German and Italian.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -50,15 +50,15 @@ Request parameters passed on the query string are:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Optional parameter</em>.<br/>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../customization.md). Add the Category ID from your Custom Translator project to this parameter to use your deployed customized system. Default value is: <code>general</code>.</td>
+    <td><em>Optional parameter</em>.<br/>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with <a href="../customization.md">Custom Translator</a>. Add the Category ID from your Custom Translator project to this parameter to use your deployed customized system. Default value is: <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
-    <td><em>Optional parameter</em>.<br/>Specifies how profanities should be treated in translations. Possible values are: <code>NoAction</code> (default), <code>Marked</code> or <code>Deleted</code>. To understand ways to treat profanity, see [Profanity handling](#handle-profanity).</td>
+    <td><em>Optional parameter</em>.<br/>Specifies how profanities should be treated in translations. Possible values are: <code>NoAction</code> (default), <code>Marked</code> or <code>Deleted</code>. To understand ways to treat profanity, see <a href="#handle-profanity">Profanity handling</a>.</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
-    <td><em>Optional parameter</em>.<br/>Specifies how profanities should be marked in translations. Possible values are: <code>Asterisk</code> (default) or <code>Tag</code>. To understand ways to treat profanity, see [Profanity handling](#handle-profanity).</td>
+    <td><em>Optional parameter</em>.<br/>Specifies how profanities should be marked in translations. Possible values are: <code>Asterisk</code> (default) or <code>Tag</code>. To understand ways to treat profanity, see <a href="#handle-profanity">Profanity handling</a>.</td>
   </tr>
   <tr>
     <td>includeAlignment</td>
