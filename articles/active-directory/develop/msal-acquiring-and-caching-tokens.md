@@ -22,26 +22,25 @@ ms.collection: M365-identity-device-management
 ---
 
 # Acquiring and caching tokens using MSAL
-Access tokens enable clients to securely call web APIs protected by Azure. When your client requests an access token, Azure AD also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it's valid. This data allows your app to do intelligent caching of access tokens without having to parse the access token itself.  To learn more about tokens, read [access tokens](access-tokens.md).
+[Access tokens](access-tokens.md) enable clients to securely call web APIs protected by Azure. There are many ways to acquire a token using Microsoft Authentication Library (MSAL). Some ways require user interactions through a web browser. Some don't require any user interactions. In general, the way to acquire a token depends on if the application is a public client application (desktop or mobile app) or a confidential client application (Web App, Web API, or daemon application like a Windows service).
 
-There are many ways to acquire a token using Microsoft Authentication Library (MSAL). Some ways require user interactions through a web browser. Some don't require any user interactions. In general, the way to acquire a token depends on if the application is a public client application (desktop or mobile app) or a confidential client application (Web App, Web API, or daemon application like a Windows service).
-
+MSAL caches a token after it has been acquired.  Application code should try to get a token silently (from the cache), first, before acquiring a token by other means.
 
 ## Scopes when acquiring tokens
-Scopes are the permissions that a web API exposes for client applications to request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs. MSAL allows you to get tokens to access Azure AD v1.0 and Azure AD v2.0 APIs. Azure AD v2.0 protocol uses scopes instead of resource in the requests. For more information, read [Azure AD v1.0 and v2.0 comparison](active-directory-v2-compare.md). Based on the web API's configuration of the token version it accepts, the Azure AD v2.0 endpoint returns the access token to MSAL.
+[Scopes](v2-permissions-and-consent.md) are the permissions that a web API exposes for client applications to request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs. MSAL allows you to get tokens to access Azure AD v1.0 and Azure AD v2.0 APIs. Azure AD v2.0 protocol uses scopes instead of resource in the requests. For more information, read [Azure AD v1.0 and v2.0 comparison](active-directory-v2-compare.md). Based on the web API's configuration of the token version it accepts, the Azure AD v2.0 endpoint returns the access token to MSAL.
 
-A number of MSAL acquire token methods require a parameter *scopes* parameter. This parameter is a simple list of strings that declare the desired permissions and resources that are requested. Well known scopes are the [Microsoft Graph permissions](/graph/permissions-reference).
+A number of MSAL acquire token methods require a *scopes* parameter. This parameter is a simple list of strings that declare the desired permissions and resources that are requested. Well known scopes are the [Microsoft Graph permissions](/graph/permissions-reference).
 
 It's also possible in MSAL to access v1.0 resources. For more information, read [Scopes for a v1.0 application](msal-scopes-for-v1-apps.md).
 
 ### Request specific scopes for a web API
-When your application needs to request tokens with specific permissions for any resource API, you will need to pass the scopes containing the app ID URI of the API in the below format: `&lt;app ID URI&gt;/&lt;scope&gt;`
+When your application needs to request tokens with specific permissions for a resource API, you will need to pass the scopes containing the app ID URI of the API in the below format: `&lt;app ID URI&gt;/&lt;scope&gt;`
 
 For example, scopes for Microsoft Graph API: `https://graph.microsoft.com/User.Read`
 
 Or, for example, scopes for a custom web API: `api://abscdefgh-1234-abcd-efgh-1234567890/api.read`
 
-Note: Only for the MS Graph API, a scope value `user.read` maps to `https://graph.microsoft.com/User.Read` format and can be used interchangeably.
+For the Microsoft Graph API, only, a scope value `user.read` maps to `https://graph.microsoft.com/User.Read` format and can be used interchangeably.
 
 Note: Certain web APIs such as Azure Resource Manager API (https://management.core.windows.net/) expect a trailing '/' in the audience claim (aud) of the access token. In this case, it is important to pass the scope as https://management.core.windows.net//user_impersonation (note the double slash), for the token to be valid in the API.
 
@@ -55,14 +54,14 @@ For example: `https://graph.microsoft.com/User.Read` and `https://graph.microsof
 ## Acquiring tokens silently (from the cache)
 MSAL maintains a token cache (or two caches in the case of confidential client applications).  MSAL caches a token after it has been acquired.  Application code should try to get a token silently (from the cache), first, before acquiring a token by other means. 
 
-In many cases, attempting to silently get a token will acquire another token with more scopes based on a token in the cache. It's also capable of refreshing a token when it's getting close to expiration (as the token cache also contains a refresh token).
-
 However, there are two flows before which you **should not** attempt to silently acquire a token:
 
 - [client credentials flow](v2-oauth2-client-creds-grant-flow.md), which does not use the user token cache, but an application token cache. This method takes care of verifying this application token cache before sending a request to the STS.
 - [authorization code flow](v2-oauth2-auth-code-flow.md) in Web Apps, as it redeems a code that the application got by signing-in the user, and having them consent for more scopes. Since a code is passed as a parameter, and not an account, the method cannot look in the cache before redeeming the code, which requires, anyway, a call to the service.
 
-Clearing the cache is achieved by removing the accounts from the cache. This does not remove the session cookie which is in the browser, though.
+In many cases, attempting to silently get a token will acquire another token with more scopes based on a token in the cache. It's also capable of refreshing a token when it's getting close to expiration (as the token cache also contains a refresh token).
+
+You can also clear the token cache, which is achieved by removing the accounts from the cache. This does not remove the session cookie which is in the browser, though.
 
 ## Acquiring tokens
 
@@ -81,11 +80,14 @@ Clearing the cache is achieved by removing the accounts from the cache. This doe
 
 
 ## Authentication results 
-Token acquisition methods return an authentication result, which exposes:
+When your client requests an access token, Azure AD also returns an authentication result which includes some metadata about the access token. This information includes the expiry time of the access token and the scopes for which it's valid. This data allows your app to do intelligent caching of access tokens without having to parse the access token itself.  The authentication result exposes:
 
-- The access token for the web API to access resources. This is a string, usually a base64 encoded JWT but the client should never look inside the access token. The format isn't guaranteed to remain stable and it can be encrypted for the resource. People writing code depending on access token content on the client is one of the biggest sources of errors and client logic breaks.
+- The [access token](access-tokens.md) for the web API to access resources. This is a string, usually a base64 encoded JWT but the client should never look inside the access token. The format isn't guaranteed to remain stable and it can be encrypted for the resource. People writing code depending on access token content on the client is one of the biggest sources of errors and client logic breaks.
 - The [ID token](id-tokens.md) for the user (this is a JWT).
 - The token expiration, which tells the date/time when the token expires.
 - The tenant ID contains the tenant in which the user was found. Note that in the case of guest users (Azure AD B2B scenarios), the tenant ID is the guest tenant, not the unique tenant. When the token is delivered in the name of a user, the authentication result also contains information about this user. For confidential client flows where tokens are requested with no user (for the application), this user information is null.
 - The scopes for which the token was issued.
 - The unique ID for the user.
+
+## Next steps
+Learn about [handling errors and exceptions](msal-handling-exceptions.md). 
