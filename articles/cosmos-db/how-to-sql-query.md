@@ -240,7 +240,7 @@ The results are:
 In the preceding example, the SELECT clause needs to create a JSON object, and since the sample provides no key, the clause uses the implicit argument variable name `$1`. The following query returns two implicit argument variables: `$1` and `$2`.
 
 ```sql
-   SELECT { "state": f.address.state, "city": f.address.city },
+    SELECT { "state": f.address.state, "city": f.address.city },
            { "name": f.id }
     FROM Families f
     WHERE f.id = "AndersenFamily"
@@ -311,7 +311,7 @@ The results are:
 
 ## <a id="DistinctKeyword"></a>DISTINCT Keyword
 
-The DISTINCT keyword will eliminate duplicates in the query's projection.
+The DISTINCT keyword eliminates duplicates in the query's projection.
 
 ```sql
 SELECT DISTINCT VALUE f.lastName
@@ -739,7 +739,7 @@ The results are:
     ]
 ```
 
-Additionally, you can order by multiple fields. A Multi Order By query requires a [Composite Index](index-policy.md#composite-indexes). Consider the following query:
+Additionally, you can order by multiple properties. A query that orders by multiple properties requires a [composite index](index-policy.md#composite-indexes). Consider the following query:
 
 ```sql
     SELECT f.id, f.creationDate
@@ -753,9 +753,9 @@ This query retrieves the family `id`  in ascending order of the city name. If mu
 
 OFFSET LIMIT is an optional clause to skip then take some number of values from the query. The OFFSET count and the LIMIT count are required in the OFFSET LIMIT clause.
 
-When OFFSET LIMIT is used in conjunction with ORDER BY clause, the result set is produced by doing skip and take on the ordered values; otherwise, it will result in a fixed order of values.
+When OFFSET LIMIT is used in conjunction with an ORDER BY clause, the result set is produced by doing skip and take on the ordered values. If no ORDER BY clause is used, it will result in a deterministic order of values.
 
-For example, here's a query that retrieves the second page (page size of 1) of families in order of the resident city's name:
+For example, here's a query that skips the first value and returns the second value (in order of the resident city's name):
 
 ```sql
     SELECT f.id, f.address.city
@@ -775,7 +775,7 @@ The results are:
     ]
 ```
 
-Here's a query that retrieves the second page (page size of 1) of families without ordering:
+Here's a query that skips the first value and returns the second value (without ordering):
 
 ```sql
    SELECT f.id, f.address.city
