@@ -3,7 +3,7 @@ title: Tutorial - Customize the interface of user experiences - Azure Active Dir
 description: Learn how to customize the user interface of your applications in Azure Active Directory B2C using the Azure portal.
 services: B2C
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
