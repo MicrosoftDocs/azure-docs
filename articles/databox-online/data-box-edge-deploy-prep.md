@@ -50,8 +50,8 @@ Following are the configuration prerequisites for your Data Box Edge resource, y
 Before you begin, make sure that:
 
 - Your Microsoft Azure subscription is enabled for a Data Box Edge resource. Pay-as-you-go subscriptions are not supported.
-- Make sure that you have owner or contributor access to your subscription.
-- Make sure that you have admin or user access to Azure Active Directory Graph API. For more information, see [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+- You have owner or contributor access to your subscription.
+- You have admin or user access to Azure Active Directory Graph API. For more information, see [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - You have your Microsoft Azure storage account with access credentials.
 
 ### For the Data Box Edge device
