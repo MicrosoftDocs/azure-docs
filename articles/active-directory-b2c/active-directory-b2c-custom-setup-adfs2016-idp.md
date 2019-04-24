@@ -3,7 +3,7 @@ title: Add ADFS as a SAML identity provider using custom policies in Azure Activ
 description: Set up ADFS 2016 using the SAML protocol and custom policies in Azure Active Directory B2C
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
