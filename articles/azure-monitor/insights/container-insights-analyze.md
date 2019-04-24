@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2019
+ms.date: 04/24/2019
 ms.author: magoedte
 ---
 
@@ -22,15 +22,15 @@ This article will help you understand the experience between the two perspective
 
 For information about enabling Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
 
-Azure Monitor provides a multi-cluster view showing the health status of all monitored AKS clusters deployed across resource groups in your subscriptions.  It shows AKS clusters discovered that are not monitored by the solution. Immediately you can understand cluster health, and from here you can drill down to the node and controller performance page, or navigate to see performance charts for the cluster.  For AKS clusters discovered and identified as unmonitored, you can enable monitoring for that cluster at any time.  
+Azure Monitor provides a multi-cluster view showing the health status of all monitored AKS clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions.  It shows AKS clusters discovered that are not monitored by the solution. Immediately you can understand cluster health, and from here you can drill down to the node and controller performance page, or navigate to see performance charts for the cluster.  For AKS clusters discovered and identified as unmonitored, you can enable monitoring for that cluster at any time.  
 
-The main differences monitoring a Windows cluster with Azure Monitor for containers compared to a Linux cluster are the following:
+The main differences monitoring a Windows Server cluster with Azure Monitor for containers compared to a Linux cluster are the following:
 
 - Memory RSS metric is not available for Windows node and containers 
-- Disk capacity information is not available for Windows nodes
+- Disk storage capacity information is not available for Windows nodes
 - Live logs support is available with the exception of Windows container logs.
 - Only pod environments are monitored, not Docker environments.
-- With the preview release for monitoring Windows clusters, a maximum of 30 windows containers are supported. This limitation does not apply to Linux containers.  
+- With the preview release, a maximum of 30 Windows Server containers are supported. This limitation does not apply to Linux containers.  
 
 ## Sign in to the Azure portal
 Sign in to the [Azure portal](https://portal.azure.com). 
@@ -146,6 +146,10 @@ Specifying a filter in one tab continues to be applied when you select another a
 Switch to the **Nodes** tab and the row hierarchy follows the Kubernetes object model, starting with a node in your cluster. Expand the node and you can view one or more pods running on the node. If more than one container is grouped to a pod, they are displayed as the last row in the hierarchy. You can also view how many non-pod related workloads are running on the host if the host has processor or memory pressure.
 
 ![Example Kubernetes Node hierarchy in the performance view](./media/container-insights-analyze/containers-nodes-view.png)
+
+Windows Server containers running the Windows Server 2019 OS are shown after all of the Linux-based nodes in the list. When you expand a Windows Server node, you can view one or more pods and containers running on the node. When a node is selected, the properties pane shows version information, excluding agent information since Windows Server nodes do not have an agent installed.  
+
+![Example Node hierarchy with Windows Server nodes listed](./media/container-insights-analyze/nodes-view-windows.png) 
 
 Azure Container Instances Virtual Nodes running the Linux OS are shown after the last AKS cluster node in the list.  When you expand an ACI Virtual Node, you can view one or more ACI pods and containers running on the node.  Metrics are not collected and reported for nodes, only pods.
 
