@@ -240,7 +240,32 @@ A likely outcome would be a generated structure similar to the following illustr
 
 ![Sample output structure](media/cognitive-search-defining-skillset/enriched-doc.png "Sample output structure")
 
-Recall that this structure is internal. You cannot actually retrieve this graph in code.
+Until now, this structure has been internal only. Now, with the knowledge store you can save the shaped enrichment for use outside of search.
+
+## Knowledge Store
+The knowledge store is a preview feature in Azure Search for saving your enriched document. The knowledge store, backed by a storage account, is the repository where your enriched data lands. To learn more about the knowledge store see [how to get started with knowledge store](knowledge-store-howto.md).
+
+To get started with the knowledge store, add the knowledge store definition to the skillset.
+```json
+    "knowledgeStore": {
+      "storageConnectionString": "<a storage connection string>",
+      "projections" : [
+        {
+          "tables": [ ]
+        },
+        {
+          "objects": [
+            {
+              "storageContainer": "containername",
+              "source": "/document/EnrichedShape/",
+              "key": "/document/Id"
+            }
+          ]
+        }
+      ]
+    }
+```
+You can choose to save the enriched documents as tables with hierarchical relationships preserved or as JSON documents in blob storage. Output from any of the skills in the skillset can be sourced as the input for the projection. If you are looking to project the data into a specific shape, the updated [shaper skill](cognitive-search-skill-shaper.md) can now model complex types for you to use. 
 
 <a name="next-step"></a>
 ## Next steps
