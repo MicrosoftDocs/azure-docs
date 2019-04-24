@@ -4371,6 +4371,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/logic-apps/logic-apps-enterprise-integration-as2-encode.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-as2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-enterprise-integration-as2-decode.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-as2",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/logic-apps/custom-connector-build-web-api-app-tutorial.md",
       "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors/create-web-api-connector",
       "redirect_document_id": true
@@ -4695,7 +4705,11 @@
       "redirect_url": "/azure/automation/source-control-integration",
       "redirect_document_id": false
     },
-
+    {
+      "source_path": "articles/virtual-machines/extensions/custom-script-classic.md",
+      "redirect_url": "/azure/virtual-machines/extensions/custom-script-windows",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/automation/automation-credentials.md",
       "redirect_url": "/azure/automation/shared-resources/credentials",
@@ -5113,6 +5127,16 @@
       "source_path": "articles/app-service-web/app-service-web-arm-from-github-provision.md",
       "redirect_url": "/azure/app-service/samples-resource-manager-templates",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/index-types.md",
+      "redirect_url": "/azure/cosmos-db/index-overview#index-kinds",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/index-paths.md",
+      "redirect_url": "/azure/cosmos-db/index-policy#including-and-excluding-property-paths",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/app-service-web/app-service-web-arm-with-msdeploy-provision.md",
@@ -23377,6 +23401,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-service-encryption-customer-managed-keys.md",
+      "redirect_url": "/azure/storage/common/storage-encryption-keys-portal",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-service-encryption.md",
       "redirect_url": "/azure/storage/common/storage-service-encryption",
       "redirect_document_id": true
@@ -36978,6 +37007,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/aks/container-service-quotas.md",
+      "redirect_url": "/azure/aks/quotas-skus-regions",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/publish-knowledge-base.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-knowledge-base",
       "redirect_document_id": true
@@ -38473,8 +38507,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/aks/aad-integration.md",
+      "redirect_url": "/azure/aks/azure-ad-integration",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/app-service/app-service-jre-support.md",
       "redirect_url": "/azure/app-service/configure-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-data-lake-storage-security-guide.md",
+      "redirect_url": "/azure/storage/common/storage-security-guide",
       "redirect_document_id": false
     }
   ]
