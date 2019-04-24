@@ -539,7 +539,9 @@ prefittedsoftvotingclassifier
  'subsample_for_bin': 200000,
  'subsample_freq': 0,
  'verbose': -10}
- 
+
+<a name="explain"></a>
+
 ## Explain the model (interpretability)
 
 While automated machine learning capabilities are generally available, **the model explainability/interpretability feature is still in public preview.**
