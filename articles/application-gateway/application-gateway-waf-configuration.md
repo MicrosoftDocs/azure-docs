@@ -62,7 +62,7 @@ The following examples demonstrate the use of exclusions.
 
 In this example, you want to exclude the user-agent header. The user-agent request header contains a characteristic string that allows the network protocol peers to identify the application type, operating system, software vendor, or software version of the requesting software user agent. For more information, see [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
 
-There can be any number of reasons to disable this header. There could be a string that the WAF sees and assume it’s malicious. For example, the classic SQL attack “x=x” in a string. In some cases, this can be legitimate traffic. So you might need to exclude this header from WAF evaluation.
+There can be any number of reasons to disable evaluating this header. There could be a string that the WAF sees and assume it’s malicious. For example, the classic SQL attack “x=x” in a string. In some cases, this can be legitimate traffic. So you might need to exclude this header from WAF evaluation.
 
 The following Azure PowerShell cmdlet excludes the user-agent header from evaluation:
 
@@ -75,7 +75,7 @@ $exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
 
 ### Example 2
 
-This example excludes the value in the *user* parameter that is passed in the request via the URL. For example, say it’s common in your environment for the user field to contain a string that the WAF views as malicious content, so it blocks it.  You can exclude the *user* parameter in this case so that the WAF doesn't evaluate anything in the field.
+This example excludes the value in the *user* parameter that is passed in the request via the URL. For example, say it’s common in your environment for the user field to contain a string that the WAF views as malicious content, so it blocks it.  You can exclude the user parameter in this case so that the WAF doesn't evaluate anything in the field.
 
 The following Azure PowerShell cmdlet excludes the user parameter from evaluation:
 
