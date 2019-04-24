@@ -25,9 +25,9 @@ The Preview demo environment contains a scenario company, Contoso, that operates
 
 The Time Series Insights Preview explorer demonstrates historical data and root causes analysis. To get started:
 
-1. Create a <a href="https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio" target="_blank" rel="external noopener noreferrer">free Azure account</a> if one hasn't been created.
+1. Create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) if one hasn't been created.
 
-1. Navigate to the <a href="https://insights.timeseries.azure.com/preview/samples" target="_blank" rel="external noopener noreferrer">Contoso Wind Farm demo</a> environment.  
+1. Navigate to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment.  
 
 1. If you're prompted, sign in to the Time Series Insights explorer using your Azure account credentials.
 
