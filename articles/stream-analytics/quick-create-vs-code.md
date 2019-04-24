@@ -36,7 +36,9 @@ Install Azure Stream Analytics extension from the private VSIX package you downl
 
 3. Choose the extension you downloaded as a prerequisite, and select **Install**.  This may take several seconds.
 
-4. Verify that **Azure Stream Analytics Tools** is visible in your **Enabled Extensions**.
+4. When installation finished successfully, select **Reload Now** in the pop up window if you are prompted.
+
+5. Verify that **Azure Stream Analytics Tools** is visible in your **Enabled Extensions**.
 
    ![Azure Stream Analytics Tools under enabled extensions in Visual Studio Code](./media/quick-create-vs-code/enabled-extensions.png)
 
