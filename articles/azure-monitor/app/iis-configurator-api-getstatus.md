@@ -16,8 +16,7 @@ ms.author: tilee
 # IISConfigurator API Reference
 
 ## Disclaimer
-This is a prototype application. 
-We do not recommend using this on your production environments.
+This module is a prototype application, and is not recommended for your production environments.
 
 # Get-ApplicationInsightsMonitoringStatus (v0.2.0-alpha)
 

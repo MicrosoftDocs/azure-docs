@@ -21,8 +21,7 @@ This provides code-less instrumentation of .NET web applications hosted on-prem.
 Once your application is instrumented, your telemetry will be sent to the Azure Portal where you can [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) your application.
 
 ## Disclaimer
-This is a prototype application. 
-We do not recommend using this on your production environments.
+This module is a prototype application, and is not recommended for your production environments.
 
 ## PowerShell Gallery
 
@@ -32,7 +31,7 @@ https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConf
 ## Table of Contents
 
 ### Instructions
-- Review our [Quick Start Instructions](iis-configurator-quick-start.md) to get started now with concise code samples.
+- Review our [Quickstart Instructions](iis-configurator-quickstart.md) to get started now with concise code samples.
 - Review our [Detailed Instructions](iis-configurator-detailed-instructions.md) for a deep dive on how to get started.
 
 ### PowerShell API Reference
@@ -53,7 +52,7 @@ https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConf
 
 - Does IISConfigurator support proxy installations?
 
-  **Yes**. You have multiple options to download the IISConfigurator. If your computer has internet access, you can onboard to the PowerShell Gallery using `-Proxy` parameters. Alternatively, you can manually download this module and either install it on your machine or use the module directly. Each of these options are described in our [Detailed Instructions](DetailedInstructions.md).
+  **Yes**. You have multiple options to download the IISConfigurator. If your computer has internet access, you can onboard to the PowerShell Gallery using `-Proxy` parameters. Alternatively, you can manually download this module and either install it on your machine or use the module directly. Each of these options are described in our [Detailed Instructions](iis-configurator-detailed-instructions.md).
   
 - How to verify the enablement was successful?
 

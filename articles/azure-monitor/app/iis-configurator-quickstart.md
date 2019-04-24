@@ -1,6 +1,6 @@
 ---
 title: IIS Configurator | Microsoft Docs
-description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
 author: tilee
@@ -13,19 +13,18 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# IISConfigurator Quick Start Instructions
+# IISConfigurator Quickstart Instructions
 
-These are the quick start commands expected to work for most environments. 
+This document contains the quickstart commands expected to work for most environments. 
 These instructions depend on the PowerShell Gallery to distribute updates. 
 These commands support the PowerShell `-Proxy` parameter.
 
-Please review our [Detailed instructions](iis-configurator-detailed-instructions.md) page for an explanation of these commands, 
+Review our [Detailed instructions](iis-configurator-detailed-instructions.md) page for an explanation of these commands, 
 instructions on how to customize, and how to troubleshoot.
 
 
 ## Disclaimer
-This is a prototype application. 
-We do not recommend using this on your production environments.
+This module is a prototype application, and is not recommended for your production environments.
 
 
 ### Install Prerequisites
@@ -52,7 +51,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ```
 	
 		
-##  Quick Start (offline install)
+##  Quickstart (offline install)
 ### Manual Download
 Manually download the latest version of the Module from: https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator 
 
