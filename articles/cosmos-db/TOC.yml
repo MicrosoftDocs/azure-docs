@@ -215,6 +215,7 @@
         - name: Access from virtual networks
           href: vnet-service-endpoint.md
         - name: Role-based Access Control
+          displayName: rbac
           href: database-security-rbac.md  
     - name: Enterprise readiness 
       items:
