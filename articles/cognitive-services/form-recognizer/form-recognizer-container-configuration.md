@@ -26,7 +26,7 @@ The **Form Recognizer** container runtime environment is configured using the `d
 
 ## ApiKey configuration setting
 
-The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _FormRecognizer_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
+The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Form Recognizer_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
 
 This setting can be found in the following place:
 
@@ -38,7 +38,7 @@ This setting can be found in the following place:
 
 ## Billing configuration setting
 
-The `Billing` setting specifies the endpoint URI of the _FormRecognizer_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _FormRecognizer_ resource on Azure. The container reports usage about every 10 to 15 minutes.
+The `Billing` setting specifies the endpoint URI of the _Form Recognizer_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Form Recognizer_ resource on Azure. The container reports usage about every 10 to 15 minutes.
 
 This setting can be found in the following place:
 
@@ -61,6 +61,19 @@ This setting can be found in the following place:
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
 
+## Mount settings
+
+Use bind mounts to read and write data to and from the container. You can specify an input mount or output mount by specifying the `--mount` option in the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
+
+The Form Recognizer containers requires an  input and output mount. The input mount can be read-only and is required to access the data that will be used for training and scoring. The output mount has to be writable and will be used to store the models and temporary data.
+
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](form-recognizer-container-howto.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the Docker service account and the host mount location permissions.
+
+|Optional| Name | Data type | Description |
+|-------|------|-----------|-------------|
+|Required| `Input` | String | The target of the input mount. The default value is `/input`.    <br><br>Example:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Required| `Output` | String | The target of the output mount. The default value is `/output`.  <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
+
 ## Example docker run commands
 
 The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](form-recognizer-container-howto.md#stop-the-container) it.
@@ -70,10 +83,12 @@ The following examples use the configuration settings to illustrate how to write
 
 Replace {_argument_name_} with your own values:
 
-| Placeholder | Value | Format or example |
-|-------------|-------|---|
-|{BILLING_KEY} | The endpoint key of the Form Recognizer resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | The billing endpoint value including region.|`https://westus2.api.cognitive.microsoft.com/`|
+| Placeholder | Value |
+|-------------|-------|
+|{BILLING_KEY} | This key is used to start the container, and is available on the Azure portal's Form Recognizer Keys page.  |
+|{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal's Form Recognizer Overview page.|
+|{COMPUTER_VISION_API_KEY}| The key is available on the Azure portal's Computer Vision API Keys page.|
+|{COMPUTER_VISION_ENDPOINT_URI}|The billing endpoint. If you are using a cloud-based Computer Vision resource, the URI value is available on the Azure portal's Computer Vision API  Overview page. If you are using a  `cognitive-services-recognize-text` container, use the billing endpoint URL passed to the container in the `docker run` command.|
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing-configuration-setting).
@@ -87,43 +102,31 @@ The following Docker examples are for the Form Recognizer container.
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-formrecognizer \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
 --mount type=bind,source=c:\input,target=/input  \
 --mount type=bind,source=c:\output,target=/output \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
 formrecognizer:computervisionapikey={COMPUTER_VISION_API_KEY} \
-formrecognizer:computervisionapiendpointuri={COMPUTER_VISION_API_ENDPOINT_URI}
+formrecognizer:computervisionendpointuri={COMPUTER_VISION_ENDPOINT_URI}
 ```
 
 ### Logging example for Form Recognizer
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-formrecognizer \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
 --mount type=bind,source=c:\input,target=/input  \
 --mount type=bind,source=c:\output,target=/output \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
 formrecognizer:computervisionapikey={COMPUTER_VISION_API_KEY} \
-formrecognizer:computervisionapiendpointuri={COMPUTER_VISION_API_ENDPOINT_URI}
+formrecognizer:computervisionendpointuri={COMPUTER_VISION_API_ENDPOINT_URI}
 Logging:Console:LogLevel=Information
 ```
 
-## Mount settings
-
-Use bind mounts to read and write data to and from the container. You can specify an input mount or output mount by specifying the `--mount` option in the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
-
-The Form Recognizer containers requires an  input and output mount. The input mount can be read-only and is required to access the data that will be used for training and scoring. The output mount has to be writable and will be used to store the models and temporary data.
-
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](form-recognizer-container-howto.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the Docker service account and the host mount location permissions.
-
-|Optional| Name | Data type | Description |
-|-------|------|-----------|-------------|
-|Required| `Input` | String | The target of the input mount. The default value is `/input`.    <br><br>Example:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Required| `Output` | String | The target of the output mount. The default value is `/output`.  <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## Next steps
 
