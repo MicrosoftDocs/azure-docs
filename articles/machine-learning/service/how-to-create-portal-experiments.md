@@ -109,22 +109,36 @@ Select the Create Experiment button to populate the following form.
 > For more information on fields click the information tool tip.
 
 ### Data profiling
+
 You can get a vast variety of summary statistics across your data set to verify whether your data set is ML-ready. For non-numeric columns, they include only basic statistics like min, max, and error count. For numeric columns, you can also review their statistical moments and estimated quantiles. Specifically, our data profile includes:
 
-- **Feature**: name of the column which is being summarized.
-- **Profile**: an in-line visualization based on the type inferred. For example, strings, booleans, and dates will have value counts, while decimals (numerics) have approximated histograms. This allows you to gain a quick understanding of the distribution of the data.
-- **Type distribution**: an in-line value count of types within a column. Nulls are their own type, so this visualization is useful for detecting odd or missing values.
-- **Type**: the inferred type of the column. Possible values include: strings, booleans, dates, and decimals. 
-- **Min**: the minimum value of the column. Blank entries appear for features whose type does not have an inherent ordering (e.g. booleans). 
-- **Max**: the maximum value of the column. Like "min," blank entries appear for features with irrelevant types.
-- **Count**: the total number of missing and non-missing entries in the column. 
-- **Not missing count**: the number of entries in the column which are not missing. Note that empty strings and errors are treated as values, so they will not contribute to the "not missing count."
-- **Quantiles** (at 0.1, 1, 5, 25, 50, 75, 95, 99, and 99.9% intervals): the approximated values at each quantile to provide a sense of the distribution of the data. Blank entries appear for features with irrelevant types.
-- **Mean**: the arithmetic mean of the column. Blank entries appear for features with irrelevant types.
-- **Standard deviation**: the standard deviation of the column. Blank entries appear for features with irrelevant types.
-- **Variance**: the variance of the column. Blank entries appear for features with irrelevant types.
-- **Skewness**: the skewness of the column. Blank entries appear for features with irrelevant types.
-- **Kurtosis**: the kurtosis of the column. Blank entries appear for features with irrelevant types.
+* **Feature**: name of the column which is being summarized.
+
+* **Profile**: an in-line visualization based on the type inferred. For example, strings, booleans, and dates will have value counts, while decimals (numerics) have approximated histograms. This allows you to gain a quick understanding of the distribution of the data.
+
+* **Type distribution**: an in-line value count of types within a column. Nulls are their own type, so this visualization is useful for detecting odd or missing values.
+
+* **Type**: the inferred type of the column. Possible values include: strings, booleans, dates, and decimals.
+
+* **Min**: the minimum value of the column. Blank entries appear for features whose type does not have an inherent ordering (e.g. booleans).
+
+* **Max**: the maximum value of the column. Like "min," blank entries appear for features with irrelevant types.
+
+* **Count**: the total number of missing and non-missing entries in the column.
+
+* **Not missing count**: the number of entries in the column which are not missing. Note that empty strings and errors are treated as values, so they will not contribute to the "not missing count."
+
+* **Quantiles** (at 0.1, 1, 5, 25, 50, 75, 95, 99, and 99.9% intervals): the approximated values at each quantile to provide a sense of the distribution of the data. Blank entries appear for features with irrelevant types.
+
+* **Mean**: the arithmetic mean of the column. Blank entries appear for features with irrelevant types.
+
+* **Standard deviation**: the standard deviation of the column. Blank entries appear for features with irrelevant types.
+
+* **Variance**: the variance of the column. Blank entries appear for features with irrelevant types.
+
+* **Skewness**: the skewness of the column. Blank entries appear for features with irrelevant types.
+
+* **Kurtosis**: the kurtosis of the column. Blank entries appear for features with irrelevant types.
 
 Furthermore, you can use these statistics to decide whether you want to include or exclude certain columns. By toggling the selector on each column, you can control the scope across which columns will be used in your automated machine learning experiment.
 
@@ -187,9 +201,10 @@ Automated ML helps you with deploying the model without writing code:
 
 1. (optional) Enter a description for the deployment.
 
-1. Select the target compute type to use. [Learn more about deployments](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where). 
+1. Select the target compute type to use. [Learn more about deployments](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
 
     ![Create deployment form](media/how-to-create-portal-experiments/create-deployment.png)
+
 1. Select "Create" to start the deployment process, it will take several minutes to complete.
 
 1. That's it! You have an operational web service to generate predictions.
