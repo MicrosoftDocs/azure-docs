@@ -116,4 +116,5 @@ The full view (including the chart) would appear like this:
 ![Chart view](media/parameterized-url/url2.png)
 
 ## Next steps
-[Query data using C#](time-series-insights-query-data-csharp.md)
+
+- Learn how to [query data using C#](time-series-insights-query-data-csharp.md).
