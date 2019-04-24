@@ -57,7 +57,7 @@ A named location has the following components:
 The number of named locations you can configure is constrained by the size of the related object in Azure AD. You can configure locations based on of the following limitations:
 
 - One named location with up to 1200 IP ranges.
-- A maximum of 90 named locations with one IP range assigned to each of them.
+- In named locations, you can configure 90 objects of named locations, each can have 1200 IP ranges
 
 Conditional access policy applies to IPv4 and IPv6 traffic. Currently named locations do not allow IPv6 ranges to be configured. This limitation causes the following situations:
 
