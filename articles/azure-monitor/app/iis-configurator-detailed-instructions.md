@@ -145,7 +145,7 @@ SerializationVersion           1.1.0.1
 
 ### Manually download the latest nupkg
 
-1. Navigate to: https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator
+1. Navigate to: https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator.POC
 2. Select the latest version from the version history.
 3. Find "Installation Options" and select "Manual Download".
 

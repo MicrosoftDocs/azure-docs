@@ -15,7 +15,7 @@ ms.author: tilee
 ---
 # Application Insights IISConfigurator
 
-IISConfigurator is a PowerShell Module published to the [PowerShellGallery](https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator) 
+IISConfigurator is a PowerShell Module published to the [PowerShellGallery](https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator.POC) 
 and is the replacement for [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now). 
 This module provides code-less instrumentation of .NET web applications hosted on-prem. 
 Telemetry will be sent to the Azure portal where you can [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) your application.
@@ -25,7 +25,7 @@ Telemetry will be sent to the Azure portal where you can [monitor](https://docs.
 
 ## PowerShell Gallery
 
-https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator
+https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator.POC
 
 
 ## Table of Contents
