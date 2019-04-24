@@ -22,7 +22,7 @@ The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream 
 
 ## Prerequisites
 
-You must install these additional dependencies to use compressed audio input with the Speech SDK for Linux:
+Install these additional dependencies to use compressed audio input with the Speech SDK for Linux:
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
@@ -32,7 +32,7 @@ sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugin
 
 To stream in a compressed audio format to the Speech Services, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
 
-Let's assume that you have an input stream class called `myPushStream` and are using OPUS/OGG. This is what the code may look like: 
+Let's assume that you have an input stream class called `myPushStream` and are using OPUS/OGG. Your code may look like this:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;

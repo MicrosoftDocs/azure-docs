@@ -46,7 +46,7 @@ If you're running Linux, make sure these dependencies are installed before start
   sudo apt-get install libssl1.0.2 libasound2
   ```
 
-If you're running Windows (64-bit) ensure you have installed Microsoft Visual C++ Redistributable for your platform.
+If you're running Windows (64-bit), ensure you have installed Microsoft Visual C++ Redistributable for your platform.
 * [Download Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 ## Create and configure project

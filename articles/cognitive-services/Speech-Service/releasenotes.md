@@ -26,18 +26,18 @@ ms.custom: seodec18
 
 **Samples**
 
-* Added samples for newly added features or new services supported by the SDK.
+* Added samples for new features or new services supported by the SDK.
 
 **Improvements / Changes**
 
-* Added various recognizer properties to adjust service behaviour or service results (like masking profanity and others).
+* Added various recognizer properties to adjust service behavior or service results (like masking profanity and others).
 * You can now configure the recognizer through the standard configuration properties, even if you created the recognizer `FromEndpoint`.
 * Objective-C: `OutputFormat` property was added to SPXSpeechConfiguration.
 * The SDK now supports Debian 9 as a Linux distribution.
 
 **Bug fixes**
 
-* Fixed a problem where the speaker resource was destructed to early in text-to-speech.
+* Fixed a problem where the speaker resource was destructed too early in text-to-speech.
 
 ## Speech SDK 1.4.1
 
