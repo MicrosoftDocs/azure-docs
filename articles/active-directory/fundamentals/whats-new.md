@@ -99,17 +99,17 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### Azure Active Directory (Azure AD) identity governance is now available
+### Azure Active Directory (Azure AD) Identity Governance is now available
 
 **Type:** New feature  
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
 
-Azure Active Directory (Azure AD) identity governance combines several features, including viewing role assignments, creating and viewing access reviews or packages, entitlement management (public preview), Privileged Identity Management (PIM), and the ability to manage your Terms of use in a single view. To learn more about each of the available features along with the relevant tutorials and support information, see [What is Azure AD identity governance?](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview).
+Azure Active Directory (Azure AD) Identity Governance combines several features, including viewing role assignments, creating and viewing access reviews or packages, entitlement management (public preview), Privileged Identity Management (PIM), and the ability to manage your Terms of use in a single view. To learn more about each of the available features along with the relevant tutorials and support information, see [What is Azure AD Identity Governance?](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview).
 
 ---
 
-### New access reviews frequency options and multiple role selection
+### New access reviews frequency option and multiple role selection
 
 **Type:** New feature  
 **Service category:** Access Reviews  
