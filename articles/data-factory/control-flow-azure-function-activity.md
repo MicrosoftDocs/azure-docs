@@ -47,17 +47,17 @@ The return type of the Azure function has to be a valid `JObject`. (Keep in mind
 
 See the schema of the request payload in [Request payload schema](control-flow-web-activity.md#request-payload-schema) section.
 
-## Routing and Queries
+## Routing and queries
 
-The Azure Function Activity supports **routing**. For example, if your Azure Function has the following endpoint - `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>` - then the `functionName` to use in the Azure Function Activity is `<functionName>/<value>`, which you also can parameterize to provide the desired `functionName` at runtime.
+The Azure Function Activity supports **routing**. For example, if your Azure Function has the endpoint  `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`, then the `functionName` to use in the Azure Function Activity is `<functionName>/<value>`. You can parameterize this function to provide the desired `functionName` at runtime.
 
-The Azure Function Activity also supports **queries**. A query has to be included as part of the `functionName`. For example when the function's name is `HttpTriggerCSharp` and the query you want to include is `name=hello`, then you can construct the `functionName` in the Azure Function Activity as `HttpTriggerCSharp?name=hello`. This can also be parameterized so that the value can be determined at runtime.
+The Azure Function Activity also supports **queries**. A query has to be included as part of the `functionName`. For example, when the function name is `HttpTriggerCSharp` and the query that you want to include is `name=hello`, then you can construct the `functionName` in the Azure Function Activity as `HttpTriggerCSharp?name=hello`. This function can be parameterized so the value can be determined at runtime.
 
-## Timeout and Long Running Functions
+## Timeout and long running functions
 
-Azure Functions will timeout after 230 seconds regardless of the `functionTimeout` setting you have configured in the settings. Read about it [here](../../includes/functions-timeout-duration.md). To work around this, you will have to follow an async pattern or use Durable Functions. The benefit of Durable Functions is that they also offer their own state-tracking mechanism, so you will not have to implement your own.
+Azure Functions times out after 230 seconds regardless of the `functionTimeout` setting you've configured in the settings. For more information, see [this article](../../includes/functions-timeout-duration.md). To work around this behavior, follow an async pattern or use Durable Functions. The benefit of Durable Functions is that they offer their own state-tracking mechanism, so you won't have to implement your own.
 
-Learn more about Durable Functions [here](../azure-functions/durable/durable-functions-overview.md). You can set up an Azure Function Activity to call the Durable Function, which will return a response with a different URIs like [this](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery). Since `statusQueryGetUri` returns HTTP Status 202 while the function is running, you can poll the status of the function using a Web Activity. Simply setup a Web Activity with the `url` field set to `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. When the Durable Function completes, the output of the function will be the output of the Web Activity.
+Learn more about Durable Functions in [this article](../azure-functions/durable/durable-functions-overview.md). You can set up an Azure Function Activity to call the Durable Function, which will return a response with a different URI, such as [this example](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery). Because `statusQueryGetUri` returns HTTP Status 202 while the function is running, you can poll the status of the function by using a Web Activity. Simply set up a Web Activity with the `url` field set to `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. When the Durable Function completes, the output of the function will be the output of the Web Activity.
 
 
 ## Next steps
