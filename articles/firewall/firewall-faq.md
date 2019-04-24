@@ -35,7 +35,7 @@ The advantage of this model is the ability to centrally exert control on multipl
 
 ## How can I install the Azure Firewall?
 
-You can set up Azure Firewall by using the Azure portal, PowerShell, REST API, or by using templates. See [Tutorial: Deploy and configure Azure Firewall using the Azure portal](/articles/firewall/tutorial-firewall-deploy-portal.md) for step-by-step instructions.
+You can set up Azure Firewall by using the Azure portal, PowerShell, REST API, or by using templates. See [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md) for step-by-step instructions.
 
 ## What are some Azure Firewall concepts?
 
@@ -53,7 +53,7 @@ Azure Firewall supports inbound and outbound filtering. Inbound protection is fo
 
 ## Which logging and analytics services are supported by the Azure Firewall?
 
-Azure Firewall is integrated with Azure Monitor for viewing and analyzing firewall logs. Logs can be sent to Log Analytics, Azure Storage, or Event Hubs. They can be analyzed in Log Analytics or by different tools such as Excel and Power BI. For more information, see [Tutorial: Monitor Azure Firewall logs](/articles/firewall/tutorial-diagnostics.md).
+Azure Firewall is integrated with Azure Monitor for viewing and analyzing firewall logs. Logs can be sent to Log Analytics, Azure Storage, or Event Hubs. They can be analyzed in Log Analytics or by different tools such as Excel and Power BI. For more information, see [Tutorial: Monitor Azure Firewall logs](tutorial-diagnostics.md).
 
 ## How does Azure Firewall work differently from existing services such as NVAs in the marketplace?
 
@@ -104,7 +104,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## What are the known service limits?
 
-For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](/articles/azure-subscription-service-limits.md#azure-firewall-limits).
+For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md#azure-firewall-limits).
 
 ## Can Azure Firewall in a hub virtual network forward and filter network traffic between two spoke virtual networks?
 
@@ -130,9 +130,9 @@ Yes. The firewall, subnet, VNet, and the public IP address all must be in the sa
 
 ## When configuring DNAT for inbound network traffic, do I also need to configure a corresponding network rule to allow that traffic?
 
-No. NAT rules implicitly add a corresponding network rule to allow the translated traffic. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](/articles/firewall/rule-processing.md).
+No. NAT rules implicitly add a corresponding network rule to allow the translated traffic. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
 
-## How to wildcards work in an application rule target FQDN?
+## How do wildcards work in an application rule target FQDN?
 
 If you configure ***.contoso.com**, it allows *anyvalue*.contoso.com, but not contoso.com (the domain apex). If you want to allow the domain apex, you must explicitly configure it as a target FQDN.
 
