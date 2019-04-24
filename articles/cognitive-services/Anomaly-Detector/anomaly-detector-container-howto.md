@@ -17,7 +17,7 @@ The Anomaly Detector has the following container:
 
 |Function|Features|
 |-|-|
-|anomaly-detector| <li> Detects anomalies as they occur in real-time. <li> Detects anomalies throughout your data set as a batch. <li> Infers the expected normal range of your data. <li> Supports anomaly detection sensitivity adjustment to better fit your data. |
+|Anomaly detector| <li> Detects anomalies as they occur in real-time. <li> Detects anomalies throughout your data set as a batch. <li> Infers the expected normal range of your data. <li> Supports anomaly detection sensitivity adjustment to better fit your data. |
 
 For detailed information about the APIs, please see:
 * [Learn more about Anomaly Detector API service](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
@@ -33,6 +33,14 @@ You must meet the following prerequisites before using Anomaly Detector containe
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Anomaly Detector resource |In order to use these containers, you must have:<br><br>An _Anomaly Detector_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Anomaly Detector Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus2.api.cognitive.microsoft.com`|
+
+## Request access to the container registry
+
+You must first complete and submit the [Cognitive Services Anamoly Detector Containers Request form](https://aka.ms/adcontainer) to request access to the container.
+
+[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
+
+[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
 ### The host computer
 
@@ -62,7 +70,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 | Container | Repository |
 |-----------|------------|
-| anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest` |
+| cognitive-services-anomaly-detector | `containerpreview.azurecr.io/microsoft/cognitive-services:latest` |
 
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
 
@@ -72,7 +80,7 @@ For a full description of available tags, such as `latest` used in the preceding
 ### Docker pull for the Anomaly Detector container
 
 ```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services:latest
 ```
 
 ## How to use the container
@@ -95,7 +103,7 @@ Replace these parameters with your own values in the following example `docker r
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest \
+containerpreview.azurecr.io/microsoft/cognitive-services:latest \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}

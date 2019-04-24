@@ -113,7 +113,7 @@ The following Docker examples are for the Anomaly Detector container.
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  mcr.microsoft.com/azure-cognitive-services/anomaly-detector \
+  containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector \
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} \
   ApiKey={BILLING_KEY} 
@@ -123,7 +123,7 @@ The following Docker examples are for the Anomaly Detector container.
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  mcr.microsoft.com/azure-cognitive-services/anomaly-detector \
+  containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector \
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
   Logging:Console:LogLevel:Default=Information
