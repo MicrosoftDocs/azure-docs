@@ -67,7 +67,7 @@ In every automated machine learning experiment, your data is automatically scale
 | [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |	This transformer performs linear dimensionality reduction by means of truncated singular value decomposition (SVD). Contrary to PCA, this estimator does not center the data before computing the singular value decomposition. This means it can work with scipy.sparse matrices efficiently |	
 | [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Each sample (that is, each row of the data matrix) with at least one non-zero component is rescaled independently of other samples so that its norm (l1 or l2) equals one |	
 
-Additional advanced preprocessing and featurization is also available, such as missing values imputation, encoding, transforms, WoE. Enable this setting by:
+Additional advanced preprocessing and featurization is also available, such as missing values imputation, encoding, transforms, WoE. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). Enable this setting by:
 + Azure portal: Selecting the **Preprocess** checkbox in the **Advanced settings** [with these steps](how-to-create-portal-experiments.md). 
 + Python SDK: Specifying `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
