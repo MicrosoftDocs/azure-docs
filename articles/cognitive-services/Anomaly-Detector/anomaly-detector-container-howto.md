@@ -42,7 +42,7 @@ You must first complete and submit the [Cognitive Services Anomaly Detector Cont
 
 [!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
-### The host computer
+## The host computer
 
 The **host** is the computer that runs the docker container. It can be a computer on your premises or a docker hosting service in Azure including:
 
