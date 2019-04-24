@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Learn how to add, change, or delete a virtual network subnet in Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Add, change, or delete a virtual network subnet

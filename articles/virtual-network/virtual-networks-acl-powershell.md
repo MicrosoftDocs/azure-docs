@@ -3,7 +3,7 @@ title: Manage Azure endpoint access control lists | PowerShell | Classic | Micro
 description: Learn how to manage ACLs with PowerShell
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 manager: carmonm
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
+ms.author: kumud
 
 ---
 # Manage endpoint access control lists using PowerShell in the classic deployment model
