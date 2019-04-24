@@ -44,11 +44,11 @@ Consider the following guidelines when you choose a wake word:
 
 Before you can use a custom wake word with your device, you'll need to create a wake word with the Microsoft Custom Wake Word Generation service. After you provide a wake word, the service produces a file that you deploy to your development kit to enable the wake word on your device.
 
-1. Go to the [Custom Speech Service Portal](https://portal.develop.cris.ai/) and **Sign in** or if you do not have a speech subscription choose [**Create a subscription**](https://go.microsoft.com/fwlink/?linkid=2086754)
+1. Go to the [Custom Speech Service Portal](https://aka.ms/sdsdk-speechportal) and **Sign in** or if you do not have a speech subscription choose [**Create a subscription**](https://go.microsoft.com/fwlink/?linkid=2086754)
 
     ![The Custom Speech Service Portal](media/speech-devices-sdk/wake-word-4.png)
 
-1. At the [Custom Wake Word](https://speech.azure.ai/app.html#/CustomWakeWord) page type in the wake word of your choice and click **Add wake word**. We have some [guidelines](#choose-an-effective-wake-word) to help choose an effective keyword. Currently we only support en-US language.
+1. At the [Custom Wake Word](https://aka.ms/sdsdk-wakewordportal) page type in the wake word of your choice and click **Add wake word**. We have some [guidelines](#choose-an-effective-wake-word) to help choose an effective keyword. Currently we only support en-US language.
 
     ![Enter your wake word](media/speech-devices-sdk/wake-word-5.png)
 
