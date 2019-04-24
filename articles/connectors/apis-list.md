@@ -47,7 +47,9 @@ these connectors provide triggers and actions for accessing
 other services and systems such as Office 365, Azure Blob Storage, 
 SQL Server, Salesforce, and more. Some connectors require that 
 you first create connections, which are managed by Azure Logic Apps. 
-These connectors are classified as either Standard or Enterprise:
+These connectors are classified as either Standard or Enterprise, 
+but for specific information about each connector, review the connector 
+references pages under [Connectors overview](https://docs.microsoft.com/connectors):
 
   * **Standard**
 
