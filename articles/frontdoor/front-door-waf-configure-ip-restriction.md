@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/18/2019
+ms.date: 04/23/2019
 ms.author: kumud;tyao
 
 ---
@@ -165,13 +165,10 @@ Create a Block all IP rule with lower priority than the previous IP allow rule.
 ### Configure WAF policy
 Find the name of the resource group that contains the Front Door profile using `Get-AzResourceGroup`. Next, configure a WAF policy with the IP block rule using [New-AzFrontDoorFireWallPolicy](/powershell/module/Az.FrontDoor/New-AzFrontDoorFireWallPolicy).
 
-The below example uses the Resource Group name *myResourceGroupFD1* with the assumption that you have created the Front Door profile using instructions provided in the [Quickstart: Create a Front Door](quickstart-create-front-door.md) article.
-
-
 ```powershell-interactive
   $IPAllowPolicyExamplePS = New-AzFrontDoorFireWallPolicy `
     -Name "IPRestrictionExamplePS" `
-    -resourceGroupName myResourceGroupFD1 `
+    -resourceGroupName <resource-group-name> `
     -Customrule $IPAllowRule $IPBlockAll `
     -Mode Prevention `
     -EnabledState Enabled
@@ -183,7 +180,7 @@ Link the WAF policy object to an existing Front Door front-end host and update F
 
 ```powershell-interactive
   $FrontDoorObjectExample = Get-AzFrontDoor `
-    -ResourceGroupName myResourceGroupFD1 `
+    -ResourceGroupName <resource-group-name> `
     -Name $frontDoorName
   $FrontDoorObjectExample[0].FrontendEndpoints[0].WebApplicationFirewallPolicyLink = $IPBlockPolicy.Id
   Set-AzFrontDoor -InputObject $FrontDoorObjectExample[0]

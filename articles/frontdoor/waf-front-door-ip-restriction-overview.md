@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/18/2019
+ms.date: 04/24/2019
 ms.author: kumud;tyao
 
 ---
@@ -20,7 +20,7 @@ ms.author: kumud;tyao
 > [!IMPORTANT]
 > The WAF IP restriction feature for Azure Front Door is currently in public preview. This preview version is provided without a Service Level Agreement, and it is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can configure a WAF policy and associate that policy to one or more Front Door front-ends for protection. A WAF policy consists of two types of security rules: (1) custom rules, authored by the customer, and (2) managed rulesets, a collection of Azure-managed pre-configured set of rules. When both are present, custom rules are executed before executing rules in a managed rule set. A rule is made of a match condition, a priority, and an action. Action types supported are: ALLOW, BLOCK, LOG, and REDIRECT. You can create a fully customized policy that meets your specific application protection requirements by combining managed and custom rules.
+You can configure a WAF policy and associate that policy to one or more Front Door front-ends for protection. A WAF policy consists of two types of security rules: (1) custom rules, authored by the customer, and (2) managed rulesets, a collection of Azure-managed pre-configured set of rules. When both are present, custom rules are executed before executing rules in a managed rule set. A custom rule is made of a match condition, a priority, and an action. Action types supported are: ALLOW, BLOCK, LOG, and REDIRECT. You can create a fully customized policy that meets your specific application protection requirements by combining managed and custom rules.
 
 An IP address based access control rule is a custom WAF rule that allows you to control access to your web applications by specifying a list of IP addresses or IP address ranges in Classless Inter-Domain Routing (CIDR) form.
 
