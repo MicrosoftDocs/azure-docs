@@ -72,6 +72,8 @@
       href: analysis-services-async-refresh.md
     - name: Refresh with Logic Apps
       href: analysis-services-refresh-logic-app.md
+    - name: Refresh with Azure Automation
+      href: analysis-services-refresh-azure-automation.md
     - name: Data modeling in Visual Studio - Adventure Works (1400) tutorial
       href: tutorials/aas-adventure-works-tutorial.md
       items:
