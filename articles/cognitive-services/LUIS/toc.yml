@@ -271,7 +271,7 @@
     href: luis-user-privacy.md
   - name: Regions
     href: luis-reference-regions.md
-    displayName: failover, fail-over, fail over, Europe, EU, Austrailia, business continuity, bcdr
+    displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
   - name: Boundaries
     href: luis-boundaries.md
   - name: Prebuilt entity reference
