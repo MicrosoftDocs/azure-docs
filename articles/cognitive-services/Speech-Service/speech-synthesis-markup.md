@@ -30,7 +30,7 @@ By default, the text-to-speech service synthesizes text in a neutral style. The 
 * `en-US-JessaNeural` 
 * `zh-CN-XiaoxiaoNeural`.
 
-Speaking style changes can be applied at the sentence level. The styles vary by voice. If a style type is not supported, the service will return the synthesized speech as the default netural style.
+Speaking style changes can be applied at the sentence level. The styles vary by voice. If a style type is not supported, the service will return the synthesized speech as the default neutral style.
 
 | Voice | Style | Description | 
 |-----------|-----------------|----------|
