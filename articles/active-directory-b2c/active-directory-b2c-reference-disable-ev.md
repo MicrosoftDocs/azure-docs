@@ -3,7 +3,7 @@ title: Disable email verification during consumer sign-up in Azure Active Direct
 description: A topic demonstrating how to disable email verification during consumer sign-up in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
