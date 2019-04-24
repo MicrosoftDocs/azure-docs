@@ -32,7 +32,7 @@ The following example creates an Azure Cosmos DB Cassandra API from an [Azure Qu
 
 Here is a copy of the template:
 
-[!code-json[create-cosmos-cassandra](~/101-cosmosdb-create-arm-template/azuredeploy.json)]
+[!code-json[create-cosmos-cassandra](~/tree/master/101-cosmosdb-create-arm-template/azuredeploy.json)]
 
 To deploy the Resource Manager template using Azure CLI. Select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
 
