@@ -33,7 +33,7 @@ You can also clear the token cache, which is achieved by removing the accounts f
 
 A number of MSAL acquire token methods require a *scopes* parameter. This parameter is a simple list of strings that declare the desired permissions and resources that are requested. Well known scopes are the [Microsoft Graph permissions](/graph/permissions-reference).
 
-It's also possible in MSAL to access v1.0 resources. For more information, read [Scopes for a v1.0 application](msal-scopes-for-v1-apps.md).
+It's also possible in MSAL to access v1.0 resources. For more information, read [Scopes for a v1.0 application](msal-v1-app-scopes.md).
 
 ### Request specific scopes for a web API
 When your application needs to request tokens with specific permissions for a resource API, you will need to pass the scopes containing the app ID URI of the API in the below format: *&lt;app ID URI&gt;/&lt;scope&gt;*
