@@ -88,4 +88,4 @@ No. As long as your container group is running, we hold the resources in case yo
 ## Next steps
 
 * [Learn more](container-instances-overview.md) about Azure Container Instances.
-* [Troubleshoot common issues](container-instances-troubleshoot.md) in Azure Container Instances.
+* [Troubleshoot common issues](container-instances-troubleshooting.md) in Azure Container Instances.
