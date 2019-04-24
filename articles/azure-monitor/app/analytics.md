@@ -34,7 +34,7 @@ You cannot directly access data in a Log Analytics workspace from Application In
 
 ## Query data in Analytics
 A typical query starts with a table name followed by a series of *operators* separated by `|`.
-For example, let's find out how many requests our app received from different countries, during the last 3 hours:
+For example, let's find out how many requests our app received from different countries/regions, during the last 3 hours:
 ```AIQL
 requests
 | where timestamp > ago(3h)

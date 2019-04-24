@@ -64,7 +64,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
 
     The ambiguous query string of "pizza" returned 10 [point of interest result](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) results with categories falling in "pizza" and "restaurant". Each result returns a street address, latitude / longitude values, view port, and entry points for the location.
   
-    The results are varied for this query, not tied to any particular reference location. You can use the **countrySet** parameter to specify only the countries for which your application needs coverage, as the default behavior is to search the entire world, potentially returning unnecessary results.
+    The results are varied for this query, not tied to any particular reference location. You can use the **countrySet** parameter to specify only the countries/regions for which your application needs coverage, as the default behavior is to search the entire world, potentially returning unnecessary results.
 
 5. Add the following Key / Value pair to the **Params** section and click **Send**:
 

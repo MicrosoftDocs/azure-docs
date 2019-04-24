@@ -119,7 +119,7 @@ Azure Maps uses a key-based authentication scheme. Your account comes with two k
 
 ## Supported regions
 
-The Azure Maps API is currently available in all countries except for the following regions:
+The Azure Maps API is currently available in all countries/regions except for the following regions:
 
 * Argentina
 * China
@@ -128,7 +128,7 @@ The Azure Maps API is currently available in all countries except for the follow
 * Pakistan
 * South Korea
 
-Verify that the location of your current IP address isn't in one of the unsupported countries above.
+Verify that the location of your current IP address isn't in one of the unsupported countries/regions above.
 
 ## Next steps
 
