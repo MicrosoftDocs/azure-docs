@@ -64,44 +64,17 @@ steps:
 
 You can use the following samples to create your YAML file to build your JavaScript app:
 
-##### Linux Azure Functions
-
 ```yaml
 jobs:
   - job: Build
     pool:
-      vmImage: ubuntu-16.04
+      vmImage: ubuntu-16.04 # Use 'VS2017-Win2016' for Windows Azure Functions
 steps:
-- script: |
+- bash: |
     if [ -f extensions.csproj ]
     then
         dotnet build extensions.csproj --output ./bin
     fi
-    npm install 
-    npm run build --if-present
-    npm prune --production
-- task: ArchiveFiles@2
-  displayName: "Archive files"
-  inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output/s"
-    includeRootFolder: false
-    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
-    name: 'drop'
-```
-
-##### Windows Azure Functions
-
-```yaml
-jobs:
-  - job: Build
-    pool:
-      vmImage: 'VS2017-Win2016'
-steps:
-- script: |
-    IF EXIST *.csproj dotnet build extensions.csproj --output ./bin
     npm install 
     npm run build --if-present
     npm prune --production
@@ -132,7 +105,7 @@ steps:
   inputs:
     versionSpec: '3.6'
     architecture: 'x64'
-- script: |
+- bash: |
     if [ -f extensions.csproj ]
     then
         dotnet build extensions.csproj --output ./bin
@@ -236,4 +209,5 @@ The pre-requisites for this command depend on the location of your code:
 
 ## Next steps
 
-+ [Need to add something here](https://www.microsoft.com)
++ [Azure Functions Overview](functions-overview.md)
++ [Azure DevOps Overview](/devops/pipelines/)
