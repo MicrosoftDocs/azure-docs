@@ -50,7 +50,7 @@ az extension add --name aks-preview
 
 ### Register multiple node pool feature provider
 
-To create an AKS cluster that can use multiple node pools and run Windows Server containers, first enable four feature flags on your subscription. Multi-node pool clusters use a virtual machine scale set (VMSS) to manage the deployment and configuration of the Kubernetes nodes. Register the *MultiAgentpoolPreview*, *VMSSPreview*, *EnableSingleIPPerCCP*, and *WindowsPreview* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
+To create an AKS cluster that can use multiple node pools and run Windows Server containers, first enable four feature flags on your subscription. Multi-node pool clusters use a virtual machine scale set to manage the deployment and configuration of the Kubernetes nodes. Register the *MultiAgentpoolPreview*, *VMSSPreview*, *EnableSingleIPPerCCP*, and *WindowsPreview* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
 az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
