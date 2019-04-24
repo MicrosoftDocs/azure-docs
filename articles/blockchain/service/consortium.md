@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/23/2019
+ms.date: 04/24/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -62,7 +62,7 @@ Administrators can remove any participant from the consortium, including other a
 
 Consortium management in Azure Blockchain Service is done via consortium management smart contracts. The smart contracts are automatically deployed to your nodes when you deploy a new blockchain member. <!--For a reference of the consortium management smart contracts, see [GitHub link]-->.
 
-The address of the root consortium managment smart contract can be viewed in the Azure portal. The **RootContract address** is in blockchain member's overview section.
+The address of the root consortium management smart contract can be viewed in the Azure portal. The **RootContract address** is in blockchain member's overview section.
 
 ![RootContract address](./media/consortium/rootcontract-address.png)
 

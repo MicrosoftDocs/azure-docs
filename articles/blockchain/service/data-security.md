@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/23/2019
+ms.date: 04/24/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
@@ -29,7 +29,7 @@ User data is stored in Azure storage. User data is encrypted in motion and at re
 
 ## Authentication
 
-Transactions can be sent to blockchain nodes via a RPC endpoint. Clients communicate with a transaction node using a reverse proxy server that handles user authentication and encrypts data over SSL.
+Transactions can be sent to blockchain nodes via an RPC endpoint. Clients communicate with a transaction node using a reverse proxy server that handles user authentication and encrypts data over SSL.
 
 ![Authentication diagram](./media/data-security/authentication.png)
 
@@ -47,7 +47,7 @@ The Azure AD client proxy is available on [GitHub](https://github.com/Microsoft/
 
 When provisioning a blockchain ledger service, an Ethereum account and a public and private key pair is generated. The private key is used to send transactions to the blockchain. The Ethereum account is the last 20 bytes of the public key's hash. The Ethereum account is also called a wallet.
 
-The private and public key pair is stored as a keyfile in JSON format. The private key is encrypted using the password entered when the the blockchain ledger service is created.
+The private and public key pair is stored as a keyfile in JSON format. The private key is encrypted using the password entered when the blockchain ledger service is created.
 
 Private keys are used to digitally sign transactions. In private blockchains, a smart contract signed by a private key represents the
 signer's identity. To verify the validity of the signature, the receiver can compare the public key of the signer with the address
