@@ -120,7 +120,7 @@ When defining a table projection within the knowledgeStore object of your skills
 ```
 As demonstrated in this example, the key phrases and entities are modeled into different tables and will contain a reference back to the parent (MainTable) for each row. For example in  scenario a scenario where a case has multiple opinions and each opinion is being enriched by identifying entities contained within. You could model the projections as shown here.
 
-![Entities and relationships in tables](media/knowledge-store-projections/-overviewtable-relationships.png "Modeling relationships in table projections")
+![Entities and relationships in tables](media/knowledge-store-projection-overview/table-relationships.png "Modeling relationships in table projections")
 
 ## Object Projections
 As described earlier, object projections are JSON representations of the enrichment tree that can be sourced from any node. In many cases, the same shaper skill defined to create the shape for table projections can be used to generate the object projection. If needed additional shaper skills can also be added to the skillset to generate new shapes of the enriched document needed for projecting as objects.
