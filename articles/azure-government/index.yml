@@ -47,27 +47,6 @@ sections:
         src: media/index/powershell.svg
       text: PowerShell
       href: documentation-government-get-started-connect-with-ps.md
-  - type: paragraph
-    text: 'Use dev tools for developing and deploying applications on Azure Government'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/DevOpsPipelines.svg
-      text: Azure Pipelines
-      href: connect-with-azure-pipelines.md
-    - image:
-        src: media/index/logo_vs.svg
-      text: Visual Studio
-      href: documentation-government-get-started-connect-with-vs.md
-    - image:
-        src: media/index/SSMS_Logo.svg
-      text: SSMS
-      href: documentation-government-connect-ssms.md
-    - image:
-        src: media/index/storage.svg
-      text: Azure storage
-      href: documentation-government-get-started-connect-to-storage.md
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -85,6 +64,5 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/azure-government/documentation-government-image-gallery">Images</a>
-    - html: <a href="/azure/azure-government/documentation-government-manage-marketplace">Marketplace</a>
     - html: <a href="/azure/azure-government/documentation-government-manage-marketplace-partners">Marketplace for partners</a>
 
