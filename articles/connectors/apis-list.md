@@ -241,11 +241,11 @@ the service, such as Office 365, Salesforce, or GitHub, where your access
 token is encrypted and securely stored in an Azure secret store. 
 Other connectors, such as FTP and SQL, require a connection that 
 has configuration details, such as the server address, username, and password. 
-This connection configuration details are also encrypted and securely stored. 
+These connection configuration details are also encrypted and securely stored. 
 
 Connections can access the target service or system for as long as that service or system allows. 
 For services that use Azure Active Directory (AD) OAuth connections, such as Office 365 and Dynamics, 
-Azure Logic Apps refreshes access tokens indefinitely. Other services might put limits on how long 
+Azure Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long 
 Azure Logic Apps can use a token without refreshing. Generally, some actions invalidate all access 
 tokens, such as changing your password.
 
