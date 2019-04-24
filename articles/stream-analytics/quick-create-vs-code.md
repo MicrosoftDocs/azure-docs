@@ -1,17 +1,16 @@
 ---
-title: Create a Stream Analytics cloud job by using the Azure Stream Analytics extension for Visual Studio Code (Preview)
+title: Create an Azure Stream Analytics cloud job in Visual Studio Code (Preview)
 description: This quickstart shows you how to get started by creating a Stream Analytics job, configuring inputs, outputs, and defining a query with Visual Studio Code.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.date: 05/06/2019
 ms.topic: quickstart
-ms.service: stream-analytics
 ms.custom: mvc
 #Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Visual Studio Code."
 ---
 
-# Quickstart: Create a Stream Analytics cloud job by using the Azure Stream Analytics extension for Visual Studio Code (Preview)
+# Quickstart: Create an Azure Stream Analytics cloud job in Visual Studio Code (Preview)
 
 This quickstart shows you how to create and run a Stream Analytics job using the Azure Stream Analytics extension for Visual Studio Code. The example job reads streaming data from an IoT Hub device. You define a job that calculates the average temperature when over 27° and writes the resulting output events to a new file in blob storage.
 
@@ -23,7 +22,7 @@ This quickstart shows you how to create and run a Stream Analytics job using the
 
 * Install [Visual Studio Code](https://code.visualstudio.com/).
 
-* Download [Azure Stream Analytics extension for VS Code](https://usqldownload.blob.core.windows.net/ext/asa/vscode-asa-0.0.2.vsix).
+* Download the [Azure Stream Analytics extension for VS Code](https://usqldownload.blob.core.windows.net/ext/asa/vscode-asa-0.0.2.vsix).
 
 ## Install the Azure Stream Analytics extension
 
@@ -37,9 +36,7 @@ Install Azure Stream Analytics extension from the private VSIX package you downl
 
 3. Choose the extension you downloaded as a prerequisite, and select **Install**.  This may take several seconds.
 
-4. When installation finished successfully, select **Reload Now** in the pop up window if you are prompted.
-
-5. Verify that **Azure Stream Analytics Tools** is visible in your **Enabled Extensions**.
+4. Verify that **Azure Stream Analytics Tools** is visible in your **Enabled Extensions**.
 
    ![Azure Stream Analytics Tools under enabled extensions in Visual Studio Code](./media/quick-create-vs-code/enabled-extensions.png)
 
@@ -128,7 +125,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 > [!Note]
 > When adding inputs and outputs from the command palette, the corresponding paths will be added into **asaproj.json** automatically. If you add or remove inputs or outputs on disk directly, you need to manually add or remove them from **asaproj.json**. You can choose to put the inputs and outputs in one place then reference them in different jobs by specifying the paths in each **asaproj.json**.
 
-## Define input
+## Define an input
 
 1. Select **Ctrl+Shift+P** to open the command palette and enter **ASA: Add Input**.
 
@@ -153,7 +150,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
    |EndPoint|Messaging| |
    |SharedAccessPolicyName|iothubowner| |
 
-## Define output
+## Define an output
 
 1. Select **Ctrl+Shift+P** to open the command palette. Then, enter **ASA: Add Output**.
 
