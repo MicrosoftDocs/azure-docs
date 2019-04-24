@@ -133,3 +133,5 @@
     href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
+  - name: FAQ
+    herf: container-instances-faq.md
