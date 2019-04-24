@@ -99,7 +99,8 @@ Based on a criterion, this expression gets the average of values of a column.
 <code>byName</code>
 ==============================
 <code><b>byName(<i>&lt;column name&gt;</i> : string) => any</b></code><br/><br/>
-Selects a column value by name in the stream. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...).  Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions
+This expression selects a column value by the name in the stream. If there are multiple matches, the first match is returned. If there's no match, the expression returns a NULL value. The returned value must be type-converted by one of the type conversion functions (TO_DATE, TO_STRING ...). Column names that are known at design time should be addressed just by their name. Computed inputs aren't supported, but you can use parameter substitutions.
+
 * ``toString(byName('parent')) -> appa``
 * ``toLong(byName('income')) -> 9000000000009``
 * ``toBoolean(byName('foster')) -> false``
@@ -110,7 +111,8 @@ Selects a column value by name in the stream. If there are multiple matches, the
 <code>byPosition</code>
 ==============================
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
-Selects a column value by its relative position(1 based) in the stream. If the position is out of bounds it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...)Computed inputs are not supported but you can use parameter substitutions
+This expression selects a column value by its relative position (1-based) in the stream. If the position is out of bounds, it returns a NULL value. The returned value must be type-converted by one of the type conversion functions(TO_DATE, TO_STRING, and so on). Computed inputs aren't supported, but you can use parameter substitutions.
+
 * ``toString(byPosition(1)) -> amma``
 * ``toDecimal(byPosition(2), 10, 2) -> 199990.99``
 * ``toBoolean(byName(4)) -> false``
@@ -222,7 +224,7 @@ This expression calculates the CRC32 hash of a set of columns of varying primiti
 <code>cumeDist</code>
 ==============================
 <code><b>cumeDist() => integer</b></code><br/><br/>
-The `cumeDist` function computes the position of a value relative to all values in the partition. The result is the number of rows preceding or equal to the current row in the ordering of the partition, divided by the total number of rows in the window partition. Any tie values in the ordering return the same position.
+This function computes the position of a value relative to all values in the partition. The result is the number of rows preceding or equal to the current row in the ordering of the partition, divided by the total number of rows in the window partition. Any tie values in the ordering return the same position.
 * ``cumeDist() -> 1``
 *********************************
 <code>currentDate</code>
@@ -303,7 +305,7 @@ This expression checks whether the string ends with the supplied string.
 <code>equals</code>
 ==============================
 <code><b>equals(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-The EQUALS operator is a comparison equals operator. The EQUALS operator is the same as the == operator.
+This is a comparison equals operator. It's the same as the **==** operator.
 * ``equals(12, 24) -> false``
 * ``12==24 -> false``
 * ``'bad'=='bad' -> true``
@@ -348,21 +350,22 @@ This expression returns the largest integer that's not greater than the number.
 <code>fromUTC</code>
 ==============================
 <code><b>fromUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts to the timestamp from UTC. You can optionally pass the timezone in the form of `'GMT'`, `'PST'`, `'UTC'`, `'America/Cayman'`. It is defaulted to the current timezone
+This expression converts to the timestamp from UTC. You can optionally pass the timezone in the form of `'GMT'`, `'PST'`, `'UTC'`, `'America/Cayman'`. The default is the current timezone.
+
 * ``fromUTC(currentTimeStamp()) -> 12-12-2030T19:18:12``
 * ``fromUTC(currentTimeStamp(), 'Asia/Seoul') -> 12-13-2030T11:18:12``
 *********************************
 <code>greater</code>
 ==============================
 <code><b>greater(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-The **GREATER** operator is a comparison greater operator. It's the same as the **>** operator.
+This is a comparison **greater** operator. It's the same as the **>** operator.
 * ``greater(12, 24) -> false``
 * ``'abcd' > 'abc' -> true``
 *********************************
 <code>greaterOrEqual</code>
 ==============================
 <code><b>greaterOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-The **greaterOrEqual** operator is a comparison greater-than-or-equal operator. This operator is the same as the **>=** operator.
+This is a comparison greater-than-or-equal operator. This operator is the same as the **>=** operator.
 * ``greaterOrEqual(12, 12) -> false``
 * ``'abcd' >= 'abc' -> true``
 *********************************
@@ -514,7 +517,7 @@ This expression gets the value of the first parameter evaluated *n* rows after t
 <code>least</code>
 ==============================
 <code><b>least(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
-The **least** operator is a comparison lesser-than-or-equal operator. It's the same as the **<=** operator.
+This is a comparison lesser-than-or-equal operator. It's the same as the **<=** operator.
 * ``least(10, 30, 15, 20) -> 10``
 * ``least(toDate('12/12/2010'), toDate('12/12/2011'), toDate('12/12/2000')) -> '12/12/2000'``
 *********************************
@@ -534,14 +537,14 @@ This expression returns the length of the string.
 <code>lesser</code>
 ==============================
 <code><b>lesser(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-The **lesser** operator is a comparison lesser-than operator. It's the same as the **<** operator.
+This is a comparison lesser-than operator. It's the same as the **<** operator.
 * ``lesser(12 < 24) -> true``
 * ``'abcd' < 'abc' -> false``
 *********************************
 <code>lesserOrEqual</code>
 ==============================
 <code><b>lesserOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-The **lesserOrEqual** operator is a comparison lesser-than-or-equal operator. It's the same as the **<=** operator.
+This is a comparison lesser-than-or-equal operator. It's the same as the **<=** operator.
 * ``lesserOrEqual(12, 12) -> true``
 * ``'abcd' <= 'abc' -> false``
 *********************************
@@ -689,7 +692,7 @@ You can pass an optional time zone in the form of `'GMT'`, `'PST'`, `'UTC'`, `'A
 <code>multiply</code>
 ==============================
 <code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-This expression multiplies a pair of numbers. The **multiply** operator is the same as the ***** operator.
+This expression multiplies a pair of numbers. The **multiply** operator is the same as the **/*/** operator.
 * ``multiply(20, 10) -> 200``
 * ``20 * 10 -> 200``
 *********************************
