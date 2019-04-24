@@ -160,7 +160,7 @@ kubectl get service istio-ingressgateway --namespace istio-system -o jsonpath='{
 The following example output shows the IP address of the Ingress Gateway:
 
 ```
-52.187.250.239
+20.188.211.19
 ```
 
 Open up a browser and paste in the IP address. The sample AKS voting app is displayed.
@@ -202,14 +202,14 @@ You can visualize the switching between the two versions of the `voting-analytic
 Bash 
 
 ```bash
-INGRESS_IP=52.187.250.239
+INGRESS_IP=20.188.211.19
 for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
 ```
 
 Powershell
 
 ```powershell
-$INGRESS_IP="52.187.250.239"
+$INGRESS_IP="20.188.211.19"
 (1..5) |% { (Invoke-WebRequest -Uri $INGRESS_IP).Content.Split("`n") | Select-String -Pattern "results" }
 ```
 
@@ -261,14 +261,14 @@ You can visualize that you are now only routed to version `1.1` of your `voting-
 Bash 
 
 ```bash
-INGRESS_IP=52.187.250.239
+INGRESS_IP=20.188.211.19
 for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
 ```
 
 Powershell
 
 ```powershell
-$INGRESS_IP="52.187.250.239"
+$INGRESS_IP="20.188.211.19"
 (1..5) |% { (Invoke-WebRequest -Uri $INGRESS_IP).Content.Split("`n") | Select-String -Pattern "results" }
 ```
 
@@ -425,6 +425,20 @@ Since there's no longer any traffic to any of the older versions of the componen
 ![The AKS Voting app components and routing.](media/istio/components-and-routing-05.png)
 
 You have now successfully rolled out a new version of the AKS Voting App.
+
+## Clean up 
+
+You can remove the AKS voting app we used in this scenario from your AKS cluster by deleting the `voting` namespace as follows:
+
+```azurecli
+kubectl delete namespace voting
+```
+
+The following example output shows that all the components of the AKS voting app have been removed from your AKS cluster.
+
+```console
+namespace "voting" deleted
+```
 
 ## Next steps
 
