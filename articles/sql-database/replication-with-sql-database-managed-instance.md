@@ -30,17 +30,14 @@ Transactional replication is in public preview on [Azure SQL Database managed in
 Configuring a managed instance to function as a publisher or a distributor requires:
 
 - That the managed instance is not currently participating in a geo-replication relationship.
-
-   >[!NOTE]
-   >Single databases and pooled databases in Azure SQL Database can only be subscribers.
-
-- All managed instances must be on the same vNet.
-
+- That the managed instances are be on the same vNet.
 - Connectivity uses SQL Authentication between replication participants.
-
 - An Azure Storage Account share for the replication working directory.
+- Port 445 (TCP outbound) is open in the security rules of the managed instance subnet to access the Azure file share. 
 
-- Port 445 (TCP outbound) needs to be open in the security rules of the managed instance subnet to access the Azure file share
+   > [!NOTE]
+   > Single databases and pooled databases in Azure SQL Database can only be subscribers. 
+
 
 ## Features
 
