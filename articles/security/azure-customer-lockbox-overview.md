@@ -44,7 +44,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 7. At the customer organization, the user who has the [Owner role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
     
     Example email:
-    ![Azure Customer Lockbox - landing page](./media/azure-customer-lockbox/customer-lockbox-email-notification.png)
+    ![Azure Customer Lockbox - email notification](./media/azure-customer-lockbox/customer-lockbox-email-notification.png)
 
 8. The email notification provides a link to the **Customer Lockbox** blade in the Azure portal. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox:
     
@@ -54,7 +54,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
 9. To get the details of the pending request, the designated approver can select the lockbox request from **Pending Requests**:
     
-    ![Azure Customer Lockbox - view the support ticket request](./media/azure-customer-lockbox/customer-lockbox-pending-requests.png)
+    ![Azure Customer Lockbox - view the pending request](./media/azure-customer-lockbox/customer-lockbox-pending-requests.png)
 
 10. The designated approver can also select the **SERVICE REQUEST ID** to view the support ticket request that was created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem. For example:
     
@@ -84,7 +84,7 @@ Use the **Activity Logs** to view auditing information related to Customer Lockb
 - **Deny Lockbox Requests**
 - **Lockbox Request Expiry**
 
-    ![Azure Customer Lockbox - select Approve or Deny](./media/azure-customer-lockbox/customer-lockbox-support-ticket.png)
+    ![Azure Customer Lockbox - activity logs](./media/azure-customer-lockbox/customer-lockbox-email-notification.png)
 
 ## Supported services and scenarios
 
