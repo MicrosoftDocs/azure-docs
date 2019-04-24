@@ -40,30 +40,30 @@ A typical architecture diagram of the implementation of a batch scenario is depi
 
 Whether the domain is post-call or real-time, Azure offers a set of mature and emerging set of technologies to improve the customer experience. 
 
-###Speech to text (STT) 
+### Speech to text (STT) 
 
 [Speech-to-text](speech-to-text.md) is the most sought after feature in any call centre solution. Since many of the downstream analytics processes rely on transcribed text, the word error rate (WER) is of utmost importance. One of the key challenges in call center transcription is the noise that’s prevalent in the call center (eg – other agents speaking in the background ), the rich variety of language locales and dialects as well as the low quality of the actual telephone signal. WER is highly correlated with how well the acoustic and language models are trained for a given locale, thus being able to customize the model to your locale is important. Our latest Unified version 4.x models are the solution to both transcription accurancy and latency. Trained with 10s of thousands of hours of acoustic data and billions of lexical information Unified models are the most accurate models in the market to transcribe call centre data.
 
-###Sentiment
+### Sentiment
 Gauging whether the customer had or is having a good experience is one of the most important areas of Speech analytics when applied to the call centre space. Our [Batch Transcription API](batch-transcription.md) offers sentiment analysis per utterance. You can aggregate the set of values obtained as part of a call transcript to determine the sentiment of the call for both your agents and the customer.
 
-###Silence (non-talk)
+### Silence (non-talk)
 it is not uncommon for thirty five percent of a support call to be what we call non talk time. Some scenarios which non-talk occurs are: agents looking up prior case history with a customer, agents using tools which allow them to access the customers desktop and perform functions, customers sitting on hold waiting for a transfer etc. It is extremely important to be able to gauge when silence is occurring in a call as there are number of important customer sensitivities that occur around these types of scenarios and where they occur in the call.
 
-###Translation
+### Translation
 Some companies are experimenting with providing translated transcripts from foreign languages support calls so that delivery managers can understand the world wide experience of their customers. Our [translation](translation.md) capabilities are unsurpassed. We can translate audio to audio or audio to text from a large number of locales.
 
-###Text to Speech
+### Text to Speech
 [Text-to-speech](text-to-speech.md) is another important area in implementing bots that interact with the customers. The typical pathway is that the customer speaks, their voice is transcribed to text, the text is analyzed for intents, a response is synthesized based on the recognized intent, and then an asset is either surfaced to the customer or a synthesized voice response is generated. Of course all of this has to occur quickly – thus latency is an important component in the success of these systems. 
 
 Our end-to-end latency is pretty low considering the various technologies involved such as [Speech-to-text](speech-to-text.md), [Luis](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [Text-to-Speech](text-to-speech.md). 
 
 Our new voices are also indistinguisable from human voices. You can use out voices to give your bot its unique personality.
 
-###Search
+### Search
 Another staple of analytics is being able to identify interactions where a specific event or experience has occurred. This is typically done with one of two approaches, either an ad hoc search where the user simply types a phrase and the system responds, or a more structured query, where an analyst can create a set of logical statements that identify a scenario in a call, and then each call can be indexed against those set of queries. A good search example is the ubiquitous compliance statement “this call shall be recorded for quality purposes… “ – as many companies want to make sure that there agents are providing this disclaimer to customers before the call is actually recorded. Most analytics systems have the ability to trend the behaviors found by query /search algorithms – as this reporting of trends is ultimately one of the most important functions of an analytics system. Through [Cognitive services directory](https://azure.microsoft.com/en-us/services/cognitive-services/directory/search/) your end to end solution can be significantly enhanced with indexing and search capabilities.
 
-###Key Phrase Extraction
+### Key Phrase Extraction
 This area is one of the more challenging analytics applications and one that is benefiting from the application of AI and ML. The primary scenario here is to infer the customer intent. Why is the customer calling? What is the customer problem? Why did the customer have a negative experience?. Our [Text analytics service](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) provides a set of analytics out of the box for quickly pugrading your end to end solution to extract those important keywords or phrases.
 
 Let's now have a look at the batch processing and the real-time pipelines for speech recognition in a bit more detail.
