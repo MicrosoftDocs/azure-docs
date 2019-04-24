@@ -63,19 +63,19 @@ The **range** index kind is used for:
 
 - Equality queries: 
 
-`SELECT * FROM container c WHERE c.property = 'value'`
+   ```sql SELECT * FROM container c WHERE c.property = 'value'```
 
 - Range queries: 
 
-`SELECT * FROM container c WHERE c.property > 'value'` (works for `>`, `<`, `>=`, `<=`, `!=`)
+   ```sql SELECT * FROM container c WHERE c.property > 'value'``` (works for `>`, `<`, `>=`, `<=`, `!=`)
 
 - `ORDER BY` queries:
 
-`SELECT * FROM container c ORDER BY c.property`
+   ```sql SELECT * FROM container c ORDER BY c.property```
 
 - `JOIN` queries: 
 
-`SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+   ```sql SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'```
 
 Range indexes can be used on scalar values (string or number).
 
@@ -83,19 +83,19 @@ The **spatial** index kind is used for:
 
 - Geospatial distance queries: 
 
-`SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
+   ```sql SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40```
 
 - Geospatial within queries: 
 
-`SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+   ```sql SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })```
 
 Spatial indexes can be used on correctly formatted [GeoJSON](geospatial.md) objects. Points, LineStrings and Polygons are currently supported.
 
 The **composite** index kind is used for:
 
-- Multi `ORDER BY` queries: 
+- `ORDER BY` queries on multiple properties: 
 
-`SELECT * FROM container c ORDER BY c.firstName, c.lastName`
+   ```sql SELECT * FROM container c ORDER BY c.firstName, c.lastName```
 
 ## Querying with indexes
 
