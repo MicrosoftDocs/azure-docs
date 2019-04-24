@@ -1,9 +1,10 @@
 ---
-title: Server concepts in Azure Database for PostgreSQL
-description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL servers.
+title: Nodes in Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
+description: The two types of nodes in a server group.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 4/16/2019
 ---

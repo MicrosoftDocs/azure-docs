@@ -1,6 +1,6 @@
 ---
-title: Server concepts in Azure Database for PostgreSQL
-description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL servers.
+title: Choosing distribution columns in Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
+description: Good choices for distribution columns in common hyperscale scenarios
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,6 +8,8 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 4/24/2019
 ---
+
+# Choosing distribution columns in Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
 
 Hyperscale uses the distribution column in distributed tables to assign table
 rows to shards. Choosing the distribution column for each table is **one of the
