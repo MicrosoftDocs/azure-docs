@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: MarkusVi
 ms.author: priyamo
-ms.date: 11/28/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -208,7 +208,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
 
-### Azure Storage
+### Azure Storage blobs and queues
 
 | Cloud | Resource ID | Status |
 |--------|------------|--------|

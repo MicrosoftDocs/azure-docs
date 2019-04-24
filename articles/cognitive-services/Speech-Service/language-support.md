@@ -70,106 +70,109 @@ Neural voices can be used to make interactions with chatbots and virtual assista
 
 For a full list of neural voices and regional availability, see [regions](regions.md#standard-and-neural-voices).
 
-| Locale | Language | Gender | Voice Name |
-|--------|----------|--------|---------------------|
-| de-DE | German (Germany) | Female | de-DE-KatjaNeural |
-| en-US | English (US) | Male | en-US-GuyNeural |
-| en-US | English (US) | Female | en-US-JessaNeural |
-| it-IT | Italian (Italy) | Female | it-IT-ElsaNeural |
-| zh-CN | Chinese | Female | zh-CN-XiaoxiaoNeural |
+Locale | Language | Gender | Full service name mapping | Short voice Name 
+--------|----------|--------|---------|------------
+de-DE | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)" | "de-DE-KatjaNeural" 
+en-US | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | "en-US-GuyNeural" 
+en-US | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-US-JessaNeural" 
+it-IT | Italian (Italy) | Female |"Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural)" | "it-IT-ElsaNeural" 
+zh-CN | Chinese (Mainland) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural" 
+
+> [!NOTE]
+> You can use either the full service name mapping or the short voice name in your speech synthesis requests. 
 
 ### Standard voices
 
 More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
 
-Locale | Language | Gender | Service name mapping
--------|----------|---------|--------------------
-ar-EG\* | Arabic (Egypt) | Female | ar-EG-Hoda
-ar-SA | Arabic (Saudi Arabia) | Male | ar-SA-Naayf
-bg-BG | Bulgarian | Male | bg-BG-Ivan
-ca-ES | Catalan (Spain) | Female | ca-ES-HerenaRUS
-cs-CZ | Czech | Male | cs-CZ-Jakub
-da-DK | Danish | Female | da-DK-HelleRUS
-de-AT | German (Austria) | Male | de-AT-Michael
-de-CH | German (Switzerland) | Male | de-CH-Karsten
-de-DE | German (Germany) | Female | de-DE-Hedda
-| | | Female | de-DE-HeddaRUS
-| | | Male | de-DE-Stefan-Apollo
-el-GR | Greek | Male | el-GR-Stefanos
-en-AU | English (Australia) | Female | en-AU-Catherine
-| | | Female | en-AU-HayleyRUS
-en-CA | English (Canada) | Female | en-CA-Linda
-| | | Female | en-CA-HeatherRUS
-en-GB | English (UK) | Female | en-GB-Susan-Apollo
-| | | Female | en-GB-HazelRUS
-| | | Male | en-GB-George-Apollo
-en-IE | English (Ireland) | Male | en-IE-Sean
-en-IN | English (India) | Female | en-IN-Heera-Apollo
-| | | Female | en-IN-PriyaRUS
-| | | Male | en-IN-Ravi-Apollo
-en-US | English (US) | Female | en-US-ZiraRUS
-| | | Female | en-US-JessaRUS
-| | | Male | en-US-BenjaminRUS
-| | | Female | en-US-Jessa24kRUS
-| | | Male | en-US-Guy24kRUS
-es-ES | Spanish (Spain) |Female | es-ES-Laura-Apollo
-| | | Female | es-ES-HelenaRUS
-| | | Male | es-ES-Pablo-Apollo
-es-MX | Spanish (Mexico) | Female | es-MX-HildaRUS
-| | | Male | es-MX-Raul-Apollo
-fi-FI | Finnish | Female | fi-FI-HeidiRUS
-fr-CA | French (Canada) |Female | fr-CA-Caroline
-| | | Female | fr-CA-HarmonieRUS
-fr-CH | French (Switzerland)| Male | fr-CH-Guillaume
-fr-FR | French (France)| Female | fr-FR-Julie-Apollo
-| | | Female | fr-FR-HortenseRUS
-| | | Male | fr-FR-Paul-Apollo
-he-IL| Hebrew (Israel) | Male| he-IL-Asaf
-hi-IN | Hindi (India) | Female | hi-IN-Kalpana-Apollo
-| | |Female | hi-IN-Kalpana
-| | | Male | hi-IN-Hemant
-hr-HR | Croatian | Male | hr-HR-Matej
-hu-HU | Hungarian | Male | hu-HU-Szabolcs
-id-ID | Indonesian| Male | id-ID-Andika
-it-IT | Italian | Male | it-IT-Cosimo-Apollo
-| | | Female | it-IT-LuciaRUS
-ja-JP | Japanese | Female | ja-JP-Ayumi-Apollo
-| | | Male | ja-JP-Ichiro-Apollo
-| | | Female | ja-JP-HarukaRUS
-ko-KR | Korean | Female | ko-KR-HeamiRUS
-ms-MY | Malay | Male | ms-MY-Rizwan
-nb-NO | Norwegian | Female | nb-NO-HuldaRUS
-nl-NL | Dutch | Female | nl-NL-HannaRUS
-pl-PL | Polish | Female | pl-PL-PaulinaRUS
-pt-BR | Portuguese (Brazil) | Female | pt-BR-HeloisaRUS
-| | | Male |pt-BR-Daniel-Apollo
-pt-PT | Portuguese (Portugal) | Female | pt-PT-HeliaRUS
-ro-RO | Romanian | Male | ro-RO-Andrei
-ru-RU |Russian| Female | ru-RU-Irina-Apollo
-| | | Male | ru-RU-Pavel-Apollo
-| | | Female | ru-RU-EkaterinaRUS
-sk-SK | Slovak | Male | sk-SK-Filip
-sl-SI | Slovenian | Male | sl-SI-Lado
-sv-SE | Swedish | Female | sv-SE-HedvigRUS
-ta-IN | Tamil (India) | Male | ta-IN-Valluvar
-te-IN | Telugu (India) | Female | te-IN-Chitra
-th-TH | Thai | Male | th-TH-Pattara
-tr-TR | Turkish | Female | tr-TR-SedaRUS
-vi-VN | Vietnamese | Male | vi-VN-An
-zh-CN | Chinese (Mainland) | Female | zh-CN-HuihuiRUS
-| | | Female | zh-CN-Yaoyao-Apollo
-| | | Male | zh-CN-Kangkang-Apollo
-zh-HK | Chinese (Hong Kong) | Female | zh-HK-Tracy-Apollo
-| | | Female | zh-HK-TracyRUS
-| | | Male | zh-HK-Danny-Apollo
-zh-TW | Chinese (Taiwan) | Female | zh-TW-Yating-Apollo
-| | | Female | zh-TW-HanHanRUS
-| | | Male | zh-TW-Zhiwei-Apollo
+Locale | Language | Gender | Full service name mapping | Short voice Name 
+-------|----------|---------|----------|----------
+ar-EG\* | Arabic (Egypt) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-Hoda"
+ar-SA | Arabic (Saudi Arabia) | Male | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)" | "ar-SA-Naayf"
+bg-BG | Bulgarian | Male | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)" | "bg-BG-Ivan"
+ca-ES | Catalan (Spain) | Female | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)" | "ca-ES-HerenaRUS"
+cs-CZ | Czech | Male | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)" | "cs-CZ-Jakub"
+da-DK | Danish | Female | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)" | "da-DK-HelleRUS"
+de-AT | German (Austria) | Male | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)" | "de-AT-Michael"
+de-CH | German (Switzerland) | Male | "Microsoft Server Speech Text to Speech Voice (de-CH, Karsten)" | "de-CH-Karsten"
+de-DE | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda)" | "de-DE-Hedda"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, HeddaRUS)" | "de-DE-HeddaRUS"
+| | | Male | "Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)" | "de-DE-Stefan-Apollo"
+el-GR | Greek | Male | "Microsoft Server Speech Text to Speech Voice (el-GR, Stefanos)" | "el-GR-Stefanos"
+en-AU | English (Australia) | Female | "Microsoft Server Speech Text to Speech Voice (en-AU, Catherine)" | "en-AU-Catherine"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (en-AU, HayleyRUS)" | "en-AU-HayleyRUS"
+en-CA | English (Canada) | Female | "Microsoft Server Speech Text to Speech Voice (en-CA, Linda)" | "en-CA-Linda"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (en-CA, HeatherRUS)" | "en-CA-HeatherRUS"
+en-GB | English (UK) | Female | "Microsoft Server Speech Text to Speech Voice (en-GB, Susan, Apollo)" | "en-GB-Susan-Apollo"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (en-GB, HazelRUS)" | "en-GB-HazelRUS"
+| | | Male | "Microsoft Server Speech Text to Speech Voice (en-GB, George, Apollo)" | "en-GB-George-Apollo"
+en-IE | English (Ireland) | Male | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)" | "en-IE-Sean"
+en-IN | English (India) | Female | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)" | "en-IN-Heera-Apollo"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)" | "en-IN-PriyaRUS"
+| | | Male | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)" | "en-IN-Ravi-Apollo"
+en-US | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)" | "en-US-ZiraRUS"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)" | "en-US-JessaRUS"
+| | | Male | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)" | "en-US-BenjaminRUS"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" | "en-US-Jessa24kRUS"
+| | | Male | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)" | "en-US-Guy24kRUS"
+es-ES | Spanish (Spain) |Female | "Microsoft Server Speech Text to Speech Voice (es-ES, Laura, Apollo)" | "es-ES-Laura-Apollo"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (es-ES, HelenaRUS)" | "es-ES-HelenaRUS"
+| | | Male | "Microsoft Server Speech Text to Speech Voice (es-ES, Pablo, Apollo)" | "es-ES-Pablo-Apollo"
+es-MX | Spanish (Mexico) | Female | "Microsoft Server Speech Text to Speech Voice (es-MX, HildaRUS)" | "es-MX-HildaRUS"
+| | | Male | "Microsoft Server Speech Text to Speech Voice (es-MX, Raul, Apollo)" | "es-MX-Raul-Apollo"
+fi-FI | Finnish | Female | "Microsoft Server Speech Text to Speech Voice (fi-FI, HeidiRUS)" | "fi-FI-HeidiRUS"
+fr-CA | French (Canada) |Female | "Microsoft Server Speech Text to Speech Voice (fr-CA, Caroline)" | "fr-CA-Caroline"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (fr-CA, HarmonieRUS)" | "fr-CA-HarmonieRUS"
+fr-CH | French (Switzerland)| Male | "Microsoft Server Speech Text to Speech Voice (fr-CH, Guillaume)" | "fr-CH-Guillaume"
+fr-FR | French (France)| Female | "Microsoft Server Speech Text to Speech Voice (fr-FR, Julie, Apollo)" | "fr-FR-Julie-Apollo"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (fr-FR, HortenseRUS)" | "fr-FR-HortenseRUS"
+| | | Male | "Microsoft Server Speech Text to Speech Voice (fr-FR, Paul, Apollo)" | "fr-FR-Paul-Apollo"
+he-IL| Hebrew (Israel) | Male| "Microsoft Server Speech Text to Speech Voice (he-IL, Asaf)" | "he-IL-Asaf"
+hi-IN | Hindi (India) | Female | "Microsoft Server Speech Text to Speech Voice (hi-IN, Kalpana, Apollo)" | "hi-IN-Kalpana-Apollo"
+| | |Female | "Microsoft Server Speech Text to Speech Voice (hi-IN, Kalpana)" | "hi-IN-Kalpana"
+| | | Male | "Microsoft Server Speech Text to Speech Voice (hi-IN, Hemant)" | "hi-IN-Hemant"
+hr-HR | Croatian | Male | "Microsoft Server Speech Text to Speech Voice (hr-HR, Matej)" | "hr-HR-Matej"
+hu-HU | Hungarian | Male | "Microsoft Server Speech Text to Speech Voice (hu-HU, Szabolcs)" | "hu-HU-Szabolcs"
+id-ID | Indonesian| Male | "Microsoft Server Speech Text to Speech Voice (id-ID, Andika)" | "id-ID-Andika"
+it-IT | Italian | Male | "Microsoft Server Speech Text to Speech Voice (it-IT, Cosimo, Apollo)" | "it-IT-Cosimo-Apollo"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (it-IT, LuciaRUS)" | "it-IT-LuciaRUS"
+ja-JP | Japanese | Female | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ayumi, Apollo)" | "ja-JP-Ayumi-Apollo"
+| | | Male | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ichiro, Apollo)" | "ja-JP-Ichiro-Apollo"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (ja-JP, HarukaRUS)" | "ja-JP-HarukaRUS"
+ko-KR | Korean | Female | "Microsoft Server Speech Text to Speech Voice (ko-KR, HeamiRUS)" | "ko-KR-HeamiRUS"
+ms-MY | Malay | Male | "Microsoft Server Speech Text to Speech Voice (ms-MY, Rizwan)" | "ms-MY-Rizwan"
+nb-NO | Norwegian | Female | "Microsoft Server Speech Text to Speech Voice (nb-NO, HuldaRUS)" | "nb-NO-HuldaRUS"
+nl-NL | Dutch | Female | "Microsoft Server Speech Text to Speech Voice (nl-NL, HannaRUS)" | "nl-NL-HannaRUS"
+pl-PL | Polish | Female | "Microsoft Server Speech Text to Speech Voice (pl-PL, PaulinaRUS)" | "pl-PL-PaulinaRUS"
+pt-BR | Portuguese (Brazil) | Female | "Microsoft Server Speech Text to Speech Voice (pt-BR, HeloisaRUS)" | "pt-BR-HeloisaRUS"
+| | | Male |"Microsoft Server Speech Text to Speech Voice (pt-BR, Daniel, Apollo)" | "pt-BR-Daniel-Apollo"
+pt-PT | Portuguese (Portugal) | Female | "Microsoft Server Speech Text to Speech Voice (pt-PT, HeliaRUS)" | "pt-PT-HeliaRUS"
+ro-RO | Romanian | Male | "Microsoft Server Speech Text to Speech Voice (ro-RO, Andrei)" | "ro-RO-Andrei"
+ru-RU |Russian| Female | "Microsoft Server Speech Text to Speech Voice (ru-RU, Irina, Apollo)" | "ru-RU-Irina-Apollo"
+| | | Male | "Microsoft Server Speech Text to Speech Voice (ru-RU, Pavel, Apollo)" | "ru-RU-Pavel-Apollo"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (ru-RU, EkaterinaRUS)" | ru-RU-EkaterinaRUS
+sk-SK | Slovak | Male | "Microsoft Server Speech Text to Speech Voice (sk-SK, Filip)" | "sk-SK-Filip"
+sl-SI | Slovenian | Male | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)" | "sl-SI-Lado"
+sv-SE | Swedish | Female | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)" | "sv-SE-HedvigRUS"
+ta-IN | Tamil (India) | Male | "Microsoft Server Speech Text to Speech Voice (ta-IN, Valluvar)" | "ta-IN-Valluvar"
+te-IN | Telugu (India) | Female | "Microsoft Server Speech Text to Speech Voice (te-IN, Chitra)" | "te-IN-Chitra"
+th-TH | Thai | Male | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)" | "th-TH-Pattara"
+tr-TR | Turkish | Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)" | "tr-TR-SedaRUS"
+vi-VN | Vietnamese | Male | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)" | "vi-VN-An"
+zh-CN | Chinese (Mainland) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)" | "zh-CN-HuihuiRUS"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, Yaoyao, Apollo)" | "zh-CN-Yaoyao-Apollo"
+| | | Male | "Microsoft Server Speech Text to Speech Voice (zh-CN, Kangkang, Apollo)" | "zh-CN-Kangkang-Apollo"
+zh-HK | Chinese (Hong Kong) | Female | "Microsoft Server Speech Text to Speech Voice (zh-HK, Tracy, Apollo)" | "zh-HK-Tracy-Apollo"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (zh-HK, TracyRUS)" | "zh-HK-TracyRUS"
+| | | Male | "Microsoft Server Speech Text to Speech Voice (zh-HK, Danny, Apollo)" | "zh-HK-Danny-Apollo"
+zh-TW | Chinese (Taiwan) | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, Yating, Apollo)" | "zh-TW-Yating-Apollo"
+| | | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, HanHanRUS)" | "zh-TW-HanHanRUS"
+| | | Male | "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)" | "zh-TW-Zhiwei-Apollo"
 
 \* *ar-EG supports Modern Standard Arabic (MSA).*
 
 > [!NOTE]
-> Full service name mapping in the format of "Microsoft Server Speech Text to Speech Voice (locale, voice name)" is still supported. For example, the service name "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" will be mapped to "ar-EG-Hoda". 
+> You can use either the full service name mapping or the short voice name in your speech synthesis requests. 
 
 ### Customization
 

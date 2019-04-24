@@ -29,6 +29,8 @@
       items:
       - name: Application Proxy
         href: application-proxy.md
+      - name: Plan an Application Proxy deployment
+        href: application-proxy-deployment-plan.md
       - name: Connectors
         href: application-proxy-connectors.md
       - name: Connector groups
