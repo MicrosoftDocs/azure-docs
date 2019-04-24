@@ -230,6 +230,7 @@
           - name: UWP
             href: msal-net-uwp-considerations.md
           - name: Applying an AAD B2C policy
+            href: msal-net-aad-b2c-considerations.md
     - name: Authentication
       items:
       - name: Authentication basics

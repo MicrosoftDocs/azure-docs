@@ -1,6 +1,6 @@
 ---
-title: Windows Universal Platform considerations (Microsoft Authentication Library for .NET) | Azure
-description: Learn about specific considerations when using Windows Universal Platform with the Microsoft Authentication Library for .NET (MSAL.NET).
+title: Universal Windows Platform considerations (Microsoft Authentication Library for .NET) | Azure
+description: Learn about specific considerations when using Universal Windows Platform with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -17,19 +17,19 @@ ms.date: 04/24/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn about specific considerations when using Windows Universal Platform and MSAL.NET so I can decide if this platform meets my application development needs and requirements.
+#Customer intent: As an application developer, I want to learn about specific considerations when using Universal Windows Platform and MSAL.NET so I can decide if this platform meets my application development needs and requirements.
 ms.collection: M365-identity-device-management
 ---
 
-# Windows Universal Platform specific considerations with MSAL.NET
+# Universal Windows Platform specific considerations with MSAL.NET
 On Xamarin iOS, there are several considerations that you must take into account when using MSAL.NET.
 
-## Properties of PlatformParameter specific to WinRT and UWP (Corporate network)
-In the WinRT platform, `PublicClientApplication` has the following boolean property ``UseCorporateNetwork``. This property enables Win8.1 and UWP application to benefit from Integrated Windows Authentication (and therefore SSO with the user signed-in with the operating system) if the user is signed-in with an account in a federated Azure AD tenant. This leverages WAB (Web Authentication Broker). 
+## The UseCorporateNetwork property
+In the WinRT platform, `PublicClientApplication` has the following boolean property ``UseCorporateNetwork``. This property enables Win8.1 and UWP applications to benefit from Integrated Windows Authentication (and therefore SSO with the user signed-in with the operating system) if the user is signed-in with an account in a federated Azure AD tenant. This leverages WAB (Web Authentication Broker). 
 
 **Important:**
 Setting this property to true assumes that the application developer has enabled Integrated Windows Authentication (IWA) in the application. For this:
-- In the ``Package.appxmanifest`` for your UWP application, in the Capabilities tab, enable the following capabilities:
+- In the ``Package.appxmanifest`` for your UWP application, in the **Capabilities** tab, enable the following capabilities:
 	- Enterprise Authentication
 	- Private Networks (Client & Server)
 	- Shared User Certificate
@@ -42,6 +42,6 @@ The underlying implementation on the UWP platform (WAB) does not work correctly 
 More details are provided in the following samples:
 
 Sample | Platform | Description 
------- | -------- | -----------
-[active-directory-dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | A Windows Universal Platform client application using msal.net, accessing the Microsoft Graph for a user authenticating with Azure AD v2.0 endpoint. ![](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/blob/master/ReadmeFiles/Topology.png)
-[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | A simple Xamarin Forms app showcasing how to use MSAL to authenticate MSA and Azure AD via the AAD v2.0 endpoint, and access the Microsoft Graph with the resulting token. ![](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/blob/master/ReadmeFiles/Topology.png)
+|------ | -------- | -----------|
+|[active-directory-dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | A Universal Windows Platform client application using msal.net, accessing the Microsoft Graph for a user authenticating with Azure AD v2.0 endpoint. ![](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/blob/master/ReadmeFiles/Topology.png)|
+|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | A simple Xamarin Forms app showcasing how to use MSAL to authenticate MSA and Azure AD via the AAD v2.0 endpoint, and access the Microsoft Graph with the resulting token. ![](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/blob/master/ReadmeFiles/Topology.png)|
