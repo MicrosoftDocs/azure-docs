@@ -35,13 +35,22 @@ For Windows, we support the following languages:
 ### Linux
 
 > [!NOTE]
-> Currently, we support only Ubuntu 16.04 and 18.04 on a PC (x86 or x64 for C++ development and x64 for .NET Core, Java, and Python).
+> Currently, we support only Ubuntu 16.04, Ubuntu 18.04, and Debian 9 on a PC (x86 or x64 for C++ development and x64 for .NET Core, Java, and Python).
 
-Make sure you have the required compiler and libraries installed by running the following shell commands:
+Make sure you have the required libraries installed by running the following shell commands:
+
+On Ubuntu:
 
 ```sh
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2
+sudo apt-get install libssl1.0.0 libasound2
+```
+
+On Debian 9:
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 * C#:

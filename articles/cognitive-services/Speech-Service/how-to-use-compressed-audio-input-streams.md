@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 05/02/2019
 ms.author: amishu
 ---
 # Stream compressed audio with the Speech SDK
@@ -17,12 +17,12 @@ ms.author: amishu
 The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech Service using PullStream or PushStream.
 
 > [!IMPORTANT]
-> Streaming compressed audio is only supported for C++, C#, and Java on Linux (Ubuntu 16.04 or Ubuntu 18.04).
+> Streaming compressed audio is only supported for C++, C#, and Java on Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9).
 > Support is limited to MP3 and OPUS/OGG.
 
 ## Prerequisites
 
-You must install these dependencies to use compressed audio input with the Speech SDK for Linux:
+Install these additional dependencies to use compressed audio input with the Speech SDK for Linux:
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
@@ -32,7 +32,7 @@ sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugin
 
 To stream in a compressed audio format to the Speech Services, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
 
-Let's assume that you have an input stream class called `myPushStream` and are using OPUS/OGG. This is what the code may look like: 
+Let's assume that you have an input stream class called `myPushStream` and are using OPUS/OGG. Your code may look like this:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
