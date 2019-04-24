@@ -62,9 +62,9 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     //replace the endpoint URL with the correct one for your subscription. Your endpoint can be found in the Azure portal. 
     //For example: https://westus2.api.cognitive.microsoft.com
     static final String endpoint = "[YOUR_ENDPOINT_URL]";
-    // Replace the dataPath string with a path to the JSON formatted time series data.
-    static final String dataPath = "[PATH_TO_TIME_SERIES_DATA]";
-    static final String inkRecognitionUrl = "<url>";
+    // Replace the dataPath string with a path to the JSON formatted ink stroke data file.
+    static final String dataPath = "[PATH_TO_INK_STROKE_DATA]";
+    static final String inkRecognitionUrl = "[INK_RECOGNITION_URL]";
     ```
 
 3. Read in the JSON data file

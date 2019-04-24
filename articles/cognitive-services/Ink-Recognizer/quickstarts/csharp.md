@@ -60,9 +60,9 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     // Replace the endpoint URL with the correct one for your subscription. 
     // Your endpoint can be found in the Azure portal. For example: https://westus2.api.cognitive.microsoft.com
     const string endpoint = "[YOUR_ENDPOINT_URL]";
-    // Replace the dataPath string with a path to the JSON formatted time series data.
-    const string dataPath = "[PATH_TO_TIME_SERIES_DATA]";
-    const string inkRecognitionUrl = "<url>";
+    // Replace the dataPath string with a path to the JSON formatted ink stroke data file.
+    const string dataPath = "[PATH_TO_INK_STROKE_DATA]";
+    const string inkRecognitionUrl = "[INK_RECOGNITION_URL]";
     ```
 
 ## Create a function to send requests

@@ -102,8 +102,11 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     1. Create variables for your endpoint URL, subscription key, and the sample JSON. Then create an `XMLHttpRequest` object to send the API request. 
         
         ```javascript
-        var SERVER_ADDRESS = "https://input.microsoft.com";
-        var ENDPOINT_URL = SERVER_ADDRESS + "/Ink/Analysis/?api-version=1.0";
+        // Replace the below URL with the correct one for your subscription. 
+        // Your endpoint can be found in the Azure portal. For example: https://westus2.api.cognitive.microsoft.com
+        var SERVER_ADDRESS = "[YOUR-SUBSCRIPTION-URL]";
+        var ENDPOINT_URL = SERVER_ADDRESS + "[INK_RECOGNITION_URL]";
+        // Replace the subscriptionKey string value with your valid subscription key.
         var SUBSCRIPTION_KEY = "put-your-subscription-key-here";
         var xhttp = new XMLHttpRequest();
         ```
