@@ -3,7 +3,7 @@ title: Application Insights to troubleshoot Custom Policies in Azure Active Dire
 description: how to setup Application Insights to trace the execution of custom policies.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
