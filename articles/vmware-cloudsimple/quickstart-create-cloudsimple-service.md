@@ -17,7 +17,7 @@ To get started, create the Azure VMware Solution by CloudSimple in the Azure por
 
 The CloudSimple service allows you to consume Azure VMware Solution by CloudSimple.  Creating the service allows you to purchase nodes, reserve nodes, and create private clouds.  You add the CloudSimple service in each Azure region where the CloudSimple service is available.  The service defines the edge network of Azure VMware Solution by CloudSimple.  This edge network is used for services that include VPN, ExpressRoute, and Internet connectivity to your private clouds.
 
-Adding the CloudSimple service requires creation of a gateway subnet.  The gateway subnet is used when creating the edge network and requires a /28 CIDR block.  The gateway subnet address space must be unique. It cannot overlap with any of your on-premises network address spaces or Azure virtual network address space.
+To add the CloudSimple service, you must create a gateway subnet. The gateway subnet is used when creating the edge network and requires a /28 CIDR block. The gateway subnet address space must be unique. It can't overlap with any of your on-premises network address spaces or Azure virtual network address space.
 
 ## Create the service
 
@@ -28,14 +28,18 @@ Adding the CloudSimple service requires creation of a gateway subnet.  The gatew
 5. Select the type of subscription.
 6. Select the resource group for the service. To add a new resource group, click **Create New**.
 7. Enter name to identify the service.
-8. Enter the CIDR for the service gateway. Specify a /28 subnet that doesn’t overlap with any of your  on-premises subnets, Azure subnets, or planned CloudSimple subnets. You can't change the CIDR after the service is created.
+8. Enter the CIDR for the service gateway.
+
+   * Specify a /28 subnet that doesn’t overlap with any of your on-premises subnets, Azure subnets, or planned CloudSimple subnets.
+   * You can't change the CIDR after the service is created.
+
 9. Click **OK**.
 
 The service is created and added to the list of services.
 
 ## Purchase nodes
 
-To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, first provision nodes in the Azure portal. For instructions on reserving capacity for a fixed term, see [Reserve nodes for VMware Solution by CloudSimple - Azure](reserve-nodes.md).
+To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, first provision nodes in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com) left navigation menu, select **Dedicated VMware Cloud Nodes**.
 2. Select **Add Node**.
@@ -52,7 +56,7 @@ To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, fi
 
 ## Reserve nodes
 
-Reserving nodes for a fixed term is a cost-effective alternative to pay-as-you-go node provisioning. You can reserve capacity for your base needs at reduced prices, while still retaining the ability to add additional capacity on a pay-as-you-go basis.
+Reserving nodes for a fixed term is a cost-effective alternative to pay-as-you-go node provisioning. You can reserve capacity for your base needs at reduced prices. When you need additional capacity, you can still add more on a pay-as-you-go basis.
 
 1. In the [Azure portal](https://portal.azure.com) left navigation menu, select **Dedicated VMware Cloud Nodes**.
 2. Select **Reservations** > **Purchase**.  

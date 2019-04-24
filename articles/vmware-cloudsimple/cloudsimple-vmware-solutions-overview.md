@@ -19,7 +19,7 @@ Your VMware environment runs natively on Azure Bare Metal infrastructure, on Azu
 * On-demand self-service provisioning of VMware cloud environments. Ability to add and remove capacity on demand
 * VMware platform deployment, upgrade, management plane backup, health/capacity monitoring, alerting, troubleshooting, and remediation.
 * Underlay networking services required to enable VMware, including L2/L3 services and firewall rule management.
-* Edge networking services, including VPN, Public IP, and Internet Gateways. These edge services run on the Google Cloud and carry the corresponding security and DDoS protection of Azure.
+* Edge-type networking services, including VPN, Public IP, and Internet Gateways. These edge services run on the Google Cloud and carry the corresponding security and DDoS protection of Azure.
 * Capacity reservation to lower costs.
 * High-speed, low-latency connectivity to Azure and on-premises.
 * Solution architectures for customers to consume Azure services in an integrated fashion, take advantage of this unique "VMware cloud in a public cloud” architecture. These Azure services include Azure AD, storage, application gateways, and others.
@@ -29,7 +29,16 @@ Your VMware environment runs natively on Azure Bare Metal infrastructure, on Azu
 
 ## Benefits
 
-* **Operational Continuity:** CloudSimple offers native access to VMware platforms. The CloudSimple architecture is compatible with your existing applications, operations, networking, security, backup, DR, audit, compliance tools, and processes.
+* **Operational Continuity:** CloudSimple offers native access to VMware platforms. The CloudSimple architecture is compatible with your existing:
+  * Applications
+  * Operations
+  * Networking
+  * Security
+  * Backup
+  * Disaster recovery
+  * Audit
+  * Compliance tools
+  * Processes
 * **No Retraining:** VMware platform compatibility allows you to use existing skills and knowledge.
 * **Infrastructure agility:** You no longer have to predict all your capacity needs and then end up with wasted capacity or infrastructure shortages. CloudSimple is delivered as a cloud service, and you can add or reduce capacity at any time
 * **Security:** Access to the CloudSimple environment through Azure provides built-in DDoS protection and security monitoring.

@@ -11,7 +11,7 @@ manager: dikamath
 ---
 # Reserve nodes for VMware Solution by CloudSimple - Azure
 
-Reserving nodes for a fixed term is a cost-effective alternative to pay-as-you-go node provisioning. You can reserve capacity for your base needs at reduced prices, and keep the ability to add additional capacity on a pay-as-you-go basis.
+Reserving nodes for a fixed term is a cost-effective alternative to pay-as-you-go node provisioning. You can reserve capacity for your base needs at reduced prices. When you need additional capacity, you can still add more on a pay-as-you-go basis.
 
 ## Set up a reserved node in your CloudSimple private cloud
 
