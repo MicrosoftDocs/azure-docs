@@ -10,13 +10,13 @@ keywords: azure functions, functions, event processing, dynamic compute, serverl
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 05/04/2019
+ms.date: 05/06/2019
 ms.author: jehollan
 ---
 
 # Azure Functions on Kubernetes with KEDA
 
-The Azure Functions runtime provides flexibility in hosting where and how you want.  [KEDA](https://github.com/kedacore/kore) provides Kubernetes-based event driven autoscaling, and pairs seamlessly with the Azure Functions runtime and tooling to provide event driven scale in Kubernetes.
+The Azure Functions runtime provides flexibility in hosting where and how you want.  [KEDA](https://github.com/kedacore/kore) (Kubernetes-based Event Driven Autoscaling) pairs seamlessly with the Azure Functions runtime and tooling to provide event driven scale in Kubernetes.
 
 ## How Kubernetes-based functions work
 
@@ -38,7 +38,7 @@ Install KEDA in your cluster by running the following install command:
 func kubernetes install --namespace keda
 ```
 
-## Deploying a function to Kubernetes
+## Deploying a function app to Kubernetes
 
 You can deploy any function app to a Kubernetes cluster running KEDA.  Since your functions run in a Docker container, your project needs a `Dockerfile`.  If it doesn't already have one, you can add a Dockerfile by running the following command at the root of your Functions project:
 
@@ -52,9 +52,11 @@ To build an image and deploy your functions to Kubernetes, run the following com
 func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry-username>
 ```
 
+> Replace `<name-of-function-deployment>` with the name of your function app.
+
 This creates a Kubernetes `Deployment` resource, a `ScaledObject` resource, and `Secrets`, which includes environment variables imported from your `local.settings.json` file.
 
-## Removing a function from Kubernetes
+## Removing a function app from Kubernetes
 
 After deploying you can remove a function by removing the associated `Deployment`, `ScaledObject`, an `Secrets` created.
 
@@ -74,10 +76,16 @@ func kubernetes remove --namespace keda
 
 ## Supported triggers in KEDA
 
-KEDA is currently in beta with support for the following triggers:
+KEDA is currently in beta with support for the following Azure Function triggers:
 
-* Azure Queues
-* Azure Service Bus Queues
-* HTTP
-* Apache Kafka ([preview Azure Function trigger](https://github.com/azure/azure-functions-kafka-extension))
-* RabbitMQ (no Azure Function trigger)
+* [Azure Storage Queues](functions-bindings-storage-queue.md)
+* [Azure Service Bus Queues](functions-bindings-service-bus.md)
+* [HTTP](functions-bindings-http-webhook.md)
+* [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
+
+## Next Steps
+For more information, see the following resources:
+
+* [Create a function using a custom image](functions-create-function-linux-custom-image.md)
+* [Code and test Azure Functions locally](functions-develop-local.md)
+* [How the Azure Function consumption plan works](functions-scale.md)
