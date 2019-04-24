@@ -13,9 +13,15 @@ ms.author: v-chjenk
 
 This article describes common issues you come across when setting up Windows Virtual Desktop and provides ways to troubleshoot the issues.
 
+## Provide feedback
+
+We currently aren't taking support cases while Windows Virtual Desktop is in preview. Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
+
 ## Escalation tracks
 
 Use the following table to identify and resolve issues you may encounter when setting up a tenant environment using Remote Desktop client.
+
+>[!NOTE] We currently aren't taking support cases while Windows Virtual Desktop is in preview. Whenever we refer to Windows Virtual Desktop support, go to our Tech Community forum for now. Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss issues with the product team and active community members. If you need to resolve a support issue, include the activity ID and approximate time frame for when the issue occurred.
 
 | **Issue**                                                            | **Suggested Solution**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
@@ -840,6 +846,7 @@ New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in th
 
 ## Next Steps
 
+- To learn more about the Preview service, see [Windows Desktop Preview enviornment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup?branch=pr-en-us-71423).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
