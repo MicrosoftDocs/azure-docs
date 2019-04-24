@@ -8,7 +8,7 @@ ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ---
-# Prepare your logic apps and runbooks for classic alert rules migration
+# Prepare your logic apps and runbooks for migration of classic alert rules
 
 As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in July 2019. A migration tool is available in the Azure portal to customers who use classic alert rules and who want to trigger migration themselves.
 
@@ -77,7 +77,7 @@ If you're using logic apps with classic alerts, you must modify your logic-app c
 
 The following example provides PowerShell code to use in your runbook. This code can parse the payloads for both classic metric alert rules and new metric alert rules.
 
-```PS
+```PowerShell
 ## Example PowerShell code to use in a runbook to handle parsing of both classic and new metric alerts.
 
 [OutputType("PSAzureOperationResponse")]
