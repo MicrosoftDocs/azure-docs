@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/20/2019
+ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -37,7 +37,7 @@ There are several ways that you can configure entitlement management for your or
 > [!div class="mx-tableFixed"]
 > | Steps | Example |
 > | --- | --- |
-> | [Follow tutorial to create your first access package](entitlement-management-access-package-first.md) | ![Azure portal icon](./media/entitlement-management-scenarios/azure-portal.png) |
+> | [Follow tutorial to create your first access package](entitlement-management-access-package-first.md) | [![Azure portal icon](./media/entitlement-management-scenarios/azure-portal.png) ](./media/entitlement-management-scenarios/azure-portal-expanded.png#lightbox) |
 
 ### I want to allow users in my directory to request access to groups, applications, or SharePoint sites
 
@@ -53,7 +53,7 @@ There are several ways that you can configure entitlement management for your or
 > [!div class="mx-tableFixed"]
 > | Steps | Example |
 > | --- | --- |
-> | **1.** [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Create an access package](media/entitlement-management-scenarios/access-package.png) |
+> | **1.** [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Create an access package](./media/entitlement-management-scenarios/access-package.png) |
 > | **2.** [Add resource roles to access package](entitlement-management-access-package-edit.md#add-resource-roles) | ![Add resource roles](./media/entitlement-management-scenarios/resource-roles.png) |
 > | **3.** [Add a policy for external users](entitlement-management-access-package-edit.md#policy-for-users-not-in-your-directory)<ul><li>For users not in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy for external users](./media/entitlement-management-scenarios/policy-external.png) |
 > | **4.** [Send the My Access portal link to request the access package to your business partner](entitlement-management-access-package-edit.md#copy-my-access-portal-link)<ul><li>Business partner can share link with their users</li></ul> |  |
@@ -88,7 +88,7 @@ There are several ways that you can configure entitlement management for your or
 > [!div class="mx-tableFixed"]
 > | Steps | Example |
 > | --- | --- |
-> | **1.** [Open request in My Access portal](entitlement-management-request-approve.md#open-request) | ![My Access portal icon](./media/entitlement-management-scenarios/myaccess-portal.png) |
+> | **1.** [Open request in My Access portal](entitlement-management-request-approve.md#open-request) | [![My Access portal icon](./media/entitlement-management-scenarios/my-access-portal.png) ](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
 > | **2.** [Approve access request](entitlement-management-request-approve.md#approve-or-deny-request) | ![Approve access](./media/entitlement-management-scenarios/approve-access.png) |
 
 ## Requestors
@@ -98,7 +98,7 @@ There are several ways that you can configure entitlement management for your or
 > [!div class="mx-tableFixed"]
 > | Steps | Example |
 > | --- | --- |
-> | **1.** [Sign in to the My Access portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | ![My Access portal icon](./media/entitlement-management-scenarios/myaccess-portal.png) |
+> | **1.** [Sign in to the My Access portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | [![My Access portal icon](./media/entitlement-management-scenarios/my-access-portal.png) ](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
 > | **2.** Find access package |  |
 > | **3.** [Request access](entitlement-management-request-access.md#request-an-access-package) | ![Request access](./media/entitlement-management-scenarios/request-access.png) |
 
@@ -108,7 +108,7 @@ There are several ways that you can configure entitlement management for your or
 > | Steps | Example |
 > | --- | --- |
 > | **1.** [Find the My Access portal link you received](entitlement-management-access-package-edit.md#copy-my-access-portal-link) |  |
-> | **2.** [Sign in to the My Access portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | ![My Access portal icon](./media/entitlement-management-scenarios/myaccess-portal.png) |
+> | **2.** [Sign in to the My Access portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | [![My Access portal icon](./media/entitlement-management-scenarios/my-access-portal.png) ](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
 > | **3.** [Request access](entitlement-management-request-access.md#request-an-access-package) | ![Request access external user](./media/entitlement-management-scenarios/request-access-external.png) |
 
 ### I want to view the groups, applications, or SharePoint sites I already have access to
@@ -116,7 +116,7 @@ There are several ways that you can configure entitlement management for your or
 > [!div class="mx-tableFixed"]
 > | Steps | Example |
 > | --- | --- |
-> | **1.** [Sign in to the My Access portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | ![My Access portal icon](./media/entitlement-management-scenarios/myaccess-portal.png) |
+> | **1.** [Sign in to the My Access portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | [![My Access portal icon](./media/entitlement-management-scenarios/my-access-portal.png) ](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
 > | **2.** View active access packages |  |
 
 ## Next steps
