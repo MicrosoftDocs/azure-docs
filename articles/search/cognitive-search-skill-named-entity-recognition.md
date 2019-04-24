@@ -19,7 +19,7 @@ ms.custom: seodec2018
 The **Named Entity Recognition** skill extracts named entities from text. Available entities include the types `person`, `location` and `organization`.
 
 > [!IMPORTANT]
-> Named entity recognition skill is deprecated, replaced by [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Support stops on Feburary 15, 2019. Follow the recommendations in [Deprecated Cognitive Search Skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
+> Named entity recognition skill is deprecated, replaced by [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Support stopped on February 15, 2019. Follow the recommendations in [Deprecated Cognitive Search Skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
 
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.

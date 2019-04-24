@@ -103,7 +103,7 @@ Content-Type: application/json
     "skills": 
     [
       {
-        "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+        "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
         "categories": [ "Organization" ],
         "defaultLanguageCode": "en",
         "inputs": [
@@ -135,7 +135,7 @@ To estimate costs associated with cognitive search indexing, start with an idea 
 + One image per page (6000 images)
 + 3000 characters per page
 
-Assume a pipeline consisting of document cracking of each PDF with image and text extraction, optical character recognition (OCR) of images, and named entity recognition of organizations. 
+Assume a pipeline consisting of document cracking of each PDF with image and text extraction, optical character recognition (OCR) of images, and entity recognition of organizations. 
 
 In this exercise, we're using the most expensive price per transaction. Actual costs could be lower due to graduated pricing. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services).
 
