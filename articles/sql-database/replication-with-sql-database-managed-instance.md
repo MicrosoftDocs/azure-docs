@@ -35,8 +35,9 @@ Configuring a managed instance to function as a publisher or a distributor requi
 - An Azure Storage Account share for the replication working directory.
 - Port 445 (TCP outbound) is open in the security rules of the managed instance subnet to access the Azure file share. 
 
-   > [!NOTE]
-   > Single databases and pooled databases in Azure SQL Database can only be subscribers. 
+
+ > [!NOTE]
+ > Single databases and pooled databases in Azure SQL Database can only be subscribers. 
 
 
 ## Features
