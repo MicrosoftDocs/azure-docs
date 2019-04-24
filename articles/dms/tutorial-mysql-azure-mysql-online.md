@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/24/2019
 ---
 
 # Tutorial: Migrate MySQL to Azure Database for MySQL online using DMS
@@ -117,11 +117,11 @@ SET group_concat_max_len = 8192;
 Run the drop foreign key (which is the second column) in the query result to drop foreign key.
 
 > [!IMPORTANT]
-> Also be sure to remove any DEFINER statements from the schema to prevent a migration failure.
+> If importing data using a backup, remove the CREATE DEFINER commands manually or by using the --skip-definer command when performing a mysqldump. DEFINER requires super privileges to create and is restricted in Azure Database for MySQL.
 
-If you have trigger in the data (insert or update trigger), it will enforce data integrity in the target ahead of the replicated data from the source. The recommendation is to disable triggers in all the tables at the target during migration, and then enable the triggers after migration is done.
+If you have a trigger in the data (insert or update trigger), it will enforce data integrity in the target ahead of the replicated data from the source. The recommendation is to disable triggers in all the tables at the target during migration, and then enable the triggers after migration is done.
 
-To disable triggers in target database, use the following command:
+To disable triggers in the target database, use the following command:
 ```
 SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
 ```
@@ -183,7 +183,7 @@ After the service is created, locate it within the Azure portal, open it, and th
     ![Create Database Migration Service Project](media/tutorial-mysql-to-azure-mysql-online/dms-create-project4.png)
 
     > [!NOTE]
-    > Alternately, you can chose **Create project only** to create the migration project now and execute the migration later.
+    > Alternately, you can choose **Create project only** to create the migration project now and execute the migration later.
 
 6. Select **Save**, note the requirements to successfully use DMS to migrate data, and then select **Create and run activity**.
 
