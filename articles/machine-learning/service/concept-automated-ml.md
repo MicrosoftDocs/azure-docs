@@ -53,6 +53,8 @@ You can also inspect the logged run information, which contains metrics gathered
 
 While model building is automated, you can also [learn how important or relevant features were](how-to-configure-auto-train.md#explain-the-model) to the generation of your model. 
 
+<a name="preprocess"></a>
+
 ## Scale, normalize, and more
 
 In every automated machine learning experiment, your data is automatically scaled and normalized to help algorithms perform well.  
@@ -90,4 +92,3 @@ See examples and learn how to build models using Automated Machine Learning:
    + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
 
 + Try out [Jupyter Notebook samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
-
