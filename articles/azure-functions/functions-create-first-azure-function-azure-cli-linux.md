@@ -64,8 +64,6 @@ cd MyFunctionProj
 
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
-[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
-
 [!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
