@@ -1,7 +1,7 @@
 ---
-title: Summary dashboard
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Fix intents with the summary dashboard, a visualized reporting tool.
+title: Dashboard - Language Understanding
+titleSuffix: Azure Cognitive Services
+description: Fix intents with the analytics summary dashboard, a visualized reporting tool.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -113,7 +113,7 @@ The **unclear prediction** intent list shows intents with utterances with predic
 
 ## Utterances per intent
 
-This card shows the overall app health across the intents. A healthy app should have a high degree of intents with the same quantity of intents (same vertical height). As you fix intents and retrain, continue to glance at this card for issues.
+This card shows the overall app health across the intents. As you fix intents and retrain, continue to glance at this card for issues.
 
 The following chart shows a well-balanced app with almost no issues to fix.
 
