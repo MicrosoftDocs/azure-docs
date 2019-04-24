@@ -89,8 +89,8 @@ Azure NetApp Files supports SMBv3 volumes. You need to create Active Directory c
 
 1. Ensure that you meet the following requiements: 
 
-    * The admin account you use must be able to create machine account in the organizational unit (OU) path you will specify.
-    * Proper ports must be open on the applicable Windows AD server.  
+    * The admin account you use must be able to create machine accounts in the organizational unit (OU) path that you will specify.
+    * Proper ports must be open on the applicable Windows Active Directory (AD) server.  
         The required ports are as follows: 
 
         |     Service           |     Port     |     Protocol     |
