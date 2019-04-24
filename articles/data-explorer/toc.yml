@@ -66,10 +66,16 @@
   items:
   - name: Get Started
     items:
-    - name: Write queries
-      href: write-queries.md
     - name: Ingest sample data
       href: ingest-sample-data.md
+  - name: Query data
+    items:
+    - name: Write queries
+      href: write-queries.md
+    - name: Time series analysis
+      href: time-series-analysis.md
+    - name: Anomaly detection and forecasting
+      href: anomaly-detection.md
   - name: Manage
     items:
     - name: Manage database permissions
