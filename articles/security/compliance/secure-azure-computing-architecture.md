@@ -17,7 +17,7 @@ ms.service: security
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
-# Secure azure computing architecture
+# Secure Azure Computing Architecture
 
 A rapidly increasing number of DoD customers deploying workloads to Azure have been asking for guidance setting up secure virtual networks and configuring the security tools and services stipulated by DoD standards and practice. DISA published the [Secure Cloud Computing Architecture (SCCA) Functional Requirements Document](https://iasecontent.disa.mil/stigs/pdf/SCCA_FRD_v2-9.pdf) in 2017. SCCA describes the functional objectives for securing the Defense Information System Network’s (DISN) and Commercial Cloud Provider connection points and how mission owners secure cloud applications at the connection boundary. It is mandated that every DoD entity that connects to the commercial cloud follows the guidelines set forth in the SCCA FRD.
  
@@ -26,7 +26,7 @@ There are four components of the SCCA. The Boundary Cloud Access Point (BCAP), V
 While SCCA guidance and architectures are specific to DoD customers, the latest revisions to SACA will also help Civilian customers comply with trusted internet connection (TIC) guidance, as well as commercial customers that with to implement a secure DMZ to protect their azure environments. 
 
 
-## Secure cloud computing architecture components
+## Secure Cloud Computing Architecture components
 
 **BCAP**
 
