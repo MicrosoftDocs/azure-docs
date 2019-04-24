@@ -55,7 +55,7 @@ Download and install Ruby 2.5.5 version based on your system architecture from [
     include Azure::CognitiveServices::TextAnalytics::V2_1::Models
     
     credentials =
-        MsRestAzure::CognitiveServicesCredentials.new("e2f429a52392417bbfd0659d15768872")
+        MsRestAzure::CognitiveServicesCredentials.new("enter key here")
     # Replace 'westus' with the correct region for your Text Analytics subscription
     endpoint = String.new("https://westus.api.cognitive.microsoft.com/")
     
