@@ -34,7 +34,7 @@ The purpose of the BCAP is to protect the DISN from attacks originating in the c
 
 ***BCAP Security Requirements***
 
-![BCAP requirements matrix](media/bcapreqs.jpg)
+![BCAP requirements matrix](media/bcapreqs.png)
 
 
 **VDSS**
@@ -43,7 +43,7 @@ The purpose of the VDSS is to protect DoD Mission Owner applications that are ho
 
 ***VDSS Security Requirements***
 
-![VDSS requirements matrix](media/vdssreqs.jpg)
+![VDSS requirements matrix](media/vdssreqs.png)
 
 **VDMS**
 
@@ -51,7 +51,7 @@ The purpose of VDMS is to provide host security as well as shared data center se
 
 ***VDMS Security Requirements***
 
-![VDMS requirements matrix](media/vdmsreqs.jpg)
+![VDMS requirements matrix](media/vdmsreqs.png)
 
 
 **TCCM**
@@ -60,14 +60,14 @@ TCCM is a business role. This individual will be responsible for managing the SC
 
 ***TCCM Security Requirements***
 
-![TCCM requirements matrix](media/tccmreqs.jpg) 
+![TCCM requirements matrix](media/tccmreqs.png) 
 
 ## SACA Components and Planning Considerations 
 
 The SACA reference architecture is designed to deploy the VDSS and VDMS components in azure, as well as enable the TCCM. This architecture is modular, which means that all of the pieces of VDSS and VDMS can live in a centralized hub or some of the controls can be met in the mission owner space or even on-premises. The recommendation of our Microsoft team is to co-locate the VDSS and VDMS components into a central Virtual Net that all Mission Owners can connect through. The diagram below depicts our recommended architecture. 
 
 
-![SACA Reference Architecture Diagram](media/sacav2generic.jpg)
+![SACA Reference Architecture Diagram](media/sacav2generic.png)
 
 When planning your SCCA compliancy strategy and technical architecture, there are many things to consider. It is important that the following topics are taken into consideration from the beginning, as every customer will need to cover these. The topics below have been issues that have come up with real DoD customers and tend to slow the planning and execution down. 
 
@@ -123,7 +123,7 @@ When planning your SCCA compliancy strategy and technical architecture, there ar
 Microsoft has several customers who have already gone through the full deployment or at least planning stages of their SACA environments. This has allowed us to get insight into the most common deployment scenario. The diagram below depicts the most common architecture. 
 
 
-![SACA Reference Architecture Diagram](media/sacav2commonScenario.jpg) 
+![SACA Reference Architecture Diagram](media/sacav2commonScenario.png) 
 
 
 As you can see from the diagram, DoD customers typically subscribe to two of the DISA BCAPs, one of these lives on the west coast and the other lives on the east coast. An ExpressRoute Private peer is enabled to Azure at each DISA BCAP location. These ExpressRoute Peers are then linked to the Virtual Network Gateway in the DoD East and DoD Central Azure Regions. A SACA instance is deployed in the DoD East and DoD Central Azure region and all ingress and egress traffic flows through it to and from the Express Route connection to the DISA BCAP. 
@@ -163,7 +163,7 @@ This architecture is highly recommended by Microsoft, as it will meet SCCA requi
 
 Citrix has created a deployment template that deploys two layers of highly available Citrix ADC appliances. This architecture meets the requirements of VDSS. 
 
-![Citrix SACA Diagram](media/citrixsaca.jpg)
+![Citrix SACA Diagram](media/citrixsaca.png)
 
 
 Citrix Documentation and deployment script can be found [here.](https://github.com/citrix/netscaler-azure-templates/tree/master/templates/saca)
@@ -173,7 +173,7 @@ Citrix Documentation and deployment script can be found [here.](https://github.c
 
 F5 has created two separate deployment templates covering two different architectures. The first one has only one layer of F5 appliances in an active-active highly available configuration. This architecture meets the requirements for VDSS. The second adds a second layer of active-active highly available F5s. The purpose of this second layer is to allow for customers to add their own IPS separate from F5 in between the F5 layers. Not all DoD components have specific IPS prescribed for use. If that is the case, the single layer of F5 appliances will work for most since that architecture includes IPS on the F5 devices.  
 
-![Citrix SACA Diagram](media/f5saca.jpg)
+![Citrix SACA Diagram](media/f5saca.png)
 
 F5 Documentation and deployment script can be found [here.](https://github.com/f5devcentral/f5-azure-saca) 
 
