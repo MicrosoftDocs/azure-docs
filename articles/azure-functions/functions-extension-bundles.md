@@ -31,7 +31,7 @@ To make bindings available to your non-.NET function, update the *host.json* fil
 ```
 
 - The `id` property references the namespace for Microsoft Azure Functions extension bundles.
-- The `version` property uses the [interval notation for specifying version ranges](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards).
+- The `version` references the version of the bundle. Bundle versions increment as packages in the bundle changes. Major version changes happen only when packages in the bundle move a major version. The `version` property uses the [interval notation for specifying version ranges](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards).
 
 For local development, ensure you have the latest version of [Azure Functions Core Tools](./functions-run-local.md#install-the-azure-functions-core-tools).
 
