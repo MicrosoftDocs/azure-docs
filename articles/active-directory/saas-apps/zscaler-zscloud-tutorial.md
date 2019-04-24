@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/16/2019
+ms.date: 04/24/2019
 ms.author: jeedes
 
 ---
@@ -153,9 +153,17 @@ To configure Azure AD single sign-on with Zscaler ZSCloud, perform the following
 
 ### Configure Zscaler ZSCloud Single Sign-On
 
-1. In a different web browser window, sign in to your Zscaler ZSCloud company site as an administrator.
+1. To automate the configuration within Zscaler ZSCloud, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **setup Zscaler ZSCloud** will direct you to the Zscaler ZSCloud application. From there, provide the admin credentials to sign into Zscaler ZSCloud. The browser extension will automatically configure the application for you and automate steps 3-6.
+
+	![Setup sso](common/setup-sso.png)
+
+3. If you want to setup Zscaler ZSCloud manually, open a new web browser window and log into your Zscaler ZSCloud company site as an administrator and perform the following steps:
+
+4. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
    
 	![Administration](./media/zscaler-zscloud-tutorial/ic800206.png "Administration")
 
@@ -163,7 +171,7 @@ To configure Azure AD single sign-on with Zscaler ZSCloud, perform the following
 
 	b. Click **Configure SAML**.
 
-3. On the **Edit SAML** window, perform the following steps: and click Save.  
+5. On the **Edit SAML** window, perform the following steps: and click Save.  
    			
 	![Manage Users & Authentication](./media/zscaler-zscloud-tutorial/ic800208.png "Manage Users & Authentication")
 	
@@ -183,7 +191,7 @@ To configure Azure AD single sign-on with Zscaler ZSCloud, perform the following
 
 	h. Click **Save**.
 
-4. On the **Configure User Authentication** dialog page, perform the following steps:
+6. On the **Configure User Authentication** dialog page, perform the following steps:
 
     ![Administration](./media/zscaler-zscloud-tutorial/ic800207.png)
 
