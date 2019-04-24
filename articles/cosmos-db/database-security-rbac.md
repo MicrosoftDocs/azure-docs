@@ -28,7 +28,7 @@ The following are the built-in roles supported by Azure Cosmos DB:
 
 ## Identity and Access Management (IAM)
 
-The **Access control (IAM)** blade in the Azure portal is used to configure Role-based Access Control on Azure Cosmos resources. Thr roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups. The following screenshot shows Active Directory integration (RBAC) using access control (IAM) in the Azure portal:
+The **Access control (IAM)** blade in the Azure portal is used to configure Role-based Access Control on Azure Cosmos resources. The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups. The following screenshot shows Active Directory integration (RBAC) using access control (IAM) in the Azure portal:
 
 ![Access control (IAM) in the Azure portal - demonstrating database security](./media/database-security-rbac/database-security-identity-access-management-rbac.png)
 
