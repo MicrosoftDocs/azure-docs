@@ -22,9 +22,9 @@ With automated ML, anyone can successfully extract and leverage the business ins
 
 You provide some goals, constraints, or blacklists, and then automated machine learning generates the model for you. Behind the scenes, training data is taken with a defined target feature, and iterated upon through combinations of algorithms and feature selections. Then, the best model (based on training scores) is automatically selected.  
 
-Using Azure Machine Learning service, you can configure the settings for automatic training experiment [in Azure portal](how-to-create-portal-experiments.md) or directly in Python [with the SDK](how-to-configure-auto-train.md).
+Using **Azure Machine Learning service**, you can configure the settings for automatic training experiment [in Azure portal](how-to-create-portal-experiments.md) or directly in Python [with the SDK](how-to-configure-auto-train.md).
 
-## How it works with Azure Machine Learning service
+## How automated ML works
 
 When you use Azure Machine Learning service to automate ML modeling and tuning, you'll go through these steps:
 
@@ -56,9 +56,9 @@ You can also inspect the logged run information, which contains metrics gathered
 While model building is automated, you can also [learn how important or relevant features were](how-to-configure-auto-train.md#explain-the-model) to the generation of your model. 
 
 
-## Data pre-processing and featurization
+## Preprocessing
 
-If you use `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py), the following data preprocessing steps are performed automatically for you:
+If you use `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py), the following data preprocessing and featurization steps are performed automatically for you:
 
 |Preprocessing&nbsp;steps| Description |
 | ------------- | ------------- |
@@ -72,7 +72,7 @@ If you use `"preprocess": True` for the [`AutoMLConfig` class](https://docs.micr
 |Weight of Evidence (WoE)|Calculates WoE as a measure of correlation of categorical columns to the target column. It is calculated as the log of the ratio of in-class vs out-of-class probabilities. This step outputs one numerical feature column per class and removes the need to explicitly impute missing values and outlier treatment.|	
 |Cluster Distance|Trains a k-means clustering model on all numerical columns.  Outputs k new features, one new numerical feature per cluster, containing the distance of each sample to the centroid of each cluster.|	
 
-## Scaling and normalization
+## Scale & normalize
 
 In addition to the preceding pre-processing list, data is automatically scaled/normalized to help algorithms perform well.  The `preprocess` flag in AutoMLConfig does not control behavior of scaling and normalization described here.  See this table for details:
 
