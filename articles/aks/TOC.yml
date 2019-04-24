@@ -103,6 +103,8 @@
     - name: Create an AKS cluster
       href: /cli/azure/aks#az-aks-create
       maintainContext: true
+    - name: Create a cluster with Windows support - CLI
+      href: windows-container-cli.md
     - name: Scale an AKS cluster
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
