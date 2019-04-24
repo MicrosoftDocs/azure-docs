@@ -43,9 +43,9 @@ typically provide access to the **Web Inspector View** through the `F12` hotkey.
 
 Throughout this tutorial, the Time Series Insights sample application is used to explore the source code behind the application, including the usage of the TSI JavaScript client library. The sample is a single-page web application that demonstrates how to use the library. The sample shows how to query and visualize data from a sample TSI environment.
 
-1. Navigate to the <a href="https://insights.timeseries.azure.com/clientsample" target="_blank" rel="external noopener noreferrer">Time Series Insights sample application</a>. You see a page similar to the following image with a prompt to sign in:
+1. Navigate to the [Time Series Insights sample application]("https://insights.timeseries.azure.com/clientsample). You see a page similar to the following image with a prompt to sign in:
 
-   ![TSI Client sample sign-in prompt](media/tutorial-explore-js-client-lib/tcs-sign-in.png)
+   [![TSI Client sample sign-in prompt](media/tutorial-explore-js-client-lib/tcs-sign-in.png)](media/tutorial-explore-js-client-lib/tcs-sign-in.png#lightbox)
 
 2. Select **Log in** and enter or select your credentials. Use either an enterprise or organization account (Azure Active Directory) or a personal account (Microsoft Account or MSA).
 
@@ -53,7 +53,7 @@ Throughout this tutorial, the Time Series Insights sample application is used to
 
 3. After successful sign-in, you see a page similar to the following image. The page shows several styles of example charts that are populated with TSI data. Your user account and the **Log out** option are visible in the upper right corner:
 
-   ![TSI Client sample main page after sign-in](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png)
+   [![TSI Client sample main page after sign-in](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png)](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png#lightbox)
 
 ### Page source and structure
 
