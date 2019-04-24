@@ -72,26 +72,12 @@ If you are using Azure File Sync to access your Azure file share, we will always
 Azure Files offers two performance tiers: standard and premium.
 
 * **Standard file shares** are backed by rotational hard disk drives (HDDs) that provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
-* **Premium file shares (preview)** are backed by solid-state disks (SSDs) that provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for the most IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares. If you'd like to learn how to create a premium file share, see our article on the subject: [How to create an Azure premium file storage account](storage-how-to-create-premium-fileshare.md).
+* **Premium file shares (preview)** are backed by solid-state disks (SSDs) that provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for the most IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares. If you'd like to learn how to create a premium file share, see our article on the subject: [How to create an Azure premium file storage account](storage-how-to-create-premium-fileshare.md). Azure Kubernetes Service (AKS) offers support for premium file shares in versions 1.13 and above.
+
+Currently, you cannot directly convert between a standard file share and a premium file share. If you would like to switch between the two, you must create a new file share (either premium or standard) and manually copy the data from your source share to the destination share. You can do this using any of the Azure Files supported copy tools, such as AzCopy.
 
 > [!IMPORTANT]
-> Premium file shares are still in preview, only available with LRS, and are only available in a subset of regions with Azure Backup support being available in select regions:
-
-|Available region  |Azure Backup support  |
-|---------|---------|
-|East US2      | Yes|
-|East US       | Yes|
-|West US       | No |
-|West US2      | No |
-|Central US    | No |
-|North Europe  | No |
-|West Europe   | Yes|
-|SE Asia       | Yes|
-|East Asia     | No |
-|Japan East    | No |
-|Japan West    | No |
-|Korea Central | No |
-|Australia East| No |
+> Premium file shares are still in preview, only available with LRS, and are only available in a [subset of regions](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage). Currently, all premium file shares have Azure Backup support.
 
 ### Provisioned shares
 
@@ -111,6 +97,8 @@ Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next si
 > ingress rate = 40 MiB/s + 0.04 * provisioned GiB
 
 Share size can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a size increase, you can decrease the share size as many times as you like, until you increase it again. IOPS/Throughput scale changes will be effective within a few minutes after the size change.
+
+It is possible to decrease the size of your provisioned share below your used GiB. If you do this, you will not lose data but, you will still be billed for the size used and receive the performance (baseline IOPS, throughput, and burst IOPS) of the provisioned share, not the size used.
 
 The following table illustrates a few examples of these formulae for the provisioned share sizes:
 

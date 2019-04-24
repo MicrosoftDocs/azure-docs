@@ -128,3 +128,33 @@ Client application consistently exceeds baseline IOPS. Currently, there is no se
 
 - Reduce the request load from the client application, so that the share does not get throttled.
 - Increase the quota of the share so that the share does not get throttled.
+
+## Excessive DirectoryOpen/DirectoryClose calls
+
+### Cause
+
+If the number of DirectoryOpen/DirectoryClose calls is among the top API calls and you don't expect the client to be making that many calls, it may be an issue with the antivirus installed on the Azue client VM.
+
+### Workaround
+
+There is a fix for this issue available in the [April Platform Update for Windows](https://support.microsoft.com/en-us/help/4052623/update-for-windows-defender-antimalware-platform).
+
+## File creation is slower than expected
+
+### Cause
+
+Workloads that rely on creating a large number of files will not see a substantial difference between the performance of premium file shares and standard file shares.
+
+### Workaround
+
+- None.
+
+## Slow performance from Windows 8.1 or Server 2012 R2
+
+### Cause
+
+Higher than expected latency accessing Azure Files for IO intensive workloads.
+
+### Workaround
+
+- Install the available [hotfix](https://support.microsoft.com/en-us/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
