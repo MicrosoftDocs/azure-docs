@@ -24,9 +24,8 @@ This module is a prototype application, and isn't recommended for your productio
 
 ## Description
 
-Disable the Instrumentation Engine.
-This will remove registry keys.
-You will need to restart IIS for your changes to take effect.
+This cmdlet will disable the Instrumentation Engine by removing some registry keys.
+Restart IIS for these changes to take effect.
 
 ## Examples
 

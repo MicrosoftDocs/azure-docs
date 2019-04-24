@@ -1,6 +1,6 @@
 ---
 title: IIS Configurator | Microsoft Docs
-description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
 author: tilee
@@ -16,8 +16,7 @@ ms.author: tilee
 # IISConfigurator API Reference
 
 ## Disclaimer
-This is a prototype application. 
-We do not recommend using this on your production environments.
+This module is a prototype application, and isn't recommended for your production environments.
 
 # Disable-ApplicationInsightsMonitoring (v0.2.0-alpha)
 
@@ -26,7 +25,7 @@ We do not recommend using this on your production environments.
 ## Description
 
 Disable monitoring on the target machine.
-This will remove the edits to the IIS applicationHost.config and remove registry keys.
+This cmdlet will remove the edits to the IIS applicationHost.config and remove registry keys.
 
 ## Examples
 

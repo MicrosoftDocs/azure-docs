@@ -27,7 +27,7 @@ This module is a prototype application, and isn't recommended for your productio
 ## Description
 
 This cmdlet will enable the Instrumentation Engine by setting some registry keys.
-You will need to restart IIS for your changes to take effect.
+Restart IIS for these changes to take effect.
 
 The Instrumentation Engine is used in addition to the .NET SDKs and will collect events and messages of what is happening to during the execution of a managed process. Including but not limited to Dependency Result Codes, HTTP Verbs, and SQL Command Text. 
 
