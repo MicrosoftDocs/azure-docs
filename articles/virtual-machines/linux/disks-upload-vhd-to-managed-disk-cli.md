@@ -13,7 +13,7 @@ ms.subservice: disks
 
 # Upload a vhd to Azure - Azure CLI
 
-This article explains how to upload a vhd file from your local machine directly to an Azure managed disk.
+This article explains how to upload a vhd file from your local machine directly to an Azure managed disk. You can leverage this process to upload directly to our larger managed disks  Currently, this process is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not supported for ultra SSDs yet.
 
 ## Pre-requisites
 
@@ -25,7 +25,14 @@ This article explains how to upload a vhd file from your local machine directly 
 
 In order to upload your vhd to Azure, you'll need an empty managed disk with a special parameter that identifies the disk is for uploading.
 
-Create an empty managed disk for upload by specifying –for-upload parameter in the [disk create](/cli/azure/disk/create) cmdlet:
+A managed disk which is meant for upload has two states:
+
+- ReadToUpload, which means the disk is ready to receive an upload but, no SAS has been generated.
+- ActiveUpload, which means that the disk is ready to receive an upload and the SAS has been generated.
+
+While in either of these states, the managed disk will be billed at [standard HDD pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/), regardless of the actual type of disk. For example, a P10 will be billed as an S10. This will only be true so long as either of the upload states are currently set.
+
+Create an empty standard HDD managed disk for upload by specifying –for-upload parameter in the [disk create](/cli/azure/disk/create) cmdlet:
 
 ```azurecli-interactive
 az disk create -n contosodisk2 -g contosoteam2 -l westus2 --for-upload --size-gb 128 --sku standard_lrs
@@ -57,11 +64,25 @@ Use AzCopy v10 to upload your local VHD file to a managed disk by specifying the
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 ```
 
-After the upload is complete, revoke the SAS, this will change the state of the managed disk, and allow you to attach the disk to a VM.
+If your SAS expires during upload, and you haven't called `revoke-access` yet, you can get a new SAS to continue the upload using `grant-access`, again.
+
+After the upload is complete and you no longer need to write any more data to the disk, revoke the SAS. This will change the state of the managed disk and allow you to attach the disk to a VM.
 
 ```azurecli-interactive
 az disk revoke-access -n contosodisk2 -g contosoteam2
 ```
+
+## Switch disk type
+
+Once the upload is complete and you've changed the state of your disk using `revoke-access`, you can switch the disk type from standard HDD to another type.
+
+The following command will change the disk type to standard SSD:
+
+```azurecli-interactive
+az disk update -g contosoteam2 -n contosodisk2 --sku StandardSSD_LRS
+```
+
+If you would like to change the type to premium SSD, replace `StandardSSD_LRS` with `Premium_LRS`. Ultra SSD is not yet supported.
 
 ## Next steps
 
