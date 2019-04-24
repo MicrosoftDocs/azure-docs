@@ -1,7 +1,7 @@
 ---
 title: Speech Devices SDK microphone array recommendations - Speech Services
 titleSuffix: Azure Cognitive Services
-description: Speech Devices SDK microphone array recommendations. The following array geometries are recommended for use with the Microsoft Audio Stack. Location of sound sources and rejection of ambient noise is generally improved with greater number of microphones with dependencies on specific applications, user scenarios, and the device form factor.
+description: Speech Devices SDK microphone array recommendations. The following array geometries are recommended for use with the Microsoft Audio Stack. Location of sound sources and rejection of ambient noise is improved with greater number of microphones with dependencies on specific applications, user scenarios, and the device form factor.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -17,7 +17,7 @@ ms.author: erhopf
 
 The following array geometries are recommended for use with the
 Microsoft Audio Stack. Location of sound sources and rejection of
-ambient noise is generally improved with greater number of microphones
+ambient noise is improved with greater number of microphones
 with dependencies on specific applications, user scenarios, and the
 device form factor.
 
@@ -25,7 +25,7 @@ device form factor.
 |----------|-------------------|-------------------|----------------|----------------|
 |          |![7 mic circular array](media/speech-devices-sdk/7-mic-c.png)|![4 mic circular array](media/speech-devices-sdk/4-mic-c.png)|![4 mic linear array](media/speech-devices-sdk/4-mic-l.png)|![2 mic linear array](media/speech-devices-sdk/2-mic-l.png)|
 | \# Mics  | 7                 | 4                 | 4              | 2              |
-| Geometry | 6 Outer, 1 Center, Radius = 42.5mm,  Evenly Spaced| 3 Outer, 1 Center, Radius = 42.5mm, Evenly Spaced | Length = 120mm, Spacing = 40mm | Spacing = 40mm |
+| Geometry | 6 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced| 3 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced | Length = 120 mm, Spacing = 40 mm | Spacing = 40 mm |
 
 ## Component selection
 
@@ -40,14 +40,14 @@ The recommended properties when selecting microphones are:
 | Phase Matching                    | ± 2° @ 1kHz                       |
 | Acoustic Overload Point (AOP)     | \> 120 dBSPL (THD = 10%)          |
 | Bit Rate                          | Minimum 24-bit                    |
-| Sampling Rate                     | Minimum 16kHz\*                   |
+| Sampling Rate                     | Minimum 16 kHz\*                   |
 | Directivity                       | Omnidirectional                   |
-| Frequency Response                | ± 3 dB, 200-8000Hz Floating Mask\*|
+| Frequency Response                | ± 3 dB, 200-8000 Hz Floating Mask\*|
 | Reliability                       | Storage Temperature Range -40°C  to 70°C |
 |                                   | Operating Temperature Range -20°C to 55°C|
 
 *\*Higher sampling rates or "wider" frequency ranges may be necessary
-for high quality communications (VoIP) applications*
+for high-quality communications (VoIP) applications*
 
 Note that good component selection must be paired with good
 electroacoustic integration in order to avoid impairing the performance
@@ -68,7 +68,7 @@ any fixed gain or EQ should meet the following recommendations:
 | THD%                 | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5th Order |
 |  Frequency Response  | ± 6 dB, 200-8000Hz Floating Mask\* |
 
-*\*"Wider" frequency ranges may be necessary for high quality
+*\*"Wider" frequency ranges may be necessary for high-quality
 communications (VoIP) applications*
 
 ## Speaker integration recommendations
@@ -79,7 +79,7 @@ selection and integration.
 
 | Parameter                         | Recommended                       |
 |-----------------------------------|-----------------------------------|
-| Linearity Considerations          | No non-linear processing after speaker reference, otherwise a hardware based loopback reference stream is required  |
+| Linearity Considerations          | No non-linear processing after speaker reference, otherwise a hardware-based loopback reference stream is required  |
 | Speaker Loopback                  | Provided via WASAPI, private APIs, custom ALSA plug-in (Linux), or provided via firmware channel      |
 | THD%                              | 3rd Octave Bands minimum 5th Order, 70 dBA Playback @ 0.8m  ≤ 6.3%, 315-500 Hz ≤ 5%, 630-5000 Hz                 |
 | Echo Coupling to Microphones      | \> -10 dB TCLw using ITU-T G.122 Annex B.4 method, normalized to mic level   |
@@ -102,7 +102,7 @@ microphones into a device:
 | Record Capability                 | The device must be able to record individual channel raw streams simultaneously |
 | USB                               | All USB audio input devices must set descriptors according to the [USB Audio Devices Rev3 Spec](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
 | Microphone Geometry               | Drivers must implement [Microphone Array Geometry Descriptors](https://docs.microsoft.com/en-us/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) correctly  |
-| Discoverability                   | Devices must not have any undiscoverable or uncontrollable hardware, firmware or 3rd party software-based non-linear audio processing algorithms to/from the device|
+| Discoverability                   | Devices must not have any undiscoverable or uncontrollable hardware, firmware, or 3rd party software-based non-linear audio processing algorithms to/from the device|
 | Capture Format                    | Capture formats must use a minimum sampling rate of 16kHz  and recommended 24-bit depth      |
 
 ## Electrical architecture considerations
@@ -115,6 +115,6 @@ Hardware components such as PDM-to-TDM conversion should ensure that the
 dynamic range and SNR of the microphones is preserved within
 re-samplers.
 
-High speed USB Audio Class 2.0 should be supported within any audio MCUs
+High-speed USB Audio Class 2.0 should be supported within any audio MCUs
 in order to provide the necessary bandwidth for up to seven channels at
 higher sample rates and bit depths.
