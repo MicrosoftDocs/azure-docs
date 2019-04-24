@@ -135,15 +135,15 @@ The experiments you create in the visual interface can be managed from the Azure
 
 1. In your workspace, select **Models**. Then select the experiment you created.
 
-    ![Screenshot showing how to navigate to experiments in the Azure portal](./media/ui-tutorial-automobile-price-train-score/portal-models.png)
+    ![Screenshot showing how to navigate to experiments in the Azure portal](./media/ui-tutorial-automobile-price-deploy/portal-models.png)
 
     On this page, you'll see additional details about the model.
 
-    ![Screenshot showing overview of experiment statistics in the Azure portal](./media/ui-tutorial-automobile-price-train-score/model-details.png)
+    ![Screenshot showing overview of experiment statistics in the Azure portal](./media/ui-tutorial-automobile-price-deploy/model-details.png)
 
 1. Select **Deployments**, it will list any web services that use the model. Select the web service name, it will go to web service detail page. In this page, you can get more detailed information of the web service.
 
-    ![Screenshot detailed run report](./media/ui-tutorial-automobile-price-train-score/deployment-details.png)
+    ![Screenshot detailed run report](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)
 
 ## Clean up resources
 
