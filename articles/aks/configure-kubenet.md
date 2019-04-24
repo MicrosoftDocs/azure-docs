@@ -20,7 +20,7 @@ With [Azure Container Networking Interface (CNI)][cni-networking], every pod get
 This article shows you how to use *kubenet* networking to create and use a virtual network subnet for an AKS cluster. For more information on network options and considerations, see [Network concepts for Kubernetes and AKS][aks-network-concepts].
 
 > [!WARNING]
-> To use Windows Server node pools (currently in preview in AKS), you must use Azure CNI. The use of kubenet as the network model is not currently endorsed for Windows Server containers.
+> To use Windows Server node pools (currently in preview in AKS), you must use Azure CNI. The use of kubenet as the network model is not available for Windows Server containers.
 
 ## Before you begin
 
