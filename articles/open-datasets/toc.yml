@@ -8,7 +8,7 @@
     href: overview-what-are-open-datasets.md
 - name: Tutorial
   items:
-  - name: Regression (NYC Taxi data)
+  - name: Regression with automated machine learning
     href: tutorial-opendatasets-automl.md
 - name: Samples
   displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub

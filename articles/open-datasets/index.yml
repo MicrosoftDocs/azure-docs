@@ -8,7 +8,7 @@ metadata:
   ms.topic: landing-page
   author: cjgronlund
   ms.author: cgronlun
-  ms.date: 05/05/2019
+  ms.date: 05/02/2019
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
@@ -18,7 +18,7 @@ sections:
 - title: Step-by-Step Tutorial
   items:
   - type: paragraph
-    text: <a href="tutorial-opendatasets-automl">Learn how to use open datasets in a regression model </a>
+    text: <a href="tutorial-opendatasets-automl">Learn how to use open datasets with automated machine learning </a>
 
 - title: Samples
   items:

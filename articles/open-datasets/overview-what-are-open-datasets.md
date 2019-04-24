@@ -5,7 +5,7 @@ description: Learn about Azure Open Datasets (preview), curated datasets from th
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 05/05/2019
+ms.date: 05/02/2019
 ---
 
 # What are Azure Open Datasets (preview) and how can you use them?

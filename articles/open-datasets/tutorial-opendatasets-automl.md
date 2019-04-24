@@ -41,13 +41,13 @@ This example uses an Anaconda environment with Jupyter notebooks, but you can ru
 
 1. If you don't already have it, [download](https://www.anaconda.com/distribution/) and install Anaconda, and choose **Python 3.7 version**.
 1. Open an Anaconda prompt and create a new environment. It will take several minutes to create the environment while components and packages are downloaded.
-```
-conda create -n tutorialenv python=3.6.5
-```
+    ```
+    conda create -n tutorialenv python=3.6.5
+    ```
 1. Activate the environment.
-```
-conda activate tutorialenv
-```
+    ```
+    conda activate tutorialenv
+    ```
 1. Enable environment-specific ipython kernels.
 ```
 conda install notebook ipykernel
