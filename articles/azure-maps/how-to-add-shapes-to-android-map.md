@@ -174,6 +174,7 @@ You can add a line to the map using a **Line Layer**, follow the steps below to 
 If you run your application now, you should see a line on the map as seen below:
 
 <center>
+
 ![Android map line](./media/how-to-add-shapes-to-android-map/android-map-line.png)</center>
 
 
@@ -234,7 +235,7 @@ The **Polygon Layer** enables you to render the area of the polygon to the map. 
     });
     ```
 
-    The code snippet above first obtains an Azure Maps map control instance using the **onReady()** callback method. It then creates a data source object using the **DataSource** class and adds it to the map. A **Polygon** object is then created from an list of **Point** arrays and is added to the data source. A **Polygon Layer** renders data wrapped in the data source on the map. It then creates a polygon layer to render the polygon area and adds the data source to it. A **Line Layer** renders line objects wrapped in a data source on the map. The last part of the code snippet creates a line layer to render the outline of the polygon and adds the data source to it.
+    The code snippet above first obtains an Azure Maps map control instance using the **onReady()** callback method. It then creates a data source object using the **DataSource** class and adds it to the map. A **Polygon** object is then created from an list of **Point**  objects and is added to the data source. A **Polygon Layer** renders data wrapped in the data source on the map. It then creates a polygon layer to render the polygon area and adds the data source to it. A **Line Layer** renders line objects wrapped in a data source. The last part of the code snippet creates a line layer to render the outline of the polygon and adds the data source to it.
 
     After adding the code snippet above, your `MainActivity.java` should look like the one below:
 
@@ -347,6 +348,7 @@ The **Polygon Layer** enables you to render the area of the polygon to the map. 
 If you run your application now, you should see a polygon on the map as seen below:
 
 <center>
+
 ![Android map polygon](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</center>
 
 

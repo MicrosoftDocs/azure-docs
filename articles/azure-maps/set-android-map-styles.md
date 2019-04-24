@@ -3,7 +3,7 @@ title: Map style functionalities in Azure Maps| Microsoft Docs
 description: Learn about Azure Maps style related functionalities for Android SDK.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/23/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -48,7 +48,9 @@ You can set a map style in the layout file for your activity class. Edit **res >
 
 The `mapcontrol_style` attribute above sets the map style to **grayscale_dark**. 
 
-![style-grayscale_dark](./media/set-android-map-styles/grayscale-dark.png)
+<center>
+
+![style-grayscale_dark](./media/set-android-map-styles/grayscale-dark.png)</center>
 
 ## Set map style in the activity class
 
@@ -74,4 +76,5 @@ Map style can be set in the activity class. Follow the steps below to set the ma
     ```
 
 <center>
+
 ![style-satellite-road-labels](./media/set-android-map-styles/satellite-road-labels.png)</center>

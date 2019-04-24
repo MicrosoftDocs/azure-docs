@@ -3,7 +3,7 @@ title: How to use the Android map control in Azure Maps | Microsoft Docs
 description: The Android map control in Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -102,7 +102,7 @@ The next step in building your application is to install the Azure Maps Android 
     
     * add imports for the Azure Maps SDK
     * set your Azure Maps authentication information
-    * get the map control instance in the onCreate method
+    * get the map control instance in the **onCreate** method
 
     Setting the authentication information on the AzureMaps class globally using the setSubscriptionKey or setAadProperties methods makes it so you won’t have to add your authentication information on every view. The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle, which must be called directly from the containing Activity. In order for your app to correctly call the map control ‘s lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control and call the respective map control method. 
 
@@ -180,7 +180,7 @@ The next step in building your application is to install the Azure Maps Android 
 
 ## Import classes
 
-After you complete the preceding steps, you'll probably get warnings from Android Studio about some of the code. To resolve these warnings, import the classes referenced in `MainActivity.java`.
+After you complete the preceding steps, you'll probably get warnings from Android Studio about some of the code. To resolve these warnings,import the classes referenced in `MainActivity.java`.
 
 You can automatically import these classes by selecting Alt+Enter (Option+Return on a Mac).
 
@@ -191,6 +191,7 @@ Select the run button, as shown in the following graphic (or press Control+R on 
 Android Studio will take a few seconds to build the application. After the build is complete, you can test your application in the emulated Android device. You should see a map like this one:
 
 <center>
+
 ![Android map](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
 ## Next steps

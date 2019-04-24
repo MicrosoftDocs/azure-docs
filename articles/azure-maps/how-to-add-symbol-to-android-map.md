@@ -3,7 +3,7 @@ title: Add a symbol layer to Android maps in Azure Maps| Microsoft Docs
 description: How to add symbols to a map using Azure Maps Android SDK
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/23/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,7 @@ manager: philmea
 
 # Add a symbol layer to a map using Azure Maps Android SDK
 
-This article shows you how to render point data from a data source as a Symbol layer on a map using the Azure Maps Android SDK.
+This article shows you how to render point data from a data source as a symbol layer on a map using the Azure Maps Android SDK.
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ To add a marker on the map using the symbol layer, follow the steps below:
     
     ```
     
-    The code snippet above first obtains an Azure Maps map control instance using the **onReady()** callback method. It then creates a data source object using the **DataSource** class and adds it to the map. It then adds a **Feature** containing a Point geometry to it. A red marker image is then set as icon for the symbol. A **symbol layer** uses text or icons to render point-based data wrapped in the DataSource as symbol on the map. A symbol layer is then created and the data source is passed to it to render, and is then added to the map's layers.
+    The code snippet above first obtains an Azure Maps map control instance using the **onReady()** callback method. It then creates a data source object using the **DataSource** class and adds it to the map. It then adds a **Feature** containing a Point geometry to it. A red marker image is then set as icon for the symbol. A **symbol layer** uses text or icons to render point-based data wrapped in the data source as symbol on the map. A symbol layer is then created and the data source is passed to it to render, and is then added to the map's layers.
     
     After adding the code snippet above, your `MainActivity.java` should look like the one below:
     
@@ -164,6 +164,7 @@ To add a marker on the map using the symbol layer, follow the steps below:
 At this point, if you run your application you should see a marker on the map, as shown here:
 
 <center>
+
 ![Android map pin](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
 
 
