@@ -21,6 +21,7 @@ All new HDInsight-Spark clusters come pre-installed with AzureML-AutoML SDK. You
 > Azure Machine Learning packages are installed into Python3 conda environment. The installed Jupyter notebook should be run using the PySpark3 kernel.
 
 You can alternatively use Zeppelin notebooks to use AutoML as well.
+
 > [!Note]
 > Zeppelin has a [known issue](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) where PySpark3 doesn't pick the right version of Python. Please use the documented work-around.
 
@@ -61,10 +62,10 @@ You can also register the datastore with the workspace using a one-time registra
 
 ## Experiment submission
 
-In the [automated machine learning configuration](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlconfig), the property `spark_context` should be set for the package to run on distributed mode. The property `concurrent_iterations`, which is the maximum number of iterations executed in parallel, should be set to a number less than the executor cores for the Spark app.
+In the [automated machine learning configuration](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig), the property `spark_context` should be set for the package to run on distributed mode. The property `concurrent_iterations`, which is the maximum number of iterations executed in parallel, should be set to a number less than the executor cores for the Spark app.
 
 ## Next steps
 
 * For more information on the motivation behind automated machine learning, see [Release models at pace using Microsoft’s automated machine learning!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
-* For more details on using Azure ML Automated ML capabilities, see [New automated machine learning capabilities in Azure Machine Learning service](https://azure.microsoft.com/en-us/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
+* For more details on using Azure ML Automated ML capabilities, see [New automated machine learning capabilities in Azure Machine Learning service](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
 * [AutoML project from Microsoft Research](https://www.microsoft.com/research/project/automl/)
