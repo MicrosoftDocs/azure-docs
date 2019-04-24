@@ -11,7 +11,7 @@ manager: dikamath
 ---
 # CloudSimple public IP address overview
 
-A public IP address allows Internet resources to communicate inbound, to private cloud resources at a private IP address. The private IP address is either a virtual machine or a software load balancer. The private IP address is on your private cloud vCenter. The public IP address allows you to expose services running on your private cloud to the Internet.
+A public IP address allows internet resources to communicate inbound, to private cloud resources at a private IP address. The private IP address is either a virtual machine or a software load balancer. The private IP address is on your private cloud vCenter. The public IP address allows you to expose services running on your private cloud to the internet.
 
 The public IP address is dedicated to the private IP address until you unassign it. A public IP address can only be assigned to one private IP address.
 
