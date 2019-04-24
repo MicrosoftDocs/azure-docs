@@ -296,6 +296,8 @@
       href: kube-advisor-tool.md
     - name: SSH node access
       href: ssh.md
+    - name: Windows Server limitations
+      href: windows-node-limitations.md
 - name: Reference
   items:
   - name: Azure CLI
