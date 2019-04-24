@@ -17,7 +17,7 @@ With the new Azure monitoring and alerting platform in place, we will be retirin
 
  ![Classic alert in Azure portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
-We encourage you to get started and recreate your alerts in the new platform. For customers who have a large number of alerts, we are [rolling out in phases](alerts-understand-migration.md#roll-out-phases), a [voluntary migration tool](alerts-using-migration-tool.md) to move existing classic alerts to the new alerts system without disruption or added costs.
+We encourage you to get started and recreate your alerts in the new platform. For customers who have a large number of alerts, we are [rolling out in phases](alerts-understand-migration.md#rollout-phases), a [voluntary migration tool](alerts-using-migration-tool.md) to move existing classic alerts to the new alerts system without disruption or added costs.
 
 > [!IMPORTANT]
 > Classic Alert rules created on Activity Log will not be deprecated or migrated. All classic alert rules created on Activity Log can be accessed and used as-is from the new Azure Monitor - Alerts. For more information, see [Create, view, and manage activity log alerts using Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md). Similarly, Alerts on Service Health can be accessed and used as-is from the new Service Health section. For details, see [alerts on service health notifications](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
