@@ -73,4 +73,5 @@ Map style can be set in the activity class. Follow the steps below to set the ma
     mapControl = findViewById(R.id.mapcontrol);
     ```
 
-![style-satellite-road-labels](./media/set-android-map-styles/satellite-road-labels.png)
+<center>
+![style-satellite-road-labels](./media/set-android-map-styles/satellite-road-labels.png)</center>

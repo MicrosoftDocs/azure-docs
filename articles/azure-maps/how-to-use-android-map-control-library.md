@@ -76,7 +76,7 @@ The next step in building your application is to install the Azure Maps Android 
         implementation "com.microsoft.azure.maps:mapcontrol:0.2"
         ```
 
-    > [Note!]
+    > [!Note]
     > The Azure Maps Android SDK is regularly being upgraded and enhanced. You can see the [Getting started with Android map control](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) documentation, to get the latest Azure Maps implementation version number. Also, you can set the version number from “0.2” to “0+” to have it always point to the latest version.
 
 3. Edit **res** > **layout** > **activity_main.xml** and replace it with the following:
@@ -190,4 +190,20 @@ Select the run button, as shown in the following graphic (or press Control+R on 
 
 Android Studio will take a few seconds to build the application. After the build is complete, you can test your application in the emulated Android device. You should see a map like this one:
 
-![Android map](./media/how-to-use-android-map-control-library/android-map.png)
+<center>
+![Android map](./media/how-to-use-android-map-control-library/android-map.png)</center>
+
+## Next steps
+
+To add stuff to your map, see:
+
+> [!div class="nextstepaction"]
+> [Add a symbol layer to an Android map](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
+
+> [!div class="nextstepaction"]
+> [Add shapes to an Android map](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+
+> [!div class="nextstepaction"]
+> [Change map styles in Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+
+

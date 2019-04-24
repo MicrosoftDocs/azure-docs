@@ -67,7 +67,7 @@ To add a marker on the map using the symbol layer, follow the steps below:
     
     ```
     
-    The code snippet above first obtains an Azure Maps map control instance using the **onReady()** callback method. It then creates a data source object using the **DataSource** class and adds it to the map. It then adds a **Feature** containing a Point geometry to it. A red marker image is then set as icon for the symbol. A **symbol layer** uses text or icons to render point-based data wrapped in the DataSource as symbols on the map. A symbol layer is then created and the data source is passed to it to render, and is then added to the map's layers.
+    The code snippet above first obtains an Azure Maps map control instance using the **onReady()** callback method. It then creates a data source object using the **DataSource** class and adds it to the map. It then adds a **Feature** containing a Point geometry to it. A red marker image is then set as icon for the symbol. A **symbol layer** uses text or icons to render point-based data wrapped in the DataSource as symbol on the map. A symbol layer is then created and the data source is passed to it to render, and is then added to the map's layers.
     
     After adding the code snippet above, your `MainActivity.java` should look like the one below:
     
@@ -163,7 +163,8 @@ To add a marker on the map using the symbol layer, follow the steps below:
     
 At this point, if you run your application you should see a marker on the map, as shown here:
 
-![Android map pin](./media/how-to-add-symbol-to-android-map/android-map-pin.png)
+<center>
+![Android map pin](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
 
 
 ## Next steps
@@ -171,4 +172,4 @@ At this point, if you run your application you should see a marker on the map, a
 To add more stuff to your map, see:
 
 > [!div class="nextstepaction"]
-> [Add shapes to an Android map](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map?branch=pr-en-us-74190)
+> [Add shapes to an Android map](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
