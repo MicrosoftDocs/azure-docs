@@ -68,12 +68,14 @@ lock outside Blueprints.
 
 ![Blueprint deny assignment on resource group](../media/resource-locking/blueprint-deny-assignment.png)
 
-The deny assignment properties of each mode are as follows:
+The
+[deny assignment properties](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties)
+of each mode are as follows:
 
-|Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |DoNotApplyToChildScopes |
-|-|-|-|-|-|
-|Read Only |**\*** |**\*/read** |SystemDefined |Resource group - _true_; Resource - _false_ |
-|Do Not Delete |**\*/delete** | |SystemDefined |Resource group - _true_; Resource - _false_ |
+|Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|-|-|-|-|-|-|
+|Read Only |**\*** |**\*/read** |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
+|Do Not Delete |**\*/delete** | |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager caches role assignment details for up to 30 minutes. As a result, deny
