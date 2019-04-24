@@ -51,7 +51,7 @@ To trigger the migration of your classic alert rules in the Azure portal, follow
     > [!NOTE]
     > The migration tool is rolling out in phases to all the subscriptions that use classic alert rules. In the early phases of the rollout, you might see some subscriptions marked as not ready for migration.
 
-1. Select one or more subscriptions, and then select **Preview migration**
+1. Select one or more subscriptions, and then select **Preview migration**.
 
     The resulting page shows the details of classic alert rules that will be migrated for one subscription at a time. You can also select **Download the migration details for this subscription** to get the details in a CSV format.
 
