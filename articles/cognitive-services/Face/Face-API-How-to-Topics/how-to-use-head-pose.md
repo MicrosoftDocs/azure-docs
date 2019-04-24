@@ -10,16 +10,17 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: pafarley
-
 ---
 
 # Use the HeadPose attribute to adjust the face rectangle
 
-In this guide, you will use a detected face attribute, HeadPose, to rotate the rectangle of a Face object. The sample code in this guide uses the Face .NET SDK.
+In this guide, you will use a detected face attribute, HeadPose, to rotate the rectangle of a Face object. The sample code in this guide, from the [Face API WPF Sample Application](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF), uses the .NET SDK.
 
 The face rectangle, returned with every detected face, marks the location and size of the face in the image. By default, the rectangle is always aligned with the image (its sides are perfectly vertical and horizontal); this can be inefficient for framing angled faces. In situations where you want to programmatically crop faces in an image, it is advantageous to be able to rotate the rectangle to crop.
 
-You can programmatically rotate the face rectangle by using the HeadPose attribute. If you specify this attribute when detecting faces (see [How to detect faces](HowtoDetectFacesinImage.md)), you will be able to query it later. The following method takes a list of **DetectedFace** objects and returns a list of **Face** objects, which have updated rectangle coordinates.
+## Explore the sample code
+
+You can programmatically rotate the face rectangle by using the HeadPose attribute. If you specify this attribute when detecting faces (see [How to detect faces](HowtoDetectFacesinImage.md)), you will be able to query it later. The following method from the [Face API WPF Sample Application](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) takes a list of **DetectedFace** objects and returns a list of **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** objects. **Face** here is a custom class that stores face data, including the updated rectangle coordinates. New values are calculated for **top**, **left**, **width**, and **height**, and a new field **FaceAngle** specifies the rotation.
 
 ```csharp
 /// <summary>
@@ -97,6 +98,20 @@ public static IEnumerable<Face> CalculateFaceRectangleForRendering(IList<Detecte
 }
 ```
 
+## Display the updated rectangle
+
+From here, you can use the returned **Face** objects in your display. The following lines from [FaceDetectionPage.xaml](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml) show how the new rectangle is rendered from this data:
+
+```xaml
+<DataTemplate>
+    <Rectangle Width="{Binding Width}" Height="{Binding Height}" Stroke="#FF26B8F4" StrokeThickness="1">
+        <Rectangle.LayoutTransform>
+            <RotateTransform CenterX="-0.5" CenterY="-0.5" Angle="{Binding FaceAngle}"/>
+        </Rectangle.LayoutTransform>
+    </Rectangle>
+</DataTemplate>
+```
+
 ## Next steps
 
-See the sample app on GitHub for a working example of rotated face rectangles.
+See the [Face API WPF Sample Application](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) on GitHub for a working example of rotated face rectangles. Or, see the [PoseTest](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples) sample app, which tracks the HeadPose attribute in real time to detect various head movements (nodding, shaking).
