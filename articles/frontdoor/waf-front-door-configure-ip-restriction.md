@@ -1,6 +1,6 @@
 ---
 title: Configure an IP restriction rule with web application firewall rule for Azure Front Door
-description: Learn how to IP addresses for an existing Front Door endpoint.
+description: Learn how to configure an IP address restriction WAF rule for an existing Front Door endpoint.
 services: frontdoor
 documentationcenter: ''
 author: teresayao
@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/23/2019
+ms.date: 04/25/2019
 ms.author: kumud;tyao
 
 ---
@@ -18,14 +18,14 @@ ms.author: kumud;tyao
 
 An IP address based access control rule is a custom WAF rule that allows you to control access to your web applications by specifying a list of IP addresses or IP address ranges in Classless Inter-Domain Routing (CIDR) form.
 
-By default, your web application is accessible from internet. If you want to limit access to your web applications only to clients from a list of known IP addresses or IP address ranges, you need to create two IP matching rules. First IP matching rule contains the list of IP addresses as matching values and set the action to "ALLOW". The second one with lower priority, is to block all other IP addresses by using the "All" operator and set the action to "BLOCK". Once an IP restriction rule is applied, any requests originating from addresses outside this allowed list receives a 403 (Forbidden) response.  
+By default, your web application is accessible from the internet. If you want to limit access to your web applications only to clients from a list of known IP addresses or IP address ranges, you need to create two IP matching rules. First IP matching rule contains the list of IP addresses as matching values and set the action to "ALLOW". The second one with lower priority, is to block all other IP addresses by using the "All" operator and set the action to "BLOCK". Once an IP restriction rule is applied, any requests originating from addresses outside this allowed list receives a 403 (Forbidden) response.  
 
 > [!IMPORTANT]
 > The WAF IP restriction feature for Azure Front Door is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a id="configure-ip-firewall-cli"></a>Configure WAF policy with Azure CLI
+## Configure WAF policy with Azure CLI
 
 ### Prerequisites
 Before you begin to configure an IP restriction policy, set up your CLI environment and create a Front Door profile.
@@ -104,7 +104,7 @@ In this example, the WAF policy is applied to FrontendEndpoints[0]. You may link
 > [!Note]
 > You only need to set the **WebApplicationFirewallPolicyLink** property once to link a WAF policy to a Front Door front-end. Subsequent policy updates are automatically applied to the front-end.
 
-## <a id="configure-ip-firewall-powershell"></a>Configure WAF policy with Azure PowerShell
+## Configure WAF policy with Azure PowerShell
 
 ### Prerequisites
 Before you begin to configure an IP restriction policy, set up your PowerShell environment and create a Front Door profile.
@@ -119,7 +119,7 @@ You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/o
 Connect-AzAccount
 
 ```
-Before install Front Door module, make sure you have the current version of PowerShellGet installed. Run below command and reopen PowerShell.
+Before you install Front Door module, make sure you have the current version of PowerShellGet installed. Run the below command and reopen PowerShell.
 
 ```
 Install-Module PowerShellGet -Force -AllowClobber
@@ -135,13 +135,13 @@ Create a Front Door profile by following the instructions described in [Quicksta
 
 ### Define IP match condition
 Use the [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) command to define an IP match condition. 
-In the below example, replace **<ip-address-range-1>**, **<ip-address-range-2>** with your own range.
+In the below example, replace *ip-address-range-1*, *ip-address-range-2* with your own range.
 
 ```powershell
   $IPMatchCondition = New-AzFrontDoorMatchConditionObject `
     -MatchVariable  RemoteAddr `
     -OperatorProperty IPMatch `
-    -MatchValue [ "<ip-address-range-1>", “ip-address-range-2”]
+    -MatchValue ["ip-address-range-1", "ip-address-range-2"]
 ```
 Create an IP match all condition rule
 ```powershell
@@ -200,7 +200,7 @@ Link the WAF policy object to an existing Front Door front-end host and update F
 > In this example, the WAF policy is applied to FrontendEndpoints[0]. You may link WAF policy to any of your front-ends.You only need to set *WebApplicationFirewallPolicyLink* property once to link a WAF policy to a Front Door front-end. Subsequent policy updates are automatically applied to the front-end.
 
 
-## <a id="configure-ip-firewall-template"></a>Configure WAF policy with Resource Manager template
+## Configure WAF policy with Resource Manager template
 View the template that creates a Front Door and a WAF policy with custom IP restriction rules [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip).
 
 
