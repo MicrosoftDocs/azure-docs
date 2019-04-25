@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 04/24/2019
+ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -80,7 +80,7 @@ A resource directory has one or more resources to share. In this step, you creat
 
 An *access package* is a bundle of all the resources a user needs to work on a project or perform their job. Access packages are defined in containers called *catalogs*. In this step, you create a **Web project access package** in the **General** catalog.
 
-**Prerequisite role:** Global administrator, User administrator, or Catalog owner
+**Prerequisite role:** Global administrator or User administrator
 
 ![Create an access package](./media/entitlement-management-access-package-first/elm-access-package.png)
 
@@ -88,7 +88,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 1. In the left menu, click **Identity Governance**
 
-1. In the left menu, click **Access packages**.
+1. In the left menu, click **Access packages**.  If you see **Access denied**, ensure that an Azure AD Premium P2 license is present in that directory.
 
 1. Click **New access package**.
 
@@ -144,7 +144,7 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
 ![Create an access package policy](./media/entitlement-management-access-package-first/elm-access-package-policy.png)
 
-**Prerequisite role:** Global administrator, User administrator, or Catalog owner
+**Prerequisite role:** Global administrator or User administrator
 
 1. In the **Web project access package**, in the left menu, click **Policies**.
 
@@ -248,7 +248,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 ## Step 6: Validate that access has been assigned
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator or User administrator
 
 1. Sign out of the My Access portal.
 
