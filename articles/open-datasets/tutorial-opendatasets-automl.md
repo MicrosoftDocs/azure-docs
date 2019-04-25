@@ -59,7 +59,7 @@ This example uses an Anaconda environment with Jupyter notebooks, but you can ru
 1. Install the packages you need for this tutorial. These packages are large and will take 5-10 minutes to install.
     ```
     pip install azureml-sdk[automl] azureml-contrib-opendatasets
-```
+    ```
 1. Start a notebook kernel from your environment.
     ```
     jupyter notebook
