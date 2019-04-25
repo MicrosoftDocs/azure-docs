@@ -193,5 +193,5 @@ If monitoring is working, at least 15 DLLS should be loaded.
 - In PerfView, click "Start Collection"
 - In a cmd window with admin privileges, execute `iisreset /start` To start IIS.
 - Try to browse to your app.
-- After your app is loaded return to PerfView and click "Stop Collection"
+- After your app finishes loading, return to PerfView and click "Stop Collection"
 
