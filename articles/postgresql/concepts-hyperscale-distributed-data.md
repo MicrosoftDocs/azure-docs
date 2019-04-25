@@ -18,7 +18,7 @@ used for different purposes.
 
 ### Type 1: Distributed Tables
 
-The first type, and most common, is *distributed* tables. These
+The first type, and most common, is *distributed* tables. They
 appear to be normal tables to SQL statements, but are horizontally
 *partitioned* across worker nodes. What this means is that the rows
 of the table are stored on different nodes, in fragment tables called
@@ -30,8 +30,7 @@ all the table's shards across workers.
 
 #### Distribution Column
 
-Hyperscale uses algorithmic sharding to assign rows to shards. This
-means the assignment is made deterministically based on the value
+Hyperscale uses algorithmic sharding to assign rows to shards. The assignment is made deterministically based on the value
 of a table column called the *distribution column.* The cluster
 administrator must designate this column when distributing a table.
 Making the right choice is important for performance and functionality.
@@ -39,8 +38,7 @@ Making the right choice is important for performance and functionality.
 ### Type 2: Reference Tables
 
 A reference table is a type of distributed table whose entire
-contents are concentrated into a single shard which is replicated
-on every worker. Thus queries on any worker can access the reference
+contents are concentrated into a single shard. The shard is replicated on every worker, so queries on any worker can access the reference
 information locally, without the network overhead of requesting
 rows from another node. Reference tables have no distribution column
 because there is no need to distinguish separate shards per row.
@@ -51,22 +49,19 @@ values like order statuses, or product categories.
 
 ### Type 3: Local Tables
 
-When you use Hyperscale, the coordinator node you connect to and
-interact with is a regular PostgreSQL database with the Citus
-extension installed. Thus you can create ordinary tables and choose
-not to shard them. The typical case is small administrative tables
-that don't participate in join queries. An example would be users
-table for application login and authentication.
+When you use Hyperscale, the coordinator node you connect to is a regular PostgreSQL database. You can create ordinary tables on the coordinator and choose
+not to shard them.
+
+A good candidate for local tables would be small administrative tables that don't participate in join queries. For example, a users table for application login and authentication.
 
 ## Shards
 
-The previous section described a shard as containing a subset of the
-rows of a distributed table in a smaller table within a worker node.
-This section gets more into the technical details.
+The previous section described how distributed tables are stored as shards on
+worker nodes. This section gets more into the technical details.
 
 The `pg_dist_shard` metadata table on the coordinator contains a
 row for each shard of each distributed table in the system. The row
-matches a shardid with a range of integers in a hash space
+matches a shard ID with a range of integers in a hash space
 (shardminvalue, shardmaxvalue):
 
 ```sql
@@ -88,17 +83,15 @@ disjoint union.)
 
 ### Shard Placements
 
-Suppose that shard 102027 is associated with the row in question.
-This means the row should be read or written to a table called
-`github_events_102027` in one of the workers. Which worker? That
-is determined entirely by the metadata tables, and the mapping of
-shard to worker is known as the shard *placement*.
+Suppose that shard 102027 is associated with the row in question. The row
+will be read or written in a table called `github_events_102027` in one of
+the workers. Which worker? That is determined entirely by the metadata
+tables, and the mapping of shard to worker is known as the shard *placement*.
 
-Joining some metadata tables gives us the answer. These are the
-types of lookups that the coordinator does to route queries. It
+The coordinator node
 rewrites queries into fragments that refer to the specific tables
 like `github_events_102027`, and runs those fragments on the
-appropriate workers.
+appropriate workers. Here is an example of a query run behind the scenes to find the node holding shard ID 102027.
 
 ```sql
 SELECT
@@ -117,7 +110,3 @@ WHERE shardid = 102027;
     ├─────────┼───────────┼──────────┤
     │  102027 │ localhost │     5433 │
     └─────────┴───────────┴──────────┘
-
-In our example of `github_events` there were four shards. The number of
-shards is configurable per table at the time of its distribution across
-the cluster. The best choice of shard count depends on your use case.
