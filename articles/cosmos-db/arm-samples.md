@@ -32,4 +32,4 @@ To learn how to deploy the templates by using Azure CLI and Azure PowerShell, se
 * [Deploy Azure Cosmos DB Gremlin API resources](manage-gremlin-with-arm.md) using a Resource Manager template.
 * [Deploy Azure Cosmos DB Table API resources](manage-table-with-arm.md) using a Resource Manager template.
 
-See [ARM reference for Azure Cosmos DB](azure/templates/microsoft.documentdb/allversions) page for the reference documentation.
+See [ARM reference for Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions) page for the reference documentation.
