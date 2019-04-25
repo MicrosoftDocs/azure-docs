@@ -12,7 +12,7 @@ ms.author: rimman
 
 Spark API in Azure Cosmos DB allows you to run operational analytics directly against the petabytes of data stored in an Azure Cosmos account, using the popular OSS analytical engines like Apache Spark.
 
-Azure Cosmos DB Spark API provides the native support for Apache Spark jobs to execute directly on your globally distributed Cosmos databases. With these capabilities, developers, data engineers and data scientists can use Azure Cosmos DB as a flexible, scalable, and performant data platform to run both **OLTP and OLAP/HTAP** workloads. 
+Azure Cosmos DB Spark API provides the native support for Apache Spark jobs to execute directly on your globally distributed Cosmos databases. With these capabilities, developers, data engineers, and data scientists can use Azure Cosmos DB as a flexible, scalable, and performant data platform to run both **OLTP and OLAP/HTAP** workloads. 
 
 > [!NOTE]
 > Azure Cosmos DB Spark API is currently in limited preview. To sign-up for the preview, navigate to [sign-up for the preview](https://aka.ms/cosmos-spark-preview) page. 
@@ -23,7 +23,7 @@ Spark API in Azure Cosmos DB offers the following benefits:
 
 * You can simplify the architecture of your solution and lower the [Total Cost of Ownership](total-cost-ownership.md) (TCO). The system will have the least number of data processing components and avoids any unnecessary data movement among them.
 
-* Creates a [security](secure-access-to-data.md), [compliance](compliance.md) and auditing boundary that encompasses all the data under management.
+* Creates a [security](secure-access-to-data.md), [compliance, and auditing boundary that encompasses all the data under management.
 
 * Provides "always on"/ [highly available](high-availability.md) end-user analytics that are backed by stringent SLAs.
 
@@ -46,18 +46,18 @@ With the Apache Spark on the globally distributed Azure Cosmos database, you can
 
 1. All your analytical queries are executed directly on the indexed data stored inside the data partitions without requiring any unnecessary data movement. 
 
-1. Because Spark is co-located with Azure Cosmos DB, fewer intermediate translations and data movements take place, resulting in a better performance and scalability.
+1. Because Spark is colocated with Azure Cosmos DB, fewer intermediate translations and data movements take place, resulting in a better performance and scalability.
 
 ### Unified serverless experience for Apache Spark
 
 As a multi-model database, Azure Cosmos DB now expands its support for OSS APIs by providing a 
-**unified serverless experience for Apache Spark** with key-value, document, graph, column family data models. Different data models are supported using MongoDB, Cassandra, Gremlin, Etcd and SQL APIs - all operating on the same underlying data. 
+**unified serverless experience for Apache Spark** with key-value, document, graph, column family data models. Different data models are supported using MongoDB, Cassandra, Gremlin, Etcd, and SQL APIs - all operating on the same underlying data. 
 
-With Spark API you can natively support applications written in Scala, Python, Java and use several tightly integrated libraries for SQL. These libraries include ([Spark SQL](https://spark.apache.org/sql/)), machine learning (Spark [MLlib](https://spark.apache.org/mllib/)), stream processing ([Spark Structured Streaming](https://spark.apache.org/streaming/)), and graph processing (Spark [GraphFrames]( https://docs.databricks.com/spark/latest/graph-analysis/graphframes/user-guide-python.html)). These tools make it easier to leverage the Spark API for a variety of use cases. You don’t have to deal with managing Spark or Spark clusters. You can use the familiar Apache Spark APIs and **Jupyter notebooks** for analytics and SQL API or any of the OSS NoSQL APIs like Cassandra for transactional processing on the same underlying data at the same time.
+With Spark API, you can natively support applications written in Scala, Python, Java, and use several tightly integrated libraries for SQL. These libraries include ([Spark SQL](https://spark.apache.org/sql/)), machine learning (Spark [MLlib](https://spark.apache.org/mllib/)), stream processing ([Spark Structured Streaming](https://spark.apache.org/streaming/)), and graph processing (Spark [GraphFrames]( https://docs.databricks.com/spark/latest/graph-analysis/graphframes/user-guide-python.html)). These tools make it easier to leverage the Spark API for a variety of use cases. You don’t have to deal with managing Spark or Spark clusters. You can use the familiar Apache Spark APIs and **Jupyter notebooks** for analytics and SQL API or any of the OSS NoSQL APIs like Cassandra for transactional processing on the same underlying data at the same time.
 
 ### No schema or index management
 
-Unlike traditional analytical databases, with Azure Cosmos DB, data engineers and data scientists no longer need to deal with cumbersome schema and index management. The database engine in Azure Cosmos DB does not require any explicit schema or index management and it is capable of automatically indexing all the data it ingests to serve the Apache Spark queries quickly. 
+Unlike traditional analytical databases, with Azure Cosmos DB, data engineers, and data scientists no longer need to deal with cumbersome schema and index management. The database engine in Azure Cosmos DB does not require any explicit schema or index management and it is capable of automatically indexing all the data it ingests to serve the Apache Spark queries quickly. 
 
 ### Consistency choices
 
@@ -65,11 +65,11 @@ Since the Apache Spark jobs are executed in the data partitions of your Azure Co
 
 ### SLAs
 
-The Apache Spark jobs will have the Azure Cosmos DB benefits such as industry leading comprehensive [SLAs](https://azure.microsoft.com/en-us/support/legal/sla/documentdb/v1_1/) (99.999) without any overhead of managing separate Apache Spark clusters.. These SLAs encompass throughput, latency at the 99th percentile, consistency and high availability. 
+The Apache Spark jobs will have the Azure Cosmos DB benefits such as industry leading comprehensive [SLAs](https://azure.microsoft.com/en-us/support/legal/sla/documentdb/v1_1/) (99.999) without any overhead of managing separate Apache Spark clusters.. These SLAs encompass throughput, latency at the 99th percentile, consistency, and high availability. 
 
 ### Mixed workloads
 
-The integration of Apache Spark into Azure Cosmos DB bridges the transactional and analytic separation, which has been one of the major customer pain point when building cloud-native applications at global scale. 
+The integration of Apache Spark into Azure Cosmos DB bridges the transactional and analytic separation, which has been one of the major customer pain points when building cloud-native applications at global scale. 
 
 ## Next Steps
 
