@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Score Model
+# Score Model module
 
 *Scores predictions for a trained classification or regression model*
 
@@ -20,7 +20,9 @@ Category: Machine Learning / Score
 
 ## Module overview
 
-This article describes how to use the **Score Model** module in Azure Machine Learning service to generate predictions using a trained classification or regression model.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to generate predictions using a trained classification or regression model.
 
 ## How to use Score Model
 

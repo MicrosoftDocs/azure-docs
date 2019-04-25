@@ -12,14 +12,16 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Two-Class Averaged Perceptron
+# Two-Class Averaged Perceptron module
 *Creates an averaged perceptron binary classification model*  
   
  Category: Machine Learning / Initialize Model / Classification
   
 ## Module overview  
 
-This article describes how to use the **Two-Class Averaged Perceptron** module in Azure Machine Learning service to create a machine learning model based on the averaged perceptron algorithm.  
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to create a machine learning model based on the averaged perceptron algorithm.  
   
 This classification algorithm is a supervised learning method, and requires a *tagged dataset*, which includes a label column. You can train the model by providing the model and the tagged dataset as an input to [Train Model](./train-model.md). The trained model can then be used to predict values for the new input examples.  
 

@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Select Columns in Dataset
+# Select Columns in Dataset module
 
 *Selects columns to include or exclude from a dataset in an operation*
 
@@ -20,7 +20,9 @@ Category: Data Transformation / Manipulation
 
 ## Module overview
 
-This article describes how to use the **Select Columns in Dataset** module in Azure Machine Learning service to choose a subset of columns to use in downstream operations. The module does not physically remove the columns from the source dataset; instead, it creates a subset of columns, much like a database *view* or *projection*.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to choose a subset of columns to use in downstream operations. The module does not physically remove the columns from the source dataset; instead, it creates a subset of columns, much like a database *view* or *projection*.
 
 This module is useful when you need to limit the columns available for a downstream operation, or if you want to reduce the size of the dataset by removing unneeded columns.
 
