@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 12/12/2018
+ms.date: 04/25/2019
 ms.custom: seodec18
 ---
 
@@ -175,7 +175,7 @@ In this section, you perform basic analytics on your time series data by using t
 
    [![Time series chart](media/v2-update-provision/analyze-four-chart.png)](media/v2-update-provision/analyze-four-chart.png#lightbox)
 
-1. Repeat step 3 with the other two time series. You can then view all time series, as shown in this chart:
+1. Repeat **step 3** with the other two time series. You can then view all time series, as shown in this chart:
 
    [![Chart for all time series](media/v2-update-provision/analyze-five-chart.png)](media/v2-update-provision/analyze-five-chart.png#lightbox)
 
@@ -220,7 +220,7 @@ In this section, you apply a model to structure your data. To complete the model
 
       | | |
       | --- | ---|
-      | **Name** | Enter **Avg Temperature**. |
+      | **Name** | Enter `Avg Temperature`. |
       | **Value** | Select **temperature (Double)**. Note that this field might take a few minutes to be populated after Azure Time Series Insights Preview starts receiving events. |
       | **Aggregation Operation** | Select **AVG**.|
 
@@ -230,7 +230,7 @@ In this section, you apply a model to structure your data. To complete the model
 
       | | |
       | --- | ---|
-      | **Name** | Enter **Max Humidity**. |
+      | **Name** | Enter `Max Humidity` |
       | **Value** | Select **humidity (Double)**. Note that this field might take a few minutes to be populated after Azure Time Series Insights Preview starts receiving events. |
       | **Aggregation Operation** | Select **MAX**.|
 
@@ -274,9 +274,9 @@ In this section, you apply a model to structure your data. To complete the model
    | **Type** | Select **Chiller**. |
    | **Description** | Enter `Instance for Chiller-01.1`. |
    | **Hierarchies** | Select **Location Hierarchy**. |
-   | **Country** | Enter **USA**. |
-   | **City** | Enter **Seattle**. |
-   | **Building** | Enter **Space Needle**. |
+   | **Country** | Enter `USA`. |
+   | **City** | Enter `Seattle`. |
+   | **Building** | Enter `Space Needle`. |
 
     Then, select **Save**.
 
@@ -291,9 +291,9 @@ In this section, you apply a model to structure your data. To complete the model
      | **Type** | Select **Chiller**. |
      | **Description** | Enter `Instance for Chiller-01.2`. |
      | **Hierarchies** | Select **Location Hierarchy**. |
-     | **Country** | Enter **USA**. |
-     | **City** | Enter **Seattle**. |
-     | **Building** | Enter **Pacific Science Center**. |
+     | **Country** | Enter `USA`. |
+     | **City** | Enter `Seattle`. |
+     | **Building** | Enter `Pacific Science Center`. |
 
    * For Chiller 01.3:
 
@@ -302,9 +302,9 @@ In this section, you apply a model to structure your data. To complete the model
      | **Type** | Select **Chiller**. |
      | **Description** | Enter `Instance for Chiller-01.3`. |
      | **Hierarchies** | Select **Location Hierarchy**. |
-     | **Country** | Enter **USA**. |
-     | **City** | Enter **New York**. |
-     | **Building** | Enter **Empire State Building**. |
+     | **Country** | Enter `USA`. |
+     | **City** | Enter `New York`. |
+     | **Building** | Enter `Empire State Building`. |
 
 1. Go to the **Analyze** tab and refresh the page. Expand all hierarchy levels to find the time series.
 
