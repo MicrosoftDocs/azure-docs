@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -29,6 +29,11 @@ ms.collection: M365-identity-device-management
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article describes some items you should check to help you troubleshoot Azure Active Directory (Azure AD) entitlement management.
+
+## Checklist for entitlement management administration
+
+* If you are getting access denied when configuring entitlement management, and you are a global administrator, ensure that your directory has an Azure AD Premium P2 (or EMS E5) license.  
+* If you are getting access denied when creating or viewing access packages, and you are a member of a catalog creator group, you will need to have created a catalog prior to creating your first access package.
 
 ## Checklist for adding a resource
 
