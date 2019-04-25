@@ -71,4 +71,4 @@ If you are running the tool against a cluster that is not RBAC-enabled, no clean
 
 [kube-cpumem]: https://github.com/Azure/azure-quickstart-templates
 [kube-advisor-github]: https://github.com/azure/kube-advisor
-[k8s-node-selector]: concepts-clusters-workloads.md#node-selector
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

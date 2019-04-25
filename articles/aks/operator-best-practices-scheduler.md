@@ -145,4 +145,4 @@ This article focused on basic Kubernetes scheduler features. For more informatio
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
-[k8s-node-selector]: concepts-clusters-workloads.md#node-selector
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors
