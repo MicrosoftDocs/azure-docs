@@ -39,6 +39,10 @@ Use [Transforms](https://docs.microsoft.com/rest/api/media/transforms) to config
 
 When using pagination, you should always use the next link to enumerate the collection and not depend on a particular page size. For details and examples, see [Filtering, ordering, paging](entities-overview.md).
 
+### What features are not yet available in Azure Media Services v3?
+
+For details, see [feature gaps with respect to v2 APIs](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
+
 ## Live streaming 
 
 ###  How to insert breaks/videos and image slates during live stream?
@@ -46,12 +50,6 @@ When using pagination, you should always use the next link to enumerate the coll
 Media Services v3 live encoding does not yet support inserting video or image slates during live stream. 
 
 You can use a [live on-premises encoder](recommended-on-premises-live-encoders.md) to switch the source video. Many apps provide ability to switch sources, including Telestream Wirecast, Switcher Studio (on iOS), OBS Studio (free app), and many more.
-
-## Encoding 
-
-### What encoding features are still not available in Azure Media Services v3?
-
-For details, see [feature gaps with respect to v2 APIs](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ## Content protection
 
