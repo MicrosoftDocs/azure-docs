@@ -1281,6 +1281,36 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/scripts/create-firewall-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-firewall-create",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/ha-failover-policy-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-failover-priority-update",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/scale-multiregion-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-create",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-get-account-key-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-key-get",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-mongo-connection-string-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-connection-string-get",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-regenerate-key-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-key-regenerate",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/programming.md",
       "redirect_url": "/azure/cosmos-db/storedprocedures-triggers-udfs",
       "redirect_document_id": true
@@ -25352,8 +25382,8 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-streaming-python.md",
-      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-streaming-python",
-      "redirect_document_id": true
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-use-hive-ambari-view.md",
@@ -36854,6 +36884,16 @@
     {
       "source_path": "articles/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md",
       "redirect_url": "/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/FAQ.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/Glossary.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
       "redirect_document_id": false
     },
     {
