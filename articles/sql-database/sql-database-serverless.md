@@ -169,7 +169,7 @@ New-AzSqlDatabase `
   -Edition GeneralPurpose `
   -ComputeGeneration Gen5 `
   -MinVcore 0.5 `
-  -MaxVcore 4 `
+  -MaxVcore 2 `
   -AutoPauseDelay 720
 ```
 
