@@ -101,7 +101,7 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
     * Replace the string `YourChannelSecret` with your direct line speech channel secret.
 
     > [!NOTE]
-    > In preview, the Direct Line Speech channel currently supports only the **westus2** region. Further region support will be added in the future.
+    > In preview, the Direct Line Speech channel currently supports only the **westus2** region.
 
     > [!NOTE]
     > The 30-day trial for the standard pricing tier described in [Try Speech Services for free](get-started.md) is restricted to **westus** (not **westus2**) and is thus not compatible with Direct Line Speech. Free and standard tier **westus2** subscriptions are compatible.
