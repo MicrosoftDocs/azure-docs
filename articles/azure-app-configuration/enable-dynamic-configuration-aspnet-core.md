@@ -60,6 +60,8 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
     ```
 
     The second parameter in the `.Watch` method is the polling interval at which the ASP.NET client library queries an app configuration store. The client library checks the specific configuration setting to see if any change occurred.
+    
+    > [!NOTE] The default polling interval for the `Watch` extension method is 30 seconds if not specified.
 
 2. Add a *Settings.cs* file that defines and implements a new `Settings` class.
 
