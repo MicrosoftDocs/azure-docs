@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery (ASR) Deployment Planner Version History 
+title: Azure Site Recovery (ASR) Deployment Planner Version History
 description: Know different Azure Site Recovery (ASR) Deployment Planner Versions fixes and known limitations along with their release dates.
 services: site-recovery
 author: Daya-Patil
@@ -9,7 +9,6 @@ ms.service: site-recovery
 ms.date: 04/24/2019
 ms.author: dapatil
 ---
-
 # Azure Site Recovery (ASR) Deployment Planner Version History
 
 This article provides history of all versions of Azure Site Recovery Deployment Planner along with the fixes, known limitations in each and their release dates.
@@ -23,8 +22,8 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 - Improved operating system compatibility, specifically when handling localization-based errors.
 - Added VMs with up to 20 Mbps of data change rate (churn) to the compatibility checklist.
 - Improved error messages
-     - Added support for vCenter 6.7.
-     - Added support for Windows Server 2019 and Red Hat Enterprise Linux (RHEL) workstation.
+  - Added support for vCenter 6.7.
+  - Added support for Windows Server 2019 and Red Hat Enterprise Linux (RHEL) workstation.
 
 
 
@@ -43,14 +42,14 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 **Improvements:**
 
 - GetVMList operations:
-    - Fixed an issue that caused GetVMList to fail if the specified folder doesn’t exist. It now either creates the default directory, or creates the directory specified in the outputfile parameter.
-    - Added more detailed failure reasons for GetVMList.
+  - Fixed an issue that caused GetVMList to fail if the specified folder doesn’t exist. It now either creates the default directory, or creates the directory specified in the outputfile parameter.
+  - Added more detailed failure reasons for GetVMList.
 - Added VM type information as a column in the compatible VMs sheet of the Deployment Planner report.
 - Hyper-V to Azure disaster recovery:
-    - Excluded VMs with shared VHDs and PassThrough disks from profiling. The Startprofiling operation shows the list of excluded VMs in the console.
-    - Added VMs with more than 64 disks to the list of incompatible VMs.
-    - Updated the initial replication (IR) and delta replication (DR) compression factor.
-    - Added limited support for SMB storage.
+  - Excluded VMs with shared VHDs and PassThrough disks from profiling. The Startprofiling operation shows the list of excluded VMs in the console.
+  - Added VMs with more than 64 disks to the list of incompatible VMs.
+  - Updated the initial replication (IR) and delta replication (DR) compression factor.
+  - Added limited support for SMB storage.
 
 ## Version 2.1
 
@@ -62,8 +61,8 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 - Fixed bugs in the GetThroughput operation.
 - Added option to limit the number of VMs to profile or generate the report. The default limit is 1,000 VMs.
 - VMware to Azure disaster recovery:
-    - Fixed an issue of Windows Server 2016 VM going into the incompatible table. 
-    - Updated compatibility messages for Extensible Firmware Interface (EFI) Windows VMs.
+  - Fixed an issue of Windows Server 2016 VM going into the incompatible table. 
+  - Updated compatibility messages for Extensible Firmware Interface (EFI) Windows VMs.
 - Updated the VMware to Azure and Hyper-V to Azure, VM data churn limit per VM. 
 - Improved reliability of VM list file parsing.
 
@@ -87,7 +86,7 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 
 **Known limitations:**
 
-- For Hyper-V to Azure disaster recovery, VM with name containing the characters like: ,, ", [, ], and `  are not supported.  If profiled, report generation will fail or will have an incorrect result.
+- For Hyper-V to Azure disaster recovery, VM with name containing the characters like: `,`, `"`, `[`, `]`, and ``` ` ``` are not supported. If profiled, report generation will fail or will have an incorrect result.
 - For VMware to Azure disaster recovery, VM with name containing comma is not supported. If profiled, report generation fails or will have an incorrect result.
 
 ## Version 1.3.1
@@ -105,7 +104,7 @@ Read more about [Large disk support in Azure Site Recovery](https://azure.micros
 
 **Improvements:**
 
-- Added support for managed disk in report generation. The number of virtual machines that can be placed to a single storage account is calculated based on if the managed disk is selected for Failover/Test Failover.       
+- Added support for managed disk in report generation. The number of virtual machines that can be placed to a single storage account is calculated based on if the managed disk is selected for Failover/Test Failover.
 
 ## Version 1.2
 
