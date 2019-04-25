@@ -1096,6 +1096,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-qsg.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices-sdk-android-quickstart",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-licensing-ps-examples.md",
       "redirect_url": "/azure/active-directory/users-groups-roles/licensing-ps-examples",
       "redirect_document_id": true
@@ -10847,17 +10852,17 @@
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-go-get-started-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-go-get-started-send",
       "redirect_document_id": false
-    },        
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-handling-errors-retry.md",
       "redirect_url": "/azure/event-hubs/",
@@ -10877,7 +10882,7 @@
       "source_path": "articles/event-hubs/event-hubs-java-get-started-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-java-storm-getstarted.md",
       "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
@@ -10897,7 +10902,7 @@
       "source_path": "articles/event-hubs/event-hubs-python-get-started-receive.md",
       "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/active-directory/active-directory-saml-protocol-reference.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
