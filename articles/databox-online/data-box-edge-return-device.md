@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Return your Azure Data Box Edge device
 
-This article describes how to wipe the data and then return your Azure Data Box Edge device. After you have returned the device, you can also delete the resource or the order associated with the device.
+This article describes how to wipe the data and then return your Azure Data Box Edge device. After you've returned the device, you can also delete the resource or the order associated with the device.
 
 In this article, you learn how to:
 
@@ -43,20 +43,20 @@ To reset your device using the local web UI, take the following steps.
 
 1. In the local web UI, go to **Maintenance > Device reset**.
 2. Select **Reset device**.
-3. When prompted for confirmation, review the warning and select **Yes** to proceed.
+3. When prompted for confirmation, review the warning and select **Yes** to continue.
    
 The reset will securely erase the data off the device data disks. The process takes about 30-40 minutes depending on the amount of data on your device.
 
 Alternatively, you can connect to the PowerShell interface of the device and use the `Reset-HcsAppliance` cmdlet to erase the data from the data disks. For more information, see [Reset your device](data-box-edge-connect-powershell-interface.md#reset-your-device).
 
-If you are exchanging or upgrading to a new device, we recommend that you reset your device only after you have received the new device.
+If you're exchanging or upgrading to a new device, we recommend that you reset your device only after you've received the new device.
 
-The device reset only deletes all the local data off the device. The data that is in the cloud is not deleted and accrues charges.
+The device reset only deletes all the local data off the device. The data that is in the cloud isn't deleted and collects charges.
  
 ## Schedule a pickup
 
 1. Shut down the device. In the local web UI, go to **Maintenance > Power settings**.
-2. Select **Shut down**. When prompted for confirmation, click **Yes** to proceed. For more information, see [Manage power](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
+2. Select **Shut down**. When prompted for confirmation, click **Yes** to continue. For more information, see [Manage power](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
 3. Unplug the power cables and remove all the network cables from the device.
 4. Prepare the shipment package by using your own box or the empty box you received from Azure. Place the device and the power cords that were shipped with the device in the box.
 5. Affix the shipping label that you received from Azure on the package.
@@ -64,7 +64,7 @@ The device reset only deletes all the local data off the device. The data that i
 
     1. Call the local UPS (country-specific toll free number).
     2. In your call, quote the reverse shipment tracking number as shown in the E-ink display or your printed label.
-    3. If the tracking number is not quoted, UPS will require you to pay an additional charge during pickup.
+    3. If the tracking number isn't quoted, UPS will require you to pay an additional charge during pickup.
 
     Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
 
@@ -73,6 +73,7 @@ The device reset only deletes all the local data off the device. The data that i
 After the device is received at the Azure datacenter, the device is inspected for damage or any signs of tampering. 
 
 - If the device seems to be in good shape, the billing meter stops for that resource. The resource associated with the device can now be deleted from the Azure portal.
+
 <!-- If the device arrives damaged or shows signs of tampering-->
 
 ## Reimage device
