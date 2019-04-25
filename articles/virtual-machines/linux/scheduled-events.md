@@ -43,7 +43,7 @@ With Scheduled Events, your application can discover when maintenance will occur
 
 Scheduled Events provides events in the following use cases:
 
-- Platform-initiated maintenance (for example, a host OS update)
+- [Platform initiated maintenance](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/maintenance-and-updates) (e.g. VM reboot, live migration or memory preserving updates for hosting environment update)
 - Degraded hardware
 - User-initiated maintenance (for example, a user restarts or redeploys a VM)
 - [Low-Priority VM eviction](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) in scale sets
@@ -55,6 +55,7 @@ Scheduled Events provides events in the following use cases:
 ### Scope
 Scheduled events are delivered to:
 
+- Standalone Virtual Machines.
 - All the VMs in a cloud service.
 - All the VMs in an availability set.
 - All the VMs in a scale set placement group. 
