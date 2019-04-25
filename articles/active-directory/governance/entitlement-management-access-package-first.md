@@ -126,7 +126,9 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
     ![New access package - Policy tab](./media/entitlement-management-access-package-first/policy.png)
 
-1. Click **Next** to open the **Review + create** tab.
+1. Click **Next** to open the **Review + Create** tab.
+
+    ![New access package - Review + Create tab](./media/entitlement-management-access-package-first/review-create.png)
 
 1. Review the access package settings and then click **Create**.
 
@@ -160,7 +162,7 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
 1. Scroll down to the **Select users and groups** section and click **Add users and groups**.
 
-1. In the Select groups pane, select the **Requestor1** user you created earlier and then click **Select**.
+1. In the Select users and groups pane, select the **Requestor1** user you created earlier and then click **Select**.
 
 1. In the **Select approvers** section, click **Add approvers**.
 
@@ -200,7 +202,7 @@ In this step, you perform the steps as the **internal requestor** and request ac
 
     You should see the **Web project access package**.
 
-1. If necessary, in the **Description** column, click the chevron to view details about the access package.
+1. If necessary, in the **Description** column, click the arrow to view details about the access package.
 
     ![My Access portal - Access packages](./media/entitlement-management-shared/my-access-access-packages.png)
 
@@ -233,6 +235,8 @@ In this step, you sign in as the **approver** user and approve the access reques
 1. In the left menu, click **Approvals**.
 
 1. On the **Pending** tab, find **Requestor1**.
+
+    If you don't see the request from Requestor1, you should wait a few minutes and try again.
 
 1. Click the **View** link to open the Access request pane.
 
