@@ -25,10 +25,22 @@ ms.collection: M365-identity-device-management
 
 Learn how to add sign in to the code for your Single Page Application.
 
-Before you can get tokens to access APIs in your application, you will need an authenticated user context. Use the `loginRedirect` or `loginPopup` methods to login users with MSAL.js. You can also optionally pass the scopes of the APIs for which you need the user to consent at the time of login.
+Before you can get tokens to access APIs in your application, you will need an authenticated user context. You can sign in users to your application in MSAL.js in two ways:
+* [Sign in with a pop-up window](#sign-in-with-a-pop-up-window) using `loginPopup` method
+* [Sign in with redirect](#sign-in-with-redirect) using `loginRedirect` method
+
+You can also optionally pass the scopes of the APIs for which you need the user to consent at the time of sign in.
 
 > [!NOTE]
 > If your application already has access to an authenticated user context or id token, you can skip the login step and directly acquire tokens. For more details, see [sso without msal.js login](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Sso#sso-to-an-app-without-msaljs-login).
+
+**Choosing between a pop-up or redirect experience**
+
+ You cannot use a combination of both the pop-up and redirect methods in your application. The choice between a pop-up or redirect experience depends on your application flow.
+
+* If you don't want the user to navigate away from your main application page during authentication, it is recommended to use the pop-up methods. Since the authentication redirect happens in a pop-up window, the state of the main application is preserved.
+
+* There are certain cases where you may need to use the redirect methods. If users of your application have browser constraints or policies where pop-ups windows are disabled, you can use the redirect methods. It is also recommended to use the redirect methods with Internet Explorer browser since there are certain [known issues with Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) when handling pop-up windows.
 
 ## Sign in with a pop-up window
 

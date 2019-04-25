@@ -29,7 +29,11 @@ Now that you know how to acquire a token to call Web APIs, learn how to move to 
 
 Follow the steps needed to make your app production ready.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+- [Enable logging](msal-logging.md) in your application.
+
+## Test your integration
+
+- Test your integration by following the [Microsoft identity platform integration checklist](active-directory-integration-checklist.md).
 
 ## Next steps
 
