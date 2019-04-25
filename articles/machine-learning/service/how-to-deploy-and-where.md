@@ -193,7 +193,7 @@ In this example, the configuration contains the following items:
 * The [entry script](#script), which is used to handle web requests sent to the deployed service
 * The conda file that describes the Python packages needed to run inferencing
 
-For information on advanced InferenceConfiguration functionality, please click <a href="#advanced-config">here</a>.
+For information on InferenceConfig functionality, please click <a href="#advanced-config">here</a>.
 
 ### 3. Define your DeploymentConfiguration
 
