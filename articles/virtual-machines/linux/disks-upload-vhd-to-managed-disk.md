@@ -25,7 +25,7 @@ Currently, direct upload is supported for standard HDD, standard SSD, and premiu
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
 - A vhd file, stored locally
 
-### Create an empty managed disk
+## Create an empty managed disk
 
 To upload your vhd to Azure, you'll need to create an empty managed disk specifically to receive an upload of a vhd.
 
@@ -60,7 +60,7 @@ Sample returned value:
 }
 ```
 
-### Upload vhd
+## Upload vhd
 
 Now that you have a SAS for your empty managed disk, you can use it to set your managed disk as the destination for your upload command.
 
@@ -80,7 +80,7 @@ After the upload is complete, and you no longer need to write any more data to t
 az disk revoke-access -n mydiskname -g resourcegroupname
 ```
 
-### Next steps
+## Next steps
 
 Now that you've successfully uploaded a vhd to a managed disk, you can attach your disk to a VM and begin using it.
 
