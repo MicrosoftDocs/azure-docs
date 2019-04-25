@@ -16,8 +16,8 @@ ms.date: 05/02/2019
 In this article, you learn to how to create and manage snapshots of your datasets. [Azure Machine Learning Datasets](how-to-create-register-datasets.md) (datasets) make it easier to access and work with your data in the cloud in various scenarios. 
 
 Dataset snapshots can store:
-+ The profile of the data, including summary statistics  (always)
-+ Copies of the data (opt-in due to size)
++ The profile of the data, including summary statistics 
++ Optionally, a copy of the data
 
 Use the snapshots to: 
 * Validate ML models. Take and compare snapshots of your data between training runs. Or, compare the snapshot of training data to the snapshot of the model production data. 
@@ -40,19 +40,13 @@ To use Azure Machine Learning service and create dataset snapshots, you need:
 
 ## Create dataset snapshots
 
-To create a snapshot of the current dataset, use the  [`create_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) method of the `Dataset` class in the Azure Machine Learning SDK. 
+To create a snapshot of a dataset, use [`dataset.create_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) from the Azure Machine Learning SDK. 
 
-By default, the snapshot stores a data profile (summary statistics) with the latest [dataset definition](how-to-manage-dataset-definitions.md) applied. A dataset definition contains a record of any transformation steps defined for the data. It is a great way to make your data prep work reproducible.
+By default, the snapshot stores the profile (summary statistics) of the data with the latest [dataset definition](how-to-manage-dataset-definitions.md) applied. A dataset definition contains a record of any transformation steps defined for the data. It is a great way to make your data prep work reproducible.
 
-Optionally, you can also include a copy of the data in your snapshot using `create_data_snapshot = True`. 
+Optionally, you can also include a copy of the data in your snapshot by adding `create_data_snapshot = True`. 
 
->[!Important]
-> Snapshots incur storage costs. While data profiles take space, data copies take even more. You can [delete obsolete snapshots](#delete) when they are no longer needed. 
-
-Because snapshots are created asynchronously, use the
-[`wait_for_completion()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#wait-for-completion-show-output-true--status-update-frequency-10-) method to get notified when your snapshot is ready. 
-
-This example uses [sample crime data](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) you can also use to follow along. It also uses a dataset called `dataset_crime` created using the code in the article, ["Create and register datasets"](how-to-create-register-datasets.md).
+This example uses [sample crime data](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) and a dataset called `dataset_crime` created using the article, ["Create and register datasets"](how-to-create-register-datasets.md).
 
 ```Python
 from azureml.core.dataset import Workspace, Dataset
@@ -73,7 +67,15 @@ snapshot_name = 'snapshot_' + datetime.datetime.today().strftime('%Y%m%d%H%M%S')
 snapshot = dataset.create_snapshot(snapshot_name = snapshot_name,
                                    compute_target = remote_compute_target,
                                    create_data_snapshot = True)
+```
 
+>[!Important]
+> Snapshots incur storage costs. While data profiles take space, data copies take even more. You can [delete obsolete snapshots](#delete) when they are no longer needed. 
+
+Because snapshots are created asynchronously, use the
+[`wait_for_completion()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#wait-for-completion-show-output-true--status-update-frequency-10-) method to monitor the process.
+
+```python
 # monitor process every 10 seconds
 snapshot.wait_for_completion(show_output=True, status_update_frequency=10)
 
