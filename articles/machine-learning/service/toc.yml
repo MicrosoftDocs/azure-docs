@@ -202,7 +202,7 @@
     - name: FPGAs
       href: how-to-deploy-fpga-web-service.md
     - name: IoT Edge
-      href: azure/iot-edge/tutorial-deploy-machine-learning
+      href: ../../iot-edge/tutorial-deploy-machine-learning.md
       maintainContext: true
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md
