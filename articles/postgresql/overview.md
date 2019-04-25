@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 4/15/2018
 ---
 # What is Azure Database for PostgreSQL?
+Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the community version of open-source [PostgreSQL](https://www.postgresql.org/) database engine, versions 9.5, 9.6, and 10. It is available in two deployment options: Single Server and Hyperscale (Citus) (preview).
 
-Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the community version of open-source [PostgreSQL](https://www.postgresql.org/) database engine, versions 9.5, 9.6, and 10. It is available in two hosting types: single server and hyperscale (Citus) (preview).
-
-Azure Database for PostgreSQL delivers:
+## Azure Database for PostgreSQL - Single Server
+The Single Server deployment option delivers:
 
 - Built-in high availability with no additional cost
 - Predictable performance, using inclusive pay-as-you-go pricing
@@ -23,12 +23,20 @@ Azure Database for PostgreSQL delivers:
 
 All those capabilities require almost no administration, and all are provided at no additional cost. These capabilities allow you to focus on rapid application development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open-source tools and platform of your choice, and deliver with the speed and efficiency your business demands without having to learn new skills. 
 
-Additionally, the Azure Database for PostgreSQL Hyperscale (Citus) (preview) hosting type scales PostgreSQL horizontally across multiple machines using sharding and replication. Its query engine parallelizes incoming SQL queries across these servers for faster responses on large datasets.
+## Azure Database for PostgreSQL - Hyperscale (Citus) (preview)
+In addition to providing the rich feature set of PostgreSQL, the Hyperscale (Citus) deployment option serves applications that require greater scale and performance. Hyperscale (Citus) horizontally scales queries across multiple machines using sharding. Its query engine parallelizes incoming SQL queries across these servers for faster responses on large datasets.
 
+Azure Database for PostgreSQL Hyperscale (Citus) (preview) is ideal for workloads that are approaching -- or already exceed -- 100GB of data. Two common use cases are:
+
+* Multi-tenant applications
+* Real-time analytics applications
+
+## Getting started
 This article is an introduction to Azure Database for PostgreSQL core concepts and features related to performance, scalability, and manageability. See these quickstarts to get you started:
 
-- [Create an Azure Database for PostgreSQL using Azure portal](quickstart-create-server-database-portal.md)
-- [Create an Azure Database for PostgreSQL using the Azure CLI](quickstart-create-server-database-azure-cli.md)
+- [Create an Azure Database for PostgreSQL Single Server using Azure portal](quickstart-create-server-database-portal.md)
+- [Create an Azure Database for PostgreSQL Single Server using the Azure CLI](quickstart-create-server-database-azure-cli.md)
+- [Create an Azure Database for PostgreSQL Hyperscale (Citus) (preview) using the Azure portal](quickstart-create-hyperscale-portal.md)
 
 For a set of Azure CLI samples, see:
 
