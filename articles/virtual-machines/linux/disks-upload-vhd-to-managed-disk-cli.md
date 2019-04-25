@@ -13,7 +13,7 @@ ms.subservice: disks
 
 # Upload a vhd to Azure - Azure CLI
 
-This article explains how to upload a vhd file from your local machine directly to an Azure managed disk. You can leverage this process to upload directly to our larger managed disks  Currently, this process is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not supported for ultra SSDs yet.
+This article explains how to upload a vhd file from your local machine directly to an Azure managed disk. You can leverage this process to upload directly to our larger managed disks. Currently, this process is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not supported for ultra SSDs yet.
 
 ## Pre-requisites
 
@@ -37,6 +37,8 @@ Create an empty standard HDD managed disk for upload by specifying –for-upload
 ```azurecli-interactive
 az disk create -n contosodisk2 -g contosoteam2 -l westus2 --for-upload --size-gb 128 --sku standard_lrs
 ```
+
+If you would like to change the type to premium SSD, replace `standard_lrs` with `Premium_LRS`. Ultra SSD is not yet supported.
 
 Now that you've created an empty managed disk, you'll need a writeable SAS so that you can reference it as the destination for your upload.
 
@@ -71,18 +73,6 @@ After the upload is complete and you no longer need to write any more data to th
 ```azurecli-interactive
 az disk revoke-access -n contosodisk2 -g contosoteam2
 ```
-
-## Switch disk type
-
-Once the upload is complete and you've changed the state of your disk using `revoke-access`, you can switch the disk type from standard HDD to another type.
-
-The following command will change the disk type to standard SSD:
-
-```azurecli-interactive
-az disk update -g contosoteam2 -n contosodisk2 --sku StandardSSD_LRS
-```
-
-If you would like to change the type to premium SSD, replace `StandardSSD_LRS` with `Premium_LRS`. Ultra SSD is not yet supported.
 
 ## Next steps
 
