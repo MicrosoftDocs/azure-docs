@@ -13,7 +13,11 @@ ms.subservice: disks
 
 # Upload a vhd to Azure
 
-This article explains how to upload a vhd file from your local machine directly to an Azure managed disk. Previously, you had to follow a more involved process that included staging your data in a storage account and managing that storage account. Now, you no longer need to manage a storage account or stage data in it to upload a vhd. Instead, you create an empty managed disk and upload a vhd directly to it. It's easier to upload on premises VMs to azure, enables you to directly upload a vhd to large managed disks, and the backup and restore process is simplified.
+This article explains how to upload a vhd file from your local machine directly to an Azure managed disk. Previously, you had to follow a more involved process that included staging your data in a storage account and managing that storage account. Now, you no longer need to manage a storage account or stage data in it to upload a vhd. Instead, you create an empty managed disk and upload a vhd directly to it.
+
+It's easier to upload on premises VMs to azure, enables you to directly upload a vhd to large managed disks, and the backup and restore process is simplified.
+
+Direct upload also allows you to upload a vhd to 
 
 Currently, direct upload is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not yet supported for ultra SSDs.
 
@@ -72,7 +76,7 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 
 If your SAS expires during upload, and you haven't called `revoke-access` yet, you can get a new SAS to continue the upload using `grant-access`, again.
 
-After the upload is complete, and you no longer need to write any more data to the disk, revoke the SAS. This will change the state of the managed disk and allow you to attach the disk to a VM.
+After the upload is complete, and you no longer need to write any more data to the disk, revoke the SAS. Revoking the SAS will change the state of the managed disk and allow you to attach the disk to a VM.
 
 ```azurecli-interactive
 az disk revoke-access -n contosodisk2 -g contosoteam2
