@@ -21,7 +21,10 @@ Nodes are building blocks of a private cloud.  To create a private cloud, you ne
 
 ## Purchased nodes
 
-Purchased nodes provide pay as you go capacity. Purchasing nodes helps you quickly scale your VMware cluster on demand. You can add nodes as needed, or delete a purchased node to scale down your VMware cluster. Purchased nodes are billed on a monthly basis, and charged to the subscription where they're purchased. If you pay for your Azure subscription by credit card, the card is billed immediately. If you're billed by invoice, the charges appear on your next invoice.
+Purchased nodes provide pay-as-you-go capacity. Purchasing nodes helps you quickly scale your VMware cluster on demand. You can add nodes as needed, or delete a purchased node to scale down your VMware cluster. Purchased nodes are billed on a monthly basis, and charged to the subscription where they're purchased:
+
+* If you pay for your Azure subscription by credit card, the card is billed immediately.
+* If you're billed by invoice, the charges appear on your next invoice.
 
 ## VMware Solution by CloudSimple nodes SKU
 

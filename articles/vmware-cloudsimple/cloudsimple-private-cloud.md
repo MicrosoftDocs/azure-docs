@@ -27,7 +27,7 @@ CloudSimple transforms and extends VMware workloads to public clouds in minutes.
   * Security  
   * Data protection  
   * Audit
-* CloudSimple manages the infrastructure and all the necessary networking and management services. The Cloudsimple service enables your team to focus on:
+* CloudSimple manages the infrastructure and all the necessary networking and management services. The CloudSimple service enables your team to focus on:
   * Business value
   * Application provisioning
   * Business continuity

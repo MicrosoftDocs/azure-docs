@@ -20,7 +20,7 @@ CloudSimple provides two kinds of VPN gateways:
 
 ## Site-to-site VPN gateway
 
-A site-to-site VPN gateway is used to send encrypted traffic between a CloudSimple region network and an on-premises datacenter. Use this connection to define the subnets/CIDR range for network traffic between your on-premises network and the CloudSimple region network.
+A site-to-site VPN gateway is used to send encrypted traffic between a CloudSimple region network and an on-premises datacenter. Use this connection to define the subnets/CIDR range, for network traffic between your on-premises network and the CloudSimple region network.
 
 The VPN gateway allows you to consume services from on-premises on your private cloud, and services on your private cloud, from the on-premises network.  CloudSimple provides a policy-based VPN server for establishing connection from your on-premises network.
 

@@ -11,15 +11,14 @@ manager: dikamath
 ---
 # Purchase nodes for VMware Solution by CloudSimple - Azure
 
-Provision nodes in the Azure portal. Then you can set up pay-as-you go capacity for your CloudSimple private cloud environment. 
+Provision nodes in the Azure portal. Then you can set up pay-as-you go capacity for your CloudSimple private cloud environment.
 
 ## Add a purchased node to your CloudSimple private cloud
 
-
 1. Select **All services**.
 2. Search for **CloudSimple Nodes**.
-    
-    ![Search CloudSimple Nodes](media/create-cloudsimple-node-search.png)
+
+   ![Search CloudSimple Nodes](media/create-cloudsimple-node-search.png)
 
 3. Select **CloudSimple Nodes**.
 4. Click **Add** to create nodes.
@@ -36,7 +35,6 @@ Provision nodes in the Azure portal. Then you can set up pay-as-you go capacity 
 12. Select **Review + Create**.
 13. Review the settings. To modify any settings, click **Previous**.
 14. Select **Create**.
-
 
 ## Next steps
 
