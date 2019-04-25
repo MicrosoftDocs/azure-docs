@@ -33,9 +33,12 @@ You can use the HTTP action as any other step in your workflow
 for calling the endpoint when you want. The endpoint's response 
 determines how your workflow's remaining actions run. 
 
-Based the target server's capability, this connector supports 
-TLS versions 1.0, 1.1, and 1.2. For example, if the server 
-supports only 1.2, the connector uses 1.2.
+Based the target endpoint's capability, this connector supports 
+Transport Layer Security (TLS) versions 1.0, 1.1, and 1.2. 
+Logic Apps negotiates with the endpoint over using the highest 
+supported version possible. So, for example, if the endpoint 
+supports 1.2, the connector uses 1.2 first. Otherwise, the 
+connector uses the next highest supported version.
 
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
@@ -43,7 +46,7 @@ If you're new to logic apps, review
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * The URL for the target endpoint you want to call 
 
