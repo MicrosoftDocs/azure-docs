@@ -1,6 +1,6 @@
 ---
-title: Set up Azure NetApp Files and create an NFS volume | Microsoft Docs
-description: Describes how to quickly set up Azure NetApp Files and create a volume.
+title: Quickstart - Set up Azure NetApp Files and create a volume | Microsoft Docs
+description: Quickstart - Describes how to quickly set up Azure NetApp Files and create a volume.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -13,12 +13,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart 
-ms.date: 2/20/2019
+ms.date: 4/16/2019
 ms.author: b-juche
+#Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
 ---
-# Set up Azure NetApp Files and create an NFS volume 
+# Quickstart: Set up Azure NetApp Files and create a volume 
 
 This article shows you how to quickly set up Azure NetApp Files and create a volume. 
+
+In this quickstart, you will set up the following items:
+
+- Registration for Azure NetApp Files and NetApp Resource Provider
+- A NetApp account
+- A capacity pool
+- A volume for Azure NetApp Files
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Before you begin 
 
@@ -28,7 +38,7 @@ You need to be part of the Public Preview program and whitelisted for accessing 
 
 1. From the Azure portal, click the Azure Cloud Shell icon on the upper right-hand corner.
 
-      ![Azure Cloud Shell icon](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
+      ![Azure Cloud Shell icon](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell-window.png)
 
 2. Specify the subscription that has been whitelisted for Azure NetApp Files:
     
@@ -42,7 +52,7 @@ You need to be part of the Public Preview program and whitelisted for accessing 
 
 ## Create a NetApp account
 
-1. In the Azure portal’s search box, enter **Azure NetApp Files** and then select **Azure NetApp Files (preview)** from the list that appears.
+1. In the Azure portal’s search box, enter **Azure NetApp Files** and then select **Azure NetApp Files** from the list that appears.
 
       ![Select Azure NetApp Files](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 
@@ -83,7 +93,7 @@ You need to be part of the Public Preview program and whitelisted for accessing 
 
 5. Click **OK**.
 
-## Create an NFS volume for Azure NetApp Files
+## Create a volume for Azure NetApp Files
 
 1. From the Azure NetApp Files management blade of your NetApp account, click **Volumes**.
 
@@ -95,6 +105,7 @@ You need to be part of the Public Preview program and whitelisted for accessing 
 
 3. In the Create a Volume window, provide information for the volume: 
    1. Enter **myvol1** as the volume name. 
+   2. Enter **myfilepath1** as the file path that will be used to create the export path for the volume.
    3. Select your capacity pool (**mypool1**).
    4. Use the default value for quota. 
    5. Under virtual network, click **Create new** to create a new Azure virtual network (Vnet).  Then fill in the following information:
@@ -110,13 +121,7 @@ You need to be part of the Public Preview program and whitelisted for accessing 
 
       ![Create virtual network window](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
-4. Click **Protocol**, then select **NFS** as the protocol type for the volume.   
-
-    Enter **myfilepath1** as the file path that will be used to create the export path for the volume. 
-
-    ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
-
-5. Click **Review + create**.
+4. Click **Review + create**.
 
     ![Review and create window](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)  
 
@@ -125,7 +130,31 @@ You need to be part of the Public Preview program and whitelisted for accessing 
 
     ![Volume created](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)  
 
+## Clean up resources
+
+When you are done and if you want to, you can delete the resource group. The action of deleting a resource group is irreversible.  
+
+  > IMPORTANT:  
+  > All resources within the resource groups will be permanently deleted and cannot be undone. 
+
+1. In the Azure portal’s search box, enter **Azure NetApp Files** and then select **Azure NetApp Files** from the list that appears.
+
+2.	In the list of subscriptions, click the resource group (myRG1) you want to delete. 
+
+    ![Navigate to resource groups](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
+ 
+
+3.	In the resource group page, click **Delete resource group**.
+
+    ![Delete resource group](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+
+    A window opens and displays a warning about the resources that will be deleted with the resource group.
+
+4.	Confirm that you want to permanently delete the resource group and all resources in it by entering the name of the resource group (myRG1), and then click **Delete**.
+ 
+
+
 ## Next steps  
 
-* [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-* [Manage volumes by using Azure NetApp Files](azure-netapp-files-manage-volumes.md) 
+> [!div class="nextstepaction"]
+> [Manage volumes by using Azure NetApp Files](azure-netapp-files-manage-volumes.md)  
