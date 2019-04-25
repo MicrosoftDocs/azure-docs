@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 05/06/2019
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -46,10 +46,10 @@ Here are the limits for a single logic app definition:
 
 Here are the limits for a single logic app run:
 
-| Name | Multi-tenant limit | Integration Service Environment limit | Notes |
+| Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Run duration | 90 days | 365 days | To change the multi-tenant limit, see [change run duration](#change-duration). |
-| Storage retention | 90 days from the run's start time | 365 days| To change the multi-tenant limit to a value between 7 days and 90 days, see [change storage retention](#change-retention). ||
+| Run duration | 90 days | 365 days | To change the default limit, see [change run duration](#change-duration). |
+| Storage retention | 90 days from the run's start time | 365 days | To change the default limit, see [change storage retention](#change-retention). |
 | Minimum recurrence interval | 1 second |||
 | Maximum recurrence interval | 500 days |||
 |||||
@@ -59,7 +59,7 @@ Here are the limits for a single logic app run:
 
 ### Change run duration and storage retention
 
-To change the default limit to between 7 days and 90 days, 
+To change the default limit for run duration and storage retention, 
 follow these steps. If you need to go above the maximum limit, 
 [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
 for help with your requirements.
@@ -94,7 +94,7 @@ Here are the limits for a single logic app run:
 
 Here are the limits for a single logic app run:
 
-### Global Logic Apps service
+### Multi-tenant Logic Apps service
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
@@ -110,6 +110,7 @@ Here are the limits for a single logic app run:
 
 | Name | Limit | Notes |
 |------|-------|-------|
+| Action: Executions per 5 minutes | System-throttled limit | Throttling takes effect when infrastructure reaches 80% capacity |
 | Base unit execution limit | 10,000 action executions per 5 minutes, <br>which is ~80 million action executions per month | |
 | Scale unit execution limit | 5,000 action executions per 5 minutes, <br>which is ~40 million action executions per month | |
 | Maximum scale units that you can add | 3 | |
@@ -131,20 +132,20 @@ request or synchronous connector call:
 
 Some connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than these limits. For more information, see the technical details for the specific connector and also [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Name | Limit | Notes |
-| ---- | ----- | ----- |
-| Outgoing request | 120 seconds | For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
-| Synchronous response | 120 seconds | For the original request to get the response, all steps in the response must finish within the limit unless you call another logic app as a nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
-|||| 
+| Name | Multi-tenant limit | Integration service environment limit | Notes |
+|------|--------------------|---------------------------------------|-------|
+| Outgoing request | 120 seconds | 240 seconds | For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Synchronous response | 120 seconds | 240 seconds | For the original request to get the response, all steps in the response must finish within the limit unless you call another logic app as a nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
+|||||
 
 #### Message size
 
-| Name | Limit | Notes |
-| ---- | ----- | ----- |
-| Message size | 100 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. |
-| Message size with chunking | 1 GB | This limit applies to actions that natively support chunking or let you enable chunking in their runtime configuration. For more information, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
-| Expression evaluation limit | 131,072 characters | The `@concat()`, `@base64()`, `@string()` expressions can't be longer than this limit. |
-||||
+| Name | Multi-tenant limit | Integration service environment limit | Notes |
+|------|--------------------|---------------------------------------|-------|
+| Message size | 100 MB | 200 MB| To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. |
+| Message size with chunking | 1 GB | | This limit applies to actions that natively support chunking or let you enable chunking in their runtime configuration. For more information, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
+| Expression evaluation limit | 131,072 characters | | The `@concat()`, `@base64()`, `@string()` expressions can't be longer than this limit. |
+|||||
 
 #### Retry policy
 
@@ -187,46 +188,20 @@ Here are the limits for custom connectors that you can create from web APIs.
 Here are the limits on the number of artifacts for each integration account. 
 For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-*Free tier*
+> [!NOTE] 
+> Use the Free tier only for exploratory scenarios, 
+> not production scenarios. This tier restricts 
+> throughput and usage, and has no service-level agreement (SLA).
 
-Use the free tier only for exploratory scenarios, not production scenarios. 
-This tier restricts throughput and usage, and has no service-level agreement (SLA).
-
-| Artifact | Limit | Notes |
-|----------|-------|-------|
-| Assemblies | 10 | |
-| Batch configurations | 5 |
-| Certificates | 25 | |
-| EDI trading agreements | 10 | |
-| EDI trading partners | 25 | |
-| Maps | 25 | |
-| Schemas | 25 |
-||||
-
-*Basic tier*
-
-| Artifact | Limit | Notes |
-|----------|-------|-------|
-| Assemblies | 25 | |
-| Batch configurations | 1 | |
-| Certificates | 2 | |
-| EDI trading agreements | 1 | |
-| EDI trading partners | 2 | |
-| Maps | 500 | |
-| Schemas | 500 |
-||||
-
-*Standard tier*
-
-| Artifact | Limit | Notes |
-|----------|-------|-------|
-| Assemblies | 50 | |
-| Batch configurations | 50 |
-| Certificates | 500 | |
-| EDI trading agreements | 500 | |
-| EDI trading partners | 500 | |
-| Maps | 1,000 | |
-| Schemas | 1,000 |
+| Artifact | Free | Basic | Standard |
+|----------|------|-------|----------|
+| EDI trading agreements | 10 | 1 | 500 |
+| EDI trading partners | 25 | 2 | 500 |
+| Maps | 25 | 500 | 1,000 |
+| Schemas | 25 | 500 | 1,000 |
+| Assemblies | 10 | 25 | 50 |
+| Certificates | 25 | 2 | 500 |
+| Batch configurations | 5 | 1 | 50 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
