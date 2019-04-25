@@ -13,7 +13,7 @@ ms.subservice: disks
 
 # Upload a vhd to Azure
 
-This article explains how to upload a vhd file from your local machine to an Azure managed disk. Previously, you had to follow a more involved process that included staging your data in a storage account and managing that storage account. Now, you no longer need to manage a storage account or stage data in it to upload a vhd. Instead, you create an empty managed disk, and upload a vhd directly to it. This makes it much easier to upload on premises VMs to Azure and enables you to upload a vhd up to 32 TiB directly into a large managed disk.
+This article explains how to upload a vhd file from your local machine to an Azure managed disk. Previously, you had to follow a more involved process that included staging your data in a storage account, and managing that storage account. Now, you no longer need to manage a storage account, or stage data in it to upload a vhd. Instead, you create an empty managed disk, and upload a vhd directly to it. This makes simplifies uploading on premises VMs to Azure and enables you to upload a vhd up to 32 TiB directly into a large managed disk.
 
 If you are providing a backup solution for IaaS VMs in Azure, we recommend you use direct upload to restore customer backups to managed disks.
 
