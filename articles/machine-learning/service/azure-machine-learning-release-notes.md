@@ -18,10 +18,24 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 + The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
 + The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
+See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
+
+## 2019-05-02
+
+### Azure portal
+
++ Create automated ML experiments in the portal.
+
 
 ## 2019-04-22
 
 ### Azure Machine Learning SDK for Python v1.0.30
++ **New features**
+  + Datasets
+
++ **Bug fixes and improvements**
+  + None
+
 
 ## 2019-04-17
 
