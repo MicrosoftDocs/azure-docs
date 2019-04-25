@@ -461,17 +461,12 @@
         href: application-consent-experience.md
     - name: Conditional access
       href: conditional-access-dev-guide.md
-<<<<<<< HEAD
     - name: National Clouds 
       items:
       - name: Overview
         href: authentication-national-cloud.md  
       - name: Authentication
         href: msal-national-cloud.md
-=======
-    - name: National clouds
-      href: authentication-national-cloud.md
->>>>>>> 26ad1985fc274736063c19ca7e0753164fb0cb20
   - name: How-to guides
     items:
     - name: Authentication
