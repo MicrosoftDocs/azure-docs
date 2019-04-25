@@ -8,6 +8,7 @@ ms.date: 04/03/2019
 ms.topic: overview
 manager: carmonm
 ---
+
 # View and manage customers and delegated resources
 
 > [!IMPORTANT]
@@ -55,3 +56,7 @@ If you then access a service which supports [cross-tenant management experiences
 > If you have been granted access to one or more resource groups, rather than access to an entire subscription, you can select the subscription to which that resource group belongs. You'll then work in the context of that subscription, but will only be able to access the designated resource groups(s).
 
 You can also access functionality related to delegated subscriptions or resource groups from within services that support cross-tenant management experiences by selecting the subscription or resource group from within that service.
+
+## Next steps
+- Learn about the [cross-tenant management experience](../concepts/cross-tenant-management-experience.md).
+- Learn how your customers can [view and manage service providers](view-manage-service-providers.md) by going to **Service providers** in the Azure portal.
