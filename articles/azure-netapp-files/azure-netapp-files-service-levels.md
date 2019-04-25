@@ -36,6 +36,7 @@ Azure NetApp Files supports the following service levels: *Ultra*, *Premium*, an
 The throughput limit for a volume is determined by the combination of the following factors:
 * The service level of the capacity pool to which the volume belongs
 * The quota assigned to the volume  
+
 This concept is illustrated in the diagram below:
 
     ![Service level illustration](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
