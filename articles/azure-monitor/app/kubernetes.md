@@ -10,7 +10,7 @@ ms.date: 04/25/2019
 ms.author: alkaplan
 ---
 
-# Application Insights for Kubernetes
+# Application Insights for Kubernetes (Public Preview)
 
 Azure Monitor now leverages service mesh tech on your Kubernetes cluster to provide out of the box application monitoring for any Kubernetes hosted app. Rich application level metrics such as failed requests, latency, error rate etc., and application map will be available for your Kubernetes workloads. This feature will help users to spot performance bottlenecks or failure hotspots across all of their Kubernetes workloads within a selected Kubernetes namespace. By leveraging service mesh, Azure monitor will enable auto-instrumented app monitoring.
 
