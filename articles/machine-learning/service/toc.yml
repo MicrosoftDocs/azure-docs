@@ -249,7 +249,7 @@
   - name: Visual interface modules
     displayName: module reference
     items:
-    - name: Overview
+    - name: Module reference overview
       href: ../algorithm-module-reference/module-reference.md
     - name: Data format conversions
       items:
