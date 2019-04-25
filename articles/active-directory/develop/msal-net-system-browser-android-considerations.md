@@ -51,14 +51,14 @@ In addition to browsers with custom tabs support, based on our testing, a few br
 ## Devices and browsers tested
 The following table lists the devices and browsers that have been tested.
 
-| | Browser*     |  Result  | 
+| | Browser&ast;     |  Result  | 
 | ------------- |:-------------:|:-----:|
-| Huawei/One+ | Chrome* | Pass|
-| Huawei/One+ | Edge* | Pass|
-| Huawei/One+ | Firefox* | Pass|
-| Huawei/One+ | Brave* | Pass|
-| One+ | Ecosia* | Pass|
-| One+ | Kiwi* | Pass|
+| Huawei/One+ | Chrome&ast; | Pass|
+| Huawei/One+ | Edge&ast; | Pass|
+| Huawei/One+ | Firefox&ast; | Pass|
+| Huawei/One+ | Brave&ast; | Pass|
+| One+ | Ecosia&ast; | Pass|
+| One+ | Kiwi&ast; | Pass|
 | Huawei/One+ | Opera | Pass|
 | Huawei | OperaMini | Pass|
 | Huawei/One+ | InBrowser | Pass|
