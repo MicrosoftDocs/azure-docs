@@ -43,22 +43,22 @@ If you have enabled Kubernetes RBAC authorization, you will need to apply cluste
     metadata: 
        name: containerHealth-log-reader 
     rules: 
-      - apiGroups: [""] 
-     resources: ["pods/log", "events"] 
-     verbs: ["get", "list"]  
+       - apiGroups: [""] 
+         resources: ["pods/log", "events"] 
+         verbs: ["get", "list"]  
     --- 
     apiVersion: rbac.authorization.k8s.io/v1 
     kind: ClusterRoleBinding 
     metadata: 
        name: containerHealth-read-logs-global 
     roleRef: 
-       kind: ClusterRole 
-       name: containerHealth-log-reader 
-      apiGroup: rbac.authorization.k8s.io 
+        kind: ClusterRole 
+        name: containerHealth-log-reader 
+        apiGroup: rbac.authorization.k8s.io 
     subjects: 
-      - kind: User 
-        name: clusterUser 
-       apiGroup: rbac.authorization.k8s.io
+       - kind: User 
+         name: clusterUser 
+         apiGroup: rbac.authorization.k8s.io
     ```
 
 2. If you are configuring this for the first time, you create the cluster rule binding by running the following command: `kubectl create -f LogReaderRBAC.yaml`. If you previously enabled support for live logs preview before we introduced live event logs, to update your configuration, run the following command: `kubectl apply -f LiveLogRBAC.yml`. 
