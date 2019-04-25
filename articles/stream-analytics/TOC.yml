@@ -12,6 +12,8 @@
     href: stream-analytics-quick-create-powershell.md
   - name: Create a job - Visual Studio
     href: stream-analytics-quick-create-vs.md
+  - name: Create a job - Visual Studio Code
+    href: quick-create-vs-code.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage a job
