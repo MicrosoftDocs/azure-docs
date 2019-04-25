@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # What is Custom Speech?
 
-[Custom Speech](https://speech.microsoft.com/app.html#/CustomSpeech) is a set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your applications, tools, and products. All it takes to get started are a handful of test audio files. Follow the links below to start creating a custom speech-to-text experience.
+[Custom Speech](https://speech.microsoft.com/customspeech.html) is a set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your applications, tools, and products. All it takes to get started are a handful of test audio files. Follow the links below to start creating a custom speech-to-text experience.
 
 ## What's in Custom Speech?
 
