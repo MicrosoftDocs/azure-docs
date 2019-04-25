@@ -41,7 +41,7 @@ Many applications can benefit from time to prepare for virtual machine maintenan
 Using Scheduled Events your application can discover when maintenance will occur and trigger tasks to limit its impact. Enabling scheduled events gives your virtual machine a minimum amount of time before the maintenance activity is performed. See the Event Scheduling section below for details.
 
 Scheduled Events provides events in the following use cases:
-- Platform initiated maintenance (e.g. Host OS/ Component Update or live migration for virtual machine)
+- [Platform initiated maintenance](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/maintenance-and-updates) (e.g. VM reboot, live migration or memory preserving updates for hosting environment update)
 - Degraded hardware
 - User initiated maintenance (e.g. user restarts or redeploys a VM)
 - [Low-Priority VM eviction](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) in scale sets
