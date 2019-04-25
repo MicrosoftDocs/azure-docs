@@ -1,5 +1,5 @@
 ---
-title: mobile app that calls Web APIs - acquiring a token for the app | Azure
+title: Mobile app that calls Web APIs - acquiring a token for the app | Microsoft identity platform
 description: Learn how to build a mobile app that calls Web APIs (acquiring a token for the app)
 services: active-directory
 documentationcenter: dev-center-name
@@ -155,13 +155,13 @@ catch(MsalUiRequiredException e)
 }
 ```
 
-## via Protocol 
+### via Protocol 
 
 We do not advise going directly against the protocol. Your app will not be capable of many SSO scenarios and will not be able to support all device management and Conditional Access scenarios.
 
 When getting tokens for mobile apps using the protocol, you'll need to make 2 requests: get an authorization code and exchange it for a token. 
 
-### Getting Authorization code
+#### Getting Authorization code
 
 ```Text
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -173,7 +173,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-### Getting access and refresh token
+#### Getting access and refresh token
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
