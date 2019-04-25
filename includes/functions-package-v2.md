@@ -16,7 +16,7 @@ The following table tells how to add support for this binding in each developmen
 | Development environment               | To add support in <br>Functions 2.x  |
 |----------------------|----------------|
 |Local development - C# class library       | [Install the package](../articles/azure-functions/functions-bindings-register.md#c-class-library-with-visual-studio-2017) |
-|Local development - C# script, JavaScript, F#, Java and Python |[Register the extension](../articles/azure-functions/functions-bindings-register.md#local-development-azure-functions-core-tools-and-extension-bundles)         |
+|Local development - C# script, JavaScript, F#, Java and Python |[Register the extension](../articles/azure-functions/functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)         |
 |Portal development| Install when adding output binding    |
 
 To learn how to update existing binding extensions in the portal without having to republish your function app project, see [Update your extensions](../articles/azure-functions/install-update-binding-extensions-manual.md).

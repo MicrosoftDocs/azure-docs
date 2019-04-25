@@ -28,11 +28,11 @@ The following table indicates when and how you register bindings.
 | Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 2.x  |
 |-------------------------|------------------------------------|------------------------------------|
 |Azure portal|Automatic|Automatic|
-|Non-.NET languages or local Azure Core Tools development|Automatic|[Use Azure Functions Core Tools and extension bundles](#local-development-azure-functions-core-tools-and-extension-bundles)|
+|Non-.NET languages or local Azure Core Tools development|Automatic|[Use Azure Functions Core Tools and extension bundles](#local-development-with-azure-functions-core-tools-and-extension-bundles)|
 |C# class library using Visual Studio 2017|[Use NuGet tools](#c-class-library-with-visual-studio-2017)|[Use NuGet tools](#c-class-library-with-visual-studio-2017)|
 |C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](#c-class-library-with-visual-studio-code)|
 
-## Local development Azure Functions Core Tools and extension bundles
+## Local development with Azure Functions Core Tools and extension bundles
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
