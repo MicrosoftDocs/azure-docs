@@ -16,7 +16,7 @@ ms.date: 05/03/2019
 
 As a cloud service provider, we understand the importance of maintaining the integrity and confidentiality of customer data. We continually invest in our policies, processes, and tools for governing when Microsoft may need to access customer data hosted in Azure. One of the key tools to provide control over these processes is Customer Lockbox for Microsoft Azure.
 
-If a Microsoft engineer needs to access customer data during a support request, Customer Lockbox provides an interface for a customer to review this access request, and approve/reject, as well as track historical request logs. This documentation covers in detail how this workflow is initiated, tracked, and stored for later reviews and audits.
+If a Microsoft engineer needs to access customer data during a support request, Customer Lockbox provides an interface for a customer to review this access request, and approve or reject it, as well as track historical request logs. This article covers how this workflow is initiated, tracked, and stored for later reviews and audits.
 
 
 ## Workflow
@@ -75,7 +75,7 @@ For auditing purposes, the actions taken in this workflow are logged in [Custome
 
 ## Auditing logs
 
-Use the **Activity Logs** to view auditing information related to Customer Lockbox requests. You can filter for specific actions, such as:
+Customer Lockbox logs are stored in activity logs. In the Azure portal, select **Activity Logs** to view auditing information related to Customer Lockbox requests. You can filter for specific actions, such as:
 - **Deny Lockbox Request**
 - **Create Lockbox Request**
 - **Approve Lockbox Request**
