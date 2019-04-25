@@ -67,7 +67,7 @@ y_test = X_test.pop("sales_quantity").values
 > not be able to accurately predict future stock values corresponding to future time-series
 > points, and model accuracy could suffer.
 
-## Configure experiment
+## Configure and run experiment
 
 For forecasting tasks, automated machine learning uses pre-processing and estimation steps that are specific to time-series data. The following pre-processing steps will be executed:
 
@@ -128,6 +128,20 @@ best_run, fitted_model = local_run.get_output()
 > automated machine learning implements a rolling origin validation procedure to create cross-validation folds for time-series data. To use this procedure, specify the
 > `n_cross_validations` parameter in the `AutoMLConfig` object. You can bypass validation and use your own validation sets with the `X_valid` and `y_valid` parameters.
 
+### View feature engineering summary
+
+For time-series task types in automated machine learning, you can view details from the feature engineering process. The following code shows each raw feature along with the following attributes:
+
+* Raw feature name
+* Number of engineered features formed out of this raw feature
+* Type detected
+* Whether feature was dropped
+* List of feature transformations for the raw feature
+
+```python
+fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+```
+
 ## Forecasting with best model
 
 Use the best model iteration to forecast values for the test data set.
@@ -135,6 +149,14 @@ Use the best model iteration to forecast values for the test data set.
 ```python
 y_predict = fitted_model.predict(X_test)
 y_actual = y_test.flatten()
+```
+
+Alternatively, you can use the `forecast()` function instead of `predict()`, which will allow specifications of when predictions should start. In the following example, you first replace all values in `y_pred` with `NaN`. The forecast origin will be at the end of training data in this case, as it would normally be. However, if you replaced only the second half of `y_pred` with `NaN`, the function would leave the numerical values in the first half unmodified, but forecast the `NaN` values in the second half. The function returns both the forecasted values and the aligned features.
+
+```python
+y_query = y_test.copy().astype(np.float)
+y_query.fill(np.nan)
+y_fcst, X_trans = fitted_pipeline.forecast(X_test, y_query)
 ```
 
 Calculate RMSE (root mean squared error) between the `y_test` actual values, and the forecasted values in `y_pred`.
