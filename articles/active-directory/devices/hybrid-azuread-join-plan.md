@@ -37,7 +37,7 @@ If you have an on-premises Active Directory environment and you want to join you
 This article assumes that you are familiar with the [Introduction to device management in Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> The minimum required domain functional and forest functional levels for Windows 10 hybrid Azure AD join is Windows Server 2008 R2. On lower versions, the user may not get a Primary Refresh Token during Windows logon due to LSA issues.
+> The minimum required domain functional and forest functional levels for Windows 10 hybrid Azure AD join is Windows Server 2008 R2.
 
 ## Plan your implementation
 
