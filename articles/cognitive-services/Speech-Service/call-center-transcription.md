@@ -18,7 +18,9 @@ Telephony data that is generated through landlines, mobile phones, and radios ar
 
 A common scenario for speech-to-text is transcribing large volumes of telephony data that may come from various systems, such as Interactive Voice Response (IVR). The audio these systems provide can be stereo or mono, and raw with little-to-no post processing done on the signal. Using Speech Services and the Unified speech model, a business can get high-quality transcriptions, whatever the systems used to capture audio.
 
-The telephony data can be used to better understand your customers' needs, identify new marketing opportunities, or evaluate the performance of call center agents. After the data is transcribed, a business can use the output for improved telemetry, identifying key phrases, or analyzing customer sentiment.
+Telephony data can be used to better understand your customers' needs, identify new marketing opportunities, or evaluate the performance of call center agents. After the data is transcribed, a business can use the output for improved telemetry, identifying key phrases, or analyzing customer sentiment.
+
+The technologies outlined in this page are by Microsoft internally for various support call processing services, both in real-time and batch mode.
 
 Let's review some of the technology and related features Azure Speech Services offer.
 
