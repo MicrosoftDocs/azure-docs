@@ -197,6 +197,8 @@
         items:
         - name: Overview and prerequisites
           href: site-recovery-deployment-planner.md
+        - name: Azure Site Recovery (ASR) Deployment Planner Version History
+          href: site-recovery-deployment-planner-history.md
         - name: Run the Deployment Planner tool
           href: site-recovery-vmware-deployment-planner-run.md
         - name: Analyze the generated report
@@ -319,6 +321,8 @@
         items:
         - name: Overview and prerequisites
           href: hyper-v-deployment-planner-overview.md
+        - name: Azure Site Recovery (ASR) Deployment Planner Version History
+          href: site-recovery-deployment-planner-history.md
         - name: Run the Deployment Planner tool
           href: hyper-v-deployment-planner-run.md
         - name: Analyze the generated report
