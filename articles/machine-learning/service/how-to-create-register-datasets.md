@@ -18,7 +18,7 @@ ms.date: 05/02/19
 
 In this article, you learn the Azure Machine Learning workflows to create and register Datasets, and how to access them for reuse across local and remote experiments.
 
-The [Azure Machine Learning SDK's](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) class lets you manage data in various scenarios such as, model training and pipeline creation. With Azure Machine Learning Datasets, access underlying storage, explore and prepare data, manage the life cycle of different Dataset definitions, and compare between Datasets used in training and in production.
+Azure Machine Learning Datasets (preview) make it easier to access and work with your data. Datasets manage data in various scenarios such as, model training and pipeline creation. Using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), you can work with data in popular formats, access underlying storage, explore and prepare data, manage the life cycle of different dataset definitions, and compare between datasets used in training and in production.
 
 ## Prerequisites
 
@@ -58,14 +58,10 @@ To create Datasets from an Azure Datastore, be sure to:
 ```Python
 from azureml.core import Workspace, Datastore, Dataset
 
-# change the configuration for workspace and Datastore
-subscription_id = 'your subscription id'
-resource_group = 'your resource group name'
-workspace_name = 'your workspace name'
 datastore_name = 'your datastore name'
 
 # get existing workspace
-workspace = Workspace(subscription_id, resource_group, workspace_name)
+workspace = Workspace.from_config()
 ```
 
  The `get()` method retrieves an existing datastore in the workspace.
@@ -132,12 +128,12 @@ The preceding code results in the following:
 
 ## Access Datasets in workspace
 
-Registered Datasets are accessible and consumable locally, remotely and on compute clusters like the Azure Machine Learning compute. To reuse your registered Dataset across experiments and compute environments, use the following code to get your workspace and registered dataset by name.
+Registered Datasets are accessible and consumable locally, remotely and on compute clusters like the Azure Machine Learning compute. To reuse your registered Dataset across experiments and compute environments, use the following code to get your workspace and registered dataset by name. See 
 
 ```Python
 workspace = Workspace.from_config()
 
-dataset = workspace.datasets['dataset_crime']
+dataset = workspace.Datasets['dataset_crime']
 ```
 
 ## Next steps
