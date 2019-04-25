@@ -28,7 +28,7 @@ When you create an HDInsight cluster, six tables are automatically created for L
 * ambariserverlog
 * ambariagentlog
 
-The table file names are **u<ClusterName>DDMonYYYYatHHMMSSsss<TableName>**.
+The table file names are **u\<ClusterName>DDMonYYYYatHHMMSSsss\<TableName>**.
 
 These tables contain the following fields:
 
