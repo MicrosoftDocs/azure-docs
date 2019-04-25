@@ -11,7 +11,7 @@ manager: dikamath
 ---
 # Azure VMware Solutions by CloudSimple
 
-Welcome Azure VMware Solutions by CloudSimple. You'll find details on how to use CloudSimple and how to enable solutions on the service. Search for topics or browse the table of contents.
+Welcome to Azure VMware Solutions by CloudSimple. You'll find details on how to use CloudSimple and how to enable solutions on the service. Search for articles or browse the table of contents.
 
 - View the [Overview](cloudsimple-vmware-solutions-overview.md) to learn more about Azure VMware Solutions by CloudSimple.
 - Select [CloudSimple private cloud overview](cloudsimple-private-cloud.md) to learn more about the CloudSimple private cloud solution.

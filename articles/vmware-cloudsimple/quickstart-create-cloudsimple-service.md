@@ -20,6 +20,7 @@ The CloudSimple service allows you to consume Azure VMware Solution by CloudSimp
 To add the CloudSimple service, you must create a gateway subnet. The gateway subnet is used when creating the edge network and requires a /28 CIDR block. The gateway subnet address space must be unique. It can't overlap with any of your on-premises network address spaces or Azure virtual network address space.
 
 ## Sign in to Azure
+
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Enable Microsoft.VMwareCloudSimple resource provider
@@ -35,7 +36,7 @@ Follow the steps below to enable the resource provider for CloudSimple service.
 4. Click on **Resource providers** for the subscription
 5. Use **Microsoft.VMwareCloudSimple** to filter the resource provider
 6. Select the **Microsoft.VMwareCloudSimple** resource provider and click on **Register**
-    
+
     ![Register resource provider](media/cloudsimple-service-enable-resource-provider.png)
 
 ## Create the service
@@ -45,7 +46,7 @@ Follow the steps below to enable the resource provider for CloudSimple service.
 
 1. Select **All services**.
 2. Search for **CloudSimple Service**.
-    
+
     ![Search CloudSimple Service](media/create-cloudsimple-service-search.png)
 
 3. Select **CloudSimple Services**.
@@ -60,17 +61,17 @@ Follow the steps below to enable the resource provider for CloudSimple service.
 
     ![Creating the CloudSimple service](media/create-cloudsimple-service.png)
 
-8. Click **OK**.
+9. Click **OK**.
 
 The service is created and added to the list of services.
 
 ## Purchase nodes
 
-To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, first provision nodes in the Azure portal. 
+To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, first provision nodes in the Azure portal.
 
 1. Select **All services**.
 2. Search for **CloudSimple Nodes**.
-    
+
     ![Search CloudSimple Nodes](media/create-cloudsimple-node-search.png)
 
 3. Select **CloudSimple Nodes**.
