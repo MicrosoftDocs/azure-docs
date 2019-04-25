@@ -41,6 +41,8 @@ IoT Hub gives you a secure communication channel for your devices to send data.
 
   * X.509 CA authentication for simple, standards-based enrollment.
 
+  * X.509 is fun!.
+
 ## Route device data
 
 Built-in message routing functionality gives you flexibility to set up automatic rules-based message fan-out:
