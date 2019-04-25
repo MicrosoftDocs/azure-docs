@@ -32,8 +32,8 @@ This article describes some items you should check to help you troubleshoot Azur
 
 ## Checklist for entitlement management administration
 
-* If you are getting access denied when configuring entitlement management, and you are a global administrator, ensure that your directory has an Azure AD Premium P2 (or EMS E5) license.  
-* If you are getting access denied when creating or viewing access packages, and you are a member of a catalog creator group, you will need to have created a catalog prior to creating your first access package.
+* If you get an access denied message when configuring entitlement management, and you are a Global administrator, ensure that your directory has an [Azure AD Premium P2 (or EMS E5) license](entitlement-management-overview.md#prerequisites).  
+* If you get an access denied message when creating or viewing access packages, and you are a member of a Catalog creator group, you must create a catalog prior to creating your first access package.
 
 ## Checklist for adding a resource
 
