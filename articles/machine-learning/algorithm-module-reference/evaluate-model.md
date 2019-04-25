@@ -9,10 +9,10 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 05/02/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
-# Evaluate Model
+# Evaluate Model module
 
 *Evaluates the results of a classification or regression model with standard metrics*  
   
@@ -20,7 +20,9 @@ ROBOTS: NOINDEX
   
 ## Module overview  
 
-This article describes how to use the **Evaluate Model** module in Azure Machine Learning service to measure the accuracy of a trained model. You provide a dataset containing scores generated from a model, and the **Evaluate Model** module computes a set of industry-standard evaluation metrics.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to measure the accuracy of a trained model. You provide a dataset containing scores generated from a model, and the **Evaluate Model** module computes a set of industry-standard evaluation metrics.
   
  The metrics returned by **Evaluate Model** depend on the type of model that you are evaluating:  
   

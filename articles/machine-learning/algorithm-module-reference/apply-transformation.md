@@ -13,14 +13,15 @@ ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
-# Apply Transformation
+# Apply Transformation module
 
 *Applies a well-specified data transformation to a dataset*  
 
 
 ## Module overview  
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
-This article describes how to use the **Apply Transformation** module in Azure Machine Learning service to modify an input dataset based on a previously computed transformation.  
+Use this module to modify an input dataset based on a previously computed transformation.  
   
 For example, if you used z-scores to normalize your training data by using the **Normalize Data** module, you would want to use the z-score value that was computed for training during the scoring phase as well. In Azure Machine Learning, you can do this easily by saving the normalization method as a transform, and then using **Apply Transformation** to apply the z-score to the input data before scoring.
   

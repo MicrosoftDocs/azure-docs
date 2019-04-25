@@ -13,7 +13,7 @@ ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
-# Decision Forest Regression
+# Decision Forest Regression module
 
 *Creates a regression model using the decision forest algorithm*
 
@@ -21,7 +21,9 @@ Category: Initialize Model - Regression
 
 ## Module overview
 
-This article describes how to use the **Decision Forest Regression** module in Azure Machine Learning service to create a regression model based on an ensemble of decision trees.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to create a regression model based on an ensemble of decision trees.
 
 After you have configured the model, you must train the model using a labeled dataset and the [Train Model](./train-model.md) module.  The trained model can then be used to make predictions. 
 

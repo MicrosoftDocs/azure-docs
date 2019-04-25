@@ -13,7 +13,7 @@ ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
-# Convert to CSV
+# Convert to CSV module
 
 *Converts data input to a comma-separated values format*  
   
@@ -21,7 +21,9 @@ ROBOTS: NOINDEX
   
 ## Module overview
  
-This article describes how to use the **Convert to CSV** module in Azure Machine Learning service to convert a dataset into a CSV format that can be downloaded, exported, or shared with R or Python script modules.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to convert a dataset into a CSV format that can be downloaded, exported, or shared with R or Python script modules.
 
 ### More about the CSV format 
 
