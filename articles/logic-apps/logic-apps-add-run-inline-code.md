@@ -24,8 +24,8 @@ to run code that fits this scenario:
 * Uses the same libraries that Azure Functions supports.
 
   For example, with JavaScript, this action uses these 
-  <a href="https://www.w3schools.com/nodejs/ref_modules.asp">Node.js modules</a>. For more information, see 
-  [Azure Functions JavaScript developer guide](../azure-functions/functions-reference-node.md).
+  [Node.js modules](https://www.w3schools.com/nodejs/ref_modules.asp). 
+  For more information, see [Azure Functions JavaScript developer guide](../azure-functions/functions-reference-node.md).
 
 This action returns just one output named **Result**, 
 which you can use in subsequent actions in your logic app. 
@@ -44,7 +44,7 @@ that appear in the email body.
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * The logic app where you want to add your code snippet, 
 including a trigger. If you don't have a logic app, see 
