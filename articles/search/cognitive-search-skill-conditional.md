@@ -80,12 +80,12 @@ Because of the evaluation supported, the Conditional Skill can be used for minor
 
 ## Skill inputs
 Inputs are case-sensitive.
+
 | Inputs	  | Description |
 |-------------|-------------|
-| condition   | This is an [evaluated field](#evaluated-fields) that represents the condition to evaluate. This condition should evaluate to a boolean value (true or false).   <br/>  Examples: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/*/language) == $(/document/expectedLanguage)" <br/> |
-| whenTrue    | This is an [evaluated field](#evaluated-fields). The value to return if the condition is evaluated to true. Constants strings should be returned in ' ' quotes. <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/*)" <br/> |
-| whenFalse   | This is an [evaluated field](#evaluated-fields). The value to return if the condition is evaluated to false.  <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/*)" <br/>
-|
+| condition   | This is an [evaluated field](#evaluated-fields) that represents the condition to evaluate. This condition should evaluate to a boolean value (true or false).   <br/>  Examples: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
+| whenTrue    | This is an [evaluated field](#evaluated-fields). The value to return if the condition is evaluated to true. Constants strings should be returned in ' ' quotes. <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
+| whenFalse   | This is an [evaluated field](#evaluated-fields). The value to return if the condition is evaluated to false.  <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
 
 ## Skill outputs
 There is a single ouput called 'output'. It will return the value of whenFalse if the condition is false, or whenTrue if the condition is true.
@@ -108,7 +108,7 @@ The following output will return an array of sentences ("/document/frenchSentenc
     "outputs": [ { "name": "output", "targetName": "frenchSentences" } ]
 }
 ```
-Note that if "/document/frenchSentences" is used as the input of another skill, that skill will only run if "/document/frenchSentences" is not set to null.
+Note that if "/document/frenchSentences" is used as the *context* of another skill, that skill will only run if "/document/frenchSentences" is not set to null.
 
 
 ###	Sample skill definition 2: Setting a default value when it does not exist.
