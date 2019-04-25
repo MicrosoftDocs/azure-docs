@@ -7,7 +7,6 @@ manager: barbkess
 editor: bryanla
 
 ms.service: key-vault
-ms.devlang: CSharp
 ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin

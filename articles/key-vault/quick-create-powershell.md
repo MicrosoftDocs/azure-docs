@@ -7,7 +7,6 @@ manager: barbkess
 tags: azure-resource-manager
 
 ms.service: key-vault
-ms.devlang: powershell
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/07/2019
