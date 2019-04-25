@@ -1,17 +1,17 @@
 ---
-title: How to create a Commercial Marketplace account in Partner Center  
-description: Learn how to create a Commercial Marketplace account in Partner Center. 
-author: mattwoj 
+title: How to create a 
 manager: evansma
 ms.author: parthp 
-ms.service: marketplace 
+ms.servCommercial Marketplace account in Partner Center  
+description: Learn how to create a Commercial Marketplace account in Partner Center. 
+author: mattwojoice: marketplace 
 ms.topic: how-to
 ms.date: 05/30/2019
 ---
 
 # How to create a Commercial Marketplace account in Partner Center
 
-In order to publish offers to Azure Marketplace or AppSource, you'll need to create a Partner Center account.  
+In order to publish offers to [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/) via the [Commercial Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace), you'll need to create a Partner Center account.  
 
 In this article, we'll cover how to create a Partner Center account, including how to: 
 
@@ -21,13 +21,13 @@ In this article, we'll cover how to create a Partner Center account, including h
 - Add payment information 
 - Add tax information
 
-## Before you begin
+## Prerequisites
 
-To create an account on Partner Center, you’ll need to have on hand the following information. You may want to take a few minutes to gather these items before you get started:
+To create an account on Partner Center, make sure you have:
 
--   Global administrator work email. If you're not sure what your company's work account is, see [Your company work account and Partner Center](). If your company doesn’t have a work account, you can create one during the account creation process. 
+- Your company's Azure Active Directory (AD) tenant ID. 
 
-<!-- Link from PC, new location in these docs, azure-active-directory-tenants-and-partner-center.md -->
+-   Global administrator work email. If you're not sure what your company's work account is, see [Link your company work account](#link-your-company-work-account) below. If your company doesn’t have a work account, you can create one, see [Create a new work account](#create-a-new-work-account) below. 
 
 -   Your company’s legal business name, address, and primary contact. We need this information to confirm that your company has an established profile and that you are authorized to act on its behalf. 
 
@@ -39,13 +39,19 @@ We’ll verify this information during the account creation process.
 
 ## Create a Partner Center account
 
-1.	Review the information on the **Welcome** page and then select **Next**.
+1.	Review the information on the [**Welcome to Microsoft Partner Center**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) enrollment and registration page.
 
-2.	Sign in as a global admin to your company's work account. If you're not sure what your company's work account is, see [Your company work account and Partner Center]().
+2.	**Enter your work email address.** This email should be connected to your company's work account. For the initial Partner Center account set-up, you should be listed as the account's global administrator. If you're not sure what your company's work account is, see [Link your company work account](#link-your-company-work-account) below. On the next page, you will need to select the account with global administrator credentials associated with your company's work account. 
 
-    Select **Sign in** if you know your company has a work email account. On the next page, enter global admin credentials for your company's work account. 
+   <!-- Didn't see this option: If your company doesn’t have a work account, select **Create one** to set one up now. After creating a work account, sign in using the global admin credentials for the work account you just created. -->
 
-    If your company doesn’t have a work account, select **Create one** to set one up now. After creating a work account, sign in using the global admin credentials for the work account you just created.
+Set up your Partner Center account
+To create your company's Partner Center account, we need a few more details and your signature on consent agreements.
+You'll also be able to invite others from your company to create their own user accounts.
+
+Get started working in Partner Center
+Take the welcome tour and then get busy. Manage your users, create a business profile, get referrals, start using your benefits, and more.
+
 
 3.	Provide or update your company’s legal business profile and primary contact information and then select **Enroll now**. 
 
@@ -60,7 +66,7 @@ We’ll verify this information during the account creation process.
 
 6. Read and accept the terms and conditions in the [Microsoft Marketplace Publisher Agreement](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). 
 
-## Link your company's work account
+## Link your company work account
 
 Your Partner Center account must be linked with your company's Azure work account so that your users can sign-in with their work account username and password.
 

@@ -1,7 +1,7 @@
 ---
 title: How to manage a Commercial Marketplace account in Partner Center  
 description: Learn how to manage a Commercial Marketplace account in Partner Center. 
-author: mattwoj 
+author: mattwojo
 manager: evansma
 ms.author: parthp 
 ms.service: marketplace 

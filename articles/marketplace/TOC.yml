@@ -463,3 +463,41 @@
       href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
   - name: Getting support
     href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
+- name: Commercial Marketplace Portal in Partner Center
+  href: ./commercial-marketplace-overview.md
+  items: 
+  - name: Overview
+    items:
+    - name: What is Commercial Marketplace?
+      href: ./commercial-marketplace-overview.md
+  - name: Account Management
+    items:
+    - name: Create a new account
+      href: ./create-account.md
+    - name: Manage your account
+      href: ./manage-account.md
+  - name: Create a new offer
+    items:
+    - name: Create a SaaS offer
+      href: ./create-new-saas-offer.md
+      items: 
+      - name: Offer setup
+        href: ./saas-offer-setup.md
+      - name: Properties
+        href: ./saas-offer-properties.md
+      - name: Offer listing
+        href: ./saas-offer-setup.md
+      - name: Preview
+        href: ./saas-offer-preview.md
+      - name: Technical Configuration
+        href: ./saas-technical-config.md
+      - name: SKU Overview
+        href: ./saas-sku-overview.md
+      - name: Test Drive
+        href: ./saas-test-drive.md
+  - name: Publishing status
+    href: saas-publishing-status.md
+  - name: Update existing offers
+  - name: Resources
+  
+
