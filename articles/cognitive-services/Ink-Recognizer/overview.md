@@ -38,7 +38,7 @@ The Ink Recognizer API is a RESTful web service, making it easy to call from any
 
 After signing up:
 
-1. Take your ink stroke data and [format it](concepts/send-ink-data.md#sending-ink-data-to-the-api) into valid JSON.
+1. Take your ink stroke data and [format it](concepts/send-ink-data.md#sending-ink-data) into valid JSON.
 1. Send a request to the Ink Recognizer API with your data.
 1. Process the API response by parsing the returned JSON message.
 
