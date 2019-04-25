@@ -13,6 +13,8 @@
       items:
       - name: cURL
         href: quickstarts/curl-train-extract.md
+      - name: Python
+        href: quickstarts/python-train-extract.md
 - name: How-to guides
   items:
   - name: Use containers

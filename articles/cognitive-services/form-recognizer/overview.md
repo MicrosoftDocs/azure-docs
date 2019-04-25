@@ -54,21 +54,21 @@ Additionally, Form Recognizer is **not** compatible with the following types of 
 
 **Step 1:** Create a Form Recognizer resource in the Azure portal.
 
-**Step 2:** Try our quickstart for hands-on experience
-*	[Quickstart: Train a Form Recognizer model and extract form data using REST API with cURL](quickstarts/curl-train-extract.md)
+**Step 2:** Try a quickstart for hands-on experience:
+* [Quickstart: Train a Form Recognizer model and extract form data using REST API with cURL](quickstarts/curl-train-extract.md)
+* [Quickstart: Train a Form Recognizer model and extract form data using REST API with Python](quickstarts/python-train-extract.md)
 
 We recommend the Free service for learning purposes, but be aware that the number of free pages is limited to 500 pages per month.
 
 **Step 3:** Review the REST API 
-Use the following APIs to train and extract structured data from forms. 
+Use the following APIs to train and extract structured data from forms.
 
 | REST API | Description |
 |-----|-------------|
 | Train | Train	a new model to analyze your forms using 5 forms from the same type or an empty form.  |
 | Analyze  |Analyze a single document passed in as a stream to extract key-value pairs and tables from the form with your custom model.  |
- 
-Explore the [REST API reference document](https://aka.ms/from-recognizer/api). 
 
+Explore the [REST API reference document](https://aka.ms/form-recognizer/api). 
 
 ## Data privacy and security
 
@@ -82,4 +82,4 @@ As with all the Cognitive Services, developers using the Form Recognizer service
 
 ## Next steps
 
-Follow a [quickstart](quickstarts/curl-train-extract.md) to get started using the [Form Recognizer APIs](https://aka.ms/from-recognizer/api).
+Follow a [quickstart](quickstarts/curl-train-extract.md) to get started using the [Form Recognizer APIs](https://aka.ms/form-recognizer/api).

@@ -46,6 +46,10 @@ sections:
         src: ./media/logos/logo-curl.svg
       text: cURL
       href: quickstarts/curl-train-extract.md
+    - image: 
+        src: ./media/logos/logo-python.svg
+      text: Python
+      href: quickstarts/python-train-extract.md
 - title: Reference
   items:
   - type: list
