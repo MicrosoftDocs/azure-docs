@@ -10,26 +10,26 @@ ms.author: rimman
 
 # Introduction to Azure Cosmos DB Spark API (preview) 
 
-Spark API in Azure Cosmos DB allows you to run operational analytics directly against the petabytes of data stored in an Azure Cosmos account, using the popular OSS analytical engines like Apache Spark.
+The Spark API in Azure Cosmos DB allows you to run analytics from Apache Spark aganist your data stored in an Azure Cosmos account.
 
-Azure Cosmos DB Spark API provides the native support for Apache Spark jobs to execute directly on your globally distributed Cosmos databases. With these capabilities, developers, data engineers, and data scientists can use Azure Cosmos DB as a flexible, scalable, and performant data platform to run both **OLTP and OLAP/HTAP** workloads. 
+Spark API in Azure Cosmos DB provides the native support for Apache Spark jobs to execute directly on your globally distributed Cosmos databases. With these capabilities, developers, data engineers, and data scientists can use Azure Cosmos DB as a flexible, scalable, and performant data platform to run both **OLTP and OLAP/HTAP** workloads. 
 
 > [!NOTE]
 > Azure Cosmos DB Spark API is currently in limited preview. To sign-up for the preview, navigate to [sign-up for the preview](https://aka.ms/cosmos-spark-preview) page. 
 
-Spark API in Azure Cosmos DB offers the following benefits:
+The Spark API in Azure Cosmos DB offers the following benefits:
 
 * You can get the fastest time to insight for the geographically distributed users and data.
 
 * You can simplify the architecture of your solution and lower the [Total Cost of Ownership](total-cost-ownership.md) (TCO). The system will have the least number of data processing components and avoids any unnecessary data movement among them.
 
-* Creates a [security](secure-access-to-data.md), [compliance, and auditing boundary that encompasses all the data under management.
+* Creates a [security](secure-access-to-data.md), [compliance](compliance.md), and auditing boundary that encompasses all the data under management.
 
-* Provides always on/[highly available](high-availability.md) end-user analytics that are backed by stringent SLAs.
+* Provides "always on" or [highly available](high-availability.md) end-user analytics that are backed by stringent SLAs.
 
 ![Azure Cosmos DB Spark API visualization](./media/spark-api-introduction/spark-api-visualization.png)
  
-With Azure Cosmos DB Spark API, you can easily build and deploy AI and deep learning models, predictive analytics, recommendations, IoT, customer 360, fraud detection, text sentiment, clickstream, analysis, etc. workloads directly on your Azure Cosmos DB data. 
+Using Azure Cosmos DB Spark API, you can build and deploy solutions such as AI and deep learning models, predictive analytics, recommendations, IoT, customer 360, fraud detection, text sentiment, clickstream, and analysis. These work directly against your Azure Cosmos DB data.
 
 You can set up batch and streaming ETL job in Azure Cosmos DB, without having to go outside the database service or add additional compute services. You can elastically scale the compute environment when you need to perform ETL job and scale it back down when the job is done.
 
