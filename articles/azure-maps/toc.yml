@@ -42,7 +42,7 @@
       href: render-coverage.md
     - name: Routing coverage
       href: routing-coverage.md
-  - name: Supported languages
+  - name: Localization support
     href: supported-languages.md
   - name: Supported map styles
     href: supported-map-styles.md
