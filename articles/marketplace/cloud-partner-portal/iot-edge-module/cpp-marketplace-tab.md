@@ -168,7 +168,7 @@ This section lets you provide the two legal documents that are required for each
 |  **Field**                    |     **Description**                                                          |
 |  ---------                    |     ---------------                                                          |
 | **Privacy Policy URL\***      | URL to your posted privacy policy                                            |
-| **Use Standard Constract\***  | Whether to use the standard Microsoft contract template.  For more information, see [Standard Contract](https://docs.microsoft.com/en-us/azure/marketplace/standard-contract).   |
+| **Use Standard Constract\***  | Whether to use the standard Microsoft contract template.  For more information, see [Standard Contract](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
 | **Terms of use\***            | *Terms of use* as inline simple HTML or link to your posted terms of use page     |
 |  |  |
 
