@@ -112,8 +112,8 @@
     href: functions-networking-options.md
   - name: IP addresses
     href: ip-addresses.md 
-  - name: On-premises functions
-    href: functions-runtime-overview.md 
+  - name: Functions in Kubernetes
+    href: functions-kubernetes-keda.md 
 - name: How-to guides
   items:
   - name: Develop
