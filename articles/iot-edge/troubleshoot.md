@@ -17,7 +17,7 @@ If you experience issues running Azure IoT Edge in your environment, use this ar
 
 ## Run the iotedge 'check' command
 
-Your first step when troubleshooting IoT Edge should be to use the `check` command, which performs a collection of configuration and connectivity tests for common issues.
+Your first step when troubleshooting IoT Edge should be to use the `check` command, which performs a collection of configuration and connectivity tests for common issues. The `check` command is available in [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) and later.
 
 You can run the `check` command as follows, or include the `--help` flag to see a complete list of options:
 
