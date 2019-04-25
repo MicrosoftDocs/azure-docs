@@ -38,7 +38,7 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 ## Prerequisites for deployment
 
-- A model. If you do not have a trained model, use the steps in the [Train models](tutorial-train-models-with-aml.md) tutorial to train and register one with the Azure Machine Learning service, or use the model provided in our tutorial.
+- A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](http://aka.ms/azml-deploy-cloud).
 
 - The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), or the Python SDK.
 
@@ -173,7 +173,7 @@ For more example scripts, see the following examples:
 * TensorFlow: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 * Keras: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 * ONNX: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
-* Scoring against binary data: [./how-to-consume-web-service.md)(click here)
+* Scoring against binary data: [How to consume a web service](how-to-consume-web-service.md)
 
 ### 2. Define your InferenceConfiguration
 
@@ -217,6 +217,8 @@ The following sections demonstrate how to create the deployment configuration, a
 
 Local deployments are useful when testing or troubleshooting a web service.
 
+**To deploy locally, you need to have Docker installed on your local machine.**
+
 **Using the SDK**
 
 ```python
@@ -235,9 +237,10 @@ az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.js
 ### <a id="aci"></a> Deploy to Azure Container Instances (DEVTEST)
 
 Use Azure Container Instances for deploying your models as a web service if one or more of the following conditions is true:
+- You need to quickly deploy and validate your model.
+- You are testing a model that is under development. 
 
-- You need to quickly deploy and validate your model. ACI deployment is finished in less than 5 minutes.
-- You are testing a model that is under development. To see quota and region availability for ACI, see the [Quotas and region availability for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) document.
+To see quota and region availability for ACI, see the [Quotas and region availability for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) document.
 
 **Using the SDK**
 
@@ -253,8 +256,6 @@ print(service.state)
 ```azurecli-interactive
 az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
 ```
-
-**Time estimate**: Approximately 5 minutes.
 
 For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
 
