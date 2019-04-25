@@ -19,9 +19,11 @@ ms.date: 04/22/2019
 
 This article explains how to add an R package to Azure SQL Database Machine Learning Services (preview).
 
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+
 ## Prerequisites
 
-- Install <a href=https://www.r-project.org/ target=_blank>R</a> and <a href=https://www.rstudio.com/products/rstudio/download/ target=_blank>RStudio Desktop</a> on your local computer. R is available for Windows, MacOS, and Linux. This article assumes you're using Windows.
+- Install [R](https://www.r-project.org) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer. R is available for Windows, MacOS, and Linux. This article assumes you're using Windows.
 
 - This article includes an example of using [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) to run an R script. To follow this example, you'll need to install the latest version of SSMS. You can run R scripts using other database management or query tools, but this example uses SSMS.
 
@@ -32,10 +34,10 @@ This article explains how to add an R package to Azure SQL Database Machine Lear
 
 Microsoft provides a number of R packages pre-installed with Machine Learning Services in your Azure SQL database.
 
-You can see a list of installed R packages by running the following R script. The list displays information for each package, including version, dependencies, license, and library path information.
+You can see a list of installed R packages by running the following R script. The list displays information for each package, including version, dependencies, and license information.
 
 ```R
-r=installed.packages()[,c("Package", "Version", "Depends", "License", "LibPath")]
+r=installed.packages()[,c("Package", "Version", "Depends", "License")]
 View(r)
 ```
 
@@ -43,30 +45,25 @@ The output looks similar to the following.
 
 **Results**
 
-![Installed packages in R](./media/sql-database-machine-learning-services-add-packages/r-installed-packages.png)
+![Installed packages in R](./media/sql-database-machine-learning-services-add-r-packages/r-installed-packages.png)
 
-## Add a package
+## Add a package with sqlmlutils
 
-If you need to use a package that isn't already installed in your SQL database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils).
+If you need to use a package that isn't already installed in your SQL database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils). **sqlmlutils** is a package designed to help users interact with SQL databases (SQL Server and Azure SQL Database) and execute R or Python code in SQL from an R/Python client. Currently, only the R version of sqlmlutils is supported in Azure SQL Database.
 
-For example, follow the steps below to install the **[glue](https://cran.r-project.org/web/packages/glue/)** package that can format and interpolate strings. These steps also install **sqlmlutils** and **RODBCext** (which is a prerequisite for **sqlmlutils**).
+In the following example, you'll install the **[glue](https://cran.r-project.org/web/packages/glue/)** package that can format and interpolate strings. These steps install **sqlmlutils**, **RODBCext** (a prerequisite for **sqlmlutils**), and adds the **glue** package.
 
-1. Open a **Command Prompt** and run the following command to install the **RODBCext** package:
+### Install **sqlmlutils**
 
-    ```console
-    R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
-    ```
+1. Download the latest **sqlmlutils** zip file from https://github.com/Microsoft/sqlmlutils/tree/master/R/dist to your local computer. You don't need to unzip the file.
 
-    > [!TIP]
-    > If you get the error, " 'R' is not recognized as an internal or external command, operable program or batch file", it likely means that the path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the path to the environment variable or navigate to the folder in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`) and then retry the command.
-
-1. Download the latest **sqlmlutils** zip file from <a href=https://github.com/Microsoft/sqlmlutils/tree/master/R/dist target=_blank>https://github.com/Microsoft/sqlmlutils/tree/master/R/dist</a> to your local computer. You don't need to unzip the file.
-
-1. Use the **R CMD INSTALL** command in **Command Prompt** to install **sqlmlutils**. Specify the full path to the zip file you downloaded. For example:
+1. Open a **Command Prompt** and run the following commands to install the **RODBCext** package and then **sqlmlutils**. Specify the full path to the zip file you downloaded.
+    
+    For example,
 
     ```console
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
-    R CMD INSTALL R/dist/sqlmlutils_0.5.0.zip
+    R CMD INSTALL %UserProfile%\Documents\sqlmlutils_0.5.1.zip
     ```
 
     The output you see should be similar to the following.
@@ -77,7 +74,14 @@ For example, follow the steps below to install the **[glue](https://cran.r-proje
     package 'sqlmlutils' successfully unpacked and MD5 sums checked
     ```
 
-1. Open **RStudio** and create a new **R Script** file. Use the following R code to install the **glue** package using `sqlmlutils`. Insert your own connection information.
+    > [!TIP]
+    > If you get the error, " 'R' is not recognized as an internal or external command, operable program or batch file", it likely means that the path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the path to the environment variable or navigate to the folder in the command prompt (for example `cd C:\Program Files\R\R-3.5.3\bin`) and then retry the command.
+
+### Add a package
+
+1. Open **RStudio** and create a new **R Script** file. 
+
+1. Use the following R code to install the **glue** package using `sqlmlutils`. Insert your own connection information.
 
     ```R
     library(sqlmlutils)
@@ -93,16 +97,20 @@ For example, follow the steps below to install the **[glue](https://cran.r-proje
     > [!TIP]
     > The **scope** can be either **PUBLIC** or **PRIVATE**. Public scope is useful for the database administrator to install packages that all users can use. Private scope makes the package  available only to the user who installs it. If you don't specify the scope, the default scope is **PRIVATE**.
 
-1. Verify that the **glue** package has been installed with the following R script.
+### Verify the package
 
-    ```R
-    r<-sql_installed.packages(connectionString = connection, fields=c("Package", "LibPath", "Attributes", "Scope"))
-    View(r)
-    ```
+Verify that the **glue** package has been installed with the following R script.
 
-    **Results**
+```R
+r<-sql_installed.packages(connectionString = connection, fields=c("Package", "Version", "Depends", "License"))
+View(r)
+```
 
-    ![Contents of the RTestData table](./media/sql-database-machine-learning-services-add-packages/r-verify-package-install.png)
+**Results**
+
+![Contents of the RTestData table](./media/sql-database-machine-learning-services-add-r-packages/r-verify-package-install.png)
+
+### Use the package
 
 Once the package is installed, you can use it in an R script through **sp_execute_external_script**.
 
@@ -135,16 +143,11 @@ Once the package is installed, you can use it in an R script through **sp_execut
     My name is Fred, my age next year is 51, my anniversary is Sunday, June 14, 2020.
     ```
 
-If you would like to remove the package, run the following R script in **RStudio** on your local computer. Insert your own connection information.
+### Remove the package
+
+If you would like to remove the package, run the following R script in **RStudio** on your local computer. This example uses the connection information from the previous **sql_install.packages** command.
 
 ```R
-library(sqlmlutils)
-connection <- connectionInfo(
-server= "yourserver.database.windows.net",
-database = "yourdatabase",
-uid = "yoursqluser",
-pwd = "yoursqlpassword")
-
 sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLIC")
 ```
 

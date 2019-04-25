@@ -360,7 +360,7 @@
       href: sql-database-job-automation-overview.md
     - name: Machine Learning Services
       items:
-      - name: Machine learning overview
+      - name: Overview
         href: sql-database-machine-learning-services-overview.md
       - name: Key differences
         href: sql-database-machine-learning-services-differences.md
@@ -661,7 +661,7 @@
       - name: Work with R and SQL data
         href: sql-database-machine-learning-services-data-issues.md
       - name: Add R packages
-        href: sql-database-machine-learning-services-add-packages.md
+        href: sql-database-machine-learning-services-add-r-packages.md
 - name: Reference
   items:
   - name: Azure PowerShell
