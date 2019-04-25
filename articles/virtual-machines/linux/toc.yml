@@ -420,7 +420,7 @@
       displayName: Azure Resource Manager, ARM
       href: using-managed-disks-template-deployments.md
     - name: Upload a vhd to a disk
-      href: disks-upload-vhd-to-managed-disk.md
+      href: disks-upload-vhd-to-managed-disk-cli.md
     - name: Resize a disk
       href: expand-disks.md
     - name: Snapshot a disk
