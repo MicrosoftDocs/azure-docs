@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/12/2019
+ms.date: 04/24/2019
 ms.author: helohr
 ---
 # Connect from Windows 10 or Windows 7
@@ -46,9 +46,9 @@ Once subscribed to a feed, the content of the feed is updated automatically on a
 
 After subscribing, you can view additional information about the feed by accessing the details panel.
 
-- From the client's main page, click the ellipsis (**...**) to the right of the feed name.
-- From the dropdown menu, select **Details**.
-- The Details panel shows up on the right side of the client.
+1. From the client's main page, select the ellipsis (**...**) to the right of the feed name.
+1. From the dropdown menu, select **Details**.
+1. The Details panel shows up on the right side of the client.
 
 The Details panel contains useful information about the feed:
 
@@ -57,15 +57,15 @@ The Details panel contains useful information about the feed:
 - The date/time of the last update
 - The status of the last update
 
-If needed, you can start a manual update by clicking on **Update now**.
+If needed, you can start a manual update by selecting on **Update now**.
 
 ## Unsubscribe from a feed
 
-When needed, follow the steps below to unsubscribe from a feed. Unsubscribing can be used to subscribe with a different account or to remove your resources from the system.
+This section will teach you how to unsubscribe from a feed. You can unsubscribe to either subscribe again with a different account or remove your resources from the system.
 
-- From the client's main page, click the ellipsis (**...**) to the right of the feed name.
-- From the dropdown menu, select **Unsubscribe**.
-- Review and select **Continue** from the dialog.
+1. From the client's main page, select the ellipsis (**...**) to the right of the feed name.
+1. From the dropdown menu, select **Unsubscribe**.
+1. Review and select **Continue** from the dialog.
 
 ## Update the client
 
