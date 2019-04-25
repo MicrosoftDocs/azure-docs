@@ -17,7 +17,7 @@ Learn how to troubleshoot bad gateway (502) errors received when using applicati
 
 ## Overview
 
-After configuring an application gateway, one of the errors that users may see is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This error may happen for the following main reasons:
+After configuring an application gateway, one of the errors that you may see is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This error may happen for the following main reasons:
 
 * NSG, UDR, or Custom DNS is blocking access to backend pool members.
 * Back-end VMs or instances of virtual machine scale set aren't responding to the default health probe.
@@ -120,11 +120,11 @@ Validate that the Custom Health Probe is configured correctly as the preceding t
 
 ### Cause
 
-When a user request is received, Application Gateway applies the configured rules to the request and routes it to a back-end pool instance. It waits for a configurable interval of time for a response from the back-end instance. By default, this interval is **20** seconds. If Application Gateway does not receive a response from back-end application in this interval, user request would see a 502 error.
+When a user request is received, Application Gateway applies the configured rules to the request and routes it to a back-end pool instance. It waits for a configurable interval of time for a response from the back-end instance. By default, this interval is **20** seconds. If Application Gateway does not receive a response from back-end application in this interval, the user request gets a 502 error.
 
 ### Solution
 
-Application Gateway allows users to configure this setting via BackendHttpSetting, which can be then applied to different pools. Different back-end pools can have different BackendHttpSetting, and a different request time-out configured.
+Application Gateway allows you to configure this setting via the BackendHttpSetting, which can be then applied to different pools. Different back-end pools can have different BackendHttpSetting, and a different request time-out configured.
 
 ```powershell
     New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
@@ -176,7 +176,7 @@ BackendAddressPoolsText:
 
 ### Cause
 
-If all the instances of BackendAddressPool are unhealthy, then Application Gateway wouldn't have any back-end to route user request to. This could also be the case when back-end instances are healthy but don't have the required application deployed.
+If all the instances of BackendAddressPool are unhealthy, then Application Gateway doesn't have any back-end to route user request to. This can also be the case when back-end instances are healthy but don't have the required application deployed.
 
 ### Solution
 
