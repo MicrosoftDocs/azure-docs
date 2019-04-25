@@ -12,6 +12,7 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 #source: https://raw.githubusercontent.com/Microsoft/luis-prebuilt-domains/master/README.md
+#acrolinx bug for exception: https://mseng.visualstudio.com/TechnicalContent/_workitems/edit/1518317
 ---
 
 # Prebuilt domain reference for your LUIS app
