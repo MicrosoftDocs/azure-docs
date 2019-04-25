@@ -13,7 +13,7 @@ ms.subservice: disks
 
 # Upload a vhd to Azure - Azure CLI
 
-This article explains how to upload a vhd file from your local machine directly to an Azure managed disk. You can leverage this process to upload directly to our larger managed disks. Currently, this process is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not supported for ultra SSDs yet.
+This article explains how to upload a vhd file from your local machine directly to an Azure managed disk. Previously, you needed to follow a much more involved process that included staging your data in a storage account. Now, you can skip that altogether, and upload directly to a managed disk. Currently, this process is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not supported for ultra SSDs yet.
 
 ## Pre-requisites
 
@@ -23,22 +23,22 @@ This article explains how to upload a vhd file from your local machine directly 
 
 ## Create an empty managed disk
 
-In order to upload your vhd to Azure, you'll need an empty managed disk with a special parameter that identifies the disk is for uploading.
+In order to upload your vhd to Azure, you'll need an empty managed disk that was created specifically for uploading a vhd into it.
 
-A managed disk which is meant for upload has two states:
+This kind of managed disk has two unique states:
 
 - ReadToUpload, which means the disk is ready to receive an upload but, no SAS has been generated.
 - ActiveUpload, which means that the disk is ready to receive an upload and the SAS has been generated.
 
 While in either of these states, the managed disk will be billed at [standard HDD pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/), regardless of the actual type of disk. For example, a P10 will be billed as an S10. This will only be true so long as either of the upload states are currently set.
 
-Create an empty standard HDD managed disk for upload by specifying –for-upload parameter in the [disk create](/cli/azure/disk/create) cmdlet:
+Create an empty standard HDD managed disk for uploading by specifying the **–for-upload** parameter in the [disk create](/cli/azure/disk#az-disk-create) cmdlet:
 
 ```azurecli-interactive
 az disk create -n contosodisk2 -g contosoteam2 -l westus2 --for-upload --size-gb 128 --sku standard_lrs
 ```
 
-If you would like to change the type to premium SSD, replace `standard_lrs` with `Premium_LRS`. Ultra SSD is not yet supported.
+If you would like to upload either a premium SSD or a standard SSD, replace **standard_lrs** with either **Premium_LRS** or **standardssd_lrs**. Ultra SSD is not yet supported.
 
 Now that you've created an empty managed disk, you'll need a writeable SAS so that you can reference it as the destination for your upload.
 
