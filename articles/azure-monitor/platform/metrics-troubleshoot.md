@@ -23,7 +23,19 @@ In many cases, the perceived drop in the metric values is a matter of the incorr
 
 ## My chart shows no data
 
-Sometimes the chart may show no data after selecting correct resource and metric. This may be due to several reasons outlined below.
+Sometimes the chart may show no data after selecting correct resource and metric. This may be caused by several reasons outlined below.
+
+### Microsoft.Insights resource provider isn't registered for your subscription
+
+Exploring metrics requires *Microsoft.Insights* resource provider registered in your subscription. In many cases, it is registered automatically (i.e. after you configure an alert rule, customize diagnostic settings for any resource, or configure an autoscale rule). If the Microsoft.Insights resource provider is not registered, you must manually register it by  following steps described in [this article](../../azure-resource-manager/resource-manager-supported-services.md).
+
+**Solution:** Open **Subscriptions**, **Resource providers** tab, and verify that Microsoft.Insights is registered for your subscription.
+
+### You don't have sufficient access rights your resource
+
+In Azure, access to metrics is controlled by [role-based access control (RBAC)](../../role-based-access-control/overview.md). You must be a member of [monitoring reader](../../role-based-access-control/built-in-roles.md#monitoring-reader), [monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor), or [contributor](../../role-based-access-control/built-in-roles.md#contributor) in order to explore metrics for any resource.
+
+**Solution:** Ensure that you have sufficient permissions for the resource from which you are exploring metrics.
 
 ### Your resource didn't emit metrics during the selected time range
 
@@ -31,7 +43,13 @@ Some resources don’t constantly emit their metrics. For example, Azure will no
 
 **Solution:** Change the time of the chart to a wider range. You may start from “Last 30 days” using a larger time granularity (or relying on the “Automatic time granularity” option).
 
-### All metric values fall outside of the locked y-axis range
+### You picked a time range greater than 30 days
+
+With a few exceptions, [metrics in Azure are stored for 93 days](data-platform-metrics.md#retention-of-metrics). However, you can only query for no more than 30 days worth of data on any single chart. This limitation doesn't apply to some resources and log-based metrics.
+
+**Solution:** If you see a blank chart on a long-ranged chart, verify that the difference between start- and end- dates in the time picker doesn't exceed 30 day interval.
+
+### All metric values were outside of the locked y-axis range
 
 By [locking the boundaries of chart y-axis](metrics-charts.md#lock-boundaries-of-chart-y-axis), you can inadvertently make the chart display area misaligned with the chart line. For example, if the y-axis is locked to a range between 0% and 50%, and the metric has a constant value of 100%, the line is always rendered outside of the visible area, making the chart appear blank.
 
@@ -46,6 +64,13 @@ Collection of Guest OS metrics requires configuring the Azure Diagnostic Extensi
 This problem is common when your dashboard is created with a metric that was deprecated and removed from Azure. To verify that it is the case, open the Metrics tab of your resource, and check the available metrics in the metric picker. If the metric is not shown, the metric has been removed from Azure. Usually, when a metric is deprecated, there is a better new metric that provides with a similar perspective on the resource health.
 
 **Solution:** Update the failing tile by picking an alternative metric for your chart on dashboard. You can [review a list of available metrics for Azure services](metrics-supported.md).
+
+## I cannot pick Guest OS namespace and metrics
+
+You are looking at a Guest OS metric but Metrics Explorer only shows **Host-level** metrics for your Virtual Machine (VM) or Virtual Machine Scale Set (VMSS):
+    ![metric image](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
+
+**Solution:** Azure Virtual Machines and Virtual Machine Scale Sets have two categories of metrics: **Host-level** metrics that are observed by Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running as a process on the virtual machine. The agent is installed by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md)). If the agent isn't running, the **Guest OS** metrics namespace is not shown in Metrics Explorer.
 
 ## I see a dashed line on the chart
 
