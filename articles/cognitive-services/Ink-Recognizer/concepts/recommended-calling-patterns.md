@@ -49,7 +49,7 @@ The Ink Recognizer API requires the X and Y coordinates that represent the ink s
 
 ## Ink Recognizer response
 
-The Ink Recognizer API returns a set of recognition features that describes the relationship between different ink strokes.
+The Ink Recognizer API returns an analysis response about the objects it recognized from the ink content. The response contains recognition units that describe the relationships between different ink strokes. For example, strokes that create distinct, separate shapes will be contained in different units. Each unit contains detailed information about it's ink strokes including the recognized object, it's coordinates, and other drawing attributes.
 
 ## Shapes recognized by the Ink Recognizer API
 
