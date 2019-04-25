@@ -28,7 +28,7 @@ All guidelines for responsible implementation build on the foundation that devel
 
 Trust is built on the notion of fulfilled commitments - consider your users, society, and the legal framework your applications works in, to identify explicit and implicit commitments they may have.
 
-Microsoft is continuously putting effort into its tools and documents to help you act on these responsibilities. Provide feedback to Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D)  if you believe additional tools, product features and documents would help you implement these guidelines for using Personalizer.
+Microsoft is continuously putting effort into its tools and documents to help you act on these responsibilities. [Provide feedback to Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D) if you believe additional tools, product features and documents would help you implement these guidelines for using Personalizer.
 
 
 ## Factors for responsibly implementing Personalizer
