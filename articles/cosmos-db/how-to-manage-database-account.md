@@ -158,7 +158,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="configure-multiple-write-regions-portal"></a>Azure portal
 
-Open the Replicate Data Globally tab and click Enable for **Enable multi-region writes**.
+Open the **Replicate Data Globally** tab and select **Enable** to enable multi-region writes.
 
 ![Azure Cosmos account configure multi-master screenshot](./media/how-to-manage-database-account/single-to-multi-master.png)
 

@@ -352,7 +352,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $graphResourceName -PropertyObject $graphProperties 
 ```
 
-## <a id="ps-table"></a>Table API
+### <a id="ps-table"></a>Table API
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos account for Table API

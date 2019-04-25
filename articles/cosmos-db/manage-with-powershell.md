@@ -9,7 +9,7 @@ ms.author: mjbrown
 ms.custom: seodec18
 ---
 
-# Manage Azure Cosmos DB using PowerShell
+# Manage Azure Cosmos DB SQL API resources using PowerShell
 
 The following guide describes how to use PowerShell to script and automate management of Azure Cosmos DB, including the account, database, container and throughput. Management of Azure Cosmos DB is not through Azure Cosmos DB specific cmdlets but with the resource provider directly through the AzResource cmdlet. To view all of the properties which can be managed using PowerShell for the Azure Cosmos DB resource provider, see [Azure Cosmos DB resource provider schema](/azure/templates/microsoft.documentdb/allversions)
 
