@@ -293,14 +293,14 @@
         items:
         - name: Web apps
           href: app/asp-net.md
-        - name: IIS Configurator
-          href: app/iis-configurator-toc.md
+        - name: IISConfigurator
+          href: app/iis-configurator-overview.md
           items:
-          - name: Quickstart Instructions
+          - name: Quickstart
             href: app/iis-configurator-quickstart.md
-          - name: Detailed Instructions
+          - name: Detailed instructions
             href: app/iis-configurator-detailed-instructions.md
-          - name: Troubleshooting and Known Issues
+          - name: Troubleshooting and known issues
             href: app/iis-configurator-troubleshoot.md
           - name: API Disable-InstrumentationEngine
             href: app/iis-configurator-api-disableinstrumentationengine.md

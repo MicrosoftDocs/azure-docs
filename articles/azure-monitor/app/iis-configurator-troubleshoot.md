@@ -1,5 +1,5 @@
 ---
-title: IIS Configurator | Microsoft Docs
+title: Azure Monitor Applicaton Insights IIS Configurator | Microsoft Docs
 description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
@@ -13,16 +13,21 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# IISConfigurator Troubleshooting
+# IISConfigurator troubleshooting
+
+When you enable monitoring, you may experience issues that prevent data collection. 
+This document lists all the known issues and troubleshooting examples.
+If you encounter an issue not listed here you may contact us [here](https://github.com/Microsoft/ApplicationInsights-Home).
+
 
 > [!CAUTION] 
 > This module is a prototype application, and isn't recommended for your production environments.
 
-## Known Issues
+## Known issues
 
 ### Conflicting DLLs in an application's bin directory
 
-If any of these dlls are present in the bin directory, attach may fail.
+If any of these DLLs are present in the bin directory, monitoring may fail.
 
 - Microsoft.ApplicationInsights.dll
 - Microsoft.AspNet.TelemetryCorrelation.dll
@@ -53,9 +58,9 @@ Symptomatic behavior can be seen using troubleshooting tools:
 	0x0000000004d20000  0xb2000   C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator\content\Instrumentation64\Microsoft.ApplicationInsights.Extensions.Base_x64.dll
 	```
 
-### Conflict with IIS Shared Configuration
+### Conflict with IIS shared configuration
 
-If you have a cluster of web servers, you might be using a [Shared Configuration](https://docs.microsoft.com/en-us/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211). 
+If you have a cluster of web servers, you might be using a [Shared Configuration](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211). 
 We can't automatically inject our HttpModule into this shared config.
 Each web server must first run the Enable command to install our DLL into its GAC.
 
@@ -79,20 +84,24 @@ After you run the Enable command,
 Can audit installed Modules using cmd: `Get-Module -ListAvailable`
 
 
-### Troubleshooting PowerShell Module
+### Troubleshooting PowerShell module
 
 
 - If the Module hasn't been loaded into a PowerShell session, can manually load using the command `Import-Module <path to psd1>`
 
 
-- Run the cmd: `Get-Command -Module microsoft.applicationinsights.iisconfigurator` to get the available commands
+- Run the cmd: `Get-Command -Module microsoft.applicationinsights.iisconfigurator.poc` to get the available commands
 
 	```
 	CommandType     Name                                               Version    Source
 	-----------     ----                                               -------    ------
-	Cmdlet          Disable-ApplicationInsightsMonitoring              0.1.0      Microsoft.ApplicationInsights.IISConfigurator
-	Cmdlet          Enable-ApplicationInsightsMonitoring               0.1.0      Microsoft.ApplicationInsights.IISConfigurator
-	Cmdlet          Get-ApplicationInsightsMonitoringStatus            0.1.0      Microsoft.ApplicationInsights.IISConfigurator
+	Cmdlet          Disable-ApplicationInsightsMonitoring              0.2.0      Microsoft.ApplicationInsights.IISConfigurator.POC
+	Cmdlet          Disable-InstrumentationEngine                      0.2.0      Microsoft.ApplicationInsights.IISConfigurator.POC
+	Cmdlet          Enable-ApplicationInsightsMonitoring               0.2.0      Microsoft.ApplicationInsights.IISConfigurator.POC
+	Cmdlet          Enable-InstrumentationEngine                       0.2.0      Microsoft.ApplicationInsights.IISConfigurator.POC
+	Cmdlet          Get-ApplicationInsightsMonitoringConfig            0.2.0      Microsoft.ApplicationInsights.IISConfigurator.POC
+	Cmdlet          Get-ApplicationInsightsMonitoringStatus            0.2.0      Microsoft.ApplicationInsights.IISConfigurator.POC
+	Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.2.0      Microsoft.ApplicationInsights.IISConfigurator.POC
 	```
 
 
@@ -100,38 +109,38 @@ Can audit installed Modules using cmd: `Get-Module -ListAvailable`
 
 	```
 	PowerShell Module version:
-	0.1.0-alpha
+	0.2.0-alpha
 
 	Application Insights SDK version:
-	2.9.0.0
+	2.9.0.3872
 
 	Executing PowerShell Module Assembly:
-	Microsoft.ApplicationInsights.Redfield.Configurator.PowerShell, Version=2.8.13.5662, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+	Microsoft.ApplicationInsights.Redfield.Configurator.PowerShell, Version=2.8.14.8513, Culture=neutral, PublicKeyToken=31bf3856ad364e35
 
 	PowerShell Module Directory:
-	C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator\content\PowerShell
+	C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator.POC\0.2.0\content\PowerShell
 
 	Runtime Paths:
-	ParentDirectory: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator\content Exists: True
-	ConfigurationPath: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator\content\applicationInsights.ikey.config Exists: False
-	ManagedHttpModuleHelperPath: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator\content\Runtime\Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.dll Exists: True
-	RedfieldIISModulePath: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll Exists: True
-	InstrumentationEngine86Path: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator\content\Instrumentation32\MicrosoftInstrumentationEngine_x86.dll Exists: True
-	InstrumentationEngine64Path: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator\content\Instrumentation64\MicrosoftInstrumentationEngine_x64.dll Exists: True
-	InstrumentationEngineExtensionHost86Path: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator\content\Instrumentation32\Microsoft.ApplicationInsights.ExtensionsHost_x86.dll Exists: True
-	InstrumentationEngineExtensionHost64Path: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator\content\Instrumentation64\Microsoft.ApplicationInsights.ExtensionsHost_x64.dll Exists: True
-	InstrumentationEngineExtensionConfig86Path: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator\content\Instrumentation32\Microsoft.InstrumentationEngine.Extensions.config Exists: True
-	InstrumentationEngineExtensionConfig64Path: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator\content\Instrumentation64\Microsoft.InstrumentationEngine.Extensions.config Exists: True
-	ApplicationInsightsSdkPath: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator\content\Runtime\Microsoft.ApplicationInsights.dll Exists: True
+	ParentDirectory: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator.POC\0.2.0\content Exists: True
+	ConfigurationPath: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator.POC\0.2.0\content\applicationInsights.ikey.config Exists: True
+	ManagedHttpModuleHelperPath: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator.POC\0.2.0\content\Runtime\Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.dll Exists: True
+	RedfieldIISModulePath: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator.POC\0.2.0\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll Exists: True
+	InstrumentationEngine86Path: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator.POC\0.2.0\content\Instrumentation32\MicrosoftInstrumentationEngine_x86.dll Exists: True
+	InstrumentationEngine64Path: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator.POC\0.2.0\content\Instrumentation64\MicrosoftInstrumentationEngine_x64.dll Exists: True
+	InstrumentationEngineExtensionHost86Path: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator.POC\0.2.0\content\Instrumentation32\Microsoft.ApplicationInsights.ExtensionsHost_x86.dll Exists: True
+	InstrumentationEngineExtensionHost64Path: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator.POC\0.2.0\content\Instrumentation64\Microsoft.ApplicationInsights.ExtensionsHost_x64.dll Exists: True
+	InstrumentationEngineExtensionConfig86Path: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator.POC\0.2.0\content\Instrumentation32\Microsoft.InstrumentationEngine.Extensions.config Exists: True
+	InstrumentationEngineExtensionConfig64Path: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator.POC\0.2.0\content\Instrumentation64\Microsoft.InstrumentationEngine.Extensions.config Exists: True
+	ApplicationInsightsSdkPath: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator.POC\0.2.0\content\Runtime\Microsoft.ApplicationInsights.dll Exists: True
 	```
 
 
 
 
-### Troubleshooting Running Processes
+### Troubleshooting running processes
 
 Can inspect the process on the instrumented machine to see if all DLLs are loaded.
-If attach is working, 17 DLLS should be loaded.
+If monitoring is working, at least 15 DLLS should be loaded.
 
 - Cmd: `Get-ApplicationInsightsMonitoringStatus -InspectProcess`
 
@@ -164,7 +173,7 @@ If attach is working, 17 DLLS should be loaded.
 	0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 	```
 
-### Collect ETW Logs with PerfView
+### Collect ETW logs with PerfView
 
 #### Setup
 
@@ -178,11 +187,11 @@ If attach is working, 17 DLLS should be loaded.
 - Set Additional Providers: `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
-#### Collecting Logs
+#### Collecting logs
 
-- in a cmd window with admin privileges, execute `iisreset /stop` To turn off IIS and all web apps.
+- In a cmd window with admin privileges, execute `iisreset /stop` To turn off IIS and all web apps.
 - In PerfView, click "Start Collection"
-- in a cmd window with admin privileges, execute `iisreset /start` To start IIS.
-- try to browse to your app.
-- after your app is loaded, In PerfView, click "Stop Collection"
+- In a cmd window with admin privileges, execute `iisreset /start` To start IIS.
+- Try to browse to your app.
+- After your app is loaded, In PerfView, click "Stop Collection"
 

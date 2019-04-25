@@ -1,5 +1,5 @@
 ---
-title: IIS Configurator | Microsoft Docs
+title: Azure Monitor Applicaton Insights IIS Configurator | Microsoft Docs
 description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
@@ -28,13 +28,11 @@ Telemetry will be sent to the Azure portal where you can [monitor](https://docs.
 https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator.POC
 
 
-## Table of Contents
-
-### Instructions
+## Instructions
 - Review our [Quickstart Instructions](iis-configurator-quickstart.md) to get started now with concise code samples.
 - Review our [Detailed Instructions](iis-configurator-detailed-instructions.md) for a deep dive on how to get started.
 
-### PowerShell API Reference
+## PowerShell API reference
 - [Disable-ApplicationInsightsMonitoring](iis-configurator-api-disablemonitoring.md)
 - [Disable-InstrumentationEngine](iis-configurator-api-disableinstrumentationengine.md)
 - [Enable-ApplicationInsightsMonitoring](iis-configurator-api-enablemonitoring.md)
@@ -43,7 +41,7 @@ https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConf
 - [Get-ApplicationInsightsMonitoringStatus](iis-configurator-api-getstatus.md)
 - [Set-ApplicationInsightsMonitoringConfig](iis-configurator-api-setconfig.md)
 
-### Troubleshooting
+## Troubleshooting
 - [Troubleshooting](iis-configurator-troubleshoot.md)
 - [Known Issues](iis-configurator-troubleshoot.md#known-issues)
 

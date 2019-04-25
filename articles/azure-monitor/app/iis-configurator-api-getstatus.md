@@ -1,5 +1,5 @@
 ---
-title: IIS Configurator | Microsoft Docs
+title: Azure Monitor Applicaton Insights IIS Configurator | Microsoft Docs
 description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
@@ -13,12 +13,14 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# IISConfigurator API Reference
+# IISConfigurator API reference
+
+This document describes a cmdlet that is shipped as member of the [IISConfigurator PowerShell Module](https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator.POC).
 
 > [!CAUTION] 
 > This module is a prototype application, and isn't recommended for your production environments.
 
-# Get-ApplicationInsightsMonitoringStatus (v0.2.0-alpha)
+## Get-ApplicationInsightsMonitoringStatus (v0.2.0-alpha)
 
 > [!IMPORTANT] 
 > This cmdlet requires a PowerShell Session with Administrator permissions.
@@ -33,7 +35,7 @@ Additional parameters provide extra reports on the current status of monitoring.
 ## Examples
 
 
-### Example: Basic information
+### Example: basic information
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus
 
@@ -64,7 +66,7 @@ InstrumentationEngineExtensionConfig64Path: C:\Program Files\WindowsPowerShell\M
 ApplicationInsightsSdkPath: C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator\content\Runtime\Microsoft.ApplicationInsights.dll Exists: True
 ```
 
-### Example: Runtime Status
+### Example: runtime status
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus -InspectProcess
 
@@ -98,7 +100,7 @@ listdlls64.exe -accepteula w3wp
 
 ## Parameters 
 
-### (No Params)
+### (No params)
 
 By **default**, this cmdlet will report version numbers and paths of DLLs required for monitoring.
 

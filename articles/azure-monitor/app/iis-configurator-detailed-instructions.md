@@ -1,5 +1,5 @@
 ---
-title: IIS Configurator | Microsoft Docs
+title: Azure Monitor Applicaton Insights IIS Configurator | Microsoft Docs
 description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
@@ -13,16 +13,21 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# IISConfigurator Detailed Instructions
+# IISConfigurator detailed instructions
+
+This document details how to onboard to the PowerShell Gallery and download the IISConfigurator Module. 
+We've documented the most common parameters required to get started.
+We've also included manual instructions in the event that internet access is not available.
+
 
 > [!CAUTION] 
 > This module is a prototype application, and isn't recommended for your production environments.
 
-## Instrumentation Key
+## Instrumentation key
 
 To get started, you must have an instrumentation key. For more information, read ["Create new resource."](create-new-resource.md#copy-the-instrumentation-key)
 
-## Run PowerShell as Administrator with an elevated Execution Policy
+## Run PowerShell as administrator with an elevated execution policy
 
 **Run as Administrator**: 
 - Description: PowerShell will need Administrator level permissions to make changes to your computer.
@@ -74,7 +79,7 @@ SerializationVersion           1.1.0.1
 
 
 1. Run PowerShell as Administrator with an elevated execution policy.
-2. Nuget package provider 
+2. NuGet package provider 
 	- Description: This provider is required to interact with NuGet-based repositories such as PowerShellGallery
 	- Reference: [Install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6)
 	- Cmd: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`
@@ -82,7 +87,7 @@ SerializationVersion           1.1.0.1
 		- `-Proxy` Specifies a proxy server for the request.
 		- `-Force` This will skip the confirmation prompt. 
 	
-	Will receive this prompt if not set up:
+	You will receive this prompt if NuGet is not set up:
 		
 		NuGet provider is required to continue
 		PowerShellGet requires NuGet provider version '2.8.5.201' or newer to interact with NuGet-based repositories. The NuGet
@@ -99,7 +104,7 @@ SerializationVersion           1.1.0.1
 	- Optional Parameters:
 		- `-Proxy` Specifies a proxy server for the request.
 
-	Will receive this prompt if not set up:
+	You will receive this prompt if PowerShell Gallery is not trusted:
 
 		Untrusted repository
 		You are installing the modules from an untrusted repository. If you trust this repository, change its
@@ -117,7 +122,7 @@ SerializationVersion           1.1.0.1
 		- `-Proxy` Specifies a proxy server for the request.
 		- `-Force` This will ignore the "already installed" warning and install the latest version.
 
-	Will receive this error if not using newest version of PowerShellGet:
+	You will receive this error if you are not using newest version of PowerShellGet:
 	
 		Install-Module : A parameter cannot be found that matches parameter name 'AllowPrerelease'.
 		At line:1 char:20
@@ -126,9 +131,9 @@ SerializationVersion           1.1.0.1
 			CategoryInfo          : InvalidArgument: (:) [Install-Module], ParameterBindingException
 			FullyQualifiedErrorId : NamedParameterNotFound,Install-Module
 	
-5. Restart PowerShell. Any new Powershell sessions will have the latest PowerShellGet loaded. Unable to load new version in the current session.
+5. Restart PowerShell. It is not possible to load the new version in the current session. Any new Powershell sessions will have the latest PowerShellGet loaded.
 
-## Download & Install IISConfigurator via PowerShell Gallery
+## Download & install IISConfigurator via PowerShell Gallery
 
 1. Prerequisites for PowerShell Gallery are required.
 2. Run PowerShell as Administrator with an elevated execution policy.
@@ -141,7 +146,7 @@ SerializationVersion           1.1.0.1
 		- `-AcceptLicense` This will skip the "Accept License" prompt
 		- `-Force` This will ignore the "Untrusted Repository" warning
 
-## Download & Install IISConfigurator manually (offline option)
+## Download & install IISConfigurator manually (offline option)
 
 ### Manually download the latest nupkg
 
@@ -149,7 +154,7 @@ SerializationVersion           1.1.0.1
 2. Select the latest version from the version history.
 3. Find "Installation Options" and select "Manual Download".
 
-### Option 1: Install into PowerShell Modules Directory
+### Option 1: install into PowerShell modules directory
 Install the manually downloaded PowerShell Module to a PowerShell directory so it can be discoverable by PowerShell sessions.
 For more information, see: [Installing a PowerShell Module](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module)
 
@@ -180,7 +185,7 @@ For more information, see: [Installing a PowerShell Module](https://docs.microso
 	Expand-Archive -LiteralPath $pathToNupkg -DestinationPath $pathInstalledModule
 	```
 
-### Option 2: Unzip and import manually
+### Option 2: unzip and import manually
 Install the manually downloaded PowerShell Module to a PowerShell directory so it can be discoverable by PowerShell sessions.
 For more information, see: [Installing a PowerShell Module](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module)
 
@@ -206,7 +211,7 @@ Review the instructions above when writing your installation scripts.
 The Application Insights SDK will need to send your application's telemetry to Microsoft. We recommend configuring proxy settings for your application in your web.config. See [Application Insights FAQ: Proxy Passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough) for more information.
 
 
-## Enable Application Insights Monitoring 
+## Enable Application Insights monitoring 
 
 Cmd: `Enable-ApplicationInsightsMonitoring`
 

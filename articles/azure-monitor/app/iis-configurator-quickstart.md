@@ -1,5 +1,5 @@
 ---
-title: IIS Configurator | Microsoft Docs
+title: Azure Monitor Applicaton Insights IIS Configurator | Microsoft Docs
 description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
@@ -27,7 +27,7 @@ instructions on how to customize, and how to troubleshoot.
 > This module is a prototype application, and isn't recommended for your production environments.
 
 
-### Install Prerequisites
+### Install prerequisites
 Run PowerShell as Administrator
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -44,7 +44,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-Module -Name Microsoft.ApplicationInsights.IISConfigurator -AllowPrerelease -AcceptLicense
 ```	
 
-### Enable Monitoring
+### Enable monitoring
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -52,10 +52,10 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 	
 		
 ##  Quickstart (offline install)
-### Manual Download
+### Manual download
 Manually download the latest version of the Module from: https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator.POC 
 
-### Unzip and Install IISConfigurator
+### Unzip and install IISConfigurator
 ```powershell
 $pathToNupkg = "C:\Users\t\Desktop\Microsoft.ApplicationInsights.IISConfigurator.0.2.0-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
@@ -63,7 +63,7 @@ $pathToNupkg | rename-item -newname $pathToZip
 $pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\microsoft.applicationinsights.iisconfigurator"
 Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ```
-### Enable Monitoring
+### Enable monitoring
 ```powershell
 Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
