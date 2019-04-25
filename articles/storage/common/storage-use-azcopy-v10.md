@@ -2,18 +2,22 @@
 title: Copy or move data to Azure Storage by using AzCopy v10 | Microsoft Docs
 description: Use the AzCopy command-line utility to move or copy data to or from blob, data lake, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
-author: seguler
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 04/23/2019
-ms.author: seguler
+ms.author: normesta
 ms.subservice: common
 ---
-# Transfer data with AzCopy v10
+# Get started with AzCopy
 
 AzCopy is the command-line utility for copying data to or from Microsoft Azure Blob and File storage. AzCopy offers a redesigned command-line interface, and new architecture for reliable data transfers. By using AzCopy, you can copy data between a file system and a storage account, or between storage accounts.
 
-## What's new in AzCopy v10
+You can run AzCopy commands from the command line or, if you prefer a user interface, you can run them indirectly by using Microsoft Azure Storage Explorer.
+
+## Feature overview
+
+You get this with AzCopy V10.
 
 - Synchronizes file systems to Azure Blob storage or vice versa. Use `azcopy sync <source> <destination>`. Ideal for incremental copy scenarios.
 - Supports Azure Data Lake Storage Gen2 APIs. Use `myaccount.dfs.core.windows.net` as a URI to call the Data Lake Storage Gen2 APIs.
@@ -25,38 +29,55 @@ AzCopy is the command-line utility for copying data to or from Microsoft Azure B
 - Creates a job order and a related log file with every AzCopy instance. You can view and restart previous jobs, and resume failed jobs. AzCopy will also automatically retry a transfer after a failure.
 - Features general performance improvements.
 
-## Download and install AzCopy
+If you need an older version of AzCopy, see blah.
 
-### Latest production version (v10)
+## Get AzCopy
 
-Download the latest version of AzCopy:
+If you want to run AzCopy commands by using a command line, then download the AzCopy executable file. There's nothing to install.
+
+If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer.
+
+### Download the AzCopy executable file
+
+Choose the link appropriate for your platform.
+
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-### Latest AzCopy supporting Table storage service (v7.3)
+If you need to use AzCopy to work with [Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview), then see [AzCopy v7.3 supporting copying data to/from Microsoft Azure Table storage service](https://aka.ms/downloadazcopynet).
 
-Download the [AzCopy v7.3 supporting copying data to/from Microsoft Azure Table storage service](https://aka.ms/downloadazcopynet).
 
-## Post-installation steps
+### Enable AzCopy in Storage Explorer
 
-AzCopy doesn't require an installation. Open your preferred command-line application and browse to the folder where `azcopy.exe` is located. If needed, you can add the AzCopy folder location to your system path for ease of use.
+In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload and Download**.
 
-## Authentication options
+![Enable AzCopy as a transfer engine in Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
-AzCopy supports the following options when authenticating with Azure Storage:
-- **Azure Active Directory** (Supported for **Blob and Data Lake Storage Gen2 services**). Use ```.\azcopy login``` to sign in with Azure Active Directory.  The user should have ["Storage Blob Data Contributor" role assigned](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) to write to Blob storage with Azure Active Directory authentication. For authentication via managed identities for Azure resources, use `azcopy login --identity`.
+> [!NOTE]
+> You don't have to enable this setting if you've enabled a hierarchical namespace on your storage account. That's because Storage Explorer automatically uses AzCopy on storage accounts that have a hierarchical namespace.  
+
+## Find AzCopy on your computer
+
+AzCopy is just a single executable file so there's nothing to install. Open a command line application (such as Windows Powershell), and browse to the directory that contains the `azcopy.exe` file.
+
+> [!TIP]
+> To make things even more convenient, add the directory to your system path so that you can run AzCopy commands from any directory.
+
+## Choose how you want to authenticate your commands
+
+Before you can execute a command against a storage account, you have to authenticate your identity. You can use the `AzCopy login` command to do this, but only if you, or your storage account administrator, has assigned a role to your identity which grants you the necessary access privileges to the account. For example, to write to a blob storage account, you, or your storage account administrator, needs to assign one of these roles to your identity in the scope of the storage account, parent resource group, or parent subscription:
+
+- [Storage Blob Data Contributor]();
+- [Storage Blob Data Owner]();
+
+If your storage account administrator has not assigned the necessary role to your identity, but has instead provided you with a SAS token, you can use that instead of the `AzCopy login` command by appending it to each command that you execute. 
+
+Let's have a look at how you can authenticate with each approach:
+
 - **Shared access signature tokens [Supported for Blob and File services]**. Append the shared access signature (SAS) token to the blob path on the command line to use it. You can generate SAS tokens with the Azure portal, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), or other tools of your choice. For more information, see [examples](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 ## Getting started
-
-> [!TIP]
-> **Prefer a graphical user interface?**
->
-> [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), a desktop client that simplifies managing Azure Storage data, now uses AzCopy to accelerate data transfer to and out of Azure Storage.
->
-> Enable AzCopy in Storage Explorer under the **Preview** menu.
-> ![Enable AzCopy as a transfer engine in Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
 AzCopy v10 has a self-documented syntax. When you have logged in to Azure Active Directory, the general syntax looks like the following:
 
