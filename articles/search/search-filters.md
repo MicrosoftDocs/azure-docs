@@ -140,7 +140,7 @@ Rebuilding individual fields can be a low impact operation, requiring only a mer
 
 ## Text filter fundamentals
 
-Text filters are valid for string fields, from which you want to pull some arbitrary collection of documents based on values within search corpus.
+Text filters are valid for string fields, from which you want to pull some arbitrary collection of documents based on values within search index.
 
 For text filters composed of strings, there is no lexical analysis or word-breaking, so comparisons are for exact matches only. For example, assume a field *f* contains "sunny day", `$filter=f eq 'Sunny'`does not match, but `$filter=f eq 'Sunny day'` will. 
 
