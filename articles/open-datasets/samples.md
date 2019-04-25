@@ -9,10 +9,10 @@ ms.author: cgronlun
 ms.date: 05/02/2019
 ---
 
-# Example Jupyter notebooks show data enrichment from Open Datasets 
+# Example Jupyter notebooks show how to enrich data with Open Datasets 
 The example Jupyter notebooks for Azure Open Datasets show you how to load open datasets and use them to enrich demo data. Techniques include use of Apache Spark and Pandas to process data.
 
->Note
+>[!IMPORTANT]
 >When working in a non-Spark environment, Open Datasets allows downloading only one month of data at a time with certain classes in order to avoid MemoryError with large datasets.
 
 ## Load NOAA Integrated Surface Database (ISD) data 
@@ -33,7 +33,6 @@ The example Jupyter notebooks for Azure Open Datasets show you how to load open 
 |----------------|------------------------------------------------|
 |[Taxi trip data enriched with weather data ](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/Enrich_NycTlcGreen_with_NoaaIsdWeather.ipynb) | Load NYC green taxi data and enrich it with weather data. |
 |[Taxi trip data enriched with weather data - *n* months](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/Enrich_NycTlcGreen_with_NoaaIsdWeather_Single_LatLong_For_N_Months.ipynb) | Load last *n* months of NYC green taxi data and enrich it with weather data. This example overrides the method `get_pandas_limit`, and balances data load performance with the amount of data. |
-
 
 ## Next steps
 
