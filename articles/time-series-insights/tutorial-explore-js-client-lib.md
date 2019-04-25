@@ -43,17 +43,17 @@ typically provide access to the **Web Inspector View** through the `F12` hotkey.
 
 Throughout this tutorial, the Time Series Insights sample application is used to explore the source code behind the application, including the usage of the TSI JavaScript client library. The sample is a single-page web application that demonstrates how to use the library. The sample shows how to query and visualize data from a sample TSI environment.
 
-1. Navigate to the <a href="https://insights.timeseries.azure.com/clientsample" target="_blank" rel="external noopener noreferrer">Time Series Insights sample application</a>. You see a page similar to the following image with a prompt to sign in:
+1. Navigate to the [Time Series Insights sample application]("https://insights.timeseries.azure.com/clientsample). You see a page similar to the following image with a prompt to sign in:
 
-   ![TSI Client sample sign-in prompt](media/tutorial-explore-js-client-lib/tcs-sign-in.png)
+   [![TSI Client sample sign-in prompt](media/tutorial-explore-js-client-lib/tcs-sign-in.png)](media/tutorial-explore-js-client-lib/tcs-sign-in.png#lightbox)
 
 2. Select **Log in** and enter or select your credentials. Use either an enterprise or organization account (Azure Active Directory) or a personal account (Microsoft Account or MSA).
 
-   ![TSI Client sample credentials prompt](media/tutorial-explore-js-client-lib/tcs-sign-in-enter-account.png)
+   [![TSI Client sample credentials prompt](media/tutorial-explore-js-client-lib/tcs-sign-in-enter-account.png)](media/tutorial-explore-js-client-lib/tcs-sign-in-enter-account.png#lightbox)
 
 3. After successful sign-in, you see a page similar to the following image. The page shows several styles of example charts that are populated with TSI data. Your user account and the **Log out** option are visible in the upper right corner:
 
-   ![TSI Client sample main page after sign-in](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png)
+   [![TSI Client sample main page after sign-in](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png)](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png#lightbox)
 
 ### Page source and structure
 
@@ -86,11 +86,11 @@ First, let's view the [HTML and JavaScript source code](https://github.com/Micro
    * The first (`class="rowOfCardsTitle"`) element contains a descriptive title to summarize what the chart(s) illustrate. For example: "Static Line Charts With Full-Size Legends."
    * The second (`class="rowOfCards"`) element is a parent that contains additional child `<div>` elements that position the actual chart control(s) within a row.
 
-   ![Body div elements](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
+   [![Body div elements](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png#lightbox)
 
 4. Now, expand the `<script type="text/javascript">` element that's directly below the `<div class="chartsWrapper">` element. Notice the beginning of the page-level JavaScript section that's used to handle all of the page logic: authentication, calling TSI service APIs, rendering the chart controls, and more:
 
-   ![Body script](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)
+   [![Body script](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png#lightbox)
 
 ## TSI JavaScript client library concepts
 
@@ -109,7 +109,7 @@ As mentioned earlier, this sample is a single-page app that uses the OAuth 2.0 s
 
 2. Later, the application requests an **access token** from Azure AD. The access token is issued for a finite set of permissions for a specific service/API identifier `https://api.timeseries.azure.com`. The service/API identifier is also known as the token "audience." The token permissions are issued on behalf of the signed-in user. The identifier for the service/API is yet another property that's contained in the application's Azure AD registration. After ADAL returns the access token to the application, it's passed as a "bearer token" when accessing the TSI service APIs.
 
-   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=4-9,36-39)]
+   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=3-7,34-37)]
 
 ### Control identification
 
@@ -274,7 +274,7 @@ The code that's used to illustrate brushes is shown in the previous "Line Chart 
 
 [!code-javascript[code-sample-brushes](~/samples-javascript/pages/tutorial/index.html?range=526-540&highlight=1,13)]
 
-![Line chart with context menu to create pie/bar chart with brushes](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)
+[![Line chart with context menu to create pie/bar chart with brushes](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png#lightbox)
 
 ## Next steps
 
