@@ -145,7 +145,7 @@ Standard Load Balancer only supports VMs with Standard IP addresses in the backe
 2. In the **Management** tab, under **Monitoring**, set **Boot diagnostics** to **Off**. 
 1. Select **Review + create**.   
 1. Review the settings, and then select **Create**.
-1. Follow the steps 2 to 6 to create two additional VMs with the following values and and all the other settings the same as *myVM1*:
+1. Follow the steps 2 to 6 to create two additional VMs with the following values and all the other settings the same as *myVM1*:
 
     | Setting | VM 2| VM 3|
     | ------- | ----- |---|

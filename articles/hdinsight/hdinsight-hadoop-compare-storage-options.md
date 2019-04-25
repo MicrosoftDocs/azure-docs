@@ -25,8 +25,12 @@ The following table summarizes the Azure Storage services that are supported wit
 |Azure Data Lake Storage Gen2| General-purpose V2 | Hierarchical (filesystem) | Blob | Standard | Hot, Cool, Archive | 3.6+ | All |
 |Azure Storage| General-purpose V2 | Object | Blob | Standard | Hot, Cool, Archive | 3.6+ | All |
 |Azure Storage| General-purpose V1 | Object | Blob | Standard | N/A | All | All |
-|Azure Storage| Blob Storage | Object | Blob | Standard | Hot, Cool, Archive | All | All |
+|Azure Storage| Blob Storage** | Object | Block Blob | Standard | Hot, Cool, Archive | All | All |
 |Azure Data Lake Storage Gen1| N/A | Hierarchical (filesystem) | N/A | N/A | N/A | 3.6 Only | All except HBase |
+
+**For HDInsight clusters, only secondary storage accounts can be of type BlobStorage.
+
+For more information on Azure Storage account types, see [Azure storage account overview](../storage/common/storage-account-overview.md)
 
 For more information on Azure Storage access tiers, see [Azure Blob storage: Premium (preview), Hot, Cool, and Archive storage tiers](../storage/blobs/storage-blob-storage-tiers.md)
 
@@ -34,14 +38,14 @@ You can create a cluster using different combinations of services for primary an
 
 | HDInsight Version | Primary Storage | Secondary Storage | Supported |
 |---|---|---|---|
-| 3.6 & 4.0 | Standard Blob | Standard Blob | Yes |
-| 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen2 | No |
-| 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen1 | Yes |
+| 3.6 & 4.0 | General Purpose V1 , General Purpose V2 | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Yes |
+| 3.6 & 4.0 | General Purpose V1 , General Purpose V2 | Data Lake Storage Gen2 | No |
+| 3.6 & 4.0 | General Purpose V1 , General Purpose V2 | Data Lake Storage Gen1 | Yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | Yes |
-| 3.6 & 4.0 | Data Lake Storage Gen2* | Standard Blob | Yes |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Yes |
-| 3.6 | Data Lake Storage Gen1 | Standard Blob | Yes |
+| 3.6 | Data Lake Storage Gen1 | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Yes |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
 | 4.0 | Data Lake Storage Gen1 | Any | No |
 
