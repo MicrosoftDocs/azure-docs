@@ -19,7 +19,7 @@ This how-to article shows you how to toggle the live chat in your IoT Central ap
 
 ## Chat with us
 
-To get technical support, open your IoT Central application and select on **Chat with us**.
+To get technical support, open your IoT Central application and select **Chat with us**.
 
 ![Chat with us](media/howto-show-hide-chat/chat-with-us.png)
 
