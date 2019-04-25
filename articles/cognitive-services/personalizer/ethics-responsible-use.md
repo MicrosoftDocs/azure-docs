@@ -112,8 +112,7 @@ Implement these best practices:
 
 The following are areas of design for responsible implementations of AI. Learn more abut this framework in [The Future Computed](https://news.microsoft.com/futurecomputed/).
 
-
-![alt text](images/ai-values-future-computed.png "AI Values from Future Computed")
+![AI Values from Future Computed](media/ethics-and-responsible-use/ai-values-future-computed.png)
 
 ### Accountability
 *People who design and deploy AI Systems must be accountable for how their systems operate*. 
