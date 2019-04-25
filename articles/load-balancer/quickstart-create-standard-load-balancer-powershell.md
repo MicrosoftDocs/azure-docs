@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2019
+ms.date: 04/25/2019
 ms.author: kumud
 ms:custom: seodec18
 ---
@@ -238,7 +238,16 @@ $nicVM2 = New-AzNetworkInterface `
 -LoadBalancerInboundNatRule $natrule2 `
 -Subnet $vnet.Subnets[0]
 ```
+### Create public IPs for VMs
 
+```azurepowershell
+$pipVM1 = New-AzPublicIpAddress -ResourceGroupName myResourceGroupLB -Location eastus -sku Standard `
+    -AllocationMethod Dynamic
+$pipVM2 = New-AzPublicIpAddress -ResourceGroupName myResourceGroupLB -Location eastus -sku Standard `
+    -AllocationMethod Dynamic
+$pipVM3 = New-AzPublicIpAddress -ResourceGroupName myResourceGroupLB -Location eastus -sku Standard `
+    -AllocationMethod Dynamic
+```
 ### Create virtual machines
 
 Set an administrator username and password for the VMs with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
@@ -250,12 +259,13 @@ $cred = Get-Credential
 Now you can create the VMs with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates two VMs and the required virtual network components if they do not already exist. In this example, the NICs (*VM1* and *VM2*) created in the preceding step are automatically assigned to virtual machines *VM1* and *VM2* since they have identical names and are assigned the same virtual network (*myVnet*) and subnet (*mySubnet*). In addition, since the NICs are associated to the load balancer's backend pool, the VMs are automatically added to the backend pool.
 
 ```azurepowershell-interactive
-for ($i=1; $i -le 2; $i++)
+for ($i=1; $i -le 3; $i++)
 {
     New-AzVm `
         -ResourceGroupName "myResourceGroupLB" `
         -Name "myVM$i" `
         -Location "East US" `
+        -Zone $i
         -VirtualNetworkName "myVnet" `
         -SubnetName "mySubnet" `
         -SecurityGroupName "myNetworkSecurityGroup" `
