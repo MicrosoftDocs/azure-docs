@@ -37,6 +37,7 @@ This tutorial guides you through the process of creating your own single-page we
 The Time Series Insights single-page sample app provides the basis for the design and code used in this tutorial. The code includes the use of the TSI Client JavaScript library. The TSI Client library provides an abstraction for two main API categories:
 
 - **Wrapper methods for calling the TSI Query APIs**: REST APIs that allow you to query for TSI data by using JSON-based expressions. The methods are organized under the `TsiClient.server` namespace of the library.
+
 - **Methods for creating and populating several types of charting controls**: Methods that are used for visualizing the TSI data in a web page. The methods are organized under the `TsiClient.ux` namespace of the library.
 
 This tutorial will also use the data from the sample application's TSI environment. For details on the structure of the TSI sample application and its use of the TSI Client library, refer to the [Explore the Azure Time Series Insights JavaScript client library](tutorial-explore-js-client-lib.md) tutorial.
@@ -66,7 +67,7 @@ Before building the application, you need to register it with Azure AD. Registra
 
    [![Azure portal Azure AD add permissions](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png#lightbox)
 
-1. From the **Add API access** page, click **1 Select an API** to specify the TSI API. On the **Select an API** page, enter "azure time" in the search field. Then select the "Azure Time Series Insights" API in the results list, and click **Select**: 
+1. From the **Add API access** page, click **1 Select an API** to specify the TSI API. On the **Select an API** page, enter "azure time" in the search field. Then select the "Azure Time Series Insights" API in the results list, and click **Select**:
 
    [![Azure portal Azure AD add permissions - API](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png#lightbox)
 
@@ -166,7 +167,7 @@ Before building the application, you need to register it with Azure AD. Registra
 
       [![VS - Publish profile - add new app service](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service-create.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service-create.png#lightbox)
 
-   e. When you return to the **Publish** dialog, make sure **Publish method** is set to "Web deploy". Also change **Destination URL** to `https` from `http`since Azure Active Directory enforces the stronger SSL/TLS security requirement. Click **Publish** to deploy the web application:  
+   e. When you return to the **Publish** dialog, make sure **Publish method** is set to "Web deploy". Also change **Destination URL** to `https` from `http`since our app enforces the SSL/TLS security requirement. Click **Publish** to deploy the web application:  
 
       [![VS - Publish web app - publish the app service](media/tutorial-create-tsi-sample-spa/vs-publish-publish.png)](media/tutorial-create-tsi-sample-spa/vs-publish-publish.png#lightbox)
 
