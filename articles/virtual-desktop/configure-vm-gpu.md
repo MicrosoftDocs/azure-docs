@@ -10,7 +10,7 @@ ms.date: 04/12/2019
 ms.author: denisgun
 ---
 
-# Configure Graphics processing unit (GPU) acceleration for Windows Virtual Desktop Preview
+# Configure graphics processing unit (GPU) acceleration for Windows Virtual Desktop Preview
 
 Windows Virtual Desktop Preview supports GPU-accelerated rendering and encoding for improved app performance and scalability. GPU acceleration is particularly crucial for graphics-intensive apps.
 
