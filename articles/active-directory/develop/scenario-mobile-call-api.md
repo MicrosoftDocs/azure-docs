@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Mobile app that calls web APIs - calling a web API
 
-Once your app has signed in a user and receievd tokens, MSAL exposes several pieces of information about the user, their environment, and the tokens issued. Your app can use these values to call a web API or display a welcome message to a user. 
+Once your app has signed in a user and receieved tokens, MSAL exposes several pieces of information about the user, their environment, and the tokens issued. Your app can use these values to call a web API or display a welcome message to a user. 
 
 First, we will explore the MSAL result, then how to use an access token from the `AuthenticationResult` or `result` to call a protected web API. 
 
