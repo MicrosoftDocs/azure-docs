@@ -270,6 +270,11 @@
       href: ./blueprints/pcidss-iaaswa-overview.md
     - name: PaaS web application
       href: ./blueprints/pcidss-paaswa-overview.md
+  - name: SCCA 
+    displayName: blueprint, privacy, certifications
+    items:
+    - name: Secure Azure Computing Architecture 
+      href: ./compliance/secure-azure-computing-architecture.md
   - name: TIC
     displayName: blueprint, privacy, certifications
     items:
