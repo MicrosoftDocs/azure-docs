@@ -24,7 +24,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: How do I get started?**
 
-**A:** The best way to begin with creating a voice-first virtual assistant is to start with [creating a basic Bot Framework bot](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0). Next, connect your bot to the [Direct Line Speech channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
+**A:** The best way to begin with creating a voice-first virtual assistant is to start with [creating a basic Bot Framework bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0). Next, connect your bot to the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
 
 ## Debugging
 
@@ -36,7 +36,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: I get recognition text back from Direct Line Speech, but I see a '1011' error and nothing from my bot. Why?**
 
-**A:** This error indicates a communication problem between the bot and Direct Line Speech. Ensure that you've [connected the Direct Line Speech channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech.md), [added Streaming protocol support](https://aka.ms/botframework/addstreamingprotocolsupport) to your bot, and then check that your bot is responding to incoming requests from the channel.
+**A:** This error indicates a communication problem between the bot and Direct Line Speech. Ensure that you've [connected the Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md), [added Streaming protocol support](https://aka.ms/botframework/addstreamingprotocolsupport) to your bot (with the related Web Socket support), and then check that your bot is responding to incoming requests from the channel.
 
 **Q: This still doesn't work and/or I'm getting a different error when using a SpeechBotConnector and it's not clear what I should do. What *should* I do?**
 

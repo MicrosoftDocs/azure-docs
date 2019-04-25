@@ -26,7 +26,7 @@ This quickstart requires:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
-* A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech.md)
+* A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md)
 
     > [!NOTE]
     > In preview, the Direct Line Speech channel currently supports only the **westus2** region. Further region support will be added in the future.
@@ -242,7 +242,7 @@ This quickstart will describe, step by step, how to make a simple client applica
     > In preview, the Direct Line Speech channel currently supports only the **westus2** region. Further region support will be added in the future.
 
     > [!NOTE]
-    > For information on configuring your bot and retrieving a channel secret, see the Bot Framework documentation for [the Direct Line Speech channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
+    > For information on configuring your bot and retrieving a channel secret, see the Bot Framework documentation for [the Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
 
     ```csharp
     // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key
