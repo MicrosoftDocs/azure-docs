@@ -51,7 +51,7 @@ When the filters and view are applied, and there are example utterances with err
 
 ![![When the filters and view are applied, and there are example utterances with errors, the example utterance list shows the utterances and the issues.](./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
 
-Each row shows the current training's prediction score for the example utterance, the nearest rival's score, the difference in these two scores, known as the _evaluation_. 
+Each row shows the current training's prediction score for the example utterance, the nearest rival's score, which is the difference in these two scores. 
 
 ### Fixing intents
 

@@ -13,9 +13,13 @@ ms.date: 05/07/2019
 ms.author: diberry
 ---
 
-# How to use the Summary dashboard to improve your app
+# How to use the Dashboard to improve your app
 
-Find and fix problems with your trained app's intents. The summary dashboard displays overall app information, with highlights of intents that should be fixed. 
+Find and fix problems with your trained app's intents when you are using example utterances. The summary dashboard displays overall app information, with highlights of intents that should be fixed. 
+
+Review Dashboard analysis is an iterative process, repeated as you change and improve your model.
+
+This page wil not have relevant analysis for apps that do not have any example utterances in the intents, known as _pattern-only_ apps. 
 
 ## What issues can be fixed from dashboard?
 
@@ -23,7 +27,7 @@ The three problems addressed in the dashboard are:
 
 |Issue|Chart color|Explanation|
 |--|--|--|
-|Data imbalance|-|This occurs when the quantity of example utterances varies significantly. All intents need to have _roughly_ the same number of example utterances - except the None intent. It should only have 10%-15% of the total quantity of utterances in the app. <br><br>**Start with this issue - it may be the root cause of the other issues.**|
+|Data imbalance|-|This occurs when the quantity of example utterances varies significantly. All intents need to have _roughly_ the same number of example utterances - except the None intent. It should only have 10%-15% of the total quantity of utterances in the app.<br><br> If the data is imbalanced but the intent accuracy is above certain threshold, this imbalance is not reported as an issue.<br><br>**Start with this issue - it may be the root cause of the other issues.**|
 |Unclear predictions|Orange|This occurs when the top intent and the next intent's scores are close enough that they may flip on the next training, due to [negative sampling](luis-how-to-train.md#train-with-all-data) or more example utterances added to intent. |
 |Incorrect predictions|Red|This occurs when an example utterance is not predicted for the labeled intent (the intent it is in).|
 
@@ -37,7 +41,7 @@ Before you train the app, the summary dashboard does not contain any suggestions
 
 ## Check your publishing status
 
-The **Publishing status** card contains information about the active version's last training. 
+The **Publishing status** card contains information about the active version's last publish. 
 
 Check that the active version is the version you want to fix. 
 
@@ -47,7 +51,7 @@ This also shows any external services, published regions, and aggregated endpoin
 
 ## Review training evaluation
 
-The **Training evaluation** card contains the aggregated summary of your app's overall accuracy by area. The score indicates its health. 
+The **Training evaluation** card contains the aggregated summary of your app's overall accuracy by area. The score indicates intent quality. 
 
 ![The Training evaluation card contains the first area of information about your app's overall accuracy.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
 
@@ -59,7 +63,7 @@ Each problem area has intents that need to be fixed. When you select the intent 
 
 ### Compare changes across versions
 
-Create a new version before making changes to the app. In the new version, make the suggested changes to the intent's example utterances, then train again. On the Summary page's **Training evaluation** card, use the **Show change from trained version** to compare the changes. 
+Create a new version before making changes to the app. In the new version, make the suggested changes to the intent's example utterances, then train again. On the Dashboard page's **Training evaluation** card, use the **Show change from trained version** to compare the changes. 
 
 ![Compare changes across versions](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
 
