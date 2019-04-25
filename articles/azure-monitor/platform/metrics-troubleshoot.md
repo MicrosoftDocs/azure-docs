@@ -12,14 +12,14 @@ ms.subservice: metrics
 
 # Troubleshooting metrics charts
 
-Use this article if you are unsure how to interpret the data shown in Metrics Explorer or if you run into issues with creating or customizing your charts. If you are new to metrics, learn about [getting started with Metrics Explorer](metrics-getting-started.md) and [advanced features of Metrics Explorer](metrics-charts.md). You can also see [examples](metric-chart-samples.md) of the configured metric charts.
+Use this article if you run into issues with creating, customizing, or interpreting charts in Azure Metrics Explorer. If you are new to metrics, learn about [getting started with Metrics Explorer](metrics-getting-started.md) and [advanced features of Metrics Explorer](metrics-charts.md). You can also see [examples](metric-chart-samples.md) of the configured metric charts.
 
 ## My chart shows unexpected drop in values
 
 In many cases, the perceived drop in the metric values is a matter of the incorrect interpretation of the data shown on the chart. You might be misled by a drop in sums or counts when the chart shows the most-recent minutes because the last metric data points haven’t been received or processed by Azure yet. Depending on the service, the latency of processing metrics may be within a couple minutes range. For charts showing a recent time range with a 1- or 5- minute granularity, a drop of the value over the last few minutes becomes more noticeable:
     ![metric image](./media/metrics-troubleshoot/drop-in-values.png)
 
-**Solution:** This behavior is by design. We believe that showing data as soon as we receive it is beneficial even when the data is *partial* or *incomplete*. Doing so allows you to make important conclusion sooner and start investigation right away. For example, for a metric that shows the number of failures, seeing a partial value X tells you that there were at least X failures on a given minute. You can start investigating the problem right away, rather than waiting to see the exact count of failures that happened on this minute, which might not be as important. The chart will update once we receive the entire set of data (but at that time you may have another more recent incomplete data point for the next minute that was rendered based on partial data).
+**Solution:** This behavior is by design. We believe that showing data as soon as we receive it is beneficial even when the data is *partial* or *incomplete*. Doing so allows you to make important conclusion sooner and start investigation right away. For example, for a metric that shows the number of failures, seeing a partial value X tells you that there were at least X failures on a given minute. You can start investigating the problem right away, rather than wait to see the exact count of failures that happened on this minute, which might not be as important. The chart will update once we receive the entire set of data, but at that time it may also show new incomplete data points from more recent minutes.
 
 ## My chart shows no data
 
@@ -27,7 +27,7 @@ Sometimes the chart may show no data after selecting correct resource and metric
 
 ### Microsoft.Insights resource provider isn't registered for your subscription
 
-Exploring metrics requires *Microsoft.Insights* resource provider registered in your subscription. In many cases, it is registered automatically (i.e. after you configure an alert rule, customize diagnostic settings for any resource, or configure an autoscale rule). If the Microsoft.Insights resource provider is not registered, you must manually register it by  following steps described in [this article](../../azure-resource-manager/resource-manager-supported-services.md).
+Exploring metrics requires *Microsoft.Insights* resource provider registered in your subscription. In many cases, it is registered automatically (that is, after you configure an alert rule, customize diagnostic settings for any resource, or configure an autoscale rule). If the Microsoft.Insights resource provider is not registered, you must manually register it by  following steps described in [this article](../../azure-resource-manager/resource-manager-supported-services.md).
 
 **Solution:** Open **Subscriptions**, **Resource providers** tab, and verify that Microsoft.Insights is registered for your subscription.
 
@@ -47,7 +47,7 @@ Some resources don’t constantly emit their metrics. For example, Azure will no
 
 With a few exceptions, [metrics in Azure are stored for 93 days](data-platform-metrics.md#retention-of-metrics). However, you can only query for no more than 30 days worth of data on any single chart. This limitation doesn't apply to some resources and log-based metrics.
 
-**Solution:** If you see a blank chart on a long-ranged chart, verify that the difference between start- and end- dates in the time picker doesn't exceed 30 day interval.
+**Solution:** If you see a blank chart on a long-ranged chart, verify that the difference between start- and end- dates in the time picker doesn't exceed the 30-day interval.
 
 ### All metric values were outside of the locked y-axis range
 
@@ -67,10 +67,10 @@ This problem is common when your dashboard is created with a metric that was dep
 
 ## I cannot pick Guest OS namespace and metrics
 
-You are looking at a Guest OS metric but Metrics Explorer only shows **Host-level** metrics for your Virtual Machine (VM) or Virtual Machine Scale Set (VMSS):
+You are looking at a Guest OS metric but Metrics Explorer only shows **Host-level** metrics for your Azure virtual machine or virtual machine scale set:
     ![metric image](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
 
-**Solution:** Azure Virtual Machines and Virtual Machine Scale Sets have two categories of metrics: **Host-level** metrics that are observed by Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running as a process on the virtual machine. The agent is installed by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md)). If the agent isn't running, the **Guest OS** metrics namespace is not shown in Metrics Explorer.
+**Solution:** Virtual machines and virtual machine scale sets have two categories of metrics: **Host-level** metrics that are observed by Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running as a process on the virtual machine. The agent is installed by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md)). If the agent isn't running, the **Guest OS** metrics namespace is not shown in Metrics Explorer.
 
 ## I see a dashed line on the chart
 
