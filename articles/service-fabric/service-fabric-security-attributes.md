@@ -24,7 +24,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
 | Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes | The customer owns the cluster and the virtual machine scale set on which the cluster is built. Azure disk encryption can be enabled on the virtual machine scale set. |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes |  |
+| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes |  |
 | Encryption key handling (CMK, BYOK, etc.)| Yes | The customer owns the cluster and the virtual machine scale set on which the cluster is built. Azure disk encryption can be enabled on the virtual machine scale set. |
 | Column level encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes | Service Fabric API calls are made through Azure Resource Manager. A valid JSON web token (JWT) is required. |
@@ -34,7 +34,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| Yes |  |
-| vNET injection support| Yes |  |
+| VNet injection support| Yes |  |
 | Network isolation and firewalling support| Yes | Using networking security groups (NSG). |
 | Forced tunneling support| Yes | Azure networking provides forced tunneling. |
 
@@ -63,4 +63,4 @@ Security is integrated into every aspect of an Azure service. This article docum
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Configuration management support (versioning of configuration, etc.)| Yes | The service configuration is versioned and deployed using Azure Deploy. The code (application and runtime) is versioned using Azure Build.
+| Configuration management support (versioning of configuration, etc.)| Yes | |

@@ -287,10 +287,20 @@ This error occurs if the Helm client can no longer talk to the Tiller pod runnin
 ### Try:
 Restarting the agent nodes in your cluster usually resolves this issue.
 
+## "Error: release azds-\<identifier\>-\<spacename\>-\<servicename\> failed: services '\<servicename\>' already exists" or "Pull access denied for \<servicename\>, repository does not exist or may require 'docker login'"
+
+### Reason
+These errors can occur if you mix running direct Helm commands (such as `helm install`, `helm upgrade`, or `helm delete`) with Dev Spaces commands (such as `azds up` and `azds down`) inside the same dev space. They occur because Dev Spaces has its own Tiller instance, which conflicts with your own Tiller instance running in the same dev space.
+
+### Try:
+It's fine to use both Helm commands and Dev Spaces commands against the same AKS cluster, but each Dev Spaces-enabled namespace should use either one or the other.
+
+For example, suppose you use a Helm command to run your entire application in a parent dev space. You can create child dev spaces off that parent, use Dev Spaces to run individual services inside the child dev spaces, and test the services together. When you're ready to check in your changes, use a Helm command to deploy the updated code to the parent dev space. Don't use `azds up` to run the updated service in the parent dev space, because it will conflict with the service initially run using Helm.
+
 ## Azure Dev Spaces proxy can interfere with other pods running in a dev space
 
 ### Reason
-When you enable Dev Spaces on a namespace in your AKS cluster, an additional container called _mindaro-proxy_ is installed in each of the pods running inside that namespace. This container intercepts calls to the services in the pod, which is integral to Dev Spaces' team development capabilities; however, it can interfere with certain services running in those pods. It is known to interfere with pods running Azure Cache for Redis, causing connection errors and failures in master/slave communication.
+When you enable Dev Spaces on a namespace in your AKS cluster, an additional container called _mindaro-proxy_ is installed in each of the pods running inside that namespace. This container intercepts calls to the services in the pod, which is integral to Dev Spaces' team development capabilities; however, it can interfere with certain services running in those pods. It is known to interfere with pods running Azure Cache for Redis, causing connection errors and failures in primary/secondary communication.
 
 ### Try:
 You can move the affected pods to a namespace inside the cluster that does _not_ have Dev Spaces enabled. The rest of your application can continue to run inside a Dev Spaces-enabled namespace. Dev Spaces will not install the _mindaro-proxy_ container inside non-Dev Spaces enabled namespaces.
