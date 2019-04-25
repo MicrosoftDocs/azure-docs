@@ -3,8 +3,8 @@ title: Introduction to security group view in Azure Network Watcher | Microsoft 
 description: This page provides an overview of the Network Watcher security view capability
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: 
 
 ms.assetid: ad27ab85-9d84-4759-b2b9-e861ef8ea8d8
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 04/26/2017
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Introduction to network security group view in Azure Network Watcher
