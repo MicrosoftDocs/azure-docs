@@ -104,8 +104,6 @@
     - name: Create an AKS cluster
       href: /cli/azure/aks#az-aks-create
       maintainContext: true
-    - name: Create a cluster with Windows support - CLI
-      href: windows-container-cli.md
     - name: Scale an AKS cluster
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
@@ -208,6 +206,20 @@
     - name: View real-time container logs (preview)
       href: ../azure-monitor/insights/container-insights-live-logs.md
       maintainContext: true
+  - name: Use Windows Server containers (preview)
+    items:
+    - name: Create an AKS cluster
+      href: windows-container-cli.md
+    - name: Connect remotely
+      href: rdp.md
+    - name: Known limitations
+      href: windows-node-limitations.md
+    - name: Use the Kubernetes dashboard
+      href: kubernetes-dashboard.md
+    - name: Create Dockerfiles for Windows Server containers
+      href: https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
+    - name: Optimize Dockerfiles for Windows Server containers
+      href: https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
   - name: Develop and run applications
     items:
     - name: Develop with Dev Spaces
@@ -291,10 +303,6 @@
     - name: Azure DevOps Project
       href: ../devops-project/azure-devops-project-aks.md
       maintainContext: true
-  - name: Kubernetes basics
-    items:
-    - name: Use Kubernetes dashboard
-      href: kubernetes-dashboard.md
   - name: Troubleshoot
     items:
     - name: Common issues
@@ -303,10 +311,6 @@
       href: kube-advisor-tool.md
     - name: SSH node access
       href: ssh.md
-    - name: Windows Server limitations
-      href: windows-node-limitations.md
-    - name: RDP node access
-      href: rdp.md
 - name: Reference
   items:
   - name: Azure CLI
