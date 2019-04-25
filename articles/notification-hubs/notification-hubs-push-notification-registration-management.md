@@ -44,7 +44,7 @@ The following are some key advantages to using installations:
 - The installation model supports a special tag format (`$InstallationId:{INSTALLATION_ID}`) that enables sending a notification directly to the specific device. For example, if the app's code sets an installation ID of `joe93developer` for this particular device, a developer can target this device when sending a notification to the `$InstallationId:{joe93developer}` tag. This enables you to target a specific device without having to do any additional coding.
 - Using installations also enables you to do partial registration updates. The partial update of an installation is requested with a PATCH method using the [JSON-Patch standard](https://tools.ietf.org/html/rfc6902). This is useful when you want to update tags on the registration. You don't have to pull down the entire registration and then resend all the previous tags again.
 
-An installation can contain the following properties. For a complete listing of the installation properties, see [Create or Overwrite an Installation with REST API](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) or [Installation Properties](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+An installation can contain the following properties. For a complete listing of the installation properties, see [Create or Overwrite an Installation with REST API](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) or [Installation Properties](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.notificationhubs.installation).
 
 ```json
 // Example installation format to show some supported properties
@@ -91,7 +91,7 @@ Registrations and installations must contain a valid PNS handle for each device/
 
 If you want to use [Templates](notification-hubs-templates-cross-platform-push-messages.md), the device installation also holds all templates associated with that device in a JSON format (see sample above). The template names help target different templates for the same device.
 
-Each template name maps to a template body and an optional set of tags. Moreover, each platform can have additional template properties. For Windows Store (using WNS) and Windows Phone 8 (using MPNS), an additional set of headers can be part of the template. In the case of APNs, you can set an expiry property to either a constant or to a template expression. For a complete listing of the installation properties see, [Create or Overwrite an Installation with REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) topic.
+Each template name maps to a template body and an optional set of tags. Moreover, each platform can have additional template properties. For Windows Store (using WNS) and Windows Phone 8 (using MPNS), an additional set of headers can be part of the template. In the case of APNs, you can set an expiry property to either a constant or to a template expression. For a complete listing of the installation properties see, [Create or Overwrite an Installation with REST](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) topic.
 
 ### Secondary Tiles for Windows Store Apps
 
@@ -116,7 +116,7 @@ Registering from the device is the simplest method, but it has some drawbacks:
 
 ### Example code to register with a notification hub from a device using an installation
 
-At this time, this is only supported using the [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx).
+At this time, this is only supported using the [Notification Hubs REST API](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation).
 
 You can also use the PATCH method using the [JSON-Patch standard](https://tools.ietf.org/html/rfc6902) for updating the installation.
 
