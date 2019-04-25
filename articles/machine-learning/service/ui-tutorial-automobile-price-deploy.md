@@ -38,7 +38,7 @@ Preparation for deployment is a two-step process:
 1. Convert the *training experiment* that you've created into a *predictive experiment*
 1. Deploy the predictive experiment as a web service
 
-You may want to make a copy of the experiment first by clicking **Save As** at the bottom of the experiment canvas.
+You may want to make a copy of the experiment first by selecting **Save As** at the bottom of the experiment canvas.
 
 ### Convert the training experiment to a predictive experiment
 
@@ -48,11 +48,11 @@ To get this model ready for deployment, convert this training experiment to a pr
 1. Trim the experiment to remove modules that were only needed for training
 1. Define where the web service will accept input data and where it generates the output
 
-You could do these steps manually or you could click **Set Up Web Service** at the bottom of the experiment canvas to have them done automatically.
+You could do these steps manually or you could select **Set Up Web Service** at the bottom of the experiment canvas to have them done automatically.
 
 ![Animated gif showing the automatic conversion of a training experiment to a predictive experiment](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
 
-When you click **Set Up Web Service**, several things happen:
+When you select **Set Up Web Service**, several things happen:
 
 * The trained model is converted to a single **Trained Model** module. It's stored in the module palette to the left of the experiment canvas. You can find it under **Trained Models**.
 * Modules that were used for training are removed; specifically:
@@ -68,7 +68,7 @@ Your experiment should now look like this:
 
 ![Screenshot showing the expected configuration of the experiment after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
-Run the experiment one last time (click **Run**). Choose the compute target you want the experiment to run on in the popup dialog. To verify the model is still working, click the output of the Score Model module and select **View Results**. You can see the original data is displayed, along with the predicted price ("Scored Labels").
+Run the experiment one last time (select **Run**). Choose the compute target you want the experiment to run on in the popup dialog. To verify the model is still working, select the output of the Score Model module and select **View Results**. You can see the original data is displayed, along with the predicted price ("Scored Labels").
 
 ## Deploy the web service
 
@@ -103,7 +103,7 @@ You can test a web service in the web service tab in the visual interface.
 
     ![Screenshot showing the web service testing page](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Input testing data or use the autofilled sample data and click **Test** at the bottom. The test request is submitted to the web service and the results are shown on page.
+1. Input testing data or use the autofilled sample data and select **Test** at the bottom. The test request is submitted to the web service and the results are shown on page.
 
 ## Manage the web service
 
@@ -154,4 +154,4 @@ The experiments you create in the visual interface can be managed from the Azure
 In this tutorial, you learned the key steps in creating, deploying, and consuming a machine learning model in the visual interface. To learn more about how you can use the visual interface to solve other types of problems, check out the sample experiments.
 
 > [!div class="nextstepaction"]
-> [Credit risk classification sample experiment](ui-sample-classification-predict-credit-risk-basic.md)
+> [Credit risk classification sample](ui-sample-classification-predict-credit-risk-basic.md)
