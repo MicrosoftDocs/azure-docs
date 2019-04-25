@@ -20,9 +20,6 @@ ms.author: rkarlin
 # Integrate security solutions in Azure Security Center
 This document helps you to manage security solutions already connected to Azure Security Center and add new ones.
 
-> [!NOTE]
-> A subset of security solutions will be retired on July 31st, 2019. Click [here](security-center-features-retirement-july2019.md#menu_solutions) to learn on alternative services.
-
 ## Integrated Azure security solutions
 Security Center makes it easy to enable integrated security solutions in Azure. Benefits include:
 

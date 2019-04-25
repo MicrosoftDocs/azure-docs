@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 04/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure. 
 ---
@@ -50,6 +50,8 @@ Following are the configuration prerequisites for your Data Box Edge resource, y
 Before you begin, make sure that:
 
 - Your Microsoft Azure subscription is enabled for a Data Box Edge resource. Pay-as-you-go subscriptions are not supported.
+- You have owner or contributor access to your subscription.
+- You have admin or user access to Azure Active Directory Graph API. For more information, see [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - You have your Microsoft Azure storage account with access credentials.
 
 ### For the Data Box Edge device
@@ -82,7 +84,7 @@ To create a Data Box Edge resource, take the following steps in the Azure portal
 
 1. Use your Microsoft Azure credentials to sign in to 
     
-    - The Azure portal at this URL: [https://portal.azure.com](http://portal.azure.com).
+    - The Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
     - Or, the Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us). For more details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. In the left-pane, select **+ Create a resource**. Search for **Data Box Edge / Data Box Gateway**. Select **Data Box Edge / Data Box Gateway**. Select **Create**.

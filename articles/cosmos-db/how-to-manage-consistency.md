@@ -1,11 +1,11 @@
 ---
 title: Learn how to manage consistency in Azure Cosmos DB
 description: Learn how to manage consistency in Azure Cosmos DB
-author: christopheranderson
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
+ms.date: 04/17/2019
+ms.author: rimman
 ---
 
 # Manage consistency levels in Azure Cosmos DB
@@ -16,7 +16,7 @@ This article explains how to manage consistency levels in Azure Cosmos DB. You l
 
 ## Configure the default consistency level
 
-The default consistency level is the consistency level that clients use by default. Clients can override it.
+The [default consistency level](consistency-levels.md) is the consistency level that clients use by default. Clients can always override it.
 
 ### CLI
 
@@ -30,7 +30,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### PowerShell
 
-This example creates a new Azure Cosmos DB account with multi-master enabled in East US and West US regions. The default consistency policy is set as Session.
+This example creates a new Azure Cosmos account with multiple write regions enabled, in East US and West US regions. The default consistency level is set to *Session* consistency.
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -54,15 +54,16 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -Properties $CosmosDBProperties
 ```
 
-### Portal
+### Azure portal
 
-To view or modify the default consistency level, sign in to the Azure portal. Find your Azure Cosmos DB account, and open the **Default consistency** pane. Select the level of consistency you want as the new default, and then select **Save**.
+To view or modify the default consistency level, sign in to the Azure portal. Find your Azure Cosmos account, and open the **Default consistency** pane. Select the level of consistency you want as the new default, and then select **Save**.
 
 ![Consistency menu in the Azure portal](./media/how-to-manage-consistency/consistency-settings.png)
 
 ## Override the default consistency level
 
-Clients can override the default consistency level that's set by the service. This option can be set for the whole client or per request.
+Clients can override the default consistency level that is set by the service. 
+Consistency level can be set on a per request, which overrides the default consistency level set at the account level.
 
 ### <a id="override-default-consistency-dotnet"></a>.NET SDK
 
@@ -126,6 +127,8 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 ```
 
 ## Utilize session tokens
+
+One of the consistency levels in Azure Cosmos DB is *Session* consistency. This is the default level applied to Cosmos accounts by default. When working with *Session* consistency, the client will use a session token internally with each read/query request to ensure that the set consistency level is maintained.
 
 To manage session tokens manually, get the session token from the response and set them per request. If you don't need to manage session tokens manually, you don't need to use these samples. The SDK keeps track of session tokens automatically. If you don't set the session token manually, by default, the SDK uses the most recent session token.
 
@@ -204,15 +207,18 @@ item = client.ReadItem(doc_link, options)
 
 ## Monitor Probabilistically Bounded Staleness (PBS) metric
 
-To view the PBS metric, go to your Azure Cosmos DB account in the Azure portal. Open the **Metrics** pane, and select the **Consistency** tab. Look at the graph named **Probability of strongly consistent reads based on your workload (see PBS)**.
+How eventual is eventual consistency? For the average case, can we offer staleness bounds with respect to version history and time. The [**Probabilistically Bounded Staleness (PBS)**](http://pbs.cs.berkeley.edu/) metric tries to quantify the probability of staleness and shows it as a metric. To view the PBS metric, go to your Azure Cosmos account in the Azure portal. Open the **Metrics** pane, and select the **Consistency** tab. Look at the graph named **Probability of strongly consistent reads based on your workload (see PBS)**.
 
 ![PBS graph in the Azure portal](./media/how-to-manage-consistency/pbs-metric.png)
 
-Use the Azure Cosmos DB metrics menu to see this metric. It doesn't show up in the Azure Monitoring metrics experience.
 
 ## Next steps
 
 Learn more about how to manage data conflicts, or move on to the next key concept in Azure Cosmos DB. See the following articles:
 
+* [Consistency Levels in Azure Cosmos DB](consistency-levels.md)
 * [Manage conflicts between regions](how-to-manage-conflicts.md)
 * [Partitioning and data distribution](partition-data.md)
+* [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [High availability](high-availability.md)
+* [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

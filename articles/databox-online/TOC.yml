@@ -25,6 +25,8 @@
       href: data-box-gateway-system-requirements.md
     - name: Understand limits
       href: data-box-gateway-limits.md
+    - name: Security overview
+      href: data-box-gateway-security.md
     - name: View use cases
       href: data-box-gateway-use-cases.md
   - name: How to
@@ -41,6 +43,8 @@
           href: data-box-gateway-manage-access-power-connectivity-mode.md
         - name: Via PowerShell 
           href: data-box-gateway-connect-powershell-interface.md
+    - name: Monitor
+      href: data-box-gateway-monitor.md
     - name: Troubleshoot
       href: data-box-gateway-troubleshoot.md
   - name: Release notes
@@ -93,6 +97,8 @@
       href: data-box-edge-connect-powershell-interface.md
     - name: Troubleshoot 
       href: data-box-edge-troubleshoot.md
+    - name: Monitor
+      href: data-box-edge-monitor.md
   - name: Release notes
     items:
     - name: General availability
