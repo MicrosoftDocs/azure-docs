@@ -560,6 +560,9 @@
   - name: Notification Hubs
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/
+  - name: Open Datasets
+    tocHref: /azure/open-datasets/
+    topicHref: /azure/open-datasets/
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
