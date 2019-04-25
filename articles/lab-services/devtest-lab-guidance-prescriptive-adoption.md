@@ -17,7 +17,7 @@ ms.reviewer: christianreddington,anthdela,juselph
 
 ---
 
-# Set up Azure DevTest Labs infrastructure in your enterprise
+# DevTest Labs in the enterprise
 Enterprises are rapidly adopting the cloud because of [benefits](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) that include agility, flexibility, and economics. The first steps are often development and test workloads. Azure DevTest Labs provides [features](devtest-lab-concepts.md) that benefit the enterprise and support [key dev/test scenarios](devtest-lab-guidance-get-started.md).
 
 Common concerns for enterprises that migrate workloads to the cloud include:
