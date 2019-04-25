@@ -1,5 +1,5 @@
 ---
-title: Select a page contract in Azure Active Directory B2C | Microsoft Docs
+title: Select a page contract - Azure Active Directory B2C | Microsoft Docs
 description: Learn about how to select a page contract in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/25/2019
 ms.author: davidmu
 ms.subservice: B2C
 ---
@@ -20,7 +20,7 @@ ms.subservice: B2C
 You can enable JavaScript client-side code in your Azure Active Directory (Azure AD) B2C policies, whether you’re using user flows or custom policies. This article discusses how to select a page contract in Azure AD B2C by configuring it in a [custom policy](active-directory-b2c-overview-custom.md). A page contract is an association of elements that Azure AD B2C provides and the content that you provide. If you intend to use [Javascript](javascript-samples.md), you need to define a page contract version for all of your content definitions in your custom policy.
 
 > [!NOTE]
-> If you want to enable JavaScript for user flows, see [About using JavaScript and page contract versions in a user flow](user-flow-javascript-overview.md).
+> If you want to enable JavaScript for user flows, see [JavaScript and page contract versions in Azure Active Directory B2C](user-flow-javascript-overview.md).
 
 ## Replace DataUri values
 
@@ -58,7 +58,8 @@ To set up a page contract, use the following table to find **DataUri** values.
 
 ## Next steps
 
-Find more information about how you can customize the user interface of your applications in [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+- Learn how you should be using b2clogin.com in [Set redirect URLs to b2clogin.com for Azure Active Directory B2C](b2clogin.md).
+- Find more information about how you can customize the user interface of your applications in [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
 
 
 
