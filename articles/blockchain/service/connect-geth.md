@@ -22,7 +22,7 @@ Geth is a Go Ethereum client you can use to connect to an Azure Blockchain Servi
 ## Prerequisites
 
 * Install [Geth](https://github.com/ethereum/go-ethereum/wiki/geth)
-* [Create an Azure Blockchain member](create-member-portal.md)
+* [Create an Azure Blockchain member](create-member.md)
 
 ## Get node details
 

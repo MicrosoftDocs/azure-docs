@@ -49,6 +49,6 @@ Based on the open-sourced Quorum Ethereum ledger, you can develop applications f
 ## Next steps
 
 Now that you've read an introduction to Azure Blockchain Service, you're ready to:
-- To get started [create a blockchain member using the Azure portal](create-member-portal.md) or [create a blockchain member using Azure CLI]()
+- To get started [create a blockchain member using the Azure portal](create-member.md) or [create a blockchain member using Azure CLI]()
 - Build your first app using the [Azure Blockchain Development Kit]()
 - See the [pricing page](https://azure.microsoft.com/pricing/) for cost comparisons and calculators.

@@ -8,14 +8,14 @@
   expanded: true
   items:
   - name: Create member - Portal
-    href: create-member-portal.md
+    href: create-member.md
   - name: Create member - CLI
     href: create-member-cli.md
-  - name: Connect to member
+  - name: Connect to node
     items:
     - name: Using MetaMask
       href: connect-metamask.md
-    - name: Using geth
+    - name: Using Geth
       href: connect-geth.md
     - name: Using Truffle
       href: connect-truffle.md
@@ -27,29 +27,41 @@
   items:
   - name: Consortium
     href: consortium.md
-  - name: Quorum
   - name: Data access, security
+    href: data-security.md
   - name: Develop
+    href: develop.md
   - name: Limits
     href: limits.md
   - name: Patch, update, version
     href: ledger-versions.md
 - name: How-to guides
   items: 
+  - name: Configure Azure AD access
+    href: configure-aad.md
   - name: Configure transaction nodes
-  - name: Manage consortium
-    href: manage-consortium.md
+    href: configure-transaction-nodes.md
+  - name: Manage using Azure CLI
+    href: manage-cli.md
+  - name: Manage consortium using PowerShell
+    href: manage-consortium-powershell.md
 - name: Resources
   items:
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/blockchain/
+  - name: Azure Blockchain Service Visual Studio Code extension
+    href: https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki
   - name: Code samples
     href: https://github.com/Azure-Samples/blockchain
   - name: Community
     href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
   - name: Forum
-    href: https://aka.ms/workbenchforum
+    href: https://social.msdn.microsoft.com/forums/security/home?forum=AzureBlockchainService
   - name: Product feedback
-    href: https://aka.ms/blockchainuservoice
+    href: https://feedback.azure.com/forums/921130-azure-blockchain-service
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/
+    href: https://azure.microsoft.com/pricing/details/blockchain-service
+  - name: Region availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/AzureBlockchainService
