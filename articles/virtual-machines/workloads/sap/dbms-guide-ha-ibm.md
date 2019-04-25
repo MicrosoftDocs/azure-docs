@@ -492,7 +492,7 @@ If you performed the installation before you created the Db2 HADR configuration,
 
 ### ABAP+Java or Java stack systems JDBC URL check
 
-Use the J2EE Config tool to check or update the JDBC URL. Because the J2EE Config tool is a graphical tool, you need to have **X server** installed:
+Use the J2EE Config tool to check or update the JDBC URL. Because the J2EE Config tool is a graphical tool, you need to have X server installed:
  
 1. Sign in to the primary application server of the J2EE instance and execute:
 	<pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
@@ -515,7 +515,8 @@ We recommend configuring a common NFS share where logs are written from both nod
 You can use existing highly available NFS shares for transports or a profile directory. For more information, see:
 
 - [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server][nfs-ha] 
-- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP Applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) on how to use [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) to create NFS shares
+- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP Applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
+- [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) (to create NFS shares)
 
 
 ## Test the cluster setup
