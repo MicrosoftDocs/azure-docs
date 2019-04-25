@@ -17,7 +17,7 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 
 **Release Date: April 17, 2019**
 
-**Improvements:**
+**Fixes:**
 
 - Improved operating system compatibility, specifically when handling localization-based errors.
 - Added VMs with up to 20 Mbps of data change rate (churn) to the compatibility checklist.
@@ -31,7 +31,7 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 
 **Release Date: December 3, 2018**
 
-**Improvements:**
+**Fixes:**
 
 - Fixed an issue that prevented the Deployment Planner from generating a report with the provided target location and subscription.
 
@@ -39,7 +39,7 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 
 **Release Date: April 25, 2018**
 
-**Improvements:**
+**Fixes:**
 
 - GetVMList operations:
   - Fixed an issue that caused GetVMList to fail if the specified folder doesn’t exist. It now either creates the default directory, or creates the directory specified in the outputfile parameter.
@@ -55,7 +55,7 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 
 **Release Date: January 3, 2018**
 
-**Improvements:**
+**Fixes:**
 
 - Updated the Excel report.
 - Fixed bugs in the GetThroughput operation.
@@ -70,7 +70,7 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 
 **Release Date: December 7,  2017**
 
-**Improvements:**
+**Fixes:**
 
 - Added recommendation to optimize the network bandwidth.
 
@@ -78,11 +78,11 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 
 **Release Date: November 28, 2017**
 
-**Improvements:**
+**Fixes:**
 
 - Added support for Hyper-V to Azure disaster recovery.
 - Added cost calculator.
-- Added OS version check for VMware to Azure disaster recovery to determine if the VM is compatible or incompatible for the protection. The tool uses the OS version string that is returned by the vCenter server for that VM. It is the guest operating system version that user has selected while creating the VM in VMware.
+- Added OS version check for VMware to Azure disaster recovery to determine if the VM is compatible or incompatible for the protection. The tool uses the OS version string that is returned by the vCenter server for that VM. It's the guest operating system version that user has selected while creating the VM in VMware.
 
 **Known limitations:**
 
@@ -91,9 +91,9 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 
 ## Version 1.3.1
 
-**Release Date: July 19, 2017**
+**Release Date: July 19, 2017** 
 
-**Improvements:**
+**Fixes:**
 
 - Added support for large disks (> 1 TB) in report generation. Now you can use Deployment Planner to plan replication for virtual machines that have disk sizes greater than 1 TB (up to 4095 GB).
 Read more about [Large disk support in Azure Site Recovery](https://azure.microsoft.com/blog/azure-site-recovery-large-disks/)
@@ -102,17 +102,17 @@ Read more about [Large disk support in Azure Site Recovery](https://azure.micros
 
 **Release Date: May 9, 2017**
 
-**Improvements:**
+**Fixes:**
 
-- Added support for managed disk in report generation. The number of virtual machines that can be placed to a single storage account is calculated based on if the managed disk is selected for Failover/Test Failover.
+- Added support for managed disk in report generation. The number of VMs that can be placed to a single storage account is calculated based on if the managed disk is selected for Failover/Test Failover.
 
 ## Version 1.2
 
 **Release Date: April 7, 2017**
 
-**Improvements:**
+**Fixes:**
 
-- Added boot type (BIOS or EFI) checks for each virtual machine to determine if the virtual machine is compatible or incompatible for the protection.
+- Added boot type (BIOS or EFI) checks for each VM to determine if the VM is compatible or incompatible for the protection.
 - Added OS type information for each virtual machine in the compatible VMs and incompatible VMs worksheets.
 - Added support for GetThroughput operation for the US Government and China Microsoft Azure regions.
 - Added few more prerequisite checks for vCenter and ESXi Server.
@@ -122,7 +122,7 @@ Read more about [Large disk support in Azure Site Recovery](https://azure.micros
 
 **Release Date: March 9, 2017**
 
-**Improvements:**
+**Fixes:**
 
 - Fixed an issue that prevented profiling VMs when there are two or more VMs with the same name or IP address across various vCenter ESXi hosts.
 - Fixed an issue that caused copy and search to be disabled for the compatible VMs and incompatible VMs worksheets.
@@ -134,6 +134,6 @@ Read more about [Large disk support in Azure Site Recovery](https://azure.micros
 **Known limitations:**
 
 - Supports only for VMware to Azure disaster recovery scenarios. For Hyper-V to Azure disaster recovery scenarios, use the [Hyper-V capacity planner tool](./site-recovery-capacity-planning-for-hyper-v-replication.md).
-- Does not support the GetThroughput operation for the US Government and China Microsoft Azure regions.
-- The tool cannot profile VMs if the vCenter server has two or more VMs with the same name or IP address across various ESXi hosts. 
-In this version, the tool skips profiling for duplicate VM names or IP addresses in the VMListFile. The workaround is to profile the VMs by using an ESXi host instead of the vCenter server. You must run one instance for each ESXi host.
+- Doesn't support the GetThroughput operation for the US Government and China Microsoft Azure regions.
+- The tool cannot profile VMs if the vCenter server has two or more VMs with the same name or IP address across various ESXi hosts.
+In this version, the tool skips profiling for duplicate VM names or IP addresses in the VMListFile. The workaround is to profile the VMs by using an ESXi host instead of the vCenter server. Ensure to run one instance for each ESXi host.
