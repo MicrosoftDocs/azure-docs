@@ -13,31 +13,119 @@ manager: dikamath
 
 In this article, learn how to create a CloudSimple private cloud and set up your private cloud environment.
 
+## Sign in to Azure
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+
 ## Create a private cloud
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the **Resources** or **CloudSimple Dedicated VMware Nodes** page, select **Create Private Cloud**.
-3. Select the location to host the private cloud resources.
-4. Select the node type for your private cloud. You can choose the [CS28 or CS36 option](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). The latter option includes the maximum compute and memory capacity.
-5. Select the number of nodes for the private cloud. You can select up to the number of nodes that you've [purchased](create-nodes.md).
-6. Select **Next: Advanced options**.
-7. Enter the CIDR range for vSphere/vSAN subnets. Make sure that the CIDR range doesn't overlap with any of your on-premises or other Azure subnets.
-8. Select **Next: Review and create**.
-9. Review the settings. If you need to change any settings, click **Previous**.
-10. Select **Create**.
+1. Select **All services**.
+2. Search for **CloudSimple Services**.
+3. Select the CloudSimple service on which you want to create your Private Cloud.
+4. From overview, click **Create Private Cloud** to open a new browser tab for CloudSimple portal.  If prompted, sign in with your Azure sign in credentials.  
+
+    ![Create Private Cloud from Azure](media/create-private-cloud-from-azure.png)
+
+5. In CloudSimple portal, provide a name for your Private Cloud
+6. Select the **Location** of your Private Cloud
+7. Select the **Node type** you purchased on Azure.  You can choose the [CS28 or CS36 option](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). The latter option includes the maximum compute and memory capacity.
+8. Specify the **Node count**.  Minimum three nodes are required to create a Private Cloud
+
+    ![Create Private Cloud - Basic info](media/create-private-cloud-basic-info.png)
+
+9. Click **Next: Advanced options**.
+10. Enter the CIDR range for vSphere/vSAN subnets. Make sure that the CIDR range doesn't overlap with any of your on-premises or other Azure subnets.
+
+    ![Create Private Cloud - Advanced Options](media/create-private-cloud-advanced-options.png)
+
+11. Select **Next: Review and create**.
+12. Review the settings. If you need to change any settings, click **Previous**.
+13. Click **Create**.
+
+Private Cloud provisioning process will be started.  It may take upto two hours for the Private Cloud to be provisioned.
+
+## Launch CloudSimple portal
+
+You can access CloudSimple portal from Azure portal.  CloudSimple portal will be launched with your Azure sign in credentials using Single sign-on (SSO).
+
+1. Select **All services**.
+2. Search for **CloudSimple Services**.
+3. Select the CloudSimple service on which you want to create your Private Cloud.
+4. From overview, click **Go to the CloudSimple portal** to open a new browser tab for CloudSimple portal.  If prompted, sign in with your Azure sign in credentials.  
+
+    ![Launch CloudSimple Portal](media/launch-cloudsimple-portal.png)
+
+## Create point-to-site VPN
+
+A point-to-site VPN connection is the simplest way to connect to your Private Cloud from your computer. Use point-to-site VPN connection if you're connecting to the Private Cloud remotely.  For quick access to your Private Cloud, follow the steps below.  Access to CloudSimple region from your on-premises network can be done using [Site-to-Site VPN](https://docs.azure.cloudsimple.com/vpn-gateway/) or [Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection/).
+
+### Create gateway
+
+1. Launch CloudSimple portal and select **Network**.
+2. Select **VPN Gateway**.
+3. Click **New VPN Gateway**.
+
+    ![Create VPN gateway](media/create-vpn-gateway.png)
+
+4. For **Gateway configuration**, specify the following settings and click **Next**.
+
+    * Select **Point-to-Site VPN** as the gateway type.
+    * Enter a name to identify the gateway.
+    * Select the Azure location where your CloudSimple service is deployed.
+    * Specify the client subnet for the point-to-site gateway.  DHCP addresses will be given from this subnet when you connect.
+
+5. For **Connection/User**, specify the following settings and click **Next**.
+
+    * To automatically allow all current and future users to access the Private Cloud through this point-to-site gateway, select **Automatically add all users**. When you select this option, all users in the User list are automatically selected. You can override the automatic option by deselecting individual users in the list.
+    * To select only individual users, click the check boxes in the User list.
+
+6. The VLANs/Subnets section allows you to specify management and user VLANs/subnets for the gateway and connections.
+
+    * The **Automatically add** options set the global policy for this gateway. The settings apply to the current gateway. The settings can be overridden in the **Select** area.
+    * Select **Add management VLANs/Subnets of Private Clouds**. 
+    * To add all user-defined VLANs/subnets, click  **Add user-defined VLANs/Subnets**. 
+    * The **Select** settings override the global settings under **Automatically add**. 
+
+7. Click **Next** to review the settings. Click the Edit icons to make any changes.
+8. Click **Create** to create the VPN gateway.
+
+### Connect to CloudSimple using point-to-site VPN
+
+VPN client is needed for connecting to CloudSimple from your computer.  Download [OpenVPN client](https://openvpn.net/community-downloads/) for Windows or [Viscosity](https://www.sparklabs.com/viscosity/download/) for macOS and OS X.
+
+1. Launch CloudSimple portal and select **Network**.
+2. Select **VPN Gateway**.
+3. From the list of VPN gateways, click on the point-to-site VPN gateway.
+4. Select **Users**.
+5. Click on **Download my VPN configuration**
+
+    ![Download VPN configuration](media/download-p2s-vpn-configuration.png)
+
+6. Import the configuration on your VPN client
+
+    * Instructions for [importing configuration on Windows client](https://openvpn.net/vpn-server-resources/connecting-to-access-server-with-windows/#openvpn-open-source-openvpn-gui-program)
+    * Instructions for [importing configuration on macOS or OS X](https://www.sparklabs.com/support/kb/article/getting-started-with-viscosity-mac/#creating-your-first-connection)
+
+7. Connect to CloudSimple
 
 ## Create a VLAN for your workload VMs
 
 After creating a private cloud, create a VLAN where you'll deploy your workload/application VMs.
 
-1. In the CloudSimple Portal, select **Network > VLAN/Subnets**.
-2. Click **Create VLAN/Subnet**.
-3. Select the **Private Cloud** for the new VLAN/subnet.
-4. Enter a VLAN ID.
-5. Enter an optional subnet name.
-6. To enable routing on the VLAN (subnet), specify the subnet CIDR range.
-7. Click **Submit**.
-8. (Optional) To make the subnet you created accessible over point-to-site or site-to-site VPN, open a support ticket with [CloudSimple Support](http://support.cloudsimple.com).
+1. In the CloudSimple Portal, select **Network**.
+2. Click **VLAN/Subnets**.
+3. Click **Create VLAN/Subnet**
+
+    ![Create VLAN/Subnet](media/create-new-vlan-subnet.png)
+
+4. Select the **Private Cloud** for the new VLAN/subnet.
+5. Select a VLAN ID from the list.  
+6. Enter a subnet name to identify the subnet.
+7. Specify the subnet CIDR range and mask.  This range must not overlap with any existing subnets.
+8. Click **Submit**.
+
+    ![Create VLAN/Subnet details](media/create-new-vlan-subnet-details.png)
+
+The VLAN/subnet will be created.  You can now use this VLAN ID to create a distributed port group on your Private Cloud vCenter. 
 
 ## Connect your environment to an Azure virtual network
 
@@ -47,12 +135,15 @@ CloudSimple provides you with an ExpressRoute circuit for your private cloud. Yo
 
 You can now sign in to vCenter to set up virtual machines and policies.
 
-1. To access vCenter, start from the CloudSimple portal. On the Home page, under **Common Tasks**, click **Launch vSphere Client** and then click **Launch vSphere Client**.
+1. To access vCenter, start from the CloudSimple portal. On the Home page, under **Common Tasks**, click **Launch vSphere Client**.  Select the Private Cloud and then click **Launch vSphere Client** on the Private Cloud.
+
+    ![Launch vSphere Client](media/launch-vcenter-from-cloudsimple-portal.png)
+
 2. Select your preferred vSphere client to access vCenter and sign in with your username and password.  The defaults are:
     * User name: **CloudOwner@cloudsimple.local**
     * Password: **CloudSimple123!**  
 
-    If your private cloud was created in link mode, sign in as your on-premises administrator user or as a user who is a member of the administrator group.
+The vCenter screens in the next procedures are from the vSphere (HTML5) client.
 
 ## Change your vCenter password
 
@@ -74,12 +165,23 @@ If you set a password that doesn't meet the requirements:
 * if you use the vSphere Flash Client, it reports an error
 * If you use the HTML5 client, it doesn't report an error. The client doesn't accept the change and the old password continues to work.
 
-## Add users and identity sources to vCenter
+## Change NSX administrator password
 
-CloudSimple assigns a default vCenter user account with username: **cloudowner@cloudsimple.local**. No additional account setup is required for you to get started. However, you can request additional user accounts and permission to add identity sources.
+NSX manager is deployed with a default password.  We recommend you change the password after you create your Private Cloud.
 
-* If you require additional user accounts, provide the user information to [CloudSimple Support](http://support.cloudsimple.com). Support will set up the user accounts for you.
-* CloudSimple normally assigns administrators the privileges they need to do normal operations, but restricts doing operations such as adding identity sources. If you want to add an identity source, you can temporarily [escalate your privileges](https://docs.azure.cloudsimple.com/vsphere-access/#escalate-privileges).
+   * User name: **admin**
+   * Password: **CloudSimple123!**
+
+You can find the fully qualified domain name (FQDN) and IP address of NSX manager on CloudSimple portal.
+
+1. Launch CloudSimple portal and select **Resources**.
+2. Click on the Private Cloud, which you want to use.
+3. Select **vSphere management network**
+4. Use the FQDN or IP address of **NSX Manager** and connect using a web browser. 
+
+    ![Find NSX Manager FQDN](media/private-cloud-nsx-manager-fqdn.png)
+
+To change the password, follow the instructions in [NSX Manager Installation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html).
 
 ## Create a port group
 
@@ -88,185 +190,9 @@ To create a distributed port group in vSphere:
 1. Follow the instructions in "Add a distributed port group," in the [vSphere Networking Guide](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf).
 2. When setting up the distributed port group, provide the VLAN ID created in [Create a VLAN for your Workload VMs](#create-a-vlan-for-your-workload-vms).
 
-## Upload an ISO or vSphere template
-
-For ISO upload, use the vSphere HTML5 client.  Using the Flash client may result in an error.
-
-1. Obtain the ISO or vSphere template that you want to upload to vCenter to create a VM.
-2. Make the ISO or vSphere template available on your local system.
-3. In vCenter, in the upper left, click the **Disk** icon, and then below it select **vsanDatastore**.
-4. In the middle top, click **Files**, and then click **New Folder**.
-5. Create a folder entitled ‘ISOs and Templates’.
-6. Navigate to the **ISOs and Templates** folder, and click **Upload Files**. Follow the on-screen instructions to upload the ISO.
-
-## Create a virtual machine in vCenter
-
-1. In vCenter, in the upper left, click the **Hosts and Clusters** icon.
-
-2. Right-click **Workload**, and then click **New Virtual Machine**.
-
-3. In the **New Virtual Machine** screen, click **Create new virtual machine**, and then click **Next**.
-
-4. In **Virtual machine name** enter the machine name, select the **Workload VMs** location, and then click **Next**.
-
-5. Select the **Workload** compute resource, and then click **Next**.
-  
-6. Select **vsanDatastore**, and then click **Next**.
-
-7. Keep the default ESXi 6.5 compatibility selection, and then click **Next**.
-
-8. Select the guest OS of the ISO for the VM that you're creating, and then click **Next**.
-
-9. Select hard disk and network options. For **New DC/DVD Drive**, select **Datastore ISO file**.  If you want to allow traffic from the Public IP address to this VM, select the network as **vm-1**.
-
-10. A selection window opens. Select the file you previously uploaded to the ISOs and Templates folder, and then click **OK**.
-
-11. Review the settings and click **Finish** to create the VM.
-
-The VM is now added to the Workload compute resources and is ready for use.
-
-The basic setup is now complete. You can start using your private cloud similar to how you would use your on-premises VM infrastructure.
-
-The following sections contain optional information about setting up DNS and DHCP servers for private cloud workloads and modifying the default networking configuration.
-
-## Create a DNS and DHCP server (Optional)
-
-Running applications and workloads in a private cloud environment requires a proper DHCP and DNS infrastructure. These provide name resolution and DHCP services for lookup and IP address assignment. You can configure a VM in vCenter to provide these services in your private cloud environment.
-
-### Prerequisites
-
-* A distributed port group with VLAN configured
-
-* Route setup to on-premises or Internet-based DNS servers
-
-* Virtual machine template or ISO to create a virtual machine
-
-The following sections provide guidance on setting up DHCP and DNS servers on Linux and Windows.
-
-### Linux-based DNS server setup
-
-Linux offers various packages for setting up DNS servers. For instructions setting up an open-source BIND DNS server, refer to [Example setup](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7).
-
-### Windows-based setup
-
-The following Microsoft articles describe how to set up a Windows server as a DNS server and as a DHCP server.
-
-* [Windows Server as DNS Server](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
-
-* [Windows Server as DHCP Server](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
-
-## Customize networking configuration (Optional)
-
-The Network pages in the CloudSimple portal allow you to specify the configuration for firewall tables and public IP addresses for VMs.
-
-### Allocate a public IP
-
-1. In the CloudSimple portal, navigate to **Network > Public IP**.
-2. Click **Allocate Public IP**.
-3. Enter a name to identify the IP address entry.
-4. Keep the default location.
-5. (Optional) Use the slider to change the idle timeout.
-6. Enter the local IP address for which you want to assign a public IP address.
-7. (Optional) Enter an associated DNS name.
-8. Click **Submit**. Public IP address allocation begins.
-
-9. (Optional) Check the status of the task on the **Activity** > **Tasks** page.
-
-    When allocation is done, the new entry appears on the **Public IPs'** page.
-
-Use the local IP address specified in the previous steps to specify which IP address to map the VM to. The steps to configure an IP address depends on the VM operating system. Consult your VM operating system documentation for the correct procedure.
-
-### Example
-
-The following example provides details for Ubuntu 16.04.
-
-Add the static method to the INET address family configuration in the file /etc/network/interfaces. Change the address, netmask, and gateway values. For this example, we're using:
-
-* The eth0 interface
-* Internal IP address: 192.168.24.10
-* Gateway address: 192.168.24.1
-* Netmask 255.255.255.0
-
-For your environment, the available subnet information is provided in the welcome email.
-
-```bash
-sudo vi /etc/network/interfaces
-```
-
-The output will look similar to the following example:
-
-```console
-auto eth0
-Iface eth0 inet static
-iface eth0 inet static
-address 192.168.24.10
-netmask 255.255.255.0
-gateway 192.168.24.1
-dns-nameservers 8.8.8.8
-dns-domain acme.com
-dns-search acme.com
-```
-
-Manually disable the interface.
-
-```bash
-sudo ifdown eth0
-```
-
-Manually enable the interface again.
-
-```bash
-sudo ifup eth0
-```
-
-By default, all incoming traffic from the Internet is **denied**. If you would like to open any other port, file a ticket with CloudSimple Support.
-
-After configuring an internal IP address as the static IP address, verify that you can reach the Internet from within the VM.
-
-```bash
-ping 8.8.8.8
-```
-
-Also verify that you can reach the VM from the Internet using the public IP address.
-
-* Ensure that any iptable rules on the VM aren't blocking port 80 inbound.
-
-```bash
-netstat -an | grep 80
-```
-
-* Start an http server that listens on port 80.
-
-```bash
-python2.7 -m SimpleHTTPServer 80 or python3 -m http.server 80
-```
-
-* Start a browser on your desktop and point it to port 80 for the public IP address to browse the files on your VM.
-
-## Default CloudSimple firewall rules for public IP
-
-For explicitly allocated workload public IP traffic:
-
-* VPN traffic: All traffic between (from/to) the VPN and all the workload networks and management network is allowed.
-* Private cloud internal traffic: All east-west traffic between (from/to) workload networks and the management network (shown above) is allowed.
-* Internet traffic:
-  * All incoming traffic from the Internet is denied to workload networks and the management network.
-  * All outgoing traffic to the Internet from workload networks or the management network is allowed.
-
-You can also modify the way your traffic is secured, using the Firewall Rules feature. For more information, see [Set up firewall tables and rules](https://docs.azure.cloudsimple.com/firewall).
-
-## Install solutions (Optional)
-
-You can install solutions on your CloudSimple private cloud to take full advantage of your private cloud vCenter environment. To protect your virtual machines, you can set up solutions for:
-
-* Backup
-* Disaster recovery
-* Replication
-* Other functions
-For example, you can set up VMware Site Recovery Manager (VMware SRM) and Veeam Backup & Replication.
-
-To install a solution, you must request additional privileges for a limited period. See [Escalate privileges](https://docs.azure.cloudsimple.com/vsphere-access#escalate-privileges).
-
 ## Next steps
 
+* [Consume VMware VMs on Azure](https://docs.azure.cloudsimple.com/quickstart-create-vmware-virtual-machine)
 * [Consume VMware VMs on Azure](quickstart-create-vmware-virtual-machine.md)
+* [Connect to on-premises network using Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection/)
+* [Setup Site-to-Site VPN from on-premises](https://docs.azure.cloudsimple.com/vpn-gateway/)

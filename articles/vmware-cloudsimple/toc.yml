@@ -12,6 +12,8 @@
       href: quickstart-create-cloudsimple-service.md
     - name: Configure private cloud environment
       href: quickstart-create-private-cloud.md
+    - name: Create VMware VM on Private Cloud
+      href: https://docs.azure.cloudsimple.com/quickstart-create-private-cloud-vmware-virtual-machine/
     - name: Consume VMware VMs on Azure
       href: quickstart-create-vmware-virtual-machine.md
   - name: Concepts
