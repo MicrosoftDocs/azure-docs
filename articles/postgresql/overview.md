@@ -1,12 +1,12 @@
 ---
 title: Overview of Azure Database for PostgreSQL relational database service
 description: Provides an overview of Azure Database for PostgreSQL relational database service.
-author: rachel-msft
-ms.author: raagyema
+author: jonels-msft
+ms.author: jonels
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 4/15/2018
+ms.date: 4/25/2019
 ---
 # What is Azure Database for PostgreSQL?
 Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the community version of open-source [PostgreSQL](https://www.postgresql.org/) database engine. It is available in two deployment options: Single Server and Hyperscale (Citus) (preview).
@@ -16,42 +16,27 @@ The Single Server deployment option delivers:
 
 - Built-in high availability with no additional cost
 - Predictable performance, using inclusive pay-as-you-go pricing
-- Scale as needed within seconds
+- Vertical scale as needed within seconds
 - Secured to protect sensitive data at-rest and in-motion
 - Automatic backups and point-in-time-restore for up to 35 days
 - Enterprise-grade security and compliance
 
-All those capabilities require almost no administration, and all are provided at no additional cost. These capabilities allow you to focus on rapid application development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open-source tools and platform of your choice, and deliver with the speed and efficiency your business demands without having to learn new skills. 
+All those capabilities require almost no administration, and all are provided at no additional cost. These capabilities allow you to focus on rapid application development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open-source tools and platform of your choice, and deliver with the speed and efficiency your business demands without having to learn new skills.
+
+The Single Server deployment option offers three pricing tiers: Basic, General Purpose, and Memory Optimized. Each tier offers different resource capabilities to support your database workloads. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Pricing tiers](concepts-pricing-tiers.md) for details.
 
 ## Azure Database for PostgreSQL - Hyperscale (Citus) (preview)
-In addition to providing the rich feature set of PostgreSQL, the Hyperscale (Citus) deployment option serves applications that require greater scale and performance. Hyperscale (Citus) horizontally scales queries across multiple machines using sharding. Its query engine parallelizes incoming SQL queries across these servers for faster responses on large datasets.
+Besides providing the rich feature set of PostgreSQL, the Hyperscale (Citus) option horizontally scales queries across multiple machines using sharding. Its query engine parallelizes incoming SQL queries across these servers for faster responses on large datasets. It serves applications that require greater scale and performance, generally workloads that are approaching -- or already exceed -- 100 GB of data.
 
-Azure Database for PostgreSQL Hyperscale (Citus) (preview) is ideal for workloads that are approaching -- or already exceed -- 100GB of data. Two common use cases are:
+The Hyperscale (Citus) deployment option delivers:
 
-* Multi-tenant applications
-* Real-time analytics applications
+- Horizontal scaling across multiple machines using sharding
+- Query parallelization across these servers for faster responses on large datasets
+- Excellent support for multi-tenant applications, real-time analytics, and time series data
 
-## Getting started
-This article is an introduction to Azure Database for PostgreSQL core concepts and features related to performance, scalability, and manageability. See these quickstarts to get you started:
+Applications built for PostgreSQL can run distributed queries on Hyperscale (Citus) with standard [connection libraries](./concepts-connection-libraries.md) and minimal changes.
 
-- [Create an Azure Database for PostgreSQL Single Server using Azure portal](quickstart-create-server-database-portal.md)
-- [Create an Azure Database for PostgreSQL Single Server using the Azure CLI](quickstart-create-server-database-azure-cli.md)
-- [Create an Azure Database for PostgreSQL Hyperscale (Citus) (preview) using the Azure portal](quickstart-create-hyperscale-portal.md)
-
-For a set of Azure CLI samples, see:
-
-- [Azure CLI samples for Azure Database for PostgreSQL](./sample-scripts-azure-cli.md)
-
-## Adjust performance and scale within seconds
-Azure Database for PostgreSQL service offers three pricing tiers: Basic, General Purpose, and Memory Optimized. Each tier offers different resource capabilities to support your database workloads. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Pricing tiers](concepts-pricing-tiers.md) for details.
-
-## Monitoring and alerting
-How do you decide when to dial up or down? You use the built-in Azure monitoring and alerting features. Using these tools, you can quickly assess the impact of scaling up or down based on your current or projected performance or storage needs. See [Alerts](howto-alert-on-metric.md) for details.
-
-## Keep your app and business running
-Azure's industry leading 99.99% availability service level agreement (SLA), powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. With every Azure Database for PostgreSQL server, you take advantage of built-in security, fault tolerance, and data protection that you would otherwise have to buy or design, build, and manage. With Azure Database for PostgreSQL, each pricing tier offers a comprehensive set of business continuity features and options that you can use to get up and running and stay that way. You can use [point-in-time restore](howto-restore-server-portal.md) to return a database to an earlier state, as far back as 35 days. In addition, if the datacenter hosting your databases experiences an outage, you can restore databases from geo-redundant copies of recent backups.
-
-## Secure your data
+## Data security
 Azure database services have a tradition of data security that Azure Database for PostgreSQL upholds with features that limit access, protect data at-rest and in-motion, and help you monitor activity. Visit the [Azure Trust Center](https://azure.microsoft.com/overview/trusted-cloud/) for information about Azure's platform security.
 
 The Azure Database for PostgreSQL service uses storage encryption for data at-rest and is FIPS 140-2 compliant. Data, including backups, is encrypted on disk (with the exception of temporary files created by the engine while running queries). The service uses AES 256-bit cipher that is included in Azure storage encryption, and the keys are system managed. Storage encryption is always on and cannot be disabled.
