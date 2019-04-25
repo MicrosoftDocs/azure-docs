@@ -14,9 +14,11 @@ ms.date: 05/02/2019
 
 ---
 
-# Create and explore automated machine learning experiments in the Azure portal
+# Create and explore automated machine learning experiments in the Azure portal (Preview)
 
  In this article, you learn how to create, run, and explore automated machine learning experiments in the Azure portal without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](https://docs.microsoft.com/azure/machine-learning/service/concept-automated-ml).
+
+ If you prefer a more code based experience, you can also [Configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## Prerequisites
 
@@ -187,7 +189,7 @@ Once you have the best model at hand, it is time to deploy it as a web service t
 
 Automated ML helps you with deploying the model without writing code:
 
-1. From the Run Summary pane on the right, select "Register model"
+1. From the Run Summary pane on the right, select "Register model".
 
     ![Register model](media/how-to-create-portal-experiments/register-model.png)
 
@@ -195,7 +197,7 @@ Automated ML helps you with deploying the model without writing code:
 
     ![Download scoring script](media/how-to-create-portal-experiments/download-scoring-script.png)
 
-1. Once you have the scoring script, go to the "Models" page (in the left navigation pane under **Assets**)
+1. Once you have the scoring script, go to the "Models" page (in the left navigation pane under **Assets**).
 
     ![Model navigation pane](media/how-to-create-portal-experiments/nav-pane-models.png)
 
@@ -231,4 +233,5 @@ Automated ML helps you with deploying the model without writing code:
 
 ## Next steps
 
-* [How to consume a deployed model](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).
+* [How to consume a deployed model](how-to-consume-web-service.md).
+* [Configure your automated machine learning experiments with Python](how-to-configure-auto-train.md).
