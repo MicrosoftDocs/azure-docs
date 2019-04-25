@@ -16,7 +16,7 @@ ms.date: 05/02/2019
 
 # Create and explore automated machine learning experiments in the Azure portal
 
- Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. In this article, you learn how to create, run, and explore automated machine learning experiments in the Azure portal without a single line of code. [Learn more about automated machine learning](https://docs.microsoft.com/azure/machine-learning/service/concept-automated-ml).
+ In this article, you learn how to create, run, and explore automated machine learning experiments in the Azure portal without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](https://docs.microsoft.com/azure/machine-learning/service/concept-automated-ml).
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ ms.date: 05/02/2019
 
 * An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
-## Get Started
+## Get started
 
 Navigate to the left pane. Select Automated Machine Learning under the Authoring (Preview) section.
 
