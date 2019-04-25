@@ -46,7 +46,7 @@ You must first complete and submit the [Cognitive Services Anomaly Detector Cont
 
 The **host** is the computer that runs the docker container. It can be a computer on your premises or a docker hosting service in Azure including:
 
-* [Azure Kubernetes Service](https://docs.microsoft.com/aks/index.yml)
+* [Azure Kubernetes Service](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 * [Azure Container Instances](https://docs.microsoft.com/container-instances/index.yml)
 * [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](https://docs.microsoft.com/azure-stack/index.yml). For more information, see [Deploy Kubernetes to Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 * [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/). <!--For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
