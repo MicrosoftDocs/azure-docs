@@ -348,7 +348,9 @@ best_run, fitted_model = automl_run.get_output()
 
 ### Automated feature engineering
 
-See [here](concept-automated-ml.md) for details on automated feature engineering that happens when preprocess=True.  Consider this example:
+See the list of preprocessing and [automated feature engineering](concept-automated-ml.md#preprocess) that happens when preprocess=True.  
+
+Consider this example:
 + There are 4 input features: A (Numeric), B (Numeric), C (Numeric), D (DateTime)
 + Numeric feature C is dropped because it is an ID column with all unique values
 + Numeric features A and B have missing values and hence are imputed by mean
@@ -356,7 +358,7 @@ See [here](concept-automated-ml.md) for details on automated feature engineering
 
 Use these 2 APIs on the first step of fitted model to understand more.  See [this sample notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
-+ API: `get_engineered_Feature_names()` returns a list of engineered feature names.
++ API 1: `get_engineered_Feature_names()` returns a list of engineered feature names.
 
   Usage: 
   ```python
@@ -372,7 +374,7 @@ Use these 2 APIs on the first step of fitted model to understand more.  See [thi
   >[!Note]
   >Use 'timeseriestransformer' for task=’forecasting’, else use 'datatransformer' for ‘regression’ or ‘classification’ task. 
 
-+ API: `get_featurization_summary()` returns featurization summary for all the input features.
++ API 2: `get_featurization_summary()` returns featurization summary for all the input features.
 
   Usage: 
   ```python
@@ -418,7 +420,7 @@ Use these 2 APIs on the first step of fitted model to understand more.  See [thi
 
 ### Scaling/Normalization and algorithm with hypermeter values:
 
-To understand the scaling/normalization and algorithm/hyperparameter values for a pipeline, use fitted_model.steps. [Learn more about scaling/normalization](concept-automated-ml.md). Here is a sample output:
+To understand the scaling/normalization and algorithm/hyperparameter values for a pipeline, use fitted_model.steps. [Learn more about scaling/normalization](concept-automated-ml.md#preprocess). Here is a sample output:
 
 ```
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
