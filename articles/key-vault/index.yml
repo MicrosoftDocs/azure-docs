@@ -8,7 +8,7 @@ metadata:
   manager: barbkess
   layout: LandingPage
   ms.service: key-vault
-      ms.topic: landing-page
+  ms.topic: landing-page
   ms.date: 09/14/2018
   ms.author: barclayn
 abstract:
