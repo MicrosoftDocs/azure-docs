@@ -44,7 +44,7 @@ By default, you have one transaction node. We're going to add two more for some 
 
 1. Create a new project folder called c:\nodeA
 1. In Visual Studio Code, select File > Open folder > C:\nodeA to open the project.
-1. 
+
 ## Deploy a smart contract
 
 After setting up MetaMask, we can use Injected Web3 in Remix. [Remix](https://remix.ethereum.org/) is an online solidity IDE that enables you to write and debug smart contracts.

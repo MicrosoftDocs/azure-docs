@@ -1,5 +1,5 @@
 ---
-title: Azure Blockchain Service Create and Manage Blockchain Service with Azure CLI
+title: Manage Azure Blockchain Service using Azure CLI
 description: How to create and manage Azure Blockchain Service with Azure CLI
 services: azure-blockchain
 keywords: 
@@ -13,11 +13,11 @@ manager: femila
 #Customer intent: As a network operator, I want to use CLI to configure transaction nodes.
 ---
 
-# Create and Manage Blockchain Service with Azure CLI
+# Manage Azure Blockchain Service with Azure CLI
 
 In addition to the Azure portal, you can use Azure CLI to quickly create and manage blockchain members and transaction nodes for your Azure Blockchain Service.
 
-Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged to an Azure account in with [az login](/cli/azure/reference-index). To start, run `az login` to create a connection with Azure.
+Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged in to an Azure account in with [az login](/cli/azure/reference-index).
 
 In the following examples, replace example `<parameter names>` with your own values.
 

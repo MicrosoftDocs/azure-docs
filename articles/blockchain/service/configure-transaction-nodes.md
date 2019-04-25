@@ -1,5 +1,5 @@
 ---
-title: Azure Blockchain Service Transaction Node Configuration
+title: Configure Azure Blockchain Service transaction nodes
 description: How to configure Azure Blockchain Service transaction nodes
 services: azure-blockchain
 keywords: 

@@ -1,5 +1,5 @@
 ---
-title: Azure Blockchain Service Consortium Management using PowerShell
+title: Azure Blockchain Service consortium management using PowerShell
 description: How to manage Azure Blockchain Service consortium members using PowerShell
 services: azure-blockchain
 keywords: 
@@ -22,7 +22,7 @@ You can use PowerShell to manage blockchain consortium members for your Azure Bl
 * [Create a blockchain member using the Azure portal](create-member.md)
 * For more information about consortia, members, and nodes, see [Azure Blockchain Service consortium](consortium.md)
 
-## Install and Import PowerShell module
+## Install and import PowerShell module
 
 Install the Microsoft.AzureBlockchainService.ConsortiumManagement.PS package from the PowerShell Gallery.
 

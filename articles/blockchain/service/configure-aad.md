@@ -1,8 +1,8 @@
 ---
-title: Azure Blockchain Service Configure Azure Active Directory Access
+title: How to configure Azure Active Directory access
 description: How to configure Azure Blockchain Service with Azure Active Directory Access
 services: azure-blockchain
-keywords: Azure Active Directory, AAD
+keywords: 
 author: PatAltimore
 ms.author: seal
 ms.date: 04/23/2019
@@ -93,7 +93,7 @@ connector.exe -remote <myBlockchainEndpoint>  -method aadclient -client-id <myCl
 | client-id | Client ID of the registered application in Azure AD
 | client-secret | Client secret of the registered application in Azure AD
 
-For more information on how to register an application in Azure AD, see  [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal).
+For more information on how to register an application in Azure AD, see  [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal).
 
 ### Connect a mobile device or text browser
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Blockchain Service Security
+title: Azure Blockchain Service security
 description: Azure Blockchain Service data access and security concepts
 services: azure-blockchain
 keywords: 
@@ -19,13 +19,13 @@ Azure Blockchain Service uses several Azure capabilities to keep your data secur
 
 ## Isolation
 
-Azure Blockchain Service resources are isolated in a private virtual network. Each transaction and validation node is a virtual machine (VM). VMs in one virtual network cannot communicate directly to VMs in a different virtual network. Isolation ensures communication remains private within the virtual network. For more information on Azure virtual network isolation, see [isolation in the Azure Public Cloud](https://docs.microsoft.com/en-us/azure/security/azure-isolation#networking-isolation).
+Azure Blockchain Service resources are isolated in a private virtual network. Each transaction and validation node is a virtual machine (VM). VMs in one virtual network cannot communicate directly to VMs in a different virtual network. Isolation ensures communication remains private within the virtual network. For more information on Azure virtual network isolation, see [isolation in the Azure Public Cloud](../../security/azure-isolation#networking-isolation).
 
 ![VNET diagram](./media/data-security/vnet.png)
 
 ## Encryption
 
-User data is stored in Azure storage. User data is encrypted in motion and at rest for security and confidentiality. For more information, see: [Azure Storage security guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide).
+User data is stored in Azure storage. User data is encrypted in motion and at rest for security and confidentiality. For more information, see: [Azure Storage security guide](../../storage/common/storage-security-guide).
 
 ## Authentication
 
