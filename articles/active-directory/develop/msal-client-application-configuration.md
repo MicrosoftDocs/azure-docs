@@ -32,7 +32,7 @@ In your code, you initialize a new public or confidential client (or user-agent 
     - [client secret](#client-secret) (for confidential client applications).
 - [Logging options](#logging), including log level, control of personal data, and the name of the component using the library.
 
-### Authority
+## Authority
 The authority is a URL indicating a directory that MSAL can request tokens from. Usual authorities are:
 
 - https://login.microsoftonline.com/&lt;tenant&gt;/, where &lt;tenant&gt; is the tenant ID of the Azure AD tenant or a domain associated with this Azure AD tenant.  Used only to sign in users of a specific organization.
@@ -57,20 +57,20 @@ The instance and audience can be concatenated and provided as the authority URL.
 
 ![Authority](media/msal-client-application-configuration/authority.png)
 
-### Cloud instance
+## Cloud instance
 The **instance** is used to specify if your application is signing users from the Microsoft Azure public cloud, or from national clouds. Using MSAL in your code, the Azure cloud instance can be set by using an enumeration or by passing the URL to the [national cloud instance](authentication-national-cloud.md#azure-ad-authentication-endpoints) as the `Instance` member (if you know it).
 
 MSAL.NET will throw an explicit exception if both `Instance` and `AzureCloudInstance` are specified. 
 
 If you don't specify an instance, your app will target the Azure public cloud instance (the instance of URL `https://login.onmicrosoftonline.com`).
 
-### Application audience
+## Application audience
 
 The sign-in audience depends on the business needs for your application:
 - If you are a line of business (LOB) developer, you'll probably produce a single tenant application, which will be used only in your organization. In that case, you need to specify what this organization is, either by its tenant ID (ID of your Azure Active Directory), or a domain name associated with this Azure Active Directory.
 - If you are an ISV, you might want to sign in users with their work and school accounts in any organization, or some organizations (multi-tenant app), but you might also want to have users sign in with their Microsoft personal account.
 
-#### How to specify the audience in your code/configuration
+### How to specify the audience in your code/configuration
 Using MSAL in your code, you specify the audience by using:
 - either the Azure AD authority audience enumeration. 
 - or the tenant ID, which can be:
@@ -85,20 +85,20 @@ MSAL will throw a meaningful exception if you specify both Azure AD authority au
 
 If you don't specify an audience your app will target Azure AD and personal Microsoft accounts as an audience (that is `common`).
 
-#### Effective audience
+### Effective audience
 The effective audience for your application will be the minimum (if there is an intersection) of the audience you set in your application and the audience specified in the application registration. Indeed, the application registration experience ([App Registration](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)) lets you specify the audience (supported account types) for the application. See [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md) for more information.
 
 Currently, the only way to get an application to sign in users with only Microsoft personal accounts is to set:
 - set the app registration audience to "Work and school accounts and personal accounts" and,
 - and, set the audience in your code / configuration to `AadAuthorityAudience.PersonalMicrosoftAccount` (or `TenantID `="consumers")
 
-### Client ID
+## Client ID
 The unique application (client) ID assigned to your app by Azure AD when the app was registered.
 
-### Redirect URI
+## Redirect URI
 The redirect URI is the URI where the identity provider will send the security tokens back. 
 
-#### Redirect URI for public client applications
+### Redirect URI for public client applications
 For public client application developers using MSAL:
 - You don't need to pass the ``RedirectUri`` as it's automatically computed by MSAL. This redirect URI is set to the following values depending on the platform:
 
@@ -116,15 +116,15 @@ It is possible to override the redirect URI using the `RedirectUri` property, fo
 
 For details see Android specifics and [iOS specifics](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS)
 
-#### Redirect URI for confidential client applications
+### Redirect URI for confidential client applications
 For web apps, the redirect URI (or reply URI), is the URI at which Azure AD will contact back the application with the token. This can be the URL of the Web application / Web API if the confidential is one of these.  This redirect URI needs to be registered in the app registration. This is especially important when you deploy an application that you have initially tested locally. You then need to add the reply URL of the deployed application in the application registration portal.
 
 For daemon apps, you don't need to specify a redirect URI.
 
-### Client secret
+## Client secret
 The client secret for the confidential client application. This secret (application password) is provided by the application registration portal, or provided to Azure AD during the application registration with PowerShell AzureAD, PowerShell AzureRM, or Azure CLI.
 
-### Logging
+## Logging
 The other options enable logging and troubleshooting. For more information, see the [Logging](msal-logging.md) page for more details on how to use them.
 
 ## Next steps
