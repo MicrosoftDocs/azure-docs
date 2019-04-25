@@ -102,7 +102,7 @@ Azure Active Directory (Azure AD) Identity Governance combines several features,
 ### Azure AD entitlement management is now available (Public preview)
 
 **Type:** New feature  
-**Service category:** Identity Governance
+**Service category:** Identity Governance  
 **Product capability:** Identity Governance
 
 Azure AD entitlement management, now in public preview, enables customers to delegate management of access packages, which define how employees and business partners can request access, who must approve, and how long they have access. Access packages can manage membership in Azure AD and Office 365 groups, role assignments in enterprise applications, and role assignments in SharePoint Online sites. Read more about entitlement management at the [overview of Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). To learn more about the breadth of Azure AD Identity Governance features, including Privileged Identity Management, access reviews and Terms of use, see [What is Azure AD Identity Governance?](../governance/identity-governance-overview.md).
