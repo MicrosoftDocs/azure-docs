@@ -68,6 +68,8 @@
     href: resource-group-delete.md
   - name: Resource Manager and classic deployment
     href: resource-manager-deployment-model.md
+  - name: Azure common security attributes
+    href: azure-resource-manager-security-attributes.md
 - name: How to
   items:
   - name: Create templates
