@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 04/15/2019
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
@@ -52,7 +52,7 @@ Some features are currently restricted to Linux containers:
 * [Virtual network deployment](container-instances-vnet.md) (preview)
 * [GPU resources](container-instances-gpu.md) (preview)
 
-For Windows container deployments, use Windows Server Core 2016 or 2019 container images based on Long-Term Servicing Channel (LTSC) releases, or corresponding Nano Server image versions. Windows Semi-Annual Channel (SAC) releases like 1709 and 1803 are unsupported.
+For Windows container deployments, use Windows Server Core 2016 or 2019 container images based on Long-Term Servicing Channel (LTSC) releases, or corresponding Nano Server base images.
 
 > [!NOTE]
 > Use of Windows Server 2019-based images in Azure Container Instances is in preview.
