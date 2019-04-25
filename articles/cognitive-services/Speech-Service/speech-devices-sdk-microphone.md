@@ -13,6 +13,10 @@ ms.author: erhopf
 ---
 # Speech Devices SDK Microphone array recommendations
 
+In this article, you learn how to design a microphone array for the Speech Devices SDK.
+
+The Speech Devices SDK works best with a microphone array that has been designed according to the following guidelines, including the microphone geometry and component selection. Guidance is also given on integration and electrical considerations.
+
 ## Microphone geometry
 
 The following array geometries are recommended for use with the
@@ -43,8 +47,7 @@ The recommended properties when selecting microphones are:
 | Sampling Rate                     | Minimum 16 kHz\*                   |
 | Directivity                       | Omnidirectional                   |
 | Frequency Response                | ± 3 dB, 200-8000 Hz Floating Mask\*|
-| Reliability                       | Storage Temperature Range -40°C  to 70°C |
-|                                   | Operating Temperature Range -20°C to 55°C|
+| Reliability                       | Storage Temperature Range -40°C  to 70°C<br />Operating Temperature Range -20°C to 55°C  |
 
 *\*Higher sampling rates or "wider" frequency ranges may be necessary
 for high-quality communications (VoIP) applications*
@@ -82,9 +85,7 @@ selection and integration.
 | Linearity Considerations          | No non-linear processing after speaker reference, otherwise a hardware-based loopback reference stream is required  |
 | Speaker Loopback                  | Provided via WASAPI, private APIs, custom ALSA plug-in (Linux), or provided via firmware channel      |
 | THD%                              | 3rd Octave Bands minimum 5th Order, 70 dBA Playback @ 0.8m  ≤ 6.3%, 315-500 Hz ≤ 5%, 630-5000 Hz                 |
-| Echo Coupling to Microphones      | \> -10 dB TCLw using ITU-T G.122 Annex B.4 method, normalized to mic level   |
-|                                   | TCLw = TCLwmeasured \+ (Measured Level - Target Output Sensitivity)         |
-|                                   | TCLw = TCLwmeasured \+ (Measured Level - (-26))|
+| Echo Coupling to Microphones      | \> -10 dB TCLw using ITU-T G.122 Annex B.4 method, normalized to mic level<br />TCLw = TCLwmeasured \+ (Measured Level - Target Output Sensitivity)<br />TCLw = TCLwmeasured \+ (Measured Level - (-26)) |
 
 ## Integration design architecture
 
@@ -101,7 +102,7 @@ microphones into a device:
 | Sampling Clock                    | Device audio must be free of jitter and drop-outs with low drift    |
 | Record Capability                 | The device must be able to record individual channel raw streams simultaneously |
 | USB                               | All USB audio input devices must set descriptors according to the [USB Audio Devices Rev3 Spec](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
-| Microphone Geometry               | Drivers must implement [Microphone Array Geometry Descriptors](https://docs.microsoft.com/en-us/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) correctly  |
+| Microphone Geometry               | Drivers must implement [Microphone Array Geometry Descriptors](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) correctly  |
 | Discoverability                   | Devices must not have any undiscoverable or uncontrollable hardware, firmware, or 3rd party software-based non-linear audio processing algorithms to/from the device|
 | Capture Format                    | Capture formats must use a minimum sampling rate of 16kHz  and recommended 24-bit depth      |
 
@@ -118,3 +119,8 @@ re-samplers.
 High-speed USB Audio Class 2.0 should be supported within any audio MCUs
 in order to provide the necessary bandwidth for up to seven channels at
 higher sample rates and bit depths.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> Learn more about the [Speech Devices SDK](speech-devices-sdk.md)

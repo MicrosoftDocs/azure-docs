@@ -138,7 +138,7 @@ To validate your development kit setup, build and install the sample application
 
    If you cannot connect to the Speech Device. Type the following command in a Command Prompt window. It will return a list of devices:
 
-   ```Powershell
+   ```powershell
     adb devices
    ```
 

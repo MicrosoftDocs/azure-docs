@@ -38,7 +38,7 @@ This article provides device specific information for the Roobo Smart Audio Dev 
 
 1. Install the certificates and set the permissions of the sound device. Type the following commands in a Command Prompt window:
 
-   ```Powershell
+   ```powershell
    adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/
    adb shell
    cd /data/
@@ -69,4 +69,4 @@ Roobo provides a tool that captures all audio to flash memory. It might help you
 
 ## Next steps
 
-* [Run the Android sample app](speech-devices-sdk-android-qsg.md)
+* [Run the Android sample app](speech-devices-sdk-android-quickstart.md)
