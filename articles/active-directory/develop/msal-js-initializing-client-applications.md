@@ -106,31 +106,38 @@ export type Configuration = {
 
 Below is the total set of configurable options that are supported currently in the config object:
 
-- `clientID`: Required. The clientID of your application, you should get this from the application registration portal.
+- **clientID**: Required. The clientID of your application, you should get this from the application registration portal.
 
-- `authority`: Optional. A URL indicating a directory that MSAL can request tokens from. In Azure AD, it is of the form https://&lt;instance&gt;/&lt;tenant&gt;, where &lt;instance&gt; is the directory host (for example, `https://login.microsoftonline.com`) and &lt;tenant&gt; is an identifier within the directory itself (for example, a domain associated to the tenant, such as contoso.onmicrosoft.com, or the GUID representing the `TenantID` property of the directory). For more details, see [sign in audience](v2-supported-account-types.md).  In Azure AD B2C, it is of the form https://&lt;instance&gt;/tfp/&lt;tenantId&gt;/&lt;policyName&gt;/. Default value is: `https://login.microsoftonline.com/common`.
+- **authority**: Optional. A URL indicating a directory that MSAL can request tokens from. Default value is: `https://login.microsoftonline.com/common`.
+    * In Azure AD, it is of the form https://&lt;instance&gt;/&lt;audience&gt;, where &lt;instance&gt; is the identity provider domain (for example, `https://login.microsoftonline.com`) and &lt;audience&gt; is an identifier representing the sign-in audience. This can be the following values:
+        * `https://login.microsoftonline.com/<tenant>`- tenant is a domain associated to the tenant, such as contoso.onmicrosoft.com, or the GUID representing the `TenantID` property of the directory used only to sign in users of a specific organization.
+        * `https://login.microsoftonline.com/common`- Used to sign in users with work and school accounts or a Microsoft personal account.
+        * `https://login.microsoftonline.com/organizations/`- Used to sign in users with work and school accounts.
+        * `https://login.microsoftonline.com/consumers/` - Used to sign in users with only personal Microsoft account (live).
+    * In Azure AD B2C, it is of the form `https://<instance>/tfp/<tenant>/<policyName>/`, where instance is the Azure AD B2C domain, tenant is the name of the Azure AD B2C tenant, policyName is the name of the B2C policy to apply.
 
-- `validateAuthority`: Optional.  Validate the issuer of tokens. Default is `true`. For B2C applications, since the authority value is known and can be different per policy, the authority validation will not work and has to be set to `false`.
 
-- `redirectUri`: Optional.  The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL encoded. Defaults to `window.location.href`.
+- **validateAuthority**: Optional.  Validate the issuer of tokens. Default is `true`. For B2C applications, since the authority value is known and can be different per policy, the authority validation will not work and has to be set to `false`.
 
-- `postLogoutRedirectUri`: Optional.  Redirects the user to `postLogoutRedirectUri` after sign out. The default is `redirectUri`.
+- **redirectUri**: Optional.  The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL encoded. Defaults to `window.location.href`.
 
-- `state`: Optional.  A value included in the request that will also be returned in the token response typically used for preventing [cross-site request forgery attacks](https://tools.ietf.org/html/rfc6749#section-10.12). By default, MSAL.js passes a randomly generated unique value for this purpose. You can also pass the user's state in the app, such as the page or view they were on as input to this parameter. The passed in state appended to the unique guid set by MSAL.js would come back in the auth response.
+- **postLogoutRedirectUri**: Optional.  Redirects the user to `postLogoutRedirectUri` after sign out. The default is `redirectUri`.
 
-- `navigateToLoginRequestUrl`: Optional. Ability to turn off default navigation to start page after login. Default is true. This is used only for redirect flows.
+- **state**: Optional.  A value included in the request that will also be returned in the token response typically used for preventing [cross-site request forgery attacks](https://tools.ietf.org/html/rfc6749#section-10.12). By default, MSAL.js passes a randomly generated unique value for this purpose. You can also pass the user's state in the app, such as the page or view they were on as input to this parameter. The passed in state appended to the unique guid set by MSAL.js would come back in the auth response.
 
-- `cacheLocation`: Optional.  Sets browser storage to either `localStorage` or `sessionStorage`. The default is `sessionStorage`.
+- **navigateToLoginRequestUrl**: Optional. Ability to turn off default navigation to start page after login. Default is true. This is used only for redirect flows.
 
-- `storeAuthStateInCookie`: Optional.  This flag was introduced in MSAL.js v0.2.2 as a fix for the [authentication loop issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#1-issues-due-to-security-zones) on Microsoft Internet Explorer and Microsoft Edge. Enable the flag `storeAuthStateInCookie` to true to take advantage of this fix. When this is enabled, MSAL.js will store the auth request state required for validation of the auth flows in the browser cookies. By default this flag is set to `false`.
+- **cacheLocation**: Optional.  Sets browser storage to either `localStorage` or `sessionStorage`. The default is `sessionStorage`.
 
-- `logger`: Optional.  A Logger object with a callback instance that can be provided by the developer to consume and publish logs in a custom manner. For details on passing logger object, see [logging with msal.js](msal-logging.md).
+- **storeAuthStateInCookie**: Optional.  This flag was introduced in MSAL.js v0.2.2 as a fix for the [authentication loop issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#1-issues-due-to-security-zones) on Microsoft Internet Explorer and Microsoft Edge. Enable the flag `storeAuthStateInCookie` to true to take advantage of this fix. When this is enabled, MSAL.js will store the auth request state required for validation of the auth flows in the browser cookies. By default this flag is set to `false`.
 
-- `loadFrameTimeout`: Optional.  The number of milliseconds of inactivity before a token renewal response from Azure AD should be considered timed out. Default is 6 seconds.
+- **logger**: Optional.  A Logger object with a callback instance that can be provided by the developer to consume and publish logs in a custom manner. For details on passing logger object, see [logging with msal.js](msal-logging.md).
 
-- `tokenRenewalOffsetSeconds`: Optional. The number of milliseconds which sets the window of offset needed to renew the token before expiry. Default is 300 milliseconds.
+- **loadFrameTimeout**: Optional.  The number of milliseconds of inactivity before a token renewal response from Azure AD should be considered timed out. Default is 6 seconds.
+
+- **tokenRenewalOffsetSeconds**: Optional. The number of milliseconds which sets the window of offset needed to renew the token before expiry. Default is 300 milliseconds.
 
 These are only applicable to be passed down from the MSAL Angular wrapper library:
-- `unprotectedResources`: Optional.  Array of URIs that are unprotected resources. MSAL will not attach a token to outgoing requests that have these URI. Defaults to `null`.
+- **unprotectedResources**: Optional.  Array of URIs that are unprotected resources. MSAL will not attach a token to outgoing requests that have these URI. Defaults to `null`.
 
-- `protectedResourceMap`: Optional.  This is mapping of resources to scopes used by MSAL for automatically attaching access tokens in web API calls. A single access token is obtained for the resource. So you can map a specific resource path as follows: {"https://graph.microsoft.com/v1.0/me", ["user.read"]}, or the app URL of the resource as: {"https://graph.microsoft.com/", ["user.read", "mail.send"]}. This is required for CORS calls. Defaults to `null`.
+- **protectedResourceMap**: Optional.  This is mapping of resources to scopes used by MSAL for automatically attaching access tokens in web API calls. A single access token is obtained for the resource. So you can map a specific resource path as follows: {"https://graph.microsoft.com/v1.0/me", ["user.read"]}, or the app URL of the resource as: {"https://graph.microsoft.com/", ["user.read", "mail.send"]}. This is required for CORS calls. Defaults to `null`.
