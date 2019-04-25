@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Execute Python Script
+# Execute Python Script module
 
 *Executes a Python script from an Azure Machine Learning experiment*
 
@@ -20,7 +20,9 @@ Category: Python Language Modules
 
 ## Module overview
 
-This article describes how to use the **Execute Python Script** module in Azure Machine Learning service to run Python code. For more information about the architecture and design principles of Python, see [the following article.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to run Python code. For more information about the architecture and design principles of Python, see [the following article.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
 
 With Python, you can perform tasks that aren't currently supported by existing modules such as:
 

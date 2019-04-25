@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Normalize Data
+# Normalize Data module
 
 *Rescales numeric data to constrain dataset values to a standard range*
 
@@ -20,7 +20,9 @@ Category: Data Transformation / Scale and Reduce
 
 ## Module overview
 
-This article describes how to use the **Normalize Data** module in Azure Machine Learning service to transform a dataset through *normalization*.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to transform a dataset through *normalization*.
 
 Normalization is a technique often applied as part of data preparation for machine learning. The goal of normalization is to change the values of numeric columns in the dataset to use a common scale, without distorting differences in the ranges of values or losing information. Normalization is also required for some algorithms to model the data correctly.
 

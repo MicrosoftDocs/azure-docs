@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Multiclass Neural Network
+# Multiclass Neural Network module
 
 *Creates a multiclass classification model using a neural network algorithm*
 
@@ -20,7 +20,9 @@ Category: Machine Learning / Initialize Model / Classification
 
 ## Module overview
 
-This article describes how to use the **Multiclass Neural Network** module in Azure Machine Learning service to create a neural network model that can be used to predict a target that has multiple values. 
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to create a neural network model that can be used to predict a target that has multiple values. 
 
 For example, neural networks of this kind might be used in complex computer vision tasks, such as digit or letter recognition, document classification, and pattern recognition.
 
