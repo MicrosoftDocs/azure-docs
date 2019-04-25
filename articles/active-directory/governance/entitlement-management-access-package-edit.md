@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/24/2019
+ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -32,9 +32,6 @@ An access package enables you to do a one-time setup of resources and policies t
 
 This article describes how to edit and manage existing access packages.
 
-## When are changes applied
-
-In entitlement management, a job runs approximately every 2 hours to apply assignment and policy changes to your access packages. So, if you make an assignment or policy change to your access package, it can take up to 2 hours plus the amount of time it takes to apply your change. If your change affects just a few objects, the change will likely only take a few minutes to apply once the job starts. If your change affects thousands of objects, the change will take longer. For example, if you have an access package with 2 applications and 100 user assignments, and you decide to add a group to the access package, it can take up to 2 hours to start adding the 100 users to the group.
 
 ## Add resource roles
 
@@ -42,13 +39,16 @@ A resource role is a collection of permissions associated with a resource. The w
 
 ### Add a group resource role
 
-You can add users to a group when they are assigned an access package. You can use any Office 365 group or Azure AD security group. Here are some considerations when selecting a group:
+You can have entitlement management automatically add users to a group when they are assigned an access package. 
 
 - When a group is part of an access package and a user is assigned to that access package, the user is added to that group, if not already present.
-- When a user's access package assignment expires, they are removed from the group, unless they have access to another access package that includes that group.
-- When a user is added to a group, they can see all the other members of that group.
+- When a user's access package assignment expires, they are removed from the group, unless they currently have an assignment to another access package that includes that same group.
+
+You can select any Office 365 group or Azure AD security group.  Administrators can add any group to a catalog; catalog owners can add any group to the catalog if they are owner of the group. Please keep the following Azure AD constraints in mind when selecting a group:
+
+- When a user, including a guest, is added as a member to a group, they can see all the other members of that group.
 - Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect.  
-- The membership of dynamic groups cannot be updated using entitlement management.
+- The membership of dynamic groups cannot be updated by adding or removing a member, so dynamic group memberships are not suitable for use with entitlement management.
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
@@ -78,11 +78,18 @@ You can add users to a group when they are assigned an access package. You can u
 
 ### Add an application resource role
 
-You can assign users access to an Azure AD enterprise application, including both SaaS applications and your own applications federated to Azure AD, when they are assigned an access package. For applications that integrate with Azure AD through federated single sign-on, Azure AD will issue federation tokens for users assigned to the application. Here are some considerations when selecting an application:
+You can have Azure AD automatically assign users access to an Azure AD enterprise application, including both SaaS applications and your organization's applications federated to Azure AD, when a user is assigned an access package. For applications that integrate with Azure AD through federated single sign-on, Azure AD will issue federation tokens for users assigned to the application.
 
-- When an application's role is part of an access package, then a user who is assigned that access package is added to that application role, if not already present.
-- When a user's access package assignment expires, their access will be removed from the application, unless they have access to another access package that includes that application.
-- Applications can have multiple roles, as well as groups assigned to roles.
+Applications can have multiple roles. When adding an application to an access package, if that application has more than one role, you will need to specify the appropriate role for those users.  If you are developing applications, you can read more about how those roles are provided to your applications in the article on how to [configure the role claim issued in the SAML token](../develop/active-directory-enterprise-app-role-management.md).
+
+Once an application role is part of an access package:
+
+- When a user is assigned that access package, the user is added to that application role, if not already present.
+- When a user's access package assignment expires, their access will be removed from the application, unless they have an assignment to another access package that includes that application role.
+
+Here are some considerations when selecting an application:
+
+- Applications may also have groups assigned to their roles as well.  You can choose to add a group in place of an application role in an access package, however then the application will not be visible to the user as part of the access package in the My Access portal.
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
@@ -108,9 +115,9 @@ You can assign users access to an Azure AD enterprise application, including bot
 
     Any users with existing assignments to the access package will automatically be given access to this application when it is added.
 
-### Add an SharePoint site resource role
+### Add a SharePoint site role
 
-You can assign users access to a SharePoint Online site or SharePoint Online site collection when they are assigned an access package.
+Azure AD can automatically assign users access to a SharePoint Online site or SharePoint Online site collection when they are assigned an access package.
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
@@ -345,6 +352,10 @@ An access package can only be deleted if it has no active user assignments.
 1. In the left menu, click **Overview** and then click **Delete**.
 
 1. In the delete message that appears, click **Yes**.
+
+## When are changes applied
+
+In entitlement management, Azure AD will several times a day to process bulk changes for assignment and resources in your access packages. So, if you make an assignment, or change the resource roles of your access package, it can take up to 24 hours for that change to be made in Azure AD, plus the amount of time it takes to propogate those changes to other of the Microsoft Online Services or the connected SaaS applications. If your change affects just a few objects, the change will likely only take a few minutes to apply in Azure AD, after which other Azure AD components will then detect that change and update the SaaS applications. If your change affects thousands of objects, the change will take longer. For example, if you have an access package with 2 applications and 100 user assignments, and you decide to add a SharePoint site role to the access package, there may be a delay until all the users are part of that SharePoint site role.  You can monitor the progres through the Azure AD audit log, the Azure AD provisioning log, and the SharePoint site audit logs.
 
 ## Next steps
 
