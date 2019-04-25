@@ -87,4 +87,4 @@ This article explains which languages are supported for the Ink Recognizer API. 
 ## See also
 
 * [What is the Ink Recognizer API?](overview.md)
-* [Sending digital ink strokes to the Ink Recognizer API](concepts/recommended-calling-patterns.md)
+* [Sending digital ink strokes to the Ink Recognizer API](concepts/send-ink-data.md)

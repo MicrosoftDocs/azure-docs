@@ -19,7 +19,7 @@
 - name: Concepts
   items:
   - name: Send ink data to the Ink Recognizer API 
-    href: concepts/recommended-calling-patterns.md
+    href: concepts/send-ink-data.md
 - name: Samples
   items:
   - name: C# and Universal Windows Platform(UWP)

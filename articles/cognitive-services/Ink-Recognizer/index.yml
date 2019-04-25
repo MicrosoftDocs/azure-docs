@@ -28,7 +28,7 @@ sections:
           image:
             src: ../media/index/i_overview.svg
           title: What is Ink Recognizer API?
-        - href: concepts/recommended-calling-patterns.md
+        - href: concepts/send-ink-data.md
           html: <p>Learn about recommended calling patterns when using the API</p>
           image:
             src: ../media/index/i_overview.svg

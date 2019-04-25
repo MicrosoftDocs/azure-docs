@@ -49,7 +49,7 @@ The Ink Recognizer API requires the X and Y coordinates that represent the ink s
 
 ## Ink Recognizer response
 
-The Ink Recognizer API returns an analysis response about the objects it recognized from the ink content. The response contains recognition units that describe the relationships between different ink strokes. For example, strokes that create distinct, separate shapes will be contained in different units. Each unit contains detailed information about it's ink strokes including the recognized object, it's coordinates, and other drawing attributes.
+The Ink Recognizer API returns an analysis response about the objects it recognized from the ink content. The response contains recognition units that describe the relationships between different ink strokes. For example, strokes that create distinct, separate shapes will be contained in different units. Each unit contains detailed information about its ink strokes including the recognized object, its coordinates, and other drawing attributes.
 
 ## Shapes recognized by the Ink Recognizer API
 
@@ -63,7 +63,7 @@ You can call the Ink Recognizer REST API in different patterns according to your
 
 ### User initiated API calls
 
-If you're building an app that takes user input (for example, a note taking or annotation app), you may want to give them control of when and which ink gets sent to the Ink Recognizer API. This is especially useful when text and shapes are both present on the canvas, and users want to perform different actions for each. Consider adding selection features (like a lasso or other geometric selection tool) that enable users to choose what gets sent to the API.  
+If you're building an app that takes user input (for example, a note taking or annotation app), you may want to give them control of when and which ink gets sent to the Ink Recognizer API. This functionality is especially useful when text and shapes are both present on the canvas, and users want to perform different actions for each. Consider adding selection features (like a lasso or other geometric selection tool) that enable users to choose what gets sent to the API.  
 
 ### App initiated API calls
 

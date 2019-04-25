@@ -27,7 +27,7 @@ With the Ink Recognizer API, you can easily recognize handwritten content in you
 |---------|---------|
 | Handwriting recognition | Recognize handwritten content in 63 core [languages and locales](language-support.md). | 
 | Layout recognition | Get structural information about the digital ink content. Break the content into writing regions, paragraphs, lines, words, bulleted lists. Your applications can then use the layout information to build additional features like automatic list formatting, and shape alignment. |
-| Shape recognition | Recognize the most commonly used [geometric shapes](concepts/recommended-calling-patterns.md#shapes-recognized-by-the-ink-recognizer-api) when taking notes. |
+| Shape recognition | Recognize the most commonly used [geometric shapes](concepts/send-ink-data.md#shapes-recognized-by-the-ink-recognizer-api) when taking notes. |
 | Combined shapes and text recognition | Recognize which ink strokes belong to shapes or handwritten content, and separately classify them.|
 
 ## Workflow
@@ -38,7 +38,7 @@ The Ink Recognizer API is a RESTful web service, making it easy to call from any
 
 After signing up:
 
-1. Take your ink stroke data and [format it](concepts/recommended-calling-patterns.md#sending-ink-data-to-the-api) into valid JSON.
+1. Take your ink stroke data and [format it](concepts/send-ink-data.md#sending-ink-data-to-the-api) into valid JSON.
 1. Send a request to the Ink Recognizer API with your data.
 1. Process the API response by parsing the returned JSON message.
 
