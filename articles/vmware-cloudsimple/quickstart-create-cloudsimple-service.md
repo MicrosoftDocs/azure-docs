@@ -56,7 +56,7 @@ Follow the steps below to enable the resource provider for CloudSimple service.
 5. Select the subscription where you want to create the CloudSimple service.
 6. Select the resource group for the service. To add a new resource group, click **Create New**.
 7. Enter name to identify the service.
-8. Enter the CIDR for the service gateway. Specify a /28 subnet that doesnâ€™t overlap with any of your  on-premises subnets, Azure subnets, or planned CloudSimple subnets. You can't change the CIDR after the service is created.
+8. Enter the CIDR for the service gateway. Specify a /28 subnet that doesn't overlap with any of your  on-premises subnets, Azure subnets, or planned CloudSimple subnets. You can't change the CIDR after the service is created.
 
     ![Creating the CloudSimple service](media/create-cloudsimple-service.png)
 
