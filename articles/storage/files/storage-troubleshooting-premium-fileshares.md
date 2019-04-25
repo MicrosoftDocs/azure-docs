@@ -137,7 +137,7 @@ If the number of DirectoryOpen/DirectoryClose calls is among the top API calls a
 
 ### Workaround
 
-There is a fix for this issue available in the [April Platform Update for Windows](https://support.microsoft.com/en-us/help/4052623/update-for-windows-defender-antimalware-platform).
+- A fix for this issue is available in the [April Platform Update for Windows](https://support.microsoft.com/en-us/help/4052623/update-for-windows-defender-antimalware-platform).
 
 ## File creation is slower than expected
 
