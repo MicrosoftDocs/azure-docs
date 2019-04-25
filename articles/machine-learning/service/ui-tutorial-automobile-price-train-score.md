@@ -125,7 +125,7 @@ Use your data for both training the model and testing it by splitting the data i
 
 1. Type **split data** in the search box to find the **Split Data** module and connect it to the left port of the **Clean Missing Data** module.
 
-1. Select the **Split Data** module to select it. In the Properties pane, set the Fraction of rows in the first output dataset to 0.7. This way, we'll use 70 percent of the data to train the model, and hold back 30 percent for testing.
+1. Select the **Split Data** module you just connected to select it. In the Properties pane, set the Fraction of rows in the first output dataset to 0.7. This way, we'll use 70 percent of the data to train the model, and hold back 30 percent for testing.
 
     ![Screenshot showing the correct configuration of the properties pane. Values of "Split Data" should be "Split Rows", 0.7, Randomized split, 0, False.](./media/ui-tutorial-automobile-price-train-score/split-data.png)
 
