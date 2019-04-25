@@ -6,7 +6,7 @@ author: zr-msft
 
 ms.service: container-service
 ms.topic: article
-ms.date: 04/24/2019
+ms.date: 05/06/2019
 ms.author: zarhoads
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.

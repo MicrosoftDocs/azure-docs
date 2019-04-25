@@ -44,7 +44,7 @@ Now create a disk using the [az disk create][az-disk-create] command. Specify th
 ```azurecli-interactive
 az disk create \
   --resource-group MC_myResourceGroup_myAKSCluster_eastus \
-  --name myAKSDisk2  \
+  --name myAKSDisk \
   --size-gb 20 \
   --query id --output tsv
 ```
