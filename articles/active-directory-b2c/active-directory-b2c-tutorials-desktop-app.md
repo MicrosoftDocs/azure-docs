@@ -3,7 +3,7 @@ title: Tutorial - Enable authentication in a native client application - Azure A
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for a .NET desktop application.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.author: davidmu
 ms.date: 02/04/2019
