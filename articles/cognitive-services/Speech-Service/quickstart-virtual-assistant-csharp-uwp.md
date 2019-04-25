@@ -208,8 +208,6 @@ This quickstart will describe, step by step, how to make a simple client applica
 
                 byte[] pullBuffer = new byte[2056];
 
-                Debug.WriteLine($"Producer started at {Environment.TickCount}");
-
                 uint lastRead = 0;
                 do
                 {
