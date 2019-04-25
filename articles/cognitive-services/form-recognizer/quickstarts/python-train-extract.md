@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 -  You must get access to the Form Recognizer limited-access preview. To get access to the preview, please fill out and submit the [Cognitive Services Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form. 
 - You must have [Python](https://www.python.org/downloads/) installed if you want to run the sample locally.
-- You must have a subscription key for Form Recognizer. To get a subscription key, see [Obtaining Subscription Keys](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account).
+- You must have a subscription key for Form Recognizer. To get a subscription key, see [Obtaining Subscription Keys](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 - You must have a minimum set of five forms of the same type. You can use a [sample dataset](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/curl/form-recognizer/sample_data.zip) for this quickstart.
 
 ## Create and run the sample
@@ -35,27 +35,27 @@ To create and run the sample, make the following changes to the code snippet bel
 3. Replace `<SAS URL>` with an Azure Blob Storage container shared access signature (SAS) URL where the training data is located.  
 
 ```python
-########### Python Form Recognizer Train #############
-from requests import delete as http_delete
-from requests import get as http_get
-from requests import post as http_post
+    ########### Python Form Recognizer Train #############
+    from requests import delete as http_delete
+    from requests import get as http_get
+    from requests import post as http_post
 
-# Endpoint URL
-base_url = r"<Endpoint>"
-source = r"<SAS URL>"
-headers = {
-    # Request headers
-    'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '<Subscription Key>',
-}
-url = base_url + "/formrecognizer/v1.0-preview/custom/train" 
-body = {"source": source}
-try:
-    resp = http_post(url = url, json = body, headers = headers)
-    print("Response status code: %d" % resp.status_code)
-    print("Response body: %s" % resp.json())
-except Exception as e:
-    print(str(e))
+    # Endpoint URL
+    base_url = r"<Endpoint>"
+    source = r"<SAS URL>"
+    headers = {
+        # Request headers
+        'Content-Type': 'application/json',
+        'Ocp-Apim-Subscription-Key': '<Subscription Key>',
+    }
+    url = base_url + "/formrecognizer/v1.0-preview/custom/train" 
+    body = {"source": source}
+    try:
+        resp = http_post(url = url, json = body, headers = headers)
+        print("Response status code: %d" % resp.status_code)
+        print("Response body: %s" % resp.json())
+    except Exception as e:
+        print(str(e))
 ####################################
 ```
 4. Save the code as a file with an `.py` extension. For example, `form-recognize-train.py`.
@@ -115,32 +115,35 @@ Take note of the `"modelId"` value; you will need it for the following steps.
 Next, you will analyze a document and extract key-value pairs and tables from it. Call the **Model - Analyze** API by executing the Python script below. Before running the command, make the following changes:
 
 * Replace `<Endpoint>` with the endpoint you obtained your Form Recognizer subscription key. You can find it in your Form Recognizer resource overview tab.
+* Replace `<File Path>` with the file path location or URL where the form to extract data is located.
 * Replace `<modelID>` with the model ID you received in the previous step of training the model.
-* Replace `<SAS URL>` with an Azure Blob Storage container shared access signature (SAS) URL where the form to extract data is located. 
+* Replace `<file type>` with the file type - supported types pdf, image/jpeg, image/png. 
 * Replace `<subscription key>` with your subscription key.
 
 ```python
-from requests import delete as http_delete
-from requests import get as http_get
-from requests import post as http_post
+    ########### Python Form Recognizer Analyze #############
+    from requests import post as http_post
 
-# Endpoint URL
-base_url = r"<Endpoint>"
-form = r"<File URL>"
-headers = {
-    # Request headers
-    'Content-Type': 'multipart/form-data', 
-    'Ocp-Apim-Subscription-Key': '<Subscription Key>',
+    # PPE endpoint
+    base_url = r"<Endpoint>"
+    file_path = r"<File Path>"
+    model_id = "<modelID>"
+    headers = {
+        # Request headers
+        'Content-Type': 'application/<file type>',
+        'Ocp-Apim-Subscription-Key': '<subscription key>',
+    }
 
-}
-url = base_url + "/formrecognizer/v1.0-preview/custom/model/<modelID>/analyze" 
-body = {"form": form}
-try:
-    resp = http_post(url = url, json = body, headers = headers)
-    print("Response status code: %d" % resp.status_code)
-    print("Response body: %s" % resp.json())
-except Exception as e:
-    print(str(e))
+    try:
+        url = base_url + "/model/" + model_id + "/analyze" 
+        with open(file_path, "rb") as f:
+            data_bytes = f.read()  
+        resp = http_post(url = url, data = data_bytes, headers = headers)
+        print("Response status code: %d" % resp.status_code)    
+        print("Response body:\n%s" % resp.json())   
+    except Exception as e:
+        print(str(e))
+    ####################################
 ```
 ### Examine the response
 
