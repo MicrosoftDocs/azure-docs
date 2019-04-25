@@ -61,11 +61,9 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 
     ![Start the Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-server.png)
 
-    The link starts your notebook server and opens the server homepage in a new browser tab.  This link will only work for the person who creates the VM.
+    The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM.
 
-1. The notebook server opens in a new browser tab.  
-
-1. Select the **samples/quickstart** folder to see the quickstart notebook.
+1. On the Jupyter notebook webpage, select the **samples/quickstart** folder to see the quickstart notebook.
 
 ### Run the notebook
 
