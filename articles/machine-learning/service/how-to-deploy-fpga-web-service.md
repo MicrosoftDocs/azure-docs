@@ -27,7 +27,7 @@ These models are currently available:
 
 The FPGAs are available in these Azure regions:
   - East US
-  - West US
+  - West US 2
   - West Europe
   - Southeast Asia
 
@@ -48,7 +48,7 @@ The FPGAs are available in these Azure regions:
 
 ## Sample notebooks
 
-For your convenience, [sample notebooks](https://aka.ms/aml-notebooks) are available for the example below and in addition to other examples.
+For your convenience, [sample notebooks](https://aka.ms/aml-notebooks) are available for the example below and in addition to other examples.  Look under how-to-use-azureml and deployment folders for accelerated models.
 
 ## Create and containerize your model
 
@@ -203,7 +203,9 @@ for i in Image.list(workspace = ws):
     print('{}(v.{} [{}]) stored at {} with build log {}'.format(i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
 ```
 
-## Deploy to the cloud
+## Model deployment
+
+### Deploy to the cloud
 
 To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
 
@@ -238,7 +240,7 @@ print(aks_service.state)
 print(aks_service.scoring_uri)
 ```
 
-### Test the cloud service
+#### Test the cloud service
 The Docker image supports gRPC and the TensorFlow Serving "predict" API.  Use the sample client to call into the Docker image to get predictions from the model.  Sample client code is available:
 - [Python](https://github.com/Azure/aml-real-time-ai/blob/master/pythonlib/amlrealtimeai/client.py)
 - [C#](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
@@ -276,7 +278,7 @@ converted_model.delete()
 ## Deploy to a local edge server
 
 All [Azure Data Box Edge devices](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
-) contain an FPGA for running the model.  Only one model can be running on the FPGA at one time.  To run a different model, just deploy a new container. 
+) contain an FPGA for running the model.  Only one model can be running on the FPGA at one time.  To run a different model, just deploy a new container. Instructions and sample code can be found in [this Azure Sample](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
 
 ## Secure FPGA web services
 
