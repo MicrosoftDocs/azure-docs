@@ -143,9 +143,7 @@
   - name: Transcribe conversations (SDK)
     href: how-to-use-conversation-transcription-service.md
     displayName: conversation, transcription, speech recognition
-- name: Customization
-  items:
-  - name: Speech-to-text
+  - name: Customization
     items:
     - name: Speech-to-text
       items:
