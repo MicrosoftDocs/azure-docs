@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Learn how to associate a public IP address to a virtual machine.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: jdial
+ms.author: kumud
 
 ---
 

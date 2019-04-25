@@ -134,7 +134,7 @@ A compute target is the compute resource that you use to run your training scrip
 | Azure Container Instances | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
-| Project Brainwave</br>(Field-programmable gate array) | &nbsp; | ✓ |
+| Field-programmable gate array (FPGA) | &nbsp; | ✓ |
 
 Compute targets are attached to a workspace. Compute targets other than the local machine are shared by users of the workspace.
 
