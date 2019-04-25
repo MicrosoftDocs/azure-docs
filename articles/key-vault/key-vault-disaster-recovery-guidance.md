@@ -2,15 +2,11 @@
 title: What to do in the event of an Azure service disruption that affects Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Learn what to do in the event of an Azure service disruption that affects Azure Key Vault.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 editor: ''
 
-ms.assetid: 19a9af63-3032-447b-9d1a-b0125f384edb
 ms.service: key-vault
-ms.workload: key-vault
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn

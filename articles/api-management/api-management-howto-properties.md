@@ -23,10 +23,10 @@ Each API Management service instance has a properties collection of key/value pa
 
 | Attribute | Type | Description |
 | --- | --- | --- |
-| Display name |string |Alphanumeric string used for referencing the property in the policies. |
-| Value |string |The value of the property. It may not be empty or consist only of whitespace. |
-|Secret|boolean|Determines whether the value is a secret and should be encrypted or not.|
-| Tags |array of string |Optional tags that when provided can be used to filter the property list. |
+| `Display name` |string |Alphanumeric string used for referencing the property in the policies. |
+| `Value`        |string |The value of the property. It may not be empty or consist only of whitespace. |
+| `Secret`       |boolean|Determines whether the value is a secret and should be encrypted or not.|
+| `Tags`         |array of string |Optional tags that when provided can be used to filter the property list. |
 
 ![Named values](./media/api-management-howto-properties/named-values.png)
 
