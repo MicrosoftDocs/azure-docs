@@ -65,7 +65,7 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 
 1. On the Jupyter notebook webpage, select the **samples/quickstart** folder to see the quickstart notebook.
 
-### Run the notebook
+## Run the notebook
 
 Run a notebook that estimates pi and logs the error to your workspace.
 
