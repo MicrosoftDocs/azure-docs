@@ -16,11 +16,10 @@ ms.date: 05/02/19
 
 # Explore and prepare data with the Dataset class (Preview)
 
-Learn how to explore and prepare data with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). The [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) class (preview) enables you to explore and prepare your data by providing functions such as sampling, summary statistics and intelligent transformations. Transformation steps are saved in [Dataset definitions](how-to-manage-dataset-definitions.md) with the capability to handle multiple large files of different schemas in a highly scalable manner.
+Learn how to explore and prepare data with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). The [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) class (preview) enables you to explore and prepare your data by providing functions such as: sampling, summary statistics and intelligent transformations. Transformation steps are saved in [Dataset definitions](how-to-manage-dataset-definitions.md) with the capability to handle multiple large files of different schemas in a highly scalable manner.
 
 > [!Important]
 > Some Dataset classes (preview) have dependencies on the Data Prep SDK (GA). While transformation functions can be done directly with the GA'ed [Data Prep SDK functions](how-to-transform-data.md), we recommend the Dataset package wrappers described in this article if you are building a new solution. Azure Machine Learning Datasets (preview) allow you to not only transform your data, but also [snapshot data](how-to-create-dataset-snapshots.md) and store [versioned dataset definitions](how-to-manage-dataset-definitions.md). Datasets is the next version of the Data Prep SDK, offering expanded functionality for managing datasets in AI solutions.
-
 
 ## Prerequisites
 
