@@ -29,8 +29,8 @@ https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConf
 
 
 ## Instructions
-- Review our [Quickstart Instructions](iis-configurator-quickstart.md) to get started now with concise code samples.
-- Review our [Detailed Instructions](iis-configurator-detailed-instructions.md) for a deep dive on how to get started.
+- Review our [getting started instructions](iis-configurator-getting-started.md) to get started now with concise code samples.
+- Review our [detailed instructions](iis-configurator-detailed-instructions.md) for a deep dive on how to get started.
 
 ## PowerShell API reference
 - [Disable-ApplicationInsightsMonitoring](iis-configurator-api-disablemonitoring.md)

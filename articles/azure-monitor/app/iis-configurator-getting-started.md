@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# IISConfigurator Quickstart Instructions
+# Getting started instructions
 
 This document contains the quickstart commands expected to work for most environments. 
 These instructions depend on the PowerShell Gallery to distribute updates. 
@@ -22,10 +22,12 @@ These commands support the PowerShell `-Proxy` parameter.
 Review our [Detailed instructions](iis-configurator-detailed-instructions.md) page for an explanation of these commands, 
 instructions on how to customize, and how to troubleshoot.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 > [!CAUTION] 
 > This module is a prototype application, and isn't recommended for your production environments.
 
+## Download & install IISConfigurator via PowerShell Gallery
 
 ### Install prerequisites
 Run PowerShell as Administrator
@@ -51,7 +53,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ```
 	
 		
-##  Quickstart (offline install)
+## Download & install IISConfigurator manually (offline option)
 ### Manual download
 Manually download the latest version of the Module from: https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator.POC 
 
