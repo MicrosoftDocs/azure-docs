@@ -22,9 +22,9 @@ Learn how to deploy your machine learning model as a web service in the Azure cl
 | ----- | ----- | ----- |
 | [Local web service](#local) | Test/debug | Good for limited testing and troubleshooting.
 | [Azure Kubernetes Service (AKS)](#aks) | Real-time inference | Good for high-scale production deployments. Provides autoscaling, and fast response times. |
-| [Azure Container Instances (ACI)](#aci) | Testing | Good for development or testing. **Not suitable for production workloads.** |
-| [Azure Machine Learning Compute](how-to-run-batch-predictions.md) | (Preview) Batch inference | Run batch prediction on serverless compute. Supports normal and low-priority VMs. |
-| [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy models on IoT devices. Inferencing happens on the device. |
+| [Azure Container Instances (ACI)](#aci) | Testing | Good for low scale, CPU-based workloads. |
+| [Azure Machine Learning Compute](how-to-run-batch-predictions.md) | (Preview) Batch inference | Run batch scoring on serverless compute. Supports normal and low-priority VMs. |
+| [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy & serve ML models on IoT devices. |
 
 ## Deployment workflow
 
@@ -32,40 +32,34 @@ The process of deploying a model is similar for all compute targets:
 
 1. Register model(s).
 1. Deploy model(s).
-1. Test the deployment.
+1. Test deployed model(s).
 
 For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning Service](concept-model-management-and-deployment.md).
 
 ## Prerequisites for deployment
 
-[!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
+- A model. If you do not have a trained model, use the steps in the [Train models](tutorial-train-models-with-aml.md) tutorial to train and register one with the Azure Machine Learning service, or use the model provided in our tutorial.
 
-- To use the CLI commands, you must have the [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md).
-
-- A trained model. If you do not have a trained model, use the steps in the [Train models](tutorial-train-models-with-aml.md) tutorial to train and register one with the Azure Machine Learning service.
-
-    > [!NOTE]
-    > While the Azure Machine Learning service can work with any generic model that can be loaded in Python 3, the examples in this document demonstrate using a model stored in Python pickle format.
+- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), or the Python SDK.
 
 ## <a id="registermodel"></a> Register a machine learning model
 
 The model registry is a way to store and organize your trained models in the Azure cloud. Models are registered in your Azure Machine Learning service workspace. The model can be trained using Azure Machine Learning, or imported from a model trained elsewhere. The following examples demonstrates how to register a model from file:
 
-### Register a model from a run
-**Using the SDK**
+### Register a model from an Experiment Run
 
-**Scikit-learn example with the Python SDK:**
+**SScikit-Learn example with the CLI**
+```azurecli-interactive
+az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name plktexperiment  -f output.json -t model-output.json
+```
+**Using the SDK**
 ```python
 model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
 print(model.name, model.id, model.version, sep='\t')
 ```
 
-**Using the CLI**
-```azurecli-interactive
-az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name plktexperiment  -f output.json -t model-output.json
-```
-
 ### Register an externally created model
+You can register an externally created model by providing a **local path** to the model. You can provide either a folder or a single file.
 
 **ONNX example with the Python SDK:**
 ```python
@@ -91,7 +85,7 @@ For more information, see the reference documentation for the [Model class](http
 
 ## How to deploy
 
-To deploy as a web service, you must create an inference configuration (`InferenceConfig`) and a deployment configuration. The deployment configuration is specific to the compute target that you deploy to.
+To deploy as a web service, you must create an inference configuration (`InferenceConfig`) and a deployment configuration. In the inference config, you specify the scripts and dependencies needed to serve your model. In the deployment config you specify details of how to serve the model on the the compute target.
 
 
 ### <a id="script"></a> 1. Define your entry script & dependencies
