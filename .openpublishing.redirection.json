@@ -36627,6 +36627,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/analysis-services/tutorials/aas-adventure-works-tutorial.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/analysis-services/tutorials/aas-lesson-1-create-a-new-tabular-model-project.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
