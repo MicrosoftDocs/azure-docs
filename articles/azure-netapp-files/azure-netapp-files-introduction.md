@@ -28,4 +28,4 @@ The Azure NetApp Files documentation provides instructions on creating and manag
 **Next steps** 
 
 * [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md) 
-* [Quickstart: Set up Azure NetApp Files and create a volume](azure-netapp-files-quickstart-set-up-account-create-volumes.md)
+* [Quickstart: Set up Azure NetApp Files and create an NFS volume](azure-netapp-files-quickstart-set-up-account-create-volumes.md)
