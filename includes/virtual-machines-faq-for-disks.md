@@ -142,18 +142,6 @@ GPT partitioning can be used only on data disks, not OS disks. OS disks must use
 
 No, upload can only be used during the creation of a new empty disk with the **ReadyToUpload** state.
 
-**My SAS expired during my upload, how do I fix this?**
-
-If you have not called **RevokeAccess** for the disk yet, you can call **GrantGetAccess** again to get a new SAS.
-
-**What disk types are supported with this feature?**
-
-It is supported for standard HDD, standard SSD, and premium SSD. It is **not** currently supported with ultra SSD.
-
-**How are the disks billed while they are in an upload state?**
-
-Disks in the upload states are billed based on the [standard HDD pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/) irrespective of the storage type of the disks. For example, a P10 (128 GiB) premium SSD in an upload state is billed for S10. Transactions are billed as well.
-
 ## Standard SSD disks
 
 **What are Azure Standard SSD disks?**
