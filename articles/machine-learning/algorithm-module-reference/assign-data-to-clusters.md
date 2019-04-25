@@ -1,14 +1,16 @@
 ---
-title: "Assign Data to Clusters | Microsoft Docs"
-titleSuffix: "visual interface"
-ms.date: 01/10/2018
-ms.service: "machine-learning"
-ms.subservice: "studio"
-ms.topic: "reference"
+title:  "Assign Data to Cluster: Module Reference"
+titleSuffix: Azure Machine Learning service
+description: Learn how to use the Assign Data to Cluster module in Azure Machine Learning service to score clustering model.  
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: reference
 
-author: ericlicoding
-ms.author: amlstudiodocs 
-manager: cgronlun
+author: xiaoharper
+ms.author: amlstudiodocs
+ms.date: 05/06/2019
+ROBOTS: NOINDEX
 ---
 # Assign Data to Clusters
 

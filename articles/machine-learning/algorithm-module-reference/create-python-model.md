@@ -1,17 +1,16 @@
 ---
-title: "Create Python Model | Microsoft Docs"
-titleSuffix: "Azure Machine Learning Studio"
-ms.date: 01/31/2018
-ms.service: "machine-learning"
-ms.subservice: "core"
-ms.topic: "reference"
-dev_langs: 
-  - "Python"
-
+title:  "Create Python Model: Module Reference"
+titleSuffix: Azure Machine Learning service
+description: Learn how to use the Create Python Model model in Azure Machine Learning service to create custom modeling or data processing module.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-manager: cgronlun
+ms.date: 05/06/2019
+ROBOTS: NOINDEX
 ---
 # Create Python Model
 

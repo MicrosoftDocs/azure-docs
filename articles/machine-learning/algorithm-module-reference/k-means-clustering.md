@@ -1,14 +1,16 @@
 ---
-title: "K-Means Clustering | Microsoft Docs"
-titleSuffix: "Azure Machine Learning Studio"
-ms.date: 01/11/2018
-ms.service: "machine-learning"
-ms.subservice: "studio"
-ms.topic: "reference"
+title:  "K-Means Clustering: Module Reference"
+titleSuffix: Azure Machine Learning service
+description: Learn how to use the K-means clustering module in Azure Machine Learning service to train clustering models.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-manager: cgronlun
+ms.date: 05/06/2019
+ROBOTS: NOINDEX
 ---
 # K-Means Clustering
 *Configures and initializes a K-means clustering model*  

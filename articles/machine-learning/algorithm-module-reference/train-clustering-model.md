@@ -1,14 +1,16 @@
 ---
-title: "Train Clustering Model | Microsoft Docs"
-titleSuffix: "Azure Machine Learning Studio"
-ms.date: 01/17/2018
-ms.service: "machine-learning"
-ms.subservice: "studio"
-ms.topic: "reference"
+title:  "Train Clustering Model: Module Reference"
+titleSuffix: Azure Machine Learning service
+description: Learn how to use the Train Clustering Model module in Azure Machine Learning service to train clustering models.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: reference
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
-manager: cgronlun
+ms.date: 05/06/2019
+ROBOTS: NOINDEX
 ---
 # Train Clustering Model
 *Trains a clustering model and assigns data from the training set to clusters*  
