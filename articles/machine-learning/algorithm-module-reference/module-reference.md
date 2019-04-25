@@ -13,7 +13,7 @@ ms.date: 05/02/2019
 ---
 # Algorithm & module reference overview
 
-This reference content provides the technical background on each of the machine learning algorithms and modules available in the visual interface of Azure Machine Learning service. 
+This reference content provides the technical background on each of the machine learning algorithms and modules available in the visual interface (preview) of Azure Machine Learning service. 
 
 Each module represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis. 
 
@@ -59,7 +59,11 @@ Modules are organized by functionality:
 **Machine learning algorithms** such as clustering, support vector machine, or neural networks, are available within individual modules that let you customize the machine learning task with appropriate parameters.  
   + [Score Model](score-model.md)
 
+  + [Assign Data to Clusters ](assign-data-to-clusters.md)
+
   + [Train Model](train-model.md)
+
+  + [Train Clustering Model](train-clustering-model.md)
 
   + [Evaluate Model](evaluate-model.md)
 
@@ -90,9 +94,13 @@ Modules are organized by functionality:
   + [Two-Class Neural Network](two-class-neural-network.md)
 
   + [Two-Class Support Vector Machine](two-class-support-vector-machine.md)
+  
+  + [K-Means Clustering](k-means-clustering.md)
 
 
 **Python module** makes it easy to run a custom function. You write the code, and embed it in a module, to integrate Python with an experiment service.
   + [Execute Python Script](execute-python-script.md)
+
+  + [Create Python Model](create-python-model.md)
 
 

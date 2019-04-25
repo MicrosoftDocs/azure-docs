@@ -12,24 +12,21 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Two-Class Boosted Decision Tree
+# Two-Class Boosted Decision Tree module
 
 *Creates a binary classifier using a boosted decision tree algorithm*  
   
  Category: Machine Learning / Initialize Model / Classification
-  
-## Module overview  
 
-This article describes how to use the **Two-Class Boosted Decision Tree** module in Azure Machine Learning service to create a machine learning model that is based on the boosted decision trees algorithm. 
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to create a machine learning model that is based on the boosted decision trees algorithm. 
 
 A boosted decision tree is an ensemble learning method in which the second tree corrects for the errors of the first tree, the third tree corrects for the errors of the first and second trees, and so forth.  Predictions are based on the entire ensemble of trees together that makes the prediction.
   
 Generally, when properly configured, boosted decision trees are the easiest methods with which to get top performance on a wide variety of machine learning tasks. However, they are also one of the more memory-intensive learners, and the current implementation holds everything in memory. Therefore, a boosted decision tree model might not be able to process the large datasets that some linear learners can handle.
-  
 
-
-
-## How to configure Two-Class Boosted Decision Tree
+## How to configure
 
 This module creates an untrained classification model. Because classification is a supervised learning method, to train the model, you need a *tagged dataset* that includes a label column with a value for all rows.
 
@@ -68,9 +65,14 @@ You can train this type of model using [Train Model](././train-model.md).
     + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](./train-model.md) module.  
   
    
-### Results
+## Results
 
 After model training is complete, right-click the output of [Train Model](./train-model.md) to view the results:
 
 + To see the tree that was created on each iteration, select **Visualize**. 
 + To drill down into the splits and see the rules for each node, click each tree.
+
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

@@ -31,21 +31,23 @@
       href: ui-quickstart-run-experiment.md
 - name: Tutorials
   items:
-  - name: Image classification (MNIST data)
+  - name: Python SDK
     items:
-    - name: 1. Train a model
-      displayName: build modeling
-      href: tutorial-train-models-with-aml.md
-    - name: 2. Deploy a model
-      href: tutorial-deploy-models-with-aml.md
-  - name: Regression (NYC Taxi data)
-    items:
-    - name: 1. Prepare data for modeling
-      displayName: data prep
-      href: tutorial-data-prep.md
-    - name: 2. Auto-train an ML model
-      displayName: automl, automated, auto ml,
-      href: tutorial-auto-train-models.md
+    - name: Image classification (MNIST data)
+      items:
+      - name: 1. Train a model
+        displayName: build modeling
+        href: tutorial-train-models-with-aml.md
+      - name: 2. Deploy a model
+        href: tutorial-deploy-models-with-aml.md
+    - name: Regression (NYC Taxi data)
+      items:
+      - name: 1. Prepare data for modeling
+        displayName: data prep
+        href: tutorial-data-prep.md
+      - name: 2. Auto-train an ML model
+        displayName: automl, automated, auto ml,
+        href: tutorial-auto-train-models.md
   - name: Visual interface
     items:
     - name: Train regression model
@@ -199,6 +201,9 @@
       href: how-to-deploy-and-where.md
     - name: FPGAs
       href: how-to-deploy-fpga-web-service.md
+    - name: IoT Edge
+      href: ../../iot-edge/tutorial-deploy-machine-learning.md
+      maintainContext: true
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md
   - name: Consume web services
@@ -241,7 +246,7 @@
   - name: Machine Learning CLI
     displayName: cli, extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
-  - name: Visual interface modules (Preview)
+  - name: Visual interface modules
     displayName: module reference
     items:
     - name: Overview
@@ -282,8 +287,12 @@
       items:  
       - name: Score Model
         href: ../algorithm-module-reference/score-model.md
+      - name: Assign Data To Clusters 
+        href: ../algorithm-module-reference/assign-data-to-clusters.md
       - name: Train Model
         href: ../algorithm-module-reference/train-model.md
+      - name: Train Clustering Model
+        href: ../algorithm-module-reference/train-clustering-model.md
       - name: Evaluate Model
         href: ../algorithm-module-reference/evaluate-model.md
       - name: Apply Transformation
@@ -314,10 +323,14 @@
         href: ../algorithm-module-reference/two-class-neural-network.md
       - name: Two-Class Support Vector Machine
         href: ../algorithm-module-reference/two-class-support-vector-machine.md
+      - name: K-Means Clustering
+        href: ../algorithm-module-reference/k-means-clustering.md
     - name: Python language modules
       items:  
       - name: Execute Python Script
         href: ../algorithm-module-reference/execute-python-script.md
+      - name: Create Python Model
+        href: ../algorithm-module-reference/create-python-model.md
     - name: Error messages & codes
       href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resources

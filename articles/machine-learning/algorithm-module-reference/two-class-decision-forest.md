@@ -12,18 +12,17 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Two-Class Decision Forest
+# Two-Class Decision Forest module
 
 *Creates a two-class classification model using the decision forest algorithm*  
   
  Category: Machine Learning / Initialize Model / Classification  
   
-## Module overview
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
-This article describes how to use the **Two-Class Decision Forest** module in Azure Machine Learning service to create a machine learning model based on the decision forests algorithm.  
+Use this module to create a machine learning model based on the decision forests algorithm.  
 
 Decision forests are fast, supervised ensemble models. This module is a good choice if you want to predict a target with a maximum of two outcomes. 
-
 
 ## Understanding decision forests
 
@@ -48,7 +47,7 @@ However, simple decision trees can overfit on data, and are less generalizable t
 
 For more information, see [Decision Forests](http://go.microsoft.com/fwlink/?LinkId=403677).  
 
-## How to configure Two-Class Decision Forest
+## How to configure
   
 1.  Add the **Two-Class Decision Forest** module to your experiment in Azure Machine Learning, and open the **Properties** pane of the module. 
 
@@ -62,14 +61,11 @@ For more information, see [Decision Forests](http://go.microsoft.com/fwlink/?Lin
   
          For more information, see the Wikipedia entry for Bootstrap aggregating.  
   
-    -   **Replicate**: In replication, each tree is trained on exactly the same input data. The determination of which split predicate is used for each tree node remains random and the trees will be diverse.  
-  
-        
+    -   **Replicate**: In replication, each tree is trained on exactly the same input data. The determination of which split predicate is used for each tree node remains random and the trees will be diverse.   
   
 3.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
     -   **Single Parameter**: If you know how you want to configure the model, you can provide a specific set of values as arguments.
-  
   
 4.  For **Number of decision trees**, type the maximum number of decision trees that can be created in the ensemble. By creating more decision trees, you can potentially get better coverage, but training time increases.  
   
@@ -93,7 +89,7 @@ For more information, see [Decision Forests](http://go.microsoft.com/fwlink/?Lin
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.  
   
     
-### Results
+## Results
 
 After training is complete:
 
@@ -104,3 +100,8 @@ After training is complete:
 + To save a snapshot of the model, right-click the **Trained Model** output, and select **Save Model**. The saved model is not updated on successive runs of the experiment.
 
 + To use the model for scoring, add the **Score Model** module to an experiment.
+
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

@@ -12,28 +12,27 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Multiclass Logistic Regression
+# Multiclass Logistic Regression module
 
 *Creates a multiclass logistic regression classification model*
 
 Category: Machine Learning / Initialize Model / Classification
 
-## Module overview
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
-This article describes how to use the **Multiclass Logistic Regression** module in Azure Machine Learning service to create a logistic regression model that can be used to predict multiple values.
+Use this module to create a logistic regression model that can be used to predict multiple values.
 
 Classification using logistic regression is a supervised learning method, and therefore requires a labeled dataset. You train the model by providing the model and the labeled dataset as an input to a module such as [Train Model](./train-model.md). The trained model can then be used to predict values for new input examples.
 
-
 Azure Machine Learning also provides a [Two-Class Logistic Regression](./two-class-logistic-regression.md) module, which is suited for classification of binary or dichotomous variables.
 
-### More about multiclass logistic regression
+## About multiclass logistic regression
 
 Logistic regression is a well-known method in statistics that is used to predict the probability of an outcome, and is popular for classification tasks. The algorithm predicts the probability of occurrence of an event by fitting data to a logistic function. 
 
 In multiclass logistic regression, the classifier can be used to predict multiple outcomes.
 
-## How to configure a Multiclass Logistic Regression
+## Configure a multiclass logistic regression
 
 1. Add the **Multiclass Logistic Regression** module to the experiment.
 
@@ -53,22 +52,19 @@ In multiclass logistic regression, the classifier can be used to predict multipl
 
      Different linear combinations of L1 and L2 terms have been devised for logistic regression models, such as [elastic net regularization](https://wikipedia.org/wiki/Elastic_net_regularization).
 
-
-
 6. **Random number seed**: Type an integer value to use as the seed for the algorithm if you want the results to be repeatable over runs. Otherwise, a system clock value is used as the seed, which can produce slightly different results in runs of the same experiment.
-
-
 
 8. Connect a labeled dataset, and one of the train modules:
 
     + If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.
 
-   
-
 9. Run the experiment.
 
-### Results
+## Results
 
-After training is complete:
+After training is complete, you can see a summary of the model's parameters, together with the feature weights learned from training, right-click the output of the [Train Model](./train-model.md) module, and select **Visualize**.
 
-+ To see a summary of the model's parameters, together with the feature weights learned from training, right-click the output of the [Train Model](./train-model.md) module, and select **Visualize**.
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

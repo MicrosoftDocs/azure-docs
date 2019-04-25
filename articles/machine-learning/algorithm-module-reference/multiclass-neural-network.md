@@ -12,15 +12,15 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Multiclass Neural Network
+# Multiclass Neural Network module
 
 *Creates a multiclass classification model using a neural network algorithm*
 
 Category: Machine Learning / Initialize Model / Classification
 
-## Module overview
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
-This article describes how to use the **Multiclass Neural Network** module in Azure Machine Learning service to create a neural network model that can be used to predict a target that has multiple values. 
+Use this module to create a neural network model that can be used to predict a target that has multiple values. 
 
 For example, neural networks of this kind might be used in complex computer vision tasks, such as digit or letter recognition, document classification, and pattern recognition.
 
@@ -28,7 +28,7 @@ Classification using neural networks is a supervised learning method, and theref
 
 You can train the model by providing the model and the tagged dataset as an input to [Train Model](./train-model.md). The trained model can then be used to predict values for the new input examples.  
 
-### More about neural networks
+## About neural networks
 
 A neural network is a set of interconnected layers. The inputs are the first layer, and are connected to an output layer by an acyclic graph comprised of weighted edges and nodes.
 
@@ -38,7 +38,7 @@ The relationship between inputs and outputs is learned from training the neural 
 
 To compute the output of the network for a particular input, a value is calculated at each node in the hidden layers and in the output layer. The value is set by calculating the weighted sum of the values of the nodes from the previous layer. An activation function is then applied to that weighted sum.
 
-## How to configure Multiclass Neural Network
+## Configure Multiclass Neural Network
 
 1. Add the **MultiClass Neural Network** module to your experiment in the interface. You can find this module under **Machine Learning**, **Initialize**, in the **Classification** category.
 
@@ -70,8 +70,6 @@ To compute the output of the network for a particular input, a value is calculat
 8. **The initial learning weights diameter**: Specify the node weights at the start of the learning process.
 
 9. **The momentum**: Specify a weight to apply during learning to nodes from previous iterations.
-
-
   
 11. **Shuffle examples**: Select this option to shuffle cases between iterations.
 
@@ -79,17 +77,20 @@ To compute the output of the network for a particular input, a value is calculat
 
 12. **Random number seed**: Type a value to use as the seed, if you want to ensure repeatability across runs of the same experiment.
 
-
-
 14. Connect a training dataset and one of the [training modules](module-reference.md): 
 
     - If you set **Create trainer mode** to **Single Parameter**, use [Train Model](train-model.md).  
   
 
-### Results
+## Results
 
 After training is complete:
 
 - To see a summary of the model's parameters, together with the feature weights learned from training, and other parameters of the neural network, right-click the output of [Train Model](./train-model.md)  and select **Visualize**.  
 
 - To save a snapshot of the trained model, right-click the **Trained model** output and select **Save As Trained Model**. This model is not updated on successive runs of the same experiment.
+
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

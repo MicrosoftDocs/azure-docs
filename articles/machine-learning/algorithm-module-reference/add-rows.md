@@ -13,15 +13,15 @@ ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
-# Add Rows
+# Add Rows module
 
 *Appends a set of rows from an input dataset to the end of another dataset*  
 
  Category: Data Transformation / Manipulation 
 
-## Module overview  
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
-This article describes how to use the **Add Rows** module in Azure Machine Learning service to concatenate two datasets. In concatenation, the rows of the second dataset are added to the end of the first dataset.  
+Use this module to concatenate two datasets. In concatenation, the rows of the second dataset are added to the end of the first dataset.  
   
 Concatenation of rows is useful in scenarios such as these:  
   
@@ -40,3 +40,7 @@ To concatenate rows from two datasets, the rows must have exactly  the same sche
 3.  Run the experiment. The number of rows in the output dataset should equal the sum of the rows of both input datasets.
 
     If you add the same dataset to both inputs of the **Add Rows** module, the dataset is duplicated. 
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

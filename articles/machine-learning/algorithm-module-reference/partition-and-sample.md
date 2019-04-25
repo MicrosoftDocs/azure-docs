@@ -12,15 +12,15 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Partition and Sample
+# Partition and Sample module
 
 *Creates multiple partitions of a dataset based on sampling*
 
 Category: Data Transformation / Sample and Split
 
-## Module overview
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
-This article describes how to use the **Partition and Sample** module in Azure Machine Learning service to perform sampling on a dataset or to create partitions from your dataset.
+Use this module to perform sampling on a dataset or to create partitions from your dataset.
 
 Sampling is an important tool in machine learning because it lets you reduce the size of a dataset while maintaining the same ratio of values. This module supports several related tasks that are important in  machine learning: 
 
@@ -40,7 +40,7 @@ Sampling is an important tool in machine learning because it lets you reduce the
 
     If you have a lot of data, you might want to use only the first *n* rows while setting up the experiment, and then switch to using the full dataset when you build your model. You can also use sampling to create s smaller dataset for use in development.
 
-## How to configure Partition and Sample
+## Configure Partition and Sample
 
 This module supports multiple methods for dividing your data into partitions or for sampling. Choose the method first, and then set additional options required by the method.
 
@@ -98,7 +98,7 @@ This option supports simple random sampling or stratified random sampling. This 
 
     With this option, the module outputs a single dataset that contains a representative sampling of the data. The remaining, unsampled portion of the dataset is not output. 
 
-### Split data into partitions
+## Split data into partitions
 
 Use this option when you want to divide the dataset into subsets of the data. This option is also useful when you want to create a custom number of folds for cross-validation, or to split rows into several groups.
 
@@ -132,8 +132,6 @@ Use this option when you want to divide the dataset into subsets of the data. Th
 
 7. **Stratified split**: Select this option if you want the rows to be stratified when split, and then choose the _strata column_.
 
-
-
 8. Run the experiment.
 
     With this option, the module outputs multiple datasets, partitioned using the rules you specified.
@@ -166,3 +164,7 @@ This option is used when you have divided a dataset into multiple partitions and
 
 > [!NOTE]
 >  You cannot view the fold designations directly; they are present only in the metadata.
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

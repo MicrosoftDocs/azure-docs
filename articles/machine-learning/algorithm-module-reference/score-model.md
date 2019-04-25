@@ -12,17 +12,17 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Score Model
+# Score Model module
 
 *Scores predictions for a trained classification or regression model*
 
 Category: Machine Learning / Score 
 
-## Module overview
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
-This article describes how to use the **Score Model** module in Azure Machine Learning service to generate predictions using a trained classification or regression model.
+Use this module to generate predictions using a trained classification or regression model.
 
-## How to use Score Model
+## How to use
 
 1. Add the **Score Model** module to your experiment.
 
@@ -32,7 +32,7 @@ This article describes how to use the **Score Model** module in Azure Machine Le
 
 3. Run the experiment.
 
-### Results
+## Results
 
 After you have generated a set of scores using [Score Model](./score-model.md):
 
@@ -46,7 +46,11 @@ The score, or predicted value, can be in many different formats, depending on th
 - For regression models, [Score Model](./score-model.md) generates just the predicted numeric value.
 - For image classification models, the score might be the class of object in the image, or a Boolean indicating whether a particular feature was found.
 
-### Publish scores as a web service
+## Publish scores as a web service
 
 A common use of scoring is to return the output as part of a predictive web service. For more information, see this tutorial on how to create a web service based on an experiment in Azure Machine Learning:
 
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

@@ -12,15 +12,15 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Import Data
+# Import Data module
 
 *Loads data from external sources on the web; from Azure blob storage.
 
 Category: Data Input and Output
 
-## Module overview
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
-This article describes how to use the **Import Data** module in Azure Machine Learning service to load data into a machine learning experiment from existing cloud data services.  
+Use this module to load data into a machine learning experiment from existing cloud data services.  
 
 The module now features a wizard to help you choose a storage option and select from among existing subscriptions and accounts to quickly configure all options. Need to edit an existing data connection? No problem; the wizard loads all previous configuration details so that you don't have to start again from scratch. 
   
@@ -30,7 +30,7 @@ After you define the data you want and connect to the source, [Import Data](./im
 If your source data changes, you can refresh the dataset and add new data by rerunning [Import Data](./import-data.md). However, if you don't want to re-read from the source each time you run the experiment, select the **Use cached results** option to TRUE. When this option is selected, the module checks whether the experiment has run previously using the same source and same input options. If a previous run is found, the data in the cache is used, instead of reloading the data from the source.
  
 
-### Data sources
+## Data sources
 
 The Import Data module supports the following data sources. Click the links for detailed instructions and examples of using each data source. 
  
@@ -68,7 +68,7 @@ If you are not sure how or where you should store your data, see this guide to c
 
     - If there are no existing column headers in the data, new column names are generated using the format col1, col2,… , coln*.
 
-### Results
+## Results
 
 When import completes, click the output dataset and select **Visualize** to see if the data was imported successfully.
 
@@ -82,3 +82,7 @@ After importing the data, it might need some additional preparations for modelin
 - Use [Select Columns in Dataset](./select-columns-in-dataset.md) to select a subset of columns to transform or use in modeling. The transformed or removed columns can easily be rejoined to the original dataset by using the [Add Columns](./add-columns.md) module.  
 
 - Use [Partition and Sample](./partition-and-sample.md) to divide the dataset, perform sampling, or get the top n rows.
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
