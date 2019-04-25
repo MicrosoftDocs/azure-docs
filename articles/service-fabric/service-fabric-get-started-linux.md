@@ -105,7 +105,7 @@ To install the SDK and associated runtime package via the apt-get command-line t
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
-    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
+    sudo apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
     ```
 
 8. Refresh your package lists based on the newly added repositories.
