@@ -1,6 +1,6 @@
 ---
-title: Premium fileshares troubleshooting guide
-description: Known issues with Azure premium file shares and associated workarounds.
+title: Premium file shares (preview) troubleshooting guide
+description: Known issues with Azure premium file shares (preview) and associated workarounds.
 services: storage
 author: jeffpatt24
 ms.service: storage
@@ -11,9 +11,9 @@ ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Troubleshooting Guide
+# Troubleshoot Azure premium file shares (preview) issues
 
-This article lists some common problems related to Microsoft Azure premium fileshares (preview). It provides potential causes and workarounds when these problems are encountered.
+This article lists some common problems related to Microsoft Azure premium file shares (preview). It provides potential causes and workarounds when these problems are encountered.
 
 ## High latency, low throughput, and general performance issues
 
