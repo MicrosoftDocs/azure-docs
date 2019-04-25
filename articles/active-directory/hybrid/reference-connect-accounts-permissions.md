@@ -238,6 +238,8 @@ To remove unused Azure AD service accounts, run the following Azure AD PowerShel
 >[!NOTE]
 >Before you can use the above PowerShell commands you will need to install the [Azure Active Directory PowerShell for Graph module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) and connect to your instance of Azure AD using [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
 
+For additional information on how to manage or reset the password for the Azure AD Connector account see [Manage the Azure AD Connect account](how-to-connect-azureadaccount.md)
+
 ## Related documentation
 If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md), the following table provides links to related topics.
 

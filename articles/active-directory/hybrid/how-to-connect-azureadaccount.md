@@ -14,17 +14,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect sync: How to manage the Azure AD service account
-The service account used by the Azure AD Connector is supposed to be service free. If you need to reset its credentials, then this topic is for you. For example, if a Global Administrator has by mistake reset the password on the service account using PowerShell.
+# Manage the Azure AD Connector account
+The Azure AD Connector account is supposed to be service free. If you need to reset its credentials, then this topic is for you. For example, if a Global Administrator has by mistake reset the password on the account using PowerShell.
 
 ## Reset the credentials
-If the service account defined on the Azure AD Connector cannot contact Azure AD due to authentication problems, the password can be reset.
+If the Azure AD Connector account cannot contact Azure AD due to authentication problems, the password can be reset.
 
 1. Sign in to the Azure AD Connect sync server and start PowerShell.
 2. Run `Add-ADSyncAADServiceAccount`.  
@@ -34,7 +34,7 @@ If the service account defined on the Azure AD Connector cannot contact Azure AD
 This cmdlet resets the password for the service account and update it both in Azure AD and in the sync engine.
 
 ## Known issues these steps can solve
-This section is a list of errors reported by customers that were fixed by a credentials reset on the Azure AD service account.
+This section is a list of errors reported by customers that were fixed by a credentials reset on the Azure AD Connector account.
 
 - - -
 Event 6900  
