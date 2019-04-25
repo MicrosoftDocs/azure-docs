@@ -1,12 +1,12 @@
 ---
 title: Premium fileshares troubleshooting guide
-description: An overview of Azure Files, a service that enables you to create and use network file shares in the cloud using the industry standard SMB protocol.
+description: Known issues with Azure premium file shares and associated workarounds.
 services: storage
-author: roygara
+author: jeffpatt24
 ms.service: storage
-ms.topic: overview
-ms.date: 07/19/2018
-ms.author: rogarana
+ms.topic: article
+ms.date: 04/25/2019
+ms.author: jeffpatt
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -49,7 +49,7 @@ If the majority of your requests are metadata centric, (such as createfile/openf
 
 To confirm if most of your requests are metadata centric, you can use the same steps as above. Except instead of adding a filter for **ResponseType**, add a filter for **API Name**.
 
-![FIlter for API Name in your metrics](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
+![Filter for API Name in your metrics](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
 ### Workaround
 

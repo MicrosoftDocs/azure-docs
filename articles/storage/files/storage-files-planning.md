@@ -5,7 +5,7 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -72,12 +72,16 @@ If you are using Azure File Sync to access your Azure file share, we will always
 Azure Files offers two performance tiers: standard and premium.
 
 * **Standard file shares** are backed by rotational hard disk drives (HDDs) that provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
-* **Premium file shares (preview)** are backed by solid-state disks (SSDs) that provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for the most IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares. If you'd like to learn how to create a premium file share, see our article on the subject: [How to create an Azure premium file storage account](storage-how-to-create-premium-fileshare.md). Azure Kubernetes Service (AKS) offers support for premium file shares in versions 1.13 and above.
+* **Premium file shares (preview)** are backed by solid-state disks (SSDs) that provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for the most IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares.
 
-Currently, you cannot directly convert between a standard file share and a premium file share. If you would like to switch between the two, you must create a new file share (either premium or standard) and manually copy the data from your source share to the destination share. You can do this using any of the Azure Files supported copy tools, such as AzCopy.
+Azure Backup is available for premium file shares and Azure Kubernetes Service supports premium file shares in version 1.13 and above.
+
+If you'd like to learn how to create a premium file share, see our article on the subject: [How to create an Azure premium file storage account](storage-how-to-create-premium-fileshare.md).
+
+Currently, you cannot directly convert between a standard file share and a premium file share. If you would like to switch to either tier, you must create a new file share in that tier and manually copy the data from your original share to the new share you created. You can do this using any of the Azure Files supported copy tools, such as AzCopy.
 
 > [!IMPORTANT]
-> Premium file shares are still in preview, only available with LRS, and are only available in a [subset of regions](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage). Currently, all premium file shares have Azure Backup support.
+> Premium file shares are still in preview, only available with LRS, and are only available in a [subset of regions](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage).
 
 ### Provisioned shares
 
