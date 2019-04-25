@@ -18,6 +18,8 @@ ms.date: 05/02/2019
 
  In this article, you learn how to create, run, and explore automated machine learning experiments in the Azure portal without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](https://docs.microsoft.com/azure/machine-learning/service/concept-automated-ml).
 
+If you prefer a more code based experience, you can also [Configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+
 ## Prerequisites
 
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
@@ -232,5 +234,4 @@ Automated ML helps you with deploying the model without writing code:
 ## Next steps
 
 * [How to consume a deployed model](how-to-consume-web-service.md).
-* [Configure your automated machine learning experiments](how-to-configure-auto-train.md).
-* [Learn more about automated machine learning](concept-automated-ml.md).
+* [Configure your automated machine learning experiments with Python](how-to-configure-auto-train.md).

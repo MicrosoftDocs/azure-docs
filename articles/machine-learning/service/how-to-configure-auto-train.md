@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Configure automated ML experiments in Python
 
-Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure automated machine learning experiments. In this guide, learn how to define various configuration settings.
+In this guide, learn how to define various configuration settings of your automated machine learning experiments with the [Azure Machine Learning SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py). Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure automated machine learning experiments.
 
 To view examples of an automated machine learning experiments , see [Tutorial: Train a classification model with automated machine learning](tutorial-auto-train-models.md) or [Train models with automated machine learning in the cloud](how-to-auto-train-remote.md).
 
@@ -29,7 +29,10 @@ Configuration options available in automated machine learning:
 * Explore model metrics
 * Register and deploy model
 
+If you prefer a no code experience, you can also [Create your automated machine learning experiments in the Azure portal](how-to-create-portal-experiments.md).
+
 ## Select your experiment type
+
 Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of classification, regression and forecasting.
 
 Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm. While DNN algorithms are available during training, automated ML does not build DNN models.
@@ -604,7 +607,7 @@ There are two ways to generate feature importance.
 
 You can visualize the feature importance chart in your workspace in the Azure portal. The chart is also shown when using the  Jupyter widget in a notebook. To learn more about the charts refer to the [Sample Azure Machine Learning service notebooks article.](samples-notebooks.md)
 
-```python
+```Python
 from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
