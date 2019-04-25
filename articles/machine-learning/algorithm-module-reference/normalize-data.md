@@ -39,7 +39,7 @@ This module offers several options for transforming numeric data:
 > [!WARNING]
 > Some algorithms require that data be normalized before training a model. Other algorithms perform their own data scaling or normalization. Therefore, when you choose a machine learning algorithm to use in building a predictive model, be sure to review the data requirements of the algorithm before applying normalization to the training data.
 
-##  How to configure Normalize Data
+##  Configure Normalize Data
 
 You can apply only one normalization method at a time using this module. Therefore, the same normalization method is applied to all columns that you select. To use different normalization methods, use a second instance of **Normalize Data**.
 
@@ -96,7 +96,7 @@ You can apply only one normalization method at a time using this module. Therefo
 
 6. Run the experiment, or double-click the **Normalize Data** module and select **Run Selected**. 
 
-### Results
+## Results
 
 The **Normalize Data** module generates two outputs:
 
@@ -107,3 +107,8 @@ The **Normalize Data** module generates two outputs:
 - To save the transformation so that you can apply the same normalization method to another similar dataset, right-click the module, select **Transformation function**, and click **Save as Transform**.
 
     You can then load the saved transformations from the **Transforms** group of the left navigation pane and apply it to a dataset with the same schema by using [./Apply Transformation](apply-transformation.md).  
+
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

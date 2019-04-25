@@ -17,14 +17,12 @@ ROBOTS: NOINDEX
 *Trains a classification or regression model in a supervised manner*  
   
  Category: Machine Learning / Train  
-  
-## Module overview
  
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to  train a classification or regression model. Training takes place after you have defined a model and set its parameters, and requires tagged data. You can also use **Train Model** to retrain an existing model with new data. 
 
-### How the training process works
+## How the training process works
 
 In Azure Machine Learning, creating and using a machine learning model is typically a three-step process. 
 
@@ -41,13 +39,9 @@ In Azure Machine Learning, creating and using a machine learning model is typica
 
 3. After training is completed, use the trained model with one of the [scoring modules](./score-model.md), to make predictions on new data.
 
-
-
 ## How to use **Train Model**  
   
 1.  In Azure Machine Learning, configure a classification model or regression model.
-
-  
     
 2. Add the **Train Model** module to the experiment.  You can find this module under the **Machine Learning** category. Expand **Train**, and then drag the **Train Model** module into your experiment.
   
@@ -70,7 +64,7 @@ In Azure Machine Learning, creating and using a machine learning model is typica
   
 5.  Run the experiment. If you have a lot of data, this can take a while.
 
-### <a name="bkmk_results"></a> Results
+## <a name="bkmk_results"></a> Results
 
 After the model is trained:
 
@@ -79,4 +73,8 @@ After the model is trained:
 
     This saves the model as a snapshot that is not updated by repeated runs of the experiment.
 + To use the model in predicting new values, connect it to the [Score Model](./score-model.md) module, together with new input data.
-  
+
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
