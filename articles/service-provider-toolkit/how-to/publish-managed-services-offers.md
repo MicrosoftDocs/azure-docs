@@ -8,6 +8,7 @@ ms.date: 04/03/2019
 ms.topic: overview
 manager: carmonm
 ---
+
 # Publish a managed services offer to Azure Marketplace
 
 > [!IMPORTANT]
@@ -115,3 +116,8 @@ Once you've added this info, select **Save.**
 ## Publish your offer
 
 Once you're happy with all of the info you've provided, your next step is to publish the offer to Azure Marketplace. Select the **Publish** button to initiate the process of making your offer live. For more info about this process, see [Publish Azure Marketplace and AppSource offers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
+
+## Next steps
+
+- Learn about the [cross-tenant management experience](../concepts/cross-tenant-management-experience.md).
+- [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.

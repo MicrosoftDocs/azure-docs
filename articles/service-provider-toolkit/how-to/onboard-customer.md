@@ -8,6 +8,7 @@ ms.date: 04/03/2019
 ms.topic: overview
 manager: carmonm
 ---
+
 # Onboard a customer to Azure Delegated Resource Management
 
 > [!IMPORTANT]
@@ -288,3 +289,8 @@ Get-AzContext
 
 az account list
 ```
+
+## Next steps
+
+- Learn about the [cross-tenant management experience](../concepts/cross-tenant-management-experience.md).
+- [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.

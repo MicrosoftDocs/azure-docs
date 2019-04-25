@@ -51,3 +51,8 @@ If the customer wants to remove a provider, they can select the trash can icon i
 Access assignments represent the permissions that the service provider has for the resources you've delegated. To view this info, select **Access assignments** on the left side of the **Service providers** page.
 
 Filters at the top of the page let you sort and group your access assignment info or filter by specific customers, offers, or keywords.
+
+## Next steps
+
+- Learn about the [cross-tenant management experience](../concepts/cross-tenant-management-experience.md).
+- [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.

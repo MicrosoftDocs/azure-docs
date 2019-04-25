@@ -8,6 +8,7 @@ ms.date: 04/03/2019
 ms.topic: overview
 manager: carmonm
 ---
+
 # Cross-tenant management experience
 
 > [!IMPORTANT]
@@ -98,3 +99,8 @@ With all scenarios, please be aware of the following current limitations:
 - Role assignments with managed identities for Azure resources are not supported in the cross-tenant management experience.
 - Role assignments must use role-based access control (RBAC) [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) aren't supported.
 - If a customer has deployed any Azure managed applications to a subscription, that subscription can't be onboarded for Azure Delegated Resource Management.
+
+## Next steps
+
+- Onboard your customers to Azure Delegated Resource Management, either by [using Azure Resource Manager templates](../how-to/onboard-customer.md) or by [publishing a managed services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md).
+- [View and manage customers](../how-to/view-manage-customers.md) by going to **My customers** in the Azure portal.
