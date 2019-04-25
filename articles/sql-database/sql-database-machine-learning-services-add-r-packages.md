@@ -25,23 +25,23 @@ This article explains how to add an R package to Azure SQL Database Machine Lear
 
 - Install [R](https://www.r-project.org) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer. R is available for Windows, MacOS, and Linux. This article assumes you're using Windows.
 
-- This article includes an example of using [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) to run an R script. To follow this example, you'll need to install the latest version of SSMS. You can run R scripts using other database management or query tools, but this example uses SSMS.
-
-> [!NOTE]
-> You can't install a package by running an R script using **sp_execute_external_script** in SSMS. You can only install and remove packages using the R command line and R Desktop as described in this article. Once the package is installed, you can access the package functions in an R script using **sp_execute_external_script**.
+- This article includes an example of using [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) or [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is) to run an R script in Azure SQL Database. You can run R scripts using other database management or query tools, but this example assumes SSMS or Azure Data Studio.
+   
+   > [!NOTE]
+   > You can't install a package by running an R script using **sp_execute_external_script** in SSMS. You can only install and remove packages using the R command line and R Desktop as described in this article. Once the package is installed, you can access the package functions in an R script using **sp_execute_external_script**.
 
 ## List R packages
 
 Microsoft provides a number of R packages pre-installed with Machine Learning Services in your Azure SQL database.
 
-You can see a list of installed R packages by running the following R script. The list displays information for each package, including version, dependencies, and license information.
+You can see a list of installed R packages by running the following R script in RStudio. The list displays information for each package, including version, dependencies, and license information.
 
 ```R
 r=installed.packages()[,c("Package", "Version", "Depends", "License")]
 View(r)
 ```
 
-The output looks similar to the following.
+The output should look similar to the following.
 
 **Results**
 
@@ -51,16 +51,14 @@ The output looks similar to the following.
 
 If you need to use a package that isn't already installed in your SQL database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils). **sqlmlutils** is a package designed to help users interact with SQL databases (SQL Server and Azure SQL Database) and execute R or Python code in SQL from an R/Python client. Currently, only the R version of sqlmlutils is supported in Azure SQL Database.
 
-In the following example, you'll install the **[glue](https://cran.r-project.org/web/packages/glue/)** package that can format and interpolate strings. These steps install **sqlmlutils**, **RODBCext** (a prerequisite for **sqlmlutils**), and adds the **glue** package.
+In the following example, you'll install the **[glue](https://cran.r-project.org/web/packages/glue/)** package that can format and interpolate strings. These steps install **sqlmlutils** and **RODBCext** (a prerequisite for **sqlmlutils**), and adds the **glue** package.
 
 ### Install **sqlmlutils**
 
 1. Download the latest **sqlmlutils** zip file from https://github.com/Microsoft/sqlmlutils/tree/master/R/dist to your local computer. You don't need to unzip the file.
 
-1. Open a **Command Prompt** and run the following commands to install the **RODBCext** package and then **sqlmlutils**. Specify the full path to the zip file you downloaded.
+1. Open a **Command Prompt** and run the following commands to install the **RODBCext** package and then **sqlmlutils**. Substitute the full path to the **sqlmlutils** zip file you downloaded (the example assumes the file is in your Documents folder).
     
-    For example,
-
     ```console
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
     R CMD INSTALL %UserProfile%\Documents\sqlmlutils_0.5.1.zip
@@ -77,11 +75,11 @@ In the following example, you'll install the **[glue](https://cran.r-project.org
     > [!TIP]
     > If you get the error, " 'R' is not recognized as an internal or external command, operable program or batch file", it likely means that the path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the path to the environment variable or navigate to the folder in the command prompt (for example `cd C:\Program Files\R\R-3.5.3\bin`) and then retry the command.
 
-### Add a package
+### Add the package
 
-1. Open **RStudio** and create a new **R Script** file. 
+1. Open RStudio and create a new **R Script** file. 
 
-1. Use the following R code to install the **glue** package using `sqlmlutils`. Insert your own connection information.
+1. Use the following R code to install the **glue** package using `sqlmlutils`. Substitute your own connection information.
 
     ```R
     library(sqlmlutils)
@@ -99,7 +97,7 @@ In the following example, you'll install the **[glue](https://cran.r-project.org
 
 ### Verify the package
 
-Verify that the **glue** package has been installed with the following R script.
+Verify that the **glue** package has been installed by running the following R script in RStudio.
 
 ```R
 r<-sql_installed.packages(connectionString = connection, fields=c("Package", "Version", "Depends", "License"))
@@ -114,7 +112,7 @@ View(r)
 
 Once the package is installed, you can use it in an R script through **sp_execute_external_script**.
 
-1. Open **SQL Server Management Studio** and connect to your SQL database.
+1. Open SSMS or Azure Data Studio and connect to your SQL database.
 
 1. Run the following script:
 
@@ -139,18 +137,18 @@ Once the package is installed, you can use it in an R script through **sp_execut
     **Results**
 
     ```text
-    STDOUT message(s) from external script:
     My name is Fred, my age next year is 51, my anniversary is Sunday, June 14, 2020.
     ```
 
 ### Remove the package
 
-If you would like to remove the package, run the following R script in **RStudio** on your local computer. This example uses the connection information from the previous **sql_install.packages** command.
+If you would like to remove the package, run the following R script in RStudio. This example assumes the connection information from the **sql_install.packages** command used earlier.
 
 ```R
 sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLIC")
 ```
 
+<!-- Checking if this is correct
 > [!TIP]
 > Another way to install an R package to your SQL database is to upload the R package with [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
-
+-->
