@@ -60,7 +60,7 @@ This example creates a VM named *myVMfromImage*, in the *myResourceGroup* in the
 1. The value for **Image** should be automatically filled in if you started from the page for the image version.
 1. For **Size**, choose a VM size from the list of available sizes and then click "Select".
 1. Under **Administrator account**,  provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
-1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **RDP (3389) from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
+1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **RDP (3389)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
 1. When you are finished, select the **Review + create** button at the bottom of the page.
 1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
 
