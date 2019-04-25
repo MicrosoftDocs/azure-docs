@@ -4,7 +4,7 @@ description: Learn about app registration and authentication endpoints for natio
 services: active-directory
 documentationcenter: ''
 author: negoe
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/20/2018
 ms.author: negoe
-ms.reviewer: negoe,andret,saeeda,CelesteDG
+ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# National Clouds
+# National clouds
 
-National clouds (aka Sovereign clouds) are physically isolated instances of Azure. These regions of Azure are designed to make sure that data residency, sovereignty, and compliance requirements are honored within geographical boundaries.
+National clouds are physically isolated instances of Azure. These regions of Azure are designed to make sure that data residency, sovereignty, and compliance requirements are honored within geographical boundaries.
 
 Including global cloud​, Azure Active Directory is deployed in the following National clouds:  
 
@@ -75,7 +75,8 @@ To learn how to call the Microsoft Graph APIs in National Cloud environment go t
 > [!IMPORTANT]
 > Certain services and features that are in specific regions of the global service might not be available in all of the National clouds. To find out what services are available go to [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
 
-Follow this Microsoft Authentication Library (MSAL) [tutorial](msal-national-cloud.md) to learn how to build an application using Microsoft identity platform. Specifically, this app will sign in a user, get an access token to call the Microsoft Graph API.
+
+Follow this [Microsoft Authentication Library (MSAL) tutorial](msal-national-cloud.md) to learn how to build an application using Microsoft identity platform. Specifically, this app will sign in a user, get an access token to call the Microsoft Graph API.
 
 ## Next steps
 

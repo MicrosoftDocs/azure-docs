@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: using msal with national cloud
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2019
+ms.date: 04/25/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Using MSAL in National cloud environment
 
-[National cloud](authentication-national-cloud.md) (aka Sovereign clouds) are physically isolated instances of Azure. These regions of Azure are designed to make sure that data residency, sovereignty, and compliance requirements are honored within geographical boundaries.
+[National cloud](authentication-national-cloud.md) are physically isolated instances of Azure. These regions of Azure are designed to make sure that data residency, sovereignty, and compliance requirements are honored within geographical boundaries.
 
 In addition to Microsoft worldwide cloud, Microsoft Authentication Library (MSAL) also enables application developers in national clouds to acquire tokens in order to authenticate and call secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS.
 
@@ -34,13 +34,13 @@ Including global cloud, Azure Active Directory is deployed in the following 
 - Azure Germany
 
 
-This guide demonstrates how to sign in work and school accounts, get an access token and call the Microsoft Graph API in [Microsoft cloud for US Government](https://azure.microsoft.com/en-us/global-infrastructure/government/) environment.
+This guide demonstrates how to sign in work and school accounts, get an access token and call the Microsoft Graph API in [Microsoft cloud for US Government](https://azure.microsoft.com/global-infrastructure/government/) environment.
 
 
 ## Prerequisites
 
 ### Choose the appropriate identities
-[Azure Government](https://docs.microsoft.com/en-us/azure/azure-government/) applications can use Azure AD Government identities as well as Azure AD public identities to authenticate users. Since you can use any of these identities, you need to understand and decide which authority endpoint you should choose for your scenario:
+[Azure Government](https://docs.microsoft.com/azure/azure-government/) applications can use Azure AD Government identities as well as Azure AD public identities to authenticate users. Since you can use any of these identities, you need to understand and decide which authority endpoint you should choose for your scenario:
 
 - Azure AD Public: Commonly used if your organization already has an Azure AD Public tenant to support Office 365 (Public or GCC) or another application.
 
@@ -49,9 +49,9 @@ This guide demonstrates how to sign in work and school accounts, get an access t
 Once decided, the special consideration is where you perform your app registration. If you choose Azure AD Public identities for your Azure Government application, you must register the application in your Azure AD Public tenant.
 
 ### Get an Azure Government subscription
-- To get an Azure Government subscription. See [managing and connecting to your subscription in Azure Government](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-manage-subscriptions)
+- To get an Azure Government subscription. See [managing and connecting to your subscription in Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-subscriptions)
 
-- If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/en-us/global-infrastructure/government/request/) before you begin.
+- If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
 
 ## JavaScript
@@ -59,7 +59,7 @@ Once decided, the special consideration is where you perform your app registrati
 ### Step 1: Register your Application
 
 1. Sign in to the [Azure portal](https://portal.azure.us/) to register an application. 
-    1. To find Azure portal endpoints for other national clouds, see [App registration endpoints](https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-national-cloud#app-registration-endpoints)
+    1. To find Azure portal endpoints for other national clouds, see [App registration endpoints](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#app-registration-endpoints)
 
 2. If your account gives you access to more than one tenant, select your account in the top-right corner, and set your portal session to the desired Azure AD tenant.
 
@@ -77,13 +77,12 @@ Once decided, the special consideration is where you perform your app registrati
 
 ### Step 2  Setting up your web server or project
 
-- [Download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) for a local web server, such as Node
-
- or
- - [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
-
- And then  skip to the ['Configure your JavaScript SPA'](#step-4-configure-your-javascript-spa) to configure the code sample before executing it.
-
+>- [Download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) for a local web server, such as Node
+>
+> or
+ >- [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
+>
+> And then  skip to the ['Configure your JavaScript SPA'](#step-4-configure-your-javascript-spa) to configure the code sample before executing it.
 
 ### Step 3: Use the Microsoft Authentication Library (MSAL) to sign in the user
 
@@ -93,7 +92,7 @@ Follow steps in [Javascript tutorial](https://docs.microsoft.com/azure/active-di
 
 1. In the `index.html` file created during project setup, add the application registration information. Add the following code at the top within the `<script></script>` tags in the body of your `index.html` file:
 
-    ```javascripts
+    ```javascript
     const msalConfig = {
         auth:{
             clientId: "Enter_the_Application_Id_here",
@@ -120,7 +119,7 @@ Follow steps in [Javascript tutorial](https://docs.microsoft.com/azure/active-di
        - **Note:**  Microsoft personal accounts (MSA) scenarios are not supported in national clouds.
   
     -   `graphEndpoint` - is the Microsoft Graph endpoint for Microsoft cloud for US government.
-           -  To find Microsoft Graph endpoints for all the National clouds, see [Microsoft Graph endpoints in National cloud](https://docs.microsoft.com/en-us/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)
+           -  To find Microsoft Graph endpoints for all the National clouds, see [Microsoft Graph endpoints in National cloud](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)
 
 ## .NET
 
