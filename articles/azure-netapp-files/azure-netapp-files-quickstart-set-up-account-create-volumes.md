@@ -139,8 +139,9 @@ You need to be part of the Public Preview program and whitelisted for accessing 
 
 When you are done and if you want to, you can delete the resource group. The action of deleting a resource group is irreversible.  
 
-  > IMPORTANT:  
-  > All resources within the resource groups will be permanently deleted and cannot be undone. 
+> [!IMPORTANT]
+> All resources within the resource groups will be permanently deleted and cannot be undone. 
+
 1. In the Azure portal’s search box, enter **Azure NetApp Files** and then select **Azure NetApp Files** from the list that appears.
 
 2. In the list of subscriptions, click the resource group (myRG1) you want to delete. 
