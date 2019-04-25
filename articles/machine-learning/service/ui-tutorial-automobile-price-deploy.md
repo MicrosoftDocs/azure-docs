@@ -14,7 +14,7 @@ ms.date: 04/06/2019
 
 # Tutorial: Deploy a machine learning model with the visual interface
 
-In this tutorial, you take an extended look at developing a predictive solution in the Azure Machine Learning service visual interface. This tutorial is **part two of a two-part tutorial series**. In [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you trained, scored, and evaluated a model to predict car prices. In this part of the tutorial, you will:
+In this tutorial, you take an extended look at developing a predictive solution in the Azure Machine Learning service visual interface. This tutorial is **part two of a two-part tutorial series**. In [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you trained, scored, and evaluated a model to predict car prices. In this part of the tutorial, you:
 
 > [!div class="checklist"]
 > * Prepare a model for deployment

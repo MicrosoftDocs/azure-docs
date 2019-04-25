@@ -18,7 +18,7 @@ In this tutorial, you take an extended look at developing a predictive solution 
 
 This tutorial [continues from the quickstart](ui-quickstart-run-experiment.md) and is **part one of a two-part tutorial series**. However, you don't have to complete the quickstart before starting.
 
-In part one of the tutorial series you'll learn how to:
+In part one of the tutorial series you learn how to:
 
 > [!div class="checklist"]
 > * Import and clean data (the same steps as the quickstart)
