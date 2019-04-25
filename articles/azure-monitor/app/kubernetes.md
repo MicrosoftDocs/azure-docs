@@ -15,14 +15,14 @@ ms.author: alkaplan
 Azure Monitor now leverages service mesh tech on your Kubernetes cluster to provide out of the box application monitoring for any Kubernetes hosted app. Rich application level metrics such as failed requests, latency, error rate etc., and application map will be available for your Kubernetes workloads. This feature will help users to spot performance bottlenecks or failure hotspots across all of their Kubernetes workloads within a selected Kubernetes namespace. By leveraging service mesh, Azure monitor will enable auto-instrumented app monitoring.
 
 > [!NOTE]
-> This is one of many ways to perform application monitoring on Kubernetes​​​​​​​. You can also instrument any app hosted in Kubernetes by using the [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.md) without the need for a service mesh. To use Kubernetes without instrumenting the application with an SDK you can use the below method.
+> This is one of many ways to perform application monitoring on Kubernetes​​​​​​​. You can also instrument any app hosted in Kubernetes by using the [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.md) without the need for a service mesh. To monitor Kubernetes without instrumenting the application with an SDK you can use the below method.
 
 ## Prerequisites
 
-- A [Kubernetes cluster](https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads).
+- A [Kubernetes cluster](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads).
 - Console access to the cluster to run *kubectl*.
 - An [Application Insight resource](create-new-resource.md)
-- Have a service mesh. If your cluster doesn't have Istio deployed, you can learn how to [install and use Istio in Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/istio-install).
+- Have a service mesh. If your cluster doesn't have Istio deployed, you can learn how to [install and use Istio in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/istio-install).
 
 ## Capabilities
 
@@ -38,9 +38,9 @@ By using Application Insights for your Kubernetes hosted app, you will be able t
 ## Installation steps
 
 To enable the solution, we'll be performing the following steps:
-- Deploy the application (if not already deployed)
-- Ensure the application is part of the service mesh
-- Observe collected telemetry
+- Deploy the application (if not already deployed).
+- Ensure the application is part of the service mesh.
+- Observe collected telemetry.
 
 ### Configure your app to work with a service mesh
 
@@ -52,7 +52,7 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 ```
 
 > [!NOTE]
-> Since service mesh lifts data off the wire, we cannot intercept encrypted traffic. For traffic that doesn't leave the cluster, use plain unencrypted protocol (for example, HTTP). For external traffic that must be encrypted, consider [setting up SSL termination](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) at the ingress controller.
+> Since service mesh lifts data off the wire, we cannot intercept the encrypted traffic. For traffic that doesn't leave the cluster, use  an unencrypted protocol (for example, HTTP). For external traffic that must be encrypted, consider [setting up SSL termination](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) at the ingress controller.
 
 Applications running outside of the service mesh are not affected.
 
@@ -84,20 +84,20 @@ rolling update or delete individual pods and wait for them to be recreated.
   kubectl get pods -n istio-system -l "app=application-insights-istio-mixer-adapter"
   ```
 > [!NOTE]
-> In some cases, finer tuning is required. To include or exclude telemetry for an individual pod from being collected, use *appinsights/monitoring.enabled* label on that pod. This will have priority over all namespace-based configuration. Set *appinsights/monitoring.enabled* to *true* to include the pod, and to *false* to exclude it.
+> In some cases, fine-tuning tuning is required. To include or exclude telemetry for an individual pod from being collected, use *appinsights/monitoring.enabled* label on that pod. This will have priority over all namespace-based configuration. Set *appinsights/monitoring.enabled* to *true* to include the pod, and to *false* to exclude it.
 
 ### View Application Insights telemetry
 
 - Generate a sample request against your application to confirm that monitoring is functioning properly.
-- Within 3-5 minutes, you should start seeing telemetry appear in Azure portal. Be sure to check out the *Application Map* section of your Application Insights resource in the Portal.
+- Within 3-5 minutes, you should start seeing telemetry appear in the Azure portal. Be sure to check out the *Application Map* section of your Application Insights resource in the Portal.
 
-### Troubleshooting
+## Troubleshooting
 
-Below is the troubleshooting flow to use when telemetry doesn't appear in Azure portal as expected.
+Below is the troubleshooting flow to use when telemetry doesn't appear in the Azure portal as expected.
 
 1. Ensure the application is under load and is sending/receiving requests in plain HTTP. Since telemetry is lifted off the wire, encrypted traffic is not supported. If there are no incoming or outgoing requests, there will be no telemetry either.
-2. Ensure the correct instrumentation key is provided in *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* environment variable in *application-insights-istio-mixer-adapter-deployment.yaml*. The instrumentation key is found on the *Overview* tab of the Application Insights resource in Azure portal.
-3. Ensure the correct Kubernetes namespace is provided in *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* environment variable in *application-insights-istio-mixer-adapter-deployment.yaml*. Leave it blank to monitor all namespaces.
+2. Ensure the correct instrumentation key is provided in the *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* environment variable in *application-insights-istio-mixer-adapter-deployment.yaml*. The instrumentation key is found on the *Overview* tab of the Application Insights resource in the Azure portal.
+3. Ensure the correct Kubernetes namespace is provided in the *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* environment variable in *application-insights-istio-mixer-adapter-deployment.yaml*. Leave it blank to monitor all namespaces.
 4. Ensure your application's pods have been sidecar-injected by Istio. Verify that Istio's sidecar exists on each pod.
 
    ```console
