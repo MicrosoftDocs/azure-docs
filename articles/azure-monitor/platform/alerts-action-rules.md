@@ -16,30 +16,30 @@ This article describes what action rules are, and how to configure and manage th
 
 ## What are action rules?
 
-Action rules allow you to define actions (or the suppression of actions) at any ARM scope (Subscription, Resource Group or Resource ), with a wide variety of filters that allow you to easily narrow down on the specific subset of alert instances that you want it to act on. With action rules you can now do the following:
+Action rules allow you to define actions (or suppression of actions) at any Resource Manager scope (Subscription, Resource Group or Resource), with a wide variety of filters that allow you to easily narrow down on the specific subset of alert instances that you want to act on. With action rules you can now do the following:
 
 * Suppress actions and notifications if you have planned maintenance windows or for the weekend/holidays, instead of having to disable each alert rule individually.
-* Define actions and notifications at scale: Instead of having to define an action group individually for each alert rule, you can now define an action group to trigger for alerts generated at any scope. For e.g. I can choose to have action group 'ContosoActionGroup' trigger for every alert generated within my subscription.
+* Define actions and notifications at scale: Instead of having to define an action group individually for each alert rule, you can now define an action group to trigger for alerts generated at any scope. For example, I can choose to have action group 'ContosoActionGroup' trigger for every alert generated within my subscription.
 
 Action rules work by decoupling the triggering of actions and notifications from the underlying alert rule, thereby allowing for flexibility and control over how the actions are actually triggered for your alert instances at scale.
 
 ## How do you configure an action rule?
 
-You can access the feature by selecting ‘Manage actions’ from the landing page for Alerts in Azure Monitor, and subsequently selecting ‘Action Rules (Preview)’. Else, you can go directly to the feature by selection the ‘Action Rules (preview)’ that’s present on the dashboard of the landing page for Alerts.
+You can access the feature by selecting **Manage actions** from the Alerts landing page in Azure Monitor. Then select **Action Rules (Preview)**. You can also go there directly by selectiing **Action Rules (preview)**  from the dashboard of the landing page for Alerts.
 
 ![Action rules from the Azure Monitor landing page](media/alerts-action-rules/action-rules-landing-page.png)
 
-Select ‘+ New Action Rule’ to create a new action rule.
+Select **+ New Action Rule**. 
 
 ![Add new action rule](media/alerts-action-rules/action-rules-new-rule.png)
 
-You should now see the action rule creation flow open, and the following elements have to be configured.
+You should now see the action rule creation flow open. You have to configuire the following elements. 
 
 ![New action rule creation flow](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
 ### Scope
 
-The first step is to choose the scope, i.e. target resource or resource group or subscription. You also have the ability to multi-select and select a combination of any of the above (within a single subscription). 
+First choose the scope, i.e. target resource or resource group or subscription. You also have the ability to multi-select a combination of any of the above (within a single subscription). 
 
 ![Action rule scope](media/alerts-action-rules/action-rules-new-rule-creation-flow-scope.png)
 
@@ -47,11 +47,11 @@ The first step is to choose the scope, i.e. target resource or resource group or
 
 You can additionally define filter(s) to further narrow down to a specific subset of the alerts on the defined scope. The available filters are: 
 
-* **Severity**: You can select one or more alert severities. E.g. Severity = Sev1 means that the action rule is applicable for all alerts with severity as Sev1.
-* **Monitor Service**: You can filter based on the originating monitoring service. This is also multi-select. E.g. Monitor Service = “Application Insights” means that the action rule is applicable for all “Application Insights” based alerts.
-* **Resource Type**: You can filter based on a specific resource type. This is also multi-select. For e.g. Resource Type = “Virtual Machines” means that the action rule is applicable for all Virtual Machines.
-* **Alert Rule ID**: Allows you to filter for specific alert rules using the ARM ID of the alert rule.
-* **Monitor Condition**: You can filter for alert instances with either "Fired" or "Resolved" as the monitor condition.
+* **Severity**: Select one or more alert severities. Severity = Sev1 means that the action rule is applicable for all alerts with severity as Sev1.
+* **Monitor Service**: Filter based on the originating monitoring service. This is also multi-select. E.g. Monitor Service = “Application Insights” means that the action rule is applicable for all “Application Insights” based alerts.
+* **Resource Type**: Filter based on a specific resource type. This is also multi-select. For e.g. Resource Type = “Virtual Machines” means that the action rule is applicable for all Virtual Machines.
+* **Alert Rule ID**: Allows you to filter for specific alert rules using the Resource Manager ID of the alert rule.
+* **Monitor Condition**: Filter for alert instances with either "Fired" or "Resolved" as the monitor condition.
 * **Description**: Regex matching within the description defined as part of the alert rule.
 * **Alert context (payload)**: RegEx matching within the [alert context](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) fields of an alert instance.
 
@@ -61,17 +61,17 @@ These filters are applied in conjunction to one another. For example, if I set '
 
 ### Suppression/Action group configuration
 
-The next step is to configure the action rule for either suppression or for action group support. This configuration acts on all alert instances matching the previously defined scope and filters.
+Next configure the action rule for either alert suppression or action group support. The configuration acts on all alert instances matching the previously defined scope and filters.
 
 > [!NOTE]
 > You can set either define suppression or an action group, but not both.
 
 #### Suppression
 
-Once you select suppression in the toggle, the next step is to configure the duration for the suppression of actions and notifications. This can be one of the following:
-* 'From now (always)': This suppresses all notifications indefinitely.
-* 'At a scheduled time': This allows you to suppress notifications within a bounded duration.
-* 'With a recurrence': This allows setting up suppression with a recurrence, which can be daily, weekly or monthly.
+After you select suppression in the toggle, configure the duration for the suppression of actions and notifications. Choose one of the following:
+* 'From now (always)': Suppresses all notifications indefinitely.
+* 'At a scheduled time': Suppress notifications within a bounded duration.
+* 'With a recurrence': Suppress on a recurrence schedule, which can be daily, weekly or monthly.
 
 ![Action rule suppression](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
 
