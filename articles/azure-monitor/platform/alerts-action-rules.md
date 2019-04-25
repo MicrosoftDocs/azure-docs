@@ -59,16 +59,13 @@ These filters are applied in conjunction to one another. For example, if I set '
 
 ![Action rule filters](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
-### Suppression/Action group configuration
+### Scope suppression or action group configuration
 
-Next configure the action rule for either alert suppression or action group support. The configuration acts on all alert instances matching the previously defined scope and filters.
-
-> [!NOTE]
-> You can set either define suppression or an action group, but not both.
+Next configure the action rule for either alert suppression or action group support. You cannot choose both. The configuration acts on all alert instances matching the previously defined scope and filters.
 
 #### Suppression
 
-After you select suppression in the toggle, configure the duration for the suppression of actions and notifications. Choose one of the following:
+If you select **suppression**, configure the duration for the suppression of actions and notifications. Choose one of the following:
 * 'From now (always)': Suppresses all notifications indefinitely.
 * 'At a scheduled time': Suppress notifications within a bounded duration.
 * 'With a recurrence': Suppress on a recurrence schedule, which can be daily, weekly or monthly.
@@ -77,7 +74,7 @@ After you select suppression in the toggle, configure the duration for the suppr
 
 #### Action group
 
-Once you select “Action group” in the toggle, either add an existing action group or create a new one. 
+If you select **Action group** in the toggle, either add an existing action group or create a new one. 
 
 > [!NOTE]
 > You can associate only one action group with an action rule.
@@ -112,7 +109,8 @@ Lastly, configure the following details for the action rule
 * Suppression set to 'From now (Always)'
 
 > [!Note]
-> Log alerts created with the ['number of results'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option generate **a single alert instance** with the entirety of the search results (which could be across multiple computers for example). In this scenario, if an action rule uses the 'Alert Context (payload)' filter, it will act on the alert instance as long as there is a match. In scenario 2 as described above, if the search results for the log alert generated contains both 'Computer-01' and 'Computer-02', the entire notification is suppressed (there is no notification generated for 'Computer-02' at all). To best leverage log alerts with action rules, it is advised to create log alerts with the ['metric measurement'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option. In this scenario, separate alert instances are generated based on the Group Field defined. In scenario 2 as described above, if the log alert is created with the metric measurement option, separate alert instances are generated for 'Computer-01' and 'Computer-02'. With the action rule described in the scenario, only the notification for 'Computer-01' would be suppressed while the notification for 'Computer-02' will continue to fire as normal.
+> Log alerts created with the ['number of results'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option generate **a single alert instance** with the entirety of the search results (which could be across multiple computers for example). If an action rule uses the 'Alert Context (payload)' filter, it will act on the alert instance as long as there is a match. 
+> In scenario 2 described above, if the search results for the log alert generated contains both 'Computer-01' and 'Computer-02', the entire notification is suppressed (there is no notification generated for 'Computer-02' at all). To best leverage log alerts with action rules, we advise you to create log alerts with the ['metric measurement'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option. With that option enabled, separate alert instances are generated based on the Group Field defined. If the log alert in scenario 2 is instead created with the metric measurement option, separate alert instances are generated for 'Computer-01' and 'Computer-02'. Then the action rule would only suppress the notification for 'Computer-01' while the notification for 'Computer-02' would continue to fire as normal.
 
 **Scenario 3:** Contoso has defined [a metric alert at a subscription level](https://docs.microsoft.comazure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), but wants to define the actions that trigger for alerts separately for their resource group 'ContosoRG'.
 
