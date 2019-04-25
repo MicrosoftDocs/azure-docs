@@ -41,21 +41,21 @@ the action returns 6144 records (3 pages x 2048 records), not 5000 records.
 Here's a list with just some of the connectors where you 
 can exceed the default page size for specific actions:
 
-* <a href="https://docs.microsoft.com/connectors/azureblob/" target="_blank">Azure Blob Storage</a>
-* <a href="https://docs.microsoft.com/connectors/dynamicscrmonline/" target="_blank">Dynamics 365</a>
-* <a href="https://docs.microsoft.com/connectors/excel/" target="_blank">Excel</a>
-* <a href="https://docs.microsoft.com/azure/connectors/connectors-native-http" target="_blank">HTTP</a>
-* <a href="https://docs.microsoft.com/connectors/db2/" target="_blank">IBM DB2</a>
-* <a href="https://docs.microsoft.com/en-us/connectors/teams/" target="_blank">Microsoft Teams</a>
-* <a href="https://docs.microsoft.com/connectors/oracle/" target="_blank">Oracle Database</a>
-* <a href="https://docs.microsoft.com/connectors/salesforce/" target="_blank">Salesforce</a>
-* <a href="https://docs.microsoft.com/connectors/sharepointonline/" target="_blank">SharePoint</a>
-* <a href="https://docs.microsoft.com/connectors/sql/" target="_blank">SQL Server</a>
+* [Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/)
+* [Dynamics 365](https://docs.microsoft.com/connectors/dynamicscrmonline/)
+* [Excel](https://docs.microsoft.com/connectors/excel/)
+* [HTTP](https://docs.microsoft.com/azure/connectors/connectors-native-http)
+* [IBM DB2](https://docs.microsoft.com/connectors/db2/)
+* [Microsoft Teams](https://docs.microsoft.com/connectors/teams/)
+* [Oracle Database](https://docs.microsoft.com/connectors/oracle/)
+* [Salesforce](https://docs.microsoft.com/connectors/salesforce/)
+* [SharePoint](https://docs.microsoft.com/connectors/sharepointonline/)
+* [SQL Server](https://docs.microsoft.com/connectors/sql/)
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription yet, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * The logic app and the action where you want to turn on pagination. 
 If you don't have a logic app, see 
