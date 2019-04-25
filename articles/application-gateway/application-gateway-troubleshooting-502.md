@@ -11,7 +11,7 @@ ms.author: amsriva
 
 # Troubleshooting bad gateway errors in Application Gateway
 
-Learn how to troubleshoot bad gateway (502) errors received when using application gateway.
+Learn how to troubleshoot bad gateway (502) errors received when using Azure Application Gateway.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -39,10 +39,11 @@ Similarly, the presence of a custom DNS in the VNet could also cause issues. A F
 ### Solution
 
 Validate NSG, UDR, and DNS configuration by going through the following steps:
-* Check NSGs associated with Application Gateway subnet. Ensure that communication to backend isn't blocked.
-* Check UDR associated with Application Gateway subnet. Ensure that UDR isn't directing traffic away from backend subnet - for example check for routing to network virtual appliances or default routes being advertised to Application Gateway subnet via ExpressRoute/VPN.
 
-```powershell
+* Check NSGs associated with the application gateway subnet. Ensure that communication to backend isn't blocked.
+* Check UDR associated with the application gateway subnet. Ensure that the UDR isn't directing traffic away from the backend subnet. For example, check for routing to network virtual appliances or default routes being advertised to the application gateway subnet via ExpressRoute/VPN.
+
+```azurepowershell
 $vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
 Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
@@ -70,7 +71,11 @@ If present, ensure that the DNS server can resolve the backend pool member's FQD
 
 ### Cause
 
-502 errors can also be frequent indicators that the default health probe isn't able to reach back-end VMs. When an Application Gateway instance is provisioned, it automatically configures a default health probe to each BackendAddressPool using properties of the BackendHttpSetting. No user input is required to set this probe. Specifically, when a load-balancing rule is configured, an association is made between a BackendHttpSetting and BackendAddressPool. A default probe is configured for each of these associations and Application Gateway starts a periodic health check connection to each instance in the BackendAddressPool at the port specified in the BackendHttpSetting element. Following table lists the values associated with the default health probe.
+502 errors can also be frequent indicators that the default health probe can't reach back-end VMs.
+
+When an application gateway instance is provisioned, it automatically configures a default health probe to each BackendAddressPool using properties of the BackendHttpSetting. No user input is required to set this probe. Specifically, when a load-balancing rule is configured, an association is made between a BackendHttpSetting and a BackendAddressPool. A default probe is configured for each of these associations and the application gateway starts a periodic health check connection to each instance in the BackendAddressPool at the port specified in the BackendHttpSetting element. 
+
+The following table lists the values associated with the default health probe:
 
 | Probe property | Value | Description |
 | --- | --- | --- |
@@ -86,7 +91,7 @@ If present, ensure that the DNS server can resolve the backend pool member's FQD
 * The call to `http://127.0.0.1:port` should return an HTTP result code of 200. This should be returned within the 30-second timeout period.
 * Ensure that the port configured is open and that there are no firewall rules or Azure Network Security Groups, which block incoming or outgoing traffic on the port configured.
 * If Azure classic VMs or Cloud Service is used with a FQDN or a public IP, ensure that the corresponding [endpoint](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
-* If the VM is configured via Azure Resource Manager and is outside the VNet where Application Gateway is deployed, a [Network Security Group](../virtual-network/security-overview.md) must be configured to allow access on the desired port.
+* If the VM is configured via Azure Resource Manager and is outside the VNet where the application gateway is deployed, a [Network Security Group](../virtual-network/security-overview.md) must be configured to allow access on the desired port.
 
 ## Problems with custom health probe
 
@@ -100,7 +105,7 @@ The following additional properties are added:
 | --- | --- |
 | Name |Name of the probe. This name is used to refer to the probe in back-end HTTP settings. |
 | Protocol |Protocol used to send the probe. The probe uses the protocol defined in the back-end HTTP settings |
-| Host |Host name to send the probe. Applicable only when multi-site is configured on Application Gateway. This is different from VM host name. |
+| Host |Host name to send the probe. Applicable only when multi-site is configured on the application gateway. This is different from VM host name. |
 | Path |Relative path of the probe. The valid path starts from '/'. The probe is sent to \<protocol\>://\<host\>:\<port\>\<path\> |
 | Interval |Probe interval in seconds. This is the time interval between two consecutive probes. |
 | Time-out |Probe time-out in seconds. If a valid response isn't received within this time-out period, the probe is marked as failed. |
@@ -111,7 +116,7 @@ The following additional properties are added:
 Validate that the Custom Health Probe is configured correctly as the preceding table. In addition to the preceding troubleshooting steps, also ensure the following:
 
 * Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md).
-* If Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe.
+* If  the application gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe.
 * Ensure that a call to http://\<host\>:\<port\>\<path\> returns an HTTP result code of 200.
 * Ensure that Interval, Timeout, and UnhealtyThreshold are within the acceptable ranges.
 * If using an HTTPS probe, make sure that the backend server doesn't require SNI by configuring a fallback certificate on the backend server itself.
@@ -120,7 +125,7 @@ Validate that the Custom Health Probe is configured correctly as the preceding t
 
 ### Cause
 
-When a user request is received, Application Gateway applies the configured rules to the request and routes it to a back-end pool instance. It waits for a configurable interval of time for a response from the back-end instance. By default, this interval is **20** seconds. If Application Gateway does not receive a response from back-end application in this interval, the user request gets a 502 error.
+When a user request is received, the application gateway applies the configured rules to the request and routes it to a back-end pool instance. It waits for a configurable interval of time for a response from the back-end instance. By default, this interval is **20** seconds. If the application gateway does not receive a response from back-end application in this interval, the user request gets a 502 error.
 
 ### Solution
 
@@ -176,7 +181,7 @@ BackendAddressPoolsText:
 
 ### Cause
 
-If all the instances of BackendAddressPool are unhealthy, then Application Gateway doesn't have any back-end to route user request to. This can also be the case when back-end instances are healthy but don't have the required application deployed.
+If all the instances of BackendAddressPool are unhealthy, then the application gateway doesn't have any back-end to route user request to. This can also be the case when back-end instances are healthy but don't have the required application deployed.
 
 ### Solution
 
