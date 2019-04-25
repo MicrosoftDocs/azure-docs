@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 04/24/2019
 ms.author: pbutlerm
 ---
 
@@ -26,22 +26,22 @@ Use the **Contacts** tab to provide engineering and customer support information
 
 ## Specify customer and engineering contacts
 
-Supply the following values to define the primary **Engineering Contact** and for your offer.
+Supply the following values to define the primary **Engineering Contact** and for your offer. Required fields are indicted by an asterisk (*).
 
 |    Field        |  Description                    |
 |    ---------    |  ---------------                |
-|  **Name**       |  Name of the engineering contact for your app. This contact will receive technical communications from Microsoft.   |
-|  **Email**      |  Email address of the engineering contact  |
-|  **Phone**      |  Phone number of the engineering contact  |
+|  **Name\***       |  Name of the engineering contact for your app. This contact will receive technical communications from Microsoft.   |
+|  **Email\***      |  Email address of the engineering contact  |
+|  **Phone\***      |  Phone number of the engineering contact  |
 |  |  |
 
 Supply the following values to define the primary **Support Contact** and for your offer.
 
 |    Field        |   Description                   |
 |    ---------    |  ---------------                |
-|  **Name**       |  Name of the customer support contact for your app. This contact will receive support-related communications from Microsoft.   |
-|  **Email**      |  Email address of the customer support contact  |
-|  **Phone**      |  Phone number of the customer support contact  |
+|  **Name\***       |  Name of the customer support contact for your app. This contact will receive support-related communications from Microsoft.   |
+|  **Email\***      |  Email address of the customer support contact  |
+|  **Phone\***      |  Phone number of the customer support contact  |
 |  |  |
 
 
