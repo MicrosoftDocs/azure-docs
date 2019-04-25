@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Remove Duplicate Rows
+# Remove Duplicate Rows module
 
 *Removes the duplicate rows from a dataset*  
   
@@ -20,7 +20,9 @@ ROBOTS: NOINDEX
   
 ## Module overview  
 
-This article describes how to use the **Remove Duplicate Rows** module in Azure Machine Learning service to remove potential duplicates from a dataset.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to remove potential duplicates from a dataset.
 
 For example, assume your data looks like the following, and represents multiple records for patients. 
 

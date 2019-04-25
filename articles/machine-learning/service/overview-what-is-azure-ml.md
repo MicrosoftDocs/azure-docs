@@ -26,11 +26,9 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 Azure Machine Learning service provides a cloud-based environment you can use to prep data, train, test, deploy, manage, and track machine learning models. Start training on your local machine and then scale out to the cloud. The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn.
 
-
-
-Interactively explore and prepare data, train and test models, and deploy them using rich tools such as:
-+ A visual interface in which you can drag-n-drop modules to build your experiments and then deploy models
-+ [Jupyter notebooks](https://jupyter.org)  in which you use the SDKs to write your own code, such as [these sample notebooks](https://aka.ms/aml-notebooks)   
+Explore and prepare data, train and test models, and deploy them using rich tools such as:
++ A [visual interface](ui-quickstart-run-experiment.md) in which you can drag-n-drop modules to build your experiments and then deploy models
++ [Jupyter notebooks](https://jupyter.org)  in which you use the [SDKs](https://docs.microsoft.com/azure/machine-learning/service/#reference) to write your own code, such as [these sample notebooks](https://aka.ms/aml-notebooks)
 + [Visual Studio Code extension](how-to-vscode-tools.md)
 
 ## What can I do with Azure Machine Learning service?

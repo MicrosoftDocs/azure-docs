@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Partition and Sample
+# Partition and Sample module
 
 *Creates multiple partitions of a dataset based on sampling*
 
@@ -20,7 +20,9 @@ Category: Data Transformation / Sample and Split
 
 ## Module overview
 
-This article describes how to use the **Partition and Sample** module in Azure Machine Learning service to perform sampling on a dataset or to create partitions from your dataset.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to perform sampling on a dataset or to create partitions from your dataset.
 
 Sampling is an important tool in machine learning because it lets you reduce the size of a dataset while maintaining the same ratio of values. This module supports several related tasks that are important in  machine learning: 
 

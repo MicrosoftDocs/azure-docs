@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Multiclass Logistic Regression
+# Multiclass Logistic Regression module
 
 *Creates a multiclass logistic regression classification model*
 
@@ -20,7 +20,9 @@ Category: Machine Learning / Initialize Model / Classification
 
 ## Module overview
 
-This article describes how to use the **Multiclass Logistic Regression** module in Azure Machine Learning service to create a logistic regression model that can be used to predict multiple values.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to create a logistic regression model that can be used to predict multiple values.
 
 Classification using logistic regression is a supervised learning method, and therefore requires a labeled dataset. You train the model by providing the model and the labeled dataset as an input to a module such as [Train Model](./train-model.md). The trained model can then be used to predict values for new input examples.
 

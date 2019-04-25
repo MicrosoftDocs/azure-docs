@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords: 
 author: chackdan
 ms.author: chackdan
-ms.date: 12/12/2018
+ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
@@ -22,7 +22,7 @@ Ask questions, get answers from Microsoft engineers, and report issues in the [s
 
 ### What is the cost of participating in the preview?
 
-There are no charges for deploying applications or containers to the Mesh preview currently. However,  we encourage you to delete the resources you deploy and not leave them running unless you're actively testing them.
+There are no charges for deploying applications or containers to the Mesh preview currently. However, we encourage you to delete the resources you deploy and not leave them running unless you're actively testing them.
 
 ### Is there a quota limit of the number of cores and RAM?
 
@@ -72,7 +72,9 @@ For example:
 
 To delete the resource group, use the `az group delete <nameOfResourceGroup>` command.
 
-## Supported container OS images
+## Deployments
+
+### What container images are supported?
 
 If you are developing on a Windows Fall Creators Update (version 1709) machine, you can only use Windows version 1709 docker images.
 
@@ -85,6 +87,10 @@ The following container OS images can be used to deploy services:
     - Windows Server version 1803
 - Linux
     - No known limitations
+
+### What types of applications can I deploy? 
+
+You can deploy anything that runs in containers that fit within the restrictions placed on an application resource (see above for more info on quotas). If we detect that you are using Mesh for running illegal workloads or abusing the system (i.e. mining), then we reserve the right to terminate your deployments and blocklist your subscription from running on the service. Please reach out to us if you have any questions on running a specific workload. 
 
 ## Developer experience issues
 

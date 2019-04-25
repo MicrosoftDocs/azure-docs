@@ -9,11 +9,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
 ---
 
-# Configure automated machine learning experiments
+# Configure automated ML experiments in Python
 
 Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure automated machine learning experiments. In this guide, learn how to define various configuration settings.
 
@@ -46,7 +46,7 @@ Classification | Regression | Time Series Forecasting
 [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[DNN Classifer](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
+[DNN Classifier](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [DNN Linear Classifier](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Linear Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Linear Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
 [Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
 [Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
@@ -120,8 +120,8 @@ label |	string	| X, y, X_valid, y_valid |	Which column in data_train represents 
 columns	| Array of strings	||	_Optional_ Whitelist of columns to use for features
 cv_splits_indices	| Array of integers	||	_Optional_ List of indexes to split the data for cross validation
 
-### Load and prepare data using DataPrep SDK
-Automated machine learning experiments supports data loading and transforms using the dataprep SDK. Using the SDK provides the ability to
+### Load and prepare data using data prep SDK
+Automated machine learning experiments supports data loading and transforms using the data prep SDK. Using the SDK provides the ability to
 
 >* Load from many file types with parsing parameter inference (encoding, separator, headers)
 >* Type-conversion using inference during file loading
@@ -154,7 +154,7 @@ You can specify separate train and validation set either through get_data() or d
 
 Use `n_cross_validations` setting to specify the number of cross validations. The training data set will be randomly split into `n_cross_validations` folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for `n_cross_validations` rounds until each fold is used once as validation set. The average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set. 
 
-### Monte Carlo Cross Validation (a.k.a. Repeated Random Sub-Sampling)
+### Monte Carlo Cross Validation (Repeated Random Sub-Sampling)
 
 Use `validation_size` to specify the percentage of the training dataset that should be used for validation, and use `n_cross_validations` to specify the number of cross validations. During each cross validation round, a subset of size `validation_size` will be randomly selected for validation of the model trained on the remaining data. Finally, the average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set. Monte Carlo is not supported for time series forecasting.
 
@@ -222,24 +222,11 @@ The primary metric; as shown in the examples above determines the metric to be u
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
-## Data pre-processing and featurization
+## Data preprocessing & featurization
 
-If you use `preprocess=True`, the following data preprocessing steps are performed automatically for you:
-1.	Drop high cardinality or no variance features
-    * Drop features with no useful information from training and validation sets. These include features with all values missing, same value across all rows or with extremely high cardinality (e.g., hashes, IDs or GUIDs).
-1.	Missing value imputation
-    *	For numerical features, impute missing values with average of values in the column.
-    *	For categorical features, impute missing values with most frequent value.
-1.	Generate additional features
-    * For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.
-    * For Text features: Term frequency based on word unigram, bi-grams, and tri-gram, Count vectorizer.
-1.	Transformations and encodings
-    * Numeric features with very few unique values transformed into categorical features.
-    * Depending on cardinality of categorical features, perform label encoding or (hashing) one-hot encoding.
+In every automated machine learning experiment, your data is [automatically scaled and normalized](concept-automated-ml.md#preprocess) to help algorithms perform well.  However, you can also enable additional preprocessing/featurization, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). 
 
-
-## Ensemble Models
-Ensemble learning improves machine learning results and predictive performance by combing many models as opposed to using single models. When using automated machine learning, you can train ensemble models using the [Caruana ensemble selection algorithm with sorted Ensemble initialization](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). The ensemble iteration appears as the last iteration of your run.
+To enable this featurization, specify `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 ## Time Series Forecasting
 For time series forecasting task type you have additional parameters to define.
@@ -295,7 +282,7 @@ There a few options you can define to complete your experiment.
 1. No Criteria - If you do not define any exit parameters the experiment will continue until no further progress is made on your primary metric. 
 1. Number of iterations - You define the number of iterations for the experiment to run. You can optional add iteration_timeout_minutes to define a time limit in minutes per each iteration.
 1. Exit after a length of time - Using experiment_timeout_minutes in your settings you can define how long in minutes should an experiment continue in run.
-1. Exit after a score has been reached - Using experiment_exit_score you can choose to complete the experiement after a score based on your primary metric has been reached.
+1. Exit after a score has been reached - Using experiment_exit_score you can choose to complete the experiment after a score based on your primary metric has been reached.
 
 ## Explore model metrics
 You can view your results in a widget or inline if you are in a notebook. See [Track and evaluate models](how-to-track-experiments.md#view-run-details) for more details.
@@ -344,9 +331,221 @@ normalized_root_mean_squared_error|Normalized root mean squared error is root me
 root_mean_squared_log_error|Root mean squared log error is the square root of the expected squared logarithmic error|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|None|
 normalized_root_mean_squared_log_error|Normalized Root mean squared log error is root mean squared log error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divide by range of the data|
 
-## Explain the model
 
-While automated machine learning capabilities are generally available, **the model explainability feature is still in public preview.**
+## Understand automated ML models
+
+Any model produced using automated ML includes the following steps:
++ Automated feature engineering (if preprocess=True)
++ Scaling/Normalization and algorithm with hypermeter values
+
+We make it transparent to get this information from the fitted_model output from automated ML.
+
+```python
+automl_config = AutoMLConfig(…)
+automl_run = experiment.submit(automl_config …)
+best_run, fitted_model = automl_run.get_output()
+```
+
+### Automated feature engineering
+
+See the list of preprocessing and [automated feature engineering](concept-automated-ml.md#preprocess) that happens when preprocess=True.  
+
+Consider this example:
++ There are 4 input features: A (Numeric), B (Numeric), C (Numeric), D (DateTime)
++ Numeric feature C is dropped because it is an ID column with all unique values
++ Numeric features A and B have missing values and hence are imputed by mean
++ DateTime feature D is featurized into 11 different engineered features
+
+Use these 2 APIs on the first step of fitted model to understand more.  See [this sample notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+
++ API 1: `get_engineered_Feature_names()` returns a list of engineered feature names.
+
+  Usage: 
+  ```python
+  fitted_model.named_steps['timeseriestransformer']. get_engineered_Feature_names ()
+  ```
+
+  ```
+  Output: ['A', 'B', 'A_WASNULL', 'B_WASNULL', 'year', 'half', 'quarter', 'month', 'day', 'hour', 'am_pm', 'hour12', 'wday', 'qday', 'week']
+  ```
+
+  This list includes all engineered feature names.
+
+  >[!Note]
+  >Use 'timeseriestransformer' for task=’forecasting’, else use 'datatransformer' for ‘regression’ or ‘classification’ task. 
+
++ API 2: `get_featurization_summary()` returns featurization summary for all the input features.
+
+  Usage: 
+  ```python
+  fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+  ```
+
+  >[!Note]
+  >Use 'timeseriestransformer' for task=’forecasting’, else use 'datatransformer' for ‘regression’ or ‘classification’ task.
+
+  Output:
+  ```
+  [{'RawFeatureName': 'A',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 2,
+    'Tranformations': ['MeanImputer', 'ImputationMarker']},
+   {'RawFeatureName': 'B',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 2,
+    'Tranformations': ['MeanImputer', 'ImputationMarker']},
+   {'RawFeatureName': 'C',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'Yes',
+    'EngineeredFeatureCount': 0,
+    'Tranformations': []},
+   {'RawFeatureName': 'D',
+    'TypeDetected': 'DateTime',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 11,
+    'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
+  ```
+  
+   Where:
+   
+   |Output|Definition|
+   |----|--------|
+   |RawFeatureName|Input feature/column name from the dataset provided.| 
+   |TypeDetected|Detected datatype of the input feature.|
+   |Dropped|Indicates if the input feature was dropped or used.|
+   |EngineeringFeatureCount|Number of features generated through automated feature engineering transforms.|
+   |Transformations|List of transformations applied to input features to generate engineered features.|  
+
+### Scaling/Normalization and algorithm with hypermeter values:
+
+To understand the scaling/normalization and algorithm/hyperparameter values for a pipeline, use fitted_model.steps. [Learn more about scaling/normalization](concept-automated-ml.md#preprocess). Here is a sample output:
+
+```
+[('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
+```
+
+To get more details, use this helper function shown in [this sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification/auto-ml-classification.ipynb).
+
+```python
+from pprint import pprint
+def print_model(model, prefix=""):
+    for step in model.steps:
+        print(prefix + step[0])
+        if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
+            pprint({'estimators': list(e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            print()
+            for estimator in step[1].estimators:
+                print_model(estimator[1], estimator[0]+ ' - ')
+        else:
+            pprint(step[1].get_params())
+            print()
+                
+print_model(fitted_model)
+```
+
+Here is sample output:
+
++ Pipeline using a specific algorithm (LogisticRegression with RobustScalar in this case):
+
+  ```
+  RobustScaler
+  {'copy': True,
+   'quantile_range': [10, 90],
+   'with_centering': True,
+   'with_scaling': True}
+  
+  LogisticRegression
+  {'C': 0.18420699693267145,
+   'class_weight': 'balanced',
+   'dual': False,
+   'fit_intercept': True,
+   'intercept_scaling': 1,
+   'max_iter': 100,
+   'multi_class': 'multinomial',
+   'n_jobs': 1,
+   'penalty': 'l2',
+   'random_state': None,
+   'solver': 'newton-cg',
+   'tol': 0.0001,
+   'verbose': 0,
+   'warm_start': False}
+  ```
+  
++ Pipeline using ensemble approach: In this case, it is an ensemble of 2 different pipelines
+
+  ```
+  prefittedsoftvotingclassifier
+  {'estimators': ['1', '18'],
+  'weights': [0.6666666666666667,
+              0.3333333333333333]}
+
+  1 - RobustScaler
+  {'copy': True,
+   'quantile_range': [25, 75],
+   'with_centering': True,
+   'with_scaling': False}
+  
+  1 - LightGBMClassifier
+  {'boosting_type': 'gbdt',
+   'class_weight': None,
+   'colsample_bytree': 0.2977777777777778,
+   'importance_type': 'split',
+   'learning_rate': 0.1,
+   'max_bin': 30,
+   'max_depth': 5,
+   'min_child_samples': 6,
+   'min_child_weight': 5,
+   'min_split_gain': 0.05263157894736842,
+   'n_estimators': 200,
+   'n_jobs': 1,
+   'num_leaves': 176,
+   'objective': None,
+   'random_state': None,
+   'reg_alpha': 0.2631578947368421,
+   'reg_lambda': 0,
+   'silent': True,
+   'subsample': 0.8415789473684211,
+   'subsample_for_bin': 200000,
+   'subsample_freq': 0,
+   'verbose': -10}
+  
+  18 - StandardScalerWrapper
+  {'class_name': 'StandardScaler',
+   'copy': True,
+   'module_name': 'sklearn.preprocessing.data',
+   'with_mean': True,
+   'with_std': True}
+  
+  18 - LightGBMClassifier
+  {'boosting_type': 'goss',
+   'class_weight': None,
+   'colsample_bytree': 0.2977777777777778,
+   'importance_type': 'split',
+   'learning_rate': 0.07894947368421053,
+   'max_bin': 30,
+   'max_depth': 6,
+   'min_child_samples': 47,
+   'min_child_weight': 0,
+   'min_split_gain': 0.2631578947368421,
+   'n_estimators': 400,
+   'n_jobs': 1,
+   'num_leaves': 14,
+   'objective': None,
+   'random_state': None,
+   'reg_alpha': 0.5789473684210527,
+   'reg_lambda': 0.7894736842105263,
+   'silent': True,
+   'subsample': 1,
+   'subsample_for_bin': 200000,
+   'subsample_freq': 0,
+   'verbose': -10}
+  ```
+  
+<a name="explain"></a>
+
+## Explain the model (interpretability)
 
 Automated machine learning allows you to understand feature importance.  During the training process, you can get global feature importance for the model.  For classification scenarios, you can also get class-level feature importance.  You must provide a validation dataset (X_valid) to get feature importance.
 

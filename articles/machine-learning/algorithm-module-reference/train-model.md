@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Train Model
+# Train Model module
 
 *Trains a classification or regression model in a supervised manner*  
   
@@ -20,7 +20,9 @@ ROBOTS: NOINDEX
   
 ## Module overview
  
-This article describes how to use the **Train Model** module in Azure Machine Learning service to train a classification or regression model. Training takes place after you have defined a model and set its parameters, and requires tagged data. You can also use **Train Model** to retrain an existing model with new data. 
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to  train a classification or regression model. Training takes place after you have defined a model and set its parameters, and requires tagged data. You can also use **Train Model** to retrain an existing model with new data. 
 
 ### How the training process works
 

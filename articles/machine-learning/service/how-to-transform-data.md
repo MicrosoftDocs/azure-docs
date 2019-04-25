@@ -33,7 +33,7 @@ This how-to shows examples for the following tasks:
 
 The Azure Machine Learning Data Prep SDK includes `substring` expressions you can use to calculate a value from existing columns, and then put that value in a new column. In this example, you load data and try to add columns to that input data.
 
-```python
+```Python
 import azureml.dataprep as dprep
 
 # loading data
@@ -50,7 +50,7 @@ dflow.head(3)
 
 Use the `substring(start, length)` expression to extract the prefix from the Case Number column and put that string in a new column, `Case Category`. Passing the `substring_expression` variable to the `expression` parameter creates a new calculated column that executes the expression on each record.
 
-```python
+```Python
 substring_expression = dprep.col('Case Number').substring(0, 2)
 case_category = dflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
@@ -65,10 +65,9 @@ case_category.head(3)
 |2|10140270|HY329253|HY|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|BATTERY|DOMESTIC BATTERY SIMPLE|STREET|false|true|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
 
 
-
 Use the `substring(start)` expression to extract only the number from the Case Number column and create a new column. Convert it to a numeric data type using the `to_number()` function, and pass the string column name as a parameter.
 
-```python
+```Python
 substring_expression2 = dprep.col('Case Number').substring(2)
 case_id = dflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',

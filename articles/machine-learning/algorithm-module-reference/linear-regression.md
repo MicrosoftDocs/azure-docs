@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Linear Regression
+# Linear Regression module
 
 *Creates a linear regression model*
 
@@ -20,7 +20,9 @@ Category: Machine Learning / Initialize Model / Regression
 
 ## Module overview
 
-This article describes how to use the **Linear Regression** module in Azure Machine Learning service to create a linear regression model for use in an experiment.  Linear regression attempts to establish a linear relationship between one or more independent variables and a numeric outcome, or dependent variable. 
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to create a linear regression model for use in an experiment.  Linear regression attempts to establish a linear relationship between one or more independent variables and a numeric outcome, or dependent variable. 
 
 You use this module to define a linear regression method, and then train a model using a labeled dataset. The trained model can then be used to make predictions.
 

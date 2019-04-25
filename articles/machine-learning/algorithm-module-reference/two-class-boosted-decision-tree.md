@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Two-Class Boosted Decision Tree
+# Two-Class Boosted Decision Tree module
 
 *Creates a binary classifier using a boosted decision tree algorithm*  
   
@@ -20,7 +20,9 @@ ROBOTS: NOINDEX
   
 ## Module overview  
 
-This article describes how to use the **Two-Class Boosted Decision Tree** module in Azure Machine Learning service to create a machine learning model that is based on the boosted decision trees algorithm. 
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to create a machine learning model that is based on the boosted decision trees algorithm. 
 
 A boosted decision tree is an ensemble learning method in which the second tree corrects for the errors of the first tree, the third tree corrects for the errors of the first and second trees, and so forth.  Predictions are based on the entire ensemble of trees together that makes the prediction.
   
