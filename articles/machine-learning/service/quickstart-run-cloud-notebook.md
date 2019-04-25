@@ -95,11 +95,11 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
     ![Authenticate](media/quickstart-run-cloud-notebook/authenticate.png)
 
-1. When you are done, the cell number __[ 2 ]__ appears and you see a successful authentication status message.
+1. When you are done, the cell number __[2]__ appears.  If you had to sign in, you will see a successful authentication status message.   If you didn't have to sign in, you won't see any output for this cell, only the number appears to show that the cell ran successfully.
 
     ![Success message](media/quickstart-run-cloud-notebook/success.png)
 
-1. Run the rest of the code cells.  As each cell finishes running, you will see the cell number appear. Only the last cell displays any other output.
+1. Run the rest of the code cells.  As each cell finishes running, you will see its cell number appear. Only the last cell displays any other output.  In the largest code cell, you see `run.log`  used in multiple places. Each `run.log` adds its value to your workspace.
 
 
 ## View logged values
