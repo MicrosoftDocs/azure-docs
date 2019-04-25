@@ -20,7 +20,7 @@ To define your pipeline, you can use:
 
 - Templates: Templates are ready made tasks that build or deploy your app.
 
-## YAML-Based Pipeline
+## YAML-based bipeline
 
 ### Build your app
 
@@ -130,7 +130,7 @@ steps:
 
 Depending on the hosting OS, you need to include the following YAML sample in your YAML file.
 
-#### Windows Function App
+#### Windows function App
 
 The following snippet can be used to deploy to a Windows function app
 
@@ -143,7 +143,7 @@ steps:
     appName: '<Name of function app>'
 ```
 
-#### Linux Function App
+#### Linux function App
 
 The following snippet can be used to deploy to a Linux function app
 
@@ -156,7 +156,7 @@ steps:
     appName: '<Name of function app>'
 ```
 
-## Template-Based Pipeline
+## Template-based pipeline
 
 Templates in Azure DevOps, are predefined group of tasks that build or deploy an app.
 
@@ -171,7 +171,7 @@ After configuring the source of your code, search for Azure Functions build temp
 
 ![Azure Functions build templates](media/functions-how-to-azure-devops/build-templates.png)
 
-#### JavaScript Apps
+#### JavaScript apps
 
 If your JavaScript app have a dependency on Windows native modules, you will need to update:
 
