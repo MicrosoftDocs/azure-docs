@@ -42,7 +42,7 @@ Here are the topics to be covered in this article:
 * Using [Storage Analytics](#storage-analytics) to audit access of Azure Storage
 
   This section discusses how to find information in the storage analytics logs for a request. We'll take a look at real storage analytics log data and see how to discern whether a request is made with the Storage account key, with a Shared Access signature, or anonymously, and whether it succeeded or failed.
-* [Enabling Browser-Based Clients using CORS](#Cross-Origin-Resource-Sharing-CORS)
+* [Enabling Browser-Based Clients using CORS](#cross-origin-resource-sharing-cors)
 
   This section talks about how to allow cross-origin resource sharing (CORS). We'll talk about cross-domain access, and how to handle it with the CORS capabilities built into Azure Storage.
 
@@ -298,7 +298,7 @@ For the encryption itself, you can generate and manage your own encryption keys.
   This article gives an explanation of client-side encryption, and provides examples of using the storage client library to encrypt and decrypt resources from the four storage services. It also talks about Azure Key Vault.
 
 ### Using Azure Disk Encryption to encrypt disks used by your virtual machines
-Azure Disk Encryption is a new feature. This feature allows you to encrypt the OS disks and Data disks used by an IaaS Virtual Machine. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys.
+Azure Disk Encryption allows you to encrypt the OS disks and Data disks used by an IaaS Virtual Machine. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys.
 
 The solution supports the following scenarios for IaaS VMs when they are enabled in Microsoft Azure:
 

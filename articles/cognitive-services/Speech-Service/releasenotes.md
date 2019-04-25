@@ -8,12 +8,50 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 4/24/2019
 ms.author: wolfma
 ms.custom: seodec18
 ---
 
 # Release notes
+
+## Speech SDK 1.4.2
+
+This is a bug fix release and only affecting the native/managed SDK. It is not affecting the JavaScript version of the SDK.
+
+## Speech SDK 1.4.1
+
+This is a JavaScript-only release. No features have been added. The following fixes were made:
+
+* Prevent webpack from loading https-proxy-agent.
+
+## Speech SDK 1.4.0: 2019-April release
+
+**New features** 
+
+* The SDK now supports the text-to-speech service as a beta version. It is supported on Windows and Linux Desktop from C++ and C#. For more information check the [text-to-speech overview](text-to-speech.md#get-started-with-text-to-speech).
+* The SDK now supports MP3 and Opus/Ogg audio files as stream input files. This feature is available only on Linux from C++ and C# and is currently in beta (more details [here](how-to-use-compressed-audio-input-streams.md)).
+* The Speech SDK for Java, .NET core, C++ and Objective-C have gained macOS support. The Objective-C support for macOS is currently in beta.
+* iOS: The Speech SDK for iOS (Objective-C) is now also published as a CocoaPod.
+* JavaScript: Support for non-default microphone as an input device.
+* JavaScript: Proxy support for Node.js.
+
+**Samples**
+
+* Samples for using the Speech SDK with C++ and with Objective-C on macOS have been added.
+* Samples demonstrating the usage of the text-to-speech service have been added.
+
+**Improvements / Changes**
+
+* Python: Additional properties of recognition results are now exposed via the `properties` property.
+* For additional development and debug support you can redirect SDK logging and diagnostics information into a log file (more details [here](how-to-use-logging.md)).
+* JavaScript: Improve audio processing performance.
+
+**Bug fixes**
+
+* Mac/iOS: A bug that led to a long wait when a connection to the Speech Service could not be established was fixed.
+* Python: improve error handling for arguments in Python callbacks.
+* JavaScript: Fixed wrong state reporting for speech ended on RequestSession.
 
 ## Speech SDK 1.3.1: 2019-February refresh
 

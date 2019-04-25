@@ -19,6 +19,9 @@ Azure Storage supports account failover (preview) for geo-redundant storage acco
 
 This article describes the concepts and process involved with an account failover and discusses how to prepare your storage account for recovery with the least amount of customer impact. To learn how to initiate an account failover in the Azure portal or PowerShell, see [Initiate an account failover (preview)](storage-initiate-account-failover.md).
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Choose the right redundancy option
 
 All storage accounts are replicated for redundancy. Which redundancy option you choose for your account depends on the degree of resiliency you need. For  protection against regional outages, choose geo-redundant storage, with or without the option of read access from the secondary region:  
@@ -117,15 +120,15 @@ The preview is intended for non-production use only. Production service-level ag
 
 To register for the preview, run the following commands in PowerShell. Make sure to replace the placeholder in brackets with your own subscription ID:
 
-```PowerShell
-Connect-AzureRmAccount -SubscriptionId <subscription-id>
-Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+```powershell
+Connect-AzAccount -SubscriptionId <subscription-id>
+Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 It may take 1-2 days to receive approval for the preview. To verify that your registration has been approved, run the following command:
 
-```PowerShell
-Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+```powershell
+Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 ### Additional considerations 

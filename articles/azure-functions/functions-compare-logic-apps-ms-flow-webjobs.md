@@ -80,7 +80,7 @@ Azure Functions is built on the WebJobs SDK, so it shares many of the same event
 
 |  | Functions | WebJobs with WebJobs SDK |
 | --- | --- | --- |
-|[Serverless app model](https://azure.microsoft.com/solutions/serverless/) with [automatic scaling](functions-scale.md#how-the-consumption-plan-works)|✔||
+|[Serverless app model](https://azure.microsoft.com/solutions/serverless/) with [automatic scaling](functions-scale.md#how-the-consumption-and-premium-plans-work)|✔||
 |[Develop and test in browser](functions-create-first-azure-function.md) |✔||
 |[Pay-per-use pricing](functions-scale.md#consumption-plan)|✔||
 |[Integration with Logic Apps](functions-twitter-email.md)|✔||
@@ -115,8 +115,8 @@ The integration between Microsoft Flow, Logic Apps, and Functions continues to i
 
 You can get more information on integration services by using the following links:
 
-* [Leveraging Azure Functions & Azure App Service for integration scenarios by Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
-* [Integrations Made Simple by Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
+* [Leveraging Azure Functions & Azure App Service for integration scenarios by Christopher Anderson](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
+* [Integrations Made Simple by Charles Lamanna](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps Live webcast](https://aka.ms/logicappslive)
 * [Microsoft Flow frequently asked questions](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 

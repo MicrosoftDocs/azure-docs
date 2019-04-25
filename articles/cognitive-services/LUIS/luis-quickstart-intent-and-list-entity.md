@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 ---
@@ -181,5 +181,5 @@ This tutorial created a new intent, added example utterances, then created a lis
 Continue with this app, [adding a composite entity](luis-tutorial-composite-entity.md).
 
 > [!div class="nextstepaction"]
-> [Add a hierarchical entity to the app](luis-quickstart-intent-and-hier-entity.md)
+> [Add prebuilt entity with a role to the app](tutorial-entity-roles.md)
 

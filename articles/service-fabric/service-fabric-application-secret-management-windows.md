@@ -4,7 +4,7 @@ description: Learn how to set up an encryption certificate and encrypt secrets o
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a

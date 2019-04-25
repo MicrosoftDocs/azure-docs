@@ -1,7 +1,7 @@
 ---
-title: Monitor models with Application Insights
+title: Set up Azure Application Insights to monitor ML models
 titleSuffix: Azure Machine Learning service
-description: Use Application Insights to monitor web services deployed through Azure Machine Learning service 
+description: Monitor web services deployed with Azure Machine Learning service using Azure Application Insights
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,8 +9,8 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 1/07/2019
-ms.custom: seodec18
+ms.date: 04/02/2019
+ms.custom: seoapril2019
 ---
 # Monitor your Azure Machine Learning models with Application Insights
 
@@ -30,7 +30,7 @@ In this article, you learn how to set up Azure Application Insights for your Azu
 * A trained machine learning model to be deployed to Azure Kubernetes Service (AKS) or Azure Container Instance (ACI). If you don't have one, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
 
-## Enable and disable from the SDK
+## Use SDK to configure 
 
 ### Update a deployed service
 1. Identify the service in your workspace. The value for `ws` is the name of your workspace.
@@ -71,7 +71,7 @@ To disable Application Insights, use the following code:
 <service_name>.update(enable_app_insights=False)
 ```
 	
-## Enable and disable in the portal
+## Use portal to configure
 
 You can enable and disable Application Insights in the Azure portal.
 
@@ -132,6 +132,4 @@ The [how-to-use-azureml/deployment/enable-app-insights-in-production-service/ena
 ## Next steps
 You can also collect data on your models in production. Read the article  [Collect data for models in production](how-to-enable-data-collection.md). 
 
-
-## Other references
-* [Azure Monitor for containers](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)
+Also read [Azure Monitor for containers](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).

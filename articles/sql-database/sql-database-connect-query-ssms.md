@@ -8,8 +8,8 @@ ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
 manager: craigg
 ms.date: 03/25/2019
@@ -38,7 +38,7 @@ In this quickstart, you'll use [SQL Server Management Studio][ssms-install-lates
 
 ## Install the latest SSMS
 
-Before you start, make sure you've installed the latest [SSMS][ssms-install-latest-84g]. 
+Before you start, make sure you've installed the latest [SSMS][ssms-install-latest-84g].
 
 ## Get SQL server connection information
 
@@ -52,7 +52,7 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 
 ## Connect to your database
 
-In SMSS, connect to your Azure SQL Database server. 
+In SMSS, connect to your Azure SQL Database server.
 
 > [!IMPORTANT]
 > An Azure SQL Database server listens on port 1433. To connect to a SQL Database server from behind a corporate firewall, the firewall must have this port open.
@@ -62,8 +62,8 @@ In SMSS, connect to your Azure SQL Database server.
 
 2. Enter the following information:
 
-   | Setting      | Suggested value    | Description | 
-   | ------------ | ------------------ | ----------- | 
+   | Setting      | Suggested value    | Description |
+   | ------------ | ------------------ | ----------- |
    | **Server type** | Database engine | Required value. |
    | **Server name** | The fully qualified server name | Something like: **mynewserver20170313.database.windows.net**. |
    | **Authentication** | SQL Server Authentication | This tutorial uses SQL Authentication. |
@@ -77,7 +77,7 @@ In SMSS, connect to your Azure SQL Database server.
 
    ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. Select **Connect**. The Object Explorer window opens. 
+4. Select **Connect**. The Object Explorer window opens.
 
 5. To view the database's objects, expand **Databases** and then expand **mySampleDatabase**.
 
@@ -134,15 +134,14 @@ Run this [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL
 1. Replace the previous query with this one.
 
    ```sql
-   SELECT * FROM [SalesLT].[Product] 
-   WHERE Name='myNewProduct' 
+   SELECT * FROM [SalesLT].[Product]
+   WHERE Name='myNewProduct'
    ```
-   
-2. Select **Execute**. The following result appears. 
+
+2. Select **Execute**. The following result appears.
 
    ![result](./media/sql-database-connect-query-ssms/result.png)
 
- 
 ## Update data
 
 Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
@@ -182,8 +181,6 @@ Run this [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL
 - To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
 - To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
 
-
 <!-- Article link references. -->
 
 [ssms-install-latest-84g]: https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms
-

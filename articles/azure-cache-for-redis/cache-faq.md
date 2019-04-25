@@ -388,7 +388,7 @@ How to configure this setting:
   > The value specified in this configuration element is a *per-core* setting. For example, if you have a 4 core machine and want your minIOThreads setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.
   >
 
-* Outside ASP.NET, and Azure WebSites global.asax, use the [ThreadPool.SetMinThreads (...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+* Outside ASP.NET, and Azure WebSites global.asax, use the [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) API.
 
   > [!NOTE]
   > The value specified by this API is a global setting, affecting the whole AppDomain. If you have a 4 core machine, and want to set minWorkerThreads and minIOThreads to 50 per CPU during run-time, you would use ThreadPool.SetMinThreads (200, 200).
@@ -398,9 +398,9 @@ How to configure this setting:
 ### Enable server GC to get more throughput on the client when using StackExchange.Redis
 Enabling server GC can optimize the client and provide better performance and throughput when using StackExchange.Redis. For more information on server GC and how to enable it, see the following articles:
 
-* [To enable server GC](https://msdn.microsoft.com/library/ms229357.aspx)
-* [Fundamentals of Garbage Collection](https://msdn.microsoft.com/library/ee787088.aspx)
-* [Garbage Collection and Performance](https://msdn.microsoft.com/library/ee851764.aspx)
+* [To enable server GC](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
+* [Fundamentals of Garbage Collection](/dotnet/standard/garbage-collection/fundamentals)
+* [Garbage Collection and Performance](/dotnet/standard/garbage-collection/performance)
 
 
 ### Performance considerations around connections
@@ -465,11 +465,11 @@ For more information about getting started with Azure Cache for Redis, see [How 
 ### Managed Cache service
 [Managed Cache service was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-To view archived documentation, see [Archived Managed Cache Service Documentation](https://msdn.microsoft.com/library/azure/dn386094.aspx).
+To view archived documentation, see [Archived Managed Cache Service Documentation](/previous-versions/azure/azure-services/dn386094(v=azure.100)).
 
 ### In-Role Cache
 [In-Role Cache was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-To view archived documentation, see [Archived In-Role Cache Documentation](https://msdn.microsoft.com/library/azure/dn386103.aspx).
+To view archived documentation, see [Archived In-Role Cache Documentation](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx

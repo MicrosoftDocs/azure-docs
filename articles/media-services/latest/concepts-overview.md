@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -100,6 +100,11 @@ To see the progress of the job, you should use **Event Grid**. Media Services al
 
 - [Handling Event Grid events](reacting-to-media-services-events.md)
 - [Schemas](media-services-event-schemas.md)
+
+### Azure Monitor
+
+Monitor metrics and diagnostic logs that help you understand how your applications are performing with Azure Monitor.
+
 - [Metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md)
 - [Diagnostic logs schemas](media-services-diagnostic-logs-schema.md)
 
@@ -109,6 +114,15 @@ You can use Azure Media Player to play back media content streamed by Media Serv
 
 - [Azure Media Player overview](use-azure-media-player.md)
 
+## Provide feedback
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
+
 ## Next steps
 
-[Upload, encode, and stream using Media Services](stream-files-tutorial-with-api.md)
+* [Encode remote file and stream video – REST](stream-files-tutorial-with-rest.md)
+* [Encode uploaded file and stream video - .NET](stream-files-tutorial-with-api.md)
+* [Stream live - .NET](stream-live-tutorial-with-api.md)
+* [Analyze your video - .NET](analyze-videos-tutorial-with-api.md)
+* [AES-128 dynamic encryption - .NET](protect-with-aes128.md)
+* [Encrypt dynamically with multi-DRM - .NET](protect-with-drm.md) 

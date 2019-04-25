@@ -25,8 +25,8 @@ ms.author: sedusch
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
-[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#memory-preserving-maintenance
-[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#memory-preserving-maintenance
+[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-not-requiring-a-reboot
+[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#maintenance-not-requiring-a-reboot
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
@@ -81,7 +81,7 @@ Run the following commands on all **iSCSI target virtual machines**.
 
 Run the following commands on all **iSCSI target virtual machines** to create the iSCSI disks for the clusters used by your SAP systems. In the following example, SBD devices for  multiple clusters are created. It shows you how you would use one iSCSI target server for multiple clusters. The SBD devices are placed on the OS disk. Make sure that you have enough space.
 
-**nfs** is used to identify the NFS cluster, **ascsnw1** is used to identify the ASCS cluster of **NW1**, **dbnw1** is used to identify the database cluster of **NW1**, **nfs-0** and **nfs-1** are the hostnames of the NFS cluster nodes, **nw1-xscs-0** and **nw1-xscs-1** are the hostnames of the **NW1** ASCS cluster nodes, and **nw1-db-0** and **nw1-db-1** are the hostnames of the database cluster nodes. Replace them with the hostnames of your cluster nodes and the SID of your SAP system.
+**`nfs`** is used to identify the NFS cluster, **ascsnw1** is used to identify the ASCS cluster of **NW1**, **dbnw1** is used to identify the database cluster of **NW1**, **nfs-0** and **nfs-1** are the hostnames of the NFS cluster nodes, **nw1-xscs-0** and **nw1-xscs-1** are the hostnames of the **NW1** ASCS cluster nodes, and **nw1-db-0** and **nw1-db-1** are the hostnames of the database cluster nodes. Replace them with the hostnames of your cluster nodes and the SID of your SAP system.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -299,7 +299,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Create the softdog configuration file
+   Create the `softdog` configuration file
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -318,7 +318,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]** Configure operating system
+1. **[A]** Configure the operating system
 
    In some cases, Pacemaker creates many processes and thereby exhausts the allowed number  of processes. In such a case, a heartbeat between the cluster nodes might fail and lead to failover of your resources. We recommend increasing the maximum allowed processes by setting the following parameter.
 
@@ -343,6 +343,18 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # Change/set the following settings
    vm.dirty_bytes = 629145600
    vm.dirty_background_bytes = 314572800
+   </code></pre>
+
+1. **[A]** Configure cloud-netconfig-azure for HA Cluster
+
+   Change the configuration file for the network interface as shown below to prevent the cloud network plugin from removing the virtual IP address (Pacemaker must control the VIP assignment). For more information see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+
+   <pre><code># Edit the configuration file
+   sudo vi /etc/sysconfig/network/ifcfg-eth0 
+   
+   # Change CLOUD_NETCONFIG_MANAGE
+   # CLOUD_NETCONFIG_MANAGE="yes"
+   CLOUD_NETCONFIG_MANAGE="no"
    </code></pre>
 
 1. **[1]** Enable ssh access

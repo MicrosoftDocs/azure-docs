@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: networking
- author: jimdial
+ author: anavinahar
  ms.service: networking
  ms.topic: include
- ms.date: 02/07/2019
- ms.author: jdial
+ ms.date: 04/10/2019
+ ms.author: anavin
  ms.custom: include file
 
 ---
@@ -36,11 +36,11 @@ The following limits apply only for networking resources managed through Azure R
 > [!NOTE]
 > We recently increased all default limits to their maximum limits. If there's no maximum limit column, the resource doesn't have adjustable limits. If you had these limits increased by support in the past and don't see updated limits in the following tables, [open an online customer support request at no charge](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| Resource | Default limit | 
+| Resource | Default limit/maximum limit | 
 | --- | --- |
 | Virtual networks |1,000 |
 | Subnets per virtual network |3,000 |
-| Virtual network peerings per virtual network |100 |
+| Virtual network peerings per virtual network |500 |
 | DNS servers per virtual network |20 |
 | Private IP addresses per virtual network |65,536 |
 | Private IP addresses per network interface |256 |
@@ -64,7 +64,7 @@ The following limits apply only for networking resources managed through Azure R
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
 | Public IP addresses - dynamic | 1,000 for Basic. |Contact support. |
-| Public IP addresses - static | 200 for Basic. |Contact support. |
+| Public IP addresses - static | 1,000 for Basic. |Contact support. |
 | Public IP addresses - static | 200 for Standard.|Contact support. |
 | Public IP prefix size (preview) | /28 | /28 |
 
