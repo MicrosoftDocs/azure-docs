@@ -31,7 +31,7 @@ Exploring metrics requires *Microsoft.Insights* resource provider registered in 
 
 **Solution:** Open **Subscriptions**, **Resource providers** tab, and verify that Microsoft.Insights is registered for your subscription.
 
-### You don't have sufficient access rights your resource
+### You don't have sufficient access rights to your resource
 
 In Azure, access to metrics is controlled by [role-based access control (RBAC)](../../role-based-access-control/overview.md). You must be a member of [monitoring reader](../../role-based-access-control/built-in-roles.md#monitoring-reader), [monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor), or [contributor](../../role-based-access-control/built-in-roles.md#contributor) in order to explore metrics for any resource.
 
@@ -55,11 +55,11 @@ By [locking the boundaries of chart y-axis](metrics-charts.md#lock-boundaries-of
 
 **Solution:** Verify that the y-axis boundaries of the chart aren’t locked outside of the range of the metric values. If the y-axis boundaries are locked, you may want to temporarily reset them to ensure that the metric values don’t fall outside of the chart range. Locking the y-axis range isn’t recommended with automatic granularity for the charts with **sum**, **min**, and **max** aggregation because their values will change with granularity by resizing browser window or going from one screen resolution to another. Switching granularity may leave the display area of your chart empty.
 
-### You are looking at a Guest OS metric but didn’t enable Diagnostic Extension
+### You are looking at a Guest OS metric but didn’t enable Azure Diagnostic Extension
 
 Collection of **Guest OS** metrics requires configuring the Azure Diagnostics Extension or enabling it using the Diagnostic Settings panel for your resource.
 
-**Solution:** If Azure Diagnostics Extension is enabled but you are still unable to see your metrics, follow the steps outlined in [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+**Solution:** If Azure Diagnostics Extension is enabled but you are still unable to see your metrics, follow steps outlined in [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
 ## I see “Error retrieving data” message on dashboard charts
 
@@ -72,7 +72,7 @@ This problem is common when your dashboard was created with a metric that was la
 You are looking at a **Guest OS** metric but Metrics Explorer only shows **Virtual Machine Host** metrics for your Azure virtual machine or virtual machine scale set:
     ![metric image](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
 
-**Solution:** Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are observed by Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running as a process on the virtual machine. The agent is installed by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md)). If the agent isn't running, the **Guest OS** metrics namespace is not shown in Metrics Explorer.
+**Solution:** Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running as a process on the virtual machine. You install the agent by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md)). If the agent isn't running, the **Guest OS** metrics namespace is not shown in Metrics Explorer. See also [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
 ## I see a dashed line on the chart
 
