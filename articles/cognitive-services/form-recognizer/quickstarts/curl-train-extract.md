@@ -103,7 +103,7 @@ curl -v -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/model/<mo
 
 ### Examine the response
 
-A successful response is returned in JSON and represents the extracted key-value pairs and tables for all documents in the dataset.
+A successful response is returned in JSON and represents the extracted key-value pairs and tables from the form.
 
 ```bash
 {
