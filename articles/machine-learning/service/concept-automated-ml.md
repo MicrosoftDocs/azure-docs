@@ -16,9 +16,9 @@ ms.custom: seodec18
 
 # What is automated machine learning?
 
-Automated machine learning, also referred to as AutoML, allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. 
+Automated machine learning, also referred to as AutoML, allows data scientists, analysts, and developers to build ML models with high scale, efficiency and productivity all while sustaining model quality. 
 
-Automated ML builds a set of ML models automatically, fine-tunes them, and then recommends the best one for you. Traditional machine learning model development is resource-intensive-- requiring significant domain knowledge and time to produce and compare dozens of models. With automated ML, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
+Automated ML builds a set of ML models automatically, intelligently selecting models for training and then recommends the best one for you. Traditional machine learning model development is resource-intensive requiring significant domain knowledge and time to produce and compare dozens of models. With automated ML, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
 Behind the scenes, your training data is taken with a defined target feature, and intelligently iterated upon through combinations of ML algorithms and feature selections. Then, based on training scores, the best fitted model is identified and recommended to you. 
 
@@ -28,13 +28,10 @@ You still have control over your experiment and transparency into what is happen
 
 Using **Azure Machine Learning service**, you can design and run your automated ML training experiments [in Azure portal](how-to-create-portal-experiments.md) interface or using the [Python SDK](how-to-configure-auto-train.md).  When you use Azure Machine Learning to automate ML modeling and tuning, you go through these steps:
 
-1. **Identify the ML problem (**Classification**, **Forecasting**, or **Regression**) to be solved.** See the full [list of models](how-to-configure-auto-train.md#select-your-experiment-type).
+1. **Identify the ML problem (**Classification**, **Forecasting**, or **Regression**) to be solved.**
    
-1. **Specify the training data's source and format.** 
-   + Data must be labeled. 
-   + Store data in your development environment (alongside your training scripts) or in Azure Blob Storage. This directory is copied to the compute target you select for training.
+1. **Specify the labelled training data's source and format.** 
    + Script data can be read into Numpy arrays or a Pandas dataframe.
-   + Use split options for training and validation data, or specify separate training and validation data sets.
 
 1. **Configure the compute target for model training.** 
    
@@ -47,7 +44,7 @@ Using **Azure Machine Learning service**, you can design and run your automated 
 
 [![Automated Machine learning](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
 
-During training, the Azure Machine Learning service creates a number of pipelines that try different algorithms and parameters. It will stop once it hits the iteration limit you provide, or when it reaches the target value for the metric you specify.  
+During training, the Azure Machine Learning service creates a number of pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment. 
 
 You can also inspect the logged run information, which contains metrics gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
@@ -100,5 +97,7 @@ See examples and learn how to build models using Automated Machine Learning:
 + Configure the settings for automatic training experiment: 
    + In Azure portal interface, [use these steps](how-to-create-portal-experiments.md).
    + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
+  
+ + Learn how to auto train using time series data, [use these steps](how-to-auto-train-forecast.md).
 
 + Try out [Jupyter Notebook samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
