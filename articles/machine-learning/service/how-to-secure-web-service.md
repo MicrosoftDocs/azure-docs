@@ -81,14 +81,14 @@ To deploy (or redeploy) the service with SSL enabled, set the `ssl_enabled` para
 
     The following example demonstrates how to create configurations that enable an SSL certificate created by Microsoft:
 
-        ```python
-        from azureml.core.compute import AksCompute
-        # Config used to create a new AKS cluster and enable SSL
-        provisioning_config = AksCompute.provisioning_configuration().enable_ssl(leaf_domain_label = "myservice")
-        # Config used to attach an existing AKS cluster to your workspace and enable SSL
-        attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-                                            cluster_name = cluster_name).enable_ssl(leaf_domain_label = "myservice")
-        ```
+      ```python
+      from azureml.core.compute import AksCompute
+      # Config used to create a new AKS cluster and enable SSL
+      provisioning_config = AksCompute.provisioning_configuration().enable_ssl(leaf_domain_label = "myservice")
+      # Config used to attach an existing AKS cluster to your workspace and enable SSL
+      attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+                                          cluster_name = cluster_name).enable_ssl(leaf_domain_label = "myservice")
+      ```
 
   * When using __a certificate you purchased__, use the `ssl_cert_pem_file`, `ssl_key_pem_file`, and `ssl_cname` parameters.  The following example demonstrates how to create configurations that use an SSL certificate you provide using `.pem` files:
 
