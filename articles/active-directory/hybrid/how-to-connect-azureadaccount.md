@@ -1,13 +1,11 @@
 ---
-title: 'Azure AD Connect sync: How to manage the Azure AD service account | Microsoft Docs'
-description: This topic documents how to restore the Azure AD service account.
+title: 'Change the Azure AD Connector account password | Microsoft Docs'
+description: This topic documents how to restore the Azure AD Connector account.
 services: active-directory
-keywords: AADSTS70002, AADSTS50054, How to reset the password for the Azure AD Connect sync Connector service account
 documentationcenter: ''
 author: billmath
 manager: daveba
 editor: ''
-
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
 ms.service: active-directory
 ms.workload: identity
@@ -20,7 +18,7 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Manage the Azure AD Connector account
+# Change the Azure AD Connector account password
 The Azure AD Connector account is supposed to be service free. If you need to reset its credentials, then this topic is for you. For example, if a Global Administrator has by mistake reset the password on the account using PowerShell.
 
 ## Reset the credentials
