@@ -17,8 +17,8 @@ ms.reviewer: christianreddington,anthdela,juselph
 
 ---
 
-# Set up Azure DevTest Labs infrastructure in your enterprise
-Enterprises are rapidly adopting the cloud due to its [benefits](/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) that include agility, flexibility, and economics. A common first step for customers to use the cloud is to start with development and test workloads.  DevTest Labs provides [features](devtest-lab-concepts.md) that benefit the enterprise and support [key enterprise dev/test scenarios](devtest-lab-guidance-get-started.md).
+# DevTest Labs in the enterprise
+Enterprises are rapidly adopting the cloud due to its [benefits](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) that include agility, flexibility, and economics. A common first step for customers to use the cloud is to start with development and test workloads.  DevTest Labs provides [features](devtest-lab-concepts.md) that benefit the enterprise and support [key enterprise dev/test scenarios](devtest-lab-guidance-get-started.md).
 
 There is a common set of concerns when migrating these workloads to the cloud:
 
@@ -31,7 +31,11 @@ There is a common set of concerns when migrating these workloads to the cloud:
 - [Getting started with a proof of concept](devtest-lab-guidance-orchestrate-implementation.md)
 
 ## Intended audience
-The Enterprise-focused documentation is intended for IT planners, architects, and managers who are responsible for establishing and reviewing overall deployments and overseeing operations practices. As a result, this document emphasizes the overall process and recommended design principles to promote a secure and stable development/testing environment, which ultimately drives adoption of Azure DevTest Labs within an organization.
+The enterprise-focused documentation is intended for IT planners, architects, and managers who are responsible for establishing and reviewing overall deployments and overseeing operations practices. As a result, this document emphasizes the overall process and recommended design principles to promote a secure and stable development/testing environment, which ultimately drives adoption of Azure DevTest Labs within an organization.
+
+## Enterprise customers
+
+Many current DevTest Labs enterprise customers successfully use DevTest Labs for development and for testing workloads in their organizations. [Learn more](https://azure.microsoft.com/en-us/case-studies/?term=DevTest+labs).
 
 ## Next steps
 - [Reference architecture for an enterprise](devtest-lab-reference-architecture.md)

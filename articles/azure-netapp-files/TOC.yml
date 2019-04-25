@@ -49,6 +49,8 @@
     items:
     - name: REST
       href: azure-netapp-files-develop-with-rest-api.md
+    - name: Troubleshoot Azure NetApp Files Resource Provider errors
+      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Reference
   items:
   - name: REST

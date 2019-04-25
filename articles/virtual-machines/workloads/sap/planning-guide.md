@@ -446,7 +446,11 @@ Read [this article][vpn-gateway-create-site-to-site-rm-powershell] for more info
 >
 > The reason for these restrictions is the requirement for a low latency high-performance network within one SAP system, especially between the application instances and the DBMS layer of an SAP system.
 >
->
+> Special planning of the systems and regions must occur when using multiple SAP systems which are highly integrated. Make sure to deploy these systems as close as possible to each other to minimize network latency. Examples of highly integrated SAP systems are:
+> * SAP BW reading data from SAP OLTP systems like ERP or CRM or SRM; or
+> * SAP SLT being used to replicate data between multiple SPA systems or even between SAP and non-SAP systems; or
+> * SAP S/4 connected to an SAP ERP system; etc.
+
 
 ### Supported OS and Database Releases
 * Microsoft server software supported for Azure Virtual Machine Services is listed in this article: <https://support.microsoft.com/kb/2721672>.
@@ -1147,8 +1151,8 @@ You can also copy VHDs between subscriptions. For more information, read [this a
 
 The basic flow of the PS cmdlet logic looks like this:
 
-* Create a storage account context for the **source** storage account with *New-AzStorageContext* - see <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
-* Create a storage account context for the **target** storage account with *New-AzStorageContext* - see <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
+* Create a storage account context for the **source** storage account with *New-AzStorageContext* - see <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Create a storage account context for the **target** storage account with *New-AzStorageContext* - see <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
 * Start the copy with
 
 ```powershell

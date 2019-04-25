@@ -1,7 +1,6 @@
 ---
 title: Use Data Lake Storage Gen1 with Hadoop in Azure HDInsight
 description: Learn how to query data from Azure Data Lake Storage Gen1 and to store results of your analysis.
-services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh

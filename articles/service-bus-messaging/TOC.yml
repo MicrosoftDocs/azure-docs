@@ -35,6 +35,8 @@
         href: service-bus-ruby-how-to-use-queues.md
   - name: Services Bus topics and subscriptions
     items:
+    - name: Create topics and subscriptions 
+      href: service-bus-quickstart-topics-subscriptions-portal.md
     - name: Publish and subscribe for messages
       items: 
       - name: .NET
@@ -79,6 +81,8 @@
     href: service-bus-async-messaging.md
   - name: Handling outages and disasters
     href: service-bus-outages-disasters.md
+  - name: Azure common security attributes
+    href: service-bus-messaging-security-attributes.md
 - name: How-to guides
   items:
   - name: Create a namespace
