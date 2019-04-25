@@ -16,9 +16,9 @@ ms.date: 05/02/19
 
 # Create and register Azure Machine Learning Datasets (Preview)
 
-The [Azure Machine Learning SDK's](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) class lets you manage data in various scenarios such as, model training and pipeline creation. With Azure Machine Learning Datasets, access underlying storage, explore and prepare data, manage the life cycle of different Dataset definitions, and compare between Datasets used in training and in production.
-
 In this article, you learn the Azure Machine Learning workflows to create and register Datasets, and how to access them for reuse across local and remote experiments.
+
+The [Azure Machine Learning SDK's](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) class lets you manage data in various scenarios such as, model training and pipeline creation. With Azure Machine Learning Datasets, access underlying storage, explore and prepare data, manage the life cycle of different Dataset definitions, and compare between Datasets used in training and in production.
 
 ## Prerequisites
 
@@ -28,16 +28,16 @@ To create and register Datasets you need:
 
 * An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
-* The Azure Machine Learning SDK for Python (version 1.0.21 or later). To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* The Azure Machine Learning SDK for Python. To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 ## Create Datasets from local files
 
 Load files from your local machine by specifying the file or folder path with the [`auto_read_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false-) method from the `Dataset` class.  This method performs the following steps without requiring you to specify the file type or parsing arguments:
 
-* Inferring and setting the delimiter
-* Skipping empty records at the top of the file
-* Inferring and setting the header row
-* Inferring and converting column data types
+* Inferring and setting the delimiter.
+* Skipping empty records at the top of the file.
+* Inferring and setting the header row.
+* Inferring and converting column data types.
 
 ```Python
 from azureml.core import Dataset
@@ -135,12 +135,12 @@ The preceding code results in the following:
 Registered Datasets are accessible and consumable locally, remotely and on compute clusters like the Azure Machine Learning compute. To reuse your registered Dataset across experiments and compute environments, use the following code to get your workspace and registered dataset by name.
 
 ```Python
-workspace = Workspace(subscription_id, resource_group, workspace_name)
+workspace = Workspace.from_config()
 
 dataset = workspace.datasets['dataset_crime']
 ```
 
-## Next Steps
+## Next steps
 
-* [Explore and prepare Datasets](how-to-explore-prepare-data.md)
-* [Manage the life cycle of Dataset definitions](how-to-manage-dataset-definitions.md)
+* [Explore and prepare Datasets](how-to-explore-prepare-data.md).
+* [Manage the life cycle of Dataset definitions](how-to-manage-dataset-definitions.md).
