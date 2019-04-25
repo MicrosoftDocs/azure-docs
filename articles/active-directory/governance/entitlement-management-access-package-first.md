@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 04/22/2019
+ms.date: 04/24/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -78,7 +78,7 @@ A resource directory has one or more resources to share. In this step, you creat
 
 ## Step 2: Create an access package
 
-An *access package* is a bundle of all the resources a user needs to work on a project or perform their job. Access packages are defined in containers called *catalogs*. In this step, you create a **Web project access package** in the **Default Catalog**.
+An *access package* is a bundle of all the resources a user needs to work on a project or perform their job. Access packages are defined in containers called *catalogs*. In this step, you create a **Web project access package** in the **General** catalog.
 
 **Prerequisite role:** Global administrator, User administrator, or Catalog owner
 
@@ -96,7 +96,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 1. On the **Basics** tab, type the name **Web project access package** and description **Access package for the Engineering web project**.
 
-1. Leave the **Catalog** drop-down list set to **Default Catalog**.
+1. Leave the **Catalog** drop-down list set to **General**.
 
     ![New access package - Basics tab](./media/entitlement-management-access-package-first/basics.png)
 
@@ -108,7 +108,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 1. In the Select groups pane, find and select the **Engineering Group** group you created earlier.
 
-    By default, you see groups inside and outside the **Default Catalog**. When you select a group outside of the **Default Catalog**, it will be added to the **Default Catalog**.
+    By default, you see groups inside and outside the **General** catalog. When you select a group outside of the **General** catalog, it will be added to the **General** catalog.
 
     ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 

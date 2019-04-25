@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/30/2019
+ms.date: 04/24/2019
 ms.author: rolyon
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -32,7 +32,7 @@ An access package enables you to do a one-time setup of resources and policies t
 
 ## Overview
 
-All access packages must be put in a container called a catalog. A catalog defines what resources you can add to your access package. If you don't specify a catalog, your access package will be put into the Default Catalog. Currently, you can't move an existing access package to a different catalog.
+All access packages must be put in a container called a catalog. A catalog defines what resources you can add to your access package. If you don't specify a catalog, your access package will be put into the General catalog. Currently, you can't move an existing access package to a different catalog.
 
 All access packages must have at least one policy. Policies specify who can request the access package and also approval and expiration settings. When you create a new access package, you can create an initial policy for users in your directory, for users not in your directory, for administrator direct assignments only, or you can choose to create the policy later.
 
@@ -84,7 +84,7 @@ On the **Resource roles** tab, you select the resources to include in the access
 
     ![Access package - Resource roles](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    If you are creating the access package in the Default Catalog or a new catalog, you will be able to pick any resource from the directory that you own. You must be at least a User administrator or Catalog creator.
+    If you are creating the access package in the General catalog or a new catalog, you will be able to pick any resource from the directory that you own. You must be at least a User administrator or Catalog creator.
 
     If you are creating the access package in an existing catalog, you can select any resource that is already in the catalog without owning it.
 

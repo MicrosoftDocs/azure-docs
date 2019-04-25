@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/23/2019
+ms.date: 04/24/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -124,7 +124,7 @@ To better understand entitlement management and its documentation, you should re
 | --- | --- |
 | entitlement management | A service that assigns, revokes, and administers access packages. |
 | catalog | A container of related resources and access packages. |
-| Default Catalog | A built-in catalog that is always available. To add resources to the Default Catalog, requires certain permissions. |
+| General catalog | A built-in catalog that is always available. To add resources to the General catalog, requires certain permissions. |
 | access package | A collection of permissions and policies to resources that users can request. An access package is always contained in a catalog. |
 | access request | A request to access an access package. A request typically goes through a workflow. |
 | policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access. Example policies include employee access and external access. |
@@ -152,7 +152,7 @@ The following table lists the permissions for each of these roles.
 
 | Task | User admin | Catalog creator | Catalog owner | Access package manager | Approver |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| [Create a new access package in the Default Catalog](entitlement-management-access-package-create.md) | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |
+| [Create a new access package in the General catalog](entitlement-management-access-package-create.md) | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |
 | [Create a new access package in a catalog](entitlement-management-access-package-create.md) | :heavy_check_mark: |   | :heavy_check_mark: |  |  |
 | [Add/remove resource roles to/from an access package](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Specify who can request an access package](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -165,7 +165,7 @@ The following table lists the permissions for each of these roles.
 | [Delete an access package](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Approve an access request](entitlement-management-request-approve.md) |  |  |  |  | :heavy_check_mark: |
 | [Create a catalog](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
-| [Add/remove resources to/from the Default Catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  |  |  |  |
+| [Add/remove resources to/from the General catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  |  |  |  |
 | [Add/remove resources to/from a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Add catalog owners or access package managers](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Edit/delete a catalog](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
