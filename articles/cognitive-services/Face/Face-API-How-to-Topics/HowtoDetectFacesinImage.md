@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/18/2019
 ms.author: sbowles
 ---
 
@@ -51,17 +51,13 @@ See **[FaceRectangle](https://docs.microsoft.com/dotnet/api/microsoft.azure.cogn
 
 ## Get face landmarks
 
-Face landmarks are a set of easy-to-find points on a face such as the pupils or the tip of nose. You can get face landmark data by setting the _returnFaceLandmarks_ parameter to **true**.
+[Face landmarks](../concepts/face-detection.md#face-landmarks) are a set of easy-to-find points on a face such as the pupils or the tip of nose. You can get face landmark data by setting the _returnFaceLandmarks_ parameter to **true**.
 
 ```csharp
 IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, null);
 ```
 
-By default, there are 27 predefined landmark points. The following figure shows all 27 points:
-
-![A face diagram with all 27 landmarks labelled](../Images/landmarks.1.jpg)
-
-The points returned are in units of pixels, just like the face rectangle frame. The following code demonstrates how you might retrieve the locations of the nose and pupils:
+The following code demonstrates how you might go on to retrieve the locations of the nose and pupils:
 
 ```csharp
 foreach (var face in faces)
@@ -105,19 +101,7 @@ Knowing the direction of the face, you can then rotate the rectangular face fram
 
 ## Get face attributes
 
-Besides face rectangles and landmarks, the face detection API can analyze several conceptual attributes of a face. These include:
-
-- Age
-- Gender
-- Smile intensity
-- Facial hair
-- Glasses
-- 3D head pose
-- Emotion
-
-> [!IMPORTANT]
-> These attributes are predicted through the use of statistical algorithms and may not always be accurate. Use caution when making decisions based on attribute data.
->
+Besides face rectangles and landmarks, the face detection API can analyze several conceptual attributes of a face. See the [Face attributes](../concepts/face-detection.md#attributes) conceptual section for a full list.
 
 To analyze face attributes, set the _returnFaceAttributes_ parameter to a list of **[FaceAttributeType Enum](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** values.
 
@@ -150,13 +134,16 @@ foreach (var face in faces)
 }
 ```
 
-To learn more about each of the attributes, refer to the [Glossary](../Glossary.md).
+To learn more about each of the attributes, refer to the [Face detection and attributes](../concepts/face-detection.md) conceptual guide.
 
 ## Next steps
 
-In this guide you learned how to use the various functionalities of face detection. Next, see the [Glossary](../Glossary.md) for a more detailed look at the face data you've retrieved.
+In this guide you learned how to use the various functionalities of face detection. Next, integrate these features into your app by following an in-depth tutorial.
 
-## Related Topics
+- [Tutorial: Create a WPF app to display face data in an image](../Tutorials/FaceAPIinCSharpTutorial.md)
+- [Tutorial: Create an Android app to detect and frame faces in an image](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+
+## Related topics
 
 - [Reference documentation (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 - [Reference documentation (.NET SDK)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet)

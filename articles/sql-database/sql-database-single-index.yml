@@ -76,7 +76,6 @@ sections:
     - html: (Preview) New Transact-SQL language functionalities, such as <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">APPROX_COUNT_DISTINCT aggregate</a> and <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">bulk import from Azure Blob storage</a>. 
     - html: (Preview) New SQL Server 2019 Online <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">build</a> and rebuild clustered columnstore index operations.
     - html: (Preview) New <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Azure SQL Database Machine Learning Services (with R)</a>.
-    - html: (Preview) New serverless compute tier provides compute auto-scaling and bills per second for compute used <a href="https://docs.microsoft.com/azure/sql-database/sql-database-serverless">Serverless compute tier</a>.
 - title: Five-minute quickstarts 
   items:
   - type: paragraph
