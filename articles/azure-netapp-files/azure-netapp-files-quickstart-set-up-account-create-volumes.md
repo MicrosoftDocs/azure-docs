@@ -26,7 +26,7 @@ In this quickstart, you will set up the following items:
 - Registration for Azure NetApp Files and NetApp Resource Provider
 - A NetApp account
 - A capacity pool
-- A volume for Azure NetApp Files
+- An NFS volume for Azure NetApp Files
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -143,18 +143,18 @@ When you are done and if you want to, you can delete the resource group. The act
   > All resources within the resource groups will be permanently deleted and cannot be undone. 
 1. In the Azure portal’s search box, enter **Azure NetApp Files** and then select **Azure NetApp Files** from the list that appears.
 
-2.	In the list of subscriptions, click the resource group (myRG1) you want to delete. 
+2. In the list of subscriptions, click the resource group (myRG1) you want to delete. 
 
     ![Navigate to resource groups](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
 
 
-3.	In the resource group page, click **Delete resource group**.
+3. In the resource group page, click **Delete resource group**.
 
     ![Delete resource group](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
 
     A window opens and displays a warning about the resources that will be deleted with the resource group.
 
-4.	Confirm that you want to permanently delete the resource group and all resources in it by entering the name of the resource group (myRG1), and then click **Delete**.
+4. Confirm that you want to permanently delete the resource group and all resources in it by entering the name of the resource group (myRG1), and then click **Delete**.
 
 
 ## Next steps  
