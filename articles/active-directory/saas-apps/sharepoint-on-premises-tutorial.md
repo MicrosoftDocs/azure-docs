@@ -247,7 +247,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 6. Click on **Add** and then **Select an API**.
 
-	![API Acess](./media/sharepoint-on-premises-tutorial/required_permissions.png)
+	![API Access](./media/sharepoint-on-premises-tutorial/required_permissions.png)
 
 7. Add both **Windows Azure Active Directory** and **Microsoft Graph API**, but it’s only possible to select one at a time.
 
