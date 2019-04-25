@@ -38,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Multi-cluster view from Azure Monitor 
 To view the health status of all AKS clusters deployed, select **Monitor** from the left-hand pane in the Azure portal.  Under the **Insights** section, select **Containers**.  
 
-![Azure Monitor multi-cluster dashboard example](./media/container-insights-analyze/azmon-containers-multiview-1018.png)
+![Azure Monitor multi-cluster dashboard example](./media/container-insights-analyze/azmon-containers-multiview.png)
 
 On the **Monitored clusters** tab, you are able to learn the following:
 
