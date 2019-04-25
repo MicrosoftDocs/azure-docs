@@ -148,6 +148,10 @@ Generating an object projection requires a few object-specific attributes:
 + source: The path to the node of the enrichment tree that is the root of the projection
 + key: A path that represents a unique key for the object to be stored. It will be used to create the name of the blob in the container.
 
+## Projection Lifecycle
+
+Your projections have a lifecycle that is tied to the source data in your data source. As your data is updated and re-indexed, your projections are updated with the results of the enrichments ensuring your projections are eventually consistent with the data in your data source. The projections inherit the delete policy you have configured for your index. 
+
 ## Using projections
 
 After the indexer is run, you can read the projected data in the containers or tables you specified through projections. 

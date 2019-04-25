@@ -15,9 +15,11 @@ ms.author: heidist
 
 Knowledge Store is an optional feature of Azure Search, currently in public preview, that saves enriched documents and metadata created by an AI-based indexing pipeline [(cognitive search)](cognitive-search-concept-intro.md). Knowledge Store is backed by an Azure storage account that you configure as part of the pipeline. When enabled, the search service uses this storage account to cache a representation of each enriched document. 
 
-If you have used cognitive search in the past, what Knowledge Store gives you is a way to peek inside the "black box" of AI-based indexing to see what an enriched document looks like. Enriched documents are consumable by Azure Search (same as before) but can also be viewed in [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) or any app that connects to Azure storage, which opens up new possibilities for how enriched documents are used.
+If you have used cognitive search in the past, you already know that skillsets can be used to move a document through a sequence of enrichments. The outcome can be an Azure Search index, or (new in this preview) projections in a knowledge store.
 
-![Knowledge Store in pipeline diagram](./media/knowledge-store-concept-intro/pipeline-knowledge-store.png "Knowledge Store in pipeline diagram")
+Projections are your mechanism for structuring data for consumption in a downstream app. You can use [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) built for Azure storage, or any app that connects to Azure storage, which opens up new possibilities for consuming enriched documents. Some example are data science pipelines and custom analytics.
+
+![Knowledge Store in pipeline diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge Store in pipeline diagram")
 
 To use Knowledge Store, add a `knowledgeStore` element to a skillset that defines step-wise operations in an indexing pipeline. During execution, Azure Search creates a space in your Azure storage account and fills it with definitions and content created by the pipeline.
 
@@ -33,7 +35,7 @@ Enumerated, the benefits of Knowledge Store include the following:
 
 + Refine an AI-indexing pipeline while debugging steps and skillset definitions. A knowledge store shows you the product of a skillset definition in an AI-indexing pipeline. You can use those results to design a better skillset because you can see exactly what the enrichments look like. You can use [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) in Azure storage to view the contents of a knowledge store.
 
-+ Shape the data into new forms. The reshaping is codified in skillsets, but the point is that a skillset can now provide this capability. The [Shaper skill](cognitive-search-skill-shaper.md) in Azure Search has been extended to accommodate this task.
++ Shape the data into new forms. The reshaping is codified in skillsets, but the point is that a skillset can now provide this capability. The [Shaper skill](cognitive-search-skill-shaper.md) in Azure Search has been extended to accommodate this task. Reshaping allows you to define a projection that aligns with your intended use of the data while preserving relationships.
 
 > [!Note]
 > Not familiar with AI-based indexing using Cognitive Services? Azure Search integrates with Cognitive Services Vision and Language features to extract and enrich source data using Optical Character Recognition (OCR) over image files, entity recognition and key phrase extraction from text files, and more. For more information, see [What is cognitive search?](cognitive-search-concept-intro.md).
@@ -114,7 +116,9 @@ To create a knowledge store, you need the following services and artifacts.
 The data or documents you want to enrich must exist in an Azure data source supported by Azure Search indexers: 
 
 * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+
 * [Azure Blob storage](search-howto-indexing-azure-blob-storage.md)
 
 [Azure Table storage](search-howto-indexing-azure-tables.md) can be used for outbound data in a knowledge store, but cannot be used as a resource for inbound data to an AI-based indexing pipeline.
@@ -149,8 +153,11 @@ The storage account is specified in the skillset. In `api-version=2019-05-06-Pre
 Once the enrichments exist in storage, any tool or technology that connects to Azure Blob or Table storage can be used to explore, analyze, or consume the contents. The following list is a start:
 
 + [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to view enriched document structure and content. Consider this as your baseline tool for viewing knowledge store contents.
+
 + [Power BI with Power Query](https://support.office.com/article/connect-to-microsoft-azure-blob-storage-power-query-f8165faa-4589-47b1-86b6-7015b330d13e) for natural language queries, or use the reporting and analysis tools if you have numeric data.
+
 + [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) for further manipulation.
+
 + Azure Search index for full-text search over content that you've indexed using [cognitive search](cognitive-search-concept-intro.md).
 
 ## Document persistence
@@ -161,7 +168,7 @@ Within the storage account, the enrichments can be expressed as tables within Az
 
 + Blob storage creates one all-inclusive JSON representation of each document. You can use both storage options in one skillset to get a full range of expressions.
 
-+ Azure Search persists content in an index. If your scenario is non-search-related, for example if your objective is analysis in another tool, you can delete the index that the pipeline creates. Currently, an indexer requires an index to exist, even if you never plan to use it.  
++ Azure Search persists content in an index. If your scenario is non-search-related, for example if your objective is analysis in another tool, you can delete the index that the pipeline creates. But you could also keep the index and use a built-in tool like [Search Explorer](search-explorer.md) as third medium (behind Storage Explorer and your analytics app) for interacting with your content.
 
 Along with document contents, enriched documents include the metadata of the skillset version that produced the enrichments.  
 

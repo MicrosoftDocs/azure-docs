@@ -15,7 +15,7 @@ Azure Search is a search-as-a-service cloud solution that gives developers APIs 
 
 + Build a search index containing only your data, sourced from multiple content types and platforms. 
 
-+ Leverage AI-powered indexing to extract text and features from image files, or entities and key phrases from raw text.
++ Leverage AI enrichments to extract text and features from image files, or entities and key phrases from raw text.
 
 + Create intuitive search experiences with facet navigation and filters, synonyms, autocomplete, and text analysis for "did you mean" autocorrected search terms. Get relevance tuning through functions and boosting logic.
 
@@ -37,7 +37,7 @@ Functionality is exposed through a simple [REST API](/rest/api/searchservice/) o
 
 | AI&nbsp;enrichment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Features |
 |-------------------|----------|
-|AI-based indexing with Cognitive Services | [**AI-powered algorithms**](cognitive-search-concept-intro.md) for image and text analysis can be applied to an indexing pipeline to extract text information from raw content. A few examples of [built-in skills](cognitive-search-predefined-skills.md) include optical character recognition (making scanned JPEGs searchable), entity recognition (identifying an organization, name, or location), and key phrase recognition. You can also [code custom skills](cognitive-search-create-custom-skill-example.md) to attach to the pipeline. |
+|AI enriched dcouments | [**Cognitive Search**](cognitive-search-concept-intro.md) for image and text analysis can be applied to an indexing pipeline to extract text information from raw content. A few examples of [built-in skills](cognitive-search-predefined-skills.md) include optical character recognition (making scanned JPEGs searchable), entity recognition (identifying an organization, name, or location), and key phrase recognition. You can also [code custom skills](cognitive-search-create-custom-skill-example.md) to attach to the pipeline. |
 | Stored enrichments for analysis and consumption| [**Knowledge Store**](knowledge-store-concept-intro.md) is an extension of AI-based indexing. With Azure storage as a backend, you can save enrichments created during indexing. These artifacts can be used to help you design better skillsets, or create shape and structure out of  amorphous or ambiguous data. You can create projections of these structures that target specific workloads or users. You can also directly analyze the extracted data, or load it into other apps.<br/><br/> |
 
 | Data&nbsp;import/indexing | Features |
