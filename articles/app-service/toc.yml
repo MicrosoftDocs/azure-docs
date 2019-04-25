@@ -227,7 +227,7 @@
   - name: Cookbooks
     items:
     - name: Reference Architectures
-      href: https://docs.microsoft.com/azure/architecture/reference-architectures/#web-applications
+      href: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/#web-applications
     - name: Deployment Scripts
       href: https://azure.microsoft.com/documentation/scripts/
   - name: Troubleshooting
