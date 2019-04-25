@@ -12,7 +12,7 @@ ms.reviewer: trbye
 ms.date: 05/02/2019
 ---
 
-# Tutorial: Build a regression model with automated machine learning and Open Datasets 
+# Tutorial: Build a regression model with automated machine learning and Open Datasets
 
 In this tutorial, you leverage the convenience of Azure Open Datasets along with the power of Azure Machine Learning service to create a regression model to predict NYC taxi fare prices. Easily download publicly available taxi, holiday and weather data, and configure an automated machine learning experiment using Azure Machine Learning service. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
 
@@ -65,7 +65,7 @@ This example uses an Anaconda environment with Jupyter notebooks, but you can ru
     jupyter notebook
     ```
 
-After you complete these steps, clone the [Open Datasets notebook repo](https://github.com/Azure/OpenDatasetsNotebooks) and open the **tutorials/tutorial-opendatasets-automl.ipynb** notebook to run it.
+After you complete these steps, clone the [Open Datasets notebook repo](https://github.com/Azure/OpenDatasetsNotebooks) and open the **tutorials/taxi-automl/01-tutorial-opendatasets-automl.ipynb** notebook to run it.
 
 ## Download and prepare data
 
@@ -1379,6 +1379,10 @@ weather_df_grouped.head(10)
   </tbody>
 </table>
 </div>
+
+> [!NOTE]
+> The examples in this tutorial merge data using Pandas functions and custom aggregations, but the Open Datasets SDK has classes designed to easily merge and enrich data sets. See
+> the [notebook](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) for code examples of these design patterns.
 
 ### Cleanse data
 
