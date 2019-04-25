@@ -1,6 +1,6 @@
 - name: Microsoft identity platform (Azure Active Directory for developers)
   href: index.yml
-- name: About Microsoft identity platform
+- name: Evolution of Microsoft identity platform
   href: about-microsoft-identity-platform.md
 - name: v2.0
   expanded: true
@@ -93,19 +93,19 @@
       items:
       - name: Sign-in audience
         href: v2-supported-account-types.md
-      - name: Single Page Application
+      - name: Single-page app
         items:
         - name: Overview
           href: scenario-spa-overview.md
         - name: App registration
           href: scenario-spa-app-registration.md
-        - name: App's code configuration
+        - name: Code configuration
           href: scenario-spa-app-configuration.md
         - name: Sign in and sign out
           href: scenario-spa-sign-in.md
         - name: Acquire token for an API
           href: scenario-spa-acquire-token.md
-        - name: Call a Web API
+        - name: Call a web API
           href: scenario-spa-call-api.md
         - name: Move to production
           href: scenario-spa-production.md
@@ -137,6 +137,30 @@
           href: scenario-web-app-call-api-call-api.md
         - name: Move to production
           href: scenario-web-app-call-api-production.md
+      - name: Protected web API
+        items:
+        - name: Overview
+          href: scenario-protected-web-api-overview.md
+        - name: App registration
+          href: scenario-protected-web-api-app-registration.md
+        - name: Code configuration
+          href: scenario-protected-web-api-app-configuration.md
+        - name: Move to production
+          href: scenario-protected-web-api-production.md
+      - name: Web API that calls web APIs
+        items:
+        - name: Overview
+          href: scenario-web-api-call-api-overview.md
+        - name: App registration
+          href: scenario-web-api-call-api-app-registration.md
+        - name: Code configuration
+          href: scenario-web-api-call-api-app-configuration.md
+        - name: Acquire a token
+          href: scenario-web-api-call-api-acquire-token.md
+        - name: Call a web API
+          href: scenario-web-api-call-api-call-api.md
+        - name: Move to production
+          href: scenario-web-api-call-api-production.md
       - name: Desktop app that calls web APIs
         items:
         - name: Overview
@@ -165,30 +189,6 @@
           href: scenario-daemon-call-api.md
         - name: Move to production
           href: scenario-daemon-production.md
-      - name: Protected Web API
-        items:
-        - name: Overview
-          href: scenario-protected-web-api-overview.md
-        - name: App registration
-          href: scenario-protected-web-api-app-registration.md
-        - name: Code configuration
-          href: scenario-protected-web-api-app-configuration.md
-        - name: Move to production
-          href: scenario-protected-web-api-production.md
-      - name: Web API that calls web APIs
-        items:
-        - name: Overview
-          href: scenario-web-api-call-api-overview.md
-        - name: App registration
-          href: scenario-web-api-call-api-app-registration.md
-        - name: Code configuration
-          href: scenario-web-api-call-api-app-configuration.md
-        - name: Acquiring token
-          href: scenario-web-api-call-api-acquire-token.md
-        - name: Call a web API
-          href: scenario-web-api-call-api-call-api.md
-        - name: Move to production
-          href: scenario-web-api-call-api-production.md
       - name: Integration checklist
         href: active-directory-integration-checklist.md
     - name: Microsoft Authentication Library (MSAL)
@@ -201,7 +201,7 @@
           href: msal-compare-msal-js-and-adal-js.md
         - name: Acquire and cache tokens
           href: msal-acquire-cache-tokens.md
-        - name: Scopes for v1 apps
+        - name: Scopes for v1.0 apps
           href: msal-v1-app-scopes.md
         - name: Client applications
           href: msal-client-applications.md
@@ -264,7 +264,7 @@
         href: consent-framework.md
       - name: Application consent experiences
         href: application-consent-experience.md
-    - name: National Clouds
+    - name: National clouds
       href: authentication-national-cloud.md
   - name: How-to guides
     items:
@@ -465,7 +465,7 @@
         href: application-consent-experience.md
     - name: Conditional access
       href: conditional-access-dev-guide.md
-    - name: National Clouds
+    - name: National clouds
       href: authentication-national-cloud.md
   - name: How-to guides
     items:

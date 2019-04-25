@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform (v2.0) overview | Azure
+title: Microsoft identity platform (v2.0) overview - Azure
 description: Learn about the Microsoft identity platform (v2.0) endpoint and platform.
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: agirling, saeeda
+ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to understand about the Microsoft identity platform (v2.0) endpoint and platform so I can decide if this platform meets my application development needs and requirements.
 ms.collection: M365-identity-device-management
@@ -23,45 +23,57 @@ ms.collection: M365-identity-device-management
 
 # Microsoft identity platform (v2.0) overview
 
-Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) identity service and developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs, such as [Microsoft Graph](https://developer.microsoft.com/graph/), or APIs that developers have built. It’s a full-featured platform that consists of an OAuth 2.0 and OpenID Connect standard-compliant authentication service, open-source libraries, application registration and configuration, robust conceptual and reference documentation, quickstart samples, code samples, tutorials, and how-to guides.
-  
-Microsoft identity platform connects and secures over 1 billion monthly active users across work, school, and life with over 1 million third-party active applications. For developers, Microsoft identity platform offers seamless integration into major innovations in the identity and security space, such as passwordless authentication, step-up authentication, and conditional access. Developers don't need to implement such functionality themselves: applications integrated with the Microsoft identity platform natively take advantage of such innovations.
-  
-Microsoft identity platform unifies application development for various Microsoft identities. Whether your app needs to authenticate users with work or school accounts (provisioned through Azure AD) or personal accounts (known as Microsoft accounts (MSA), such as @outlook.com), the unified platform simplifies getting authentication integrated into your app. The unified Microsoft identity platform lets developers write code once and have the code work with all the applicable user identities. Developers can build an app once and have it work across many platforms, or build an app that functions as a client and a resource application (API).
+Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) identity service and developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs, such as Microsoft Graph, or APIs that developers have built. The Microsoft identity platform consists of:
+
+- **OAuth 2.0 and OpenID Connect standard-compliant authentication service** that enables developers to authenticate any Microsoft identity, including:
+  - Work or school accounts (provisioned through Azure AD)
+  - Personal Microsoft accounts (such as Skype, Xbox, and Outlook.com)
+  - Social or local accounts (via Azure AD B2C)
+- **Open-source libraries**: Microsoft Authentication Libraries (MSAL) and support for other standards-compliant libraries
+- **Application management portal**: A registration and configuration experience built in the Azure portal, along with all your other Azure management capabilities.
+- **Application configuration API and PowerShell**: which allows programmatic configuration of your applications through REST API (Microsoft Graph and Azure Active Directory Graph 1.6) and PowerShell, so you can automate your DevOps tasks.
+- **Developer content**: conceptual and reference documentation, quickstart samples, code samples, tutorials, and how-to guides.
+
+For developers, Microsoft identity platform offers seamless integration into innovations in the identity and security space, such as passwordless authentication, step-up authentication, and conditional access.  You don’t need to implement such functionality yourself: applications integrated with the Microsoft identity platform natively take advantage of such innovations.
+
+With Microsoft identity platform, you can write code once and reach any user. You can build an app once and have it work across many platforms, or build an app that functions as a client as well as a resource application (API).
 
 ## Getting started
 
-Working with identity doesn’t have to be hard. However, it's important to know the basics and choose the right flow for the scenario. It's also important to follow principles and patterns necessary to ensure secure configuration of the application, and secure DevOps processes to ensure that the app won't be compromised in the course of its lifecycle.
+Working with identity doesn’t have to be hard. Choose a scenario that applies to you— each scenario path has a quickstart and an overview page to get you up and running in minutes:
 
-The following diagram outlines key authentication concepts and best practices for common application scenarios – we recommend that you reference it when integrating the Microsoft identity platform with your app:
+- [Build a single-page app](scenario-spa-overview.md)
+- [Build a web app that signs in users](scenario-web-app-sign-user-overview.md)
+- [Build a web app that calls web APIs](scenario-web-app-call-api-overview.md)
+- [Build a protected web API](scenario-protected-web-api-overview.md)
+- [Build a web API that calls web APIs](scenario-web-api-call-api-overview.md)
+- [Build a desktop app](scenario-desktop-overview.md)
+- [Build a daemon app](scenario-daemon-overview.md)
+- Build a mobile app
+
+The following chart outlines the full set of authentication scenarios and best practices – use it as a reference when integrating the Microsoft identity platform before shipping your app.
 
 [![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
-Choose a scenario that applies to you. Start by reviewing the **Prerequisites**, which are core authentication concepts that apply to all app scenarios. Each scenario path has a quickstart to get you up and running in minutes and an overview of scenario and other specifics you need to know:
+## Next steps
 
-- Build a single-page application
-- Build a web application that signs in users
-- Build a web application that calls web APIs
-- Protect a web API
-- Build a web API that calls web APIs
-- Build a daemon application
-- Build a desktop application
-- Build a mobile application
+If you’d like to learn more about core authentication concepts, we recommend you start with these topics:
 
-In each application scenario path, we'll also show you how to call APIs using your app's access tokens to call APIs like Microsoft Graph or other APIs.
+- [Authentication basics](authentication-scenarios.md)
+- [Application and service principals](app-objects-and-service-principals.md)
+- [Audiences](v2-supported-account-types.md)
+- [Permissions and consent](v2-permissions-and-consent.md)
+- [ID tokens](id-tokens.md) and [access tokens](access-tokens.md)
 
-And when you're ready to launch your app into a production environment, see the steps on how to **Move to production**.
+Build a data-rich application that calls [Microsoft Graph](https://docs.microsoft.com/graph/overview).
 
-## Additional resources
+When you’re ready to launch your app into a **production environment**, review these best practices:
 
-Explore in-depth information about v2.0:
+- [Enable logging](msal-logging.md) in your application.
+- Enable telemetry in your application.
+- Enable [proxies and customize HTTP clients](msal-net-provide-httpclient.md).
+- Test your integration by following the [Microsoft identity platform integration checklist](active-directory-integration-checklist.md).
 
-* [About the Microsoft identity platform](about-microsoft-identity-platform.md)
-* [Microsoft identity platform protocols reference](active-directory-v2-protocols.md)
-* [Access tokens reference](access-tokens.md)
-* [ID tokens reference](id-tokens.md)
-* [Authentication libraries reference](reference-v2-libraries.md)
-* [Permissions and consent in Microsoft identity platform](v2-permissions-and-consent.md)
-* [Microsoft Graph API](https://developer.microsoft.com/graph)
+## Learn more
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+If you’d planning to build a customer-facing application that signs in social and local identities, take a look at the [Azure AD B2C overview](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
