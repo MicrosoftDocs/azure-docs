@@ -11,8 +11,8 @@ ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
 #Customer intent: 
-
 ---
+
 # Personalizer settings
 
 Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
