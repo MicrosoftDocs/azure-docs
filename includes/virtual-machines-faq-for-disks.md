@@ -142,6 +142,14 @@ GPT partitioning can be used only on data disks, not OS disks. OS disks must use
 
 No, upload can only be used during the creation of a new empty disk with the **ReadyToUpload** state.
 
+**Can I attach a disk to a VM while it is in an upload state?**
+
+No.
+
+**Can I take a snapshot of a manged disk in an upload state?**
+
+No.
+
 ## Standard SSD disks
 
 **What are Azure Standard SSD disks?**

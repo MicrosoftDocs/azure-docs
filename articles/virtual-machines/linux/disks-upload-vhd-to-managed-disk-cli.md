@@ -13,7 +13,7 @@ ms.subservice: disks
 
 # Upload a vhd to Azure - Azure CLI
 
-This article explains how to upload a vhd file from your local machine directly to an Azure managed disk. Previously, you needed to follow a more involved process that included staging your data in a storage account. Now, you can skip that altogether, and upload directly to a managed disk. Currently, this process is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not yet supported for ultra SSDs.
+This article explains how to upload a vhd file from your local machine directly to an Azure managed disk. Previously, you needed to follow a more involved process that included staging your data in a storage account. Now, you can skip that altogether, and upload directly to a managed disk. This new process makes it easier to shift your on premises VMs to azure, allows you to upload to our larger managed disks, and simplifies the backup restore process. Currently, this process is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not yet supported for ultra SSDs.
 
 ## Pre-requisites
 
@@ -27,7 +27,7 @@ In order to upload your vhd to Azure, you'll need an empty managed disk that was
 
 This kind of managed disk has two unique states:
 
-- ReadToUpload, which means the disk is ready to receive an upload but, no SAS has been generated.
+- ReadToUpload, which means the disk is ready to receive an upload but, no [secure access signature](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) has been generated.
 - ActiveUpload, which means that the disk is ready to receive an upload and the SAS has been generated.
 
 While in either of these states, the managed disk will be billed at [standard HDD pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/), regardless of the actual type of disk. For example, a P10 will be billed as an S10. This will only be true so long as either of the upload states are currently set.
