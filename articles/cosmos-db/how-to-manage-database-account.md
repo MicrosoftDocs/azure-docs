@@ -154,13 +154,13 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-## Configure multiple write-regions
+## <a id="configure-multiple-write-regions"></a>Configure multiple write-regions
 
 ### <a id="configure-multiple-write-regions-portal"></a>Azure portal
 
 Open the Replicate Data Globally tab and click Enable for **Enable multi-region writes**.
 
-![Azure Cosmos account configure multi-master screenshot](./media/how-to-manage-database-account/single-multi-master.png)
+![Azure Cosmos account configure multi-master screenshot](./media/how-to-manage-database-account/single-to-multi-master.png)
 
 ### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
@@ -388,6 +388,5 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 For more information and examples on how to manage the Azure Cosmos account as well as database and containers, read the following articles:
 
-* [Manage Azure Cosmos DB using ARM Templates](manage-with-arm.md)
-* [Manage Azure Cosmos DB using Azure PowerShell](manage-with-ps.md)
+* [Manage Azure Cosmos DB using Azure PowerShell](manage-with-powershell.md)
 * [Manage Azure Cosmos DB using Azure CLI](manage-with-cli.md)

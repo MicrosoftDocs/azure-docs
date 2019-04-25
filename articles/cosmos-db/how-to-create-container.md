@@ -352,13 +352,6 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $graphResourceName -PropertyObject $graphProperties 
 ```
 
-## <a id="ps-cassandra"></a>Cassandra API
-
-```azurepowershell-interactive
-
-
-```
-
 ## <a id="ps-table"></a>Table API
 
 ```azurepowershell-interactive
