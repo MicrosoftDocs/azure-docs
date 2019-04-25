@@ -1,22 +1,21 @@
 ---
-title: Application Insights for Kubernetes | Microsoft Docs
+title: Azure Monitor - Application Insights for Kubernetes | Microsoft Docs
 description: Application Insight for Kubernetes is a monitoring solution that allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your Kubernetes cluster. 
 services: application-insights
 author: tokaplan
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/25/2019
 ms.author: alkaplan
 ---
 
 # Application Insights for Kubernetes
 
-Application Insight for Kubernetes is a monitoring solution that allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your Kubernetes cluster without the need for instrumenting the application with an SDK. We utilize service mesh technology to collect data, so the only requirement is that your Kubernetes deployment is configured to run with Istio.
+Azure Monitor now leverages service mesh tech on your Kubernetes cluster to provide out of the box application monitoring for any Kubernetes hosted app. Rich application level metrics such as failed requests, latency, error rate etc., and application map will be available for your Kubernetes workloads. This feature will help users to spot performance bottlenecks or failure hotspots across all of their Kubernetes workloads within a selected Kubernetes namespace. By leveraging service mesh, Azure monitor will enable auto-instrumented app monitoring.
 
-Since service mesh lifts data off the wire, we cannot intercept encrypted traffic. For traffic that doesn't leave the cluster, use plain unencrypted protocol (for example, HTTP). For external traffic that must be encrypted, consider setting up SSL termination at the ingress controller.
-
-Applications running outside of the service mesh are not affected.
+> [!NOTE]
+> This is one of many ways to perform application monitoring on Kubernetes​​​​​​​. You can also instrument any app hosted in Kubernetes by using the [Application Insights SDK](azure-monitor/app/azure-monitor-app-hub.md) without the need for a service mesh. To use Kubernetes without instrumenting the application with an SDK you can use the below method.
 
 ## Prerequisites
 
@@ -25,6 +24,16 @@ Applications running outside of the service mesh are not affected.
 - An [Application Insight resource](create-new-resource.md)
 - Have a service mesh. If your cluster doesn't have Istio deployed, you can learn how to [install and use Istio in Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/istio-install).
 
+## Capabilities
+
+By using Application Insights for your Kubernetes hosted app, you will be able to use:
+
+- [Application Map](../../azure-monitor/app/app-map.md)
+- [Live Stream Metrics](../../azure-monitor/app/live-stream.md)
+- [Dashboards](../../azure-monitor/app/overview-dashboard.md)
+- [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md)
+- [Distributed-tracing](../../azure-monitor/app/distributed-tracing.md)
+- [End-to-end transaction monitoring](../../azure-monitor/learn/tutorial-performance.md#identify-slow-server-operations)
 
 ## Installation steps
 
@@ -41,6 +50,11 @@ In most cases, it's easiest to mark the Kubernetes namespace containing your app
 ```console
 kubectl label namespace <my-app-namespace> istio-injection=enabled
 ```
+
+> [!NOTE]
+> Since service mesh lifts data off the wire, we cannot intercept encrypted traffic. For traffic that doesn't leave the cluster, use plain unencrypted protocol (for example, HTTP). For external traffic that must be encrypted, consider [setting up SSL termination](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) at the ingress controller.
+
+Applications running outside of the service mesh are not affected.
 
 ### Deploy your application
 
