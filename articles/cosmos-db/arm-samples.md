@@ -22,7 +22,7 @@ The following table includes links to Azure Resource Manager templates for Azure
 | Table API | [Create an Azure Cosmos DB account (multi-master)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-table) | This template  creates a Table API account in two regions with multi-master enabled. The Azure Cosmos account will have a single table. |
 
 > [!TIP]
-> To enabled shared throughput when using Table API, enable account-level throughput in the Azure Portal.
+> To enable shared throughput when using Table API, enable account-level throughput in the Azure Portal.
 
 To learn how to deploy the templates by using Azure CLI and Azure PowerShell, see the following docs:
 
