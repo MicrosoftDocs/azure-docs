@@ -175,7 +175,7 @@ Use the chart to get a quick comparison of the metrics for the models produced s
 
 ![Run details dashboard](media/how-to-create-portal-experiments/run-details.png)
 
-You are able to drill down on any of the output models which opens the details of that model including performance and distribution charts and metrics.[Learn more about charts](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
+You are able to drill down on any of the output models which opens the details of that model including performance and distribution charts and metrics. [Learn more about charts](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
 
 ![Iteration details](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -201,7 +201,7 @@ Automated ML helps you with deploying the model without writing code:
 
 1. Check the checkbox next to the model you registered, and select "Create image".
 
-    You can identify the model by its description, which includes the run ID and iteration number, in the following format: "<Run_ID>_<Iteration_number>_Model.
+    You can identify the model by its description, which includes the run ID and iteration number, in the following format: <Run_ID>_<Iteration_number>_Model.
 
 1. Enter a name for the image and upload the scoring file you previously downloaded. For the Conda file, you can download and use the following file:
 
@@ -213,7 +213,7 @@ Automated ML helps you with deploying the model without writing code:
 
 1. Select the "Create" button to start the image creation. This will take a few minutes to complete, once done, you will see a message on the top bar.
 
-1. Go to the "Images" tab, check the checkbox next to the image you want to deploy, and select "Create deployment"
+1. Go to the "Images" tab, check the checkbox next to the image you want to deploy, and select "Create deployment".
 
     ![Image create deployment screen](media/how-to-create-portal-experiments/images-create-deployment.png)
 
