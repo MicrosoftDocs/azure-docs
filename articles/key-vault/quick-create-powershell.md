@@ -6,11 +6,7 @@ author: barclayn
 manager: barbkess
 tags: azure-resource-manager
 
-ms.assetid: 1126f665-2e6c-4cca-897e-7d61842e8334
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: powershell
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/07/2019

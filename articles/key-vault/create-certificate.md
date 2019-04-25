@@ -2,15 +2,11 @@
 title: Certificate creation methods  
 description: Ways to create a certificate in Key Vault.
 services: key-vault
-documentationcenter:
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 
-ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
