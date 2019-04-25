@@ -296,7 +296,7 @@
         - name: IISConfigurator
           href: app/iis-configurator-overview.md
           items:
-          - name: Quickstart
+          - name: Getting started
             href: app/iis-configurator-getting-started.md
           - name: Detailed instructions
             href: app/iis-configurator-detailed-instructions.md
