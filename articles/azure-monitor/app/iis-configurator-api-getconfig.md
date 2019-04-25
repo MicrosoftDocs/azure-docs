@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Applicaton Insights IIS Configurator | Microsoft Docs
+title: Azure Monitor Application Insights IIS Configurator | Microsoft Docs
 description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
