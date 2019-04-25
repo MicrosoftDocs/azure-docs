@@ -17,7 +17,7 @@ ms.author: tilee
 
 When you enable monitoring, you may experience issues that prevent data collection. 
 This document lists all the known issues and troubleshooting examples.
-If you encounter an issue not listed here you may contact us [here](https://github.com/Microsoft/ApplicationInsights-Home).
+If you come across an issue not listed here, you may contact us [here](https://github.com/Microsoft/ApplicationInsights-Home).
 
 
 > [!CAUTION] 
@@ -193,5 +193,5 @@ If monitoring is working, at least 15 DLLS should be loaded.
 - In PerfView, click "Start Collection"
 - In a cmd window with admin privileges, execute `iisreset /start` To start IIS.
 - Try to browse to your app.
-- After your app is loaded, In PerfView, click "Stop Collection"
+- After your app is loaded return to PerfView and click "Stop Collection"
 

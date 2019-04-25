@@ -17,7 +17,7 @@ ms.author: tilee
 
 This document details how to onboard to the PowerShell Gallery and download the IISConfigurator Module. 
 We've documented the most common parameters required to get started.
-We've also included manual instructions in the event that internet access is not available.
+We've also included manual instructions in the event that internet access isn't available.
 
 
 > [!CAUTION] 
@@ -87,7 +87,7 @@ SerializationVersion           1.1.0.1
 		- `-Proxy` Specifies a proxy server for the request.
 		- `-Force` This will skip the confirmation prompt. 
 	
-	You will receive this prompt if NuGet is not set up:
+	You'll receive this prompt if NuGet isn't set up:
 		
 		NuGet provider is required to continue
 		PowerShellGet requires NuGet provider version '2.8.5.201' or newer to interact with NuGet-based repositories. The NuGet
@@ -104,7 +104,7 @@ SerializationVersion           1.1.0.1
 	- Optional Parameters:
 		- `-Proxy` Specifies a proxy server for the request.
 
-	You will receive this prompt if PowerShell Gallery is not trusted:
+	You'll receive this prompt if PowerShell Gallery isn't trusted:
 
 		Untrusted repository
 		You are installing the modules from an untrusted repository. If you trust this repository, change its
@@ -122,7 +122,7 @@ SerializationVersion           1.1.0.1
 		- `-Proxy` Specifies a proxy server for the request.
 		- `-Force` This will ignore the "already installed" warning and install the latest version.
 
-	You will receive this error if you are not using newest version of PowerShellGet:
+	You'll receive this error if you're not using newest version of PowerShellGet:
 	
 		Install-Module : A parameter cannot be found that matches parameter name 'AllowPrerelease'.
 		At line:1 char:20
@@ -131,7 +131,7 @@ SerializationVersion           1.1.0.1
 			CategoryInfo          : InvalidArgument: (:) [Install-Module], ParameterBindingException
 			FullyQualifiedErrorId : NamedParameterNotFound,Install-Module
 	
-5. Restart PowerShell. It is not possible to load the new version in the current session. Any new Powershell sessions will have the latest PowerShellGet loaded.
+5. Restart PowerShell. It isn't possible to load the new version in the current session. Any new Powershell sessions will have the latest PowerShellGet loaded.
 
 ## Download & install IISConfigurator via PowerShell Gallery
 
