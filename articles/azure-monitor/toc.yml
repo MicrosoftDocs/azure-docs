@@ -550,7 +550,7 @@
           href: insights/container-insights-analyze.md
         - name: Disable monitoring
           href: insights/container-insights-optout.md
-        - name: View container live logs
+        - name: View live logs
           href: insights/container-insights-live-logs.md
         - name: Analyze data with log queries
           href: insights/container-insights-log-search.md
