@@ -34,7 +34,7 @@ MSAL's logger allows for several levels of detail to be capture:
 - Verbose: Default. MSAL will log a large amount of information and give full details into what library behavior.
 
 ## Personal and organizational data
-By default, the MSAL logger does not capture any highly sensitive personal or organizational data.  You decide if you want to log personal and organizational data or not.
+By default, the MSAL logger does not capture any highly sensitive personal or organizational data. The library provides you the option to enable logging personal and organizational data if you decide to do so.
 
 ## Logging in MSAL.NET
 In MSAL 3.x, logging is set per application at app creation using the `.WithLogging` builder modifier. This method takes optional parameters:

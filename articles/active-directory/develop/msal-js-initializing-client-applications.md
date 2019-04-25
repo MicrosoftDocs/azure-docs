@@ -22,16 +22,15 @@ ms.collection: M365-identity-device-management
 ---
 
 # Initialize client applications using MSAL.js
-This article describes initializing user agent applications, a form of public client applications, using Microsoft Authentication Library for JavaScript (MSAL.js).  To learn more about the client application types and application configuration options, read the [overview](msal-client-applications.md).
+This article describes initializing Microsoft Authentication Library for JavaScript (MSAL.js) with an instance of a user-agent application. The user-agent application is a form of public client application in which the client code is executed in a user-agent such as a web browser. These clients do not store secrets, since the browser context is openly accessible. To learn more about the client application types and application configuration options, read the [overview](msal-client-applications.md).
 
 ## Prerequisites
-Before initializing an application, you first need to [register it](quickstart-v2-javascript.md) so that your app can be integrated with the Microsoft identity platform. As part of the registration, you will also need to add the Web platform and check the **Implicit Flow** checkbox.  After registration, you may need the following information (which can be found in the Azure portal):
+Before initializing an application, you first need to [register it with the Azure portal](scenario-spa-app-registration.md) so that your app can be integrated with the Microsoft identity platform. After registration, you may need the following information (which can be found in the Azure portal):
 
-- The client ID (a string representing a GUID)
+- The client ID (a string representing a GUID for your application)
 - The identity provider URL (named the instance) and the sign-in audience for your application. These two parameters are collectively known as the authority.
 - The tenant ID if you are writing a line-of-business application solely for your organization (also named single-tenant application).
-- The application secret (client secret string) or certificate (of type X509 certificate) if it's a confidential client app.
-- For web apps, and sometimes for public client apps (in particular when your app needs to use a broker), you'll have also set the redirectUri where the identity provider will contact back your application with the security tokens.
+- For web apps, you'll have to also set the redirectUri where the identity provider will return to your application with the security tokens.
 
 ## Initializing applications
 
