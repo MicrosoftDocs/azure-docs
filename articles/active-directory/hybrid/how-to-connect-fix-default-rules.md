@@ -91,7 +91,7 @@ To link the attribute to the target directory, you need to create an outbound ru
 
 ![Screenshot of Synchronization Rules Editor](media/how-to-connect-fix-default-rules/default3c.png)
 
-As with the inbound rule, you can use your own naming convention to name the rule. Select the **Connected System** as the Azure AD tenant, and select the connected system object to which you want to set the attribute value. Set the precedence between 0 - 99. 
+As with the inbound rule, you can use your own naming convention to name the rule. Select the **Connected System** as the Azure AD tenant, and select the connected system object to which you want to set the attribute value. Set the precedence between 0 – 99. 
 
 ![Screenshot of Create outbound synchronization rule](media/how-to-connect-fix-default-rules/default3d.png)
 
