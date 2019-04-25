@@ -38,8 +38,14 @@
       href: https://docs.azure.cloudsimple.com/cloudsimple-activity/
     - name: VMware on private cloud
       href: https://docs.azure.cloudsimple.com/vmware-components/
+    - name: Node quota
+      href:  https://docs.azure.cloudsimple.com/node-quota/
+    - name: Maintenance and updates
+      href: https://docs.azure.cloudsimple.com/cloudsimple-maintenance-updates/
   - name: Tutorials
     items:
+    - name: Enable resource provider
+      href: https://docs.azure.cloudsimple.com/enable-cloudsimple-service/
     - name: Create the CloudSimple Service
       href: https://docs.azure.cloudsimple.com/create-cloudsimple-service/ 
     - name: Access the CloudSimple portal
@@ -118,27 +124,23 @@
         href: https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/
       - name: vCenter identity sources
         href: https://docs.azure.cloudsimple.com/set-vcenter-identity/
+      - name: Azure Application Gateway with VMware VMs
+        href: https://docs.azure.cloudsimple.com/azure-application-gateway/
       - name: Azure Public Load Balancer with VMware VMs
         href: https://docs.azure.cloudsimple.com/load-balancers/
-      - name: NSX licenses
-        href: https://docs.azure.cloudsimple.com/nsx-licenses/
-      - name: VMware vRealize operations licenses
-        href: https://docs.azure.cloudsimple.com/vrops-licenses/
       - name: Configure private cloud vCenter server as vRealize automation endpoint
         href: https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/
-      - name: vSphere fault tolerance
-        href: https://docs.azure.cloudsimple.com/vsphere-fault-tolerance/
       - name: Migrating workload VMs to a private cloud
         href: https://docs.azure.cloudsimple.com/migrate-workloads/
       - name: Ensuring Application high availability in VMware on Azure
         href: https://docs.azure.cloudsimple.com/ha-ensuring/
     - name: VMware ecosystem
       items:
-      - name: Azure AD identity source on Private Cloud vCenter
-        href: https://docs.azure.cloudsimple.com/azure-ad/
-      - name: Zerto virtual replication for disaster recovery
+      - name: Disaster recovery solutions
         href: https://docs.azure.cloudsimple.com/zerto-solutionguide/
-      - name: Veeam solution guide
+      - name: Disaster recovery using VMware SRM
+        href: https://docs.azure.cloudsimple.com/disaster-recovery-srm/
+      - name: Backup workload virtual machines
         href: https://docs.azure.cloudsimple.com/veeam/
       - name: VMware Horizon solution guide
         href: https://docs.azure.cloudsimple.com/horizon-guide/
@@ -148,6 +150,8 @@
         href: https://docs.azure.cloudsimple.com/oracle-rac/
     - name: Azure Core Integration
       items:
+      - name: Azure AD identity source on Private Cloud vCenter
+        href: https://docs.azure.cloudsimple.com/azure-ad/
       - name: On-premises network connection with ExpressRoute 
         href: https://docs.azure.cloudsimple.com/er-connection/
       - name: Azure Virtual network connection with ExpressRoute
