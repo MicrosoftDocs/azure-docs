@@ -66,7 +66,7 @@ Learn about Azure Marketplace, an online applications and services marketplace t
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/common/i_account-management.svg" alt="" />
+                            <img src="media/index/i_account-management.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
