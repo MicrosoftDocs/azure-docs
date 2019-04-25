@@ -90,9 +90,9 @@ If the AKS cluster is configured with SSO using AAD, you are prompted to authent
 
 After successfully authenticating, the live log pane will appear in the bottom section of the middle pane. If the fetch status indicator shows a green check mark, which is on the far right of the pane, it means it can retrieve data.
     
-  ![Live logs pane retrieved data](./media/container-insights-live-logs/container-live-logs-pane-01.png)  
+  ![Live logs pane retrieved data](./media/container-insights-live-logs/live-logs-pane-01.png)  
 
-In the search bar, you can filter by key word to highlight that text in the log or event.   
+In the search bar, you can filter by key word to highlight that text in the log or event, and in the search bar on the far right, it shows how many results match out the filter.   
 
   ![Live logs pane filter example](./media/container-insights-live-logs/live-logs-pane-filter-example-01.png)
 
