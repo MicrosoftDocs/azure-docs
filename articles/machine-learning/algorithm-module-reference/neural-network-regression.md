@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Neural Network Regression
+# Neural Network Regression module
 
 *Creates a regression model using a neural network algorithm*  
   
@@ -20,7 +20,9 @@ ROBOTS: NOINDEX
   
 ## Module overview  
 
-This article describes how to use the **Neural Network Regression** module in Azure Machine Learning service to create a regression model using a customizable neural network algorithm.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to create a regression model using a customizable neural network algorithm.
   
  Although neural networks are widely known for use in deep learning and modeling complex problems such as image recognition, they are easily adapted to regression problems. Any class of statistical models can be termed a neural network if they use adaptive weights and can approximate non-linear functions of their inputs. Thus neural network regression is suited to problems where a more traditional regression model cannot fit a solution.
   
