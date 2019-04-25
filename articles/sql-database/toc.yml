@@ -120,8 +120,6 @@
       href: sql-database-service-tiers-vcore.md
     - name: DTU service tiers
       href: sql-database-service-tiers-dtu.md
-    - name: Serverless compute tier
-      href: sql-database-serverless.md
     - name: Prepay for reserved capacity
       href: sql-database-reserved-capacity.md
     - name: Migrate from Premium RS service tier
