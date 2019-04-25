@@ -5,13 +5,13 @@
   expanded: false
   items:
   - name: Advanced threat detection
-    displayName: vulnerability, virus, ids, incident
+    displayName: vulnerability, virus, IDs, incident
     href: azure-threat-detection.md
   - name: Azure logging and auditing
     displayName: incident
     href: azure-log-audit.md
   - name: Azure network security
-    displayName: firewall, ssl, vpn, ids, gateway, https, application gateway, azure application gateway, ips, waf
+    displayName: firewall, ssl, vpn, IDs, gateway, https, application gateway, azure application gateway, ips, waf
     href: abstract-azure-network-security.md
   - name: Azure serverless platform security
     href: abstract-serverless-platform-security.md
@@ -50,7 +50,7 @@
     - name: Disk encryption for IaaS VMs
       items:
       - name: About Azure Disk Encryption
-        displayName: bitlocker, bek
+        displayName: Bitlocker, bek
         href: azure-security-disk-encryption-overview.md
       - name: Quickstarts
         items:
@@ -143,7 +143,7 @@
       displayName: identity
       href: azure-security-global-admin.md
   - name: Network security
-    displayName: firewall, ssl, vpn, ids, gateway, https, azure application gateway, application gateway, ips, waf
+    displayName: firewall, ssl, vpn, IDs, gateway, https, azure application gateway, application gateway, ips, waf
     href: security-network-overview.md
     items:
     - name: Best practices
@@ -272,6 +272,11 @@
       href: ./blueprints/pcidss-iaaswa-overview.md
     - name: PaaS web application
       href: ./blueprints/pcidss-paaswa-overview.md
+  - name: SCCA 
+    displayName: blueprint, privacy, certifications
+    items:
+    - name: Secure Azure Computing Architecture 
+      href: ./compliance/secure-azure-computing-architecture.md
   - name: TIC
     displayName: blueprint, privacy, certifications
     items:
@@ -329,13 +334,13 @@
     - name: Releases
       href: azure-security-threat-modeling-tool-releases.md
       items:
-      - name: Threat Modeling Tool GA release 7.1.5091.2 - 9/12/2018
+      - name: Threat Modeling Tool GA release 7.1.5091.2 - Sept. 12, 2018
         href: azure-security-threat-modeling-tool-releases-71509112.md
-      - name: Threat Modeling Tool update release 7.1.51023.1 - 11/1/2018
+      - name: Threat Modeling Tool update release 7.1.51023.1 - Nov. 1, 2018
         href: azure-security-threat-modeling-tool-releases-71510231.md
-      - name: Threat Modeling Tool update release 7.1.60126.1 - 1/29/2019
+      - name: Threat Modeling Tool update release 7.1.60126.1 - Jan. 29, 2019
         href: azure-security-threat-modeling-tool-releases-71601261.md
-      - name: Threat Modeling Tool update release 7.1.60408.1 - 4/09/2019
+      - name: Threat Modeling Tool update release 7.1.60408.1 - April 9, 2019
         href: azure-security-threat-modeling-tool-releases-71604081.md
     - name: Mitigations
       href: azure-security-threat-modeling-tool-mitigations.md
