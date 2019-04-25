@@ -28,12 +28,13 @@ You must meet the following prerequisites before using Form Recognizer container
 |--|--|
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.|
-|FormRecognizer resource |In order to use these containers, you must have:<br><br>A _FormRecognizer_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's **FormRecognizer** Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus2.api.cognitive.microsoft.com/`|
-|Computer Vision API - Recognize Text| The Form Recognizer requires Recognize Text from the Computer Vision API to detect and extract printed text from images.  Recognize Text can either be configured as hosted service [Cognitive Services Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision/) or as well as a container [Install and run Recognize Text Container](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers).
+|Azure CLI| You need to install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) on your host.|
+|Computer Vision API resource| In order to process scanned documents and images, a **Computer Vision resource** is required. You can access the **Recognize Text** feature as either an Azure resource (REST API or SDK) or as a `cognitive-services-recognize-text` container. The usual billing fees apply. <br><br>You must pass in both the key and billing endpoint for your specific Computer Vision resource (Azure cloud or Cognitive Services container). Use this key and the billing endpoint as {COMPUTER_VISION_API_KEY} and {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> If you use the **`cognitive-services-recognize-text` container**, make sure:<br><br>* Your Computer Vision key for the Form Recognizer container is the key specified in the Computer Vision `docker run` command for the  `cognitive-services-recognize-text` container.<br>*Your billing endpoint is the container's endpoint, such as `https://localhost:5000`. If you use both the Computer Vision and Form Recognizer containers together on the same host, they can't both be started with the default port of `5000`.  |  
+|Form Recognizer resource |In order to use these containers, you must have:<br><br>A _Form Recognizer_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's **Form Recognizer** Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
 
 ## Request access to the container registry
 
-You must first complete and submit the [Cognitive Services Form Recognizer Containers Request form](https://aka.ms/FormRecognizerRequestAccess) to request access to the container.
+You must first complete and submit the [Cognitive Services Form Recognizer Containers Request form](https://aka.ms/FormRecognizerRequestAccess) to request access to the container. This will also sign you up for Computer Vision. You do not need to sign up for the Computer Vision request form separately. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -43,21 +44,13 @@ You must first complete and submit the [Cognitive Services Form Recognizer Conta
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-### Advanced Vector Extension support
-
-The **host** is the computer that runs the docker container. The host must support [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). You can check this support on Linux hosts with the following command:
-
-```console
-grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
-```
-
 ### Container requirements and recommendations
 
 The following table describes the minimum and recommended CPU cores and memory to allocate for each Form Recognizer container.
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-|cognitive-services-formrecognizer | 2 core, 4 GB memory | 4 core, 8 GB memory |
+|cognitive-services-form-recognizer | 2 core, 4 GB memory | 4 core, 8 GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 * TPS - transactions per second
@@ -73,7 +66,7 @@ Container images for Form Recognizer are available.
 
 | Container | Repository |
 |-----------|------------|
-| cognitive-services-formrecognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-formrecognizer:latest` |
+| cognitive-services-form-recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -83,7 +76,7 @@ Container images for Form Recognizer are available.
 #### Form Recognizer
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-formrecognizer:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
 ```
 
 ## How to use the container
@@ -97,14 +90,12 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. The command uses the following parameters:
 
-**During the private preview**, the billing settings must be valid to start the container but you are not billed for usage.
-
 | Placeholder | Value |
 |-------------|-------|
 |{BILLING_KEY} | This key is used to start the container, and is available on the Azure portal's Form Recognizer Keys page.  |
 |{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal's Form Recognizer Overview page.|
 |{COMPUTER_VISION_API_KEY}| The key is available on the Azure portal's Computer Vision API Keys page.|
-|{COMPUTER_VISION_API_ENDPOINT_URI}|The billing endpoint URI value is available on the Azure portal's Computer Vision API  Overview page.|
+|{COMPUTER_VISION_ENDPOINT_URI}|The billing endpoint. If you are using a cloud-based Computer Vision resource, the URI value is available on the Azure portal's Computer Vision API  Overview page. If you are using a  `cognitive-services-recognize-text` container, use the billing endpoint URL passed to the container in the `docker run` command.|
 
 Replace these parameters with your own values in the following example `docker run` command.
 
@@ -112,32 +103,32 @@ Replace these parameters with your own values in the following example `docker r
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-formrecognizer \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 --mount type=bind,source=c:\input,target=/input  \
 --mount type=bind,source=c:\output,target=/output \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
-formrecognizer:computervisionapikey={COMPUTER_VISION_API_KEY} \
-formrecognizer:computervisionapiendpointuri={COMPUTER_VISION_API_ENDPOINT_URI}
+FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
+FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 ```
 
 This command:
 
-* Runs a FormRecognizer container from the container image
+* Runs a Form Recognizer container from the container image
 * Allocates 2 CPU cores and 8 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 * Mounts an /input and an /output volume to the container
 
 > [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` as well as `formrecognizer:computervisionapikey` and `formrecognizer:computervisionapiendpointuri` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+> The `Eula`, `Billing`, and `ApiKey` as well as `FormRecognizer:ComputerVisionApiKey` and `FormRecognizer:ComputerVisionEndpointUri` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
 ## Query the container's prediction endpoint
 
 |Container|Endpoint|
 |--|--|
-|formrecognizer|http://localhost:5000
+|form-recognizer|http://localhost:5000
 
 
 ### Form Recognizer
@@ -192,7 +183,7 @@ When you run the container, the container uses **stdout** and **stderr** to outp
 
 ## Billing
 
-The Form Recognizer containers send billing information to Azure, using a _FormRecognizer_ resource on your Azure account.
+The Form Recognizer containers send billing information to Azure, using a _Form Recognizer_ resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
