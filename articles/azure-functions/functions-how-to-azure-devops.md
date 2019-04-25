@@ -20,7 +20,7 @@ To define your pipeline, you can use:
 
 - Templates: Templates are ready made tasks that build or deploy your app.
 
-## YAML-based bipeline
+## YAML-based pipeline
 
 ### Build your app
 
