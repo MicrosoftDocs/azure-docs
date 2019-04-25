@@ -17,7 +17,7 @@ Use this article to resolve common issues with Windows Virtual Desktop client co
 
 We currently aren't taking support cases while Windows Virtual Desktop is in preview. Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
 
-## You can't open web client
+## You can't open a web client
 
 Confirm there is internet connectivity by opening another web site; for example, [www.Bing.com](https://www.bing.com).
 
@@ -27,21 +27,21 @@ Use **nslookup** to confirm DNS can resolve the FQDN:
 nslookup rdweb.wvd.microsoft.com
 ```
 
-Try connecting with another client, like Remote Desktop client for Windows 7 or Windows 10.
+Try connecting with another client, like Remote Desktop client for Windows 7 or Windows 10, and check to see if you can open the web client.
 
-### Error: Opening other site fails.
+### Error: Opening another site fails
 
 **Cause:** Network issues and/or outages.
 
 **Fix:** Contact network support.
 
-### Error: Nslookup cannot resolve the name.
+### Error: Nslookup cannot resolve the name
 
 **Cause:** Network issues and/or outages.
 
 **Fix:** Contact network support
 
-### Error: Other clients can connect.
+### Error: Other clients can connect
 
 **Cause:** The browser isn't behaving as expected and stopped working.
 
@@ -56,7 +56,7 @@ Try connecting with another client, like Remote Desktop client for Windows 7 or 
 
 Try connecting using another browser or client.
 
-## Error: Other browsers and clients also malfunction or fail to open.
+### Error: Other browsers and clients also malfunction or fail to open
 
 **Cause:** Network and/or operation system issues or outages.
 
@@ -137,7 +137,7 @@ Time              : <Timestampt>
 
 **Fix:** Add VM to the correct domain. See [Join a Windows Server virtual machine to a managed domain](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 
-### Error:** Nslookup cannot resolve the name
+### Error: Nslookup cannot resolve the name
 
 **Cause:** Network issues or outages.
 
@@ -149,7 +149,7 @@ Time              : <Timestampt>
 
 **Fix:** Join all VMs that are part of a host pool to the domain controller.
 
-### User connects but nothing is displayed (no feed)
+## User connects but nothing is displayed (no feed)
 
 A User can start Remote Desktop clients and is able to authenticate, however the user doesn't see any icons in the web discovery feed.
 

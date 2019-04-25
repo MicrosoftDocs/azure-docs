@@ -11,7 +11,7 @@ ms.author: v-chjenk
 ---
 # Overview of common issues when setting up Windows Virtual Desktop
 
-This article provides an overview of common issues when setting up Windows Virtual Desktop and provides ways to troubleshoot the issues.
+This article provides an overview of common issues when setting up a Windows Virtual Desktop tenant environment and provides ways to troubleshoot the issues.
 
 ## Provide feedback
 

@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop Troubleshooting Guide - Azure
-description: How to resolve common issues when you setting up a Windows Virtual Desktop tenant environment.
+description: How to resolve common issues when you set up a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
 author: ChJenk
 
