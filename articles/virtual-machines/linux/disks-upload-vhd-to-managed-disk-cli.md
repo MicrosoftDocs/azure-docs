@@ -13,9 +13,9 @@ ms.subservice: disks
 
 # Upload a vhd to Azure
 
-This article explains how to upload a vhd file from your local machine directly to an Azure managed disk. Previously, you had to follow a more involved process that included staging your data in a storage account and managing that storage account. Now, you no longer need to manage a storage account or stage data in it to upload a vhd. Instead, you create an empty managed disk and upload a vhd directly to it. It is easier to upload on premises VMs to azure, enables you to directly upload a vhd to large managed disks, and the backup and restore process is simplified.
+This article explains how to upload a vhd file from your local machine directly to an Azure managed disk. Previously, you had to follow a more involved process that included staging your data in a storage account and managing that storage account. Now, you no longer need to manage a storage account or stage data in it to upload a vhd. Instead, you create an empty managed disk and upload a vhd directly to it. It's easier to upload on premises VMs to azure, enables you to directly upload a vhd to large managed disks, and the backup and restore process is simplified.
 
-Currently, this direct upload is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not yet supported for ultra SSDs.
+Currently, direct upload is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not yet supported for ultra SSDs.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ Create an empty standard HDD for uploading by specifying the **–for-upload** p
 az disk create -n contosodisk2 -g contosoteam2 -l westus2 --for-upload --size-gb 128 --sku standard_lrs
 ```
 
-If you would like to upload either a premium SSD or a standard SSD, replace **standard_lrs** with either **Premium_LRS** or **standardssd_lrs**. Ultra SSD is not yet supported.
+If you would like to upload either a premium SSD or a standard SSD, replace **standard_lrs** with either **premium_LRS** or **standardssd_lrs**. Ultra SSD is not yet supported.
 
 Now that you've created an empty managed disk, you'll need a writeable SAS, so that you can reference it as the destination for your upload.
 
@@ -80,4 +80,4 @@ az disk revoke-access -n contosodisk2 -g contosoteam2
 
 Now that you've successfully uploaded a vhd to a managed disk, you can attach your disk to a VM and begin using it.
 
-To learn how to accomplish that, see our article on the subject: [Add a disk to a Linux VM](add-disk.md).
+To learn how to attach a disk to a VM, see our article on the subject: [Add a disk to a Linux VM](add-disk.md).
