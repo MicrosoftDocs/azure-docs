@@ -102,7 +102,9 @@ Normalization doesn’t mean you will not see punctuation and diacritics in your
 
 ### Punctuation marks
 
-LUIS doesn't ignore punctuation marks, by default, because some client applications may place significance on these marks. Make sure your example utterances use both punctuation and no punctuation in order for both styles to return the same relative scores. If punctuation has no specific meaning in your client application, consider [ignoring punctuation](#utterance-normalization) by normalizing punctuation. 
+If punctuation is not normalized, LUIS doesn't ignore punctuation marks, by default, because some client applications may place significance on these marks. Make sure your example utterances use both punctuation and no punctuation in order for both styles to return the same relative scores. 
+
+If punctuation has no specific meaning in your client application, consider [ignoring punctuation](#utterance-normalization) by normalizing punctuation. 
 
 ### Ignoring words and punctuation
 

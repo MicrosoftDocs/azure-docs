@@ -61,29 +61,6 @@ A regular expression entity is used to pull out data from the utterance based on
 
     This regular expression matches literal characters `hrf-`, then 6 digits to represent a form number for a Human resources form.
 
-## Add hierarchical entities
-
-A hierarchical entity is a category of contextually learned and conceptually related entities. In the following example, the entity contains origin and destination locations. 
-
-In the utterance `Move John Smith from Seattle to Cairo`, Seattle is the origin location and Cairo is the destination location. Each location is contextually different and learned from word order and word choice in the utterance.
-
-To add hierarchical entities, complete the following steps: 
-
-1. In your app, select **Entities** from the left navigation, and then select **Create new entity**.
-
-1. In the pop-up dialog box, type `Location` in the **Entity name** box, and then select **Hierarchical** from the **Entity type** list.
-
-    ![Add hierarchical entity](./media/add-entities/hier-location-entity-creation.png)
-
-1. Select **Add Child**, and then enter `Origin` in **Child #1** box. 
-
-1. Select **Add Child**, and then enter `Destination` in **Child #2** box. Select **Done**.
-
-    >[!CAUTION]
-    >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
-
-    Once this entity is created, go to all intents that have example utterances that contain the entity. Select the text in the example utterance and mark the text as the entity. 
-
 <a name="add-composite-entities"></a>
 
 ## Add composite entities to group into a parent-child relationship
@@ -131,8 +108,6 @@ In the utterance `Where is Request relocation from employee new to the company o
 ## Add a role to distinguish different contexts
 
 A role is a named subtype based on context. It is available in all entities including prebuilt and non-machine-learned entities. 
-
-Using the same example as the hierarchical entity of origin and destination cities, the difference is that a role is named origin instead of a hierarchical child. 
 
 The syntax for a role is **{Entityname:Rolename}** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 

@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: diberry
-#Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
+#Customer intent: As a new user, I want to understand how and why to use roles on an entity. 
 ---
 
 # Tutorial: Extract contextually related data from an utterance
 
 In this tutorial, find related pieces of data based on context. For example, an origin and destination locations for a transfer from one city to another. Both pieces of data may be required and they are related to each other.  
 
-This tutorial was previously written using hierarchical entities. Entity roles replace the need for the hierarchical entity type. A role can be used with any prebuilt or custom entity type, and used in both example utterances and patterns. 
+A role can be used with any prebuilt or custom entity type, and used in both example utterances and patterns. 
 
 **In this tutorial, you learn how to:**
 
@@ -113,7 +113,7 @@ The prebuilt entity, geographyV2, extracts location information, including city 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-1. Go to the end of the URL in the address bar and enter `Please move Carl Chamerlin from Tampa to Portland`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `MoveEmployee` intent with the hierarchical entity extracted.
+1. Go to the end of the URL in the address bar and enter `Please move Carl Chamerlin from Tampa to Portland`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `MoveEmployee` intent with the entity extracted.
 
     ```json
     {

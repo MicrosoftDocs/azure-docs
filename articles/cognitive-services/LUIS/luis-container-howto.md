@@ -337,7 +337,7 @@ For more information about these options, see [Configure containers](luis-contai
 
 The latest container, released at 2019 //Build, will support:
 
-* Bing spell check: requests to the query prediction endpoint with the `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` query string parameters. Use the [Bing Spell Check v7 tutorial](luis-tutorial-bing-spellcheck.md) to learn more. 
+* Bing spell check: requests to the query prediction endpoint with the `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` query string parameters. Use the [Bing Spell Check v7 tutorial](luis-tutorial-bing-spellcheck.md) to learn more. If this feature is used, the container sends the utterance to your Bing Spell Check V7 resource.
 * [New prebuilt domains](luis-reference-prebuilt-domains.md): these enterprise-focused domains include entities, example utterances, and patterns. Extend these domains for your own use. 
 
 <a name="unsupported-dependencies"></a>

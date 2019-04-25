@@ -99,7 +99,7 @@
     href: luis-concept-best-practices.md
     displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
   - name: Plan your app
-    displayName: simple, hierarchical, composite, prebuilt, list, regex, regular expression
+    displayName: simple, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md
   - name: Author App
     items:
@@ -116,7 +116,7 @@
     - name: Intents
       href: luis-concept-intent.md
     - name: Entities
-      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed, roles
+      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles
       href: luis-concept-entity-types.md
     - name: Utterances
       href: luis-concept-utterance.md

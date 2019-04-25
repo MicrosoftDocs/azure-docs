@@ -84,25 +84,6 @@ Assuming the utterance, `Does John Smith work in Seattle?`, a composite utteranc
 
     ![Screenshot of Intents details page, with composite entity](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
-## Add hierarchical entity
-
-**Hierarchical entities will eventually be deprecated. Use [entity roles](luis-concept-roles.md) to determine entity subtypes, instead of hierarchical entities.**
-
-A hierarchical entity is a category of contextually learned and conceptually related entities. In the following example, the entity contains origin and destination locations. 
-
-In the utterance `Move John Smith from Seattle to Cairo`, Seattle is the origin location and Cairo is the destination location. Each location is contextually different and learned from word order and word choice in the utterance.
-
-1. On the Intent page, in the utterance, select `Seattle`, then enter the entity name `Location`, and then select Enter on the keyboard.
-
-1. In the **What type of entity do you want to create?** pop-up box, select _hierarchical_ for **Entity type**, then add `Origin` and `Destination` as children, and then select **Done**.
-
-    ![Screenshot of Intents details page, with ToLocation entity highlighted](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
-
-1. The word in the utterance was labeled with the parent hierarchical entity. You need to assign the word to a child entity. Return to the utterance on the Intent detail page. Select the word, then from the drop-down list choose the entity name you created, and follow the menu to the right to choose the correct child entity.
-
-    >[!CAUTION]
-    >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
-
 ## Add entity's role to utterance
 
 A role is a named subtype of an entity, determined by the context of the utterance. You can mark an entity within an utterance as the entity, or select a role within that entity. Any entity can have roles including custom entities that are machine-learned (simple entities and composite entities), are not machine-learned (prebuilt entities, regular expression entities, list entities). 
@@ -138,9 +119,6 @@ The following solutions help resolve the entity prediction discrepancy:
 |Unlabeled text|red underline|Incorrect prediction|The current utterances using this incorrect entity need to be reviewed across all intents. The current utterances have mistaught LUIS that this text is the predicted entity.
 |Correctly labeled text|blue entity highlight, red underline|Incorrect prediction|Provide more utterances with the correctly labeled entity in a variety of places and usages. The current utterances are either not sufficient to teach LUIS that this is the entity is or similar entities appear in the same context. Similar entity should be combined into a single entity so LUIS isn't confused. Another solution is to add a phrase list to boost the significance of the words. |
 |Incorrectly labeled text|blue entity highlight, red underline|Correct prediction| Provide more utterances with the correctly labeled entity in a variety of places and usages. 
-
-> [!Note]
-> When a red box is around the labeled intent in the row of the example utterance, an [intent prediction error](luis-how-to-add-intents.md#intent-prediction-errors) has occurred. You need to correct it. 
 
 ## Other actions
 
