@@ -156,6 +156,7 @@ When you are done and if you want to, you can delete the resource group. The act
 
 4. Confirm that you want to permanently delete the resource group and all resources in it by entering the name of the resource group (myRG1), and then click **Delete**.
 
+    ![Delete resource group](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
 
 ## Next steps  
 
