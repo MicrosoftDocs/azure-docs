@@ -65,3 +65,11 @@ Azure SQL Database includes both [single database](sql-database-single-index.yml
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| No  | | 
+
+## Additional Security Attributes for SQL Database
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Preventative: vulnerability assessment | Yes | See [SQL Vulnerability Assessment service helps you identify database vulnerabilities](sql-vulnerability-assessment.md) |
+| Preventative: data discovery and classification  | Yes | See [Azure SQL Database and SQL Data Warehouse data discovery & classification](sql-database-data-discovery-and-classification.md) |
+| Detection: threat detection | Yes | See [Advanced Threat Protection for Azure SQL Database](sql-database-threat-detection-overview.md) |
