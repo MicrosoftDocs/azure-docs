@@ -13,9 +13,9 @@ ms.subservice: disks
 
 # Upload a vhd to Azure - Azure CLI
 
-This article explains how to upload a vhd file from your local machine directly to an Azure managed disk. Previously, you needed to follow a more involved process that included staging your data in a storage account. Now, you can skip that altogether, and upload directly to a managed disk. This new process makes it easier to shift your on premises VMs to azure, allows you to upload to our larger managed disks, and simplifies the backup restore process. Currently, this process is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not yet supported for ultra SSDs.
+This article explains how to upload a vhd file from your local machine directly to an Azure managed disk. Previously, you had to follow a more involved process that included staging your data in a storage account. Now, there are fewer steps. It is easier to upload on premises VMs to azure, upload to large managed disks, and the backup and restore process is simplified. Currently, this process is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not yet supported for ultra SSDs.
 
-## Pre-requisites
+## Prerequisites
 
 - Download the latest [preview version of AzCopy](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
@@ -23,14 +23,14 @@ This article explains how to upload a vhd file from your local machine directly 
 
 ## Create an empty managed disk
 
-In order to upload your vhd to Azure, you'll need an empty managed disk that was created specifically to receive an upload of a vhd.
+To upload your vhd to Azure, you'll need to create an empty managed disk specifically to receive an upload of a vhd.
 
 This kind of managed disk has two unique states:
 
 - ReadToUpload, which means the disk is ready to receive an upload but, no [secure access signature](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) has been generated.
 - ActiveUpload, which means that the disk is ready to receive an upload and the SAS has been generated.
 
-While in either of these states, the managed disk will be billed at [standard HDD pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/), regardless of the actual type of disk. For example, a P10 will be billed as an S10. This will only be true so long as either of the upload states are currently set.
+While in either of these states, the managed disk will be billed at [standard HDD pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/), regardless of the actual type of disk. For example, a P10 will be billed as an S10. This will be true until `revoke-access` is called on the managed disk, which is required in order to attach the disk to a VM.
 
 Create an empty standard HDD for uploading by specifying the **–for-upload** parameter in the [disk create](/cli/azure/disk#az-disk-create) cmdlet:
 
@@ -58,7 +58,7 @@ Sample returned value:
 
 ## Upload vhd
 
-With the SAS for your empty managed disk, you can now use that as the destination for your upload command.
+Now that you have a SAS for your empty managed disk, you can use it to set your managed disk as the destination for your upload command.
 
 Use AzCopy v10 to upload your local VHD file to a managed disk by specifying the SAS URI generated in step #2.
 
@@ -68,7 +68,7 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 
 If your SAS expires during upload, and you haven't called `revoke-access` yet, you can get a new SAS to continue the upload using `grant-access`, again.
 
-After the upload is complete and you no longer need to write any more data to the disk, revoke the SAS. This will change the state of the managed disk and allow you to attach the disk to a VM.
+After the upload is complete, and you no longer need to write any more data to the disk, revoke the SAS. This will change the state of the managed disk and allow you to attach the disk to a VM.
 
 ```azurecli-interactive
 az disk revoke-access -n contosodisk2 -g contosoteam2
