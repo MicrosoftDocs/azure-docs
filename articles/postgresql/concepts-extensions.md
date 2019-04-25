@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 04/24/2019
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function as do built-in features. For more information on PostgreSQL extensions, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -43,6 +43,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Provides functions and operators for determining the similarity of alphanumeric text based on trigram matching. |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Provides functions that manipulate whole tables, including crosstab. |
 > | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Generates universally unique identifiers (UUIDs). |
+> | [orafce](https://github.com/orafce/orafce) | Provides a subset of functions and packages emulated from commercial databases. |
 
 ### Full-text search extensions
 
