@@ -15,7 +15,7 @@ ms.author: alkaplan
 Azure Monitor now leverages service mesh tech on your Kubernetes cluster to provide out of the box application monitoring for any Kubernetes hosted app. Rich application level metrics such as failed requests, latency, error rate etc., and application map will be available for your Kubernetes workloads. This feature will help users to spot performance bottlenecks or failure hotspots across all of their Kubernetes workloads within a selected Kubernetes namespace. By leveraging service mesh, Azure monitor will enable auto-instrumented app monitoring.
 
 > [!NOTE]
-> This is one of many ways to perform application monitoring on Kubernetes​​​​​​​. You can also instrument any app hosted in Kubernetes by using the [Application Insights SDK](azure-monitor/app/azure-monitor-app-hub.md) without the need for a service mesh. To use Kubernetes without instrumenting the application with an SDK you can use the below method.
+> This is one of many ways to perform application monitoring on Kubernetes​​​​​​​. You can also instrument any app hosted in Kubernetes by using the [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.md) without the need for a service mesh. To use Kubernetes without instrumenting the application with an SDK you can use the below method.
 
 ## Prerequisites
 
