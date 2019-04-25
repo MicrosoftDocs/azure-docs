@@ -46,6 +46,9 @@ By default, the snapshot stores the profile (summary statistics) of the data wit
 
 Optionally, you can also include a copy of the data in your snapshot by adding `create_data_snapshot = True`. 
 
+>[!Important]
+> Snapshots incur storage costs. While data profiles take space, data copies take even more. You can [delete obsolete snapshots](#delete) when they are no longer needed.
+
 This example uses [sample crime data](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) and a dataset called `dataset_crime` created using the article, ["Create and register datasets"](how-to-create-register-datasets.md).
 
 ```Python
@@ -68,9 +71,7 @@ snapshot = dataset.create_snapshot(snapshot_name = snapshot_name,
                                    compute_target = remote_compute_target,
                                    create_data_snapshot = True)
 ```
-
->[!Important]
-> Snapshots incur storage costs. While data profiles take space, data copies take even more. You can [delete obsolete snapshots](#delete) when they are no longer needed. 
+ 
 
 Because snapshots are created asynchronously, use the
 [`wait_for_completion()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#wait-for-completion-show-output-true--status-update-frequency-10-) method to monitor the process.
