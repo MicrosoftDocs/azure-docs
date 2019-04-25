@@ -23,7 +23,7 @@ This article is an introduction to developing Azure Functions using Python. The 
 
 ## Programming model
 
-An Azure Function should be a stateless method in your Python script that processes input and produces output. By default, the runtime expects this to be implemented as a global method called `main()` in the `__init__.py` file.
+An Azure Function should be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the `__init__.py` file.
 
 You can change the default  configuration by specifying the `scriptFile` and `entryPoint` properties in the `function.json` file. For example, the _function.json_ below tells the runtime to use the _customentry()_ method in the _main.py_ file, as the entry point for your Azure Function.
 
@@ -35,7 +35,7 @@ You can change the default  configuration by specifying the `scriptFile` and `en
 }
 ```
 
-Data from triggers and bindings is bound to the function via method attributes using the `name` property defined in the `function.json` configuration file. For example,the  _function.json_ below describes a simple function triggered by an HTTP request named `req`:
+Data from triggers and bindings is bound to the function via method attributes using the `name` property defined in the `function.json` configuration file. For example, the  _function.json_ below describes a simple function triggered by an HTTP request named `req`:
 
 ```json
 {
@@ -108,11 +108,12 @@ Binding extensions used by the Functions runtime are defined in the `extensions.
 
 When deploying a Functions project to your function app in Azure, the entire content of the FunctionApp folder should be included in the package, but not the folder itself.
 
-## Inputs
+## Triggers and Inputs
 
-Inputs are divided into two categories in Azure Functions: trigger input and additional input. Although they are different in `function.json`, the usage is identical in Python code. Let's take the following code snippet as an example:
+Inputs are divided into two categories in Azure Functions: trigger input and additional input. Although they are different in `function.json`, the usage is identical in Python code.  Connection strings for trigger and input sources should map to values in the `local.settings.json` file locally, or the application settings when running in Azure. Let's take the following code snippet as an example:
 
 ```json
+// function.json
 {
   "scriptFile": "__init__.py",
   "bindings": [
@@ -134,7 +135,19 @@ Inputs are divided into two categories in Azure Functions: trigger input and add
 }
 ```
 
+```json
+// local.settings.json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+  }
+}
+```
+
 ```python
+# __init__.py
 import azure.functions as func
 import logging
 
@@ -144,7 +157,8 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage based on the _id_ in the route URL and made available as `obj` in the function body.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage based on the _ID_ in the route URL and made available as `obj` in the function body.
+
 
 ## Outputs
 
