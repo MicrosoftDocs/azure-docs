@@ -48,7 +48,7 @@ The error structure for indexer execution previously had a `status` element. Thi
 
 ### Indexer data source API no longer returns connection strings
 
-From API versions 2019-05-06 and 2019-05-06-Preview onwards, the data source API no longer returns  connection strings in the response of any REST operation.
+From API versions 2019-05-06 and 2019-05-06-Preview onwards, the data source API no longer returns  connection strings in the response of any REST operation. In previous API versions, for data sources created using POST, Azure Search returned **201** followed by the OData response, which contained the connection string in plain text.
 
 ### Named Entity Recognition cognitive skill is now discontinued
 
