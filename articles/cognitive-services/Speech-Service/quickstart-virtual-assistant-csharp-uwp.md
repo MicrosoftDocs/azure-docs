@@ -27,6 +27,7 @@ This quickstart requires:
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 * A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech.md)
+
     > [!NOTE]
     > In preview, the Direct Line Speech channel currently supports only the **westus2** region. Further region support will be added in the future.
 
@@ -43,28 +44,38 @@ This quickstart will describe, step by step, how to make a simple client applica
 
 ## Add sample code
 
-1. The application's user interface is defined by using XAML. Open `MainPage.xaml` in Solution Explorer. In the designer's XAML view, insert the following XAML snippet into the Grid tag (between `<Grid>` and `</Grid>`).
-
-    > [!NOTE]
-    > PREPUBLISH TODO: Add XAML once UI paradigm figured out
+1. The application's user interface is defined by using XAML. Open `MainPage.xaml` in Solution Explorer. In the designer's XAML view, replace the entire contents with the below.
 
     ```xml
-    <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
-        <Button x:Name="EnableMicrophoneButton" Content="Enable Microphone"  Margin="0,0,10,0" Click="EnableMicrophone_ButtonClicked" Height="35"/>
-        <Button x:Name="ListenButton" Content="Talk to your bot" Margin="0,10,10,0" Click="ListenButton_ButtonClicked" Height="35"/>
-        <StackPanel x:Name="StatusPanel" Orientation="Vertical" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
-            <TextBlock x:Name="StatusLabel" Margin="0,10,10,0" TextWrapping="Wrap" Text="Status:" FontSize="20"/>
-            <Border x:Name="StatusBorder" Margin="0,0,0,0">
-                <ScrollViewer VerticalScrollMode="Auto"  VerticalScrollBarVisibility="Auto" MaxHeight="200">
-                    <!-- Use LiveSetting to enable screen readers to announce the status update. -->
-                    <TextBlock x:Name="StatusBlock" FontWeight="Bold" AutomationProperties.LiveSetting="Assertive"
+    <Page
+        x:Class="helloworld.MainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:helloworld"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+        <Grid>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
+                <Button x:Name="EnableMicrophoneButton" Content="Enable Microphone"  Margin="0,0,10,0" Click="EnableMicrophone_ButtonClicked" Height="35"/>
+                <Button x:Name="ListenButton" Content="Talk to your bot" Margin="0,10,10,0" Click="ListenButton_ButtonClicked" Height="35"/>
+                <StackPanel x:Name="StatusPanel" Orientation="Vertical" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+                    <TextBlock x:Name="StatusLabel" Margin="0,10,10,0" TextWrapping="Wrap" Text="Status:" FontSize="20"/>
+                    <Border x:Name="StatusBorder" Margin="0,0,0,0">
+                        <ScrollViewer VerticalScrollMode="Auto"  VerticalScrollBarVisibility="Auto" MaxHeight="200">
+                            <!-- Use LiveSetting to enable screen readers to announce the status update. -->
+                            <TextBlock x:Name="StatusBlock" FontWeight="Bold" AutomationProperties.LiveSetting="Assertive"
                     MaxWidth="{Binding ElementName=Splitter, Path=ActualWidth}" Margin="10,10,10,20" TextWrapping="Wrap"  />
-                </ScrollViewer>
-            </Border>
-        </StackPanel>
-        <MediaElement x:Name="mediaElement"/>
-    </StackPanel>
-    ```
+                        </ScrollViewer>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+            <MediaElement x:Name="mediaElement"/>
+        </Grid>
+    </Page>
+        ```
 
 1. Open the code-behind source file `MainPage.xaml.cs`. You'll find it grouped under `MainPage.xaml`. Replace the contents with the code below. Here's what this sample covers: 
 
@@ -72,33 +83,25 @@ This quickstart will describe, step by step, how to make a simple client applica
     * A simple implementation to ensure microphone access, wired to a button handler
     * Basic UI helpers to present messages and errors in the application
     * A landing point for the initialization code path that will be populated later
+    * A helper to play back text-to-speech (without streaming support)
     * An empty button handler to start listening that will be populated later
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
+    using Microsoft.CognitiveServices.Speech.Audio;
     using Microsoft.CognitiveServices.Speech.Dialog;
     using System;
-    using System.Collections.Generic;
+    using System.Diagnostics;
     using System.IO;
-    using System.Linq;
-    using System.Runtime.InteropServices.WindowsRuntime;
+    using System.Text;
     using Windows.Foundation;
-    using Windows.Foundation.Collections;
+    using Windows.Storage.Streams;
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Controls;
-    using Windows.UI.Xaml.Controls.Primitives;
-    using Windows.UI.Xaml.Data;
-    using Windows.UI.Xaml.Input;
     using Windows.UI.Xaml.Media;
-    using Windows.UI.Xaml.Navigation;
 
-    // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
-    namespace App8
+    namespace helloworld
     {
-        /// <summary>
-        /// An empty page that can be used on its own or navigated to within a Frame.
-        /// </summary>
         public sealed partial class MainPage : Page
         {
             private SpeechBotConnector botConnector;
@@ -112,7 +115,6 @@ This quickstart will describe, step by step, how to make a simple client applica
             public MainPage()
             {
                 this.InitializeComponent();
-                InitializeBotConnector();
             }
 
             private async void EnableMicrophone_ButtonClicked(object sender, RoutedEventArgs e)
@@ -139,7 +141,7 @@ This quickstart will describe, step by step, how to make a simple client applica
                 }
             }
 
-            private void NotifyUser(string strMessage, NotifyType type)
+            private void NotifyUser(string strMessage, NotifyType type = NotifyType.StatusMessage)
             {
                 // If called from the UI thread, then update immediately.
                 // Otherwise, schedule a task on the UI thread to perform the update.
@@ -166,8 +168,6 @@ This quickstart will describe, step by step, how to make a simple client applica
                 }
                 StatusBlock.Text += string.IsNullOrEmpty(StatusBlock.Text) ? strMessage : "\n" + strMessage;
 
-                // Collapse the StatusBlock if it has no text to conserve real estate.
-                StatusBorder.Visibility = !string.IsNullOrEmpty(StatusBlock.Text) ? Visibility.Visible : Visibility.Collapsed;
                 if (!string.IsNullOrEmpty(StatusBlock.Text))
                 {
                     StatusBorder.Visibility = Visibility.Visible;
@@ -186,6 +186,45 @@ This quickstart will describe, step by step, how to make a simple client applica
                 }
             }
 
+            // Waits for accumulates all audio associated with a given PullAudioOutputStream and then plays it to the
+            // MediaElement. Long spoken audio will create extra latency and a streaming playback solution (that plays
+            // audio while it continues to be received) should be used -- see the samples for examples of this.
+            private void SynchronouslyPlayActivityAudio(PullAudioOutputStream activityAudio)
+            {
+                var playbackStreamWithHeader = new MemoryStream();
+                playbackStreamWithHeader.Write(Encoding.ASCII.GetBytes("RIFF"), 0, 4); // ChunkID
+                playbackStreamWithHeader.Write(BitConverter.GetBytes(UInt32.MaxValue), 0, 4); // ChunkSize: max
+                playbackStreamWithHeader.Write(Encoding.ASCII.GetBytes("WAVE"), 0, 4); // Format
+                playbackStreamWithHeader.Write(Encoding.ASCII.GetBytes("fmt "), 0, 4); // Subchunk1ID
+                playbackStreamWithHeader.Write(BitConverter.GetBytes(16), 0, 4); // Subchunk1Size: PCM
+                playbackStreamWithHeader.Write(BitConverter.GetBytes(1), 0, 2); // AudioFormat: PCM
+                playbackStreamWithHeader.Write(BitConverter.GetBytes(1), 0, 2); // NumChannels: mono
+                playbackStreamWithHeader.Write(BitConverter.GetBytes(16000), 0, 4); // SampleRate: 16kHz
+                playbackStreamWithHeader.Write(BitConverter.GetBytes(32000), 0, 4); // ByteRate
+                playbackStreamWithHeader.Write(BitConverter.GetBytes(2), 0, 2); // BlockAlign
+                playbackStreamWithHeader.Write(BitConverter.GetBytes(16), 0, 2); // BitsPerSample: 16-bit
+                playbackStreamWithHeader.Write(Encoding.ASCII.GetBytes("data"), 0, 4); // Subchunk2ID
+                playbackStreamWithHeader.Write(BitConverter.GetBytes(UInt32.MaxValue), 0, 4); // Subchunk2Size
+
+                byte[] pullBuffer = new byte[2056];
+
+                Debug.WriteLine($"Producer started at {Environment.TickCount}");
+
+                uint lastRead = 0;
+                do
+                {
+                    lastRead = activityAudio.Read(pullBuffer);
+                    playbackStreamWithHeader.Write(pullBuffer, 0, (int)lastRead);
+                }
+                while (lastRead == pullBuffer.Length);
+
+                var task = Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    mediaElement.SetSource(playbackStreamWithHeader.AsRandomAccessStream(), "audio/wav");
+                    mediaElement.Play();
+                });
+            }
+
             private void InitializeBotConnector()
             {
                 // New code will go here
@@ -197,7 +236,7 @@ This quickstart will describe, step by step, how to make a simple client applica
             }
         }
     }
-    ```
+     ```
 
 1. Next, you'll create the `SpeechBotConnector` with your subscription information. Add the following to the method body of `InitializeBotConnector`, replacing the strings `YourChannelSecret`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your bot, speech subscription, and [region](regions.md).
 
@@ -209,11 +248,13 @@ This quickstart will describe, step by step, how to make a simple client applica
 
     ```csharp
     // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key
+    // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
     const string channelSecret = "YourChannelSecret";
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey";
     const string region = "YourServiceRegion"; // note: this is assumed as westus2 for preview
 
     var botConnectorConfig = BotConnectorConfig.FromSecretKey(channelSecret, speechSubscriptionKey, region);
+    botConnectorConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
     botConnector = new SpeechBotConnector(botConnectorConfig);
     ```
 
@@ -221,36 +262,43 @@ This quickstart will describe, step by step, how to make a simple client applica
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities
-    botConnector.ActivityReceived += (sender, activityReceivedEventArgs) =>
+    botConnector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     {
-        var media = this.mediaElement;
-        var activityAudio = activityReceivedEventArgs.Audio;
-        media.SetSource(activityAudio, "audio/wav");
+        NotifyUser($"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
+
+        if (activityReceivedEventArgs.HasAudio)
+        {
+            SynchronouslyPlayActivityAudio(activityReceivedEventArgs.Audio);
+        }
     };
     // Canceled will be signaled when a turn is aborted or experiences an error condition
     botConnector.Canceled += (sender, canceledEventArgs) =>
     {
-
+        NotifyUser($"Canceled, reason={canceledEventArgs.Reason}");
+        if (canceledEventArgs.Reason == CancellationReason.Error)
+        {
+            NotifyUser($"Error: code={canceledEventArgs.ErrorCode}, details={canceledEventArgs.ErrorDetails}");
+        }
     };
     // Recognizing (not 'Recognized') will provide the intermediate recognized text while an audio stream is being processed
     botConnector.Recognizing += (sender, recognitionEventArgs) =>
     {
-
+        NotifyUser($"Recognizing! in-progress text={recognitionEventArgs.Result.Text}");
     };
     // Recognized (not 'Recognizing') will provide the final recognized text once audio capture is completed
     botConnector.Recognized += (sender, recognitionEventArgs) =>
     {
-
+        NotifyUser($"Final speech-to-text result: '{recognitionEventArgs.Result.Text}'");
     };
     // SessionStarted will notify when audio begins flowing to the service for a turn
     botConnector.SessionStarted += (sender, sessionEventArgs) =>
     {
-
+        NotifyUser($"Now Listening! Session started, id={sessionEventArgs.SessionId}");
     };
     // SessionStopped will notify when a turn is complete and it's safe to begin listening again
     botConnector.SessionStopped += (sender, sessionEventArgs) =>
     {
-
+        NotifyUser($"Listening complete. Session ended, id={sessionEventArgs.SessionId}");
     };
     ```
 
@@ -259,13 +307,22 @@ This quickstart will describe, step by step, how to make a simple client applica
     ```csharp
     private async void ListenButton_ButtonClicked(object sender, RoutedEventArgs e)
     {
+        if (botConnector == null)
+        {
+            InitializeBotConnector();
+            // Optional step to speed up first interaction: if not called, connection happens automatically on first use
+            var connectTask = botConnector.ConnectAsync();
+        }
+
         try
         {
-            // Optional step to speed up first interaction: if not called, connection happens automatically on first use
-            botConnector.ConnectAsync();
-
             // Start sending audio to your speech-enabled bot
-            botConnector.ListenOnceAsync();
+            var listenTask = botConnector.ListenOnceAsync();
+
+            // You can also send activities to your bot as JSON strings -- Microsoft.Bot.Schema can simplify this
+            string speakActivity = @"{""type"":""message"",""text"":""Greeting Message"", ""speak"":""Hello there!""}";
+            await botConnector.SendActivityAsync(speakActivity);
+
         }
         catch (Exception ex)
         {
@@ -291,9 +348,9 @@ This quickstart will describe, step by step, how to make a simple client applica
     ![Screenshot of permission request](media/sdk/qs-csharp-uwp-10-access-prompt.png "Start the app into debugging")
 
 1. Select **Talk to your bot**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Direct Line Speech channel and transcribed to text, which appears in the window.
+quickstart-cs-uwp-bot-successful-turn
 
-    > [!NOTE]
-    > PREPUBLISH TODO: Add screenshot of a turn
+    ![Screenshot of successful bot turn](media/voice-first-virtual-assistants/quickstart-cs-uwp-bot-successful-turn.png "A successful bot turn")
 
 ## Next steps
 
