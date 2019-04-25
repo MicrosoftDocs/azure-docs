@@ -10,7 +10,7 @@ ms.author: mjbrown
 
 # Manage an Azure Cosmos account
 
-This article describes how to manage various tasks on an Azure Cosmos account using the Azure Portal, Azure PowerShell, Azure CLI and Azure Resource Manager templates.
+This article describes how to manage various tasks on an Azure Cosmos account using the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager templates.
 
 ## Create an account
 
@@ -74,7 +74,7 @@ This Azure Resource Manager template will create an Azure Cosmos DB account for 
 
 1. Go to your Azure Cosmos account, and open the **Replicate data globally** menu.
 
-2. To add regions, select the hexagons on the map with the **+** label that correspond to your desired region(s). Alternatively, to add a region, select the **+ Add region** option and choose a region from the drop-down menu.
+2. To add regions, select the hexagons on the map with the **+** label that corresponds to your desired region(s). Alternatively, to add a region, select the **+ Add region** option and choose a region from the drop-down menu.
 
 3. To remove regions, clear one or more regions from the map by selecting the blue hexagons with check marks. Or select the "wastebasket" (🗑) icon next to the region on the right side.
 
@@ -160,7 +160,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 Open the **Replicate Data Globally** tab and select **Enable** to enable multi-region writes.
 
-![Azure Cosmos account configure multi-master screenshot](./media/how-to-manage-database-account/single-to-multi-master.png)
+![Azure Cosmos account configures multi-master screenshot](./media/how-to-manage-database-account/single-to-multi-master.png)
 
 ### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
@@ -188,7 +188,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager template
 
-An account can be migrated from single-master to multi-master by deploying the ARM template used to create the account and setting `enableMultipleWriteLocations: true`. The following Azure Resource Manager template is a bare minimum template that will deploy an Azure Cosmos DB account for SQL API with a single region and multi-master enabled.
+An account can be migrated from single-master to multi-master by deploying the Resource Manager template used to create the account and setting `enableMultipleWriteLocations: true`. The following Azure Resource Manager template is a bare minimum template that will deploy an Azure Cosmos DB account for SQL API with a single region and multi-master enabled.
 
 ```json
 {
@@ -324,7 +324,7 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
     -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
 ```
 
-## <a id="manual-failover"></a>Perform manual failover on a Azure Cosmos account
+## <a id="manual-failover"></a>Perform manual failover on an Azure Cosmos account
 
 > [!IMPORTANT]
 > The Azure Cosmos account must be configured for manual failover for this operation to succeed.

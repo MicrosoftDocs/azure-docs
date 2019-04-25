@@ -14,7 +14,7 @@ With multi-region writes, when multiple clients write to the same item, conflict
 
 ## Create a last-writer-wins conflict resolution policy
 
-These samples show how to set up a container with a last-writer-wins conflict resolution policy. The default path for last-writer-wins is the timestamp field or the `_ts` property. This may also be set to a user-defined path for a numeric type. In a conflict the highest value wins. If the path isn't set or it's invalid, it defaults to `_ts`. Conflicts resolved with this policy do not show up in the conflict feed. This policy can be used by all APIs.
+These samples show how to set up a container with a last-writer-wins conflict resolution policy. The default path for last-writer-wins is the timestamp field or the `_ts` property. This may also be set to a user-defined path for a numeric type. In a conflict, the highest value wins. If the path isn't set or it's invalid, it defaults to `_ts`. Conflicts resolved with this policy do not show up in the conflict feed. This policy can be used by all APIs.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -81,16 +81,16 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## Create a custom conflict resolution policy using a stored procedure
 
-These samples show how to set up a container with a custom conflict resolution policy with a stored procedure to resolve the conflict. These conflicts don't show up in the conflict feed unless there's an error in your stored procedure. After the policy is created with the container you need to create the stored procedure. The .NET SDK sample below shows an example of that. This policy is supported on Core (SQL) Api only.
+These samples show how to set up a container with a custom conflict resolution policy with a stored procedure to resolve the conflict. These conflicts don't show up in the conflict feed unless there's an error in your stored procedure. After the policy is created with the container, you need to create the stored procedure. The .NET SDK sample below shows an example. This policy is supported on Core (SQL) Api only.
 
 ### Sample custom conflict resolution stored procedure
 
 Custom conflict resolution stored procedures must be implemented using the function signature shown below. The function name does not need to match the name used when registering the stored procedure with the container but it does simplify naming. Here is a description of the parameters that must be implemented for this stored procedure.
 
 - **incomingItem**: The item being inserted or updated in the commit that is generating the conflicts. Is null for delete operations.
-- **existingItem**: The currently committed item. This value is non-null in an update and null for an insert or delete.
+- **existingItem**: The currently committed item. This value is non-null in an update and null for an insert or deletes.
 - **isTombstone**: Boolean indicating if the incomingItem is conflicting with a previously deleted item. When true, existingItem is also null.
-- **conflictingItems**: Array of the committed version of all items in the container which are conflicting with incomingItem on id or any other unique index properties.
+- **conflictingItems**: Array of the committed version of all items in the container that are conflicting with incomingItem on ID or any other unique index properties.
 
 > [!IMPORTANT]
 > Just as with any stored procedure, a custom conflict resolution procedure can access any data with the same partition key and can perform any insert, update or delete operation to resolve conflicts.

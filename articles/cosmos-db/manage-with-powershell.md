@@ -1,6 +1,6 @@
 ---
 title: Create and manage Azure Cosmos DB using PowerShell
-description: Use Azure Powershell manage your Azure Cosmos DB accounts, databases, containers and throughput. 
+description: Use Azure Powershell manage your Azure Cosmos DB accounts, databases, containers, and throughput. 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 # Manage Azure Cosmos DB SQL API resources using PowerShell
 
-The following guide describes how to use PowerShell to script and automate management of Azure Cosmos DB, including the account, database, container and throughput. Management of Azure Cosmos DB is not through Azure Cosmos DB specific cmdlets but with the resource provider directly through the AzResource cmdlet. To view all of the properties which can be managed using PowerShell for the Azure Cosmos DB resource provider, see [Azure Cosmos DB resource provider schema](/azure/templates/microsoft.documentdb/allversions)
+The following guide describes how to use PowerShell to script and automate management of Azure Cosmos DB, including the account, database, container, and throughput. Management of Azure Cosmos DB is not through Azure Cosmos DB-specific cmdlets but with the resource provider directly through the AzResource cmdlet. To view all of the properties that can be managed using PowerShell for the Azure Cosmos DB resource provider, see [Azure Cosmos DB resource provider schema](/azure/templates/microsoft.documentdb/allversions)
 
 For cross-platform management of Azure Cosmos DB, you can use [Azure CLI](manage-with-cli.md), the [REST API][rp-rest-api], or the [Azure portal](create-sql-api-dotnet.md#create-account).
 
@@ -19,7 +19,7 @@ For cross-platform management of Azure Cosmos DB, you can use [Azure CLI](manage
 
 ## Getting Started
 
-Follow the instructions in [How to install and configure Azure PowerShell][powershell-install-configure] to install and log in to your Azure account in Powershell.
+Follow the instructions in [How to install and configure Azure PowerShell][powershell-install-configure] to install and sign in to your Azure account in Powershell.
 
 * If you would like to execute the following commands without requiring user confirmation, append the `-Force` flag to the command.
 * All the following commands are synchronous.
@@ -96,7 +96,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="update-account"></a> Update an Azure Cosmos account
 
-This command allows you to update your Azure Cosmos DB database account properties. Properties which can be updated include the following:
+This command allows you to update your Azure Cosmos DB database account properties. Properties that can be updated include the following:
 
 * Adding or removing regions
 * Changing default consistency policy
@@ -200,7 +200,7 @@ Select-Object $keys
 
 ### <a id="regenerate-keys"></a> Regenerate Account Keys
 
-Access keys to an Azure Cosmos account should be periodically regenerated to help keep connections more secure. A primary and secondary access key are assigned to the account. This allows clients to maintain access while the other is regenerated. There are four types of keys for an Azure Cosmos account (Primary, Secondary, PrimaryReadonly and SecondaryReadonly)
+Access keys to an Azure Cosmos account should be periodically regenerated to help keep connections more secure. A primary and secondary access keys are assigned to the account. This allows clients to maintain access while the other is regenerated. There are four types of keys for an Azure Cosmos account (Primary, Secondary, PrimaryReadonly, and SecondaryReadonly)
 
 ```azurepowershell-interactive
 # Regenerate the primary key for an Azure Cosmos Account
@@ -219,7 +219,7 @@ Select-Object $keys
 
 ### <a id="modify-failover-priority"></a> Modify Failover Priority
 
-For multi-region database accounts, you can change the failover priority of the various regions which the Azure Cosmos DB database account exists in. For more information on failover in your Azure Cosmos DB database account, see [Distribute data globally with Azure Cosmos DB][distribute-data-globally].
+For multi-region database accounts, you can change the failover priority of the various regions that the Azure Cosmos DB database account exists in. For more information on failover in your Azure Cosmos DB database account, see [Distribute data globally with Azure Cosmos DB][distribute-data-globally].
 
 For the example below, assume the account has a current failover priority of westus=0 and eastus=1. This example below will flip the regions.
 

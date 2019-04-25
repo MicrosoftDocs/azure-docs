@@ -228,7 +228,82 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $containerResourceName -PropertyObject $containerProperties 
 ```
 
-### <a id="ps-mongodb"></a>Mongo DB API
+### <a id="ps-cassandra"></a>Cassandra API
+
+```
+# Create an Azure Cosmos Account for Cassandra API
+$resourceGroupName = "myResourceGroup"
+$location = "West US"
+$accountName = "mycosmosaccount" # must be lower case.
+$keyspaceName = "keyspace1"
+$keyspaceResourceName = $accountName + "/cassandra/" + $keyspaceName
+$tableName = "table1"
+$tableResourceName = $accountName + "/cassandra/" + $keyspaceName + "/" + $tableName
+
+# Create account
+$locations = @(
+    @{ "locationName"="West US"; "failoverPriority"=0 },
+    @{ "locationName"="East US"; "failoverPriority"=1 }
+)
+
+$consistencyPolicy = @{
+    "defaultConsistencyLevel"="BoundedStaleness";
+    "maxIntervalInSeconds"=300;
+    "maxStalenessPrefix"=100000
+}
+
+$accountProperties = @{
+    "capabilities"= @( @{ "name"="EnableCassandra" } );
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations;
+    "consistencyPolicy"=$consistencyPolicy;
+    "enableMultipleWriteLocations"="true"
+}
+
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
+    -Kind "GlobalDocumentDB" -Name $accountName -PropertyObject $accountProperties
+
+# Create keyspace with shared throughput
+$keyspaceProperties = @{
+    "resource"=@{ "id"=$keyspaceName };
+    "options"=@{ "Throughput"="400" }
+}
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $keyspaceResourceName -PropertyObject $keyspaceProperties
+
+# Create a table
+$tableProperties = @{
+    "resource"=@{
+        "id"=$tableName; 
+        "schema"= @{
+            "columns"= @(
+                @{ "name"= "loadid"; "type"= "uuid" };
+                @{ "name"= "machine"; "type"= "uuid" };
+                @{ "name"= "cpu"; "type"= "int" };
+                @{ "name"= "mtime"; "type"= "int" };
+                @{ "name"= "load"; "type"= "float" };
+            );
+            "partitionKeys"= @(
+                @{ "name"= "machine" };
+                @{ "name"= "cpu" };
+                @{ "name"= "mtime" }; 
+            );
+            "clusterKeys"= @( 
+                @{ "name"= "loadid"; "orderBy"= "asc" }
+            )
+        }
+    }; 
+    "options"=@{}
+} 
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces/tables" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $tableResourceName -PropertyObject $tableProperties 
+
+```
+
+### <a id="ps-mongodb"></a>MongoDB API
 
 ```azurepowershell-interactive
 # Create a collection for an Azure Cosmos Account for MongoDB API
