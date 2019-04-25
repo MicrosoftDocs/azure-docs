@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 4/23/2019
+ms.date: 4/25/2019
 ms.author: dekapur
 ---
 
@@ -33,7 +33,7 @@ See more [detailed guidance](container-instances-troubleshooting.md#container-ta
 
 ### What Windows base OS images are supported?
 
-Currently, images based on Windows Server 2016 LTSC (Server Core) and Nano Server 1607 (related SAC release) are supported. We are adding support for Windows Server 2019 LTSC Server Core and Nano Server (1809) images in the near future. Please contact us if you need more information.
+Currently, images based on Windows Server 2016 LTSC (Server Core) and Nano Server 1607 (related SAC release) are supported. Use of Windows Server 2019 LTSC Server Core and Nano Server (1809) images is in preview.
 
 ### What .NET or .NET Core image layer should I use in my container? 
 
@@ -53,15 +53,15 @@ Azure Container Instances aims to be a serverless containers-on-demand service, 
 
 ### I want to deploy thousand of cores on ACI - can I get my quota increased?
  
-Yes (sometimes). Please contact us via an [Azure support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (select "Quota" for **Issue type**). We plan to add significant capacity after June 2019.
+Yes (sometimes). See the [quotas and limits](container-instances-quotas.md) article for current quotas and which limits can be increased by request.
 
 ### Can I deploy with more than 4 cores and 16 GB of RAM?
 
-Not yet. We are working to increase the range of resource options for your deployments, but for now, these are the maximums for a container group. Please contact us with specific requirements or requests, or use the [ACI feedback forums](https://aka.ms/aci/feedback). 
+Not yet. Currently, these are the maximums for a container group. Contact Azure Support with specific requirements or requests. 
 
 ### When will ACI be in a specific region?
 
-You can see the latest region availability [here](container-instances-region-availability.md#availability---general). We're working on reaching a wide set of regions in the latter half of 2019. If you have a requirement for a specific region, contact Azure Support.
+Current region availability is published [here](container-instances-region-availability.md#availability---general), and up-to-date information is available through the [List Capabilities](/rest/api/container-instances/listcapabilities) API. If you have a requirement for a specific region, contact Azure Support.
 
 ## Features and scenarios
 
@@ -71,7 +71,7 @@ Currently, scaling is not available for containers or container groups. If you n
 
 ### What features are available to instances running in a custom VNet?
 
-You can deploy container groups in an Azure virtual network of your choice, and delegate private IPs to the container groups to route traffic within the VNet across your Azure resources. We're working to add various networking-related capabilities. See [Preview limitations](container-instances-vnet.md#preview-limitations) for updated information.
+You can deploy container groups in an Azure virtual network of your choice, and delegate private IPs to the container groups to route traffic within the VNet across your Azure resources. Deployment of a container group into a virtual network is currently in preview, and some aspects of this feature may change prior to general availability (GA). See [Preview limitations](container-instances-vnet.md#preview-limitations) for updated information.
 
 ## Pricing
 
