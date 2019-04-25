@@ -12,9 +12,9 @@ ms.date: 05/02/2019
 ms.author: travisw
 ---
 
-# Voice-first virtual assistants (Preview): frequently asked questions (FAQ)
+# Voice-first virtual assistants Preview: Frequently asked questions
 
-If you can't find answers to your questions in this FAQ, check out [other support options](support.md).
+If you can't find answers to your questions in this document, check out [other support options](support.md).
 
 ## General
 
@@ -30,7 +30,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: I receive a 401 error when connecting and nothing works. I know my speech subscription key is valid. What's going on?**
 
-**A:** In preview, Direct Line Speech has very specific limitations on the subscription used. Please ensure you're using the **Speech** resource (Microsoft.CognitiveServicesSpeechServices, "Speech") and *not* the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services"). Additionally, please note that only the **westus2** region is currently supported, with further region support coming soon.
+**A:** In preview, Direct Line Speech has very specific limitations on the subscription used. Please ensure you're using the **Speech** resource (Microsoft.CognitiveServicesSpeechServices, "Speech") and *not* the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services"). Additionally, please note that only the **westus2** region is currently supported.
 
 ![correct subscription for direct line speech](media/voice-first-virtual-assistants/faq-supported-subscription.png "example of a compatible Speech subscription")
 

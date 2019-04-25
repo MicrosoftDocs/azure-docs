@@ -15,7 +15,7 @@
   - name: Speech translation
     href: speech-translation.md
     displayName: translate speech, speech translation, translator, s2s, speech to speech
-  - name: Voice-first virtual assistants (Preview)
+  - name: Voice-first virtual assistants Preview
     href: voice-first-virtual-assistants.md
     displayName: virtual assistants, speech-enabled bots, conversational agents
 - name: Quickstarts

@@ -27,7 +27,7 @@ This quickstart requires:
 * A pre-configured bot created using Bot Framework version 4.2 or above. The bot would need to subscribe to the new "Direct Line Speech" channel to receive voice inputs.
 
     > [!NOTE]
-    > In preview, the Direct Line Speech channel currently supports only the **westus2** region. Further region support will be added in the future.
+    > In preview, the Direct Line Speech channel currently supports only the **westus2** region.
 
     > [!NOTE]
     > The 30-day trial for the standard pricing tier described in [Try Speech Services for free](get-started.md) is restricted to **westus** (not **westus2**) and is thus not compatible with Direct Line Speech. Free and standard tier **westus2** subscriptions are compatible.

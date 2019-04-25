@@ -13,9 +13,9 @@ ms.author: travisw
 ms.custom: 
 ---
 
-# About Custom Voice-First Virtual Assistants (Preview)
+# About custom voice-first virtual assistants preview
 
-Custom virtual assistants using Azure Speech Services empower developers to create natural, human-like conversational interfaces for their applications and experiences. The Bot Framework's Direct Line Speech channel enhances these capabilities by providing a coordinated, orchestrated entry point to a compatible bot that enables voice in, voice out interaction with low latency and high reliability. Direct Line Speech is accessed by devices using the Speech Services Software Development Kit (SDK).
+Custom virtual assistants using Azure Speech Services empower developers to create natural, human-like conversational interfaces for their applications and experiences. The Bot Framework's Direct Line Speech channel enhances these capabilities by providing a coordinated, orchestrated entry point to a compatible bot that enables voice in, voice out interaction with low latency and high reliability. These bots can use Microsoft's Language Understanding (LUIS) for natural language interaction. Direct Line Speech is accessed by devices using the Speech Services Software Development Kit (SDK).
 
    ![Conceptual diagram of the direct line speech orchestration service flow](media/voice-first-virtual-assistants/overview.png "The Speech Channel flow")
 
@@ -25,8 +25,8 @@ Direct Line Speech and its associated functionality for custom voice-first virtu
 
 | Category | Features |
 |----------|----------|
-|[Custom wake word](speech-devices-sdk-create-kws.md) | You can enable users to begin conversations with bots using a custom keyword like "Hey Contoso". This task is accomplished with a custom wake word engine in the Speech SDK, which can be configured with a custom wake word [that you can generate here](speech-devices-sdk-create-kws.md). The Direct Line Speech channel includes service-side wake word verification that improves the accuracy of the wake word activation versus the device alone.
-|[Speech to text](speech-to-text.md) | The Direct Line Speech channel includes real-time transcription of audio into recognized text using [Speech-to-text](speech-to-text.md) from Azure Speech Services. This text is available to both your bot and your client application as it is transcribed. **Coming soon**: Direct Line Speech will support customized [acoustic models](how-to-customize-acoustic-models.md), [language models](how-to-customize-language-model.md), and [pronunciation models](how-to-customize-pronunciation.md) in [supported languages](supported-languages.md). See [Customization for Speech-to-text](speech-to-text.md) for more information.
+|[Custom wake word](speech-devices-sdk-create-kws.md) | You can enable users to begin conversations with bots using a custom keyword like "Hey Contoso." This task is accomplished with a custom wake word engine in the Speech SDK, which can be configured with a custom wake word [that you can generate here](speech-devices-sdk-create-kws.md). The Direct Line Speech channel includes service-side wake word verification that improves the accuracy of the wake word activation versus the device alone.
+|[Speech to text](speech-to-text.md) | The Direct Line Speech channel includes real-time transcription of audio into recognized text using [Speech-to-text](speech-to-text.md) from Azure Speech Services. This text is available to both your bot and your client application as it is transcribed.
 |[Text to speech](text-to-speech.md) | Textual responses from your bot will be synthesized using [Text-to-speech](text-to-speech.md) from Azure Speech Services. This synthesis will then be made available to your client application as an audio stream. Microsoft offers the ability to build your own [custom, high-quality Neural TTS voice](https://aka.ms/customneuraltts) that gives a voice to your brand.
 |[Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md) | As a channel within the Bot Framework, Direct Line Speech enables a smooth and seamless connection between your client application, a compatible bot, and the capabilities of Azure Speech Services. For more information on configuring your bot to use the Direct Line Speech channel, see [its page in the Bot Framework documentation](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
 
