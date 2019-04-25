@@ -30,8 +30,10 @@ ms.author: jonbeck
 
 ### MPI 
 
-Only Intel MPI 5.x versions are supported. Later versions (2017, 2018) of the Intel MPI runtime library are not compatible with the Azure Linux RDMA drivers.
+Only Intel MPI 5.x versions are supported.
 
+> [!NOTE]
+> Later versions (2017, 2018) of the Intel MPI runtime library may or may not be compatible with the Azure Linux RDMA drivers.
 
 ### Distributions
  

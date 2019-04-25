@@ -26,6 +26,8 @@ ASP.NET Core builds a single key-value-based configuration object by using setti
 
 You can use any code editor to do the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
+![Quickstart app launch local](./media/quickstarts/aspnet-core-app-launch-local.png)
+
 ## Prerequisites
 
 To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
@@ -101,7 +103,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
     This secret is accessed with the configuration API. A colon (:) works in the configuration name with the configuration API on all supported platforms. See [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Open *Program.cs*, and add a reference to an App Configuration .NET Core configuration provider.
+4. Open *Program.cs*, and add a reference to the .NET Core App Configuration provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -115,15 +117,12 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(options => {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .SetOfflineCache(new OfflineFileCache());
-                });
+                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
             })
             .UseStartup<Startup>();
     ```
 
-6. Open Index.cshtml in the Views > Home directory, and replace its content with the following code:
+6. Open *Index.cshtml* in the Views > Home directory, and replace its content with the following code:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -149,7 +148,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     </html>
     ```
 
-7. Open _Layout.cshtml in the Views > Shared directory, and replace its content with the following code:
+7. Open *_Layout.cshtml* in the Views > Shared directory, and replace its content with the following code:
 
     ```html
     <!DOCTYPE html>
@@ -187,8 +186,6 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
         dotnet run
 
 3. Open a browser window, and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
-
-    ![Quickstart app launch local](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## Clean up resources
 
