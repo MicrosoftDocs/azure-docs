@@ -23,8 +23,8 @@
     href: https://github.com/Azure/OpenDatasetsNotebooks
 - name: Resources
   items:
-  - name: Azure Open Datasets portal
-    href: https://opendatasets.azure.com
+  - name: Azure Open Datasets catalog
+    href: https://azure.microsoft.com/services/open-datasets/catalog/
   - name: Microsoft Research Open Data
     href: https://msropendata.com/
   - name: Azure roadmap

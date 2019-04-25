@@ -29,22 +29,24 @@ Following are examples of datasets available.
  
 |Dataset         | Notebooks     | Description                                    |
 |----------------|---------------|------------------------------------------------|
-|[NOAA Integrated Surface Data (ISD)](https://publicdataset.azurewebsites.net/dataDetail/isd) | [Pandas](https://publicdataset.azurewebsites.net/dataDetail/isd/access?tab2=AzureNotebooks) <br> [Azure Databricks](https://publicdataset.azurewebsites.net/dataDetail/isd/access?tab2=AzureDatabricks) | Worldwide hourly weather history data from NOAA with the best spatial coverage in North America, Europe, Australia, and parts of Asia. Updated daily. |
-|[NOAA Global Forecast System (GFS)](https://publicdataset.azurewebsites.net/dataDetail/gfs) | [Pandas](https://publicdataset.azurewebsites.net/dataDetail/gfs/access?tab2=AzureNotebooks) <br> [Azure Databricks](https://publicdataset.azurewebsites.net/dataDetail/gfs/access?tab2=AzureDatabricks) | 15-day U.S. hourly weather forecast data from NOAA. Updated daily. |
+|[NOAA Integrated Surface Data (ISD)](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureDatabricks) | Worldwide hourly weather data from NOAA with the best spatial coverage in North America, Europe, Australia, and parts of Asia. Updated daily. |
+|[NOAA Global Forecast System (GFS)](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureDatabricks) | 15-day U.S. hourly weather forecast data from NOAA. Updated daily. |
 
 ### Calendar data
 
 |Dataset         | Notebooks     | Description                                    |
 |----------------|---------------|------------------------------------------------|
-|[Public Holidays](https://publicdataset.azurewebsites.net/dataDetail/public_holiday) | [Pandas](https://publicdataset.azurewebsites.net/dataDetail/public_holiday/access?tab2=AzureNotebooks) <br> [Azure Databricks](https://publicdataset.azurewebsites.net/dataDetail/public_holiday/access?tab2=AzureDatabricks) | Worldwide public holiday data, covering 116 countries or regions from 1970 to 2099. Includes country and whether most people have paid time off. |
+|[Public Holidays](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureDatabricks) | Worldwide public holiday data, covering 41 countries or regions from 1970 to 2099. Includes country and whether most people have paid time off. |
 
-## Access to datasets in Azure 
-With an Azure subscription you can access open datasets in the Azure portal, where the data is accessible to your machine learning solution and colocated with cloud compute resources. 
+## Access to datasets  
+With an Azure account you can access open datasets using code or through the Azure service interface. The data is colocated with Azure cloud compute resources for use in your machine learning solution.  
 
-The Open Datasets site provides Python Pandas and Azure Databricks notebooks you can use to connect data to Azure Machine Learning service and Azure Databricks. Datasets can also be accessed through a Python SDK. 
+Open Datasets provides Azure Notebooks and Azure Databricks notebooks you can use to connect data to Azure Machine Learning service and Azure Databricks. Datasets can also be accessed through a Python SDK. 
 
-## Contribute to Open Datasets
-If you have a dataset to share, submit a request with a description of the dataset to [Azure Open Datasets site](https://opendatasets.azure.com). 
+However, you don't need an Azure account to access Open Datasets; they can be access in any Python environment without or without Spark.
+
+## Request or share data
+If you can't find the data you want, [send email](mailto:contactazureopendatasets@microsoft.com) to let us know what you're looking for or if you want to bring your data to Azure. 
 
 ## Next steps
 * [Sample notebook](samples.md)
