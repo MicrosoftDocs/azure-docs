@@ -207,18 +207,22 @@
       items:
         - name: Overview
           href: msal-overview.md
-        - name: Migrate to MSAL.NET
-          href: msal-net-migration.md
-        - name: Compare MSAL.js and ADAL.js
-          href: msal-compare-msal-js-and-adal-js.md
-        - name: Acquire and cache tokens
-          href: msal-acquire-cache-tokens.md
-        - name: Scopes for v1.0 apps
-          href: msal-v1-app-scopes.md
-        - name: Client applications
-          href: msal-client-applications.md
-        - name: Initializing applications
+        - name: Migration
           items:
+          - name: Migrate to MSAL.NET
+            href: msal-net-migration.md
+          - name: Migrate to MSAL.js
+            href: msal-compare-msal-js-and-adal-js.md
+        - name: Acquire and cache tokens
+          items:
+          - name: Acquire and cache tokens
+            href: msal-acquire-cache-tokens.md
+          - name: Scopes for v1.0 apps
+            href: msal-v1-app-scopes.md
+        - name: Client applications
+          items:
+          - name: Client applications
+            href: msal-client-applications.md
           - name: Initialize applications (.NET)
             href: msal-net-initializing-client-applications.md
           - name: Initialize applications (JS)
@@ -227,9 +231,9 @@
           href: msal-handling-exceptions.md
         - name: Logging
           href: msal-logging.md
-        - name: Single sign-on with MSAL.js
+        - name: Single sign-on (JS)
           href: msal-js-sso.md
-        - name: MSAL.js prompt behavior
+        - name: Prompt behavior (JS)
           href: msal-js-prompt-behavior.md
         - name: Provide your own HttpClient (.NET)
           href: msal-net-provide-httpclient.md
