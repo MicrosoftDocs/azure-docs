@@ -161,7 +161,7 @@ To configure Azure AD single sign-on with Zscaler Beta, perform the following st
 
 2. After adding extension to the browser, click on **Setup Zscaler Beta** will direct you to the Zscaler Beta application. From there, provide the admin credentials to sign into Zscaler Beta. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![Setup sso](common/setup-sso.png)
+	![Setup configuration](common/setup-sso.png)
 
 3. If you want to setup Zscaler Beta manually, open a new web browser window and sign into your Zscaler Beta company site as an administrator and perform the following steps:
 
