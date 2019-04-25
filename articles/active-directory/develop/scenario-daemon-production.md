@@ -33,9 +33,9 @@ If you are an ISV creating a daemon application that can run in several tenants,
 
 You'll need to explain to your customers how to perform these operations. See [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) for details.
 
-## Next steps
-
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+
+## Next steps
 
 Here are a few links to learn more:
 
