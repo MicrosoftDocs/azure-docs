@@ -16,9 +16,9 @@ ms.custom: seodec18
 
 # What is automated machine learning?
 
-Automated machine learning, also referred to as AutoML, allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. 
+Automated machine learning, also referred to as AutoML, allows data scientists, analysts, and developers to build ML models with high scale, efficiency and productivity all while sustaining model quality. 
 
-Automated ML builds a set of ML models automatically, fine-tunes them, and then recommends the best one for you. Traditional machine learning model development is resource-intensive-- requiring significant domain knowledge and time to produce and compare dozens of models. With automated ML, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
+Automated ML builds a set of ML models automatically, intelligently selecting models for training and then recommends the best one for you. Traditional machine learning model development is resource-intensive requiring significant domain knowledge and time to produce and compare dozens of models. With automated ML, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
 Behind the scenes, your training data is taken with a defined target feature, and intelligently iterated upon through combinations of ML algorithms and feature selections. Then, based on training scores, the best fitted model is identified and recommended to you. 
 
@@ -44,7 +44,7 @@ Using **Azure Machine Learning service**, you can design and run your automated 
 
 [![Automated Machine learning](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
 
-During training, the Azure Machine Learning service creates a number of pipelines that try different algorithms and parameters. It will stop once it hits the exit crtieria defined in the experiment. 
+During training, the Azure Machine Learning service creates a number of pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment. 
 
 You can also inspect the logged run information, which contains metrics gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
