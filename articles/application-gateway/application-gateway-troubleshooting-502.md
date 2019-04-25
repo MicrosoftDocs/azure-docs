@@ -50,7 +50,7 @@ Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 
 * Check effective NSG and route with the backend VM
 
-```powershell
+```azurepowershell
 Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
 Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
 ```
@@ -131,7 +131,7 @@ When a user request is received, the application gateway applies the configured 
 
 Application Gateway allows you to configure this setting via the BackendHttpSetting, which can be then applied to different pools. Different back-end pools can have different BackendHttpSetting, and a different request time-out configured.
 
-```powershell
+```azurepowershell
     New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
@@ -145,7 +145,7 @@ If the application gateway has no VMs or virtual machine scale set configured in
 
 Ensure that the back-end address pool isn't empty. This can be done either via PowerShell, CLI, or portal.
 
-```powershell
+```azurepowershell
 Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
