@@ -1,6 +1,6 @@
 ---
 title: Initialize client applications (Microsoft Authentication Library for JavaScript) | Azure
-description: Learn about initializing public client and confidential client applications using the Microsoft Authentication Library for JavaScript (MSAL.js).
+description: Learn about initializing client applications using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: ryanwi
+ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about initializing client applications so I can decide if this platform meets my application development needs and requirements.
