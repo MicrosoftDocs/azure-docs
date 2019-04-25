@@ -21,8 +21,8 @@ Azure Functions lets you develop your functions as PowerShell scripts.
 
 You can debug your PowerShell functions locally as you would any PowerShell scripts using the following standard development tools:
 
-* Visual Studio Code: Microsoft's free, lightweight, and open-source text editor with the PowerShell extension that offers a full PowerShell development experience.
-* A PowerShell Console: Debug using the same commands you would use to debug any other PowerShell process.
+* [Visual Studio Code](https://code.visualstudio.com/): Microsoft's free, lightweight, and open-source text editor with the PowerShell extension that offers a full PowerShell development experience.
+* A PowerShell console: Debug using the same commands you would use to debug any other PowerShell process.
 
 [Azure Functions Core Tools](functions-run-local.md) supports local debugging of Azure Functions, including PowerShell functions.
 
@@ -40,7 +40,7 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-This function app is similar to the one you get when complete the [PowerShell quickstart](functions-create-first-function-powershell.md).
+This function app is similar to the one you get when you complete the [PowerShell quickstart](functions-create-first-function-powershell.md).
 
 The function code in `run.ps1` looks like the following script:
 
@@ -93,7 +93,7 @@ With `Wait-Debugger` in place, you can now debug the functions using either Visu
 
 To debug your PowerShell functions in Visual Studio Code, you must have the following extensions for Visual Studio Code:
 
-* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
+* [PowerShell](/powershell/scripting/components/Visual Studio Code/using-Visual Studio Code)
 * [Azure Functions](functions-create-first-function-vs-code.md)
 
 After installing the PowerShell and Azure Functions extensions, load an existing function app project. You can also [create a Functions project](functions-create-first-function-vs-code.md).
@@ -117,7 +117,7 @@ The start debugging operation does the following tasks:
 * Runs `func host start` in the terminal to start the function app in the Functions host.
 * Attach the PowerShell debugger to the PowerShell runspace within the Functions runtime.
 
-With your function app running, you need a separate  PowerShell console to call the HTTP triggered function.
+With your function app running, you need a separate PowerShell console to call the HTTP triggered function.
 
 In this case, the PowerShell console is the client. The `Invoke-RestMethod` is used to trigger the function.
 
@@ -129,12 +129,12 @@ Invoke-RestMethod "http://localhost:7071/api/HttpTrigger?Name=Functions"
 
 You'll notice that a response isn't immediately returned. That's because `Wait-Debugger` has attached the debugger and PowerShell execution went into break mode as soon as it could. This is because of the [BreakAll concept](#breakall-might-cause-your-debugger-to-break-in-an-unexpected-place), which is explained later. After you press the `continue` button, the debugger now breaks on the line right after `Wait-Debugger`.
 
-At this point, the debugger is attached and you can do all the normal debugger operations. For more information on using the debugger in VSCode, see [VSCode official documentation](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions).
+At this point, the debugger is attached and you can do all the normal debugger operations. For more information on using the debugger in Visual Studio Code, see [the official documentation](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions).
 
 After you continue and fully invoke your script, you'll notice that:
 
-1. The PowerShell Console that did the `Invoke-RestMethod` has returned a result
-1. The PowerShell Integrated Console in VSCode is waiting for a script to be executed
+1. The PowerShell console that did the `Invoke-RestMethod` has returned a result
+1. The PowerShell Integrated Console in Visual Studio Code is waiting for a script to be executed
 
 Subsequent times when you invoke the same function, the debugger in PowerShell extension breaks right after the `Wait-Debugger`.
 
@@ -206,7 +206,7 @@ At /Path/To/PSFunctionApp/HttpTriggerFunction/run.ps1:13 char:1
 [DBG]: [Process:49988]: [Runspace1]: PS /Path/To/PSFunctionApp>>
 ```
 
-At this point, you're stopped at a breakpoint in the debugger. From here, you can do all of the usual debug operations,  step over, step into, continue, quit, and others. To see the complete set of debug commands available in the console, run the `h` or `?` commands.
+At this point, you're stopped at a breakpoint in the [PowerShell debugger](/powershell/module/microsoft.powershell.core/about/about_debuggers). From here, you can do all of the usual debug operations,  step over, step into, continue, quit, and others. To see the complete set of debug commands available in the console, run the `h` or `?` commands.
 
 You can also set breakpoints at this level with the `Set-PSBreakpoint` cmdlet.
 
@@ -215,7 +215,7 @@ Once you continue and fully invoke your script, you'll notice that:
 * The PowerShell console where you executed `Invoke-RestMethod` has now returned a result.
 * The PowerShell console where you executed `Debug-Runspace` is waiting for a script to be executed.
 
-You can invoke the same function again (using `Invoke-RestMethod` for example) and the debugger breaks in right after the `Wait-Debugger` command. !
+You can invoke the same function again (using `Invoke-RestMethod` for example) and the debugger breaks in right after the `Wait-Debugger` command.
 
 ## Considerations for debugging
 
@@ -223,11 +223,11 @@ Keep in mind the following issues when debugging your Functions code.
 
 ### `BreakAll` might cause your debugger to break in an unexpected place
 
-The PowerShell extension uses `Debug-Runspace`, which in turn relies on PowerShell's `BreakAll` feature. This feature tells PowerShell to stop at the first command that is executed.
+The PowerShell extension uses `Debug-Runspace`, which in turn relies on PowerShell's `BreakAll` feature. This feature tells PowerShell to stop at the first command that is executed. This behavior gives you the opportunity to set breakpoints within the debugged runspace.
 
 The Azure Functions runtime runs a few commands before actually invoking your `run.ps1` script, so it's possible that the debugger ends up breaking within the `Microsoft.Azure.Functions.PowerShellWorker.psm1` or `Microsoft.Azure.Functions.PowerShellWorker.psd1`.
 
-Should this break happen,  run the `continue` or `c` command to skip over this breakpoint. You then stop at the expected break point.
+Should this break happen,  run the `continue` or `c` command to skip over this breakpoint. You then stop at the expected breakpoint.
 
 ## Next steps
 

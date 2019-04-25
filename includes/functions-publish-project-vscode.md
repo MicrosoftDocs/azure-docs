@@ -4,7 +4,10 @@
 
 Visual Studio Code lets you publish your functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription.
 
-This article assumes that you are creating a new function app. Publishing to an existing function app overwrites the content of that app in Azure.
+This article assumes that you are creating a new function app. 
+
+> [!IMPORTANT]
+> Publishing to an existing function app overwrites the content of that app in Azure.
 
 1. In the **Azure: Functions** area, select the Deploy to Function App icon.
 
@@ -29,18 +32,8 @@ This article assumes that you are creating a new function app. Publishing to an 
     * **[Hosting plan](../articles/azure-functions/functions-scale.md)**: A consumption plan is created in the West US region to host your serverless function app.
     * **Function app**: Your project is uploaded to and runs in this new function app.  
 
-    A notification is displayed after your function app is created and the deployment package is applied.
+    A notification is displayed after your function app is created and the deployment package is applied. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
 
-1. Select **View Output** in the notifications to view the creation and deployment results, including the Azure resources that you created.
+1. Back in the **Azure: Functions** area, expand the new function app under your subscription. Expand **Functions**, right-click **HttpTrigger**, and then choose **Copy function URL**.
 
-    ![Function app creation output](./media/functions-publish-project-vscode/function-create-notifications.png)
-
-1. Make a note of the HTTPTrigger URL of the new function app when running in Azure. You can use this URL to trigger your function running in Azure.
-
-    ![Function app creation output](./media/functions-publish-project-vscode/function-create-output.png)
-
-1. Back in the **Azure: Functions** area, you see the new function app displayed under your subscription. When you expand this node, you see the functions in the function app, as well as application settings and function proxies.
-
-    ![Function app settings](./media/functions-publish-project-vscode/function-app-project-settings.png)
-
-    From your function app node, type Ctrl and click (right-click) to choose to perform various management and configuration tasks against the function app in Azure. You can also choose to view the function app in the Azure portal.
+    ![Copy the function URL for the new HTTP trigger](./media/functions-publish-project-vscode/function-copy-endpoint-url.png)
