@@ -29,7 +29,7 @@ To use extension bundles, update the *host.json* file to include the following e
 
 Bundle versions increment as packages in the bundle changes. Major version changes happen only when packages in the bundle move a major version. The `version` property uses the [interval notation for specifying version ranges](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). The Functions runtime always picks the maximum permissible version defined by the version range or interval.
 
-Once you reference the extension bundles in your project, then all default bindings are available to your functions. The bindings available in the [extension bundles](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) are:
+Once you reference the extension bundles in your project, then all default bindings are available to your functions. The bindings available in the [extension bundle](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) are:
 
 |Package  |Version  |
 |---------|---------|
