@@ -64,4 +64,4 @@ Before you can use a custom wake word with your device, you'll need to create a 
 
 ## Next steps
 
-Test your custom wake word with [Speech Devices SDK Quickstart](speech-devices-sdk-qsg.md).
+Test your custom wake word with [Speech Devices SDK Quickstart](https://aka.ms/sdsdk-quickstart).

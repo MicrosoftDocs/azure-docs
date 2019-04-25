@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # What are the Speech Services?
 
-Azure Speech Services are the unification of speech-to-text, text-to-speech, and speech-translation into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](speech-devices-sdk-qsg.md), or [REST APIs](rest-apis.md).
+Azure Speech Services are the unification of speech-to-text, text-to-speech, and speech-translation into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](https://aka.ms/sdsdk-quickstart), or [REST APIs](rest-apis.md).
 
 > [!IMPORTANT]
 > Speech Services have replaced Bing Speech API, Translator Speech, and Custom Speech. See *How-to guides > Migration* for migration instructions.

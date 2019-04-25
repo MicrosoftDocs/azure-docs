@@ -250,15 +250,14 @@
     - name: Third-party notices
       href: https://aka.ms/csspeech/toctpn
   - name: Speech Devices SDK
-    href: speech-devices-sdk.md
     displayName: roobo, speech devices sdk
     items:
+    - name: About
+      href: speech-devices-sdk.md
     - name: License
       href: speech-devices-sdk-license.md
-      displayName: roobo, speech devices sdk
     - name: Third-party notices
       href: devices-sdk-third-party-notices.md
-      displayName: roobo, speech devices sdk
   - name: Troubleshoot the Speech SDK
     href: troubleshooting.md
   - name: Troubleshoot the Speech Devices SDK
