@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 04/23/2019
 ms.author: pbutlerm
 ---
 
@@ -28,14 +28,16 @@ This article explains how to enter the details for your storefront. The **Storef
 
 ![Create a new consulting service offer - Storefront Details tab](media/consultingoffer-storefront-details.png)
 
+
 ## Offer details
 
 The **Offer Details** section contains the following boxes:
 
--   **Offer summary**
--   **Offer description**
+-   **Offer summary\***
+-   **Offer description\***
 
-### Offer summary
+
+### Offer summary\*
 
 The offer summary is a brief description of your offer that appears just below the offer name. Use plain text to enter the offer summary, without any line breaks. The following examples are good offer summaries together with their corresponding offer names.
 
@@ -72,7 +74,8 @@ The offer summary is a brief description of your offer that appears just below t
     solution designed for professional services firms and project-driven
     businesses.
 
-### Offer description
+
+### Offer description\*
 
 Enter the description of the consulting service offer in the **Offer description** box. A good offer description covers exact details of what the engagement looks like and the end deliverable to the customer. It should clearly help the customer understand what they get. Include how your offering relates to the Microsoft product for which you're offering consulting services.
 
@@ -157,6 +160,7 @@ Enter your new Partner Center ID, if you have one.
 
 Enter a secret key to preview your offer on AppSource before it goes live.
 This identifier isn't a password.
+
 
 ## Listing details
 
@@ -252,6 +256,7 @@ Upload up to five images that provide more information about your offer,
 its deliverables, or your company. A snippet of your
 marketing brochure, a relevant slide from a presentation, or an image
 that shows company momentum or expertise are some examples.
+
 
 ## Next steps
 
