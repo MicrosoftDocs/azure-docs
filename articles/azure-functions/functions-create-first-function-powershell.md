@@ -6,11 +6,10 @@ keywords:
 author: joeyaiello
 manager: jeconnoc
 ms.author: jaiello, glenga
-ms.date: 02/04/2019
+ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.devlang: powershell
-
 ---
 
 # Create your first PowerShell function in Azure (preview)
@@ -19,14 +18,14 @@ ms.devlang: powershell
 
 This quickstart article walks you through how to create your first [serverless](https://azure.com/serverless) PowerShell function using Visual Studio Code.
 
-![Azure Functions code in a Visual Studio project](./media/functions-create-first-function-powershell/powershell-project-first-function.png)
+![Azure Functions code in a Visual Studio Code project](./media/functions-create-first-function-powershell/powershell-project-first-function.png)
 
 You use the [Azure Functions extension for Visual Studio Code] to create a PowerShell function locally and then deployed it to a new function app in Azure. The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
 
 > [!NOTE]  
 > PowerShell support for the [Azure Functions extension][Azure Functions extension for Visual Studio Code] is currently disabled by default. Enabling PowerShell support is one of the steps in this article.
 
-The following steps are supported on a Mac, Windows, or Linux computer.
+The following steps are supported on macOS, Windows, and Linux-based operating systems.
 
 ## Prerequisites
 
@@ -36,7 +35,7 @@ To complete this quickstart:
 
 * Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
 
-* Install [PowerShell Language Support for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).
+* Install [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).
 
 * Install [.NET Core SDK 2.2+](https://www.microsoft.com/net/download) (required by Azure Functions Core Tools and available on all supported platforms).
 
@@ -80,9 +79,9 @@ The Azure Functions project template in Visual Studio Code creates a project tha
 
 1. Select the **Powershell (preview)** as the language for your function app project and then **Azure Functions v2**.
 
-1. Choose **HTTP Trigger** as the template for your first function, use `HTTPTrigger` as the function name, and choose an authorization level of **Anonymous**.
+1. Choose **HTTP Trigger** as the template for your first function, use `HTTPTrigger` as the function name, and choose an authorization level of **Function**.
 
-    **Anonymous** allows anyone to call the function endpoint in Azure. You can later change the authorization level to require a [function key](functions-bindings-http-webhook.md#authorization-keys), which makes it harder for just anyone to call your function.
+    **Function** requires a [function key](functions-bindings-http-webhook.md#authorization-keys) value when calling the function endpoint in Azure. This makes it more difficult for just anyone to call your function.
 
 1. When prompted, choose **Add to workspace**.
 
@@ -113,14 +112,34 @@ Azure Functions Core Tools integrates with Visual Studio Code to let you run and
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
+> [!NOTE]
+> Remember to remove any calls to `Wait-Debugger` before you publish your functions to Azure. 
+
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
 ## <a name="test"></a>Run the function in Azure
 
-To verify that your published function runs in Azure, execute the following PowerShell command, replacing the `Uri` parameter with the URL of the HTTPTrigger function when running in Azure. As before, append the query string `&name=<yourname>` to the URL, as in the following example
+To verify that your published function runs in Azure, execute the following PowerShell command, replacing the `Uri` parameter with the URL of the HTTPTrigger function from the previous step. As before, append the query string `&name=<yourname>` to the URL, as in the following example:
 
 ```powershell
-Invoke-WebRequest -Method Get -Uri "https://<app_name>.azurewebsites.net/api/MyHttpTrigger?name=PowerShell"
+PS > Invoke-WebRequest -Method Get -Uri "https://glengatest-vscode-powershell.azurewebsites.net/api/HttpTrigger?code=nrY05eZutfPqLo0som...&name=PowerShell"
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : Hello PowerShell
+RawContent        : HTTP/1.1 200 OK
+                    Content-Length: 16
+                    Content-Type: text/plain; charset=utf-8
+                    Date: Thu, 25 Apr 2019 16:01:22 GMT
+
+                    Hello PowerShell
+Forms             : {}
+Headers           : {[Content-Length, 16], [Content-Type, text/plain; charset=utf-8], [Date, Thu, 25 Apr 2019 16:01:22 GMT]}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : mshtml.HTMLDocumentClass
+RawContentLength  : 16
 ```
 
 ## Next steps

@@ -108,7 +108,7 @@ param($MyFirstInputBinding, $MySecondInputBinding)
 Push-OutputBinding -Name myQueue -Value $myValue
 ```
 
-You can also pass in a value for a specific binding through pipeline.
+You can also pass in a value for a specific binding through the pipeline.
 
 ```powershell
 param($MyFirstInputBinding, $MySecondInputBinding)
@@ -434,7 +434,7 @@ Several modules are commonly used by the PowerShell language worker. These modul
 The current list of modules is as follows:
 
 * [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): module used for working with archives, like `.zip`, `.nupkg`, and others.
-* [Az](https://www.powershellgallery.com/packages/Az): Azure PowerShell module.
+* **ThreadJob**: A thread-based implementation of the PowerShell job APIs.
 
 The most recent version of these modules is used by Functions. To use a specific version of these modules, you can put the specific version in the `Modules` folder of your function app.
 
@@ -512,10 +512,6 @@ In this case, the `function.json` for `myFunction` includes a `scriptFile` prope
   ]
 }
 ```
-
-### Using `entryPoint`
-
-Currently, PowerShell doesn't support the use of `entryPoint`.
 
 ## Considerations for PowerShell functions
 
