@@ -31,8 +31,11 @@ Here's a sample request to purchase by using the REST API:
 
 ```
 PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
+```
+
 Request body:
 
+```
 {
  "sku": {
     "name": "standard_D1"
