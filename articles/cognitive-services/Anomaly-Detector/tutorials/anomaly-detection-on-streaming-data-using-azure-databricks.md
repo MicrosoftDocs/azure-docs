@@ -1,17 +1,7 @@
----
-title: "Tutorial: Anomaly detection on streaming data using Azure Databricks | Microsoft Docs"
-description: Learn to use Azure Databricks with Event Hubs and Cognitive Services Anomaly Detector API to run anomaly detection on streaming data in near real-time.
-services: cognitive-services
-author: 
-manager: 
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
-ms.topic: article
-ms.date: 04/22/2019
-ms.author: 
----
-
 # Tutorial: Anomaly detection on streaming data using Azure Databricks
+
+> [!Note]
+> This tutorial introduces an approach to implement the recommended solution architecture of Anomaly Detector on [Identifying problems with Anomaly Detector](https://azure.microsoft.com/en-us/solutions/architecture/anomaly-detector-process/).
 
 In this tutorial, you learn how to run anomaly detection on a stream of data using Azure Databricks in near real time. You set up data ingestion system using Azure Event Hubs. You consume the messages from Event Hubs into Azure Databricks using the Spark Event Hubs connector. Finally, you use Microsoft Cognitive Service APIs to run anomaly detection on the streamed data.
 
@@ -45,7 +35,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 Before you start with this tutorial, make sure to meet the following requirements:
 - An Azure Event Hubs namespace.
 - An Event Hub within the namespace.
-- Connection string to access the Event Hubs namespace. The connection string should have a format similar to `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`.
+- Connection string to access the Event Hubs namespace. The connection string should have a format similar to `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`. You can find the connection string follow the article, [Get an Event Hubs connection string](../../../event-hubs/event-hubs-get-connection-string.md)
 - Shared access policy name and policy key for Event Hubs.
 
 You can meet these requirements by completing the steps in the article, [Create an Azure Event Hubs namespace and event hub](../../../event-hubs/event-hubs-create.md).
@@ -58,7 +48,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 In this section, you create an Azure Databricks workspace using the Azure portal.
 
-1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Azure Databricks**.
+1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
 
     ![Databricks on Azure portal](../media/tutorials/azure-databricks-on-portal.png "Databricks on Azure portal")
 
@@ -73,32 +63,30 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     |**Workspace name**     | Provide a name for your Databricks workspace        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
     |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../../azure-resource-manager/resource-group-overview.md). |
-    |**Location**     | Select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
-    |**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Location**     | Select **East US 2** or one of any other available regions. See [Azure services available by region](https://azure.microsoft.com/regions/services/) for region availability.        |
+    |**Pricing Tier**     |  Choose between **Standard** or **Premium**. Do NOT choose **Trial**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-    Select **Pin to dashboard** and then select **Create**.
+    Select **Create**.
 
-4. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
-
-    ![Databricks deployment tile](../media/tutorials/databricks-deployment-tile.png "Databricks deployment tile")
+4. The account creation takes a few minutes. 
 
 ## Create a Spark cluster in Databricks
 
 1. In the Azure portal, go to the Databricks workspace that you created, and then select **Launch Workspace**.
 
-2. You are redirected to the Azure Databricks portal. From the portal, select **Cluster**.
+2. You are redirected to the Azure Databricks portal. From the portal, select **New Cluster**.
 
     ![Databricks on Azure](../media/tutorials/databricks-on-azure.png "Databricks on Azure")
 
-3. In the **New cluster** page, provide the values to create a cluster.
+3. In the **New Cluster** page, provide the values to create a cluster.
 
     ![Create Databricks Spark cluster on Azure](../media/tutorials/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
     Accept all other default values other than the following:
 
    * Enter a name for the cluster.
-   * For this article, create a cluster with **4.0 (beta)** runtime.
-   * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+   * For this article, create a cluster with **5.3** runtime.
+   * Make sure the **Terminate after \_\_ minutes of inactivity** checkbox is selected. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
      Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
