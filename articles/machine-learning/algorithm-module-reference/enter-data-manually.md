@@ -12,15 +12,16 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Enter Data Manually
+# Enter Data Manually module
 
 *Enables entering and editing small datasets by typing values*  
   
  Category: Data Input and Output
   
 ## Module overview  
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
-This article describes how to use the **Enter Data Manually** module in Azure Machine Learning service to create a small dataset by typing values. The dataset can have multiple columns.
+Use this module to create a small dataset by typing values. The dataset can have multiple columns.
   
 This module can be helpful in scenarios such as these:  
   

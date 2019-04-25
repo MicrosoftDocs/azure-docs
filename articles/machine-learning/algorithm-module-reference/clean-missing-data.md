@@ -13,14 +13,16 @@ ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
-# Clean Missing Data
+# Clean Missing Data module
 
 *Specifies how to handle the values missing from a dataset*  
 
 
 ## Module overview  
 
-This article describes how to use the **Clean Missing Data** module in Azure Machine Learning service to remove, replace, or infer missing values. 
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to remove, replace, or infer missing values. 
 
 Data scientists often check data for missing values and then perform various operations to fix the data or insert new values. The goal of such cleaning operations is to prevent problems caused by missing data that can arise when training a model. 
 
