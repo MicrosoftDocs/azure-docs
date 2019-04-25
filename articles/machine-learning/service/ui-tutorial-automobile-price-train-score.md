@@ -79,6 +79,8 @@ If you didn't complete the quickstart, follow these steps to quickly create a ne
 
 1. To the left of the experiment canvas is a palette of datasets and modules. To find modules, use the search box at the top of the module palette. Type **automobile** in the search box to find the dataset labeled **Automobile price data (Raw)**. Drag this dataset to the experiment canvas.
 
+    ![Screenshot how to find the automobile price data set](./media/ui-tutorial-automobile-price-train-score/automobile-dataset.png)
+
     Now that you have your data, you can add a module that removes the **normalized-losses** column completely. Then, add another module that removes any row that has missing data.
 
 1. Type **select columns** in the search box to find the **Select Columns in Dataset** module. Then drag it to the experiment canvas. This module allows you to select which columns of data you want to include or exclude in the model.
@@ -143,10 +145,10 @@ Use your data for both training the model and testing it by splitting the data i
 
 1. Select the **Train Model** module. In the Properties pane, Select Launch column selector and then type **price** next to **Include column names**. Price is the value that your model is going to predict
 
-     ![Screenshot showing the correct configuration for the column selector module. With rules > Include column names > "price"](./media/ui-tutorial-automobile-price-train-score/select-price.png)
+    ![Screenshot showing the correct configuration for the column selector module. With rules > Include column names > "price"](./media/ui-tutorial-automobile-price-train-score/select-price.png)
 
     Now the experiment should look like.
-     ![Screenshot showing the correct configuration of the experiment after adding the Train Model module.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
+    ![Screenshot showing the correct configuration of the experiment after adding the Train Model module.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
 ### Run the training experiment
 
