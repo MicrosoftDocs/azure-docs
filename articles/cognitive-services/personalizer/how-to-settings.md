@@ -17,7 +17,9 @@ ms.author: edjez
 
 Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 
-## Access settings in the Azure portal
+Create a Personalizer resource for each feedback loop. 
+
+## Configure service settings in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Find your Personalizer resource. 
@@ -25,31 +27,37 @@ Service configuration includes how the service treats rewards, how often the ser
 
     ![Sign in to the Azure portal. Find your Personalizer resource. In the Resource management section, select Settings.](media/settings/how-to-configure.png)
 
-## Rewards
+## Configure the reward settings for the feedback loop
 
-The following settings allow you to control the rewards:
+Configure the service's settings for your feedback loop's use of rewards. Changes to the following settings will reset the current Personalizer model and retrain it with the last 2 days of data:
 
-**Reward wait time**: Sets the length of time during which Personalizer will collect reward values for a Rank call, starting from the moment the Rank call happens. This value is set by asking: "How long should Personalizer wait for rewards calls?" Any reward arriving after this window will be logged but not used for learning.
+![Configure the reward settings for the feedback loop](media/settings/configure-model-reward-settings.png)
 
-**Default reward**: If no reward call is received by Personalizer during the Reward Wait Time window associated to a Rank call, Personalizer will assign the Default Reward. By default, and in most scenarios, the Default Reward is zero.
+|Setting|Purpose|
+|--|--|
+|Reward wait time|​Sets the length of time during which Personalizer will collect reward values for a Rank call, starting from the moment the Rank call happens. This value is set by asking: "How long should Personalizer wait for rewards calls?" Any reward arriving after this window will be logged but not used for learning.|
+|Default reward|If no reward call is received by Personalizer during the Reward Wait Time window associated to a Rank call, Personalizer will assign the Default Reward. By default, and in most scenarios, the Default Reward is zero.|
+|Reward aggregation|If multiple rewards are received for the same Rank API call, this aggregation method is used: **sum** or **earliest**. Earliest picks the earliest score received and discards the rest. This is useful if you want unique reward among possibly duplicate calls. |
 
-**Reward aggregation**: If within the Reward Wait Time multiple calls are made to the Reward API using the same eventId, Personalizer needs to aggregate each call's score into one single Reward to be used for learning. Aggregations options are:
-* *Sum*: Adds all the scores received.
-* *Earliest*: Picks the earliest score received and discards the rest (very useful if you want to unique possible duplicate calls).
+After changing these settings, make sure to select **Save**.
 
-## Exploration
+## Configure the exploration setting 
 
-**Percentage of calls to use for exploration**: Sets the percentage of Rank calls that will be used for exploration. <!--[Read more about exploration](concepts-exploration.md) for guidance on how to choose a value.-->
+Personalization is able to discover new patterns and adapt to user behavior changes over time by exploring alternatives. The **Exploration** setting determines what percentage of Rank calls are answered with exploration. 
 
+Changes to this setting will reset the current Personalizer model and retrain it with the last 2 days of data.
 
-## Model export
+![The exploration setting determines what percentage of Rank calls are answered with exploration](media/settings/configure-exploration-setting.png)
 
-**Model export frequency**: Sets how often a new Personalizer model is exported so it can be used to predict user behavior. 
+## Configure model update frequency
 
+**Model update frequency** sets how often a new Personalizer model is retrained. 
 
-## Data retention
+![Model update frequency sets how often a new Personalizer model is retrained. ](media/settings/configure-model-update-frequency-settings.png)
 
-**Data retention period**: Sets for how many days Personalizer will keep data logs. Past data logs are required to perform [offline evaluations](concepts-offline-evaluation.md) that are used to measure the effectiveness of Personalizer and optimize Learning Policy.
+## Configure data retention
+
+**Data retention period** sets how many days Personalizer keeps data logs. Past data logs are required to perform [offline evaluations](concepts-offline-evaluation.md), which are used to measure the effectiveness of Personalizer and optimize Learning Policy.
 
 ## Next steps
 
