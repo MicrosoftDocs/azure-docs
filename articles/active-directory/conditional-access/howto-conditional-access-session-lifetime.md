@@ -96,7 +96,7 @@ Use the What-If tool to simulate a login from the user to the target application
 
 ## Policy deployment
 
-To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended. For more information, see the article [Best practices for conditional access in Azure Active Directory](best-practices,md).
+To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended. For more information, see the article [Best practices for conditional access in Azure Active Directory](best-practices.md).
 
 ## Next steps
 
