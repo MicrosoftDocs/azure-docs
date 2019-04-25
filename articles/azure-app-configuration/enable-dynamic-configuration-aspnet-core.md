@@ -97,9 +97,9 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 
 1. Open *HomeController.cs* in the Controllers directory, and add a reference to the `Microsoft.Extensions.Options` package.
 
-   ```csharp
-   using Microsoft.Extensions.Options;
-   ```
+    ```csharp
+    using Microsoft.Extensions.Options;
+    ```
 
 2. Update the `HomeController` class to receive `Settings` through dependency injection, and make use of its values.
 
