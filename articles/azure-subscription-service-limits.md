@@ -132,10 +132,10 @@ The following table details the features and limits of the Basic, Standard, and 
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### Networking limits
-[!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
+[!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
 #### Networking limits
-[!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
+[!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
 #### Application Gateway limits
 
