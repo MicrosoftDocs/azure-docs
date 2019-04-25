@@ -15,6 +15,9 @@
   - name: Speech translation
     href: speech-translation.md
     displayName: translate speech, speech translation, translator, s2s, speech to speech
+  - name: Voice-first virtual assistants Preview
+    href: voice-first-virtual-assistants.md
+    displayName: virtual assistants, speech-enabled bots, conversational agents
 - name: Quickstarts
   items:
   - name: Speech SDK
@@ -86,6 +89,14 @@
       - name: 'C++ (Linux)'
         href: quickstart-text-to-speech-cpp-linux.md
         displayName: synthesize speech, speech synthesis, text-to-speech, tts
+    - name: Voice-first virtual assistants (Preview)
+      items:
+      - name: 'C# (UWP)'
+        href: quickstart-virtual-assistant-csharp-uwp.md
+        displayName: virtual assistant, speech-enabled bot, conversational agent
+      - name: 'Java (Windows, macOS, Linux)'
+        href: quickstart-virtual-assistant-java-jre.md
+        displayName: virtual assistant, speech-enabled bot, conversational agent        
   - name: REST APIs
     items:
     - name: List supported voices by region
@@ -268,6 +279,8 @@
     - name: Speech translation
       href: https://www.microsoft.com/translator/faq.aspx
       displayName: translate speech, speech translation, translator, s2s, speech to speech
+    - name: Voice-first virtual assistants (Preview)
+      href: faq-voice-first-virtual-assistants.md      
   - name: Speech SDK licenses
     displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'
     items:
