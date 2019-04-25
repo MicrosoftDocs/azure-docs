@@ -17,14 +17,11 @@ ms.author: jmprieur
 ms.custom: include file
 ---
 
-## Make your application great 
+## Make your application great
 
-<!--
-These will become links to conceptual pages of the MSAL libraries when the topics are merged
--->
-- [Enable logging](../articles/active-directory/develop/msal-logging.md) in your application.
+- Enable [logging](../articles/active-directory/develop/msal-logging.md) in your application.
 - Enable telemetry in your application.
-- Enable proxies and customize HTTP clients.
+- Enable [proxies and customize HTTP clients](../articles/active-directory/develop/msal-net-provide-httpclient.md).
 
 ## Test your integration
 
