@@ -13,7 +13,7 @@ ms.custom: seomay2019
 ---
 # Working with projections in a knowledge store in Azure Search
 
-Azure Search enables content enrichment through AI cognitive skills as part of indexing. Enrichments add structure to your documents and make searching more effective. In many instances, the enriched documents are useful for scenarios other than search, such as for knowledge mining.
+Azure Search enables content enrichment through AI cognitive skills and custom skills as part of indexing. Enrichments add structure to your documents and make searching more effective. In many instances, the enriched documents are useful for scenarios other than search, such as for knowledge mining.
 
 Projections, a component of [knowledge store (preview)](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort. 
 

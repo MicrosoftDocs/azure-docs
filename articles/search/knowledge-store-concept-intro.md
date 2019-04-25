@@ -17,7 +17,7 @@ Knowledge Store is an optional feature of Azure Search, currently in public prev
 
 If you have used cognitive search in the past, you already know that skillsets can be used to move a document through a sequence of enrichments. The outcome can be an Azure Search index, or (new in this preview) projections in a knowledge store.
 
-Projections are your mechanism for structuring data for consumption in a downstream app. You can use [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) built for Azure storage, or any app that connects to Azure storage, which opens up new possibilities for consuming enriched documents. Some example are data science pipelines and custom analytics.
+Projections are your mechanism for structuring data for consumption in a downstream app. You can use [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) built for Azure storage, or any app that connects to Azure storage, which opens up new possibilities for consuming enriched documents. Some examples are data science pipelines and custom analytics.
 
 ![Knowledge Store in pipeline diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge Store in pipeline diagram")
 
