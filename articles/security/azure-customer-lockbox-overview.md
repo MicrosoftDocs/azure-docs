@@ -1,6 +1,6 @@
 ---
 title: Overview of Customer Lockbox for Microsoft Azure
-description: This article provides a technical overview of Customer Lockbox for Microsoft Azure, which provide control over cloud provider access when Microsoft may need to access customer data.
+description: This article provides a technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft may need to access customer data.
 author: cabailey
 ms.service: security
 ms.topic: article
