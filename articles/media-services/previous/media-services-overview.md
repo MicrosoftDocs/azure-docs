@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/19/2019
 ms.author: juliako
 
 ---
@@ -22,12 +22,12 @@ ms.author: juliako
 > * [Version 3](../latest/media-services-overview.md)
 > * [Version 2](media-services-overview.md)
 
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+
 Microsoft Azure Media Services (AMS) is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
 You can build end-to-end workflows using entirely Media Services. You can also choose to use third-party components for some parts of your workflow. For example, encode using a third-party encoder. Then, upload, protect, package, deliver using Media Services. You can choose to stream your content live or deliver content on-demand. 
-
-> [!NOTE]
-> No new features or functionality are being added to Media Services v2. 
 
 ## Prerequisites
 
@@ -71,12 +71,6 @@ For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
 For detailed information, see [AMS scenarios and availability of features and services across data centers](scenarios-and-availability.md).
 
 ## Service Level Agreement (SLA)
-
-* For Media Services Encoding, we guarantee 99.9% availability of REST API transactions.
-* For Streaming, we will successfully service requests with a 99.9% availability guarantee for existing media content when a standard or premium streaming endpoint is purchased.
-* For Live Channels, we guarantee that running Channels will have external connectivity at least 99.9% of the time.
-* For Content Protection, we guarantee that we will successfully fulfill key requests at least 99.9% of the time.
-* For Indexer, we will successfully service Indexer Task requests processed with an Encoding Reserved Unit 99.9% of the time.
 
 For more information, see [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).
 

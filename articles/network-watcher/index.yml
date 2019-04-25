@@ -6,14 +6,14 @@ metadata:
   title: Network Watcher Documentation - Tutorials, quickstarts, API references | Microsoft Docs
   meta.description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
   services: network-watcher
-  author: jdial
-  manager: jeconnoc
+  author: KumudD
+  manager: twolley
   ms.service: network-watcher
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/24/2018
-  ms.author: jdial
+  ms.author: kumud
 abstract:
   description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
 sections:
@@ -75,7 +75,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.network/#network_watcher">PowerShell</a></p><p><a href="/cli/azure/network/watcher">Azure CLI</a></p>
+      html: <p><a href="/powershell/module/az.network/#network_watcher">PowerShell</a></p><p><a href="/cli/azure/network/watcher">Azure CLI</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/overview/azure/virtual-network">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="/javascript/api/azure-arm-network">Node.js</a></p><p><a href="/python/api/overview/azure/network">Python</a></p>
     - title: REST

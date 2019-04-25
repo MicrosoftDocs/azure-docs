@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/28/2019
 ms.author: spelluru
 
 ---
@@ -40,14 +40,20 @@ To send the registration link to students, use one of the following methods. The
 If the **Restrict access** is enabled for the lab, only users in the list of users can use the registration link to register to the lab. This option is enabled by default. 
 
 ### Send email to users
+Azure Lab Services allows teachers to email lab invitations to all or selected students without having to use another email client. Teachers can hover on individual student in the list to see the email icon for each student or select one or more students, and use **Send invitation** on the toolbar. This feature sends an email with a registration link and a message (if any) added by the teacher. After the invitation is sent, the invitation state changes to **Invitation sent** so that teachers can keep track of which students have already received the registration link and the date it was sent.
+
 1. Switch to the **Users** view if you are not on the page already. 
-2. Select specific or all users in the list. To select specific users, select check boxes in the first column of the list. To select all users, select the check box in front of the title of the first column (**Name**) or select all check boxes for all users in the list.
-3. Select **Send invitation** on the toolbar. You can also hover the mouse over a student name in the list and send the email icon. 
+2. Select specific or all users in the list. To select specific users, select check boxes in the first column of the list. To select all users, select the check box in front of the title of the first column (**Name**) or select all check boxes for all users in the list. You can see the status of the **invitation state** in this list.  In the following image, the invitation state for all students is set to **Invitation not sent**. 
+
+    ![Select students](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Select the **email icon (envelope)** in one of the rows (or) select **Send invitation** on the toolbar. You can also hover the mouse over a student name in the list to see the email icon. 
 
     ![Send registration link by email](../media/tutorial-setup-classroom-lab/send-email.png)
 4. On the **Send registration link by email** page, follow these steps: 
     1. Type an **optional message** that you want to send to the students. The email automatically includes the registration link. 
-    2. On the **Send registration link by email** page, select **Send**. 
+    2. On the **Send registration link by email** page, select **Send**. You see the status of invitation changing to **Sending invitation** and then to **Invitation sent**. 
+        
+        ![Invitations sent](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## Get registration link
 1. Switch to the **Users** view by selecting **Users** on the left menu. 

@@ -4,7 +4,7 @@ description: Overview of the Application Group functionality in the Service Fabr
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d

@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 02/06/2019
+ms.date: 03/26/2019
 ---
 # FAQ about Azure SQL Hyperscale databases
 
@@ -126,7 +126,7 @@ No.
 
 ### Can I provision a compute with extra RAM for my memory-intensive workload
 
-No. To get more RAM, you need to upgrade to a higher compute size. Gen4 hardware provides more RAM compared to Gen5 hardware. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview).
+No. To get more RAM, you need to upgrade to a higher compute size. Gen4 hardware provides more RAM compared to Gen5 hardware. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview-for-provisioned-compute-tier).
 
 ### Can I provision multiple compute nodes of different sizes
 
@@ -210,7 +210,7 @@ No. In public preview, you can’t move a Hyperscale database to another service
 
 ### Do I lose any functionality or capabilities after migration to the Hyperscale service tier
 
-Yes. Some of Azure SQL Database features are not supported in Hyperscale during public preview, including but not limited to TDE and long term retention backup. After you migrate your databases to Hyperscale, those features stop working.
+Yes. Long-term retention backups in Azure SQL Database is not supported in Hyperscale during public preview. After you migrate your databases to Hyperscale, this feature stops working.
 
 ### Can I move my  on-premises SQL Server database or my SQL Server virtual machine database to Hyperscale
 
@@ -289,7 +289,7 @@ No. The storage format for Hyperscale databases is different from traditional SQ
 
 ### Do I lose any functionality or capabilities after migration to the Hyperscale service tier
 
-Yes. Some of Azure SQL Database features are not supported in Hyperscale during public preview, including but not limited to TDE and long term retention backup. After you migrate your databases to Hyperscale, those features stop working.
+Yes. Long-term retention backups in Azure SQL Database is not supported in Hyperscale during public preview. After you migrate your databases to Hyperscale, this feature stops working.
 
 ### Will Polybase work with SQL Database Hyperscale
 

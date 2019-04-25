@@ -39,7 +39,7 @@ If you don't want to connect any of your domain controllers directly to Azure Mo
 3. On that computer, set the following registry key:<br>Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Value: **IsTarget**<br>Value Data: **true**
 
    > [!NOTE]
-   > These changes do not take effect until your restart the Microsoft Monitoring Agent service (HealthService.exe).
+   > These changes do not take effect until you restart the Microsoft Monitoring Agent service (HealthService.exe).
    > ### Install solution
    > Follow the process described in [Install a monitoring solution](solutions.md#install-a-monitoring-solution) to add the **Active Directory Replication Status** solution to your Log Analytics workspace. There is no further configuration required.
 

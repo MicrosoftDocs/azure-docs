@@ -45,6 +45,12 @@
       href: Tutorials/FaceAPIinCSharpTutorial.md
     - name: Android
       href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
+- name: Concepts
+  items:
+  - name: Face detection
+    href: concepts/face-detection.md
+  - name: Face recognition
+    href: concepts/face-recognition.md
 - name: How-to guides
   items:
   - name: Face detection
@@ -53,6 +59,8 @@
     href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
   - name: Add faces
     href: Face-API-How-to-Topics/how-to-add-faces.md
+  - name: Specify a face recognition model
+    href: Face-API-How-to-Topics/specify-recognition-model.md
   - name: Use the large-scale feature
     href: Face-API-How-to-Topics/how-to-use-large-scale.md
   - name: Analyze videos in real time
@@ -91,10 +99,6 @@
       href: https://github.com/Microsoft/Cognitive-Face-iOS
 - name: Resources
   items:
-  - name: Glossary
-    href: Glossary.md
-  - name: FAQ
-    href: FAQ.md
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
   - name: UserVoice

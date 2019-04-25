@@ -3,8 +3,8 @@ title: Learn Azure Service Fabric terminology | Microsoft Docs
 description: A terminology overview of Service Fabric. Discusses key terminology concepts and terms used in the rest of the documentation.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: masnider
+manager: chackdan
 editor: chackdan;subramar
 
 ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
-ms.author: ryanwi
+ms.author: masnider
 
 ---
 # Service Fabric terminology overview

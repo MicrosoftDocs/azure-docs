@@ -11,8 +11,9 @@
     href: stream-files-dotnet-quickstart.md
   - name: Stream video files - CLI
     href: stream-files-cli-quickstart.md
+  - name: Stream video files - Node.js
+    href: stream-files-nodejs-quickstart.md
 - name: Tutorials
-  expanded: true
   items:
   - name: Encode remote file and stream video – REST
     displayName: encoding, job, transform
@@ -50,9 +51,12 @@
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
     - name: Media Encoder Standard formats
+      displayName: containers, codecs    
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md      
+    - name: Content-aware encoding
+      href: cae-experimental.md
   - name: Media analytics 
     items:
     - name: Overview
@@ -86,7 +90,7 @@
           href: widevine-license-template-overview.md
         - name: FairPlay license requirements
           href: fairplay-license-overview.md      
-    - name: Streaming Endpoints
+    - name: Streaming Endpoints/Origin
       displayName: origins, cdn 
       href: streaming-endpoint-concept.md
     - name: Streaming Locators
@@ -127,10 +131,13 @@
     items:
     - name: Azure Media Player
       href: use-azure-media-player.md
-  - name: Media Services entities
+  - name: Developing with v3 APIs
+    href: media-services-apis-overview.md
     items:
-    - name: Sorting, filtering, paging of entities
+    - name: Page, filter, order entities
       href: entities-overview.md 
+    - name: RBAC
+      href: rbac-overview.md
   - name: Migration guidance from v2 to v3
     href: migrate-from-v2-to-v3.md      
 - name: How-to guides
@@ -143,10 +150,21 @@
       href: access-api-cli-how-to.md
     - name: Scale Media Reserved Units - CLI
       href: media-reserved-units-cli-how-to.md   
-    - name: Start developing
+    - name: Develop with REST
+      items:
+      - name: Connect with Postman
+        href: media-rest-apis-with-postman.md       
+    - name: Develop with SDKs
       href: developers-guide.md
-    - name: Configure Postman
-      href: media-rest-apis-with-postman.md      
+      items:
+      - name: Connect with Java
+        href: configure-connect-java-howto.md
+      - name: Connect with .NET 
+        href: configure-connect-dotnet-howto.md
+      - name: Connect with Node.js
+        href: configure-connect-nodejs-howto.md
+      - name: Connect with Python
+        href: configure-connect-python-howto.md
   - name: Upload content
     items:
     - name: From HTTPS - .NET
@@ -224,6 +242,9 @@
     href: /azure/templates/microsoft.media/allversions
 - name: Resources
   items:
+  - name: Azure Media Services community
+    displayName: forums, twitter, feedback
+    href: media-services-community.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=web-mobile
   - name: Pricing

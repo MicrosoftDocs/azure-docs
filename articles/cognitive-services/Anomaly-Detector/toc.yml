@@ -32,9 +32,15 @@
       items:
         - name: .NET
           href: https://aka.ms/anomaly-detector-dotnet-ref
+        - name: Go
+          href: https://go.microsoft.com/fwlink/?linkid=2089915
 - name: Resources
   items:
     - name: Pricing
       href: https://aka.ms/anomaly-detector-pricing
     - name: Regional availability 
       href: https://aka.ms/anomaly-detector-region
+    - name: Reference solution architecture
+      href: https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-anomaly-detection

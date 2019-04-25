@@ -62,7 +62,7 @@ The following tables are organized by error code.
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| Azure Backup is not able to connect to the SQL instance. | Azure Backup can't connect to the SQL Instance. | Use the additional details in the Azure portal error menu to narrow down the root causes. Refer to [SQL backup troubleshooting](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) to fix the error.<br/><ul><li>If the default SQL settings do not allow remote connections, change the settings. Refer to the below links for changing the settings.<ul><li>[https://msdn.microsoft.com/library/bb326495.aspx](https://msdn.microsoft.com/library/bb326495.aspx)</li><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>If there are login issues, refer to the below links to fix it:<ul><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Azure Backup is not able to connect to the SQL instance. | Azure Backup can't connect to the SQL Instance. | Use the additional details in the Azure portal error menu to narrow down the root causes. Refer to [SQL backup troubleshooting](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) to fix the error.<br/><ul><li>If the default SQL settings do not allow remote connections, change the settings. See the following articles for information about changing the settings.<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>If there are login issues, refer to the below links to fix it:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### UserErrorParentFullBackupMissing
 
@@ -93,12 +93,18 @@ The following error codes are shown when restore jobs fail.
 |---|---|---|
 | Restore failed as the database could not be brought offline. | While doing a restore, target database needs to be brought offline. Azure Backup is not able to bring this data offline. | Use the additional details in the Azure portal error menu to narrow down the root causes. For more information, see the [SQL documentation](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
-
 ###  UserErrorCannotFindServerCertificateWithThumbprint
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | Cannot find the server certificate with thumbprint on the target. | The Master database on the destination instance doesn't have a valid encryption thumbprint. | Import the valid certificate thumbprint used on the Source instance, to the target instance. |
+
+### UserErrorRestoreNotPossibleBecauseLogBackupContainsBulkLoggedChanges
+
+| Error message | Possible causes | Recommended action |
+|---|---|---|
+| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time as per the SQL guidelines. | When a database is in bulk logged recovery mode, the data between a bulk logged transaction and next log transaction cannot be recovered. | Please choose a different Point in Time for Recovery. [Learn more](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+
 
 ## Registration failures
 

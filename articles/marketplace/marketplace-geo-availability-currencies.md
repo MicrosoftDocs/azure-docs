@@ -38,7 +38,7 @@ Azure Marketplace offerings can be purchased in 141 geographies as defined by th
 | Bolivia                             | BO        | USD          |
 | Bosnia and Herzegovina              | BA        | USD          |
 | Botswana                            | BW        | USD          |
-| Brazil                              | BR        | BRL          |
+| Brazil                              | BR        | BRL\*        |
 | Brunei                              | BN        | USD          |
 | Bulgaria                            | BG        | EUR          |
 | Cameroon                            | CM        | USD          |
@@ -94,7 +94,7 @@ Azure Marketplace offerings can be purchased in 141 geographies as defined by th
 | Lithuania                           | LT        | EUR          |
 | Luxembourg                          | LU        | EUR          |
 | Macao SAR                           | MO        | USD          |
-| Macedonia FYRO                      | MK        | USD          |
+| North Macedonia                     | MK        | USD          |
 | Malaysia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
 | Mauritius                           | MU        | USD          |
@@ -113,7 +113,7 @@ Azure Marketplace offerings can be purchased in 141 geographies as defined by th
 | Norway                              | NO        | NOK          |
 | Oman                                | OM        | USD          |
 | Pakistan                            | PK        | USD          |
-| Palestine                           | PS        | USD          |
+| Palestinian Authority               | PS        | USD          |
 | Panama                              | PA        | USD          |
 | Paraguay                            | PY        | USD          |
 | Peru                                | PE        | USD          |
@@ -160,3 +160,5 @@ Azure Marketplace offerings can be purchased in 141 geographies as defined by th
 | Zambia                              | ZM        | USD          |
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
+
+\* For customers in Brazil, the Marketplace through Cloud Solution Providers (CSP) uses USD.

@@ -128,7 +128,7 @@ Learn more for [ASP.NET](api-filtering-sampling.md) or [Java](java-filter-teleme
 
 ## How are City, Country and other geo location data calculated?
 
-We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
+We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
 * Browser telemetry: We collect the sender's IP address.
 * Server telemetry: The Application Insights module collects the client IP address. It is not collected if `X-Forwarded-For` is set.
@@ -147,7 +147,7 @@ This is possible if your code sends such data. It can also happen if variables i
 
 **All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
 
-## My iKey is visible in my web page source. 
+## My Instrumentation Key is visible in my web page source. 
 
 * This is common practice in monitoring solutions.
 * It can't be used to steal your data.
@@ -156,7 +156,7 @@ This is possible if your code sends such data. It can also happen if variables i
 
 You could:
 
-* Use two separate iKeys (separate Application Insights resources), for client and server data. Or
+* Use two separate Instrumentation Keys (separate Application Insights resources), for client and server data. Or
 * Write a proxy that runs in your server, and have the web client send data through that proxy.
 
 ## <a name="post"></a>How do I see POST data in Diagnostic search?

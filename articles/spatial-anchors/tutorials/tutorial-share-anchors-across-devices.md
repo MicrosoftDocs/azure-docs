@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Sharing across sessions and devices with Azure Spatial Anchors | Microsoft Docs
+title: Tutorial - Share Azure Spatial Anchors across sessions and devices | Microsoft Docs
 description: In this tutorial, you learn how to share Azure Spatial Anchor identifiers between Android/iOS devices in Unity with a back-end service.
 author: ramonarguelles
 manager: vicenterivera
@@ -11,12 +11,9 @@ ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
 
-# Tutorial: Sharing across sessions and devices with Azure Spatial Anchors
+# Tutorial: Share Azure Spatial Anchors across sessions and devices
 
-This tutorial will show you how to use [Azure Spatial Anchors](../overview.md) to:
-
-1. Create anchors in one session and then locate them in another session on the same or different device. For example, on a different day.
-2. Create anchors that can be located by multiple devices in the same place at the same time.
+In this tutorial, you'll learn how to use [Azure Spatial Anchors](../overview.md) to create anchors during one session and then locate them, on the same device or on a different one. These same anchors could also be located by multiple devices in the same place and at the same time.
 
 ![Persistence](./media/persistence.gif)
 
@@ -47,10 +44,6 @@ Open Visual Studio, and open the project at the `Sharing\SharingServiceSample` f
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
-## Open the sample project in Unity
-
-[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
-
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
@@ -59,7 +52,7 @@ Open Visual Studio, and open the project at the `Sharing\SharingServiceSample` f
 
 In this tutorial, you've deployed an ASP.NET Core Web App in Azure, and then configured and deployed a Unity App. You created Spatial Anchors with the app, and shared them with other devices by using your ASP.NET Core Web App.
 
-To learn more about how to improve your ASP.NET Core Web App so that it uses Azure Cosmos DB to store your shared Spatial Anchors, continue to the next tutorial.
+To learn more about how to improve your ASP.NET Core Web App so that it uses Azure Cosmos DB to store your shared Spatial Anchor identifiers, continue to the next tutorial. Azure Cosmos DB will give persistence to your ASP.NET Core Web App. Doing so will allow your app to create an anchor today, and come back days later to be able to locate it again, by using the anchor identifier stored in your web app.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Use Azure Cosmos DB to Store Anchors](./tutorial-use-cosmos-db-to-store-anchors.md)

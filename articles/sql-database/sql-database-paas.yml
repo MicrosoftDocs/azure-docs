@@ -8,6 +8,7 @@ metadata:
   services: sql-database
   ms.subservice: service
   author: jovanpop-msft
+  ms.reviewer: carlrab
   manager: craigg
   requires-business-manager-approval: false
   ms.service: sql-database
