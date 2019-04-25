@@ -84,7 +84,7 @@ Log and event messages are limited based on what resource type is selected in th
 | Nodes | Pod | Event | When a pod is selected events are filtered to its namespace. The pane title shows the namespace of the pod. | 
 | Controllers | Pod | Event | When a pod is selected events are filtered to its namespace. The pane title shows the namespace of the pod. |
 | Controllers | Controller | Event | When a controller is selected events are filtered to its namespace. The pane title shows the namespace of the controller. |
-| Nodes/Controllers/Containers | Container | Logs | The pane title shows the pod name (Container Name). |
+| Nodes/Controllers/Containers | Container | Logs | The pane title shows the name of the pod the container grouped with. |
 
 If the AKS cluster is configured with SSO using AAD, you are prompted to authenticate on first use during that browser session. Select your account and complete authentication with Azure.  
 
@@ -100,7 +100,7 @@ To suspend autoscroll and control the behavior of the pane and allow you to manu
 
 ![Live logs pane pause live view](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
 
-You can go to Azure Monitor Logs to see historical container logs by selecting **View container logs**.
+You can go to Azure Monitor Logs to see historical container logs by selecting **View container logs** from the drop-down list **View in analytics**.
 
 ## Next steps
 - To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
