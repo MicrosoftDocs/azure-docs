@@ -8,7 +8,7 @@ author: rimman
 ms.author: rimman
 ---
 
-# Introduction to Azure Cosmos DB Spark API (preview)- globally distributed analytics and AI 
+# Introduction to Azure Cosmos DB Spark API (preview) 
 
 Spark API in Azure Cosmos DB allows you to run operational analytics directly against the petabytes of data stored in an Azure Cosmos account, using the popular OSS analytical engines like Apache Spark.
 
