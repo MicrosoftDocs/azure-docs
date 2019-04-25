@@ -1,18 +1,24 @@
 ---
-title: Indexing and query quickstart tutorial using Azure portal - Azure Search
-description: Learn how to build and query your first index in Azure Search using built-in sample data and the Import Data wizard in the Azure portal. 
+title: 'Quickstart: Create, load, and query an index in Azure portal - Azure Search'
+description: Build and query your first index in Azure Search using built-in sample data and the Import Data wizard in the Azure portal. 
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want a low-impact introduction to index design.
 ---
 # Quickstart: Use built-in portal tools for Azure Search import, indexing, and queries
+> [!div class="op_single_selector"]
+> * [Portal](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Postman](search-fiddler.md)
+> * [C#](search-create-index-dotnet.md)
+>*
 
 For a fast ramp up on Azure Search concepts, try the built-in tools in the Azure portal. Wizards and editors do not offer full parity with the .NET and REST APIs, but you can get started quickly with a code-free introduction, writing interesting queries against a sample data within minutes.
 
@@ -218,7 +224,7 @@ Hit highlighting refers to formatting on text matching the keyword, given matche
 
 ### <a name="fuzzy-search"></a> Try fuzzy search
 
-By default, misspelled query terms, like *samamish* for the Samammish plateau in the Seattle area, fail to return matches in typical search. The following example returns no results.
+By default, misspelled query terms, like *samamish* for the Sammamish plateau in the Seattle area, fail to return matches in typical search. The following example returns no results.
 
 #### Example (misspelled term, unhandled): `search=samamish`
 

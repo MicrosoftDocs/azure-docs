@@ -1,7 +1,8 @@
 ---
 title: Frequently asked questions for Azure Security Center for IoT Preview| Microsoft Docs
 description: Find answers to the most frequently asked questions about Azure Security Center for IoT features and service.
-services: ASCforiot
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess

@@ -506,7 +506,7 @@ and select this action: **Choose an Azure function - Azure Functions**
 
    1. Under **Request Body**, enter this text with a trailing space: 
    
-      ```{ "emailBody": ``` 
+      ```{ "emailBody":``` 
 
       While you work on this input in the next steps, 
       an error about invalid JSON appears until your 
@@ -765,8 +765,8 @@ To add blank lines in an edit box, press Shift + Enter.
 
    | Setting | Value | Notes | 
    | ------- | ----- | ----- | 
-   | **Body** | ```Please review new applicant:``` <p>```Applicant name: ``` **From** <p>```Application file location: ``` **Path** <p>```Application email content: ``` **Body** | The email's body content. Click inside this box, enter the example text, and from the dynamic content list, select these fields: <p>- The **From** field under **When a new email arrives** </br>- The **Path** field under **Create blob for email body** </br>- The **Body** field under **Call RemoveHTMLFunction to clean email body** | 
-   | **Subject**  | ```ASAP - Review applicant for position: ``` **Subject** | The email subject that you want to include. Click inside this box, enter the example text, and from the dynamic content list, select the **Subject** field under **When a new email arrives**. | 
+   | **Body** | ```Please review new applicant:``` <p>```Applicant name:``` **From** <p>```Application file location:``` **Path** <p>```Application email content:``` **Body** | The email's body content. Click inside this box, enter the example text, and from the dynamic content list, select these fields: <p>- The **From** field under **When a new email arrives** </br>- The **Path** field under **Create blob for email body** </br>- The **Body** field under **Call RemoveHTMLFunction to clean email body** | 
+   | **Subject**  | ```ASAP - Review applicant for position:``` **Subject** | The email subject that you want to include. Click inside this box, enter the example text, and from the dynamic content list, select the **Subject** field under **When a new email arrives**. | 
    | **To** | <*recipient-email-address*> | For testing purposes, you can use your own email address. | 
    |||| 
 

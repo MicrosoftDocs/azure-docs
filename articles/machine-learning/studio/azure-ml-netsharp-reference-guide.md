@@ -445,7 +445,7 @@ output Digit [10] from Hid3 all;
 + The keyword `convolve` indicates that the layers named `Conv1` and `Conv2` are convolutional layers. Each of these layer declarations is followed by a list of the convolution attributes.
 + The net has a third hidden layer, `Hid3`, which is fully connected to the second hidden layer, `Conv2`.
 + The output layer, `Digit`, is connected only to the third hidden layer, `Hid3`. The keyword `all` indicates that the output layer is fully connected to `Hid3`.
-+ The arity of the convolution is three: the length of the tuples `InputShape`, `KernelShape`, `Stride, and `Sharing`.
++ The arity of the convolution is three: the length of the tuples `InputShape`, `KernelShape`, `Stride`, and `Sharing`.
 + The number of weights per kernel is `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. Or `26 * 50 = 1300`.
 + You can calculate the nodes in each hidden layer as follows:
 

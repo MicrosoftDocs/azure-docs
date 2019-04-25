@@ -3,7 +3,7 @@ title: How to change, delete, or manage your management groups - Azure Governanc
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
 author: rthorn17
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
 ---
@@ -29,6 +29,8 @@ You can change the name of the management group by using the portal, PowerShell,
 1. Select **All services** > **Management groups**.
 
 1. Select the management group you would like to rename.
+
+1. Select **details**.
 
 1. Select the **Rename group** option at the top of the page.
 
@@ -76,6 +78,8 @@ To delete a management group, the following requirements must be met:
 1. Select **All services** > **Management groups**.
 
 1. Select the management group you would like to delete.
+
+1. Select **details**.
 
 1. Select **Delete**
 
@@ -302,7 +306,8 @@ Use the Update-AzManagementGroup command in PowerShell to move a management grou
 different group.
 
 ```azurepowershell-interactive
-Update-AzManagementGroup -GroupName 'Contoso' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoIT'
+$parentGroup = Get-AzManagementGroup -GroupName ContosoIT
+Update-AzManagementGroup -GroupName 'Contoso' -ParentId $parentGroup.id
 ```  
 
 ### Move management groups in Azure CLI
@@ -310,7 +315,7 @@ Update-AzManagementGroup -GroupName 'Contoso' -ParentId '/providers/Microsoft.Ma
 Use the update command to move a management group with Azure CLI.
 
 ```azurecli-interactive
-az account management-group update --name 'Contoso' --parent-id '/providers/Microsoft.Management/managementGroups/ContosoIT'
+az account management-group update --name 'Contoso' --parent ContosoIT
 ```
 
 ## Audit management groups using activity logs
@@ -329,7 +334,7 @@ When referencing management groups from other Resource Provider's actions, use t
 
 An example of using this path is when assigning a new role assignment to a management group in PowerShell
 
-```powershell-interactive
+```azurepowershell-interactive
 New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 

@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ---
 
@@ -49,7 +49,6 @@ Feature|Standard|Premium
 ---|---|---
 Free first 15 days| Yes |No
 Throughput |Up to 600 Mbps when Azure CDN is not used. Scales with CDN.|200 Mbps per streaming unit (SU). Scales with CDN.
-SLA | 99.9|99.9(200 Mbps per SU).
 CDN|Azure CDN, third party CDN, or no CDN.|Azure CDN, third party CDN, or no CDN.
 Billing is prorated| Daily|Daily
 Dynamic encryption|Yes|Yes
@@ -83,7 +82,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 
     The following are the expected DNS zones to be used in the verify record for different Azure regions.
   
-  - North America, Europe, Singapore, Hong Kong, Japan:
+  - North America, Europe, Singapore, Hong Kong SAR, Japan:
       
     - `media.azure.net`
     - `verifydns.media.azure.net`
@@ -114,7 +113,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
     - Stopping - is transitioning to the stopped state
     - Deleting - is being deleted
     
-- `scaleUnits ` - Provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. If you need to move to a **Premium** type, adjust `scaleUnits`.
+- `scaleUnits` - Provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. If you need to move to a **Premium** type, adjust `scaleUnits`.
 
 ## Working with CDN
 
@@ -147,6 +146,10 @@ CDN integration is enabled in all the Azure data centers except China and Federa
 ### Determine if DNS change has been made
 
 You can determine if DNS change has been made on a Streaming Endpoint (the traffic is being directed to the Azure CDN) by using https://www.digwebinterface.com. If the results has azureedge.net domain names in the results, the traffic is now being pointed to the CDN.
+
+## Provide feedback
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 

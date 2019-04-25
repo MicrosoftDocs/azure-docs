@@ -183,6 +183,8 @@
           href: iot-hub-device-sdk-c-iothubclient.md
         - name: Use the serializer
           href: iot-hub-device-sdk-c-serializer.md
+      - name: Azure IoT C SDK resource information
+        href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
       - name: Develop for constrained devices
         href: iot-hub-devguide-develop-for-constrained-devices.md
       - name: Develop for mobile devices
@@ -274,6 +276,7 @@
       - name: Use the REST API
         href: iot-hub-rm-rest.md
       - name: Use a template from Azure PowerShell
+        displayName: Azure Resource Manager, ARM
         href: iot-hub-rm-template-powershell.md
       - name: Use a template from .NET
         href: iot-hub-rm-template.md
@@ -297,13 +300,13 @@
       href: iot-hub-distributed-tracing.md  
     - name: Configure IP filtering
       href: iot-hub-ip-filtering.md
-    - name: Configure devices at scale
+    - name: Automatic device management at scale
       items:
       - name: Use Azure portal
-        href: iot-hub-auto-device-config.md
+        href: iot-hub-automatic-device-management.md
       - name: Use Azure CLI
-        href: iot-hub-auto-device-config-cli.md
-    - name: Bulk manage IoT devices
+        href: iot-hub-automatic-device-management-cli.md
+    - name: Bulk import and export IoT devices
       href: iot-hub-bulk-identity-mgmt.md
   - name: Use real devices
     items:

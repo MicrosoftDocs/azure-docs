@@ -7,9 +7,9 @@ ms.subservice: service
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: sashan, moslake
+author: stevestein
+ms.author: sstein
+ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/23/2019
 ---
@@ -57,5 +57,5 @@ Storage for database backups is allocated to support the Point in Time Restore (
 
 ## Next steps
 
-- For details on specific compute sizes and storage size choices available for single database in the General Purpose and Business Critical Service tiers, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- For details on specific compute sizes and storage size choices available for single database in the General Purpose and Business Critical Service tiers, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier)
 - For details on specific compute sizes and storage size choices available for elastic pools in the General Purpose and Business Critical Service tiers, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

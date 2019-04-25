@@ -1,5 +1,5 @@
 ---
-title: "Example: Use prediction endpoint to programmatically test images with classifier - Custom Vision"
+title: "Use prediction endpoint to programmatically test images with classifier - Custom Vision"
 titlesuffix: Azure Cognitive Services
 description: Learn how to use the API to programmatically test images with your Custom Vision Service classifier.
 services: cognitive-services
@@ -9,57 +9,47 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/02/2019
 ms.author: anroth
 ---
 
-#  Use your Model with the Prediction API
+# Use your Model with the Prediction API
 
-After you train your model, you can test images programmatically by submitting them to the Prediction API.
+After you've train your model, you can test images programmatically by submitting them to the Prediction API endpoint.
 
 > [!NOTE]
-> This document demonstrates using C# to submit an image to the Prediction API. For more information and examples of using the API, see the [Prediction API reference](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
+> This document demonstrates using C# to submit an image to the Prediction API. For more information and examples, see the [Prediction API reference](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
 
 ## Publish your trained iteration
 
 From the [Custom Vision web page](https://customvision.ai), select your project and then select the __Performance__ tab.
 
-To submit images to the Prediction API, you will first need to publish your iteration for prediction, which can be done by selecting __Publish__ and specifying a name for the published iteration. This will enable your model to be accessible to the Prediction API of your Custom Vision Azure resource. 
+To submit images to the Prediction API, you will first need to publish your iteration for prediction, which can be done by selecting __Publish__ and specifying a name for the published iteration. This will make your model accessible to the Prediction API of your Custom Vision Azure resource.
 
 ![The performance tab is shown, with a red rectangle surrounding the Publish button.](./media/use-prediction-api/unpublished-iteration.png)
 
-Once your model has been successfully published, you'll see a "Published" label appear next to your iteration in the left-hand sidebar, as well as the name of the published iteration in the description of the iteration.
+Once your model has been successfully published, you'll see a "Published" label appear next to your iteration in the left-hand sidebar, and its name will appear in the description of the iteration.
 
 ![The performance tab is shown, with a red rectangle surrounding the Published label and the name of the published iteration.](./media/use-prediction-api/published-iteration.png)
 
 ## Get the URL and prediction key
 
-Once your model has been published, you can retrieve information about using the Prediction API by selecting __Prediction URL__. This will open up a dialog like the one shown below with information for using the Prediction API, including the __Prediction URL__ and __Prediction-Key__.
+Once your model has been published, you can retrieve the required information by selecting __Prediction URL__. This will open up a dialog with information for using the Prediction API, including the __Prediction URL__ and __Prediction-Key__.
 
 ![The performance tab is shown with a red rectangle surrounding the Prediction URL button.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
 ![The performance tab is shown with a red rectangle surrounding the Prediction URL value for using an image file and the Prediction-Key value.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> Your __Prediction-Key__ can also be found in the [Azure Portal](https://portal.azure.com) page for the Custom Vision Azure Resource associated to your project, under __Keys__. 
+> Your __Prediction-Key__ can also be found in the [Azure portal](https://portal.azure.com) page for the Custom Vision Azure Resource associated with your project, under the __Keys__ blade.
 
-From the dialog, copy the following information for use in the application:
-
-* __Prediction URL__ for using an __image file__.
-* __Prediction-Key__ value.
+In this guide, you will use a local image, so copy the URL under **If you have an image file** to a temporary location. Copy the corresponding __Prediction-Key__ value as well.
 
 ## Create the application
 
-1. From Visual Studio, create a new C# console application.
+1. In Visual Studio, create a new C# console application.
 
 1. Use the following code as the body of the __Program.cs__ file.
-
-    > [!IMPORTANT]
-    > Change the following information:
-    >
-    > * Set the __namespace__ to the name of your project.
-    > * Set the __Prediction-Key__ value you retrieved earlier in the line that begins with `client.DefaultRequestHeaders.Add("Prediction-Key",`.
-    > * Set the __Prediction URL__ value you retrieved earlier in the line that begins with `string url =`.
 
     ```csharp
     using System;
@@ -88,10 +78,10 @@ From the dialog, copy the following information for use in the application:
                 var client = new HttpClient();
 
                 // Request headers - replace this example key with your valid Prediction-Key.
-                client.DefaultRequestHeaders.Add("Prediction-Key", "3b9dde6d1ae1453a86bfeb1d945300f2");
+                client.DefaultRequestHeaders.Add("Prediction-Key", "<Your prediction key>");
 
                 // Prediction URL - replace this example URL with your valid Prediction URL.
-                string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/8622c779-471c-4b6e-842c-67a11deffd7b/classify/iterations/Cats%20vs.%20Dogs%20-%20Published%20Iteration%203/image";
+                string url = "<Your prediction URL>";
 
                 HttpResponseMessage response;
 
@@ -116,9 +106,14 @@ From the dialog, copy the following information for use in the application:
     }
     ```
 
-## Use the application
+1. Change the following information:
+   * Set the `namespace` field to the name of your project.
+   * Replace the placeholder `<Your prediction key>` with the key value you retrieved earlier.
+   * Replace the placeholder `<Your prediction URL>` with the URL you retrieved earlier.
 
-When running the application, you will enter the path to an image file in the console. The image is submitted to the Prediction API and the prediction results are returned as a JSON document. The following JSON is an example of the response.
+## Run the application
+
+When you run the application, you are prompted to enter a path to an image file in the console. The image is then submitted to the Prediction API, and the prediction results are returned as a JSON-formatted string. The following is an example response.
 
 ```json
 {
@@ -135,14 +130,10 @@ When running the application, you will enter the path to an image file in the co
 
 ## Next steps
 
-[Export the model for mobile use](export-your-model.md)
+In this guide, you learned how to submit images to your custom image classifier/detector and receive a response programmatically with the C# SDK. Next, learn how to complete end-to-end scenarios with C#, or get started using a different language SDK.
 
-[Get started with .NET SDKs](csharp-tutorial.md)
-
-[Get started with Python SDKs](python-tutorial.md)
-
-[Get started with Java SDKs](java-tutorial.md)
-
-[Get started with Node SDKs](node-tutorial.md)
-
-[Get started with Go SDKs](go-tutorial.md)
+* [Quickstart: .NET SDK](csharp-tutorial.md)
+* [Quickstart: Python SDK](python-tutorial.md)
+* [Quickstart: Java SDK](java-tutorial.md)
+* [Quickstart: Node SDK](node-tutorial.md)
+* [Quickstart: Go SDK](go-tutorial.md)

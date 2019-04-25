@@ -17,7 +17,7 @@ ms.author: lewlu
 
 This guide shows you how to move face data (such as a saved **PersonGroup** of faces) to a different Face API subscription using the Snapshot feature. This allows you to avoid having to repeatedly build and train a **PersonGroup** or **FaceList** when moving or expanding your operations. For example, you may have created a **PersonGroup** using a free trial subscription and now want to migrate it to your paid subscription, or you may need to sync face data across regions for a large enterprise operation.
 
-This same migration strategy also applies to **LargePersonGroup** and **LargeFaceList** objects. If you are not familiar with the concepts in this guide, see their definitions in the [glossary](../Glossary.md). This guide uses the Face API .NET client library with C#.
+This same migration strategy also applies to **LargePersonGroup** and **LargeFaceList** objects. If you are not familiar with the concepts in this guide, see their definitions in the [Face recognition concepts](../concepts/face-recognition.md) guide. This guide uses the Face API .NET client library with C#.
 
 ## Prerequisites
 
@@ -25,15 +25,13 @@ This same migration strategy also applies to **LargePersonGroup** and **LargeFac
 - The Face API subscription ID string corresponding to the target subscription (found in the **Overview** blade on the Azure portal). 
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/).
 
-
 ## Create the Visual Studio project
 
 This guide will use a simple console app to execute the face data migration. For a full implementation, see the [Face API Snapshot Sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) on GitHub.
 
-1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **FaceApiSnapshotSample**. 
+1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **FaceApiSnapshotSample**.
 1. Get the required NuGet packages. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**. Click the **Browse** tab and select **Include prerelease**; then find and install the following package:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-
 
 ## Create face clients
 
@@ -75,7 +73,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> The process of taking and applying snapshots will not disrupt any regular calls to the source or target **PersonGroup**s (or **FaceList**s). However, we do not recommend making simultaneous calls that change the source object ([Face List management calls](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist) or the [Person Group - Train](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train) call, for example), because the snapshot operation may execute before or after those operations or may encounter errors. 
+> The process of taking and applying snapshots will not disrupt any regular calls to the source or target **PersonGroup**s (or **FaceList**s). However, we do not recommend making simultaneous calls that change the source object ([FaceList management calls](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) or the [PersonGroup Train](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) call, for example), because the snapshot operation may execute before or after those operations or may encounter errors.
 
 ## Retrieve the Snapshot ID
 
@@ -222,7 +220,10 @@ Once you are finished migrating face data, we recommend you manually delete the 
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 ```
 
-## Related Topics
+## Next steps
+
+Next, see the relevant API reference documentation, explore
+a sample app that uses the Snapshot feature, or follow a how-to guide to start using the other API operations mentioned here.
 
 - [Snapshot reference documentation (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Face API Snapshot Sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)

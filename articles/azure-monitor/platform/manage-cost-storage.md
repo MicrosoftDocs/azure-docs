@@ -119,7 +119,7 @@ If you want to move your workspace into the current pricing tier, you need to [c
 ## Troubleshooting why Log Analytics is no longer collecting data
 If you are on the legacy Free pricing tier and have sent more than 500 MB of data in a day, data collection stops for the rest of the day. Reaching the daily limit is a common reason that Log Analytics stops collecting data, or data appears to be missing.  Log Analytics creates an event of type Operation when data collection starts and stops. Run the following query in search to check if you are reaching the daily limit and missing data: 
 
-`Operation | where OperationCategory == 'Data Collection Status' `
+`Operation | where OperationCategory == 'Data Collection Status'`
 
 When data collection stops, the OperationStatus is Warning. When data collection starts, the OperationStatus is Succeeded. The following table describes reasons that data collection stops and a suggested action to resume data collection:  
 
@@ -183,9 +183,11 @@ You can drill in further to see data trends for specific data types, for example
 
 To see the **size** of billable events ingested per computer, use the `_BilledSize` property ([log-standard-properties#_billedsize.md](learn more)) which provides the size in bytes:
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
+```
 
 The `_IsBillable` property specifies whether the ingested data will incur charges ([log-standard-properties.md#_isbillable](Learn more).)
 
@@ -202,26 +204,32 @@ To see the count of billable events ingested per computer, use
 
 If you want to see counts for billable data types are sending data to a specific computer, use:
 
-`union withsource = tt *
+```
+union withsource = tt *
 | where Computer == "computer name"
 | where _IsBillable == true 
-| summarize count() by tt | sort by count_ nulls last `
+| summarize count() by tt | sort by count_ nulls last
+```
 
 ### Data volume by Azure resource, resource group or subscription
 
 For data from nodes hosted in Azure you can get the **size** of billable events ingested __per computer__, use the `_ResourceId` property which provides the full path to the resource ([log-standard-properties.md#_resourceid](learn more)):
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
+```
 
 For data from nodes hosted in Azure you can get the **size** of billable events ingested __per Azure subscription__, parse the `_ResourceId` property as:
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
+```
 
 Changing `subscriptionId` to `resourceGroup` will show the billable ingested data volume by Azure resouurce group. 
 
@@ -293,7 +301,8 @@ To see the number of distinct Security nodes, you can use the query:
 
 To see the number of distinct Automation nodes, use the query:
 
-` ConfigurationData 
+```
+ ConfigurationData 
  | where (ConfigDataType == "WindowsServices" or ConfigDataType == "Software" or ConfigDataType =="Daemons") 
  | extend lowComputer = tolower(Computer) | summarize by lowComputer 
  | join (
@@ -301,7 +310,8 @@ To see the number of distinct Automation nodes, use the query:
        | where SCAgentChannel == "Direct"
        | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
  ) on lowComputer
- | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
+ | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
+```
 
 ## Create an alert when data collection is higher than expected
 

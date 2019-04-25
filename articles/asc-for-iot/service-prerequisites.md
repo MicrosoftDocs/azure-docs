@@ -1,7 +1,8 @@
 ---
 title: Azure Security Center for IoT prerequisites Preview| Microsoft Docs
 description: Details of everything needed to get started with Azure Security Center for IoT service prerequisites.
-services: ascforiot
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess

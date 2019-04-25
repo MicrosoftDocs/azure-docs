@@ -1,7 +1,8 @@
 ---
 title: Understanding Azure Security Center for IoT security module for IoT Edge | Microsoft Docs
 description: Understand the architecture and capabilities of Azure Security Center for IoT security module for IoT Edge.
-services: ascforiot
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess

@@ -101,7 +101,7 @@ After normalization, this password becomes “contosoblankf9!”. The matching p
 Since this password is at least 5 points, it is accepted.
 
    > [!IMPORTANT]
-   > Please note that the banned password algorithm along with the global list can and do change at any time in Azure based on ongoing security analysis and research. For the on-premise DC agent service, updated algorithms will only take effect after the DC agent software is re-installed.
+   > Please note that the banned password algorithm along with the global list can and do change at any time in Azure based on ongoing security analysis and research. For the on-premises DC agent service, updated algorithms will only take effect after the DC agent software is re-installed.
 
 ## License requirements
 

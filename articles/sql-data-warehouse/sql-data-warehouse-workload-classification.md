@@ -17,7 +17,7 @@ ms.reviewer: jrasnick
 This article explains the SQL Data Warehouse workload classification process of assigning a resource class and importance to incoming requests.
 
 > [!Note]
-> Workload classification is available on SQL Data Warehouse Gen2.
+> Workload classification is available for preview on SQL Data Warehouse Gen2. Workload Management Classification and Importance preview is for builds with a release date of April 9th, 2019 or later.  Users should avoid using builds earlier than this date for workload management testing.  To determine if your build is workload management capable, run select @@version when connected to your SQL Data Warehouse instance.
 
 ## Classification
 

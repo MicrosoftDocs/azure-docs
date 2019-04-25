@@ -187,46 +187,20 @@ Here are the limits for custom connectors that you can create from web APIs.
 Here are the limits on the number of artifacts for each integration account. 
 For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-*Free tier*
+> [!NOTE] 
+> Use the Free tier only for exploratory scenarios, 
+> not production scenarios. This tier restricts 
+> throughput and usage, and has no service-level agreement (SLA).
 
-Use the free tier only for exploratory scenarios, not production scenarios. 
-This tier restricts throughput and usage, and has no service-level agreement (SLA).
-
-| Artifact | Limit | Notes |
-|----------|-------|-------|
-| Assemblies | 10 | |
-| Batch configurations | 5 |
-| Certificates | 25 | |
-| EDI trading agreements | 10 | |
-| EDI trading partners | 25 | |
-| Maps | 25 | |
-| Schemas | 25 |
-||||
-
-*Basic tier*
-
-| Artifact | Limit | Notes |
-|----------|-------|-------|
-| Assemblies | 25 | |
-| Batch configurations | 1 | |
-| Certificates | 2 | |
-| EDI trading agreements | 1 | |
-| EDI trading partners | 2 | |
-| Maps | 500 | |
-| Schemas | 500 |
-||||
-
-*Standard tier*
-
-| Artifact | Limit | Notes |
-|----------|-------|-------|
-| Assemblies | 50 | |
-| Batch configurations | 5 |
-| Certificates | 50 | |
-| EDI trading agreements | 500 | |
-| EDI trading partners | 500 | |
-| Maps | 500 | |
-| Schemas | 500 |
+| Artifact | Free | Basic | Standard |
+|----------|------|-------|----------|
+| EDI trading agreements | 10 | 1 | 500 |
+| EDI trading partners | 25 | 2 | 500 |
+| Maps | 25 | 500 | 1,000 |
+| Schemas | 25 | 500 | 1,000 |
+| Assemblies | 10 | 25 | 50 |
+| Certificates | 25 | 2 | 500 |
+| Batch configurations | 5 | 1 | 50 |
 ||||
 
 <a name="artifact-capacity-limits"></a>

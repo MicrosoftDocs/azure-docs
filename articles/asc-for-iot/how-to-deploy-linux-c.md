@@ -1,7 +1,8 @@
 ---
 title: Guide to install and deploy Linux C agent of Azure Security Center for IoT agent Preview| Microsoft Docs
 description: Learn how to install the Azure Security Center for IoT agent on both 32-bit and 64-bit Linux. 
-services: ascforiot
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess

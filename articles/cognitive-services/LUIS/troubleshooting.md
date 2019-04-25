@@ -82,7 +82,7 @@ See [Azure Active Directory resources](luis-how-to-collaborate.md#azure-active-d
 
 Unexpected query prediction results are based on the state of the published model. To correct the model, you may need to change the model, train, and publish again. 
 
-Correcting the model starts with [active learning](luis-how-to-review-endoint-utt.md).
+Correcting the model starts with [active learning](luis-how-to-review-endpoint-utterances.md).
 
 You can remove non-deterministic training by updating the [application version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) in order to use all training data.
 
