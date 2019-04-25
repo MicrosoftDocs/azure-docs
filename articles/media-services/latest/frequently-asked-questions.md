@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/24/2019
 ms.author: juliako
 ---
 
@@ -46,6 +46,12 @@ When using pagination, you should always use the next link to enumerate the coll
 Media Services v3 live encoding does not yet support inserting video or image slates during live stream. 
 
 You can use a [live on-premises encoder](recommended-on-premises-live-encoders.md) to switch the source video. Many apps provide ability to switch sources, including Telestream Wirecast, Switcher Studio (on iOS), OBS Studio (free app), and many more.
+
+## Encoding 
+
+### What encoding features are still not available in Azure Media Services v3?
+
+For details, see [feature gaps with respect to v2 APIs](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ## Content protection
 
