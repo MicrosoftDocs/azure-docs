@@ -20,8 +20,6 @@ The vCore-based purchasing model enables you to independently scale compute and 
 - Gen4 - Up to 24 logical CPUs based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors, vCore = 1 PP (physical core), 7 GB per core, attached SSD
 - Gen5 - Up to 80 logical CPUs based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, vCore=1 LP (hyper-thread), 5.1 GB per core, fast eNVM SSD
 
-> [!IMPORTANT]
-> The serverless compute tier (preview) is only available on Gen5 hardware and the vCore limits are lower than in the provisioned compute tier.
 
 Gen4 hardware offers substantially more memory per vCore. However, Gen5 hardware allows you to scale up compute resources much higher.
 
@@ -53,8 +51,7 @@ The following table helps you understand the differences between the three tiers
 - For more information about the General Purpose and Business Critical service tiers, see [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md).
 - For details on the Hyperscale service tier in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).  
 
-> [!IMPORTANT]
-> If you need less than one vCore of compute capacity, use the serverless compute tier or the DTU-based purchasing model.
+
 
 ## Azure Hybrid Benefit
 
@@ -64,8 +61,6 @@ In the provisioned computer tier of the vCore-based purchasing model, you can ex
 
 With the Azure Hybrid Benefit, you can choose to only pay for the underlying Azure infrastructure using your existing SQL Server license for the SQL database engine itself (**BasePrice**) or pay for both the underlying infrastructure and the SQL Server license (**LicenseIncluded**).
 
-> [!IMPORTANT]
-> Azure Hybrid Benefit is not available in the [serverless compute tier](sql-database-serverless.md).
 
 You can choose or change your licensing model using the Azure portal or using one of the following APIs.
 
