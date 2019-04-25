@@ -2,28 +2,43 @@
 title: include file
 description: include file
 services: functions
-author: ggailey777
+author: craigshoemaker
 ms.service: functions
 ms.topic: include
-ms.date: 09/21/2018
-ms.author: glenga
+ms.date: 09/25/2018
+ms.author: cshoe
 ms.custom: include file
 ---
 
-When you develop functions locally, you can install the extensions you need by using the Azure Functions Core Tools from the Terminal or from a command prompt.
+Extension bundles make all bindings published by the Azure Functions team available through a setting in the *host.json* file. For local development, ensure you have the latest version of [Azure Functions Core Tools](./functions-run-local.md#install-the-azure-functions-core-tools).
 
-After you have updated your *function.json* file to include all the bindings that your function needs, run the following command in the project folder.
+To use extension bundles, update the *host.json* file to include the following entry for `extensionBundle`:
 
-```bash
-func extensions install
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
+    }
+}
 ```
 
-The command reads the *function.json* file to see which packages you need, installs them, and rebuilds the extensions project. It adds any new bindings at the current version but does not update existing bindings. Use the `--force` option to update existing bindings to the latest version when installing new ones.
+- The `id` property references the namespace for Microsoft Azure Functions extension bundles.
+- The `version` references the version of the bundle.
 
-If you want to install a particular version of a package or you want to install packages before editing the *function.json* file, use the `func extensions install` command with the name of the package, as shown in the following example:
+Bundle versions increment as packages in the bundle changes. Major version changes happen only when packages in the bundle move a major version. The `version` property uses the [interval notation for specifying version ranges](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). The Functions runtime always picks the maximum permissible version defined by the version range or interval.
 
-```bash
-func extensions install --package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
-```
+Once you reference the extension bundles in your project, then all default bindings are available to your functions. The bindings available in the [extension bundles](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) are:
 
-Replace `<target_version>` with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org).
+|Package  |Version  |
+|---------|---------|
+|Microsoft.Azure.WebJobs.Extensions.CosmosDB|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.DurableTask|1.8.0|
+|Microsoft.Azure.WebJobs.Extensions.EventGrid|2.0.0|
+|Microsoft.Azure.WebJobs.Extensions.EventHubs|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.SendGrid|3.0.0|
+|Microsoft.Azure.WebJobs.Extensions.ServiceBus|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.SignalRService|1.0.0|
+|Microsoft.Azure.WebJobs.Extensions.Storage|3.0.4|
+|Microsoft.Azure.WebJobs.Extensions.Twilio|3.0.0|
