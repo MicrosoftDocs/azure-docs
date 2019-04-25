@@ -1,5 +1,5 @@
 ---
-title: Create & manage dataset snapshots
+title: Create and manage dataset snapshots
 titleSuffix: Azure Machine Learning service
 description: Learn how to create and manage dataset snapshots
 services: machine-learning
@@ -11,7 +11,7 @@ author: MayMSFT
 ms.date: 05/02/2019
 ---
 
-# Create & manage dataset snapshots (Preview)
+# Create and manage dataset snapshots (preview)
 
 In this article, you learn to how to create and manage snapshots of your datasets. [Azure Machine Learning Datasets](how-to-create-register-datasets.md) (datasets) make it easier to access and work with your data in the cloud in various scenarios. 
 
@@ -114,7 +114,7 @@ dataset.get_snapshot(snapshot_name)
 dataset.get_all_snapshots()
 ```
 
-## Get data & profiles from snapshots
+## Get data and profiles from snapshots
 
 Every snapshot generates a profile of the dataset, which includes summary statistics, and gives you the option to save a copy of your data.
 
