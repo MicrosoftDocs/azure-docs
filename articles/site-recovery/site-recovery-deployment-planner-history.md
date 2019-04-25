@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery (ASR) Deployment Planner Version History
-description: Know different Azure Site Recovery (ASR) Deployment Planner Versions fixes and known limitations along with their release dates.
+title: Site Recovery Deployment Planner Version History
+description: Know different Site Recovery Deployment Planner Versions fixes and known limitations along with their release dates.
 services: site-recovery
 author: Daya-Patil
 manager: carmonm
@@ -9,7 +9,7 @@ ms.service: site-recovery
 ms.date: 04/24/2019
 ms.author: dapatil
 ---
-# Azure Site Recovery (ASR) Deployment Planner Version History
+# Azure Site Recovery Deployment Planner Version History
 
 This article provides history of all versions of Azure Site Recovery Deployment Planner along with the fixes, known limitations in each and their release dates.
 
@@ -86,8 +86,8 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 
 **Known limitations:**
 
-- For Hyper-V to Azure disaster recovery, VM with name containing the characters like: `,`, `"`, `[`, `]`, and ``` ` ``` are not supported. If profiled, report generation will fail or will have an incorrect result.
-- For VMware to Azure disaster recovery, VM with name containing comma is not supported. If profiled, report generation fails or will have an incorrect result.
+- For Hyper-V to Azure disaster recovery, VM with name containing the characters like: `,`, `"`, `[`, `]`, and ``` ` ``` aren't supported. If profiled, report generation will fail or will have an incorrect result.
+- For VMware to Azure disaster recovery, VM with name containing comma isn't supported. If profiled, report generation fails or will have an incorrect result.
 
 ## Version 1.3.1
 
@@ -135,5 +135,5 @@ Read more about [Large disk support in Azure Site Recovery](https://azure.micros
 
 - Supports only for VMware to Azure disaster recovery scenarios. For Hyper-V to Azure disaster recovery scenarios, use the [Hyper-V capacity planner tool](./site-recovery-capacity-planning-for-hyper-v-replication.md).
 - Doesn't support the GetThroughput operation for the US Government and China Microsoft Azure regions.
-- The tool cannot profile VMs if the vCenter server has two or more VMs with the same name or IP address across various ESXi hosts.
+- The tool cann't profile VMs if the vCenter server has two or more VMs with the same name or IP address across various ESXi hosts.
 In this version, the tool skips profiling for duplicate VM names or IP addresses in the VMListFile. The workaround is to profile the VMs by using an ESXi host instead of the vCenter server. Ensure to run one instance for each ESXi host.
