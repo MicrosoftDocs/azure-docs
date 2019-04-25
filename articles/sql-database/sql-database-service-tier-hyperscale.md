@@ -149,7 +149,7 @@ The Azure SQL Database Hyperscale tier is currently available in the following r
 
 Australia East, Australia Southeast, Brazil South, Canada Central, Central US, East Asia, East US, East Us 2, France Central, Japan East, Japan West, North Central US, North Europe, South Africa North, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2
 
-If you want to create Hyperscale database in a region that is not listed as supported, you can send an onboarding request via Azure Portal.  We are working to expand the list of supported regions so please check back for latest region list.
+If you want to create Hyperscale database in a region that is not listed as supported, you can send an onboarding request via Azure portal.  We are working to expand the list of supported regions so please check back for latest region list.
 
 To request the ability to create Hyperscale databases in regions not listed:
 
