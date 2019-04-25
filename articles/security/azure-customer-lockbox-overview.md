@@ -1,12 +1,12 @@
 ---
 title: Overview of Azure Customer Lockbox
-description: This article provides an overview of Microsoft Azure Customer Lockbox.
+description: This article provides a technical overview of Microsoft Azure Customer Lockbox, which ensures that no one at Microsoft can access your customer content without your explicit approval.
 author: cabailey
 ms.service: security
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 04/24/2019
+ms.date: 05/03/2019
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -14,7 +14,7 @@ ms.date: 04/24/2019
 > [!NOTE]
 > To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
 
-As a cloud service provider, we understand the importance of maintaining the integrity and confidentiality of customer data.
+As a cloud service provider, we understand the importance of maintaining the integrity and confidentiality of customer data. Customer Lockbox ensures that no one at Microsoft can access customer content to perform a service operation without the customer’s explicit approval. Customer Lockbox brings the customer into the approval workflow for requests to access their content.
 
 
 ## Workflow
@@ -27,7 +27,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
 3. An Azure Support Engineer reviews the service request and determines the next steps to resolve the issue.
 
-4. For most cases, these support engineers can troubleshoot issues by using telemetry. `Fill this details` However, in some cases, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer. Or, it can be from a different engineer because the problem is escalated to the Azure DevOps team.
+4. For most cases, these support engineers can troubleshoot issues by using telemetry. However, in some cases, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer. Or, it can be from a different engineer because the problem is escalated to the Azure DevOps team.
 
 5. The JIT policy engine evaluates the request, taking into account factors such as:
     - The scope of the resource
@@ -44,6 +44,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 7. At the customer organization, the user who has the [Owner role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
     
     Example email:
+    
     ![Azure Customer Lockbox - email notification](./media/azure-customer-lockbox/customer-lockbox-email-notification.png)
 
 8. The email notification provides a link to the **Customer Lockbox** blade in the Azure portal. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox:
@@ -79,12 +80,14 @@ When you have an eligible support plan, no action is required by you to enable C
 ## Auditing logs
 
 Use the **Activity Logs** to view auditing information related to Customer Lockbox requests. You can filter for specific actions, such as:
-- **Create Lockbox Requests**
-- **Approve Lockbox Requests**
-- **Deny Lockbox Requests**
+- **Deny Lockbox Request**
+- **Create Lockbox Request**
+- **Approve Lockbox Request**
 - **Lockbox Request Expiry**
 
-    ![Azure Customer Lockbox - activity logs](./media/azure-customer-lockbox/customer-lockbox-activitylogs.png)
+As an example:
+
+![Azure Customer Lockbox - activity logs](./media/azure-customer-lockbox/customer-lockbox-activitylogs.png)
 
 ## Supported services and scenarios
 
@@ -120,3 +123,6 @@ Customer Lockbox requests aren't triggered in the following scenarios:
     
     This scenario can arise when a Microsoft engineer accesses the Azure platform as part of troubleshooting and inadvertently has access to customer data. For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. However, if the customer encrypted the data while it was in transit, the engineers cannot read the data.
 
+## Next steps
+
+Because Customer Lockbox requests are automatically initiated by a Microsoft engineer if this action is needed, no action is needed from you other than opening a support ticket when you need our help.
