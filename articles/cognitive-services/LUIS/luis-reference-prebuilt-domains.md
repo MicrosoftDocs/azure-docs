@@ -37,4 +37,21 @@ The table below summarizes the currently supported domains. Support for English 
 | Utilities          | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | -  | -      | -    | -    | -     | -  |
 | Weather        | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | -  | -      | -    | -    | -     | -  |
 | Web    | ✓    | -        | ✓    | ✓      | ✓     | ✓       | -  | -      | -    | -    | -     | -  |
+||||||||||||| 
 
+<br><br>
+
+|Entity type|description|
+|--|--|
+|Calendar|Calendar is anything about personal meetings and appointments, _not_ public events (such as world cup schedules, Seattle event calendars or generic calendars (such as what day is it today, what does fall begin, when is Labor Day).|
+|Communication|Requests to make calls, send texts or instant messages, find and add contacts and various other communication-related requests (generally outgoing). Contact name only queries do not belong to Communication domain.|
+|Email|Email is a subdomain of the Communication domain. It mainly contains requests to send and receive messages through emails.|
+|HomeAutomation|The HomeAutomation domain provides intents and entities related to controlling smart home devices. It mainly supports the control command related to lights and air conditioner but it has some generalization abilities for other electric appliances.|
+|Notes|Note domain provides intents and entities for creating notes and writing down items for users.|
+|Places|Places include businesses, institutions, restaurants, public spaces and addresses. The domain supports place finding and asking about the information of a public place such as location, operating hours and distance.|
+|RestaurantReservation|Restaurant reservation domain supports intents for handling reservations for restaurants.|
+|ToDo|ToDo domain provides types of task lists for users to add, mark and delete their todo items.|
+|ToDo_IPA|Based on ToDo domain, ToDo_IPA is a customized version to expand the entities in ToDo. The IPA version provides intents and entities to support recognition of a todo list type. The model defines three kinds of to-do lists: grocery list, shopping list, and to-do list covering other cases.|
+|Utilities|Utilities domain is a general domain among all LUIS prebuilt models which contains common intents and utterances in difference scenarios.|
+|Weather|Weather domain focuses on checking weather condition and advisories with location and time or checking time by weather conditions.|
+|Web|The Web domain provides the intent and entities for searching for a website.|
