@@ -82,13 +82,11 @@ Run a notebook that estimates pi and logs the error to your workspace.
 1.  Click into the first code cell and select **Run**.
 
     > [!NOTE]
-    > Code cells have brackets before them. If the brackets are empty (__[  ]__), the code has not been run. While the code is running, you see an asterisk(__[*]__). After the code completes, a number **[1]** appears.
+    > Code cells have brackets before them. If the brackets are empty (__[  ]__), the code has not been run. While the code is running, you see an asterisk(__[*]__). After the code completes, a number **[1]** appears.  The number tells you the order in which the cells ran.
     >
     > Use **Shift-Enter** as a shortcut to run a cell.
 
     ![Run the first code cell](media/quickstart-run-cloud-notebook/cell1.png)
-
-1. The notebook contains instructions titled **Important note** which you can ignore.  This information is only applicable when using the notebook From Azure Notebooks.  
 
 1. Run the second code cell. If you see instructions to authenticate, copy the code and follow the link to sign in. Once you sign in, your browser will remember this setting.  
 
@@ -101,9 +99,7 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
     ![Success message](media/quickstart-run-cloud-notebook/success.png)
 
-1. Skip the next code cell which includes `!az-login`.  You are already logged in.
-
-1. Run the rest of the cells, starting with `experiment = Experiment(workspace = ws, name = "my-first-experiment")`.
+1. Run the rest of the code cells.  As each cell finishes running, you will see the cell number appear. Only the last cell displays any other output.
 
 
 ## View logged values
