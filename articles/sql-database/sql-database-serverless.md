@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database serverless | Microsoft Docs
+title: Azure SQL Database serverless (preview) | Microsoft Docs
 description: This article describes the new serverless compute tier and compares it with the existing provisioned compute tier
 services: sql-database
 ms.service: sql-database
@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/06/2019
+ms.date: 05/07/2019
 ---
 # SQL Database serverless (preview) compute tier provides compute and memory resources only as needed
 
@@ -63,22 +63,16 @@ The following table compares serverless compute tier with the provisioned comput
 - Databases that cannot tolerate performance trade-offs resulting from more frequent memory trimming or delay in auto-resuming from a paused state.
 - Multiple databases with bursty usage patterns that can be consolidated into a single server and use elastic pools for better price optimization.
 
-### Feature support
 
-The following features do not support auto-pausing and auto-resuming. That is, if any of the following features are used, then the database remains online regardless of duration of database inactivity:
+## Purchasing model and service tier
 
-- Geo-replication (active geo-replication and auto failover groups)
-- Long-term backup retention (LTR)
-- The sync database used in SQL data sync.
+SQL Database serverless is currently only supported in the General Purpose tier on Generation 5 hardware in the vcore purchasing model.
 
 ## Auto-scaling
 
 ### Scaling responsiveness
 
 In general, databases are run on a machine with sufficient capacity to satisfy resource demand without interruption for any amount of compute requested within limits set by the `maxVcores` value. Occasionally, load balancing automatically occurs if the machine is unable to satisfy resource demand within a few minutes. The database remains online during load balancing except for a brief period at the end of the operation when connections are dropped.
-
-> [!IMPORTANT]
-> The latency to auto-pause or auto-resume a serverless database is generally on the order of 1 minute.
 
 ### Memory management
 
@@ -124,6 +118,19 @@ Auto-resume is triggered if any of the following conditions are true at any time
 |Auto-tuning|Application and verification of auto-tuning recommendations such as auto-indexing|
 |Database copying|Create database as copy<br>Export to a BACPAC file|
 |SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|
+|Modifying certain database metadata|Adding new database tags<br>Changing max vcores, min vcores, auto-pause delay|
+
+### Latency
+
+The latency to auto-pause or auto-resume a serverless database is generally on the order of 1 minute.
+
+### Feature support
+
+The following features do not support auto-pausing and auto-resuming. That is, if any of the following features are used, then the database remains online regardless of duration of database inactivity:
+
+- Geo-replication (active geo-replication and auto failover groups)
+- Long-term backup retention (LTR)
+- The sync database used in SQL data sync.
 
 
 ## On-boarding into the serverless compute tier
@@ -145,11 +152,7 @@ Creating a new database or moving an existing database into a serverless compute
    |Minimum vCores|Any of {0.5, 1, 2, 4} not exceeding max vCores|0.5 vCores|
    |Auto-pause delay|Min: 360 minutes (6 hours)<br>Max: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable auto-pause: -1|360 minutes|
 
-### Create new serverless database
-
-The serverless compute tier is only available with the vCore-based purchasing model.
-
-### Creating a new database using the Azure portal
+### Create new database using the Azure portal
 
 See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
 
