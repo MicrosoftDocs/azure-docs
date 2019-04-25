@@ -72,8 +72,8 @@ An example of this using MSAL v2.7.x would be:
 PublicClientApplication.iOSKeychainSecurityGroup = "com.microsoft.msalrocks";
 ```
 
-> [!NOTE] KeychainSecurityGroup Property Deprecated
-> Previously, in MSAL 2.x, developers were forced to include the TeamId prefix when using the `KeychainSecurityGroup` property. 
+> [!NOTE]
+> The `KeychainSecurityGroup` property has been deprecated. Previously, in MSAL 2.x, developers were forced to include the TeamId prefix when using the `KeychainSecurityGroup` property. 
 > 
 > Now, starting in MSAL 2.7.x, MSAL will resolve the TeamId prefix during runtime when using the `iOSKeychainSecurityGroup` property. When using this property, the value should not contain the TeamId prefix. 
 > 
