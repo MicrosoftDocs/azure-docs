@@ -130,9 +130,9 @@ You can set the service tier, compute size, and storage amount for a single data
 |Compute size|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|
 |:--- | --: |--: |--: |
 |H/W generation|5|5|5|
-|Min-max vCores|055-1|0.5-2|0.5-4|
-|Min-max memory (GB)|10.2|20.4|30.6|
-|min auto-pause delay (hours)|6|6|6|
+|Min-max vCores|0.5-1|0.5-2|0.5-4|
+|Min-max memory (GB)|3|6|12|
+|Min auto-pause delay (hours)|6|6|6|
 |Columnstore support|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|
 |Max data size (GB)|512|1024|1024|
