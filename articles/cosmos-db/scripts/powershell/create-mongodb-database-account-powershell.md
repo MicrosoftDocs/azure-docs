@@ -21,7 +21,7 @@ This sample PowerShell script creates a Cosmos account with Azure Cosmos DB's AP
 
 ## Sample script
 
-[!code-powershell[main](../../../../powershell_scripts/cosmosdb/create-and-configure-mongodb-database/create-and-configure-mongodb-database.ps1?highlight=9,12-15,18,21-23,26-29,32-37 "Create an Azure Cosmos DB account")]
+[!code-powershell[main](../../../../powershell_scripts/cosmosdb/create-and-configure-mongodb-database/create-and-configure-mongodb-database.ps1 "Create an Azure Cosmos DB account")]
 
 ## Clean up deployment
 

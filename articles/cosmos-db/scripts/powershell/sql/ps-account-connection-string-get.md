@@ -16,7 +16,11 @@ ms.author: mjbrown
 
 ## Sample script
 
+```azurepowershell-interactive
+
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-connection-string-get.ps1 "Get connection strings for an Azure Cosmos account")]
+
+```
 
 ## Clean up deployment
 
