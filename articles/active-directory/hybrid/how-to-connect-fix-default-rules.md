@@ -185,7 +185,7 @@ Notice that in the modified rule, the `msExchMailboxGuid` attribute is changed t
  
 To fix your rules to change them back to default settings, delete the modified rule and enable the default rule. Ensure that you don't lose the customization you're trying to achieve. When you're ready, run **Full Synchronization**.
 
-## Next Steps
+## Next steps
 - [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
 - [Express settings](how-to-connect-install-express.md)
 - [Customized settings](how-to-connect-install-custom.md)
