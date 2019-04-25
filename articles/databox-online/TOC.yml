@@ -99,6 +99,8 @@
       href: data-box-edge-troubleshoot.md
     - name: Monitor
       href: data-box-edge-monitor.md
+    - name: Return device
+      href: data-box-edge-return-device.md
   - name: Release notes
     items:
     - name: General availability
