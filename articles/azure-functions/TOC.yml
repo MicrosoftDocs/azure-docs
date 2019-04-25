@@ -23,6 +23,8 @@ items:
       href: functions-create-first-java-maven.md
     - name: Create function - Python
       href: functions-create-first-function-python.md
+    - name: Create function - PowerShell
+      href: functions-create-first-function-powershell.md
     - name: Create function - Azure CLI
       href: functions-create-first-azure-function-azure-cli.md
     - name: Create function - portal
@@ -104,6 +106,8 @@ items:
         href: functions-reference-node.md   
       - name: Java
         href: functions-reference-java.md 
+      - name: PowerShell
+        href: functions-reference-powershell.md
       - name: Python
         href: functions-reference-python.md
     - name: Diagnostics
@@ -138,6 +142,8 @@ items:
         href: functions-create-maven-eclipse.md
       - name: Create Linux function app  
         href: create-function-app-linux-app-service-plan.md
+      - name: Debug local PowerShell functions
+        href: functions-debug-powershell-local.md
       - name: Manage connections
         href: manage-connections.md
       - name: Error handling
