@@ -37,7 +37,7 @@ To train a Form Recognizer model using the documents in your Azure Blob containe
 * Replace `<subscription key>` with your subscription key.
 
 ```bash
-curl -v -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json-patch+json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{{  "source": "<SAS URL>" }}"
+curl -v -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{{  "source": "<SAS URL>" }}"
 ```
 
 You will receive a `200 (Success)` response with the following JSON output:
@@ -103,7 +103,7 @@ curl -v -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/model/<mo
 
 ### Examine the response
 
-A successful response is returned in JSON and represents the extracted key-value pairs and tables for all documents in the dataset.
+A successful response is returned in JSON and represents the extracted key-value pairs and tables from the form.
 
 ```bash
 {
