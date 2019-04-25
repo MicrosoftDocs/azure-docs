@@ -28,7 +28,7 @@ When deploying resources, you frequently need to retrieve information about the 
 
 You can do these steps through the Azure portal, Azure PowerShell, or Azure CLI.
 
-For a list that maps resource providers to Azure services, see [Resource providers for Azure services](resource-providers-to-azure-services.md).
+For a list that maps resource providers to Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
 
 ## Azure portal
 
@@ -289,5 +289,5 @@ West US
 
 * To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). 
 * To view the resource provider template schemas, see [Template reference](/azure/templates/).
-* For a list that maps resource providers to Azure services, see [Resource providers for Azure services](resource-providers-to-azure-services.md).
+* For a list that maps resource providers to Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
 * To view the operations for a resource provider, see [Azure REST API](/rest/api/).

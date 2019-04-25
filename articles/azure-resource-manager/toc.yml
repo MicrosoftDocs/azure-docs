@@ -226,7 +226,7 @@
     - name: Tag support
       href: tag-support.md
   - name: Resource providers by service
-    href: resource-providers-to-azure-services.md
+    href: azure-services-resource-providers.md
   - name: REST - Resource Manager
     href: /rest/api/resources/
   - name: REST - Deployment Manager
