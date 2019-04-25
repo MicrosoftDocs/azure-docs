@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 04/25/2019
 ---
 
 # Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS
@@ -18,7 +18,7 @@ You can use the Azure Database Migration Service to migrate the databases from a
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Migrate the sample schema using pgdump utility.
+> * Migrate the sample schema using pg_dump utility.
 > * Create an instance of the Azure Database Migration Service.
 > * Create a migration project by using the Azure Database Migration Service.
 > * Run the migration.
