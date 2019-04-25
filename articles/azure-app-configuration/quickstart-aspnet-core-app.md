@@ -123,7 +123,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
             .UseStartup<Startup>();
     ```
 
-6. Open Index.cshtml in the Views > Home directory, and replace its content with the following code:
+6. Open *Index.cshtml* in the Views > Home directory, and replace its content with the following code:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -149,7 +149,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     </html>
     ```
 
-7. Open _Layout.cshtml in the Views > Shared directory, and replace its content with the following code:
+7. Open *_Layout.cshtml* in the Views > Shared directory, and replace its content with the following code:
 
     ```html
     <!DOCTYPE html>
