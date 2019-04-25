@@ -25,9 +25,9 @@ In this article, we'll cover how to create a Partner Center account, including h
 
 To create an account on Partner Center, you’ll need to have on hand the following information. You may want to take a few minutes to gather these items before you get started:
 
--   Global administrator work email. If you're not sure what your company's work account is, see [Your company work account and Partner Center](azure-active-directory-tenants-and-partner-center.md).
+-   Global administrator work email. If you're not sure what your company's work account is, see [Your company work account and Partner Center](). If your company doesn’t have a work account, you can create one during the account creation process. 
 
-    If your company doesn’t have a work account, you can create one during the account creation process. 
+<!-- Link from PC, new location in these docs, azure-active-directory-tenants-and-partner-center.md -->
 
 -   Your company’s legal business name, address, and primary contact. We need this information to confirm that your company has an established profile and that you are authorized to act on its behalf. 
 
@@ -41,7 +41,7 @@ We’ll verify this information during the account creation process.
 
 1.	Review the information on the **Welcome** page and then select **Next**.
 
-2.	Sign in as a global admin to your company's work account. If you're not sure what your company's work account is, see [Your company work account and Partner Center](azure-active-directory-tenants-and-partner-center.md).
+2.	Sign in as a global admin to your company's work account. If you're not sure what your company's work account is, see [Your company work account and Partner Center]().
 
     Select **Sign in** if you know your company has a work email account. On the next page, enter global admin credentials for your company's work account. 
 
