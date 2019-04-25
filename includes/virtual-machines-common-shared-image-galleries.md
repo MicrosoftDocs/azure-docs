@@ -5,7 +5,7 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/19/2019
+ ms.date: 04/25/2019
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
@@ -80,22 +80,31 @@ The following are other parameters that can be set on your image definition so t
 
 ## Regional Support
 
-Regional support for shared image galleries is in limited preview, but will expand over time. For the limited preview, here is the list of regions where you can create galleries and the list of regions where you can replicate any gallery image: 
-
-| Create Gallery In  | Replicate Version To |
-|--------------------|----------------------|
-| West Central US    |All public regions &#42;|
-| East US 2          ||
-| South Central US   ||
-| Southeast Asia     ||
-| West Europe        ||
-| West US            ||
-| East US            ||
-| Canada Central     ||
-|                    ||
+Source regions are listed in the table below. All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://www.microsoft.com/en-au/central-regions-eligibility/
 
 
-&#42; To replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://www.microsoft.com/en-au/central-regions-eligibility/
+|Source regions|
+|---------------------|------------------|
+| Australia Central   | Korea Central    |
+| Australia Central 2 | Korea South      |
+| Australia East      | North Central US |
+| Australia Southeast | North Europe     |
+| Brazil South        | South Central US |
+| Canada Central      | South India      |
+| Canada East         | Southeast Asia   |
+| Central India       | UK North         |
+| Central US          | UK South         |
+| Central US EUAP     | UK South 2       |
+| East Asia           | UK West          |
+| East US             | West Central US  |
+| East US 2           | West Europe      |
+| East US 2 EUAP      | West India       |
+| France Central      | West US          |
+| France South        | West US          |
+| Japan East          | West US 2        |
+| Japan West          |                  |
+
+
 
 ## Limits 
 
