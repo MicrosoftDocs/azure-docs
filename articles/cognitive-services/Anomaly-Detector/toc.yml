@@ -40,6 +40,8 @@
       items:
         - name: .NET
           href: https://aka.ms/anomaly-detector-dotnet-ref
+        - name: Go
+          href: https://go.microsoft.com/fwlink/?linkid=2089915
 - name: Resources
   items:
     - name: Pricing
