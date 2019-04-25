@@ -20,7 +20,7 @@ In this article, you learn how Azure Storage works with HDInsight clusters. To l
 Azure storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs.
 
 > [!WARNING]  
-> Storage account kind **BlobStorage** cannot be used for HDInsight clusters.
+> Storage account kind **BlobStorage** can only be used as secondary storage for HDInsight clusters.
 
 | Storage account kind | Supported services | Supported performance tiers | Supported access tiers |
 |----------------------|--------------------|-----------------------------|------------------------|
@@ -108,9 +108,9 @@ wasb:///example/jars/hadoop-mapreduce-examples.jar
 ```
 
 > [!NOTE]  
-> The file name is <i>hadoop-examples.jar</i> in HDInsight versions 2.1 and 1.6 clusters.
+> The file name is `hadoop-examples.jar` in HDInsight versions 2.1 and 1.6 clusters.
 
-The &lt;path&gt; is the file or directory HDFS path name. Because containers in Azure storage are key-value stores, there is no true hierarchical file system. A slash character ( / ) inside a blob key is interpreted as a directory separator. For example, the blob name for *hadoop-mapreduce-examples.jar* is:
+The path is the file or directory HDFS path name. Because containers in Azure storage are key-value stores, there is no true hierarchical file system. A slash character ( / ) inside a blob key is interpreted as a directory separator. For example, the blob name for *hadoop-mapreduce-examples.jar* is:
 
 ```bash
 example/jars/hadoop-mapreduce-examples.jar
