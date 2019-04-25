@@ -1,5 +1,5 @@
 ---
-title: Upload a vhd to Azure using Azure CLI
+title: Upload a vhd to Azure
 description: Learn how to upload a vhd to an Azure managed disk, using the Azure CLI.    
 services: "virtual-machines-linux,storage"
 author: roygara
@@ -11,9 +11,11 @@ ms.tgt_pltfrm: linux
 ms.subservice: disks
 ---
 
-# Upload a vhd to Azure - Azure CLI
+# Upload a vhd to Azure
 
-This article explains how to upload a vhd file from your local machine directly to an Azure managed disk. Previously, you had to follow a more involved process that included staging your data in a storage account. Now, there are fewer steps. It is easier to upload on premises VMs to azure, upload to large managed disks, and the backup and restore process is simplified. Currently, this process is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not yet supported for ultra SSDs.
+This article explains how to upload a vhd file from your local machine directly to an Azure managed disk. Previously, you had to follow a more involved process that included staging your data in a storage account and managing that storage account. Now, you no longer need to manage a storage account or stage data in it to upload a vhd. Instead, you create an empty managed disk and upload a vhd directly to it. It is easier to upload on premises VMs to azure, enables you to directly upload a vhd to large managed disks, and the backup and restore process is simplified.
+
+Currently, this direct upload is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not yet supported for ultra SSDs.
 
 ## Prerequisites
 
@@ -21,7 +23,7 @@ This article explains how to upload a vhd file from your local machine directly 
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
 - A vhd file, stored locally
 
-## Create an empty managed disk
+### Create an empty managed disk
 
 To upload your vhd to Azure, you'll need to create an empty managed disk specifically to receive an upload of a vhd.
 
@@ -56,7 +58,7 @@ Sample returned value:
 }
 ```
 
-## Upload vhd
+### Upload vhd
 
 Now that you have a SAS for your empty managed disk, you can use it to set your managed disk as the destination for your upload command.
 
@@ -74,7 +76,7 @@ After the upload is complete, and you no longer need to write any more data to t
 az disk revoke-access -n contosodisk2 -g contosoteam2
 ```
 
-## Next steps
+### Next steps
 
 Now that you've successfully uploaded a vhd to a managed disk, you can attach your disk to a VM and begin using it.
 
