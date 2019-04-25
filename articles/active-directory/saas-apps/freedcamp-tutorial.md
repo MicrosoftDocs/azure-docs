@@ -116,7 +116,7 @@ To configure Azure AD single sign-on with Freedcamp, perform the following steps
     `https://<SUBDOMAIN>.freedcamp.com/login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Freedcamp Client support team](mailto:devops@freedcamp.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Users can also enter the url values with respect to their own customer domain and they may not be necessarily of the pattern `freedcamp.com`, they can enter any customer domain specific value, specific to their application instance. Also you can contact [Freedcamp Client support team](mailto:devops@freedcamp.com) for further information on url patterns.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -134,7 +134,25 @@ To configure Azure AD single sign-on with Freedcamp, perform the following steps
 
 ### Configure Freedcamp Single Sign-On
 
-To configure single sign-on on **Freedcamp** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Freedcamp support team](mailto:devops@freedcamp.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. In a different web browser window, sign in to Freedcamp as a Security Administrator.
+
+2. On the top right corner of the page, click on **profile** and then navigate to **My Account**.
+
+	![Freedcamp configuration](./media/freedcamp-tutorial/config01.png)
+
+3. from the left side of the menu bar, click on **SSO** and on the **Your SSO connections** page perform the following steps:
+
+	![Freedcamp configuration](./media/freedcamp-tutorial/config02.png)
+
+	a. In the **Title** text box, type the title.
+
+	b. In the **Entity ID** text box, Paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
+
+	c. In the **Login URL** text box, Paste the **Login URL** value, which you have copied from the Azure portal.
+
+	d. Open the Base64 encoded certificate in notepad, copy its content and paste it into the **Certificate** text box.
+
+	e. Click **Submit**.
 
 ### Create an Azure AD test user 
 
@@ -188,7 +206,25 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Freedcamp test user
 
-In this section, you create a user called Britta Simon in Freedcamp. Work with [Freedcamp support team](mailto:devops@freedcamp.com) to add the users in the Freedcamp platform. Users must be created and activated before you use single sign-on.
+To enable Azure AD users to sign in to Freedcamp, they must be provisioned into Freedcamp. In Freedcamp, provisioning is a manual task.
+
+**To provision a user account, perform the following steps:**
+
+1. In a different web browser window, sign in to Freedcamp as a Security Administrator.
+
+2. On the top right corner of the page, click on **profile** and then navigate to **Manage System**.
+
+	![Freedcamp configuration](./media/freedcamp-tutorial/config03.png)
+
+3. On the right side of the Manage System page, perform the following steps:
+
+	![Freedcamp configuration](./media/freedcamp-tutorial/config04.png)
+
+	a. Click on **Add or invite Users**.
+
+	b. In the **Email** text box, enter the email of user like `Brittasimon@contoso.com`.
+
+	c. Click **Add User**.
 
 ### Test single sign-on 
 
