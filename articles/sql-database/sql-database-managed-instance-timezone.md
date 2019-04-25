@@ -10,7 +10,7 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: 
 manager: craigg
-ms.date: 04/10/2019
+ms.date: 04/25/2019
 ---
 # Time zones in Azure SQL Database Managed Instance (preview)
 
@@ -87,10 +87,8 @@ Using the same time zone across a primary and secondary instance in a failover g
 
 ## Limitations
 
-- The time zone of the existing managed instance can't be changed. 
+- The time zone of the existing managed instance can't be changed.
 - External processes launched from the SQL Server Agent jobs don't observe the time zone of the instance.
-- The native [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance) PowerShell cmdlet for Managed Instance doesn't support passing the time zone parameter yet. Use a PowerShell wrapper with a [Resource Manager template](https://aka.ms/sql-mi-create-arm-posh) instead.
-- The CLI command [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-create) doesn't support the time zone parameter yet.
 
 ## List of supported time zones
 

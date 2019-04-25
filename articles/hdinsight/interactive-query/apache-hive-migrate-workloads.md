@@ -1,13 +1,12 @@
 ---
 title: Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
 description: Learn how to migrate Apache Hive workloads on HDInsight 3.6 to HDInsight 4.0.
-services: hdinsight
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
+author: msft-tacox
+ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 04/15/2019
+ms.date: 04/24/2019
 ---
 # Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
 
@@ -93,6 +92,8 @@ In HDInsight 4.0, HiveCLI has been replaced with Beeline. HiveCLI is a thrift cl
 In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari Hive View. HDInsight 4.0 replaces the Hive View with Hortonworks Data Analytics Studio (DAS). DAS doesn't ship with HDInsight clusters out-of-box and is not an officially supported package. However, DAS can be installed on the cluster as follows:
 
 Launch a script action against your cluster, with "Head nodes" as the node type for execution. Paste the following URI into the textbox marked "Bash Script URI": https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+
+Data Analytics Studio can be launched with URL : https://<clustername>.azurehdinsight.net/das/
 
 
 
