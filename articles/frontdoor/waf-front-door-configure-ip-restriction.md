@@ -54,7 +54,7 @@ Add a custom IP access control rule to the WAF policy created in the previous st
 
 In the below example:
 -  replace *IPAllowPolicyExampleCLI* with your unique policy created earlier.
--  replace **<ip-address-range-1>**, **<ip-address-range-2>** with your own range.
+-  replace *ip-address-range-1*, *ip-address-range-2* with your own range.
 
 First, create the IP allow rule for the specified addresses.
 
