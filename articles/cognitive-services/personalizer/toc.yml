@@ -60,6 +60,8 @@
     href: https://aka.ms/personalizer-rest-api-docs
   - name: SDKs
     items:
+    - name: .Net SDK Reference 
+      href: https://aka.ms/personalizer-dotnet-sdk-docs
     - name: NuGet package
       href: https://aka.ms/personalizer-nuget-sdk
 - name: Resources
