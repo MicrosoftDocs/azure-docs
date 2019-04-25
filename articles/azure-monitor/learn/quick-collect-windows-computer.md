@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Log Analytics agent for hybrid Windows computers | Microsoft Docs
+title: Configure the Azure Log Analytics agent for hybrid Windows computers | Microsoft Docs
 description: In this quickstart, you'll learn how to deploy the Log Analytics agent for Windows computers running outside of Azure and enable data collection with Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
@@ -16,7 +16,7 @@ ms.author: magoedte
 ms.custom: mvc
 ---
 
-# Configure Log Analytics agent for Windows computers in a hybrid environment
+# Configure the Log Analytics agent for Windows computers in a hybrid environment
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) can collect data directly from your physical or virtual Windows computers into a single repository for detailed analysis and correlation. Log Analytics can collect data from a datacenter or other cloud environment. This quickstart shows you how to configure and collect data from your Windows computer with a few easy steps.  For information about Azure Windows VMs, see [Collect data about Azure virtual machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
 To understand the supported configuration, see [Supported Windows operating systems](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) and [Network firewall configuration](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
