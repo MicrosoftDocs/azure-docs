@@ -28,35 +28,37 @@ To learn more about serverless solutions in Azure, see
 To build a serverless app in Visual Studio, you need these items:
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * Download and install these tools, if you don't have them already:
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017, or 2015 - Community edition or greater</a>. 
+  * [Visual Studio 2019, 2017, or 2015 - Community edition or greater](https://aka.ms/download-visual-studio). 
   This quickstart uses Visual Studio Community 2017, which is free.
 
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure 
     > that you select the **Azure development** workload.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Microsoft Azure SDK for .NET (2.9.1 or later)</a>. Learn more about <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK for .NET</a>.
+  * [Microsoft Azure SDK for .NET (2.9.1 or later)](https://azure.microsoft.com/downloads/). 
+  Learn more about [Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
   * Azure Logic Apps Tools for the Visual Studio version you want:
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+    * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
   
     You can either download and install Azure Logic Apps Tools 
     directly from the Visual Studio Marketplace, or learn 
-    <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">how to install this extension from inside Visual Studio</a>. 
+    [how to install this extension from inside Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Make sure that you restart Visual Studio after you finish installing.
 
-  * <a href="https://www.npmjs.com/package/azure-functions-core-tools" target="_blank">Azure Functions Core Tools</a> for locally debugging Functions
+  * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) 
+  for locally debugging Functions
 
 * Access to the web while using the embedded Logic App Designer
 

@@ -15,7 +15,7 @@ ms.date: 04/25/2019
 # Manage logic apps with Visual Studio
 
 Although you can create, edit, manage, and deploy logic apps in the 
-<a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+[Azure portal](https://portal.azure.com), 
 you can also use Visual Studio when you want to add your logic apps 
 to source control, publish different versions, and create 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 
@@ -38,11 +38,11 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * Download and install these tools, if you don't have them already: 
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017, or 2015 - Community edition or greater</a>. 
+  * [Visual Studio 2019, 2017, or 2015 - Community edition or greater](https://aka.ms/download-visual-studio). 
   This quickstart uses Visual Studio Community 2017, which is free.
 
     > [!IMPORTANT]
@@ -55,21 +55,21 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
     [download Cloud Explorer from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
     For more information, see [Manage resources associated with your Azure Accounts in Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 or later)</a> 
+  * [Azure SDK (2.9.1 or later)](https://azure.microsoft.com/downloads/) 
 
-  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+  * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
   * Azure Logic Apps Tools for the Visual Studio version you want:
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+    * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
 
     You can either download and install Azure Logic Apps Tools 
     directly from the Visual Studio Marketplace, or learn 
-    <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">how to install this extension from inside Visual Studio</a>. 
+    [how to install this extension from inside Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Make sure that you restart Visual Studio after you finish installing.
 
 * Access to the web while using the embedded Logic Apps Designer
@@ -142,7 +142,7 @@ select **Open with Logic App Editor**.
 ## Download from Azure
 
 You can download logic apps from the 
-<a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+[Azure portal](https://portal.azure.com) 
 and save them as [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 
 templates. You can then locally edit the templates with Visual Studio 
 and customize logic apps for different deployment environments. 

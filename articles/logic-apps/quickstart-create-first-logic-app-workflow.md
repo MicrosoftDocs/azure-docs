@@ -35,11 +35,11 @@ This logic app uses an Office 365 Outlook account. If you use another email acco
 the overall steps are the same, but your UI might slightly differ. 
 
 Also, if you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 ## Sign in to the Azure portal
 
-Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+Sign in to the [Azure portal](https://portal.azure.com) 
 with your Azure account credentials.
 
 ## Create your logic app 
