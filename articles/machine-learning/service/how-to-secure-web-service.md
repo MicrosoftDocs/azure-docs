@@ -41,7 +41,7 @@ The general process of securing a new web service or an existing one is as follo
 4. Update your DNS to point to the web service.
 
 > [!IMPORTANT]
-> If you are deploying to Azure Kubernetes Service (AKS), you can provide your own certificate or use a certificate provided by Microsoft. If you use the Microsoft provided certificate, you co not need to get a domain name or SSL certificate. For more information, see the [Enable SSL and deploy](#enable) section.
+> If you are deploying to Azure Kubernetes Service (AKS), you can provide your own certificate or use a certificate provided by Microsoft. If you use the Microsoft provided certificate, you do not need to get a domain name or SSL certificate. For more information, see the [Enable SSL and deploy](#enable) section.
 
 There are slight differences when securing web services across the [deployment targets](how-to-deploy-and-where.md).
 
