@@ -128,7 +128,7 @@ The preceding code results in the following:
 
 ## Access Datasets in workspace
 
-Registered Datasets are accessible and consumable locally, remotely and on compute clusters like the Azure Machine Learning compute. To reuse your registered Dataset across experiments and compute environments, use the following code to get your workspace and registered dataset by name. See 
+Registered Datasets are accessible and consumable locally, remotely and on compute clusters like the Azure Machine Learning compute. To reuse your registered Dataset across experiments and compute environments, use the following code to get your workspace and registered dataset by name.
 
 ```Python
 workspace = Workspace.from_config()
