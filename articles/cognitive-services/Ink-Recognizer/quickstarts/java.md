@@ -42,7 +42,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     ```java
     import org.apache.http.HttpEntity;
     import org.apache.http.client.methods.CloseableHttpResponse;
-    import org.apache.http.client.methods.HttpPost;
+    import org.apache.http.client.methods.HttpPut;
     import org.apache.http.entity.StringEntity;
     import org.apache.http.impl.client.CloseableHttpClient;
     import org.apache.http.impl.client.HttpClients;
@@ -59,11 +59,10 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
     static final String subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";
-    //replace the endpoint URL with the correct one for your subscription. Your endpoint can be found in the Azure portal. 
-    //For example: https://westus2.api.cognitive.microsoft.com
-    static final String endpoint = "[YOUR_ENDPOINT_URL]";
     // Replace the dataPath string with a path to the JSON formatted ink stroke data file.
     static final String dataPath = "[PATH_TO_INK_STROKE_DATA]";
+    
+    static final String endpoint = "https://api.cognitive.microsoft.com";
     static final String inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 
@@ -77,7 +76,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 
 1. Create a new function called `sendRequest()` that takes the variables created above. Then perform the following steps.
 
-2. Create a `CloseableHttpClient` object that can send requests to the API. Send the request to an `HttpPost` request object by combining your endpoint, and the Ink Recognizer URL.
+2. Create a `CloseableHttpClient` object that can send requests to the API. Send the request to an `HttpPut` request object by combining your endpoint, and the Ink Recognizer URL.
 
 3. Use the request's `setHeader()` function to set the `Content-Type` header to `application/json`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
@@ -90,7 +89,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     ```java
     static String sendRequest(String apiAddress, String endpoint, String subscriptionKey, String requestData) {
         try (CloseableHttpClient client = HttpClients.createDefault()) {
-            HttpPost request = new HttpPost(endpoint + apiAddress);
+            HttpPut request = new HttpPut(endpoint + apiAddress);
             // Request headers.
             request.setHeader("Content-Type", "application/json");
             request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
