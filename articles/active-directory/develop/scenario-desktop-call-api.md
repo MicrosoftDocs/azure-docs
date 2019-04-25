@@ -1,6 +1,6 @@
 ---
-title: Desktop app that calls Web APIs - calling a Web API | Azure
-description: Learn how to build a Desktop app that calls Web APIs (calling a Web API |)
+title: Desktop app that calls web APIs - calling a web API | Azure
+description: Learn how to build a Desktop app that calls web APIs (calling a web API |)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,17 +17,17 @@ ms.workload: identity
 ms.date: 04/18/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a Desktop app that calls Web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a Desktop app that calls web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Calling a Web API from a desktop app
+# Calling a web API from a desktop app
 
-Now that you have a token, you can call a protected Web API.
+Now that you have a token, you can call a protected web API.
 
-## Calling a Web API from .NET
+## Calling a web API from .NET
 
-[!INCLUDE [Call Web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
+[!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
 <!--
 More includes will come later for Python and Java

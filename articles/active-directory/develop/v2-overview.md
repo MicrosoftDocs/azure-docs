@@ -49,7 +49,7 @@ Working with identity doesn’t have to be hard. Choose a scenario that applies 
 - [Build a web API that calls web APIs](scenario-web-api-call-api-overview.md)
 - [Build a desktop app](scenario-desktop-overview.md)
 - [Build a daemon app](scenario-daemon-overview.md)
-- Build a mobile app
+- [Build a mobile app](scenario-mobile-overview.md)
 
 The following chart outlines the full set of authentication scenarios and best practices – use it as a reference when integrating the Microsoft identity platform before shipping your app.
 

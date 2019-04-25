@@ -1,6 +1,6 @@
 ---
-title: Daemon app calling Web APIs - app registration | Azure
-description: Learn how to build a daemon app that calls web apis - app registration
+title: Daemon app calling web APIs - app registration | Azure
+description: Learn how to build a daemon app that calls web APIs - app registration
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,7 +16,7 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a daemon app that can call Web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
@@ -41,7 +41,7 @@ A daemon application can only request application permissions to APIs (not deleg
 
 ![App permissions and admin consent](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
-Daemon applications require have a tenant admin pre-consent to the application calling the Web API. This consent is provided in the same **API Permission** page, by a tenant admin selecting **Grant admin consent to *our organization***
+Daemon applications require have a tenant admin pre-consent to the application calling the web API. This consent is provided in the same **API Permission** page, by a tenant admin selecting **Grant admin consent to *our organization***
 
 If you're an ISV building a multi-tenant application, you'd want to check the [Deployment - case of multi-tenant daemon apps](scenario-daemon-production.md#deployment---case-of-multi-tenant-daemon-apps) paragraph.
 

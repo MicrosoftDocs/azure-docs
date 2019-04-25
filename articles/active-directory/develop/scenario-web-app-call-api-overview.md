@@ -1,31 +1,29 @@
 ---
-title: Web app that calls Web APIs - overview | Azure
-description: Learn how to build a Web app that calls Web APIs (overview)
+title: Web app that calls web APIs - overview | Azure
+description: Learn how to build a Web app that calls web APIs (overview)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2019
+ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a Web app that calls Web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a Web app that calls web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Web app that calls Web APIs - overview
+# Scenario: Web app that calls web APIs
 
-Learn how to build a web app signing-in users on the Microsoft identity platform and that calls Web APIs on behalf of the signed-in user.
+Learn how to build a web app signing-in users on the Microsoft identity platform and that calls web APIs on behalf of the signed-in user.
 
-## Pre-requisites
+## Prerequisites
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -38,9 +36,9 @@ This scenario supposes that you've gone through the following scenario:
 
 You add authentication to your Web App, which can therefore sign in users and calls a web API on behalf of the signed-in user.
 
-![Web app that calls web apis](./media/scenario-webapp/web-app.svg)
+![Web app that calls web APIs](./media/scenario-webapp/web-app.svg)
 
-Web Apps that calls Web APIs:
+Web Apps that calls web APIs:
 
 - are confidential client applications.
 - that's why they've registered a secret (application password or certificate) with Azure AD. This secret is passed-in during the call to Azure AD to get a token
@@ -50,7 +48,7 @@ Web Apps that calls Web APIs:
 > [!NOTE]
 > Adding sign-in to a Web App does not use the MSAL libraries as this is about protecting the Web App. Protecting libraries is achieved by libraries named Middleware. This was the object of the previous scenario [Sign-in users to a Web App](scenario-web-app-sign-user-overview.md)
 >
-> When calling Web APIs from a Web App, you will need to get access tokens for these Web APIs. You can use MSAL libraries to acquire these tokens.
+> When calling web APIs from a Web App, you will need to get access tokens for these web APIs. You can use MSAL libraries to acquire these tokens.
 
 The end to end experience of developers for this scenario has, therefore, specific aspects as:
 

@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a web API that calls Web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Web API that calls web APIs - app's code configuration
+# Web API that calls web APIs - code configuration
 
 After you've registered your web API, you can configure the code for the application.
 
-The code to configure your web API so that it calls downstream web APIs builds on top of the code used to project a web API. For more info, see [Protected Web API - app configuration](scenario-protected-web-api-app-configuration.md).
+The code to configure your web API so that it calls downstream web APIs builds on top of the code used to project a web API. For more info, see [Protected web API - app configuration](scenario-protected-web-api-app-configuration.md).
 
 ## Code subscribed to OnTokenValidated
 
@@ -31,7 +31,7 @@ On top of the code configuration for any protected web APIs, you need to subscri
 
 ```CSharp
 /// <summary>
-/// Protects the Web API with Microsoft Identity Platform v2.0 (AAD v2.0)
+/// Protects the web API with Microsoft Identity Platform v2.0 (AAD v2.0)
 /// This supposes that the configuration files have a section named "AzureAD"
 /// </summary>
 /// <param name="services">Service collection to which to add authentication</param>
@@ -44,7 +44,7 @@ public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollec
     services.AddTokenAcquisition();
     services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
     {
-        // When an access token for our own Web API is validated, we add it 
+        // When an access token for our own web API is validated, we add it 
         // to MSAL.NET's cache so that it can be used from the controllers.
         options.Events = new JwtBearerEvents();
 
@@ -69,12 +69,11 @@ The AddAccountToCacheFromJwt() method needs to:
 - Instantiate an MSAL confidential client application.
 - Call `AcquireTokenOnBehalf` to exchange the bearer token that was acquired by the client for the web API, against a bearer token for the same user, but for our API to call a downstream API.
 
-### Instantiate a confidential client application 
+### Instantiate a confidential client application
 
 This flow is only available in the confidential client flow so the protected web API provides client credentials (client secret or certificate) to the [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.confidentialclientapplicationbuilder?view=azure-dotnet-preview) via the `WithClientSecret` or `WithCertificate` methods, respectively.
 
 ![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
-
 
 ```CSharp
 IConfidentialClientApplication app;

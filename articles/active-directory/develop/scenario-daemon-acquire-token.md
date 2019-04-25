@@ -1,6 +1,6 @@
 ---
-title: Daemon app calling Web APIs - acquiring tokens for the app | Azure
-description: Learn how to build a daemon app that calls web apis (acquiring tokens)
+title: Daemon app calling web APIs - acquiring tokens for the app - Azure
+description: Learn how to build a daemon app that calls web APIs (acquiring tokens)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,7 +16,7 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a daemon app that can call Web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
@@ -61,7 +61,7 @@ The scope used for client credentials should always be resourceId+"/.default"
 ### Case of v1.0 resources
 
 > [!IMPORTANT]
-> For MSAL (v2.0 endpoint) asking an access token for a resource accepting a v1.0 access token, Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier. 
+> For MSAL (v2.0 endpoint) asking an access token for a resource accepting a v1.0 access token, Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier.
 > Therefore if, like Azure SQL (**https://database.windows.net**) the resource expects an audience ending with a slash (for Azure SQL: `https://database.windows.net/`), you'll need to request a scope of `https://database.windows.net//.default` (note the double slash). See also MSAL.NET issue [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resource url's trailing slash is omitted, which caused sql auth failure.
 
 ## AcquireTokenForClient API
@@ -173,7 +173,7 @@ If you get an error when calling the API **Insufficient privileges to complete t
 You'll typically see and error like the following error description:
 
 ```JSon
-Failed to call the Web Api: Forbidden
+Failed to call the web API: Forbidden
 Content: {
   "error": {
     "code": "Authorization_RequestDenied",
@@ -189,4 +189,4 @@ Content: {
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Daemon app - calling a Web API](scenario-daemon-call-api.md)
+> [Daemon app - calling a web API](scenario-daemon-call-api.md)

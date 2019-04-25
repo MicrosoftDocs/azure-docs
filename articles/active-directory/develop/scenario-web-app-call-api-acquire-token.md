@@ -1,32 +1,30 @@
 ---
-title: Web app that calls Web APIs - acquiring a token for the app | Azure
-description: Learn how to build a Web app that calls Web APIs (acquiring a token for the app)
+title: Web app that calls web APIs - acquiring a token for the app | Azure
+description: Learn how to build a Web app that calls web APIs (acquiring a token for the app)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2019
+ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a Web app that calls Web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a Web app that calls web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Web app that calls Web APIs - acquiring a token for the app
+# Web app that calls web APIs - acquiring a token for the app
 
-Now you have built you client application object, you'll use it to acquire a token that you'll then use to call a Web APIs. In ASP.NET or ASP.NET Core, calling a web API is then done in controller. It's about:
+Now you have built you client application object, you'll use it to acquire a token that you'll then use to call a web APIs. In ASP.NET or ASP.NET Core, calling a web API is then done in controller. It's about:
 
-- getting a token for the Web API using the token cache. For this, you call `AcquireTokenSilent`
-- calling the protected API with the access token
+- Getting a token for the web API using the token cache. For this, you call `AcquireTokenSilent`
+- Calling the protected API with the access token
 
 ## ASP.NET Core
 
@@ -64,7 +62,7 @@ public async Task<IActionResult> Profile()
                             .ExecuteAsync();
  var accessToken = result.AccessToken;
  ...
- // use the access token to call a Web API
+ // use the access token to call a web API
 }
 ```
 
@@ -89,4 +87,4 @@ the code is similar to the code shown for ASP.NET Core
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Calling a Web API](scenario-web-app-call-api-call-api.md)
+> [Call a web API](scenario-web-app-call-api-call-api.md)

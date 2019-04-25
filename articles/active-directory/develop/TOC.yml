@@ -175,18 +175,6 @@
           href: scenario-desktop-call-api.md
         - name: Move to production
           href: scenario-desktop-production.md
-      - name: Mobile app that calls Web APIs
-        items:
-        - name: Overview
-          href: scenario-mobile-overview.md
-        - name: App registration
-          href: scenario-mobile-app-registration.md
-        - name: Acquiring a token for the app
-          href: scenario-mobile-acquire-token.md
-        - name: Calling a Web API
-          href: scenario-mobile-call-api.md
-        - name: Move to production
-          href: scenario-mobile-production.md
       - name: Daemon app
         items:
         - name: Overview
@@ -201,6 +189,18 @@
           href: scenario-daemon-call-api.md
         - name: Move to production
           href: scenario-daemon-production.md
+      - name: Mobile app that calls web APIs
+        items:
+        - name: Overview
+          href: scenario-mobile-overview.md
+        - name: App registration
+          href: scenario-mobile-app-registration.md
+        - name: Acquiring a token for the app
+          href: scenario-mobile-acquire-token.md
+        - name: Calling a web API
+          href: scenario-mobile-call-api.md
+        - name: Move to production
+          href: scenario-mobile-production.md
       - name: Integration checklist
         href: active-directory-integration-checklist.md
     - name: Microsoft Authentication Library (MSAL)

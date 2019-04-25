@@ -21,11 +21,12 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Single Page Application - Sign in
+# Single-page application - sign in
 
 Learn how to add sign in to the code for your Single Page Application.
 
 Before you can get tokens to access APIs in your application, you will need an authenticated user context. You can sign in users to your application in MSAL.js in two ways:
+
 * [Sign in with a pop-up window](#sign-in-with-a-pop-up-window) using `loginPopup` method
 * [Sign in with redirect](#sign-in-with-redirect) using `loginRedirect` method
 
@@ -36,7 +37,7 @@ You can also optionally pass the scopes of the APIs for which you need the user 
 
 **Choosing between a pop-up or redirect experience**
 
- You cannot use a combination of both the pop-up and redirect methods in your application. The choice between a pop-up or redirect experience depends on your application flow.
+You cannot use a combination of both the pop-up and redirect methods in your application. The choice between a pop-up or redirect experience depends on your application flow.
 
 * If you don't want the user to navigate away from your main application page during authentication, it is recommended to use the pop-up methods. Since the authentication redirect happens in a pop-up window, the state of the main application is preserved.
 
@@ -116,7 +117,7 @@ userAgentApplication.loginRedirect(loginRequest);
 The code here is the same as described above under the sign in with a pop-up window section. The default flow is redirect.
 
 > [!NOTE]
-> The ID token does not contain the consented scopes and only represents the authenticated user. The consented scopes are returned in the access token which you will acquire in the next step.
+> The ID token doesn't contain the consented scopes and only represents the authenticated user. The consented scopes are returned in the access token which you will acquire in the next step.
 
 ## Sign out
 

@@ -1,6 +1,6 @@
 ---
-title: Desktop app that calls Web APIs - overview | Azure
-description: Learn how to build a Desktop app that calls Web APIs (overview |)
+title: Desktop app that calls web APIs - overview | Azure
+description: Learn how to build a Desktop app that calls web APIs (overview |)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,21 +17,21 @@ ms.workload: identity
 ms.date: 04/18/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a Desktop app that calls Web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a Desktop app that calls web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Desktop app that calls Web APIs - overview
+# Scenario: Desktop app that calls web APIs
 
-Learn all you need to build a Desktop app that calls Web APIs
+Learn all you need to build a Desktop app that calls web APIs
 
-## Pre-requisites
+## Prerequisites
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## Scenario overview
 
-You write a desktop application, and you want to sign in users to your application and call Web APIs such as the Microsoft Graph, other Microsoft APIs, or your own Web API. You have several possibilities:
+You write a desktop application, and you want to sign in users to your application and call web APIs such as the Microsoft Graph, other Microsoft APIs, or your own web API. You have several possibilities:
 
 - If your desktop application supports graphical controls, for instance if it's a Windows.Form application or a WPF application, you can use the interactive token acquisition.
 - For Windows hosted applications, it's also possible for applications running on computers joined to a Windows domain or AAD joined to acquire a token silently by using Integrated Windows Authentication.

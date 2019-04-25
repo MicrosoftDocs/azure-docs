@@ -1,6 +1,6 @@
 ---
-title: Desktop app that calls Web APIs - acquiring a token for the app | Azure
-description: Learn how to build a Desktop app that calls Web APIs (acquiring a token for the app |)
+title: Desktop app that calls web APIs - acquiring a token for the app | Azure
+description: Learn how to build a Desktop app that calls web APIs (acquiring a token for the app |)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,17 +17,17 @@ ms.workload: identity
 ms.date: 04/18/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a Desktop app that calls Web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a Desktop app that calls web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
 # Acquiring a token in a desktop application
 
-Once you have built you `IPublicClientApplication`, you'll use it to acquire a token that you'll then use to call a Web API
+Once you have built you `IPublicClientApplication`, you'll use it to acquire a token that you'll then use to call a web API.
 
 ## Recommended pattern
 
-The Web API is defined by its `scopes`. Whatever the experience you provide in your application, the pattern that you'll want to use is:
+The web API is defined by its `scopes`. Whatever the experience you provide in your application, the pattern that you'll want to use is:
 
 - Systematically attempting to get a token from the token cache by calling `AcquireTokenSilent`
 - If this call fails, use the `AcquireToken` flow that you want to use (here represented by `AcquireTokenXX`)
@@ -635,9 +635,9 @@ static async Task<AuthenticationResult> GetATokenForGraph()
 
 In MSAL.NET, an in-memory token cache is provided by default.
 
-### Serialization is customizable in Windows desktop apps and Web apps / Web APIs
+### Serialization is customizable in Windows desktop apps and web apps/web APIs
 
-In the case of .NET Framework and .NET core, if you don't do anything extra, the in-memory token cache lasts for the duration of the application. To understand why serialization isn't provided out of the box, remember MSAL .NET desktop/core applications can be console or Windows applications (which would have access to the file system), **but also** Web applications or Web API. These Web apps and Web APIs might use some specific cache mechanisms like databases, distributed caches, redis caches and so on. To have a persistent token cache application in .NET Desktop or Core, you'll need to customize the serialization.
+In the case of .NET Framework and .NET core, if you don't do anything extra, the in-memory token cache lasts for the duration of the application. To understand why serialization isn't provided out of the box, remember MSAL .NET desktop/core applications can be console or Windows applications (which would have access to the file system), **but also** Web applications or web API. These Web apps and web APIs might use some specific cache mechanisms like databases, distributed caches, redis caches and so on. To have a persistent token cache application in .NET Desktop or Core, you'll need to customize the serialization.
 
 Classes and interfaces involved in token cache serialization are the following types:
 
@@ -653,7 +653,7 @@ Classes and interfaces involved in token cache serialization are the following t
 > - React to `BeforeAccess` and `AfterAccess` "events". The`BeforeAccess` delegate is responsible to deserialize the cache, whereas the `AfterAccess` one is responsible for serializing the cache.
 > - Part of these events store or load blobs, which are passed through the event argument to whatever storage you want.
 
-The strategies are different depending on if you're writing a token cache serialization for a public client application (Desktop), or a confidential client application (Web App / Web API, Daemon app).
+The strategies are different depending on if you're writing a token cache serialization for a public client application (Desktop), or a confidential client application (web app/web API, daemon app).
 
 Since MSAL V2.x you have several options, depending on if you want to serialize the cache only to the MSAL.NET format (unified format cache that is common with MSAL, but also across the platforms), or if you also want to support the [legacy](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) Token cache serialization of ADAL V3.
 
@@ -877,4 +877,4 @@ namespace CommonCacheMsalV3
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Calling a Web API from the desktop app](scenario-desktop-call-api.md)
+> [Calling a web API from the desktop app](scenario-desktop-call-api.md)

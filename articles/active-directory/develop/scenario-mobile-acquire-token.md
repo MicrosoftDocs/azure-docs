@@ -1,31 +1,30 @@
 ---
-title: Mobile app that calls Web APIs - acquiring a token for the app | Microsoft identity platform
-description: Learn how to build a mobile app that calls Web APIs (acquiring a token for the app)
+title: Mobile app that calls web APIs - acquiring a token for the app | Microsoft identity platform
+description: Learn how to build a mobile app that calls web APIs (acquiring a token for the app)
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2019
+ms.date: 05/07/2019
 ms.author: dadobali
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a mobile app that calls Web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
 # Mobile app that calls web APIs - acquiring a token
 
-Before you can begin calling protected web APIs, your app will need an access token. This section walks you through the process to get a token using the Microsoft Authentication Library (MSAL). 
+Before you can begin calling protected web APIs, your app will need an access token. This section walks you through the process to get a token using the Microsoft Authentication Library (MSAL).
 
 ## Scopes to request
+
 When asking for tokens, a scope is always required. The scope determines what data your app can access.  
 
 The simplest approach is to combine the desired web API's `App ID URI` with the scope `.default`. This tells Microsoft identity your app requires all scopes set in the portal.
@@ -45,13 +44,14 @@ Xamarin
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
-## Acquiring Tokens
+## Acquiring tokens
 
 ### via MSAL
 
-MSAL allows apps to acquire tokens silently and interactively. Just call these methods and MSAL returns back an Access token for the scopes requested. The correct pattern is to perform a silent request and fallback to an interactive request. 
+MSAL allows apps to acquire tokens silently and interactively. Just call these methods and MSAL returns back an Access token for the scopes requested. The correct pattern is to perform a silent request and fallback to an interactive request.
 
-Android
+#### Android
+
 ```Java
 String[] SCOPES = {"https://graph.microsoft.com/.default"};
 PublicClientApplication sampleApp = new PublicClientApplication(
@@ -80,7 +80,8 @@ sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
 sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());        
 ```
 
-iOS
+#### iOS
+
 ```swift
 // Initialize our app 
 guard let authorityURL = URL(string: kAuthority) else {
@@ -137,7 +138,8 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
 }
 ```
 
-Xamarin
+#### Xamarin
+
 ```CSharp
 string[] scopes = new string["https://graph.microsoft.com/.default"];
 var app = PublicClientApplicationBuilder.Create(clientId).Build();
@@ -155,7 +157,7 @@ catch(MsalUiRequiredException e)
 }
 ```
 
-### via Protocol 
+### via Protocol
 
 We do not advise going directly against the protocol. Your app will not be capable of many SSO scenarios and will not be able to support all device management and Conditional Access scenarios.
 
@@ -190,4 +192,4 @@ client_id=<CLIENT_ID>
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Calling a Web API](scenario-mobile-call-api.md)
+> [Calling a web API](scenario-mobile-call-api.md)

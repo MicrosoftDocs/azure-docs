@@ -1,6 +1,6 @@
 ---
-title: Desktop app that calls Web APIs - move to production | Azure
-description: Learn how to build a Desktop app that calls Web APIs (move to production |)
+title: Desktop app that calls web APIs - move to production | Azure
+description: Learn how to build a Desktop app that calls web APIs (move to production |)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,11 +17,11 @@ ms.workload: identity
 ms.date: 04/18/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a Desktop app that calls Web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a Desktop app that calls web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Desktop app that calls Web APIs - move to production
+# Desktop app that calls web APIs - move to production
 
 This article provides you details to improve your application further and move it to production
 
@@ -64,7 +64,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-This call will get you an access token for the first Web API.
+This call will get you an access token for the first web API.
 Then when you need to call the second one, you can call
 
 ```CSharp

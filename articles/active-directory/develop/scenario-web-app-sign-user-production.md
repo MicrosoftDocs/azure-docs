@@ -5,16 +5,14 @@ services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2019
+ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a Web app that signs-in users using the Microsoft identity platform for developers.
@@ -23,19 +21,19 @@ ms.collection: M365-identity-device-management
 
 # Web app that signs-in users - move to production
 
-Now that the Web app called web apis, learn how to move it to production.
+Now that the Web app called web APIs, learn how to move it to production.
 
 ## Improve your app
 
-Now that you know how to acquire a token to call Web APIs, learn how to move it to production.
+Now that you know how to acquire a token to call web APIs, learn how to move it to production.
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## Next steps
 
-### Calling Web APIs scenario
+### Calling web APIs scenario
 
-Once your web app signs-in users, it can call Web APIs on behalf of the signed-in users. Calling Web APIs from our Web App is the object of the following scenario:
+Once your web app signs-in users, it can call web APIs on behalf of the signed-in users. Calling web APIs from our Web App is the object of the following scenario:
 
 > [!div class="nextstepaction"]
 > [Web app that calls web APIs](scenario-web-app-call-api-overview.md)

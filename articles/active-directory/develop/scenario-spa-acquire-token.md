@@ -1,27 +1,25 @@
 ---
-title: Single Page Application - Acquire a token to call an API | Azure
-description: Learn how to build a Single Page Application (Acquire a token to call an API)
+title: Single-page application - Acquire a token to call an API | Azure
+description: Learn how to build a single-page application (Acquire a token to call an API)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/06/2019
+ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a Single Page Application using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Single Page Application - Acquire a token to call an API
+# Single-page application - acquire a token to call an API
 
 The pattern for acquiring tokens for APIs with MSAL.js is to first attempt a silent token request using the `acquireTokenSilent` method. When this method is called, the library first checks the cache in the browser storage to see if a valid token exists and returns it. When there is no valid token in the cache, it sends a silent token request to Azure AD from a hidden iframe. This method also allows the library to renew tokens. For more details about single sign-on session and token lifetime values in Azure AD, see [token lifetimes](active-directory-configurable-token-lifetimes.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Web API that calls othe web APIs - acquiring a token for the app | Azure
+title: Web API that calls other web APIs - acquiring a token for the app | Azure
 description: Learn how to build a web API that calls other web APIs (acquiring a token for the app).
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,7 +15,7 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a web API that calls Web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
@@ -46,7 +46,7 @@ private async Task GetTodoList(bool isAppStarting)
 }
 ```
 
-`BuildConfidentialClient()` is similar to what you've seen in the article [Web API that calls Web APIs - app configuration](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` instantiates `IConfidentialClientApplication` with a cache that contains only information for one account. The account is is provided by the `GetAccountIdentifier` method.
+`BuildConfidentialClient()` is similar to what you've seen in the article [Web API that calls web APIs - app configuration](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` instantiates `IConfidentialClientApplication` with a cache that contains only information for one account. The account is is provided by the `GetAccountIdentifier` method.
 
 The `GetAccountIdentifier` method uses the claims associated with the identity of the user for which the web API received the JWT:
 
@@ -69,4 +69,4 @@ public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Calling a Web API](scenario-web-api-call-api-call-api.md)
+> [Calling a web API](scenario-web-api-call-api-call-api.md)

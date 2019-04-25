@@ -1,6 +1,6 @@
 ---
-title: Daemon app calling Web APIs - scenario landing page overview | Azure
-description: Learn how to build a daemon app that calls web apis
+title: Daemon app calling web APIs - scenario landing page overview | Azure
+description: Learn how to build a daemon app that calls web APIs
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a daemon app that can call Web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Scenario: Daemon application that calls Web APIs
+# Scenario: Daemon application that calls web APIs
 
 Learn all you need to build a daemon application that calls web APIs.
 
