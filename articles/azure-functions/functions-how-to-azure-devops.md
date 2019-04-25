@@ -173,7 +173,7 @@ After configuring the source of your code, search for Azure Functions build temp
 
 #### JavaScript Apps
 
-If you JavaScript app have a dependency on Windows native modules, you will need to update:
+If your JavaScript app have a dependency on Windows native modules, you will need to update:
 
 - The Agent Pool version to **Hosted VS2017**
 
