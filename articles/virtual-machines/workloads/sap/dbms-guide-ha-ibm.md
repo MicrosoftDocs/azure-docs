@@ -57,7 +57,7 @@ The article doesn't cover how to install and configure IBM Db2 LUW with HADR or 
 
 The supported IBM Db2 versions are 10.5 and later, as documented in SAP note [1928533].
 
-Before you approach an installation, see the following SAP notes and documentation:
+Before you begin an installation, see the following SAP notes and documentation:
 
 | SAP note | Description |
 | --- | --- |
@@ -66,10 +66,10 @@ Before you approach an installation, see the following SAP notes and documentati
 | [2178632] | Key monitoring metrics for SAP on Azure |
 | [2191498] | SAP on Linux with Azure: Enhanced monitoring |
 | [2243692] | Linux on Azure (IaaS) VM: SAP license issues |
-| [1984787] |SUSE LINUX Enterprise Server 12: Installation notes |
-| [1999351] |Troubleshooting enhanced Azure monitoring for SAP |
-| [2233094] |DB6: SAP applications on Azure that use IBM Db2 for Linux, UNIX, and Windows - additional information |
-| [1612105] |DB6: FAQ on Db2 with HADR |
+| [1984787] | SUSE LINUX Enterprise Server 12: Installation notes |
+| [1999351] | Troubleshooting enhanced Azure monitoring for SAP |
+| [2233094] | DB6: SAP applications on Azure that use IBM Db2 for Linux, UNIX, and Windows - additional information |
+| [1612105] | DB6: FAQ on Db2 with HADR |
 
 
 | Documentation | 
@@ -77,7 +77,7 @@ Before you approach an installation, see the following SAP notes and documentati
 | [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Has all of the required SAP Notes for Linux |
 | [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide] guide |
 | [Azure Virtual Machines deployment for SAP on Linux][deployment-guide] (this article) |
-| [Azure Virtual Machines database management system,(DBMS) deployment for SAP on Linux][dbms-guide] guide |
+| [Azure Virtual Machines database management system(DBMS) deployment for SAP on Linux][dbms-guide] guide |
 | [SAP workload on Azure planning and deployment checklist][azr-sap-plancheck] |
 | [SUSE Linux Enterprise Server for SAP Applications 12 SP3 best practices guides][sles-for-sap-bp] |
 | [SUSE Linux Enterprise High Availability Extension 12 SP3][sles-ha-guide] |
@@ -143,7 +143,7 @@ For more information about Linux Pacemaker in Azure, see [Set up Pacemaker on SU
 The resource agent for IBM Db2 LUW is included in SUSE Linux Enterprise Server for SAP Applications. For the setup that's described in this document, you must use SUSE Linux Server for SAP Applications. The Azure Marketplace contains an image for SUSE Enterprise Server for SAP Applications 12 that you can use to deploy new Azure virtual machines. Be aware of the various support or service models that are offered by SUSE through the Azure Marketplace when you choose a VM image in the Azure VM Marketplace. 
 
 ### Hosts - DNS updates
-Make a list of all host names, including virtual host names, and update your DNS servers to enable proper IP address to host-name resolution. If a DNS server doesn't exist or you can't update and create DNS entries, you need to use the local hosts files of the individual VMs that are participating in this scenario. If you're using host files entries, make sure that the entries are applied to all VMs in the SAP system environment. However, we recommend that you use your DNS that, ideally, extends into Azure
+Make a list of all host names, including virtual host names, and update your DNS servers to enable proper IP address to host-name resolution. If a DNS server doesn't exist or you can't update and create DNS entries, you need to use the local host files of the individual VMs that are participating in this scenario. If you're using host files entries, make sure that the entries are applied to all VMs in the SAP system environment. However, we recommend that you use your DNS that, ideally, extends into Azure
 
 
 ### Manual deployment
@@ -484,7 +484,7 @@ j2ee/dbhost = db-virt-hostname
 
 
 
-## Install primary and dialog application Servers
+## Install primary and dialog application servers
 
 When you install primary and dialog application servers against an Db2 HADR configuration, use the virtual host name that you picked for the configuration. 
 
