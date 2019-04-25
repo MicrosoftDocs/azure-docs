@@ -31,7 +31,7 @@ learn how to [add and run inline code](../logic-apps/logic-apps-add-run-inline-c
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * An Azure function app, which is a container for Azure functions, 
 and your Azure function. If you don't have a function app, 
@@ -78,7 +78,7 @@ as the first step in your logic app
 
 ## Create functions outside logic apps
 
-In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+In the [Azure portal](https://portal.azure.com), 
 create your Azure function app, which must have the same Azure subscription 
 as your logic app, and then create your Azure function.
 If you're new to creating Azure functions, learn how to 
@@ -170,7 +170,7 @@ If you don't have a function app,
 create that function app first. See 
 [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md). 
 
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+1. In the [Azure portal](https://portal.azure.com), 
 open your logic app in the Logic App Designer. 
 
 2. To create and add your function, 
@@ -263,7 +263,7 @@ To call existing Azure functions from your logic apps,
 you can add Azure functions like any other action 
 in the Logic App Designer. 
 
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+1. In the [Azure portal](https://portal.azure.com), 
 open your logic app in the Logic App Designer. 
 
 2. Under the step where you want to add the function, 
