@@ -178,13 +178,13 @@ Links to this documentation are provided in the introductory section of this art
 
 Check the SAP installation manuals about installing NetWeaver-based applications on IBM Db2 LUW.
 
-You can find the guides on the SAP Help portal by using the [SAP Installation Guide Finder][sap-instfind]
+You can find the guides on the SAP Help portal by using the [SAP Installation Guide Finder][sap-instfind].
 
 You can reduce the number of guides displayed in the portal by setting the following filters:
 
-+ I want to: "Install a new system"
-+ My Database: "IBM Db2 for Linux, Unix, and Windows"
-+ Additional filters for SAP NetWeaver versions, stack configuration, or operating system.
+- I want to: "Install a new system"
+- My Database: "IBM Db2 for Linux, Unix, and Windows"
+- Additional filters for SAP NetWeaver versions, stack configuration, or operating system
 
 ### Installation hints for setting up IBM Db2 LUW with HADR
 
