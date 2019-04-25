@@ -25,9 +25,9 @@ Spark API in Azure Cosmos DB offers the following benefits:
 
 * Creates a [security](secure-access-to-data.md), [compliance, and auditing boundary that encompasses all the data under management.
 
-* Provides "always on"/ [highly available](high-availability.md) end-user analytics that are backed by stringent SLAs.
+* Provides always on/[highly available](high-availability.md) end-user analytics that are backed by stringent SLAs.
 
-[Azure Cosmos DB Spark API visualization](./media/spark-api-introduction/spark-api-visualization.png)
+![Azure Cosmos DB Spark API visualization](./media/spark-api-introduction/spark-api-visualization.png)
  
 With Azure Cosmos DB Spark API, you can easily build and deploy AI and deep learning models, predictive analytics, recommendations, IoT, customer 360, fraud detection, text sentiment, clickstream, analysis, etc. workloads directly on your Azure Cosmos DB data. 
 
