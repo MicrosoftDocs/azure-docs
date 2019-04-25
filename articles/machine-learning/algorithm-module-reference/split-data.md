@@ -18,15 +18,13 @@ ROBOTS: NOINDEX
 
 Category: Data Transformation / Sample and Split
 
-## Module overview
-
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to divide a dataset into two distinct sets.
 
 This module is particularly useful when you need to separate data into training and testing sets. You can customize the way that data is divided as well. Some options support randomization of data; others are tailored for a certain data type or model type.
 
-## How to configure Split Data
+## How to configure
 
 > [!TIP]
 > Before choosing the splitting mode, read all options to determine the type of split you need.
@@ -70,7 +68,7 @@ This module is particularly useful when you need to separate data into training 
 7. Run the experiment.
 
 
-### Regular expression split
+## Regular expression split
 
 1.  Add the [Split Data](./split-data.md) module to your experiment, and connect it as input to the dataset you want to split.  
   
@@ -85,13 +83,13 @@ This module is particularly useful when you need to separate data into training 
 
     Based on the regular expression you provide, the dataset is divided into two sets of rows: rows with values that match the expression and all remaining rows. 
 
-### Relative expression split.
+## Relative expression split.
 
 1. Add the [Split Data](./split-data.md) module to your experiment, and connect it as input to the dataset you want to split.
   
 2. For **Splitting mode**, select **relative expression split**.
   
-3. . In the **Relational expression** text box, type an expression that performs a comparison operation, on a single column:
+3. In the **Relational expression** text box, type an expression that performs a comparison operation, on a single column:
 
 
  - Numeric column:
@@ -113,3 +111,7 @@ This module is particularly useful when you need to separate data into training 
 4. Run the experiment.
 
     The expression divides the dataset into two sets of rows: rows with values that meet the condition, and all remaining rows.
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

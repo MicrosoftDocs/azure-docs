@@ -18,8 +18,6 @@ ROBOTS: NOINDEX
 *Creates a binary classifier using a neural network algorithm*  
   
  Category: Machine Learning / Initialize Model / Classification  
-  
-## Module overview  
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
@@ -39,16 +37,14 @@ The relationship between inputs and outputs is learned from training the neural 
 
 To compute the output of the network for a particular input, a value is calculated at each node in the hidden layers and in the output layer. The value is set by calculating the weighted sum of the values of the nodes from the previous layer. An activation function is then applied to that weighted sum.
   
-## How to configure Two-Class Neural Network
+## How to configure
 
 1.  Add the **Two-Class Neural Network** module to your experiment. You can find this module under **Machine Learning**, **Initialize**, in the **Classification** category.  
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
     -   **Single Parameter**: Choose this option if you already know how you want to configure the model.  
-  
-   
-  
+
 3.  For **Hidden layer specification**, select the type of network architecture to create.  
   
     -   **Fully connected case**: Uses the default neural network architecture, defined for two-class neural networks as follows:
@@ -62,8 +58,6 @@ To compute the output of the network for a particular input, a value is calculat
         -   The number of nodes in the hidden layer is set by the user. The default value is 100.
   
         -   The number of nodes equals the number of classes. For a two-class neural network, this means that all inputs must map to one of two nodes in the output layer.
-  
-    
 
 5.  For **Learning rate**, define the size of the step taken at each iteration, before correction. A larger value for learning rate can cause the model to converge faster, but it can overshoot local minima.
 
@@ -73,24 +67,19 @@ To compute the output of the network for a particular input, a value is calculat
 
 8.  For **The momentum**, specify a weight to apply during learning to nodes from previous iterations  
 
-  
 10. Select the **Shuffle examples** option to shuffle cases between iterations. If you deselect this option, cases are processed in exactly the same order each time you run the experiment.
   
 11. For **Random number seed**, type a value to use as the seed.
   
      Specifying a seed value is useful when you want to ensure repeatability across runs of the same experiment.  Otherwise, a system clock value is used as the seed, which can cause slightly  different results each time you run the experiment.
   
-  
 13. Add a tagged dataset to the experiment, and connect one of the [training modules](module-reference.md).  
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.  
   
-  
-  
-    
 14. Run the experiment.
 
-### Results
+## Results
 
 After training is complete:
 
@@ -99,3 +88,6 @@ After training is complete:
 + To save a snapshot of the trained model, right-click the **Trained model** output and select **Save As Trained Model**. This model is not updated on successive runs of the same experiment.
 
 
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

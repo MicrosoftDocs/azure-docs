@@ -23,11 +23,9 @@ The following restrictions apply to data published on a web page:
 - Data must be in one of the supported formats: CSV, TSV, ARFF, or SvmLight. Other data will cause errors.
 - No authentication is required or supported. Data must be publicly available. 
 
-## How to import data via HTTP
-
 There are two ways to get data: use the wizard to set up the data source, or configure it manually.
 
-### Use the Data Import Wizard
+## Use the Data Import Wizard
 
 1. Add the **Import Data** module to your experiment. You can find the module in the interface, in the **Data Input and Output** category.
 
@@ -39,7 +37,7 @@ There are two ways to get data: use the wizard to set up the data source, or con
 
 To edit an existing data connection, start the wizard again. The wizard loads all previous configuration details so that you don't have to start again from scratch
 
-### Manually set properties in the Import Data module
+## Manually set properties in the Import Data module
 
 The following steps describe how to manually configure the import source.
 
@@ -69,6 +67,11 @@ The following steps describe how to manually configure the import source.
 
 7. Run the experiment.
 
-### Results
+## Results
 
 When complete, click the output dataset and select **Visualize** to see if the data was imported successfully.
+
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

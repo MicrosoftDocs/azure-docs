@@ -18,15 +18,13 @@ ROBOTS: NOINDEX
 
 Category: Machine Learning / Initialize Model / Regression
 
-## Module overview
-
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to create a linear regression model for use in an experiment.  Linear regression attempts to establish a linear relationship between one or more independent variables and a numeric outcome, or dependent variable. 
 
 You use this module to define a linear regression method, and then train a model using a labeled dataset. The trained model can then be used to make predictions.
 
-## More about linear regression
+## About linear regression
 
 Linear regression is a common statistical method, which has been adopted in machine learning and enhanced with many new methods for fitting the line and measuring error. In the most basic sense, regression refers to prediction of a numeric target. Linear regression is still a good choice when you want a simple model for a basic predictive task. Linear regression also tends to work well on high-dimensional, sparse data sets lacking complexity.
 
@@ -50,7 +48,7 @@ For years statisticians have been developing increasingly advanced methods for r
 
     Ordinary least squares refers to the loss function, which computes error as the sum of the square of distance from the actual value to the predicted line, and fits the model by minimizing the squared error. This method assumes a strong linear relationship between the inputs and the dependent variable.
 
-## How to configure Linear Regression
+## Configure Linear Regression
 
 This module supports two methods for fitting a regression model, with different options:
 
@@ -64,7 +62,7 @@ This module supports two methods for fitting a regression model, with different 
 
     For small datasets, it is best to select ordinary least squares. This should give similar results to Excel.
 
-### <a name="bkmk_OrdinaryLeastSquares"></a> Create a regression model using ordinary least squares
+## <a name="bkmk_OrdinaryLeastSquares"></a> Create a regression model using ordinary least squares
 
 1. Add the **Linear Regression Model** module to your experiment in the interface.
 
@@ -89,7 +87,7 @@ This module supports two methods for fitting a regression model, with different 
 
 8. Run the experiment.
 
-### Results for ordinary least squares model
+## Results for ordinary least squares model
 
 After training is complete:
 
@@ -98,7 +96,7 @@ After training is complete:
 + To make predictions, connect the trained model to the [Score Model](./score-model.md) module, along with a dataset of new values. 
 
 
-### <a name="bkmk_GradientDescent"></a> Create a regression model using online gradient descent
+## <a name="bkmk_GradientDescent"></a> Create a regression model using online gradient descent
 
 1. Add the **Linear Regression Model** module to your experiment in the interface.
 
@@ -135,14 +133,15 @@ After training is complete:
 
     If you are not using a parameter sweep, use the [Train Model](train-model.md) module.
 
-
-
-
 13. Run the experiment.
 
-### Results for online gradient descent
+## Results for online gradient descent
 
 After training is complete:
 
 + To make predictions, connect the trained model to the [Score Model](./score-model.md) module, together with new input data.
 
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

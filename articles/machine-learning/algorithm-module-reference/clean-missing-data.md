@@ -17,9 +17,6 @@ ROBOTS: NOINDEX
 
 *Specifies how to handle the values missing from a dataset*  
 
-
-## Module overview  
-
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to remove, replace, or infer missing values. 
@@ -144,3 +141,7 @@ If you need to repeat cleaning operations often, we recommend that you save your
     However, suppose you created a transformation on a subset of numeric columns. You can apply this transformation to a dataset of mixed column types without raising an error, because the missing values are changed only in the matching numeric columns.
 
 6.  Run the experiment.  
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

@@ -18,7 +18,6 @@ ROBOTS: NOINDEX
   
  Category: Data Input and Output
   
-## Module overview  
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to create a small dataset by typing values. The dataset can have multiple columns.
@@ -31,7 +30,7 @@ This module can be helpful in scenarios such as these:
   
 - Typing a list of column names to insert in a dataset
 
-## How to use Enter Data Manually 
+## Enter Data Manually 
   
 1.  Add the [Enter Data Manually](./enter-data-manually.md) module to your experiment. You can find this module in the **Data Input and Output** category in Azure Machine Learning. 
   
@@ -101,3 +100,6 @@ This module can be helpful in scenarios such as these:
 5.  Right-click the module and select **Run selected** to parse the data and load it into your workspace as a dataset.  
   
      To view the dataset, click the output port and select **Visualize**.  
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

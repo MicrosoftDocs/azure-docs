@@ -18,8 +18,6 @@ ROBOTS: NOINDEX
 *Creates a binary classification model using the Support Vector Machine algorithm*  
   
  Category: Machine Learning / Initialize Model / Classification
-  
-## Module overview  
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
@@ -29,7 +27,7 @@ Support vector machines (SVMs) are a well-researched class of supervised learnin
 
 After defining the model parameters, train the model by using the training modules, and providing a *tagged dataset* that includes a label or outcome column.
 
-###  More about support vector machines
+## About support vector machines
 
 Support vector machines are among the earliest of machine learning algorithms, and SVM models have been used in many applications, from information retrieval to text and image classification. SVMs can be used for both classification and regression tasks.
 
@@ -37,7 +35,7 @@ This SVM model is a supervised learning model that requires labeled data. In the
 
 For prediction, the SVM algorithm assigns new examples into one category or the other, mapping them into that same space. 
 
-## How to configure Two-Class Support Vector Machine 
+## How to configure 
 
 For this model type, it is recommended that you normalize the dataset before using it to train the classifier.
   
@@ -46,9 +44,7 @@ For this model type, it is recommended that you normalize the dataset before usi
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
     -   **Single Parameter**: If you know how you want to configure the model, you can provide a specific set of values as arguments.  
-  
- 
-  
+
 3.  For **Number of iterations**, type a number that denotes the number of iterations used when building the model.  
   
      This parameter can be used to control trade-off between training speed and accuracy.  
@@ -67,7 +63,6 @@ For this model type, it is recommended that you normalize the dataset before usi
   
 7.  In **Random number seed**, type an integer value to use as a seed if you want to ensure reproducibility across runs.  Otherwise, a system clock value is used as a seed, which can result in slightly different results across runs.
   
-  
 9. Connect a labeled dataset, and one of the [training modules](module-reference.md):
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.
@@ -75,7 +70,7 @@ For this model type, it is recommended that you normalize the dataset before usi
 
 10. Run the experiment.
 
-### Results
+## Results
 
 After training is complete:
 
@@ -83,3 +78,7 @@ After training is complete:
 
 + To use the trained models to make predictions, connect the trained model to the [Score Model](score-model.md) module.
 
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

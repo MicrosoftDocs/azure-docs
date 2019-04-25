@@ -19,8 +19,6 @@ Adds a set of columns from one dataset to another
 
 Category: Data Transformation / Manipulation 
 
-
-## Module overview
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to concatenate two datasets.
@@ -48,3 +46,7 @@ After the experiment has run:
 The number of columns in the new dataset equals the sum of the columns of both input datasets.
 
 If there are two columns with the same name in the input datasets, a numeric suffix is added to the name of the column. For example, if there are two instances of a column named TargetOutcome, the left column would be renamed TargetOutcome_1 and the right column would be renamed TargetOutcome_2.
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

@@ -18,8 +18,6 @@ ROBOTS: NOINDEX
 
 Category: Python Language Modules
 
-## Module overview
-
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to run Python code. For more information about the architecture and design principles of Python, see [the following article.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
@@ -79,7 +77,7 @@ os.system(f"pip install scikit-misc")
 
 
 
-## How to use Execute Python Script
+## How to use
 
 The **Execute Python Script** module contains sample Python code that you can use as a starting point. To configure the **Execute Python Script** module, you provide a set of inputs and Python code to execute in the **Python script** text box.
 
@@ -115,7 +113,7 @@ The **Execute Python Script** module contains sample Python code that you can us
 
     All of the data and code is loaded into a virtual machine, and run using the specified Python environment.
 
-### Results
+## Results
 
 The results of any computations performed by the embedded Python code must be provided as a pandas.DataFrame, which is automatically converted to the Azure Machine Learning dataset format, so that you can use the results with other modules in the experiment.
 
@@ -124,3 +122,8 @@ The module returns two datasets:
 + **Results Dataset 1**, defined by the first returned pandas dataframe in Python script
 
 + **Result Dataset 2**, defined by the second returned pandas dataframe in Python script
+
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

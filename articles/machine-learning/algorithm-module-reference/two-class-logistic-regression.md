@@ -18,8 +18,6 @@ ROBOTS: NOINDEX
 *Creates a two-class logistic regression model*  
   
  Category: Machine Learning / Initialize Model / Classification 
-  
-##  Module overview  
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
@@ -27,13 +25,13 @@ Use this module to create a logistic regression model that can be used to predic
 
 Logistic regression is a well-known statistical technique that is used for modeling many kinds of problems. This algorithm is a *supervised learning* method;  therefore, you must provide a dataset that already contains the outcomes to train the model.  
 
-### More about logistic regression  
+### About logistic regression  
 
 Logistic regression is a well-known method in statistics that is used to predict the probability of an outcome, and is especially popular for classification tasks. The algorithm predicts the probability of occurrence of an event by fitting data to a logistic function.
   
 In this module, the classification algorithm is optimized for dichotomous or binary variables. if you need to classify multiple outcomes, use the [Multiclass Logistic Regression](./multiclass-logistic-regression.md) module.
 
-##  How to configure Two-Class Logistic Regression  
+##  How to configure  
 
 To train this model, you must provide a dataset that contains a label or class column. Because this module is intended for two-class problems, the label or class column must contain exactly two values. 
 
@@ -44,8 +42,6 @@ For example, the label column might be [Voted] with possible values of "Yes" or 
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
     -   **Single Parameter**: If you know how you want to configure the model, you can provide a specific set of values as arguments.  
-  
-
   
 3.  For **Optimization tolerance**, specify a threshold value to use when optimizing the model. If the improvement between iterations falls below the specified threshold, the algorithm is considered to have converged on a solution, and training stops.  
   
@@ -79,11 +75,9 @@ For example, the label column might be [Voted] with possible values of "Yes" or 
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.  
   
-  
-  
 9. Run the experiment.  
   
-### Results
+## Results
 
 After training is complete:
 
@@ -91,3 +85,7 @@ After training is complete:
   
 + To make predictions on new data, use the trained model and new data as input to the [Score Model](./score-model.md) module. 
 
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
