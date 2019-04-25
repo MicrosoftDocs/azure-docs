@@ -31,4 +31,4 @@ We have support for both dark theme and light theme. While the light theme is th
 Now that you've learned how to manage your profile in Azure IoT Central, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Configure your application dashboard](howto-configure-homepage.md)
+> [Toggle live chat](howto-show-hide-chat.md)

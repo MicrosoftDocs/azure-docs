@@ -3,8 +3,8 @@ title: Visualize network traffic patterns with Azure Network Watcher and open so
 description: This page describes how to use Network Watcher packet capture with Capanalysis to visualize traffic patterns to and from your VMs.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor:
 
 ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Visualize network traffic patterns to and from your VMs using open-source tools
