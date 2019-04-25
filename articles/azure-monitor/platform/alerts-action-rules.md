@@ -1,6 +1,6 @@
 ---
 title: Action rules for Azure Monitor alerts
-description: Understanding what action rules are, how to use them and best practices
+description: Understanding what action rules are, and how to configure and manage them.
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -12,7 +12,7 @@ ms.component: alerts
 
 # Action rules (preview)
 
-This article describes what action rules are, how to use them and best practices.
+This article describes what action rules are, and how to configure and manage them.
 
 ## What are action rules?
 
