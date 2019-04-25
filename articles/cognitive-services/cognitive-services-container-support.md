@@ -15,7 +15,16 @@ ms.author: diberry
 
 # Container support in Azure Cognitive Services
 
-Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with [Docker containers](https://www.docker.com/what-container). Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), [Text Analytics](text-analytics/overview.md), and [Language Understanding](LUIS/luis-container-howto.md) (LUIS) .
+Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with [Docker containers](https://www.docker.com/what-container). Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of:
+
+* [Anomaly Detector](Anomaly-Detector/overview.md)
+* [Computer Vision](Computer-vision/Home.md)
+* [Face](Face/Overview.md)
+* [Form Recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
+* [Language Understanding](LUIS/luis-container-howto.md) (LUIS)
+* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
+* [Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
+* [Text Analytics](text-analytics/overview.md)
 
 Containerization is an approach to software distribution in which an application or service, including its dependencies & configuration, is packaged together as a container image. With little or no modification, a container image can be deployed on a container host. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed.
 
@@ -23,7 +32,7 @@ The following video demonstrates using a Cognitive Services container.
 
 [![Container demonstration for Cognitive Services](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
 
-The [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), [Text Analytics](text-analytics/overview.md), and [Language Understanding (LUIS)](LUIS/what-is-luis.md) services are available on [Microsoft Azure](https://azure.microsoft.com). Sign into the [Azure portal](https://portal.azure.com/) to create and explore Azure resources for these services.
+Cognitive Services resources are available on [Microsoft Azure](https://azure.microsoft.com). Sign into the [Azure portal](https://portal.azure.com/) to create and explore Azure resources for these services.
 
 ## Features and benefits
 
@@ -39,14 +48,14 @@ Azure Cognitive Services containers provide the following set of Docker containe
 
 | Service | Supported Pricing Tier | Container | Description |
 |---------|----------|----------|-------------|
-|[Anomaly detector](https://go.microsoft.com/fwlink/?linkid=2083925&clcid=0x409) |F0, S0|**Anomaly-Detector** ([image](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409))|The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning.|
+|[Anomaly detector](https://go.microsoft.com/fwlink/?linkid=2083925&clcid=0x409) |F0, S0|**Anomaly-Detector** |The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning.<br>[Request access](https://aka.ms/adcontainer)|
 |[Computer Vision](Computer-vision/computer-vision-how-to-install-containers.md) |F0, S1|**Recognize Text** |Extracts printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.<br/><br/>**Important:** The Recognize Text container currently works only with English.<br>[Request access](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Face](Face/face-how-to-install-containers.md) |F0, S0|**Face** |Detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits.<br>[Request access](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Form recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Form Recognizer** |Form Understanding applies machine learning technology to identify and extract key-value pairs and tables from forms.<br>[Request access](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([image](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Loads a trained or published Language Understanding model, also known as a LUIS app, into a docker container and provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload these back to the [LUIS portal](https://www.luis.ai) to improve the app's prediction accuracy.|
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalization** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
-|[Speech](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Speech-to-text** |Transcribes continuous real-time speech into text.<br>[Request access](https://aka.ms/speechcontainerspreview/)|
-|[Speech](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Text-to-speech** |Converts text to natural-sounding speech.<br>[Request access](https://aka.ms/speechcontainerspreview/)|
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+|[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Speech-to-text** |Transcribes continuous real-time speech into text.<br>[Request access](https://aka.ms/speechcontainerspreview/)|
+|[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Text-to-speech** |Converts text to natural-sounding speech.<br>[Request access](https://aka.ms/speechcontainerspreview/)|
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Key Phrase Extraction** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extracts key phrases to identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". |
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. |
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Sentiment Analysis** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analyzes raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. The analysis models are pre-trained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](./text-analytics/language-support.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application. |
@@ -87,7 +96,11 @@ Developer samples are available at our [GitHub repository](https://github.com/Az
 
 Install and explore the functionality provided by containers in Azure Cognitive Services:
 
-* [Install and use Computer Vision containers](Computer-vision/computer-vision-how-to-install-containers.md)
-* [Install and use Face containers](Face/face-how-to-install-containers.md)
-* [Install and use Text Analytics containers](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
-* [Install and use Language Understanding (LUIS) containers](LUIS/luis-container-howto.md)
+* [Anomaly Detector containers](Anomaly-Detector/anomaly-detector-container-howto.md)
+* [Computer Vision containers](Computer-vision/computer-vision-how-to-install-containers.md)
+* [Face containers](Face/face-how-to-install-containers.md)
+* [Form Recognizer containers](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
+* [Language Understanding (LUIS) containers](LUIS/luis-container-howto.md)
+* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
+* [Speech Service API containers](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
+* [Text Analytics containers](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
