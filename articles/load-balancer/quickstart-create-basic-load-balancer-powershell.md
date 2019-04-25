@@ -330,7 +330,7 @@ You can then enter the public IP address in to a web browser. The website is dis
 
 ![Test load balancer](media/quickstart-create-basic-load-balancer-powershell/load-balancer-test.png)
 
-To see the load balancer distribute traffic across all two VMs running your app, you can force-refresh your web browser.
+To see the load balancer distribute traffic across both VMs running your app, you can force-refresh your web browser.
 
 ## Clean up resources
 
