@@ -44,10 +44,11 @@ If you are using a [Cosmos DB indexer](search-howto-index-cosmosdb.md ), you mus
 
 ### Indexer execution result errors no longer have status
 
-The error structure for indexer execution previously had a `status` element. This element is now removed. In practice, it was always false for errors, providing no informational value.
+The error structure for indexer execution previously had a `status` element. This element is now removed. In practice, it was always false for errors, thus providing no informational value.
 
 ### Indexer data source API no longer returns connection strings
 
+From API versions 2019-05-06 and 2019-05-06-Preview onwards, the data source API no longer returns  connection strings in the response of any REST operation.
 
 ### Named Entity Recognition cognitive skill is now discontinued
 
