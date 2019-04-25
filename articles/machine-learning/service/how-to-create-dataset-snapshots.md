@@ -15,15 +15,15 @@ ms.date: 05/02/2019
 
 # Create Dataset snapshots (Preview)
 
-In this article, you learn to use the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) to take Dataset snapshots, access its summary statistics and delete it when not in use.
+In this article, you learn to use the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) to take [Azure Machine Learning Dataset](how-to-create-register-datasets.md) snapshots, access a snapshot's summary statistics and data copy, and delete snapshots when not in use.
 
-When you create a snapshot of an Azure Machine Learning Dataset, you generate the current summary statistics, and have the option to save a copy of your data. These are useful for the following:  
+When you create a snapshot of an Azure Machine Learning Dataset, you generate the current summary statistics, and have the option to save a copy of your data. These are useful for implementing concepts such as:  
 
-    * Comparison of your data between training runs. You can also take snapshots of your training data and compare them to model production data. This can help confirm the validity of your machine learning models.
+* Model validity. Take snapshots between training runs and compare your data. You can also take snapshots of your training data and compare them to model production data. This helps confirm the validity of your machine learning models.
 
-    * Reproducibility. Ensure the results of your machine learning models are reproducible by saving a snapshot and its data copy prior to training.
+* Reproducibility. Prior to and after training, take a snapshot and save the data copies. Compare them to ensure the results of your machine learning models are reproducible.
 
-    * Tracking the evolution of your data over time by taking snapshots and saving regularly.
+* Data evolution. Track the evolution of your data over time. Take snapshots regularly, and opt to save the data copies.
   
 ## Prerequisites
 
@@ -43,7 +43,7 @@ To create a snapshot, you need:
 
 Snapshots are based on the latest definition of your Dataset. For more information about definitions, see [Update and manage dataset definitions](how-to-manage-dataset-definitions.md).
 
-The following retrieves an existing registered Dataset from your workspace and takes a snapshot. The [`create_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) method generates the current profile of your data, and gives you the option to save a copy of your data. To not incur storage cost, this method does **not** save a copy of the data in your workspace. To save a copy of your data, set `create_data_snapshot = True`; this saves it to the default datastore of your workspace.
+The following retrieves an existing registered Dataset from your workspace and takes a snapshot. The [`create_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) method generates the current profile of your data, and gives you the option to save a copy of your data. To not incur additional storage costs, this method does **not** save a copy of the data in your workspace. To save a copy of your data, set `create_data_snapshot = True`; this saves it to the default datastore of your workspace.
 
 ```Python
 from azureml.core.dataset import Workspace, Dataset
@@ -64,7 +64,7 @@ snapshot = dataset.create_snapshot(snapshot_name = snapshot_name,
 ```
 
 >[!NOTE]
-> If a snapshot with the same name already exists, the `create_snapshot()` method returns the existing one.
+> If a snapshot with the same name already exists and `create_data_snapshot = False`, the `create_snapshot()` method returns the existing one.
 
 To retrieve an existing snapshot, use [`get_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-snapshot-snapshot-name-).
 
@@ -97,7 +97,7 @@ Action status: Running
 Action status: Completed
 ```
 
-## How to access the data profile and optional data copy of a snapshot
+## How to access the data profile and saved data copy of a snapshot
 
 Every snapshot generates a profile of the dataset, which includes summary statistics, and gives you the option to save a copy of your data.
 
@@ -147,9 +147,9 @@ snapshot.to_pandas_dataframe().head(5)
 3|10519591|HZ261534|2016-04-15 09:00:00|113XX S PRAIRIE AVE|1120|DECEPTIVE PRACTICE|FORGERY|RESIDENCE|False|False|...|9|49|10|NaN|NaN|2016|2016-05-13 15:51:00|NaN|NaN|
 4|10534446|HZ277630|2016-04-15 10:00:00|055XX N KEDZIE AVE|890|THEFT|FROM BUILDING|SCHOOL, PUBLIC, BUILDING|False|False|...|40|13|6|NaN|NaN|2016|2016-05-25 15:59:00|NaN|NaN|
 
-## How to delete snapshots
+## Delete snapshots
 
-Saving a copy of the snapshot will incur storage costs, so you may want to delete the snapshot when it’s no longer in use. To do so, use [`delete_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#delete-snapshot-snapshot-name-).
+Saving both the profile and copy your data from the snapshot incurs storage costs, so you may want to delete the snapshot when it’s no longer in use. To do so, use [`delete_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#delete-snapshot-snapshot-name-).
 
 ```Python
 # delete the snapshot by name
@@ -165,4 +165,4 @@ dataset.get_all_snapshots()
 ## Next steps
 
 * See the automated machine learning [tutorial](tutorial-auto-train-models.md) for a regression model example.
-* See the SDK [overview](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) for design patterns and usage examples
+* See the SDK [overview](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) for design patterns and usage examples.
