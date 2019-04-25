@@ -129,6 +129,8 @@
       href: platform/activity-log-alerts.md  
     - name: Common alert schema
       href: platform/alerts-common-schema.md
+    - name: Action rules
+      href: platform/alerts-action-rules.md  
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations

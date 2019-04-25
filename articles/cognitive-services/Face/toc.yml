@@ -75,10 +75,6 @@
       href: face-resource-container-config.md
   - name: Use the Face API Connected Service
     href: vs-face-connected-service.md
-- name: Samples
-  items:
-  - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
 - name: Reference
   items:
   - name: Face API
@@ -99,6 +95,10 @@
       href: https://github.com/Microsoft/Cognitive-Face-iOS
 - name: Resources
   items:
+  - name: Samples
+    items:
+    - name: Face API samples
+      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
   - name: UserVoice
