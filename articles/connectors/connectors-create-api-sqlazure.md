@@ -193,7 +193,7 @@ For more information, see
   the costs resulting from calls to the database.
 
   To organize the results in the way that you want, you can create a 
-  <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*stored procedure*</a> 
+  [*stored procedure*](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) 
   that runs in your SQL instance and uses the **SELECT - ORDER BY** statement. 
   This solution gives you more control over the size and structure of your results. 
   Your logic app calls the stored procedure by using the SQL Server connector's 
@@ -201,9 +201,9 @@ For more information, see
 
   For solution details, see these articles:
 
-  * <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">SQL Pagination for bulk data transfer with Logic Apps</a>
+  * [SQL Pagination for bulk data transfer with Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
-  * <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">SELECT - ORDER BY Clause</a>
+  * [SELECT - ORDER BY Clause](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ## Connector-specific details
 
