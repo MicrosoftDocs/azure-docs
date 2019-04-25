@@ -70,12 +70,14 @@ Use PowerShell
 3. Check the **EnableIPForwarding** property.
 4. If IP forwarding is not enabled, run the following commands to enable it:
 
+   ```powershell
    $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
    $nic2.EnableIPForwarding = 1
    Set-AzNetworkInterface -NetworkInterface $nic2
    Execute: $nic2 #and check for an expected output:
    EnableIPForwarding   : True
    NetworkSecurityGroup : null
+   ```
 
 **Check for NSG when using Standard SKU Pubilc IP**
 When using a Standard SKU and Public IPs, there must be an NSG created and an explicit rule to allow the traffic to the NVA.
