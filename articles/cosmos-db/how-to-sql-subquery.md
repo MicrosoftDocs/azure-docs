@@ -34,7 +34,7 @@ Subqueries can be further classified based on the number of rows and columns tha
 Azure Cosmos DB SQL queries always return a single column (either a simple value or a complex document). Therefore, only Multi-Value and Scalar subqueries from above are applicable in Azure Cosmos DB. A Multi-Value subquery can only be used in the FROM clause as a relational expression, while a Scalar subquery can be used as a scalar expression in the SELECT or WHERE clause or as a relational expression in the FROM clause.
 
 
-## <a id="Multi-Value Subqueries"></a>Multi-Value subqueries
+## Multi-Value subqueries
 
 Multi-Value subqueries return a set of documents and are always used within the FROM clause. They are used for:
 
@@ -106,7 +106,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-The approach is not limited to UDFs, but rather, to any potentially expensive expression. For instance example, we could take the same approach with the mathematical function avg:
+The approach is not limited to UDFs, but rather, to any potentially expensive expression. For example, we could take the same approach with the mathematical function avg:
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -347,7 +347,7 @@ WHERE count_mg > 20
 ### EXISTS expression
 
 Azure Cosmos DB supports EXISTS expressions. This is an aggregate scalar subquery built into the Azure Cosmos DB SQL API. EXISTS is a Boolean expression that takes a subquery expression and returns true if the subquery returns any rows; otherwise, it returns false.
-Since Azure Cosmos DB SQL API does not differentiate between Boolean expressions and any other scalar expressions, EXISTS can be used in both SELECT and WHERE clauses,  This is unlike T-SQL, where a Boolean expression (e.g. EXISTS, BETWEEN, and IN) is restricted to the filter.
+Since Azure Cosmos DB SQL API does not differentiate between Boolean expressions and any other scalar expressions, EXISTS can be used in both SELECT and WHERE clauses. This is unlike T-SQL, where a Boolean expression (e.g. EXISTS, BETWEEN, and IN) is restricted to the filter.
 
 If the EXISTS subquery returns a single value that is undefined, then EXISTS will evaluate to false. For instance, consider the following query that evaluates to false:
 ```sql
