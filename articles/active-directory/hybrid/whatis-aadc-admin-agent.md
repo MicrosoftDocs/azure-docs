@@ -25,7 +25,7 @@ When installed, the Azure AD Connect Administration Agent waits for specific req
 The information that the Azure AD Connect Administration Agent retrieves from your environment is not stored in any way - it is only displayed to the Microsoft support engineer to assist them in investigating and troubleshooting the Azure Active Directory Connect related support case that you opened 
 The Azure AD Connect Administration Agent is not installed on the Azure AD Connect Server by default. 
 
-### How to install the Azure AD Connect Administration Agent on the Azure AD Connect server? 
+## How to install the Azure AD Connect Administration Agent on the Azure AD Connect server? 
 The Azure AD Connect Administration Agent binaries are placed in the AAD Connect server. To install the agent, do the following: 
 
 
