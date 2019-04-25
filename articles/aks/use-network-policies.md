@@ -20,6 +20,15 @@ This article shows you how to install the network policy engine and create Kuber
 
 You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
+> [!TIP]
+> If you used the network policy feature during preview, we recommend that you [create a new cluster](#create-an-aks-cluster-and-enable-network-policy).
+> 
+> If you wish to continue using existing test clusters that used network policy during preview, upgrade your cluster to a new Kubernetes versions for the latest GA release and then deploy the following YAML manifest to fix the crashing metrics server and Kubernetes dashboard. This fix is only required for clusters that used the Calico network policy engine.
+>
+> As a security best practice, [review the contents of this YAML manifest][calico-aks-cleanup] to understand what is deployed into the AKS cluster.
+>
+> `kubectl apply -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
+
 ## Overview of network policy
 
 All pods in an AKS cluster can send and receive traffic without limitations, by default. To improve security, you can define rules that control the flow of traffic. Back-end applications are often only exposed to required front-end services, for example. Or, database components are only accessible to the application tiers that connect to them.
@@ -457,6 +466,7 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 [calicoctl]: https://docs.projectcalico.org/v3.6/reference/calicoctl/
 [calico-support]: https://www.projectcalico.org/support
 [calico-logs]: https://docs.projectcalico.org/v3.6/maintenance/component-logs
+[calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
