@@ -8,6 +8,7 @@ ms.date: 04/03/2019
 ms.topic: overview
 manager: carmonm
 ---
+
 # Azure Delegated Resource Management
 
 Azure Delegated Resource Management is one of the key components of the Microsoft Azure Service Provider Management Toolkit. With Azure Delegated Resource Management, service providers can  simplify customer engagement and onboarding experiences, while managing delegated resources at scale with agility and precision.

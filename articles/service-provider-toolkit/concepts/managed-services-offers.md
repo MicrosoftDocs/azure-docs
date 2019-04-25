@@ -11,7 +11,7 @@ manager: carmonm
 
 # Managed services offers in Azure Marketplace
 
-This article describes the new **Managed Services** offer type in [Azure Marketplace](https://azuremarketplace.microsoft.com), which allow service providers to offer resource management services with Azure Delegated Resource Management. You can make these offers available to all potential customers, or only to a specific set of one or more customers that you define.
+This article describes the new **Managed Services** offer type in [Azure Marketplace](https://azuremarketplace.microsoft.com), which allows service providers to offer resource management services with Azure Delegated Resource Management. You can make these offers available to all potential customers, or only to a specific set of one or more customers that you define.
 
 > [!IMPORTANT]
 > Azure Delegated Resource Management is currently in limited public preview. The info in this topic may change before general availability.

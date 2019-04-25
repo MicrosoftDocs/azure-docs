@@ -8,6 +8,7 @@ ms.date: 04/03/2019
 ms.topic: overview
 manager: carmonm
 ---
+
 # Publish a managed services offer to Azure Marketplace
 
 > [!IMPORTANT]

@@ -8,6 +8,7 @@ ms.date: 04/03/2019
 ms.topic: overview
 manager: carmonm
 ---
+
 # Cross-tenant management experience
 
 > [!IMPORTANT]
@@ -102,4 +103,4 @@ With all scenarios, please be aware of the following current limitations:
 ## Next steps
 
 - Onboard your customers to Azure Delegated Resource Management, either by [using Azure Resource Manager templates](../how-to/onboard-customer.md) or by [publishing a managed services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md).
-- [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.
+- [View and manage customers](../how-to/view-manage-customers.md) by going to **My customers** in the Azure portal.

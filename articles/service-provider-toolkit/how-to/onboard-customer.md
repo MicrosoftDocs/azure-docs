@@ -8,6 +8,7 @@ ms.date: 04/03/2019
 ms.topic: overview
 manager: carmonm
 ---
+
 # Onboard a customer to Azure Delegated Resource Management
 
 > [!IMPORTANT]
