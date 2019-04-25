@@ -109,7 +109,7 @@ To deploy an IBM Db2 configuration, you need to follow these steps:
   + Update SUSE Linux and configure file systems.
   + Install and configure Pacemaker.
   + Install [highly available NFS][nfs-ha].
-  + Install [ASCS/ERS on separate cluster][ascs-ha] .
+  + Install [ASCS/ERS on a separate cluster][ascs-ha] .
   + Install IBM Db2 database with Distributed/High Availability option (SWPM).
   + Install and create a secondary database node and instance, and configure HADR.
   + Confirm that HADR is working.
@@ -331,7 +331,7 @@ Execute command as db2&lt;sid&gt; db2pd -hadr -db &lt;SID&gt;
 
 ## Db2 Pacemaker configuration
 
-When you use Pacemaker for automatic failover in case of a node failure, you need to configure your Db2 instances and Pacemaker accordingly. This section describes this type of configuration.
+When you use Pacemaker for automatic failover in the event of a node failure, you need to configure your Db2 instances and Pacemaker accordingly. This section describes this type of configuration.
 
 The following items are prefixed with either:
 
@@ -346,7 +346,7 @@ The following items are prefixed with either:
 
 ### Pacemaker configuration
 
-**[1]** IBM Db2 HADR specific Pacemaker configuration:
+**[1]** IBM Db2 HADR-specific Pacemaker configuration:
 <pre><code># Put Pacemaker into maintenance mode
 sudo crm configure property maintenance-mode=true
 </code></pre>
@@ -455,7 +455,7 @@ To configure Azure Load Balancer, we recommend that you use the [Azure Standard 
 
 1. Create the load-balancing rules:
 
-   a. In the Azure portal, open the Azure Load Balancer, select **load balancing rules**, and select **Add**.
+   a. In the Azure portal, open the Azure Load Balancer, select **Load balancing rules**, and then select **Add**.
 
    b. Enter the name of the new Load Balancer rule (for example, **Db2-SID**).
 
@@ -508,7 +508,7 @@ Use the J2EE Config tool to check or update the JDBC URL. Because the J2EE Confi
 ## Configure log archiving for HADR setup
 To configure the Db2 log archiving for HADR setup, we recommend that you configure both the primary and the standby database to have automatic log retrieval capability from all log archive locations. Both the primary and standby database must be able to retrieve log archive files from all the log archive locations to which either one of the database instances might archive log files. 
 
-The log archiving is performed only by the primary database. If you change the HADR roles of the database servers or if a failure occurs, the new primary database is responsible for log archiving. If you've set up multiple log archive locations, your logs might be archived twice. In the case of local or remote catch-up, you might also have to manually copy the archived logs from the old primary server to the active log location of the new primary server.
+The log archiving is performed only by the primary database. If you change the HADR roles of the database servers or if a failure occurs, the new primary database is responsible for log archiving. If you've set up multiple log archive locations, your logs might be archived twice. In the event of a local or remote catch-up, you might also have to manually copy the archived logs from the old primary server to the active log location of the new primary server.
 
 We recommend configuring a common NFS share where logs are written from both nodes. The NFS share has to be highly available. 
 
@@ -678,7 +678,7 @@ Failed Actions:
 
 </code></pre>
 
-Pacemaker will restart the Db2 primary database instance on the same node, or it will failover to the node that's running the secondary database instance and an error is reported.
+Pacemaker will restart the Db2 primary database instance on the same node, or it will fail over to the node that's running the secondary database instance and an error is reported.
 
 <pre><code>2 nodes configured
 5 resources configured
@@ -879,7 +879,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
      Stopped: [ azibmdb01 ] </code></pre>
 
 
-In the case of "halting" the node, the failed node has to be restarted via Azure Management tools (in the Azure portal, PowerShell, or the Azure CLI). After the failed node is back online, it starts the Db2 instance into the secondary role.
+In the event of a "halting" of the node, the failed node has to be restarted via Azure Management tools (in the Azure portal, PowerShell, or the Azure CLI). After the failed node is back online, it starts the Db2 instance into the secondary role.
 
 <pre><code>2 nodes configured
 5 resources configured
