@@ -134,7 +134,7 @@ After a few minutes, `az openshift create` will complete successfully and return
 
 ## Step 3: Sign in to the OpenShift console
 
-You're now ready to to sign in to the OpenShift console for your new cluster. The [OpenShift Web Console]https://docs.openshift.com/dedicated/architecture/infrastructure_components/web_console.html) enables you to visualize, browse, and manage the contents of your OpenShift projects.
+You're now ready to to sign in to the OpenShift console for your new cluster. The [OpenShift Web Console](https://docs.openshift.com/dedicated/architecture/infrastructure_components/web_console.html) enables you to visualize, browse, and manage the contents of your OpenShift projects.
 
 We'll sign in as the [new Azure AD user](howto-aad-app-configuration.md#create-a-new-active-directory-user) you created for testing. To do this, you'll need a fresh browser instance that hasn't cached the identity you normally use to sign in to the Azure portal.
 
