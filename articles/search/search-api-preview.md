@@ -24,7 +24,7 @@ This article describes the `api-version=2019-05-06-Preview` version of Azure Sea
 
 ## New in 2019-05-06-Preview
 
-[**knowledge store**](search-autocomplete-tutorial.md) is a new destination of an AI-based enrichment pipeline. In addition to an index, you can now persist populated data structures created during indexing in Azure storage. You control the physical structures of your data through elements in a Skillset, including how data is shaped, whether data is stored in Table storage or Blob storage, and whether there are multiple views.
+[**Knowledge store**](search-autocomplete-tutorial.md) is a new destination of an AI-based enrichment pipeline. In addition to an index, you can now persist populated data structures created during indexing in Azure storage. You control the physical structures of your data through elements in a Skillset, including how data is shaped, whether data is stored in Table storage or Blob storage, and whether there are multiple views.
 
 [**Customer-managed encryption keys**](cognitive-search-concept-intro.md) for service-side encryption-at-rest is a new capability in Azure Search making its entrance in this preview release. In addition to the built-in encryption-at-rest managed by Microsoft, you can apply an additional layer of encryption where you are the sole owner of the keys.
 
@@ -53,4 +53,4 @@ Azure Search service is available in multiple versions. For more information, se
 Review the Azure Search Service REST API reference documentation. If you encounter problems, ask us for help on [StackOverflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Search service REST API Reference](https://docs.microsoft.com/rest/api/searchservice/).
+> [Search service REST API Reference](https://docs.microsoft.com/rest/api/searchservice/)

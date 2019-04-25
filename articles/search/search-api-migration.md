@@ -62,5 +62,5 @@ If your code uses these features, you will not be able to upgrade to generally a
 Review the Azure Search Service REST API reference documentation. If you encounter problems, ask us for help on [StackOverflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Search service REST API Reference](https://docs.microsoft.com/rest/api/searchservice/).
+> [Search service REST API Reference](https://docs.microsoft.com/rest/api/searchservice/)
 
