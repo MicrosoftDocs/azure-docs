@@ -15,7 +15,7 @@ ms.author: cshoe
 
 # Register Azure Functions binding extensions
 
-As of Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles also allow other functions access to all bindings through a configuration setting.
+As of Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow other functions access to all bindings through a configuration setting.
 
 Consider the following items pertaining to binding extensions:
 
