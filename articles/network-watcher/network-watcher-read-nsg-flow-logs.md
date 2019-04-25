@@ -3,8 +3,8 @@ title: Read NSG flow logs | Microsoft Docs
 description: This article shows how to parse NSG flow logs
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor:
 
 ms.service: network-watcher
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 12/13/2017
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Read NSG flow logs
