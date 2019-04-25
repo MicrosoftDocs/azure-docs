@@ -18,9 +18,6 @@
   - name: Voice-first virtual assistants (Preview)
     href: voice-first-virtual-assistants.md
     displayName: virtual assistants, speech-enabled bots, conversational agents
-  - name: REVIEW ONLY - Channel doc
-    href: reviewonly-bot-service-channel-connect-directlinespeech.md
-    displayName: remove this block prior to actual commit!    
 - name: Quickstarts
   items:
   - name: Speech SDK
