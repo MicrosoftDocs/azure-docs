@@ -21,13 +21,13 @@ ms.reviewer: azmetadata
 # Azure Instance Metadata service
 
 The Azure Instance Metadata Service provides information about running virtual machine instances that can be used to manage and configure your virtual machines.
-This includes information such as SKU, network configuration, and upcoming maintenance events. For more information on what type of information is available, see [metadata endpoints](#metadata-endpoints).
+This includes information such as SKU, network configuration, and upcoming maintenance events. For more information on what type of information is available, see [metadata APIs](#metadata-apis).
 
 Azure's Instance Metadata Service is a REST Endpoint accessible to IaaS VMs created via the [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
 The endpoint is available at a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.
 
 > [!IMPORTANT]
-> This service is  **generally available** in Azure Regions.  It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [metadata endpoints](#metadata-endpoints) available.
+> This service is  **generally available** in Azure Regions.  It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [metadata APIs](#metadata-apis) available.
 
 ## Service availability
 
@@ -330,17 +330,19 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 }
 ```
 
-## Metadata endpoints
+## Metadata APIs
 
-### The following categories are available through the Metadata endpoint:
+#### The following APIs are available through the metadata endpoint:
 
 Data | Description | Version Introduced
 -----|-------------|-----------------------
-scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
-identity | Managed identities for Azure resources. See [acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 attested | See [Attested Data](#attested-data) | 2018-10-01
+identity | Managed identities for Azure resources. See [acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+instance | See [Instance API](#instance-api) | 2017-04-02
+scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
 
-### The following Compute categories are available through the Instance endpoint:
+#### Instance API
+##### The following Compute categories are available through the Instance API:
 
 > [!NOTE]
 > Through the metadata endpoint, the following categories are accessed through instance/compute
@@ -370,7 +372,7 @@ vmScaleSetName | [Virtual Machine ScaleSet Name](../../virtual-machine-scale-set
 vmSize | [VM size](sizes.md) | 2017-04-02
 zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
 
-### The following Network categories are available through the Instance endpoint:
+##### The following Network categories are available through the Instance API:
 
 > [!NOTE]
 > Through the metadata endpoint, the following categories are accessed through instance/network/interface
