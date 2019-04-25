@@ -77,7 +77,7 @@ To deploy a New web service derived from your experiment:
 1. Select **Deploy Web Service** below the canvas.
 1. Select the **Compute Target** that you'd like to run your web service.
 
-    Currently, Studio V2 only supports deployment to Azure Kubernetes Service (AKS) compute targets. You can choose from available AKS compute targets in your machine learning service workspace or configure a new AKS environment using the steps in the dialogue that appears.
+    Currently, the visual interface only supports deployment to Azure Kubernetes Service (AKS) compute targets. You can choose from available AKS compute targets in your machine learning service workspace or configure a new AKS environment using the steps in the dialogue that appears.
 
     ![Screenshot showing a possible configuration for a new compute target](./media/ui-tutorial-automobile-price-deploy/deploy-compute.png)
 
@@ -127,9 +127,9 @@ Navigate to the **API Doc** tab, to find more API details.
 
   ![Screenshot showing additional API details that users can find in the API Doc tab](./media/ui-tutorial-automobile-price-deploy/web-service-api.png)
 
-## Manage experiments
+## Manage models and deployments
 
-The experiments you create in the visual interface can be managed from the Azure Machine Learning service workspace. Use the workspace to see more detailed information such as individuals experiment runs, diagnostic logs, execution graphs, and more.
+The models and web service deployments you create in the visual interface can be managed from the Azure Machine Learning service workspace.
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).  
 

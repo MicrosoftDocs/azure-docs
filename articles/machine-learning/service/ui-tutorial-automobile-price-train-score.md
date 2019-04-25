@@ -75,7 +75,7 @@ If you didn't complete the quickstart, follow these steps to quickly create a ne
 
 1. Select **EXPERIMENT** >  **Blank Experiment**.
 
-1. Select the default experiment name at the top of the canvas and rename it to something meaningful. For example, **Automobile price prediction**. The name doesn't need to be unique.
+1. Select the default experiment name **"Experimented Created on ...**" at the top of the canvas and rename it to something meaningful. For example, **Automobile price prediction**. The name doesn't need to be unique.
 
 1. To the left of the experiment canvas is a palette of datasets and modules. To find modules, use the search box at the top of the module palette. Type **automobile** in the search box to find the dataset labeled **Automobile price data (Raw)**. Drag this dataset to the experiment canvas.
 
@@ -129,7 +129,11 @@ Use your data for both training the model and testing it by splitting the data i
 
 1. Double-click the **Split Data** and type the comment "Split the dataset into training set(0.7) and test set(0.3)"
 
-1. To select the learning algorithm, expand the **Machine Learning** category in the module palette to the left of the canvas, and then expand **Initialize Model**. This displays several categories of modules that can be used to initialize machine learning algorithms. For this experiment, select **Regression** > **Linear Regression** and drag it to the experiment canvas. (You can also find the module by typing "linear regression" in the palette Search box.)
+1. To select the learning algorithm, clear your module palette search box.
+
+1. Expand the **Machine Learning** then expand **Initialize Model**. This displays several categories of modules that can be used to initialize machine learning algorithms.
+
+1. For this experiment, select **Regression** > **Linear Regression** and drag it to the experiment canvas.
 
     ![Screenshot showing the correct configuration of the properties pane. Values of "Split Data" should be "Split Rows", 0.7, Randomized split, 0, False.](./media/ui-tutorial-automobile-price-train-score/linear-regression-module.png)
 
@@ -137,7 +141,7 @@ Use your data for both training the model and testing it by splitting the data i
 
     ![Screenshot showing the correct configuration of the Train Model module. The Linear Regression module connects to left port of Train Model module and the Split Data module connects to right port of Train Model](./media/ui-tutorial-automobile-price-train-score/train-model.png)
 
-1. Select the **Train Model** module. In the Properties pane, Select Launch column selector and then select the **price** column. Price is the value that your model is going to predict
+1. Select the **Train Model** module. In the Properties pane, Select Launch column selector and then type **price** next to **Include column names**. Price is the value that your model is going to predict
 
      ![Screenshot showing the correct configuration for the column selector module. With rules > Include column names > "price"](./media/ui-tutorial-automobile-price-train-score/select-price.png)
 
