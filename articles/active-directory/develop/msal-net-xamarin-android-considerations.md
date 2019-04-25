@@ -21,7 +21,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Xamarin Android specific considerations with MSAL.NET
+# Xamarin Android-specific considerations with MSAL.NET
 This article discusses specific considerations when using Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 
 This article is for MSAL.NET 3.x. If you are interested in MSAL.NET 2.x, see [Xamarin Android specifics in MSAL.NET 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Xamarin-Android-specifics-2x).
@@ -103,7 +103,7 @@ This is probably because Visual Studio did not correctly update the Android.cspr
 </Reference>
 ```
 
-## Samples 
+## Next steps
 
 More details and samples are provided in the [Android Specific Considerations](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations) paragraph of the following sample's readme.md file:
 

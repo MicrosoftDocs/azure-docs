@@ -217,7 +217,7 @@
           href: msal-logging.md
         - name: Provide your own HttpClient (.NET)
           href: msal-net-provide-httpclient.md
-        - name: Platform specific considerations (.NET)
+        - name: Platform-specific considerations (.NET)
           items:
           - name: Web browsers
             href: msal-net-web-browsers.md
@@ -227,9 +227,9 @@
             href: msal-net-system-browser-android-considerations.md
           - name: Xamarin iOS
             href: msal-net-xamarin-ios-considerations.md
-          - name: UWP
+          - name: Universal Windows Platform
             href: msal-net-uwp-considerations.md
-          - name: Applying an AAD B2C policy
+          - name: Apply an AAD B2C policy
             href: msal-net-aad-b2c-considerations.md
     - name: Authentication
       items:

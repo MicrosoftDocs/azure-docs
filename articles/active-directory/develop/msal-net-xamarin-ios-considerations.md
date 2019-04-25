@@ -21,7 +21,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Xamarin iOS specific considerations with MSAL.NET
+# Xamarin iOS-specific considerations with MSAL.NET
 On Xamarin iOS, there are several considerations that you must take into account when using MSAL.NET
 
 - [Override and implement the `OpenUrl` function in the `AppDelegate`](#implement-openurl)
@@ -72,13 +72,12 @@ An example of this using MSAL v2.7.x would be:
 PublicClientApplication.iOSKeychainSecurityGroup = "com.microsoft.msalrocks";
 ```
 
-### Note: KeychainSecurityGroup Property Deprecated
-
-Previously, in MSAL 2.x, developers were forced to include the TeamId prefix when using the `KeychainSecurityGroup` property. 
-
-Now, starting in MSAL 2.7.x, MSAL will resolve the TeamId prefix during runtime when using the `iOSKeychainSecurityGroup` property. When using this property, the value should not contain the TeamId prefix. 
-
-Use the new `iOSKeychainSecurityGroup` property, which does not require developers to provide the TeamId. The `KeychainSecurityGroup` property is now obsolete. 
+> [!NOTE] KeychainSecurityGroup Property Deprecated
+> Previously, in MSAL 2.x, developers were forced to include the TeamId prefix when using the `KeychainSecurityGroup` property. 
+> 
+> Now, starting in MSAL 2.7.x, MSAL will resolve the TeamId prefix during runtime when using the `iOSKeychainSecurityGroup` property. When using this property, the value should not contain the TeamId prefix. 
+> 
+> Use the new `iOSKeychainSecurityGroup` property, which does not require developers to provide the TeamId. The `KeychainSecurityGroup` property is now obsolete. 
 
 ## Enable keychain access
 
@@ -92,7 +91,7 @@ When initializing the `PublicClientApplication`, if you receive an `MsalClientEx
 2. Then go to iOS Bundle Signing 
 3. Under Custom Entitlements, click the ... and select the Entitlements.plist file from your app
 4. In the csproj file of the iOS app, you should have this line now included:
-``` <CodesignEntitlements>Entitlements.plist</CodesignEntitlements> ```
+`<CodesignEntitlements>Entitlements.plist</CodesignEntitlements>`
 5. **Rebuild** the project.
 
 This is *in addition* to enabling keychain access in the `Entitlements.plist` file, using either the below access group or your own:
@@ -110,7 +109,7 @@ This is *in addition* to enabling keychain access in the `Entitlements.plist` fi
 </plist>
 ```
 
-## Samples 
+## Next steps
 
 More details are provided in the [iOS Specific Considerations](https://github.com/azure-samples/active-directory-xamarin-native-v2#ios-specific-considerations) paragraph of the following sample's readme.md file:
 
