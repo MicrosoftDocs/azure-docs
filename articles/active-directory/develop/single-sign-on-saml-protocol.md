@@ -86,7 +86,7 @@ If `NameIDPolicy` is provided, you can include its optional `Format` attribute. 
 Azure AD ignores the `AllowCreate` attribute.
 
 ### RequestAuthnContext
-The `RequestedAuthnContext` element specifies the desired authentication methods. It is optional in `AuthnRequest` elements sent to Azure AD. Azure AD supports only one `AuthnContextClassRef` value: `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+The `RequestedAuthnContext` element specifies the desired authentication methods. It is optional in `AuthnRequest` elements sent to Azure AD. Azure AD supports `AuthnContextClassRef` values such as `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### Scoping
 The `Scoping` element, which includes a list of identity providers, is optional in `AuthnRequest` elements sent to Azure AD.
