@@ -79,7 +79,7 @@ The following table describes the password policy settings applied to user accou
 | --- | --- |
 | Characters allowed |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> |
 | Characters not allowed |<ul><li>Unicode characters.</li><li>Spaces.</li><li> Cannot contain a dot character "." immediately preceding the "\@\" symbol”.</li></ul> |
-| Password restrictions |<ul><li>A minimum of 8 characters and a maximum of 16 characters.</li><li>Requires three out of four of the following:<ul><li>Lowercase characters.</li><li>Uppercase characters.</li><li>Numbers (0-9).</li><li>Symbols (see the previous password restrictions).</li></ul></li></ul> |
+| Password restrictions |<ul><li>A minimum of 8 characters and a maximum of 265 characters.</li><li>Requires three out of four of the following:<ul><li>Lowercase characters.</li><li>Uppercase characters.</li><li>Numbers (0-9).</li><li>Symbols (see the previous password restrictions).</li></ul></li></ul> |
 | Password expiry duration |<ul><li>Default value: **90** days.</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
 | Password expiry notification |<ul><li>Default value: **14** days (before password expires).</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
 | Password expiry |<ul><li>Default value: **false** days (indicates that password expiry is enabled).</li><li>The value can be configured for individual user accounts by using the `Set-MsolUser` cmdlet.</li></ul> |
