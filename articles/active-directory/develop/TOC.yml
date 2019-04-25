@@ -221,6 +221,20 @@
           href: msal-js-prompt-behavior.md
         - name: Provide your own HttpClient (.NET)
           href: msal-net-provide-httpclient.md
+        - name: Platform-specific considerations (.NET)
+          items:
+          - name: Web browsers
+            href: msal-net-web-browsers.md
+          - name: Xamarin Android
+            href: msal-net-xamarin-android-considerations.md
+          - name: System browser on Android
+            href: msal-net-system-browser-android-considerations.md
+          - name: Xamarin iOS
+            href: msal-net-xamarin-ios-considerations.md
+          - name: Universal Windows Platform
+            href: msal-net-uwp-considerations.md
+          - name: Apply an AAD B2C policy
+            href: msal-net-aad-b2c-considerations.md
     - name: Authentication
       items:
       - name: Authentication basics
