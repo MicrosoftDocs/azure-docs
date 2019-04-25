@@ -19,7 +19,7 @@ This tutorial covers the following tasks:
 > * Create a Twitter app to access streaming data
 > * Create notebooks in Azure Databricks
 > * Attach libraries for Event Hubs and Twitter API
-> * Create a Microsoft Cognitive Services account and retrieve the access key
+> * Create an Anomaly Detector resource and retrieve the access key
 > * Send tweets to Event Hubs
 > * Read tweets from Event Hubs
 > * Run anomaly detection on tweets
@@ -110,7 +110,7 @@ Save the values that you retrieved for the Twitter application. You need the val
 
 ## Attach libraries to Spark cluster
 
-In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You also use the [Apache Spark Event Hubs connector](https://github.com/Azure/azure-event-hubs-spark) to read and write data into Azure Event Hubs. To use these APIs as part of your cluster, add them as libraries to Azure Databricks and then associate them with your Spark cluster. The following instructions show how to add the library to the **Shared** folder in your workspace.
+In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You also use the [Apache Spark Event Hubs connector](https://github.com/Azure/azure-event-hubs-spark) to read and write data into Azure Event Hubs. To use these APIs as part of your cluster, add them as libraries to Azure Databricks and then associate them with your Spark cluster. The following instructions show how to add the libraries to the **Shared** folder in your workspace.
 
 1. In the Azure Databricks workspace, select **Workspace**, and then right-click **Shared**. From the context menu, select **Create** > **Library**.
 
@@ -118,54 +118,56 @@ In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You als
 
 2. In the New Library page, for **Source** select **Maven Coordinate**. For **Coordinate**, enter the coordinate for the package you want to add. Here is the Maven coordinates for the libraries used in this tutorial:
 
-   * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
-   * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
+   * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+   * Twitter API - `org.twitter4j:twitter4j-core:4.0.7`
 
      ![Provide Maven coordinates](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Provide Maven coordinates")
 
-3. Select **Create Library**.
+3. Select **Create**.
 
 4. Select the folder where you added the library, and then select the library name.
 
     ![Select library to add](../media/tutorials/select-library.png "Select library to add")
 
-5. On the library page, select the cluster where you want to use the library. Once the library is successfully associated with the cluster, the status immediately changes to **Attached**.
+5. If there is no cluster in the library page, select **Clusters** and run the cluster you've just created. Wait until the state shows 'Running' and then go back to the library page.
+On the library page, select the cluster where you want to use the library, and then select **Install**. Once the library is successfully associated with the cluster, the status immediately changes to **Installed**.
 
-    ![Attach library to cluster](../media/tutorials/databricks-library-attached.png "Attach library to cluster")
+    ![Install library to cluster](../media/tutorials/databricks-library-attached.png "Install library to cluster")
 
-6. Repeat these steps for the Twitter package, `twitter4j-core:4.0.6`.
+6. Repeat these steps for the Twitter package, `twitter4j-core:4.0.7`.
 
 ## Get a Cognitive Services access key
 
-In this tutorial, you use the [Microsoft Cognitive Services Anomaly Detector APIs](../overview.md) to run anomaly detection on a stream of tweets in near real time. Before you use the APIs, you must create a Microsoft Cognitive Services account on Azure and retrieve an access key to use the Text Analytics APIs.
+In this tutorial, you use the [Microsoft Cognitive Services Anomaly Detector APIs](../overview.md) to run anomaly detection on a stream of tweets in near real time. Before you use the APIs, you must create an Anomaly Detector resource on Azure and retrieve an access key to use the Anomaly Detector APIs.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Select **+ Create a resource**.
 
-3. Under Azure Marketplace, Select **AI + Cognitive Services** > **Anomaly Detector API**.
+3. Under Azure Marketplace, Select **AI + Machine Learning** > **Cognitive Services - More** > **Anomaly Detector**. Or you could use [this link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) to go to the **Create** dialog box directly.
 
-    ![Create cognitive services account](../media/tutorials/databricks-cognitive-services-text-api.png "Create cognitive services account")
+    ![Create Anomaly Detector resource](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Create Anomaly Detector resource")
 
 4. In the **Create** dialog box, provide the following values:
 
-    ![Create cognitive services account](../media/tutorials/create-cognitive-services-account.png "Create cognitive services account")
+    ![Create Anomaly Detector resource](../media/tutorials/create-cognitive-services-account.png "Create Anomaly Detector resource")
 
-   - Enter a name for the Cognitive Services account.
-   - Select the Azure subscription under which the account is created.
+   - Enter a name for the Anomaly Detector resource.
+   - Select the Azure subscription under which the resource is created.
    - Select an Azure location.
-   - Select a pricing tier for the service. For more information about Cognitive Services pricing, see [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/).
+   - Select a pricing tier for the service. For more information about Anomaly Detector pricing, see [pricing page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/anomaly-detector/).
    - Specify whether you want to create a new resource group or select an existing one.
+   - During Anomaly Detector public preview, you need to read the notice and check **I confirm I have read and understood the notice below.**
 
      Select **Create**.
 
-5. After the account is created, from the **Overview** tab, select **Show access keys**.
+5. After the resource is created, from the **Overview** tab, select **Show access keys**.
 
     ![Show access keys](../media/tutorials/cognitive-services-get-access-keys.png "Show access keys")
 
     Also, copy a part of the endpoint URL, as shown in the screenshot. You need this URL in the tutorial.
 
-6. Under **Manage keys**, select the copy icon against the key you want to use.
+6. Under **Keys**, select the copy icon against the key you want to use.
 
     ![Copy access keys](../media/tutorials/cognitive-services-copy-access-keys.png "Copy access keys")
 
@@ -182,7 +184,7 @@ In this section, you create two notebooks in Databricks workspace with the follo
 
     ![Create notebook in Databricks](../media/tutorials/databricks-create-notebook.png "Create notebook in Databricks")
 
-2. In the **Create Notebook** dialog box, enter **SendTweetsToEventHub**, select **Scala** as the language, and select the Spark cluster that you created earlier.
+2. In the **Create Notebook** dialog box, enter **SendTweetsToEventHub** as name, select **Scala** as the language, and select the Spark cluster that you created earlier.
 
     ![Create notebook in Databricks](../media/tutorials/databricks-notebook-details.png "Create notebook in Databricks")
 
@@ -688,7 +690,7 @@ In this tutorial, you learned how to use Azure Databricks to stream data into Az
 > * Create a Twitter app to access streaming data
 > * Create notebooks in Azure Databricks
 > * Add and attach libraries for Event Hubs and Twitter API
-> * Create a Microsoft Cognitive Services account and retrieve the access key
+> * Create an Anomaly Detector resource and retrieve the access key
 > * Send tweets to Event Hubs
 > * Read tweets from Event Hubs
 > * Run anomaly detection on tweets
