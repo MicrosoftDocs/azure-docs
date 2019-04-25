@@ -64,7 +64,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     static final String endpoint = "[YOUR_ENDPOINT_URL]";
     // Replace the dataPath string with a path to the JSON formatted ink stroke data file.
     static final String dataPath = "[PATH_TO_INK_STROKE_DATA]";
-    static final String inkRecognitionUrl = "[INK_RECOGNITION_URL]";
+    static final String inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 
 3. Read in the JSON data file

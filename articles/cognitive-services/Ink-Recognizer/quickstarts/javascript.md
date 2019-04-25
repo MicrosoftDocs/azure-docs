@@ -105,9 +105,9 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
         // Replace the below URL with the correct one for your subscription. 
         // Your endpoint can be found in the Azure portal. For example: https://westus2.api.cognitive.microsoft.com
         var SERVER_ADDRESS = "[YOUR-SUBSCRIPTION-URL]";
-        var ENDPOINT_URL = SERVER_ADDRESS + "[INK_RECOGNITION_URL]";
+        var ENDPOINT_URL = SERVER_ADDRESS + "/inkrecognizer/v1.0-preview/recognize";
         // Replace the subscriptionKey string value with your valid subscription key.
-        var SUBSCRIPTION_KEY = "put-your-subscription-key-here";
+        var SUBSCRIPTION_KEY = "[YOUR-SUBSCRIPTION-KEY]";
         var xhttp = new XMLHttpRequest();
         ```
     2. Create the return function for the `XMLHttpRequest` object. This function will parse the API response from a successful request, and display it in the application. 

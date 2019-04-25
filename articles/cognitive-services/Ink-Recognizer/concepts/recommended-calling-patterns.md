@@ -47,6 +47,10 @@ The Ink Recognizer API requires the X and Y coordinates that represent the ink s
 }
 ```
 
+## Ink Recognizer response
+
+The Ink Recognizer API returns a set of recognition features that describes the relationship between different ink strokes.
+
 ## Shapes recognized by the Ink Recognizer API
 
 The Ink Recognizer API can identify the most commonly used shapes in note taking. The below image shows some basic examples. For a full list of shapes and other ink content recognized by the API, see the [API reference article](https://go.microsoft.com/fwlink/?linkid=2089907). 

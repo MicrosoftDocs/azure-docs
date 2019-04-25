@@ -62,7 +62,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     const string endpoint = "[YOUR_ENDPOINT_URL]";
     // Replace the dataPath string with a path to the JSON formatted ink stroke data file.
     const string dataPath = "[PATH_TO_INK_STROKE_DATA]";
-    const string inkRecognitionUrl = "[INK_RECOGNITION_URL]";
+    const string inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 
 ## Create a function to send requests
