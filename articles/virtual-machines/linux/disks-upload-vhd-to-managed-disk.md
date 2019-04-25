@@ -39,7 +39,7 @@ While in either of these states, the managed disk will be billed at [standard HD
 Create an empty standard HDD for uploading by specifying the **–for-upload** parameter in the [disk create](/cli/azure/disk#az-disk-create) cmdlet:
 
 ```azurecli-interactive
-az disk create -n contosodisk2 -g contosoteam2 -l westus2 --for-upload --size-gb 128 --sku standard_lrs
+az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --size-gb 128 --sku standard_lrs
 ```
 
 If you would like to upload either a premium SSD or a standard SSD, replace **standard_lrs** with either **premium_LRS** or **standardssd_lrs**. Ultra SSD is not yet supported.
@@ -49,7 +49,7 @@ Now that you've created an empty managed disk, you'll need a writeable SAS, so t
 To generate a writable SAS of your empty managed disk, use the following command:
 
 ```azurecli-interactive
-az disk grant-access -n contosodisk2 -g contosoteam2 --access-level Write --duration-in-seconds 86400
+az disk grant-access -n mydiskname -g resourcegroupname --access-level Write --duration-in-seconds 86400
 ```
 
 Sample returned value:
@@ -77,7 +77,7 @@ If your SAS expires during upload, and you haven't called `revoke-access` yet, y
 After the upload is complete, and you no longer need to write any more data to the disk, revoke the SAS. Revoking the SAS will change the state of the managed disk and allow you to attach the disk to a VM.
 
 ```azurecli-interactive
-az disk revoke-access -n contosodisk2 -g contosoteam2
+az disk revoke-access -n mydiskname -g resourcegroupname
 ```
 
 ### Next steps
