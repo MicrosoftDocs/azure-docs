@@ -279,7 +279,7 @@
             href: cassandra-spark-aggregation-ops.md
           - name: Copy table data
             href: cassandra-spark-table-copy-ops.md
-        - name: Manage using ARM templates
+        - name: Manage using Resource Manager templates
           href: manage-cassandra-with-arm.md
     - name: MongoDB API
       items: 
@@ -358,7 +358,7 @@
         - name: MongoDB extension commands
           href: mongodb-custom-commands.md
           displayName: custom commands
-        - name: Manage using ARM templates
+        - name: Manage using Resource Manager templates
           href: manage-mongodb-with-arm.md
     - name: Gremlin API
       displayName: graph, graph database
@@ -396,7 +396,7 @@
         - name: Store and manage Spring Data
           href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
           maintainContext: true
-        - name: Manage using ARM templates
+        - name: Manage using Resource Manager templates
           href: manage-gremlin-with-arm.md
     - name: Table API
       items:
@@ -448,7 +448,7 @@
           href: table-support.md
         - name: Table storage design guide
           href: table-storage-design-guide.md
-        - name: Manage using ARM templates
+        - name: Manage using Resource Manager templates
           href: manage-table-with-arm.md
       - name: Reference
         items:
@@ -546,7 +546,7 @@
         href: manage-account-with-powershell.md
       - name: Manage using Azure CLI
         href: manage-with-cli.md
-      - name: Manage using ARM templates
+      - name: Manage using Resource Manager templates
         href: manage-sql-with-arm.md
     - name : Logging
       items:

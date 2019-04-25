@@ -8,7 +8,7 @@ ms.date: 05/08/2019
 ms.author: mjbrown
 ---
 
-# Create Azure Cosmos DB resources from a Resource Manager template
+# Create Azure Cosmos DB Core (SQL) API resources from a Resource Manager template
 
 Learn how to create an Azure Cosmos DB resources using an Azure Resource Manager template. The following example creates an Azure Cosmos DB account from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql/azuredeploy.json). This template will create an Azure Cosmos account with two containers that share 400 RU/s throughput at the database level.
 
@@ -71,7 +71,7 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-The 'az cosmosdb show' command shows the newly created Azure Cosmos account after it has been provisioned. If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](/cli/azure/) article.
+The `az cosmosdb show` command shows the newly created Azure Cosmos account after it has been provisioned. If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](/cli/azure/) article.
 
 In the previous example, you have referenced a template that is stored in GitHub. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
 
