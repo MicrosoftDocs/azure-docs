@@ -17,21 +17,21 @@ ms.date: 04/22/2019
 ms.author: b-juche
 ---
 # Service levels for Azure NetApp Files
-The service level is an attribute of a capacity pool. Service levels are defined and differentiated by the maximum throughput allowed for a given volume in the capacity pool based on the quota assigned to the volume.
+The service level is an attribute of a capacity pool. Service levels are defined and differentiated by the maximum throughput that is allowed for a given volume in the capacity pool based on the quota assigned to the volume.
 
 Azure NetApp Files supports the following service levels: *Ultra*, *Premium*, and *Standard*. 
 
 * <a name="Ultra"></a>Ultra storage
 
-    The Ultra storage tier provides up to 128 MiB/s of throughput per 1TiB of volume quota assigned. 
+    The Ultra storage tier provides up to 128 MiB/s of throughput per 1 TiB of volume quota assigned. 
 
 * <a name="Premium"></a>Premium storage
 
-    The Premium storage tier provides up to 64 MiB/s of throughput per 1TiB of volume quota assigned. 
+    The Premium storage tier provides up to 64 MiB/s of throughput per 1 TiB of volume quota assigned. 
 
 * <a name="Standard"></a>Standard storage
 
-    The Standard storage tier provides up to 16 MiB/s of throughput per 1TiB of volume quota assigned.
+    The Standard storage tier provides up to 16 MiB/s of throughput per 1 TiB of volume quota assigned.
 
 The throughput limit for a volume is determined by the combination of the following:
 * The service level of the capacity pool to which the volume belongs
