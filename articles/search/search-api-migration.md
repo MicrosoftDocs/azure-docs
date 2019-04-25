@@ -34,6 +34,26 @@ Version 2019-05-06 is the newest generally available release of the Azure Search
 
 Several preview feature releases coincide with this generally available update. To review the list, see [Search REST api-version 2019-05-06-Preview](search-api-preview.md).
 
+## Breaking changes
+
+Existing code containing the following functionality will break on api-version=2019-05-06.
+
+### Indexer for Azure Cosmos DB - datasource is now "type": "cosmosdb"
+
+If you are using a [Cosmos DB indexer](search-howto-index-cosmosdb.md ), you must change "type": "documentdb" to "type": "cosmosdb".
+
+### Indexer execution result errors no longer have status
+
+The error structure for indexer execution previously had a `status` element. This element is now removed. In practice, it was always false for errors, thus providing no informational value.
+
+### Indexer data source API no longer returns connection strings
+
+From API versions 2019-05-06 and 2019-05-06-Preview onwards, the data source API no longer returns  connection strings in the response of any REST operation. In previous API versions, for data sources created using POST, Azure Search returned **201** followed by the OData response, which contained the connection string in plain text.
+
+### Named Entity Recognition cognitive skill is now discontinued
+
+If you call [Name Entity Recognition](cognitive-search-skill-named-entity-recognition.md) skill in your code, the call will fail. Replacement functionality is [Entity Recognition](cognitive-search-skill-entity-recognition.md). You should be able to replace the skill reference with no other changes. The API signature is the same for both versions. 
+
 <a name="UpgradeSteps"></a>
 
 ## Steps to upgrade
