@@ -103,7 +103,7 @@
           href: scenario-spa-app-configuration.md
         - name: Sign in and sign out
           href: scenario-spa-sign-in.md
-        - name: Acquire token for an api
+        - name: Acquire token for an API
           href: scenario-spa-acquire-token.md
         - name: Call a Web API
           href: scenario-spa-call-api.md
@@ -206,7 +206,7 @@
         - name: Client applications
           href: msal-client-applications.md
         - name: Initializing applications
-          items:            
+          items:
           - name: Initialize applications (.NET)
             href: msal-net-initializing-client-applications.md
           - name: Initialize applications (JS)
@@ -217,7 +217,7 @@
           href: msal-logging.md
         - name: Single sign-on with MSAL.js
           href: msal-js-sso.md
-        - name: MSAL.js prompt behavior 
+        - name: MSAL.js prompt behavior
           href: msal-js-prompt-behavior.md
         - name: Provide your own HttpClient (.NET)
           href: msal-net-provide-httpclient.md

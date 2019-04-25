@@ -108,7 +108,7 @@ You can get the values for login_hint and domain_hint by reading the claims retu
 
 Read [here](v2-oauth2-implicit-grant-flow.md) for more information on the values for login hint and domain hint.
 
-> {!Note]
+> [!Note]
 > You cannot pass SID and login_hint at the same time. This will result in error response.
 
 ## SSO to an app without MSAL.js login
