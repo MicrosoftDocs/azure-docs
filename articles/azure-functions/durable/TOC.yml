@@ -7,6 +7,8 @@
     href: durable-functions-overview.md
   - name: Serverless comparison
     href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+  - name: Preview features
+    href: durable-functions-preview.md
 - name: Quickstarts
   expanded: true
   items:
