@@ -226,7 +226,7 @@ You can either choose to  protect the disks or ignore the warning to make the re
 1. To protect the disk(s). Navigate to Replicated Items > VM > Disks > click on unprotected disk >Enable Replication.
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add_disk.png)
 2. To dismiss the warning. Go to Replicated items > VM > Click on the dismiss alert under overview section.
-
+![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss_warning.png)
 ## Unable to see the Azure VM for selection in "enable replication"
 
  **Cause 1:  Resource group and source Virtual machine are in different location** <br>
