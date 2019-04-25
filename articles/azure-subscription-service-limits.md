@@ -131,10 +131,10 @@ The following table details the features and limits of the Basic, Standard, and 
 ### Azure Kubernetes Service limits
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
-### Networking limits
+### Networking limits - classic
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
-#### Networking limits
+#### ExpressRoute limits
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
 #### Application Gateway limits
