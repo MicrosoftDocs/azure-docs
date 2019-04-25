@@ -107,7 +107,7 @@
         href: image-factory-save-distribute-custom-images.md
       - name: Set retention policy and run cleanup scripts
         href: image-factory-set-retention-policy-cleanup.md
-    - name: Set up DevTest Labs infrastructure in your enterprise
+    - name: DevTest Labs in the enterprise
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
       - name: Reference architecture
