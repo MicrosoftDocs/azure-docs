@@ -9,7 +9,6 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-#### ExpressRoute limits
 The following limits apply to Azure ExpressRoute resources per subscription.
 
 | Resource | Default/maximum limit |
