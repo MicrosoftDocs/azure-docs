@@ -115,4 +115,4 @@ Customer Lockbox requests aren't triggered in the following engineering support 
 
 Customer Lockbox is automatically available for all customers who have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
 
-When you have an eligible support plan, no action is required by you to enable Customer Lockbox. Customer Lockbox requests are automatically initiated by a Microsoft engineer if this action is needed to progress a support ticket that is filed from somebody in your organization.
+When you have an eligible support plan, no action is required by you to enable Customer Lockbox. Customer Lockbox requests are initiated by a Microsoft engineer if this action is needed to progress a support ticket that is filed from somebody in your organization.
