@@ -1,7 +1,7 @@
 ---
 title: Feedback loop - Personalizer
 titleSuffix: Azure Cognitive Services
-description: Create feedback loop in this C# quickstart with the Personalizer service.
+description: Personalize content in this C# quickstart with the Personalizer service.
 services: cognitive-services
 author: edjez
 manager: nitinme
@@ -14,9 +14,9 @@ ms.author: edjez
 
 ---
 
-# Quickstart: Create feedback loop using C# 
+# Quickstart: Personalize content using C# 
 
-Create feedback loop in this C# quickstart with the Personalizer service.
+Display personalized content in this C# quickstart with the Personalizer service.
 
 This sample demonstrates how to use the Personalization client library for C# to perform the following actions: 
 
