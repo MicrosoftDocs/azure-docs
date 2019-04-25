@@ -1,5 +1,5 @@
 ---
-title: Create your first Python function in Azure 
+title: Create an HTTP triggered function in Azure
 description: Learn how to create your first Python function in Azure using the Azure Functions Core Tools and the Azure CLI.
 services: functions 
 keywords: 
@@ -13,11 +13,13 @@ ms.devlang: python
 manager: jeconnoc
 ---
 
-# Part 1: Create an HTTP triggered Python function
+# Create an HTTP triggered function in Azure
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 This article shows you how to use command-line tools to create a Python project that runs in Azure Functions. The function you create is triggered by anonymous HTTP requests. Finally, you publish your project to run as a [serverless function](functions-scale.md#consumption-plan) in Azure.
+
+This article is the first of two quickstarts for Azure Functions. After you complete this article, you [add an Azure Storage queue output binding](add-output-binding-storage-queue-python.md) to your function.
 
 ## Prerequisites
 
@@ -82,11 +84,11 @@ Choose the **HTTP trigger** template, type `HttpTrigger` as the  name for the fu
 
 A subfolder named _HttpTrigger_ is created, which contains the following files:
 
-* `function.json`: contains configuration settings for the function. When you review this file, you see that the value for `scriptFile` points to the file containing the function, while the invocation trigger and bindings are defined in the `bindings` array.
+* **function.json**: configuration file that defines the function, trigger, and other bindings. Review this file and see that the value for `scriptFile` points to the file containing the function, while the invocation trigger and bindings are defined in the `bindings` array.
 
   Each binding requires a direction, type and a unique name. The HTTP trigger has an input binding of type [`httpTrigger`](functions-bindings-http-webhook.md#trigger) and output binding of type [`http`](functions-bindings-http-webhook.md#output).
 
-* `__init__.py`: script file that is your HTTP triggered function. This script contains a default `main()`. HTTP data from the trigger is passed to this function using the `req` named binding parameter. Defined in function.json, `req` is an instance of the [azure.functions.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). 
+* **__init__.py**: script file that is your HTTP triggered function. Review this script and see that it contains a default `main()`. HTTP data from the trigger is passed to this function using the `req` named binding parameter. Defined in function.json, `req` is an instance of the [azure.functions.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). 
 
     The return object, defined as `$return` in function.json, is an instance of [azure.functions.HttpResponse class](/python/api/azure-functions/azure.functions.httpresponse). To learn more, see [Azure Functions HTTP triggers and bindings](functions-bindings-http-webhook.md).
 
