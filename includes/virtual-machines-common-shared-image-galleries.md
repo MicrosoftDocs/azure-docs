@@ -83,26 +83,17 @@ The following are other parameters that can be set on your image definition so t
 Source regions are listed in the table below. All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://www.microsoft.com/en-au/central-regions-eligibility/
 
 
-|Source regions|
-|---------------------|------------------|
-| Australia Central   | Korea Central    |
-| Australia Central 2 | Korea South      |
-| Australia East      | North Central US |
-| Australia Southeast | North Europe     |
-| Brazil South        | South Central US |
-| Canada Central      | South India      |
-| Canada East         | Southeast Asia   |
-| Central India       | UK North         |
-| Central US          | UK South         |
-| Central US EUAP     | UK South 2       |
-| East Asia           | UK West          |
-| East US             | West Central US  |
-| East US 2           | West Europe      |
-| East US 2 EUAP      | West India       |
-| France Central      | West US          |
-| France South        | West US          |
-| Japan East          | West US 2        |
-| Japan West          |                  |
+| | Source regions |
+|---------------------|-----------------|------------------|-----------------|
+| Australia Central   | Central US EUAP | Korea Central    | UK South 2      |
+| Australia Central 2 | East Asia       | Korea South      | UK West         |
+| Australia East      | East US         | North Central US | West Central US |
+| Australia Southeast | East US 2       | North Europe     | West Europe     |
+| Brazil South        | East US 2 EUAP  | South Central US | West India      |
+| Canada Central      | France Central  | South India      | West US         |
+| Canada East         | France South    | Southeast Asia   | West US         |
+| Central India       | Japan East      | UK North         | West US 2       |
+| Central US          | Japan West      | UK South         |                 |
 
 
 
