@@ -13,9 +13,6 @@ ms.author: absha
 You can use Azure PowerShell to
 configure [rules to rewrite HTTP request and response headers](rewrite-http-headers.md) when you create the new [autoscaling and zone-redundant application gateway SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
-> [!IMPORTANT] 
-> The autoscaling and zone-redundant application gateway SKU is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details. 
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
