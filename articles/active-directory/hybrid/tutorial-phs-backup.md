@@ -110,9 +110,9 @@ Now we need to reset the trust between AD FS and Azure.
 
 You have now successfully setup a hybrid identity environment that you can use to test and familiarize yourself with what Azure has to offer.
 
-## Next Steps
+## Next steps
 
 
 - [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
 - [Express settings](how-to-connect-install-express.md)
-- [Password hash synchronization](how-to-connect-password-hash-synchronization.md)|
+- [Password hash synchronization](how-to-connect-password-hash-synchronization.md)
