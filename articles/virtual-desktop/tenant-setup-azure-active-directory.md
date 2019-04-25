@@ -62,6 +62,10 @@ To assign the TenantCreator application role with your global administrator acco
 5. Search for a user account that will create your Windows Virtual Desktop tenant.
    - For simplicity, this can be the global administrator account.
         ![A screenshot of selecting a user to add as the "TenantCreator".](media/tenant-assign-user.png)
+        
+        >[!NOTE]
+        > You must select a user (or a group containing a user) that is sourced from this Azure Active Directory. You cannot choose a guest (B2B) user or a service principal.
+        
 6. Select the user account, click the **Select** button, and then select **Assign**.
 7. On the **Windows Virtual Desktop - Users and groups** page, verify that you see a new entry with the **TenantCreator** role assigned to the user who will create the Windows Virtual Desktop tenant.
         ![A screenshot of the users and groups assigned to manage the "Windows Virtual Desktop" enterprise application. The screenshot now includes a second entry, of a user assigned to the "TenantCreator" role.](media/tenant-tenant-creator-added.png)

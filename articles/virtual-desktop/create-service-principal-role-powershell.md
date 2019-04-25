@@ -33,7 +33,7 @@ Before you can create service principals and role assignments, you’ll need to 
     Install-Module AzureAD
     ```
 
-2. Run the following cmdlets with the values in quotes replaced by the values relevant to your session.
+2. Run the following cmdlets with the values in quotes replaced by the values relevant to your session. If you just created your Windows Virtual Desktop tenant from the previous tutorial, then use "Default Tenant Group" as your tenant group name.
 
     ```powershell
     $myTenantGroupName = "<my-tenant-group-name>"
