@@ -333,43 +333,59 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 }
 ```
 
-## Instance metadata data categories
+## Metadata endpoints
 
-The following data categories are available through the Instance Metadata Service:
+### The following categories are available through the Metadata endpoint:
+
+Data | Description | Version Introduced
+-----|-------------|-----------------------
+scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
+identity | Managed identities for Azure resources. See [acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+attested | See [Attested Data](#attested-data) | 2018-10-01
+
+### The following Compute categories are available through the Instance endpoint:
+
+> [!NOTE]
+> Through the metadata endpoint, the following categories are accessed through instance/compute
 
 Data | Description | Version Introduced
 -----|-------------|-----------------------
 azEnvironment | Azure Environment where the VM is running in | 2018-10-01
+customData | See [Custom Data](#custom-data) | 2019-02-01
 location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
 offer | Offer information for the VM image. This value is only present for images deployed from Azure image gallery. | 2017-04-02
-publisher | Publisher of the VM image | 2017-04-02
-sku | Specific SKU for the VM image | 2017-04-02
-version | Version of the VM image | 2017-04-02
 osType | Linux or Windows | 2017-04-02
-platformUpdateDomain |  [Update domain](manage-availability.md) the VM is running in | 2017-04-02
-platformFaultDomain | [Fault domain](manage-availability.md) the VM is running in | 2017-04-02
-vmId | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
-vmSize | [VM size](sizes.md) | 2017-04-02
-subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
-tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) for your Virtual Machine  | 2017-08-01
-resourceGroupName | [Resource group](../../azure-resource-manager/resource-group-overview.md) for your Virtual Machine | 2017-08-01
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
 plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in its an Azure Marketplace Image, contains name, product and publisher | 2018-04-02
+platformUpdateDomain |  [Update domain](manage-availability.md) the VM is running in | 2017-04-02
+platformFaultDomain | [Fault domain](manage-availability.md) the VM is running in | 2017-04-02
 provider | Provider of the VM | 2018-10-01
 publicKeys | [Collection of Public Keys](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
+publisher | Publisher of the VM image | 2017-04-02
+resourceGroupName | [Resource group](../../azure-resource-manager/resource-group-overview.md) for your Virtual Machine | 2017-08-01
+sku | Specific SKU for the VM image | 2017-04-02
+subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
+tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) for your Virtual Machine  | 2017-08-01
+version | Version of the VM image | 2017-04-02
+vmId | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
 vmScaleSetName | [Virtual Machine ScaleSet Name](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) of your virtual machine scale set | 2017-12-01
+vmSize | [VM size](sizes.md) | 2017-04-02
 zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
+
+### The following Network categories are available through the Instance endpoint:
+
+> [!NOTE]
+> Through the metadata endpoint, the following categories are accessed through instance/network/interface
+
+Data | Description | Version Introduced
+-----|-------------|-----------------------
 ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
 ipv4/publicIpAddress | Public IPv4 address of the VM | 2017-04-02
 subnet/address | Subnet address of the VM | 2017-04-02
 subnet/prefix | Subnet prefix, example 24 | 2017-04-02
 ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02
 macAddress | VM mac address | 2017-04-02
-scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
-identity | Managed identities for Azure resources. See [acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-attested | See [Attested Data](#attested-data) | 2018-10-01
-customData | See [Custom Data](#custom-data) | 2019-02-01
 
 ## Attested Data
 
@@ -377,7 +393,7 @@ Instance Metadata responds at http endpoint on 169.254.169.254. Part of the scen
 
 ### Example Attested Data
 
- > [!NOTE]
+> [!NOTE]
 > All API responses are JSON strings. The following example responses are pretty-printed for readability.
 
  **Request**
