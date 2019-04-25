@@ -21,13 +21,13 @@ ms.reviewer: azmetadata
 # Azure Instance Metadata service
 
 The Azure Instance Metadata Service provides information about running virtual machine instances that can be used to manage and configure your virtual machines.
-This includes information such as SKU, network configuration, and upcoming maintenance events. For more information on what type of information is available, see [metadata categories](#instance-metadata-data-categories).
+This includes information such as SKU, network configuration, and upcoming maintenance events. For more information on what type of information is available, see [metadata endpoints](#metadata-endpoints).
 
 Azure's Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs created via the [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
 The endpoint is available at a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.
 
 > [!IMPORTANT]
-> This service is  **generally available** in all Azure Regions.  It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
+> This service is  **generally available** in all Azure Regions.  It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [metadata endpoints](#metadata-endpoints) available.
 
 ## Service availability
 
