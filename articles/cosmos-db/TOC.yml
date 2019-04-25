@@ -132,6 +132,9 @@
       - name: SQL query examples
         displayName: collection, document, order by, where, top, value, aggregate, between, scalar, join, count, contains
         href: how-to-sql-query.md
+      - name: SQL subquery examples
+        displayName: subquery, exists
+        href: how-to-sql-subquery.md
       - name: Model document data
         displayName: document
         href: modeling-data.md
