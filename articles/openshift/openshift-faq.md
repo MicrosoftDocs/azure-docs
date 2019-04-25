@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions for Azure Red Hat OpenShift
-description: Provides answers to some of the common questions about Azure Red Hat OpenShift.
+title: Frequently asked questions for Azure Red Hat OpenShift | Microsoft Docs
+description: Here are answers to common questions about Microsoft Azure Red Hat OpenShift
 services: container-service
 author: tylermsft
 ms.author: twhitney
@@ -10,17 +10,18 @@ ms.topic: article
 ms.date: 05/06/2019
 ---
 
-# Frequently asked questions about Microsoft Azure Red Hat OpenShift
+# Azure Red Hat OpenShift FAQ
 
-This article addresses frequent questions about Microsoft Azure Red Hat OpenShift.
+This article addresses frequently asked questions (FAQs) about Microsoft Azure Red Hat OpenShift.
 
 ## Which Azure regions are supported?
 
-See [Supported resources](supported-resources.md#azure-regions) for a list of regions around the globe that support Azure Red Hat OpenShift.
+See [Supported resources](supported-resources.md#azure-regions) for a list of global regions where Azure Red Hat OpenShift is supported.
 
 ## Can I deploy a cluster into an existing virtual network?
 
-You can deploy an Azure Red Hat OpenShift cluster into an existing virtual network when you create the cluster. See the [Create a Microsoft Red Hat OpenShift cluster on Azure](tutorial-create-cluster.md) for details.
+Yes. You can deploy an Azure Red Hat OpenShift cluster into an existing virtual network when you create a cluster. See the [Connect a cluster's virtual network to an existing virtual network
+](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) for details.
 
 ## What cluster operations are available?
 
@@ -28,36 +29,37 @@ You can only scale up or down the number of compute nodes. No other modification
 
 ## What virtual machine sizes can I use?
 
-See [Azure Red Hat OpenShift virtual machine sizes](supported-resources.md#azure-red-hat-openshift-virtual-machine-sizes) for a list of virtual machine sizes you can use with an Azure Red Hat OpenShift cluster.
+See [Azure Red Hat OpenShift virtual machine sizes](supported-resources.md#virtual-machine-sizes) for a list of virtual machine sizes you can use with an Azure Red Hat OpenShift cluster.
 
-## Is data on my Azure Red Hat OpenShift cluster encrypted?
+## Is data on my cluster encrypted?
 
-By default, there is encryption at rest. The Azure storage platform automatically encrypts your data before persisting it, and decrypts the data before retrieval. See [Azure Storage Service Encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) for details.
+By default, there is encryption at rest. The Azure Storage platform automatically encrypts your data before persisting it, and decrypts the data before retrieval. See [Azure Storage Service Encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) for details.
 
-## Is it possible to access the Prometheus/Grafana stack 
+## Can I use Prometheus/Grafana to monitor containers and manage capacity?
 
-It is not currently possible to use the Prometheus/Grafana stack stack to monitor containers and do capacity management.
+No, not at the current time.
 
-## Is the docker registry available externally?
+## Is the Docker registry available externally so I can use tools such as Jenkins?
 
-The docker registry is available from https://docker-registry.apps.<clustername>.<region>.azmosa.io/ so that you can use tools such as Jenkins. However, a strong storage durability guarantee is not provided. You can also use Azure Container Registry.
+The Docker registry is available from `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` 
+However, a strong storage durability guarantee is not provided. You can also use [Azure Container Registry](https://azure.microsoft.com/services/container-registry/).
 
-## Is cross-namespace networking possible?
+## Is cross-namespace networking supported?
 
-Customer and individual project admins can customize cross-namespace networking (including denying it) on a per project basis using NetworkPolicy objects.
+Customer and individual project admins can customize cross-namespace networking (including denying it) on a per project basis using `NetworkPolicy` objects.
 
-## Can an admin manage user and quota management?
+## Can an admin manage users and quotas?
 
-Yes. An admin can also access all user-created projects.
+Yes. An Azure Red Hat OpenShift administrator can manage users and quotas in addition to accessing all user created projects.
 
-## It is possible to restrict who can sign into a cluster?
+## Can I restrict a cluster to only certain Azure AD users?
 
-You can restrict which Azure Active Directory (Azure AD) users can sign in to a cluster by configuring the Azure AD Application. For details, see [How to: Restrict your app to a set of users](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users).
+Yes. You can restrict which Azure AD users can sign in to a cluster by configuring the Azure AD Application. For details, see [How to: Restrict your app to a set of users](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
 
-## Can compute nodes in a single cluster cross regions?
+## Can a cluster have compute nodes across multiple Azure regions?
 
-No.
+No. All nodes in an Azure Red Hat OpenShift cluster must originate from the same Azure region.
 
-## Are master and infrastructure nodes abstracted away?
+## Are master and infrastructure nodes abstracted away as they are with Azure Kubernetes Service (AKS)?
 
-No. All resources run in the customer subscription. Resources are put in a read-only resource group.
+No. All resources, including the cluster master, run in your customer subscription. These types of resources are put in a read-only resource group.

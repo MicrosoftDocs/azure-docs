@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Red Hat OpenShift?
+  - name: About Azure Red Hat OpenShift
     href: intro-openshift.md
 - name: Tutorials
   items:
@@ -16,13 +16,16 @@
       href: tutorial-delete-cluster.md
 
 - name: How-to guides
+  expanded: true
   items:
   - name: Set up your Azure Red Hat OpenShift dev environment
     href: howto-setup-environment.md
-  - name: Create a tenant for your Azure Red Hat OpenShift cluster
-    href: howto-create-tenant.md
-  - name: Create an Azure AD app object and user
-    href: howto-aad-app-configuration.md
+    expanded: true
+    items:
+    - name: Create an Azure AD tenant
+      href: howto-create-tenant.md
+    - name: Create an Azure AD app object and user
+      href: howto-aad-app-configuration.md
 
 - name: Reference
   items:
@@ -35,8 +38,10 @@
   items:
   - name: Common questions
     href: openshift-faq.md
-  - name: Troubleshoot
+  - name: Troubleshooting
     href: troubleshoot.md
+  - name: Supported resources
+    href: supported-resources.md
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Red Hat OpenShift documentation
