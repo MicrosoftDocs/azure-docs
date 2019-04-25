@@ -460,6 +460,10 @@
         href: etcd-api-introduction.md
       - name: Azure Kubernetes with Azure Cosmos DB
         href: bootstrap-kubernetes-cluster.md
+    - name: Spark API
+      items:
+      - name: Introduction
+        href: spark-api-introduction.md
   - name: How-to guides
     items:
     - name: Manage Azure Cosmos account
