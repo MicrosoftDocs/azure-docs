@@ -2,7 +2,6 @@
 title: Common security attributes for Azure Key Vault
 description: A checklist of common security attributes for evaluating Azure Key Vault
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 
