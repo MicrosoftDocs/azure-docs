@@ -45,7 +45,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Authentication| Yes | [Azure Active Directory](../active-directory/index.yml) based.|
+| Authentication| Yes | [Azure Active Directory](/azure/active-directory) based.|
 | Authorization| Yes | |
 
 
