@@ -21,7 +21,7 @@ In this article, you learn how to:
 > * Open a Support case to return your device
 > * Wipe the data off the data disks on the device
 > * Pack up the device and schedule a pickup
-> * Delete the resource
+> * Delete the resource in Azure portal
 > * Reset device at the factory and reimaged for future use
 
 
@@ -43,15 +43,20 @@ To reset your device using the local web UI, take the following steps.
 
 1. In the local web UI, go to **Maintenance > Device reset**.
 2. Select **Reset device**.
+
+    ![Reset device](media/data-box-edge-return-device/device-reset-1.png)
+
 3. When prompted for confirmation, review the warning and select **Yes** to continue.
-   
+
+    ![Confirm reset](media/data-box-edge-return-device/device-reset-2.png)  
+
 The reset will securely erase the data off the device data disks. The process takes about 30-40 minutes depending on the amount of data on your device.
 
 Alternatively, you can connect to the PowerShell interface of the device and use the `Reset-HcsAppliance` cmdlet to erase the data from the data disks. For more information, see [Reset your device](data-box-edge-connect-powershell-interface.md#reset-your-device).
 
-If you're exchanging or upgrading to a new device, we recommend that you reset your device only after you've received the new device.
-
-The device reset only deletes all the local data off the device. The data that is in the cloud isn't deleted and collects charges.
+> ![NOTE]
+> - If you're exchanging or upgrading to a new device, we recommend that you reset your device only after you've received the new device.
+> - The device reset only deletes all the local data off the device. The data that is in the cloud isn't deleted and collects charges. This data needs to be deleted separately using a cloud storage management tool like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
  
 ## Schedule a pickup
 
@@ -70,13 +75,25 @@ The device reset only deletes all the local data off the device. The data that i
 
 ## Delete the resource
 
-After the device is received at the Azure datacenter, the device is inspected for damage or any signs of tampering. 
+After the device is received at the Azure datacenter, the device is inspected for damage or any signs of tampering.
 
-- If the device seems to be in good shape, the billing meter stops for that resource. The resource associated with the device can now be deleted from the Azure portal.
+- If the device arrives intact and in good shape, the billing meter stops for that resource. The resource associated with the device can now be deleted from the Azure portal.
+- If the device arrives significantly damaged, fines may apply. For details, see the [FAQ on lost or damaged device](https://azure.microsoft.com/pricing/details/databox/edge/) and [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products).  
 
-<!-- If the device arrives damaged or shows signs of tampering-->
+Take the following steps to delete the resource in Azure portal.
 
-## Reimage device
+1. In the Azure portal, go to your resource and then to **Overview**. From the command bar, select **Delete**.
+
+    ![Select delete](media/data-box-edge-return-device/delete-resource-1.png)
+
+2. In the **Delete device** blade, type the name of the device you want to delete and select **Delete**.
+
+    ![Confirm delete](media/data-box-edge-return-device/delete-resource-2.png)
+
+You're notified after the resource is successfully deleted.
+
+
+## Reimage the device
 
 After the device reaches Azure datacenter, the device is reimaged for future use. The process of reimaging will remove all the data off the data disks and the operating system disks.
 
