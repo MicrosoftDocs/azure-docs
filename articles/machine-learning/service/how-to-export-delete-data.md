@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
-ms.date: 05/06/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
 ---
 # Export or delete your Machine Learning service workspace data 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: tedway
 author: tedway
-ms.date: 5/6/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
 ---
 
 # Deploy a model as a web service on an FPGA with Azure Machine Learning service
 
-You can deploy a model as a web service on [field programmable gate arrays (FPGAs)](concept-accelerate-with-fpgas.md) with Azure ML Hardware Accelerated Models powered by Project Brainwave.  Using FPGAs provides ultra-low latency inferencing, even with a single batch size.
+You can deploy a model as a web service on [field programmable gate arrays (FPGAs)](concept-accelerate-with-fpgas.md) with Azure Machine Learning Hardware Accelerated Models. Using FPGAs provides ultra-low latency inferencing, even with a single batch size.
 
 These models are currently available:
   - ResNet 50
@@ -45,6 +45,7 @@ The FPGAs are available in these Azure regions:
     ```shell
     pip install --upgrade azureml-accel-models
     ```
+
 ## Sample notebooks
 
 For your convenience, [sample notebooks](https://aka.ms/aml-notebooks) are available for the example below and in addition to other examples.  Look under how-to-use-azureml and deployment folders for accelerated models.

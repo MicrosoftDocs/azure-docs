@@ -65,7 +65,7 @@ When requesting a certificate, you must provide the fully qualified domain name 
 
 To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` parameter to `True`, wherever applicable. Set the `ssl_certificate` parameter to the value of the __certificate__ file and the `ssl_key` to the value of the __key__ file.
 
-+ **Deploy on Azure Kubernetes Service (AKS)**
++ **Deploy on Azure Kubernetes Service (AKS) and FPGA**
 
   While provisioning the AKS cluster, provide values for SSL-related parameters as shown in the code snippet:
 
@@ -83,16 +83,6 @@ To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` par
     from azureml.core.webservice import AciWebservice
 
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
-    ```
-
-+ **Deploy on Field Programmable Gate Arrays (FPGA)**
-
-  While deploying to FPGA, provide values for the SSL-related parameters as shown in the code snippet:
-
-    ```python
-    from azureml.contrib.brainwave import BrainwaveWebservice
-
-    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
     ```
 
 ## Update your DNS

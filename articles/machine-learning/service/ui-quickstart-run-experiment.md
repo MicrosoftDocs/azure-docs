@@ -229,4 +229,4 @@ In this quickstart, you learned how to:
 Continue to the tutorial to use this data to predict the price of an automobile.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Develop a predictive solution without writing code]()
+> [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md)

@@ -10,7 +10,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 05/06/2019
+ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 # Two-Class Logistic Regression
