@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 05/07/2019
   ms.author: celested
 abstract:
   description: Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) identity service and developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs such as Microsoft Graph or APIs that developers have built. It’s a full-featured platform that consists of an OAuth 2.0 and OpenID Connect standard-compliant authentication service, open-source libraries, application registration and configuration, robust conceptual and reference documentation, quickstart samples, code samples, tutorials, and how-to guides.
@@ -37,7 +37,7 @@ sections:
         html: <p>Learn more about the Microsoft identity platform and its features and capabilities.</p>
         image:
           src: ./media/index/i_get-started.svg
-        title: About Microsoft identity platform
+        title: Evolution of Microsoft identity platform
       - href: /azure/active-directory/develop/v2-overview
         html: <p>Build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs, such as Microsoft Graph, or APIs that developers have built.</p>
         image: 
@@ -68,7 +68,7 @@ sections:
   - title: Quickstarts
     items:
     - type: paragraph
-      text: 'Follow these quickstarts to quickly build an app and add functionality like getting tokens, refreshing tokens, signing in a user, displaying some user info, and more.'
+      text: 'Follow these quickstarts to learn how to use a code sample that demonstrates how an app can sign in users, get an access token to call the Microsoft Graph API or any web API, and more.'
     - type: table
       style: dataMatrix
       columns:
@@ -159,7 +159,7 @@ sections:
   - title: Tutorials
     items:
     - type: paragraph
-      text: 'Use the Microsoft identity platform and follow in-depth, scenario-based procedures for the top auth developer tasks such as obtaining access tokens, implementing sign-in with Microsoft, and more.'
+      text: 'Use the Microsoft identity platform and follow in-depth, scenario-based procedures for the top auth developer tasks such as signing in a user, getting an access token to call the Microsoft Graph API, and making a basic request to the Microsoft Graph API.'
     - type: table
       style: dataMatrix
       columns:
