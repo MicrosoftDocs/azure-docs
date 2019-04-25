@@ -17,6 +17,14 @@ ms.author: edjez
 
 Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 
+## Access settings in the Azure portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Find your Personalizer resource. 
+1. In the **Resource management** section, select **Settings**.
+
+    ![Sign in to the Azure portal. Find your Personalizer resource. In the Resource management section, select Settings.](media/settings/how-to-configure.png)
+
 ## Rewards
 
 The following settings allow you to control the rewards:
