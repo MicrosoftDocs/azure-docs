@@ -4,7 +4,7 @@ description: Use this article to learn standard diagnostic skills for Azure IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,13 +13,39 @@ ms.custom: seodec18
 
 # Common issues and resolutions for Azure IoT Edge
 
-If you experience issues running Azure IoT Edge in your environment, use this article as a guide for troubleshooting and resolution. 
+If you experience issues running Azure IoT Edge in your environment, use this article as a guide for troubleshooting and resolution.
 
-## Standard diagnostic steps 
+## Run the iotedge 'check' command
 
-When you encounter an issue, learn more about the state of your IoT Edge device by reviewing the container logs and the messages that pass to and from the device. Use the commands and tools in this section to gather information. 
+Your first step when troubleshooting IoT Edge should be to use the `check` command, which performs a collection of configuration and connectivity tests for common issues. The `check` command is available in [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) and later.
 
-### Check the status of the IoT Edge Security Manager and its logs:
+You can run the `check` command as follows, or include the `--help` flag to see a complete list of options:
+
+* On Linux:
+
+  ```bash
+  sudo iotedge check
+  ```
+
+* On Windows:
+
+  ```powershell
+  iotedge check
+  ```
+
+The types of checks run by the tool can be classified as:
+
+* Configuration checks: Examines details that could prevent Edge devices from connecting to the cloud, including issues with *config.yaml* and the container engine.
+* Connection checks: Verifies the IoT Edge runtime can access ports on the host device and all the IoT Edge components can connect to the IoT Hub.
+* Production readiness checks: Looks for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
+
+For a complete list of diagnostic checks, see [Built-in troubleshooting functionality](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+
+## Standard diagnostic steps
+
+If you encounter an issue, you can learn more about the state of your IoT Edge device by reviewing the container logs and the messages that pass to and from the device. Use the commands and tools in this section to gather information.
+
+### Check the status of the IoT Edge Security Manager and its logs
 
 On Linux:
 - To view the status of the IoT Edge Security Manager:
@@ -80,7 +106,7 @@ On Windows:
 ### If the IoT Edge Security Manager is not running, verify your yaml configuration file
 
 > [!WARNING]
-> YAML files cannot contain tabs as identation. Use 2 spaces instead.
+> YAML files cannot contain tabs as indentation. Use 2 spaces instead.
 
 On Linux:
 
