@@ -22,8 +22,8 @@ Security is integrated into every aspect of an Azure service. This article docum
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes | Sensitive data such as certificates, keys, and secret-named values are encrypted with service-managed, per service instance keys. |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | [Express Route](../expressroute/index.yml) and VNET encryption is provided by [Azure networking](../virtual-network/index.yml). |
+| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes (service-side encryption only) | Sensitive data such as certificates, keys, and secret-named values are encrypted with service-managed, per service instance keys. |
+| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | [Express Route](../expressroute/index.yml) and VNet encryption is provided by [Azure networking](../virtual-network/index.yml). |
 | Encryption key handling (CMK, BYOK, etc.)| No | All encryption keys are per service instance and are service managed. |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Management plane calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) over TLS. A valid JSON web token (JWT) is required.  Data plane calls can be secured with TLS and one of supported authentication mechanisms (e.g. client certificate or JWT).
@@ -34,7 +34,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| No | |
-| vNET injection support| Yes | |
+| VNet injection support| Yes | |
 | Network isolation and firewalling support| Yes | Using networking security groups (NSG) and Azure Application Gateway (or other software appliance) respectively. |
 | Forced tunneling support| Yes | Azure networking provides forced tunneling. |
 
