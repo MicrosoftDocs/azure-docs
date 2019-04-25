@@ -19,7 +19,7 @@ Find and fix problems with your trained app's intents when you are using example
 
 Review Dashboard analysis is an iterative process, repeated as you change and improve your model.
 
-This page wil not have relevant analysis for apps that do not have any example utterances in the intents, known as _pattern-only_ apps. 
+This page will not have relevant analysis for apps that do not have any example utterances in the intents, known as _pattern-only_ apps. 
 
 ## What issues can be fixed from dashboard?
 
