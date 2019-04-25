@@ -171,7 +171,7 @@ JOIN r IN (
 WHERE n.units = r.unit
 ```
 
-## <a id="Scalar Subqueries"></a>Scalar subqueries
+## Scalar subqueries
 
 A scalar subquery expression is a subquery that evaluates to a single value. The value of the scalar subquery expression is the value of the projection (SELECT clause) of the subquery.  A scalar subquery expression can be used in many places a scalar expression is valid. For instance, a scalar subquery can be used in any expression in both the SELECT and WHERE clauses.
 However, using a scalar subquery does not always help optimize. For example, passing a scalar subquery as an argument to either a system or user-defined functions provides no benefit in RU consumption or latency.
