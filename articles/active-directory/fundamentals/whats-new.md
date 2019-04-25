@@ -123,7 +123,7 @@ New updates in Azure AD access reviews allow you to:
 
 - Select multiple Azure AD and Azure resource roles when creating access reviews. In this situation, all roles are set up with the same settings and all reviewers are notified at the same time.
 
-For more information about how to create an access review, see [Create an access review of groups or applications in Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/governance/create-access-review). For more information about how perform access reviews using roles, see [Perform an access review of my Azure AD roles in PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review).
+For more information about how to create an access review, see [Create an access review of groups or applications in Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/governance/create-access-review).
 
 ---
 
@@ -389,7 +389,7 @@ Over the next few weeks, we’ll be removing the ability to turn on the old comb
 
 1. As a global administrator or user administrator, sign in to the Azure portal and go to **Azure Active Directory > User settings > Manage settings for access panel preview features**.  
 
-2.	If the **Users who can use the preview features for registering and managing security info** option is set to **None**, the option will be removed from your tenant.
+2. If the **Users who can use the preview features for registering and managing security info** option is set to **None**, the option will be removed from your tenant.
 
 Regardless of whether you previously turned on the old combined MFA/SSPR registration preview experience for users or not, the old experience will be turned off at a future date. Because of that, we strongly suggest that you move to the new, enhanced experience as soon as possible.
 
