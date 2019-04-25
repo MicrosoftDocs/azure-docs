@@ -8,12 +8,12 @@
   items:
   - name: 1. Create a tenant in Windows Virtual Desktop
     href: tenant-setup-azure-active-directory.md
-  - name: 2. Create a host pool with Azure Marketplace
-    href: create-host-pools-azure-marketplace.md
-  - name: 3. Manage app groups
-    href: manage-app-groups.md
-  - name: 4. Create service principals and role assignments with PowerShell
+  - name: 2. Create service principals and role assignments with PowerShell
     href: create-service-principal-role-powershell.md
+  - name: 3. Create a host pool with Azure Marketplace
+    href: create-host-pools-azure-marketplace.md
+  - name: 4. Manage app groups
+    href: manage-app-groups.md
 - name: How-to
   items:
   - name: Connect to Windows Virtual Desktop resources
