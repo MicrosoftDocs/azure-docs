@@ -50,18 +50,21 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     using System.Net.Http.Headers;
     using System.Text;
     using System.Threading.Tasks;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
     ```
 
 2. Create variables for your subscription key and your endpoint. Below is the URI you can use for ink recognition. It will be appended to your service endpoint later to create the API request URl.
 
     ```csharp
-    // Replace the subscriptionKey string value with your valid subscription key.
+    // Replace the subscriptionKey string with your valid subscription key.
     const string subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";
-    // Replace the endpoint URL with the correct one for your subscription. 
-    // Your endpoint can be found in the Azure portal. For example: https://westus2.api.cognitive.microsoft.com
-    const string endpoint = "[YOUR_ENDPOINT_URL]";
-    // Replace the dataPath string with a path to the JSON formatted ink stroke data file.
-    const string dataPath = "[PATH_TO_INK_STROKE_DATA]";
+
+    // Replace the dataPath string with a path to the JSON formatted ink stroke data.
+    const string dataPath = @"PATH-TO-INK-STROKE-DATA]]"; 
+
+    // URI information for ink recognition:
+    const string endpoint = "https://api.cognitive.microsoft.com";
     const string inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 
@@ -71,17 +74,18 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 
 2. Set the client's security protocol and header information using an `HttpClient` object. Be sure to add your subscription key to the `Ocp-Apim-Subscription-Key` header. Then create a `StringContent` object for the request.
  
-3. Send the request with `PostAsync()`. If the request is successful, return the response.  
+3. Send the request with `PutAsync()`. If the request is successful, return the response.  
     
     ```csharp
-    static async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData){
-        using (HttpClient client = new HttpClient { BaseAddress = new Uri(baseAddress) }){
+    static async Task<string> Request(string apiAddress, string endpoint, string subscriptionKey, string requestData){
+        
+        using (HttpClient client = new HttpClient { BaseAddress = new Uri(apiAddress) }){
             System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-    
+
             var content = new StringContent(requestData, Encoding.UTF8, "application/json");
-            var res = await client.PostAsync(endpoint, content);
+            var res = await client.PutAsync(endpoint, content);
             if (res.IsSuccessStatusCode){
                 return await res.Content.ReadAsStringAsync();
             }
@@ -100,30 +104,51 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     
     ```csharp
     static void recognizeInk(string requestData){
-        System.Console.WriteLine("Sending an ink recognition request");
+
+        //construct the request
         var result = Request(
             endpoint,
             inkRecognitionUrl,
             subscriptionKey,
             requestData).Result;
+
         dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
         System.Console.WriteLine(jsonObj);
     }
     ```
 
-## Load your digital ink data and send the request
+## Load your digital ink data
 
-1. In the main method of your application, load your JSON data with `File.ReadAllText()`. 
+Create a function called `LoadJson()` to load the ink data JSON file. Use a `StreamReader` and `JsonTextReader` to create a `JObject` and return it.
+    
+```csharp
+public static JObject LoadJson(string fileLocation){
 
-2. Call the ink recognition function created above. Use `System.Console.ReadKey()` to keep the console window open after running the application.
+    var jsonObj = new JObject();
+
+    using (StreamReader file = File.OpenText(fileLocation))
+    using (JsonTextReader reader = new JsonTextReader(file)){
+        jsonObj = (JObject)JToken.ReadFrom(reader);
+    }
+    return jsonObj;
+}
+```
+
+## Send the API request
+
+1. In the main method of your application, load your JSON data with the function created above. 
+
+2. Call the `recognizeInk()` function created above. Use `System.Console.ReadKey()` to keep the console window open after running the application.
     
     ```csharp
     static void Main(string[] args){
-    
-        recognizeInk(requestData);
+
+        var requestData = LoadJson(dataPath);
+        string requestString = requestData.ToString(Newtonsoft.Json.Formatting.None);
+        recognizeInk(requestString);
         System.Console.WriteLine("\nPress any key to exit ");
         System.Console.ReadKey();
-    }
+        }
     ```
 
 ## Run the application and view the response
