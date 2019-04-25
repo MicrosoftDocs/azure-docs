@@ -12,22 +12,22 @@ ms.subservice: metrics
 
 # Troubleshooting metrics charts
 
-Use this article if you run into issues with creating, customizing, or interpreting charts in Azure Metrics Explorer. If you are new to metrics, learn about [getting started with Metrics Explorer](metrics-getting-started.md) and [advanced features of Metrics Explorer](metrics-charts.md). You can also see [examples](metric-chart-samples.md) of the configured metric charts.
+Use this article if you run into issues with creating, customizing, or interpreting charts in Azure metrics explorer. If you are new to metrics, learn about [getting started with metrics explorer](metrics-getting-started.md) and [advanced features of metrics explorer](metrics-charts.md). You can also see [examples](metric-chart-samples.md) of the configured metric charts.
 
-## My chart shows unexpected drop in values
+## Chart shows unexpected drop in values
 
-In many cases, the perceived drop in the metric values is a matter of the incorrect interpretation of the data shown on the chart. You might be misled by a drop in sums or counts when the chart shows the most-recent minutes because the last metric data points haven’t been received or processed by Azure yet. Depending on the service, the latency of processing metrics may be within a couple minutes range. For charts showing a recent time range with a 1- or 5- minute granularity, a drop of the value over the last few minutes becomes more noticeable:
+In many cases, the perceived drop in the metric values is a misunderstanding of the data shown on the chart. You can be misled by a drop in sums or counts when the chart shows the most-recent minutes because the last metric data points haven’t been received or processed by Azure yet. Depending on the service, the latency of processing metrics can be within a couple minutes range. For charts showing a recent time range with a 1- or 5- minute granularity, a drop of the value over the last few minutes becomes more noticeable:
     ![metric image](./media/metrics-troubleshoot/drop-in-values.png)
 
 **Solution:** This behavior is by design. We believe that showing data as soon as we receive it is beneficial even when the data is *partial* or *incomplete*. Doing so allows you to make important conclusion sooner and start investigation right away. For example, for a metric that shows the number of failures, seeing a partial value X tells you that there were at least X failures on a given minute. You can start investigating the problem right away, rather than wait to see the exact count of failures that happened on this minute, which might not be as important. The chart will update once we receive the entire set of data, but at that time it may also show new incomplete data points from more recent minutes.
 
-## My chart shows no data
+## Chart shows no data
 
-Sometimes the chart may show no data after selecting correct resource and metric. This may be caused by several reasons outlined below.
+Sometimes the chart shows no data after selecting correct resource and metric. This behavior can be caused by several of the following reasons: 
 
 ### Microsoft.Insights resource provider isn't registered for your subscription
 
-Exploring metrics requires *Microsoft.Insights* resource provider registered in your subscription. In many cases, it is registered automatically (that is, after you configure an alert rule, customize diagnostic settings for any resource, or configure an autoscale rule). If the Microsoft.Insights resource provider is not registered, you must manually register it by  following steps described in [this article](../../azure-resource-manager/resource-manager-supported-services.md).
+Exploring metrics requires *Microsoft.Insights* resource provider registered in your subscription. In many cases, it is registered automatically (that is, after you configure an alert rule, customize diagnostic settings for any resource, or configure an autoscale rule). If the Microsoft.Insights resource provider is not registered, you must manually register it by  following steps described in [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md).
 
 **Solution:** Open **Subscriptions**, **Resource providers** tab, and verify that Microsoft.Insights is registered for your subscription.
 
@@ -57,29 +57,29 @@ By [locking the boundaries of chart y-axis](metrics-charts.md#lock-boundaries-of
 
 ### You are looking at a Guest OS metric but didn’t enable Azure Diagnostic Extension
 
-Collection of **Guest OS** metrics requires configuring the Azure Diagnostics Extension or enabling it using the Diagnostic Settings panel for your resource.
+Collection of **Guest OS** metrics requires configuring the Azure Diagnostics Extension or enabling it using the **Diagnostic Settings** panel for your resource.
 
 **Solution:** If Azure Diagnostics Extension is enabled but you are still unable to see your metrics, follow steps outlined in [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
-## I see “Error retrieving data” message on dashboard charts
+##  “Error retrieving data” message on dashboard charts
 
 This problem is common when your dashboard was created with a metric that was later deprecated and removed from Azure. To verify that it is the case, open the **Metrics** tab of your resource, and check the available metrics in the metric picker. If the metric is not shown, the metric has been removed from Azure. Usually, when a metric is deprecated, there is a better new metric that provides with a similar perspective on the resource health.
 
 **Solution:** Update the failing tile by picking an alternative metric for your chart on dashboard. You can [review a list of available metrics for Azure services](metrics-supported.md).
 
-## I cannot pick Guest OS namespace and metrics
+## Cannot pick Guest OS namespace and metrics
 
-You are looking at a **Guest OS** metric but Metrics Explorer only shows **Virtual Machine Host** metrics for your Azure virtual machine or virtual machine scale set:
+You are looking at a **Guest OS** metric but metrics explorer only shows **Virtual Machine Host** metrics for your Azure virtual machine or virtual machine scale set:
     ![metric image](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
 
-**Solution:** Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running as a process on the virtual machine. You install the agent by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md). If the agent isn't running, the **Guest OS** metrics namespace is not shown in Metrics Explorer. See also [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+**Solution:** Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running as a process on the virtual machine. You install the agent by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md)). If the agent isn't running, the **Guest OS** metrics namespace is not shown in metrics explorer. See also [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
-## I see a dashed line on the chart
+## See a dashed line on the chart
 
-Azure metrics charts use dashed line style to indicate that there is a missing value (also known as “null value”) between two known time grain data points. For example, if in the time selector you picked “1 minute” time granularity but the metric was reported at 07:26, 07:27, 07:29, and 07:30 (note a minute gap between second and third data points), then a dashed line will connect 07:27 and 07:29 and a solid line will connect all other data points. The dashed line drops down to zero when the metric uses **count** and **sum** aggregation. For the **avg**, **min** or **max** aggregations, the dashed line simply connects two nearest known data points. Also, when the data is missing on the rightmost or leftmost side of the chart, the dashed line expands to the direction of the missing data point.
+Azure metrics charts use dashed line style to indicate that there is a missing value (also known as “null value”) between two known time grain data points. For example, if in the time selector you picked “1 minute” time granularity but the metric was reported at 07:26, 07:27, 07:29, and 07:30 (note a minute gap between second and third data points), then a dashed line will connect 07:27 and 07:29 and a solid line will connect all other data points. The dashed line drops down to zero when the metric uses **count** and **sum** aggregation. For the **avg**, **min** or **max** aggregations, the dashed line connects two nearest known data points. Also, when the data is missing on the rightmost or leftmost side of the chart, the dashed line expands to the direction of the missing data point.
   ![metric image](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
 
-**Solution:** This behavior is by design. It is useful for identifying missing data points. The line chart is a superior choice for visualizing trends of high-density metrics but may be difficult to interpret for the metrics with sparse values, especially when corelating values with time grain is important. The dashed line makes reading of these charts easier but if your chart is still unclear, consider viewing your metrics with a different chart type. For example, a scattered plot chart for the same metric shows each time grain by only visualizing dots when there were any values. It skips the data point altogether when the value is missing:
+**Solution:** This behavior is by design. It is useful for identifying missing data points. The line chart is a superior choice for visualizing trends of high-density metrics but may be difficult to interpret for the metrics with sparse values, especially when corelating values with time grain is important. The dashed line makes reading of these charts easier but if your chart is still unclear, consider viewing your metrics with a different chart type. For example, a scattered plot chart for the same metric clearly shows each time grain by only visualizing a dot when there is a value and skipping the data point altogether when the value is missing:
   ![metric image](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
 
    > [!NOTE]
