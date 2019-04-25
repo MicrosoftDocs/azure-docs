@@ -67,10 +67,10 @@ This problem is common when your dashboard is created with a metric that was dep
 
 ## I cannot pick Guest OS namespace and metrics
 
-You are looking at a Guest OS metric but Metrics Explorer only shows **Host-level** metrics for your Azure virtual machine or virtual machine scale set:
+You are looking at a **Guest OS** metric but Metrics Explorer only shows **Virtual Machine Host** metrics for your Azure virtual machine or virtual machine scale set:
     ![metric image](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
 
-**Solution:** Virtual machines and virtual machine scale sets have two categories of metrics: **Host-level** metrics that are observed by Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running as a process on the virtual machine. The agent is installed by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md)). If the agent isn't running, the **Guest OS** metrics namespace is not shown in Metrics Explorer.
+**Solution:** Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are observed by Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running as a process on the virtual machine. The agent is installed by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md)). If the agent isn't running, the **Guest OS** metrics namespace is not shown in Metrics Explorer.
 
 ## I see a dashed line on the chart
 
