@@ -81,7 +81,8 @@ The Azure Functions project template in Visual Studio Code creates a project tha
 
 1. Choose **HTTP Trigger** as the template for your first function, use `HTTPTrigger` as the function name, and choose an authorization level of **Function**.
 
-    **Function** requires a [function key](functions-bindings-http-webhook.md#authorization-keys) value when calling the function endpoint in Azure. This makes it more difficult for just anyone to call your function.
+    > [!NOTE]
+    > The **Function** authorization level requires a [function key](functions-bindings-http-webhook.md#authorization-keys) value when calling the function endpoint in Azure. This makes it harder for just anyone to call your function.
 
 1. When prompted, choose **Add to workspace**.
 
