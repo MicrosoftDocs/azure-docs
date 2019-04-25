@@ -10,7 +10,6 @@ ms.topic: reference
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 05/06/2019
-ROBOTS: NOINDEX
 ---
 # K-Means Clustering
 *Configures and initializes a K-means clustering model*  
