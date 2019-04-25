@@ -13,13 +13,13 @@ ms.date: 04/24/2019
 
 Azure Data Explorer is a Big Data analytics platform that is used to collect telemetry data from cloud services or IoT devices. Azure Data Explorer is used to monitor service health, QoS, or malfunctioning devices for anomalous behavior using [Anomaly detection and forecasting in Azure Data Explorer](/azure/data-explorer/anomaly-detection). Once an anomalous pattern is detected, investigate to verify that it’s a true anomaly, and diagnose the root cause. Following RCA (Root Cause Analysis), mitigate or resolve the anomaly. 
 
-The diagnosis process is complex and lengthy and done by domain experts. The process includes fetching and joining additional data from different sources for the same time frame, looking for changes in the distribution of values on multiple dimensions, charting additional variables, and other techniques based on domain knowledge and intuition. This process is partially automated by Machine Learning algorithms and techniques. Azure Data Explorer use cases often include these diagnosis scenarios, that's why, Machine Learning plugins are available to make the diagnosis phase easier and shorten the duration of the RCA.
+The diagnosis process is complex and lengthy and done by domain experts. The process includes fetching and joining additional data from different sources for the same time frame, looking for changes in the distribution of values on multiple dimensions, charting additional variables, and other techniques based on domain knowledge and intuition. This process is partially automated by Machine Learning algorithms and techniques. Azure Data Explorer use cases often include these diagnosis scenarios. That's why Machine Learning plugins are available to make the diagnosis phase easier and shorten the duration of the RCA.
 
 Azure Data Explorer has three Machine Learning plugins: [autocluster](/azure/kusto/query/autoclusterplugin), [basket](/azure/kusto/query/basketplugin), and [diffpatterns](/azure/kusto/query/diffpatternsplugin). All plugins implement clustering algorithms. The `autocluster` and `basket` plugins cluster a single record set and the `diffpatterns` plugin clusters the differences between two record sets.
 
 ## Clustering a single record set
 
-A common scenario includes a data set selected by a specific criteria (for example, time window anomalous behavior, high temperature device readings, long duration commands, top spending users) and you want a simple and fast way to find common patterns (segments) in the data set. Patterns are a subset of the data set whose records share the same values over multiple dimensions (categorical columns). The following query builds and shows a time series of service exceptions over a week in ten-minute bins:
+A common scenario includes a data set selected by a specific criteria such as time window anomalous behavior, high temperature device readings, long duration commands, and top spending users). You want a simple and fast way to find common patterns (segments) in the data set. Patterns are a subset of the data set whose records share the same values over multiple dimensions (categorical columns). The following query builds and shows a time series of service exceptions over a week in ten-minute bins:
 
 ```kusto
 let min_t = toscalar(demo_clustering1 | summarize min(PreciseTimeStamp));  
@@ -115,11 +115,11 @@ demo_clustering1
 
 You can see from the results above that the most dominant segment contains 65.74% of the total exception records and share four dimensions. The next segment is much less common, contains only 9.67% of the records and shares three dimensions. The other segments are even less common. 
 
-Autocluster uses a proprietary algorithm for mining multiple dimensions and extracting “interesting” segments. Interesting means that each segment has significant coverage of both the records set and the features set, and are also diverged, meaning that each one is different from the others. One or more of these segments would probably be relevant for the RCA process. Autocluster extracts only a small segment list so that segment review and assessment is minimal.
+Autocluster uses a proprietary algorithm for mining multiple dimensions and extracting interesting segments. Interesting means that each segment has significant coverage of both the records set and the features set. The segments are also diverged, meaning that each one is different from the others. One or more of these segments would probably be relevant for the RCA process. Autocluster extracts only a small segment list so that segment review and assessment is minimal.
 
 ### Use `basket()` for single record set clustering
 
-Alternatively, you can use the [`basket()`](/azure/kusto/query/basketplugin) plugin as seen in the following query:
+You can also use the [`basket()`](/azure/kusto/query/basketplugin) plugin as seen in the following query:
 
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
@@ -147,7 +147,7 @@ demo_clustering1
 
 Basket implements the Apriori algorithm for item set mining and extracts all segments whose coverage of the record set is above a threshold (default 5%). You can see that more segments were extracted with similar ones (for example, segments 0,1 or 2,3).
 
-Both plugins are powerful and easy to use, but are unable to cluster a single record set in an unsupervised manner (with no labels). Therefore, it's unclear whether the extracted patterns characterize the selected record set (the anomalous records) or the global record set.
+Both plugins are powerful and easy to use, but are unable to cluster a single record set in an unsupervised manner (with no labels). It's unclear whether the extracted patterns characterize the selected record set (the anomalous records) or the global record set.
 
 ## Clustering the difference between two records sets using `diffpatterns()`
 
@@ -181,7 +181,7 @@ demo_clustering1
 | 5 | 55 | 252 | 5.66 | 20.45 | 14.8 | weu | su4 | be1d6d7ac9574cbc9a22cb8ee20f16fc |  |
 | 6 | 57 | 204 | 5.86 | 16.56 | 10.69 |  |  |  |  |
 
-The most dominant segment is the same segment that was extracted by `autocluster`, and its coverage on the two-minute anomalous window is also 65.74%. Its coverage on the eight-minute baseline window is only 1.7%. Thus, the difference is 64.04%. This difference seems to be related to the anomalous spike. You validate the `diffpattern` segment by splitting the original chart into the records belonging to this problematic segment versus the other segments as seen in the query below:
+The most dominant segment is the same segment that was extracted by `autocluster`, and its coverage on the two-minute anomalous window is also 65.74%. Its coverage on the eight-minute baseline window is only 1.7%. The difference is 64.04%. This difference seems to be related to the anomalous spike. You validate the `diffpattern` segment by splitting the original chart into the records belonging to this problematic segment versus the other segments as seen in the query below:
 
 ```kusto
 let min_t = toscalar(demo_clustering1 | summarize min(PreciseTimeStamp));  
@@ -201,4 +201,4 @@ This chart allows us to see that the spike on Tuesday afternoon was because of e
 
 The Azure Data Explorer Machine Learning plugins are helpful for many scenarios. The `autocluster` and `basket` implement the unsupervised learning algorithm and are easy to use. `Diffpatterns` implements the supervised learning algorithm and although more complex, it's more powerful in extracting differentiation segments for RCA.
 
-All these plugins are used interactively in ad-hoc scenarios and in automatic near real time monitoring services. Time series anomaly detection is followed by diagnosis of detected anomalies using these powerful plugins, which are unique to Azure Data Explorer and are highly optimized to meet necessary performance standards.
+All these plugins are used interactively in ad-hoc scenarios and in automatic near real time monitoring services. Time series anomaly detection is followed by diagnosis of detected anomalies using these powerful plugins. These plugins are unique to Azure Data Explorer and are highly optimized to meet necessary performance standards.
