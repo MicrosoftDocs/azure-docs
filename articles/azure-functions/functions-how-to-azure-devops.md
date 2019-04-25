@@ -13,7 +13,7 @@ ms.custom:
 
 # Continuous delivery using Azure DevOps
 
-You can automatically deploy your function to an Azure Function app using [Azure Pipelines](/devops/pipelines/).
+You can automatically deploy your function to an Azure Function app using [Azure Pipelines](/azure/devops/pipelines/).
 To define your pipeline, you can use:
 
 - YAML File: This file describes the pipeline, it may have a build steps section, and a release section. The YAML file should be in the same repo as the app.
@@ -92,7 +92,7 @@ steps:
 
 #### Python
 
-You can use the following samples to create your YAML file to build your Python app, Python is only supported for Linux Azure Functions:
+You can use the following sample to create your YAML file to build your Python app, Python is only supported for Linux Azure Functions:
 
 ```yaml
 jobs:
@@ -163,7 +163,7 @@ Templates in Azure DevOps, are predefined group of tasks that build or deploy an
 ### Build your app
 
 Building your app in Azure Pipelines depends on the programming language of your app. Each language has specific build steps to create a deployment artifact, that can be used to update your function app in Azure.
-To use the built-in build templates, when creating a new build pipeline, choose "Use the classic editor" to create a pipeline using the designer templates
+To use the built-in build templates, when creating a new build pipeline, choose **Use the classic editor** to create a pipeline using the designer templates
 
 ![](media/functions-how-to-azure-devops/classic-editor.png)
 
@@ -210,4 +210,4 @@ The pre-requisites for this command depend on the location of your code:
 ## Next steps
 
 + [Azure Functions Overview](functions-overview.md)
-+ [Azure DevOps Overview](/devops/pipelines/)
++ [Azure DevOps Overview](/azure/devops/pipelines/)
