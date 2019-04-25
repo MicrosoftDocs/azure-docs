@@ -46,6 +46,7 @@ PSFunctionApp
  | | | - mySecondHelperModule.psm1
  | - local.settings.json
  | - host.json
+ | - requirements.psd1
  | - profile.ps1
  | - extensions.csproj
  | - bin
@@ -389,6 +390,25 @@ The following table shows the PowerShell version used by each major version of t
 You can see the current version by printing `$PSVersionTable` from any function.
 
 ## Dependency management
+
+PowerShell functions support managing Azure modules by the service. By modifying the host.json and setting the managedDependency enabled property to true, the requirements.psd1 file will be processed. The latest Azure modules will be automatically downloaded and made available to the function.
+
+host.json
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
+}
+```
+
+requirements.psd1
+
+```powershell
+@{
+	Az = '1.*'
+}
+```
 
 Leveraging your own custom modules or modules from the [PowerShell Gallery](https://powershellgallery.com) is a little different than how you would do it normally.
 
