@@ -234,4 +234,3 @@ Automated ML helps you with deploying the model without writing code:
 ## Next steps
 
 * [How to consume a deployed model](how-to-consume-web-service.md).
-* [Configure your automated machine learning experiments with Python](how-to-configure-auto-train.md).
