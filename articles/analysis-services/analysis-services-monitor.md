@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -28,7 +28,9 @@ To perform more in-depth diagnostics, track performance, and identify trends acr
     ![Monitor chart](./media/analysis-services-monitor/aas-monitor-chart.png)
 
 <a id="#server-metrics"></a>
+
 ## Server metrics
+
 Use this table to determine which metrics are best for your monitoring scenario. Only metrics of the same unit can be shown on the same chart.
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
@@ -80,4 +82,4 @@ Use this table to determine which metrics are best for your monitoring scenario.
 ## Next steps
 [Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Metrics in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
-[Metrics in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)
+[Metrics in Azure Monitor REST API](/rest/api/monitor/metrics)

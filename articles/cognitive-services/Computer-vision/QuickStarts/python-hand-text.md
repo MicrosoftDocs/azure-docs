@@ -1,34 +1,35 @@
 ---
-title: "Quickstart: Extract handwritten text - REST, Python - Computer Vision"
+title: "Quickstart: Extract handwritten text - REST, Python"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract handwritten text from an image using the Computer Vision API with Python.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/04/2019
 ms.author: pafarley
+ms.custom: seodec18
 ---
 # Quickstart: Extract handwritten text using the REST API and Python in Computer Vision
 
-In this quickstart, you extract handwritten text from an image by using Computer Vision's REST API. With the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) and the [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) methods, you can detect handwritten text in an image, then extract recognized characters into a machine-usable character stream.
+In this quickstart, you extract handwritten text from an image by using Computer Vision's REST API. With the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API and the [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, you can detect handwritten text in an image, then extract recognized characters into a machine-usable character stream.
 
 > [!IMPORTANT]
-> Unlike the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Recognize Text method returns a URI in the value of the `Operation-Content` response header field. You can then call this URI, which represents the [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) method, to both check the status and return the results of the Recognize Text method call.
+> Unlike the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Batch Read method returns a URI in the value of the `Operation-Content` response header field. You can then call this URI, which represents the [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, to both check the status and return the results of the Batch Read method call.
 
 You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+[![The launch Binder button](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/try/cognitive-services/) before you begin.
 
 ## Prerequisites
 
 - You must have [Python](https://www.python.org/downloads/) installed if you want to run the sample locally.
-- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 
 ## Create and run the sample
 
@@ -66,11 +67,10 @@ assert subscription_key
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
 
-text_recognition_url = vision_base_url + "recognizeText"
+text_recognition_url = vision_base_url + "read/core/asyncBatchAnalyze"
 
 # Set image_url to the URL of an image that you want to analyze.
-image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" + \
-    "Cursive_Writing_on_Notebook_paper.jpg/800px-Cursive_Writing_on_Notebook_paper.jpg"
+image_url = "https://upload.wikimedia.org/wikipedia/commons/d/dd/Cursive_Writing_on_Notebook_paper.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
 # Note: The request parameter changed for APIv2.
@@ -94,17 +94,18 @@ while (poll):
     response_final = requests.get(
         response.headers["Operation-Location"], headers=headers)
     analysis = response_final.json()
+    print(analysis)
     time.sleep(1)
-    if ("recognitionResult" in analysis):
+    if ("recognitionResults" in analysis):
         poll= False 
     if ("status" in analysis and analysis['status'] == 'Failed'):
         poll= False
 
 polygons=[]
-if ("recognitionResult" in analysis):
+if ("recognitionResults" in analysis):
     # Extract the recognized text, with bounding boxes.
     polygons = [(line["boundingBox"], line["text"])
-        for line in analysis["recognitionResult"]["lines"]]
+        for line in analysis["recognitionResults"][0]["lines"]]
 
 # Display the image and overlay it with the extracted text.
 plt.figure(figsize=(15, 15))
@@ -117,7 +118,6 @@ for polygon in polygons:
     patch    = Polygon(vertices, closed=True, fill=False, linewidth=2, color='y')
     ax.axes.add_patch(patch)
     plt.text(vertices[0][0], vertices[0][1], text, fontsize=20, va="top")
-_ = plt.axis("off")
 ```
 
 ## Examine the response
@@ -399,10 +399,6 @@ A successful response is returned in JSON. The sample webpage parses and display
   }
 }
 ```
-
-## Clean up resources
-
-When no longer needed, delete the file.
 
 ## Next steps
 

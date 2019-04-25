@@ -2,36 +2,36 @@
 - name: Overview
   items:
   - name: What is Video Indexer?
-    href: video-indexer-overview.md
+    href: ../../media-services/video-indexer/video-indexer-overview.md
   - name: Concepts
-    href: video-indexer-concepts.md
+    href: ../../media-services/video-indexer/video-indexer-concepts.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Get started
-    href: video-indexer-get-started.md
+    href: ../../media-services/video-indexer/video-indexer-get-started.md
 - name: How to guides
   items:
   - name: Migrate from v1 to v2
-    href: migrate-from-v1-to-v2.md
+    href: ../../media-services/video-indexer/migrate-from-v1-to-v2.md
   - name: Connect to Azure
-    href: connect-to-azure.md
+    href: ../../media-services/video-indexer/connect-to-azure.md
   - name: Manage account connected to Azure
-    href: manage-account-connected-to-azure.md
+    href: ../../media-services/video-indexer/manage-account-connected-to-azure.md
   - name: Use Video Indexer API
-    href: video-indexer-use-apis.md  
+    href: ../../media-services/video-indexer/video-indexer-use-apis.md  
   - name: Use API to upload and index videos
-    href: upload-index-videos.md 
+    href: ../../media-services/video-indexer/upload-index-videos.md 
   - name: Examine Video Indexer output
-    href: video-indexer-output-json-v2.md
+    href: ../../media-services/video-indexer/video-indexer-output-json-v2.md
   - name: Find exact moments within videos
-    href: video-indexer-search.md
+    href: ../../media-services/video-indexer/video-indexer-search.md
   - name: View and edit Video Indexer insights
-    href: video-indexer-view-edit.md
+    href: ../../media-services/video-indexer/video-indexer-view-edit.md
   - name: Create video insights from existing videos
-    href: video-indexer-create-new.md
+    href: ../../media-services/video-indexer/video-indexer-create-new.md
   - name: Embed widgets into your application
-    href: video-indexer-embed-widgets.md
+    href: ../../media-services/video-indexer/video-indexer-embed-widgets.md
 - name: Reference
   items:
   - name: Video Indexer API

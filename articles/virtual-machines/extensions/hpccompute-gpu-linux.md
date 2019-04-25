@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/15/2018
+ms.date: 02/11/2019
 ms.author: roiyz
 
 ---
@@ -34,8 +34,8 @@ This extension supports the following OS distros, depending on driver support fo
 | Distribution | Version |
 |---|---|
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5 |
-| Linux: CentOS | 7.3, 7.4, 7.5 |
+| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6 |
+| Linux: CentOS | 7.3, 7.4, 7.5, 7.6 |
 
 ### Internet connectivity
 
@@ -81,7 +81,7 @@ All settings are optional. The default behavior is to not update the kernel if n
 | Name | Description | Default Value | Valid Values | Data Type |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Update the kernel even if not required for driver installation | false | true, false | boolean |
-| driverVersion | NV: GRID driver version<br> NC/ND: CUDA toolkit version. The latest drivers for the chosen CUDA are installed automatically. | latest | GRID: "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: GRID driver version<br> NC/ND: CUDA toolkit version. The latest drivers for the chosen CUDA are installed automatically. | latest | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Install CUDA toolkit. Only relevant for NC/ND series VMs. | true | true, false | boolean |
 
 
@@ -119,7 +119,7 @@ The following example assumes the extension is nested inside the virtual machine
 ### PowerShell
 
 ```powershell
-Set-AzureRmVMExtension
+Set-AzVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Location "southcentralus" `
@@ -155,7 +155,7 @@ az vm extension set `
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using Azure PowerShell and Azure CLI. To see the deployment state of extensions for a given VM, run the following command.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 ```azurecli

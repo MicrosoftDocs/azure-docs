@@ -3,19 +3,19 @@ title: Configure Avere vFXT storage - Azure
 description: How to add a back-end storage system to your Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: procedural
-ms.date: 10/31/2018
+ms.topic: conceptual
+ms.date: 01/29/2019
 ms.author: v-erkell
 ---
 
 # Configure storage
 
-This step sets up backend storage system for your vFXT cluster.
+This step sets up a back-end storage system for your vFXT cluster.
 
 > [!TIP]
-> If you used the `create-cloudbacked-cluster` prototype script to create a new Blob container along with the Avere vFXT cluster, that container is already set up for use and you do not need to add storage.
+> If you created a new Azure Blob container along with the Avere vFXT cluster, that container is already set up for use and you do not need to add storage.
 
-Follow these instructions if you used the `create-minimal-cluster` prototype script for your cluster, or if you want to add an additional hardware or cloud-based storage system.
+Follow these instructions if you did not create a new Blob container with your cluster, or if you want to add an additional hardware or cloud-based storage system.
 
 There are two main tasks:
 
@@ -27,34 +27,38 @@ These steps use the Avere Control Panel. Read [Access the vFXT cluster](avere-vf
 
 ## Create a core filer
 
-"Core filer" is a vFXT term for a backend storage system. The storage can be a hardware NAS appliance like NetApp or Isilon, or it can be a cloud object store. More information about core filers can be found [in the Avere cluster settings guide](http://library.averesystems.com/ops_guide/4_7/settings_overview.html#managing-core-filers).
+"Core filer" is a vFXT term for a backend storage system. The storage can be a hardware NAS appliance like NetApp or Isilon, or it can be a cloud object store. More information about core filers can be found [in the Avere cluster settings guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 To add a core filer, choose one of the two main types of core filers:
 
   * [NAS core filer](#nas-core-filer) - describes how to add a NAS core filer 
-  * [Azure Storage account cloud core filer](#azure-storage-account-cloud-core-filer) - describes how to add an Azure Storage account as a cloud core filer
+  * [Azure Storage cloud core filer](#azure-storage-cloud-core-filer) - describes how to add an Azure Storage account as a cloud core filer
 
 ### NAS core filer
 
-A NAS core filer can be an on-premises NetApp or Isilon, or a NAS endpoint in the cloud.  
-The storage system must have a reliable high-speed connection to the Avere vFXT cluster - for example, a 1GBps ExpressRoute connection (not a VPN) - and it must give the cluster root access to the NAS exports being used.
+A NAS core filer can be an on-premises NetApp or Isilon, or a NAS endpoint in the cloud. The storage system must have a reliable high-speed connection to the Avere vFXT cluster - for example, a 1GBps ExpressRoute connection (not a VPN) - and it must give the cluster root access to the NAS exports being used.
 
 The following steps add a NAS core filer:
 
 1. From the Avere Control Panel, click the **Settings** tab at the top.
 
-2. Click **Core Filer** > **Manage Core Filers** on the left.
+1. Click **Core Filer** > **Manage Core Filers** on the left.
 
-3. Click **Create**.
+1. Click **Create**.
 
-   ![Screenshot of the Add new core filer page with the core filer name and its fully qualified domain name](media/avere-vfxt-add-core-filer.png)
+   ![Screenshot of the Add new core filer page with a cursor over the Create button](media/avere-vfxt-add-core-filer-start.png)
+
+1. Fill in the required information in the wizard: 
 
    * Name your core filer.
    * Provide a fully qualified domain name (FQDN) if available. Otherwise, provide an IP address or hostname that resolves to your core filer.
    * Choose your filer class from the list. If unsure, choose **Other**.
+
+     ![Screenshot of the Add new core filer page with the core filer name and its fully qualified domain name](media/avere-vfxt-add-core-filer.png)
+  
    * Click **Next** and choose a cache policy. 
    * Click **Add Filer**.
-   * For more detailed information, refer to [Adding a new NAS core filer](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) in the Avere cluster settings guide.
+   * For more detailed information, refer to [Adding a new NAS core filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) in the Avere cluster settings guide.
 
 Next, proceed to [Create a junction](#create-a-junction).  
 
@@ -63,7 +67,7 @@ Next, proceed to [Create a junction](#create-a-junction).
 To use Azure Blob storage as your vFXT cluster's backend storage, you need an empty container to add as a core filer.
 
 > [!TIP] 
-> The ``create-cloudbacked-cluster`` sample script creates a storage container, defines it as a core filer, and creates the namespace junction as part of the vFXT cluster creation. The ``create-minimal-cluster`` sample script does not create an Azure storage container. To avoid having to create and configure an Azure Storage core filer after creating the cluster, use the ``create-cloudbacked-cluster`` script to deploy your vFXT cluster.
+> If you choose to create a blob container at the same time you create the Avere vFXT cluster, the deployment template or script creates a storage container, defines it as a core filer, and creates the namespace junction as part of the vFXT cluster creation. The template also creates a storage service endpoint inside the cluster's virtual network. 
 
 Adding Blob storage to your cluster requires these tasks:
 
@@ -81,7 +85,7 @@ To add Blob storage after creating the cluster, follow these steps.
    * **Resource group** - same as the vFXT cluster group (optional)
    * **Location** - same as the vFXT cluster
    * **Performance** - Standard (Premium storage is unsupported)
-   * **Account kind** - General purpose V2 (StorageV2)
+   * **Account kind** - General-purpose V2 (StorageV2)
    * **Replication** - Locally redundant storage (LRS)
    * **Access tier** - Hot
    * **Secure transfer required** - disable this option (non-default value)
@@ -105,7 +109,7 @@ To add Blob storage after creating the cluster, follow these steps.
 
 1. Open the Avere Control Panel for your cluster. Click **Settings**, then open **Cluster** > **Cloud Credentials** on the left navigation pane. On the Cloud Credentials page, click **Add Credential**.
 
-   ![Clicking the Add Credential button on the Cloud Credentials configuration page](media/avere-vfxt-new-credential-button.png)
+   ![Click the Add Credential button on the Cloud Credentials configuration page](media/avere-vfxt-new-credential-button.png)
 
 1. Fill in the following information to create a credential for the cloud core filer: 
 
@@ -140,7 +144,7 @@ To add Blob storage after creating the cluster, follow these steps.
    * Optionally, set **Encryption type** to **None**.  Azure Storage is encrypted by default.
    * Click **Add Filer**.
 
-  For more detailed information, read [Adding a new cloud core filer](<http://library.averesystems.com/ops_guide/4_7/new_core_filer_cloud.html>) in the Avere cluster configuration guide. 
+   For more detailed information, read [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) in the Avere cluster configuration guide. 
 
 The page will refresh, or you can refresh the page to display your new core filer.
 
@@ -152,7 +156,7 @@ A junction is a path that you create for clients. Clients mount the path and arr
 
 For example, you could create `/avere/files` to map to your NetApp core filer `/vol0/data` export and the `/project/resources` subdirectory.
 
-More information about junctions can be found in the [namespace section of the Avere cluster configuration guide](http://library.averesystems.com/ops_guide/4_7/gui_namespace.html).
+More information about junctions can be found in the [namespace section of the Avere cluster configuration guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
 Follow these steps in the Avere Control Panel settings interface:
 

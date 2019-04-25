@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/11/2019
 ms.author: apimpm
 ---
 # API Management transformation policies
@@ -203,6 +203,15 @@ This topic provides a reference for the following API Management policies. For i
 <set-backend-service base-url="base URL of the backend service" />
 ```
 
+or
+
+```xml
+<set-backend-service backend-id="identifier of the backend entity specifying base URL of the backend service" />
+```
+
+> [!NOTE]
+> Backend entities can be managed via management [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+
 ### Example
 
 ```xml
@@ -255,8 +264,8 @@ In this example the policy routes the request to a service fabric backend, using
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|base-url|New backend service base URL.|No|N/A|
-|backend-id|Identifier of the backend to route to.|No|N/A|
+|base-url|New backend service base URL.|One of `base-url` or `backend-id` must be present.|N/A|
+|backend-id|Identifier of the backend to route to. (Backend entities are managed via [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|One of `base-url` or `backend-id` must be present.|N/A|
 |sf-partition-key|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Used to resolve a specific partition from the name resolution service.|No|N/A|
 |sf-replica-type|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Controls if the request should go to the primary or secondary replica of a partition. |No|N/A|
 |sf-resolve-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution.|No|N/A|
@@ -275,13 +284,13 @@ In this example the policy routes the request to a service fabric backend, using
 
 > [!IMPORTANT]
 >  Note that by default when you access the message body using `context.Request.Body` or `context.Response.Body`, the original message body is lost and must be set by returning the body back in the expression. To preserve the body content, set the `preserveContent` parameter to `true` when accessing the message. If `preserveContent` is set to `true` and a different body is returned by the expression, the returned body is used.
->
+> 
 >  Please note the following considerations when using the `set-body` policy.
->
->  -   If you are using the `set-body` policy to return a new or updated body you don't need to set `preserveContent` to `true` because you are explicitly supplying the new body contents.
-> -   Preserving the content of a response in the inbound pipeline doesn't make sense because there is no response yet.
-> -   Preserving the content of a request in the outbound pipeline doesn't make sense because the request has already been sent to the backend at this point.
-> -   If this policy is used when there is no message body, for example in an inbound GET, an exception is thrown.
+> 
+> - If you are using the `set-body` policy to return a new or updated body you don't need to set `preserveContent` to `true` because you are explicitly supplying the new body contents.
+>   -   Preserving the content of a response in the inbound pipeline doesn't make sense because there is no response yet.
+>   -   Preserving the content of a request in the outbound pipeline doesn't make sense because the request has already been sent to the backend at this point.
+>   -   If this policy is used when there is no message body, for example in an inbound GET, an exception is thrown.
 
  For more information, see the `context.Request.Body`, `context.Response.Body`, and the `IMessage` sections in the [Context variable](api-management-policy-expressions.md#ContextVariables) table.
 
@@ -313,7 +322,7 @@ In this example the policy routes the request to a service fabric backend, using
 </set-body>
 ```
 
-#### Example accessing the body as a JObject. Note that since we are not reserving the original request body, accesing it later in the pipeline will result in an exception.
+#### Example accessing the body as a JObject. Note that since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
 
 ```xml
 <set-body> 
@@ -348,7 +357,7 @@ In this example the policy routes the request to a service fabric backend, using
 ```
 
 ### Using Liquid templates with set body
-The `set-body` policy can be configured to use the [Liquid](https://shopify.github.io/liquid/basics/introduction/) templating language to transfom the body of a request or response. This can be very effective if you need to completely reshape the format of your message.
+The `set-body` policy can be configured to use the [Liquid](https://shopify.github.io/liquid/basics/introduction/) templating language to transform the body of a request or response. This can be very effective if you need to completely reshape the format of your message.
 
 > [!IMPORTANT]
 > The implementation of Liquid used in the `set-body` policy is configured in 'C# mode'. This is particularly important when doing things such as filtering. As an example, using a date filter requires the use of Pascal casing and C# date formatting e.g.:
@@ -371,7 +380,7 @@ The `set-body` policy can be configured to use the [Liquid](https://shopify.gith
 </set-body>
 ```
 
-#### Tranform JSON using a Liquid template
+#### Transform JSON using a Liquid template
 ```xml
 {
 "order": {
@@ -477,7 +486,7 @@ OriginalUrl.
  For more information, see [Policy expressions](api-management-policy-expressions.md) and [Context variable](api-management-policy-expressions.md#ContextVariables).
 
 > [!NOTE]
-> Multiple values of a header are concatenated to a CSV string, for example:  
+> Multiple values of a header are concatenated to a CSV string, for example:
 > `headerName: value1,value2,value3`
 >
 > Exceptions include standardized headers, which values:
@@ -485,9 +494,9 @@ OriginalUrl.
 > - may contain date (`Cookie`, `Set-Cookie`, `Warning`),
 > - contain date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
 >
-> In case of those exceptions, multiple header values will not be concatenated into one string and will be passed as separate headers, for example:  
->`User-Agent: value1`  
->`User-Agent: value2`  
+> In case of those exceptions, multiple header values will not be concatenated into one string and will be passed as separate headers, for example:
+>`User-Agent: value1`
+>`User-Agent: value2`
 >`User-Agent: value3`
 
 ### Elements
@@ -574,11 +583,11 @@ OriginalUrl.
 ##  <a name="RewriteURL"></a> Rewrite URL
  The `rewrite-uri` policy converts a request URL from its public form to the form expected by the web service, as shown in the following example.
 
--   Public URL - `http://api.example.com/storenumber/ordernumber`
+- Public URL - `http://api.example.com/storenumber/ordernumber`
 
--   Request URL - `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
+- Request URL - `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
- This policy can be used when a human and/or browser-friendly URL should be transformed into the URL format expected by the web service. This policy only needs to be applied when exposing an alternative URL format, such as clean URLs, RESTful URLs, user-friendly URLs or SEO-friendly URLs that are purely structural URLs that do not contain a query string and instead contain only the path of the resource (after the scheme and the authority). This is often done for aesthetic, usability, or search engine optimization (SEO) purposes.
+  This policy can be used when a human and/or browser-friendly URL should be transformed into the URL format expected by the web service. This policy only needs to be applied when exposing an alternative URL format, such as clean URLs, RESTful URLs, user-friendly URLs or SEO-friendly URLs that are purely structural URLs that do not contain a query string and instead contain only the path of the resource (after the scheme and the authority). This is often done for aesthetic, usability, or search engine optimization (SEO) purposes.
 
 > [!NOTE]
 >  You can only add query string parameters using the policy. You cannot add extra template path parameters in the rewrite URL.
@@ -704,7 +713,7 @@ OriginalUrl.
 |----------|-----------------|--------------|
 |xsl-transform|Root element.|Yes|
 |parameter|Used to define variables used in the transform|No|
-|xsl:stylesheet|Root stylesheet element. All elements and attributes defined within follow the standard [XSLT specification](http://www.w3.org/TR/xslt)|Yes|
+|xsl:stylesheet|Root stylesheet element. All elements and attributes defined within follow the standard [XSLT specification](https://www.w3.org/TR/xslt)|Yes|
 
 ### Usage
  This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).

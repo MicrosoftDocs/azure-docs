@@ -1,15 +1,14 @@
 ---
-title: 'Quickstart: Visualize data using a SQL query in Power BI'
+title: 'Quickstart: Visualize data from Azure Data Explorer using a SQL query in Power BI'
 description: 'In this quickstart, you learn how to use one of the three options for visualizing data in Power BI: a SQL query against an Azure Data Explorer cluster.'
-services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
 
-#Customer intent: As a data analyst, I want to understand connection options in Power BI so I can choose the option most appropriate to my scenario.
+# Customer intent: As a data analyst, I want to understand connection options in Power BI so I can choose the option most appropriate to my scenario.
 ---
 
 # Quickstart: Visualize data using the Azure Data Explorer connector for Power BI
@@ -50,7 +49,7 @@ You typically use the native query language with Azure Data Explorer, but it als
     |---|---|---|
     | Server | *help.kusto.windows.net* | The URL for the help cluster (without *https://*). For other clusters, the URL is in the form *\<ClusterName\>.\<Region\>.kusto.windows.net*. |
     | Database | *Samples* | The sample database that is hosted on the cluster you're connecting to. |
-    | Data connectivity mode | *Import* | Determines whether Power BI imports the data or connects directly to the data source. |
+    | Data connectivity mode | *Import* | Determines whether Power BI imports the data or connects directly to the data source. You can use either option with this connector. |
     | Command timeout | Leave blank | How long the query runs before it throws a timeout error. |
     | SQL statement | Copy the query below this table | The SQL statement that Azure Data Explorer translates into a native query. |
     | Other options | Leave as default values | Options don't apply to Azure Data Explorer clusters. |

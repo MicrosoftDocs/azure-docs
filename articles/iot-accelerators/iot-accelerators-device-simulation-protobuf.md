@@ -37,7 +37,7 @@ To follow the steps in this how-to guide, you need:
 * .NET Core. You can download [.NET Core for Mac, Linux, and Windows](https://www.microsoft.com/net/download).
 * Postman. You can download [Postman for Mac, windows, or Linux](https://www.getpostman.com/apps).
 * An [IoT hub deployed to your Azure subscription](../iot-hub/iot-hub-create-through-portal.md). You need the IoT hub's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
-* A [Cosmos DB database deployed to your Azure subscription](../cosmos-db/create-sql-api-dotnet.md#create-a-database-account) that uses the SQL API and that's configured for [strong consistency](../cosmos-db/manage-account.md). You need the Cosmos DB database's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
+* A [Cosmos DB database deployed to your Azure subscription](../cosmos-db/create-sql-api-dotnet.md#create-account) that uses the SQL API and that's configured for [strong consistency](../cosmos-db/manage-account.md). You need the Cosmos DB database's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
 * An [Azure storage account deployed to your Azure subscription](../storage/common/storage-quickstart-create-account.md). You need the storage account's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
 
 ## Prepare your development environment
@@ -84,58 +84,58 @@ In this how-to-guide, you create a new device model for an asset tracker:
 
 1. Define the device functionality in the device model **assettracker-01.json** file. The telemetry section of a Protobuf device model must:
 
-    * Include the name of the Protobuf class you generate for your device. The following section shows you how to generate this class.
-    * Specify Protobuf as the message format.
+   * Include the name of the Protobuf class you generate for your device. The following section shows you how to generate this class.
+   * Specify Protobuf as the message format.
 
-    ```json
-    {
-      "SchemaVersion": "1.0.0",
-      "Id": "assettracker-01",
-      "Version": "0.0.1",
-      "Name": "Asset Tracker",
-      "Description": "An asset tracker with location, temperature, and humidity",
-      "Protocol": "AMQP",
-      "Simulation": {
-        "InitialState": {
-          "online": true,
-          "latitude": 47.445301,
-          "longitude": -122.296307,
-          "temperature": 38.0,
-          "humidity": 62.0
-        },
-        "Interval": "00:01:00",
-        "Scripts": [
-          {
-            "Type": "javascript",
-            "Path": "assettracker-01-state.js"
-          }
-        ]
-      },
-      "Properties": {
-        "Type": "AssetTracker",
-        "Location": "Field",
-        "Latitude": 47.445301,
-        "Longitude": -122.296307
-      },
-      "Telemetry": [
-        {
-          "Interval": "00:00:10",
-          "MessageTemplate": "{\"latitude\":${latitude},\"longitude\":${longitude},\"temperature\":${temperature},\"humidity\":${humidity}}",
-          "MessageSchema": {
-            "Name": "assettracker-sensors;v1",
-            "ClassName": "Microsoft.Azure.IoTSolutions.DeviceSimulation.Services.Models.Protobuf.AssetTracker",
-            "Format": "Protobuf",
-            "Fields": {
-              "latitude": "double",
-              "longitude": "double",
-              "temperature": "double",
-              "humidity": "double"
-            }
-          }
-        }
-      ]
-    }
-    ```
+     ```json
+     {
+     "SchemaVersion": "1.0.0",
+     "Id": "assettracker-01",
+     "Version": "0.0.1",
+     "Name": "Asset Tracker",
+     "Description": "An asset tracker with location, temperature, and humidity",
+     "Protocol": "AMQP",
+     "Simulation": {
+       "InitialState": {
+         "online": true,
+         "latitude": 47.445301,
+         "longitude": -122.296307,
+         "temperature": 38.0,
+         "humidity": 62.0
+       },
+       "Interval": "00:01:00",
+       "Scripts": [
+         {
+           "Type": "javascript",
+           "Path": "assettracker-01-state.js"
+         }
+       ]
+     },
+     "Properties": {
+       "Type": "AssetTracker",
+       "Location": "Field",
+       "Latitude": 47.445301,
+       "Longitude": -122.296307
+     },
+     "Telemetry": [
+       {
+         "Interval": "00:00:10",
+         "MessageTemplate": "{\"latitude\":${latitude},\"longitude\":${longitude},\"temperature\":${temperature},\"humidity\":${humidity}}",
+         "MessageSchema": {
+           "Name": "assettracker-sensors;v1",
+           "ClassName": "Microsoft.Azure.IoTSolutions.DeviceSimulation.Services.Models.Protobuf.AssetTracker",
+           "Format": "Protobuf",
+           "Fields": {
+             "latitude": "double",
+             "longitude": "double",
+             "temperature": "double",
+             "humidity": "double"
+           }
+         }
+       }
+     ]
+     }
+     ```
 
 ### Create device behaviors script
 

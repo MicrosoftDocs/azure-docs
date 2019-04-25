@@ -1,7 +1,6 @@
 ---
 title: Manage HDInsight clusters with Enterprise Security Enterprise - Azure
 description: Learn how to manage HDInsight clusters with Enterprise Security Package.
-services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -25,7 +24,7 @@ You can link a normal cluster by using Apache Ambari managed username, also link
    
    ![link cluster dialog](./media/apache-domain-joined-manage/link-cluster-process.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > The linked username and password are used if the cluster both logged in Azure subscription and Linked a cluster. 
    
 3. You can see a Linked cluster by using command **List cluster**. Now you can submit a script to this linked cluster.
@@ -45,7 +44,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
    
    ![link cluster dialog](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
    > ![storage explorer in IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
 
@@ -69,7 +68,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
    
    ![link cluster dialog](./media/apache-domain-joined-manage/link-cluster-dialog.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
    > ![storage explorer in Eclipse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
 
@@ -89,13 +88,13 @@ Security and user isolation are important for a HDInsight cluster with Enterpris
 
 |Workload|Scenario|Access Method|
 |--------|--------|-------------|
-|Hadoop|Hive – Interactive Jobs/Queries	|<ul><li>[Beeline](#beeline)</li><li>[Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Spark|Interactive Jobs/Queries, PySpark interactive|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin with Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Spark|Batch Scenarios – Spark submit, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Apache Hadoop|Hive – Interactive Jobs/Queries	|<ul><li>[Beeline](#beeline)</li><li>[Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Spark|Interactive Jobs/Queries, PySpark interactive|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin with Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Spark|Batch Scenarios – Spark submit, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
 |Interactive Query (LLAP)|Interactive|<ul><li>[Beeline](#beeline)</li><li>[Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Any|Install Custom Application|<ul><li>[Script Actions](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
-   > [!NOTE]
+   > [!NOTE]  
    > Jupyter is not installed/supported in Enterprise Security Package.
 
 Using the standard APIs helps from security perspective. In addition, you get the following benefits:
@@ -138,7 +137,7 @@ To find the fully qualified domain name of a headnode, use the information in th
 ## Users of HDInsight clusters with ESP
 A non-ESP HDInsight cluster has two user accounts that are created during the cluster creation:
 
-* **Ambari admin**: This account is also known as *Hadoop user* or *HTTP user*. This account can be used to log on to Ambari at https://&lt;clustername>.azurehdinsight.net. It can also be used to run queries on Ambari views, execute jobs via external tools (for example, PowerShell, Templeton, Visual Studio), and authenticate with the Hive ODBC driver and BI tools (for example, Excel, PowerBI, or Tableau).
+* **Ambari admin**: This account is also known as *Hadoop user* or *HTTP user*. This account can be used to sign in to Ambari at https://&lt;clustername>.azurehdinsight.net. It can also be used to run queries on Ambari views, execute jobs via external tools (for example, PowerShell, Templeton, Visual Studio), and authenticate with the Hive ODBC driver and BI tools (for example, Excel,  Power BI, or Tableau).
 
 A HDInsight cluster with ESP has three new users in addition to Ambari Admin.
 
@@ -174,9 +173,9 @@ HDInsight Enterprise Security Package has the following roles:
 ## Open the Ambari Management UI
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
-2. Open your HDInsight cluster. See [List and show clusters](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
+2. Open your HDInsight cluster.
 3. Click **Dashboard** from the top menu to open Ambari.
-4. Log on to Ambari using the cluster administrator domain user name and password.
+4. Sign in to Ambari using the cluster administrator domain user name and password.
 5. Click the **Admin** dropdown menu from the upper right corner, and then click **Manage Ambari**.
 
     ![ESP HDInsight manage Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
@@ -210,7 +209,7 @@ HDInsight Enterprise Security Package has the following roles:
 6. Click **Add User** or **Add Group**, and then specify the users or groups that can use Hive Views.
 
 ## Configure users for the roles
- To see a list of roles and their permissions, see [Roles of HDInsight clusters with ESP](#roles-of-domain---joined-hdinsight-clusters).
+ To see a list of roles and their permissions, see Roles of HDInsight clusters with ESP.
 
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Roles**.
@@ -218,4 +217,4 @@ HDInsight Enterprise Security Package has the following roles:
 
 ## Next steps
 * For configuring a HDInsight cluster with Enterprise Security Package, see [Configure HDInsight clusters with ESP](apache-domain-joined-configure.md).
-* For configuring Hive policies and run Hive queries, see [Configure Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md).
+* For configuring Hive policies and run Hive queries, see [Configure Apache Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md).

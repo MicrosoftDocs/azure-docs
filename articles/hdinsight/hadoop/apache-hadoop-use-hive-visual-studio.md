@@ -1,7 +1,6 @@
 ---
 title: Apache Hive with Data Lake (Apache Hadoop) tools for Visual Studio - Azure HDInsight 
 description: Learn how to use the Data Lake tools for Visual Studio to run Apache Hive queries with Apache Hadoop on Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -20,7 +19,7 @@ Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The
 
 * An Azure HDInsight (Apache Hadoop on HDInsight) cluster
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Visual Studio (one of the following versions):
@@ -33,7 +32,7 @@ Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The
 
 * HDInsight tools for Visual Studio or Azure Data Lake tools for Visual Studio. See [Get started using Visual Studio Hadoop tools for HDInsight](apache-hadoop-visual-studio-tools-get-started.md) for information on installing and configuring the tools.
 
-## <a id="run"></a> Run Hive queries using the Visual Studio
+## <a id="run"></a> Run Apache Hive queries using the Visual Studio
 
 1. Open **Visual Studio** and select **New** > **Project** > **Azure Data Lake** > **HIVE** > **Hive Application**. Provide a name for this project.
 
@@ -54,7 +53,7 @@ Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The
 
    * `CREATE EXTERNAL TABLE`: Creates a new 'external' table in Hive. External tables only store the table definition in Hive (the data is left in the original location).
 
-     > [!NOTE]
+     > [!NOTE]  
      > External tables should be used when you expect the underlying data to be updated by an external source. For example, a MapReduce job or Azure service.
      >
      > Dropping an external table does **not** delete the data, only the table definition.
@@ -91,7 +90,7 @@ Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The
 
    * `CREATE TABLE IF NOT EXISTS`: Creates a table if it does not already exist. Because the `EXTERNAL` keyword is not used, this statement creates an internal table. Internal tables are stored in the Hive data warehouse and are managed by Hive.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Unlike `EXTERNAL` tables, dropping an internal table also deletes the underlying data.
 
    * `STORED AS ORC`: Stores the data in optimized row columnar (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.
@@ -108,31 +107,30 @@ As you can see, the HDInsight tools for Visual Studio provide an easy way to wor
 
 For general information about Hive in HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
 
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 For more information about the HDInsight tools for Visual Studio:
 
 * [Getting started with HDInsight tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
+[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 
 
 
@@ -143,7 +141,7 @@ For more information about the HDInsight tools for Visual Studio:
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png

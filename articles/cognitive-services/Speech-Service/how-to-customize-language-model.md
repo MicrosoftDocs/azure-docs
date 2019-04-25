@@ -1,16 +1,16 @@
 ---
 title: "Tutorial: How to create a language model with Speech Service"
 titlesuffix: Azure Cognitive Services
-description: Learn how to create a language model with Speech Service.
+description: Learn how to create a language model with Speech Service. Use this custom language model in conjunction with existing state-of-the-art speech models from Microsoft to add voice interaction to your application.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
-
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 12/06/2018
 ms.author: panosper
+ms.custom: seodec18
 ---
 
 # Tutorial: Create a custom language model
@@ -44,7 +44,7 @@ The sentences do not need to be complete or grammatically correct, but they shou
 
 The language model data should be written in UTF-8 BOM. The text file should contain one example (sentence, utterance, or query) per line.
 
-If you want certain terms to have a higher weight (importance), you can add several utterances to your data that include those terms. 
+If you want certain terms to have a higher weight (importance), you can add several utterances to your data that include those terms.
 
 The main requirements for the language data are summarized in the following table.
 
@@ -54,7 +54,7 @@ The main requirements for the language data are summarized in the following tabl
 | # of utterances per line | 1 |
 | Maximum file size | 1.5 GB |
 | Remarks | Avoid repeating characters more often than four times, for example 'aaaaa'|
-| Remarks | No special characters such as '\t', or any other UTF-8 character above U+00A1 in the [Unicode characters table](http://www.utf8-chartable.de/)|
+| Remarks | No special characters such as '\t', or any other UTF-8 character above U+00A1 in the [Unicode characters table](https://www.utf8-chartable.de/)|
 | Remarks | URIs will also be rejected since there is no unique way to pronounce a URI|
 
 When the text is imported, it is text-normalized so it can be processed by the system. However, there are some important normalizations that must be done by the user _prior_ to uploading the data. See the [transcription guidelines](prepare-transcription.md) to determine the appropriate language to use when preparing your language data.
@@ -71,7 +71,7 @@ Select the **Import** button in the **Language Datasets** row, and the site disp
 
 When you're ready to import your language data set, sign into the [Speech Services portal](https://customspeech.ai). First, select the **Custom Speech** drop-down menu on the top ribbon. Then select **Adaptation Data**. The first time you attempt to upload data to Speech Services, you'll see an empty table called **Datasets**.
 
-To import a new data set, select the **Import** button in the **Language Datasets** row. Then the site displays a page for uploading a new data set. Enter a **Name** and **Description** to help you identify the data set in the future, and then choose the locale. 
+To import a new data set, select the **Import** button in the **Language Datasets** row. Then the site displays a page for uploading a new data set. Enter a **Name** and **Description** to help you identify the data set in the future, and then choose the locale.
 
 Next, use the **Choose File** button to locate the language data text file. After that, select **Import**, and the data set will be uploaded. Depending on the size of the data set, import might take several minutes.
 
@@ -93,11 +93,9 @@ After your language data is ready, select **Language Models** from the **Menu** 
 
 The appropriate locale must be selected before taking any action. The current locale is indicated in the table title on all data, model, and deployment pages. To change the locale, select the **Change Locale** button that's located under the table title.  This takes you to a locale confirmation page. Select **OK** to return to the table.
 
-On the Create Language Model page, enter a **Name** and **Description** to help you keep track of pertinent information about this model, such as the data set that's used. Next, select the **Base Language Model** from the drop-down menu. This model is the starting point for your customization. 
+On the Create Language Model page, enter a **Name** and **Description** to help you keep track of pertinent information about this model, such as the data set that's used. Next, select the **Base Language Model** from the drop-down menu. This model is the starting point for your customization.
 
-There are two base language models to choose from. The Search and Dictation model is appropriate for speech that's directed at an application, such as commands, search queries, or dictation. The Conversational model is appropriate for recognizing speech that's spoken in a conversational style. This type of speech is typically directed at another person and occurs in call centers or meetings. 
-
-The Search and Dictation model is appropriate for speech that's directed at an application, such as commands, search queries, or dictation. The Conversational model is appropriate for recognizing speech that's spoken in a conversational style. This type of speech is typically directed at another person and occurs in call centers or meetings. A new model called "Universal" is also publicly available. Universal aims to tackle all scenarios and eventually replace the Search and Dictation and the Conversational models.
+There are two base language models to choose from. The Search and Dictation model is appropriate for speech that's directed at an application, such as commands, search queries, or dictation. The Conversational model is appropriate for recognizing speech that's spoken in a conversational style. This type of speech is typically directed at another person and occurs in call centers or meetings. A new model called "Universal" is also publicly available. Universal aims to tackle all scenarios and eventually replace the Search and Dictation and the Conversational models.
 
 As shown in the following example, after you've specified the base language model, use the **Language Data** drop-down menu to select the language data set that you want to use for the customization.
 

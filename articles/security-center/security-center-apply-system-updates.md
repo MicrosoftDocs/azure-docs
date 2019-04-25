@@ -4,7 +4,7 @@ description: This document shows you how to implement the Azure Security Center 
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: e5bd7f55-38fd-4ebb-84ab-32bd60e9fa7a
@@ -39,7 +39,7 @@ In this example, we will use **Compute**.
     - The total number of critical updates missing across your VMs and computers.
     - The total number of security updates missing across your VMs and computers.
 
-  The bottom of the dashboard lists all missing updates across your VMs and computers, and the severity of the missing update.  The list includes:
+   The bottom of the dashboard lists all missing updates across your VMs and computers, and the severity of the missing update.  The list includes:
 
     - NAME: Name of the missing update.
     - NO. OF VMs & COMPUTERS: Total number of VMs and computers that are missing this update.
@@ -59,13 +59,13 @@ In this example, we will use **Compute**.
 
    ![Missing security update][3]
 
-4. Select the **Search** icon in the top ribbon.  A Log Analytics search query opens filtered to the computers missing the update.
+4. Select the **Search** icon in the top ribbon.  An Azure Monitor logs search query opens filtered to the computers missing the update.
 
-   ![Log Analytics search][4]
+   ![Azure Monitor logs search][4]
 
 5. Select a computer from the list for more information. Another search result opens with information filtered only for that computer.
 
-    ![Log Analytics search][5]
+    ![Azure Monitor logs search][5]
 
 ## Reboot after system updates
 1. Return to the **Recommendations** blade. A new entry was generated after you applied system updates, called **Reboot after system updates**. This entry lets you know that you need to reboot the VM to complete the process of applying system updates.
@@ -80,7 +80,7 @@ Restart the VM from Azure to complete the process.
 ## Next steps
 To learn more about Security Center, see the following:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.

@@ -3,25 +3,26 @@ title: Custom domains in Azure AD Application Proxy | Microsoft Docs
 description: Manage custom domains in Azure AD Application Proxy so that the URL for the app is the same regardless of where your users access it. 
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/31/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # Working with custom domains in Azure AD Application Proxy
 
-When you publish an application through Azure Active Directory Application Proxy, you create an external URL for your users to go to when they're working remotely. This URL gets the default domain *yourtenant.msappproxy.net*. For example, if you published an app named Expenses and your tenant is named Contoso, then the external URL would be https://expenses-contoso.msappproxy.net. If you want to use your own domain name, configure a custom domain for your application. 
+When you publish an application through Azure Active Directory Application Proxy, you create an external URL for your users to go to when they're working remotely. This URL gets the default domain *yourtenant.msappproxy.net*. For example, if you published an app named Expenses and your tenant is named Contoso, then the external URL would be `https://expenses-contoso.msappproxy.net`. If you want to use your own domain name, configure a custom domain for your application. 
 
 We recommend that you set up custom domains for your applications whenever possible. Some of the benefits of custom domains include:
 
@@ -37,7 +38,7 @@ We recommend that you set up custom domains for your applications whenever possi
 Before you configure a custom domain, make sure that you have the following requirements prepared: 
 - A [verified domain added to Azure Active Directory](../fundamentals/add-custom-domain.md).
 - A custom certificate for the domain, in the form of a PFX file. 
-- An on-premises app [published through Application Proxy](application-proxy-publish-azure-portal.md).
+- An on-premises app [published through Application Proxy](application-proxy-add-on-premises-application.md).
 
 ### Configure your custom domain
 
@@ -56,7 +57,8 @@ When you have those three requirements ready, follow these steps to set up your 
 
 6. Upload the PFX certificate and enter the password for the certificate. 
 7. Select **Save** to save your changes. 
-8. Add a [DNS record](../../dns/dns-operations-recordsets-portal.md) that redirects the new external URL to the msappproxy.net domain. 
+8. Add a [DNS record](../../dns/dns-operations-recordsets-portal.md) that redirects the new external URL to the msappproxy.net domain.
+9. Check that the DNS record is configured correctly by using the [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) command to see if your external URL is reachable and the msapproxy.net domain shows up as an alias.
 
 >[!TIP] 
 >You only need to upload one certificate per custom domain. Once you upload a certificate, you can choose the custom domain when you publish a new app and not have to do additional configuration except for the DNS record. 

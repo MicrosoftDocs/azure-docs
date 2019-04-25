@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2018
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom:
-manager: dougeby
+ms.custom: seodec18
+manager: benshy
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -45,15 +45,15 @@ You track actual money spent for usage and costs with Over Time reports to ident
 
 Here is an example report:
 
-![example report](./media/tutorial-review-usage/actual-cost01.png)
+![Example Actual Cost Over Time report](./media/tutorial-review-usage/actual-cost01.png)
 
 The report shows all spending over the last 30 days. To view only spending for Azure services, apply the Service group and then filter for all Azure services. The following image shows the filtered services.
 
-![filtered services](./media/tutorial-review-usage/actual-cost02.png)
+![Example showing filtered Azure services](./media/tutorial-review-usage/actual-cost02.png)
 
 In the preceding example, less money was spent starting on 2018-10-29. But, too many columns can obscure an obvious trend. You can change the report view to a line or area chart to see the data displayed in other views. The following image shows the trend more clearly.
 
-![trend in report](./media/tutorial-review-usage/actual-cost03.png)
+![Example showing a decreasing Azure VM cost trend](./media/tutorial-review-usage/actual-cost03.png)
 
 Continuing with the example, you can see that the cost for Azure VM dropped. Costs for other Azure services also started dropping on that day. So, what caused that reduction in spending? In this example, a large work project was completed so consumption of many Azure services also dropped.
 
@@ -71,15 +71,15 @@ The Cost Effective Sizing Recommendations report identifies potential annual sav
 
 On the menu at the top of the portal, click **Optimizer** > **Sizing Optimization** > **Cost Effective Sizing Recommendations**. If useful, apply a filter to reduce results. Here’s an example image.
 
-![Azure VMs](./media/tutorial-review-usage/sizing01.png)
+![Cost effective sizing recommendation report for Azure VMs](./media/tutorial-review-usage/sizing01.png)
 
 In this example, $2,382 could be saved by following the recommendations to change the VM instance types. Click the plus symbol (+) under **Details** for the first recommendation. Here are details about the first recommendation.
 
-![recommendation details](./media/tutorial-review-usage/sizing02.png)
+![Example showing recommendation details](./media/tutorial-review-usage/sizing02.png)
 
 View VM instance IDs by clicking the plus symbol next to **List of Candidates**.
 
-![List of Candidates](./media/tutorial-review-usage/sizing03.png)
+![Example showing a list of VM candidates to resize](./media/tutorial-review-usage/sizing03.png)
 
 To watch a tutorial video about detecting usage inefficiencies, see [Optimizing VM Size in Cloudyn](https://youtu.be/1xaZBNmV704).
 
@@ -87,15 +87,23 @@ Azure Cost Management also provides cost-saving recommendations for Azure servic
 
 ## Create alerts for unusual spending
 
-You can alert stakeholders automatically for spending anomalies and overspending risks. You can quickly and easily create alerts using reports that support alerts based on budget and cost thresholds.
+Alerts allow you to automatically notify stakeholders of spending anomalies and overspending risks. You can create alerts using reports that support alerts based on budget and cost thresholds.
 
-You create an alert for any spending using any Cost report. In this example, use the Actual Cost Over Time report to notify you when Azure VM spending nears your total budget. All the following steps are needed to create the alert. On the menu at the top of the portal, click **Costs** > **Cost Analysis** > **Actual Cost Over Time**. Set **Groups** to **Service** and set **Filter on the service** to **Azure/VM**. In the top right of the report, click **Actions** and then select **Schedule report**.
+This example uses the **Actual Cost Over Time** report to send a notification when your spending on an Azure VM  nears your total budget. In this scenario, you have a total budget of $20,000 and you want to receive a notification when costs are approaching half of your budget, $9,000, and an additional alert when costs reach $10,000.
 
-In the Save or Schedule this report box, use the **Scheduling** tab to send yourself an email of the report using the frequency that you want. Be sure to select **Send via email**. Any tags, grouping, and filtering you used are included in the emailed report. Click the **Threshold** tab and select choose **Actual Cost vs. Threshold**. If you had a total budget of $20,000 and you wanted notification when costs near about half, create a **Red alert** at $10,000 and a **Yellow alert** at $9,000. Don't include commas in values that you enter. Then, choose the number of consecutive alerts. When you receive the total number of alerts that you specified, no additional alerts are sent. Save the scheduled report.
+1. From the menu at the top of the Cloudyn portal, select **Costs** > **Cost Analysis** > **Actual Cost Over Time**.
+2. Set **Groups** to **Service** and set **Filter on the service** to **Azure/VM**.
+3. In the top right of the report, select **Actions** and then select **Schedule report**.
+4. To send yourself an email of the report at scheduled interval, select the **Scheduling** tab in the **Save or Schedule this** report dialog. Be sure to select **Send via email**. Any tags, grouping, and filtering you use are included in the emailed report.
+5. Select the **Threshold** tab and then select  **Actual Cost vs. Threshold**.
+   1. In the **Red alert** threshold box enter 10000.
+   2. In the **Yellow alert** threshold box enter 9000.
+   3. In the **Number of consecutive alerts** box, enter the number of consecutive alerts to receive. When you receive the total number of alerts that you specified, no additional alerts are sent.
+6. Select **Save**.
 
-![example report](./media/tutorial-review-usage/schedule-alert01.png)
+![Example showing red and yellow alerts based on spending thresholds](./media/tutorial-review-usage/schedule-alert01.png)
 
-You can also choose the Cost Percentage vs. Budget threshold metric to create alerts. By using that metric, you can use budget percentages instead of currency values.
+You can also choose the **Cost Percentage vs. Budget** threshold metric to create alerts. This allows you to specify the thresholds as percentages of your budget instead of currency values.
 
 ## Export data
 

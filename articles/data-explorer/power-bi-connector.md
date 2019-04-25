@@ -1,15 +1,14 @@
 ---
 title: 'Quickstart: Visualize data using the Azure Data Explorer connector for Power BI'
 description: 'In this quickstart, you learn how to use one of the three options for visualizing data in Power BI: the Power BI connector for Azure Data Explorer.'
-services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
 
-#Customer intent: As a data analyst, I want to understand connection options in Power BI so I can choose the option most appropriate to my scenario.
+# Customer intent: As a data analyst, I want to understand connection options in Power BI so I can choose the option most appropriate to my scenario.
 ---
 
 # Quickstart: Visualize data using the Azure Data Explorer connector for Power BI
@@ -50,9 +49,9 @@ First, you connect to the Azure Data Explorer help cluster, then you bring in a 
     |---|---|---|
     | Cluster | *https://help.kusto.windows.net* | The URL for the help cluster. For other clusters, the URL is in the form *https://\<ClusterName\>.\<Region\>.kusto.windows.net*. |
     | Database | Leave blank | A database that is hosted on the cluster you're connecting to. We'll select this in a later step. |
-    | Table name | Leave blank | One of the tables in the database, or a query like `StormEvents | take 1000`. We'll select this in a later step. |
+    | Table name | Leave blank | One of the tables in the database, or a query like <code>StormEvents \| take 1000</code>. We'll select this in a later step. |
     | Advanced options | Leave blank | Options for your queries, such as result set size. |
-    | Data connectivity mode | *DirectQuery* | Determines whether Power BI imports the data or connects directly to the data source. |
+    | Data connectivity mode | *DirectQuery* | Determines whether Power BI imports the data or connects directly to the data source. You can use either option with this connector. |
     | | | |
 
 1. If you don't already have a connection to the help cluster, sign in. Sign in with an organizational account, then select **Connect**.

@@ -1,3 +1,10 @@
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 10/24/2018
+ms.author: cephalin
+---
 In the [Azure portal](https://portal.azure.com), click **Resource groups** > **cloud-shell-storage-\<your_region>** > **\<storage_account_name>**.
 
 ![Find Cloud Shell storage account](../articles/app-service/media/app-service-deploy-zip/upload-choose-storage-account.png)

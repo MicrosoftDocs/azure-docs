@@ -15,6 +15,9 @@ ms.author: alehall
 
 # Tutorial: Stream data into Azure Databricks using Event Hubs
 
+> [!IMPORTANT]
+> Twitter application creation is no longer available through [apps.twitter.com](https://apps.twitter.com/). This tutorial is in the process of being updated to include the new Twitter API.
+
 In this tutorial, you connect a data ingestion system with Azure Databricks to stream data into an Apache Spark cluster in near real-time. You set up data ingestion system using Azure Event Hubs and then connect it to Azure Databricks to process the messages coming through. To access a stream of data, you use Twitter APIs to ingest tweets into Event Hubs. Once you have the data in Azure Databricks, you can run analytical jobs to further analyze the data. 
 
 By the end of this tutorial, you would have streamed tweets from Twitter (that have the term "Azure" in them) and read the tweets in Azure Databricks.
@@ -35,6 +38,10 @@ This tutorial covers the following tasks:
 > * Read tweets from Event Hubs
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+
+> [!Note]
+> This tutorial cannot be carried out using **Azure Free Trial Subscription**.
+> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
@@ -92,11 +99,11 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     Accept all other default values other than the following:
 
-    * Enter a name for the cluster.
-    * For this article, create a cluster with **4.0** runtime.
-    * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+   * Enter a name for the cluster.
+   * For this article, create a cluster with **4.0** runtime.
+   * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
-    Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
+     Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
 ## Create a Twitter application
 
@@ -120,16 +127,16 @@ Save the values that you retrieved for the Twitter application. You need the val
 
 In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You also use the [Apache Spark Event Hubs connector](https://github.com/Azure/azure-event-hubs-spark) to read and write data into Azure Event Hubs. To use these APIs as part of your cluster, add them as libraries to Azure Databricks and then associate them with your Spark cluster. The following instructions show how to add the library to the **Shared** folder in your workspace.
 
-1.  In the Azure Databricks workspace, select **Workspace**, and then right-click **Shared**. From the context menu, select **Create** > **Library**.
+1. In the Azure Databricks workspace, select **Workspace**, and then right-click **Shared**. From the context menu, select **Create** > **Library**.
 
-    ![Add library dialog box](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "Add library dialog box")
+   ![Add library dialog box](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "Add library dialog box")
 
 2. In the New Library page, for **Source** select **Maven Coordinate**. For **Coordinate**, enter the coordinate for the package you want to add. Here is the Maven coordinates for the libraries used in this tutorial:
 
-    * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
-    * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
+   * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
+   * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
 
-    ![Provide Maven coordinates](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Provide Maven coordinates")
+     ![Provide Maven coordinates](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Provide Maven coordinates")
 
 3. Select **Create Library**.
 
@@ -164,7 +171,7 @@ In this section, you create two notebooks in Databricks workspace with the follo
 
 ## Send tweets to Event Hubs
 
-In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholders with values for your Event Hubs namesapce and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Event Hubs in real time.
+In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholders with values for your Event Hubs namespace and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Event Hubs in real time.
 
 ```scala
     import java.util._
@@ -380,4 +387,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn about performing sentiment analysis on the streamed data using Azure Databricks and [Microsoft Cognitive Services API](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
->[Sentiment analyis on streaming data using Azure Databricks ](databricks-sentiment-analysis-cognitive-services.md)
+>[Sentiment analysis on streaming data using Azure Databricks](databricks-sentiment-analysis-cognitive-services.md)

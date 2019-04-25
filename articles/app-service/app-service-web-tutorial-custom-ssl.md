@@ -1,5 +1,5 @@
 ---
-title: Bind an existing custom SSL certificate to Azure Web Apps | Microsoft Docs
+title: Bind existing custom SSL certificate - Azure App Service | Microsoft Docs
 description: Learn how to bind a custom SSL certificate to your web app, mobile app backend, or API app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
@@ -16,10 +16,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
----
-# Tutorial: Bind an existing custom SSL certificate to Azure Web Apps
+ms.custom: seodec18
 
-Azure Web Apps provides a highly scalable, self-patching web hosting service. This tutorial shows you how to bind a custom SSL certificate that you purchased from a trusted certificate authority to [Azure Web Apps](app-service-web-overview.md). When you're finished, you'll be able to access your web app at the HTTPS endpoint of your custom DNS domain.
+---
+# Tutorial: Bind an existing custom SSL certificate to Azure App Service
+
+Azure App Service provides a highly scalable, self-patching web hosting service. This tutorial shows you how to bind a custom SSL certificate that you purchased from a trusted certificate authority to [Azure App Service](overview.md). When you're finished, you'll be able to access your app at the HTTPS endpoint of your custom DNS domain.
 
 ![Web app with custom SSL certificate](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
@@ -34,14 +36,14 @@ In this tutorial, you learn how to:
 > * Automate TLS management with scripts
 
 > [!NOTE]
-> If you need to get a custom SSL certificate, you can get one in the Azure portal directly and bind it to your web app. Follow the [App Service Certificates tutorial](web-sites-purchase-ssl-web-site.md).
+> If you need to get a custom SSL certificate, you can get one in the Azure portal directly and bind it to your app. Follow the [App Service Certificates tutorial](web-sites-purchase-ssl-web-site.md).
 
 ## Prerequisites
 
 To complete this tutorial:
 
 - [Create an App Service app](/azure/app-service/)
-- [Map a custom DNS name to your web app](app-service-web-tutorial-custom-domain.md)
+- [Map a custom DNS name to your App Service app](app-service-web-tutorial-custom-domain.md)
 - Acquire an SSL certificate from a trusted certificate authority
 - Have the private key you used to sign the SSL certificate request
 
@@ -65,7 +67,7 @@ To use a certificate in App Service, the certificate must meet all the following
 
 ## Bind your SSL certificate
 
-You are ready to upload your SSL certificate to your web app.
+You are ready to upload your SSL certificate to your app.
 
 ### Merge intermediate certificates
 
@@ -109,7 +111,7 @@ If you used IIS or _Certreq.exe_ to generate your certificate request, install t
 
 ### Upload your SSL certificate
 
-To upload your SSL certificate, click **SSL settings** in the left navigation of your web app.
+To upload your SSL certificate, click **SSL settings** in the left navigation of your app.
 
 Click **Upload Certificate**. 
 
@@ -134,9 +136,9 @@ In the **Add SSL Binding** page, use the dropdowns to select the domain name to 
 >
 >
 
-In **SSL Type**, select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP-based SSL.
+In **SSL Type**, select whether to use **[Server Name Indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication)** or IP-based SSL.
 
-- **SNI-based SSL** - Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication)).
+- **SNI-based SSL** - Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)).
 - **IP-based SSL** - Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. To secure multiple domains, you must secure them all using the same SSL certificate. This is the traditional option for SSL binding.
 
 Click **Add Binding**.
@@ -149,25 +151,25 @@ When App Service finishes uploading your certificate, it appears in the **SSL bi
 
 ## Remap A record for IP SSL
 
-If you don't use IP-based SSL in your web app, skip to [Test HTTPS for your custom domain](#test).
+If you don't use IP-based SSL in your app, skip to [Test HTTPS for your custom domain](#test).
 
-By default, your web app uses a shared public IP address. When you bind a certificate with IP-based SSL, App Service creates a new, dedicated IP address for your web app.
+By default, your app uses a shared public IP address. When you bind a certificate with IP-based SSL, App Service creates a new, dedicated IP address for your app.
 
-If you have mapped an A record to your web app, update your domain registry with this new, dedicated IP address.
+If you have mapped an A record to your app, update your domain registry with this new, dedicated IP address.
 
-Your web app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](app-service-web-tutorial-custom-domain.md#map-an-a-record) to this new IP address.
+Your app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](app-service-web-tutorial-custom-domain.md#map-an-a-record) to this new IP address.
 
 <a name="test"></a>
 
 ## Test HTTPS
 
 All that's left to do now is to make sure that HTTPS works for your custom domain. In various browsers, browse
-to `https://<your.custom.domain>` to see that it serves up your web app.
+to `https://<your.custom.domain>` to see that it serves up your app.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
 > [!NOTE]
-> If your web app gives you certificate validation errors, you're probably using a self-signed certificate.
+> If your app gives you certificate validation errors, you're probably using a self-signed certificate.
 >
 > If that's not the case, you may have left out intermediate certificates when you export your certificate to the PFX file.
 
@@ -183,9 +185,9 @@ Your inbound IP address can change when you delete a binding, even if that bindi
 
 ## Enforce HTTPS
 
-By default, anyone can still access your web app using HTTP. You can redirect all HTTP requests to the HTTPS port.
+By default, anyone can still access your app using HTTP. You can redirect all HTTP requests to the HTTPS port.
 
-In your web app page, in the left navigation, select **SSL settings**. Then, in **HTTPS Only**, select **On**.
+In your app page, in the left navigation, select **SSL settings**. Then, in **HTTPS Only**, select **On**.
 
 ![Enforce HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
@@ -199,7 +201,7 @@ When the operation is complete, navigate to any of the HTTP URLs that point to y
 
 Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 by default, which is the recommended TLS level by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). To enforce different TLS versions, follow these steps:
 
-In your web app page, in the left navigation, select **SSL settings**. Then, in **TLS version**, select the minimum TLS version you want. This setting controls the inbound calls only. 
+In your app page, in the left navigation, select **SSL settings**. Then, in **TLS version**, select the minimum TLS version you want. This setting controls the inbound calls only. 
 
 ![Enforce TLS 1.1 or 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
@@ -207,7 +209,7 @@ When the operation is complete, your app rejects all connections with lower TLS 
 
 ## Automate with scripts
 
-You can automate SSL bindings for your web app with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
+You can automate SSL bindings for your app with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
 
 ### Azure CLI
 
@@ -244,10 +246,12 @@ az webapp config set \
 
 ### Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The following command uploads an exported PFX file and adds an SNI-based SSL binding.
 
-```PowerShell
-New-AzureRmWebAppSSLBinding `
+```powershell
+New-AzWebAppSSLBinding `
     -WebAppName <app_name> `
     -ResourceGroupName <resource_group_name> `
     -Name <dns_name> `
@@ -256,9 +260,9 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## Public certificates (optional)
-If your app needs to access remote resources as a client, and the remote resource requires certificate authentication, you can upload [public certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) to your web app. Public certificates are not required for SSL bindings of your app.
+If your app needs to access remote resources as a client, and the remote resource requires certificate authentication, you can upload [public certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) to your app. Public certificates are not required for SSL bindings of your app.
 
-For more details on loading and using a public certificate in your app, see [Use an SSL certificate in your application code in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load). You can use public certificates with apps in App Service Environments too. If you need to store the certificate in the LocalMachine certificate store, you need to use a web app on App Service Environment. For more information, see [How to configure public certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+For more details on loading and using a public certificate in your app, see [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md). You can use public certificates with apps in App Service Environments too. If you need to store the certificate in the LocalMachine certificate store, you need to use an app on App Service Environment. For more information, see [How to configure public certificates to your App Service app](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Upload Public Certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

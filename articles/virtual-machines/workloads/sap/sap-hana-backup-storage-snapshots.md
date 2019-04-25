@@ -55,7 +55,7 @@ Once the storage snapshot is done, it is critical to confirm the SAP HANA snapsh
 
 ## HANA VM backup via Azure Backup service
 
-The backup agent of the Azure Backup service is not available for Linux VMs. Moreover Linux does not have similiar functionality as Windows has it with VSS.  To make use of Azure backup on the file/directory level, one would copy SAP HANA backup files to a Windows VM and then use the backup agent. 
+The backup agent of the Azure Backup service is not available for Linux VMs. Moreover Linux does not have similar functionality as Windows has it with VSS.  To make use of Azure backup on the file/directory level, one would copy SAP HANA backup files to a Windows VM and then use the backup agent. 
 
 Otherwise, only a full Linux VM backup is possible via the Azure Backup service. See [Overview of the features in Azure Backup](../../../backup/backup-introduction-to-azure-backup.md) to find out more.
 

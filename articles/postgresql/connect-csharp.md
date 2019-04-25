@@ -1,16 +1,13 @@
 ---
 title: Connect to Azure Database for PostgreSQL from C#
 description: This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 03/12/2019
 ---
 
 # Azure Database for PostgreSQL: Use .NET (C#) to connect and query data
@@ -42,10 +39,6 @@ Replace the Host, DBName, User, and Password parameters with the values that you
 
 ```csharp
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Npgsql;
 
 namespace Driver
@@ -66,44 +59,46 @@ namespace Driver
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4}; SSL Mode=Prefer; Trust Server Certificate=true",
+                    "Server={0};Username={1};Database={2};Port={3};Password={4};SSLMode=Prefer",
                     Host,
                     User,
                     DBname,
                     Port,
                     Password);
 
-            var conn = new NpgsqlConnection(connString);
 
-            Console.Out.WriteLine("Opening connection");
-            conn.Open();
+            using (var conn = new NpgsqlConnection(connString))
 
-            var command = conn.CreateCommand();
-            command.CommandText = "DROP TABLE IF EXISTS inventory;";
-            command.ExecuteNonQuery();
-            Console.Out.WriteLine("Finished dropping table (if existed)");
+            {
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
 
-            command.CommandText = "CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);";
-            command.ExecuteNonQuery();
-            Console.Out.WriteLine("Finished creating table");
+                using (var command = new NpgsqlCommand("DROP TABLE IF EXISTS inventory", conn))
+                { 
+                    command.ExecuteNonQuery();
+                    Console.Out.WriteLine("Finished dropping table (if existed)");
 
-            command.CommandText =
-                String.Format(
-                    @"
-                                INSERT INTO inventory (name, quantity) VALUES ({0}, {1});
-                                INSERT INTO inventory (name, quantity) VALUES ({2}, {3});
-                                INSERT INTO inventory (name, quantity) VALUES ({4}, {5});
-                            ",
-                    "\'banana\'", 150,
-                    "\'orange\'", 154,
-                    "\'apple\'", 100
-                    );
+                }
 
-            int nRows = command.ExecuteNonQuery();
-            Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
+                using (var command = new NpgsqlCommand("CREATE TABLE inventory(id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER)", conn))
+                {
+                    command.ExecuteNonQuery();
+                    Console.Out.WriteLine("Finished creating table");
+                }
 
-            Console.Out.WriteLine("Closing connection");
-            conn.Close();
+                using (var command = new NpgsqlCommand("INSERT INTO inventory (name, quantity) VALUES (@n1, @q1), (@n2, @q2), (@n3, @q3)", conn))
+                {
+                    command.Parameters.AddWithValue("n1", "banana");
+                    command.Parameters.AddWithValue("q1", 150);
+                    command.Parameters.AddWithValue("n2", "orange");
+                    command.Parameters.AddWithValue("q2", 154);
+                    command.Parameters.AddWithValue("n3", "apple");
+                    command.Parameters.AddWithValue("q3", 100);
+                    
+                    int nRows = command.ExecuteNonQuery();
+                    Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
+                }
+            }
 
             Console.WriteLine("Press RETURN to exit");
             Console.ReadLine();
@@ -119,10 +114,6 @@ Replace the Host, DBName, User, and Password parameters with the values that you
 
 ```csharp
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Npgsql;
 
 namespace Driver
@@ -143,36 +134,37 @@ namespace Driver
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};",
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Prefer",
                     Host,
                     User,
                     DBname,
                     Port,
                     Password);
 
-            var conn = new NpgsqlConnection(connString);
-
-            Console.Out.WriteLine("Opening connection");
-            conn.Open();
-
-            var command = conn.CreateCommand();
-            command.CommandText = "SELECT * FROM inventory;";
-
-            var reader = command.ExecuteReader();
-            while (reader.Read())
+            using (var conn = new NpgsqlConnection(connString))
             {
-                Console.WriteLine(
-                    string.Format(
-                        "Reading from table=({0}, {1}, {2})",
-                        reader.GetInt32(0).ToString(),
-                        reader.GetString(1),
-                        reader.GetInt32(2).ToString()
-                        )
-                    );
-            }
 
-            Console.Out.WriteLine("Closing connection");
-            conn.Close();
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+
+
+                using (var command = new NpgsqlCommand("SELECT * FROM inventory", conn))
+                {
+
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Console.WriteLine(
+                            string.Format(
+                                "Reading from table=({0}, {1}, {2})",
+                                reader.GetInt32(0).ToString(),
+                                reader.GetString(1),
+                                reader.GetInt32(2).ToString()
+                                )
+                            );
+                    }
+                }
+            }
 
             Console.WriteLine("Press RETURN to exit");
             Console.ReadLine();
@@ -189,10 +181,6 @@ Replace the Host, DBName, User, and Password parameters with the values that you
 
 ```csharp
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Npgsql;
 
 namespace Driver
@@ -213,36 +201,36 @@ namespace Driver
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};",
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Prefer",
                     Host,
                     User,
                     DBname,
                     Port,
                     Password);
 
-            var conn = new NpgsqlConnection(connString);
+            using (var conn = new NpgsqlConnection(connString))
+            {
 
-            Console.Out.WriteLine("Opening connection");
-            conn.Open();
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
 
-            var command = conn.CreateCommand();
-            command.CommandText =
-            String.Format("UPDATE inventory SET quantity = {0} WHERE name = {1};",
-                200,
-                "\'banana\'"
-                );
-
-            int nRows = command.ExecuteNonQuery();
-            Console.Out.WriteLine(String.Format("Number of rows updated={0}", nRows));
-
-            Console.Out.WriteLine("Closing connection");
-            conn.Close();
+                using (var command = new NpgsqlCommand("UPDATE inventory SET quantity = @q WHERE name = @n", conn))
+                {
+                    command.Parameters.AddWithValue("n", "banana");
+                    command.Parameters.AddWithValue("q", 200);
+                    
+                    int nRows = command.ExecuteNonQuery();
+                    Console.Out.WriteLine(String.Format("Number of rows updated={0}", nRows));
+                }
+            }
 
             Console.WriteLine("Press RETURN to exit");
             Console.ReadLine();
         }
     }
 }
+
+
 ```
 
 
@@ -255,10 +243,6 @@ Replace the Host, DBName, User, and Password parameters with the values that you
 
 ```csharp
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Npgsql;
 
 namespace Driver
@@ -279,33 +263,33 @@ namespace Driver
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};",
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Prefer",
                     Host,
                     User,
                     DBname,
                     Port,
                     Password);
 
-            var conn = new NpgsqlConnection(connString);
+            using (var conn = new NpgsqlConnection(connString))
+            {
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
 
-            Console.Out.WriteLine("Opening connection");
-            conn.Open();
+                using (var command = new NpgsqlCommand("DELETE FROM inventory WHERE name = @n", conn))
+                {
+                    command.Parameters.AddWithValue("n", "orange");
 
-            var command = conn.CreateCommand();
-            command.CommandText =
-            String.Format("DELETE FROM inventory WHERE name = {0};",
-                "\'orange\'");
-            int nRows = command.ExecuteNonQuery();
-            Console.Out.WriteLine(String.Format("Number of rows deleted={0}", nRows));
-
-            Console.Out.WriteLine("Closing connection");
-            conn.Close();
+                    int nRows = command.ExecuteNonQuery();
+                    Console.Out.WriteLine(String.Format("Number of rows deleted={0}", nRows));
+                }
+            }
 
             Console.WriteLine("Press RETURN to exit");
             Console.ReadLine();
         }
     }
 }
+
 ```
 
 ## Next steps

@@ -1,6 +1,6 @@
 ---
-title: Use an uploaded SSL certificate in your application code in Azure App Service | Microsoft Docs
-description: 
+title: Use client SSL certificate in application code - Azure App Service | Microsoft Docs
+description: Learn how to use client certificates to connect to remote resources that require them.
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -14,6 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: cephalin
+ms.custom: seodec18
+
 ---
 
 # Use an SSL certificate in your application code in Azure App Service

@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 04/08/2019
 ms.author: jingwang
 
 ---
@@ -51,14 +51,15 @@ Copy Activity goes through the following stages to copy data from a source to a 
 
 You can use Copy Activity to **copy files as-is** between two file-based data stores, in which case the data is copied efficiently without any serialization/deserialization.
 
-Copy Activity also supports reading from and writing to files in specified formats: **Text, JSON, Avro, ORC, and Parquet**, and compression codec **GZip, Deflate, BZip2, and ZipDeflate** are supported. See [Supported file and compression formats](supported-file-formats-and-compression-codecs.md) with details.
+Copy Activity also supports reading from and writing to files in specified formats: **Text, JSON, Avro, ORC, and Parquet**, and compressing and decompresing files with the following codecs: **GZip, Deflate, BZip2, and ZipDeflate**. See [Supported file and compression formats](supported-file-formats-and-compression-codecs.md) with details.
 
 For example, you can do the following copy activities:
 
-* Copy data in on-premises SQL Server and write to Azure Data Lake Store in ORC format.
+* Copy data in on-premises SQL Server and write to Azure Data Lake Storage Gen2 in Parquet format.
 * Copy files in text (CSV) format from on-premises File System and write to Azure Blob in Avro format.
-* Copy zipped files from on-premises File System and decompress then land to Azure Data Lake Store.
+* Copy zipped files from on-premises File System and decompress then land to Azure Data Lake Storage Gen2.
 * Copy data in GZip compressed text (CSV) format from Azure Blob and write to Azure SQL Database.
+* And many more cases with serialization/deserialization or compression/decompression need.
 
 ## Supported regions
 
@@ -152,7 +153,10 @@ Click to see the list of activities in this pipeline run. In the **Actions** col
 
 ![Monitor activity runs](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Click the "**Details**" link under **Actions** to see copy activity's execution details and performance characteristics. It shows you information including volume/rows/files of data copied from source to sink, throughput, steps it goes through with corresponding duration and used configurations for your copy scenario.
+Click the "**Details**" link under **Actions** to see copy activity's execution details and performance characteristics. It shows you information including volume/rows/files of data copied from source to sink, throughput, steps it goes through with corresponding duration and used configurations for your copy scenario. 
+
+>[!TIP]
+>For some scenarios, you will also see "**Performance tuning tips**" on top of the copy monitoring page,  which tells you the bottleneck identified and guides you on what to change so as to boost copy throughput, see example with details [here](#performance-and-tuning).
 
 **Example: copy from Amazon S3 to Azure Data Lake Store**
 ![Monitor activity run details](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -169,6 +173,7 @@ Copy activity execution details and performance characteristics are also returne
 | dataRead | Data size read from source | Int64 value in **bytes** |
 | dataWritten | Data size written to sink | Int64 value in **bytes** |
 | filesRead | Number of files being copied when copying data from file storage. | Int64 value (no unit) |
+| fileScanned | Number of files being scanned from the source file storage. | Int64 value (no unit) |
 | filesWritten | Number of files being copied when copying data to file storage. | Int64 value (no unit) |
 | rowsCopied | Number of rows being copied (not applicable for binary copy). | Int64 value (no unit) |
 | rowsSkipped | Number of incompatible rows being skipped. You can turn on the feature by set "enableSkipIncompatibleRow" to true. | Int64 value (no unit) |
@@ -228,6 +233,14 @@ By default, copy activity stops copying data and returns failure when it encount
 ## Performance and tuning
 
 See the [Copy Activity performance and tuning guide](copy-activity-performance.md), which describes key factors that affect the performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing and discusses various ways to optimize the performance of Copy Activity.
+
+In some cases, when you execute a copy activity in ADF, you will directly see "**Performance tuning tips**" on top of the [copy activity monitoring page](#monitor-visually) as shown in the following example. It not only tells you the bottleneck identified for the given copy run, but also guides you on what to change so as to boost copy throughput. The performance tuning tips currently provide suggestions like to use PolyBase when copying data into Azure SQL Data Warehouse, to increase Azure Cosmos DB RU or Azure SQL DB DTU when the resource on data store side is the bottleneck, to remove the unnecessary staged copy, etc. The performance tuning rules will be gradually enriched as well.
+
+**Example: copy into Azure SQL DB with performance tuning tips**
+
+In this sample, during copy run, ADF notice the sink Azure SQL DB reaches high DTU utilization which slows down the write operations, thus the suggestion is to increase the Azure SQL DB tier with more DTU. 
+
+![Copy monitoring with performance tuning tips](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## Incremental copy 
 Data Factory supports scenarios for incrementally copying delta data from a source data store to a destination data store. See [Tutorial: incrementally copy data](tutorial-incremental-copy-overview.md). 

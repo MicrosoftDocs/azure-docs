@@ -102,7 +102,7 @@ account that is shared for the company, **and the same account must be used in t
 browsing session to ensure that you're not signed in to a personal
 account.
 
-2. Go to the [Windows Dev Center](http://dev.windows.com/registration?accountprogram=azure)
+2. Go to the [Windows Dev Center](https://dev.windows.com/registration?accountprogram=azure)
 to register yourself as a seller. Please read the
 following important note before you proceed.
 
@@ -178,7 +178,7 @@ To publish commercial offers for purchase, you need to add payout and tax inform
 
 **To provide bank information**
 
-1.  Sign in to the [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) with your Microsoft account.
+1.  Sign in to the [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) with your Microsoft account.
 2.  Select **Payout account** in the left menu, under **Choose payment method**, select **Bank account** or **PayPal**.
 
     >[!NOTE]
@@ -194,7 +194,7 @@ To publish commercial offers for purchase, you need to add payout and tax inform
 
 **To provide tax information**
 
-1.  Sign in to the [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure)
+1.  Sign in to the [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure)
     with your Microsoft account (if needed).
 2.  On the left menu, select **Tax profile**.
 3.  On the **Set up your tax form** page:
@@ -203,7 +203,7 @@ To publish commercial offers for purchase, you need to add payout and tax inform
     - Select **Next**.
 4.  Enter your tax details, and then select **Next**.
 
->[WARNING!]
+>[!WARNING]
 >You won't be able to push to your commercial offers to production without providing bank account and tax information in your Microsoft Developer Center account.
 
 ### Developer Center registration issues

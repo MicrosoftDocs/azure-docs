@@ -2,19 +2,22 @@
 title: Device schema in remote monitoring solution - Azure | Microsoft Docs
 description: This article describes the JSON schema that defines a simulated device in the remote monitoring solution.
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 12/18/2018
 ms.topic: conceptual
 ---
 
 # Understand the device model schema
 
-You can use simulated devices in the Remote Monitoring solution to test its behavior. When you deploy the Remote Monitoring solution, a collection of simulated devices is provisioned automatically. You can customize the existing simulated devices or create your own.
+You can use simulated devices in the Remote Monitoring solution to test its behavior. The Remote Monitoring solution includes a device simulation service to run simulated devices. When you deploy the Remote Monitoring solution, a collection of simulated devices is provisioned automatically. You can customize the existing simulated devices or create your own.
 
 This article describes the device model schema that specifies the capabilities and behavior of a simulated device. The device model is stored in a JSON file.
+
+> [!NOTE]
+> This device model schema is only for simulated devices hosted in the device simulation service. If you want to create a real device, see [Connect your device to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).
 
 The following articles are related to the current article:
 

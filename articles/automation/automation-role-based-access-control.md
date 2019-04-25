@@ -4,7 +4,7 @@ description: Role-based access control (RBAC) enables access management for Azur
 keywords: automation rbac, role based access control, azure rbac
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/17/2018
@@ -136,7 +136,7 @@ A Log Analytics Contributor can read all monitoring data and edit monitoring set
 |Microsoft.Compute/virtualMachines/extensions/*|Create and manage classic virtual machine extensions.|
 |Microsoft.Insights/alertRules/*|Read/write/delete alert rules.|
 |Microsoft.Insights/diagnosticSettings/*|Read/write/delete diagnostic settings.|
-|Microsoft.OperationalInsights/*|Manage Log Analytics.|
+|Microsoft.OperationalInsights/*|Manage Azure Monitor logs.|
 |Microsoft.OperationsManagement/*|Manage solutions in workspaces.|
 |Microsoft.Resources/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Create and manage resource group deployments.|
@@ -150,8 +150,8 @@ A Log Analytics Reader can view and search all monitoring data as well as and vi
 |**Actions**  |**Description**  |
 |---------|---------|
 |*/read|Read resources of all types, except secrets.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Manage queries in Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/search/action|Search Log Analytics data.|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Manage queries in Azure Monitor logs.|
+|Microsoft.OperationalInsights/workspaces/search/action|Search Azure Monitor log data.|
 |Microsoft.Support/*|Create and manage support tickets.|
 |**Not Actions**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Not able to read the shared access keys.|
@@ -174,11 +174,11 @@ A Monitoring Contributor can read all monitoring data and update monitoring sett
 |Microsoft.Insights/Metrics/*|Read metrics for a resource.|
 |Microsoft.Insights/Register/Action|Register the Microsoft.Insights provider.|
 |Microsoft.Insights/webtests/*|Manage Application Insights web tests.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Manage Log Analytics solution packs.|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|Manage Log Analytics saved searches.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Manage Azure Monitor logs solution packs.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Manage Azure Monitor logs saved searches.|
 |Microsoft.OperationalInsights/workspaces/search/action|Search Log Analytics workspaces.|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|List keys for a Log Analytics workspace.|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Manage Log Analytics storage insight configurations.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Manage Azure Monitor logs storage insight configurations.|
 |Microsoft.Support/*|Create and manage support tickets.|
 |Microsoft.WorkloadMonitor/workloads/*|Manage Workloads.|
 
@@ -225,6 +225,9 @@ The following tables show the minimum required permissions needed for onboarding
 |Onboarding state check - Read solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solution         |
 |Onboarding state check - Read VM      | Microsoft.Compute/virtualMachines/read         | Virtual Machine         |
 |Onboarding state check - Read account      | Microsoft.Automation/automationAccounts/read  |  Automation account   |
+| Onboarding workspace check for VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
+
+<sup>1</sup> This permission is needed to onboard through the VM portal experience.
 
 ### Onboarding from Automation account
 
@@ -268,12 +271,13 @@ The following section shows you how to configure RBAC on your Automation Account
 
 1. Log in to the [Azure portal](https://portal.azure.com/) and open your Automation account from the Automation Accounts page.
 2. Click on the **Access control (IAM)** control at the top left corner. This opens the **Access control (IAM)** page where you can add new users, groups, and applications to manage your Automation account and view existing roles that can be configured for the Automation account.
+3. Click the **Role assignments** tab.
 
    ![Access button](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### Add a new user and assign a role
 
-1. From the **Access control (IAM)** page, click **+ Add** to open the **Add permissions** page where you can add a user, group, or application, and assign a role to them.
+1. From the **Access control (IAM)** page, click **+ Add role assignment** to open the **Add role assignment** page where you can add a user, group, or application, and assign a role to them.
 
 2. Select a role from the list of available roles. You can choose any of the available built-in roles that an Automation account supports or any custom role you may have defined.
 
@@ -307,7 +311,7 @@ You can remove the access permission for a user who is not managing the Automati
 
 Role-based access can also be configured to an Automation account using the following [Azure PowerShell cmdlets](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) lists all RBAC roles that are available in Azure Active Directory. You can use this command along with the **Name** property to list all the actions that can be performed by a specific role.
+[Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) lists all RBAC roles that are available in Azure Active Directory. You can use this command along with the **Name** property to list all the actions that can be performed by a specific role.
 
 ```azurepowershell-interactive
 Get-AzureRmRoleDefinition -Name 'Automation Operator'
@@ -326,7 +330,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) lists Azure AD RBAC role assignments at the specified scope. Without any parameters, this command returns all the role assignments made under the subscription. Use the **ExpandPrincipalGroups** parameter to list access assignments for the specified user as well as the groups the user is a member of.
+[Get-AzureRmRoleAssignment](/previous-versions/azure/mt619413(v=azure.100)) lists Azure AD RBAC role assignments at the specified scope. Without any parameters, this command returns all the role assignments made under the subscription. Use the **ExpandPrincipalGroups** parameter to list access assignments for the specified user as well as the groups the user is a member of.
     **Example:** Use the following command to list all the users and their roles within an automation account.
 
 ```azurepowershell-interactive
@@ -347,7 +351,7 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-[New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) to assign access to users, groups, and applications to a particular scope.
+[New-AzureRmRoleAssignment](/previous-versions/azure/mt603580(v=azure.100)) to assign access to users, groups, and applications to a particular scope.
     **Example:** Use the following command to assign the "Automation Operator" role for a user in the Automation account scope.
 
 ```azurepowershell-interactive
@@ -368,7 +372,7 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-Use [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) to remove access of a specified user, group, or application from a particular scope.
+Use [Remove-AzureRmRoleAssignment](/previous-versions/azure/mt603781(v=azure.100)) to remove access of a specified user, group, or application from a particular scope.
     **Example:** Use the following command to remove the user from the “Automation Operator” role in the Automation account scope.
 
 ```azurepowershell-interactive
@@ -421,3 +425,4 @@ When a user, who is assigned to the Automation Operator role on the Runbook scop
 * For information on different ways to configure RBAC for Azure Automation, refer to [manage RBAC with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * For details on different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md)
 * For information about different runbook types, refer to [Azure Automation runbook types](automation-runbook-types.md)
+

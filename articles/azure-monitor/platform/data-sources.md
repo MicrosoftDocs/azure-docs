@@ -6,7 +6,7 @@ author: bwren
 manager: carmonm
 editor: tysonn
 
-ms.service: monitoring
+ms.service: azure-monitor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,9 +17,11 @@ ms.author: bwren
 ---
 
 # Sources of data in Azure Monitor
-This article describes the sources of data collected by Azure Monitor to monitor the health and performance of your  resources and the applications running on them. These resources could be in Azure, in another cloud, or on-premises.  See [Data collected by Azure Monitor](data-collection.md) for details on how this data stored and how you can view it.
+This article describes the sources of data collected by Azure Monitor to monitor the health and performance of your  resources and the applications running on them. These resources could be in Azure, in another cloud, or on-premises.  See [Data collected by Azure Monitor](data-platform.md) for details on how this data stored and how you can view it.
 
 Monitoring data in Azure comes from a variety of sources that can be organized into tiers, the highest tiers being your application and any operating systems and the lower tiers being components of Azure platform. This is illustrated in the following diagram with each tier described in detail in the following sections.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Tiers of monitoring data](media/data-sources/monitoring-tiers.png)
 
@@ -29,7 +31,7 @@ Telemetry related to your Azure tenant is collected from tenant-wide services su
 ![Azure tenant collection](media/data-sources/tenant-collection.png)
 
 ### Azure Active Directory Audit Logs
-[Azure Active Directory reporting](../../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. These audit logs can be written to Log Analytics to analyze them with other log data.
+[Azure Active Directory reporting](../../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. These audit logs can be written to Azure Monitor logs to analyze them with other log data.
 
 
 ## Azure platform
@@ -38,12 +40,12 @@ Telemetry related to the health and operation of Azure itself includes data abou
 ![Azure subscription collection](media/data-sources/azure-collection.png)
 
 ### Azure Service Health
-[Azure Service Health](../../monitoring-and-diagnostics/monitoring-service-notifications.md) provides information about the health of the Azure services in your subscription that your application and resources rely on. You can create alerts to be notified of current and expected critical issues that may affect your application. Service Health records are stored in the [Azure Activity log](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), so you can view them in the Activity Log Explorer and copy them into Log Analytics.
+[Azure Service Health](service-notifications.md) provides information about the health of the Azure services in your subscription that your application and resources rely on. You can create alerts to be notified of current and expected critical issues that may affect your application. Service Health records are stored in the [Azure Activity log](activity-logs-overview.md), so you can view them in the Activity Log Explorer and copy them into Azure Monitor logs.
 
 ### Azure Activity Log
-The [Azure Activity Log](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) includes service health records along with records on any configuration changes made to your Azure resources. The Activity log is available to all Azure resources and represents their _external_ view. The specific types of records in the Activity Log are described in [Azure Activity Log event schema](../../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
+The [Azure Activity Log](activity-logs-overview.md) includes service health records along with records on any configuration changes made to your Azure resources. The Activity log is available to all Azure resources and represents their _external_ view. The specific types of records in the Activity Log are described in [Azure Activity Log event schema](activity-log-schema.md).
 
-You can view the Activity Log for a particular resource on its page in the Azure portal or view logs from multiple resources in the [Activity Log Explorer](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). It's particularly useful to copy the log entries to Log Analytics to combine it with other monitoring data. You can also send them to other locations using [Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
+You can view the Activity Log for a particular resource on its page in the Azure portal or view logs from multiple resources in the [Activity Log Explorer](activity-logs-overview.md). It's particularly useful to copy the log entries to Azure Monitor to combine it with other monitoring data. You can also send them to other locations using [Event Hubs](activity-logs-stream-event-hubs.md).
 
 
 
@@ -54,16 +56,17 @@ Metrics and resource level diagnostic logs provide information about the _intern
 
 
 ### Metrics
-Most Azure services will generate [platform metrics](data-collection.md#metrics) that reflect their performance and operation. The specific [metrics will vary for each type of resource](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).  They are accessible from the Metrics explorer and can be copied to Log Analytics for trending and other analysis.
+Most Azure services will generate [platform metrics](data-platform-metrics.md) that reflect their performance and operation. The specific [metrics will vary for each type of resource](metrics-supported.md).  They are accessible from metrics analytics and can be copied to logs for trending and other analysis using Log Analytics.
 
 
 ### Resource diagnostic Logs
-While the Activity Log provides information about operations performed on an Azure resources, resource level [Diagnostic logs](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) provide insights into the operation of the resource itself.   The configuration requirements and content of these logs [varies by resource type](../../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+While the Activity Log provides information about operations performed on an Azure resources, resource level [Diagnostic logs](diagnostic-logs-overview.md) provide insights into the operation of the resource itself.   The configuration requirements and content of these logs [varies by resource type](diagnostic-logs-schema.md).
 
-You can't directly view diagnostic logs in the Azure portal, but you can [send them to Azure storage for archiving](../../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) and export them to [Event Hub](../../event-hubs/event-hubs-about.md) for redirection to other services, or [to Log Analytics](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) for analysis. Some resources can write directly to Log Analytics while others write to a storage account before being [imported into Log Analytics](../../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
+You can't directly view diagnostic logs in the Azure portal, but you can [send them to Azure storage for archiving](archive-diagnostic-logs.md) and export them to [Event Hub](../../event-hubs/event-hubs-about.md) for redirection to other services, or [to Azure Monitor](diagnostic-logs-stream-log-store.md) for analysis. Some resources can write directly to Azure Monitor while others write to a storage account before being [imported into Log Analytics](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### Monitoring Solutions
- [Monitoring solutions](../../azure-monitor/insights/solutions.md) collect data to provide additional insight into the operation of a particular service or application. They collect data into Log Analytics where it may be analyzed using the [query language](../../log-analytics/log-analytics-queries.md) or [views](../../log-analytics/log-analytics-view-designer.md) that are typically included in the solution.
+ [Monitoring solutions](../../azure-monitor/insights/solutions.md) collect data to provide additional insight into the operation of a particular service or application. They collect data into Azure Monitor logs where it may be analyzed using the [query language](../../azure-monitor/log-query/log-query-overview.md) or [views](view-designer.md) that are typically included in the solution.
+
 
 ## Guest operating system
 Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of one or more agents, you can gather telemetry from the guest into the same monitoring tools as the Azure services themselves.
@@ -74,10 +77,11 @@ Compute resources in Azure, in other clouds, and on-premises have a guest operat
 With the Azure Diagnostics extension, it provides a basic level of monitoring by collecting logs and performance data from the client operating system of Azure compute resources.   
 
 ### Log Analytics agent
-Comprehensive monitoring and management of your Windows or Linux virtual machines or physical computer is delivered with the Log Analytics agent. The virtual machine can be running in Azure, another cloud, or on-premises and the agent connects to Log Analytics either directly or through System Center Operations Manager and allows you to collect data from [data sources](../../log-analytics/log-analytics-data-sources.md) that you configure or from [monitoring solutions](../../azure-monitor/insights/solutions.md) that provide additional insights into applications running on the virtual machine.
+Comprehensive monitoring and management of your Windows or Linux virtual machines or physical computer is delivered with the Log Analytics agent. The virtual machine can be running in Azure, another cloud, or on-premises and the agent connects to Azure Monitor either directly or through System Center Operations Manager and allows you to collect data from [data sources](agent-data-sources.md) that you configure or from [monitoring solutions](../../azure-monitor/insights/solutions.md) that provide additional insights into applications running on the virtual machine.
+
 
 ### Dependency agent
-[Service Map](../insights/service-map.md) and [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md) requires a Dependency Agent on Windows and Linux virtual machines. This integrates with the Log Analytics agent to collects discovered data about processes running on the virtual machine and external process dependencies. It stores this data in Log Analytics and visualizes the discovered interconnected components.  
+[Service Map](../insights/service-map.md) and [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md) requires a Dependency Agent on Windows and Linux virtual machines. This integrates with the Log Analytics agent to collects discovered data about processes running on the virtual machine and external process dependencies. It stores this data in Azure Monitor and visualizes the discovered interconnected components.  
 
 To further understand the differences between the agents and which to use depending on your monitoring requirements, see [monitoring agents overview](agents-overview.md).
 
@@ -88,9 +92,10 @@ In addition to telemetry that your application may write to the guest operating 
 
 
 ### Application data
-When you enable Application Insights for an application by installing an instrumentation package, it collects metrics and logs related to the performance and operation of the application. This includes detailed information about page views, application requests, and exceptions. Application Insights stores the data it collects in Azure Metrics and Log Analytics. It includes extensive tools for analyzing this data, but you can also analyze it with data from other sources using tools such as Metrics Explorer and log searches.
+When you enable Application Insights for an application by installing an instrumentation package, it collects metrics and logs related to the performance and operation of the application. This includes detailed information about page views, application requests, and exceptions. Application Insights stores the data it collects in Azure Monitor. It includes extensive tools for analyzing this data, but you can also analyze it with data from other sources using tools such as metric analytics and log analytics.
 
-You can also use Application Insights to [create a custom metric](../../application-insights/app-insights-api-custom-events-metrics.md).  This allows you to define your own logic for calculating a numeric value and then storing that value with other metrics that can be accessed from the Metric Explorer and used for [Autoscale](../../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md) and Metric alerts.
+You can also use Application Insights to [create a custom metric](../../application-insights/app-insights-api-custom-events-metrics.md).  This allows you to define your own logic for calculating a numeric value and then storing that value with other metrics that can be accessed from metric analytics and used for [Autoscale](autoscale-custom-metric.md) and metric alerts.
+
 
 ### Dependencies
 In order to monitor different logical operations of an application, you must [collect telemetry across multiple components](../../application-insights/app-insights-transaction-diagnostics.md). Application Insights supports [distributed telemetry correlation](../../application-insights/application-insights-correlation.md) which identifies the dependencies between components allowing you to analyze them together.
@@ -104,8 +109,8 @@ In addition to the standard tiers of an application, you may need to monitor oth
 ![Custom data collection](media/data-sources/custom-collection.png)
 
 ### Data Collector API
-Azure Monitor can collect log data from any REST client using the [Data Collector API](../../log-analytics/log-analytics-data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
+Azure Monitor can collect log data from any REST client using the [Data Collector API](../../azure-monitor/platform/data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
 
 ## Next steps
 
-- Learn more about the [types of monitoring data collected by Azure Monitor](data-collection.md) and how to view and analyze this data.
+- Learn more about the [types of monitoring data collected by Azure Monitor](data-platform.md) and how to view and analyze this data.

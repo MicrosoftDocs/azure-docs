@@ -5,9 +5,9 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.component: common
+ms.subservice: common
 ---
 # Use the Azure Import/Export service to export data from Azure Blob storage
 This article provides step-by-step instructions on how to use the Azure Import/Export service to securely export large amounts of data from Azure Blob storage. The service requires you to ship empty drives to the Azure datacenter. The service exports data from your storage account to the drives and then ships the drives back.
@@ -20,7 +20,7 @@ You must:
 - Have an active Azure subscription that can be used for the Import/Export service.
 - Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-quickstart-create-account.md).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks).
-- Have a FedEx/DHL account.  
+- Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`. 
     - The account must be valid, should have balance, and must have return shipping capabilities.
     - Generate a tracking number for the export job.
     - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported. 
@@ -77,7 +77,7 @@ Perform the following steps to create an export job in the Azure portal.
 
 4. In **Return shipping info**:
 
-    - Select the carrier from the dropdown list.
+    - Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
     - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. 
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
 
@@ -122,7 +122,7 @@ The export is complete. At this time, you can delete the job or it automatically
 
 This *optional* step helps you determines the number of drives required for the export job. Perform this step on a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 
-1. [Download the WAImportExport version 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) on the Windows system. 
+1. [Download the WAImportExport version 1](https://aka.ms/waiev1) on the Windows system. 
 2. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
 3. Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
     
@@ -140,7 +140,7 @@ This *optional* step helps you determines the number of drives required for the 
     |**/sn:**|Required. The name of the storage account for the export job.|  
     |**/sk:**|Required only if a container SAS is not specified. The account key for the storage account for the export job.|  
     |**/csas:**|Required only if a storage account key is not specified. The container SAS for listing the blobs to be exported in the export job.|  
-    |**/ExportBlobListFile:**|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation of the Import/Export service REST API.|  
+    |**/ExportBlobListFile:**|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs) operation of the Import/Export service REST API.|  
     |**/DriveSize:**|Required. The size of drives to use for an export job, *e.g.*, 500 GB, 1.5 TB.|  
 
     See an [Example of the PreviewExport command](#example-of-previewexport-command).

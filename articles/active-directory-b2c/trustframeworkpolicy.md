@@ -3,14 +3,14 @@ title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: Specify the TrustFrameworkPolicy element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # TrustFrameworkPolicy
@@ -21,8 +21,8 @@ A custom policy is represented as one or more XML-formatted files, which refer t
 
 ```XML
 <TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
   TenantId="mytenant.onmicrosoft.com"
@@ -49,8 +49,8 @@ The following example shows how to specify the **TrustFrameworkPolicy** element:
 
 ``` XML
 <TrustFrameworkPolicy
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
    PolicySchemaVersion="0.3.0.0"
    TenantId="mytenant.onmicrosoft.com"
@@ -94,8 +94,8 @@ The following example shows how to specify a base policy. This **B2C_1A_TrustFra
 
 ``` XML
 <TrustFrameworkPolicy
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
    PolicySchemaVersion="0.3.0.0"
    TenantId="mytenant.onmicrosoft.com"

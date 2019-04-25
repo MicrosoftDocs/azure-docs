@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to transliterate (convert) text from one script to another using Python and the Translator Text REST API. In this sample, Japanese is transliterated to use the Latin alphabet.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
@@ -27,7 +27,7 @@ This quickstart requires:
 
 ## Create a project and import required modules
 
-Create a new Python project using your favorite IDE or editor. Then copy this code snippet into your project in a file named `transliterate-text.py`.
+Create a new project using your favorite IDE or editor, or a new folder with a file named `transliterate-text.py` on your desktop. Then copy this code snippet into your project/file:
 
 ```python
 # -*- coding: utf-8 -*-
@@ -59,7 +59,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Currently, one endpoint is available for Translator Text, and it's set as the `base_url`. `path` sets the `transliterate` route and identifies that we want to hit version 3 of the API.
+The Translator Text global endpoint is set as the `base_url`. `path` sets the `transliterate` route and identifies that we want to hit version 3 of the API.
 
 The `params` are used to set the input language, and the input and output scripts. In this sample, we're transliterating from Japanese to the Latin alphabet.
 
@@ -131,7 +131,7 @@ If you'd like to compare your code against ours, the complete sample is availabl
 [
     {
         "script": "latn",
-        "text": "konnnichiha"
+        "text": "konnichiwa"
     }
 ]
 ```
@@ -147,7 +147,7 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## See also
 
-In addition to text transliteration, learn how to use the Translator Text API to:
+Learn how to use the Translator Text API to:
 
 * [Translate text](quickstart-python-translate.md)
 * [Identify the language by input](quickstart-python-detect.md)

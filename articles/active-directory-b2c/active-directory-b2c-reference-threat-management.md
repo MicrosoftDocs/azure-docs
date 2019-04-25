@@ -3,14 +3,14 @@ title: Manage threats to resources and data in Azure Active Directory B2C | Micr
 description: Learn about detection and mitigation techniques for denial-of-service attacks and password attacks in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 # Manage threats to resources and data in Azure Active Directory B2C
 

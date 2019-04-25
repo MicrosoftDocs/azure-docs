@@ -1,20 +1,20 @@
 ---
-title: Azure Event Hubs for Apache Kafka | Microsoft Docs
-description: Overview and introduction to Kafka enabled Azure Event Hubs
+title: Use event hub from Apache Kafka app - Azure Event Hubs | Microsoft Docs
+description: This article provides information on Apache Kafka support by Azure Event Hubs. 
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: shvija
 manager: timlt
 
 ms.service: event-hubs
 ms.topic: article
-ms.date: 11/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
 
 ---
-# Azure Event Hubs for Apache Kafka 
-
-Event Hubs provides a Kafka endpoint that can be used by your existing Kafka based applications as an alternative to running your own Kafka cluster. Event Hubs supports [Apache Kafka protocol 1.0 and later](https://kafka.apache.org/documentation/), and works with your existing Kafka applications, including MirrorMaker. 
+# Use Azure Event Hubs from Apache Kafka applications
+Event Hubs provides a Kafka endpoint that can be used by your existing Kafka based applications as an alternative to running your own Kafka cluster. Event Hubs supports [Apache Kafka protocol 1.0 and later](https://kafka.apache.org/documentation/), and works with your existing Kafka applications, including MirrorMaker.  
 
 ## What does Event Hubs for Kafka provide?
 
@@ -27,7 +27,7 @@ Conceptually Kafka and Event Hubs are nearly identical: they are both partitione
 | Kafka Concept | Event Hubs Concept|
 | --- | --- |
 | Cluster | Namespace |
-| Topic | Event Hubs |
+| Topic | Event Hub |
 | Partition | Partition|
 | Consumer Group | Consumer Group |
 | Offset | Offset|
@@ -72,6 +72,4 @@ This article provided an introduction to Event Hubs for Kafka. To learn more, se
 - [Connect Akka Streams to a Kafka-enabled event hub](event-hubs-kafka-akka-streams-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 
- 
- 
 

@@ -3,14 +3,14 @@ title: User migration approaches in Azure Active Directory B2C | Microsoft Docs
 description: Discuss core and advanced concepts on user migration using Graph API and optionally using Azure AD B2C custom policies.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Azure Active Directory B2C: User migration
@@ -59,7 +59,7 @@ First, register your migration application in Azure AD. Then, create an applicat
 1. Create a new application by doing the following:
    - For **Name**, use **B2CUserMigration** or any other name you want.
    - For **Application type**, use **Web app/API**.
-   - For **Sign-on URL**, use **https://localhost** (as it's not relevant for this application).
+   - For **Sign-on URL**, use `https://localhost` (as it's not relevant for this application).
    - Select **Create**.
    
 1. After the application is created, in the **Applications** list, select the newly created **B2CUserMigration** application.
@@ -90,7 +90,7 @@ Now you have an application with permissions to create, read, and update users f
 Read and write directory data permissions do *not* include the right to delete users. To give your application the ability to delete users (to clean up your environment), you must perform an extra step, which involves running PowerShell to set User Account Administrator permissions. Otherwise, you can skip to the next section.
 
 > [!IMPORTANT]
-> You must use a B2C tenant administrator account that is *local* to the B2C tenant. The account name syntax is *admin@contosob2c.onmicrosoft.com*.
+> You must use a B2C tenant administrator account that is *local* to the B2C tenant. The account name syntax is *admin\@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
 > The following PowerShell script requires [Azure Active Directory PowerShell Version 2][AD-Powershell].
@@ -100,7 +100,7 @@ In this PowerShell script, do the following:
    
 1. Use the **Application ID** to assign the application the user account administrator role. These roles have well-known identifiers, so all you need to do is enter your **Application ID** in the script.
    
-```PowerShell
+```powershell
 Connect-AzureAD
 
 $AppId = "<Your application ID>"
@@ -253,7 +253,7 @@ To track the password change, you use an Azure table. When you run the pre-migra
 ### 4.1: Update your application setting
 1. To test the RESTful API demo, open `AADB2C.UserMigration.sln` in Visual Studio.
 
-1. In the `AADB2C.UserMigration.API` project, open the *appsettings.json* file. Replace the setting with the one configured in [Step 2.2](#step-22-configure-the-application-settings):
+1. In the `AADB2C.UserMigration.API` project, open the *Web.config* file. Replace the setting with the one configured in [Step 2.2](#step-22-configure-the-application-settings):
 
     ```json
     {
@@ -366,4 +366,4 @@ After you complete the [Get started with custom policies][B2C-GetStartedCustom] 
 [B2C-GraphQuickStart]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet
 [B2C-NavContext]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-navigate-to-b2c-context
 [Portal]: https://portal.azure.com/
-[UserMigrationSample]: https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration
+[UserMigrationSample]: https://github.com/yoelhor/Azure-AD-B2C-UserMigration

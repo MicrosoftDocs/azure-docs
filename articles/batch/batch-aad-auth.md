@@ -3,7 +3,7 @@ title: Use Azure Active Directory to authenticate Azure Batch service solutions 
 description: Batch supports Azure AD for authentication from the Batch service.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 04/18/2018
-ms.author: danlep
+ms.author: lahugh
 ---
 
 # Authenticate Batch service solutions with Active Directory
@@ -87,7 +87,7 @@ The tenant ID identifies the Azure AD tenant that provides authentication servic
 
 To authenticate with integrated authentication, you need to grant your application permissions to connect to the Batch service API. This step enables your application to authenticate calls to the Batch service API with Azure AD.
 
-Once you've [registered your application](#register-your-application-with-an-azure-ad-tenant), follow these steps in the Azure portal to grant it access to the Batch service:
+Once you've registered your application, follow these steps in the Azure portal to grant it access to the Batch service:
 
 1. In the left-hand navigation pane of the Azure portal, choose **All services**. Click **App Registrations**.
 2. Search for the name of your application in the list of app registrations:
@@ -135,9 +135,10 @@ To authenticate with a service principal, you need to assign an RBAC role to you
 
 1. In the Azure portal, navigate to the Batch account used by your application.
 2. In the **Settings** blade for the Batch account, select **Access Control (IAM)**.
-3. Click the **Add** button. 
-4. From the **Role** drop-down, choose either the _Contributor_ or _Reader_ role for your application. For more information on these roles, see [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).  
-5. In the **Select** field, enter the name of your application. Select your application from the list, and click **Save**.
+3. Click the **Roles assignments** tab.
+4. Click the **Add role assignment** button. 
+5. From the **Role** drop-down, choose either the _Contributor_ or _Reader_ role for your application. For more information on these roles, see [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).  
+6. In the **Select** field, enter the name of your application. Select your application from the list, and click **Save**.
 
 Your application should now appear in your access control settings with an RBAC role assigned. 
 
@@ -380,4 +381,4 @@ Use the service principal credentials to open a **BatchServiceClient** object. T
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
 [aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Authentication Scenarios for Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrating Applications with Azure Active Directory"
-[azure_portal]: http://portal.azure.com
+[azure_portal]: https://portal.azure.com

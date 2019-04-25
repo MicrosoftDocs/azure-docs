@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: rogarana
+ms.subservice: disks
 
 ---
 [!INCLUDE [virtual-machines-faq-for-disks](../../../includes/virtual-machines-faq-for-disks.md)]

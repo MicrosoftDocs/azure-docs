@@ -1,18 +1,19 @@
 ---
-title: LUIS Bot with C# - Tutorial - Web app Bot - Bot Framework SDK 4.0
-titleSuffix: Azure Cognitive Services
+title: Bot - C# - v4 
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Using C#, build a chat bot integrated with language understanding (LUIS). This chat bot uses the Human Resources app to quickly implement a bot solution. The bot is built with the Bot Framework version 4 and the Azure Web app bot.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+ms.custom: seodec18
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 01/09/2019
 ms.author: diberry
 ---
 
-# Tutorial: LUIS bot in C#
+# Tutorial: LUIS bot in C# with the Bot Framework 4.x and the Azure Web app bot
 Using C#, you can build a chat bot integrated with language understanding (LUIS). This bot uses the HomeAutomation app to implement a bot solution. The bot is built the Azure [Web app bot](https://docs.microsoft.com/azure/bot-service/) with [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
 
 **In this tutorial, you learn how to:**
@@ -60,7 +61,7 @@ Using C#, you can build a chat bot integrated with language understanding (LUIS)
     
 5. Select **Create**. This creates and deploys the bot service to Azure. Part of this process creates a LUIS app named `luis-csharp-bot-XXXX`. This name is based on the bot and app name's in the previous section.
 
-    [ ![Create web app bot](./media/bfv4-csharp/create-web-app-service.png) ](./media/bfv4-csharp/create-web-app-service.png#lightbox)
+    [![Create web app bot](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
 
 6. Leave this browser tab open. For any steps with the LUIS portal, open a new browser tab. Continue to the next section when the new bot service is deployed.
 
@@ -100,7 +101,7 @@ In order to develop the web app bot code, download the code and use on your loca
 
 3. Select **Download Bot source code**. 
 
-    [ ![Download web app bot source code for basic bot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
+    [![Download web app bot source code for basic bot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
 4. When the source code is zipped, a message will provide a link to download the code. Select the link. 
 
@@ -199,7 +200,7 @@ Before changing any code or settings, verify the bot works.
 
 2. In the bot emulator, select the *.bot file in the root of the project. This `.bot` file includes the bot's URL endpoint for messages:
 
-    [ ![Bot emulator v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png) ](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
+    [![Bot emulator v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
 
 3. Enter the bot secret you copied from the Azure bot service's Application Settings in Step 1 of the **[Download the web app bot](#download-the-web-app-bot)** section. This allows the emulator to access any encrypted fields in the `.bot` file.
 
@@ -207,7 +208,7 @@ Before changing any code or settings, verify the bot works.
 
 4. In the bot emulator, enter `Hello` and get the proper response for the basic bot.
 
-    [ ![Basic bot response in emulator](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png) ](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
+    [![Basic bot response in emulator](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png)](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
 
 ## Modify bot code 
 
@@ -295,6 +296,7 @@ Azure Bot service uses the Bot Framework SDK. Learn more about the SDK and bot f
 
 You created an Azure bot service, copied the bot secret and `.bot` file path, downloaded the zip file of the code. You added the prebuilt HomeAutomation domain to the LUIS app created as part of the new Azure bot service, then trained and published the app again. You extracted the code project, created an environment file (`.env`), and set the bot secret and the `.bot` file path. In the bot.js file, you added code to handle the two new intents. Then you tested the bot in the bot emulator to see the LUIS response for an utterance of one of the new intents. 
 
+See more [samples](https://github.com/Microsoft/AI) with conversational bots. 
 
 > [!div class="nextstepaction"]
 > [Build a custom domain in LUIS](luis-quickstart-intents-only.md)

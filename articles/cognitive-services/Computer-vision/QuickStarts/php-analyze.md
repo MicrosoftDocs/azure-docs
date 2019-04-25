@@ -1,16 +1,17 @@
 ---
-title: "Quickstart: Analyze a remote image - REST, PHP - Computer Vision"
+title: "Quickstart: Analyze a remote image - REST, PHP"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision API with PHP.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 03/11/2019
 ms.author: pafarley
+ms.custom: seodec18
 ---
 # Quickstart: Analyze a remote image using the REST API and PHP in Computer Vision
 
@@ -22,13 +23,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - You must have [PHP](https://secure.php.net/downloads.php) installed.
 - You must have [Pear](https://pear.php.net) installed.
-- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 
 ## Create and run the sample
 
 To create and run the sample, do the following steps:
 
-1. Install the PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) package.
+1. Install the PHP5 [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) package.
    1. Open a command prompt window as an administrator.
    1. Run the following command:
 
@@ -63,7 +64,7 @@ $ocpApimSubscriptionKey = '<Subscription Key>';
 // from westus, replace "westcentralus" in the URL below with "westus".
 $uriBase = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/';
 
-$imageUrl = 'http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
+$imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
 
 require_once 'HTTP/Request2.php';
 

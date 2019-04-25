@@ -1,22 +1,22 @@
 ---
-title: Review endpoint utterances to use active learning in Language Understanding (LUIS)
-titleSuffix: Azure Cognitive Services
-description: Active learning is one of three strategies to improve prediction accuracy and the easiest to implement. With active learning, your review endpoint utterances for correct intent and entity. LUIS chooses endpoint utterances it is unsure of.
+title: Review user utterance
+titleSuffix: Language Understanding - Azure Cognitive Services
+description:  With active learning, your review endpoint utterances for correct intent and entity. LUIS chooses endpoint utterances it is unsure of.
 services: cognitive-services
 author: diberry
-manager: cgronlun
-
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/07/2018
+ms.date: 01/24/2019
 ms.author: diberry
 ---
-# Enable active learning by reviewing endpoint utterances
+# Concepts for enabling active learning by reviewing endpoint utterances
 Active learning is one of three strategies to improve prediction accuracy and the easiest to implement. With active learning, your review endpoint utterances for correct intent and entity. LUIS chooses endpoint utterances it is unsure of.
 
 ## What is active learning
-Active learning is a two-step process. First, LUIS selects utterances it receives at the app's endpoint that need validation. The second step is performed by the app owner or collaborator to validate the selected utterances for [review](luis-how-to-review-endoint-utt.md), including the correct intent and any entities within the intent. After reviewing the utterances, train and publish the app again. 
+Active learning is a two-step process. First, LUIS selects utterances it receives at the app's endpoint that need validation. The second step is performed by the app owner or collaborator to validate the selected utterances for [review](luis-how-to-review-endpoint-utterances.md), including the correct intent and any entities within the intent. After reviewing the utterances, train and publish the app again. 
 
 ## Which utterances are on the review list
 LUIS adds utterances to the review list when the top firing intent has a low score or the top two intents' scores are too close. 
@@ -35,4 +35,4 @@ Use the **[delete unlabelled utterances](https://westus.dev.cognitive.microsoft.
 
 ## Next steps
 
-* Learn how to [review](luis-how-to-review-endoint-utt.md) endpoint utterances
+* Learn how to [review](luis-how-to-review-endpoint-utterances.md) endpoint utterances

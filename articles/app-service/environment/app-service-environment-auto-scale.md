@@ -1,5 +1,5 @@
 ---
-title: Autoscaling and App Service Environment v1
+title: Autoscaling and App Service Environment v1 - Azure
 description: Autoscaling and App Service Environment
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 # Autoscaling and App Service Environment v1

@@ -1,19 +1,19 @@
 ---
 title: Send telemetry to Azure IoT Hub quickstart (Python) | Microsoft Docs
 description: In this quickstart, you run a sample Python application to send simulated telemetry to an IoT hub and use a utility to read telemetry from the IoT hub.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/07/2018
-ms.author: dobett
+ms.date: 02/28/2019
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
-# Quickstart: Send telemetry from a device to an IoT hub and read the telemetry from the hub with a back-end application (Python)
+# Quickstart: Send telemetry from a device to an IoT hub and read it with a back-end application (Python)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -27,10 +27,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-The two sample applications you run in this quickstart are written using Python. You need either Python 2.7.x or 3.5.x on your development machine.
+The sample application you run in this quickstart is written using Python. Currently, the Microsoft Azure IoT SDKs for Python support only specific versions of Python for each platform. To learn more, see the [Python SDK Readme](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
-You can download Python for multiple platforms from [Python.org](https://www.python.org/downloads/).
-The Python installer you choose should be based on the architecture of the system that you are working with. If your system CPU architecture is 32 bit then download x86, which is the default installer on Python.org and for the 64bit architecture you need to download x86-64 installer.
+This quickstart assumes you are using a Windows development machine. For Windows systems, only [Python 3.6.x](https://www.python.org/downloads/release/python-368/) is supported. The Python installer you choose should be based on the architecture of the system that you are working with. If your system CPU architecture is 32 bit, then download the x86 installer; for the 64bit architecture, download the x86-64 installer. Additionally, make sure the [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) is installed for your architecture (x86 or x64).
+
+You can download Python for other platforms from [Python.org](https://www.python.org/downloads/).
 
 You can verify the current version of Python on your development machine using one of the following commands:
 
@@ -40,6 +41,12 @@ python --version
 
 ```python
 python3 --version
+```
+
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
 ```
 
 Download the sample Python project from https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip and extract the ZIP archive.
@@ -52,14 +59,13 @@ Download the sample Python project from https://github.com/Azure-Samples/azure-i
 
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
+1. Run the following command in Azure Cloud Shell to create the device identity.
 
     **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
 
     **MyPythonDevice** : This is the name given for the registered device. Use MyPythonDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
     ```
 
@@ -110,7 +116,7 @@ The IoT Hub CLI extension can connect to the service-side **Events** endpoint on
 Run the following commands in Azure Cloud Shell, replacing `YourIoTHubName` with the name of your IoT hub:
 
 ```azurecli-interactive
-az iot hub monitor-events --device-id MyPythonDevice --hub-name YourIoTHubName
+az iot hub monitor-events --hub-name YourIoTHubName --device-id MyPythonDevice 
 ```
 
 The following screenshot shows the output as the extension receives telemetry sent by the simulated device to the hub:

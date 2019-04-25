@@ -7,12 +7,12 @@ metadata:
   keywords: Azure AD, Azure, domain join, group policy, LDAP, Kerberos, domain controller, DC, lift and shift
   author: mahesh-unnikrishnan
   ms.author: maheshu
-  manager: mtillman
+  manager: daveba
   ms.date: 6/1/2018
   ms.topic: landing-page
   ms.devlang: na
   ms.service: active-directory
-  ms.component: domain-services
+  ms.subservice: domain-services
 sections:
 - items:
   - type: markdown

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Workspot Control
 
@@ -178,7 +179,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -205,7 +206,7 @@ To enable Azure AD users to log in to Workspot Control, they must be provisioned
 
 	b. In **Last Name** text box, enter the last name of user like **simon**.
 
-	c. In **Email** text box, enter the email of user like **Brittasimon@contoso.com**.
+	c. In **Email** text box, enter the email of user like **Brittasimon\@contoso.com**.
 
 	d. Select the appropriate user role from the **Role** dropdown.
 

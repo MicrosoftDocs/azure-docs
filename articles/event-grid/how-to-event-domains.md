@@ -7,7 +7,7 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/17/2019
 ---
 
 # Manage topics and publish events using event domains
@@ -20,6 +20,8 @@ This article shows how to:
 * Publish events to a domain
 
 To learn about event domains, see [Understand event domains for managing Event Grid topics](event-domains.md).
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## Install preview feature
 
@@ -128,14 +130,14 @@ New-AzureRmEventGridSubscription `
 
 If you need a test endpoint to subscribe your events to, you can always deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the incoming events. You can send your events to your test website at `https://<your-site-name>.azurewebsites.net/api/updates`.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 Permissions that are set for a topic are stored in Azure Active Directory and must be deleted explicitly. Deleting an event subscription won't revoke a users access to create event subscriptions if they have write access on a topic.
 
 
 ## Publish events to an Event Grid Domain
 
-Publishing events to a domain is the same as [publishing to a custom topic](./post-to-custom-topic.md). The only difference is that you need to specify the topic you wish each event to go to. The following array of events would result in event with `"id": "1111"` to topic `foo` while event with `"id": "2222"` would be sent to topic `bar`:
+Publishing events to a domain is the same as [publishing to a custom topic](./post-to-custom-topic.md). However, instead of publishing to the custom topic, you publish all events to the domain endpoint. In the JSON event data, you specify the topic you wish the events to go to. The following array of events would result in event with `"id": "1111"` to topic `demotopic1` while event with `"id": "2222"` would be sent to topic `demotopic2`:
 
 ```json
 [{
@@ -164,7 +166,15 @@ Publishing events to a domain is the same as [publishing to a custom topic](./po
 }]
 ```
 
-To get the keys for a domain with Azure CLI, use:
+To get the domain endpoint with Azure CLI, use
+
+```azurecli-interactive
+az eventgrid domain show \
+  -g <my-resource-group> \
+  -n <my-domain>
+```
+
+To get the keys for a domain, use:
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -172,7 +182,15 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-For PowerShell, use:
+To get the domain endpoint with PowerShell, use
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
+To get the keys for a domain, use:
 
 ```azurepowershell-interactive
 Get-AzureRmEventGridDomainKey `

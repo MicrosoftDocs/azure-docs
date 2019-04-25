@@ -1,14 +1,13 @@
 ---
 title: 'Tutorial: Create on-demand Apache Hadoop clusters in Azure HDInsight using Data Factory '
 description: Learn how to create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 12/29/2018
 ms.author: hrasheed
 #Customer intent: As a data worker, I need to create a Hadoop cluster and run Hive jobs on demand
 
@@ -16,7 +15,7 @@ ms.author: hrasheed
 # Tutorial: Create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-In this article, you learn how to create a Apache Hadoop cluster, on demand, in Azure HDInsight using Azure Data Factory. You then use data pipelines in Azure Data Factory to run Hive jobs and delete the cluster. By the end of this tutorial, you learn how to operationalize a big data job run where cluster creation, job run, and cluster deletion are performed on a schedule.
+In this article, you learn how to create a [Apache Hadoop](https://hadoop.apache.org/) cluster, on demand, in Azure HDInsight using Azure Data Factory. You then use data pipelines in Azure Data Factory to run Hive jobs and delete the cluster. By the end of this tutorial, you learn how to operationalize a big data job run where cluster creation, job run, and cluster deletion are performed on a schedule.
 
 This tutorial covers the following tasks: 
 
@@ -34,13 +33,15 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-- Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+- Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 - An Azure Active Directory service principal. Once you have created the service principal, be sure to retrieve the **application ID** and **authentication key** using the instructions in the linked article. You need these values later in this tutorial. Also, make sure the service principal is a member of the *Contributor* role of the subscription or the resource group in which the cluster is created. For instructions to retrieve the required values and assign the right roles, see [Create an Azure Active Directory service principal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Create an Azure storage account
 
-In this section, you create a storage account that will be used as the default storage for the HDInsight cluster you create on-demand. This storage account also contains the sample HiveQL script (**hivescript.hql**) that you use to simulate a sample Hive job that runs on the cluster.
+In this section, you create a storage account that will be used as the default storage for the HDInsight cluster you create on-demand. This storage account also contains the sample [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script (**hivescript.hql**) that you use to simulate a sample [Apache Hive](https://hive.apache.org/) job that runs on the cluster.
 
 This section uses an Azure PowerShell script to create the storage account and copy over the required files within the storage account. The Azure PowerShell sample script in this section performs the following tasks:
 
@@ -52,7 +53,7 @@ This section uses an Azure PowerShell script to create the storage account and c
 
 
 **To create a storage account and copy the files using Azure PowerShell:**
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Specify names for the Azure resource group and the Azure storage account that will be created by the script.
 > Write down **resource group name**, **storage account name**, and **storage account key** outputted by the script. You need them in the next section.
 
@@ -72,7 +73,7 @@ $destContainerName = "adfgetstarted" # don't change this value.
 ####################################
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-Login-AzureRmAccount
+Login-AzAccount
 #endregion
 
 ####################################
@@ -82,25 +83,25 @@ Login-AzureRmAccount
 #region - create Azure resources
 Write-Host "`nCreating resource group, storage account and blob container ..." -ForegroundColor Green
 
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-New-AzureRmStorageAccount `
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $destStorageAccountName `
     -type Standard_LRS `
     -Location $location
 
-$destStorageAccountKey = (Get-AzureRmStorageAccountKey `
+$destStorageAccountKey = (Get-AzStorageAccountKey `
     -ResourceGroupName $resourceGroupName `
     -Name $destStorageAccountName)[0].Value
 
-$sourceContext = New-AzureStorageContext `
+$sourceContext = New-AzStorageContext `
     -StorageAccountName $sourceStorageAccountName `
     -Anonymous
-$destContext = New-AzureStorageContext `
+$destContext = New-AzStorageContext `
     -StorageAccountName $destStorageAccountName `
     -StorageAccountKey $destStorageAccountKey
 
-New-AzureStorageContainer -Name $destContainerName -Context $destContext
+New-AzStorageContainer -Name $destContainerName -Context $destContext
 #endregion
 
 ####################################
@@ -109,16 +110,16 @@ New-AzureStorageContainer -Name $destContainerName -Context $destContext
 #region - copy files
 Write-Host "`nCopying files ..." -ForegroundColor Green
 
-$blobs = Get-AzureStorageBlob `
+$blobs = Get-AzStorageBlob `
     -Context $sourceContext `
     -Container $sourceContainerName
 
-$blobs|Start-AzureStorageBlobCopy `
+$blobs|Start-AzStorageBlobCopy `
     -DestContext $destContext `
     -DestContainer $destContainerName
 
 Write-Host "`nCopied files ..." -ForegroundColor Green
-Get-AzureStorageBlob -Context $destContext -Container $destContainerName
+Get-AzStorageBlob -Context $destContext -Container $destContainerName
 #endregion
 
 Write-host "`nYou will use the following values:" -ForegroundColor Green
@@ -163,7 +164,11 @@ In this article, you configure the Hive activity to create an on-demand HDInsigh
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 
-1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Data Factory**.
+1. From the left menu, select **+ Create a resource**.
+
+1. Under **Azure Marketplace**, select **Analytics**.
+
+1.  Under **Featured**, select **Data Factory**.
 
     ![Azure Data Factory on the portal](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png "Azure Data Factory on the portal")
 
@@ -178,19 +183,18 @@ In this article, you configure the Hive activity to create an on-demand HDInsigh
     |**Name** |  Enter a name for the data factory. This name must be globally unique.|
     |**Subscription**     |  Select your Azure subscription. |
     |**Resource group**     | Select **Use existing** and then select the resource group you created using the PowerShell script. |
-    |**Version**     | Select **V2 (Preview)** |
-    |**Location**     | The location is automatically set to the location you specified while creating the resource group earlier. For this tutorial, the location is set to **East US 2**. |
+    |**Version**     | Select **V2** |
+    |**Location**     | The location is automatically set to the location you specified while creating the resource group earlier. For this tutorial, the location is set to **East US**. |
     
 
-1. Select **Pin to dashboard**, and then select **Create**. You shall see a new tile titled **Submitting deployment** on the portal dashboard. Creating a data factory might take anywhere between 2 to 4 minutes.
+1. Select **Create**. Creating a data factory might take anywhere between 2 to 4 minutes.
 
-    ![Template deployment progress](./media/hdinsight-hadoop-create-linux-clusters-adf/deployment-progress-tile.png "Template deployment progress") 
- 
-1. Once the data factory is created, the portal shows the overview for the data factory.
 
-    ![Azure Data Factory overview](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory overview")
+1. Once the data factory is created you will receive a **Deployment succeeded** notification with a **Go to resource** button.  Select **Go to resource** to open the Data Factory default view.
 
 1. Select **Author & Monitor** to launch the Azure Data Factory authoring and monitoring portal.
+
+    ![Azure Data Factory overview](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory overview")
 
 ## Create linked services
 
@@ -335,7 +339,7 @@ Alternatively, you can delete the entire resource group that you created for thi
 
 
 ## Next steps
-In this article, you learned how to use Azure Data Factory to create on-demand HDInsight cluster and run Hive jobs. Advance to the next artciel to learn how to create HDInsight clusters with custom configuration.
+In this article, you learned how to use Azure Data Factory to create on-demand HDInsight cluster and run [Apache Hive](https://hive.apache.org/) jobs. Advance to the next artciel to learn how to create HDInsight clusters with custom configuration.
 
 > [!div class="nextstepaction"]
 >[Create Azure HDInsight clusters with custom configuration](hdinsight-hadoop-provision-linux-clusters.md)

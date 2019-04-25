@@ -1,23 +1,19 @@
 ---
-title: Create an application gateway that hosts multiple web sites  - Azure portal | Microsoft Docs
-description: Learn how to create an application gateway that hosts multiple web sites using the Azure portal.
+title: Tutorial - Create an application gateway that hosts multiple web sites using the Azure portal
+description: In this tutorial, you learn how to create an application gateway that hosts multiple web sites using the Azure portal.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
 ms.service: application-gateway
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/28/2017
+ms.topic: tutorial
+ms.date: 4/18/2019
 ms.author: victorh
-
+#Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can host multiple sites.
 ---
-# Create and configure an application gateway to host multiple web sites using the Azure portal
+# Tutorial: Create and configure an application gateway to host multiple web sites using the Azure portal
 
 You can use the Azure portal to [configure the hosting of multiple web sites](multiple-site-overview.md) when you create an [application gateway](overview.md). In this tutorial, you define backend address pools using virtual machines. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This tutorial assumes that you own multiple domains and uses examples of *www.contoso.com* and *www.fabrikam.com*.
 
-In this article, you learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an application gateway
@@ -31,9 +27,9 @@ In this article, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 ## Create an application gateway
 
@@ -43,20 +39,20 @@ A virtual network is needed for communication between the resources that you cre
 2. Select **Networking** and then select **Application Gateway** in the Featured list.
 3. Enter these values for the application gateway:
 
-    - *myAppGateway* - for the name of the application gateway.
-    - *myResourceGroupAG* - for the new resource group.
+   - *myAppGateway* - for the name of the application gateway.
+   - *myResourceGroupAG* - for the new resource group.
 
-    ![Create new application gateway](./media/create-multiple-sites-portal/application-gateway-create.png)
+     ![Create new application gateway](./media/create-multiple-sites-portal/application-gateway-create.png)
 
 4. Accept the default values for the other settings and then click **OK**.
 5. Click **Choose a virtual network**, click **Create new**, and then enter these values for the virtual network:
 
-    - *myVNet* - for the name of the virtual network.
-    - *10.0.0.0/16* - for the virtual network address space.
-    - *myAGSubnet* - for the subnet name.
-    - *10.0.0.0/24* - for the subnet address space.
+   - *myVNet* - for the name of the virtual network.
+   - *10.0.0.0/16* - for the virtual network address space.
+   - *myAGSubnet* - for the subnet name.
+   - *10.0.0.0/24* - for the subnet address space.
 
-    ![Create virtual network](./media/create-multiple-sites-portal/application-gateway-vnet.png)
+     ![Create virtual network](./media/create-multiple-sites-portal/application-gateway-vnet.png)
 
 6. Click **OK** to create the virtual network and subnet.
 7. Click **Choose a public IP address**, click **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then click **OK**.
@@ -93,6 +89,8 @@ In this example, you create two virtual machines to be used as backend servers f
 
 ### Install IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Open the interactive shell and make sure that it is set to **PowerShell**.
 
     ![Install custom extension](./media/create-multiple-sites-portal/application-gateway-extension.png)
@@ -101,7 +99,7 @@ In this example, you create two virtual machines to be used as backend servers f
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -112,7 +110,7 @@ In this example, you create two virtual machines to be used as backend servers f
       -Settings $publicSettings
     ```
 
-3. Create the second virtual machine and install IIS using the steps that you just finished. Enter the names of *fabrikamVM* for the name and for the value of VMName in Set-AzureRmVMExtension.
+3. Create the second virtual machine and install IIS using the steps that you just finished. Enter the names of *fabrikamVM* for the name and for the value of VMName in Set-AzVMExtension.
 
 ## Create backend pools with the virtual machines
 
@@ -131,17 +129,19 @@ In this example, you create two virtual machines to be used as backend servers f
 1. Click **Listeners** and then click **Multi-site**.
 2. Enter these values for the listener:
     
-    - *contosoListener* - for the name of the listener.
-    - *www.contoso.com* - replace this host name example with your domain name.
+   - *contosoListener* - for the name of the listener.
+   - *www.contoso.com* - replace this host name example with your domain name.
 
 3. Click **OK**.
 4. Create a second listener using the name of *fabrikamListener* and use your second domain name. In this example, *www.fabrikam.com* is used.
+
+![mult-site listeners](media/create-multiple-sites-portal/be-listeners.png)
 
 ## Create routing rules
 
 Rules are processed in the order they are listed, and traffic is directed using the first rule that matches regardless of specificity. For example, if you have a rule using a basic listener and a rule using a multi-site listener both on the same port, the rule with the multi-site listener must be listed before the rule with the basic listener in order for the multi-site rule to function as expected. 
 
-In this example, you create two new rules and delete the default rule that was created when you created the application gateway. 
+In this example, you create two new rules and delete the default rule created when you created the application gateway.
 
 1. Click **Rules** and then click **Basic**.
 2. Enter *contosoRule* for the name.
@@ -174,14 +174,18 @@ After the application gateway is created with its public IP address, you can get
 
     ![Test fabrikam site in application gateway](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
+## Clean up resources
+
+When you no longer need the resources that you created with the application gateway, remove the resource group. By removing the resource group, you also remove the application gateway and all its related resources.
+
+To remove the resource group:
+
+1. On the left menu of the Azure portal, select **Resource groups**.
+2. On the **Resource groups** page, search for **myResourceGroupAG** in the list, then select it.
+3. On the **Resource group page**, select **Delete resource group**.
+4. Enter *myResourceGroupAG* for **TYPE THE RESOURCE GROUP NAME** and then select **Delete**
+
 ## Next steps
 
-In this article, you learned how to:
-
-> [!div class="checklist"]
-> * Create an application gateway
-> * Create virtual machines for backend servers
-> * Create backend pools with the backend servers
-> * Create backend listeners
-> * Create routing rules
-> * Create a CNAME record in your domain
+> [!div class="nextstepaction"]
+> [Learn more about what you can do with Azure Application Gateway](application-gateway-introduction.md)

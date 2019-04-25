@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/15/2018
+ms.date: 01/09/2019
 ms.author: roiyz
 
 ---
@@ -33,7 +33,7 @@ This extension supports the following OSs:
 
 | Distribution | Version |
 |---|---|
-| Windows 10 | Core |
+| Windows 10 (up to version 1803)| Core |
 | Windows Server 2016 | Core |
 | Windows Server 2012R2 | Core |
 
@@ -74,17 +74,8 @@ The following JSON shows the schema for the extension.
 | type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
-### Settings
-
-All settings are optional. The default behavior is install the latest supported driver as applicable.
-
-| Name | Description | Default Value | Valid Values | Data Type |
-| ---- | ---- | ---- | ---- | ---- |
-| driverVersion | NV: GRID driver version<br> NC/ND: CUDA driver version | latest | GRID: "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | string |
-| installGridND | Install GRID driver on ND series VMs | false | true, false | boolean |
 
 ## Deployment
-
 
 ### Azure Resource Manager Template 
 
@@ -117,7 +108,7 @@ The following example assumes the extension is nested inside the virtual machine
 ### PowerShell
 
 ```powershell
-Set-AzureRmVMExtension
+Set-AzVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Location "southcentralus" `
@@ -131,8 +122,6 @@ Set-AzureRmVMExtension
 
 ### Azure CLI
 
-The following example mirrors the above ARM and PowerShell example and also adds custom settings as an example for non-default driver installation. Specifically, it installs a specific GRID driver even if an ND series VM is being provisioned.
-
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -141,8 +130,6 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
-    "driverVersion": "391.03",
-    "installGridND": true
   }'
 ```
 
@@ -153,7 +140,7 @@ az vm extension set `
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using Azure PowerShell and Azure CLI. To see the deployment state of extensions for a given VM, run the following command.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 ```azurecli

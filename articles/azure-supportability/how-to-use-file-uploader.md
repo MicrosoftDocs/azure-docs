@@ -4,7 +4,7 @@ description: Describes the guidelines when using Microsoft Azure new support req
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager:
 editor: ''
 tags: billing
 

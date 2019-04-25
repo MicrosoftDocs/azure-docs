@@ -4,11 +4,11 @@ description: Provides information about Enterprise State Roaming settings in Win
 services: active-directory
 keywords: what is Enterprise State Roaming, enterprise sync, windows cloud
 documentationcenter: ''
-author: MarkusVi
-manager: mtillman
+author: MicrosoftGuyJFlo
+manager: daveba
 editor: curtand
 
-ms.component: devices
+ms.subservice: devices
 ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0
 ms.service: active-directory
 ms.workload: identity
@@ -16,8 +16,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
-ms.author: markvi
+ms.author: joflore
 
+ms.collection: M365-identity-device-management
 ---
 # What is enterprise state roaming?
 

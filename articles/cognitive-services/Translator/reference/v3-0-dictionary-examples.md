@@ -3,11 +3,11 @@ title: Translator Text API Dictionary Examples Method
 titlesuffix: Azure Cognitive Services
 description: Use the Translator Text API Dictionary Examples method.
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
+author: v-pawal
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
@@ -15,7 +15,7 @@ ms.author: v-jansko
 
 # Translator Text API 3.0: Dictionary Examples
 
-Provides examples that show how terms in the dictionary are used in context. This operation is used in tandem with [Dictionary lookup](.\v3-0-dictionary-lookup.md).
+Provides examples that show how terms in the dictionary are used in context. This operation is used in tandem with [Dictionary lookup](./v3-0-dictionary-lookup.md).
 
 ## Request URL
 
@@ -38,11 +38,11 @@ Request parameters passed on the query string are:
   </tr>
   <tr>
     <td>from</td>
-    <td>*Required parameter*.<br/>Specifies the language of the input text. The source language must be one of the [supported languages](.\v3-0-languages.md) included in the `dictionary` scope.</td>
+    <td>*Required parameter*.<br/>Specifies the language of the input text. The source language must be one of the [supported languages](./v3-0-languages.md) included in the `dictionary` scope.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>*Required parameter*.<br/>Specifies the language of the output text. The target language must be one of the [supported languages](.\v3-0-languages.md) included in the `dictionary` scope.</td>
+    <td>*Required parameter*.<br/>Specifies the language of the output text. The target language must be one of the [supported languages](./v3-0-languages.md) included in the `dictionary` scope.</td>
   </tr>
 </table>
 
@@ -52,8 +52,8 @@ Request headers include:
   <th width="20%">Headers</th>
   <th>Description</th>
   <tr>
-    <td>_One authorization_<br/>_header_</td>
-    <td>*Required request header*.<br/>See [available options for authentication](./v3-0-reference.md#authentication).</td>
+    <td>Authentication header(s)</td>
+    <td><em>Required request header</em>.<br/>See <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -73,9 +73,9 @@ Request headers include:
 
 The body of the request is a JSON array. Each array element is a JSON object with the following properties:
 
-  * `Text`: A string specifying the term to lookup. This should be the value of a `normalizedText` field from the back-translations of a previous [Dictionary lookup](.\v3-0-dictionary-lookup.md) request. It can also be the value of the `normalizedSource` field.
+  * `Text`: A string specifying the term to lookup. This should be the value of a `normalizedText` field from the back-translations of a previous [Dictionary lookup](./v3-0-dictionary-lookup.md) request. It can also be the value of the `normalizedSource` field.
 
-  * `Translation`: A string specifying the translated text previously returned by the [Dictionary lookup](.\v3-0-dictionary-lookup.md) operation. This should be the value from the `normalizedTarget` field in the `translations` list of the [Dictionary lookup](.\v3-0-dictionary-lookup.md) response. The service will return examples for the specific source-target word-pair.
+  * `Translation`: A string specifying the translated text previously returned by the [Dictionary lookup](./v3-0-dictionary-lookup.md) operation. This should be the value from the `normalizedTarget` field in the `translations` list of the [Dictionary lookup](./v3-0-dictionary-lookup.md) response. The service will return examples for the specific source-target word-pair.
 
 An example is:
 

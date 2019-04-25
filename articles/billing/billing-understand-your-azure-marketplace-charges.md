@@ -4,7 +4,7 @@ description: Learn about billing of external services, formerly known as Marketp
 services: ''
 documentationcenter: ''
 author: adpick
-manager: tonguyen
+manager: adpick
 editor: ''
 tags: billing
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: cwatson
+ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
 # Understand your Azure billing for external service charges
@@ -81,6 +81,7 @@ If you want to cancel your external service order, delete the resource in the [A
 
 ![Delete Resource](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
-## Need help? Contact support.
-If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+## Need help? Contact us.
+
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 

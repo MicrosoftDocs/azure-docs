@@ -4,18 +4,19 @@ description: Steps to configure an OpenID/OAuth application from the Azure AD ap
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: daveba
+ms.reviewer: barbkess
 
 ms.assetid: eedebb76-e78c-428f-9cf0-5891852e79fb
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/25/2018
+ms.topic: tutorial
+ms.date: 01/07/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Configure an OpenID/OAuth application from the Azure AD app gallery
 
@@ -23,19 +24,19 @@ ms.author: jeedes
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**. 
 
-	![Azure Active Directory button](./media/openidoauth-tutorial/tutorial_general_01.png)
+	![The Azure Active Directory button](common/select-azuread.png))
 
 2. Go to **Enterprise applications** > **All applications**.
 
-	![Enterprise applications blade](./media/openidoauth-tutorial/tutorial_general_02.png)
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. Select **New application** on the top of the dialog box.
 
-	![New application button](./media/openidoauth-tutorial/tutorial_general_03.png)
+	![The New application button](common/add-new-app.png)
 
 4. In the search box, type the application name. Select the desired application from the result panel, and sign up to the application.
 
-    ![Adding application](./media/openidoauth-tutorial/addfromgallery.png)
+	![Openid in the results list](common/search-new-app.png)
 
     > [!NOTE]
     > For OpenID Connect and OAuth apps, the **Add** button is disabled by default. Here the tenant admin should select the sign-up button and provide the consent to the application. The application is then added to the customer tenant, where you can do the configurations. There's no need to add the application explicitly.

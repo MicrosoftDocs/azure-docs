@@ -1,20 +1,20 @@
 ---
 title: Optimize Hive queries in Azure HDInsight 
 description: This article describes how to optimize your Apache Hive queries for Hadoop in HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 03/21/2019
 ---
-# Optimize Hive queries in Azure HDInsight
 
-In Azure HDInsight, there are several cluster types and technologies that can run Apache Hive queries. When you create your HDInsight cluster, choose the appropriate cluster type to help optimize performance for your workload needs. 
+# Optimize Apache Hive queries in Azure HDInsight
 
-For example, choose **Interactive Query** cluster type to optimize for ad-hoc, interactive queries. Choose Apache **Hadoop** cluster type to optimize for Hive queries used as a batch process. **Spark** and **HBase** cluster types can also run Hive queries. For more information on running Hive queries on various HDInsight cluster types, see [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md).
+In Azure HDInsight, there are several cluster types and technologies that can run Apache Hive queries. When you create your HDInsight cluster, choose the appropriate cluster type to help optimize performance for your workload needs.
+
+For example, choose **Interactive Query** cluster type to optimize for ad hoc, interactive queries. Choose Apache **Hadoop** cluster type to optimize for Hive queries used as a batch process. **Spark** and **HBase** cluster types can also run Hive queries. For more information on running Hive queries on various HDInsight cluster types, see [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
 HDInsight clusters of Hadoop cluster type are not optimized for performance by default. This article describes some of the most common Hive performance optimization methods that you can apply to your queries.
 
@@ -32,9 +32,9 @@ Increasing the number of worker nodes in an HDInsight cluster allows the work to
 
 For more information about scaling HDInsight, see [Scale HDInsight clusters](hdinsight-scaling-best-practices.md)
 
-## Use Tez instead of Map Reduce
+## Use Apache Tez instead of Map Reduce
 
-[Apache Tez](http://hortonworks.com/hadoop/tez/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
+[Apache Tez](https://hortonworks.com/hadoop/tez/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -46,7 +46,7 @@ Tez is faster because:
 * **Reuses containers**. Whenever possible Tez is able to reuse containers to ensure that latency due to starting up containers is reduced.
 * **Continuous optimization techniques**. Traditionally optimization was done during compilation phase. However more information about the inputs is available that allow for better optimization during runtime. Tez uses continuous optimization techniques that allow it to optimize the plan further into the runtime phase.
 
-For more information on these concepts, see [Apache TEZ](http://hortonworks.com/hadoop/tez/).
+For more information on these concepts, see [Apache TEZ](https://hortonworks.com/hadoop/tez/).
 
 You can make any Hive query Tez enabled by prefixing the query with the following set command:
 
@@ -118,16 +118,16 @@ For more information, see [Partitioned Tables](https://cwiki.apache.org/confluen
 ## Use the ORCFile format
 Hive supports different file formats. For example:
 
-* **Text**: the default file format and works with most scenarios
-* **Avro**: works well for interoperability scenarios
-* **ORC/Parquet**: best suited for performance
+* **Text**: the default file format and works with most scenarios.
+* **Avro**: works well for interoperability scenarios.
+* **ORC/Parquet**: best suited for performance.
 
 ORC (Optimized Row Columnar) format is a highly efficient way to store Hive data. Compared to other formats, ORC has the following advantages:
 
-* support for complex types including DateTime and complex and semi-structured types
-* up to 70% compression
-* indexes every 10,000 rows, which allow skipping rows
-* a significant drop in run-time execution
+* support for complex types including DateTime and complex and semi-structured types.
+* up to 70% compression.
+* indexes every 10,000 rows, which allow skipping rows.
+* a significant drop in run-time execution.
 
 To enable ORC format, you first create a table with the clause *Stored as ORC*:
 
@@ -165,7 +165,7 @@ Next, you insert data to the ORC table from the staging table. For example:
     FROM lineitem;
    ```
    
-You can read more on the ORC format in the [Hive Language manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
+You can read more on the ORC format in the [Apache Hive Language manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
 ## Vectorization
 
@@ -190,10 +190,8 @@ There are more optimization methods that you can consider, for example:
 In this article, you have learned several common Hive query optimization methods. To learn more, see the following articles:
 
 * [Use Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analyze flight delay data by using Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
-* [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data.md)
-* [Analyze sensor data using the Hive Query Console on Hadoop in HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
-* [Use Hive with HDInsight to analyze logs from websites](hadoop/apache-hive-analyze-website-log.md)
+* [Analyze flight delay data by using Apache Hive in HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Analyze Twitter data using Apache Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

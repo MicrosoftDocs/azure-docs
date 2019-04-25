@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/09/2018
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
-ms.custom:
+manager: vitavor
+ms.custom: seodec18
 ---
 
 # How to optimize your cloud investment with Azure Cost Management
@@ -59,7 +59,7 @@ Act to reduce your spending. Make the most of it based on the findings gathered 
 
 Everyone in your organization must engage in the cost management lifecycle. They need to stay involved on an ongoing basis to optimize costs. Be rigorous about this iterative process and make it a key tenet of responsible cloud governance in your organization.
 
-![Key principles](./media/cost-mgt-best-practices/principles.png)
+![Key principles diagram showing visibility, accountability, and optimization](./media/cost-mgt-best-practices/principles.png)
 
 ## Plan with cost in mind
 
@@ -135,7 +135,7 @@ For more information, see [cost analysis](quick-acm-cost-analysis.md).
 
 ### Export billing data on a schedule
 
-Do you need to import your billing data into an external system, like a dashboard or financial system? You can schedule automated reports daily to avoid manually downloading files every month. And you can export billing data to an Azure storage account and get notified using [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md). Then you can use your Azure data to combine it with custom data that you can use in your own systems.
+Do you need to import your billing data into an external system, like a dashboard or financial system? Set up automated exports to Azure Storage and avoid manually downloading files every month. You can then easily set up automatic integrations with other systems to keep your billing data in sync.
 
 For more information about exporting billing data, see [Create and manage exported data](tutorial-export-acm-data.md).
 

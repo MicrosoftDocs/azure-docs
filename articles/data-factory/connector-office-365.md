@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 01/29/2019
 ms.author: jingwang
 
 ---
@@ -24,13 +24,13 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 ## Supported capabilities
 
-For now, within a single copy activity you can only **copy data from Office 365 into [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), and [Azure Data Lake Storage Gen2 (Preview)](connector-azure-data-lake-storage.md) in JSON format** (type setOfObjects). If you want to load Office 365 into other types of data stores or in other formats, you can chain the first copy activity with a subsequent copy activity to further load data into any of the [supported ADF destination stores](copy-activity-overview.md#supported-data-stores-and-formats) (refer to "supported as a sink" column in the "Supported data stores and formats" table).
+For now, within a single copy activity you can only **copy data from Office 365 into [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) in JSON format** (type setOfObjects). If you want to load Office 365 into other types of data stores or in other formats, you can chain the first copy activity with a subsequent copy activity to further load data into any of the [supported ADF destination stores](copy-activity-overview.md#supported-data-stores-and-formats) (refer to "supported as a sink" column in the "Supported data stores and formats" table).
 
 >[!IMPORTANT]
 >- The Azure subscription containing the data factory and the sink data store must be under the same Azure Active Directory (Azure AD) tenant as Office 365 tenant.
 >- Ensure the Azure Integration Runtime region used for copy activity as well as the destination is in the same region where the Office 365 tenant users' mailbox is located. Refer [here](concepts-integration-runtime.md#integration-runtime-location) to understand how the Azure IR location is determined. Refer to [table here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#data-regions) for the list of supported Office regions and corresponding Azure regions.
 >-  If you are loading Office 365 data into **Azure Blob Storage** as destination, make sure you are using **[service principal authentication](connector-azure-blob-storage.md#service-principal-authentication)** when defining the Linked Service to Azure Blob Storage, and not using [account key](connector-azure-blob-storage.md#account-key-authentication), [shared access signature](connector-azure-blob-storage.md#shared-access-signature-authentication) or [managed identities for Azure resources](connector-azure-blob-storage.md#managed-identity) authentications.
->-  If you are loading Office 365 data into **Azure Data Lake Storage Gen1** as destination, make sure you are using [**service principal authentication**](connector-azure-data-lake-store.md#using-service-principal-authentication) when defining the Linked Service to Azure Data Lake Storage Gen1 and not using [managed identities for Azure resources authentication](connector-azure-data-lake-store.md#managed-identity).
+>-  If you are loading Office 365 data into **Azure Data Lake Storage Gen1** as destination, make sure you are using [**service principal authentication**](connector-azure-data-lake-store.md#use-service-principal-authentication) when defining the Linked Service to Azure Data Lake Storage Gen1 and not using [managed identities for Azure resources authentication](connector-azure-data-lake-store.md#managed-identity).
 
 ## Prerequisites
 
@@ -39,9 +39,10 @@ To copy data from Office 365 into Azure, you need to complete the following prer
 - Your Office 365 tenant admin must complete on-boarding actions as described [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding).
 - Create and configure an Azure AD web application in Azure Active Directory.  For instructions, see [Create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Make note of the following values, which you will use to define the linked service for Office 365:
-    - Tenant ID.  For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+    - Tenant ID. For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
     - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
-- Add the user identity who will be making the data access request as the owner of the Azure AD web application (from the Azure AD web application > Settings > Owners > Add owner).
+- Add the user identity who will be making the data access request as the owner of the Azure AD web application (from the Azure AD web application > Settings > Owners > Add owner). 
+    - The user identity must be in the Office 365 organization you are getting data from and must not be a Guest user.
 
 ## Approving new data access requests
 

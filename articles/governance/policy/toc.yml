@@ -17,14 +17,25 @@
   - name: Assign a policy - Azure CLI
     displayName: assign, compliance
     href: assign-policy-azurecli.md
+  - name: Assign a policy - template
+    displayName: assign, compliance, resource manager, ARM
+    href: assign-policy-template.md
 - name: Tutorials
   items:
   - name: Create and manage Azure Policy
     displayName: assign, definition, compliance, exempt, exclusion
     href: ./tutorials/create-and-manage.md
+  - name: Create a custom policy definition
+    displayName: disabled, parameters, rule, mode
+    href: ./tutorials/create-custom-policy-definition.md
+  - name: Hands-on Labs - Exploring Azure Policy
+    displayName: create, policy, training, learn
+    href: https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy
 - name: Samples
-  href: ./samples/index.md
   items:
+  - name: Index
+    displayName: list, examples
+    href: ./samples/index.md
   - name: General
     items:
     - name: Naming
@@ -45,28 +56,28 @@
       items:
       - name: Apply tag and its default value
         displayName: append, builtin, concat
-        href: samples/apply-tag-def-val.md
+        href: samples/apply-tag-default-value.md
       - name: Billing tags policy initiative
-        href: samples/billing-tags-policy-init.md
+        href: samples/billing-tags-policy-initiative.md
       - name: Enforce tag and its value
         displayName: deny, concat, builtin
-        href: samples/enforce-tag-val.md
+        href: samples/enforce-tag-value.md
       - name: Enforce tag and its value on resource groups
         displayName: deny, concat
-        href: samples/enforce-tag-rg.md
+        href: samples/enforce-tag-on-resource-groups.md
     - name: Locations
       items:
       - name: Allowed locations
         displayName: deny, builtin, location
-        href: samples/allowed-locs.md
+        href: samples/allowed-locations.md
     - name: Resource types
       items:
       - name: Allowed resource types
         displayName: deny, builtin, resourceTypes
-        href: samples/allowed-res-types.md
+        href: samples/allowed-resource-types.md
       - name: Not allowed resource types
         displayName: deny, builtin, resourceTypes
-        href: samples/not-allowed-res-type.md
+        href: samples/not-allowed-resource-types.md
   - name: Compute
     items:
     - name: Virtual machines
@@ -82,10 +93,10 @@
         href: samples/allowed-custom-images.md
       - name: Audit if extension does not exist
         displayName: auditIfNotExists
-        href: samples/audit-ext-not-exist.md
+        href: samples/audit-extension-not-exist.md
       - name: Not allowed VM extensions
         displayName: deny
-        href: samples/not-allowed-vm-ext.md
+        href: samples/not-allowed-vm-extension.md
     - name: Virtual machine scale sets
       items:
       - name: Audit when VM does not use managed disk
@@ -104,12 +115,22 @@
     items:
     - name: Enforce Data Lake Store encryption
       displayName: deny
-      href: samples/enforce-datalakestore-encryption.md
+      href: samples/enforce-data-lake-store-encryption.md
+  - name: Guest Configuration
+    items:
+    - name: Audit applications installed on Linux
+      displayName: audit, vm
+      href: samples/guest-configuration-applications-installed-linux.md
+  - name: Key Vaults
+    items:
+    - name: Audit vaults for no virtual network endpoints
+      displayName: audit, KeyVault, indexed
+      href: samples/keyvault-no-vnet-rules.md
   - name: Monitoring
     items:
     - name: Audit diagnostic setting
       displayName: auditIfNotExists, resourceTypes
-      href: samples/audit-diag-setting.md
+      href: samples/audit-diagnostic-setting.md
   - name: Network
     items:
     - name: Network interfaces
@@ -127,13 +148,19 @@
       items:
       - name: Allowed application gateway SKUs
         displayName: deny
-        href: samples/allowed-app-gate-sku.md
+        href: samples/allowed-app-gateway-sku.md
+      - name: Allowed vNet gateway SKUs
+        displayName: deny
+        href: samples/allowed-vnet-gateway-sku.md
+      - name: Allowed load balancer SKUs
+        displayName: deny
+        href: samples/allowed-load-balancer-skus.md
       - name: No network peering to ER network
         displayName: deny, all, concat, ExistingResourceGroups
-        href: samples/no-peering-er-net.md
+        href: samples/no-peering-express-route-network.md
       - name: No user-defined route table
         displayName: deny, all
-        href: samples/no-user-def-route-table.md
+        href: samples/no-user-defined-route-table.md
       - name: NSG X on every subnet
         displayName: deny, all
         href: samples/nsg-on-subnet.md
@@ -151,27 +178,27 @@
       - name: NSG X on every subnet
         displayName: deny, all
         href: samples/nsg-on-subnet.md
-    - name: Express Routes
+    - name: ExpressRoute
       items:
-      - name: Allowed Express Route bandwidth
+      - name: Allowed ExpressRoute bandwidth
         displayName: deny
-        href: samples/allowed-er-band.md
-      - name: Allowed Express Route SKUs
+        href: samples/allowed-express-route-bandwidth.md
+      - name: Allowed ExpressRoute SKUs
         displayName: deny
-        href: samples/allowed-er-skus.md
-      - name: Allowed peering location for Express Route
+        href: samples/allowed-express-route-skus.md
+      - name: Allowed ExpressRoute peering locations
         displayName: deny, Location
-        href: samples/allowed-peering-er.md
+        href: samples/allowed-express-route-peering.md
     - name: Network Watchers
       items:
       - name: Audit if Network Watchers is not enabled for region
         displayName: auditIfNotExists, Location
-        href: samples/net-watch-not-enabled.md
+        href: samples/network-watcher-not-enabled.md
     - name: Application gateways
       items:
       - name: Allowed application gateway SKUs
         displayName: deny
-        href: samples/allowed-app-gate-sku.md
+        href: samples/allowed-app-gateway-sku.md
   - name: SQL
     items:
     - name: SQL Servers
@@ -181,16 +208,16 @@
         href: samples/audit-no-aad-admin.md
       - name: Audit Server level threat detection setting
         displayName: auditIfNotExists
-        href: samples/audit-sql-ser-threat-det-setting.md
+        href: samples/audit-sql-server-threat-detection-setting.md
       - name: Audit SQL Server audit settings
         displayName: auditIfNotExists, builtin
         href: samples/sql-server-audit.md
       - name: Audit SQL Server level audit setting
         displayName: auditIfNotExists
-        href: samples/audit-sql-ser-leve-audit-setting.md
+        href: samples/audit-sql-server-audit-setting.md
       - name: Require SQL Server version 12.0
         displayName: deny, builtin
-        href: samples/req-sql-12.md
+        href: samples/require-sql-12.md
     - name: SQL Databases
       items:
       - name: Allowed SQL DB SKUs
@@ -198,7 +225,7 @@
         href: samples/allowed-sql-db-skus.md
       - name: Audit SQL DB level threat detection setting
         displayName: auditIfNotExists
-        href: samples/audit-db-threat-det-setting.md
+        href: samples/audit-db-threat-detection-setting.md
       - name: Audit SQL DB encryption
         displayName: auditIfNotExists, disabled, indexed, builtin
         href: samples/sql-database-encryption-audit.md
@@ -212,19 +239,19 @@
       href: samples/allowed-skus-storage.md
     - name: Allowed storage account SKUs
       displayName: deny, builtin, storageSKUs
-      href: samples/allowed-stor-acct-skus.md
+      href: samples/allowed-storage-account-skus.md
     - name: Deny cool access tiering for storage accounts
       displayName: deny, all
       href: samples/deny-cool-access-tiering.md
     - name: Ensure HTTPS traffic only for storage account
       displayName: deny, all
-      href: samples/ensure-https-stor-acct.md
+      href: samples/ensure-https-storage-account.md
     - name: Ensure storage file encryption
       displayName: deny, all
-      href: samples/ensure-store-file-enc.md
+      href: samples/ensure-storage-file-encryption.md
     - name: Require storage account encryption
       displayName: deny, builtin
-      href: samples/req-store-acct-enc.md
+      href: samples/require-storage-account-encryption.md
 - name: Concepts
   items:
   - name: Azure Policy definition structure
@@ -241,9 +268,15 @@
   - name: Programmatically create policies
     displayName: assign, definition
     href: ./how-to/programmatically-create.md
-  - name: Getting compliance data
+  - name: Author policies for array properties
+    displayName: array property, alias, aliases, in, notIn, type, defaultValue
+    href: ./how-to/author-policies-for-arrays.md
+  - name: Get compliance data
     displayName: evaluation, scan, summarize, query, events, log analytics
-    href: ./how-to/getting-compliance-data.md
+    href: ./how-to/get-compliance-data.md
+  - name: Determine causes of non-compliance
+    displayName: reasons, compliance details
+    href: ./how-to/determine-non-compliance.md
   - name: Remediate non-compliant resources
     displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
@@ -254,10 +287,12 @@
   - name: Azure PowerShell
     items:
     - name: Policy
-      href: /powershell/module/azurerm.resources/#policies
-    - name: Guest Configuration (preview)
-      href: https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration
-  - name: REST API
+      href: /powershell/module/az.resources/#policies
+    - name: Policy Insights
+      href: /powershell/module/az.policyinsights#policy_insights
+    - name: Guest Configuration
+      href: https://www.powershellgallery.com/packages/Az.GuestConfiguration
+  - name: REST
     items:
     - name: Events
       href: /rest/api/policy-insights/policyevents
@@ -273,16 +308,24 @@
       href: /rest/api/policy-insights/policytrackedresources
     - name: Remediations
       href: /rest/api/policy-insights/remediations
-    - name: Guest Configuration (preview)
+    - name: Guest Configuration
       href: /rest/api/guestconfiguration/
+  - name: Resource Manager templates
+    items:
+    - name: Assignments
+      href: /azure/templates/microsoft.authorization/policyassignments
+    - name: Policy Definitions
+      href: /azure/templates/microsoft.authorization/policydefinitions
+    - name: Initiatives Definitions
+      href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Resources
   items:
   - name: GitHub - Azure Policy samples
     href: https://github.com/Azure/azure-policy
   - name: Video - Build 2018
     href: https://channel9.msdn.com/events/Build/2018/THR2030
-  - name: Video - Ignite 2017
-    href: https://myignite.microsoft.com/videos/54781
+  - name: Governance YouTube Channel
+    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: Guest Configuration videos
     items:
     - name: Getting Started

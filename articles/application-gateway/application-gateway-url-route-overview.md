@@ -1,13 +1,12 @@
 ---
-title: URL-based content routing overview | Microsoft Docs
-description: This page provides an overview of the Application Gateway URL-based content routing, UrlPathMap configuration and PathBasedRouting rule .
+title: Azure Application Gateway URL-based content routing overview
+description: This page provides an overview of the Azure Application Gateway URL-based content routing, UrlPathMap configuration and PathBasedRouting rule .
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.date: 11/7/2018
+ms.date: 1/8/2019
 ms.author: victorh
-
+ms.topic: conceptual
 ---
 # URL Path Based Routing overview
 
@@ -19,7 +18,7 @@ In the following example, Application Gateway is serving traffic for contoso.com
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Requests for http://contoso.com/video/* are routed to VideoServerPool, and http://contoso.com/images/* are routed to ImageServerPool. DefaultServerPool is selected if none of the path patterns match.
+Requests for http\://contoso.com/video/* are routed to VideoServerPool, and http\://contoso.com/images/* are routed to ImageServerPool. DefaultServerPool is selected if none of the path patterns match.
 
 > [!IMPORTANT]
 > Rules are processed in the order they are listed in the portal. It is highly recommended to configure multi-site listeners first prior to configuring a basic listener.  This ensures that traffic gets routed to the right back end. If a basic listener is listed first and matches an incoming request, it gets processed by that listener.
@@ -57,8 +56,37 @@ The urlPathMap element is used to specify Path patterns to back-end server pool 
 }]
 ```
 
-> [!NOTE]
-> PathPattern: This setting is a list of path patterns to match. Each must start with / and the only place a "*" is allowed is at the end following a "/." The string fed to the path matcher does not include any text after the first ? or #, and those chars are not allowed here. Otherwise, any characters allowed in a URL are allowed in PathPattern.
+### PathPattern
+
+PathPattern is a list of path patterns to match. Each must start with / and the only place a "*" is allowed is at the end following a "/." The string fed to the path matcher does not include any text after the first ? or #, and those chars are not allowed here. Otherwise, any characters allowed in a URL are allowed in PathPattern.
+
+The supported patterns depend on whether you deploy Application Gateway v1 or v2:
+
+#### v1
+
+Path rules are case insensitive.
+
+|v1 path pattern  |Is supported?  |
+|---------|---------|
+|`/images/*`     |yes|
+|`/images*`     |no|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
+|`/CurrentUser/Comments/*`     |yes|
+
+#### v2
+
+Path rules are case sensitive.
+
+|v2 path pattern  |Is supported?  |
+|---------|---------|
+|`/images/*`     |yes|
+|`/images*`     |yes|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
+|`/CurrentUser/Comments/*`     |yes|
 
 You can check out a [Resource Manager template using URL-based routing](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) for more information.
 

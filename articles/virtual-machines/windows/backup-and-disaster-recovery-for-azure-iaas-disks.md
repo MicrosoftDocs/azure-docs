@@ -4,7 +4,7 @@
   services: virtual-machines-linux
   cloud: Azure
   documentationcenter: na
-  author: luywang
+  author: roygara
   manager: jeconnoc
 
   ms.assetid:
@@ -14,7 +14,8 @@
   ms.devlang: na
   ms.topic: article
   ms.date: 07/19/2017
-  ms.author: luywang
+  ms.author: rogarana
+  ms.subservice: disks
 ---
 
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md)]

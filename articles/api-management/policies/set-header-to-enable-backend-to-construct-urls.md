@@ -1,6 +1,6 @@
 ---
-title: Azure API managment policy sample - Add a Forwarded header  | Microsoft Docs
-description: Azure API managment policy sample - Demonstrates how to add a Forwarded header in the inbound request to allow the backend API to construct proper URLs.
+title: Azure API management policy sample - Add a Forwarded header  | Microsoft Docs
+description: Azure API management policy sample - Demonstrates how to add a Forwarded header in the inbound request to allow the backend API to construct proper URLs.
 services: api-management
 documentationcenter: ''
 author: vladvino

@@ -2,7 +2,6 @@
 title: Run Apache Hadoop MapReduce examples on HDInsight - Azure 
 description: Get started using MapReduce samples in jar files included in HDInsight. Use SSH to connect to the cluster, and then use the Hadoop command to run sample jobs.
 keywords: hadoop example jar,hadoop examples jar,hadoop mapreduce examples,mapreduce examples
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -21,9 +20,9 @@ Learn how to run the MapReduce examples included with Apache Hadoop on HDInsight
 
 ## Prerequisites
 
-* **An HDInsight cluster**: See [Get started using Hadoop with Hive in HDInsight on Linux](apache-hadoop-linux-tutorial-get-started.md)
+* **An HDInsight cluster**: See [Get started using Apache Hadoop with Apache Hive in HDInsight on Linux](apache-hadoop-linux-tutorial-get-started.md)
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **An SSH client**: For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -91,7 +90,7 @@ Learn how to run the MapReduce examples included with Apache Hadoop on HDInsight
 
     Input for this job is read from `/example/data/gutenberg/davinci.txt`. Output for this example is stored in `/example/data/davinciwordcount`. Both paths are located on default storage for the cluster, not the local file system.
 
-   > [!NOTE]
+   > [!NOTE]  
    > As noted in the help for the wordcount sample, you could also specify multiple input files. For example, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` would count words in both davinci.txt and ulysses.txt.
 
 5. Once the job completes, use the following command to view the output:
@@ -163,7 +162,7 @@ The value returned by this command is similar to **3.14159155000000000000**. For
 
 GraySort is a benchmark sort. The metric is the sort rate (TB/minute) that is achieved while sorting large amounts of data, usually a 100 TB minimum.
 
-This sample uses a modest 10 GB of data so that it can be run relatively quickly. It uses the MapReduce applications developed by Owen O'Malley and Arun Murthy. These applications won the annual general-purpose ("daytona") terabyte sort benchmark in 2009, with a rate of 0.578 TB/min (100 TB in 173 minutes). For more information on this and other sorting benchmarks, see the [Sortbenchmark](http://sortbenchmark.org/) site.
+This sample uses a modest 10 GB of data so that it can be run relatively quickly. It uses the MapReduce applications developed by Owen O'Malley and Arun Murthy. These applications won the annual general-purpose ("daytona") terabyte sort benchmark in 2009, with a rate of 0.578 TB/min (100 TB in 173 minutes). For more information on this and other sorting benchmarks, see the [Sortbenchmark](https://sortbenchmark.org/) site.
 
 This sample uses three sets of MapReduce programs:
 
@@ -205,14 +204,10 @@ Use the following steps to generate data, sort, and then validate the output:
 
 From this article, you learned how to run the samples included with the Linux-based HDInsight clusters. For tutorials about using Pig, Hive, and MapReduce with HDInsight, see the following topics:
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:apache-hadoop-introduction.md
-
-
-
-[hdinsight-samples]: hdinsight-run-samples.md
 

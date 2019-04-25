@@ -3,14 +3,14 @@ title: Customize the Azure Active Directory B2C user interface (UI) dynamically 
 description: Support multiple branding experiences with HTML5/CSS content that changes dynamically at runtime.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Azure Active Directory B2C: Configure the UI with dynamic content by using custom policies
@@ -151,7 +151,7 @@ Locate the `<img>` element that contains the `ID` value *background_background_i
     The **Create App Service** window opens. In it you can begin to create all the necessary Azure resources to run the ASP.NET web app in Azure.
 
     > [!NOTE]
-    > For more information about publishing, see [Create an ASP.NET web app in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > For more information about publishing, see [Create an ASP.NET web app in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
 3. In the **Web App Name** box, type a unique app name (valid characters are a-z, A-Z, 0-9, and the hyphen (-). The URL of the web app is `http://<app_name>.azurewebsites.NET`, where `<app_name>` is your web app name. You can accept the automatically generated name, which is unique.
 
@@ -174,7 +174,7 @@ Locate the `<img>` element that contains the `ID` value *background_background_i
 
 3. In the **CORS** window, in the **Allowed Origins** box, do either of the following:
 
-    * Enter the URL or URLs that you want to allow JavaScript calls to come from.
+    * Enter the URL or URLs that you want to allow JavaScript calls to come from. You need to use all lowercase letters in the URLs that you enter.
     * Enter an asterisk (*) to specify that all origin domains are accepted.
 
 4. Select **Save**.
@@ -189,10 +189,10 @@ Your HTML5 template is ready to use. However, it is not available in the `Conten
 * Your content server is enabled for CORS.
 
     >[!NOTE]
-    >To verify that the site where you're hosting your content has enabled CORS and can test CORS requests, go to the [test-cors.org](http://test-cors.org/) website. 
+    >To verify that the site where you're hosting your content has enabled CORS and can test CORS requests, go to the [test-cors.org](https://test-cors.org/) website. 
 
 * Your served content is secure over **HTTPS**.
-* You are using *absolute URLS*, such as *https://yourdomain/content*, for all links, CSS content, and images.
+* You are using *absolute URLS*, such as `https://yourdomain/content`, for all links, CSS content, and images.
 
 ## Step 5: Configure your content definition
 To configure `ContentDefinition`, do the following:
@@ -243,16 +243,18 @@ Change the background based on query string parameter named _campaignId_. Your R
 Add the `ContentDefinitionParameters` element by doing the following:
 1. Open the *SignUpOrSignin* file of your policy (for example, *SignUpOrSignin.xml*).
 
-2. Search for the `<DefaultUserJourney>` node. 
-
-3. In the `<DefaultUserJourney>` node, add the following XML snippet:  
+2. Under the `<DefaultUserJourney>` node, add the `UserJourneyBehaviors` node:  
 
     ```XML
-    <UserJourneyBehaviors>
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <UserJourneyBehaviors>
         <ContentDefinitionParameters>
-            <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
+          <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
         </ContentDefinitionParameters>
-    </UserJourneyBehaviors>
+      </UserJourneyBehaviors>
+      ...
+    </RelyingParty>
     ```
 
 ### Step 8.2: Change your code to accept a query string parameter, and replace the background image

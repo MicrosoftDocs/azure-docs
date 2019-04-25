@@ -5,8 +5,8 @@ description: In this quickstart you go through step-by-step process of building 
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: quickstart
 #Customer intent: As a user, I want to understand how to use Custom Translator so that I can build, deploy, and use a custom model for translation.
@@ -27,7 +27,7 @@ This article provides step-by-step instructions to build a translation system wi
     [Custom Translator](https://portal.customtranslator.azure.ai) portal. Once
     on the Custom Translator portal,
     navigate to the Settings page where you can associate your Microsoft
-    Translator Text API subscription key with your workspace. 
+    Translator Text API subscription key with your workspace.
 
 ## Create a project
 
@@ -59,15 +59,15 @@ model.
 Select the project you've created. You'll see all the documents you've uploaded
 that share a language pair with this project. Select the documents that you want
 included in your model. You can select [training](training-and-model.md#training-dataset-for-custom-translator),
-[tuning](training-and-model.md#tuning-dataset-for-custom-translator), and [test](training-and-model.md#testing-dataset-for-custom-translator) data or select just
+[tuning](training-and-model.md#tuning-dataset-for-custom-translator), and [testing](training-and-model.md#testing-dataset-for-custom-translator) data or select just
 training data and let Custom Translator automatically build tuning and test sets
 for your model.
 
 ![Create a model](media/quickstart/ct-how-to-train.png)
 
-When you have finished selecting your desired documents, click Create Model button to
+When you've finished selecting your desired documents, click Create Model button to
 create your model and start training. You can see the status of your training,
-and details for all the models you have trained, in the Models tab.
+and details for all the models you've trained, in the Models tab.
 
 For more details, visit [Create a Model](how-to-train-model.md).
 

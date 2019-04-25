@@ -1,7 +1,6 @@
 ---
 title: Process events from Event Hubs with Storm - Azure HDInsight 
 description: Learn how to process data from Azure Event Hubs with a C# Storm topology created in Visual Studio, by using the HDInsight tools for Visual Studio.
-services: hdinsight,notification hubs
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -11,27 +10,27 @@ ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
 ---
-# Process events from Azure Event Hubs with Storm on HDInsight (C#)
+# Process events from Azure Event Hubs with Apache Storm on HDInsight (C#)
 
-Learn how to work with Azure Event Hubs from Apache Storm on HDInsight. This document uses a C# Storm topology to read and write data from Event Hubs
+Learn how to work with Azure Event Hubs from [Apache Storm](https://storm.apache.org/) on HDInsight. This document uses a C# Storm topology to read and write data from Event Hubs
 
-> [!NOTE]
-> For a Java version of this project, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
+> [!NOTE]  
+> For a Java version of this project, see [Process events from Azure Event Hubs with Apache Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
 
 ## SCP.NET
 
 The steps in this document use SCP.NET, a NuGet package that makes it easy to create C# topologies and components for use with Storm on HDInsight.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to a Storm on HDInsight cluster that uses Linux. Only Linux-based clusters created after October 28, 2016, support SCP.NET topologies.
 
-HDInsight 3.4 and greater use Mono to run C# topologies. The example used in this document works with HDInsight 3.6. If you plan on creating your own .NET solutions for HDInsight, check the [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
+HDInsight 3.4 and greater use Mono to run C# topologies. The example used in this document works with HDInsight 3.6. If you plan on creating your own .NET solutions for HDInsight, check the [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
 
 ### Cluster versioning
 
 The Microsoft.SCP.Net.SDK NuGet package you use for your project must match the major version of Storm installed on HDInsight. HDInsight versions 3.5 and 3.6 use Storm 1.x, so you must use SCP.NET version 1.0.x.x with these clusters.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The example in this document expects an HDInsight 3.5 or 3.6 cluster.
 >
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -42,7 +41,7 @@ C# topologies must also target .NET 4.5.
 
 Microsoft provides a set of Java components that can be used to communicate with Event Hubs from a Storm topology. You can find the Java archive (JAR) file that contains an HDInsight 3.6 compatible version of these components at [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > While the components are written in Java, you can easily use them from a C# topology.
 
 The following components are used in this example:
@@ -94,7 +93,7 @@ topologyBuilder.SetJavaBolt(
         .shuffleGrouping("Spout");
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > This example uses a Clojure expression passed as a string, instead of using **JavaComponentConstructor** to create an **EventHubBoltConfig**, as the spout example did. Either method works. Use the method that feels best to you.
 
 ## Download the completed project
@@ -105,7 +104,7 @@ You can download a complete version of the project created in this tutorial from
 
 * An [Apache Storm on HDInsight cluster version 3.5 or 3.6](apache-storm-tutorial-get-started-linux.md).
 
-    > [!WARNING]
+    > [!WARNING]  
     > The example used in this document requires Storm on HDInsight version 3.5 or 3.6. This does not work with older versions of HDInsight, due to breaking class name changes. For a version of this example that works with older clusters, see [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases).
 
 * An [Azure event hub](../../event-hubs/event-hubs-create.md).
@@ -220,4 +219,4 @@ In this document, you have learned how to use the Java Event Hubs spout and bolt
 
 * [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 * [SCP programming guide](apache-storm-scp-programming-guide.md)
-* [Example topologies for Storm on HDInsight](apache-storm-example-topology.md)
+* [Example topologies for Apache Storm on HDInsight](apache-storm-example-topology.md)

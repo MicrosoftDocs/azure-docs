@@ -1,21 +1,22 @@
 ---
-title: How to add branding to your Azure Active Directory sign-in page | Microsoft Docs
-description: Learn how to add your organization's branding to the Azure Active Directory sign-in page.
+title: Add branding to your organization's sign-in page - Azure Active Directory | Microsoft Docs
+description: Instructions about how to add your organization's branding to the Azure Active Directory sign-in page.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
-custom: it-pro
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
-# How to: Add branding to your Azure Active Directory sign-in page
+# Add branding to your organization's Azure Active Directory sign-in page
 Use your organization's logo and custom color schemes to provide a consistent look-and-feel on your Azure Active Directory (Azure AD) sign-in pages. Your sign-in pages appear when users sign in to your organization's web-based apps, such as Office 365, which uses Azure AD as your identity provider.
 
 >[!Note]
@@ -24,7 +25,7 @@ Use your organization's logo and custom color schemes to provide a consistent lo
 ## Customize your Azure AD sign-in page
 You can customize your Azure AD sign-in pages, which appear when users sign in to your organization's tenant-specific apps, such as [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com), or when passing a domain variable, such as [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-Your custom branding won't immediately appear when your users go to sites such as, www.office.com. Instead, the user has to sign-in before your customized branding appears.
+Your custom branding won't immediately appear when your users go to sites such as, www\.office.com. Instead, the user has to sign-in before your customized branding appears.
 
 > [!NOTE]
 > All branding elements are optional. For example, if you specify a banner logo with no background image, the sign-in page will show your logo with a default background image from the destination site (for example, Office 365).<br><br>Additionally, sign-in page branding doesn’t carry over to personal Microsoft accounts. If your users or business guests sign in using a personal Microsoft account, the sign-in page won't reflect the branding of your organization.
@@ -98,7 +99,7 @@ After you've created your custom branding, you can go back and change anything y
 
 4. Select **Save**.
 
-  It can take up to an hour for any changes you made to the sign-in page branding to appear.
+   It can take up to an hour for any changes you made to the sign-in page branding to appear.
 
 ## Add language-specific company branding to your directory
 You can't change your original configuration's language from your default language. However, if you need a configuration in a different language, you can create a new configuration.

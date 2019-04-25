@@ -84,7 +84,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
    
    In the **Web proxy** page:
    
-   1. Supply the **Web proxy URL** in this format: *http://&lt;host-IP address or FDQN&gt;:Port number*. Note that HTTPS URLs are not supported.
+   1. Supply the **Web proxy URL** in this format: *http://&lt;host-IP address or FQDN&gt;:Port number*. Note that HTTPS URLs are not supported.
    2. Specify **Authentication** as **Basic** or **None**.
    3. If using authentication, you will also need to provide a **Username** and **Password**.
    4. Click **Apply**. This will validate and apply the configured web proxy settings.
@@ -126,15 +126,15 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
     ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Click **Configure** on the command bar. This opens up the **Configure** blade. In the **Configure** blade, do the following:
    
-    1. The file server name is automatically populated.
+   1. The file server name is automatically populated.
     
-    2. Make sure the cloud storage encryption is set to **Enabled**. This will encrypt all the data that is sent to the cloud. 
+   2. Make sure the cloud storage encryption is set to **Enabled**. This will encrypt all the data that is sent to the cloud. 
     
-    3. A 256-bit AES key is used with the user-defined key for encryption. Specify a 32 character key and then reenter the key to confirm it. Record the key in a key management app for future reference.
+   3. A 256-bit AES key is used with the user-defined key for encryption. Specify a 32 character key and then reenter the key to confirm it. Record the key in a key management app for future reference.
     
-    4. Click **Configure required settings** to specify storage account credentials to be used with your device. Click **Add new** if there are no storage account credentials configured. **Ensure that the storage account you use supports block blobs. Page blobs are not supported.** More information about [blocks blobs and page blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Click **Configure required settings** to specify storage account credentials to be used with your device. Click **Add new** if there are no storage account credentials configured. **Ensure that the storage account you use supports block blobs. Page blobs are not supported.** More information about [blocks blobs and page blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
-    ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. In the **Add a storage account credentials** blade, do the following: 
 
     1. Choose current subscription if the storage account is in the same subscription as the service. Specify other is the storage account is outside of the service subscription. 
@@ -172,26 +172,26 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
    ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. Specify the following share settings:
 
-    1. A unique name for your share. The name must be a string that contains 3 to 127 characters.
+   1. A unique name for your share. The name must be a string that contains 3 to 127 characters.
     
-    2. An optional **Description** for the share. The description will help identify the share owners.
+   2. An optional **Description** for the share. The description will help identify the share owners.
     
-    3. A **Type** for the share. The type can be **Tiered** or **Locally pinned**, with tiered being the default. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** share. For all other data, select a **Tiered** share.
-    A locally pinned share is thickly provisioned and ensures that the primary data on the share stays local to the device and does not spill to the cloud. A tiered share on the other hand is thinly provisioned. When you create a tiered share, 10% of the space is provisioned on the local tier and 90% of the space is provisioned in the cloud. For instance, if you provisioned a 1 TB volume, 100 GB would reside in the local space and 900 GB would be used in the cloud when the data tiers. This in turn implies that if you run out of all the local space on the device, you cannot provision a tiered share.
+   3. A **Type** for the share. The type can be **Tiered** or **Locally pinned**, with tiered being the default. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** share. For all other data, select a **Tiered** share.
+      A locally pinned share is thickly provisioned and ensures that the primary data on the share stays local to the device and does not spill to the cloud. A tiered share on the other hand is thinly provisioned. When you create a tiered share, 10% of the space is provisioned on the local tier and 90% of the space is provisioned in the cloud. For instance, if you provisioned a 1 TB volume, 100 GB would reside in the local space and 900 GB would be used in the cloud when the data tiers. This in turn implies that if you run out of all the local space on the device, you cannot provision a tiered share.
    
-    4. In the **Set default full permissions to** field, assign the permissions to the user, or the group that is accessing this share. Specify the name of the user or the user group in *john@contoso.com* format. We recommend that you use a user group (instead of a single user) to allow admin privileges to access these shares. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
+   4. In the **Set default full permissions to** field, assign the permissions to the user, or the group that is accessing this share. Specify the name of the user or the user group in *john\@contoso.com* format. We recommend that you use a user group (instead of a single user) to allow admin privileges to access these shares. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
    
-    5. Click **Add** to create the share. 
+   5. Click **Add** to create the share. 
     
-        ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
-        You are notified that the share creation is in progress.
+       You are notified that the share creation is in progress.
    
-        ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
-    After the share is created with the specified settings, the **Shares** blade will update to reflect the new share. By default, monitoring and backup are enabled for the share.
+      After the share is created with the specified settings, the **Shares** blade will update to reflect the new share. By default, monitoring and backup are enabled for the share.
    
-    ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## Step 4: Connect to the share
 You will now need to connect to one or more shares that you created in the previous step. Perform these steps on your Windows Server host connected to your StorSimple Virtual Array.

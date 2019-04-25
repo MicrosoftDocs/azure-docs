@@ -9,7 +9,7 @@ metadata:
   manager: cgronlun
 
   ms.service: machine-learning
-  ms.component: data-science-vm
+  ms.subservice: data-science-vm
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page

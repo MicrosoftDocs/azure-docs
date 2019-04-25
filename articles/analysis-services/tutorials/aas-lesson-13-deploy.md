@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -44,15 +44,15 @@ This article is part of a tabular modeling tutorial, which should be completed i
   
 #### To deploy the Adventure Works Internet Sales
   
-1.  In **Solution Explorer**, right-click the **AW Internet Sales** project > **Build**.  
+1. In **Solution Explorer**, right-click the **AW Internet Sales** project > **Build**.  
 
-2.  Right-click the **AW Internet Sales** project > **Deploy**.
+2. Right-click the **AW Internet Sales** project > **Deploy**.
 
-    When deploying to Azure Analysis Services, you may be prompted to enter your account. Enter your organizational account and password, for example nancy@adventureworks.com. This account must be in Admins on the server.
+   When deploying to Azure Analysis Services, you may be prompted to enter your account. Enter your organizational account and password, for example nancy@adventureworks.com. This account must be in Admins on the server.
   
-    The Deploy dialog box appears and displays the deployment status of the metadata and each table included in the model.  
+   The Deploy dialog box appears and displays the deployment status of the metadata and each table included in the model.  
     
-    ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
+   ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
   
 3. When deployment successfully completes, go ahead and click **Close**.  
   

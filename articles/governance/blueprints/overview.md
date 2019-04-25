@@ -1,16 +1,14 @@
 ---
 title: Overview of Azure Blueprints
-description: Azure Blueprints is a service in Azure, that you use to create, define, and deploy artifacts in your Azure environment.
-services: blueprints
+description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
 ---
-# What is Azure Blueprints?
+# Overview of the Azure Blueprints service
 
 Just as a blueprint allows an engineer or an architect to sketch a project's design parameters,
 Azure Blueprints enables cloud architects and central information technology groups to define a
@@ -69,7 +67,7 @@ Including a policy in a blueprint enables the creation of the right pattern or d
 assignment of the blueprint. The policy inclusion makes sure that only approved or expected changes
 can be made to the environment to protect ongoing compliance to the intent of the blueprint.
 
-A policy can be included as one of many _artifacts_ in a blueprints definition. Blueprints also
+A policy can be included as one of many _artifacts_ in a blueprint definition. Blueprints also
 support using parameters with policies and initiatives.
 
 ## Blueprint definition
@@ -79,20 +77,17 @@ as artifacts:
 
 |Resource  | Hierarchy options| Description  |
 |---------|---------|---------|
-|Resource Groups     | Subscription | Create a new resource group for use by other artifacts within the blueprint.  These placeholder resource groups enable you to organize resources exactly the way you want them structured and provides a scope limiter for included policy and role assignment artifacts and Azure Resource Manager templates.         |
-|Azure Resource Manager template      | Resource Group | Templates are used to compose complex environments. Example environments: a SharePoint farm, Azure Automation State Configuration, or a Log Analytics workspace. |
-|Policy Assignment     | Subscription, Resource Group | Allows assignment of a policy or initiative to the subscription the blueprint is assigned to. The policy or initiative must be within the scope of the blueprint (in the blueprint management group or below). If the policy or initiative has parameters, these parameters are assigned at creation of the blueprint or during blueprint assignment.       |
-|Role Assignment   | Subscription, Resource Group | Add an existing user or group to a built-in role to make sure the right people always have the right access to your resources. Role assignments can be defined for the entire subscription or nested to a specific resource group included in the blueprint. |
+|Resource Groups | Subscription | Create a new resource group for use by other artifacts within the blueprint.  These placeholder resource groups enable you to organize resources exactly the way you want them structured and provides a scope limiter for included policy and role assignment artifacts and Azure Resource Manager templates. |
+|Azure Resource Manager template | Subscription, Resource Group | Templates are used to compose complex environments. Example environments: a SharePoint farm, Azure Automation State Configuration, or a Log Analytics workspace. |
+|Policy Assignment | Subscription, Resource Group | Allows assignment of a policy or initiative to the subscription the blueprint is assigned to. The policy or initiative must be within the scope of the blueprint definition location. If the policy or initiative has parameters, these parameters are assigned at creation of the blueprint or during blueprint assignment. |
+|Role Assignment | Subscription, Resource Group | Add an existing user or group to a built-in role to make sure the right people always have the right access to your resources. Role assignments can be defined for the entire subscription or nested to a specific resource group included in the blueprint. |
 
-### Blueprints and management groups
+### Blueprint definition locations
 
-When creating a blueprint definition, you'll define where the blueprint is saved. Currently,
-blueprints can only be saved to a [management group](../management-groups/overview.md) that you
-have **Contributor** access to. The blueprint is available to assign to any child subscription of
-that management group.
-
-> [!IMPORTANT]
-> If you don't have access to any management groups or any management groups configured, loading the list of blueprint definitions shows that none are available and clicking on **Scope** opens a window with a warning about retrieving management groups. To resolve this, ensure a subscription you have appropriate access to is part of a [management group](../management-groups/overview.md).
+When creating a blueprint definition, you'll define where the blueprint is saved. Blueprints can be
+saved to a [management group](../management-groups/overview.md) or subscription that you have
+**Contributor** access to. If the location is a management group, the blueprint is available to
+assign to any child subscription of that management group.
 
 ### Blueprint parameters
 
@@ -144,7 +139,7 @@ To delete blueprints, your account needs the following permissions:
 - `Microsoft.Blueprint/blueprints/versions/delete`
 
 > [!NOTE]
-> As blueprint definitions are created at a management group, the blueprint definition permissions must be granted on a management group scope or be inherited onto a management group scope.
+> The blueprint definition permissions must be granted or inherited on the management group or subscription scope where it is saved.
 
 To assign or unassign a blueprint, your account needs the following permissions:
 
@@ -154,12 +149,20 @@ To assign or unassign a blueprint, your account needs the following permissions:
 > [!NOTE]
 > As blueprint assignments are created on a subscription, the blueprint assign and unassign permissions must be granted on a subscription scope or be inherited onto a subscription scope.
 
-Other than blueprint assignment permissions, these permissions are included in the **Owner** role
-and in the **Contributor** roles. If these built-in roles don't fit your security needs, consider
-creating a [custom role](../../role-based-access-control/custom-roles.md).
+All of the above permissions are included in the **Owner** role. The **Contributor** role has
+create blueprint and delete blueprint permissions, but does not have blueprint assignment
+permissions. If these built-in roles don't fit your security needs, consider creating a [custom
+role](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > The service principal for Azure Blueprint requires the **Owner** role on the assigned subscription in order to enable deployment. If using the portal, this role is automatically granted and revoked for the deployment. If using the REST API, this role must be manually granted, but is still automatically revoked after the deployment completes.
+
+## Video overview
+
+The following overview of Azure Blueprints is from Azure Fridays. For video download,
+visit [Azure Fridays - An overview of Azure Blueprints](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints) on Channel 9.
+
+> [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
 
 ## Next steps
 

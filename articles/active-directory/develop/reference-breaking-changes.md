@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 68517c83-1279-4cc7-a7c1-c7ccc3dbe146
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # What's new for authentication? 
@@ -38,6 +39,38 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 None scheduled at this time. 
 
+## March 2019
+
+### Looping clients will be interrupted
+
+**Effective date**: March 25, 2019
+
+**Endpoints impacted**: Both v1.0 and v2.0
+
+**Protocol impacted**: All flows
+
+Client applications can sometimes misbehave, issuing hundreds of the same login request over a short period of time.  These requests may or may not be successful, but they all contribute to poor user experience and heightened workloads for the IDP, increasing latency for all users and reducing availability of the IDP.  These applications are operating outside the bounds of normal usage, and should be updated to behave correctly.  
+
+Clients that issue duplicate requests multiple times will be sent an `invalid_grant` error:
+`AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`. 
+
+Most clients will not need to change behavior to avoid this error.  Only misconfigured clients (those without token caching or those exhibiting prompt loops already) will be impacted by this error.  Clients are tracked on a per-instance basis locally (via cookie) on the following factors:
+
+* User hint, if any
+
+* Scopes or resource being requested
+
+* Client ID
+
+* Redirect URI
+
+* Response type and mode
+
+Apps making multiple requests (15+) in a short period of time (5 minutes) will receive an `invalid_grant` error explaining that they are looping.  The tokens being requested have sufficiently long-lived lifetimes (10 minutes minimum, 60 minutes by default), so repeated requests over this time period are unnecessary.  
+
+All apps should handle `invalid_grant` by showing an interactive prompt, rather than silently requesting a token.  In order to avoid this error, clients should ensure they are correctly caching the tokens they receive.
+
+
 ## October 2018
 
 ### Authorization codes can no longer be reused
@@ -52,7 +85,7 @@ Starting on November 15, 2018, Azure AD will stop accepting previously used auth
 
 If your app reuses authorization codes to get tokens for multiple resources, we recommend that you use the code to get a refresh token, and then use that refresh token to acquire additional tokens for other resources. Authorization codes can only be used once, but refresh tokens can be used multiple times across multiple resources. Any new app that attempts to reuse an authentication code during the OAuth code flow will get an invalid_grant error.
 
-For more information about refresh tokens, see [Refreshing the access tokens](v1-protocols-oauth-code.md#refreshing-the-access-tokens).
+For more information about refresh tokens, see [Refreshing the access tokens](v1-protocols-oauth-code.md#refreshing-the-access-tokens).  If using ADAL or MSAL, this is handled for you by the library - replace the second instance of 'AcquireTokenByAuthorizationCodeAsync' with 'AcquireTokenSilentAsync'. 
 
 ## May 2018
 

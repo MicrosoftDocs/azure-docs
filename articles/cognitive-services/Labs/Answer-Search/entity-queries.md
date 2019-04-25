@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Queries for Entities using Project Answer Search
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
@@ -30,7 +30,7 @@ The data that the entity includes depends on the entity's type. Although entitie
 -	Attraction 
  
 To determine the type of entity that the response contains, use the `entityTypeHints` field as shown in the query for Bill Gates.
-````
+```
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
         "entityPresentationInfo": {
@@ -41,13 +41,13 @@ To determine the type of entity that the response contains, use the `entityTypeH
         },
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
-````
+```
 The following is a query for Space Needle:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
-````
+```
 The response includes the `entities` answer. Note the `entityScenario` and `entityTypeHints` fields. 
-````
+```
   "entities": {
     "value": [
       {
@@ -59,7 +59,7 @@ The response includes the `entities` answer. Note the `entityScenario` and `enti
             "mustBeCloseToContent": true,
             "license": {
               "name": "CC-BY-SA",
-              "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+              "url": "https://creativecommons.org/licenses/by-sa/3.0/"
             },
             "licenseNotice": "Text under CC-BY-SA license"
           },
@@ -68,13 +68,13 @@ The response includes the `entities` answer. Note the `entityScenario` and `enti
             "targetPropertyName": "description",
             "mustBeCloseToContent": true,
             "text": "Wikipedia",
-            "url": "http://en.wikipedia.org/wiki/Space_Needle"
+            "url": "https://en.wikipedia.org/wiki/Space_Needle"
           },
           {
             "_type": "ContractualRules/MediaAttribution",
             "targetPropertyName": "image",
             "mustBeCloseToContent": true,
-            "url": "http://en.wikipedia.org/wiki/Space_Needle"
+            "url": "https://en.wikipedia.org/wiki/Space_Needle"
           }
         ],
         "webSearchUrl": "https://www.bing.com/entityexplore?q\u003dSpace+Needle\u0026filters\u003dsid:%22f8dd5b08-206d-2554-6e4a-893f51f4de7e%22\u0026elv\u003dAXXfrEiqqD9r3GuelwApulpmymQx!ODfuQu*veOQHkvP0!Zbvi5F5tVcMSDJvDEWiQWwrdueYTtIszgj03oFQHykYYLYgq3q5!Sf00QxXGIS",
@@ -85,10 +85,10 @@ The response includes the `entities` answer. Note the `entityScenario` and `enti
           "provider": [
             {
               "_type": "Organization",
-              "url": "http://en.wikipedia.org/wiki/Space_Needle"
+              "url": "https://en.wikipedia.org/wiki/Space_Needle"
             }
           ],
-          "hostPageUrl": "http://upload.wikimedia.org/wikipedia/commons/2/23/Space_Needle_2011-07-04.jpg",
+          "hostPageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Space_Needle_2011-07-04.jpg",
           "width": 110,
           "height": 110,
           "sourceWidth": 152,
@@ -105,21 +105,21 @@ The response includes the `entities` answer. Note the `entityScenario` and `enti
       }
     ]
   },
-````
+```
 
 A query can return a list if it is relevant.
 
 **Query:**
 The following query finds a list of endangered species:
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
-````
+```
 
 **Response:**
 The response includes a list formatted for display as tabular values:
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -216,7 +216,7 @@ The response includes a list formatted for display as tabular values:
     ]
   },
 
-````
+```
 
 
 ## Next steps

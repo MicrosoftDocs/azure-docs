@@ -1,19 +1,18 @@
 ---
 title: Use Apache Spark to read and write data to Azure SQL database 
 description: Learn how to set up a connection between HDInsight Spark cluster and an Azure SQL database to read data, write data, and stream data into a SQL database
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 12/15/2018
 ---
 
 # Use HDInsight Spark cluster to read and write data to Azure SQL database
 
-Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQL database and then read, write, and stream data into the SQL database. The instructions in this article use a Jupyter notebook to run the Scala code snippets. However, you can create a standalone application in Scala or Python and perform the same tasks. 
+Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQL database and then read, write, and stream data into the SQL database. The instructions in this article use a [Jupyter Notebook](https://jupyter.org/) to run the Scala code snippets. However, you can create a standalone application in Scala or Python and perform the same tasks. 
 
 ## Prerequisites
 
@@ -21,32 +20,25 @@ Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQ
 
 * **Azure SQL database**. Follow the instructions at [Create an Azure SQL database](../../sql-database/sql-database-get-started-portal.md). Make sure you create a database with the sample **AdventureWorksLT** schema and data. Also, make sure you create a server-level firewall rule to allow your client's IP address to access the SQL database on the server. The instructions to add the firewall rule is available in the same article. Once you have created your Azure SQL database, make sure you keep the following values handy. You need them to connect to the database from a Spark cluster.
 
-    * Server name hosting the Azure SQL database
-    * Azure SQL database name
-    * Azure SQL database admin user name / password
+    * Server name hosting the Azure SQL database.
+    * Azure SQL database name.
+    * Azure SQL database admin user name / password.
 
 * **SQL Server Management Studio**. Follow the instructions at [Use SSMS to connect and query data](../../sql-database/sql-database-connect-query-ssms.md).
 
-## Create a Jupyter notebook
+## Create a Jupyter Notebook 
 
-Start by creating a Jupyter notebook associated with the Spark cluster. You use this notebook to run the code snippets used in this article. 
+Start by creating a [Jupyter Notebook](https://jupyter.org/) associated with the Spark cluster. You use this notebook to run the code snippets used in this article. 
 
-1. From the [Azure portal](https://portal.azure.com/), open your cluster. 
+1. From the [Azure portal](https://portal.azure.com/), open your cluster.
+1. Select **Jupyter notebook** underneath **Cluster dashboards** on the right side.  If you don't see **Cluster dashboards**, click **Overview** from the left menu on the blade. If prompted, enter the admin credentials for the cluster.
 
-1. From the **Quick links** section, click **Cluster dashboards** to open the **Cluster dashboards** view.  If you don't see **Quick Links**, click **Overview** from the left menu on the blade.
-
-    ![Cluster dashboard on Spark](./media/apache-spark-connect-to-sql-database/hdinsight-cluster-dashboard-on-spark.png "Cluster dashboard on Spark") 
-
-1. Click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
-
-    ![Jupyter notebook on Spark](./media/apache-spark-connect-to-sql-database/hdinsight-jupyter-notebook-on-spark.png "Jupyter notebook on Spark")
+    ![Jupyter notebook on Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Jupyter notebook on Spark")
    
-   > [!NOTE]
+   > [!NOTE]  
    > You can also access the Jupyter notebook on Spark cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
-   > 
 
 1. In the Jupyter notebook, from the top-right corner, click **New**, and then click **Spark** to create a Scala notebook. Jupyter notebooks on HDInsight Spark cluster also provide the **PySpark** kernel for Python2 applications, and the **PySpark3** kernel for Python3 applications. For this article, we create a Scala notebook.
    
@@ -54,9 +46,8 @@ Start by creating a Jupyter notebook associated with the Spark cluster. You use 
 
     For more information about the kernels, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
-   > [!NOTE]
+   > [!NOTE]  
    > In this article, we use a Spark (Scala) kernel because streaming data from Spark into SQL database is only supported in Scala and Java currently. Even though reading from and writing into SQL can be done using Python, for consistency in this article, we use Scala for all three operations.
-   >
 
 1. This opens a new notebook with a default name, **Untitled**. Click the notebook name and enter a name of your choice.
 
@@ -235,6 +226,6 @@ In this section, we stream data into the **hvactable** that you already created 
 
 ## Next steps
 
-* [Use HDInsight Spark cluster to analyze data in Data Lake Store](apache-spark-use-with-data-lake-store.md)
+* [Use HDInsight Spark cluster to analyze data in Data Lake Storage](apache-spark-use-with-data-lake-store.md)
 * [Process structured streaming events using EventHub](apache-spark-eventhub-structured-streaming.md)
-* [Use Spark Structured Streaming with Kafka on HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
+* [Use Apache Spark Structured Streaming with Apache Kafka on HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)

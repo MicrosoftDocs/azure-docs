@@ -1,5 +1,5 @@
 ---
-title: Configure downstream devices with Azure IoT Edge | Microsoft Docs
+title: Connect downstream devices - Azure IoT Edge | Microsoft Docs
 description: How to configure downstream or leaf devices to connect through Azure IoT Edge gateway devices. 
 author: kgremban
 manager: philmea
@@ -8,6 +8,7 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Connect a downstream device to an Azure IoT Edge gateway
@@ -34,7 +35,10 @@ Before following the steps in this article, you should have two devices ready to
 2. A downstream device that has a device identity from IoT Hub. 
     You cannot use an IoT Edge device as the downstream device. Instead, use a device registered as a regular IoT device in IoT Hub. In the portal, you can register a new device in the **IoT devices** section. Or you can use the Azure CLI to [register a device](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). Copy the connection string and have it available to use in later sections. 
 
-    Currently, only downstream devices with symmetric key authentication can connect through IoT Edge gateways. X.509 certificate authorities and X.509 self-signed certificates are not currently supported. 
+    Currently, only downstream devices with symmetric key authentication can connect through IoT Edge gateways. X.509 certificate authorities and X.509 self-signed certificates are not currently supported.
+    
+> [!NOTE]
+> The "gateway name" used in this article needs to be the same name as used as hostname in your IoT Edge config.yaml file. The gateway name needs to be resolvable to an IP Address, either using DNS or a host file entry. Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparant IoT Edge. If a firewall is in between, the respective port needs to be open.
 
 ## Prepare a downstream device
 
@@ -127,7 +131,7 @@ This section provides a sample application to connect an Azure IoT NodeJS device
 
 To understand the sample that you're running, the following code snippet is how the client SDK reads the certificate file and uses it to establish a secure TLS connection: 
 
-```nodejs
+```javascript
 // Provide the Azure IoT device client via setOptions with the X509
 // Edge root CA certificate that was used to setup the Edge runtime
 var options = {
@@ -188,6 +192,14 @@ This is a sample command which tests that everything has been set up correctly. 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+## Troubleshoot the gateway connection
+
+If your leaf device has intermittent connection to its gateway device, try the following steps for resolution. 
+
+1. Is the gateway name appended to the connection string the same as the hostname in the IoT Edge config.yaml file on the gateway device?
+2. Is the gateway name resolvable to an IP Address? You can resolve intenmittent connections either by using DNS or by adding a host file entry on the leaf device.
+3. Are communication ports open in your firewall? Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparant IoT Edge.
 
 ## Next steps
 

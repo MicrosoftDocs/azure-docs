@@ -34,7 +34,7 @@ ms.author: sedusch
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 
-[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#memory-preserving-maintenance
+[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-not-requiring-a-reboot
 
 > [!NOTE]
 > Pacemaker on Red Hat Enterprise Linux uses the Azure Fence Agent to fence a cluster node if required. A failover can take up to 15 minutes if a resource stop fails or the cluster nodes cannot communicate which each other anymore. For more information, read  [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711)
@@ -81,6 +81,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo subscription-manager list --available --matches '*SAP*'
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
+
+   Note that by attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this, Azure now provides BYOS RHEL images. More information is available [here](https://aka.ms/rhel-byos).
 
 1. **[A]** Enable RHEL for SAP repos
 
@@ -141,10 +143,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
-   
+
    # Run the following command until the status of both nodes is online
    sudo pcs status
-   
+
    # Cluster name: nw1-azr
    # WARNING: no stonith devices and stonith-enabled is not false
    # Stack: corosync
@@ -176,11 +178,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 The STONITH device uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal.
 
 1. Go to <https://portal.azure.com>
-1. Open the Azure Active Directory blade  
+1. Open the Azure Active Directory blade
    Go to Properties and write down the Directory ID. This is the **tenant ID**.
 1. Click App registrations
 1. Click Add
-1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http://localhost) and click Create
+1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http:\//localhost) and click Create
 1. The sign-on URL is not used and can be any valid URL
 1. Select the new App and click Keys in the Settings tab
 1. Enter a description for a new key, select "Never expires" and click Save
@@ -189,7 +191,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 
 ### **[1]** Create a custom role for the fence agent
 
-The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell#create-a-custom-role) or [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli#create-a-custom-role)
+The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) or [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 
 Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace c276fc76-9cd4-44c9-99a7-4fd71546436e and e91d47c4-76f3-4271-a796-21b4ecfe3624 with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 
@@ -213,7 +215,7 @@ Use the following content for the input file. You need to adapt the content to y
 }
 ```
 
-### **[1]** Assign the custom role to the Service Principal
+### **[A]** Assign the custom role to the Service Principal
 
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore!
 
@@ -221,10 +223,10 @@ Assign the custom role "Linux Fence Agent Role" that was created in the last cha
 1. Open the All resources blade
 1. Select the virtual machine of the first cluster node
 1. Click Access control (IAM)
-1. Click Add
+1. Click Add role assignment
 1. Select the role "Linux Fence Agent Role"
 1. Enter the name of the application you created above
-1. Click OK
+1. Click Save
 
 Repeat the steps above for the second cluster node.
 

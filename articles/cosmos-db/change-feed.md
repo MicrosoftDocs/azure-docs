@@ -1,15 +1,15 @@
 ---
 title: Working with the change feed support in Azure Cosmos DB 
 description: Use Azure Cosmos DB change feed support to track changes in documents and perform event-based processing like triggers and keeping caches and analytics systems up-to-date. 
-author: rafats
-
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.author: rafats
-
+ms.reviewer: sngun
+ms.custom: seodec18
 ---
-# Change feed in Azure Cosmos DB
+# Change feed in Azure Cosmos DB - overview
 
 Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos DB container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The changes are persisted, can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing. 
 
@@ -27,7 +27,7 @@ The change feed in Azure Cosmos DB enables you to build efficient and scalable s
 
 This feature is currently supported by the following Azure Cosmos DB APIs and client SDKs.
 
-| **Client drivers** | **Azure CLI** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API**|**Table API** |
+| **Client drivers** | **Azure CLI** | **SQL API** | **Cassandra API** | **Azure Cosmos DB's API for MongoDB** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
 | .NET | NA | Yes | No | No | Yes | No |
 |Java|NA|Yes|No|No|Yes|No|
@@ -52,7 +52,7 @@ If a TTL (Time to Live) property is set on an item to -1, change feed will persi
 
 ### Change feed and _etag, _lsn or _ts
 
-The _etag format is internal and you should not take dependency on it, because it can change anytime. _ts is a modification or a creation timestamp. You can use _ts for chronological comparison. _lsn is a batch id that is added for change feed only; it represents the transaction id. Many items may have same _lsn. ETag on FeedResponse is different from the _etag you see on the item. _etag is an internal identifier and is used for concurrency control tells about the 
+The _etag format is internal and you should not take dependency on it, because it can change anytime. _ts is a modification or a creation timestamp. You can use _ts for chronological comparison. _lsn is a batch ID that is added for change feed only; it represents the transaction ID. Many items may have same _lsn. ETag on FeedResponse is different from the _etag you see on the item. _etag is an internal identifier and is used for concurrency control tells about the 
 version of the item, whereas ETag is used for sequencing the feed.
 
 ## Change feed use cases and scenarios
@@ -79,7 +79,7 @@ For example, with change feed you can perform the following tasks efficiently:
 
 The following are some of the scenarios you can easily implement with change feed:
 
-* Within your [serverless](http://azure.com/serverless) web or mobile apps, you can track events such as all the changes to your customer's profile, preferences, or their location and trigger certain actions, for example, sending push notifications to their devices using [Azure Functions](#azure-functions). 
+* Within your [serverless](https://azure.microsoft.com/solutions/serverless/) web or mobile apps, you can track events such as all the changes to your customer's profile, preferences, or their location and trigger certain actions, for example, sending push notifications to their devices using [Azure Functions](change-feed-functions.md).
 
 * If you're using Azure Cosmos DB to build a game, you can, for example, use change feed to implement real-time leaderboards based on scores from completed games.
 
@@ -113,7 +113,7 @@ Change feed is available for each logical partition key within the container, an
 
 * Changes are available in parallel for all logical partition keys of an Azure Cosmos container. This capability allows changes from large containers to be processed in parallel by multiple consumers.
 
-* Applications can request multiple changes feeds on the same container simultaneously. ChangeFeedOptions.StartTime can be used to provide an initial starting point. For example, to find the continuation token corresponding to a given clock time. The ContinuationToken, if specified, wins over   the StartTime and StartFromBeginning values. The precision of ChangeFeedOptions.StartTime is ~5 secs. 
+* Applications can request multiple change feeds on the same container simultaneously. ChangeFeedOptions.StartTime can be used to provide an initial starting point. For example, to find the continuation token corresponding to a given clock time. The ContinuationToken, if specified, wins over   the StartTime and StartFromBeginning values. The precision of ChangeFeedOptions.StartTime is ~5 secs. 
 
 ## Next steps
 

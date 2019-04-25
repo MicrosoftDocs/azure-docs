@@ -4,19 +4,20 @@ description: This topic describes the built-in scheduler feature in Azure AD Con
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Scheduler
 This topic describes the built-in scheduler in Azure AD Connect sync (a.k.a. sync engine).
@@ -50,7 +51,7 @@ If you see **The sync command or cmdlet is not available** when you run this cmd
 * **PurgeRunHistoryInterval**. The time operation logs should be kept. These logs can be reviewed in the synchronization service manager. The default is to keep these logs for 7 days.
 * **SyncCycleEnabled**. Indicates if the scheduler is running the import, sync, and export processes as part of its operation.
 * **MaintenanceEnabled**. Shows if the maintenance process is enabled. It updates the certificates/keys and purges the operations log.
-* **StagingModeEnabled**. Shows if [staging mode](how-to-connect-sync-operations.md#staging-mode) is enabled. If this setting is enabled, then it suppresses the exports from running but still run import and synchronization.
+* **StagingModeEnabled**. Shows if [staging mode](how-to-connect-sync-staging-server.md) is enabled. If this setting is enabled, then it suppresses the exports from running but still run import and synchronization.
 * **SchedulerSuspended**. Set by Connect during an upgrade to temporarily block the scheduler from running.
 
 You can change some of these settings with `Set-ADSyncScheduler`. The following parameters can be modified:

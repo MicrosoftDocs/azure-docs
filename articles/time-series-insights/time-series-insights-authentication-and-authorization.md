@@ -1,5 +1,5 @@
 ---
-title: How to authenticate and authorize by API in Azure Time Series Insights
+title: 'How to authenticate and authorize by API in Azure Time Series Insights | Microsoft Docs'
 description: This article describes how to configure authentication and authorization for a custom application that calls the Azure Time Series Insights API.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,6 +11,7 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/27/2017
+ms.custom: seodec18
 ---
 
 # Authentication and authorization for Azure Time Series Insights API
@@ -99,8 +100,9 @@ Here are the detailed steps:
 Use the application ID and key in your application to authenticate with Azure Time Series Insight. 
 
 ## Next steps
-- For sample code that calls the Time Series Insights API, see [Query data using C#](time-series-insights-query-data-csharp.md).
-- For API reference information, see [Query API reference](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
 
-> [!div class="nextstepaction"]
-> [Create a service principal](../active-directory/develop/howto-create-service-principal-portal.md)
+- For sample code that calls the Time Series Insights API, see [Query data using C#](time-series-insights-query-data-csharp.md).
+
+- For API reference information, see [Query API reference](/rest/api/time-series-insights/ga-query-api).
+
+- Learn how to [create a service principal](../active-directory/develop/howto-create-service-principal-portal.md).

@@ -1,3 +1,10 @@
+---
+author: zhangmanling
+ms.service: cdn
+ms.topic: include
+ms.date: 11/21/2018
+ms.author: mazha
+---
 ## Prerequisites
 Before writing CDN management code, you must do some preparation to enable the code to interact with the Azure Resource Manager. To do this preparation, you need to:
 

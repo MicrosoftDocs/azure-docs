@@ -1,19 +1,20 @@
 ---
-title: How to page through the available images - Bing Image Search API
+title: Page through the images returned by the Bing Image Search API
 titleSuffix: Azure Cognitive Services
-description: Learn how to page through all of the images that Bing can return.
+description: Move through different pages of images returned by the Bing Image Search API.
 services: cognitive-services
 author: swhite-msft
 manager: cgonlun
 ms.assetid: 3C8423F8-41E0-4F89-86B6-697E840610A7
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 03/04/2019
 ms.author: scottwhi
+ms.custom: seodec2018
 ---
 
-# Paging results
+# Page through the images results
 
 When you call the Image Search API, Bing returns a list of results. The list is a subset of the total number of results that are relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) field.  
 

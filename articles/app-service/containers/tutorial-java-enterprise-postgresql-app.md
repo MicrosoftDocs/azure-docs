@@ -1,5 +1,5 @@
 ---
-title: Build a Java Enterprise web app in Azure App Service on Linux | Microsoft Docs 
+title: Build Java Enterprise web app on Linux - Azure App Service | Microsoft Docs 
 description: Learn how to get a Java Enterprise app working in Wildfly on Azure App Service on Linux.
 author: JasonFreeberg
 manager: routlaw
@@ -11,13 +11,14 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
+ms.custom: seodec18
 ---
 
 # Tutorial: Build a Java EE and Postgres web app in Azure
 
-This tutorial will show you how to create a Java Enterprise Edition (EE) web app on Azure App Service and connect it to a Postgres database. When you are finished, you will have a [WildFly](http://www.wildfly.org/about/) application storing data in [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) running on Azure [App Service for Linux](app-service-linux-intro.md).
+This tutorial shows you how to create a Java Enterprise Edition (EE) web app on Azure App Service and connect it to a Postgres database. When you are finished, you will have a [WildFly](https://www.wildfly.org/about/) application storing data in [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) running on Azure [App Service on Linux](app-service-linux-intro.md).
 
-In this tutorial, you will learn how to:
+In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Deploy a Java EE app to Azure using Maven
 > * Create a Postgres database in Azure
@@ -28,8 +29,8 @@ In this tutorial, you will learn how to:
 ## Prerequisites
 
 1. [Download and install Git](https://git-scm.com/)
-1. [Download and install Maven 3](https://maven.apache.org/install.html)
-1. [Download and install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+2. [Download and install Maven 3](https://maven.apache.org/install.html)
+3. [Download and install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## Clone and edit the sample app
 
@@ -45,15 +46,24 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 ### Update the Maven POM
 
-Update the Maven POM with the desired name and resource group of your App Service. These values will be injected into the Azure plugin, which is further down in _pom.xml_ file. You do not need to create the App Service plan or instance beforehand. The Maven plugin will create the resource group and App Service if it does not already exist.
+Update the Maven Azure Plugin with the desired name and resource group of your App Service. You do not need to create the App Service plan or instance beforehand. The Maven plugin will create the resource group and App Service if it does not already exist. 
 
-Replace the placeholders with your desired resource names:
+You can scroll down to the `<plugins>` section of _pom.xml_, line 200, to make the changes. 
+
 ```xml
-<azure.plugin.appname>YOUR_APP_NAME</azure.plugin.appname>
-<azure.plugin.resourcegroup>YOUR_RESOURCE_GROUP</azure.plugin.resourcegroup>
+<!-- Azure App Service Maven plugin for deployment -->
+<plugin>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-webapp-maven-plugin</artifactId>
+  <version>${version.maven.azure.plugin}</version>
+  <configuration>
+    <appName>YOUR_APP_NAME</appName>
+    <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup>
+    <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+  ...
+</plugin>  
 ```
-
-You can scroll down to the `<plugins>` section of _pom.xml_ to inspect the Azure plugin.
+Replace `YOUR_APP_NAME` and `YOUR_RESOURCE_GROUP` with the names of your App Service and resource group.
 
 ## Build and deploy the application
 
@@ -109,12 +119,27 @@ We will now make some changes to the Java application to enable it to use our Po
 
 ### Add Postgres credentials to the POM
 
-In _pom.xml_ replace the placeholder values with your Postgres server name, admin login name, and password. These values will be injected as environment variables in your App Service instance when you redeploy the application.
+In _pom.xml_, replace the capitalized placeholder values with your Postgres server name, admin login name, and password. These fields are within the Azure Maven Plugin. (Be sure to replace `YOUR_SERVER_NAME`, `YOUR_PG_USERNAME`, and `YOUR_PG_PASSWORD` in the `<value>` tags... not within the `<name>` tags!)
 
 ```xml
-<azure.plugin.postgres-server-name>SERVER_NAME</azure.plugin.postgres-server-name>
-<azure.plugin.postgres-username>USERNAME@FIRST_PART_OF_SERVER_NAME</azure.plugin.postgres-username>
-<azure.plugin.postgres-password>PASSWORD</azure.plugin.postgres-password>
+<plugin>
+      ...
+      <appSettings>
+      <property>
+        <name>POSTGRES_CONNECTIONURL</name>
+        <value>jdbc:postgresql://YOUR_SERVER_NAME:5432/postgres?ssl=true</value>
+      </property>
+      <property>
+        <name>POSTGRES_USERNAME</name>
+        <value>YOUR_PG_USERNAME</value>
+      </property>
+      <property>
+        <name>POSTGRES_PASSWORD</name>
+        <value>YOUR_PG_PASSWORD</value>
+      </property>
+    </appSettings>
+  </configuration>
+</plugin>
 ```
 
 ### Update the Java Transaction API
@@ -129,7 +154,9 @@ Next, we need to edit our Java Transaction API (JPA) configuration so that our J
 
 ## Configure the WildFly application server
 
-Before deploying our reconfigured application, we must update the WildFly application server with the Postgres module and its dependencies. To configure the server, we will need the four files in the  `wildfly_config/` directory:
+Before deploying our reconfigured application, we must update the WildFly application server with the Postgres module and its dependencies. More configuration information can be found at [Configure WildFly server](configure-language-java.md#configure-wildfly-server).
+
+To configure the server, we will need the four files in the  `wildfly_config/` directory:
 
 - **postgresql-42.2.5.jar**: This JAR file is the JDBC driver for Postgres. For more information,  see the [official website](https://jdbc.postgresql.org/index.html).
 - **postgres-module.xml**: This XML file declares a name for the Postgres module (org.postgres). It also specifies the resources and dependencies necessary for the module to be used.
@@ -140,10 +167,9 @@ We highly suggest reading the contents of these files, especially _jboss_cli_com
 
 ### FTP the configuration files
 
-We will need to FTP the contents of `wildfly_config/` to our App Service instance. To get your FTP credentials, click the **Get Publish Profile** button on the App Service blade in the Azure portal. Your FTP username and password will be in the downloaded XML document. For more information on the Publish Profile,  see [this document](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+We will need to FTP the contents of `wildfly_config/` to our App Service instance. To get your FTP credentials, click the **Get Publish Profile** button on the App Service blade in the Azure portal. Your FTP username and password will be in the downloaded XML document. For more information on the Publish Profile,  see [this document](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 Using an FTP tool of your choice, transfer the four files in `wildfly_config/` to `/home/site/deployments/tools/`. (Note that you should not transfer the directory, just the files themselves.)
-
 
 ### Finalize App Service
 
@@ -166,9 +192,26 @@ Congratulations! Your application is now using a Postgres database and any recor
 If you don't need these resources for another tutorial (see Next steps), you can delete them by running the following command:
 
 ```bash
-az group delete --name <your_resource_group> 
+az group delete --name <your-resource-group>
 ```
 
 ## Next steps
 
-Now that you have a Java EE application deployed to App Service, please see the [Java Enterprise developer guide](https://aka.ms/wildfly-quickstart) for more information on setting up services, troubleshooting, and scaling your application.
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Deploy a Java EE app to Azure using Maven
+> * Create a Postgres database in Azure
+> * Configure the WildFly server to use Postgres
+> * Update and redeploy the app
+> * Run unit tests on WildFly
+
+Advance to the next tutorial to learn how to map a custom DNS name to your app.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Map custom DNS name to your app](../app-service-web-tutorial-custom-domain.md)
+
+Or, check out other resources:
+
+> [!div class="nextstepaction"]
+> [Configure Java app](configure-language-java.md)

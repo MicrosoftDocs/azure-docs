@@ -32,8 +32,6 @@
     items:
     - name: Access Reporting API with certificates
       href: tutorial-access-api-with-certificates.md
-    - name: Generate a script to download sign-in logs 
-      href: tutorial-signin-logs-download-script.md
 
   - name: Monitoring
     items:
@@ -71,23 +69,29 @@
     items:
     - name: Find activity reports
       href: howto-find-activity-reports.md
+    - name: Troubleshoot sign-in errors for a user
+      href: howto-troubleshoot-sign-in-errors.md
     - name: Remediate users flagged for risk
       href: howto-remediate-users-flagged-for-risk.md
     - name: Use Power BI Content Pack for Azure AD reports
       href: howto-power-bi-content-pack.md
     - name: Configure prerequisites for Reporting API
       href: howto-configure-prerequisites-for-reporting-api.md
+    - name: How to use Azure Monitor workbooks
+      href: howto-use-azure-monitor-workbooks.md
 
   - name: Monitoring
     items:
-    - name: Integrate activity logs with Log Analytics
+    - name: Integrate activity logs with Azure Monitor logs
       href: howto-integrate-activity-logs-with-log-analytics.md    
-    - name: Analyze activity logs in Log Analytics
+    - name: Analyze activity logs in Azure Monitor logs
       href: howto-analyze-activity-logs-log-analytics.md
-    - name: Install and use the Log Analytics views for Azure AD
+    - name: Install and use the log analytics views for Azure AD
       href: howto-install-use-log-analytics-views.md
     - name: Integrate activity logs with SumoLogic
       href: howto-integrate-activity-logs-with-sumologic.md
+    - name: Integrate activity logs with ArcSight
+      href: howto-integrate-activity-logs-with-arcsight.md
 
   - name: Troubleshoot
     items:
@@ -105,6 +109,10 @@
   items:
   - name: Reports
     items:
+    - name: Audit logs API reference
+      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit
+    - name: Sign-in logs API reference
+      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin
     - name: Audit activities
       href: reference-audit-activities.md
     - name: Data retention policies

@@ -26,7 +26,7 @@ ACS and AKS differ in some key areas that impact migration. You should review an
     * Any `PersistentVolumes` will need to use `kind: Managed`
 * AKS currently supports only one agent pool
 * Windows Server-based nodes are currently in [private preview](https://azure.microsoft.com/blog/kubernetes-on-azure/)
-* Check the list of AKS [supported regions](https://docs.microsoft.com/azure/aks/container-service-quotas)
+* Check the list of AKS [supported regions](https://docs.microsoft.com/azure/aks/quotas-skus-regions)
 * AKS is a managed service with a hosted Kubernetes control plane. You may need to modify your applications if you've previously modified the configuration of your ACS masters
 
 ### Differences between Kubernetes versions
@@ -140,7 +140,7 @@ Make any necessary modifications to your YAML definitions. Ex: replacing `apps/v
 
 ### 3. (Optional) Migrate volumes
 
-Migrate volumes from your ACS cluster to your AKS cluster. More details can be found in the [Migrating Persistent Volumes](#Migrating-Persistent-Volumes) section.
+Migrate volumes from your ACS cluster to your AKS cluster. More details can be found in the [Migrating Persistent Volumes](#migrating-persistent-volumes) section.
 
 ### 4. Deploy applications
 

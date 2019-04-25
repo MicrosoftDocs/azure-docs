@@ -16,7 +16,7 @@ ms.topic: conceptual
 
 Email actions help make sure you never miss alerts. You can add an email action to an existing rule, or when you create a new rule.
 
-[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
+To complete the steps in this how-to guide, you need a deployed instance of the Remote Monitoring solution accelerator in your Azure subscription.
 
 To create or modify a rule, you must be an [**Administrator**, or have the correct permissions](iot-accelerators-remote-monitoring-rbac.md).
 
@@ -28,7 +28,7 @@ Follow these steps to add an email action to an existing rule:
 
 1. From the **Dashboard**, navigate to the **Rules** page:
 
-    ![Rules page](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![Rules page](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. Click the checkbox next to the existing rule to modify, and then click **Edit** at the top. An editable **Rule** panel appears.
 
@@ -38,7 +38,7 @@ Follow these steps to add an email action to an existing rule:
 
 1. Enter an email address into the recipient box and press the **Enter** key for each email address to add:
 
-    ![Address entry](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![Address entry](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Enter a subject for the email.
 
@@ -56,7 +56,7 @@ Follow these steps to add an email action when you create a new rule:
 
 1. From the **Dashboard**, navigate to the **Rules** page:
 
-    ![Rules page](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![Rules page](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. Follow the steps in the [create a rule section](iot-accelerators-remote-monitoring-automate.md#create-a-rule). The follow the steps in the [create an advanced rule](iot-accelerators-remote-monitoring-automate.md#create-an-advanced-rule) section up to the point where you set a **Severity level**. Don't click **Apply** yet.
 
@@ -66,7 +66,7 @@ Follow these steps to add an email action when you create a new rule:
 
 1. Enter an email address into the recipient box and press the **Enter** key for each email address to add:
 
-    ![Address entry](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![Address entry](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Enter a subject for the email.
 
@@ -125,7 +125,7 @@ The following steps help you to sign in and set up email actions:
 
 1. Click to sign in to Outlook. You're taken to the Azure portal:
 
-  ![Sign in to Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook.png)
+   ![Sign in to Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
 
 1. Click **Authorize**. You're prompted to sign in. The account you use to sign in should be the email address the application uses to send email notifications:
 
@@ -133,7 +133,7 @@ The following steps help you to sign in and set up email actions:
 
 1. If you've successfully configured the email notification, you see this message:
 
-  ![Successful Outlook sign in](./media/iot-accelerators-remote-monitoring-email-actions/success.png)
+   ![Successful Outlook sign in](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
 ## Customize the email HTML <a name="htmledit"></a>
 
@@ -167,7 +167,7 @@ The following steps show you how to edit the HTML email template. For example, y
 
 The Remote Monitoring solution accelerator uses Outlook to send email notifications. Outlook limits the number of emails sent to [30 emails per 1 minute](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Email clients receiving the emails may also throttle the number of emails received per minute. Check with your specific email client on limitations. When you set up email notification for a rule, the rule should calculate average values over a period of at least one minute, and not use instant values:
 
-![Average calculation](./media/iot-accelerators-remote-monitoring-email-actions/calculation.png)
+![Average calculation](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 
 ## Next steps
 

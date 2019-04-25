@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Automate container image builds with Azure Container Registry Tasks
-description: In this tutorial, you learn how to configure a task to automatically trigger container image builds in the cloud when you commit source code to a Git repository.
+title: Tutorial - Automate container image builds - Azure Container Registry Tasks
+description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when you commit source code to a Git repository.
 services: container-registry
 author: dlepow
 
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
+ms.custom: "seodec18, mvc"
 # Customer intent: As a developer or devops engineer, I want to trigger
 # container image builds automatically when I commit code to a Git repo.
 ---
 
-# Tutorial: Automate container image builds with Azure Container Registry Tasks
+# Tutorial: Automate container image builds in the cloud when you commit source code
 
 In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports automated Docker container image builds with the *build task*. In this tutorial, you use the Azure CLI to create a task that automatically triggers image builds in the cloud when you commit source code to a Git repository.
 
@@ -49,6 +49,8 @@ ACR Tasks currently support the following triggers:
 
 * Commit to a Git repository
 * Base image update
+
+In this tutorial, your ACR task builds and pushes a single container image specified in a Dockerfile. ACR Tasks can also run [multi-step tasks](container-registry-tasks-multi-step.md), using a YAML file to define steps to build, push, and optionally test multiple containers.
 
 ## Create a build task
 
@@ -97,7 +99,7 @@ az acr task create \
 > [!IMPORTANT]
 > If you previously created tasks during the preview with the `az acr build-task` command, those tasks need to be re-created using the [az acr task][az-acr-task] command.
 
-This task specifies that any time code is committed to the *master* branch in the repository specified by `--context`, ACR Tasks will build the container image from the code in that branch. The Dockerfile specified by `--file` from the repository root is used. The `--image` argument specifies a parameterized value of `{{.Run.ID}}` for the version portion of the image's tag, ensuring the built image correlates to a specific build, and is tagged uniquely.
+This task specifies that any time code is committed to the *master* branch in the repository specified by `--context`, ACR Tasks will build the container image from the code in that branch. The Dockerfile specified by `--file` from the repository root is used to build the image. The `--image` argument specifies a parameterized value of `{{.Run.ID}}` for the version portion of the image's tag, ensuring the built image correlates to a specific build, and is tagged uniquely.
 
 Output from a successful [az acr task create][az-acr-task-create] command is similar to the following:
 
@@ -153,7 +155,7 @@ $ az acr task create \
           "branch": "master",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
           "sourceControlAuthProperties": null,
-          "sourceControlType": "Github"
+          "sourceControlType": "GitHub"
         },
         "sourceTriggerEvents": [
           "commit"
@@ -322,10 +324,10 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-task]: /cli/azure/acr#az-acr-task
-[az-acr-task-create]: /cli/azure/acr#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr#az-acr-task-run
-[az-acr-task-list-runs]: /cli/azure/acr#az-acr-task-list-runs
+[az-acr-task]: /cli/azure/acr
+[az-acr-task-create]: /cli/azure/acr
+[az-acr-task-run]: /cli/azure/acr
+[az-acr-task-list-runs]: /cli/azure/acr
 [az-login]: /cli/azure/reference-index#az-login
 
 <!-- IMAGES -->

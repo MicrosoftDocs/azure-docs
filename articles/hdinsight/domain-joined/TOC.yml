@@ -13,6 +13,8 @@
     maintainContext: true
   - name: Configure Apache Hive policies
     href: apache-domain-joined-run-hive.md
+  - name: Apache HBase RBAC with Apache Ranger
+    href: apache-domain-joined-run-hbase.md
   - name: Apache Kafka RBAC with Apache Ranger
     href: apache-domain-joined-run-kafka.md
     maintainContext: true
@@ -25,7 +27,7 @@
   - name: Use Eclipse to link to ESP cluster
     href: ../spark/apache-spark-eclipse-tool-plugin.md
     maintainContext: true
-  - name: Use Oozie in ESP clusters
+  - name: Use Apache Oozie in ESP clusters
     href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: Securing data
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
@@ -38,18 +40,18 @@
   - name: Connect HDInsight with on-premises network
     href: ../connect-on-premises-network.md
     maintainContext: true
-  - name: Create HBase cluster in Azure VNet
+  - name: Create Apache HBase cluster in Azure VNet
     href: ../hbase/apache-hbase-provision-vnet.md
     maintainContext: true
-  - name: HBase cluster replication in Azure VNet
+  - name: Apache HBase cluster replication in Azure VNet
     href: ../hbase/apache-hbase-replication.md
     maintainContext: true
-- name: Monitoring using Log Analytics
+- name: Monitoring using Azure Monitor logs
   items:
-  - name: Use Azure Log Analytics
+  - name: Use Azure Monitor logs
     href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
     maintainContext: true
-  - name: Use queries with Log Analytics
+  - name: Use queries with Azure Monitor logs
     href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
     maintainContext: true
   - name: Monitor cluster performance
@@ -60,7 +62,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.hdinsight
+    href: /powershell/module/az.hdinsight
   - name: .NET SDK
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
   - name: Python SDK
@@ -69,20 +71,22 @@
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go SDK
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
-  - name: .NET (Avro)
-    href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
+  - name: Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
+    href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:
   - name: Release notes
-    href: ../hdinsight-release-notes.md
-    maintainContext: true
     items:
+    - name: Current release notes
+      href: ../hdinsight-release-notes.md
+      maintainContext: true
     - name: Archived release notes
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true

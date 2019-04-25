@@ -17,9 +17,10 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 
+ms.collection: M365-identity-device-management
 ---
 
-## Add the application’s registration information to your app
+# Add the application’s registration information to your app
 In this step, you need to add the Application Id to your project.
 
 1.	Open `App.xaml.cs` and replace the line containing the `ClientId` with:
@@ -30,4 +31,4 @@ private static string ClientId = "[Enter the application Id here]";
 
 ### What is Next
 
-[!INCLUDE [Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-windesktop-test.md)]
+[!INCLUDE [Test and Validate](../../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]

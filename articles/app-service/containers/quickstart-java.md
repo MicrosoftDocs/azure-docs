@@ -1,10 +1,11 @@
 ---
-title: A quickstart for creating a Java web app in Azure App Service on Linux 
+title: Create Java web app on Linux - Azure App Service 
 description: In this quickstart, you deploy your first Java Hello World in Azure App Service on Linux in minutes.
+keywords: azure, app service, web app, linux, java, maven, quickstart
 services: app-service\web
 documentationcenter: ''
 author: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
@@ -13,15 +14,18 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 03/07/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
 #Customer intent: As a Java developer, I want deploy a java app so that it is hosted on Azure App Service.
 ---
-# Quickstart: Create a Java web app in App Service on Linux
+# Quickstart: Create a Java app in App Service on Linux
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching, web hosting service using the Linux operating system. This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) with the [Maven Plugin for Azure Web Apps (Preview)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a Java web app web archive (WAR) file.
-
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching, web hosting service using the Linux operating system. This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) with the [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a Java web archive (WAR) file.
+> [!NOTE]
+>
+> The same thing can also be done using popular IDEs like IntelliJ and Eclipse. Check out our similar documents at [Azure Toolkit for IntelliJ Quickstart](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) or [Azure Toolkit for Eclipse Quickstart](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+>
 ![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -30,7 +34,7 @@ ms.custom: mvc
 
 ## Create a Java app
 
-Execute the following Maven command in the Cloud Shell prompt to create a new web app named `helloworld`:
+Execute the following Maven command in the Cloud Shell prompt to create a new app named `helloworld`:
 
 ```bash
 mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
@@ -51,21 +55,35 @@ Then add the following plugin definition inside the `<build>` element of the `po
     <!--*************************************************-->
     <!-- Deploy to Tomcat in App Service Linux           -->
     <!--*************************************************-->
-      
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.4.0</version>
+        <version>1.5.4</version>
         <configuration>
-   
-            <!-- Web App information -->
+            <!-- Specify v2 schema -->
+            <schemaVersion>v2</schemaVersion>
+            <!-- App information -->
+            <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
    
-            <!-- Java Runtime Stack for Web App on Linux-->
-            <linuxRuntime>tomcat 8.5-jre8</linuxRuntime>
-   
+            <!-- Java Runtime Stack for App on Linux-->
+            <runtime>
+                <os>linux</os>
+                <javaVersion>jre8</javaVersion>
+                <webContainer>tomcat 8.5</webContainer>
+            </runtime> 
+            <deployment>
+                <resources>
+                    <resource>
+                        <directory>${project.basedir}/target</directory>
+                        <includes>
+                            <include>*.war</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </deployment>
         </configuration>
     </plugin>
 </plugins>
@@ -80,9 +98,10 @@ Update the following placeholders in the plugin configuration:
 
 | Placeholder | Description |
 | ----------- | ----------- |
-| `RESOURCEGROUP_NAME` | Name for the new resource group in which to create your web app. By putting all the resources for an app in a group, you can manage them together. For example, deleting the resource group would delete all resources associated with the app. Update this value with a unique new resource group name, for example, *TestResources*. You will use this resource group name to clean up all Azure resources in a later section. |
-| `WEBAPP_NAME` | The app name will be part the host name for the web app when deployed to Azure (WEBAPP_NAME.azurewebsites.net). Update this value with a unique name for the new Azure web app, which will host your Java app, for example *contoso*. |
-| `REGION` | An Azure region where the web app is hosted, for example `westus2`. You can get a list of regions from the Cloud Shell or CLI using the `az account list-locations` command. |
+| `SUBSCRIPTION_ID` | The unique ID of the subscription you want to deploy your app to. Default subscription's ID can be found from the Cloud Shell or CLI using the `az account show` command. For all the available subscriptions, use the `az account list` command.|
+| `RESOURCEGROUP_NAME` | Name for the new resource group in which to create your app. By putting all the resources for an app in a group, you can manage them together. For example, deleting the resource group would delete all resources associated with the app. Update this value with a unique new resource group name, for example, *TestResources*. You will use this resource group name to clean up all Azure resources in a later section. |
+| `WEBAPP_NAME` | The app name will be part the host name for the app when deployed to Azure (WEBAPP_NAME.azurewebsites.net). Update this value with a unique name for the new App Service app, which will host your Java app, for example *contoso*. |
+| `REGION` | An Azure region where the app is hosted, for example `westus2`. You can get a list of regions from the Cloud Shell or CLI using the `az account list-locations` command. |
 
 ## Deploy the app
 
@@ -98,14 +117,18 @@ Once deployment has completed, browse to the deployed application using the foll
 
 **Congratulations!** You've deployed your first Java app to App Service on Linux.
 
-
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
-
 
 ## Next steps
 
-In this quickstart, you used Maven to create a Java web app, configured the [Maven Plugin for Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), then deployed a web archive packaged Java app to App Service on Linux. To learn how to connect databases, set up logging and monitoring, configure security, and set runtime options, continue to the Java Developer's Guide for App Service on Linux.
+> [!div class="nextstepaction"]
+> [Tutorial: Java Enterprise app with PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [App Service on Linux Java Developer's Guide](app-service-linux-java.md)
+> [Configure Java app](configure-custom-container.md)
 
+> [!div class="nextstepaction"]
+> [CI/CD with Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
+
+> [!div class="nextstepaction"]
+> [Other Azure for Java Developers Resources](/java/azure/)

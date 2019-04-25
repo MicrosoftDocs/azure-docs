@@ -6,7 +6,7 @@ services: networking
 author: rambk
 manager: tracsman
 
-ms.service: expressroute,vpn-gateway,virtual-network
+ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
@@ -60,7 +60,7 @@ In VNet peering within a region, spoke VNets can use hub VNet gateways (both VPN
 
 ### Branch VNet connectivity by using site-to-site VPN
 
-You might want branch VNets, which are in different regions, and on-premises networks to communicate with each other via a hub VNet. The native Azure solution for this cofiguration is site-to-site VPN connectivity by using a VPN. An alternative is to use a network virtual appliance (NVA) for routing in the hub.
+You might want branch VNets, which are in different regions, and on-premises networks to communicate with each other via a hub VNet. The native Azure solution for this configuration is site-to-site VPN connectivity by using a VPN. An alternative is to use a network virtual appliance (NVA) for routing in the hub.
 
 For more information, see [What is VPN Gateway?][VPN] and [Deploy a highly available NVA][Deploy-NVA].
 
@@ -85,9 +85,9 @@ See the [ExpressRoute FAQ][ExR-FAQ] to:
 [ExpressRoute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
 [VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
 [VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
-[Configuration]: https://docs.microsoft.com/azure/connectivty-interoperability-configuration
-[Control-Analysis]:https://docs.microsoft.com/azure/connectivty-interoperability-control-plane
-[Data-Analysis]: https://docs.microsoft.com/azure/connectivty-interoperability-data-plane
+[Configuration]: connectivty-interoperability-configuration.md
+[Control-Analysis]: connectivty-interoperability-control-plane.md
+[Data-Analysis]: connectivty-interoperability-data-plane.md
 [ExR-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
 [S2S-Over-ExR]: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
 [ExR-S2S-CoEx]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager

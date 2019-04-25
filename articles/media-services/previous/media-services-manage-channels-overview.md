@@ -4,7 +4,7 @@ description: This topic gives an overview of live streaming using Azure Media Se
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
@@ -13,16 +13,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
-# Overview of Live Streaming using Azure Media Services
+# Overview of Live Streaming using Media Services
 
 > [!NOTE]
 > Starting May 12, 2018, live channels will no longer support the RTP/MPEG-2 transport stream ingest protocol. Please migrate from RTP/MPEG-2 to RTMP or fragmented MP4 (Smooth Streaming) ingest protocols.
 
 ## Overview
+
 When delivering live streaming events with Azure Media Services the following components are commonly involved:
 
 * A camera that is used to broadcast an event.
@@ -59,6 +60,7 @@ Starting with the Media Services 2.10 release, when you create a Channel, you ca
 * **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. This method is more economical for scaling up quickly for infrequent events. Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges.
 
 ## Comparison of Channel Types
+
 Following table provides a guide to comparing the two Channel types supported in Media Services
 
 | Feature | Pass-through Channel | Standard Channel |
@@ -76,6 +78,7 @@ Following table provides a guide to comparing the two Channel types supported in
 | Auto-shutoff of Channels when input feed is lost |No |After 12 hours, if there is no Program running |
 
 ## Working with Channels that receive multi-bitrate live stream from on-premises encoders (pass-through)
+
 The following diagram shows the major parts of the AMS platform that are involved in the **pass-through** workflow.
 
 ![Live workflow](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
@@ -83,6 +86,7 @@ The following diagram shows the major parts of the AMS platform that are involve
 For more information, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-live-streaming-with-onprem-encoders.md).
 
 ## Working with Channels that are enabled to perform live encoding with Azure Media Services
+
 The following diagram shows the major parts of the AMS platform that are involved in Live Streaming workflow where a Channel is enabled to perform live encoding with Media Services.
 
 ![Live workflow](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
@@ -90,12 +94,16 @@ The following diagram shows the major parts of the AMS platform that are involve
 For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 ## Description of a Channel and its related components
+
 ### Channel
+
 In Media Services, [Channel](https://docs.microsoft.com/rest/api/media/operations/channel)s are responsible for processing live streaming content. A Channel provides an input endpoint (ingest URL) that you then provide to a live transcoder. The channel receives live input streams from the live transcoder and makes it available for streaming through one or more StreamingEndpoints. Channels also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
 
 You can get the ingest URL and the preview URL when you create the channel. To get these URLs, the channel does not have to be in the started state. When you are ready to start pushing data from a live transcoder into the channel, the channel must be started. Once the live transcoder starts ingesting data, you can preview your stream.
 
 Each Media Services account can contain multiple Channels, multiple Programs, and multiple StreamingEndpoints. Depending on the bandwidth and security needs, StreamingEndpoint services can be dedicated to one or more channels. Any StreamingEndpoint can pull from any Channel.
+
+When creating a Channel, you can specify allowed IP addresses in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
 
 ### Program
 A [Program](https://docs.microsoft.com/rest/api/media/operations/program) enables you to control the publishing and storage of segments in a live stream. Channels manage Programs. The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.

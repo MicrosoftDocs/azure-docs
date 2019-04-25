@@ -1,7 +1,6 @@
 ---
-title: Apache Storm with Python comopnents - Azure HDInsight 
+title: Apache Storm with Python components - Azure HDInsight 
 description: Learn how to create an Apache Storm topology that uses Python components.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: apache storm python
@@ -15,9 +14,9 @@ ms.author: hrasheed
 ---
 # Develop Apache Storm topologies using Python on HDInsight
 
-Learn how to create an Apache Storm topology that uses Python components. Apache Storm supports multiple languages, even allowing you to combine components from several languages in one topology. The Flux framework (introduced with Storm 0.10.0) allows you to easily create solutions that use Python components.
+Learn how to create an [Apache Storm](https://storm.apache.org/) topology that uses Python components. Apache Storm supports multiple languages, even allowing you to combine components from several languages in one topology. The [Flux](https://storm.apache.org/releases/current/flux.html) framework (introduced with Storm 0.10.0) allows you to easily create solutions that use Python components.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The information in this document was tested using Storm on HDInsight 3.6. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 The code for this project is available at [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
@@ -28,9 +27,9 @@ The code for this project is available at [https://github.com/Azure-Samples/hdin
 
 * Java JDK 1.8 or higher
 
-* Maven 3
+* [Apache Maven 3](https://maven.apache.org/download.cgi)
 
-* (Optional) A local Storm development environment. A local Storm environment is only needed if you want to run the topology locally. For more information, see [Setting up a development environment](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html).
+* (Optional) A local Storm development environment. A local Storm environment is only needed if you want to run the topology locally. For more information, see [Setting up a development environment](https://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html).
 
 ## Storm multi-language support
 
@@ -88,8 +87,8 @@ To run the topology locally, use the following command:
 storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.yaml
 ```
 
-> [!NOTE]
-> This command requires a local Storm development environment. For more information, see [Setting up a development environment](http://storm.apache.org/releases/current/Setting-up-development-environment.html)
+> [!NOTE]  
+> This command requires a local Storm development environment. For more information, see [Setting up a development environment](https://storm.apache.org/releases/current/Setting-up-development-environment.html)
 
 Once the topology starts, it emits information to the local console similar to the following text:
 
@@ -133,7 +132,7 @@ To stop the topology, use __Ctrl + C__.
 
 3. You can use the Storm UI to view the topology on the cluster. The Storm UI is located at https://mycluster.azurehdinsight.net/stormui. Replace `mycluster` with your cluster name.
 
-> [!NOTE]
+> [!NOTE]  
 > Once started, a Storm topology runs until stopped. To stop the topology, use one of the following methods:
 >
 > * The `storm kill TOPOLOGYNAME` command from the command line
@@ -144,5 +143,4 @@ To stop the topology, use __Ctrl + C__.
 
 See the following documents for other ways to use Python with HDInsight:
 
-* [How to use Python for streaming MapReduce jobs](../hadoop/apache-hadoop-streaming-python.md)
-* [How to use Python User Defined Functions (UDF) in Pig and Hive](../hadoop/python-udf-hdinsight.md)
+* [How to use Python User Defined Functions (UDF) in Apache Pig and Apache Hive](../hadoop/python-udf-hdinsight.md)

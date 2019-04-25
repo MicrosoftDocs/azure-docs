@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Build a Spark machine learning application in Azure HDInsight'
 description: Step-by-step instructions on how to build Apache Spark machine learning application in HDInsight Spark clusters using Jupyter notebook.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -13,15 +12,15 @@ ms.author: hrasheed
 #customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a simple machine learning Spark application.
 
 ---
-# Tutorial: Build a Spark machine learning application in HDInsight 
+# Tutorial: Build an Apache Spark machine learning application in HDInsight 
 
-In this tutorial, you learn how to use the Jupyter notebook to build an Apache Spark machine learning application for Azure HDInsight. 
+In this tutorial, you learn how to use the [Jupyter Notebook](https://jupyter.org/) to build an [Apache Spark](https://spark.apache.org/) machine learning application for Azure HDInsight. 
 
 [MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) is Spark’s scalable machine learning library consisting of common learning algorithms and utilities, including classification, regression, clustering, collaborative filtering, dimensionality reduction, as well as underlying optimization primitives.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Develop a Spark machine learning application
+> * Develop an Apache Spark machine learning application
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -94,7 +93,7 @@ In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    For more information about pipeline and how it works, see <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark machine learning pipeline</a>.
+    For more information about pipeline and how it works, see <a href="https://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Apache Spark machine learning pipeline</a>.
 
 5. Fit the pipeline to the training document.
    
@@ -181,16 +180,16 @@ In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs
 10. Shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, select **Close and Halt**. This action shuts down and closes the notebook.
 
 ## Use Anaconda scikit-learn library for Spark machine learning
-Apache Spark clusters in HDInsight include Anaconda libraries. It also includes the **scikit-learn** library for machine learning. The library also includes various data sets that you can use to build sample applications directly from a Jupyter notebook. For examples on using the scikit-learn library, see [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+Apache Spark clusters in HDInsight include Anaconda libraries. It also includes the **scikit-learn** library for machine learning. The library also includes various data sets that you can use to build sample applications directly from a Jupyter notebook. For examples on using the scikit-learn library, see [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
 
 ## Next steps
 
 In this tutorial, you learned how to:
 
-* Develop a Spark machine learning application
+* Develop an Apache Spark machine learning application
 
 Advance to the next tutorial to learn how to use IntelliJ IDEA for Spark jobs. 
 
 > [!div class="nextstepaction"]
-> [Create a Scala Maven appliction using IntelliJ](./apache-spark-create-standalone-application.md)
+> [Create a Scala Maven application using IntelliJ](./apache-spark-create-standalone-application.md)
 

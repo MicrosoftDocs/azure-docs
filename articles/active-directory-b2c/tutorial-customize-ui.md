@@ -1,34 +1,34 @@
 ﻿---
-title: Tutorial - Customize the user interface of your applications in Azure Active Directory B2C | Microsoft Docs
+title: Tutorial - Customize the interface of user experiences - Azure Active Directory B2C | Microsoft Docs
 description: Learn how to customize the user interface of your applications in Azure Active Directory B2C using the Azure portal.
 services: B2C
 author: davidmu1
-manager: mtillman
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 02/01/2019
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
-# Tutorial: Customize the user interface of your applications in Azure Active Directory B2C
+# Tutorial: Customize the interface of user experiences in Azure Active Directory B2C
 
-For more common user experiences, such as sign-up, sign-in, and profile editing, you can use [built-in policies](active-directory-b2c-reference-policies.md) in Azure Active Directory (Azure AD) B2C. The information in this tutorial helps you to learn how to [customize the user interface (UI)](customize-ui-overview.md) of these experiences using your own HTML and CSS files.
+For more common user experiences, such as sign-up, sign-in, and profile editing, you can use [user flows](active-directory-b2c-reference-policies.md) in Azure Active Directory (Azure AD) B2C. The information in this tutorial helps you to learn how to [customize the user interface (UI)](customize-ui-overview.md) of these experiences using your own HTML and CSS files.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create UI customization files
-> * Create a sign-up and sign-in policy that uses the files
+> * Update the user flow to use the files
 > * Test the customized UI
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-tenant.md), create one now. You can use an existing tenant if you created one in a previous tutorial.
+[Create a user flow](tutorial-create-user-flows.md) to enable users to sign up and sign in to your application.
 
 ## Create customization files
 
@@ -38,17 +38,15 @@ You create an Azure storage account and container and then place basic HTML and 
 
 Although you can store your files in many ways, for this tutorial, you store them in [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md).
 
-1. Make sure you're using the directory that contains your Azure subscription. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your subscription. This directory is different than the one that contains your Azure B2C tenant.
-
-    ![Switch to subscription directory](./media/tutorial-customize-ui/switch-directories.png)
-
-2. Choose All services in the top-left corner of the Azure portal, search for and select **Storage accounts**. 
-3. Select **Add**.
-4. Under **Resource group**, select **Create new**, enter a name for the new resource group, and then click **OK**.
-5. Enter a name for the storage account. The name you choose must be unique across Azure, must be between 3 and 24 characters in length, and may contain numbers and lowercase letters only.
-6. Select the location of the storage account or accept the default location. 
-7. Accept all other default values, select **Review + create**, and then click **Create**.
-8. After the storage account is created, select **Go to resource**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Make sure you're using the directory that contains your Azure subscription. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your subscription. This directory is different than the one that contains your Azure B2C tenant.
+3. Choose All services in the top-left corner of the Azure portal, search for and select **Storage accounts**. 
+4. Select **Add**.
+5. Under **Resource group**, select **Create new**, enter a name for the new resource group, and then click **OK**.
+6. Enter a name for the storage account. The name you choose must be unique across Azure, must be between 3 and 24 characters in length, and may contain numbers and lowercase letters only.
+7. Select the location of the storage account or accept the default location. 
+8. Accept all other default values, select **Review + create**, and then click **Create**.
+9. After the storage account is created, select **Go to resource**.
 
 ### Create a container
 
@@ -57,10 +55,10 @@ Although you can store your files in many ways, for this tutorial, you store the
 
 ### Enable CORS
 
- Azure AD B2C code in a browser uses a modern and standard approach to load custom content from a URL that you specify in a policy. Cross-origin resource sharing (CORS) allows restricted resources on a web page to be requested from other domains.
+ Azure AD B2C code in a browser uses a modern and standard approach to load custom content from a URL that you specify in a user flow. Cross-origin resource sharing (CORS) allows restricted resources on a web page to be requested from other domains.
 
 1. In the menu, select **CORS**.
-2. For **Allowed origins**, enter `your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `fabrikam.b2clogin.com`.
+2. For **Allowed origins**, enter `https://your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com`. You need to use all lowercase letters when entering your tenant name.
 3. For **Allowed Methods**, select both `GET` and `OPTIONS`.
 4. For **Allowed Headers**, enter an asterisk (*).
 5. For **Exposed Headers**, enter an asterisk (*).
@@ -133,45 +131,25 @@ In this tutorial, you store the files that you created in the storage account so
 4. Copy the URL for the file that you uploaded to use later in the tutorial.
 5. Repeat step 3 and 4 for the *style.css* file.
 
-## Create a sign-up and sign-in policy
+## Update the user flow
 
-To complete the steps in this tutorial, you need to create a test application and a sign-up or sign-in policy in Azure AD B2C. You can apply the principles described in this tutorial to the other user experiences, such as profile editing.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+2. Select **User flows (policies)**, and then select the *B2C_1_signupsignin1* user flow.
+3. Select **Page layouts**, and then under **Unified sign-up or sign-in page**, click **Yes** for **Use custom page content**.
+4. In **Custom page URI**, enter the URI for the *custom-ui.html* file that you recorded earlier.
+5. At the top of the page, select **Save**.
 
-### Create an Azure AD B2C application
+## Test the user flow
 
-Communication with Azure AD B2C occurs through an application that you create in your tenant. The following steps create an application that redirects the authorization token that is returned to [https://jwt.ms](https://jwt.ms).
+1. In your Azure AD B2C tenant, select **User flows** and select the *B2C_1_signupsignin1* user flow.
+2. At the top of the page, click **Run user flow**.
+3. Click the **Run user flow** button.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **Applications**, and then select **Add**.
-5. Enter a name for the application, for example *testapp1*.
-6. For **Web App / Web API**, select `Yes`, and then enter `https://jwt.ms` for the **Reply URL**.
-7. Click **Create**.
-
-### Create the policy
-
-To test your customization files, you create a built-in sign-up or sign-in policy that uses the application that you previously created.
-
-1. In your Azure AD B2C tenant, select **Sign-up or sign-in policies**, and then click **Add**.
-2. Enter a name for the policy. For example, *signup_signin*. The prefix *B2C_1* is automatically added to the name when the policy is created.
-3. Select **Identity providers**, set **Email sign-up** for a local account, and then click **OK**.
-4. Select **Sign-up attributes**, choose the attributes that you want to collect from the customer during sign-up. For example, set **Country/Region**, **Display Name**, and **Postal Code**, and then click **OK**.
-5. Select **Application claims**, choose the claims that you want returned in the authorization tokens sent back to your application after a successful sign-up or sign-in experience. For example, select **Display Name**, **Identity Provider**, **Postal Code**, **User is new** and **User's Object ID**, and then click **OK**.
-6. Select **Page UI customization**, select **Unified sign-up or sign-in page**, and the click **Yes** for **Use custom page**.
-7. In **Custom page URI**, enter the URL for the *custom-ui.html* file that you recorded earlier, and then click **OK**.
-8. Click **Create**.
-
-## Test the policy
-
-1. In your Azure AD B2C tenant, select **Sign-up or sign-in policies**, and then select the policy that you created. For example, *B2C_1_signup_signin*.
-2. Make sure that the application that you created is selected in **Select application**, and then click **Run Now**.
-
-    ![Run the sign-up or sign-in policy](./media/tutorial-customize-ui/signup-signin.png)
+    ![Run the sign-up or sign-in user flow](./media/tutorial-customize-ui/run-user-flow.png)
 
     You should see a page similar to the following example with the elements centered based on the CSS file that you created:
 
-    ![Policy results](./media/tutorial-customize-ui/run-now.png) 
+    ![User flow results](./media/tutorial-customize-ui/run-now.png) 
 
 ## Next steps
 
@@ -179,7 +157,7 @@ In this article, you learned how to:
 
 > [!div class="checklist"]
 > * Create UI customization files
-> * Create a sign-up and sign-in policy that uses the files
+> * Update the user flow to use the files
 > * Test the customized UI
 
 > [!div class="nextstepaction"]

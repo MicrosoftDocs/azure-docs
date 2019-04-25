@@ -1,5 +1,5 @@
 ---
-title: Process Apache Kafka for Event Hubs events using Azure Stream analytics | Microsoft Docs
+title: Process Apache Kafka events using Stream analytics - Azure Event Hubs | Microsoft Docs
 description: This article shows how to process Kafka events that are ingested through event hubs by using Azure Stream Analytics
 services: event-hubs
 documentationcenter: ''
@@ -9,10 +9,10 @@ manager:
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: spelluru
 
 ---
@@ -33,7 +33,7 @@ To complete this quickstart, make sure you have the following prerequisites:
 
 * An Azure subscription. If you do not have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
-* [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a Maven binary archive.
+* [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive.
 * [Git](https://www.git-scm.com/)
 * An **Azure Storage account**. If you don't have one, [create one](../storage/common/storage-quickstart-create-account.md) before proceeding further. The Stream Analytics job in this walkthrough stores the output data in an Azure blob storage. 
 
@@ -130,7 +130,7 @@ The query in the Stream Analytics job passes through the data without performing
 
 ### Configure job input
 
-1. In the notification message, select ** Go to resource** to see the **Stream Analytics job** page. 
+1. In the notification message, select **Go to resource** to see the **Stream Analytics job** page. 
 2. Select **Inputs** in the **JOB TOPOLOGY** section on the left menu.
 3. Select **Add stream input**, and then select **Event Hub**. 
 

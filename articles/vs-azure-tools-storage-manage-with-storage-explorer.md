@@ -2,18 +2,12 @@
 title: Get started with Storage Explorer | Microsoft Docs
 description: Manage Azure storage resources with Storage Explorer
 services: storage
-documentationcenter: na
 author: cawaMS
-manager: paulyuk
-editor: ''
 
-ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/17/2017
+ms.date: 04/22/2019
 ms.author: cawa
 ---
 
@@ -37,7 +31,7 @@ Azure Storage Explorer is supported on the following versions of Windows:
 
 For all versions of Windows, .NET Framework 4.6.2 or greater is required.
 
-[Download and install Storage Explorer](http://www.storageexplorer.com)
+[Download and install Storage Explorer](https://www.storageexplorer.com)
 
 # [macOS](#tab/macos)
 
@@ -45,28 +39,23 @@ Azure Storage Explorer is supported on the following versions of macOS:
 
 * macOS 10.12 "Sierra" and later versions
 
-[Download and install Storage Explorer](http://www.storageexplorer.com)
+[Download and install Storage Explorer](https://www.storageexplorer.com)
 
 # [Linux](#tab/linux)
 
 Azure Storage Explorer is supported on the following distributions of Linux:
 
-* Ubuntu 16.04 x64 (recommended)
-* Ubuntu 17.10 x64
+* Ubuntu 18.04 x64
+* Ubuntu 16.04 x64
 * Ubuntu 14.04 x64
 
 Azure Storage Explorer may work on other distributions, but only ones listed above are officially supported.
 
-You must also have the following dependencies/libraries installed to run Azure Storage Explorer on Linux:
-
-* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
-* libsecret (Note: libsecret-1.so.0 must be available on your machine. If you have a different version of libsecret installed, you can try soft linking its .so file to libsecret-1.so.0)
-* libgconf-2-4
-* Up-to-date GCC
+For more help installing Storage Explorer on Linux, see the [Troubleshooting Guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
 
 The Azure Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distributions.
 
-[Download and install Storage Explorer](http://www.storageexplorer.com)
+[Download and install Storage Explorer](https://www.storageexplorer.com)
 
 ---
 
@@ -83,8 +72,8 @@ In addition, you can work with storage accounts in global and national Azure:
 * [Connect to an Azure subscription](#connect-to-an-azure-subscription): Manage storage resources that belong to your Azure subscription.
 * [Work with local development storage](#work-with-local-development-storage): Manage local storage by using the Azure Storage Emulator.
 * [Attach to external storage](#attach-or-detach-an-external-storage-account): Manage storage resources that belong to another Azure subscription or that are under national Azure clouds by using the storage account's name, key, and endpoints.
-* [Attach a storage account by using an SAS](#attach-storage-account-using-sas): Manage storage resources that belong to another Azure subscription by using a shared access signature (SAS).
-* [Attach a service by using an SAS](#attach-service-using-sas): Manage a specific storage service (blob container, queue, or table) that belongs to another Azure subscription by using an SAS.
+* [Attach a storage account by using an SAS](#attach-a-storage-account-by-using-a-shared-access-signature-sas): Manage storage resources that belong to another Azure subscription by using a shared access signature (SAS).
+* [Attach a service by using an SAS](#attach-a-service-by-using-a-shared-access-signature-sas): Manage a specific storage service (blob container, queue, or table) that belongs to another Azure subscription by using an SAS.
 * [Connect to an Azure Cosmos DB account by using a connection string](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Manage Cosmos DB account by using a connection string.
 
 ## Connect to an Azure subscription
@@ -100,7 +89,7 @@ In addition, you can work with storage accounts in global and national Azure:
 
 2. The left pane now displays all the Azure accounts you've signed in to. To connect to another account, select **Add an account**
 
-3. If you want to sign into a national cloud or an Azure Stack, click on the **Azure environment** dropdown to select which Azure cloud you want to use. Once you have chosen your environment, click the **Sign in...** button. If you are signing in to Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack/user/azure-stack-storage-connect-se.md) for more information.
+3. If you want to sign into a national cloud or an Azure Stack, click on the **Azure environment** dropdown to select which Azure cloud you want to use. Once you have chosen your environment, click the **Sign in...** button. If you are signing in to Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription](/azure-stack/user/azure-stack-storage-connect-se) for more information.
 
     ![Sign In Option][2]
 
@@ -116,7 +105,9 @@ In addition, you can work with storage accounts in global and national Azure:
 
 With Storage Explorer, you can work with local storage by using an emulator. This approach lets you simulate working with Azure Storage without necessarily having a storage account deployed on Azure.
 
-Starting with version 1.1.0, local storage emulator is supported on all platforms. Storage Explorer can connect to any emulated service listening to its default local storage endpoints.
+Starting with version 1.1.0, Storage Explorer supports using a local storage emulator on all platforms. Storage Explorer can connect to any emulated service listening to its default local storage endpoints.
+
+The [Azure storage emulator](storage/common/storage-use-emulator.md) currently runs only on Windows. For those considering a storage emulator for Linux, one option is the community maintained, open source storage emulator [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Support for storage services and features may vary widely depending on your choice of emulator. Make sure your emulator supports the services and features you intend to work with.
@@ -217,7 +208,7 @@ To illustrate this scenario, let's say that UserA is an admin of an Azure subscr
 
 3. UserB uses Storage Explorer to attach to the account that belongs to UserA by using the supplied SAS.
 
-### Generate a SAS connection string for the account you want to share
+### Generate a SAS query string for the account you want to share
 
 1. In Storage Explorer, right-click the storage account you want share, and then select **Get Shared Access Signature...**.
 
@@ -227,7 +218,7 @@ To illustrate this scenario, let's say that UserA is an admin of an Azure subscr
 
     ![Get SAS dialog box][15]
 
-3. Next to the **Connection String** text box, select **Copy** to copy it to your clipboard, and then click **Close**.
+3. Next to the **Query String** text box, select **Copy** to copy it to your clipboard, and then click **Close**.
 
 ### Attach to a storage account by using a SAS Connection String
 
@@ -291,7 +282,7 @@ Besides manage Azure Cosmos DB accounts through Azure subscription, an alternati
 
     ![connect to Azure Cosmos DB by connection string][21]
 
-2. Choose Azure Cosmos DB API, paste your **Connection String**, and then click **OK** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Choose Azure Cosmos DB API, paste your **Connection String**, and then click **OK** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![connection-string][22]
 

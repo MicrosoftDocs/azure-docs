@@ -2,12 +2,12 @@
 title: Overview of Recovery Services vaults
 description: An overview and comparison between Recovery Services vaults and Azure Backup vaults.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/10/2018
-ms.author: markgal
+ms.author: raynew
 ---
 # Recovery Services vaults overview
 

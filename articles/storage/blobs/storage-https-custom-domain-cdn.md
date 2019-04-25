@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: mihauss
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Use Azure CDN to access blobs with custom domains over HTTPS
@@ -63,4 +63,4 @@ On the [Azure CDN pricing page](https://azure.microsoft.com/pricing/details/cdn/
 ## Next steps
 
 * [Configure a custom domain name for your Blob storage endpoint](storage-custom-domain-name.md)
-* [Static website hosting in Azure Storage (preview)](storage-blob-static-website.md)
+* [Static website hosting in Azure Storage](storage-blob-static-website.md)

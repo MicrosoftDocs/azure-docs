@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -19,6 +19,10 @@ ms.author: jgao
 # Tutorial: Create multiple resource instances with Resource Manager templates
 
 Learn how to iterate in your Azure Resource Manager template to create multiple instances of an Azure resource. In this tutorial, you modify a template to create three storage account instances.
+
+![Azure Resource Manager creates multiple instances diagram](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
+
+This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Open a QuickStart template
@@ -114,20 +118,22 @@ For more information about creating multiple instances, see [Deploy multiple ins
 
 Refer to the [Deploy the template](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section in the Visual Studio Code quickstart for the deployment procedure.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To list all three storage accounts, omit the --name parameter:
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
-Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
+Get-AzStorageAccount -ResourceGroupName $resourceGroupName
 ```
 
 ---
@@ -145,7 +151,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to create multiple storage account instances. So far, you have created one storage account or multiple storage account instances. In the next tutorial, you develop a template with multiple resources and multiple resource types. Some of the resources have dependent resources.
+In this tutorial, you learned how to create multiple storage account instances.  In the next tutorial, you develop a template with multiple resources and multiple resource types. Some of the resources have dependent resources.
 
 > [!div class="nextstepaction"]
 > [Create dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)

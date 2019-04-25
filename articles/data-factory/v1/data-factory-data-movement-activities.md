@@ -11,7 +11,7 @@ ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
@@ -207,7 +207,7 @@ Different data stores have different native type systems. Copy Activity performs
 1. Convert from native source types to a .NET type.
 2. Convert from a .NET type to a native sink type.
 
-The mapping from a native type system to a .NET type for a data store is in the respective data store article. (Click the specific link in the [Supported data stores](#supported-data-stores) table). You can use these mappings to determine appropriate types while creating your tables, so that Copy Activity performs the right conversions.
+The mapping from a native type system to a .NET type for a data store is in the respective data store article. (Click the specific link in the Supported data stores table). You can use these mappings to determine appropriate types while creating your tables, so that Copy Activity performs the right conversions.
 
 ## Next steps
 * To learn about the Copy Activity more, see [Copy data from Azure Blob storage to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

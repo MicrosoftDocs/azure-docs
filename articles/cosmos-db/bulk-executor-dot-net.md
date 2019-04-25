@@ -1,16 +1,14 @@
 ---
-title: Using bulk executor .NET library to perform bulk import and update operations in Azure Cosmos DB | Microsoft Docs
+title: Using bulk executor .NET library to perform bulk import and update operations in Azure Cosmos DB
 description: Bulk import and update Azure Cosmos DB documents using bulk executor .NET library.
-services: cosmos-db
 author: tknandu
-manager: kfile
-
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-
+ms.reviewer: sngun
 ---
 
 # Use bulk executor .NET library to perform bulk operations in Azure Cosmos DB
@@ -25,9 +23,9 @@ Currently, bulk executor library is supported by Azure Cosmos DB SQL API and Gre
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin. 
 
-* You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) with  the `https://localhost:8081` URI. The Primary Key is provided in [Authenticating requests](local-emulator.md#authenticating-requests).
+* You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) with  the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](local-emulator.md#authenticating-requests).
 
-* Create an Azure Cosmos DB SQL API account by using the steps described in [create database account](create-sql-api-dotnet.md#create-a-database-account) section of the .NET quickstart article. 
+* Create an Azure Cosmos DB SQL API account by using the steps described in [create database account](create-sql-api-dotnet.md#create-account) section of the .NET quickstart article. 
 
 ## Clone the sample application
 
@@ -69,7 +67,7 @@ The "BulkImportSample" application generates random documents and bulk imports t
    connectionPolicy)
    ```
 
-4. The BulkExecutor object is initialized with a high retry values for wait time and throttled requests. And then they are set to 0 to pass congestion control to BulkExecutor for its lifetime.  
+4. The BulkExecutor object is initialized with a high retry value for wait time and throttled requests. And then they are set to 0 to pass congestion control to BulkExecutor for its lifetime.  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -99,7 +97,7 @@ The "BulkImportSample" application generates random documents and bulk imports t
    
    |**Parameter**  |**Description** |
    |---------|---------|
-   |enableUpsert    |   A flag to enable upsert of the documents. If a document with given id already exists, it's updated. By default, it is set to false.      |
+   |enableUpsert    |   A flag to enable upserts of the documents. If a document with given ID already exists, it's updated. By default, it is set to false.      |
    |disableAutomaticIdGeneration    |    A flag to disable automatic generation of ID. By default, it is set to true.     |
    |maxConcurrencyPerPartitionKeyRange    | The maximum degree of concurrency per partition key range, setting to null will cause library to use a default value of 20. |
    |maxInMemorySortingBatchSize     |  The maximum number of documents pulled from the document enumerator that is passed to the API call in each stage.  For in-memory pre-processing sorting phase prior to bulk importing, setting to null will cause library to use default value of min(documents.count, 1000000).       |
@@ -113,7 +111,7 @@ The "BulkImportSample" application generates random documents and bulk imports t
    |NumberOfDocumentsImported (long)   |  The total number of documents that were successfully imported out of the documents supplied to the bulk import API call.       |
    |TotalRequestUnitsConsumed (double)   |   The total request units (RU) consumed by the bulk import API call.      |
    |TotalTimeTaken (TimeSpan)    |   The total time taken by the bulk import API call to complete execution.      |
-   |BadInputDocuments (List<object>)   |     The list of bad-format documents that were not successfully imported in the bulk import API call. User should fix the documents returned and retry import. Bad-formatted documents include documents whose ID value is not a string (null or any other datatype is considered invalid).    |
+   |BadInputDocuments (List\<object>)   |     The list of bad-format documents that were not successfully imported in the bulk import API call. User should fix the documents returned and retry import. Bad-formatted documents include documents whose ID value is not a string (null or any other datatype is considered invalid).    |
 
 ## Bulk update data in Azure Cosmos DB
 
@@ -172,7 +170,7 @@ Consider the following points for better performance when using bulk executor li
 
 * It is recommended to instantiate a single BulkExecutor object for the whole application within a single virtual machine corresponding to a specific Cosmos DB container.  
 
-* Since a single bulk operation API execution consumes a large chunk of the client machine's CPU and network IO. This happens by spawning multiple tasks internally, avoid spawning multiple concurrent tasks within your application process each executing bulk operation API calls. If a single bulk operation API call running on a single virtual machine is unable to consume your entire container's throughput (if your container's throughput > 1 million RU/s), it's preferable to create separate virtual machines to concurrently execute bulk operation API calls.  
+* Since a single bulk operation API execution consumes a large chunk of the client machine's CPU and network IO. This happens by spawning multiple tasks internally, avoid spawning multiple concurrent tasks within your application process each executing bulk operation API calls. If a single bulk operation API call that is running on a single virtual machine is unable to consume your entire container's throughput (if your container's throughput > 1 million RU/s), it's preferable to create separate virtual machines to concurrently execute bulk operation API calls.  
 
 * Ensure InitializeAsync() is invoked after instantiating a BulkExecutor object to fetch the target Cosmos DB container partition map.  
 
@@ -193,7 +191,7 @@ Consider the following points for better performance when using bulk executor li
       </listeners>
     </trace>
   </system.diagnostics>
-```
+  ```
 
 ## Next steps
-* To learn about Nuget package details and release notes of bulk executor .Net library, see[bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
+* To learn about Nuget package details and release notes of bulk executor .NET library, see[bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 

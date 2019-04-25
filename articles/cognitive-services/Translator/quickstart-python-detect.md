@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to identify the language of provided text using Python and the Translator Text REST API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
@@ -59,7 +59,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Currently, one endpoint is available for Translator Text, and it's set as the `base_url`. `path` sets the `detect` route and identifies that we want to hit version 3 of the API.
+The Translator Text global endpoint is set as the `base_url`. `path` sets the `detect` route and identifies that we want to hit version 3 of the API.
 
 >[!NOTE]
 > For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
@@ -123,6 +123,8 @@ If you'd like to compare your code against ours, the complete sample is availabl
 
 ## Sample response
 
+Find the country abbreviation in this [list of languages](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+
 ```json
 [
     {
@@ -159,7 +161,7 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## See also
 
-In addition to language detection, learn how to use the Translator Text API to:
+Learn how to use the Translator Text API to:
 
 * [Translate text](quickstart-python-translate.md)
 * [Transliterate text](quickstart-python-transliterate.md)

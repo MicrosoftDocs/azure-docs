@@ -4,7 +4,7 @@ description: Learn how to troubleshoot onboarding errors with the Update Managem
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -15,7 +15,29 @@ You may encounter errors when onboarding solutions like Update Management or Cha
 
 ## General Errors
 
-### <a name="computer-grou-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
+### <a name="missing-write-permissions"></a>Scenario: Onboarding fails with the message - The solution cannot be enabled
+
+#### Issue
+
+You receive one of the following messages when you attempt to onboard a virtual machine to a solution:
+
+```error
+The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+```error
+The solution cannot be enabled on this VM because the permission to read the workspace is missing
+```
+
+#### Cause
+
+This error is caused by incorrect or missing permissions on the virtual machine, the workspace, or for the user.
+
+#### Resolution
+
+Ensure you have correct permissions to onboard the virtual machine. Review the [permissions needed to onboard machines](../automation-role-based-access-control.md#onboarding) and try to onboard the solution again. If you receive the error `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, ensure you have the `Microsoft.OperationalInsights/workspaces/read` permission to be able to find if the VM is onboarded to a workspace.
+
+### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
 #### Issue
 
@@ -49,17 +71,17 @@ In order to successfully deploy the solution, you need to consider altering the 
   * Re-targeting the policy to a specific resource (such as to a specific Automation account).
   * Revising the set of resources that policy was configured to deny.
 
-Check the notifications in the top right corner of the Azure portal or navigate to the resource group that contains your automation account and select **Deployments** under **Settings** to view the failed deployment. To learn more about Azure Policy visit: [Overview of Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
+Check the notifications in the top-right corner of the Azure portal or navigate to the resource group that contains your automation account and select **Deployments** under **Settings** to view the failed deployment. To learn more about Azure Policy visit: [Overview of Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="mma-extension-failures"></a>MMA Extension failures
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-When deploying a solution, a variety of related resources are deployed. One of those resources is the Microsoft Monitoring Agent Extension or Log Analytics agent for Linux. These are Virtual Machine Extensions installed by the virtual machine’s Guest Agent that is responsible for communicating with the configured Log Analytics workspace, for the purpose of later coordination of the downloading of binaries and other files that the solution you are onboarding depend on once it begins execution.
+When deploying a solution, a variety of related resources are deployed. One of those resources is the Microsoft Monitoring Agent Extension or Log Analytics agent for Linux. These are Virtual Machine Extensions installed by the virtual machine’s Guest Agent that is responsible for communicating with the configured Log Analytics workspace, for the purpose of later coordination of the downloading of binaries and other files that the solution you're onboarding depend on once it begins execution.
 You typically first become aware of MMA or Log Analytics agent for Linux installation failures from a notification appearing in the Notifications Hub. Clicking on that notification gives further information about the specific failure. Navigation to the Resource Groups resource, and then to the Deployments element within it also provides details on the deployment failures that occurred.
 Installation of the MMA or Log Analytics agent for Linux can fail for a variety of reasons, and the steps to take to address these failures vary, depending on the issue. Specific troubleshooting steps follow.
 
-The following section describes various issues that you can encounter when onboarding that cause a failure in the deployment of the MMA extension.
+The following section describes various issues that you can come across when onboarding that cause a failure in the deployment of the MMA extension.
 
 ### <a name="webclient-exception"></a>Scenario: An exception occurred during a WebClient request
 
@@ -69,11 +91,11 @@ The MMA extension on the virtual machine is unable to communicate with external 
 
 The following are examples of error messages that are returned:
 
-```
+```error
 Please verify the VM has a running VM agent, and can establish outbound connections to Azure storage.
 ```
 
-```
+```error
 'Manifest download error from https://<endpoint>/<endpointId>/Microsoft.EnterpriseCloud.Monitoring_MicrosoftMonitoringAgent_australiaeast_manifest.xml. Error: UnknownError. An exception occurred during a WebClient request.
 ```
 
@@ -81,7 +103,7 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 Some potential causes to this error are:
 
-* There is a proxy configured in the VM, that only allows specific ports.
+* There's a proxy configured in the VM, that only allows specific ports.
 
 * A firewall setting has blocked access to the required ports and addresses.
 
@@ -89,23 +111,23 @@ Some potential causes to this error are:
 
 Ensure that you have the proper ports and addresses open for communication. For a list of ports and addresses, see [planning your network](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Scenario: Install failed due to transient environment issues
+### <a name="transient-environment-issue"></a>Scenario: Install failed because of a transient environment issues
 
-The installation of the Microsoft Monitoring Agent extension failed during deployment due to another installation or action blocking the installation
+The installation of the Microsoft Monitoring Agent extension failed during deployment because of another installation or action blocking the installation
 
 #### Issue
 
 The following are examples of error messages may be returned:
 
-```
+```error
 The Microsoft Monitoring Agent failed to install on this machine. Please try to uninstall and reinstall the extension. If the issue persists, please contact support.
 ```
 
-```
+```error
 'Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 1618'
 ```
 
-```
+```error
 'Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.2) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.2\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 1601'
 ```
 
@@ -114,7 +136,7 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 Some potential causes to this error are:
 
 * Another installation is in progress
-* The system is was triggered to reboot during template deployment
+* The system is triggered to reboot during template deployment
 
 #### Resolution
 
@@ -122,19 +144,19 @@ This error is a transient error in nature. Retry the deployment to install the e
 
 ### <a name="installation-timeout"></a>Scenario: Installation timeout
 
-The installation of the MMA extension did not complete due to a timeout.
+The installation of the MMA extension didn't complete because of a timeout.
 
 #### Issue
 
-The following is an example of an error message that may be returned:
+The following example is of an error message that may be returned:
 
-```
+```error
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
 ```
 
 #### Cause
 
-This error is due to the virtual machine being under a heavy load during installation.
+This error occurs because the virtual machine being under a heavy load during installation.
 
 ### Resolution
 
@@ -142,7 +164,7 @@ Attempt to install the MMA extension when the VM is under a lower load.
 
 ## Next steps
 
-If you did not see your problem or are unable to solve your issue, visit one of the following channels for more support:
+If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.

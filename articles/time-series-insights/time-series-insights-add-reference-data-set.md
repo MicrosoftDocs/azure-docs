@@ -1,6 +1,6 @@
 ---
-title: How to add a reference data set to your Azure Time Series Insights environment
-description: This article describes how to add a reference data set to augment data in your Azure Time Series Insights environment. 
+title: 'How to add a reference data set to your Azure Time Series Insights environment | Microsoft Docs'
+description: This article describes how to add a reference data set to augment data in your Azure Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -10,6 +10,7 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
+ms.custom: seodec18
 ---
 
 # Create a reference data set for your Time Series Insights environment using the Azure portal
@@ -78,20 +79,22 @@ Reference data is not joined retroactively. This means that only current and fut
  
 13. Name the data set, by filling in the **Data set name** field above the data grid.
 
-   ![Name the data set.](media/add-reference-data-set/name_reference_dataset.png)
+    ![Name the data set.](media/add-reference-data-set/name_reference_dataset.png)
 
 14. Provide the **Primary Key** column in the data set, by selecting the drop-down above the data grid.
 
-   ![Select the key column(s).](media/add-reference-data-set/set_primary_key.png)
+    ![Select the key column(s).](media/add-reference-data-set/set_primary_key.png)
 
-   Optionally, select the **+** button to add a secondary key column, as a composite primary key. If you need to undo the selection, choose the empty value from the drop-down to remove the secondary key.
+    Optionally, select the **+** button to add a secondary key column, as a composite primary key. If you need to undo the selection, choose the empty value from the drop-down to remove the secondary key.
 
-15.  To upload the data, select the **Upload rows** button.
+15. To upload the data, select the **Upload rows** button.
 
-   ![Upload](media/add-reference-data-set/upload_rows.png)
+    ![Upload](media/add-reference-data-set/upload_rows.png)
 
-   The page confirms the completed upload and display the message **Successfully uploaded dataset**.
+    The page confirms the completed upload and display the message **Successfully uploaded dataset**.
 
 ## Next steps
+
 * [Manage reference data](time-series-insights-manage-reference-data-csharp.md) programmatically.
-* For the complete API reference, see [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) document.
+
+* For the complete API reference, see [Reference Data API](/rest/api/time-series-insights/ga-reference-data-api) document.

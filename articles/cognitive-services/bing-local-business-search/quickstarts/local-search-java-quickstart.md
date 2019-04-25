@@ -6,7 +6,6 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
@@ -22,7 +21,7 @@ This example application gets local response data from the API for the search qu
 
 * The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial.
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 This example application gets local response data from the query for a *hotel in Bellevue*.
 
@@ -30,11 +29,11 @@ This example application gets local response data from the query for a *hotel in
 
 The following code creates a `WebRequest`, sets the access key header, and adds a query string for "hotel in Bellevue".  It then sends the request and assigns the response to a string to contain the JSON text.
 
-````
+```
     // construct URL of search request (endpoint + query string)
-	 URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + "appid=AEA845921DC03F506DC317A90EDDBF33074523F7&market=en-us");
+	 URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
 	HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-	//connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+	connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
 	// receive JSON body
 	InputStream stream = connection.getInputStream();
@@ -42,7 +41,7 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
 	// construct result object for return
 	SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## Run the complete application
 
@@ -53,7 +52,7 @@ The Bing Local Business Search API returns results from the Bing search engine.
 4. Replace the subscriptionKey value with an access key valid for your subscription.
 5. Run the program.
 
-````
+```
 package localSearch;
 import java.net.*;
 import java.util.*;
@@ -89,16 +88,15 @@ public class LocalSearchCls {
 	    static String subscriptionKey = "YOUR-ACCESS-KEY";
 
 	    static String host = "https://api.cognitive.microsoft.com/bing";
-	    static String path = "/v7.0/search";
+	    static String path = "/v7.0/localbusinesses/search";
 
 	    static String searchTerm = "Hotel in Bellevue";
 
 	    public static SearchResults SearchLocal (String searchQuery) throws Exception {
 	        // construct URL of search request (endpoint + query string)
-	        URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + 
-                         "&appid=" + subscriptionKey + "&market=en-us");
+	        URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + "&mkt=en-us");
 	        HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-	        //connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+	        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
 	        // receive JSON body
 	        InputStream stream = connection.getInputStream();
@@ -158,7 +156,7 @@ public class LocalSearchCls {
 	    }
 	}
 
-````
+```
 
 ## Next steps
 - [Local Business Search quickstart](local-quickstart.md)

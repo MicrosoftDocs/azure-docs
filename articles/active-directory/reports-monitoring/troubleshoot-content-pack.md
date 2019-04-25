@@ -4,8 +4,8 @@ title: 'Troubleshooting Azure Active Directory Activity logs content pack errors
 description: Provides you with a list of error messages of the Azure Active Directory Activity content pack and steps to fix them.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshooting Azure Active Directory Activity logs content pack errors 
@@ -32,8 +33,8 @@ When working with the Power BI Content Pack for Azure Active Directory (Azure AD
 
 - [Refresh failed](troubleshoot-content-pack.md#refresh-failed) 
 - [Failed to update data source credentials](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
-- [Importing of data is taking too long](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
- 
+- [Importing of data is taking too long](#data-import-is-too-slow) 
+
 This article provides you with information about the possible causes and how to fix these errors.
  
 ## Refresh failed 
@@ -68,6 +69,6 @@ This article provides you with information about the possible causes and how to 
 
 ## Next steps
 
-* [Install Power BI contect pack for Azure AD reports](quickstart-install-power-bi-content-pack.md).
+* [Install Power BI content pack for Azure AD reports](quickstart-install-power-bi-content-pack.md).
 * [Use Power BI content pack for Azure AD reports to visualize your data](howto-power-bi-content-pack.md)
 * [How to get support for Azure Active Directory](../fundamentals/active-directory-troubleshooting-support-howto.md)

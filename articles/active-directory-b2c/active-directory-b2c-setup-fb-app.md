@@ -1,23 +1,23 @@
-﻿---
-title: Set up sign-up and sign-in with a Facebook account using Azure Active Directory B2C | Microsoft Docs
+---
+title: Set up sign-up and sign-in with a Facebook account - Azure Active Directory B2C | Microsoft Docs
 description: Provide sign-up and sign-in to customers with Facebook accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Set up sign-up and sign-in with a Facebook account using Azure Active Directory B2C
 
 ## Create a Facebook application
 
-To use a Facebook account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Facebook account, you can get it at [https://www.facebook.com/](https://www.facebook.com/).
+To use a Facebook account as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Facebook account, you can get it at [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Sign in to [Facebook for developers](https://developers.facebook.com/) with your Facebook account credentials.
 2. If you have not already done so, you need to register as a Facebook developer. To do this, select **Register** on the upper-right corner of the page, accept Facebook's policies, and complete the registration steps.
@@ -34,7 +34,7 @@ To use a Facebook account as an identity provider in Azure Active Directory (Azu
 13. Select **Products**, and then select **Set up** under **Facebook Login**.
 14. Select **Settings** under **Facebook Login**.
 15. In **Valid OAuth redirect URIs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant. Click **Save Changes** at the bottom of the page.
-16. To make your Facebook application available to Azure AD B2C, select **App Review**, set **Make My Application public?** to **YES**,  and then click **Confirm**.
+16. To make your Facebook application available to Azure AD B2C, click the Status selector at the top right of the page and turn it **On** to make the Application public, and then click **Confirm**.  At this point the Status should change from **Development** to **Live**.
 
 ## Configure a Facebook account as an identity provider
 

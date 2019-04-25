@@ -3,8 +3,8 @@ title: Permissions required to use Azure Network Watcher capabilities | Microsof
 description: Learn which Azure role-based access control permissions are required to work with Network Watcher capabilities.
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: jdial
+ms.author: kumud
 
 ---
 
@@ -41,6 +41,7 @@ Azure role-based access control (RBAC) enables you to assign only the specific a
 
 | Action                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
+| Microsoft.Network/networkWatchers/connectivityCheck/action          | Initiate a connection troubleshoot test
 | Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | Query results of a connection troubleshoot test                |
 | Microsoft.Network/networkWatchers/troubleshoot/action               | Run a connection troubleshoot test                             |
 
@@ -99,15 +100,19 @@ Azure role-based access control (RBAC) enables you to assign only the specific a
 
 Network Watcher capabilities also require the following actions:
 
-- Microsoft.Storage/Read
-- Microsoft.Authorization/Read
+- Microsoft.Authorization/\*/Read
 - Microsoft.Resources/subscriptions/resourceGroups/Read
+- Microsoft.Storage/storageAccounts/Read
 - Microsoft.Storage/storageAccounts/listServiceSas/Action
 - Microsoft.Storage/storageAccounts/listAccountSas/Action
 - Microsoft.Storage/storageAccounts/listKeys/Action
 - Microsoft.Compute/virtualMachines/Read
 - Microsoft.Compute/virtualMachines/Write
+- Microsoft.Compute/virtualMachines/extensions/Read
+- Microsoft.Compute/virtualMachines/extensions/Write
 - Microsoft.Compute/virtualMachineScaleSets/Read
 - Microsoft.Compute/virtualMachineScaleSets/Write
+- Microsoft.Compute/virtualMachineScaleSets/extensions/Read
+- Microsoft.Compute/virtualMachineScaleSets/extensions/Write
 - Microsoft.Insights/alertRules/*
 - Microsoft.Support/*

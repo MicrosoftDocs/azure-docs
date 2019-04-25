@@ -3,13 +3,13 @@ title: Language support - Bing Image Search API
 titleSuffix: Azure Cognitive Services
 description: Find out which countries/regions and languages are supported by the Bing Image Search API.
 services: cognitive-services
-author: v-jerkin
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 10/06/2017
-ms.author: v-jerkin
+ms.date: 03/04/2019
+ms.author: aahi
 ---
 
 # Language and region support for the Bing Image Search API
@@ -42,7 +42,7 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 |Finland|FI|
 |France|FR|
 |Germany|DE|
-|Hong Kong|HK|
+|Hong Kong SAR|HK|
 |India|IN|
 |Indonesia|ID|
 |Italy|IT|
@@ -86,7 +86,7 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 |Finland|Finnish|fi-FI|
 |France|French|fr-FR|
 |Germany|German|de-DE|
-|Hong Kong|Traditional Chinese|zh-HK|
+|Hong Kong SAR|Traditional Chinese|zh-HK|
 |India|English|en-IN|
 |Indonesia|English|en-ID|
 |Italy|Italian|it-IT|

@@ -2,16 +2,17 @@
 title: Configure user consent to an application - Azure Active Directory | Microsoft Docs
 description: Learn how to manage the way users consent to application permissions. You can simplify the user experience by granting admin consent. These methods apply to all end users in your Azure Active Directory (Azure AD) tenant. 
 services: active-directory
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvindh
+ms.collection: M365-identity-device-management
 ---
 
 # Configure the way end-users consent to an application in Azure Active Directory
@@ -22,6 +23,8 @@ For more information on consenting to applications, see [Azure Active Directory 
 ## Prerequisites
 
 Granting admin consent requires you to sign in as global administrator, an application administrator, or a cloud application administrator.
+
+To restrict access to applications, you need to require user assignment and then assign users or groups to the application.  For more information, see [Methods for assigning users and groups](methods-for-assigning-users-and-groups.md).
 
 ## Grant admin consent to enterprise apps in the Azure portal
 
@@ -69,4 +72,4 @@ To require end users to consent to an application each time they authenticate, a
 
 [Consent and Permissioning for AzureAD v2.0 converged Apps](../develop/active-directory-v2-scopes.md)
 
-[AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

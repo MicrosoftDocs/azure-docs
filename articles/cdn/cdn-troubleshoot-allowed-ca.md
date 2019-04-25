@@ -34,9 +34,6 @@ The following CAs are allowed when you create your own certificate:
 - AME Infra CA 01
 - AME Infra CA 02
 - Ameroot
-- AP Root CA
-- AP Root Certificate Authority 2013
-- AP Root Certificate Authority 2014
 - APCA-DM3P
 - Autopilot Root CA
 - Baltimore CyberTrust Root
@@ -67,8 +64,8 @@ The following CAs are allowed when you create your own certificate:
 - GlobalSign Root CA
 - Go Daddy Root Certificate Authority - G2
 - Go Daddy Secure Certificate Authority - G2
+- QuoVadis Root CA2 G3
 - RapidSSL RSA CA 2018
-- Root Agency
 - Symantec Class 3 EV SSL CA - G3
 - Symantec Class 3 Secure Server CA - G4
 - Symantec Enterprise Mobile Root for Microsoft

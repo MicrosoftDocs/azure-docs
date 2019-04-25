@@ -1,7 +1,6 @@
 ---
-title: Apache Storm write to Storage/Data Lake Store - Azure HDInsight 
+title: Apache Storm write to Storage/Data Lake Storage - Azure HDInsight 
 description: Learn how to use the Apache Storm to write to the HDFS-compatible storage for HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ---
-# Write to HDFS from Apache Storm on HDInsight
+# Write to Apache Hadoop HDFS from Apache Storm on HDInsight
 
-Learn how to use Storm to write data to the HDFS-compatible storage used by Apache Storm on HDInsight. HDInsight can use both Azure Storage and Azure Data Lake store as HDFS-compatible storage. Storm provides an [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) component that writes data to HDFS. This document provides information on writing to either type of storage from the HdfsBolt. 
+Learn how to use [Apache Storm](https://storm.apache.org/) to write data to the HDFS-compatible storage used by Apache Storm on HDInsight. HDInsight can use both Azure Storage and Azure Data Lake Storage as HDFS-compatible storage. Storm provides an [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) component that writes data to HDFS. This document provides information on writing to either type of storage from the HdfsBolt. 
 
-> [!IMPORTANT]
-> The example topology used in this document relies on components that are included with Storm on HDInsight. It may require modification to work with Azure Data Lake Store when used with other Apache Storm clusters.
+> [!IMPORTANT]  
+> The example topology used in this document relies on components that are included with Storm on HDInsight. It may require modification to work with Azure Data Lake Storage when used with other Apache Storm clusters.
 
 ## Get the code
 
@@ -38,24 +37,27 @@ The following environment variables may be set when you install Java and the JDK
 
 ## How to use the HdfsBolt with HDInsight
 
-> [!IMPORTANT]
-> Before using the HdfsBolt with Storm on HDInsight, you must first use a script action to copy required jar files into the `extpath` for Storm. For more information, see the [Configure the cluster](#configure) section.
+> [!IMPORTANT]  
+> Before using the HdfsBolt with Storm on HDInsight, you must first use a script action to copy required jar files into the `extpath` for Storm. For more information, see the Configure the cluster section.
 
 The HdfsBolt uses the file scheme that you provide to understand how to write to HDFS. With HDInsight, use one of the following schemes:
 
 * `wasb://`: Used with an Azure Storage account.
-* `adl://`: Used with Azure Data Lake Store.
+* `abfs://`: Used with an Azure Data Lake Storage Gen2.
+* `adl://`: Used with Azure Data Lake Storage Gen1.
 
 The following table provides examples of using the file scheme for different scenarios:
 
 | Scheme | Notes |
 | ----- | ----- |
 | `wasb:///` | The default storage account is a blob container in an Azure Storage account |
-| `adl:///` | The default storage account is a directory in Azure Data Lake Store. During cluster creation, you specify the directory in Data Lake Store that is the root of the cluster's HDFS. For example, the `/clusters/myclustername/` directory. |
+| `abfs:///` | The default storage account is a directory in an Azure Data Lake Storage Gen2 account |
+| `adl:///` | The default storage account is a directory in Azure Data Lake Storage Gen1. During cluster creation, you specify the directory in Data Lake Storage that is the root of the cluster's HDFS. For example, the `/clusters/myclustername/` directory. |
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | A non-default (additional) Azure storage account associated with the cluster. |
-| `adl://STORENAME/` | The root of the Data Lake Store used by the cluster. This scheme allows you to access data that is located outside the directory that contains the cluster file system. |
+| `abfs://CONTAINER@ACCOUNT.dfs.core.windows.net/` | A non-default (additional) Azure storage account associated with the cluster. |
+| `adl://STORENAME/` | The root of Data Lake Storage used by the cluster. This scheme allows you to access data that is located outside the directory that contains the cluster file system. |
 
-For more information, see the [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) reference at Apache.org.
+For more information, see the [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) reference at Apache.org.
 
 ### Example configuration
 
@@ -123,11 +125,11 @@ This YAML defines the following items:
 * `rotationPolicy`: Defines when to rotate files. In this example, no rotation is performed.
 * `hdfs-bolt`: Uses the previous components as configuration parameters for the `HdfsBolt` class.
 
-For more information on the Flux framework, see [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
+For more information on the Flux framework, see [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html).
 
 ## Configure the cluster
 
-By default, Storm on HDInsight does not include the components that HdfsBolt uses to communicate with Azure Storage or Data Lake Store in Storm's classpath. Use the following script action to add these components to the `extlib` directory for Storm on your cluster:
+By default, Storm on HDInsight does not include the components that HdfsBolt uses to communicate with Azure Storage or Data Lake Storage in Storm's classpath. Use the following script action to add these components to the `extlib` directory for Storm on your cluster:
 
 * Script URI: `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
 * Nodes to apply to: Nimbus, Supervisor
@@ -137,8 +139,7 @@ For information on using this script with your cluster, see the [Customize HDIns
 
 ## Build and package the topology
 
-1. Download the example project from [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store
-   ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) to your development environment.
+1. Download the example project from [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) to your development environment.
 
 2. From a command prompt, terminal, or shell session, change directories to the root of the downloaded project. To build and package the topology, use the following command:
    
@@ -154,7 +155,7 @@ For information on using this script with your cluster, see the [Customize HDIns
    
     When prompted, enter the password used when creating the SSH user for the cluster. If you used a public key instead of a password, you may need to use the `-i` parameter to specify the path to the matching private key.
    
-   > [!NOTE]
+   > [!NOTE]  
    > For more information on using `scp` with HDInsight, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Once the upload completes, use the following to connect to the HDInsight cluster using SSH. Replace **USER** with the SSH user name you used when creating the cluster. Replace **CLUSTERNAME** with the name of the cluster.
@@ -174,10 +175,10 @@ For information on using this script with your cluster, see the [Customize HDIns
         hdfs.write.dir: /stormdata/
         hdfs.url: wasb:///
 
-    > [!IMPORTANT]
-    > This example assumes that your cluster uses an Azure Storage account as the default storage. If your cluster uses Azure Data Lake Store, use `hdfs.url: adl:///` instead.
+    > [!IMPORTANT]  
+    > This example assumes that your cluster uses an Azure Storage account as the default storage. If your cluster uses Azure Data Lake Storage Gen2, use `hdfs.url: abfs:///` instead. If your cluster uses Azure Data Lake Storage Gen1, use `hdfs.url: adl:///` instead.
     
-    To save the file, use __Ctrl + X__, then __Y__, and finally __Enter__. The values in this file set the Data Lake store URL and the directory name that data is written to.
+    To save the file, use __Ctrl + X__, then __Y__, and finally __Enter__. The values in this file set the Data Lake Storage URL and the directory name that data is written to.
 
 3. Use the following command to start the topology:
    
@@ -214,5 +215,7 @@ Storm topologies run until stopped, or the cluster is deleted. To stop the topol
 
 ## Next steps
 
-Now that you have learned how to use Storm to write to Azure Storage and Azure Data Lake Store, discover other [Storm examples for HDInsight](apache-storm-example-topology.md).
+Now that you have learned how to use Apache Storm to write to Azure Storage and Azure Data Lake Storage, discover other [Apache Storm examples for HDInsight](apache-storm-example-topology.md).
 
+## See also
+* [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

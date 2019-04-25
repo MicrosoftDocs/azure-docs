@@ -1,7 +1,6 @@
 ---
 title: Get started with ML Services on HDInsight - Azure 
 description: Learn how to create an Apache Spark on HDInsight cluster that includes ML Services and submit an R script on the cluster.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -12,7 +11,7 @@ ms.date: 06/27/2018
 ---
 # Get started with ML Services on Azure HDInsight
 
-Azure HDInsight enables you to create an ML Services cluster. This option allows R scripts to use Spark and MapReduce to run distributed computations. In this article, you learn how to create an ML Service cluster on HDInsight and how to run an R script that demonstrates using Spark for distributed R computations.
+Azure HDInsight enables you to create an ML Services cluster. This option allows R scripts to use [Apache Spark](https://spark.apache.org/) and [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)  to run distributed computations. In this article, you learn how to create an ML Service cluster on HDInsight and how to run an R script that demonstrates using Spark for distributed R computations.
 
 ## Prerequisites
 
@@ -25,13 +24,13 @@ Azure HDInsight enables you to create an ML Services cluster. This option allows
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Click **Create a resource** > **Data + Analytics** > **HDInsight**.
+2. Navigate to **+ Create a resource** > **Analytics** > **HDInsight**.
 
 3. From **Basics**, enter the following information:
 
     * **Cluster Name**: The name of the HDInsight cluster.
     * **Subscription**: Select the subscription to use.
-    * **Cluster login username** and **Cluster login password**: The login when accessing the cluster over HTTPS. You use these credentials to access services such as the Ambari Web UI or REST API.
+    * **Cluster login username** and **Cluster login password**: The login when accessing the cluster over HTTPS. You use these credentials to access services such as the Apache Ambari Web UI or REST API.
     * **Secure Shell (SSH) username**: The login used when accessing the cluster over SSH. By default the password is the same as the cluster login password.
     * **Resource Group**: The resource group to create the cluster in.
     * **Location**: The Azure region to create the cluster in.
@@ -60,7 +59,7 @@ Azure HDInsight enables you to create an ML Services cluster. This option allows
 
     ![Set the storage account settings for HDInsight](./media/r-server-get-started/clustersummary.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > It can take up to 20 minutes to create the cluster.
 
 <a name="connect-to-rstudio-server"></a>
@@ -72,16 +71,17 @@ If you chose to install RStudio Server Community Edition as part of your HDInsig
 
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
-* **Option 2** - Open the ML Services cluster in the Azure portal, under **Quick links** click **ML Services Dashboards**.
+* **Option 2** - Use the Azure portal.
+  From the portal:
+  1. Select **All services** from the left menu.
+  2. Under **ANALYTICS**, select **HDInsight clusters**.
+  3. Select your cluster name from the **HDInsight clusters** page.
+  4. From **ML Services dashboards**, select **R Studio server**. 
 
-     ![Set the storage account settings for HDInsight](./media/r-server-get-started/dashboard-quick-links.png)
+     ![Set the storage account settings for HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
 
-    From **Cluster Dashboards**, click **R Studio Server**.
-
-    ![Set the storage account settings for HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
-
-   > [!IMPORTANT]
-   > Regardless of the method used, the first time you log in you need to authenticate twice.  For the first authentication prompt, provide the *cluster Admin userid* and *password*. For the second authentication prompt, provide the *SSH userid* and *password*. Subsequent log ins only require the SSH credentials.
+     > [!IMPORTANT]  
+     > Regardless of the method used, the first time you log in you need to authenticate twice.  For the first authentication prompt, provide the *cluster Admin userid* and *password*. For the second authentication prompt, provide the *SSH userid* and *password*. Subsequent log-ins only require the SSH credentials.
 
 Once you are connected, your screen should resemble the following screenshot:
 
@@ -215,11 +215,11 @@ You can automate the creation of ML Services cluster for HDInsight by using the 
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [access control requirements](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Next steps
 
-In this article you learned how to create a new ML Services cluster in Azure HDInsight and the basics of using the R console from an SSH session. The following articles explain other ways of managing and working with ML Services on HDInsight:
+In this article, you learned how to create a new ML Services cluster in Azure HDInsight and the basics of using the R console from an SSH session. The following articles explain other ways of managing and working with ML Services on HDInsight:
 
 * [Submit jobs from R Tools for Visual Studio](r-server-submit-jobs-r-tools-vs.md)
 * [Manage ML Services cluster on HDInsight](r-server-hdinsight-manage.md)

@@ -8,7 +8,7 @@ keywords: backup and disaster recovery; backup service
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.author: saurse;trinadhk
+ms.author: trinadhk
 ---
 
 # Questions about the Azure Backup agent
@@ -28,7 +28,7 @@ You can't back up the following drives/volumes:
 * Read-only Volumes: The volume must be writable for the volume shadow copy service (VSS) to function.
 * Offline Volumes: The volume must be online for VSS to function.
 * Network share: The volume must be local to the server to be backed up using online backup.
-* Bitlocker-protected volumes: The volume must be unlocked before the backup can occur.
+* BitLocker-protected volumes: The volume must be unlocked before the backup can occur.
 * File System Identification: NTFS is the only file system supported.
 
 ### What file and folder types can I back up from my server?<br/>
@@ -69,8 +69,8 @@ Use the following list to change the cache location.
 
 1. Stop the Backup engine by executing the following command in an elevated command prompt:
 
-    ```PS C:\> Net stop obengine``` 
-  
+    ```PS C:\> Net stop obengine```
+
 2. Do not move the files. Instead, copy the cache space folder to a different drive with sufficient space. The original cache space can be removed after confirming the backups are working with the new cache space.
 3. Update the following registry entries with the path to the new cache space folder.<br/>
 
@@ -106,15 +106,22 @@ The cache folder and the metadata VHD do not have the necessary attributes for t
 ### Is there a way to adjust the amount of bandwidth used by the Backup service?<br/>
   Yes, use the **Change Properties** option in the Backup Agent to adjust bandwidth. You can adjust the amount of bandwidth and the times when you use that bandwidth. For step-by-step instructions, see **[Enable network throttling](backup-configure-vault.md#enable-network-throttling)**.
 
+## Restore
+
+### What happens if I cancel an ongoing restore job?
+If an ongoing restore job is canceled, the restore process stops and all files restored before the cancellation, stay in configured destination (original or alternate location) without any rollbacks.
+
+
 ## Manage backups
+
 ### What happens if I rename a Windows server that is backing up data to Azure?<br/>
 When you rename a server, all currently configured backups are stopped. Register the new name of the server with the Backup vault. When you register the new name with the vault, the first backup operation is a *full* backup. If you need to recover data backed up to the vault with the old server name, use the [**Another server**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) option in the **Recover Data** wizard.
 
 ### What is the maximum file path length that can be specified in Backup policy using Azure Backup agent? <br/>
-Azure Backup agent relies on NTFS. The [filepath length specification is limited by the Windows API](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). If the files you want to protect have a file-path length longer than what is allowed by the Windows API, back up the parent folder or the disk drive.  
+Azure Backup agent relies on NTFS. The [filepath length specification is limited by the Windows API](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). If the files you want to protect have a file-path length longer than what is allowed by the Windows API, back up the parent folder or the disk drive.  
 
 ### What characters are allowed in file path of Azure Backup policy using Azure Backup agent? <br>
- Azure Backup agent relies on NTFS. It enables [NTFS supported characters](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) as part of file specification. 
- 
+ Azure Backup agent relies on NTFS. It enables [NTFS supported characters](/windows/desktop/FileIO/naming-a-file#naming_conventions) as part of file specification.
+
 ### I receive the warning, "Azure Backups have not been configured for this server" even though I configured a backup policy <br/>
 This warning occurs when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If you receive this warning, [reconfigure the backup policy](backup-azure-manage-windows-server.md) and then **Run Back Up Now** to resynchronize the local server with Azure.

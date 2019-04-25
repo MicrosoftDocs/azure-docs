@@ -1,22 +1,27 @@
 ---
-title: Azure ExpressRoute Monitoring, Metrics, and Alerts | Microsoft Docs
+title: Monitoring, Metrics, and Alerts - Azure ExpressRoute | Microsoft Docs
 description: This page provides information about ExpressRoute monitoring
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 # ExpressRoute monitoring, metrics, and alerts
 
- This article helps you understand ExpressRoute monitoring, metrics, and alerts. Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across all of Azure.
+This article helps you understand ExpressRoute monitoring, metrics, and alerts using Azure Monitor. Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across all of Azure.
+ 
+>[!NOTE]
+>Using **Classic Metrics** is not recommended.
+>
 
 ## Circuit metrics
 
-To navigate to **Metrics**, click the ExpressRoute page for the circuit that you want to monitor. Under **Monitoring** you can view the **Metrics**. Select BitsInPerSecond or BitsOutPerSecond, and the Aggregation. Optionally you can apply splitting which will show the metrics per peering type.
+To navigate to **Metrics**, click the ExpressRoute page for the circuit that you want to monitor. Under **Monitoring**, you can view the **Metrics**. Select BitsInPerSecond or BitsOutPerSecond, and the Aggregation. Optionally, you can apply splitting, which will show the metrics per peering type.
 
 ![circuit metrics](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
@@ -34,19 +39,18 @@ You can view metrics for private, public, and Microsoft peering in bits/second.
 
 1. In order to configure alerts, navigate to **Azure Monitor**, then click **Alerts**.
 
-  ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
+   ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
 2. Click **+Select Target** and select the ExpressRoute gateway connection resource.
 
-  ![target]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![target]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Define the alert details.
 
-  ![action group](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
-
+   ![action group](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
 4. Define and add the action group.
 
-  ![add action group](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
+   ![add action group](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
 ## Alerts based on each peering
 
@@ -57,9 +61,10 @@ You can view metrics for private, public, and Microsoft peering in bits/second.
 In the **Alert Criteria**, you can select **Activity Log** for the Signal Type and select the Signal.
 
   ![another](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
-
+  
 ## Next steps
-* Configure your ExpressRoute connection.
+
+Configure your ExpressRoute connection.
   
   * [Create and modify a circuit](expressroute-howto-circuit-arm.md)
   * [Create and modify peering configuration](expressroute-howto-routing-arm.md)

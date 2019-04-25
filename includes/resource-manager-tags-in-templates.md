@@ -1,4 +1,11 @@
-To tag a resource during deployment, add the `tags` element to the resource you are deploying. Provide the tag name and value.
+---
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 03/11/2019
+ms.author: tomfitz
+---
+To tag a resource during deployment, add the `tags` element to the resource you're deploying. Provide the tag name and value.
 
 ### Apply a literal value to the tag name
 The following example shows a storage account with two tags (`Dept` and `Environment`) that are set to literal values:
@@ -26,6 +33,8 @@ The following example shows a storage account with two tags (`Dept` and `Environ
 	]
 }
 ```
+
+To set a tag to a datetime value, use the [utcNow function](../articles/azure-resource-manager/resource-group-template-functions-string.md#utcnow).
 
 ### Apply an object to the tag element
 You can define an object parameter that stores several tags, and apply that object to the tag element. Each property in the object becomes a separate tag for the resource. The following example has a parameter named `tagValues` that is applied to the tag element.
@@ -62,7 +71,7 @@ You can define an object parameter that stores several tags, and apply that obje
 
 ### Apply a JSON string to the tag name
 
-To store many values in a single tag, apply a JSON string that represents the values. The entire JSON string is stored as one tag that cannot exceed 256 characters. The following example has a single tag named `CostCenter` that contains several values from a JSON string:  
+To store many values in a single tag, apply a JSON string that represents the values. The entire JSON string is stored as one tag that can't exceed 256 characters. The following example has a single tag named `CostCenter` that contains several values from a JSON string:  
 
 ```json
 {

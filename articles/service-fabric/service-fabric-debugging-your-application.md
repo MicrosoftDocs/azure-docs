@@ -4,7 +4,7 @@ description: Improve the reliability and performance of your services by develop
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
@@ -26,7 +26,7 @@ ms.author: vturecek
 
 
 ## Debug a local Service Fabric application
-You can save time and money by deploying and debugging your Azure Service Fabric application in a local computer development cluster. Visual Studio 2017 or Visual Studio 2015 can deploy the application to the local cluster and automatically connect the debugger to all instances of your application.
+You can save time and money by deploying and debugging your Azure Service Fabric application in a local computer development cluster. Visual Studio 2017 or Visual Studio 2015 can deploy the application to the local cluster and automatically connect the debugger to all instances of your application; Visual Studio's must be run as Administrator to connect the debugger.
 
 1. Start a local development cluster by following the steps in [Setting up your Service Fabric development environment](service-fabric-get-started.md).
 2. Press **F5** or click **Debug** > **Start Debugging**.

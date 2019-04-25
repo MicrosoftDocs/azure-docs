@@ -3,12 +3,12 @@ title: Dynamic Dictionary - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: How to use the dynamic dictionary feature of the Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
+author: v-pawal
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 02/21/2019
 ms.author: v-jansko
 ---
 
@@ -28,4 +28,4 @@ Target output: Das Wort "wordomatic" ist ein Wörterbucheintrag.
 
 This feature works the same way with and without HTML mode.
 
-The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you have or can create training data that shows your work or phrase in context, you get much better results. You can find more information about Custom Translator at [http://aka.ms/CustomTranslator](https://aka.ms/CustomTranslator).
+The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you have or can create training data that shows your work or phrase in context, you get much better results. You can find more information about Custom Translator at [https://aka.ms/CustomTranslator](https://aka.ms/CustomTranslator).

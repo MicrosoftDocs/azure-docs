@@ -4,7 +4,7 @@ description: An introduction to the Azure Service Fabric health monitoring model
 services: service-fabric
 documentationcenter: .net
 author: oanapl
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
@@ -21,11 +21,6 @@ ms.author: oanapl
 Azure Service Fabric introduces a health model that provides rich, flexible, and extensible health evaluation and reporting. The model allows near-real-time monitoring of the state of the cluster and the services running in it. You can easily obtain health information and correct potential issues before they cascade and cause massive outages. In the typical model, services send reports based on their local views, and that information is aggregated to provide an overall cluster-level view.
 
 Service Fabric components use this rich health model to report their current state. You can use the same mechanism to report health from your applications. If you invest in high-quality health reporting that captures your custom conditions, you can detect and fix issues for your running application much more easily.
-
-The following Microsoft Virtual Academy video also describes the Service Fabric health model and how it's used:
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
-<img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 > [!NOTE]
 > We started the health subsystem to address a need for monitored upgrades. Service Fabric provides monitored application and cluster upgrades that ensure full availability, no downtime and minimal to no user intervention. To achieve these goals, the upgrade checks health based on configured upgrade policies. An upgrade can proceed only when health respects desired thresholds. Otherwise, the upgrade is either automatically rolled back or paused to give administrators a chance to fix the issues. To learn more about application upgrades, see [this article](service-fabric-application-upgrade.md).
@@ -65,7 +60,7 @@ The health hierarchy is composed of parent-child relationships. A cluster is com
 The health hierarchy represents the latest state of the system based on the latest health reports, which is almost real-time information.
 Internal and external watchdogs can report on the same entities based on application-specific logic or custom monitored conditions. User reports coexist with the system reports.
 
-Plan to invest in how to report and respond to health during the design of a large cloud service. This up-front investement makes the service easier to debug, monitor, and operate.
+Plan to invest in how to report and respond to health during the design of a large cloud service. This up-front investment makes the service easier to debug, monitor, and operate.
 
 ## Health states
 Service Fabric uses three health states to describe whether an entity is healthy or not: OK, warning, and error. Any report sent to the health store must specify one of these states. The health evaluation result is one of these states.

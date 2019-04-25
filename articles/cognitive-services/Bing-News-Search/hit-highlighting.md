@@ -4,12 +4,12 @@ titlesuffix: Azure Cognitive Services
 description: Shows how to enable text decorations in search responses.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: conceptual
-ms.date: 07/06/2017
+ms.date: 01/10/2019
 ms.author: scottwhi
 ---
 

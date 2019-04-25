@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs samples | Microsoft Docs
-description: Azure Event Hubs samples 
+title: Samples - Azure Event Hubs | Microsoft Docs
+description: This article provides a list of samples for Azure Event Hubs that are on GitHub.  
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -9,16 +9,17 @@ editor: ''
 
 ms.assetid: 
 ms.service: event-hubs
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/17/2018
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
 
-# Event Hubs samples 
+# Git repositories with samples for Azure Event Hubs 
 You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). These samples demonstrate key features in [Azure Event Hubs](/azure/event-hubs/). This article categorizes and describes the samples available, with links to each.
 
 ## .NET samples
@@ -46,7 +47,7 @@ You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event
 You can find Python samples for Azure Event Hubs in the [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) GitHub repository.
 
 ## Node.js samples
-You can find Node.js samples for Azure Event Hubs in the [azure-event-hubs-node](https://github.com/Azure/azure-event-hubs-node) GitHub repository.
+You can find Node.js samples for Azure Event Hubs in the [azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) GitHub repository.
 
 ## Go samples
 You can find Go samples for Azure Event Hubs in the [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub repository.

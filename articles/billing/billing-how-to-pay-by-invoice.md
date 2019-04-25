@@ -4,7 +4,7 @@ description: Describes how to pay for Azure subscriptions by invoice
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: jureid
 editor: ''
 tags: billing
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
-ms.author: cwatson
+ms.date: 04/01/2019
+ms.author: banders
 
 ---
 # Submit a request to pay Azure subscription by invoice
@@ -32,20 +32,42 @@ You can change the payment method for your Azure subscription to invoice by subm
 
     ![help and support button](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
 
-1. Select **Billing** as the issue type, select the subscription for which you want to pay by invoice, select a support plan, and then select **Next**.
+2. Select **Billing** as the issue type, select the subscription for which you want to pay by invoice, select a support plan, and then select **Next**.
 
-1. Select **Pay by Invoice** in the **Problem Type** box.
+3. Select **Pay by Invoice** in the **Problem Type** box.
 
-1. Enter the following information in the **Details** box, and then select **Next**.
+ 4. Enter the following information in the **Details** box, and then select **Next**.
 
-    * Company name
-    * Billing address
-    * [Account administrator's email address](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription)
+         New or existing customer:
+         If existing, current payment method:
+         Order ID (requesting for invoice option): 
+         Account Admins Live ID (or Org ID) (should be company domain):
+         Commerce Account ID: 
+         Company Name (as registered under VAT or Government Website): 
+         Company Address (as registered under VAT or Government Website): 
+         Company Website:
+         Country: 
+         TAX ID/ VAT ID:
+         Company Established on (Year):
+         Any prior business with Microsoft: 
+         Contact Name:
+         Contact Phone:
+         Contact Email:
+         Justification on why you prefer Invoice option over credit card: 
+    
+        For cores increase, provide the following additional information:
+    
+         (Old quota) Existing Cores:
+         (New quota) Requested cores:
+         Specific region & series of Subscription: 
+ 
+    - The **Company name** and **Company address** should match with the information that you provided for the Azure account.  To view or update the information, see [Change your Azure account profile information](billing-how-to-change-azure-account-profile.md).
+    - You must add your billing contact in Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department. To update the billing contact, go to [Azure Account Center](https://account.azure.com/Profile).
 
-1. Verify your contact information and preferred contact method, and then click **Create**.
+5. Verify your contact information and preferred contact method, and then click **Create**.
 
 If we need to run a credit check because of the amount of credit that you need, we send you a credit check application. After you submit the application, the credit application can take 5-7 days to process.
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

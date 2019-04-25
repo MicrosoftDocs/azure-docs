@@ -1,17 +1,20 @@
 ---
-title: About Azure ExpressRoute virtual network gateways| Microsoft Docs
-description: Learn about virtual network gateways for ExpressRoute.
+title: About ExpressRoute virtual network gateways - Azure| Microsoft Docs
+description: Learn about virtual network gateways for ExpressRoute. This article includes information about gateway SKUs and types.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/20/2019
 ms.author: mialdrid
+ms.custom: seodec18
 
 ---
 # About virtual network gateways for ExpressRoute
-A virtual network gateway is used to send network traffic between Azure virtual networks and on-premises locations. You can use a virtual network gateway for either ExpressRoute traffic, or VPN traffic. This article focuses on ExpressRoute virtual network gateways.
+A virtual network gateway is used to send network traffic between Azure virtual networks and on-premises locations. You can use a virtual network gateway for either ExpressRoute traffic, or VPN traffic. This article focuses on ExpressRoute virtual network gateways and contains information about SKUs, estimated performance by SKU, and gateway types.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Gateway types
 
@@ -26,7 +29,7 @@ Each virtual network can have only one virtual network gateway per gateway type.
 ## <a name="gwsku"></a>Gateway SKUs
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzureRmVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. However, to upgrade to the UltraPerformance SKU, you will need to recreate the gateway. Recreating a gateway incurs downtime.
+If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. However, to upgrade to the UltraPerformance SKU, you will need to recreate the gateway. Recreating a gateway incurs downtime.
 
 ### <a name="aggthroughput"></a>Estimated performances by gateway SKU
 The following table shows the gateway types and the estimated performances. This table applies to both the Resource Manager and classic deployment models.
@@ -57,7 +60,7 @@ For additional technical resources and specific syntax requirements when using R
 
 | **Classic** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network#networking) |
+| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
 | [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## Next steps

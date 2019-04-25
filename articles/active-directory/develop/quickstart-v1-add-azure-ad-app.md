@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 #Customer intent: As an enterprise developer and software-as-a-service provider, I want to know how to add and register my application with the Azure Active Directory v1.0 endpoint.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Register an app with the Azure Active Directory v1.0 endpoint
@@ -48,16 +49,16 @@ To get started, make sure have an Azure AD tenant that you can use to register y
 
 1. When the **Create** page appears, enter your application's registration information: 
 
-    - **Name:** Enter a meaningful application name
-    - **Application type:**
-      - Select **Native** for [client applications](developer-glossary.md#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](developer-glossary.md#native-client).
-      - Select **Web app/API** for [client applications](developer-glossary.md#client-application) and [resource/API applications](developer-glossary.md#resource-server) that are installed on a secure server. This setting is used for OAuth confidential [web clients](developer-glossary.md#web-client) and public [user-agent-based clients](developer-glossary.md#user-agent-based-client). The same application can also expose both a client and resource/API.
-    - **Sign-On URL:** For "Web app / API" applications, provide the base URL of your app. For example, `http://localhost:31544` might be the URL for a web app running on your local machine. Users would use this URL to sign in to a web client application. 
-    - **Redirect URI:** For "Native" applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, for example `http://MyFirstAADApp`
+   - **Name:** Enter a meaningful application name
+   - **Application type:**
+     - Select **Native** for [client applications](developer-glossary.md#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](developer-glossary.md#native-client).
+     - Select **Web app/API** for [client applications](developer-glossary.md#client-application) and [resource/API applications](developer-glossary.md#resource-server) that are installed on a secure server. This setting is used for OAuth confidential [web clients](developer-glossary.md#web-client) and public [user-agent-based clients](developer-glossary.md#user-agent-based-client). The same application can also expose both a client and resource/API.
+   - **Sign-On URL:** For "Web app / API" applications, provide the base URL of your app. For example, `http://localhost:31544` might be the URL for a web app running on your local machine. Users would use this URL to sign in to a web client application. 
+   - **Redirect URI:** For "Native" applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, for example `http://MyFirstAADApp`
 
-      ![Register a new application - create](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
+     ![Register a new application - create](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
 
-    If you'd like specific examples for web applications or native applications, check out the **Quickstarts** in our documentation.
+     If you'd like specific examples for web applications or native applications, check out the **Quickstarts** in our documentation.
 
 1. When finished, select **Create**.
 

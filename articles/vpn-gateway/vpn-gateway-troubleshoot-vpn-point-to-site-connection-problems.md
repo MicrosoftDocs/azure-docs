@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2018
+ms.date: 04/11/2018
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -52,6 +52,35 @@ For more information about how to install the client certificate, see [Generate 
 
 > [!NOTE]
 > When you import the client certificate, do not select the **Enable strong private key protection** option.
+
+## The network connection between your computer and the VPN server could not be established because the remote server is not responding
+
+### Symptom
+
+When you try and connect to an Azure virtual network gteway using IKEv2 on Windows, you get the following error message:
+
+**The network connection between your computer and the VPN server could not be established because the remote server is not responding**
+
+### Cause
+ 
+ The problem occurs if the version of Windows does not have support for IKE fragmentation
+ 
+### Solution
+
+IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2, you must install updates and set a registry key value locally. OS versions prior to Windows 10 are not supported and can only use SSTP.
+
+To prepare Windows 10 or Server 2016 for IKEv2:
+
+1. Install the update.
+
+   | OS version | Date | Number/Link |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10 Version 1607 | January 17, 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10 Version 1703 | January 17, 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   | Windows 10 Version 1709 | March 22, 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   |  |  |  |  |
+
+2. Set the registry key value. Create or set “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD key in the registry to 1.
 
 ## VPN client error: The message received was unexpected or badly formatted
 
@@ -212,7 +241,7 @@ If the certificate is more than 50 percent through its lifetime, the certificate
 
 ### Solution
 
-To resolve this problem, redeploy the Point to Site package on all clients.
+To resolve this problem, re-download and redeploy the Point to Site package on all clients.
 
 ## Too many VPN clients connected at once
 
@@ -295,7 +324,7 @@ This problem may occur if VPN client does not get the routes from Azure VPN gate
 
 ### Solution
 
-To resolve this problem, [reset Azure VPN gateway](vpn-gateway-resetgw-classic.md).
+To resolve this problem, [reset Azure VPN gateway](vpn-gateway-resetgw-classic.md). To make sure that the new routes are being used, the Point-to-Site VPN clients must be downloaded again after virtual network peering has been successfully configured.
 
 ## Error: "The revocation function was unable to check revocation because the revocation server was offline.(Error 0x80092013)"
 

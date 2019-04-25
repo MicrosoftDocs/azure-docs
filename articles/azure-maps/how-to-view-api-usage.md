@@ -32,10 +32,10 @@ Continue to the next section if you need to customize these graphs for your part
 
 4. On the **Metrics** pane, choose between one of the following:
 
-    1. **Availability** - which shows the *Average* of API availability over a period of time.
-    2. **Usage** - which shows how the usage *Count* for your account.
+   1. **Availability** - which shows the *Average* of API availability over a period of time.
+   2. **Usage** - which shows how the usage *Count* for your account.
 
-    ![Azure Maps Metrics pane](media/how-to-view-api-usage/portal-metrics.png)
+      ![Azure Maps Metrics pane](media/how-to-view-api-usage/portal-metrics.png)
 
 5. Next, you may select the *Time range* by clicking **Last 24 hours (Automatic)**. By default, the time range is set to 24 hours. After clicking, you will see all selectable time ranges. You can select the *Time granularity* and choose to show the time as *local* or *GMT* in the same drop-down. Click **Apply**.
 

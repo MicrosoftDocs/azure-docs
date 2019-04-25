@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Rollbar | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Rollbar.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 57537e54-9388-4272-a610-805ce45a451f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Rollbar
 
@@ -214,7 +215,7 @@ To enable Azure AD users to log in to Rollbar, they must be provisioned into Rol
 
 	![Invite People](./media/rollbar-tutorial/user2.png)
 
-1. In the textbox, enter the name of user like **brittasimon@contoso.com** and the click **Add/Invite**.
+1. In the textbox, enter the name of user like **brittasimon\@contoso.com** and the click **Add/Invite**.
 
 	![Invite People](./media/rollbar-tutorial/user3.png)
 

@@ -12,5 +12,5 @@
 
 | Resource | Limit |
 | --- | --- |
-| Role assignments per Azure subscription | 2000 |
-| Custom roles per tenant | 2000 |
+| [Role assignments for Azure resources per Azure subscription](../articles/role-based-access-control/overview.md) | 2,000 |
+| [Custom roles for Azure resources per tenant](../articles/role-based-access-control/custom-roles.md) | 2,000 |

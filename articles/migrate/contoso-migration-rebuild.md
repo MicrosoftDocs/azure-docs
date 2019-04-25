@@ -34,7 +34,10 @@ This document is one in a series of articles that show how the fictitious compan
 Article 13: Rebuild an app to Azure | Shows how Contoso rebuild their SmartHotel app using a range of Azure capabilities and services, including App Services, Azure Kubernetes, Azure Functions, Cognitive services, and Cosmos DB. | This article
 [Article 14: Scale a migration to Azure](contoso-migration-scale.md) | After trying out migration combinations, Contoso prepares to scale to a full migration to Azure. | Available
 
-In this article, Contoso migrates the two-tier Windows. NET SmartHotel360 app running on VMware VMs to Azure. If you'd like to use this app, it's provided as open source and you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360).
+In this article, Contoso migrates the two-tier Windows. NET SmartHotel360 app running on VMware VMs to Azure. If you'd like to use this app, it's provided as open source and you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360-Backend).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Business drivers
 
@@ -149,7 +152,7 @@ Contoso admins run a deployment script to create the managed Kubernetes cluster 
 
 ### Prerequisites
 
-1. Before they start, Contoso admins ensure that all prerequisitie software in installed on the dev machine they're using for the deployment.
+1. Before they start, Contoso admins ensure that all prerequisite software in installed on the dev machine they're using for the deployment.
 2. They clone the repo local to the dev machine using Git: **git clone https://github.com/Microsoft/SmartHotel360-Azure-backend.git**
 
 
@@ -170,7 +173,7 @@ The Contoso admins provision as follows:
 
     ![AKS](./media/contoso-migration-rebuild/aks3.png)
 
-5. In the PowerShell Integrated terminal, they sign into Azure using the Connect-AzureRmAccount command. [Learn more](https://docs.microsoft.com/powershell/azure/get-started-azureps) about getting started with PowerShell.
+5. In the PowerShell Integrated terminal, they sign into Azure using the Connect-AzAccount command. [Learn more](https://docs.microsoft.com/powershell/azure/get-started-azureps) about getting started with PowerShell.
 
     ![AKS](./media/contoso-migration-rebuild/aks4.png)
 
@@ -221,7 +224,7 @@ Contoso creates an Azure DevOps project, and configures a CI Build to create the
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts1.png) 
 
 
-3. They import the [GitHub repo](https://github.com/Microsoft/SmartHotel360-Azure-backend.git).
+3. They import the [GitHub repo](https://github.com/Microsoft/SmartHotel360-Backend).
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts2.png)
     
@@ -490,7 +493,7 @@ Now Contoso admins configure the Web App to use Contoso resources.
 
     ![Json settings](./media/contoso-migration-rebuild/configure-webapp2.png)
 
-5. After the file is updated, they rename it **smarthotelsettingsurl**, and upload it to the storage blog they created earlier.
+5. After the file is updated, they rename it **smarthotelsettingsurl**, and upload it to the blob storage they created earlier.
 
     ![Rename and upload](./media/contoso-migration-rebuild/configure-webapp3.png)
 

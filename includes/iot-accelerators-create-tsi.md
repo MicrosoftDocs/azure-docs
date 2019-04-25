@@ -36,7 +36,7 @@ The following steps use the Azure CLI in the Azure Cloud Shell to create the con
 
 [Azure Time Series Insights](../articles/time-series-insights/time-series-insights-overview.md) is a fully managed analytics, storage, and visualization service for managing IoT-scale time-series data in the cloud. To create a new Time Series Insights environment:
 
-1. Sign in to the [Azure portal](http://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Select **Create a resource** > **Internet of Things** > **Time Series Insights**:
 

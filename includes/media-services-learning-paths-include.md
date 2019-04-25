@@ -1,9 +1,23 @@
-Check out the latest version of Azure Media Services: [Azure Media Services v3](https://docs.microsoft.com/azure/media-services/latest/).
+---
+author: Juliako
+ms.service: media-services
+ms.topic: include
+ms.date: 03/20/2019
+ms.author: juliako
+---
 
-You can start with the following topics: 
+### Media Services v3 (latest)
+
+Check out the latest version of Azure Media Services! 
 
 * [Overview](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
-* [Upload, encode, and stream videos using APIs](https://docs.microsoft.com/azure/media-services/latest/stream-files-tutorial-with-api)
-* [Analyze](https://docs.microsoft.com/azure/media-services/latest/analyze-videos-tutorial-with-api)
-* [Stream live](https://docs.microsoft.com/azure/media-services/latest/stream-live-tutorial-with-api)
-* [Protect your content](https://docs.microsoft.com/azure/media-services/latest/protect-with-aes128)
+* [Concepts](https://docs.microsoft.com/azure/media-services/latest/concepts-overview)
+* [Start developing](https://docs.microsoft.com/azure/media-services/latest/developers-guide)
+* [Migration guidance from v2 to v3](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3)
+
+### Media Services v2 (legacy)
+
+* [Overview](https://docs.microsoft.com/azure/media-services/previous/media-services-overview)
+* [Create account](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-create-account)
+* [Deliver on-demand](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-vod-get-started)
+* [Deliver live](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-live-passthrough-get-started)

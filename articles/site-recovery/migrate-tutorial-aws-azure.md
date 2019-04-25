@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/28/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
 
@@ -32,8 +32,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
   - Windows Server 2012 R2
   - Windows Server 2012 
   - 64-bit version of Windows Server 2008 R2 SP1 or later
-  - Red Hat Enterprise Linux 6.7 (HVM virtualized instances only), with a Citrix PV or AWS PV driver. Instances running RedHat PV drivers *aren't* supported.
- - The Mobility service must be installed on each VM that you want to replicate. 
+  - Red Hat Enterprise Linux 6.4 to 6.10, 7.1 to 7.6 (HVM virtualized instances only)  *(Instances running RedHat PV drivers aren't supported.)*
+  - CentOS 6.4 to 6.10, 7.1 to 7.6 (HVM virtualized instances only)
+ 
+- The Mobility service must be installed on each VM that you want to replicate. 
 
     > [!IMPORTANT]
     > Site Recovery installs this service automatically when you enable replication for the VM. For automatic installation, you must prepare an account on the EC2 instances that Site Recovery will use to access the VM. 
@@ -164,42 +166,42 @@ When you're finished with all five sections under **Prepare Infrastructure**, se
 
 Enable replication for each VM that you want to migrate. When replication is enabled, Site Recovery automatically installs the Mobility service.
 
-1. Go to the [Azure portal](htts://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com).
 1. On the page for your vault, under **Getting Started**, select **Site Recovery**.
 2. Under **For on-premises machines and Azure VMs**, select **Step 1: Replicate application**. Complete the wizard pages with the following information. Select **OK** on each page when you're done:
-	- 1: Configure source
+   - 1: Configure source
 
-    |  |  |
-    |-----|-----|
-    | Source: | Select **On Premises**.|
-	| Source location:| Enter the name of your configuration server EC2 instance.|
-	|Machine type: | Select **Physical machines**.|
-	| Process server: | Select the configuration server from the drop-down list.|
+     |  |  |
+     |-----|-----|
+     | Source: | Select **On Premises**.|
+     | Source location:| Enter the name of your configuration server EC2 instance.|
+     |Machine type: | Select **Physical machines**.|
+     | Process server: | Select the configuration server from the drop-down list.|
 
-	- 2: Configure target
+   - 2: Configure target
 
-    |  |  |
-    |-----|-----|
-    | Target: | Leave the default.|
-	| Subscription: | Select the subscription that you have been using.|
-	| Post-failover resource group:| Use the resource group you created in [Prepare Azure resources](#prepare-azure-resources).|
-	| Post-failover deployment model: | Select **Resource Manager**.|
-	| Storage account: | Select the storage account that you created in [Prepare Azure resources](#prepare-azure-resources).|
-	| Azure network: | Select **Configure now for selected machines**.|
-	| Post-failover Azure network: | Choose the network you created in [Prepare Azure resources](#prepare-azure-resources).|
-	| Subnet: | Select the **default** in the drop-down list.|
+     |  |  |
+     |-----|-----|
+     | Target: | Leave the default.|
+     | Subscription: | Select the subscription that you have been using.|
+     | Post-failover resource group:| Use the resource group you created in [Prepare Azure resources](#prepare-azure-resources).|
+     | Post-failover deployment model: | Select **Resource Manager**.|
+     | Storage account: | Select the storage account that you created in [Prepare Azure resources](#prepare-azure-resources).|
+     | Azure network: | Select **Configure now for selected machines**.|
+     | Post-failover Azure network: | Choose the network you created in [Prepare Azure resources](#prepare-azure-resources).|
+     | Subnet: | Select the **default** in the drop-down list.|
 
-	- 3: Select physical machines
+   - 3: Select physical machines
 
-	  Select **Physical machine**, and then enter the values for **Name**, **IP Address**, and **OS Type** of the EC2 instance that you want to migrate. Select **OK**.
+     Select **Physical machine**, and then enter the values for **Name**, **IP Address**, and **OS Type** of the EC2 instance that you want to migrate. Select **OK**.
 
-	- 4: Configure properties
+   - 4: Configure properties
 
-	  Select the account that you created on the configuration server, and then select **OK**.
+     Select the account that you created on the configuration server, and then select **OK**.
 
-	- 5: Configure replication settings
+   - 5: Configure replication settings
 
-	  Make sure that the replication policy selected in the drop-down list is **myReplicationPolicy**, and then select **OK**.
+     Make sure that the replication policy selected in the drop-down list is **myReplicationPolicy**, and then select **OK**.
 
 3. When the wizard is finished, select **Enable replication**.
 
@@ -240,10 +242,10 @@ Run an actual failover for the EC2 instances to migrate them to Azure VMs:
 1. Ensure that the VM appears in **Replicated items**.
 2. Right-click each VM, and then select **Complete Migration**. This does the following:
 
-    - This finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
-    - This step cleans up the replication data. It doesn't delete the migrated VMs. 
+   - This finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
+   - This step cleans up the replication data. It doesn't delete the migrated VMs. 
 
-    ![Complete migration](./media/migrate-tutorial-aws-azure/complete-migration.png)
+     ![Complete migration](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
 > *Don't cancel a failover that is in progress*. Before failover is started, VM replication is stopped. If you cancel a failover that is in progress, failover stops, but the VM won't replicate again.  

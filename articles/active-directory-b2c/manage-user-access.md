@@ -3,14 +3,14 @@ title: Manage user access in Azure Active Directory B2C | Microsoft Docs
 description: Learn how to identify minors, collect date of birth and country data, and get acceptance of terms of use in your application by using Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Manage user access in Azure Active Directory B2C
@@ -42,7 +42,7 @@ Depending on application regulation, parental consent might need to be granted b
 
 The following is an example of a user flow for gathering parental consent:
 
-1. An [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) operation identifies the user as a minor and returns the user data to the application in the form of an unsigned JSON token.
+1. An [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog) operation identifies the user as a minor and returns the user data to the application in the form of an unsigned JSON token.
 
 2. The application processes the JSON token and shows a screen to the minor, notifying him or her that parental consent is required and requesting the consent of a parent online. 
 

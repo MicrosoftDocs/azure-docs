@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Analyze Apache Spark data using Power BI in Azure HDInsight '
 description: Use Microsoft Power BI to visualize Apache Spark data stored HDInsight clusters  
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -16,7 +15,7 @@ ms.date: 05/07/2018
 
 # Tutorial: Analyze Apache Spark data using Power BI in HDInsight 
 
-Learn how to use Microsoft Power BI to visualize data in Apache Spark cluster in Azure HDInsight.
+Learn how to use [Microsoft Power BI](https://powerbi.microsoft.com/) to visualize data in an [Apache Spark](https://spark.apache.org/) cluster in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -32,7 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Verify the data
 
-The Jupyter notebook that you created in the [previous tutorial](apache-spark-load-data-run-query.md) includes code to create an `hvac` table. This table is based on the CSV file available on all HDInsight Spark clusters at **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Use the following procedure to verify the data.
+The [Jupyter Notebook](https://jupyter.org/) that you created in the [previous tutorial](apache-spark-load-data-run-query.md) includes code to create an `hvac` table. This table is based on the CSV file available on all HDInsight Spark clusters at **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Use the following procedure to verify the data.
 
 1. From the Jupyter notebook, paste the following code, and then press **SHIFT + ENTER**. The code verifies the existence of the tables.
 
@@ -67,7 +66,7 @@ In this section, you use Power BI to create visualizations, reports, and dashboa
 ### Create a report in Power BI Desktop
 The first steps in working with Spark are to connect to the cluster in Power BI Desktop, load data from the cluster, and create a basic visualization based on that data.
 
-> [!NOTE]
+> [!NOTE]  
 > The connector demonstrated in this article is currently in preview. Provide any feedback you have through the [Power BI Community](https://community.powerbi.com/) site or [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
 1. Open [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
@@ -101,7 +100,7 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 
         The diagram looks like:
 
-        ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Create Spark data visualizations using Apache Spark BI")
+        ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Create Spark data visualizations using Apache Spark BI")
 
         By default the visualization shows the sum for **ActualTemp** and **TargetTemp**. Click the down arrow next to **ActualTemp** and **TragetTemp** in the Visualizations pane, you can see **Sum** is selected.
 
@@ -111,7 +110,7 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 
         Your data visualization shall be similar to the one in the screenshot. Move your cursor over the visualization to get tool tips with relevant data.
 
-        ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Create Spark data visualizations using Apache Spark BI")
+        ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Create Spark data visualizations using Apache Spark BI")
 
 7. Click **File** then **Save**, and enter the name `BuildingTemperature.pbix` for the file. 
 
@@ -162,7 +161,7 @@ The Power BI service allows you to share reports and dashboards across your orga
 
 10. In the report, click **Go to dashboard**. 
 
-Your visual is pinned to the dashboard - you can add other visuals to the report and pin them to the same dashboard. For more information about reports and dashboards, see [Reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)and [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
+Your visual is pinned to the dashboard - you can add other visuals to the report and pin them to the same dashboard. For more information about reports and dashboards, see [Reports in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) and [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 <!--
 ## <a name="tableau"></a>Use Tableau Desktop 
@@ -172,7 +171,7 @@ Your visual is pinned to the dashboard - you can add other visuals to the report
 >
 >
 
-1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
+1. Install [Tableau Desktop](https://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
 2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](https://go.microsoft.com/fwlink/?LinkId=616229).
 
@@ -212,9 +211,9 @@ Your visual is pinned to the dashboard - you can add other visuals to the report
 
 In this tutorial, you learned how to:
 
-- Visualize Spark data using Power BI.
+- Visualize Apache Spark data using Power BI.
 
 Advance to the next article to see how the data you registered in Spark can be pulled into a BI analytics tool such as Power BI. 
 > [!div class="nextstepaction"]
-> [Run a Spark streaming job](apache-spark-eventhub-streaming.md)
+> [Run an Apache Spark streaming job](apache-spark-eventhub-streaming.md)
 

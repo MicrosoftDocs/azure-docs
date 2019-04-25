@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -17,6 +17,7 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 #Customer intent: As an application developer, I want to learn how to implement Microsoft sign-in with an ASP.NET solution with a browser-based app using the OpenID Connect standard.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Add sign-in with Microsoft to an ASP.NET web app
@@ -28,7 +29,7 @@ In this quickstart, you'll learn how to implement sign-in with Microsoft using a
 At the end of this quickstart, your application will accept sign ins of work and school accounts from organizations that have integrated with Azure Active Directory (Azure AD).
 
 > [!NOTE]
-> If you need to enable sign-ins for personal accounts in addition to work and school accounts, you can use the [v2.0 endpoint](azure-ad-endpoint-comparison.md). For more info, see [this ASP.NET tutorial for the v2.0 endpoint](tutorial-v2-asp-webapp.md) as well as [this article](active-directory-v2-limitations.md) explaining the current limitations of the v2.0 endpoint.
+> If you need to enable sign-ins for personal accounts in addition to work and school accounts, you can use the *[Microsoft identity platform endpoint](azure-ad-endpoint-comparison.md)*. For more info, see [this ASP.NET tutorial](tutorial-v2-asp-webapp.md) as well as [this article](active-directory-v2-limitations.md) explaining  the *Microsoft identity platform endpoint*.
 
 ## Prerequisites
 
@@ -53,7 +54,7 @@ This quickstart uses the following packages:
 | [Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/) | Middleware that enables an application to use OpenIdConnect for authentication |
 | [Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies) |Middleware that enables an application to maintain user session using cookies |
 | [Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb) | Enables OWIN-based applications to run on IIS using the ASP.NET request pipeline |
-|  |  | 
+|  |  |
 
 ## Step 1: Set up your project
 
@@ -61,7 +62,7 @@ These steps show how to install and configure the authentication pipeline throug
 
 To download this sample's Visual Studio project instead, follow these steps:
 1. [Download the project on GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip).
-1. Skip to the [Configuration step](#configure-your-webconfig-and-register-an-application) to configure the code sample before executing.
+1. Skip to the Configuration step to configure the code sample before executing.
 
 ## Step 2: Create your ASP.NET project
 
@@ -101,11 +102,11 @@ To create an OWIN middleware *Startup Class*:
 
 1. Add *OWIN* and *Microsoft.IdentityModel* namespaces to `Startup.cs`:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=AddedNameSpaces "Startup.cs")]
 
 2. Replace Startup class with the following code:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=Startup "Startup.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
@@ -126,11 +127,11 @@ Create a new controller to expose sign-in and sign-out methods.
 4.	Name it `HomeController` and select **Add**.
 5.	Add **OWIN** namespaces to the class:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
 
 6. Add the following methods to handle sign-in and sign-out to your controller by initiating an authentication challenge via code:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
 
 ## Step 6: Create the app's home page to sign in users via a sign-in button
 
@@ -143,7 +144,7 @@ In Visual Studio, create a new view to add the sign-in button and display user i
     [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
 <!--start-collapse-->
-This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to [Branding guidelines for applications](https://docs.microsoft.com/azure/active-directory/develop/howto-add-branding-guidelines-in-azure-ad-apps).
+This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md).
 <!--end-collapse-->
 
 ## Step 7: Display user's claims by adding a controller
@@ -156,11 +157,11 @@ This controller demonstrates the uses of the `[Authorize]` attribute to protect 
 1. Name it **ClaimsController**.
 1. Replace the code of your controller class with the following code - this adds the `[Authorize]` attribute to the class:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
-> Because of the use of the `[Authorize]` attribute, all methods of this controller can only be executed if the user is authenticated. If the user is not authenticated and tries to access the controller, OWIN initiates an authentication challenge and force the user to authenticate. The code above looks at the claims collection of the user for specific attributes included in the user’s token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization. 
+> Because of the use of the `[Authorize]` attribute, all methods of this controller can only be executed if the user is authenticated. If the user is not authenticated and tries to access the controller, OWIN initiates an authentication challenge and force the user to authenticate. The code above looks at the claims collection of the user for specific attributes included in the user’s token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization.
 <!--end-collapse-->
 
 ## Step 8: Create a view to display the user's claims
@@ -185,7 +186,7 @@ In Visual Studio, create a new view to display the user's claims in a web page:
     <add key="ClientId" value="Enter_the_Application_Id_here" />
     <add key="RedirectUrl" value="Enter_the_Redirect_Url_here" />
     <add key="Tenant" value="common" />
-    <add key="Authority" value="https://login.microsoftonline.com/{0}" /> 
+    <add key="Authority" value="https://login.microsoftonline.com/{0}" />
     ```
 2. In Solution Explorer, select the project and look at the <i>Properties</i> window (if you don’t see a Properties window, press F4)
 3. Change SSL Enabled to <code>True</code>
@@ -225,10 +226,12 @@ For more information about this setting and the concept of multi-tenant applicat
 This option is a common scenario for line-of-business applications.
 
 If you want your application to accept sign-ins only from accounts that belong to a specific Azure AD instance (including *guest accounts* of that instance), follow these steps:
+
 1. Replace the `Tenant` parameter in *web.config* from `Common` with the tenant name of the organization – example, *contoso.onmicrosoft.com*.
-1. Change the `ValidateIssuer` argument in your [*OWIN Startup class*](#configure-the-authentication-pipeline) to `true`.
+1. Change the `ValidateIssuer` argument in your [*OWIN Startup class*](#step-4-configure-the-authentication-pipeline) to `true`.
 
 To allow users from only a list of specific organizations, follow these steps:
+
 1. Set `ValidateIssuer` to true.
 1. Use the `ValidIssuers` parameter to specify a list of organizations.
 
@@ -295,7 +298,7 @@ In addition, you see a table including all user claims included in authenticatio
 
 In this step, you test accessing the Claims controller as an anonymous user:<br/>
 Select the link to sign-out the user and complete the sign-out process.<br/>
-Now in your browser, type http://localhost:{port}/claims to access your controller that is protected with the `[Authorize]` attribute
+Now in your browser, type `http://localhost:{port}/claims` to access your controller that is protected with the `[Authorize]` attribute
 
 #### Expected results
 

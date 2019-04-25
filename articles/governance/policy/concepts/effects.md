@@ -1,21 +1,19 @@
 ---
-title: Understand Azure Policy effects
+title: Understand how effects work
 description: Azure Policy definition have various effects that determine how compliance is managed and reported.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
+ms.custom: seodec18
 ---
-# Understand Policy effects
+# Understand Azure Policy effects
 
-Each policy definition in Azure Policy has a single effect that determines what happens during
-scanning when the **if** segment of the policy rule is evaluated to match the resource being
-scanned. The effects can also behave differently if they are for a new resource, an updated
-resource, or an existing resource.
+Each policy definition in Azure Policy has a single effect. That effect determines what happens
+when the policy rule is evaluated to match. The effects behave differently if they are for a new
+resource, an updated resource, or an existing resource.
 
 There are currently six effects that are supported in a policy definition:
 
@@ -28,42 +26,41 @@ There are currently six effects that are supported in a policy definition:
 
 ## Order of evaluation
 
-When a request to create or update a resource through Azure Resource Manager is made, Policy
-processes several of the effects prior to handing the request to the appropriate Resource Provider.
-Doing so prevents unnecessary processing by a Resource Provider when a resource does not meet the
-designed governance controls of Policy. Policy creates a list of all policy definitions assigned,
-by a policy or initiative assignment, that apply by scope (minus exclusions) to the resource and
-prepares to evaluate the resource against each definition.
+Requests to create or update a resource through Azure Resource Manager are evaluated by Policy
+first. Policy creates a list of all assignments that apply to the resource and then evaluates the
+resource against each definition. Policy processes several of the effects before handing the
+request to the appropriate Resource Provider. Doing so prevents unnecessary processing by a
+Resource Provider when a resource doesn't meet the designed governance controls of Policy.
 
 - **Disabled** is checked first to determine if the policy rule should be evaluated.
 - **Append** is then evaluated. Since append could alter the request, a change made by append may prevent an audit or deny effect from triggering.
 - **Deny** is then evaluated. By evaluating deny before audit, double logging of an undesired resource is prevented.
-- **Audit** is then evaluated prior to the request going to the Resource Provider.
+- **Audit** is then evaluated before the request going to the Resource Provider.
 
-Once the request is provided to the Resource Provider and the Resource Provider returns a success
-status code, **AuditIfNotExists** and **DeployIfNotExists** are evaluated to determine if follow-up
-compliance logging or action is required.
+After the Resource Provider returns a success code, **AuditIfNotExists** and **DeployIfNotExists**
+evaluate to determine if additional compliance logging or action is required.
 
 ## Disabled
 
-This effect is useful for testing situations and when the policy definition has parameterized the
-effect. It becomes possible to disable a single assignment of that policy by altering the
-assignment parameter of the effect instead of disabling all assignments of the policy.
+This effect is useful for testing situations or for when the policy definition has parameterized
+the effect. This flexibility makes it possible to disable a single assignment instead of disabling
+all of that policy's assignments.
 
 ## Append
 
-Append is used to add additional fields to the requested resource during creation or update. It can
-be useful for adding tags on resources such as costCenter or specifying allowed IPs for a storage
-resource.
+Append is used to add additional fields to the requested resource during creation or update. A
+common example is adding tags on resources such as costCenter or specifying allowed IPs for a
+storage resource.
 
 ### Append evaluation
 
-As mentioned, append evaluates prior to the request getting processed by a Resource Provider during
-the creation or updating of a resource. Append adds field(s) to the resource when the **if**
-condition of the policy rule is met. If the append effect would override a value in the original
-request with a different value, then it acts as a deny effect and reject the request.
+Append evaluates before the request gets processed by a Resource Provider during the creation or
+updating of a resource. Append adds fields to the resource when the **if** condition of the policy
+rule is met. If the append effect would override a value in the original request with a different
+value, then it acts as a deny effect and rejects the request. To append a new value to an existing
+array, use the **[\*]** version of the alias.
 
-When a policy definition using the append effect is run as part of an evaluation cycle, it does not
+When a policy definition using the append effect is run as part of an evaluation cycle, it doesn't
 make changes to resources that already exist. Instead, it marks any resource that meets the **if**
 condition as non-compliant.
 
@@ -87,7 +84,7 @@ Example 1: Single **field/value** pair to append a tag.
 }
 ```
 
-Example 2: Multiple **field/value** pairs to append a set of tags.
+Example 2: Two **field/value** pairs to append a set of tags.
 
 ```json
 "then": {
@@ -104,8 +101,10 @@ Example 2: Multiple **field/value** pairs to append a set of tags.
 }
 ```
 
-Example 3: Single **field/value** pair using an [alias](definition-structure.md#aliases) with an
-array **value** to set IP rules on a storage account.
+Example 3: Single **field/value** pair using a non-**[\*]**
+[alias](definition-structure.md#aliases) with an array **value** to set IP rules on a storage
+account. When the non-**[\*]** alias is an array, the effect appends the **value** as the entire
+array. If the array already exists, a deny event occurs from the conflict.
 
 ```json
 "then": {
@@ -120,23 +119,41 @@ array **value** to set IP rules on a storage account.
 }
 ```
 
+Example 4: Single **field/value** pair using an **[\*]** [alias](definition-structure.md#aliases)
+with an array **value** to set IP rules on a storage account. By using the **[\*]** alias, the
+effect appends the **value** to a potentially pre-existing array. If the array doesn't yet exists,
+it will be created.
+
+```json
+"then": {
+    "effect": "append",
+    "details": [{
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "value": {
+            "value": "40.40.40.40",
+            "action": "Allow"
+        }
+    }]
+}
+```
+
 ## Deny
 
-Deny is used to prevent a resource request that doesn't match desired standards through a policy
+Deny is used to prevent a resource request that doesn't match defined standards through a policy
 definition and fails the request.
 
 ### Deny evaluation
 
-When creating or updating a resource, deny prevents the request prior to being sent to the Resource
-Provider. The request is returned as a 403 (Forbidden). In the portal, the Forbidden can be viewed
-as a status on the deployment that was prevented due to the policy assignment.
+When creating or updating a matched resource, deny prevents the request before being sent to the
+Resource Provider. The request is returned as a `403 (Forbidden)`. In the portal, the Forbidden can
+be viewed as a status on the deployment that was prevented by the policy assignment.
 
-During an evaluation cycle, policy definitions with a deny effect that match resources are marked
-as non-compliant, but no action is performed on that resource.
+During evaluation of existing resources, resources that match a deny policy definition are marked
+as non-compliant.
 
 ### Deny properties
 
-The deny effect does not have any additional properties for use in the **then** condition of the
+The deny effect doesn't have any additional properties for use in the **then** condition of the
 policy definition.
 
 ### Deny example
@@ -151,19 +168,19 @@ Example: Using the deny effect.
 
 ## Audit
 
-Audit effect is used to create a warning event in the activity log when a non-compliant resource is
-evaluated, but it does not stop the request.
+Audit is used to create a warning event in the activity log when evaluating a non-compliant
+resource, but it doesn't stop the request.
 
 ### Audit evaluation
 
-The audit effect is the last to run during the creation or update of a resource prior to the
-resource is sent to the Resource Provider. Audit works the same for a resource request and an
-evaluation cycle, and executes a `Microsoft.Authorization/policies/audit/action` operation to the
-activity log. In both cases, the resource is marked as non-compliant.
+Audit is the last effect checked by Policy during the creation or update of a resource. Policy then
+sends the resource to the Resource Provider. Audit works the same for a resource request and an
+evaluation cycle. Policy adds a `Microsoft.Authorization/policies/audit/action` operation to the
+activity log and marks the resource as non-compliant.
 
 ### Audit properties
 
-The audit effect does not have any additional properties for use in the **then** condition of the
+The audit effect doesn't have any additional properties for use in the **then** condition of the
 policy definition.
 
 ### Audit example
@@ -178,17 +195,17 @@ Example: Using the audit effect.
 
 ## AuditIfNotExists
 
-AuditIfNotExists enables auditing on a resource that matches the **if** condition, but does not
-have the components specified in the **details** of the **then** condition.
+AuditIfNotExists enables auditing on resources that match the **if** condition, but doesn't have
+the components specified in the **details** of the **then** condition.
 
 ### AuditIfNotExists evaluation
 
-AuditIfNotExists runs after a Resource Provider has handled a create or update request to a
-resource and has returned a success status code. The effect is triggered if there are no related
-resources or if the resources defined by **ExistenceCondition** do not evaluate to true. When the
-effect is triggered, a `Microsoft.Authorization/policies/audit/action` operation to the activity
-log is executed in the same way as the audit effect. When triggered, the resource that satisfied
-the **if** condition is the resource that is marked as non-compliant.
+AuditIfNotExists runs after a Resource Provider has handled a create or update resource request and
+has returned a success status code. The audit occurs if there are no related resources or if the
+resources defined by **ExistenceCondition** don't evaluate to true. Policy adds a
+`Microsoft.Authorization/policies/audit/action` operation to the activity log the same way as the
+audit effect. When triggered, the resource that satisfied the **if** condition is the resource that
+is marked as non-compliant.
 
 ### AuditIfNotExists properties
 
@@ -197,24 +214,27 @@ related resources to match.
 
 - **Type** [required]
   - Specifies the type of the related resource to match.
-  - Starts by trying to fetch a resource underneath the **if** condition resource, then queries within the same resource group as the **if** condition resource.
+  - If **details.type** is a resource type underneath the **if** condition resource, the policy
+    queries for resources of this **type** within the scope of the evaluated resource. Otherwise,
+    policy queries within the same resource group as the evaluated resource.
 - **Name** (optional)
   - Specifies the exact name of the resource to match and causes the policy to fetch one specific resource instead of all resources of the specified type.
+  - When the condition values for **if.field.type** and **then.details.type** match, then **Name** becomes _required_ and must be `[field('name')]`. However, an [audit](#audit) effect should be considered instead.
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
-  - Does not apply if **type** is a resource that would be underneath the **if** condition resource.
+  - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - Default is the **if** condition resource's resource group.
 - **ExistenceScope** (optional)
   - Allowed values are _Subscription_ and _ResourceGroup_.
   - Sets the scope of where to fetch the related resource to match from.
-  - Does not apply if **type** is a resource that would be underneath the **if** condition resource.
+  - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the resource group specified in **ResourceGroupName**.
   - For _Subscription_, queries the entire subscription for the related resource.
   - Default is _ResourceGroup_.
 - **ExistenceCondition** (optional)
-  - If not specified, any related resource of **type** satisfies the effect and does not trigger the audit.
+  - If not specified, any related resource of **type** satisfies the effect and doesn't trigger the audit.
   - Uses the same language as the policy rule for the **if** condition, but is evaluated against each related resource individually.
-  - If any matching related resource evaluates to true, the effect is satisfied and does not trigger the audit.
+  - If any matching related resource evaluates to true, the effect is satisfied and doesn't trigger the audit.
   - Can use [field()] to check equivalence with values in the **if** condition.
   - For example, could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 
@@ -260,13 +280,12 @@ is met.
 
 ### DeployIfNotExists evaluation
 
-DeployIfNotExists also runs after a Resource Provider has handled a create or update request to a
-resource and has returned a success status code. The effect is triggered if there are no related
-resources or if the resources defined by **ExistenceCondition** do not evaluate to true. When the
-effect is triggered, a template deployment is executed.
+DeployIfNotExists runs after a Resource Provider has handled a create or update resource request
+and has returned a success status code. A template deployment occurs if there are no related
+resources or if the resources defined by **ExistenceCondition** don't evaluate to true.
 
 During an evaluation cycle, policy definitions with a DeployIfNotExists effect that match resources
-are marked as non-compliant, but no action is performed on that resource.
+are marked as non-compliant, but no action is taken on that resource.
 
 ### DeployIfNotExists properties
 
@@ -278,28 +297,34 @@ related resources to match and the template deployment to execute.
   - Starts by trying to fetch a resource underneath the **if** condition resource, then queries within the same resource group as the **if** condition resource.
 - **Name** (optional)
   - Specifies the exact name of the resource to match and causes the policy to fetch one specific resource instead of all resources of the specified type.
+  - When the condition values for **if.field.type** and **then.details.type** match, then **Name** becomes _required_ and must be `[field('name')]`.
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
-  - Does not apply if **type** is a resource that would be underneath the **if** condition resource.
+  - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - Default is the **if** condition resource's resource group.
-  - If a template deployment is executed, it is deployed in the resource group of this value.
+  - If a template deployment is executed, it's deployed in the resource group of this value.
 - **ExistenceScope** (optional)
   - Allowed values are _Subscription_ and _ResourceGroup_.
   - Sets the scope of where to fetch the related resource to match from.
-  - Does not apply if **type** is a resource that would be underneath the **if** condition resource.
+  - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the resource group specified in **ResourceGroupName**.
   - For _Subscription_, queries the entire subscription for the related resource.
   - Default is _ResourceGroup_.
 - **ExistenceCondition** (optional)
-  - If not specified, any related resource of **type** satisfies the effect and does not trigger the deployment.
+  - If not specified, any related resource of **type** satisfies the effect and doesn't trigger the deployment.
   - Uses the same language as the policy rule for the **if** condition, but is evaluated against each related resource individually.
-  - If any matching related resource evaluates to true, the effect is satisfied and does not trigger the deployment.
+  - If any matching related resource evaluates to true, the effect is satisfied and doesn't trigger the deployment.
   - Can use [field()] to check equivalence with values in the **if** condition.
   - For example, could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 - **roleDefinitionIds** [required]
-  - This property must contain an array of strings that match role-based access control role ID accessible by the subscription. For more information, see [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
+  - This property must include an array of strings that match role-based access control role ID accessible by the subscription. For more information, see [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
+- **DeploymentScope** (optional)
+  - Allowed values are _Subscription_ and _ResourceGroup_.
+  - Sets the type of deployment to be triggered. _Subscription_ indicates a [deployment at subscription level](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indicates a deployment to a resource group.
+  - A _location_ property must be specified in the _Deployment_ when using subscription level deployments.
+  - Default is _ResourceGroup_.
 - **Deployment** [required]
-  - This property should contain the full template deployment as it would be passed to the `Microsoft.Resources/deployments` PUT API. For more information, see the [Deployments REST API](/rest/api/resources/deployments).
+  - This property should include the full template deployment as it would be passed to the `Microsoft.Resources/deployments` PUT API. For more information, see the [Deployments REST API](/rest/api/resources/deployments).
 
   > [!NOTE]
   > All functions inside the **Deployment** property are evaluated as components of the
@@ -310,7 +335,7 @@ related resources to match and the template deployment to execute.
 ### DeployIfNotExists example
 
 Example: Evaluates SQL Server databases to determine if transparentDataEncryption is enabled. If
-not, then a deployment to enable it is executed.
+not, then a deployment to enable is executed.
 
 ```json
 "if": {
@@ -334,7 +359,7 @@ not, then a deployment to enable it is executed.
             "properties": {
                 "mode": "incremental",
                 "template": {
-                    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0.0",
                     "parameters": {
                         "fullDbName": {
@@ -363,34 +388,39 @@ not, then a deployment to enable it is executed.
 
 ## Layering policies
 
-A resource may be impacted by multiple assignments. These assignments may be at the same scope
-(specific resource, resource group, subscription, or management group) or at different scopes. Each
-of these assignments is also likely to have a different effect defined. Regardless, the condition
-and effect for each policy (assigned directly or as part of an initiative) is independently
-evaluated. For example, if policy 1 has a condition that restricts resource location for
-subscription A to only be created in ‘westus’ with the deny effect and policy 2 has a condition
-that restricts resource location for resource group B (which is in subscription A) to only be
-created in ‘eastus’ with the audit effect are both assigned, the resulting outcome would be::
+A resource may be impacted by several assignments. These assignments may be at the same scope or at
+different scopes. Each of these assignments is also likely to have a different effect defined. The
+condition and effect for each policy is independently evaluated. For example:
 
-- Any resource already in resource group B in 'eastus' is compliant to policy 2, but marked as non-compliant to policy 1.
-- Any resource already in resource group B not in 'eastus' will be marked as non-compliant to policy 2, and would also be marked not-compliant to policy 1 if not 'westus'.
-- Any new resource in subscription A not in 'westus' would be denied by policy 1.
-- Any new resource in subscription A / resource group B in 'westus' would be marked as non-compliant on policy 2, but would be created (compliant to policy 1 and policy 2 is audit and not deny).
+- Policy 1
+  - Restricts resource location to 'westus'
+  - Assigned to subscription A
+  - Deny effect
+- Policy 2
+  - Restricts resource location to 'eastus'
+  - Assigned to resource group B in subscription A
+  - Audit effect
+  
+This setup would result in the following outcome:
 
-If both policy 1 and policy 2 had effect of deny, the situation would change to:
+- Any resource already in resource group B in 'eastus' is compliant to policy 2 and non-compliant to policy 1
+- Any resource already in resource group B not in 'eastus' is non-compliant to policy 2 and non-compliant to policy 1 if not in 'westus'
+- Any new resource in subscription A not in 'westus' is denied by policy 1
+- Any new resource in subscription A and resource group B in 'westus' is created and non-compliant on policy 2
 
-- Any resource already in resource group B not in 'eastus' will be marked as non-compliant to policy 2.
-- Any resource already in resource group B not in 'westus' will be marked as non-compliant to policy 1.
-- Any new resource in subscription A not in 'westus' would be denied by policy 1.
-- Any new resource in subscription A / resource group B would be denied (since its location could never satisfy both policy 1 and policy 2).
+If both policy 1 and policy 2 had effect of deny, the situation changes to:
 
-As each assignment is individually evaluated, there isn't an opportunity for a resource to slip
-through a gap due to differences in scope. Therefore, the net result of layering policies or policy
-overlap is considered to be **cumulative most restrictive**. In other words, a resource you want
-created could be blocked due to overlapping and conflicting policies such as the example above if
-both policy 1 and policy 2 had a deny effect. If you still need the resource to be created in the
-target scope, review the exclusions on each assignment to ensure the right policies are affecting
-the right scopes.
+- Any resource already in resource group B not in 'eastus' is non-compliant to policy 2
+- Any resource already in resource group B not in 'westus' is non-compliant to policy 1
+- Any new resource in subscription A not in 'westus' is denied by policy 1
+- Any new resource in resource group B of subscription A is denied
+
+Each assignment is individually evaluated. As such, there isn't an opportunity for a resource to
+slip through a gap from differences in scope. The net result of layering policies or policy overlap
+is considered to be **cumulative most restrictive**. As an example, if both policy 1 and 2 had a
+deny effect, a resource would be blocked by the overlapping and conflicting policies. If you still
+need the resource to be created in the target scope, review the exclusions on each assignment to
+validate the right policies are affecting the right scopes.
 
 ## Next steps
 
@@ -398,5 +428,5 @@ the right scopes.
 - Review the [Policy definition structure](definition-structure.md)
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md)
 - Learn how to [get compliance data](../how-to/getting-compliance-data.md)
-- Discover how to [remediate non-compliant resources](../how-to/remediate-resources.md)
+- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md)
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md)

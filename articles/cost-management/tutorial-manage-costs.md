@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2018
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom:
-manager: dougeby
+ms.custom: seodec18
+manager: benshy
 ---
 
 # Tutorial: Manage costs by using Cloudyn
@@ -18,7 +18,7 @@ You manage costs and produce showback reports in Cloudyn by allocating costs bas
 
 For example, you might want to get reimbursed for engineering costs. You need to be able to show your engineering team that you need a specific amount, based on resource costs. You can show them a report for all the consumed resources that are tagged *engineering*.
 
-In this article, tags and categories are sometimes synonymous. Categories are broad collections and can be many things. They might include business units, cost centers, web services, or anything that is tagged. Tags are name/value pairs that enable you to categorize resources and to view and mange consolidated billing information by applying the same tag to multiple resources and resource groups. In earlier versions of the Azure portal, a *tag name* was referred to as a *key*. Tags are created for and stored by a single Azure subscription. Tags in AWS consist of key/value pairs. Because both Azure and AWS have used the term *key*, Cloudyn uses that term. Category Manager uses keys (tag names) to merge tags.
+In this article, tags and categories are sometimes synonymous. Categories are broad collections and can be many things. They might include business units, cost centers, web services, or anything that is tagged. Tags are name/value pairs that enable you to categorize resources and to view and manage consolidated billing information by applying the same tag to multiple resources and resource groups. In earlier versions of the Azure portal, a *tag name* was referred to as a *key*. Tags are created for and stored by a single Azure subscription. Tags in AWS consist of key/value pairs. Because both Azure and AWS have used the term *key*, Cloudyn uses that term. Category Manager uses keys (tag names) to merge tags.
 
 In this tutorial, you learn how to:
 
@@ -48,13 +48,11 @@ When you start cost allocation, the first thing you do is define the scope by us
 
 To create a custom cost allocation model, select **Costs** &gt; **Cost Management** &gt; **Cost Allocation 360°** on the report's menu.
 
-![Cost Allocation 360 selection](./media/tutorial-manage-costs/cost-allocation-360.png)
+![Example showing a dashboard where you select Cost Allocation 360](./media/tutorial-manage-costs/cost-allocation-360.png)
 
 On the **Cost Allocation 360** page, select **Add** and then enter a name and description for your cost model. Select either all accounts or individual accounts. If you want to use individual accounts, you can select multiple accounts from multiple cloud service providers. Next, click **Categorization** to choose the discovered tags that categorize your cost data. Choose tags (categories) that you want to include in your model. In the following example, the **Unit** tag is selected.
 
-![Example cost model categorization](./media/tutorial-manage-costs/cost-model01.png)
-
-
+![Example showing cost model categorization](./media/tutorial-manage-costs/cost-model01.png)
 
 The example shows that $19,680 is uncategorized (without tags).
 
@@ -92,7 +90,7 @@ To define a new rule, in the **Rules** area, create a new rule. For example, ent
 
 The following image shows an example of rules created for a new category named **Work-Load**:
 
-![Example category](./media/tutorial-manage-costs/category01.png)
+![Example showing the new work-load category](./media/tutorial-manage-costs/category01.png)
 
 ### Tag sources and reports
 
@@ -119,7 +117,7 @@ The method that organizations use to perform showback and chargeback varies grea
 
 To view the results of cost allocation, open the Cost Analysis report and select the cost model that you created. Then, add a grouping by one or more of the tags selected in the cost model.
 
-![Cost Analysis report](./media/tutorial-manage-costs/cost-analysis.png)
+![Cost Analysis report showing an example of data from the new cost](./media/tutorial-manage-costs/cost-analysis.png)
 
 You can easily create and save reports that focus on specific services consumed by specific groups. For example, you might have a department that uses Azure VMs extensively. You can create a report that's filtered on Azure VMs to show consumption and costs.
 

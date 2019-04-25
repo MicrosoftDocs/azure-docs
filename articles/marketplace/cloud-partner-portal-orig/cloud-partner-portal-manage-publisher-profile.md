@@ -28,7 +28,7 @@ following approval of your partner request. Your publisher profile will
 apply to all the offers and SKUs published from the account used during
 partner registration.
 
-If you haven't registered your company as a cloud partner, see [Get started with the cloud partner portal](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal).
+If you haven't registered your company as a cloud partner, see [Get started with the cloud partner portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal).
 
 **Publisher Profile**: Your publisher profile distinguishes your company
 on the Azure Marketplace and AppSource. It consists of your publisher
@@ -61,7 +61,7 @@ your Dev Center account. Then your publisher profile page displays your Dev Cent
 >[!NOTE]
 >Dev Center Account registration is mandatory for publishing paid market place SKUs.
 
-If you don't have a [Developer Center Account](~/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md),
+If you don't have a [Developer Center Account](./cloud-partner-portal-dev-center-accounts-registration.md),
 you can create an account. Then add the registered email address as an
 owner on the Cloud Partner Portal for your offer. An owner can only add
 the registered email address to your publishing profile from the

@@ -1,20 +1,21 @@
 ---
-title: "Quickstart: Analyze image content for objectionable material in C#"
+title: "Quickstart: Analyze images for objectionable content in C# - Content Moderator"
 titlesuffix: Azure Cognitive Services
 description: How to analyze image content for various objectionable material using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 10/26/2018
+ms.date: 03/20/2019
 ms.author: sajagtap
+
 #As a C# developer of content management software, I want to analyze images for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
-# Quickstart: Analyze image content for objectionable material in C#
+# Quickstart: Analyze images for objectionable content in C#
 
 This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). You will learn how to scan for adult or racy content, extractable text, and human faces with the aim of moderating potentially objectionable material.
 
@@ -46,61 +47,23 @@ Next, you'll copy and paste the code from this guide into your project to implem
 
 Add the following `using` statements to the top of your *Program.cs* file.
 
-```csharp
-using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=1-8)]
 
 ### Create the Content Moderator client
 
 Add the following code to your *Program.cs* file to create a Content Moderator client provider for your subscription. Add the code alongside the **Program** class, in the same namespace. You'll need to update the **AzureRegion** and **CMSubscriptionKey** fields with the values of your region identifier and subscription key.
 
-```csharp
-// Wraps the creation and configuration of a Content Moderator client.
-public static class Clients
-{
-	// The region/location for your Content Moderator account, 
-	// for example, westus.
-	private static readonly string AzureRegion = "YOUR API REGION";
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=84-107)]
 
-	// The base URL fragment for Content Moderator calls.
-	private static readonly string AzureBaseURL =
-		$"https://{AzureRegion}.api.cognitive.microsoft.com";
-
-	// Your Content Moderator subscription key.
-	private static readonly string CMSubscriptionKey = "YOUR API KEY";
-
-	// Returns a new Content Moderator client for your subscription.
-	public static ContentModeratorClient NewClient()
-	{
-		// Create and initialize an instance of the Content Moderator API wrapper.
-		ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
-
-		client.Endpoint = AzureBaseURL;
-		return client;
-	}
-}
-```
 
 ### Set up input and output targets
 
 Add the following static fields to the **Program** class in _Program.cs_. These specify the files for input image content and output JSON content.
 
-```csharp
-//The name of the file that contains the image URLs to evaluate.
-private static string ImageUrlFile = "ImageFiles.txt";
-
-///The name of the file to contain the output from the evaluation.
-private static string OutputFile = "ModerationOutput.json";
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=49-53)]
 
 You will need to create the *_ImageFiles.txt* input file and update its path accordingly (relative paths are relative to the execution directory). Open _ImageFiles.txt_ and add the URLs of images to moderate. This quickstart uses the following URLs as its sample input.
+
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
@@ -110,95 +73,20 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 Add the following code to *Program.cs*, alongside the **Program** class in the same namespace. You will use an instance of this class to record the moderation results for each of the reviewed images.
 
-```csharp
-// Contains the image moderation results for an image, 
-// including text and face detection results.
-public class EvaluationData
-{
-    // The URL of the evaluated image.
-    public string ImageUrl;
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=109-124)]
 
-    // The image moderation results.
-    public Evaluate ImageModeration;
-
-    // The text detection results.
-    public OCR TextDetection;
-
-    // The face detection results;
-    public FoundFaces FaceDetection;
-}
-```
 
 ### Define the image evaluation method
 
 Add the following method to the **Program** class. This method evaluates a single image in three different ways and returns the evaluation results. If you want to learn more about what the individual operations do, follow the link in the [Next steps](#next-steps) section.
 
-```csharp
-// Evaluates an image using the Image Moderation APIs.
-private static EvaluationData EvaluateImage(
-  ContentModeratorClient client, string imageUrl)
-{
-    var url = new BodyModel("URL", imageUrl.Trim());
-
-    var imageData = new EvaluationData();
-
-    imageData.ImageUrl = url.Value;
-
-    // Evaluate for adult and racy content.
-    imageData.ImageModeration =
-        client.ImageModeration.EvaluateUrlInput("application/json", url, true);
-    Thread.Sleep(1000);
-
-    // Detect and extract text.
-    imageData.TextDetection =
-        client.ImageModeration.OCRUrlInput("eng", "application/json", url, true);
-    Thread.Sleep(1000);
-
-    // Detect faces.
-    imageData.FaceDetection =
-        client.ImageModeration.FindFacesUrlInput("application/json", url, true);
-    Thread.Sleep(1000);
-
-    return imageData;
-}
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=55-81)]
 
 ### Load the input images
 
 Add the following code to the **Main** method in the **Program** class. This sets up the program to retrieve evaluation data for each image URL in the input file. It then writes this data to a single output file.
 
-```csharp
-// Create an object to store the image moderation results.
-List<EvaluationData> evaluationData = new List<EvaluationData>();
-
-// Create an instance of the Content Moderator API wrapper.
-using (var client = Clients.NewClient())
-{
-    // Read image URLs from the input file and evaluate each one.
-    using (StreamReader inputReader = new StreamReader(ImageUrlFile))
-    {
-        while (!inputReader.EndOfStream)
-        {
-            string line = inputReader.ReadLine().Trim();
-            if (line != String.Empty)
-            {
-                EvaluationData imageData = EvaluateImage(client, line);
-                evaluationData.Add(imageData);
-            }
-        }
-    }
-}
-
-// Save the moderation results to a file.
-using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
-{
-    outputWriter.WriteLine(JsonConvert.SerializeObject(
-        evaluationData, Formatting.Indented));
-
-    outputWriter.Flush();
-    outputWriter.Close();
-}
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=17-46)]
 
 ## Run the program
 

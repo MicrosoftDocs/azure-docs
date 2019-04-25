@@ -1,6 +1,6 @@
 ---
-title: Using Akka Streams with Azure Event Hubs for Apache Kafka | Microsoft Docs
-description: Connecting Akka Streams to a Kafka enabled Event Hub
+title: Using Akka Streams for Apache Kafka - Azure Event Hubs| Microsoft Docs
+description: This article provides information on how to connect Akka Streams to an Apache Kafka enabled Azure event hub. 
 services: event-hubs
 documentationcenter: ''
 author: basilhariri
@@ -11,8 +11,8 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.custom: mvc
-ms.date: 08/06/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
 
 ---
@@ -39,7 +39,7 @@ To complete this tutorial, make sure you have the following prerequisites:
 * [Java Development Kit (JDK) 1.8+](https://aka.ms/azure-jdks)
     * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
-* [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a Maven binary archive
+* [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive
     * On Ubuntu, you can run `apt-get install maven` to install Maven.
 * [Git](https://www.git-scm.com/downloads)
     * On Ubuntu, you can run `sudo apt-get install git` to install Git.

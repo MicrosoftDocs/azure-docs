@@ -1,5 +1,5 @@
 ---
-title: Explore the Azure Time Series Insights JavaScript client library
+title: 'Tutorial: Explore the Azure Time Series Insights JavaScript client library | Microsoft Docs'
 description: Learn about the Azure Time Series Insights JavaScript client library and the related programming model.
 author: ashannon7
 manager: cshankar
@@ -8,6 +8,7 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
+ms.custom: seodec18
 # Customer intent: As a developer, I want to learn about the TSI JavaScript client library, so I can use the APIs in my own applications.
 ---
 
@@ -23,6 +24,9 @@ In this tutorial, you learn about:
 > * The TSI sample application.
 > * The TSI JavaScript client library.
 > * How the sample application uses the library to visualize TSI data.
+
+> [!NOTE]
+> The Time Series Insights sample application source files can be found in the provided [GitHub sample repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 
 ## Video: 
 
@@ -52,7 +56,7 @@ Throughout this tutorial, the Time Series Insights sample application is used to
 
 ### Page source and structure
 
-First, let's view the HTML and JavaScript source code that's behind the page that's rendered in your browser. We don't walk through all of the elements, but you learn about the major sections and you get a sense of how the page works:
+First, let's view the [HTML and JavaScript source code](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) that's behind the page that's rendered in your browser. We don't walk through all of the elements, but you learn about the major sections and you get a sense of how the page works:
 
 1. Open **Developer Tools** in your browser. Inspect the HTML elements that make up the current page (also known as the HTML or DOM tree).
 
@@ -104,7 +108,7 @@ As mentioned earlier, this sample is an SPA that uses the OAuth 2.0 support in A
 
 2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions for a specific service/API identifier https://api.timeseries.azure.com. The service/API identifier is also known as the token "audience." The token permissions are issued on behalf of the signed-in user. The identifier for the service/API is yet another property that's contained in the application's Azure AD registration. After ADAL returns the access token to the application, it's passed as a "bearer token" when accessing the TSI service APIs.
 
-   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=145-204&highlight=4-9,36-39)]
+   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=4-9,36-39)]
 
 ### Control identification
 
@@ -142,7 +146,7 @@ The populating and rendering of chart controls follows a general pattern. You fi
    | `splitByObject`   | The string property that you wish to split by (optional – can be null). | `{property: 'Station', type: 'String'}` |
    | `color`         | The color of the objects that you wish to render. | `'pink'` |
    | `alias`           | A friendly name for the aggregate expression. | `'Factory3Temperature'` |
-   | `contextMenuActions` | An array of actions to be bound to the time series objects in a visualization (optional). | For more information, see [Pop-up context menus in the Advanced features section.](#popup-context-menus) |
+   | `contextMenuActions` | An array of actions to be bound to the time series objects in a visualization (optional). | For more information, see Pop-up context menus in the Advanced features section. |
 
 3. Call a TSI query by using the `TsiClient.Server` APIs to request the aggregate data:
 
@@ -186,7 +190,7 @@ Look at the code that's behind some of the standard chart controls that are demo
 
 Recall from step #3 in the [Page source and structure section](#page-source-and-structure) that chart controls are arranged in rows on the page, each of which has a descriptive title row. In this example, the three charts are populated under the "Multiple Chart Types From the Same Data" title `<div>` element, and are bound to the three `<div>` elements that are beneath the title:
 
-[!code-javascript[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
+[!code-html[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
 The following section of JavaScript code uses patterns that were outlined earlier: build TSI aggregate expressions, use them to query for TSI data, and render the three charts. Notice the three types that are used from the `tsiClient.ux` namespace: `LineChart`, `BarChart`, and `PieChart`, to create and render the respective charts. Also note that all three charts are able to use the same aggregate expression data `transformedResult`:
 
@@ -255,7 +259,7 @@ The screenshot shows the charts with their respective pop-up context menus. The 
 
 Brushes are used to scope a time range to define actions like zoom and explore.
 
-The code that's used to illustrate brushes is shown in the previous "Line Chart with Context Menu to Create Pie/Bar Chart" example that describes [Pop-up context menus](#popup-context-menus-section).
+The code that's used to illustrate brushes is shown in the previous "Line Chart with Context Menu to Create Pie/Bar Chart" example that describes Pop-up context menus.
 
 1. Brush actions are similar to a context menu in that they define a series of custom actions for the brush. Each action contains an array with one or more elements. Each element defines a single context menu item:
    - `name`: The text that's used for the menu item: "Print parameters to console."
@@ -278,9 +282,12 @@ In this tutorial, you learned how to:
 > * Use APIs in the TSI JavaScript client library.
 > * Use JavaScript to create and populate chart controls with TSI data.
 
-As discussed, the TSI Sample application uses a demo data set. To learn how you can create your own TSI environment and data set, advance to the following article:
+As seen, the TSI sample application uses a demo data set. To learn how you can create your own TSI environment and data set, advance to the following article:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create an Azure Time Series Insights environment](tutorial-create-populate-tsi-environment.md)
 
+Or view the TSI sample application source files:
 
+> [!div class="nextstepaction"]
+> [TSI sample app repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)

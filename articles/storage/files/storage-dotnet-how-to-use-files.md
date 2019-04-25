@@ -2,13 +2,13 @@
 title: Develop for Azure Files with .NET | Microsoft Docs
 description: Learn how to develop .NET applications and services that use Azure Files to store file data.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/22/2017
-ms.author: renash
-ms.component: files
+ms.author: rogarana
+ms.subservice: files
 ---
 
 # Develop for Azure Files with .NET
@@ -321,8 +321,8 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 You can copy a blob to a file in the same way. If the source object is a blob, then create a SAS to authorize access to that blob during the copy operation.
 
-## Share snapshots (preview)
-Beginning with version 8.5 of the Azure Storage Client Library, you can create a share snapshot (preview). You can also list or browse share snapshots and delete share snapshots. Share snapshots are read-only so no write operations are allowed on share snapshots.
+## Share snapshots
+Beginning with version 8.5 of the Azure Storage Client Library, you can create a share snapshot. You can also list or browse share snapshots and delete share snapshots. Share snapshots are read-only so no write operations are allowed on share snapshots.
 
 **Create share snapshots**
 

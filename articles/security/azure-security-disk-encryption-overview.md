@@ -1,22 +1,24 @@
 ---
-title: Azure Disk Encryption for IaaS VMs Overview| Microsoft Docs
+title: Overview - Azure Disk Encryption for IaaS VMs | Microsoft Docs
 description: This article provides an overview of Microsoft Azure Disk Encryption for IaaS VMs.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 09/14/2018
+ms.author: mbaldwin
+ms.date: 03/16/2019
 
---- 
+ms.custom: seodec18
+---
 
-# Azure Disk Encryption for IaaS VMs 
+# Azure Disk Encryption for IaaS VMs
+
 Microsoft Azure is committed to ensuring your data privacy and data sovereignty. Azure enables you to control your Azure-hosted data through a range of advanced technologies to encrypt, control and manage encryption keys, and control and audit access of data. This control provides Azure customers with the flexibility to choose the solution that best meets their business needs. This article introduces you to a technology solution: "Azure Disk Encryption for Windows and Linux IaaS virtual machines (VMs)." This technology helps protect and safeguard your data to meet your organizational security and compliance commitments. 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 
 ## Overview
+
 Azure Disk Encryption is a capability that helps you encrypt your Windows and Linux IaaS VM disks. Disk Encryption leverages the industry standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and data disks. The solution is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets. The solution also ensures that all data on the VM disks are encrypted at rest in your Azure storage.
 
 Disk Encryption for Windows and Linux IaaS VMs is in General Availability in all Azure public regions and Azure Government regions for Standard VMs and VMs with Azure Premium Storage. When you apply the Disk Encryption management solution, you can satisfy the following business needs:
@@ -33,6 +35,7 @@ If you use Azure Security Center, you're alerted if you have VMs that aren't enc
 
 
 ## Encryption scenarios
+
 The Disk Encryption solution supports the following customer scenarios:
 
 * Enable encryption on new Windows IaaS VMs created from pre-encrypted VHD and encryption keys.
@@ -64,7 +67,7 @@ The solution supports the following scenarios for IaaS VMs when they're enabled 
    > [!NOTE]
    > OS drive encryption for some Linux distributions isn't supported. For more information, see the [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article.
    
-* Enable encryption on Windows VMs that are configured with Windows Storage Spaces.
+* Enable encryption on VMs that are configured with Windows Storage Spaces beginning in Windows Server 2016.
 * Update encryption settings for an existing encrypted Premium and non-Premium Storage VM.
 * Back up and restore of encrypted VMs for both key encryption key (KEK) and non-KEK scenarios.
 * All Azure Public and Azure Government regions are supported.
@@ -73,7 +76,8 @@ The solution doesn't support the following scenarios, features, and technology:
 
 * Basic tier IaaS VMs.
 * Disable encryption on an OS drive for Linux IaaS VMs.
-* Disable encryption on a data drive when the OS drive is encrypted for Linux Iaas VMs.
+* Disable encryption on a data drive when the OS drive is encrypted for Linux IaaS VMs.
+* OS drive encryption for Linux virtual machine scale sets.
 * IaaS VMs that are created by using the classic VM creation method.
 * Enable encryption of customer custom images on Linux IaaS VMs.
 * Integration with your on-premises key management system.
@@ -83,6 +87,7 @@ The solution doesn't support the following scenarios, features, and technology:
 * Windows VMs that are configured with software-based RAID systems.
 
 ## Encryption features
+
 When you enable and deploy Disk Encryption for Azure IaaS VMs, the following capabilities are enabled depending on the provided configuration:
 
 * Encryption of the OS volume to protect the boot volume at rest in your storage.

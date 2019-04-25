@@ -38,6 +38,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   }
 }
 ```
+
 When the Owner role is successfully assigned at the enrollment account scope, Azure responds with information of the role assignment:
 
 ```json
@@ -59,10 +60,12 @@ When the Owner role is successfully assigned at the enrollment account scope, Az
 
 # [PowerShell](#tab/azure-powershell)
 
-Use the [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) to give another user Owner access to your enrollment account.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Use the [New-AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) to give another user Owner access to your enrollment account.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 # [Azure CLI](#tab/azure-cli)

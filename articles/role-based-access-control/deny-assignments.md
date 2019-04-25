@@ -1,6 +1,6 @@
 ---
-title: Understand deny assignments in Azure RBAC | Microsoft Docs
-description: Learn about deny assignments in role-based access control (RBAC) for resources in Azure.
+title: Understand deny assignments for Azure resources | Microsoft Docs
+description: Learn about deny assignments in role-based access control (RBAC) for Azure resources.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,14 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
 ---
-# Understand deny assignments
+# Understand deny assignments for Azure resources
 
-Similar to a role assignment, a *deny assignment* binds a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. A deny assignment can also exclude principals and prevent inheritance to child scopes, which is different than role assignments. Currently, deny assignments are **read-only** and can only be set by Azure. This article describes how deny assignments are defined.
+Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. Deny assignments block users from performing specific Azure resource actions even if a role assignment grants them access. Some resource providers in Azure now include deny assignments.
+
+In some ways, deny assignments are different than role assignments. Deny assignments can exclude principals and prevent inheritance to child scopes. Deny assignments also apply to [classic subscription administrator](rbac-and-directory-admin-roles.md) assignments.
+
+This article describes how deny assignments are defined.
+
+> [!NOTE]
+> At this time, the only way you can add your own deny assignments is by using Azure Blueprints. For more information, see [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md).
 
 ## Deny assignment properties
 
@@ -36,20 +43,20 @@ Similar to a role assignment, a *deny assignment* binds a set of deny actions to
 > | `Permissions.NotDataActions` | No | String[] | An array of strings that specify the data operations to exclude from the deny assignment. |
 > | `Scope` | No | String | A string that specifies the scope that the deny assignment applies to. |
 > | `DoNotApplyToChildScopes` | No | Boolean | Specifies whether the deny assignment applies to child scopes. Default value is false. |
-> | `Principals[i].Id` | Yes | String[] | An array of Azure AD principal object IDs (user, group, or service principal) to which the deny assignment applies. Set to an empty GUID `00000000-0000-0000-0000-000000000000` to represent everyone. |
-> | `Principals[i].Type` | No | String[] | An array of object types represented by Principals[i].Id. Set to `Everyone` to represent everyone. |
-> | `ExcludePrincipals[i].Id` | No | String[] | An array of Azure AD principal object IDs (user, group, or service principal) to which the deny assignment does not apply. |
+> | `Principals[i].Id` | Yes | String[] | An array of Azure AD principal object IDs (user, group, service principal, or managed identity) to which the deny assignment applies. Set to an empty GUID `00000000-0000-0000-0000-000000000000` to represent all principals. |
+> | `Principals[i].Type` | No | String[] | An array of object types represented by Principals[i].Id. Set to `SystemDefined` to represent all principals. |
+> | `ExcludePrincipals[i].Id` | No | String[] | An array of Azure AD principal object IDs (user, group, service principal, or managed identity) to which the deny assignment does not apply. |
 > | `ExcludePrincipals[i].Type` | No | String[] | An array of object types represented by ExcludePrincipals[i].Id. |
 > | `IsSystemProtected` | No | Boolean | Specifies whether this deny assignment was created by Azure and cannot be edited or deleted. Currently, all deny assignments are system protected. |
 
-## Everyone principal
+## System-Defined Principal
 
-To support deny assignments, the everyone principal has been introduced. The everyone principal represents all users, groups, and service principals in an Azure AD directory. If the principal ID is a zero GUID `00000000-0000-0000-0000-000000000000` and the principal type is `Everyone`, the principal represents everyone. The everyone principal can be combined with `ExcludePrincipals` to deny everyone except some users. The everyone principal has the following constraints:
+To support deny assignments, the **System-Defined Principal** has been introduced. This principal represents all users, groups, service principals, and managed identities in an Azure AD directory. If the principal ID is a zero GUID `00000000-0000-0000-0000-000000000000` and the principal type is `SystemDefined`, the principal represents all principals. `SystemDefined` can be combined with `ExcludePrincipals` to deny all principals except some users. `SystemDefined` has the following constraints:
 
 - Can be used only in `Principals` and cannot be used in `ExcludePrincipals`.
-- `Principals[i].Type` must be set to `Everyone`.
+- `Principals[i].Type` must be set to `SystemDefined`.
 
 ## Next steps
 
-* [List deny assignments using RBAC and the REST API](deny-assignments-rest.md)
-* [Understand role definitions](role-definitions.md)
+* [View deny assignments for Azure resources using the Azure portal](deny-assignments-portal.md)
+* [Understand role definitions for Azure resources](role-definitions.md)

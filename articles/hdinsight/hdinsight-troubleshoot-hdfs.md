@@ -1,15 +1,15 @@
 ---
 title: Troubleshoot HDFS in Azure HDinsight
 description: Get answers to common questions about working with HDFS and Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/2/2017
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 
-# Troubleshoot HDFS by using Azure HDInsight
+# Troubleshoot Apache Hadoop HDFS by using Azure HDInsight
 
 Learn about the top issues and their resolutions when working with Hadoop Distributed File System (HDFS) payloads in Apache Ambari.
 
@@ -17,7 +17,7 @@ Learn about the top issues and their resolutions when working with Hadoop Distri
 
 ### Issue
 
-Access the local HDFS from the command line and application code instead of by using Azure Blob storage or Azure Data Lake Store from inside the HDInsight cluster.   
+Access the local HDFS from the command line and application code instead of by using Azure Blob storage or Azure Data Lake Storage from inside the HDInsight cluster.   
 
 ### Resolution steps
 

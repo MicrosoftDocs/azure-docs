@@ -194,7 +194,7 @@ The Azure container is created using the exported files from the Web VM. The con
 
 ## Step 3: Provision Azure Service Fabric
 
-The SmartHotel360 container will run in the Azure Service Fabric Sluster. Contoso admins create the Service Fabric Cluster as follows:
+The SmartHotel360 container will run in the Azure Service Fabric Cluster. Contoso admins create the Service Fabric Cluster as follows:
 
 1. Create a Service Fabric resource from the Azure Marketplace
 
@@ -277,7 +277,7 @@ Contoso needs cluster certificates to allow Azure DevOps Services access to the 
 
 8. For Azure DevOps Services deployment, they need to determine the Base64 value of the certificate. They do this on the local developer workstation using PowerShell. They paste the output into a text file for later use.
 
-    ```
+    ```powershell
     	[System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\path\to\certificate.pfx")) 
     ```
 
@@ -312,7 +312,7 @@ To connect to the Azure SQL Database, Contoso admins set up a firewall rule to a
 
 Need more help?
 
-[Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#creating-and-managing-firewall-rules) creating and managing firewall rules for Azure SQL Database.
+[Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) creating and managing firewall rules for Azure SQL Database.
 
 ### Migrate
 
@@ -381,7 +381,7 @@ The  on-premises app is a traditional three tier app:
 - It uses Entity Framework to integrate with the data in the SQL database, exposing it through a WCF service.
 - The WebForms application  interacts with the WCF service.
 
-Contoso admins will convert the app to a container using isual Studio and the SDK Tools, as follows:
+Contoso admins will convert the app to a container using Visual Studio and the SDK Tools, as follows:
 
 
 1. Using Visual Studio, they review the open solution file (SmartHotel.Registration.sln) in the **SmartHotel360-internal-booking-apps\src\Registration** directory of the local repo.  Two apps are shown. The web frontend SmartHotel.Registration.Web and the WCF service app SmartHotel.Registration.WCF.
@@ -397,10 +397,10 @@ Contoso admins will convert the app to a container using isual Studio and the SD
 4. They repeat the process for SmartHotel.Registration.WCF app.
 5. Now, they check how the solution has changed.
 
-    - The new app is **SmartHotel.RegistrationApplication/**
-    - It contains two services: **SmartHotel.Registration.WCF** and **SmartHotel.Registration.Web**.
+   - The new app is **SmartHotel.RegistrationApplication/**
+   - It contains two services: **SmartHotel.Registration.WCF** and **SmartHotel.Registration.Web**.
 
-    ![Container](./media/contoso-migration-rearchitect-container-sql/container4.png)
+     ![Container](./media/contoso-migration-rearchitect-container-sql/container4.png)
 
 6. Visual Studio created the Docker file, and pulled down the required images locally to the developer machine.
 
@@ -483,7 +483,7 @@ Contoso admins now configure Azure DevOps Services to perform build and release 
 
 16. In addition, note that the continuous deployment trigger is enabled.
 
-   ![Continuous deployment enabled](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
+    ![Continuous deployment enabled](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
 
 17. They click **Save** > **Create a release**.
 
@@ -525,7 +525,7 @@ As a first step, Contoso admins provision an Azure Cosmos database.
 5. In the portal, they open the new database > **Collection** > **Documents** and click **New Document**.
 6. They paste the following JSON code into the document window. This is sample data in the form of a single tweet.
 
-    ```
+    ```json
     {
             "id": "2ed5e734-8034-bf3a-ac85-705b7713d911",
             "tweetId": 927750234331580911,
@@ -560,11 +560,11 @@ With the Cosmos DB provisioned, Contoso admins can configure the app to connect 
 
 2. They fill in the following two parameters:
 
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBEndpoint" Value="[URI]" />
    ```
    
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBAuthKey" Value="[Key]" />
    ```
 
@@ -576,7 +576,7 @@ After extending the app, Contoso admins republish it to Azure using the pipeline
 
 1. They commit and push their code to Azure DevOps Services. This kicks off the build and release pipelines.
 
-2. After the build and deployment finishes, SmartHotel360 will now be running Service Fabric. The Servie Fabric Management console now shows three services.
+2. After the build and deployment finishes, SmartHotel360 will now be running Service Fabric. The Service Fabric Management console now shows three services.
 
     ![Republish](./media/contoso-migration-rearchitect-container-sql/republish3.png)
 

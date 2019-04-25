@@ -4,8 +4,9 @@ description: Summarizes the support for disaster recovery of VMware VMs and phys
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 04/08/2019
 ms.author: raynew
 ---
 
@@ -58,7 +59,7 @@ Host - IPv6 | No
 Guest VM - NIC teaming | No
 Guest VM - IPv4 | Yes
 Guest VM - IPv6 | No
-Gues VM - Windows/Linux - Static IP address | Yes
+Guest VM - Windows/Linux - Static IP address | Yes
 Guest VM - Multi-NIC | Yes
 
 
@@ -104,10 +105,10 @@ Move storage, network, Azure VMs across resource groups (within or across subscr
 
 The Mobility service coordinates replication between on-premises VMware servers or physical servers, and the secondary site. When you set up replication, you should make sure you have the latest version of the Mobility service, and of other components.
 
-**Update** | **Details** 
---- | --- 
-Scout updates | [Learn about and download](vmware-physical-secondary-disaster-recovery.md#updates) the latest Scout updates | Scout updates are cumulative.
-Component updates | Scout updates include updates for all components, including the RX server, configuration server, process and master target servers, vContinuum servers, and source servers you want to protect.<br/><br/> [Learn more](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
+| **Update** | **Details** |
+| --- | --- |
+|Scout updates | Scout updates are cumulative. <br/><br/> [Learn about and download](vmware-physical-secondary-disaster-recovery.md#updates) the latest Scout updates |
+|Component updates | Scout updates include updates for all components, including the RX server, configuration server, process and master target servers, vContinuum servers, and source servers you want to protect.<br/><br/> [Learn more](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
 
 
 ## Next steps

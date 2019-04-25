@@ -1,6 +1,4 @@
-- name: Azure IoT Fundamentals
-  href: /azure/iot-fundamentals
-- name: IoT Hub Documentation
+﻿- name: IoT Hub Documentation
   href: index.yml
 - name: Overview
   items:
@@ -8,30 +6,68 @@
     href: about-iot-hub.md
 - name: Quickstarts
   items:
-  - name: Send telemetry (C)
-    href: quickstart-send-telemetry-c.md
-  - name: Send telemetry (Node.js)
-    href: quickstart-send-telemetry-node.md
-  - name: Send telemetry (.NET)
-    href: quickstart-send-telemetry-dotnet.md
-  - name: Send telemetry (Java)
-    href: quickstart-send-telemetry-java.md
-  - name: Send telemetry (Python)
-    href: quickstart-send-telemetry-python.md
-  - name: Send telemetry (iOS)
-    href: quickstart-send-telemetry-ios.md
-  - name: Control a device (Node.js)
-    href: quickstart-control-device-node.md
-  - name: Control a device (.NET)
-    href: quickstart-control-device-dotnet.md
-  - name: Control a device (Java)
-    href: quickstart-control-device-java.md
-  - name: Control a device (Python)
-    href: quickstart-control-device-python.md
+  - name: Send telemetry
+    items:
+    - name: C
+      href: quickstart-send-telemetry-c.md
+    - name: Node.js
+      href: quickstart-send-telemetry-node.md
+    - name: .NET
+      href: quickstart-send-telemetry-dotnet.md
+    - name: Java
+      href: quickstart-send-telemetry-java.md
+    - name: Python
+      href: quickstart-send-telemetry-python.md
+    - name: Android
+      href: quickstart-send-telemetry-android.md
+    - name: iOS
+      href: quickstart-send-telemetry-ios.md
+  - name: Control a device
+    items:
+    - name: Node.js
+      href: quickstart-control-device-node.md
+    - name: .NET
+      href: quickstart-control-device-dotnet.md
+    - name: Java
+      href: quickstart-control-device-java.md
+    - name: Python
+      href: quickstart-control-device-python.md
+    - name: Android
+      href: quickstart-control-device-android.md
+  - name: Communicate using device streams (preview)
+    items:
+    - name: C#
+      href: quickstart-device-streams-echo-csharp.md
+    - name: Node.js
+      href: quickstart-device-streams-echo-nodejs.md
+    - name: C
+      href: quickstart-device-streams-echo-c.md
+  - name: SSH/RDP using device streams (preview)
+    items:
+    - name: C#
+      href: quickstart-device-streams-proxy-csharp.md
+    - name: Node.js
+      href: quickstart-device-streams-proxy-nodejs.md
+    - name: C
+      href: quickstart-device-streams-proxy-c.md
 - name: Tutorials
   items:
-  - name: Routing messages
-    href: tutorial-routing.md
+  - name: Routing messages 
+    items:
+    - name: Part 1 - Configure message routing
+      items:
+      - name: Portal
+        href: tutorial-routing.md
+      - name: Azure RM template
+        href: tutorial-routing-config-message-routing-RM-template.md
+      - name: Azure CLI
+        href: tutorial-routing-config-message-routing-CLI.md
+      - name: PowerShell
+        href: tutorial-routing-config-message-routing-PowerShell.md
+    - name: Part 2 - View message routing results
+      href: tutorial-routing-view-message-routing-results.md 
+  - name: Use metrics and diagnostic logs
+    href: tutorial-use-metrics-and-diags.md
   - name: Perform manual failover
     href: tutorial-manual-failover.md
   - name: Configure your devices
@@ -58,6 +94,8 @@
     href: iot-hub-configuration-best-practices.md
   - name: Azure IoT SDKs platform support
     href: iot-hub-device-sdk-platform-support.md
+  - name: Overview of IoT Hub device streams (preview)
+    href: iot-hub-device-streams-overview.md
   - name: Developer guide
     href: iot-hub-devguide.md
     items:
@@ -145,12 +183,16 @@
           href: iot-hub-device-sdk-c-iothubclient.md
         - name: Use the serializer
           href: iot-hub-device-sdk-c-serializer.md
+      - name: Azure IoT C SDK resource information
+        href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
       - name: Develop for constrained devices
         href: iot-hub-devguide-develop-for-constrained-devices.md
       - name: Develop for mobile devices
         href: iot-hub-how-to-develop-for-mobile-devices.md
       - name: Manage connectivity and reliable messaging
         href: iot-hub-reliability-features-in-sdks.md
+      - name: Develop for Android Things platform
+        href: iot-hub-how-to-android-things.md
     - name: Query Avro data from a hub route
       href: iot-hub-query-avro-data.md
     - name: Order device connection state events from Event Grid
@@ -225,7 +267,7 @@
       items:
       - name: Use Azure portal
         href: iot-hub-create-through-portal.md
-      - name: Use Azure IoT Toolkit for VS Code
+      - name: Use Azure IoT Tools for VS Code
         href: iot-hub-create-use-iot-toolkit.md
       - name: Use Azure PowerShell
         href: iot-hub-create-using-powershell.md
@@ -234,6 +276,7 @@
       - name: Use the REST API
         href: iot-hub-rm-rest.md
       - name: Use a template from Azure PowerShell
+        displayName: Azure Resource Manager, ARM
         href: iot-hub-rm-template-powershell.md
       - name: Use a template from .NET
         href: iot-hub-rm-template.md
@@ -245,28 +288,25 @@
         href: iot-hub-configure-file-upload-powershell.md
       - name: Use Azure CLI
         href: iot-hub-configure-file-upload-cli.md
-    - name: Monitor with diagnostics
+    - name: Metrics in Azure Monitor
+      href: iot-hub-metrics.md
+    - name: Set up diagnostic logs
       href: iot-hub-monitor-resource-health.md
-      items:
-      - name: Migrate to diagnostics settings
-        href: iot-hub-migrate-to-diagnostics-settings.md
-      - name: Operations monitoring
-        href: iot-hub-operations-monitoring.md
     - name: Secure your hub with an X.509 certificate
       href: iot-hub-security-x509-get-started.md
     - name: Upgrade an IoT hub
       href: iot-hub-upgrade.md
-    - name: Usage metrics
-      href: iot-hub-metrics.md
+    - name: Enable message tracing
+      href: iot-hub-distributed-tracing.md  
     - name: Configure IP filtering
       href: iot-hub-ip-filtering.md
-    - name: Configure devices at scale
+    - name: Automatic device management at scale
       items:
       - name: Use Azure portal
-        href: iot-hub-auto-device-config.md
+        href: iot-hub-automatic-device-management.md
       - name: Use Azure CLI
-        href: iot-hub-auto-device-config-cli.md
-    - name: Bulk manage IoT devices
+        href: iot-hub-automatic-device-management-cli.md
+    - name: Bulk import and export IoT devices
       href: iot-hub-bulk-identity-mgmt.md
   - name: Use real devices
     items:
@@ -295,16 +335,20 @@
         href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
     - name: Extended IoT scenarios
       items:
-      - name: Manage cloud device messaging with Azure IoT Toolkit for VS Code
+      - name: Manage cloud device messaging with Azure IoT Tools for VS Code
         href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
+      - name: Manage cloud device messaging with Cloud Explorer for Visual Studio
+        href: iot-hub-visual-studio-cloud-device-messaging.md
       - name: Data Visualization in Power BI
         href: iot-hub-live-data-visualization-in-power-bi.md
       - name: Data Visualization with Web Apps
         href: iot-hub-live-data-visualization-in-web-apps.md
       - name: Weather forecast using Azure Machine Learning
         href: iot-hub-weather-forecast-machine-learning.md
-      - name: Device management with Azure IoT Toolkit for VS Code
+      - name: Device management with Azure IoT Tools for VS Code
         href: iot-hub-device-management-iot-toolkit.md
+      - name: Device management with Cloud Explorer for Visual Studio
+        href: iot-hub-device-management-visual-studio.md
       - name: Device management with IoT extension for Azure CLI
         href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
       - name: Remote monitoring and notifications with ​Logic ​Apps
@@ -341,6 +385,14 @@
     href: https://docs.microsoft.com/rest/api/iothub/iothubresource
   - name: REST (Certificates)
     href: https://docs.microsoft.com/rest/api/iothub/certificates
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.devices/iothub-allversions
+  - name: Feature and API retirement
+    items:
+    - name: Operations monitoring
+      href: iot-hub-operations-monitoring.md
+    - name: Migrate to diagnostics settings
+      href: iot-hub-migrate-to-diagnostics-settings.md
 - name: Related
   items:
   - name: Solutions
@@ -380,15 +432,15 @@
   - name: Azure IoT Samples for iOS Platform
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure Certified for IoT device catalog
-    href: https://catalog.azureiotsuite.com/
+    href: https://catalog.azurazureiotsolutionseiotsuite.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Customer data requests
     href: iot-hub-customer-data-requests.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Azure IoT Toolkit
-    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
+  - name: Azure IoT Tools
+    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
   - name: DeviceExplorer tool
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
   - name: iothub-diagnostics tool
@@ -402,7 +454,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=iot-hub
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-iot-hub
+    href: https://stackoverflow.com/questions/tagged/azure-iot-hub
   - name: Technical case studies
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videos

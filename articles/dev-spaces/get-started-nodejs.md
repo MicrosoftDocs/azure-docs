@@ -1,17 +1,16 @@
 ---
-title: "Create a Kubernetes Node.js development environment in the cloud with VS Code | Microsoft Docs"
+title: "Create a Kubernetes Node.js development environment in the cloud with VS Code"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
-ms.date: "09/26/2018"
+ms.date: 09/26/2018
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
-# Get Started on Azure Dev Spaces with Node.js
+# Get started on Azure Dev Spaces with Node.js
 
 In this guide, you will learn how to:
 
@@ -20,17 +19,10 @@ In this guide, you will learn how to:
 - Productively develop and test your code in a team environment.
 
 > [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page.
-
-You're now ready to create a Kubernetes-based development environment in Azure.
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section.
 
 ## Install the Azure CLI
-Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Your local machine can run Windows, Mac, or Linux. For Linux, the following distributions are supported: Ubuntu (18.04, 16.04, and 14.04), Debian 8 and 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2, and SLES 12.
-
-Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
-
-> [!IMPORTANT]
-> If you already have the Azure CLI installed, make sure you are using version 2.0.43 or higher.
+Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### Sign in to Azure CLI
 Sign in to Azure. Type the following command in a terminal window:
@@ -57,7 +49,7 @@ az account set --subscription <subscription ID>
 
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
 
-At the command prompt, create the resource group. Use one of the currently supported regions (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral, or CanadaEast).
+At the command prompt, create the resource group in a [region that supports Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -66,7 +58,7 @@ az group create --name MyResourceGroup --location <region>
 Create a Kubernetes cluster with the following command:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 It takes a few minutes to create the cluster.
@@ -95,7 +87,7 @@ In this section, you'll create a Node.js web app and get it running in a contain
 ### Create a Node.js Web App
 Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/nodejs/getting-started/webfrontend`.
 
-## Preparing code for Docker and Kubernetes development
+## Prepare code for Docker and Kubernetes development
 So far, you have a basic web app that can run locally. You'll now containerize it by creating assets that define the app's container and how it will deploy to Kubernetes. This task is easy to do with Azure Dev Spaces: 
 
 1. Launch VS Code and open the `webfrontend` folder. (You can ignore any default prompts to add debug assets or restore the project.)
@@ -136,13 +128,13 @@ Scan the console output for information about the public URL that was created by
 
 ```
 (pending registration) Service 'webfrontend' port 'http' will be available at <url>
-Service 'webfrontend' port 80 (TCP) is available at http://localhost:<port>
+Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
 Open this URL in a browser window, and you should see the web app load. As the container executes, `stdout` and `stderr` output is streamed to the terminal window.
 
 > [!Note]
-> On first run, it can take several minutes for public DNS to be ready. If the public URL does not resolve, you can use the alternative http://localhost:<portnumber> URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in AKS. For your convenience, and to facilitate interacting with the service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure. You can come back and try the public URL later when the DNS record is ready.
+> On first run, it can take several minutes for public DNS to be ready. If the public URL does not resolve, you can use the alternative `http://localhost:<portnumber>` URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in AKS. For your convenience, and to facilitate interacting with the service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure. You can come back and try the public URL later when the DNS record is ready.
 
 ### Update a content file
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
@@ -272,5 +264,5 @@ In this configuration, the container is configured to start *nodemon*. When serv
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about team development](team-development-nodejs.md)
+> [Learn about multi-service development](multi-service-nodejs.md)
 

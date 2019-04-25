@@ -4,14 +4,14 @@ description: Learn how to write c# user defined functions for Stream Analytics E
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 
-# Tutorial: Write a C# user-defined function for an Azure Stream Analytics Edge job in Visual Studio (Preview)
+# Tutorial: Write a C# user-defined function for Azure Stream Analytics Edge job (Preview)
 
 C# user-defined functions (UDFs) created in Visual Studio allow you to extend the Azure Stream Analytics query language with your own functions. You can reuse existing code (including DLLs) and use mathematical or complex logic with C#. There are three ways to implement UDFs: CodeBehind files in a Stream Analytics project, UDFs from a local C# project, or UDFs from an existing package from a storage account. This tutorial uses the CodeBehind method to implement a basic C# function. The UDF feature for Stream Analytics Edge jobs is currently in preview and shouldn't be used in production workloads.
 
@@ -110,11 +110,11 @@ A CodeBehind file is a C# file associated with a single ASA Edge query script. V
 
 2. In **Solution Explorer**, expand **Inputs**, right-click **Input.json**, and select **Add Local Input**.
 
-   ![Add local input to Azure Stream Analytics job in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
+   ![Add local input to Stream Analytics job in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
 
 3. Specify the local input file path for the sample data you downloaded and **Save**.
 
-    ![Local input configuration for Azure Stream Analytics job in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
+    ![Local input configuration for Stream Analytics job in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
 
 4. Click **Run Locally** in the script editor. Once the local run has successfully saved the output results, press any key to see the results in table format. 
 
@@ -129,11 +129,11 @@ You can debug your C# UDF locally the same way you debug standard C# code.
 
 1. Add breakpoints in your C# function.
 
-    ![Add breakpoints to Azure Stream Analytics user-defined function for Edge job in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
+    ![Add breakpoints to Stream Analytics user-defined function in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
 
 2. Press **F5** to start debugging. The program will stop at your breakpoints as expected.
 
-    ![View Azure Stream Analytics user-defined function for Edge job in Visual Studio debugging results](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
+    ![View Stream Analytics user-defined function debugging results](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
 
 ## Publish your job to Azure
 Once you've tested your query locally, select **Submit to Azure** in the script editor to publish the job to Azure.
@@ -150,4 +150,4 @@ In this tutorial, you created a simple C# user-defined function using CodeBehind
 To learn more about the different ways to use C# user-defined functions for Stream Analytics Edge jobs, continue to this article:
 
 > [!div class="nextstepaction"]
-> [Write C# user defined functions for Azure Stream Analytics](stream-analytics-edge-csharp-udf-methods.md)
+> [Write C# functions for Azure Stream Analytics](stream-analytics-edge-csharp-udf-methods.md)

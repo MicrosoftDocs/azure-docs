@@ -1,20 +1,22 @@
 ---
-title: Resize and crop Bing thumbnails - Bing Image Search API
-description: Learn how to resize and crop thumbnails included in a response from the Bing Image Search API.
+title: Resize and crop thumbnail images - Bing Image Search API
+titleSuffix: Azure Cognitive Services
+description: Resize and crop the thumbnail images included in responses from the Bing Image Search API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: F4FFAE91-A003-4F7C-8E60-83A142485E28
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 03/04/2019
 ms.author: scottwhi
+ms.custom: seodec2018
 ---
 
-# Resizing and cropping thumbnail images
+# Resize and crop thumbnail images
 
-Upon processing a search query, Bing will generate thumbnail information for all images in its [response](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). This information can be used to display all, or a subset of the returned thumbnails. If you display a subset, provide a option to view the remaining images.
+Upon processing a search query, Bing will generate thumbnail information for all images in its [response](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). This information can be used to display all, or a subset of the returned thumbnails. If you display a subset, provide an option to view the remaining images.
 
 
 <!-- Removing image until we can replace it with a sanatized version.

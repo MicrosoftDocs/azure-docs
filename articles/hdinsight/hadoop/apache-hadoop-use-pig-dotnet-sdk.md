@@ -1,7 +1,6 @@
 ---
 title: Run Apache Pig jobs with .NET SDK for Hadoop - Azure HDInsight 
 description: Learn how to use the .NET SDK for Hadoop to submit Pig jobs to Hadoop on HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -114,11 +113,11 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 ## Next steps
 
-For information on Pig in HDInsight, see [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md).
+For information on Pig in HDInsight, see [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md).
 
 For more information on using Hadoop on HDInsight, see the following documents:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/

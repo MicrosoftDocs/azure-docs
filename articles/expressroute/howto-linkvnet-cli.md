@@ -1,21 +1,14 @@
 ---
 title: 'Link a virtual network to an ExpressRoute circuit: CLI: Azure| Microsoft Docs'
-description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and CLI.
+description: This article shows you how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and CLI.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlit
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid:
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/08/2018
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: anzaman,cherylmc
+ms.custom: seodec18
 
 ---
 # Connect a virtual network to an ExpressRoute circuit using CLI
@@ -128,7 +121,7 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 The Circuit User needs the peer ID and an authorization key from the Circuit Owner. The authorization key is a GUID.
 
 ```azurecli
-Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
 **To redeem a connection authorization**

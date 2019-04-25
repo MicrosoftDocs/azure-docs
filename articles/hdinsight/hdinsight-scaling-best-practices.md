@@ -1,14 +1,13 @@
 ---
 title: Scale cluster sizes - Azure HDInsight 
 description: Scale an HDInsight cluster to your workload.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/02/2018
+ms.date: 02/26/2019
 ms.author: ashish
 
 ---
@@ -16,27 +15,30 @@ ms.author: ashish
 
 HDInsight provides elasticity by giving you the option to scale up and scale down the number of worker nodes in your clusters. This allows you to shrink a cluster after hours or on weekends, and expand it during peak business demands.
 
-For example, if you have some batch processing that happens once a day or once a month, the HDInsight cluster can be scaled up a few minutes prior to that scheduled event so  there will be adequate  memory and CPU compute power. You can automate scaling with the PowerShell cmdlet [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters).  Later, after the processing is done, and usage goes down again, you can scale down the HDInsight cluster to fewer worker nodes.
+For example, if you have some batch processing that happens once a day or once a month, the HDInsight cluster can be scaled up a few minutes prior to that scheduled event so  there will be adequate  memory and CPU compute power.  Later, after the processing is done, and usage goes down again, you can scale down the HDInsight cluster to fewer worker nodes.
 
-* To scale your cluster through [PowerShell](hdinsight-administer-use-powershell.md):
 
-    ```powershell
-    Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
-    ```
-    
-* To scale your cluster through the [Azure Classic CLI](hdinsight-administer-use-command-line.md):
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-    ```
-    azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-    ```
+## Utilities to scale clusters
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
-    
-* To scale your cluster through the [Azure portal](https://portal.azure.com), open your HDInsight cluster pane, select **Scale cluster** on the left-hand menu, then on the Scale cluster pane, type in the number of worker nodes, and select Save.
+Microsoft provides the following utilities to scale clusters:
 
-    ![Scale cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+|Utility | Description|
+|---|---|
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<Resource group> --name \<Cluster Name> --target-instance-count \<NewSize>|
+|[Azure Classic CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<Target Instance Count>|
+|[Azure portal](https://portal.azure.com)|Open your HDInsight cluster pane, select **Cluster size** on the left-hand menu, then on the Cluster size pane, type in the number of worker nodes, and select Save.|  
+
+![Scale cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 Using any of these methods, you can scale your HDInsight cluster up or down within minutes.
+
+> [!IMPORTANT]  
+> * The Aure classic CLI is deprecated and should only be used with the classic deployment model. For all other deployments, use the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
+> * The PowerShell AzureRM module is deprecated.  Please use the [Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) whenever possible.
 
 ## Scaling impacts on running jobs
 
@@ -49,9 +51,10 @@ To address this issue, you can wait for the jobs to complete before scaling down
 To see a list of pending and running jobs, you can use the YARN ResourceManager UI, following these steps:
 
 1. Sign in to [Azure portal](https://portal.azure.com).
-2. On the left menu, select **Browse**, select **HDInsight Clusters**, and then select your cluster.
-3. From your HDInsight cluster pane, select **Dashboard** on the top menu to open the Ambari UI. Enter your cluster login credentials.
-4. Click **YARN** on the list of services on the left-hand menu. On the YARN page, select **Quick Links** and hover over the active head node, then click **ResourceManager UI**.
+2. From the left, navigate to **All services** > **Analytics** > **HDInsight Clusters**, and then select your cluster.
+3. From the main view, navigate to **Cluster dashboards** > **Ambari home**. Enter your cluster login credentials.
+4. From the Ambari UI, select **YARN** on the list of services on the left-hand menu.  
+5. From the YARN page, select **Quick Links** and hover over the active head node, then select **ResourceManager UI**.
 
     ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
@@ -73,7 +76,7 @@ For example:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-## Rebalancing an HBase cluster
+## Rebalancing an Apache HBase cluster
 
 Region servers are automatically balanced within a few minutes after completion of the scaling operation. To manually balance region servers, use the following steps:
 
@@ -93,13 +96,11 @@ As mentioned previously, any pending or running jobs are terminated at the compl
 
 ## HDInsight name node stays in safe mode after scaling down
 
-![Scale cluster](./media/hdinsight-scaling-best-practices/scale-cluster.png)
-
-If you shrink your cluster down to the minimum of one worker node, as shown in the previous image,  HDFS may become stuck in safe mode when worker nodes are rebooted due to patching, or immediately after the scaling operation.
+If you shrink your cluster down to the minimum of one worker node, Apache HDFS may become stuck in safe mode when worker nodes are rebooted due to patching, or immediately after the scaling operation.
 
 The primary cause of this is that Hive uses a few `scratchdir` files, and by default expects three replicas of each block, but there is only one replica possible if you scale down to the minimum one worker node. As a consequence, the files in the `scratchdir` become *under-replicated*. This could cause HDFS to stay in safe mode when the services are restarted after the scale operation.
 
-When a scale down attempt happens, HDInsight relies upon the Ambari management interfaces to first decommission the extra unwanted worker nodes, which replicates their HDFS blocks to other online worker nodes, and then safely scale the cluster down. HDFS goes into a safe mode during the maintenance window, and is supposed to come out once the scaling is finished. It is at this point that HDFS can become stuck in safe mode.
+When a scale down attempt happens, HDInsight relies upon the Apache Ambari management interfaces to first decommission the extra unwanted worker nodes, which replicate their HDFS blocks to other online worker nodes, and then safely scale the cluster down. HDFS goes into a safe mode during the maintenance window, and is supposed to come out once the scaling is finished. It is at this point that HDFS can become stuck in safe mode.
 
 HDFS is configured with a `dfs.replication` setting of 3. Thus, the blocks of the scratch files are under-replicated whenever there are fewer than three worker nodes online, because there are not the expected three copies of each file block available.
 
@@ -118,8 +119,8 @@ After leaving safe mode, you can manually remove the  temporary files, or wait f
 * H100 Unable to submit statement show databases: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: **Connection refused**
 
 * H020 Could not establish connection to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001:
-org.apache.thrift.transport.TTransportException: Could not create http connection to http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001
-[hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: Connection refused: org.apache.thrift.transport.TTransportException: Could not create http connection to http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: **Connection refused**
+  org.apache.thrift.transport.TTransportException: Could not create http connection to http:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001
+  [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: Connection refused: org.apache.thrift.transport.TTransportException: Could not create http connection to http:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: **Connection refused**
 
 * From the Hive logs:
     WARN [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – Error starting HiveServer2 on attempt 21, will retry in 60 seconds
@@ -151,8 +152,8 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 
 ![Safe mode off](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
-> [!NOTE]
-> The `-D` switch is necessary because the default file system in HDInsight is either Azure Storage or Azure Data Lake Store. `-D` specifies that the commands execute against the local HDFS file system.
+> [!NOTE]  
+> The `-D` switch is necessary because the default file system in HDInsight is either Azure Storage or Azure Data Lake Storage. `-D` specifies that the commands execute against the local HDFS file system.
 
 Next, you can view a report that shows the details of the HDFS state:
 
@@ -245,13 +246,13 @@ You may also see one or more critical errors on the active or standby NameNodes.
 
 ![NameNode Blocks Health](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
 
-To clean up the scratch files, which removes the block replication errors, SSH into each head node and run the following command:
+To clean up the scratch files, which remove the block replication errors, SSH into each head node and run the following command:
 
 ```
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > This command can break Hive if some jobs are still running.
 
 ### How to prevent HDInsight from getting stuck in safe mode due to under-replicated blocks
@@ -327,4 +328,4 @@ The final option is to watch for the rare occasion in which HDFS enters safe mod
 
 * [Introduction to Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Scale clusters](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
+* [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)

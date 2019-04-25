@@ -79,7 +79,7 @@ Azure DNS supports optimistic concurrency, called [Etags](dns-getstarted-create-
 // Create zone parameters
 var dnsZoneParams = new Zone("global"); // All DNS zones must have location = "global"
 
-// Create a Azure Resource Manager 'tag'.  This is optional.  You can add multiple tags
+// Create an Azure Resource Manager 'tag'.  This is optional.  You can add multiple tags
 dnsZoneParams.Tags = new Dictionary<string, string>();
 dnsZoneParams.Tags.Add("dept", "finance");
 

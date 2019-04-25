@@ -53,25 +53,25 @@ ping -S 10.0.0.5 hotmail.com
 
 	```bash
 	sudo -i
-	```
+    ```
 
 3. Update the configuration file of the network interface (assuming ‘eth0’).
 
-	* Keep the existing line item for dhcp. The primary IP address remains configured as it was previously.
-	* Add a configuration for an additional static IP address with the following commands:
+   * Keep the existing line item for dhcp. The primary IP address remains configured as it was previously.
+   * Add a configuration for an additional static IP address with the following commands:
 
-		```bash
-		cd /etc/network/interfaces.d/
-		ls
-		```
+       ```bash
+       cd /etc/network/interfaces.d/
+       ls
+       ```
 
-	You should see a .cfg file.
+     You should see a .cfg file.
 4. Open the file. You should see the following lines at the end of the file:
 
 	```bash
 	auto eth0
 	iface eth0 inet dhcp
-	```
+    ```
 
 5. Add the following lines after the lines that exist in this file:
 
@@ -79,19 +79,19 @@ ping -S 10.0.0.5 hotmail.com
 	iface eth0 inet static
 	address <your private IP address here>
 	netmask <your subnet mask>
-	```
+    ```
 
 6. Save the file by using the following command:
 
 	```bash
 	:wq
-	```
+    ```
 
 7. Reset the network interface with the following command:
 
 	```bash
 	sudo ifdown eth0 && sudo ifup eth0
-	```
+    ```
 
 	> [!IMPORTANT]
 	> Run both ifdown and ifup in the same line if using a remote connection.
@@ -101,7 +101,7 @@ ping -S 10.0.0.5 hotmail.com
 
 	```bash
 	ip addr list eth0
-	```
+    ```
 
 	You should see the IP address you added as part of the list.
 
@@ -112,19 +112,19 @@ ping -S 10.0.0.5 hotmail.com
 
 	```bash
 	sudo -i
-	```
+    ```
 
 3. Enter your password and follow instructions as prompted. Once you are the root user, navigate to the network scripts folder with the following command:
 
 	```bash
 	cd /etc/sysconfig/network-scripts
-	```
+    ```
 
 4. List the related ifcfg files using the following command:
 
 	```bash
 	ls ifcfg-*
-	```
+    ```
 
 	You should see *ifcfg-eth0* as one of the files.
 
@@ -132,13 +132,13 @@ ping -S 10.0.0.5 hotmail.com
 
 	```bash
 	touch ifcfg-eth0:0
-	```
+    ```
 
 6. Open the *ifcfg-eth0:0* file with the following command:
 
 	```bash
 	vi ifcfg-eth0:0
-	```
+    ```
 
 7. Add content to the file, *eth0:0* in this case, with the following command. Be sure to update information based on your IP address.
 
@@ -148,20 +148,20 @@ ping -S 10.0.0.5 hotmail.com
     ONBOOT=yes
     IPADDR=192.168.101.101
     NETMASK=255.255.255.0
-	```
+    ```
 
 8. Save the file with the following command:
 
 	```bash
 	:wq
-	```
+    ```
 
 9. Restart the network services and make sure the changes are successful by running the following commands:
 
 	```bash
 	/etc/init.d/network restart
 	ifconfig
-	```
+    ```
 
 	You should see the IP address you added, *eth0:0*, in the list returned.
 

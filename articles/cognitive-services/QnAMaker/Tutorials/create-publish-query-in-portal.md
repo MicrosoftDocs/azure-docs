@@ -1,33 +1,34 @@
 ---
-title: "Tutorial: Create, publish, answer from knowledge base in QnA Maker portal"
+title: Create, publish, answer in QnA Maker
 titleSuffix: Azure Cognitive Services 
-description: This portal-based tutorial walks you through programmatically creating and publishing a knowledge base, then answering a question from the knowledge base.
+description: Create a new knowledge base with questions and answers from a public web-based FAQ. Save, train, and publish the knowledge base. Once the knowledge base is published, send a question and receive an answer with a CURL command. Then create a bot and test the bot with the same question. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
-
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 04/08/2019
 ms.author: diberry
 #Customer intent: As an model designer, new to the QnA Maker service, I want to understand all the process requirements to create a knowledge base and generate an answer from that knowledge base. 
 ---
 
-# Tutorial: Create a knowledge base then answer question via the QnA Maker portal
+# Tutorial: From QnA Maker portal, create a knowledge base
 
-This tutorial walks you through creating and publishing a knowledge base, then answering a question from the knowledge base.
+Create a new knowledge base with questions and answers from a public web-based FAQ. Save, train, and publish the knowledge base. Once the knowledge base is published, send a question and receive an answer with a Curl command. Then create a bot and test the bot with the same question. 
 
 In this tutorial, you learn how to: 
 
 > [!div class="checklist"]
-* Create a knowledge base in the QnA Maker portal
-* Review, save, and train the knowledge base
-* Publish the knowledge base
-* Use Curl to query the knowledge base
-
-> [!NOTE] 
-> The programmatic version of this tutorial is available with a complete solution from the [**Azure-Samples/cognitive-services-qnamaker-csharp** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
+> * Create a knowledge base in the QnA Maker portal
+> * Review, save, and train the knowledge base
+> * Publish the knowledge base
+> * Use Curl to query the knowledge base
+> * Create a bot
+> 
+> [!NOTE]
+> The programmatic version of this tutorial is available with a complete solution from the [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## Prerequisites
 
@@ -47,7 +48,7 @@ This tutorial requires an existing [QnA Maker service](../How-To/set-up-qnamaker
 
     |Setting|Purpose|
     |--|--|
-    |Microsoft Azure Directory Id|Your _Microsoft Azure Directory Id_ is associated with the account you use to sign into the Azure portal and the QnA Maker portal. |
+    |Microsoft Azure Directory Id|Your _Microsoft Azure Directory ID_ is associated with the account you use to sign into the Azure portal and the QnA Maker portal. |
     |Azure Subscription name|Your billing account you created the QnA Maker resource in.|
     |Azure QnA Service|Your existing QnA Maker resource.|
 
@@ -79,9 +80,9 @@ This tutorial requires an existing [QnA Maker service](../How-To/set-up-qnamaker
 
 1. Select the last page of questions and answers from the bottom of the table. The page shows questions and answers from the Chit-chat personality. 
 
-1. From the toolbar above the list of questions and answers, select the gear. This shows the filters for each question and answer. The Chit-chat questions have the **editorial: chit-chat** filter already set. This filter is returned to the client application along with the selected answer. The client application, such as a chat bot, can use this filter to determine additional processing or interactions with the user.
+1. From the toolbar above the list of questions and answers, select the metadata icon. This shows the metadata tags for each question and answer. The Chit-chat questions have the **editorial: chit-chat** metadata already set. This metadata is returned to the client application along with the selected answer. The client application, such as a chat bot, can use this filtered metadata to determine additional processing or interactions with the user.
 
-    ![View filters](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![View Metadata tags](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
 1. Select **Save and train** in the top menu bar.
 
@@ -93,19 +94,21 @@ Select the **Publish** button from the top menu. Once you are on the publish pag
 
 After the KB is published, the endpoint is displayed
 
-![Publish](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
+![Publish page's endpoint settings](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
-## Use curl to query for an FAQ answer
+Do not close this **Publish** page, you will use it to create a bot later in the tutorial. 
+
+## Use Curl to query for an FAQ answer
 
 1. Select the **Curl** tab. 
 
     ![Curl command](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-3-curl.png)
 
-1. Copy the text of the **Curl** tab and execute in a Curl-enabled terminal or command-line. The authorization header's value includes the text `Endpoint ` with a trailing space then the key.
+1. Copy the text of the **Curl** tab and execute in a Curl-enabled terminal or command-line. The authorization header's value includes the text `Endpoint` with a trailing space then the key.
 
 1. Replace `<Your question>` with `How large can my KB be?`. This is close to the question, `How large a knowledge base can I create?`, but not exactly the same. QnA Maker applies natural language processing to determine that the two questions are the same.     
 
-1. Execute the CURL command and receive the JSON response including the score and answer. 
+1. Execute the Curl command and receive the JSON response including the score and answer. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -129,11 +132,11 @@ After the KB is published, the endpoint is displayed
 
     QnA Maker is somewhat confident with the score of 42.81%.  
 
-## Use curl to query for a Chit-chat answer
+## Use Curl to query for a Chit-chat answer
 
-1. In the Curl-enabled terminal, replace `How large can my KB be?` with an bot conversation-ending statement from the user, such as `Thank you`.   
+1. In the Curl-enabled terminal, replace `How large can my KB be?` with a bot conversation-ending statement from the user, such as `Thank you`.   
 
-1. Execute the CURL command and receive the JSON response including the score and answer. 
+1. Execute the Curl command and receive the JSON response including the score and answer. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -167,15 +170,15 @@ After the KB is published, the endpoint is displayed
    
     ```
 
-    Because the question of `Thank you` exactly matched a Chit-chat question, QnA Maker is completely confident with the score of 100. QnA Maker also returned all the related questions as well as the metadata property containing the Chit-chat filter information.  
+    Because the question of `Thank you` exactly matched a Chit-chat question, QnA Maker is completely confident with the score of 100. QnA Maker also returned all the related questions as well as the metadata property containing the Chit-chat metadata tag information.  
 
-## Use curl to query for the default answer
+## Use Curl to query for the default answer
 
 Any question that QnA Maker is not confident in an answer receives the default answer. This answer is configured in the Azure portal. 
 
 1. In the Curl-enabled terminal, replace `Thank you` with `x`. 
 
-1. Execute the CURL command and receive the JSON response including the score and answer. 
+1. Execute the Curl command and receive the JSON response including the score and answer. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -193,15 +196,25 @@ Any question that QnA Maker is not confident in an answer receives the default a
     }
     ```
     
-    QnA Maker returned a score of 0 which means no confidence but it also returned the default answer. 
+    QnA Maker returned a score of `0`, which means no confidence but it also returned the default answer. 
+
+## Create a knowledge base bot
+
+For more information, see [Create a chat bot with this knowledge base](create-qna-bot.md).
+
+## Clean up resources
+
+When you are done with the knowledge base bot, remove the resource group, `my-tutorial-rg`, to remove all the Azure resources created in the bot process.
+
+When you are done with the knowledge base, in the QnA Maker portal, select **My knowledge bases**, then select the knowledge base, **My Tutorial kb**, then select the delete icon at the far right in that row.  
 
 ## Next steps
 
-See [Data sources supported](../Concepts/data-sources-supported.md) for more information about support file formats. 
+For more information, see [Data sources supported](../Concepts/data-sources-supported.md) for more information about support file formats. 
 
 Learn more about Chit-chat [personalities](../Concepts/best-practices.md#chit-chat).
 
 For more information about the default answer, see [No match found](../Concepts/confidence-score.md#no-match-found). 
 
 > [!div class="nextstepaction"]
-> [Knowledge base concepts](../Concepts/knowledge-base.md)
+> [Create a chat bot with this knowledge base](create-qna-bot.md)

@@ -85,7 +85,7 @@ Contoso evaluates the proposed design by putting together a pros and cons list.
 
 **Consideration** | **Details**
 --- | ---
-**Pros** | Both the app VMs will be moved to Azure without changes, making the migration simple.<br/><br/> Since Contoso is using lift-and-shift for both app VMs, no special configuration or migration tools are needed for the app database.<br/><br/> Contoso will retain full control of the app VMs in Azure. </br>/br> The app VMs are running Ubuntu 16.04-TLS, which is a endorsed Linux distribution. [Learn more](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+**Pros** | Both the app VMs will be moved to Azure without changes, making the migration simple.<br/><br/> Since Contoso is using lift-and-shift for both app VMs, no special configuration or migration tools are needed for the app database.<br/><br/> Contoso will retain full control of the app VMs in Azure. </br>/br> The app VMs are running Ubuntu 16.04-TLS, which is an endorsed Linux distribution. [Learn more](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 **Cons** | The web and data tier of the app will remain a single point of failover. <br/><br/> Contoso will need to continue supporting the app as Azure VMs rather than moving to a managed service such as Azure App Service and Azure Database for MySQL.<br/><br/> Contoso is aware that by keeping things simple with a lift-and-shift VM migration, they're not taking full advantage of the features provided by [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) (built-in high availability, predictable performance, simple scaling, automatic backups and built-in security).
 
 ### Migration process
@@ -141,7 +141,7 @@ Contoso needs a couple of Azure components for Site Recovery:
     - The storage account must be in the same region as the Recovery Services vault.
     - They use a general purpose account, with standard storage, and LRS replication.
 
-    ![Site Recovery storage](./media/contoso-migration-rehost-linux-vm/asr-storage.png)
+      ![Site Recovery storage](./media/contoso-migration-rehost-linux-vm/asr-storage.png)
 
 2. With the network and storage account in place, they create a vault (ContosoMigrationVault), and place it in the **ContosoFailoverRG** resource group, in the primary East US 2 region.
 
@@ -310,17 +310,17 @@ Now Contoso admins can start replicating the **OSTICKETWEB** VM.
 
 3. They select the **OSTICKETWEB** VM for replication. 
 
-    - At this stage they select **OSTICKETWEB** only, because the VNet and subnet must both be selected, and the VMs aren't in the same subnet.
-    - Site Recovery automatically installs the Mobility service when replication is enabled for the VM.
+   - At this stage they select **OSTICKETWEB** only, because the VNet and subnet must both be selected, and the VMs aren't in the same subnet.
+   - Site Recovery automatically installs the Mobility service when replication is enabled for the VM.
 
-    ![Enable replication](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
+     ![Enable replication](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
 
 4. In the VM properties, they select the account that's used by the process server to automatically install Mobility Service on the machine.
 
      ![Mobility service](./media/contoso-migration-rehost-linux-vm/linux-mobility.png)
 
 5. in **Replication settings** > **Configure replication settings**, they check that the correct replication policy is applied, and select **Enable Replication**.
-6.  They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
+6. They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 
 
 
@@ -404,7 +404,7 @@ Contoso admins are now ready to run a failover on the recovery plan, to migrate 
 
 ### Connect the VM to the database
 
-As the final step in the migration process, Contoso adins update the connection string of the application to point to the app database running on the **OSTICKETMYSQL** VM. 
+As the final step in the migration process, Contoso admins update the connection string of the application to point to the app database running on the **OSTICKETMYSQL** VM. 
 
 1. They make an SSH connection to the **OSTICKETWEB** VM using Putty or another SSH client. The VM is private so they connect using the private IP address.
 
@@ -461,7 +461,7 @@ The Contoso security team review the OSTICKETWEB and OSTICKETMYSQLVMs to determi
 - The team reviews the Network Security Groups (NSGs) for the VMs to control access. NSGs are used to ensure that only traffic allowed to the application can pass.
 - The team also considers securing the data on the VM disks using Disk encryption and Azure KeyVault.
 
-[Read more](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) about security practices for VMs.
+[Read more](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) about security practices for VMs.
 
 ### BCDR
 

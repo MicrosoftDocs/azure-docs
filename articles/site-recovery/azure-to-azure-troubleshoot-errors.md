@@ -5,9 +5,8 @@ services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 04/08/2019
 ms.author: sujayt
 
 ---
@@ -15,7 +14,12 @@ ms.author: sujayt
 
 This article describes the common issues in Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region and explains how to troubleshoot them. For more information about supported configurations, see the [support matrix for replicating Azure VMs](site-recovery-support-matrix-azure-to-azure.md).
 
-## Azure resource quota issues (error code 150097)
+## List of Errors
+- **[Azure resource quota issues (error code 150097)](#azure-resource-quota-issues-error-code-150097)**
+- **[Trusted root certificates (error code 151066)](#trusted-root-certificates-error-code-151066)**
+- **[Outbound connectivity for Site Recovery (error code 151195)](#issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br)**
+
+## <a name="azure-resource-quota-issues-error-code-150097"></a>Azure resource quota issues (error code 150097)
 Your subscription should be enabled to create Azure VMs in the target region that you plan to use as your disaster recovery region. Also, your subscription should have sufficient quota enabled to create VMs of specific size. By default, Site Recovery picks the same size for the target VM as the source VM. If the matching size isn't available, the closest possible size is picked automatically. If there's no matching size that supports source VM configuration, this error message appears:
 
 **Error code** | **Possible causes** | **Recommendation**
@@ -27,7 +31,7 @@ You can contact [Azure billing support](https://docs.microsoft.com/azure/azure-s
 
 If the target location has a capacity constraint, disable replication and enable it to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 
-## Trusted root certificates (error code 151066)
+## <a name="trusted-root-certificates-error-code-151066"></a>Trusted root certificates (error code 151066)
 
 If all the latest trusted root certificates aren't present on the VM, your "enable replication" job might fail. Without the certificates, the authentication and authorization of Site Recovery service calls from the VM fail. The error message for the failed "enable replication" Site Recovery job appears:
 
@@ -50,43 +54,43 @@ Follow the guidance provided by your Linux distributor to get the latest trusted
 
 Because SuSE Linux uses symlinks to maintain a certificate list, follow these steps:
 
-1.	Sign in as a root user.
+1.  Sign in as a root user.
 
-2.	Run this command to change the directory.
+2.  Run this command to change the directory.
 
       ``# cd /etc/ssl/certs``
 
-3. Check if the Symantec root CA cert is present.
+1. Check if the Symantec root CA cert is present.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4. If the Symantec root CA cert is not found, run the following command to download the file. Check for any errors and follow recommended action for network failures.
+2. If the Symantec root CA cert is not found, run the following command to download the file. Check for any errors and follow recommended action for network failures.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. Check if the Baltimore root CA cert is present.
+3. Check if the Baltimore root CA cert is present.
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. If the Baltimore root CA cert is not found, download the certificate.  
+4. If the Baltimore root CA cert is not found, download the certificate.  
 
-    ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
+    ``# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. Check if the DigiCert_Global_Root_CA cert is present.
+5. Check if the DigiCert_Global_Root_CA cert is present.
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
-8. If the DigiCert_Global_Root_CA is not found, run the following commands to download the certificate.
+6. If the DigiCert_Global_Root_CA is not found, run the following commands to download the certificate.
 
     ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
 
     ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
 
-9. Run rehash script to update the certificate subject hashes for the newly downloaded certificates.
+7. Run rehash script to update the certificate subject hashes for the newly downloaded certificates.
 
     ``# c_rehash``
 
-10. Check if the subject hashes as symlinks are created for the certificates.
+8.  Check if the subject hashes as symlinks are created for the certificates.
 
     - Command
 
@@ -115,11 +119,11 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. Create a copy of the file VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem with filename b204d74a.0
+9.  Create a copy of the file VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem with filename b204d74a.0
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. Create a copy of the file Baltimore_CyberTrust_Root.pem with filename 653b494a.0
+10. Create a copy of the file Baltimore_CyberTrust_Root.pem with filename 653b494a.0
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 
@@ -145,42 +149,53 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
 For Site Recovery replication to work, outbound connectivity to specific URLs or IP ranges is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues.
 
-### Issue 1: Failed to register Azure virtual machine with Site Recovery (151037) </br>
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Issue 1: Failed to register Azure virtual machine with Site Recovery (151195) </br>
 - **Possible cause** </br>
-  - You're using NSG to control outbound access on the VM and the required IP ranges aren't whitelisted for outbound access.
-  - You're using third-party firewall tools and the required IP ranges/URLs are not whitelisted.
+  - Connection cannot be established to site recovery endpoints due to DNS resolution failure.
+  - This is more frequently seen during re-protection when you have failed over the virtual machine but the DNS server is not reachable from the DR region.
+
+- **Resolution**
+   - If you're using custom DNS then make sure that the DNS server is accessible from the Disaster Recovery region. To check if you have a custom DNS go to the VM> Disaster Recovery network> DNS servers. Try accessing the DNS server from the virtual machine. If it is not accessible then make it accessible by either failing over the DNS server or creating the line of site between DR network and DNS.
+
+    ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+
+
+### Issue 2: Site Recovery configuration failed (151196)
+- **Possible cause** </br>
+  - Connection cannot be established to Office 365 authentication and identity IP4 endpoints.
+
+- **Resolution**
+  - Azure Site Recovery required access to Office 365 IPs ranges for authentication.
+    If you are using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to O365 IPranges. Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
+      - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
+
+> [!NOTE]
+> If the virtual machines are behind **Standard** internal load balancer then it would not have access to O365 IPs i.e login.micorsoftonline.com by default. Either change it to **Basic** internal load balancer type or  create out bound access as mentioned in the [article](https://aka.ms/lboutboundrulescli).
+
+### Issue 3: Site Recovery configuration failed (151197)
+- **Possible cause** </br>
+  - Connection cannot be established to Azure Site Recovery service endpoints.
+
+- **Resolution**
+  - Azure Site Recovery required access to [Site Recovery IP ranges](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) depending on the region. Make sure that required ip ranges are accessible from the virtual machine.
+
+
+### Issue 4: A2A replication failed when the network traffic goes through on-premises proxy server (151072)
+- **Possible cause** </br>
+  - The custom proxy settings are invalid and ASR Mobility Service agent did not auto-detect the proxy settings from IE
 
 
 - **Resolution**
-   - If you're using firewall proxy to control outbound network connectivity on the VM, ensure that the prerequisite URLs or datacenter IP ranges are whitelisted. For information, see [firewall proxy guidance](https://aka.ms/a2a-firewall-proxy-guidance).
-   - If you're using NSG rules to control outbound network connectivity on the VM, ensure that the prerequisite datacenter IP ranges are whitelisted. For information, see [network security group guidance](azure-to-azure-about-networking.md).
-   - To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](azure-to-azure-about-networking.md).
-
-### Issue 2: Site Recovery configuration failed (151072)
-- **Possible cause** </br>
-  - Connection cannot be established to Site Recovery service endpoints
-
-
-- **Resolution**
-   - If you're using firewall proxy to control outbound network connectivity on the VM, ensure that the prerequisite URLs or datacenter IP ranges are whitelisted. For information, see [firewall proxy guidance](https://aka.ms/a2a-firewall-proxy-guidance).
-   - If you're using NSG rules to control outbound network connectivity on the VM, ensure that the prerequisite datacenter IP ranges are whitelisted. For information, see [network security group guidance](https://aka.ms/a2a-nsg-guidance).
-   - To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
-
-### Issue 3: A2A replication failed when the network traffic goes through on-premise proxy server (151072)
- - **Possible cause** </br>
-   - The custom proxy settings are invalid and ASR Mobility Service agent did not auto-detect the proxy settings from IE
-
-
- - **Resolution**
-  1.	Mobility Service agent detects the proxy settings from IE on Windows and /etc/environment on Linux.
-  2.  If you prefer to set proxy only for ASR Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:</br>
-      - ``/usr/local/InMage/config/`` on ***Linux***
-      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
-  3.	The ProxyInfo.conf should have the proxy settings in the following INI format. </br>
-                   *[proxy]*</br>
-                   *Address=http://1.2.3.4*</br>
-                   *Port=567*</br>
+  1. Mobility Service agent detects the proxy settings from IE on Windows and /etc/environment on Linux.
+  2. If you prefer to set proxy only for ASR Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:</br>
+     - ``/usr/local/InMage/config/`` on ***Linux***
+     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
+  3. The ProxyInfo.conf should have the proxy settings in the following INI format.</br>
+                *[proxy]*</br>
+                *Address=http://1.2.3.4*</br>
+                *Port=567*</br>
   4. ASR Mobility Service agent supports only ***un-authenticated proxies***.
+
 
 ### Fix the problem
 To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
@@ -218,9 +233,13 @@ If you don't see the VM you want to enable for replication, it might be because 
 
 ### Fix the problem
 
+>[!NOTE]
+>
+>Make sure to update the ""AzureRM.Resources"" module before using the below script.
+
 You can use [Remove stale ASR configuration script](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) and remove the stale Site Recovery configuration on the Azure VM. You should be able to see the VM after removing the stale configuration.
 
-## Unable to select Virtual machine for protection 
+## Unable to select Virtual machine for protection
  **Cause 1:  Virtual machine has some extension installed in a failed or unresponsive state** <br>
  Go to Virtual machines > Setting > Extensions and check if there are any extensions in a failed state. Uninstall the failed extension and retry protecting the virtual machine.<br>
  **Cause 2:  [VM's provisioning state is not valid](#vms-provisioning-state-is-not-valid-error-code-150019)**
@@ -229,11 +248,11 @@ You can use [Remove stale ASR configuration script](https://gallery.technet.micr
 
 To enable replication on the VM, the provisioning state should be **Succeeded**. You can check the VM state by following the steps below.
 
-1.	Select the **Resource Explorer** from **All Services** in Azure portal.
-2.	Expand the **Subscriptions** list and select your subscription.
-3.	Expand the **ResourceGroups** list and select the resource group of the VM.
-4.	Expand the **Resources** list and select your virtual machine
-5.	Check the **provisioningState** field in Instance view on right hand side.
+1.  Select the **Resource Explorer** from **All Services** in Azure portal.
+2.  Expand the **Subscriptions** list and select your subscription.
+3.  Expand the **ResourceGroups** list and select the resource group of the VM.
+4.  Expand the **Resources** list and select your virtual machine
+5.  Check the **provisioningState** field in Instance view on right hand side.
 
 ### Fix the problem
 
@@ -257,6 +276,7 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 
 
 ## COM+/Volume Shadow Copy service error (error code 151025)
+
 **Error code** | **Possible causes** | **Recommendations**
 --- | --- | ---
 151025<br></br>**Message**: Site recovery extension failed to install | - 'COM+ System Application' service disabled.</br></br>- 'Volume Shadow Copy' service is disabled.| Set 'COM+ System Application' and 'Volume Shadow Copy' services to automatic or manual start up mode.
@@ -265,6 +285,78 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 
 You can open 'Services' console and ensure the 'COM+ System Application' and 'Volume Shadow Copy' are not set to 'Disabled' for 'Startup Type'.
   ![com-error](./media/azure-to-azure-troubleshoot-errors/com-error.png)
+
+## Unsupported Managed Disk Size (error code 150172)
+
+
+**Error code** | **Possible causes** | **Recommendations**
+--- | --- | ---
+150172<br></br>**Message**: Protection couldn't be enabled for the virtual machine as it has (DiskName) with size (DiskSize) that is lesser than the minimum supported size 1024 MB. | - The disk is less than supported size of 1024 MB| Ensure that the disk sizes are within the supported size range and retry the operation.
+
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>Enable protection failed as device name mentioned in the GRUB configuration instead of UUID (error code 151126)
+
+**Possible Cause:** </br>
+The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the value for the parameters **root** and **resume** as the actual device names instead of UUID. Site Recovery mandates UUID approach as devices name may change across reboot of the VM as VM may not come-up with the same name on failover resulting in issues. For example: </br>
+
+
+- The following line is from the GRUB file **/boot/grub2/grub.cfg**. <br>
+  *linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+
+
+- The following line is from the GRUB file **/boot/grub/menu.lst**
+  *kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+
+If you observe the bold string above,  GRUB has actual device names for the parameters "root" and "resume" instead of UUID.
+
+**How to Fix:**<br>
+The device names should be replaced with the corresponding UUID.<br>
+
+
+1. Find the UUID of the device by executing the command "blkid \<device name>". For example:<br>
+   ```
+   blkid /dev/sda1
+   ```<br>
+   ```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
+   ```blkid /dev/sda2```<br>
+   ```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
+   ```<br>
+
+
+
+1. Now replace the device name with its UUID in the format like "root=UUID=\<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
+   *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+1. Restart the protection again
+
+## Enable protection failed as device mentioned in the GRUB configuration doesn't exist(error code 151124)
+**Possible Cause:** </br>
+The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the parameters "rd.lvm.lv" or "rd_LVM_LV" to indicate the LVM device that should be discovered at the time of booting. If these LVM devices doesn't exist, then the protected system itself will not boot and stuck in the boot process. Even the same will be observed with the failover VM. Below are few examples:
+
+Few examples: </br>
+
+1. The following line is from the GRUB file **"/boot/grub2/grub.cfg"** on RHEL7. </br>
+   *linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M\@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".
+1. The following line is from the GRUB file **"/etc/default/grub"** on RHEL7 </br>
+   *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".
+1. The following line is from the GRUB file **"/boot/grub/menu.lst"** on RHEL6 </br>
+   *kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br>
+
+**How to Fix:**<br>
+
+If the LVM device doesn't exist, fix either by creating it or remove the parameter for the same from the GRUB configuration files and then retry the enable protection. </br>
+
+## Site recovery mobility service update completed with warnings ( error code 151083)
+Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  site recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
+**Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, **benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.**  
+
+
+## Protection couldn't be enabled as replica managed disk 'diskname-replica' already exists without expected tags in the target resource group( error code 150161
+
+**Cause**: It can occur if the  virtual machine was protected earlier in the past and during disabling the replication, replica disk was not cleaned due to some reason.</br>
+**How to fix:**
+Delete the mentioned replica disk in the error message and restart the failed protection job again.
 
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)

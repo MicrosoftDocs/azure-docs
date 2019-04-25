@@ -1,7 +1,6 @@
 ---
 title: Analyze Twitter data with Apache Hive - Azure HDInsight 
 description: Learn how to use Apache Hive and Apache Hadoop on HDInsight to transform raw TWitter data into a searchable Hive table.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -14,16 +13,16 @@ ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Analyze Twitter data using Apache Hive and Apache Hadoop on HDInsight
 
-Learn how to use Apache Hive to process Twitter data. The result is a list of Twitter users who sent the most tweets that contain a certain word.
+Learn how to use [Apache Hive](https://hive.apache.org/) to process Twitter data. The result is a list of Twitter users who sent the most tweets that contain a certain word.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The steps in this document were tested on HDInsight 3.6.
 >
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Get the data
 
-Twitter allows you to retrieve the data for each tweet as a JavaScript Object Notation (JSON) document through a REST API. [OAuth](http://oauth.net) is required for authentication to the API.
+Twitter allows you to retrieve the data for each tweet as a JavaScript Object Notation (JSON) document through a REST API. [OAuth](https://oauth.net) is required for authentication to the API.
 
 ### Create a Twitter application
 
@@ -37,7 +36,7 @@ Twitter allows you to retrieve the data for each tweet as a JavaScript Object No
    |:--- |:--- |
    | Name |MyHDInsightApp |
    | Description |MyHDInsightApp |
-   | Website |http://www.myhdinsightapp.com |
+   | Website |https:\//www.myhdinsightapp.com |
 
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
 
@@ -55,7 +54,7 @@ Twitter allows you to retrieve the data for each tweet as a JavaScript Object No
 
 The following Python code downloads 10,000 tweets from Twitter and save them to a file named **tweets.txt**.
 
-> [!NOTE]
+> [!NOTE]  
 > The following steps are performed on the HDInsight cluster, since Python is already installed.
 
 1. Connect to the HDInsight cluster using SSH:
@@ -66,7 +65,7 @@ The following Python code downloads 10,000 tweets from Twitter and save them to 
 
     For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Use the following commands to install [Tweepy](http://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2), and other required packages:
+3. Use the following commands to install [Tweepy](https://www.tweepy.org/), [Progress bar](https://pypi.python.org/pypi/progressbar/2.2), and other required packages:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
@@ -141,7 +140,7 @@ The following Python code downloads 10,000 tweets from Twitter and save them to 
    twitterStream.filter(track=["azure","cloud","hdinsight"])
    ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Replace the placeholder text for the following items with the information from your twitter application:
     >
     > * `consumer_secret`
@@ -149,7 +148,7 @@ The following Python code downloads 10,000 tweets from Twitter and save them to 
     > * `access_token`
     > * `access_token_secret`
 
-    > [!TIP]
+    > [!TIP]  
     > Adjust the topics filter on the last line to track popular keywords. Using keywords popular at the time you run the script allows for faster capture of data.
 
 6. Use **Ctrl + X**, then **Y** to save the file.
@@ -162,7 +161,7 @@ The following Python code downloads 10,000 tweets from Twitter and save them to 
 
     A progress indicator appears. It counts up to 100% as the tweets are downloaded.
 
-   > [!NOTE]
+   > [!NOTE]  
    > If it is taking a long time for the progress bar to advance, you should change the filter to track trending topics. When there are many tweets about the topic in your filter, you can quickly get the 10000 tweets needed.
 
 ### Upload the data
@@ -178,7 +177,7 @@ These commands store the data in a location that all nodes in the cluster can ac
 
 ## Run the HiveQL job
 
-1. Use the following command to create a file containing HiveQL statements:
+1. Use the following command to create a file containing [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) statements:
 
    ```bash
    nano twitter.hql
@@ -313,18 +312,18 @@ These commands store the data in a location that all nodes in the cluster can ac
 
     This query returns a maximum of 10 tweets that contain the word **Azure** in the message text.
 
-    > [!NOTE]
+    > [!NOTE]  
     > If you changed the filter in the `gettweets.py` script, replace **Azure** with one of the filters you used.
 
 ## Next steps
 
-You have learned how to transform an unstructured JSON dataset into a structured Hive table. To learn more about Hive on HDInsight, see the following documents:
+You have learned how to transform an unstructured JSON dataset into a structured [Apache Hive](https://hive.apache.org/) table. To learn more about Hive on HDInsight, see the following documents:
 
 * [Get started with HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Analyze flight delay data using HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
 
-[curl]: http://curl.haxx.se
-[curl-download]: http://curl.haxx.se/download.html
+[curl]: https://curl.haxx.se
+[curl-download]: https://curl.haxx.se/download.html
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 

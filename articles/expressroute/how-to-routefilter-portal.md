@@ -1,21 +1,14 @@
 ---
-title: 'Configure route filters for Azure ExpressRoute Microsoft peering: Portal | Microsoft Docs'
-description: This article describes how to configure route filters for Microsoft Peering using the Azure portal
-documentationcenter: na
+title: 'Configure route filters for Microsoft peering: Azure ExpressRoute - Portal | Microsoft Docs'
+description: This article describes how to configure route filters for Microsoft peering using the Azure portal.
 services: expressroute
 author: ganesr
-manager: rossort
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid:
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 09/26/2018
 ms.author: ganesr
+ms.custom: seodec18
 
 ---
 # Configure route filters for Microsoft peering: Azure portal
@@ -91,33 +84,33 @@ A route filter can have only one rule, and the rule must be of type 'Allow'. Thi
 ### 1. Create a route filter
 You can create a route filter by selecting the option to create a new resource. Click **Create a resource** > **Networking** > **RouteFilter**, as shown in the following image:
 
-![Create a route filter](.\media\how-to-routefilter-portal\CreateRouteFilter1.png)
+![Create a route filter](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
 
 You must place the route filter in a resource group. 
 
-![Create a route filter](.\media\how-to-routefilter-portal\CreateRouteFilter.png)
+![Create a route filter](./media/how-to-routefilter-portal/CreateRouteFilter.png)
 
 ### 2. Create a filter rule
 
 You can add and update rules by selecting the manage rule tab for your route filter.
 
-![Create a route filter](.\media\how-to-routefilter-portal\ManageRouteFilter.png)
+![Create a route filter](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
 
 You can select the services you want to connect to from the drop down list and save the rule when done.
 
-![Create a route filter](.\media\how-to-routefilter-portal\AddRouteFilterRule.png)
+![Create a route filter](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
 ## <a name="attach"></a>Step 3: Attach the route filter to an ExpressRoute circuit
 
 You can attach the route filter to a circuit by selecting the "add Circuit" button and selecting the ExpressRoute circuit from the drop down list.
 
-![Create a route filter](.\media\how-to-routefilter-portal\AddCktToRouteFilter.png)
+![Create a route filter](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
 If the connectivity provider configures peering for your ExpressRoute circuit refresh the circuit from the ExpressRoute circuit blade before you select the "add Circuit" button.
 
-![Create a route filter](.\media\how-to-routefilter-portal\RefreshExpressRouteCircuit.png)
+![Create a route filter](./media/how-to-routefilter-portal/RefreshExpressRouteCircuit.png)
 
 ## <a name="tasks"></a>Common tasks
 
@@ -125,7 +118,7 @@ If the connectivity provider configures peering for your ExpressRoute circuit re
 
 You can view properties of a route filter when you open the resource in the portal.
 
-![Create a route filter](.\media\how-to-routefilter-portal\ViewRouteFilter.png)
+![Create a route filter](./media/how-to-routefilter-portal/ViewRouteFilter.png)
 
 
 ### <a name="updateproperties"></a>To update the properties of a route filter
@@ -133,23 +126,23 @@ You can view properties of a route filter when you open the resource in the port
 You can update the list of BGP community values attached to a circuit by selecting the "Manage rule" button.
 
 
-![Create a route filter](.\media\how-to-routefilter-portal\ManageRouteFilter.png)
+![Create a route filter](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
-![Create a route filter](.\media\how-to-routefilter-portal\AddRouteFilterRule.png) 
+![Create a route filter](./media/how-to-routefilter-portal/AddRouteFilterRule.png) 
 
 
 ### <a name="detach"></a>To detach a route filter from an ExpressRoute circuit
 
 To detach a circuit from the route filter, right click on the circuit and click on "disassociate".
 
-![Create a route filter](.\media\how-to-routefilter-portal\DetachRouteFilter.png) 
+![Create a route filter](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
 
 ### <a name="delete"></a>To delete a route filter
 
 You can delete a route filter by selecting the delete button. 
 
-![Create a route filter](.\media\how-to-routefilter-portal\DeleteRouteFilter.png) 
+![Create a route filter](./media/how-to-routefilter-portal/DeleteRouteFilter.png) 
 
 ## Next Steps
 

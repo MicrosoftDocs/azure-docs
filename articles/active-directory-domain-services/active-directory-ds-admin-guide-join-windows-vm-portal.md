@@ -4,12 +4,12 @@ description: Join a Windows Server virtual machine to Azure AD DS
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -26,7 +26,7 @@ This article shows how to deploy a Windows Server virtual machine by using the A
 ## Step 1: Create a Windows Server virtual machine
 To create a Windows virtual machine that's joined to the virtual network in which you've enabled Azure AD DS, do the following steps:
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. At the top of the left pane, select **New**.
 3. Select **Compute**, and then select **Windows Server 2016 Datacenter**.
 
@@ -103,7 +103,7 @@ To join the Windows Server virtual machine to the Azure AD DS-managed domain, co
 
 7. You can specify credentials in either of the following ways:
 
-   * **UPN format**: (Recommended) Specify the user principal name (UPN) suffix for the user account, as configured in Azure AD. In this example, the UPN suffix of the user *bob* is *bob@domainservicespreview.onmicrosoft.com*.
+   * **UPN format**: (Recommended) Specify the user principal name (UPN) suffix for the user account, as configured in Azure AD. In this example, the UPN suffix of the user *bob* is *bob\@domainservicespreview.onmicrosoft.com*.
 
    * **SAMAccountName format**: You can specify the account name in the SAMAccountName format. In this example, the user *bob* would need to enter *CONTOSO100\bob*.
 
@@ -142,7 +142,7 @@ If you're having trouble with credentials and are unable to join the domain, try
 
 * Check that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) to your managed domain.
 
-* Check that you've used the UPN of the user as configured in Azure AD (for example, *bob@domainservicespreview.onmicrosoft.com*) to sign in.
+* Check that you've used the UPN of the user as configured in Azure AD (for example, *bob\@domainservicespreview.onmicrosoft.com*) to sign in.
 
 * Wait long enough for password synchronization to be completed, as specified in the getting started guide.
 

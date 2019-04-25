@@ -49,14 +49,29 @@ For more information about using kured, see [Apply security and kernel updates t
 
 Each AKS deployment spans two resource groups:
 
-- The first resource group is created by you and contains only the Kubernetes service resource. The AKS resource provider automatically creates the second one during deployment, such as *MC_myResourceGroup_myAKSCluster_eastus*.
+- The first resource group is created by you and contains only the Kubernetes service resource. The AKS resource provider automatically creates the second one during deployment, such as *MC_myResourceGroup_myAKSCluster_eastus*. For information on how you can specify the name of this second resource group, see the next section.
 - This second resource group, such as *MC_myResourceGroup_myAKSCluster_eastus*, contains all of the infrastructure resources associated with the cluster. These resources include the Kubernetes node VMs, virtual networking, and storage. This separate resource group is created to simplify resource cleanup.
 
 If you create resources for use with your AKS cluster, such as storage accounts or reserved public IP addresses, place them in the automatically generated resource group.
 
+## Can I provide my own name for the AKS infrastructure resource group?
+
+Yes. By default, the AKS resource provider automatically creates a secondary resource group during deployment, such as *MC_myResourceGroup_myAKSCluster_eastus*. To comply with corporate policy, you can provide your own name for this managed cluster (*MC_*) resource group.
+
+* This resource group is automatically created by the Azure resource provider in your own subscription.
+* You can only specify a custom resource group name when the cluster is created.
+
+The following scenarios are not supported:
+
+* You cannot specify an existing resource group for *MC_* group.
+* You cannot specify a different subscription for the *MC_* resource group.
+* You cannot change the *MC_* resource group name after the cluster has been created.
+* You cannot specify names for the managed resources within the *MC_* resource group.
+* You cannot modify or delete tags of managed resources within the *MC_* resource-group (see additional information in the next section).
+
 ## Can I modify tags and other properties of the AKS resources in the MC_* resource group?
 
-Modifying and deleting the Azure-created tags and other properties of resources in the *MC_** resource group can lead to unexpected results such as scaling and upgrading errors. It is supported to create and modify additional custom tags, such as to assign a business unit or cost center. Modifying the resources under the *MC_** in the AKS cluster breaks the SLO.
+Modifying and deleting the Azure-created tags and other properties of resources in the *MC_** resource group can lead to unexpected results such as scaling and upgrading errors. It is supported to create and modify additional custom tags, such as to assign a business unit or cost center. Modifying the resources under the *MC_** in the AKS cluster breaks the service level objective (SLO). For more information, see [Does AKS offer a service level agreement?](#does-aks-offer-a-service-level-agreement)
 
 ## What Kubernetes admission controllers does AKS support? Can admission controllers be added or removed?
 
@@ -89,12 +104,12 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 
 <!-- LINKS - internal -->
 
-[aks-regions]: ./container-service-quotas.md#region-availability
+[aks-regions]: ./quotas-skus-regions.md#region-availability
 [aks-upgrade]: ./upgrade-cluster.md
 [aks-cluster-autoscale]: ./autoscaler.md
 [virtual-kubelet]: virtual-kubelet.md
-[aks-advanced-networking]: ./configure-advanced-networking.md
-[aks-rbac-aad]: ./aad-integration.md
+[aks-advanced-networking]: ./configure-azure-cni.md
+[aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md
 
 <!-- LINKS - external -->

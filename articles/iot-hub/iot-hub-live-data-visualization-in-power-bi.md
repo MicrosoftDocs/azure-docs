@@ -1,14 +1,14 @@
 ---
 title: Real-time data visualization of sensor data from Azure IoT Hub – Power BI | Microsoft Docs
 description: Use Power BI to visualize temperature and humidity data that is collected from the sensor and sent to your Azure IoT hub.
-author: rangv
+author: robinsh
 keywords: real time data visualization, live data visualization, sensor data visualization
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
-ms.author: rangv
+ms.author: robinsh
 ---
 
 # Visualize real-time sensor data from Azure IoT Hub using Power BI
@@ -32,11 +32,11 @@ You learn how to visualize real-time sensor data that your Azure IoT hub receive
 
 ## What you need
 
- * Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
-
-   * An active Azure subscription.
-   * An Azure IoT hub under your subscription.
-   * A client application that sends messages to your Azure IoT hub.
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials; for example, [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md). These cover the following requirements:
+  
+  * An active Azure subscription.
+  * An Azure IoT hub under your subscription.
+  * A client application that sends messages to your Azure IoT hub.
 
 * A Power BI account. ([Try Power BI for free](https://powerbi.microsoft.com/))
 
@@ -70,11 +70,13 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 2. Under **Job Topology**, click **Inputs**.
 
-3. In the **Inputs** pane, click **Add**, and then enter the following information:
+3. In the **Inputs** pane, click **Add stream input**, and then enter the following information:
 
-   **Input alias**: The unique alias for the input.
+   **Input alias**: The unique alias for the input and select **Provide IoT Hub settings manually** below.
 
    **Source**: Select **IoT hub**.
+   
+   **Endpoint**: Click **Messaging**.
 
    **Consumer group**: Select the consumer group you just created.
 
@@ -86,15 +88,9 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 1. Under **Job Topology**, click **Outputs**.
 
-2. In the **Outputs** pane, click **Add**, and then enter the following information:
+2. In the **Outputs** pane, click **Add** and **Power BI**, and then enter the following information:
 
    **Output alias**: The unique alias for the output.
-
-   **Sink**: Select **Power BI**.
-
-3. Click **Authorize**, and then sign into your Power BI account.
-
-4. Once authorized, enter the following information:
 
    **Group Workspace**: Select your target group workspace.
 
@@ -102,7 +98,9 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
    **Table Name**: Enter a table name.
 
-5. Click **Create**.
+3. Click **Authorize**, and then sign into your Power BI account.
+
+4. Click **Create**.
 
    ![Add an output to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
@@ -130,13 +128,13 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
 2. Sign in to your [Power BI](https://powerbi.microsoft.com/en-us/) account.
 
-3. Go to the group workspace that you set when you created the output for the Stream Analytics job.
+3. Click the workspace you used, **My Workspace**.
 
-4. Click **Streaming datasets**.
+4. Click **Datasets**.
 
-   You should see the listed dataset that you specified when you created the output for the Stream Analytics job.
+   You should see the dataset that you specified when you created the output for the Stream Analytics job.
 
-5. Under **ACTIONS**, click the first icon to create a report.
+5. For the dataset you created, click **Add Report** (the first icon to the right of the dataset name).
 
    ![Create a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/7_create-power-bi-report-microsoft.png)
 
@@ -160,9 +158,11 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
 8. Click **Save** to save the report.
 
-9. Click **File** > **Publish to web**.
+9. Click **Reports** on the left pane, and then click the report that you just created.
 
-10. Click **Create embed code**, and then click **Publish**.
+10. Click **File** > **Publish to web**.
+
+11. Click **Create embed code**, and then click **Publish**.
 
 You're provided the report link that you can share with anyone for report access and a code snippet to integrate the report into your blog or website.
 

@@ -3,10 +3,10 @@ title: Manage updates for multiple Azure virtual machines
 description: This article describes how to manage updates for Azure virtual machines.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -23,7 +23,6 @@ You can use the Update Management solution to manage updates and patches for you
 
 To use Update Management, you need:
 
-- An Azure Automation Run As account. To learn how to create one, see [Getting started with Azure Automation](automation-offering-get-started.md).
 - A virtual machine or computer with one of the supported operating systems installed.
 
 ## Supported operating systems
@@ -44,7 +43,7 @@ Update Management is supported on the following operating systems:
 
 Linux agents must have access to an update repository.
 
-This solution doesn't support an Log Analytics Agent for Linux that's configured to report to multiple Azure Log Analytics workspaces.
+This solution doesn't support a Log Analytics Agent for Linux that's configured to report to multiple Azure Log Analytics workspaces.
 
 ## Enable Update Management for Azure virtual machines
 
@@ -64,9 +63,9 @@ When onboarding is finished, Update Management is enabled for your virtual machi
 
 ## Enable Update Management for non-Azure virtual machines and computers
 
-To learn how to enable Update Management for non-Azure Windows virtual machines and computers, see [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agent.md).
+To learn how to enable Update Management for non-Azure Windows virtual machines and computers, see [Connect Windows computers to the Azure Monitor service in Azure](../log-analytics/log-analytics-windows-agent.md).
 
-To learn how to enable Update Management for non-Azure Linux virtual machines and computers, see [Connect your Linux computers to Log Analytics](../log-analytics/log-analytics-agent-linux.md).
+To learn how to enable Update Management for non-Azure Linux virtual machines and computers, see [Connect your Linux computers to Azure Monitor logs](../log-analytics/log-analytics-agent-linux.md).
 
 ## View computers attached to your Automation account
 
@@ -107,7 +106,11 @@ The following table describes the connected sources that this solution supports:
 
 ### Collection frequency
 
-A scan runs twice a day for each managed Windows computer. Every 15 minutes, the Windows API is called to query for the last update time to determine whether the status has changed. If the status changed, a compliance scan starts. A scan runs every 3 hours for each managed Linux computer.
+After a computer completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor logs. On a Windows computer, the compliance scan is run every 12 hours by default.
+
+In addition to the scan schedule, the scan for update compliance is initiated within 15 minutes of the MMA being restarted, before update installation, and after update installation.
+
+For a Linux computer, the compliance scan is performed every 3 hours by default. If the MMA agent is restarted, a compliance scan is initiated within 15 minutes.
 
 It can take between 30 minutes and 6 hours for the dashboard to display updated data from managed computers.
 
@@ -122,7 +125,7 @@ In the **New update deployment** pane, specify the following information:
 - **Name**: Enter a unique name to identify the update deployment.
 - **Operating system**: Select **Windows** or **Linux**.
 - **Groups to update (preview)**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management.md#using-dynamic-groups)
-- **Machines to update**: Select a Saved Search, Imported group, or select Machines, to choose the machines that you want to update. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md)
+- **Machines to update**: Select a Saved Search, Imported group, or select Machines, to choose the machines that you want to update. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
 
   ![New update deployment pane](./media/manage-update-multi/update-select-computers.png)
 
@@ -188,3 +191,4 @@ To see detailed information about any errors from the deployment, select **Error
 ## Next steps
 
 - To learn more about Update Management, including logs, output, and errors, see [Update Management solution in Azure](../operations-management-suite/oms-solution-update-management.md).
+

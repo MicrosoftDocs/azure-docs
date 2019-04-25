@@ -5,7 +5,7 @@ description: This article provides a set of best practices for Azure Operational
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 
 ms.assetid:
@@ -85,7 +85,7 @@ You can use [Azure Resource Manager](https://azure.microsoft.com/documentation/a
 - Make sure that your app can handle traffic for your next launch or marketing campaign.
 
 **Best practice**: Monitor application performance.  
-**Detail**: [Azure Application Insights](../application-insights/app-insights-overview.md) is an extensible application performance management (APM) service for web developers on multiple platforms. Use Application Insights to monitor your live web application. It automatically detects performance anomalies. It includes analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
+**Detail**: [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) is an extensible application performance management (APM) service for web developers on multiple platforms. Use Application Insights to monitor your live web application. It automatically detects performance anomalies. It includes analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
 
 ## Mitigate and protect against DDoS
 Distributed denial of service (DDoS) is a type of attack that tries to exhaust application resources. The goal is to affect the application’s availability and its ability to handle legitimate requests. These attacks are becoming more sophisticated and larger in size and impact. They can be targeted at any endpoint that is publicly reachable through the internet.
@@ -100,7 +100,7 @@ Following are best practices for building DDoS-resilient services on Azure.
 Ensuring that an application is resilient enough to handle a denial of service that's targeted at the application itself is most important. Security and privacy are built into the Azure platform, beginning with the [Security Development Lifecycle (SDL)](https://www.microsoft.com/en-us/sdl). The SDL addresses security at every development phase and ensures that Azure is continually updated to make it even more secure.
 
 **Best practice**: Design your applications to [scale horizontally](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) to meet the demand of an amplified load, specifically in the event of a DDoS attack. If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances makes your system more resilient and more scalable.  
-**Detail**: For [Azure App Service](../app-service/app-service-value-prop-what-is.md), select an [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) that offers multiple instances.
+**Detail**: For [Azure App Service](../app-service/app-service-value-prop-what-is.md), select an [App Service plan](../app-service/overview-hosting-plans.md) that offers multiple instances.
 
 For Azure Cloud Services, configure each of your roles to use [multiple instances](../cloud-services/cloud-services-choose-me.md).
 

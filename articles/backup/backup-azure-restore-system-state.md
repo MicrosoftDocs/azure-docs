@@ -14,8 +14,8 @@ ms.author: saurse
 This article explains how to restore Windows Server System State backups from an Azure Recovery Services vault. To restore System State, you must have a System State backup (created using the instructions in [Back up System State](backup-azure-system-state.md#back-up-windows-server-system-state), and make sure you have installed the [latest version of the Microsoft Azure Recovery Services (MARS) agent](https://aka.ms/azurebackup_agent). Recovering Windows Server System State data from an Azure Recovery Services vault is a two-step process:
 
 1. Restore System State as files from Azure Backup. When restoring System State as files from Azure Backup, you can either:
-  * Restore System State to the same server where the backups were taken, or
-  * Restore System State file to an alternate server.
+   * Restore System State to the same server where the backups were taken, or
+   * Restore System State file to an alternate server.
 
 2. Apply the restored System State files to a Windows Server.
 
@@ -59,7 +59,7 @@ The following steps explain how to roll back your Windows Server configuration t
 
 9. Copy the *WindowsImageBackup* directory in the Recovery destination to a non-critical volume of the server. Usually, the Windows OS volume is the critical volume.
 
-10. Once the recovery is successful, follow the steps in the section, [Apply restored System State files to the Windows Server](backup-azure-restore-system-state.md#apply-restored-system-state-files-to-the-windows-server), to complete the System State recovery process.
+10. Once the recovery is successful, follow the steps in the section, [Apply restored System State files to the Windows Server](backup-azure-restore-system-state.md), to complete the System State recovery process.
 
 ## Recover System State files to an alternate server
 
@@ -151,7 +151,7 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 
 10. For the location of the System State Recovery, select **Original Location**, and click **Next**.
 
-11. Review the confirmation details, verify the reboot settings, and click **Recover** to applly the restored System State files.
+11. Review the confirmation details, verify the reboot settings, and click **Recover** to apply the restored System State files.
 
     ![launch the restore System State files](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
 

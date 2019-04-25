@@ -95,7 +95,7 @@ Here's how Contoso will complete the migration:
 ## Step 1: Create a storage account
 
 1. In the Azure portal, Contoso admins create a storage account (**contosodevmigration**).
-2. They place the account in their secondary region they use for failover - Central US. They use a general-purpose standard account with locally-redudant storage.
+2. They place the account in their secondary region they use for failover - Central US. They use a general-purpose standard account with locally-redundant storage.
 
     ![Storage account](./media/contoso-migration-tfs-vsts/storage1.png) 
 
@@ -152,7 +152,7 @@ Contoso admins run the TFS Migration Tool against the ContosoDev collection data
 
 2. They run the tool to perform the validation, by specifying the URL of the project collection:
 
-        **TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev**
+   **TfsMigrator validate /collection:http:\//contosotfs:8080/tfs/ContosoDev**
 
 
 3. The tool shows an error.
@@ -171,7 +171,7 @@ Contoso admins run the TFS Migration Tool against the ContosoDev collection data
 
      ![TFS](./media/contoso-migration-tfs-vsts/collection5.png)
 
-6. They run the validation command again, and include this value, along with their Azure AD name: **TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
+6. They run the validation command again, and include this value, along with their Azure AD name: **TfsMigrator validate /collection:http:\//contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection7.png)
 
@@ -191,7 +191,7 @@ With the validation complete, Contoso admins can use the TFS Migration Tool to b
 
 1. They run the prepare step in the tool.
 
-    **TfsMigrator prepare /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
+    **TfsMigrator prepare /collection:http:\//contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
 
      ![Prepare](./media/contoso-migration-tfs-vsts/prep1.png)
 
@@ -221,11 +221,11 @@ With the validation complete, Contoso admins can use the TFS Migration Tool to b
 
 6. They review the identity log map file that shows the accounts that will be brought into Azure DevOps Services during the import. 
 
-    - Active identities refer to identities that will become users in Azure DevOps Services after the import.
-    - On Azure DevOps Services, these identities will be licensed, and show up as a user in the organization after migration.
-    - These identities are marked as **Active** in the **Expected Import Status** column in the file.
+   - Active identities refer to identities that will become users in Azure DevOps Services after the import.
+   - On Azure DevOps Services, these identities will be licensed, and show up as a user in the organization after migration.
+   - These identities are marked as **Active** in the **Expected Import Status** column in the file.
 
-    ![Prepare](./media/contoso-migration-tfs-vsts/prep6.png)
+     ![Prepare](./media/contoso-migration-tfs-vsts/prep6.png)
 
 
 
@@ -237,7 +237,7 @@ Before they start, the admins schedule downtime with the dev team, to take the c
 
 1. **Detach the collection**: Identity data for the collection resides in the TFS server configuration database while the collection is attached and online. When a collection is detached from the TFS server, it takes a copy of that identity data, and packages it with the collection for transport. Without this data, the identity portion of the import cannot be executed. It's recommended that the collection stay detached until the import has been completed, as there's no way to import the changes which occurred during the import.
 2. **Generate a backup**: The next step of the migration process is to generate a backup that can be imported into Azure DevOps Services. Data-tier Application Component Packages (DACPAC), is a SQL Server feature that allows database changes to be packaged into a single file, and deployed to other instances of SQL. It can also be restored directly to Azure DevOps Services, and is therefore used as the packaging method for getting collection data into the cloud. Contoso will use the SqlPackage.exe tool to generate the DACPAC. This tool is included in SQL Server Data Tools.
-3. **Upload to storage**: AFter the DACPAC is created, they upload it to Azure Storage. After it's uploaded, they get a shared access signature (SAS), to allow the TFS Migration Tool access to the storage.
+3. **Upload to storage**: After the DACPAC is created, they upload it to Azure Storage. After it's uploaded, they get a shared access signature (SAS), to allow the TFS Migration Tool access to the storage.
 4. **Fill out the import**: Contoso can then fill out missing fields in the import file, including the DACPAC setting. To start with they'll specify that they want to do a **DryRun** import, to check that everything's working properly before the full migration.
 5. **Do a dry run**: Dry run imports help test collection migration. Dry runs have limited life, and are deleted before a production migration runs. They're deleted automatically after a set period of time. A note about when the dry run will be deleted is included in the success email received after the import finishes. Take note and plan accordingly.
 6. **Complete the production migration**: With the Dry Run migration completed, Contoso admins do the final migration by updating the import.json, and running import again.
@@ -298,7 +298,7 @@ Contoso admins generate the DACPAC as follows:
 
     ![Backup](./media/contoso-migration-tfs-vsts/backup2.png)
 
-3. They verify the properties of the DACPACfile
+3. They verify the properties of the DACPAC file
 
     ![Backup](./media/contoso-migration-tfs-vsts/backup3.png)
 

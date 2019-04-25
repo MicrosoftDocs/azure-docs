@@ -1,10 +1,11 @@
 ---
-title: Manage Azure DDoS Protection Standard using the Azure portal | Microsoft Docs
+title: Manage Azure DDoS Protection Standard using the Azure portal
+titlesuffix: Azure Virtual Network
 description: Learn how to use Azure DDoS Protection Standard telemetry in Azure Monitor to mitigate an attack.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
-ms.author: jdial
+ms.author: kumud
 
 ---
 
@@ -111,7 +112,7 @@ You can select any of the available DDoS protection metrics to alert you when th
 
 To simulate a DDoS attack to validate your alert, see [Validate DDoS detection](#validate-ddos-detection).
 
-You can also learn more about [configuring webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [logic apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating alerts.
+You can also learn more about [configuring webhooks](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [logic apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating alerts.
 
 ## Use DDoS protection telemetry
 
@@ -153,9 +154,9 @@ Attack mitigation reports uses the Netflow protocol data which is aggregated to 
 5. Select **Public IP Address** for **Resource type**, then select the specific public IP address you want to log metrics for.
 6. Select **Turn on diagnostics to collect the DDoSMitigationReports log** and then select as many of the following options as you require:
 
-    - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive diagnostic logs](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream diagnostic logs to an event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Send to Log Analytics**: Writes logs to the Azure Log Analytics service. To learn more about this option, see [Collect logs for use in Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive diagnostic logs](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream diagnostic logs to an event hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Send to Log Analytics**: Writes logs to the Azure Monitor service. To learn more about this option, see [Collect logs for use in Azure Monitor logs](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Both the incremental & post-attack mitigation reports include the following fields
 - Attack vectors
@@ -175,9 +176,9 @@ Attack Mitigation Flow Logs allow you to review the dropped traffic, forwarded t
 5. Select **Public IP Address** for **Resource type**, then select the specific public IP address you want to log metrics for.
 6. Select **Turn on diagnostics to collect the DDoSMitigationFlowLogs log** and then select as many of the following options as you require:
 
-    - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive diagnostic logs](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream diagnostic logs to an event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Send to Log Analytics**: Writes logs to the Azure Log Analytics service. To learn more about this option, see [Collect logs for use in Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive diagnostic logs](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream diagnostic logs to an event hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Send to Log Analytics**: Writes logs to the Azure Monitor service. To learn more about this option, see [Collect logs for use in Azure Monitor logs](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. To view the flow logs data in Azure analytics dashboard, you can import the sample dashboard from https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 Flow logs will have the following fields: 

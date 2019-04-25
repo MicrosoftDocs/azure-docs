@@ -1,143 +1,169 @@
 ---
 title: Use Java to query Azure SQL Database | Microsoft Docs
-description: This topic shows you how to use Java to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
+description: Shows you how to use Java to create a program that connects to an Azure SQL database and query it using T-SQL statements.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
 ms.devlang: java
 ms.topic: quickstart
 author: ajlam
 ms.author: andrela
-ms.reviewer:
+ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/01/2018
+ms.date: 03/25/2019
 ---
 # Quickstart: Use Java to query an Azure SQL database
 
-This quickstart demonstrates how to use [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) to connect to an Azure SQL database and then use Transact-SQL statements to query data.
+This article demonstrates how to use [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) to connect to an Azure SQL database. You can then use T-SQL statements to query data.
 
 ## Prerequisites
 
-To complete this quickstart, make sure you have the following prerequisites:
+To complete this sample, make sure you have the following prerequisites:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
+  || Single database | Managed instance |
+  |:--- |:--- |:---|
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| [Connectivity from a VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Connectivity from on-site](sql-database-managed-instance-configure-p2s.md)
+  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
 
-- You have installed Java and related software for your operating system:
+  > [!IMPORTANT]
+  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 
-    - **MacOS**: Install Homebrew and Java, and then install Maven. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
-    - **Ubuntu**:  Install the Java Development Kit, and install Maven. See [Step 1.2, 1.3, and 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
-    - **Windows**: Install the Java Development Kit, and Maven. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).    
+- Java-related software installed for your operating system:
 
-## SQL server connection information
+  - **MacOS**, install Homebrew and Java, then install Maven. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+  - **Ubuntu**, install Java, the Java Development Kit, then install Maven. See [Step 1.2, 1.3, and 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
 
-## **Create Maven project and dependencies**
-1. From the terminal, create a new Maven project called **sqltest**. 
+  - **Windows**, install Java, then install Maven. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
 
-   ```bash
-   mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
-   ```
+## Get SQL server connection information
 
-2. Enter **Y** when prompted.
-3. Change directory to **sqltest** and open ***pom.xml*** with your favorite text editor.  Add the **Microsoft JDBC Driver for SQL Server** to your project's dependencies using the following code:
+Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
-   ```xml
-   <dependency>
-	   <groupId>com.microsoft.sqlserver</groupId>
-	   <artifactId>mssql-jdbc</artifactId>
-	   <version>6.4.0.jre8</version>
-   </dependency>
-   ```
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-4. Also in ***pom.xml***, add the following properties to your project.  If you don't have a properties section, you can add it after the dependencies.
+2. Navigate to the **SQL databases**  or **SQL managed instances** page.
+
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon. 
+
+## Create the project
+
+1. From the command prompt, create a new Maven project called *sqltest*.
+
+    ```bash
+    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0" --batch-mode
+    ```
+
+1. Change the folder to *sqltest* and open *pom.xml* with your favorite text editor. Add the **Microsoft JDBC Driver for SQL Server** to your project's dependencies using the following code.
+
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+        <version>7.0.0.jre8</version>
+    </dependency>
+    ```
+
+1. Also in *pom.xml*, add the following properties to your project. If you don't have a properties section, you can add it after the dependencies.
 
    ```xml
    <properties>
-	   <maven.compiler.source>1.8</maven.compiler.source>
-	   <maven.compiler.target>1.8</maven.compiler.target>
+       <maven.compiler.source>1.8</maven.compiler.source>
+       <maven.compiler.target>1.8</maven.compiler.target>
    </properties>
    ```
 
-5. Save and close ***pom.xml***.
+1. Save and close *pom.xml*.
 
-## Insert code to query SQL database
+## Add code to query database
 
-1. You should already have a file called ***App.java*** in your Maven project located at:  ..\sqltest\src\main\java\com\sqlsamples\App.java
+1. You should already have a file called *App.java* in your Maven project located at:
 
-2. Open the file and replace its contents with the following code and add the appropriate values for your server, database, user, and password.
+   *..\sqltest\src\main\java\com\sqldbsamples\App.java*
 
-   ```java
-   package com.sqldbsamples;
+1. Open the file and replace its contents with the following code. Then add the appropriate values for your server, database, user, and password.
 
-   import java.sql.Connection;
-   import java.sql.Statement;
-   import java.sql.PreparedStatement;
-   import java.sql.ResultSet;
-   import java.sql.DriverManager;
+    ```java
+    package com.sqldbsamples;
 
-   public class App {
+    import java.sql.Connection;
+    import java.sql.Statement;
+    import java.sql.PreparedStatement;
+    import java.sql.ResultSet;
+    import java.sql.DriverManager;
 
-   	public static void main(String[] args) {
-	
-	   	// Connect to database
-		   String hostName = "your_server.database.windows.net";
-		   String dbName = "your_database";
-		   String user = "your_username";
-		   String password = "your_password";
-		   String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-		   Connection connection = null;
+    public class App {
 
-		   try {
-			   	   connection = DriverManager.getConnection(url);
-				   String schema = connection.getSchema();
-				   System.out.println("Successful connection - Schema: " + schema);
+        public static void main(String[] args) {
 
-				   System.out.println("Query data example:");
-				   System.out.println("=========================================");
+            // Connect to database
+            String hostName = "your_server.database.windows.net"; // update me
+            String dbName = "your_database"; // update me
+            String user = "your_username"; // update me
+            String password = "your_password"; // update me
+            String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;"
+                + "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
+            Connection connection = null;
 
-				   // Create and execute a SELECT SQL statement.
-				   String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
-				       + "FROM [SalesLT].[ProductCategory] pc "  
-				       + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-				
-				   try (Statement statement = connection.createStatement();
-					   ResultSet resultSet = statement.executeQuery(selectSql)) {
+            try {
+                connection = DriverManager.getConnection(url);
+                String schema = connection.getSchema();
+                System.out.println("Successful connection - Schema: " + schema);
 
-						   // Print results from select statement
-						   System.out.println("Top 20 categories:");
-						   while (resultSet.next())
-						   {
-						       System.out.println(resultSet.getString(1) + " "
-							       + resultSet.getString(2));
-						   }
-					connection.close();
-				   }				   
-           }
-		   catch (Exception e) {
-		    	   e.printStackTrace();
-		   }
-	   }
-   }
-   ```
+                System.out.println("Query data example:");
+                System.out.println("=========================================");
+
+                // Create and execute a SELECT SQL statement.
+                String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName "
+                    + "FROM [SalesLT].[ProductCategory] pc "  
+                    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
+
+                try (Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(selectSql)) {
+
+                    // Print results from select statement
+                    System.out.println("Top 20 categories:");
+                    while (resultSet.next())
+                    {
+                        System.out.println(resultSet.getString(1) + " "
+                            + resultSet.getString(2));
+                    }
+                    connection.close();
+                }
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    ```
+
+   > [!NOTE]
+   > The code example uses the **AdventureWorksLT** sample database for Azure SQL.
 
 ## Run the code
 
-1. At the command prompt, run the following commands:
+1. At the command prompt, run the app.
 
-   ```bash
-   mvn package
-   mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
-   ```
+    ```bash
+    mvn package -DskipTests
+    mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
+    ```
 
-2. Verify that the top 20 rows are returned and then close the application window.
-
+1. Verify the top 20 rows are returned and close the app window.
 
 ## Next steps
-- [Design your first Azure SQL database](sql-database-design-first-database.md)
-- [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc)
-- [Report issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues)
 
+- [Design your first Azure SQL database](sql-database-design-first-database.md)  
+
+- [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc)  
+
+- [Report issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues)  

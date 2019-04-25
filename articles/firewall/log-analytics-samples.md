@@ -1,24 +1,26 @@
 ---
-title: Azure Firewall Log Analytics samples
-description: Azure Firewall Log Analytics samples
+title: Azure Firewall log analytics samples
+description: Azure Firewall log analytics samples
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 2/15/2019
 ms.author: victorh
 ---
-# Azure Firewall Log Analytics samples
+# Azure Firewall log analytics samples
 
-The following Log Analytics samples can be used to analyze your Azure Firewall logs. The sample file is built in Log Analytics View Designer, the [Log Analytics View Designer](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) article has more information about the View Design concept.
+The following Azure Monitor logs samples can be used to analyze your Azure Firewall logs. The sample file is built in View Designer in Azure Monitor, the [View Designer in Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) article has more information about the View Design concept.
 
-## Log Analytics View
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Here's how you can configure an example log analytics visualization. You can download the example visualization from the [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) repository. The easiest way is to right-click the hyperlink on this page and choose *save as* and provide a name like **AzureFirewall.omsview**. 
+## Azure Monitor logs view
 
-Execute the following steps to add the view to your log analytics workspace:
+Here's how you can configure an example Azure Monitor logs visualization. You can download the example visualization from the [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) repository. The easiest way is to right-click the hyperlink on this page and choose *save as* and provide a name like **AzureFirewall.omsview**. 
 
-1. Open the log analytics workspace in the Azure Portal.
+Execute the following steps to add the view to your Log Analytics workspace:
+
+1. Open the Log Analytics workspace in the Azure Portal.
 2. Open **View Designer** below **General**.
 3. Click **Import**.
 4. Browse and select the **AzureFirewall.omsview** file you downloaded before.
@@ -32,7 +34,7 @@ And for the network rule log data:
 
 ![Network rule log data]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Azure Firewall logs data below AzureDiagnostics with Category as either **AzureFirewallApplicationRule** or **AzureFirewallApplicationRule**. The data containing the details is stored in the msg_s field. Using the [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) operator we can extract the various interesting properties from the msg_s field. The queries below extract the information for both categories.
+Azure Firewall logs data below AzureDiagnostics with Category as either **AzureFirewallApplicationRule** or **AzureFirewallNetworkRule**. The data containing the details is stored in the msg_s field. Using the [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) operator we can extract the various interesting properties from the msg_s field. The queries below extract the information for both categories.
 
 ## Application rules log data query
 
@@ -92,7 +94,7 @@ RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rul
 
 ## Network rules log data query
 
-The query below parses the network rule log data. In the various comment lines there's some guidance as to how the query was built:
+The following query parses the network rule log data. In the various comment lines there's some guidance as to how the query was built:
 
 ```Kusto
 AzureDiagnostics
@@ -141,6 +143,21 @@ AzureDiagnostics
 | extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
 | extend Action = case(Action1a == "", case(Action1b == "",Action2,Action1b), Action1a),Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort),NatDestination = case(NatDestination == "", "N/A", NatDestination)
 | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
+```
+
+## Threat Intelligence log data query
+
+The following query parses the Threat Intelligence rule log data:
+
+```Kusto
+AzureDiagnostics
+| where OperationName  == "AzureFirewallThreatIntelLog"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| parse msg_s with * ". Action: " Action "." Message
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
+| extend Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort)
+| sort by TimeGenerated desc | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action,Message
 ```
 
 ## Next steps

@@ -1,5 +1,5 @@
 ---
-title: Connectors for Azure Logic Apps | Microsoft Docs
+title: Connectors for Azure Logic Apps
 description: Automate workflows with connectors for Azure Logic Apps, including built-in, managed, on-premises, integration account, and enterprise connectors
 services: logic-apps
 ms.service: logic-apps
@@ -13,30 +13,40 @@ ms.date: 08/23/2018
 
 # Connectors for Azure Logic Apps
 
-Connectors play an integral part when you create automated workflows with Azure Logic Apps. 
-By using connectors in your logic apps, you expand the capabilities for your on-premises 
-and cloud apps to perform tasks with the data that you create and already have. 
+Connectors provide quick access from Azure Logic Apps to events, data, 
+and actions across other apps, services, systems, protocols, and platforms. 
+By using connectors in your logic apps, you expand the capabilities for 
+your cloud and on-premises apps to perform tasks with the data that you 
+create and already have.
 
 While Logic Apps offers [~200+ connectors](https://docs.microsoft.com/connectors), 
 this article describes popular and more commonly used connectors that are successfully 
 used by thousands of apps and millions of executions for processing data and information. 
-Connectors are available as either built-ins or managed connectors. 
+To find the full list of connectors and each connector's reference information, 
+such as triggers, actions, and limits, review the connector references pages under 
+[Connectors overview](https://docs.microsoft.com/connectors). 
+Also, learn more about [triggers and actions](#triggers-actions).
 
 > [!NOTE]
-> For the full list of connectors and each connector's reference information, 
-> such as actions, any triggers, and limits, you can find the full list 
-> under the [Connectors overview](https://docs.microsoft.com/connectors).
+> To integrate with a service or API that doesn't have connector, 
+> you can either directly call the service over a protocol such 
+> as HTTP or create a [custom connector](#custom).
 
-* [**Built-ins**](#built-ins): These built-in actions and triggers help you 
-create logic apps that run on custom schedules, communicate with other endpoints, 
-receive and respond to requests, and call Azure functions, Azure API Apps (Web Apps), 
-your own APIs managed and published with Azure API Management, and nested logic apps 
-that can receive requests. You can also use built-in actions that help you 
-organize and control your logic app's workflow, and also work with data.
+Connectors are available either as built-in triggers and actions or as managed connectors:
 
-* **Managed connectors**: These connectors provide triggers and actions 
-for accessing other services and systems. Some connectors require that 
-you first create connections that are managed by Azure Logic Apps. 
+* [**Built-ins**](#built-ins): These built-in actions and triggers are "native" 
+to Azure Logic Apps and help you create logic apps that run on custom schedules, 
+communicate with other endpoints, receive and respond to requests, and call 
+Azure functions, Azure API Apps (Web Apps), your own APIs managed and published 
+with Azure API Management, and nested logic apps that can receive requests. 
+You can also use built-in actions that help you organize and control your 
+logic app's workflow, and also work with data.
+
+* **Managed connectors**: Deployed and managed by Microsoft, 
+these connectors provide triggers and actions for accessing 
+other services and systems such as Office 365, Azure Blob Storage, 
+SQL Server, Salesforce, and more. Some connectors require that 
+you first create connections, which are managed by Azure Logic Apps. 
 Managed connectors are organized into these groups:
 
   |   |   |
@@ -53,7 +63,7 @@ Managed connectors are organized into these groups:
   You can then extend or perform BizTalk-like operations in your logic apps by 
   using the [integration account connectors](#integration-account-connectors). 
 
-> [!NOTE] 
+> [!NOTE]
 > For the full list of connectors and each connector's reference information, 
 > such as actions and any triggers, which are defined by a Swagger description, 
 > plus any limits, you can find the full list under the 
@@ -97,7 +107,7 @@ Here are built-in actions for working with data outputs and their formats:
 
 |   |   | 
 |---|---| 
-| ![Built-in Icon][data-operations-icon]<br/>**Data Operations** | Perform operations with data: <p>- **Compose**: Create a single output from multiple inputs with various types. <br>- **Create CSV table**: Create a comma-separated-value (CSV) table from an array with JSON objects. <br>- **Create HTML table**: Create an HTML table from an array with JSON objects. <br>- **Filter array**: Create an array from items in another array that meet your criteria. <br>- **Join**: Create a string from all items in an array and separate those items with the specified delimiter. <br>- **Parse JSON**: Create user-friendly tokens from properties and their values in JSON content so you can use those properties in your workflow. <br>- **Select**: Create an array with JSON objects by transforming items or values in another array and mapping those items to specified properties. | 
+| [![Built-in Icon][data-operations-icon]<br/>**Data Operations**][data-operations-doc] | Perform operations with data: <p>- **Compose**: Create a single output from multiple inputs with various types. <br>- **Create CSV table**: Create a comma-separated-value (CSV) table from an array with JSON objects. <br>- **Create HTML table**: Create an HTML table from an array with JSON objects. <br>- **Filter array**: Create an array from items in another array that meet your criteria. <br>- **Join**: Create a string from all items in an array and separate those items with the specified delimiter. <br>- **Parse JSON**: Create user-friendly tokens from properties and their values in JSON content so you can use those properties in your workflow. <br>- **Select**: Create an array with JSON objects by transforming items or values in another array and mapping those items to specified properties. | 
 | ![Built-in Icon][date-time-icon]<br/>**Date Time** | Perform operations with timestamps: <p>- **Add to time**: Add the specified number of units to a timestamp. <br>- **Convert time zone**: Convert a timestamp from the source time zone to the target time zone. <br>- **Current time**: Return the current timestamp as a string. <br>- **Get future time**: Return the current timestamp plus the specified time units. <br>- **Get past time**: Return the current timestamp minus the specified time units. <br>- **Subtract from time**: Subtract a number of time units from a timestamp. |
 | [![Built-in Icon][variables-icon]<br/>**Variables**][variables-doc] | Perform operations with variables: <p>- **Append to array variable**: Insert a value as the last item in an array stored by a variable. <br>- **Append to string variable**: Insert a value as the last character in a string stored by a variable. <br>- **Decrement variable**: Decrease a variable by a constant value. <br>- **Increment variable**: Increase a variable by a constant value. <br>- **Initialize variable**: Create a variable and declare its data type and initial value. <br>- **Set variable**: Assign a different value to an existing variable. |
 |  |  | 
@@ -151,7 +161,7 @@ use BizTalk Server, these connectors might seem familiar already.
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![API icon][as2-icon]<br/>**AS2</br> decoding**][as2-decode-doc] | [![API icon][as2-icon]<br/>**AS2</br> encoding**][as2-encode-doc] | [![API icon][edifact-icon]<br/>**EDIFACT</br> decoding**][edifact-decode-doc] | [![API icon][edifact-icon]<br/>**EDIFACT</br> encoding**][edifact-encode-doc] | 
+| [![API icon][as2-icon]<br/>**AS2</br> decoding**][as2-doc] | [![API icon][as2-icon]<br/>**AS2</br> encoding**][as2-doc] | [![API icon][edifact-icon]<br/>**EDIFACT</br> decoding**][edifact-decode-doc] | [![API icon][edifact-icon]<br/>**EDIFACT</br> encoding**][edifact-encode-doc] | 
 | [![API icon][flat-file-decode-icon]<br/>**Flat file</br> decoding**][flat-file-decode-doc] | [![API icon][flat-file-encode-icon]<br/>**Flat file</br> encoding**][flat-file-encode-doc] | [![API icon][integration-account-icon]<br/>**Integration<br/>account**][integration-account-doc] | [![API icon][liquid-icon]<br/>**Liquid**</br>**transforms**][json-liquid-transform-doc] | 
 | [![API icon][x12-icon]<br/>**X12</br> decoding**][x12-decode-doc] | [![API icon][x12-icon]<br/>**X12</br> encoding**][x12-encode-doc] | [![API icon][xml-transform-icon]<br/>**XML**</br>**transforms**][xml-transform-doc] | [![API icon][xml-validate-icon]<br/>**XML <br/>validation**][xml-validate-doc] |  
 ||||| 
@@ -167,36 +177,74 @@ Your logic apps can access enterprise systems, such as SAP and IBM MQ:
 | [![API icon][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API icon][sap-icon]<br/>**SAP**][sap-connector-doc] |
 ||| 
 
-## More about triggers and actions
+<a name="triggers-actions"></a>
 
-Some connectors provide *triggers* that notify your logic app when specific events happen. 
-So when these events happen, the trigger creates and runs an instance of your logic app. 
-For example, the FTP connector provides a "When a file is added or modified" trigger 
-that starts your logic app when a file gets updated. 
+## Triggers and actions - more info
 
-Logic Apps provides these kinds of triggers:  
+Connectors can provide *triggers*, *actions*, or both. 
+A *trigger* is the first step in any logic app, usually 
+specifying the event that fires the trigger and starts 
+running your logic app. For example, the FTP connector 
+has a trigger that starts your logic app 
+"when a file is added or modified". Some triggers 
+regularly check for the specified event or data 
+and then fire when they detect the specified event or data. 
+Other triggers wait but fire instantly when a specific 
+event happens or when new data is available. 
+Triggers also pass along any required data to your logic app. 
+Your logic app can read and use that data throughout the workflow.
+For example, the Twitter connector has a trigger, "When a new tweet is posted", 
+that passes the tweet's content into your logic app's workflow. 
 
-* *Polling triggers*: These triggers poll your service 
-at a specified frequency and checks for new data. 
+After a trigger fires, Azure Logic Apps creates an instance of your 
+logic app and starts running the *actions* in your logic app's workflow. 
+Actions are the steps that follow the trigger and perform tasks in your 
+logic app's workflow. For example, you can create a logic app that gets 
+customer data from a SQL database and process that data in later actions. 
 
-  When new data is available, a new instance of your logic app 
-  gets created and runs with the data that's passed in as input. 
+Here are the general kinds of triggers that Azure Logic Apps provides:
 
-* *Push triggers*: These triggers listen for new data at an endpoint 
-or for an event to happen, which creates and runs new instance of your logic app.
+* *Recurrence trigger*: This trigger runs on a specified schedule 
+and isn't tightly associated with a particular service or system.
 
-* *Recurrence trigger*: This trigger creates and runs an instance 
-of your logic app based on a specified schedule.
+* *Polling trigger*: This trigger regularly polls a specific service 
+or system based on the specified schedule, checking for new data or 
+whether a specific event happened. If new data is available or 
+the specific event happened, the trigger creates and runs a new instance 
+of your logic app, which can now use the data that's passed as input.
 
-Connectors also provide *actions* that perform tasks in your logic app's workflow. 
-For example, your logic app can read data and use this data in later steps of your logic app. 
-More specifically, your logic app can find customer data from a SQL database, 
-and process this data later in your logic app's workflow. 
+* *Push trigger*: This trigger waits and listens for new data or 
+for an event to happen. When new data is available or when the 
+event happens, the trigger creates and runs new instance of your 
+logic app, which can now use the data that's passed as input.
 
-For more about triggers and actions, see the 
-[Connectors overview](connectors-overview.md). 
+<a name="custom"></a>
 
-## Custom APIs and connectors 
+## Connector configuration
+
+Each connector's triggers and actions provide their own properties for you to configure. 
+Many connectors also require that you first create a *connection* to the 
+target service or system and provide authentication credentials or other 
+configuration details before you can use a trigger or action in your logic app. 
+For example, you must authorize a connection to a Twitter account for 
+accessing data or to post on your behalf. 
+
+For connectors that use OAuth, creating a connection means signing into 
+the service, such as Office 365, Salesforce, or GitHub, where your access 
+token is encrypted and securely stored in an Azure secret store. 
+Other connectors, such as FTP and SQL, require a connection that 
+has configuration details, such as the server address, username, and password. 
+This connection configuration details are also encrypted and securely stored. 
+
+Connections can access the target service or system for as long as that service or system allows. 
+For services that use Azure Active Directory (AD) OAuth connections, such as Office 365 and Dynamics, 
+Azure Logic Apps refreshes access tokens indefinitely. Other services might put limits on how long 
+Azure Logic Apps can use a token without refreshing. Generally, some actions invalidate all access 
+tokens, such as changing your password.
+
+<a name="custom"></a>
+
+## Custom APIs and connectors
 
 To call APIs that run custom code or aren't available as connectors, 
 you can extend the Logic Apps platform by 
@@ -213,11 +261,6 @@ you can [submit connectors for Microsoft certification](../logic-apps/custom-con
 
 * To submit or vote on ideas for Azure Logic Apps and connectors, 
 visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
-
-* Are the docs missing articles or details you think are important? 
-If yes, you can help by adding to the existing articles or by writing your own. 
-The documentation is open source and hosted on GitHub. 
-Get started at the Azure documentation's [GitHub repository](https://github.com/Microsoft/azure-docs). 
 
 ## Next steps
 
@@ -250,6 +293,7 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organize actions into cases, which are assigned unique values. Run only the case whose value matches the result from an expression, object, or token. If no matches exist, run the default case"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stop or cancel an actively running workflow for your logic app"
 [until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Repeat actions until the specified condition is true or some state has changed"
+[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Perform data operations such as filtering arrays or creating CSV and HTML tables"
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Perform operations with variables, such as initialize, set, increment, decrement, and append to string or array variable"
 
 <!--Managed API doc links-->
@@ -302,8 +346,6 @@ Get started at the Azure documentation's [GitHub repository](https://github.com/
 
 <!--Enterprise Intregation Pack doc links-->
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Learn about enterprise integration AS2."
-[as2-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-as2-decode.md "Learn about enterprise integration AS2 decode"
-[as2-encode-doc]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Learn about enterprise integration AS2 encode"
 [edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Learn about enterprise integration EDIFACT decode"
 [edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Learn about enterprise integration EDIFACT encode"
 [flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file."

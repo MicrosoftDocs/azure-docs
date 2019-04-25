@@ -1,32 +1,32 @@
 ---
 title: Static website hosting in Azure Storage
-description: Azure Storage static website hosting, providing a cost-effective, scalable solution for hosting modern web applications.  
+description: Azure Storage static website hosting, providing a cost-effective, scalable solution for hosting modern web applications.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 10/19/18
+ms.date: 02/25/2019
 ms.author: tamram
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Static website hosting in Azure Storage
 Azure Storage GPv2 accounts allow you to serve static content (HTML, CSS, JavaScript, and image files) directly from a storage container named *$web*. Taking advantage of hosting in Azure Storage allows you to use serverless architectures including [Azure Functions](/azure/azure-functions/functions-overview) and other PaaS services.
 
-In contrast to static website hosting, dynamic sites that depend on server-side code are best hosted using [Azure Web Apps](/azure/app-service/app-service-web-overview).
+In contrast to static website hosting, dynamic sites that depend on server-side code are best hosted using [Azure App Service](/azure/app-service/overview).
 
 ## How does it work?
-When you enable static website hosting on your storage account, you select the name of your default file and optionally provide a path to a custom 404 page. As the feature is enabled, a container named *$web* is created if it doesn't already exist. 
+When you enable static website hosting on your storage account, you select the name of your default file and optionally provide a path to a custom 404 page. As the feature is enabled, a container named *$web* is created if it doesn't already exist.
 
 Files in the *$web* container are:
 
 - served through anonymous access requests
 - only available through object read operations
 - case-sensitive
-- available to the public web following this pattern: 
+- available to the public web following this pattern:
     - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- available through a Blob storage endpoint following this pattern: 
+- available through a Blob storage endpoint following this pattern:
     - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
 
 You use the Blob storage endpoint to upload files. For instance, the file uploaded to this location:
@@ -43,10 +43,14 @@ https://contoso.z4.web.core.windows.net/image.png
 
 The selected default file name is used at the root and any subdirectories when a file name is not provided. If the server returns a 404 and you do not provide an error document path, then a default 404 page is returned to the user.
 
+> [!NOTE]
+> The default public access level for files is Private. Because the files are served through anonymous access requests, this setting is ignored. There's public access to all files, and RBAC permissions are ignored.
+
 ## CDN and SSL support
 
 To make your static website files available over HTTPS, see [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md). As a part of this process, you need to *point your CDN to the web endpoint* as opposed to the blob endpoint. You may need to wait a few minutes before your content is visible as the CDN configuration is not immediately executed.
 
+When you update your static website, be sure to clear cached content on the CDN edge servers by purging the CDN endpoint. For more information, see [Purge an Azure CDN endpoint](../../cdn/cdn-purge-endpoint.md).
 
 ## Custom domain names
 
@@ -93,10 +97,10 @@ Query for the web endpoint URL:
 az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
 ```
 
-Upload objects to the *$web* container from a source directory:
+Upload objects to the *$web* container from a source directory. Be sure to properly escape the reference to the *$web* container in the command. For example, if you are using Azure CLI from CloudShell in the Azure portal, escape the *$web* container as shown:
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_NAME>
 ```
 
 ## Deployment
@@ -104,8 +108,8 @@ az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NA
 Methods available for deploying content to a storage container include the following:
 
 - [AzCopy](../common/storage-use-azcopy.md)
-- [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
-- [Visual Studio Team System](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 - [Visual Studio Code extension](https://code.visualstudio.com/tutorials/static-website/getting-started)
 
 In all cases, make sure you copy files to the *$web* container.
@@ -116,7 +120,7 @@ To enable metrics on your static website pages, click on **Settings** > **Monito
 
 Metrics data are generated by hooking into different metrics APIs. The portal only displays API members used within a given time frame in order to only focus on members that return data. In order to ensure you are able to select the necessary API member, the first step is to expand the time frame.
 
-Click on the time frame button and select **Last 24 hours** and then click **Apply** 
+Click on the time frame button and select **Last 24 hours** and then click **Apply**
 
 ![Azure Storage static websites metrics time range](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 
@@ -140,7 +144,7 @@ Finally, check the box next to **GetWebContent** in the *Values* selector to pop
 
 ![Azure Storage static websites metrics GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 
-One enabled, traffic statistics on files in the *$web* container reported in the metrics dashboard.
+Once enabled, traffic statistics on files in the *$web* container are reported in the metrics dashboard.
 
 ## FAQ
 
@@ -157,6 +161,6 @@ Yes, the web endpoint is case-sensitive just like the blob endpoint.
 * [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
 * [Configure a custom domain name for your blob or web endpoint](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure Web Apps](/azure/app-service/app-service-web-overview)
+* [Azure App Service](/azure/app-service/overview)
 * [Build your first serverless web app](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

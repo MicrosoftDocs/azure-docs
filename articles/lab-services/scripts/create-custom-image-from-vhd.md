@@ -19,7 +19,9 @@ ms.author: spelluru
 
 This sample PowerShell script creates a custom image from a VHD file in Azure Lab Services
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## Prerequisites
 * **A lab**. The script requires you to have an existing lab. 
@@ -34,9 +36,9 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Gets resources. |
-| [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) | Gets the access keys for an Azure Storage account. |
-| [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) | Adds an Azure deployment to a resource group. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets resources. |
+| [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Gets the access keys for an Azure Storage account. |
+| [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) | Adds an Azure deployment to a resource group. |
 
 ## Next steps
 

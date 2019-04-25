@@ -4,7 +4,7 @@ description: Describes how to How to change the credit card used to pay for an A
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: jureid
 editor: ''
 tags: billing
 
@@ -14,11 +14,97 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
-ms.author: cwatson
+ms.date: 3/13/2019
+ms.author: banders
 
 ---
 # Add, update, or remove a credit or debit card for Azure
+
+In the Azure portal, you can add a new credit card, update an existing credit card, or delete a credit card that you don't use. You must be an [Account Administrator](billing-subscription-transfer.md#whoisaa) to make these changes.
+
+<!-- If your Angola, Belize, Algeria, Vietnam, or Virgin Islands. -->
+
+**Want to switch to pay by invoice?** See [Pay for Azure subscriptions by invoice](billing-how-to-pay-by-invoice.md).
+
+<a id="addcard"></a>
+
+## Add a new credit or debit card to an Azure subscription
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Search on **Cost Management + Billing**.
+
+    ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
+
+1. Select the subscription you'd like to add the credit or debit card to.
+1. Select **Payment methods**.
+
+    ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
+
+1. In the top-left corner, select “+” to add a card. A credit card form will appear on the right.
+1. Enter credit or debit card details.
+
+    ![Screenshot that shows adding a new card.](./media/billing-how-to-change-credit-card/sub-add-new-x.png)
+
+1. To make this card your active payment method, check the box next to **Make this my active payment method** above the form. This card will become the active payment instrument for all subscriptions using the same card as the selected subscription.
+
+1. Select **Next**.
+
+If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](billing-credit-card-fails-during-azure-sign-up.md).
+
+## Update existing credit or debit card
+
+If your credit card gets renewed and the number stays the same, update the existing credit card details like the expiration date. If your credit card number changes because the card is lost, stolen, or expired, follow the steps in the [Add a credit card as a payment method](#addcard) section. You don't need to update the CVV.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Search on **Cost Management + Billing**.
+
+    ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
+
+1. Select **Payment methods**.
+
+    ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
+
+1. Click on the credit or debit card that you'd like to edit. A credit card form will appear on the right.
+
+    ![Screenshot that shows credit or debit card selected.](./media/billing-how-to-change-credit-card/edit-card-x.png)
+
+1. Update the credit or debit card details.
+1. Select **Save**.
+
+## Use a different credit card for the Azure subscription
+
+If more than one of your subscriptions have the same active payment method, then changing the active payment method on any of these subscriptions also updates the active payment method on the others.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Search on **Cost Management + Billing**.
+
+    ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
+
+1. Select the subscription you'd like to add the credit or debit card to.
+1. Select **Payment methods**.
+
+    ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
+
+1. Check the box next to the card you'd like to make the active payment method.
+1. Click **Set active**.
+    ![Screenshot that shows credit or debit card selected and set active.](./media/billing-how-to-change-credit-card/sub-change-active-x.png)
+
+## Remove a credit or debit card from the account
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Select **Cost Management + Billing** on the left side of the page.
+
+    ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
+
+1. Under **Billing**, select **Payment methods**.
+
+    ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
+
+1. Check the box next to the card that you want to remove.
+1. Click **Delete**.
+
+If your credit card is the active payment method for any of your Microsoft subscriptions, you can't remove it from your Azure account. Change the active payment method for all subscriptions linked to this credit or debit card and try again
+<!-- # Add, update, or remove a credit or debit card for Azure
 
 In the Account Center, you can add a new credit card, update an existing credit card, or delete a credit card that you don't use. You must be an [Account Administrator](billing-subscription-transfer.md#whoisaa) to make these changes.
 
@@ -28,7 +114,7 @@ In the Account Center, you can add a new credit card, update an existing credit 
 
 ## Add a new credit or debit card
 
-1. Sign in to the [Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
+1. Sign in to the [Account Center](https://account.windowsazure.com/Subscriptions) as the [Account Administrator](billing-subscription-transfer.md#whoisaa).
 1. Select a subscription.
 1. On the right side of the page, select **Manage payment methods**.
 
@@ -45,7 +131,7 @@ If you get an error after you add the credit card, see [Credit card declined at 
 
 If your credit card gets renewed and the number remains the same, update the existing credit card details like the expiration date. If your credit card number changes because the card is lost, stolen, or expired, follow the steps in the [Add a credit card as a payment method](#addcard) section. You don't need to update the CVV.
 
-1. Sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
+1. Sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the [Account Administrator](billing-subscription-transfer.md#whoisaa).
 1. Select the subscription that's linked to the card.
 1. Select **Manage payment methods**.
 1. Select **Edit** next to the card you want to update.
@@ -54,25 +140,24 @@ If your credit card gets renewed and the number remains the same, update the exi
 
 ## Use a different credit card for the Azure subscription
 
-1. Sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
+1. Sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the [Account Administrator](billing-subscription-transfer.md#whoisaa).
 1. Select the subscription that's linked to the card.
 1. On the right side of the page, select **Manage payment methods**.
 1. Click **Use Instead** next to the card that you want to use. This also updates any other subscriptions currently associated with this card. 
 
 ## Remove a credit or debit card from the account
 
-1. Sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the account administrator.
+1. Sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the [Account Administrator](billing-subscription-transfer.md#whoisaa).
 1. Select the subscription that's linked to the card.
 3. On the right side of the page, select **Manage payment methods**.
 4. Click **Delete** for the credit card that you want to delete.
 
-If your credit card is associated with other active Microsoft subscriptions, you can't remove it from your Azure account. Remove the credit card from all active subscriptions that you have with Microsoft and try again.
-
+If your credit card is associated with other active Microsoft subscriptions, you can't remove it from your Azure account. Remove the credit card from all active subscriptions that you have with Microsoft and try again. -->
 ## Frequently asked questions
 
 ### My subscription is disabled. Why can't I remove my credit card now?
 
-After your subscription is disabled or canceled, we wait 90 days before permanently deleting your subscription. We keep your payment method on file during the retention period in case you want to reactivate the subscription. After that, the subscription is completely deleted.
+After your subscription is disabled or canceled, we wait 90 days before permanently deleting your subscription. We keep your payment method on file during the retention period in case you want to reactivate the subscription. After that, the subscription is permanently deleted.
 
 If you need to remove your credit or debit card before the 90-day retention period ends, [reactivate your subscription](billing-subscription-become-disable.md). If you can't reactivate, [contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -98,6 +183,6 @@ Unfortunately, Azure currently doesn't support one-time payments for credit or d
 
 To add or update tax ID, visit [**Profile** in Azure Account Center](https://account.azure.com/Profile), then select **Tax record**. This tax ID is used for tax exemption calculations and appears on your invoice.
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

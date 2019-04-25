@@ -5,15 +5,16 @@ description: Describes the Azure AD B2B collaboration invitation redemption expe
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 12/14/2018
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory B2B collaboration invitation redemption
@@ -25,7 +26,7 @@ To collaborate with users from partner organizations through Azure Active Direct
 
 ## Redemption through a direct link
 
-A guest inviter can invite a guest user by sending out a direct link to a shared app. For the guest user, the redemption experience is as easy as signing in to the app that was shared with them. They can click a link to the app, review and accept the privacy terms, and then seamlessly access the app. In most cases, guest users no longer need to click a redemption URL in an invitation email.
+A guest inviter can invite a guest user by sending out a [direct link to a shared app](../manage-apps/end-user-experiences.md#direct-sign-on-links). For the guest user, the redemption experience is as easy as signing in to the app that was shared with them. They can click a link to the app, review and accept the privacy terms, and then seamlessly access the app. In most cases, guest users no longer need to click a redemption URL in an invitation email.
 
 If you invited guest users through the user interface, or chose to send the invitation email as part of the PowerShell invitation experience, the invited user still receives an invitation email. This email is useful for the following special cases:
 
@@ -51,6 +52,12 @@ After any guest user signs in to access resources in a partner organization for 
 ![Screenshot showing user settings in Access Panel](media/redemption-experience/ConsentScreen.png) 
 
 For information about how you as a tenant administrator can link to your organization's privacy statement, see [How-to: Add your organization's privacy info in Azure Active Directory](https://aka.ms/adprivacystatement).
+
+## Terms of use
+
+You can present terms of use to the guest user during the initial redemption process by using the Azure AD Terms of use feature. In Azure Active Directory, you can access this feature under **Manage** > **Organizational relationships** > **Terms of use** or under **Security** > **Conditional Access** > **Terms of use**. For details, see [Azure AD Terms of use feature](../conditional-access/terms-of-use.md).
+
+![Screenshot showing new terms of use](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 
 ## Next steps
 

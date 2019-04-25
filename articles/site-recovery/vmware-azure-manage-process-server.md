@@ -2,9 +2,10 @@
 title: Manage a process server for disaster recovery of VMware VMs and physical servers to Azure using Azure Site Recovery | Microsoft Docs
 description: This article describes manage a process server set up for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 03/11/2019
 ms.author: ramamill
 
 ---
@@ -25,7 +26,7 @@ Upgrade an process server running on premises, or in Azure (for failback purpose
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]
 
 > [!NOTE]
-  Typically, when you use the Azure Gallery Image to create a process server in Azure for the purposes of failback, it's running the latest version available. The Site Recovery teams release fixes and enhancements on a regular basis, and we recommend you keep process servers up-to-date.
+>   Typically, when you use the Azure Gallery Image to create a process server in Azure for the purposes of failback, it's running the latest version available. The Site Recovery teams release fixes and enhancements on a regular basis, and we recommend you keep process servers up-to-date.
 
 ## Balance the load on process server
 
@@ -63,6 +64,19 @@ Through this option, entire workload protected under a process server is moved t
 2. Monitor the progress of the job under **Recovery Services Vault** > **Monitoring** > **Site Recovery jobs**.
 3. It takes 15 minutes for the changes to reflect post successful completion of this operation OR [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) for immediate effect.
 
+## Process Server selection guidance
+
+Azure Site Recovery automatically identifies if Process Server is approaching its usage limits. Guidance is provided when you to set up a scale-out process server.
+
+|Health Status  |Explanation  | Resource availability  | Recommendation|
+|---------|---------|---------|---------|
+| Healthy (Green)    |   Process server is connected and is healthy      |CPU and memory utilization is below 80%; Free space availability is above 30%| This process server can be used to protect additional servers. Ensure that the new workload is within the [defined process server limits](vmware-azure-set-up-process-server-scale.md#sizing-requirements).
+|Warning (Orange)    |   Process server is connected but certain resources are about to reach maximum limits  |   CPU and memory utilization is between 80% - 95%; Free space availability is between 25% - 30%       | Usage of process server is close to threshold values. Adding new servers to same process server will lead to crossing the threshold values and can impact existing protected items. It is advised to [setup a scale-out process server](vmware-azure-set-up-process-server-scale.md#before-you-start) for new replications.
+|Warning (Orange)   |   Process server is connected but data wasn't uploaded to Azure in last 30 min  |   Resource utilization is within threshold limits       | Troubleshoot [data upload failures](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) before adding new workloads **OR** [setup a scale-out process server](vmware-azure-set-up-process-server-scale.md#before-you-start) for new replications.
+|Critical (Red)    |     Process server might be disconnected  |  Resource utilization is within threshold limits      | Troubleshoot [Process server connectivity issues](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) OR [setup a scale-out process server](vmware-azure-set-up-process-server-scale.md#before-you-start) for new replications.
+|Critical (Red)    |     Resource utilization has crossed threshold limits |  CPU and memory utilization is above 95%; Free space availability is less than 25%.   | Adding new workloads to same process server is disabled as resource threshold limits are already met. So, [setup a scale-out process server](vmware-azure-set-up-process-server-scale.md#before-you-start) for new replications.
+Critical (Red)    |     Data wasn't uploaded from Azure to Azure in last 45 min. |  Resource utilization is within threshold limits      | Troubleshoot [data upload failures](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) before adding new workloads to same process server OR [setup a scale-out process server](vmware-azure-set-up-process-server-scale.md#before-you-start)
+
 ## Reregister a process server
 
 If you need to reregister a process server running on-premises, or in Azure, with the configuration server, do the following:
@@ -86,24 +100,23 @@ If the process server uses a proxy to connect to Site Recovery in Azure, use thi
 
 1. Log onto the process server machine. 
 2. Open an Admin PowerShell command window, and run the following command:
-  ```powershell
-  $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
-  net stop obengine
-  net start obengine
-  ```
+   ```powershell
+   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
+   net stop obengine
+   net start obengine
+   ```
 2. Browse to folder **%PROGRAMDATA%\ASR\Agent**, and run the following command:
-  ```
-  cmd
-  cdpcli.exe --registermt
+   ```
+   cmd
+   cdpcli.exe --registermt
 
-  net stop obengine
+   net stop obengine
 
-  net start obengine
+   net start obengine
 
-  exit
-  ```
-
+   exit
+   ```
 
 ## Remove a process server
 
@@ -121,4 +134,3 @@ If anti-virus software is active on a standalone process server or master target
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
 - Process server installation directory, Example: C:\Program Files (x86)\Microsoft Azure Site Recovery
-

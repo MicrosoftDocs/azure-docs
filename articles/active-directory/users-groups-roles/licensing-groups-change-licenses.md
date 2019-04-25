@@ -1,50 +1,51 @@
 ---
 
-  title: How to safely migrate users between product licenses by using group-based licensing in Azure Active Directory | Microsoft Docs
-  description: Describes the recommended process to migrate users between different product licenses (Office 365 Enterprise E1 and E3) by using group-based licensing
-  services: active-directory
-  keywords: Azure AD licensing
-  documentationcenter: ''
-  author: piotrci
-  manager: mtillman
-  editor: ''
+title: How to migrate users to product licenses with groups - Azure Active Directory | Microsoft Docs
+description: Describes the recommended process to migrate users within a group to different product licenses (Office 365 Enterprise E1 and E3) using group-based licensing
+services: active-directory
+keywords: Azure AD licensing
+documentationcenter: ''
+author: curtand
+manager: mtillman
+editor: ''
 
-  ms.assetid:
-  ms.service: active-directory
-  ms.devlang: na
-  ms.topic: article
-  ms.tgt_pltfrm: na
-  ms.workload: identity
-  ms.date: 10/29/2018
-  ms.author: piotrci
-
+ms.service: active-directory
+ms.topic: article
+ms.workload: identity
+ms.subservice: users-groups-roles
+ms.date: 03/18/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.custom: "it-pro;seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 
-# How to safely migrate users between product licenses by using group-based licensing
+# Change the license for a single user in a licensed group in Azure Active Directory
 
 This article describes the recommended method to move users between product licenses when using group-based licensing. The goal of this approach is to ensure that there's no loss of service or data during the migration: users should switch between products seamlessly. Two variants of the migration process are covered:
 
--	Simple migration between product licenses that don't contain conflicting service plans, such as migrating between Office 365 Enterprise E3 and Office 365 Enterprise E5.
+- Simple migration between product licenses that don't contain conflicting service plans, such as migrating between Office 365 Enterprise E3 and Office 365 Enterprise E5.
 
--	More complex migration between products that contain some conflicting service plans, such as migrating between Office 365 Enterprise E1 and Office 365 Enterprise E3. For more information about conflicts, see [Conflicting service plans](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) and [Service plans that can't be assigned at the same time](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
+- More complex migration between products that contain some conflicting service plans, such as migrating between Office 365 Enterprise E1 and Office 365 Enterprise E3. For more information about conflicts, see [Conflicting service plans](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) and [Service plans that can't be assigned at the same time](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
 
 This article includes sample PowerShell code that can be used to perform the migration and verification steps. The code is especially useful for large-scale operations where it's not feasible to perform the steps manually.
 
 ## Before you begin
 Before you begin the migration, it's important to verify certain assumptions are true for all of the users to be migrated. If the assumptions aren't true for all of the users, the migration might fail for some. As a result, some of the users might lose access to services or data. The following assumptions should be verified:
 
--	Users have the *source license* that's assigned by using group-based licensing. The licenses for the product to move away from are inherited from a single source group and aren't assigned directly.
+- Users have the *source license* that's assigned by using group-based licensing. The licenses for the product to move away from are inherited from a single source group and aren't assigned directly.
 
     >[!NOTE]
     >If licenses are also assigned directly, they can prevent the application of the *target license*. Learn more about [direct and group license assignment](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). You might want to use a [PowerShell script](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) to check if users have direct licenses.
 
--	You have enough available licenses for the target product. If you don't have enough licenses, some users might not get the *target license*. You can [check the number of available licenses](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
+- You have enough available licenses for the target product. If you don't have enough licenses, some users might not get the *target license*. You can [check the number of available licenses](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
 
--	Users don't have other assigned product licenses that can conflict with the *target license* or prevent removal of the *source license*. For example, a license from an add-on product like Workplace Analytics or Project Online, that has a dependency on other products.
+- Users don't have other assigned product licenses that can conflict with the *target license* or prevent removal of the *source license*. For example, a license from an add-on product like Workplace Analytics or Project Online, that has a dependency on other products.
 
--	Understand how groups are managed in your environment. For example, if you manage groups on-premises and sync them into Azure Active Directory (Azure AD) via Azure AD Connect, then you add/remove users by using your on-premises system. It takes time for the changes to sync into Azure AD and get picked up by group-based licensing. If you're using Azure AD dynamic group memberships, you add/remove users by modifying their attributes instead. However, the overall migration process remains the same. The only difference is how you add/remove users for group membership.
+- Understand how groups are managed in your environment. For example, if you manage groups on-premises and sync them into Azure Active Directory (Azure AD) via Azure AD Connect, then you add/remove users by using your on-premises system. It takes time for the changes to sync into Azure AD and get picked up by group-based licensing. If you're using Azure AD dynamic group memberships, you add/remove users by modifying their attributes instead. However, the overall migration process remains the same. The only difference is how you add/remove users for group membership.
 
 ## Migrate users between products that don't have conflicting service plans
+
 The migration goal is to use group-based licensing to change user licenses from a *source license* (in this example: Office 365 Enterprise E3) to a *target license* (in this example: Office 365 Enterprise E5). The two products in this scenario don't contain conflicting service plans, so they can be fully assigned at the same time without a conflict. At no point during the migration should users lose access to services or data. The migration is performed in small "batches." You can validate the outcome for each batch and minimize the scope of any problems that might occur during the process. Overall, the process is as follows:
 
 1.	Users are members of a source group and they inherit the *source license* from that group.
@@ -62,6 +63,7 @@ The migration goal is to use group-based licensing to change user licenses from 
 7.	Repeat the process for subsequent batches of users.
 
 ### Migrate a single user by using the Azure portal
+
 This is a simple walkthrough for how to migrate a single user.
 
 **STEP 1**: The user has a *source license* that's inherited from the group. There are no direct assignments for the license:
@@ -82,7 +84,7 @@ The following snippet shows how to automate the migration process for a large-sc
 > [!NOTE]
 > The sample code uses PowerShell functions that are included in the [last section](#powershell-automation-of-migration-and-verification-steps) of this article.
 
-```
+```powershell
 # A batch of users that we want to migrate in this iteration.
 # The batch can be specified as an array of User Principal Names (string) or ObjectIds (Guid).
 # Note: The batch can be loaded from a text file that represents a larger batch of users that we want to migrate.
@@ -125,7 +127,7 @@ ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAss
 
 **Sample output (migration of two users)**
 
-```
+```powershell
 Verifying initial assumptions:
 Enough TailspinOnline:ENTERPRISEPREMIUM licenses available (13) for users: 2.
 migrationuser@tailspinonline.com                OK
@@ -212,7 +214,7 @@ The following snippet shows how to automate the migration process for a large-sc
 > [!NOTE]
 > The sample code uses PowerShell functions that are included in the [last section](#powershell-automation-of-migration-and-verification-steps) of this article.
 
-```
+```powershell
 # A batch of users that we want to migrate in this iteration.
 # The batch can be specified as an array of User Principal Names (string) or ObjectIds (Guid).
 # Note: The batch can be loaded from a text file that represents a larger batch of users that we want to migrate.
@@ -262,7 +264,7 @@ ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAss
 
 **Sample output (migration of two users)**
 
-```
+```powershell
 Verifying initial assumptions:
 Enough TailspinOnline:ENTERPRISEPACK licenses available (61) for users: 2.
 migrationuser@tailspinonline.com                OK
@@ -318,7 +320,7 @@ This section contains the PowerShell code that's required to run the scripts tha
 
 To execute the code, use the instructions in the [Azure AD PowerShell v1.0 libraries](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0). Before you execute the script, run the `connect-msolservice` cmdlet to sign in to the tenant.
 
-```
+```powershell
 # BEGIN: Helper functions that are used in the scripts.
 
 # GetUserObject function
@@ -520,7 +522,7 @@ function IsExpectedLicenseStateForGroup
     # The license is expected to be fully assigned from the group and not in an error state.
     if([string]::IsNullOrEmpty($expectedError))
     {
-        # Check if the assigned license is inherted from the expected group and without an error on it.
+        # Check if the assigned license is inherited from the expected group and without an error on it.
         return (UserHasLicenseAssignedFromThisGroup $user $skuId $groupId)
     }
     # The license is expected to be in the specific error state on the specific group.
@@ -611,7 +613,7 @@ function VerifyAssumptionsForUser
         return $false
     }
 
-    # 2. The user does't have the same source license assigned from another group at the same time,
+    # 2. The user doesn't have the same source license assigned from another group at the same time,
     #    and the user doesn't have the source license assigned directly.
     [Guid[]]$otherObjectsAssigningLicense = GetObjectIdsAssigningLicense $user $sourceSkuId | Where {$_ -ne $sourceGroupId}
     foreach($otherObject in $otherObjectsAssigningLicense)

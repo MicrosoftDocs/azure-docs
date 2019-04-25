@@ -3,8 +3,8 @@ title: Sign-in activity reports in the Azure Active Directory portal | Microsoft
 description: Introduction to sign-in activity reports in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 11/13/2018
-ms.author: priyamo
+ms.subservice: report-monitor
+ms.date: 04/18/2019
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Sign-in activity reports in the Azure Active Directory portal
 
@@ -40,7 +41,7 @@ This topic gives you an overview of the sign-ins report.
 * In addition, any user (non-admins) can access their own sign-ins 
 
 ### What Azure AD license do you need to access sign-in activity?
-* Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report
+* Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. Note that if you did not have any activities data prior to the upgrade, it will take a couple of days for the data to show up in the reports after you upgrade to a premium license.
 
 ## Sign-ins report
 
@@ -50,9 +51,12 @@ The user sign-ins report provides answers to the following questions:
 * How many users have signed in over a week?
 * What’s the status of these sign-ins?
 
-You can access the sign-ins report by selecting **Sign-ins** in the **Activity** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com).
+You can access the sign-ins report by selecting **Sign-ins** in the **Activity** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Note that it may take upto two hours for some sign-in records to show up in the portal.
 
 ![Sign-in activity](./media/concept-sign-ins/61.png "Sign-in activity")
+
+> [!IMPORTANT]
+> The sign-ins report only displays the **interactive** sign-ins, that is, sign-ins where a user manually signs in using their username and password. Non-interactive sign-ins, such as service-to-service authentication, are not displayed in the sign-ins report. 
 
 A sign-ins log has a default list view that shows:
 
@@ -141,23 +145,13 @@ If you add additional fields to your sign-ins view, these fields are automatical
 
 ## Download sign-in activities
 
-You can [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal. Clicking **Download** creates a CSV file of the most recent 5K records.  In addition to a download button, the Azure portal also provides you with an option to [generate a script to download your data](tutorial-signin-logs-download-script.md).  
+You can [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal. Clicking **Download** gives you the option to create a CSV or JSON file of the most recent 250,000 records.  
 
 ![Download](./media/concept-sign-ins/71.png "Download")
-
-If you need more flexibility, you can use the script solution. Clicking **Script** creates a PowerShell script that includes all the filters you have set. Download and run this script in **administrator mode** to generate the CSV file. 
 
 > [!IMPORTANT]
 > The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
 
-### Running the script on a Windows 10 machine
-
-If you want to run the script on a **Windows 10** machine, you need to perform a few additional steps first. 
-
-1. Install the [AzureRM module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0l).
-2. Import the module by opening a PowerShell prompt and running the command **Import-Module AzureRM**.
-3. Run **Set-ExecutionPolicy unrestricted** and choose **Yes to All**. 
-4. Now you can run the downloaded PowerShell script in administrator mode to generate the CSV file.
 
 ## Sign-ins data shortcuts
 
@@ -170,7 +164,7 @@ In addition to Azure AD, the Azure portal provides you with additional entry poi
 
 ### Users sign-ins data in Identity security protection
 
-The user sign-in graph in the **Identity security protection** overview page shows weekly aggregations of sign ins for all users in a given time period. The default for the time period is 30 days.
+The user sign-in graph in the **Identity security protection** overview page shows weekly aggregations of sign-ins for all users in a given time period. The default for the time period is 30 days.
 
 ![Sign-in activity](./media/concept-sign-ins/06.png "Sign-in activity")
 
@@ -196,7 +190,11 @@ By clicking an item, you get more details about the sign-in operation:
 - Date
 - MFA Required
 - Sign-in status
- 
+
+> [!NOTE]
+> IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. Mapping IP addresses is complicated by the fact that mobile providers and VPNs issue IP addresses from central pools that are often very far from where the client device is actually used. 
+> Currently in Azure AD reports, converting IP address to a physical location is a best effort based on traces, registry data, reverse look ups and other information.
+
 On the **Users** page, you get a complete overview of all user sign-ins by clicking **Sign-ins** in the **Activity** section.
 
 ![Sign-in activity](./media/concept-sign-ins/08.png "Sign-in activity")
@@ -213,7 +211,7 @@ Your entry point to this data is the top 3 applications in your organization wit
 
 ![Sign-in activity](./media/concept-sign-ins/10.png "Sign-in activity")
 
-The app usage graph weekly aggregations of sign ins for your top 3 applications in a given time period. The default for the time period is 30 days.
+The app usage graph weekly aggregations of sign-ins for your top 3 applications in a given time period. The default for the time period is 30 days.
 
 ![Sign-in activity](./media/concept-sign-ins/47.png "Sign-in activity")
 
@@ -226,6 +224,12 @@ When you click on a day in the app usage graph, you get a detailed list of the s
 The **Sign-ins** option gives you a complete overview of all sign-in events to your applications.
 
 ![Sign-in activity](./media/concept-sign-ins/11.png "Sign-in activity")
+
+## Office 365 activity logs
+
+You can view Office 365 activity logs from the [Microsoft 365 admin center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, only the Microsoft 365 admin center provides a full view of the Office 365 activity logs. 
+
+You can also access the Office 365 activity logs programmatically using the [Office 365 Management APIs](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## Next steps
 

@@ -3,8 +3,6 @@ title: Server logs for Azure Database for MariaDB
 description: Describes the logs available in Azure Database for MariaDB, and the available parameters for enabling different logging levels.
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018

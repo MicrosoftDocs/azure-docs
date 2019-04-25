@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Text Analytics with C#'
+title: 'Tutorial: Connect to the Text Analytics service with Connected Services in Visual Studio'
 titleSuffix: Azure Cognitive Services
-description: Connect to Text Analytics from an ASP.NET Core web application.
+description: Learn how to connect to Text Analytics from an ASP.NET Core web application.
 services: cognitive-services
-author: ghogen
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: ghogen
+ms.date: 02/13/2019
+ms.author: aahi
 ---
-# Tutorial: Connect to the Text Analytics Cognitive Service by using Connected Services in Visual Studio
+# Tutorial: Connect to the Text Analytics service with Connected Services in Visual Studio
 
 By using the Text Analytics Service, you can extract rich information to categorize and process visual data, and perform machine-assisted moderation of images to help curate your services.
 
@@ -57,7 +57,7 @@ This article and its companion articles provide details for using the Visual Stu
     [6/1/2018 3:04:06.314 PM] Installing NuGet package 'Microsoft.Azure.CognitiveServices.Language' version 1.0.0-preview...
     [6/1/2018 3:04:56.759 PM] Retrieving keys...
     [6/1/2018 3:04:57.822 PM] Updating appsettings.json setting: 'ServiceKey' = '<service key>'
-    [6/1/2018 3:04:57.827 PM] Updating appsettings.json setting: 'ServiceEndPoint' = 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0'
+    [6/1/2018 3:04:57.827 PM] Updating appsettings.json setting: 'ServiceEndPoint' = 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.1'
     [6/1/2018 3:04:57.832 PM] Updating appsettings.json setting: 'Name' = 'TextAnalyticsDemo'
     [6/1/2018 3:05:01.840 PM] Successfully added Text Analytics to the project.
     ```

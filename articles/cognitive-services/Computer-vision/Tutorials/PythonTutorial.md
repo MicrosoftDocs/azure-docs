@@ -1,27 +1,28 @@
-﻿---
-title: "Tutorial: Computer Vision API Python"
+---
+title: "Tutorial: Perform image operations - Python"
 titlesuffix: Azure Cognitive Services
 description: Learn how to use the Computer Vision API with Python by using Jupyter notebooks. Visualize your results using popular libraries.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/06/2018
 ms.author: kefre
+ms.custom: seodec18
 ---
 
 # Tutorial: Computer Vision API Python
 
-This tutorial shows you how to use the Computer Vision API in Python and how to visualize your results using popular libraries. You will use Jupyter to run the tutorial. To learn how to get started with interactive Jupyter notebooks, refer to the [Jupyter Documementation](http://jupyter.readthedocs.io/en/latest/index.html).
+This tutorial shows you how to use the Computer Vision API in Python and how to visualize your results using popular libraries. You will use Jupyter to run the tutorial. To learn how to get started with interactive Jupyter notebooks, refer to the [Jupyter Documentation](https://jupyter.readthedocs.io/en/latest/index.html).
 
 ## Prerequisites
 
 - [Python 2.7+ or 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/) tool
-- [Jupyter Notebook](http://jupyter.org/install) installed
+- [Jupyter Notebook](https://jupyter.org/install) installed
 
 ## Open the Tutorial Notebook in Jupyter 
 

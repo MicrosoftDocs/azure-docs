@@ -1,13 +1,13 @@
 ---
 title: Understand Azure IoT Hub quotas and throttling | Microsoft Docs
 description: Developer guide - description of the quotas that apply to IoT Hub and the expected throttling behavior.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.author: dobett
 ---
 
 # Reference - IoT Hub quotas and throttling
@@ -37,14 +37,18 @@ The following table shows the enforced throttles. Values refer to an individual 
 | Cloud-to-device receives<sup>1</sup> <br/> (only when device uses HTTPS)| 16.67/sec/unit (1000/min/unit) | 16.67/sec/unit (1000/min/unit) | 833.33/sec/unit (50000/min/unit) |
 | File upload | 1.67 file upload notifications/sec/unit (100/min/unit) | 1.67 file upload notifications/sec/unit (100/min/unit) | 83.33 file upload notifications/sec/unit (5000/min/unit) |
 | Direct methods<sup>1</sup> | 160KB/sec/unit<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
-| Twin (device and module) reads<sup>1</sup> | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
-| Twin updates (device and module)<sup>1</sup> | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
+| Queries | 20/min/unit | 20/min/unit | 1000/min/unit |
+| Twin (device and module) reads<sup>1</sup> | 100/sec | Higher of 100/sec or 10/sec/unit | 500/sec/unit |
+| Twin updates (device and module)<sup>1</sup> | 50/sec | Higher of 50/sec or 5/sec/unit | 250/sec/unit |
 | Jobs operations<sup>1,3</sup> <br/> (create, update, list, delete) | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
 | Jobs device operations<sup>1</sup> <br/> (update twin, invoke direct method) | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
 | Configurations and edge deployments<sup>1</sup> <br/> (create, update, list, delete) | 0.33/sec/unit (20/min/unit) | 0.33/sec/unit (20/min/unit) | 0.33/sec/unit (20/min/unit) |
+| Device stream initiation rate<sup>4</sup> | 5 new streams/sec | 5 new streams/sec | 5 new streams/sec |
+| Maximum number of concurrently connected device streams<sup>4</sup> | 50 | 50 | 50 |
+| Maximum device stream data transfer<sup>4</sup> (aggregate volume per day) | 300 MB | 300 MB | 300 MB |
 
 
-<sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 8 KB. <br/><sup>3</sup>You can only have one active device import/export job at a time.
+<sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 4 KB. <br/><sup>3</sup>You can only have one active device import/export job at a time. <br/><sup>4</sup>IoT Hub device streams are only available for S1, S2, S3, and F1 SKU's.
 
 The *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle does not govern the maximum number of simultaneously connected devices. The *device connections* rate throttle depends on the number of units that are provisioned for the IoT hub.
 
@@ -77,7 +81,7 @@ IoT Hub enforces other operational limits:
 <sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md).
 
 > [!NOTE]
-> Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Currently, the maximum number of devices you can connect to a single IoT hub is 1,000,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 ## Latency
 IoT Hub strives to provide low latency for all operations. However, due to network conditions and other unpredictable factors it cannot guarantee a maximum latency. When designing your solution, you should:

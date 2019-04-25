@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: Describes how to get analytics for Bing News Search API. 
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: conceptual
-ms.date: 04/05/2018
+ms.date: 01/10/2019
 ms.author: scottwhi
 ---
 

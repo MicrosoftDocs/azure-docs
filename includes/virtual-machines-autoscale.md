@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ---
-﻿You can easily [automatically scale](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) your [virtual machines (VMs)](../articles/virtual-machines/windows/overview.md) when you use [virtual machine scale sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) and the [autoscaling feature of Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Your VMs need to be members of a scale set to be automatically scaled. This article provides information that enables you to better understand how to scale your VMs both vertically and horizontally using automatic and manual methods.
+﻿You can easily [automatically scale](../articles/azure-monitor/platform/autoscale-best-practices.md) your [virtual machines (VMs)](../articles/virtual-machines/windows/overview.md) when you use [virtual machine scale sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) and the [autoscaling feature of Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). Your VMs need to be members of a scale set to be automatically scaled. This article provides information that enables you to better understand how to scale your VMs both vertically and horizontally using automatic and manual methods.
 
 ## Horizontal or vertical scaling
 
@@ -23,13 +23,13 @@ Scale sets make it easy for you to deploy and manage identical VMs as a set. You
 
 Automatic scaling provides the right number of VMs to handle the load on your application. It enables you to add VMs to handle increases in load and save money by removing VMs that are sitting idle. You specify a minimum and maximum number of VMs to run based on a set of rules. Having a minimum makes sure your application is always running even under no load. Having a maximum value limits your total possible hourly cost.
 
-You can enable autoscale when you create the scale set using [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) or [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). You can also enable it after the scale set is created. You can create a scale set, install the extension, and configure autoscale using an [Azure Resource Manager template](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). In the Azure portal, enable autoscale from Azure Monitor, or enable autoscale from the scale set settings.
+You can enable autoscale when you create the scale set using [Azure PowerShell](../articles/azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings) or [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). You can also enable it after the scale set is created. You can create a scale set, install the extension, and configure autoscale using an [Azure Resource Manager template](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). In the Azure portal, enable autoscale from Azure Monitor, or enable autoscale from the scale set settings.
 
 ![Enable autoscale](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  
 ### Metrics
 
-The autoscale feature of Azure Monitor enables you to scale the number of running VMs up or down based on [metrics](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). By default, VMs provide basic host-level metrics for disk, network, and CPU usage. When you configure the collection of diagnostics data using the diagnostic extension, additional guest OS performance counters become available for disk, CPU, and memory.
+The autoscale feature of Azure Monitor enables you to scale the number of running VMs up or down based on [metrics](../articles/azure-monitor/platform/autoscale-common-metrics.md). By default, VMs provide basic host-level metrics for disk, network, and CPU usage. When you configure the collection of diagnostics data using the diagnostic extension, additional guest OS performance counters become available for disk, CPU, and memory.
 
 ![Metric criteria](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
@@ -43,7 +43,7 @@ If your application needs to scale based on metrics that are not available throu
  
 ### Notifications
 
-You can [set up triggers](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) so that specific web URLs are called or emails are sent based on the autoscale rules that you create. Webhooks allow you to route the Azure alert notifications to other systems for post-processing or custom notifications.
+You can [set up triggers](../articles/azure-monitor/platform/autoscale-webhook-email.md) so that specific web URLs are called or emails are sent based on the autoscale rules that you create. Webhooks allow you to route the Azure alert notifications to other systems for post-processing or custom notifications.
 
 ## Manually scale VMs in a scale set
 
@@ -51,11 +51,11 @@ You can [set up triggers](../articles/monitoring-and-diagnostics/insights-autosc
 
 You can add or remove VMs by changing the capacity of the scale set. In the Azure portal, you can decrease or increase the number of VMs (shown as **instance count**) in the scale set by sliding the Override condition bar on the Scaling screen left or right.
 
-Using Azure PowerShell, you need to get the scale set object using [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). You then set the **sku.capacity** property to the number of VMs that you want and update the scale set with [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Using Azure CLI, you change the capacity with the **--new-capacity** parameter for the [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) command.
+Using Azure PowerShell, you need to get the scale set object using [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss). You then set the **sku.capacity** property to the number of VMs that you want and update the scale set with [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). Using Azure CLI, you change the capacity with the **--new-capacity** parameter for the [az vmss scale](/cli/azure/vmss?view=azure-cli-latest#az-vmss-scale) command.
 
 ### Vertical
 
-You can manually change the size of the VMs in the Azure portal on the Size screen for the scale set. You can use Azure PowerShell with Get-AzureRmVmss, setting the image reference sku property, and then using [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) and [Update-AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
+You can manually change the size of the VMs in the Azure portal on the Size screen for the scale set. You can use Azure PowerShell with Get-AzVmss, setting the image reference sku property, and then using [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) and [Update-AzVmssInstance](https://docs.microsoft.com/powershell/module/az.compute/update-azvmssinstance).
 
 ## Next steps
 

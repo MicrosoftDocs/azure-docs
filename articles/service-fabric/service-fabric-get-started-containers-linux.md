@@ -3,8 +3,8 @@ title: Create an Azure Service Fabric container application on Linux | Microsoft
 description: Create your first Linux container application on Azure Service Fabric. Build a Docker image with your application, push the image to a container registry, build and deploy a Service Fabric container application.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -13,9 +13,8 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
-ms.author: twhitney
-
+ms.date: 1/4/2019
+ms.author: aljo
 ---
 
 # Create your first Service Fabric container application on Linux
@@ -119,7 +118,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* gives a name to the running container (instead of the container ID).
 
-Connect to the running container. Open a web browser pointing to the IP address returned on port 4000, for example "http://localhost:4000". You should see the heading "Hello World!" display in the browser.
+Connect to the running container. Open a web browser pointing to the IP address returned on port 4000, for example "http:\//localhost:4000". You should see the heading "Hello World!" display in the browser.
 
 ![Hello World!][hello-world]
 
@@ -159,7 +158,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## Package the Docker image with Yeoman
-The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create an application with a single Docker container called *SimpleContainerApp*.
+The Service Fabric SDK for Linux includes a [Yeoman](https://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create an application with a single Docker container called *SimpleContainerApp*.
 
 To create a Service Fabric container application, open a terminal window and run `yo azuresfcontainer`. 
 
@@ -188,8 +187,14 @@ Specify the port mapping in the appropriate format. For this article, you need t
 	    </ContainerHostPolicies>
 	</Policies>
    </ServiceManifestImport>
-```	
+``` 
 
+We recommend that you encrypt the repository password. Refer to [
+Manage encrypted secrets in Service Fabric applications](service-fabric-application-secret-management.md) for instructions.
+
+### Configure cluster-wide credentials
+Refer to [documentation here](
+service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
 
 ## Configure isolation mode
 With the 6.3 runtime release, VM isolation is supported for Linux containers, thereby supporting two isolation modes for containers: process and hyperv. With the hyperv isolation mode, the kernels are isolated between each container and the container host. The hyperv isolation is implemented using [Clear Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). The isolation mode is specified for Linux clusters in the `ServicePackageContainerPolicy` element in the application manifest file. The isolation modes that can be specified are `process`, `hyperv`, and `default`. The default is process isolation mode. The following snippet shows how the isolation mode is specified in the application manifest file.
@@ -227,7 +232,7 @@ Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](http
 
 ![HealthCheckHealthy][1]
 
-![HealthCheckUnealthyApp][2]
+![HealthCheckUnhealthyApp][2]
 
 ![HealthCheckUnhealthyDsp][3]
 
@@ -256,15 +261,16 @@ Connect to the local Service Fabric cluster.
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+Use the install script provided in the templates at https://github.com/Azure-Samples/service-fabric-containers/ to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+
 
 ```bash
 ./install.sh
 ```
 
-Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X). Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
+Open a browser and navigate to Service Fabric Explorer at http:\//localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X). Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
 
-Connect to the running container. Open a web browser pointing to the IP address returned on port 4000, for example "http://localhost:4000". You should see the heading "Hello World!" display in the browser.
+Connect to the running container. Open a web browser pointing to the IP address returned on port 4000, for example "http:\//localhost:4000". You should see the heading "Hello World!" display in the browser.
 
 ![Hello World!][hello-world]
 
@@ -292,8 +298,8 @@ Here are the complete service and application manifests used in this article.
 <ServiceManifest Name="myservicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -338,8 +344,8 @@ Here are the complete service and application manifests used in this article.
 <ApplicationManifest ApplicationTypeName="mycontainerType"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->

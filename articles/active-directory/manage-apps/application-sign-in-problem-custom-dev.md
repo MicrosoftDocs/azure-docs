@@ -3,20 +3,21 @@ title: Problems signing in to an custom-developed application | Microsoft Docs
 description: Common rrors that could be causing you to not be able to sign into an application you have developed with Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problems signing in to an custom-developed application
@@ -29,14 +30,14 @@ There are several errors that could be causing you to not be able to sign into a
 
 * Compare the resource you’re requesting access to in code with the configured permissions in the **Required Resources** tab to make sure you only request resources you’ve configured.
 
-* See [Azure AD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory) for any similar errors or problems.
+* See [Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory) for any similar errors or problems.
 
 ## Next steps
 
 [Azure AD Developer Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)<br>
 
-[Consent and Integrating Apps to Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications>)<br>
+[Consent and Integrating Apps to Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
 
 [Consent and Permissioning for Azure AD v2.0 converged Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
-[Azure AD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory>)
+[Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory>)

@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: Describes how to get analytics for Bing Entities API. 
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 02/01/2019
 ms.author: scottwhi
 ---
 

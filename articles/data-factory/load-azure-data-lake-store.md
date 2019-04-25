@@ -42,7 +42,8 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 1. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**:
    
-   ![Create a new data factory](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. In the **New data factory** page, provide values for the fields that are shown in the following image: 
       
    ![New data factory page](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
@@ -81,7 +82,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
    2. Specify the **Secret Access Key** value.
    3. Select **Finish**.
    
-     ![Specify Amazon S3 account](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+      ![Specify Amazon S3 account](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
    4. You will see a new connection. Select **Next**.
    

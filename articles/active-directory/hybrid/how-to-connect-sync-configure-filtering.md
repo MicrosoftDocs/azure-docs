@@ -4,18 +4,18 @@ description: Explains how to configure filtering in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
-
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/12/2017
-ms.component: hybrid
+ms.topic: conceptual
+ms.date: 03/26/2019
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Azure AD Connect sync: Configure filtering
@@ -89,11 +89,17 @@ You should only follow these steps if you're unable to run the installation wiza
 
 Domain-based filtering configuration consists of these steps:
 
-1. [Select the domains](#select-domains-to-be-synchronized) that you want to include in the synchronization.
-2. For each added and removed domain, adjust the [run profiles](#update-run-profiles).
+1. Select the domains that you want to include in the synchronization.
+2. For each added and removed domain, adjust the run profiles.
 3. [Apply and verify changes](#apply-and-verify-changes).
 
 ### Select the domains to be synchronized
+There are two ways to select the domains to be synchronized:
+	- Using the Synchronization Service
+	- Using the Azure AD Connect wizard.
+
+
+#### Select the domains to be synchronized using the Synchronization Service
 To set the domain filter, do the following steps:
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
@@ -106,7 +112,18 @@ To set the domain filter, do the following steps:
    If you've changed your on-premises Active Directory infrastructure and added or removed domains from the forest, then click the **Refresh** button to get an updated list. When you refresh, you're asked for credentials. Provide any credentials with read access to Windows Server Active Directory. It doesn't have to be the user that is prepopulated in the dialog box.  
    ![Refresh needed](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. When you're done, close the **Properties** dialog by clicking **OK**. If you removed domains from the forest, a message pop-up says that a domain was removed and that configuration will be cleaned up.
-7. Continue to adjust the [run profiles](#update-run-profiles).
+7. Continue to adjust the run profiles.
+
+#### Select the domains to be synchronized using the Azure AD Connect wizard
+To set the domain filter, do the following steps:
+
+1.  Start the Azure AD Connect wizard
+2.  Click **Configure**.
+3.  Select **Customize Synchronization Options** and click **Next**.
+4.  Enter your Azure AD credentials
+5.  On the **Connected Directories** screen click **Next**.
+6.  On the **Domain and OU filtering page** click **Refresh**.  New domains ill now appear and deleted domains will disappear.
+   ![Partitions](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### Update the run profiles
 If you've updated your domain filter, you also need to update the run profiles.
@@ -182,6 +199,9 @@ With this configuration, a new OU that was created under ManagedObjects isn't sy
 ## Attribute-based filtering
 Make sure that you're using the November 2015 ([1.0.9125](reference-connect-version-history.md#1091250)) or later build for these steps to work.
 
+> [!IMPORTANT]
+>Microsoft recommends to not modify the default rules created by **Azure AD Connect**. If you want to modify the rule, then clone it, and disable the original rule. Make any changes to the cloned rule. Please note that by doing so (disabling original rule) you will miss any bug fixes or features enabled through that rule.
+
 Attribute-based filtering is the most flexible way to filter objects. You can use the power of [declarative provisioning](concept-azure-ad-connect-sync-declarative-provisioning.md) to control almost every aspect of when an object is synchronized to Azure AD.
 
 You can apply [inbound](#inbound-filtering) filtering from Active Directory to the metaverse, and [outbound](#outbound-filtering) filtering from the metaverse to Azure AD. We recommend that you apply inbound filtering because that is the easiest to maintain. You should only use outbound filtering if it's required to join objects from more than one forest before the evaluation can take place.
@@ -253,7 +273,7 @@ In this example, you change the filtering so that only users that have both thei
 4. Depending on the version of Connect you use, either find the rule named **Out to AAD – User Join** or **Out to AAD - User Join SOAInAD**, and click **Edit**.
 5. In the pop-up, answer **Yes** to create a copy of the rule.
 6. On the **Description** page, change **Precedence** to an unused value, such as 50.
-7. Click **Scoping filter** on the left-hand navigation, and then click **Add clause**. In **Attribute**, select **mail**. In **Operator**, select **ENDSWITH**. In **Value**, type **@contoso.com**, and then click **Add clause**. In **Attribute**, select **userPrincipalName**. In **Operator**, select **ENDSWITH**. In **Value**, type **@contoso.com**.
+7. Click **Scoping filter** on the left-hand navigation, and then click **Add clause**. In **Attribute**, select **mail**. In **Operator**, select **ENDSWITH**. In **Value**, type **\@contoso.com**, and then click **Add clause**. In **Attribute**, select **userPrincipalName**. In **Operator**, select **ENDSWITH**. In **Value**, type **\@contoso.com**.
 8. Click **Save**.
 9. To complete the configuration, you need to run a **Full sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
 

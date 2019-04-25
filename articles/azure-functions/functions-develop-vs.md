@@ -75,10 +75,10 @@ The project template creates a C# project, installs the `Microsoft.NET.Sdk.Funct
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
-* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify app settings for variables required by your functions. Add a new item to the **Values** array for each connection required by the functions bindings in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools article.
+* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify app settings for environment variables required by your functions. Add a new item to the **Values** array for each connection required by the functions bindings in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools article.
 
     >[!IMPORTANT]
-    >Because the local.settings.json file can contain secrets, you must excluded it from your project source control. The **Copy to Ouput Directory** setting for this file should always be **Copy if newer**. 
+    >Because the local.settings.json file can contain secrets, you must excluded it from your project source control. The **Copy to Output Directory** setting for this file should always be **Copy if newer**. 
 
 For more information, see [Functions class library project](functions-dotnet-class-library.md#functions-class-library-project).
 
@@ -110,7 +110,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
 
     For example, the following C# class represents a basic Queue storage triggered function:
 
-    ````csharp
+    ```csharp
     using System;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Host;
@@ -127,7 +127,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
             }
         }
     }
-    ````
+    ```
     A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters to the **QueueTrigger** attribute. For more information, see [Azure Queue storage bindings for Azure Functions](functions-bindings-storage-queue.md#trigger---c-example).
     
 You can use the above procedure to add more functions to your function app project. Each function in the project can have a different trigger, but a function must have exactly one trigger. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
@@ -138,7 +138,7 @@ As with triggers, input and output bindings are added to your function as bindin
 
 1. Make sure you have [configured the project for local development](#configure-the-project-for-local-development).
 
-2. Add the appropriate NuGet extension package for the specific binding. For more information, see [Local C# development using Visual Studio](functions-triggers-bindings.md#local-csharp) in the Triggers and Bindings article. The binding-specific NuGet package requirements are found in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
+2. Add the appropriate NuGet extension package for the specific binding. For more information, see [Local C# development using Visual Studio](./functions-bindings-register.md#local-csharp) in the Triggers and Bindings article. The binding-specific NuGet package requirements are found in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
 
 3. If there are app settings that the binding needs, add them to the **Values** collection in the [local setting file](functions-run-local.md#local-settings-file). These values are used when the function runs locally. When the function runs in the function app in Azure, the [function app settings](#function-app-settings) are used.
 
@@ -158,7 +158,7 @@ As with triggers, input and output bindings are added to your function as bindin
         }
     }
     ```
-The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding. 
+   The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding. 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
@@ -202,21 +202,15 @@ You can also manage application settings in one of these other ways:
 
 ## Monitoring functions
 
-The recommended way to monitor the execution of your function in Azure is by integrating with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app during Visual Studio publishing, the integration in your function app in Azure isn't done. Instead, you get built-in logging, which isn't recommended.
+The recommended way to monitor the execution of your functions is by integrating your function app with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app during Visual Studio publishing, the integration in your function app in Azure isn't done.
 
-To enable Application Insights for your function app in Azure:
+To enable Application Insights for your function app:
 
-1. Create an Application Insights instance in the [Azure portal](https://portal.azure.com) and copy its instrumentation key. To learn how, see [Manually connect an App Insights resource](functions-monitoring.md#manually-connect-an-app-insights-resource).  
-
-1. Add an app setting named `APPINSIGHTS_INSTRUMENTATIONKEY` to the function app settings in Azure, as described in [Function app settings](#function-app-settings). This app setting contains the instrumentation key that you created in the previous step.
-
-1. Remove the `AzureWebJobsDashboard` app setting from the function app in Azure, which disables built-in logging.  
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
 ## Next steps
-
-For more information about Azure Functions Tools, see the Common Questions section of the [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blog post.
 
 To learn more about the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
 

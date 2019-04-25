@@ -29,6 +29,8 @@ Although customers deploy these managed applications in their subscriptions, the
 
 For IT teams, managed applications enable you to offer pre-approved solutions to users in the organization. You know these solutions are compliant with organizational standards.
 
+Managed Applications currently don't support [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+
 ## Types of managed applications
 
 You can publish your managed application either externally or internally.
@@ -69,7 +71,7 @@ When the consumer deletes the managed application, the managed resource group is
 
 ## Azure Policy
 
-You can apply an [Azure Policy](../azure-policy/azure-policy-introduction.md) to your managed application. You apply policies to make sure deployed instances of your managed application fulfill data and security requirements. If your application interacts with sensitive data, make sure you've evaluated how that should be protected. For example, if your application interacts with data from Office 365, apply a policy to make sure data encryption is enabled.
+You can apply an [Azure Policy](../governance/policy/overview.md) to your managed application. You apply policies to make sure deployed instances of your managed application fulfill data and security requirements. If your application interacts with sensitive data, make sure you've evaluated how that should be protected. For example, if your application interacts with data from Office 365, apply a policy to make sure data encryption is enabled.
 
 ## Next steps
 

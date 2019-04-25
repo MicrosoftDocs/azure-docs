@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
 ---
 
 # Virtual machine prerequisites
 
-This article lists both the technical and business requirements that you must meet before you can publish a VM offer to the Azure Marketplace.
+This article lists both the technical and business requirements that you must meet before you can publish a VM offer to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/).  If you have not already done so, review the [Virtual Machine Offer Publishing Guide](../../marketplace-virtual-machines.md).
 
 
 ## Technical requirements
@@ -45,11 +45,15 @@ The business requirements include procedural, contractual, and legal obligations
     > You should use the same Microsoft Developer Center registration account to sign onto the [Cloud Partner Portal](https://cloudpartner.azure.com).
     > You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to individual services or offers.
     
-* Your company (or its subsidiary) must be located in a sell-from-country supported by ​the Azure Marketplace.  For a current list of these countries, see [Microsoft Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
-* Your product must be licensed in a way that is compatible with billing models supported ​by the Azure Marketplace.  For more information, see [Billing options in the Azure Marketplace](https://docs.microsoft.com/azure/marketplace/billing-options-azure-marketplace). 
-* You are responsible for making technical support available to customers in a commercially reasonable manner. This support can be free, paid, or through community approaches.
-* You are responsible for licensing your software and any third-party software dependencies.
-* You must provide content that meets criteria for your offering to be listed on Azure Marketplace and in the Azure portal. <!-- TD: Meaning/links? -->
-* You must agree to the terms of the [Microsoft Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) and Publisher Agreement.​
-* You must comply with the [Microsoft Azure Website Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement) and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+- Your company (or its subsidiary) must be located in a sell-from-country supported by the Azure Marketplace.  For a current list of these countries, see [Microsoft Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+- Your product must be licensed in a way that is compatible with billing models supported by the Azure Marketplace.  For more information, see [Billing options in the Azure Marketplace](https://docs.microsoft.com/azure/marketplace/billing-options-azure-marketplace). 
+- You are responsible for making technical support available to customers in a commercially reasonable manner. This support can be free, paid, or through community approaches.
+- You are responsible for licensing your software and any third-party software dependencies.
+- You must provide content that meets criteria for your offering to be listed on Azure Marketplace and in the Azure portal. <!-- TD: Meaning/links? -->
+- You must agree to the terms of the [Microsoft Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) and Publisher Agreement.
+- You must comply with the [Microsoft Azure Website Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement), and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
+
+## Next steps
+
+After you have met these prerequisites, you can [create your VM offer](./cpp-create-offer.md).

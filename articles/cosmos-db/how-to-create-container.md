@@ -1,112 +1,107 @@
 ---
 title: Create a container in Azure Cosmos DB
 description: Learn how to create a container in Azure Cosmos DB
-services: cosmos-db
-author: markjbrown
-
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/06/2018
-ms.author: mjbrown
+ms.date: 04/17/2019
+ms.author: rimman
 ---
 
-# Create a container in Azure Cosmos DB
+# Create an Azure Cosmos container
 
-This article explains the different ways to create a container (collection, table, graph). A container can be created by using the Azure portal, Azure CLI, or supported SDKs. This article demonstrates how to create a container, specify the partition key and provision throughput.
+This article explains the different ways to create an Azure Cosmos container (collection, table, or graph). You can use Azure portal, Azure CLI, or supported SDKs for this. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 
 ## Create a container using Azure portal
 
-### <a id="portal-sql"></a>SQL (Core) API
+### <a id="portal-sql"></a>SQL API
 
-1. Sign in to [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Cosmos DB account](create-sql-api-dotnet.md#create-a-database-account) or select an existing account.
+1. [Create a new Azure Cosmos account](create-sql-api-dotnet.md#create-account), or select an existing account.
 
-1. Open the **Data Explorer** pane and select **New Collection**. Next fill the form with the following details:
+1. Open the **Data Explorer** pane, and select **New Collection**. Next, provide the following details:
 
-   * Create a new database or use an existing one.
-   * Enter a Collection Id.
-   * Select **Unlimited** storage capacity.
-   * Enter a Partition key.
-   * Enter a throughput, for example 1000 RUs.
+   * Indicate whether you are creating a new database or using an existing one.
+   * Enter a collection ID.
+   * Enter a partition key.
+   * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![SQL API creates a collection](./media/how-to-create-container/partitioned-collection-create-sql.png)
+![Screenshot of Data Explorer pane, with New Collection highlighted](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
-### <a id="portal-mongodb"></a>MongoDB API
+### <a id="portal-mongodb"></a>Azure Cosmos DB API for MongoDB
 
-1. Sign in to [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Cosmos DB account](create-mongodb-dotnet.md#create-a-database-account) or select an existing account.
+1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-a-database-account), or select an existing account.
 
-1. Open the **Data Explorer** pane and select **New Collection**. Next fill the form with the following details:
+1. Open the **Data Explorer** pane, and select **New Collection**. Next, provide the following details:
 
-   * Create a new database or use an existing one.
-   * Enter a Collection Id.
-   * Select **Unlimited** storage capacity.
-   * Enter a Shard key.
-   * Enter a throughput, for example 1000 RUs.
+   * Indicate whether you are creating a new database or using an existing one.
+   * Enter a collection ID.
+   * Enter a shard key.
+   * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![MongoDB API creates a collection](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![Screenshot of Azure Cosmos DB API for MongoDB, Add Collection dialog box](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 ### <a id="portal-cassandra"></a>Cassandra API
 
-1. Sign in to [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Cosmos DB account](create-cassandra-dotnet.md#create-a-database-account) or select an existing account.
+1. [Create a new Azure Cosmos account](create-cassandra-dotnet.md#create-a-database-account), or select an existing account.
 
-1. Open the **Data Explorer** pane and select **New Table**. Next fill the form with the following details:
+1. Open the **Data Explorer** pane, and select **New Table**. Next, provide the following details:
 
-   * Create a new Keyspace or use an existing one.
+   * Indicate whether you are creating a new keyspace, or using an existing one.
    * Enter a table name.
-   * Enter the properties and specify a PRIMARY KEY.
-   * Enter a throughput, for example 1000 RUs.
+   * Enter the properties and specify a primary key.
+   * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![Cassandra API creates a collection](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
+![Screenshot of Cassandra API, Add Table dialog box](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
 
 > [!NOTE]
 > For Cassandra API, the primary key is used as the partition key.
 
 ### <a id="portal-gremlin"></a>Gremlin API
 
-1. Sign in to [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Cosmos DB account](create-graph-dotnet.md#create-a-database-account) or select an existing account.
+1. [Create a new Azure Cosmos account](create-graph-dotnet.md#create-a-database-account), or select an existing account.
 
-1. Open the **Data Explorer** pane and select **New Graph**. Next fill the form with the following details:
+1. Open the **Data Explorer** pane, and select **New Graph**. Next, provide the following details:
 
-   * Create a new database or use an existing one.
-   * Enter a Graph id.
+   * Indicate whether you are creating a new database, or using an existing one.
+   * Enter a Graph ID.
    * Select **Unlimited** storage capacity.
-   * Enter a Partition key for vertices.
-   * Enter a throughput, for example 1000 RUs.
+   * Enter a partition key for vertices.
+   * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![Gremlin API creates a collection](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
+![Screenshot of Gremlin API, Add Graph dialog box](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
 
 ### <a id="portal-table"></a>Table API
 
-1. Sign in to [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Cosmos DB account](create-table-dotnet.md#create-a-database-account) or select an existing account.
+1. [Create a new Azure Cosmos account](create-table-dotnet.md#create-a-database-account), or select an existing account.
 
-1. Open the **Data Explorer** pane and select **New Table**. Next fill the form with the following details:
+1. Open the **Data Explorer** pane, and select **New Table**. Next, provide the following details:
 
-   * Enter a Table Id.
-   * Select **Unlimited** storage capacity.
-   * Enter a throughput, for example 1000 RUs.
+   * Enter a Table ID.
+   * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![Table API creates a collection](./media/how-to-create-container/partitioned-collection-create-table.png)
+![Screenshot of Table API, Add Table dialog box](./media/how-to-create-container/partitioned-collection-create-table.png)
 
 > [!Note]
 > For Table API, the partition key is specified each time you add a new row.
 
 ## Create a container using Azure CLI
 
-### <a id="cli-sql"></a>SQL (Core) API
+### <a id="cli-sql"></a>SQL API
 
 ```azurecli-interactive
 # Create a container with a partition key and provision 1000 RU/s throughput.
@@ -120,7 +115,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-mongodb"></a>MongoDB API
+### <a id="cli-mongodb"></a>Azure Cosmos DB API for MongoDB
 
 ```azurecli-interactive
 # Create a collection with a shard key and provision 1000 RU/s throughput.
@@ -188,7 +183,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 1000 });
 ```
 
-### <a id="dotnet-mongodb"></a>MongoDB API
+### <a id="dotnet-mongodb"></a>Azure Cosmos DB API for MongoDB
 
 ```csharp
 // Create a collection with a partition key by using Mongo Shell:
@@ -196,7 +191,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-> MongoDB does not have a concept of request units. To create a new collection with throughput, use the Azure Portal or SQL API as shown in the previous examples.
+> MongoDB wire protocol does not understand the concept of [Request Units](request-units.md). To create a new collection with provisioned throughput on it, use the Azure portal or Cosmos DB SDKs for SQL API.
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 
@@ -210,6 +205,7 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 
 ## Next steps
 
-See the following articles to learn about partitioning in Cosmos DB:
-
 - [Partitioning in Azure Cosmos DB](partitioning-overview.md)
+- [Request Units in Azure Cosmos DB](request-units.md)
+- [Provision throughput on containers and databases](set-throughput.md)
+- [Work with Azure Cosmos account](account-overview.md)

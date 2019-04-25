@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 11/28/2018
 ms.author: jingwang
 
 ---
@@ -39,7 +39,10 @@ For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Project Service Automation
 - Dynamics 365 for Marketing
 
-Other application types e.g. Operations and Finance, Talent, etc. are not supported.
+Other application types e.g. Finance and Operations, Talent, etc. are not supported by this connector.
+
+>[!TIP]
+>To copy data from **Dynamics 365 Finance and Operations**, you can use the [Dynamics AX connector](connector-dynamics-ax.md).
 
 ## Get started
 
@@ -64,7 +67,7 @@ The following properties are supported for the Dynamics linked service.
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink if the source linked service doesn't have an integration runtime |
 
 >[!IMPORTANT]
->When you copy data into Dynamics, the default Azure Integration Runtime can't be used to execute copy. In other words, if your source linked service doesn't have a specified integration runtime, explicitly [create an Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) with a location near your Dynamics instance. Associate it in the Dynamics linked service as in the following example.
+>When you copy data into Dynamics, the default Azure Integration Runtime can't be used to execute copy. In other words, if your source linked service doesn't have a specified integration runtime, explicitly [create an Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) with a location near your Dynamics instance. Find where your Dynamics instance is located by referencing the [region list for Dynamics 365](https://docs.microsoft.com/dynamics365/customer-engagement/admin/datacenter/new-datacenter-regions). Associate it in the Dynamics linked service as in the following example.
 
 >[!NOTE]
 >The Dynamics connector used to use optional "organizationName" property to identify your Dynamics CRM/365 Online instance. While it keeps working, you are suggested to specify the new "serviceUri" property instead to gain better performance for instance discovery.

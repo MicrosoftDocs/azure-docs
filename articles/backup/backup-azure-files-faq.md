@@ -2,9 +2,9 @@
 title: Back up Azure Files FAQ
 description: This article provides details about how to protect your Azure file shares.
 services: backup
-author: markgalioto
-ms.author: markgal
-ms.date: 2/21/2018
+author: rayne-wiselman
+ms.author: raynew
+ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
@@ -33,32 +33,35 @@ When trying to back up, selecting a Storage Account to discover file shares with
 Yes. However, you'll need to [Stop Protection](backup-azure-files.md#stop-protecting-an-azure-file-share) from the connected Vault, [Unregister](troubleshoot-azure-files.md#configuring-backup) this Storage Account, and then protect it from a different Vault.
 
 ### In which geos can I back up Azure File shares <br/>
-Backup for Azure File shares is currently in Preview and is available only in the following geos: 
--	Australia East (AE) 
-- Australia South East (ASE) 
+Backup for Azure File shares is currently in Preview and is available only in the following geos:
+- Australia East (AE)
+- Australia South East (ASE)
 - Brazil South (BRS)
 - Canada Central (CNC)
--	Canada East (CE)
--	Central US (CUS)
--	East Asia (EA)
--	East US (EUS)
--	East US 2 (EUS2)
+- Canada East (CE)
+- Central US (CUS)
+- East Asia (EA)
+- East US (EUS)
+- East US 2 (EUS2)
 - Japan East (JPE)
 - Japan West (JPW)
--	India Central (INC) 
+- India Central (INC)
 - India South (INS)
 - Korea Central (KRC)
 - Korea South (KRS)
--	North Central US (NCUS) 
--	North Europe (NE) 
--	South Central US (SCUS) 
--	South East Asia (SEA)
--	UK South (UKS) 
--	UK West (UKW) 
--	West Europe (WE) 
--	West US (WUS)
--	West Central US (WCUS)
--	West US 2 (WUS 2)
+- North Central US (NCUS)
+- North Europe (NE)
+- South Central US (SCUS)
+- South East Asia (SEA)
+- UK South (UKS)
+- UK West (UKW)
+- West Europe (WE)
+- West US (WUS)
+- West Central US (WCUS)
+- West US 2 (WUS 2)
+- US Gov Arizona (UGA)
+- US Gov Texas (UGT)
+- US Gov Virginia (UGV)
 
 Write to [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) if you need to use it in a specific geo that is not listed above.
 
@@ -74,7 +77,7 @@ No. All file shares in a Storage Account can be protected only by the same Vault
 You can have up to 200 Snapshots for a file share at any point in time. The limit includes snapshots taken by Azure Backup as defined by your policy. If your backups start failing after reaching the limit, delete On-Demand restore points for successful future backups.
 
 ### After enabling Virtual Networks on my Storage Account, the Backup of file shares in the account started failing. Why?
-Backup for Azure file shares doesn't support Storage Accounts that have Virtual Networks enabled. Disable Virtual Networks in Storage Accounts to enable successful backups. 
+Backup for Azure file shares doesn't support Storage Accounts that have Virtual Networks enabled. Disable Virtual Networks in Storage Accounts to enable successful backups.
 
 ## Restore
 
@@ -84,13 +87,20 @@ When an Azure file share is deleted, you're shown the list of backups that will 
 ### Can I restore from backups if I stopped protection on an Azure file share? <br/>
 Yes. If you chose **Retain Backup Data** when you stopped protection, then you can restore from all existing restore points.
 
+### What happens if I cancel an ongoing restore job?
+If an ongoing restore job is canceled, the restore process stops and all files restored before the cancellation, stay in configured destination (original or alternate location) without any rollbacks. 
+
+
 ## Manage Backup
+
+### Can I use PowerShell to configure/manage/restore backups of Azure File shares? <br/>
+Yes. Please refer to the detailed documentation [here](backup-azure-afs-automation.md)
 
 ### Can I access the snapshots taken by Azure Backups and mount it? <br/>
 All Snapshots taken by Azure Backup can be accessed by Viewing Snapshots in the portal, PowerShell, or CLI. To learn more about Azure Files share snapshots, see [Overview of share snapshots for Azure Files (preview)](../storage/files/storage-snapshots-files.md).
 
 ### What is the maximum retention I can configure for Backups? <br/>
-Backup for Azure file shares offers the ability to retain your daily backups up to 120 days.
+Backup for Azure file shares offers the ability to configure policies with retention up to 180 days. However, using the ["On-demand backup" option in PowerShell](backup-azure-afs-automation.md#trigger-an-on-demand-backup), you can retain a recovery point even for 10 years.
 
 ### What happens when I change the Backup policy for an Azure file share? <br/>
 When a new policy is applied on file share(s), schedule and retention of the new policy is followed. If retention is extended, existing recovery points are marked to keep them as per new policy. If retention is reduced, they're marked for pruning in the next cleanup job and deleted.

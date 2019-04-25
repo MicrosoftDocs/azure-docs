@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: f7984aaf-ab1f-4a85-9646-a9523f5275d9
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Kiteworks
 
@@ -114,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.kiteworks.com/sp/module.php/saml/sp/saml2-acs.php/sp-sso`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Kiteworks Client support team](http://accellion.com/support) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Kiteworks Client support team](https://accellion.com/support) to get these values. 
  
 1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -198,7 +199,7 @@ The objective of this section is to create a user called Britta Simon in Kitewor
 Kiteworks supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Kitewors if it doesn't exist yet.
 
 >[!NOTE]
->If you need to create a user manually, you need to contact the [Kiteworks support team](http://accellion.com/support).
+>If you need to create a user manually, you need to contact the [Kiteworks support team](https://accellion.com/support).
  
 
 ### Assigning the Azure AD test user

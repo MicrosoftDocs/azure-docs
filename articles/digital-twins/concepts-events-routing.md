@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 12/14/2018
 ms.author: alinast
 ---
 
@@ -60,6 +60,7 @@ Azure Digital Twins currently supports the following **EventTypes** that will be
 ## Next steps
 
 - To learn about Azure Digital Twins preview limits, see [Public preview service limits](concepts-service-limits.md).
+
 - To try out an Azure Digital Twins sample, see the [quickstart to find available rooms](quickstart-view-occupancy-dotnet.md).
 
 <!-- Images -->

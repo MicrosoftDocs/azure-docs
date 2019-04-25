@@ -2,13 +2,13 @@
 title: Integrate with Azure-managed services using Open Service Broker for Azure (OSBA)
 description: Integrate with Azure-managed services using Open Service Broker for Azure (OSBA)
 services: container-service
-author: sozercan
+author: zr-msft
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
-ms.author: seozerca
+ms.author: zarhoads
 ---
 # Integrate with Azure-managed services using Open Service Broker for Azure (OSBA)
 
@@ -42,13 +42,13 @@ helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 Finally, install Service Catalog with the Helm chart. If your cluster is RBAC-enabled, run this command.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set controllerManager.healthcheck.enabled=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set apiserver.storage.etcd.persistence.enabled=true --set apiserver.healthcheck.enabled=false --set controllerManager.healthcheck.enabled=false --set apiserver.verbosity=2 --set controllerManager.verbosity=2
 ```
 
 If your cluster is not RBAC-enabled, run this command.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set controllerManager.healthcheck.enabled=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set apiserver.storage.etcd.persistence.enabled=true --set apiserver.healthcheck.enabled=false --set controllerManager.healthcheck.enabled=false --set apiserver.verbosity=2 --set controllerManager.verbosity=2
 ```
 
 After the Helm chart has been run, verify that `servicecatalog` appears in the output of the following command:
@@ -166,7 +166,7 @@ Finally, list all available service plans. Service plans are the service tiers f
 In this step, you use Helm to install an updated Helm chart for WordPress. The chart provisions an external Azure Database for MySQL instance that WordPress can use. This process can take a few minutes.
 
 ```azurecli-interactive
-helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0
+helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0 --set replicaCount=1
 ```
 
 In order to verify the installation has provisioned the right resources, list the installed service instances and bindings:

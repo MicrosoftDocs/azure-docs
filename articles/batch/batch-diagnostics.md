@@ -1,9 +1,9 @@
 ---
-title: Metrics, alerts, and diagnostic logs for Azure Batch | Microsoft Docs
+title: Metrics, alerts, and diagnostic logs - Azure Batch | Microsoft Docs
 description: Record and analyze diagnostic log events for Azure Batch account resources like pools and tasks.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 04/05/2018
-ms.author: danlep
-ms.custom: 
+ms.date: 12/05/2018
+ms.author: lahugh
+ms.custom: seodec18
 
 ---
 # Batch metrics, alerts, and logs for diagnostic evaluation and monitoring
 
  
-This article explains how to monitor a Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../azure-monitor/platform/data-collection.md#metrics) and [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) so you receive notifications when a metric reaches a specified value. 
+This article explains how to monitor a Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../azure-monitor/platform/data-platform-metrics.md) and [diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../azure-monitor/platform/alerts-overview.md) so you receive notifications when a metric reaches a specified value. 
 
 ## Batch metrics
 
 Metrics are Azure telemetry data (also called performance counters) emitted by your Azure resources which are consumed by the Azure Monitor service. Example metrics in a Batch account include: Pool Create Events, Low-Priority Node Count, and Task Complete Events. 
 
-See the [list of supported Batch metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
+See the [list of supported Batch metrics](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
 Metrics are:
 
 * Enabled by default in each Batch account without additional configuration
 * Generated every 1 minute
-* Not persisted automatically, but have a 30-day rolling history. You can persist activity metrics as part of [diagnostic logging](#work-with-diagnostic-logs).
+* Not persisted automatically, but have a 30-day rolling history. You can persist activity metrics as part of diagnostic logging.
 
 ### View metrics
 
@@ -49,11 +49,17 @@ To view all Batch account metrics:
 
 To retrieve metrics programmatically, use the Azure Monitor APIs. For example, see [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
 
+## Batch metric reliability
+
+Metrics are intended to be used for trending and data analysis. Metric delivery is not guaranteed and is subject to out-of-order delivery, data loss, and/or duplication. Using single events to alert or trigger functions is not recommended. See the [Batch metric alerts](#batch-metric-alerts) section for more details on how to set thresholds for alerting.
+
+Metrics emitted in the last 3 minutes may still be aggregating. During this time frame, the metric values may be underreported.
+
 ## Batch metric alerts
 
-Optionally, configure near real-time *metric alerts* that trigger when the value of a specified metric crosses a threshold that you assign. The alert generates a [notification](../monitoring-and-diagnostics/insights-alerts-portal.md) you choose when the alert is "Activated" (when the threshold is crossed and the alert condition is met) as well as when it is "Resolved" (when the threshold is crossed again and the condition is no longer met). 
+Optionally, configure near real-time *metric alerts* that trigger when the value of a specified metric crosses a threshold that you assign. The alert generates a [notification](../monitoring-and-diagnostics/insights-alerts-portal.md) you choose when the alert is "Activated" (when the threshold is crossed and the alert condition is met) as well as when it is "Resolved" (when the threshold is crossed again and the condition is no longer met). Alerting based on single data points is not recommended as metrics are subject to out-of-order delivery, data loss, and/or duplication. Alerting should make use of thresholds to account for these inconsistencies.
 
-For example, you might want to configure a metric alert when your low priority core count falls to a certain level, so you can adjust the composition of your pools.
+For example, you might want to configure a metric alert when your low priority core count falls to a certain level, so you can adjust the composition of your pools. It is recommended to set a period of 10 or more minutes where alerts trigger if the average low priority core count falls below the threshold value for the entire period. It is not recommended to alert on a 1-5 minute period as metrics may still be aggregating.
 
 To configure a metric alert in the portal:
 
@@ -61,7 +67,7 @@ To configure a metric alert in the portal:
 2. Under **Monitoring**, click **Alert rules** > **Add metric alert**.
 3. Select a metric, an alert condition (such as when a metric exceeds a particular value during a period), and one or more notifications.
 
-You can also configure a near real-time alert using the [REST API](https://docs.microsoft.com/rest/api/monitor/). For more information, see [Alerts Overview](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+You can also configure a near real-time alert using the [REST API](https://docs.microsoft.com/rest/api/monitor/). For more information, see [Alerts Overview](../azure-monitor/platform/alerts-overview.md)
 
 ## Batch diagnostics
 
@@ -81,7 +87,7 @@ Other optional destinations for diagnostic logs:
 
 * Stream Batch diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
 
-* Send diagnostic logs to [Azure Log Analytics](../log-analytics/log-analytics-overview.md), where you can analyze them or export them for analysis in Power BI or Excel.
+* Send diagnostic logs to [Azure Monitor logs](../log-analytics/log-analytics-overview.md), where you can analyze them or export them for analysis in Power BI or Excel.
 
 > [!NOTE]
 > You may incur additional costs to store or process diagnostic log data with Azure services. 
@@ -91,7 +97,7 @@ Other optional destinations for diagnostic logs:
 
 1. In the portal, click **All services** > **Batch accounts**, and then click the name of your Batch account.
 2. Under **Monitoring**, click **Diagnostic logs** > **Turn on diagnostics**.
-3. In **Diagnostic settings**, enter a name for the setting, and choose a log destination (existing Storage account, Event Hub, or Log Analytics). Select either or both **ServiceLog** and **AllMetrics**.
+3. In **Diagnostic settings**, enter a name for the setting, and choose a log destination (existing Storage account, Event Hub, or Azure Monitor logs). Select either or both **ServiceLog** and **AllMetrics**.
 
     When you select a storage account, optionally set a retention policy. If you don't specify a number of days for retention, data is retained during the life of the storage account.
 
@@ -99,7 +105,7 @@ Other optional destinations for diagnostic logs:
 
     ![Batch diagnostics](media/batch-diagnostics/diagnostics-portal.png)
 
-Other options to enable log collection include: use Azure Monitor in the portal to configure diagnostic settings, use a [Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md), or use Azure PowerShell or the Azure CLI. see [Collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
+Other options to enable log collection include: use Azure Monitor in the portal to configure diagnostic settings, use a [Resource Manager template](../azure-monitor/platform/diagnostic-logs-stream-template.md), or use Azure PowerShell or the Azure CLI. see [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs).
 
 
 ### Access diagnostics logs in storage
@@ -123,7 +129,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 Each PT1H.json blob file contains JSON-formatted events that occurred within the hour specified in the blob URL (for example, h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since diagnostic log events are broken into individual blobs per hour. (All times are in UTC.)
 
 
-For more information about the schema of diagnostic logs in the storage account, see [Archive Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+For more information about the schema of diagnostic logs in the storage account, see [Archive Azure Diagnostic Logs](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
 
 To access the logs in your storage account programmatically, use the Storage APIs. 
 

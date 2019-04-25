@@ -4,7 +4,7 @@ description: This article provides an overview of the core Azure security featur
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
@@ -86,8 +86,7 @@ Key Vault provides the option to store your keys in hardware security modules (H
 
 Learn more:
 
-* [What is Azure Key Vault?](../key-vault/key-vault-whatis.md)
-* [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md)
+* [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
 * [Azure Key Vault blog](https://blogs.technet.microsoft.com/kv/)
 
 ## Virtual machine disk encryption
@@ -108,7 +107,6 @@ Azure Backup is a scalable solution that helps protect your application data wit
 Learn more:
 
 * [What is Azure Backup?](../backup/backup-introduction-to-azure-backup.md)
-* [Azure Backup Learning Path](https://azure.microsoft.com/documentation/learning-paths/backup/)
 * [Azure Backup service FAQ](../backup/backup-azure-backup-faq.md)
 
 ## Azure Site Recovery

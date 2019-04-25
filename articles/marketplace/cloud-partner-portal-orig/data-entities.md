@@ -1,6 +1,6 @@
 ---
 title: Data Entities | Microsoft Docs
-description: An overview of data entites.
+description: An overview of data entities.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
 author: pbutlerm

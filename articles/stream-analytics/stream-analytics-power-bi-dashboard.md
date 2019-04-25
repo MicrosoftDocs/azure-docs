@@ -4,11 +4,11 @@ description: This article describes how to use a real-time Power BI dashboard to
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/27/2017
+ms.date: 12/07/2018
+ms.custom: seodec18
 ---
 # Tutorial: Stream Analytics and Power BI: A real-time analytics dashboard for streaming data
 Azure Stream Analytics enables you to take advantage of one of the leading business intelligence tools, [Microsoft Power BI](https://powerbi.com/). In this article, you learn how create business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs. You also learn how to create and use a real-time dashboard.
@@ -38,28 +38,28 @@ In the real-time fraud detection tutorial, the output is sent to Azure Blob stor
 
 4. Under **Sink**, select **Power BI**.
 
-   ![Create an output for Power BI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut.png)
+   ![Create an output for Power BI](./media/stream-analytics-power-bi-dashboard/create-power-bi-ouptut.png)
 
 5. Click **Authorize**.
 
     A window opens where you can provide your Azure credentials for a work or school account. 
 
-    ![Enter credentials for access to Power BI](./media/stream-analytics-power-bi-dashboard/authorize-area.png)
+    ![Enter credentials for access to Power BI](./media/stream-analytics-power-bi-dashboard/power-bi-authorization-credentials.png)
 
 6. Enter your credentials. Be aware then when you enter your credentials, you're also giving permission to the Streaming Analytics job to access your Power BI area.
 
 7. When you're returned to the **New output** blade, enter the following information:
 
-    * **Group Workspace**: Select a workspace in your Power BI tenant where you want to create the dataset.
-    * **Dataset Name**:  Enter `sa-dataset`. You can use a different name. If you do, make a note of it for later.
-    * **Table Name**: Enter `fraudulent-calls`. Currently, Power BI output from Stream Analytics jobs can have only one table in a dataset.
+   * **Group Workspace**: Select a workspace in your Power BI tenant where you want to create the dataset.
+   * **Dataset Name**:  Enter `sa-dataset`. You can use a different name. If you do, make a note of it for later.
+   * **Table Name**: Enter `fraudulent-calls`. Currently, Power BI output from Stream Analytics jobs can have only one table in a dataset.
 
-    ![PBI workspace](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
+     ![Power BI workspace dataset and table](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
 
-    > [!WARNING]
-    > If Power BI has a dataset and table that have the same names as the ones that you specify in the Stream Analytics job, the existing ones are overwritten.
-    > We recommend that you do not explicitly create this dataset and table in your Power BI account. They are automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn't return any results, the dataset and table are not  created.
-    >
+     > [!WARNING]
+     > If Power BI has a dataset and table that have the same names as the ones that you specify in the Stream Analytics job, the existing ones are overwritten.
+     > We recommend that you do not explicitly create this dataset and table in your Power BI account. They are automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn't return any results, the dataset and table are not  created.
+     >
 
 8. Click **Create**.
 
@@ -84,6 +84,7 @@ For more information about Power BI datasets, see the [Power BI REST API](https:
     >[!NOTE]
     >If you did not name the input `CallStream` in the fraud-detection tutorial, substitute your name for `CallStream` in the **FROM** and **JOIN** clauses in the query.
 
+        ```SQL
         /* Our criteria for fraud:
         Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
 
@@ -101,6 +102,7 @@ For more information about Power BI datasets, see the [Power BI REST API](https:
         /* Where the switch location is different */
         WHERE CS1.SwitchNum != CS2.SwitchNum
         GROUP BY TumblingWindow(Duration(second, 1))
+        ```
 
 4. Click **Save**.
 
@@ -114,7 +116,7 @@ This section is optional, but recommended.
     * Go to the folder where the telcogenerator.exe and modified telcodatagen.exe.config files are.
     * Run the following command:
 
-            telcodatagen.exe 1000 .2 2
+       `telcodatagen.exe 1000 .2 2`
 
 2. In the **Query** blade, click the dots next to the `CallStream` input and then select **Sample data from input**.
 
@@ -140,7 +142,7 @@ Your Streaming Analytics job starts looking for fraudulent calls in the incoming
 
 1. Go to [Powerbi.com](https://powerbi.com) and sign in with your work or school account. If the Stream Analytics job query outputs results, you see that your dataset is already created:
 
-    ![Streaming dataset in Power BI](./media/stream-analytics-power-bi-dashboard/streaming-dataset.png)
+    ![Streaming dataset location in Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-streaming-dataset.png)
 
 2. In your workspace, click **+&nbsp;Create**.
 
@@ -152,15 +154,15 @@ Your Streaming Analytics job starts looking for fraudulent calls in the incoming
 
 4. At the top of the window, click **Add tile**, select **CUSTOM STREAMING DATA**, and then click **Next**.
 
-    ![Custom streaming dataset](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
+    ![Custom streaming dataset tile in Power BI](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
 
 5. Under **YOUR DATSETS**, select your dataset and then click **Next**.
 
-    ![Your streaming dataset](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
+    ![Your streaming dataset in Power BI](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
 6. Under **Visualization Type**, select **Card**, and then in the **Fields** list, select **fraudulentcalls**.
 
-    ![Visualization details for new tile](./media/stream-analytics-power-bi-dashboard/add-fraud.png)
+    ![Visualization details for new tile](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
 
 7. Click **Next**.
 
@@ -172,7 +174,7 @@ Your Streaming Analytics job starts looking for fraudulent calls in the incoming
 
     Now you have a fraud counter!
 
-    ![Fraud counter](./media/stream-analytics-power-bi-dashboard/fraud-counter.png)
+    ![Fraud counter in Power BI dashboard](./media/stream-analytics-power-bi-dashboard/power-bi-fraud-counter-tile.png)
 
 8. Follow the steps again to add a tile (starting with step 4). This time, do the following:
 
@@ -181,13 +183,13 @@ Your Streaming Analytics job starts looking for fraudulent calls in the incoming
     * Add a value and select **fraudulentcalls**.
     * For **Time window to display**, select the last 10 minutes.
 
-    ![Create tile for line chart](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
+      ![Create tile for line chart in Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
 9. Click **Next**, add a title and subtitle, and click **Apply**.
 
-    The Power BI dashboard now gives you two views of data about fraudulent calls as detected in the streaming data.
+     The Power BI dashboard now gives you two views of data about fraudulent calls as detected in the streaming data.
 
-    ![Finished Power BI dashboard showing two tiles for fraudulent calls](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
+     ![Finished Power BI dashboard showing two tiles for fraudulent calls](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
 
 ## Learn more about Power BI
@@ -204,7 +206,7 @@ Currently, Power BI can be called roughly once per second. Streaming visuals sup
 
 You can use the following equation to compute the value to give your window in seconds:
 
-![Equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
+![Equation to compute value to give window in seconds](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
 For example:
 
@@ -214,10 +216,11 @@ For example:
 
 As a result, the equation becomes:
 
-![Equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
+![Equation based on example criteria](./media/stream-analytics-power-bi-dashboard/power-bi-example-equation.png)  
 
 Given this configuration, you can change the original query to the following:
 
+```SQL
     SELECT
         MAX(hmdt) AS hmdt,
         MAX(temp) AS temp,
@@ -229,7 +232,7 @@ Given this configuration, you can change the original query to the following:
     GROUP BY
         TUMBLINGWINDOW(ss,4),
         dspl
-
+```
 
 ### Renew authorization
 If the password has changed since your job was created or last authenticated, you need to reauthenticate your Power BI account. If Azure Multi-Factor Authentication is configured on your Azure Active Directory (Azure AD) tenant, you also need to renew Power BI authorization every two weeks. If you don't renew, you could see symptoms such as a lack of job output or an `Authenticate user error` in the operation logs.

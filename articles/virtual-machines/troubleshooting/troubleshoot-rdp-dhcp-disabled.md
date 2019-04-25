@@ -1,5 +1,5 @@
 ---
-title: Cannot make remote desktop connection to Azure Virtual Machines because the DHCP is disabled| Microsoft Docs
+title: Cannot connect remotely to Azure Virtual Machines because the DHCP is disabled| Microsoft Docs
 description: Learn how to troubleshoot RDP problem that is caused by DHCP client service is disabled in Microsoft Azure.| Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -15,15 +15,13 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ---
-
 #  Cannot RDP to Azure Virtual Machines because the DHCP Client service is disabled
 
 This article describes a problem in which you cannot remote desktop to Azure Windows Virtual Machines (VMs) after the DHCP Client service is disabled in the VM.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## Symptoms 
-
+## Symptoms
 You cannot make an RDP connection a VM in Azure because the DHCP Client service is disabled in the VM. When you check the screenshot in the [Boot diagnostics](../troubleshooting/boot-diagnostics.md) in the Azure portal, you see the VM boots normally and waits for credentials in the login screen. You remotely view the event logs in the VM by using Event Viewer. You see that the DHCP Client Service isn't started or fails to start. The following a sample log:
 
 **Log Name**: System </br>
@@ -32,7 +30,7 @@ You cannot make an RDP connection a VM in Azure because the DHCP Client service 
 **Event ID**: 7022 </br>
 **Task Category**: None </br>
 **Level**: Error </br>
-**Keywords**: Classic</br> 
+**Keywords**: Classic</br>
 **User**: N/A </br>
 **Computer**: myvm.cosotos.com</br>
 **Description**: The DHCP Client service hung on starting.</br>
@@ -45,12 +43,12 @@ For Classic VMs, you will need to work in OFFLINE mode and collect the logs manu
 
 ## Cause
 
-The DHCP Client Service is not running on the VM. 
+The DHCP Client Service is not running on the VM.
 
 > [!NOTE]
-> This article applies only for the DHCP Client service and not DHCP Server. 
+> This article applies only for the DHCP Client service and not DHCP Server.
 
-## Solution 
+## Solution
 
 Before you follow these steps, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
@@ -58,7 +56,7 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 
 ### Use Serial control
 
-1. Connect to [Serial Console and open CMD instance](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. Connect to [Serial Console and open CMD instance](serial-console-windows.md#use-cmd-or-powershell-in-serial-console).
 ). If the Serial Console is not enabled on your VM, see [Reset network interface](reset-network-interface.md).
 2. Check if the DHCP is disabled on the network interface:
 
@@ -66,7 +64,7 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 3. If the DHCP is stopped, try to start the service
 
         sc start DHCP
-        
+
 4. Query the service again to make sure that the service is started successfully.
 
         sc query DHCP
@@ -85,28 +83,28 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
     |1069 - ERROR_SERVICE_LOGON_FAILED   |  See [DHCP Client service fails because of logon failure](#dhcp-client-service-fails-because-of-logon-failure) |
     | 1070 - ERROR_SERVICE_START_HANG  | See [DHCP Client service crashes or hangs](#dhcp-client-service-crashes-or-hangs).  |
     | 1077 - ERROR_SERVICE_NEVER_STARTED  | See [DHCP Client service is disabled](#dhcp-client-service-is-disabled).  |
-    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   | [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.  | 
+    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   | [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.  |
     |1053 | [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.  |
-    
+
 
 #### DHCP Client service is stopped because of an Access Denied error
 
-1. Connect to [Serial Console](serial-console-windows.md#) and open a PowerShell instance.
+1. Connect to [Serial Console](serial-console-windows.md) and open a PowerShell instance.
 2. Download the Process Monitor tool by running the following script:
 
-   ```
-   remove-module psreadline  
-   $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
-   $destination = "c:\temp\ProcessMonitor.zip" 
-   $wc = New-Object System.Net.WebClient 
-   $wc.DownloadFile($source,$destination) 
+   ```powershell
+   remove-module psreadline
+   $source = "https://download.sysinternals.com/files/ProcessMonitor.zip"
+   $destination = "c:\temp\ProcessMonitor.zip"
+   $wc = New-Object System.Net.WebClient
+   $wc.DownloadFile($source,$destination)
    ```
 3. Now start a **procmon** trace:
 
    ```
-   procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
+   procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML
    ```
-4. Reproduce the problem by starting the service that's generating the **Access Denied** message: 
+4. Reproduce the problem by starting the service that's generating the **Access Denied** message:
 
    ```
    sc start DHCP
@@ -114,8 +112,8 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 
    When it fails, terminate the Process Monitor trace:
 
-   ```   
-   procmon /Terminate 
+   ```
+   procmon /Terminate
    ```
 5. Collect the **c:\temp\ProcMonTrace.PML** file:
 
@@ -128,7 +126,7 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 
     ![Filter by result in Process Monitor](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
-7. Fix the registry keys, folders, or files that are on the output. Usually, this problem is caused when the sign-in account that's used on the service doesn't have ACL permission to access these objects. To determine the correct ACL permission for the sign-in account, you can check on a healthy VM. 
+7. Fix the registry keys, folders, or files that are on the output. Usually, this problem is caused when the sign-in account that's used on the service doesn't have ACL permission to access these objects. To determine the correct ACL permission for the sign-in account, you can check on a healthy VM.
 
 #### DHCP Client service is disabled
 
@@ -154,7 +152,7 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 
 #### DHCP Client service fails because of logon failure
 
-1. Because this problem occurs if the startup account of this service was changed, revert the account to its default status: 
+1. Because this problem occurs if the startup account of this service was changed, revert the account to its default status:
 
         sc config DHCP obj= 'NT Authority\Localservice'
 2. Start the service:
@@ -163,7 +161,8 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 3. Try to connect to the VM by using Remote Desktop.
 
 #### DHCP Client service crashes or hangs
-1. If the service status is stuck in the **Starting** or **Stopping** state, try to stop the service: 
+
+1. If the service status is stuck in the **Starting** or **Stopping** state, try to stop the service:
 
         sc stop DHCP
 2. Isolate the service on its own ‘svchost’ container:
@@ -180,12 +179,12 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 
 1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
 2. Start a Remote Desktop connection to the recovery VM. Make sure that the attached disk is flagged as **Online** in the Disk Management console. Note the drive letter that's assigned to the attached OS disk.
-3.  Open an elevated command prompt instance (**Run as administrator**). Then run the following script. This script assumes that the drive letter that's assigned to the attached OS disk is **F**. Replace the letter as appropriate with the value in your VM. 
+3.  Open an elevated command prompt instance (**Run as administrator**). Then run the following script. This script assumes that the drive letter that's assigned to the attached OS disk is **F**. Replace the letter as appropriate with the value in your VM.
 
     ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM
 
-    REM Set default values back on the broken service 
+    REM Set default values back on the broken service
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v start /t REG_DWORD /d 2 /f
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v ObjectName /t REG_SZ /d "NT Authority\LocalService" /f
     reg add "HKLM\BROKENSYSTEM\ControlSet001\services\DHCP" /v type /t REG_DWORD /d 16 /f
@@ -201,5 +200,3 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 ## Next steps
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved.
-
-

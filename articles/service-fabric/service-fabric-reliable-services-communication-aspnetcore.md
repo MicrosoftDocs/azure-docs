@@ -4,7 +4,7 @@ description: Learn how to use ASP.NET Core in stateless and stateful Reliable Se
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
@@ -66,7 +66,7 @@ Both communication listeners provide a constructor that takes the following argu
 The `Microsoft.ServiceFabric.AspNetCore` NuGet package includes the `UseServiceFabricIntegration` extension method on `IWebHostBuilder` that adds Service Fabric-aware middleware. This middleware configures the Kestrel or HttpSys `ICommunicationListener` to register a unique service URL with the Service Fabric Naming Service and then validates client requests to ensure clients are connecting to the right service. This is necessary in a shared-host environment such as Service Fabric, where multiple web applications can run on the same physical or virtual machine but do not use unique host names, to prevent clients from mistakenly connecting to the wrong service. This scenario is described in more detail in the next section.
 
 ### A case of mistaken identity
-Service replicas, regardless of protocol, listen on a unique IP:port combination. Once a service replica has started listening on an IP:port endpoint, it reports that endpoint address to the Service Fabric Naming Service where it can be discovered by clients or other services. If services use dynamically-assigned application ports, a service replica may coincidentally use the same IP:port endpoint of another service that was previously on the same physical or virtual machine. This can cause a client to mistakely connect to the wrong service. This can happen if the following sequence of events occurs:
+Service replicas, regardless of protocol, listen on a unique IP:port combination. Once a service replica has started listening on an IP:port endpoint, it reports that endpoint address to the Service Fabric Naming Service where it can be discovered by clients or other services. If services use dynamically-assigned application ports, a service replica may coincidentally use the same IP:port endpoint of another service that was previously on the same physical or virtual machine. This can cause a client to mistakenly connect to the wrong service. This can happen if the following sequence of events occurs:
 
  1. Service A listens on 10.0.0.1:30000 over HTTP. 
  2. Client resolves Service A and gets address 10.0.0.1:30000
@@ -329,6 +329,124 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 ```
 
 In this configuration, `KestrelCommunicationListener` will automatically select an unused port from the application port range.
+
+## Service Fabric Configuration Provider
+App configuration in ASP.NET Core is based on key-value pairs established by configuration providers, read 
+[Configuration in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/) to understand more on general ASP.NET Core configuration support.
+
+This section describes the Service Fabric Configuration Provider to integrate with ASP.NET Core configuration by importing the `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet package.
+
+### AddServiceFabricConfiguration Startup extensions
+After you've import `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet package, you need to register the Service Fabric Configuration source with ASP.NET Core configuration API by **AddServiceFabricConfiguration** extensions in `Microsoft.ServiceFabric.AspNetCore.Configuration` namespace against `IConfigurationBuilder`
+
+```csharp
+using Microsoft.ServiceFabric.AspNetCore.Configuration;
+
+public Startup(IHostingEnvironment env)
+{
+    var builder = new ConfigurationBuilder()
+        .SetBasePath(env.ContentRootPath)
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+        .AddServiceFabricConfiguration() // Add Service Fabric configuration settings.
+        .AddEnvironmentVariables();
+    Configuration = builder.Build();
+}
+
+public IConfigurationRoot Configuration { get; }
+```
+
+Now the ASP.NET Core service can access the Service Fabric configuration settings just like any other application settings. For example, you can use the options pattern to load settings into strongly typed objects.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.Configure<MyOptions>(Configuration);  // Strongly typed configuration object.
+    services.AddMvc();
+}
+```
+### Default Key Mapping
+By default, Service Fabric configuration provider includes package name, section name, and property name together to form the asp.net core configuration Key using following function:
+```csharp
+$"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
+```
+
+For example, if you have a Configuration packages named `MyConfigPackage` with below content, then the configuration value will be available on ASP.NET Core `IConfiguration` via Key *MyConfigPackage:MyConfigSection:MyParameter*
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
+  <Section Name="MyConfigSection">
+    <Parameter Name="MyParameter" Value="Value1" />
+  </Section>  
+</Settings>
+```
+### Service Fabric Configuration Options
+Service Fabric Configuration Provider also supports `ServiceFabricConfigurationOptions` to change the default behavior of key mapping.
+
+#### Encrypted settings
+Service Fabric supports to encrypt the settings, Service Fabric Configuration Provider also supports this. To follow secure by default principle, the encrypted settings are't descrypted by default to ASP.NET Core `IConfiguration`, the encrypted value are stored there instead. However, if you want to decrypt the value to store in ASP.NET Core IConfiguration you could set DecryptValue flag to false in `AddServiceFabricConfiguration` extensions as follows:
+
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        .AddServiceFabricConfiguration(activationContext, (options) => options.DecryptValue = true); // set flag to decrypt the value
+    Configuration = builder.Build();
+}
+```
+#### Multiple Configuration Packages
+Service Fabric supports multiple configuration packages. By default, the package name is included in the configuration Key. You could set the `IncludePackageName` flag to change the default behavior.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        // exclude package name from key.
+        .AddServiceFabricConfiguration(activationContext, (options) => options.IncludePackageName = false); 
+    Configuration = builder.Build();
+}
+```
+#### Custom Key Mapping, Value Extraction, and Data Population
+Besides above 2 flags to change the default behavior, Service Fabric Configuration Provider also supports more advanced scenarios to custom the key mapping via `ExtractKeyFunc` and to custom extract the values via `ExtractValueFunc`. You could even change the whole process to populate data from Service Fabric configuration to ASP.NET Core configuration via `ConfigAction`.
+
+The following examples illustrate to use `ConfigAction` to customize data population.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    
+    this.valueCount = 0;
+    this.sectionCount = 0;
+    var builder = new ConfigurationBuilder();
+    builder.AddServiceFabricConfiguration(activationContext, (options) =>
+        {
+            options.ConfigAction = (package, configData) =>
+            {
+                ILogger logger = new ConsoleLogger("Test", null, false);
+                logger.LogInformation($"Config Update for package {package.Path} started");
+
+                foreach (var section in package.Settings.Sections)
+                {
+                    this.sectionCount++;
+
+                    foreach (var param in section.Parameters)
+                    {
+                        configData[options.ExtractKeyFunc(section, param)] = options.ExtractValueFunc(section, param);
+                        this.valueCount++;
+                    }
+                }
+
+                logger.LogInformation($"Config Update for package {package.Path} finished");
+            };
+        });
+  Configuration = builder.Build();
+}
+```
+### Configuration Update
+Service Fabric Configuration Provider also supports Configuration Update and you could use ASP.NET Core `IOptionsMonitor` to receive change notifications and also with `IOptionsSnapshot` to reload configuration data. For more information, see [ASP.NET Core Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options).
+
+This is supported by default and no further coding are needed to enable configuration update.
 
 ## Scenarios and configurations
 This section describes the following scenarios and provides the recommended combination of web server, port configuration, Service Fabric integration options, and miscellaneous settings to achieve a properly functioning service:

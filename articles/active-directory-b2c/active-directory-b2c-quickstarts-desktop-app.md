@@ -3,15 +3,15 @@ title: Quickstart - Set up sign-in for a desktop app using Azure Active Director
 description: Run a sample ASP.NET desktop application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Quickstart: Set up sign-in for a desktop app using Azure Active Directory B2C 
@@ -56,7 +56,7 @@ Azure Active Directory (Azure AD) B2C provides cloud identity management to keep
 
 ## Edit your profile
 
-Azure AD B2C provides functionality to allow users to update their profiles. The sample web app uses an Azure AD B2C edit profile policy for the workflow. 
+Azure AD B2C provides functionality to allow users to update their profiles. The sample web app uses an Azure AD B2C edit profile user flow for the workflow. 
 
 1. In the application menu bar, click **Edit profile** to edit the profile you created.
 

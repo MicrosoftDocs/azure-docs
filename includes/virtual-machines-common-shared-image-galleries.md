@@ -5,15 +5,12 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/20/2018
+ ms.date: 01/09/2018
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
 
-Shared Image Gallery is a service that helps you build structure and organization around your custom VM images. Shared Image Gallery provides three main value propositions:
-- Simple management
-- Scale your custom images
-- Share your images - share your images to different users, service principals, or AD groups within your organization as well as different regions using the multi-region replication
+Shared Image Gallery is a service that helps you build structure and organization around your custom managed VM images. Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
 
 A managed image is a copy of either a full VM (including any attached data disks) or just the OS disk, depending on how you create the image. When you create a VM  from the image, a copy of the VHDs in the image are used to create the disks for the new VM. The managed image remains in storage and can be used over and over again to create new VMs.
 
@@ -23,10 +20,10 @@ The Shared Image Gallery feature has multiple resource types:
 
 | Resource | Description|
 |----------|------------|
-| **Managed image** | This is a baseline image that can be used alone or used to create multiple **shared image versions** in an image gallery.|
+| **Managed image** | This is a basic image that can be used alone or used to create an **image version** in an image gallery. Managed images are created from generalized VMs. A managed image is a special type of VHD that can be used to make multiple VMs and can now be used to create shared image versions. |
 | **Image gallery** | Like the Azure Marketplace, an **image gallery** is a repository for managing and sharing images, but you control who has access. |
-| **Gallery image** | Images are defined within a gallery and carry information about the image and requirements for using it internally. This includes whether the image is Windows or Linux, release notes, and minimum and maximum memory requirements. This type of image is a resource within the Resource Manager deployment model, but it isn't used directly for creating VMs. It is a definition of a type of image. |
-| **Shared image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
+| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it internally. This includes whether the image is Windows or Linux, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. |
+| **Image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
 
 <br>
 
@@ -39,21 +36,19 @@ Regional support for shared image galleries is in limited preview, but will expa
 
 | Create Gallery In  | Replicate Version To |
 |--------------------|----------------------|
-| West Central US    |South Central US|
-| East US 2          |East US|
-| South Central US   |East US 2|
-| Southeast Asia     |West US|
-| West Europe        |West US 2|
-|                    |Central US|
-|                    |North Central US|
-|                    |Canada Central|
-|                    |Canada East|
-|                    |North Europe|
-|                    |West Europe|
-|                    |South India|
-|                    |Southeast Asia|
+| West Central US    |All public regions &#42;|
+| East US 2          ||
+| South Central US   ||
+| Southeast Asia     ||
+| West Europe        ||
+| West US            ||
+| East US            ||
+| Canada Central     ||
+|                    ||
 
 
+
+&#42; To replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://www.microsoft.com/en-au/central-regions-eligibility/
 
 ## Scaling
 Shared Image Gallery allows you to specify the number of replicas you want Azure to keep of the images. This helps in multi-VM deployment scenarios as the VM deployments can be spread to different replicas reducing the chance of instance creation processing being throttled due to overloading of a single replica.
@@ -63,6 +58,7 @@ Shared Image Gallery allows you to specify the number of replicas you want Azure
 
 ## Replication
 Shared Image Gallery also allows you to replicate your images to other Azure regions automatically. Each Shared Image version can be replicated to different regions depending on what makes sense for your organization. One example is to always replicate the latest image in multi-regions while all older versions are only available in 1 region. This can help save on storage costs for Shared Image versions. 
+
 The regions a Shared Image version is replicated to can be updated after creation time. The time it takes to replicate to different regions depends on the amount of data being copied and the number of regions the version is replicated to. This can take a few hours in some cases. While the replication is happening, you can view the status of replication per region. Once the image replication is complete in a region, you can then deploy a VM or VMSS using that image version in the region.
 
 ![Graphic showing how you can replicate images](./media/shared-image-galleries/replication.png)
@@ -84,6 +80,25 @@ There is no extra charge for using the Shared Image Gallery service. You will be
 - Storage costs of storing the Shared Image versions. This depends on the number of replicas of the version and the number of regions the version is replicated to.
 - Network egress charges for replication from the source region of the version to the replicated regions.
 
+## SDK support
+
+The following SDKs support creating Shared Image Galleries:
+
+- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
+- [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Go](https://docs.microsoft.com/go/azure/)
+
+## Templates
+
+You can create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
+
+- [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-create/)
+- [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
+- [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
+- [Create a VM from Image Version](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+
 ## Frequently asked questions 
 
 **Q.** How do I sign up for the Shared Image Gallery Public Preview?
@@ -100,26 +115,26 @@ az provider register --name Microsoft.Compute
 **PowerShell**: 
 
 ```powershell
-Register-AzureRmProviderFeature -FeatureName GalleryPreview -ProviderNamespace Microsoft.Compute
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Register-AzProviderFeature -FeatureName GalleryPreview -ProviderNamespace Microsoft.Compute
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 **Q.** How can I list all the Shared Image Gallery resources across subscriptions? 
  
  A. In order to list all the Shared Image Gallery resources across subscriptions that you have access to on the Azure portal, follow the steps below:
 
- 1.	Open the [Azure portal](https://portal.azure.com).
- 1.	Go to **All Resources**.
- 1.	Select all the subscriptions under which you’d like to list all the resources.
- 1.	Look for resources of type **Private gallery**.
+1. Open the [Azure portal](https://portal.azure.com).
+1. Go to **All Resources**.
+1. Select all the subscriptions under which you’d like to list all the resources.
+1. Look for resources of type **Private gallery**.
  
- To see the image definitions and image versions, you should also select **Show hidden types**.
+   To see the image definitions and image versions, you should also select **Show hidden types**.
  
- To list all the Shared Image Gallery resources across subscriptions that you have permissions to, use the following command in the Azure CLI:
+   To list all the Shared Image Gallery resources across subscriptions that you have permissions to, use the following command in the Azure CLI:
 
- ```bash
- az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
- ```
+   ```bash
+   az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
+   ```
 
 
 **Q.** How do I share my images across subscriptions?
@@ -135,9 +150,9 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
  Scenario 2: If you have an unmanaged generalized image, you can create a managed image from it, and then create an image definition and image version from it. 
 
- Scenario 3: If you have a VHD in your local file system, then you need to upload the VHD, create a managed image, then you can create and image definition and image version from it. 
-	- If the VHD is of a Windows VM, see [Upload a generalized VHD](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-	- If the VHD is for a Linux VM, see [Upload a VHD](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+ Scenario 3: If you have a VHD in your local file system, then you need to upload the VHD, create a managed image, then you can create and image definition and image version from it.
+- If the VHD is of a Windows VM, see [Upload a generalized VHD](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+- If the VHD is for a Linux VM, see [Upload a VHD](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 
 **Q.** Can I create an image version from a specialized disk?

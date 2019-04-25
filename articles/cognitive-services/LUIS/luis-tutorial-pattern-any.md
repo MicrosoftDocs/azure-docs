@@ -1,21 +1,36 @@
 ---
-title: "Tutorial 5: Pattern.any entity for free-form text"
+title: Pattern.any entity
 titleSuffix: Azure Cognitive Services
 description: Use the pattern.any entity to extract data from utterances where the utterances is well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.  
 services: cognitive-services
+ms.custom: seodec18
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern.any entity to improve predictions. 
 ---
 
-# Tutorial 5: Extract free-form data
+# Tutorial: Extract free-form data with Pattern.any entity
 
 In this tutorial, use the pattern.any entity to extract data from utterances where the utterances are well-formatted and where the end of the data may be easily confused with the remaining words of the utterance. 
+
+**In this tutorial, you learn how to:**
+
+> [!div class="checklist"]
+> * Import example app
+> * Add example utterances to existing entity
+> * Create Pattern.any entity
+> * Create pattern
+> * Train
+> * Test new pattern
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## Using Pattern.any entity
 
 The pattern.any entity allows you to find free-form data where the wording of the entity makes it difficult to determine the end of the entity from the rest of the utterance. 
 
@@ -45,24 +60,12 @@ The varying length includes words that may confuse LUIS about where the entity e
 |Who authored {FormName}[?]|
 |{FormName} is published in French[?]|
 
-**In this tutorial, you learn how to:**
-
-> [!div class="checklist"]
-> * Use existing tutorial app
-> * Add example utterances to existing entity
-> * Create Pattern.any entity
-> * Create pattern
-> * Train
-> * Test new pattern
-
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## Use existing app
+## Import example app
 Continue with the app created in the last tutorial, named **HumanResources**. 
 
-If you do not have the HumanResources app from the previous tutorial, use the following steps:
+Use the following steps:
 
-1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
+1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
 2. Import the JSON into a new app.
 

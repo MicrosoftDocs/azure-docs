@@ -3,7 +3,7 @@ title: Deploy to Azure App Service by using the Jenkins plugin
 description: Learn how to use the Azure App Service Jenkins plugin to deploy a Java web app to Azure in Jenkins
 ms.service: jenkins
 keywords: jenkins, azure, devops, app service
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
@@ -60,9 +60,9 @@ You need an Azure service principal to deploy to Azure.
 
 To deploy your project to Web Apps, you can upload your build artifacts by file upload. Azure App Service supports multiple deployment options. The Azure App Service Jenkins plugin makes it simple for you and derives the deployment option based on the file type. 
 
-* For Java EE applications, [WAR deployment](/azure/app-service/app-service-deploy-zip#deploy-war-file) is used.
-* For Java SE applications, [ZIP deployment](/azure/app-service/app-service-deploy-zip#deploy-zip-file) is used.
-* For other languages, [Git deployment](/azure/app-service/app-service-deploy-local-git) is used.
+* For Java EE applications, [WAR deployment](/azure/app-service/deploy-zip#deploy-war-file) is used.
+* For Java SE applications, [ZIP deployment](/azure/app-service/deploy-zip#deploy-zip-file) is used.
+* For other languages, [Git deployment](/azure/app-service/deploy-local-git) is used.
 
 Before you set up the job in Jenkins, you need an Azure App Service plan and a web app to run the Java app.
 
@@ -73,7 +73,7 @@ Before you set up the job in Jenkins, you need an Azure App Service plan and a w
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```
     
-3. Set up the Java runtime configuration that your app needs. The following Azure CLI command configures the web app to run on a recent JDK 8 and [Apache Tomcat](http://tomcat.apache.org/) version 8.0:
+3. Set up the Java runtime configuration that your app needs. The following Azure CLI command configures the web app to run on a recent JDK 8 and [Apache Tomcat](https://tomcat.apache.org/) version 8.0:
     ```azurecli-interactive
     az webapp config set \
     --name <myAppName> \
@@ -86,7 +86,7 @@ Before you set up the job in Jenkins, you need an Azure App Service plan and a w
 ### Set up the Jenkins job
 
 1. Create a new **freestyle** project on the Jenkins Dashboard.
-2. Configure the **Source Code Management** field to use your local fork of the [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). Provide the **Repository URL** value. For example: http://github.com/&lt;your_ID>/javawebappsample.
+2. Configure the **Source Code Management** field to use your local fork of the [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). Provide the **Repository URL** value. For example: http:\//github.com/&lt;your_ID>/javawebappsample.
 3. Add a step to build the project by using Maven by adding the **Execute shell** command. For this example, we need an additional command to rename the \*.war file in the target folder to **ROOT.war**:   
     ```bash
     mvn clean package
@@ -139,7 +139,7 @@ Before setting up the job in Jenkins, you need a web app on Linux. You also need
 ### Set up the Jenkins job for Docker
 
 1. Create a new **freestyle** project on the Jenkins Dashboard.
-2. Configure the **Source Code Management** field to use your local fork of the [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). Provide the **Repository URL** value. For example: http://github.com/&lt;your_ID>/javawebappsample.
+2. Configure the **Source Code Management** field to use your local fork of the [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). Provide the **Repository URL** value. For example: http:\//github.com/&lt;your_ID>/javawebappsample.
 3. Add a step to build the project by using Maven by adding an **Execute shell** command. Include the following line in the command:
     ```bash
     mvn clean package

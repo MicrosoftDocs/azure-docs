@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 03/28/2019
 ms.author: danlep
 ---
 
@@ -21,9 +21,9 @@ Containers provide new levels of virtualization, isolating application and devel
 Build and test container images with ACR Tasks in four ways:
 
 * [Quick task](#quick-task): Build and push container images on-demand, in Azure, without needing a local Docker Engine installation. Think `docker build`, `docker push` in the cloud. Build from local source code or a Git repository.
-* [Build on source code commit](#automatic-build-on-source-code-commit): Trigger a container image build automatically when code is commited to a Git repository.
+* [Build on source code commit](#automatic-build-on-source-code-commit): Trigger a container image build automatically when code is committed to a Git repository.
 * [Build on base image update](#automate-os-and-framework-patching): Trigger a container image build  when that image's base image has been updated.
-* [Multi-step tasks](#multi-step-tasks-preview) (preview): Define multi-step tasks that build images, run containers as commands, and push images to a registry. This preview feature of ACR Tasks supports on-demand task execution and parallel image build, test, and push operations.
+* [Multi-step tasks](#multi-step-tasks): Define multi-step tasks that build images, run containers as commands, and push images to a registry. This feature of ACR Tasks supports on-demand task execution and parallel image build, test, and push operations.
 
 ## Quick task
 
@@ -32,6 +32,8 @@ The inner-loop development cycle, the iterative process of writing code, buildin
 Before you commit your first line of code, ACR Tasks's [quick task](container-registry-tutorial-quick-task.md) feature can provide an integrated development experience by offloading your container image builds to Azure. With quick tasks, you can verify your automated build definitions and catch potential problems prior to committing your code.
 
 Using the familiar `docker build` format, the [az acr build][az-acr-build] command in the Azure CLI takes a *context* (the set of files to build), sends it ACR Tasks and, by default, pushes the built image to its registry upon completion.
+
+For an introduction, see the quickstart to [build and run a container image](container-registry-quickstart-task-cli.md) in Azure Container Registry.  
 
 The following table shows a few examples of supported context locations for ACR Tasks:
 
@@ -72,9 +74,9 @@ Learn about OS and framework patching in the third ACR Tasks tutorial, [Automate
 > [!NOTE]
 > Base image updates trigger builds only when both the base and application images reside in the same Azure container registry, or the base resides in a public Docker Hub repository.
 
-## Multi-step tasks (preview)
+## Multi-step tasks
 
-Multi-step tasks, a preview capability of ACR Tasks, provides step-based task definition and execution for building, testing, and patching container images in the cloud. Task steps define individual container image build and push operations. They can also define the execution of one or more containers, with each step using the container as its execution environment.
+Multi-step tasks provide step-based task definition and execution for building, testing, and patching container images in the cloud. Task steps define individual container image build and push operations. They can also define the execution of one or more containers, with each step using the container as its execution environment.
 
 For example, you can create a multi-step task that automates the following:
 
@@ -89,15 +91,11 @@ Multi-step tasks enable you to split the building, running, and testing of an im
 
 Learn about multi-step tasks in [Run multi-step build, test, and patch tasks in ACR Tasks](container-registry-tasks-multi-step.md).
 
-> [!IMPORTANT]
-> The multi-step task capability of ACR Tasks is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this capability may change prior to general availability (GA)
-
 ## Next steps
 
-When you're ready to automate OS and framework patching by building your container images in the cloud, check out the three-part ACR Tasks tutorial series.
+When you're ready to automate OS and framework patching by building your container images in the cloud, check out the three-part [ACR Tasks tutorial series](container-registry-tutorial-quick-task.md).
 
-> [!div class="nextstepaction"]
-> [Build container images in the cloud with Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
+Optionally install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to work with your Azure container registries. Pull and push images to an Azure container registry, or run ACR Tasks, all within Visual Studio Code.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/
@@ -110,9 +108,9 @@ When you're ready to automate OS and framework patching by building your contain
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-task]: /cli/azure/acr
 [az-login]: /cli/azure/reference-index#az-login
-[az-login-service-principal]: /cli/azure/authenticate-azure-cli#log-in-with-a-service-principal
+[az-login-service-principal]: /cli/azure/authenticate-azure-cli
 
 <!-- IMAGES -->
 [quick-build-01-fork]: ./media/container-registry-tutorial-quick-build/quick-build-01-fork.png

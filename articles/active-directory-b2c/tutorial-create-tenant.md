@@ -1,16 +1,16 @@
-﻿---
+---
 title: Tutorial - Create an Azure Active Directory B2C tenant | Microsoft Docs
 description: Learn how to prepare for registering your applications by creating an Azure Active Directory B2C tenant using the Azure portal.
 services: B2C
 author: davidmu1
-manager: mtillman
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 01/11/2019
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Tutorial: Create an Azure Active Directory B2C tenant
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Create an Azure AD B2C tenant
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure that you are using the directory that contains your subscription by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains it. This is a different directory than the one that will contain your Azure AD B2C tenant.
+2. Make sure that you are using the directory that contains your subscription by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains it. This directory is different than the one that will contain your Azure AD B2C tenant.
 
     ![Switch to subscription directory](./media/tutorial-create-tenant/switch-directory-subscription.png)
 
@@ -40,10 +40,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     ![Create a tenant](./media/tutorial-create-tenant/create-tenant.png)
 
-    In this example the tenant name is contoso0926Tenant.onmicrosoft.com
+    In this example, the tenant name is contoso0926Tenant.onmicrosoft.com
 
-6. On the **Create new B2C Tenant or Link to an exiting Tenant** page, choose **Link an existing Azure AD B2C Tenant to my Azure subscription**, select the tenant that you created, select your subscription, click **Create new** and enter a name for the resource group that will contain the tenant, select the location, and then click **Create**.
-7. To start using your new tenant, make sure you are using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains it.
+6. On the **Create new B2C Tenant or Link to an exiting Tenant** page, choose **Link an existing Azure AD B2C Tenant to my Azure subscription**, select the tenant that you created, select your subscription, and then click **Create new**.
+7. Enter a name for the resource group that will contain the tenant, select the location, and then click **Create**.
+8. To start using your new tenant, make sure you are using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains it.
 
     ![Switch to tenant directory](./media/tutorial-create-tenant/switch-directories.png)
 
@@ -56,4 +57,4 @@ In this article, you learned how to:
 > * Link your tenant to your subscription
 
 > [!div class="nextstepaction"]
-> [Enable a web application to authenticate with accounts](active-directory-b2c-tutorials-web-app.md)
+> [Register your applications](tutorial-register-applications.md)

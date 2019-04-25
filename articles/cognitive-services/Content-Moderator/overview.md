@@ -3,14 +3,15 @@ title: What is Azure Content Moderator?
 titlesuffix: Azure Cognitive Services
 description: Learn how to use Content Moderator to track, flag, assess, and filter inappropriate material in user-generated content.
 services: cognitive-services
-author: sanjeev3
-manager: cgronlun
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 10/22/2018
-ms.author: sajagtap
+ms.date: 02/20/2019
+ms.author: pafarley
+
 #Customer intent: As a developer of content management software, I want to find out whether Azure Content Moderator is the right solution for my moderation needs.
 ---
 
@@ -38,23 +39,25 @@ The Content Moderator service consists of several web service APIs available thr
 
 The Content Moderator service includes APIs for the following scenarios.
 
-| Action | Description |
+| API group | Description |
 | ------ | ----------- |
-|[**Text moderation**](text-moderation-api.md)| Scans text for offensive content, sexually explicit or suggestive content, profanity, and personally identifiable information (PII).|
+|[**Text moderation**](text-moderation-api.md)| Scans text for offensive content, sexually explicit or suggestive content, profanity, and personal data.|
 |[**Custom term lists**](try-terms-list-api.md)| Scans text against a custom list of terms in addition to the built-in terms. Use custom lists to block or allow content according to your own content policies.|  
 |[**Image moderation**](image-moderation-api.md)| Scans images for adult or racy content, detects text in images with the Optical Character Recognition (OCR) capability, and detects faces.|
 |[**Custom image lists**](try-image-list-api.md)| Scans images against a custom list of images. Use custom image lists to filter out instances of commonly recurring content that you don't want to classify again.|
 |[**Video moderation**](video-moderation-api.md)| Scans videos for adult or racy content and returns time markers for said content.|
-|[**Review**](try-review-api-job.md)| Use the [Jobs](try-review-api-job.md), [Reviews](try-review-api-review.md), and [Workflow](try-review-api-workflow.md) operations to create and automate human-in-the-loop workflows with the human review tool. The Workflow API is not yet available through the .NET SDK.|
+|[**Review APIs**](try-review-api-job.md)| Use the [Jobs](try-review-api-job.md), [Reviews](try-review-api-review.md), and [Workflow](try-review-api-workflow.md) operations to create and automate human-in-the-loop workflows with the human review tool. The Workflow API is not yet available in the .NET SDK.|
 
-### Human review tool
+### Review tool
 
-The Content Moderator service also includes the web-based [human review tool](Review-Tool-User-Guide/human-in-the-loop.md). 
+The Content Moderator service also includes the web-based [Review tool](Review-Tool-User-Guide/human-in-the-loop.md), which hosts the content reviews for human moderators to process. The human input does not train the service, but the combined work of the service and human review teams allows developers to strike the right balance between efficiency and accuracy. The Review tool also provides a user-friendly front-end for a variety of Content Moderator resources.
 
 ![Content Moderator human review tool homepage](images/homepage.PNG)
 
-You can use the Review APIs to set up team reviews of text, image, and video content, according to filters that you specify. Then, human moderators can make the final moderation decisions. The human input does not train the service, but the combined work of the service and human review teams allows developers to strike the right balance between efficiency and accuracy.
+## Data privacy and security
+
+As with all of the Cognitive Services, developers using the Content Moderator service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
 
 ## Next steps
 
-Follow the [Quickstart](quick-start.md) to get started using Content Moderator.
+Get started using the Content Moderator service by following the instructions in [Try Content Moderator on the web](quick-start.md).

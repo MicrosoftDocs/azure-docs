@@ -5,7 +5,7 @@ services: backup
 ms.service: backup
 author: rayne-wiselman
 ms.author: raynew
-ms.date: 10/23/2018
+ms.date: 01/31/2019
 ms.topic: tutorial
 manager: carmonm
 ---
@@ -14,23 +14,24 @@ manager: carmonm
 You can troubleshoot issues and errors encountered while using Azure File Shares backup with information listed in the following tables.
 
 ## Limitations for Azure file share backup during Preview
-Backup for Azure File shares is in Preview. The following backup scenarios aren't supported for Azure file shares:
+Backup for Azure File shares is in Preview. Azure File Shares in both general-purpose v1 and general-purpose v2 storage accounts are supported. The following backup scenarios aren't supported for Azure file shares:
 - You can't protect Azure file shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication*.
 - You can't protect Azure file shares in storage accounts that have Virtual Networks or Firewall enabled.
-- There's no PowerShell or CLI available for protecting Azure Files using Azure Backup.
+- There's no CLI available for protecting Azure Files using Azure Backup.
 - The maximum number of scheduled backups per day is one.
 - The maximum number of on-demand backups per day is four.
 - Use [resource locks](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) on the storage account to prevent accidental deletion of backups in your Recovery Services vault.
 - Do not delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures.
+- Do not delete file shares that are protected by Azure Backup. The current solution will delete all snapshots taken by Azure Backup once the file share is deleted and hence lose all restore points
 
 \*Azure File Shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication function as GRS and billed at GRS prices.
 
-Backup for Azure File Shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replication is currently available only in Central US (CUS), East US 2 (EUS2), North Europe (NE), SouthEast Asia (SEA) and West Europe (WE).
+Backup for Azure File Shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replication is currently available only in Central US (CUS), East US (EUS), East US 2 (EUS2), North Europe (NE), SouthEast Asia (SEA), West Europe (WE) and West US 2 (WUS2).
 
 ## Configuring Backup
 The following table is for configuring the backup:
 
-| Configuring Backup | Workaround or Resolution tips |
+| Error messages | Workaround or Resolution tips |
 | ------------------ | ----------------------------- |
 | Could not find my Storage Account to configure backup for Azure file share | <ul><li>Wait until discovery is complete. <li>Check if any File share from the storage account is already protected with another Recovery Services vault. **Note**: All file shares in a Storage Account can be protected only under one Recovery Services vault. <li>Be sure the File share is not present in any of the unsupported Storage Accounts.|
 | Error in portal states discovery of storage accounts failed. | If your subscription is partner (CSP-enabled), ignore the error. If your subscription is not CSP-enabled, and your storage accounts can't be discovered, contact support.|
@@ -58,6 +59,14 @@ The following table is for configuring the backup:
 | Restore operation failed as target file share is full. | Increase the target file share size quota to accommodate the restore data and retry the operation. |
 | Restore operation failed as an error occurred while performing pre restore operations on File Sync Service resources associated with the target file share. | Please retry after sometime, if the issue persists please contact Microsoft support. |
 | One or more files could not be recovered successfully. For more information, check the failed file list in the path given above. | <ul> <li> Recovery failure reasons are listed in the file (path provided in the Job details), address the reasons and retry the restore operation for the failed files only. <li> Common reasons for file restore failures are: <br/> - Make sure the failed files aren't currently in use. <br/> - A directory with the same name as the failed files exists in the parent directory. |
+
+
+## Modify Policy
+| Error messages | Workaround or Resolution tips |
+| ------------------ | ----------------------------- |
+| Another configure protection operation is in progress for this item. | Please wait for the previous modify policy operation to finish and retry after some time.|
+| Another operation is in progress on the selected item. | Please wait for the other in-progress operation to complete and retry after sometime |
+
 
 ## See Also
 For additional information about backing up Azure file shares, see:

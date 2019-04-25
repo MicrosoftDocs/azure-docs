@@ -1,5 +1,5 @@
 ---
-title: Azure App Service on Linux FAQ | Microsoft Docs
+title: App Service on Linux FAQ - Azure | Microsoft Docs
 description: Azure App Service on Linux FAQ.
 keywords: azure app service, web app, faq, linux, oss, web app for containers, multi-container, multicontainer
 services: app-service
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
+ms.custom: seodec18
 ---
 # Azure App Service on Linux FAQ
 
@@ -29,9 +30,17 @@ If you have a question, comment on this article.
 
 You can find all Docker files on [GitHub](https://github.com/azure-app-service). You can find all Docker containers on [Docker Hub](https://hub.docker.com/u/appsvc/).
 
+<a id="#startup-file"></a>
+
 **What are the expected values for the Startup File section when I configure the runtime stack?**
 
-For Node.js, you specify the PM2 configuration file or your script file. For .NET Core, specify your compiled DLL name as `dotnet <myapp>.dll`. For Ruby, you can specify the Ruby script that you want to initialize your app with.
+| Stack     | Expected Value                                                                |
+|-----------|-------------------------------------------------------------------------------|
+| Java SE   | a command to start your `.jar` application                                    |
+| Tomcat    | the location of a script to execute any  configurations for your app          |
+| Node.js   | the PM2 configuration file or your script file                                |
+| .Net Core | the compiled DLL name as `dotnet <myapp>.dll`                                 |
+| Ruby      | the Ruby script that you want to initialize your app with                     |
 
 ## Management
 
@@ -69,9 +78,9 @@ Yes, you need to set an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` to *false
 
 If Git deployment fails to your Linux web app, choose one of the following options to deploy your application code:
 
-- Use the Continuous Delivery (Preview) feature: You can store your app’s source code in a Azure DevOps Git repo or GitHub repo to use Azure Continuous Delivery. For more information, see [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Use the Continuous Delivery (Preview) feature: You can store your app’s source code in an Azure DevOps Git repo or GitHub repo to use Azure Continuous Delivery. For more information, see [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Use the [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): To use this API, [SSH into your web app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) and go to the folder where you want to deploy your code. Run the following code:
+- Use the [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): To use this API, [SSH into your web app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) and go to the folder where you want to deploy your code. Run the following code:
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
@@ -86,7 +95,7 @@ If Git deployment fails to your Linux web app, choose one of the following optio
 Yes, disable `perMessageDeflate` in your server-side Node.js code. For example, if you are using socket.io, use the following code:
 
 ```nodejs
-var io = require('socket.io')(server,{
+const io = require('socket.io')(server,{
   perMessageDeflate :false
 });
 ```
@@ -126,7 +135,7 @@ We do not currently support exposing more than one port.
 
 **Can I bring my own storage?**
 
-We do not currently support bringing your own storage.
+Yes, [bring your own storage](https://docs.microsoft.com/azure/app-service/containers/how-to-serve-content-from-azure-storage) is in preview.
 
 **Why can't I browse my custom container's file system or running processes from the SCM site?**
 
@@ -149,7 +158,7 @@ In order to use ACR with multi-container, **all container images** need to be ho
 Create the following application settings:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (full URL, ex: https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_URL (full URL, ex: `https://<server-name>.azurecr.io`)
 - DOCKER_REGISTRY_SERVER_PASSWORD (enable admin access in ACR settings)
 
 Within the configuration file, reference your ACR image like the following example:
@@ -188,5 +197,5 @@ You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps
 ## Next steps
 
 - [What is Azure App Service on Linux?](app-service-linux-intro.md)
-- [Set up staging environments in Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Set up staging environments in Azure App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md)

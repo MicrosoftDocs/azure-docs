@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
@@ -58,8 +58,8 @@ The following properties are supported for Magento linked service:
         "typeProperties": {
             "host" : "192.168.222.110/magento3",
             "accessToken": {
-                 "type": "SecureString",
-                 "value": "<accessToken>"
+                "type": "SecureString",
+                "value": "<accessToken>"
             },
             "useEncryptedEndpoints" : true,
             "useHostVerification" : true,
@@ -73,7 +73,12 @@ The following properties are supported for Magento linked service:
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Magento dataset.
 
-To copy data from Magento, set the type property of the dataset to **MagentoObject**. There is no additional type-specific property in this type of dataset.
+To copy data from Magento, set the type property of the dataset to **MagentoObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **MagentoObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -85,7 +90,8 @@ To copy data from Magento, set the type property of the dataset to **MagentoObje
         "linkedServiceName": {
             "referenceName": "<Magento linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -94,14 +100,14 @@ To copy data from Magento, set the type property of the dataset to **MagentoObje
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Magento source.
 
-### MagentoSource as source
+### Magento as source
 
 To copy data from Magento, set the source type in the copy activity to **MagentoSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **MagentoSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Customers"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Customers"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 

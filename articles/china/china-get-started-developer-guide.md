@@ -20,7 +20,7 @@ ms.author: v-wimarc
 # Developer guide for Azure China 21Vianet
 Microsoft provides tools to help developers create and deploy cloud applications to the global Microsoft Azure services ("global Azure") and Microsoft Azure operated by 21Vianet (Azure China 21Vianet). Most of the currently available technical content, such as the [Azure Documentation Center](https://azure.microsoft.com/documentation/), assumes that applications are being developed for global Azure, so it’s important to learn which [services and features](https://www.azure.cn/home/features/products-by-region) are available in Microsoft Azure China 21Vianet.
 
-When referring to publicly available content for global Azure services, make sure to adapt the steps or customize any sample code that specifies settings for global Azure services. For example, customize the [Azure service endpoints](#Check-endpoints-in-Azure).
+When referring to publicly available content for global Azure services, make sure to adapt the steps or customize any sample code that specifies settings for global Azure services. For example, customize the [Azure service endpoints](#check-endpoints-in-azure).
 
 ## Migrate existing applications and workloads
 Migrating an application or workload hosted elsewhere takes time and planning. To migrate to Microsoft Azure China 21Vianet:
@@ -48,7 +48,7 @@ The following table shows the endpoints to change.
 
 See also:
 - [Developer Notes for Azure in China Applications](https://msdn.microsoft.com/library/azure/dn578439.aspx)
-- [Azure Datacenter IP Ranges in China](https://www.microsoft.com/download/details.aspx?id=42064) 
+- [Azure Datacenter IP Ranges in China](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062) 
 - [Developers Guide](https://www.azure.cn/documentation/articles/developerdifferences/#dev-guide) (in Chinese).
 
 | Service category | Global Azure URI | Azure URI (in China) |
@@ -68,14 +68,15 @@ See also:
 | MySQL PaaS | | \*.mysqldb.chinacloudapi.cn |
 | Azure Service Fabric cluster | \*.cloudapp.azure.com | \*.chinaeast.chinacloudapp.cn |
 | Azure Active Directory (AD) | \*.onmicrosoft.com | \*.partner.onmschina.cn |
-| Azure AD logon | [https://login.windows.net](https://login.windows.net/) | [https://login.chinacloudapi.cn](https://login.chinacloudapi.cn/) |
+| Azure AD logon | [https://login.microsoftonline.com](https://login.windows.net/) | [https://login.partner.microsoftonline.cn](https://login.chinacloudapi.cn/) |
 | Azure AD Graph API | [https://graph.windows.net](https://graph.windows.net/) | [https://graph.chinacloudapi.cn](https://graph.chinacloudapi.cn/) |
+| Microsoft Graph | [https://graph.microsoft.com](https://graph.microsoft.com/) | [https://microsoftgraph.chinacloudapi.cn](https://microsoftgraph.chinacloudapi.cn/) |
 | Cognitive Services | <https://api.projectoxford.ai/face/v1.0> | <https://api.cognitive.azure.cn/face/v1.0> |
 | Azure Key Vault API | \*.vault.azure.net | \*.vault.azure.cn |
-| Logon with PowerShell: <br>- Classic Azure <br>- Azure Resource Manager <br>- Azure AD| - Add-AzureAccount<br>- Connect-AzureRmAccount <br> - Connect-msolservice |  - Add-AzureAccount -Environment AzureChinaCloud <br> - Connect-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud | | |
+| Logon with PowerShell: <br>- Classic Azure <br>- Azure Resource Manager <br>- Azure AD| - Add-AzureAccount<br>- Connect-AzureRmAccount <br> - Connect-msolservice |  - Add-AzureAccount -Environment AzureChinaCloud <br> - Connect-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |
 
 ## Next steps
 - [Developers Guide](https://www.azure.cn/documentation/articles/developerdifferences/#dev-guide) (in Chinese)
-- [Azure Datacenter IP Ranges in China](https://www.microsoft.com/download/details.aspx?id=42064)
+- [Azure Datacenter IP Ranges in China](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)
 - [Manage performance and connectivity](/azure/china/china-how-to-manage-performance)
 - [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)

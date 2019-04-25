@@ -1,7 +1,6 @@
 ---
 title: Monitor cluster performance - Azure HDInsight 
 description: 'How to monitor an HDInsight cluster for capacity and performance.'
-services: hdinsight
 author: maxluk
 ms.reviewer: jasonh
 
@@ -15,7 +14,7 @@ ms.author: arindamc
 
 Monitoring the health and performance of an HDInsight cluster is essential for maintaining optimal performance and resource utilization. Monitoring can also help you detect and address cluster configuration errors and user code issues.
 
-The following sections describe how to monitor and optimize the load on your clusters, YARN queues and detect storage throttling issues.
+The following sections describe how to monitor and optimize the load on your clusters, Apache Hadoop YARN queues and detect storage throttling issues.
 
 ## Monitor cluster load
 
@@ -38,7 +37,7 @@ Select any of the host names for a detailed look at components running on that h
 
 ![Host details](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
 
-See [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) for details on setting alerts and viewing metrics.
+See [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) for details on setting alerts and viewing metrics.
 
 ## YARN queue configuration
 
@@ -72,16 +71,16 @@ A cluster's performance bottleneck can happen at the storage level. This type of
 
 If you are using Azure Storage, for information on monitoring storage-related issues, including throttling, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 
-If your cluster's backing store is Azure Data Lake Store (ADLS), your throttling is most likely due to bandwidth limits. Throttling in this case could be identified by observing throttling errors in task logs. For ADLS, see the throttling section for the appropriate service in these articles:
+If your cluster's backing store is Azure Data Lake Storage (ADLS), your throttling is most likely due to bandwidth limits. Throttling in this case could be identified by observing throttling errors in task logs. For ADLS, see the throttling section for the appropriate service in these articles:
 
-* [Performance tuning guidance for Hive on HDInsight and Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-hive.md)
-* [Performance tuning guidance for MapReduce on HDInsight and Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [Performance tuning guidance for Storm on HDInsight and Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+* [Performance tuning guidance for Apache Hive on HDInsight and Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-hive.md)
+* [Performance tuning guidance for MapReduce on HDInsight and Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
+* [Performance tuning guidance for Apache Storm on HDInsight and Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## Next steps
 
 Visit the following links for more information about troubleshooting and monitoring your clusters:
 
 * [Analyze HDInsight logs](hdinsight-debug-jobs.md)
-* [Debug apps with YARN logs](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Enable heap dumps for Hadoop services on Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Debug apps with Apache Hadoop YARN logs](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Enable heap dumps for Apache Hadoop services on Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

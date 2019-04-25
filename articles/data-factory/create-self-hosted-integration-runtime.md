@@ -3,18 +3,14 @@ title: Create a self-hosted integration runtime in Azure Data Factory | Microsof
 description: Learn how to create a self-hosted integration runtime in Azure Data Factory, which allows data factories to access data stores in a private network.
 services: data-factory
 documentationcenter: ''
-author: nabhishek
-manager: craigg
-
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/15/2019
+author: nabhishek
 ms.author: abnarain
-
+manager: craigg
 ---
 # Create and configure a self-hosted integration runtime
 The integration runtime (IR) is the compute infrastructure that Azure Data Factory uses to provide data-integration capabilities across different network environments. For details about IR, see [Integration runtime overview](concepts-integration-runtime.md).
@@ -23,11 +19,13 @@ A self-hosted integration runtime can run copy activities between a cloud data s
 
 This document describes how you can create and configure a self-hosted IR.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## High-level steps to install a self-hosted IR
 1. Create a self-hosted integration runtime. You can use the Azure Data Factory UI for this task. Here is a PowerShell example:
 
 	```powershell
-	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+	Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
 	```
   
 2. [Download](https://www.microsoft.com/download/details.aspx?id=39717) and install the self-hosted integration runtime on a local machine.
@@ -35,7 +33,9 @@ This document describes how you can create and configure a self-hosted IR.
 3. Retrieve the authentication key and register the self-hosted integration runtime with the key. Here is a PowerShell example:
 
 	```powershell
-	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+
+	Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+
 	```
 
 ## Setting up a self-hosted IR on an Azure VM by using an Azure Resource Manager template (automation)
@@ -46,10 +46,10 @@ When you move data between on-premises and the cloud, the activity uses a self-h
 
 Here is a high-level data flow for the summary of steps for copying with a self-hosted IR:
 
-![High-level overview](media\create-self-hosted-integration-runtime\high-level-overview.png)
+![High-level overview](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. The data developer creates a self-hosted integration runtime within an Azure data factory by using a PowerShell cmdlet. Currently, the Azure portal does not support this feature.
-2. The data developer creates a linked service for an on-premises data store by specifying the self-hosted integration runtime instance that it should use to connect to data stores. As part of setting up the linked service, the data developer uses the Credential Manager application (currently not supported) for setting authentication types and credentials. The Credential Manager application communicates with the data store to test the connection and the self-hosted integration runtime to save credentials.
+2. The data developer creates a linked service for an on-premises data store by specifying the self-hosted integration runtime instance that it should use to connect to data stores.
 3. The self-hosted integration runtime node encrypts the credentials by using Windows Data Protection Application Programming Interface (DPAPI) and saves the credentials locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts the credentials by using DPAPI and stores them locally. Credential synchronization is transparent to the data developer and is handled by the self-hosted IR.    
 4. The Data Factory service communicates with the self-hosted integration runtime for scheduling and management of jobs via a *control channel* that uses a shared Azure Service Bus queue. When an activity job needs to be run, Data Factory queues the request along with any credential information (in case credentials are not already stored on the self-hosted integration runtime). The self-hosted integration runtime kicks off the job after polling the queue.
 5. The self-hosted integration runtime copies data from an on-premises store to a cloud storage, or vice versa depending on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services such as Azure Blob storage over a secure (HTTPS) channel.
@@ -57,7 +57,7 @@ Here is a high-level data flow for the summary of steps for copying with a self-
 ## Considerations for using a self-hosted IR
 
 - A single self-hosted integration runtime can be used for multiple on-premises data sources. A single self-hosted integration runtime  can be shared with another data factory within the same Azure Active Directory tenant. For more information, see [Sharing a self-hosted integration runtime](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- You can have only one instance of a self-hosted integration runtime installed on a single machine. If you have two data factories that need to access on-premises data sources, you need to install the self-hosted integration runtime on two on-premises computers. In other words, a self-hosted integration runtime is tied to a specific data factory.
+- You can have only one instance of a self-hosted integration runtime installed on a single machine. If you have two data factories that need to access on-premises data sources, either use the [self-hosted IR sharing feature](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories) to share the self-hosted integration runtime, or install the self-hosted integration runtime on two on-premises computers, one for each data factory.  
 - The self-hosted integration runtime does not need to be on the same machine as the data source. However, having the self-hosted integration runtime closer to the data source reduces the time for the self-hosted integration runtime to connect to the data source. We recommend that you install the self-hosted integration runtime on a machine that is different from the one that hosts on-premises data source. When the self-hosted integration runtime and data source are on different machines, the self-hosted integration runtime does not compete for resources with the data source.
 - You can have multiple self-hosted integration runtimes on different machines that connect to the same on-premises data source. For example, you might have two self-hosted integration runtimes that serve two data factories, but the same on-premises data source is registered with both the data factories.
 - If you already have a gateway installed on your computer to serve a Power BI scenario, install a separate self-hosted integration runtime for Azure Data Factory on another machine.
@@ -84,7 +84,7 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 ## Install and register self-hosted IR from the Download Center
 
 1. Go to the [Microsoft integration runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Select **Download**, select the appropriate version (**32-bit** or **64-bit**), and select **Next**.
+2. Select **Download**, select the 64-bit version (32-bit is not supported), and select **Next**.
 3. Run the MSI file directly, or save it to your hard disk and run it.
 4. On the **Welcome** page, select a language and select **Next**.
 5. Accept the Microsoft Software License Terms and select **Next**.
@@ -94,7 +94,7 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 9. Get the authentication key by using Azure PowerShell. Here's a PowerShell example for retrieving the authentication key:
 
 	```powershell
-	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+	Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
 	```
 11. On the **Register Integration Runtime (Self-hosted)** page of Microsoft Integration Runtime Configuration Manager running on your machine, take the following steps:
 
@@ -106,11 +106,11 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 
 
 ## High availability and scalability
-A self-hosted integration runtime can be associated with multiple on-premises machines. These machines are called nodes. You can have up to four nodes associated with a self-hosted integration runtime. The benefits of having multiple nodes (on-premises machines with a gateway installed) for a logical gateway are:
+A self-hosted integration runtime can be associated with multiple on-premises machines or Virtual Machines in Azure. These machines are called nodes. You can have up to four nodes associated with a self-hosted integration runtime. The benefits of having multiple nodes (on-premises machines with a gateway installed) for a logical gateway are:
 * Higher availability of the self-hosted integration runtime so that it's no longer the single point of failure in your big data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to four nodes.
 * Improved performance and throughput during data movement between on-premises and cloud data stores. Get more information on [performance comparisons](copy-activity-performance.md).
 
-You can associate multiple nodes by installing the self-hosted integration runtime software from the [Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Then, register it by using either of the authentication keys obtained from the **New-AzureRmDataFactoryV2IntegrationRuntimeKey** cmdlet, as described in the [tutorial](tutorial-hybrid-copy-powershell.md).
+You can associate multiple nodes by installing the self-hosted integration runtime software from the [Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Then, register it by using either of the authentication keys obtained from the **New-AzDataFactoryV2IntegrationRuntimeKey** cmdlet, as described in the [tutorial](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
 > You don't need to create new self-hosted integration runtime for associating each node. You can install the self-hosted integration runtime on another machine and register it by using the same authentication key. 
@@ -128,7 +128,7 @@ When the available memory on the self-hosted IR is low and the CPU usage is high
 
 When the available memory and CPU are not utilized well, but the execution of concurrent jobs is reaching the limit, you should scale up by increasing the number of concurrent jobs that can run on a node. You might also want to scale up when activities are timing out because the self-hosted IR is overloaded. As shown in the following image, you can increase the maximum capacity for a node:  
 
-![Increasing concurrent jobs that can run on a node](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+![Increasing concurrent jobs that can run on a node](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
 
 ### TLS/SSL certificate requirements
 
@@ -139,6 +139,10 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 - We don't recommend Subject Alternative Name (SAN) certificates because only the last SAN item will be used and all others will be ignored due to current limitations. For example, if you have a SAN certificate whose SANs are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can use this certificate only on a machine whose FQDN is **node2.domain.contoso.com**.
 - The certificate supports any key size supported by Windows Server 2012 R2 for SSL certificates.
 - Certificates that use CNG keys are not supported.  
+
+> [!NOTE]
+> This certificate is used to encrypt ports on self-hosted IR node, used for **node-to-node communication** (for state synchronization which includes linked services' credentials synchronization across nodes) and while **using PowerShell cmdlet for linked service credential setting** from within local network. We suggest using this certificate if your private network environment is not secure or if you would like to secure the communication between nodes within your private network as well. 
+> Data movement in transit from self-hosted IR to other data stores always happens using encrypted channel, irrespective of this certificate set or not. 
 
 ## Sharing the self-hosted integration runtime with multiple data factories
 
@@ -159,33 +163,33 @@ For a twelve-minute introduction and demonstration of this feature, watch the fo
 
 1. In the self-hosted IR to be shared, grant permission to the data factory in which you want to create the linked IR. 
 
-   ![Button for granting permission on the Sharing tab](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+   ![Button for granting permission on the Sharing tab](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
 
-   ![Selections for assigning permissions](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+   ![Selections for assigning permissions](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)
 
 2. Note the resource ID of the self-hosted IR to be shared.
 
-   ![Location of the resource ID](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+   ![Location of the resource ID](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
 
 3. In the data factory to which the permissions were granted, create a new self-hosted IR (linked) and enter the resource ID.
 
-   ![Button for creating a linked self-hosted integration runtime](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
+   ![Button for creating a linked self-hosted integration runtime](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
 
-   ![Boxes for name and resource ID](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+   ![Boxes for name and resource ID](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
 ### Monitoring 
 
 - **Shared IR**
 
-  ![Selections for finding a shared integration runtime](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+  ![Selections for finding a shared integration runtime](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
-  ![Tab for monitoring](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+  ![Tab for monitoring](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
 - **Linked IR**
 
-  ![Selections for finding a linked integration runtime](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+  ![Selections for finding a linked integration runtime](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
-  ![Tab for monitoring](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
+  ![Tab for monitoring](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
 
 ### Known limitations of self-hosted IR sharing
 
@@ -193,9 +197,9 @@ For a twelve-minute introduction and demonstration of this feature, watch the fo
 
 * The Azure Data Factory .NET SDK that supports this feature is version 1.1.0 or later.
 
-* The Azure PowerShell version that supports this feature is 6.6.0 or later (AzureRM.DataFactoryV2, 0.5.7 or later).
+* To grant permission, the user needs the Owner role or the inherited Owner role in the data factory where the shared IR exists.
 
-* To grant permission, the user needs the Owner role or the inherited Owner role in the data factory where the shared IR exists. 
+* Sharing feature works only for Data Factories within the same Azure Active Directory tenant.
 
 * For Active Directory [guest users](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews), the search functionality (listing all data factories by using a search keyword) in the UI [does not work](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). But as long as the guest user is the Owner of the data factory, they can share the IR without the search functionality, by directly typing the MSI of the data factory with which the IR needs to be shared in the **Assign Permission** text box and selecting **Add** in the Azure Data Factory UI. 
 
@@ -206,12 +210,12 @@ For a twelve-minute introduction and demonstration of this feature, watch the fo
 
 If you move your cursor over the icon or message in the notification area, you can find details about the state of the self-hosted integration runtime.
 
-![Notifications in the notification area](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
+![Notifications in the notification area](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
 ## Ports and firewall
 There are two firewalls to consider: the *corporate firewall* running on the central router of the organization, and the *Windows firewall* configured as a daemon on the local machine where the self-hosted integration runtime is installed.
 
-![Firewall](media\create-self-hosted-integration-runtime\firewall.png)
+![Firewall](media/create-self-hosted-integration-runtime/firewall.png)
 
 At the *corporate firewall* level, you need to configure the following domains and outbound ports:
 
@@ -244,11 +248,11 @@ For example, to copy from an on-premises data store to an Azure SQL Database sin
 ## Proxy server considerations
 If your corporate network environment uses a proxy server to access the internet, configure the self-hosted integration runtime to use appropriate proxy settings. You can set the proxy during the initial registration phase.
 
-![Specify proxy](media\create-self-hosted-integration-runtime\specify-proxy.png)
+![Specify proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-The self-hosted integration runtime uses the proxy server to connect to the cloud service. Select **Change link** during initial setup. You see the proxy-setting dialog box.
+When configured, the self-hosted integration runtime uses the proxy server to connect to the cloud service, source/ destination (those using HTTP/ HTTPS protocol). This is  Select **Change link** during initial setup. You see the proxy-setting dialog box.
 
-![Set proxy](media\create-self-hosted-integration-runtime\set-http-proxy.png)
+![Set proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
 There are three configuration options:
 
@@ -267,7 +271,7 @@ After the self-hosted integration runtime has been successfully registered, if y
 
 You can view and update the HTTP proxy by using the Configuration Manager tool.
 
-![View proxy](media\create-self-hosted-integration-runtime\view-proxy.png)
+![View proxy](media/create-self-hosted-integration-runtime/view-proxy.png)
 
 > [!NOTE]
 > If you set up a proxy server with NTLM authentication, the integration runtime Host Service runs under the domain account. If you change the password for the domain account later, remember to update the configuration settings for the service and restart it accordingly. Due to this requirement, we suggest that you use a dedicated domain account to access the proxy server that does not require you to update the password frequently.
@@ -322,8 +326,8 @@ If you encounter errors similar to the following ones, it's likely due to improp
 	```
 
 ### Enabling remote access from an intranet  
-If you use PowerShell or the Credential Manager application to encrypt credentials from another machine (in the network) other than where the self-hosted integration runtime is installed, you can enable the **Remote Access from Intranet** option. 
-If you run PowerShell or the Credential Manager application to encrypt credentials on the same machine where the self-hosted integration runtime is installed, you can't enable **Remote Access from Intranet**.
+If you use PowerShell to encrypt credentials from another machine (in the network) other than where the self-hosted integration runtime is installed, you can enable the **Remote Access from Intranet** option. 
+If you run PowerShell to encrypt credentials on the same machine where the self-hosted integration runtime is installed, you can't enable **Remote Access from Intranet**.
 
 You should enable **Remote Access from Intranet** before you add another node for high availability and scalability.  
 
@@ -333,11 +337,9 @@ If you're using a third-party firewall, you can manually open port 8060 (or the 
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-```
-> [!NOTE]
-> The Credential Manager application is not yet available for encrypting credentials in Azure Data Factory V2.  
+``` 
 
-If you choose not to open port 8060 on the self-hosted integration runtime machine, use mechanisms other than the Setting Credentials application to configure data store credentials. For example, you can use the **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet.
+If you choose not to open port 8060 on the self-hosted integration runtime machine, use mechanisms other than the Setting Credentials application to configure data store credentials. For example, you can use the **New-AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet.
 
 
 ## Next steps

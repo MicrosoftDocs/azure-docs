@@ -18,7 +18,7 @@ ms.author: apimpm
 ---
 # Import an OpenAPI specification
 
-This article shows how to import an "OpenAPI specification" back-end API residing at http://conferenceapi.azurewebsites.net?format=json. This back-end API is provided by Microsoft and hosted on Azure. The article also shows how to test the APIM API.
+This article shows how to import an "OpenAPI specification" back-end API residing at https://conferenceapi.azurewebsites.net?format=json. This back-end API is provided by Microsoft and hosted on Azure. The article also shows how to test the APIM API.
 
 > [!IMPORTANT]
 > See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.
@@ -47,7 +47,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
     |Setting|Value|Description|
     |---|---|---|
-    |**OpenAPI Specification**|http://conferenceapi.azurewebsites.net?format=json|References the service implementing the API. API management forwards requests to this address.|
+    |**OpenAPI Specification**|https://conferenceapi.azurewebsites.net?format=json|References the service implementing the API. API management forwards requests to this address.|
     |**Display name**|*Demo Conference API*|If you press tab after entering the service URL, APIM will fill out this field based on what is in the json. <br/>This name is displayed in the Developer portal.|
     |**Name**|*demo-conference-api*|Provides a unique name for the API. <br/>If you press tab after entering the service URL, APIM will fill out this field based on what is in the json.|
     |**Description**|Provide an optional description of the API.|If you press tab after entering the service URL, APIM will fill out this field based on what is in the json.|

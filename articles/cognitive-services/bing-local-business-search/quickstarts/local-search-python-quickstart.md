@@ -6,7 +6,6 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
@@ -21,7 +20,7 @@ This example application gets local response data from the API for the search qu
 
 * [Python](https://www.python.org/) 2.x or 3.x
  
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. Use the access key provided by the free trial.
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. Use the access key provided by the free trial.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Run the complete application
 
@@ -35,7 +34,7 @@ The following code gets localized results. It is implemented in the following st
 
 The complete code for this demo follows:
 
-````
+```
 import http.client, urllib.parse
 import json
 
@@ -43,11 +42,11 @@ import json
 subscriptionKey = 'YOUR-SUBSCRIPTION-KEY'
 
 host = 'api.cognitive.microsoft.com/bing'
-path = '/v7.0/search'
+path = '/v7.0/localbusinesses/search'
 
 query = 'restaurant in Bellevue'
 
-params = '?q=' + urllib.parse.quote (query) + '&appid=' + subscriptionKey + '&mkt=en-us'
+params = '?q=' + urllib.parse.quote (query) + '&mkt=en-us'
 
 def get_local():
     headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
@@ -59,7 +58,7 @@ def get_local():
 result = get_local()
 print (json.dumps(json.loads(result), indent=4))
 
-````
+```
 
 ## Next steps
 - [Local Business Search Java Quickstart](local-search-java-quickstart.md)

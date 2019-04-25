@@ -1,25 +1,26 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Speech Service Documentation
+title: Speech Services Documentation
 metadata:
-  title: Speech Service documentation - Tutorials, quickstarts, API reference - Cognitive Services | Microsoft Docs
-  meta.description: |
-    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
+  title: Speech Services documentation - Tutorials, quickstarts, API reference
+  titleSuffix: Azure Cognitive Services
+  description: Speech Services gives developers an easy way to add powerful speech-enabled features to their applications.
     Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
   layout: LandingPage
   ms.service: cognitive-services
-  ms.component: speech-service
+  ms.subservice: speech-service
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
-  ms.author: nitinme
+  ms.date: 12/06/2018
+  ms.author: erhopf
+  ms.custom: seodec18
 
 abstract:
-  description: Learn how to use the Speech Service and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS) capabilities to your apps. The Speech Service also has a REST API that works with any programming language that can make HTTP requests.
+  description: Learn how to use the Speech Services and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS) capabilities to your apps. The Speech Services also have REST APIs that work with any programming language that can make HTTP requests.
 sections:
 - items:
     - type: list
@@ -28,15 +29,15 @@ sections:
       columns: 3
       items:
         - href: /azure/cognitive-services/speech-service/overview
-          html: <p>Learn about Azure Speech Service.</p>
+          html: <p>Learn about the Azure Speech Services.</p>
           image:
             src: ../media/index/i_overview.svg
           title: What is Speech Service?
         - href: /azure/cognitive-services/speech-service/get-started
-          html: <p>Learn how to sign up for the Speech service for free.</p>
+          html: <p>Sign up for free.</p>
           image:
             src: ../media/index/i_get-started.svg
-          title: Sign up for Speech Service
+          title: Sign up for Speech Services
         - href: /azure/cognitive-services/speech-service/speech-devices-sdk
           html: <p>Learn about the speech-enabled hardware reference.</p>
           image:
@@ -58,15 +59,19 @@ sections:
       - image:
           src: media/index/logo_netcore.svg
       - image:
+          src: https://docs.microsoft.com/media/logos/logo_unity.svg
+      - image:
           src: media/index/logo_java.jpg
+      - image:
+          src: media/index/logo_python.svg
       - image:
           src: media/index/logo_objc.jpg
       - image:
+          src: media/index/logo_nodejs.svg
+      - image:
           src: media/index/logo_js.svg
       - image:
-          src: media/index/logo_rest_sr.svg
-      - image:
-          src: media/index/logo_rest_tts.svg
+          src: media/index/logo_rest.svg
     rows:
       - title: Windows 10 (x64)
         values:
@@ -74,10 +79,11 @@ sections:
         - href: quickstart-csharp-windows
         - href: quickstart-cpp-windows
         - href: quickstart-csharp-dotnetcore-windows
+        - href: quickstart-csharp-unity
         - href: quickstart-java-jre
+        - href: quickstart-python
         - href:
-        - href:
-        - href:
+        - href: quickstart-js-node
         - href:
       - title: Windows 10 (x86)
         values:
@@ -85,10 +91,11 @@ sections:
         - href: quickstart-csharp-windows
         - href: quickstart-cpp-windows
         - href: quickstart-csharp-dotnetcore-windows
+        - href: quickstart-csharp-unity
         - href:
+        - href: quickstart-python
         - href:
-        - href:
-        - href:
+        - href: quickstart-js-node
         - href:
       - title: Linux (x64)
         values:
@@ -96,10 +103,11 @@ sections:
         - href:
         - href: quickstart-cpp-linux
         - href: quickstart-csharp-dotnetcore-windows
+        - href:
         - href: quickstart-java-jre
+        - href: quickstart-python
         - href:
-        - href:
-        - href:
+        - href: quickstart-js-node
         - href:
       - title: Linux (x86)
         values:
@@ -111,13 +119,15 @@ sections:
         - href:
         - href:
         - href:
+        - href: quickstart-js-node
         - href:
-      - title: Android (ARM32/ARM64)
+      - title: Android (ARM32/64)
         values:
         - href:
         - href:
         - href:
         - href:
+        - href: quickstart-csharp-unity
         - href: quickstart-java-android
         - href:
         - href:
@@ -129,18 +139,8 @@ sections:
         - href:
         - href:
         - href:
+        - href: quickstart-csharp-unity
         - href: quickstart-java-android
-        - href:
-        - href:
-        - href:
-        - href:
-      - title: Devices SDK (ARM64)
-        values:
-        - href:
-        - href:
-        - href:
-        - href:
-        - href: speech-devices-sdk
         - href:
         - href:
         - href:
@@ -152,11 +152,36 @@ sections:
         - href:
         - href:
         - href:
+        - href:
+        - href:
         - href: quickstart-objectivec-ios
         - href:
         - href:
+      - title: macOS (x64)
+        values:
         - href:
-      - title: Web
+        - href:
+        - href: quickstart-cpp-macos
+        - href: quickstart-csharp-dotnetcore-windows
+        - href:
+        - href: quickstart-java-jre
+        - href: quickstart-python
+        - href: quickstart-objective-c-macos
+        - href: quickstart-js-node
+        - href:
+      - title: Devices SDK (ARM32)
+        values:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href: speech-devices-sdk
+        - href:
+        - href:
+        - href:
+        - href:
+      - title: Browser
         values:
         - href:
         - href:
@@ -164,8 +189,22 @@ sections:
         - href:
         - href:
         - href:
+        - href:
+        - href:
+        - href:
         - href: quickstart-js-browser
-        - href: rest-apis
+      - title: REST
+        values:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
         - href: rest-apis
 - title: Step-by-Step Tutorials
   items:
@@ -177,10 +216,11 @@ sections:
     - html: <a href="speech-to-text-sample.md">Speech-to-text (SR)</a><br/>
     - html: <a href="intent.md">Intent Recognition</a><br/>
     - html: <a href="translation.md">Translation</a>
+    - html: <a href="quickstart-text-to-speech-dotnet-windows.md">Text-to-speech</a><br/>
 - title: Samples
   items:
   - type: paragraph
-    text: 'Find samples on Github for Speech Service:'
+    text: 'Find samples on GitHub for Speech Service:'
   - type: list
     style: unordered
     items:
@@ -194,9 +234,10 @@ sections:
     items:
     - title: SDK Reference
       html: |
-        <p><a href="https://aka.ms/csspeech/csharpref">C# API (UWP and .NET)</a></p>
+        <p><a href="https://aka.ms/csspeech/csharpref">C# API (UWP, .NET, and Unity)</a></p>
         <p><a href="https://aka.ms/csspeech/cppref">C++ API</a></p>
         <p><a href="https://aka.ms/csspeech/javaref">Java API</a></p>
+        <p><a href="https://aka.ms/csspeech/pythonref">Python API</a></p>
         <p><a href="https://aka.ms/csspeech/objectivecref">Objective-C API</a></p>
         <p><a href="https://aka.ms/csspeech/javascriptref">JavaScript API</a></p>
     - title: REST API
@@ -204,7 +245,7 @@ sections:
         <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">REST API</a></p>
     - title: PowerShell
       html: |
-        <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+        <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
       html: |
-        <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>
+        <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>

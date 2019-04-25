@@ -1,18 +1,19 @@
 ---
-title: "Tutorial 2: Batch test with set of 1000 utterances "
+title: Batch test
 titleSuffix: Azure Cognitive Services
 description: This tutorial demonstrates how to use batch testing to find utterance prediction issues in your app and fix them.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 03/29/2019
 ms.author: diberry
 ---
 
-# Tutorial 2: Batch test data sets
+# Tutorial: Batch test data sets
 
 This tutorial demonstrates how to use batch testing to find utterance prediction issues in your app and fix them.  
 
@@ -30,7 +31,7 @@ When using an app other than this tutorial, do *not* use the example utterances 
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Use existing tutorial app
+> * Import example app
 > * Create a batch test file 
 > * Run a batch test
 > * Review test results
@@ -39,13 +40,13 @@ When using an app other than this tutorial, do *not* use the example utterances 
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Use existing app
+## Import example app
 
 Continue with the app created in the last tutorial, named **HumanResources**. 
 
-If you do not have the HumanResources app from the previous tutorial, use the following steps:
+Use the following steps:
 
-1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
+1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
 
 2. Import the JSON into a new app.
 
@@ -55,7 +56,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
 ## Batch file
 
-1. Create `HumanResources-jobs-batch.json` in a text editor or [download](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json) it. 
+1. Create `HumanResources-jobs-batch.json` in a text editor or [download](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json) it. 
 
 2. In the JSON-formatted batch file, add utterances with the **Intent** you want predicted in the test. 
 
@@ -171,7 +172,7 @@ When first writing and testing batch files, it is best to start with a few utter
 
 The value of a **Job** entity, provided in the test utterances, is usually one or two words, with a few examples being more words. If _your own_ human resources app typically has job names of many words, the example utterances labeled with **Job** entity in this app would not work well.
 
-1. Create `HumanResources-entities-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/) or [download](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) it.
+1. Create `HumanResources-entities-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/) or [download](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) it.
 
 
 2. In the JSON-formatted batch file, add an array of objects that include utterances with the **Intent** you want predicted in the test as well as locations of any entities in the utterance. Since an entity is token-based, make sure to start and stop each entity on a character. Do not begin or end the utterance on a space. This causes an error during the batch file import.  
@@ -194,6 +195,8 @@ The value of a **Job** entity, provided in the test utterances, is usually one o
 6. Select the **Run** button. Wait until the test is done.
 
 7. Select **See results**.
+
+[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## Review entity batch results
 

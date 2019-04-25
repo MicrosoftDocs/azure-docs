@@ -3,8 +3,8 @@ title: Sign-in activity report error codes in the Azure Active Directory portal 
 description: Reference of sign-in activity report error codes. 
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 11/13/2018
-ms.author: priyamo
+ms.subservice: report-monitor
+ms.date: 04/25/2019
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
 # Sign-in activity report error codes 
@@ -75,7 +76,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50027|Invalid JWT token due to the following reasons:<ul><li>doesn't contain nonce claim, sub claim</li><li>subject identifier mismatch</li><li>duplicate claim in idToken claims</li><li>unexpected issuer</li><li>unexpected audience</li><li>not within its valid time range </li><li>token format is not proper</li><li>External ID token from issuer failed signature verification.</li></ul>Contact the application owner|
 |50029|Invalid URI - domain name contains invalid characters. Contact the tenant administrator.|
 |50034|User does not exist in directory. Contact your tenant administrator.|
-|50042|The salt required to generate a pairwise identifier is missing in principal. Contact the tenant administrator.|
+|50042|The salt required to generate a pairwise identifier is missing in principle. Contact the tenant administrator.|
 |50048|Subject mismatches Issuer claim in the client assertion. Contact the tenant administrator.|
 |50050|Request is malformed. Contact the application owner.|
 |50053|Account is locked because the user tried to sign in too many times with an incorrect user ID or password.|
@@ -125,7 +126,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50180|Windows Integrated authentication is needed. Enable the tenant for Seamless SSO.|
 |51001|Domain Hint is not present with On-Premises Security Identifier - On-Premises UPN.|
 |51004|User account doesn’t exist in the directory.|
-|51006|Windows Integrated authentication is needed. User logged in using session token that is missing wia claim. Request the  user to re-login.|
+|51006|Windows Integrated authentication is needed. User logged in using session token that is missing via claim. Request the  user to re-login.|
 |52004|User has not provided consent for access to LinkedIn resources. |
 |53000|Conditional Access policy requires a compliant device, and the device is not compliant. Have the user enroll their device with an approved MDM provider like Intune.|
 |53001|Conditional Access policy requires a domain joined device, and the device is not domain joined. Have the user use a domain joined device.|
@@ -134,7 +135,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |53004|User needs to complete Multi-factor authentication registration process before accessing this content. User should register for multi-factor authentication.|
 |65001|Application X doesn't have permission to access application Y or the permission has been revoked. Or The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. Or The user or administrator has not consented to use the application with ID X. Send an authorization request to your tenant admin to act on behalf of the App : Y for Resource : Z.|
 |65004|User declined to consent to access the app. Have the user retry the sign-in and consent to the app|
-|65005|The application required resource access list does not contain applications discoverable by the resource or The client application has requested access to resource, which was not specified in its required resource access list or Graph service returned bad request or resource not found. If the application supports SAML, you may have configured the application with the wrong Identifier (Entity). Try out the resolution listed for SAML using the link below: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
+|65005|The application required resource access list does not contain applications discoverable by the resource or The client application has requested access to resource, which was not specified in its required resource access list or Graph service returned bad request or resource not found. If the application supports SAML, you may have configured the application with the wrong Identifier (Entity). Try out the resolution listed for SAML using the link below: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
 |70000|Invalid grant due to the following reasons:<ul><li>Requested SAML 2.0 assertion has invalid Subject Confirmation Method</li><li>App OnBehalfOf flow is not supported on V2</li><li>Primary refresh token is not signed with session key</li><li>Invalid external refresh token</li><li>The access grant was obtained for a different tenant.</li></ul>|
 |70001|The application named X was not found in the tenant named Y. This can happen if the application with identifier X has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have misconfigured the Identifier value for the application or sent your authentication request to the wrong tenant.|
 |70002|The application returned invalid client credentials. Contact the application owner.|
@@ -170,9 +171,12 @@ You can also programmatically access the sign-in data using the [reporting API](
 |81012|This is not an error condition. It indicates that user trying to sign in to Azure AD is different from the user signed into the device. You can safely ignore this code in the logs.|
 |90010|The request is not supported for various reasons. For example, the request is made using an unsupported request method (only POST method is supported) or the token signing algorithm that was requested is not supported. Contact the application developer.|
 |90014| A required field for a protocol message was missing, contact the application owner. If you are the application owner, ensure that you have all the necessary parameters for the login request. |
+|90051|	Invalid Delegation Token. Invalid national Cloud ID ({cloudId}) is specified.|
 |90072| The account needs to be added as an external user in the tenant first. Sign-out and sign-in again with a different Azure AD account.|
 |90094| The grant requires administrator permissions. Ask your tenant administrator to provide consent for this application.|
+|500121| Authentication failed during strong authentication request.|
 |500133| The assertion is not within its valid time range. Ensure that the access token is not expired before using it for user assertion, or request a new token.|
+|530021|Application does not meet the conditional access approved app requirements.|
 
 ## Next steps
 

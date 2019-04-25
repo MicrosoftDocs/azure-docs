@@ -1,7 +1,6 @@
 ---
 title: Use Apache Pig with SSH on an HDInsight cluster - Azure 
 description: Learn how connect to a Linux-based Apache Hadoop cluster with SSH, and then use the Pig command to run Pig Latin statements interactively, or as a batch job.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -18,7 +17,7 @@ ms.author: hrasheed
 
 Learn how to interactively run Apache Pig jobs from an SSH connection to your HDInsight cluster. The Pig Latin programming language allows you to describe transformations that are applied to the input data to produce the desired output.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The steps in this document require a Linux-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="ssh"></a>Connect with SSH
@@ -31,7 +30,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 
 For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="pig"></a>Use the Pig command
+## <a id="pig"></a>Use the Apache Pig command
 
 1. Once connected, start the Pig command-line interface (CLI) by using the following command:
 
@@ -70,7 +69,7 @@ For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use
     | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | Creates a set of data that contains each unique log level value and how many times it occurs. The data set is stored into `FREQUENCIES`. |
     | `RESULT = order FREQUENCIES by COUNT desc;` | Orders the log levels by count (descending) and stores into `RESULT`. |
 
-    > [!TIP]
+    > [!TIP]  
     > Use `DUMP` to view the result of the transformation after each step.
 
 5. You can also save the results of a transformation by using the `STORE` statement. For example, the following statement saves the `RESULT` to the `/example/data/pigout` directory on the default storage for your cluster:
@@ -79,7 +78,7 @@ For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use
     STORE RESULT into '/example/data/pigout';
     ```
 
-   > [!NOTE]
+   > [!NOTE]  
    > The data is stored in the specified directory in files named `part-nnnnn`. If the directory already exists, you receive an error.
 
 6. To exit the grunt prompt, enter the following statement:
@@ -132,9 +131,9 @@ You can also use the Pig command to run Pig Latin contained in a file.
 
 For general information on Pig in HDInsight, see the following document:
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
 
 For more information on other ways to work with Hadoop on HDInsight, see the following documents:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)

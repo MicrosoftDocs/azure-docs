@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
@@ -19,6 +19,7 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to build an AngularJS single-page app for sign-in and sign out with Azure Active Directory.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Build an AngularJS single-page app for sign-in and sign out with Azure Active Directory
@@ -41,6 +42,9 @@ To build the complete, working application, you'll need to:
 1. Register your app with Azure AD.
 2. Install ADAL and configure the single-page app.
 3. Use ADAL to help secure pages in the single-page app.
+
+> [!NOTE]
+> If you need to enable sign-ins for personal accounts in addition to work and school accounts, you can use the *[Microsoft identity platform endpoint](azure-ad-endpoint-comparison.md)*. For more info, see [this JavaScript SPA tutorial](tutorial-v2-javascript-spa.md) as well as [this article](active-directory-v2-limitations.md) explaining the *Microsoft identity platform endpoint*. 
 
 ## Prerequisites
 

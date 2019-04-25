@@ -4,12 +4,12 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: 1d75560a-55b3-42e9-bda1-92b01c572d8e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Shmoop For Schools
 
@@ -42,7 +43,7 @@ To configure Azure AD integration with Shmoop For Schools, you need the followin
 
 To test the steps in this tutorial, we recommend:
 
-- Using your production evironment only if it's necessary.
+- Using your production environment only if it's necessary.
 - Getting a [free one-month trial](https://azure.microsoft.com/pricing/free-trial/) if you don't already have an Azure AD trial environment.
 
 ## Scenario description
@@ -126,7 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. To open the **Add Attribute** dialog box, select **Add attribute**.
 	
-	![Configure single sign-on ](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
+	![Configure single sign-on](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
 	
 	![Configure single sign-on](./media/shmoopforschools-tutorial/tutorial_attribute_05.png)
 	

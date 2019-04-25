@@ -1,15 +1,14 @@
 ---
-title: "How to create a Kubernetes cluster enabled for Azure Dev Spaces using Azure Cloud Shell | Microsoft Docs"
+title: "How to create a Kubernetes cluster enabled for Azure Dev Spaces using Azure Cloud Shell"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: "10/04/2018"
-ms.topic: "article"
+ms.topic: "conceptual"
 description: "Learn how to quickly create a Kubernetes cluster enabled for Azure Dev Spaces directly from your browser without installing anything."
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
 # Create a Kubernetes cluster using Azure Cloud Shell
 
@@ -17,7 +16,7 @@ You can use [Azure Cloud Shell](/azure/cloud-shell) to create a cluster for Azur
 
 ## Create the cluster
 
-First, create the resource group. Use one of the currently supported regions (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral, or CanadaEast).
+First, create the resource group in a [region that supports Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -26,7 +25,7 @@ az group create --name MyResourceGroup --location <region>
 Create a Kubernetes cluster with the following command:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.3 --enable-addons http_application_routing
+az aks create -g MyResourceGroup -n MyAKS --location <region>
 ```
 
 It takes a few minutes to create the cluster.  When complete, the output is shown in the JSON format. Look for `provisioningState` and verify it's `Succeeded`.

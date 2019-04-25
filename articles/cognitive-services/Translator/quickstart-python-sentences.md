@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to determine sentence lengths (in characters) using Python and the Translator Text REST API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
@@ -59,7 +59,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Currently, one endpoint is available for Translator Text, and it's set as the `base_url`. `path` sets the `breaksentence` route and identifies that we want to hit version 3 of the API.
+The Translator Text global endpoint is set as the `base_url`. `path` sets the `breaksentence` route and identifies that we want to hit version 3 of the API.
 
 The `params` in this sample are used to set the language of the provided text. `params` aren't required for the `breaksentence` route. If left out of the request, the API will try to detect the language of the provided text, and provide this information along with a confidence score in the response.
 
@@ -149,7 +149,7 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## See also
 
-In addition to text transliteration, learn how to use the Translator Text API to:
+Learn how to use the Translator Text API to:
 
 * [Translate text](quickstart-python-translate.md)
 * [Transliterate text](quickstart-python-transliterate.md)

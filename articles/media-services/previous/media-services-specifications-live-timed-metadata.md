@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Media Services - Signaling Timed Metadata in Live Streaming | Microsoft Docs
 description: This specification outlines two modes that are supported by Media Services for signaling timed metadata within live streaming. This includes support for generic timed metadata signals, as well as SCTE-35 signaling for ad splice insertion. 
 services: media-services
 documentationcenter: ''
-author: cenkdin
-manager: cfowler
+author: johndeu
+manager: femila
 editor: johndeu
 
 ms.assetid: 265b94b1-0fb8-493a-90ec-a4244f51ce85
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2018
+ms.date: 03/20/2019
 ms.author: johndeu;
 
 ---
-# Signaling Timed Metadata in Live Streaming
+# Signaling Timed Metadata in Live Streaming 
 
 
 ## 1 Introduction 
@@ -77,7 +77,7 @@ For RTMP simple mode, Media Services supports a single AMF cue message called "o
 | Field Name | Field Type | Required? | Descriptions                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
 | cue        | String     | Required | The event message.  For [SCTE-35] messages, this MUST be the base64 (IETF RFC 4648) binary encoded splice_info_section() in order for messages to be sent to HLS, Smooth, and Dash clients in compliance with [SCTE-67].                                              |
-| type       | String     | Required | A URN or URL identifying the message scheme; for example, "urn:example:signaling:1.0".  For [SCTE-35] messages, this MUST be "urn:scte:scte35:2013a:bin" in order for messages to be sent to HLS, Smooth, and Dash clients in compliance with [SCTE-67].  |
+| type       | String     | Required | A URN or URL identifying the message scheme. For [SCTE-35] messages, this MUST be "urn:scte:scte35:2013a:bin" in order for messages to be sent to HLS, Smooth, and Dash clients in compliance with [SCTE-67].  |
 | id         | String     | Required | A unique identifier describing the splice or segment. Identifies this instance of the message.  Messages with equivalent semantics shall have the same value.|
 | duration   | Number     | Required | The duration of the event or ad splice-segment, if known. If unknown, the value should be 0.                                                                 |
 | elapsed    | Number     | Optional | When the [SCTE-35] ad signal is being repeated in order to tune in, this field shall be the amount of presentation time that has elapsed since the splice began. Units are fractional seconds. In [SCTE-35] mode, this value may exceed the original specified duration of the splice or segment.                                                  |
@@ -85,7 +85,7 @@ For RTMP simple mode, Media Services supports a single AMF cue message called "o
 
 ---------------------------
 
-#### 2.1.1 Cancelation and Updates
+#### 2.1.1 Cancellation and Updates
 
 Messages can be canceled or updated by sending multiple messages with the same
 presentation time and ID. The presentation time and ID uniquely identify the
@@ -107,7 +107,7 @@ The sparse track MUST be declared in the Live Server Manifest box with a
 | parentTrackName    | String         | Required      | MUST be the name of the parent track, to which the sparse track time codes are timescale aligned. The parent track cannot be a sparse track.                                                                                                                    |
 | manifestOutput     | Boolean        | Required      | MUST be “true”, to indicate that the sparse track will be embedded in the Smooth client manifest.                                                                                                                                                               |
 | Subtype            | String         | Required      | MUST be the four character code “DATA”.                                                                                                                                                                                                                         |
-| Scheme             | String         | Required      | MUST be a URN or URL identifying the message scheme; for example, "urn:example:signaling:1.0". For [SCTE-35] messages, this MUST be "urn:scte:scte35:2013a:bin" in order for messages to be sent to HLS, Smooth, and Dash clients in compliance with [SCTE-67]. |
+| Scheme             | String         | Required      | MUST be a URN or URL identifying the message scheme. For [SCTE-35] messages, this MUST be "urn:scte:scte35:2013a:bin" in order for messages to be sent to HLS, Smooth, and Dash clients in compliance with [SCTE-67]. |
 | trackName          | String         | Required      | MUST be the name of the sparse track. The trackName can be used to differentiate multiple event streams with the same scheme. Each unique event stream must have a unique track name.                                                                           |
 | timescale          | Number         | Optional      | MUST be the timescale of the parent track.                                                                                                                                                                                                                      |
 
@@ -124,6 +124,7 @@ The ‘moov’ box SHOULD contain a **TrackHeaderBox (‘tkhd’)** box as defin
 | **Field Name** | **Field Type**          | **Required?** | **Description**                                                                                                |
 |----------------|-------------------------|---------------|----------------------------------------------------------------------------------------------------------------|
 | duration       | 64-bit unsigned integer | Required      | SHOULD be 0, since the track box has zero samples and the total duration of the samples in the track box is 0. |
+
 -------------------------------------
 
 The ‘moov’ box SHOULD contain a **HandlerBox (‘hdlr’)** as defined in
@@ -132,6 +133,7 @@ The ‘moov’ box SHOULD contain a **HandlerBox (‘hdlr’)** as defined in
 | **Field Name** | **Field Type**          | **Required?** | **Description**   |
 |----------------|-------------------------|---------------|-------------------|
 | handler_type   | 32-bit unsigned integer | Required      | SHOULD be ‘meta’. |
+
 -------------------------------------
 
 The ‘stsd’ box SHOULD contain a MetaDataSampleEntry box with a coding name as defined in [ISO-14496-12].  For example, for SCTE-35 messages the coding name SHOULD be 'scte'.
@@ -165,7 +167,7 @@ The MediaDataBox (‘mdat’) box MUST have the following format:
 ------------------------------
 
 
-### 2.2.4 Cancelation and Updates
+### 2.2.4 Cancellation and Updates
 Messages can be canceled or updated by sending multiple messages with the same presentation time and ID.  The presentation time and ID uniquely identify the event. The last message received for a specific presentation time, that meets pre-roll constraints, is the message that is acted upon. The updated message replaces any previously received messages.  The pre-roll constraint is four seconds. Messages received at least four seconds prior to the presentation time will be acted upon. 
 
 
@@ -238,8 +240,8 @@ Azure Media Services will embed timed metadata in the EXT-X-CUE tag defined in [
 
 | **Attribute Name** | **Type**                      | **Required?**                             | **Description**                                                                                                                                                                                                                                                                      |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CUE                | quoted string                 | Required                                  | The message encoded as a base64 string as described in [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). For [SCTE-35] messages, this is the base64 encoded splice_info_section().                                                                                                |
-| TYPE               | quoted string                 | Required                                  | A URN or URL identifying the message scheme; for example, “urn:example:signaling:1.0”. For [SCTE-35] messages, the type takes the special value “scte35”.                                                                                                                                |
+| CUE                | quoted string                 | Required                                  | The message encoded as a base64 string as described in [IETF RFC 4648](https://tools.ietf.org/html/rfc4648). For [SCTE-35] messages, this is the base64 encoded splice_info_section().                                                                                                |
+| TYPE               | quoted string                 | Required                                  | A URN or URL identifying the message scheme. For [SCTE-35] messages, the type takes the special value “scte35”.                                                                                                                                |
 | ID                 | quoted string                 | Required                                  | A unique identifier for the event. If the ID is not specified when the message is ingested, Azure Media Services will generate a unique id.                                                                                                                                          |
 | DURATION           | decimal floating point number | Required                                  | The duration of the event. If unknown, the value should be 0. Units are factional seconds.                                                                                                                                                                                           |
 | ELAPSED            | decimal floating point number | Optional, but Required for sliding window | When the signal is being repeated to support a sliding presentation window, this field MUST be the amount of presentation time that has elapsed since the event began. Units are fractional seconds. This value may exceed the original specified duration of the splice or segment. |
@@ -253,30 +255,17 @@ The HLS player application layer will use the TYPE to identify the format of the
 #EXTM3U
 #EXT-X-VERSION:4
 #EXT-X-ALLOW-CACHE:NO
-#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-MEDIA-SEQUENCE:346
 #EXT-X-TARGETDURATION:6
-#EXT-X-PROGRAM-DATE-TIME:1970-01-01T00:00:00.000+00:00
+#EXT-X-I-FRAMES-ONLY
+#EXT-X-PROGRAM-DATE-TIME:2018-12-13T15:54:19.462Z
+#EXTINF:4.000000,no-desc
+KeyFrames(video_track=15447164594627600,format=m3u8-aapl)
 #EXTINF:6.000000,no-desc
-Fragments(video=0,format=m3u8-aapl)
+KeyFrames(video_track=15447164634627600,format=m3u8-aapl)
+#EXT-X-CUE:ID="1026",TYPE="scte35",DURATION=30.000000,TIME=1544716520.022760,CUE="/DAlAAAAAAAAAP/wFAUAAAQCf+//KRjAfP4AKTLgAAAAAAAAVYsh2w=="
 #EXTINF:6.000000,no-desc
-Fragments(video=60000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-#EXT-X-CUE: ID=”metadata-12.000000”,TYPE=”urn:example:signaling:1.0”,TIME=”12.000000”, DURATION=”18.000000”,CUE=”HrwOi8vYmWVkaWEvhhaWFRlRDa=”
-Fragments(video=120000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=180000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=240000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=300000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=360000000,format=m3u8-aapl)
-#EXT-X-CUE: ID=”metadata-42.000000”,TYPE=”urn:example:signaling:1.0”,TIME=”42.000000”, DURATION=”60.000000”,CUE=”PD94bWwgdm0iMS4wIiBlbmNvpD4=”
-#EXTINF:6.000000,no-desc
-Fragments(video=420000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=480000000,format=m3u8-aapl)
-…
+KeyFrames(video_track=15447165474627600,format=m3u8-aapl)
 ~~~
 
 #### HLS Message Handling
@@ -320,7 +309,7 @@ The EventStream element has the following attributes:
 
 | **Attribute Name** | **Type**                | **Required?** | **Description**                                                                                                                                                                                                                                                                                   |
 |--------------------|-------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri      | string                  | Required      | Identifies the scheme of the message. The scheme is set to the value of the Scheme attribute in the Live Server Manifest box. The value SHOULD be a URN or URL identifying the message scheme; for example, “urn:example:signaling:1.0”.                                                                |
+| scheme_id_uri      | string                  | Required      | Identifies the scheme of the message. The scheme is set to the value of the Scheme attribute in the Live Server Manifest box. The value SHOULD be a URN or URL identifying the message scheme; for example, “urn:scte:scte35:2013a:bin”.                                                                |
 | value              | string                  | Optional      | An additional string value used by the owners of the scheme to customize the semantics of the message. In order to differentiate multiple event streams with the same scheme, the value MUST be set to the name of the event stream (trackName for Smooth ingest or AMF message name for RTMP ingest). |
 | Timescale          | 32-bit unsigned integer | Required      | The timescale, in ticks per second, of the times and duration fields within the ‘emsg’ box.                                                                                                                                                                                                       |
 
@@ -332,7 +321,7 @@ Zero or more Event elements are contained within the EventStream element, and th
 | presentation_time   | 64-bit unsigned integer | Optional      | MUST be the media presentation time of the event relative to the start of the Period. The presentation time and duration SHOULD align with Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I. |
 | duration            | 32-bit unsigned integer | Optional      | The duration of the event. This MUST be omitted if the duration is unknown.                                                                                                                                                 |
 | id                  | 32-bit unsigned integer | Optional      | Identifies this instance of the message. Messages with equivalent semantics shall have the same value. If the ID is not specified when the message is ingested, Azure Media Services will generate a unique id.             |
-| Event element value | string                  | Required      | The event message as a base64 string as described in [IETF RFC 4648](http://tools.ietf.org/html/rfc4648).                                                                                                                   |
+| Event element value | string                  | Required      | The event message as a base64 string as described in [IETF RFC 4648](https://tools.ietf.org/html/rfc4648).                                                                                                                   |
 
 #### XML Syntax and Example for DASH manifest (MPD) Signaling
 
@@ -362,11 +351,14 @@ Zero or more Event elements are contained within the EventStream element, and th
 
 
 <!-- Example Section in MPD -->
-
-<EventStream schemeIdUri=”urn:example:signaling:1.0” timescale=”1000” value=”player-statistics”>
-  <Event presentationTime=”0” duration=”10000” id=”0”> PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48QWNxdWlyZWRTaWduYWwgeG1sbnM9InVybjpjYWJsZWxhYnM6bWQ6eHNkOnNpZ25hbGluZzozLjAiIGFjcXVpc2l0aW9uUG9pbnRJZGVudGl0eT0iRVNQTl9FYXN0X0FjcXVpc2l0aW9uX1BvaW50XzEiIGFjcXVpc2l0aW9uU2lnbmFsSUQ9IjRBNkE5NEVFLTYyRkExMUUxQjFDQTg4MkY0ODI0MDE5QiIgYWNxdWlzaXRpb25UaW1lPSIyMDEyLTA5LTE4VDEwOjE0OjI2WiI+PFVUQ1BvaW50IHV0Y1BvaW50PSIyMDEyLTA5LTE4VDEwOjE0OjM0WiIvPjxTQ1RFMzVQb2ludERlc2NyaXB0b3Igc3BsaWNlQ29tbWFuZFR5cGU9IjUiPjxTcGxpY2VJbnNlcnQgc3BsaWNlRXZlbnRJRD0iMzQ0NTY4NjkxIiBvdXRPZk5ldHdvcmtJbmRpY2F0b3I9InRydWUiIHVuaXF1ZVByb2dyYW1JRD0iNTUzNTUiIGR1cmF0aW9uPSJQVDFNMFMiIGF2YWlsTnVtPSIxIiBhdmFpbHNFeHBlY3RlZD0iMTAiLz48L1NDVEUzNVBvaW50RGVzY3JpcHRvcj48U3RyZWFtVGltZXM+PFN0cmVhbVRpbWUgdGltZVR5cGU9IkhTUyIgdGltZVZhbHVlPSI1MTUwMDAwMDAwMDAiLz48L1N0cmVhbVRpbWVzPjwvQWNxdWlyZWRTaWduYWw+</Event>
-  <Event presentationTime=”20000” duration=”10000” id=”1”> PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48QWNxdWlyZWRTaWduYWwgeG1sbnM9InVybjpjYWJsZWxhYnM6bWQ6eHNkOnNpZ25hbGluZzozLjAiIGFjcXVpc2l0aW9uUG9pbnRJZGVudGl0eT0iRVNQTl9FYXN0X0FjcXVpc2l0aW9uX1BvaW50XzEiIGFjcXVpc2l0aW9uU2lnbmFsSUQ9IjRBNkE5NEVFLTYyRkExMUUxQjFDQTg4MkY0ODI0MDE5QiIgYWNxdWlzaXRpb25UaW1lPSIyMDEyLTA5LTE4VDEwOjE0OjI2WiI+PFVUQ1BvaW50IHV0Y1BvaW50PSIyMDEyLTA5LTE4VDEwOjE0OjM0WiIvPjxTQ1RFMzVQb2ludERlc2NyaXB0b3Igc3BsaWNlQ29tbWFuZFR5cGU9IjUiPjxTcGxpY2VJbnNlcnQgc3BsaWNlRXZlbnRJRD0iMzQ0NTY4NjkxIiBvdXRPZk5ldHdvcmtJbmRpY2F0b3I9InRydWUiIHVuaXF1ZVByb2dyYW1JRD0iNTUzNTUiIGR1cmF0aW9uPSJQVDFNMFMiIGF2YWlsTnVtPSIxIiBhdmFpbHNFeHBlY3RlZD0iMTAiLz48L1NDVEUzNVBvaW50RGVzY3JpcHRvcj48U3RyZWFtVGltZXM+PFN0cmVhbVRpbWUgdGltZVR5cGU9IkhTUyIgdGltZVZhbHVlPSI1MTYyMDAwMDAwMDAiLz48L1N0cmVhbVRpbWVzPjwvQWNxdWlyZWRTaWduYWw+</Event>
-</EventStream>
+  <EventStream schemeIdUri="urn:scte:scte35:2013a:bin" value="scte35_track_001_000" timescale="10000000">
+        <Event presentationTime="15447165200227600" duration="300000000" id="1026">/DAlAAAAAAAAAP/wFAUAAAQCf+//KRjAfP4AKTLgAAAAAAAAVYsh2w==</Event>
+        <Event presentationTime="15447166250227600" duration="300000000" id="1027">/DAlAAAAAAAAAP/wFAUAAAQDf+//KaeGwP4AKTLgAAAAAAAAn75a3g==</Event>
+        <Event presentationTime="15447167300227600" duration="600000000" id="1028">/DAlAAAAAAAAAP/wFAUAAAQEf+//KjkknP4AUmXAAAAAAAAAWcEldA==</Event>
+        <Event presentationTime="15447168350227600" duration="600000000" id="1029">/DAlAAAAAAAAAP/wFAUAAAQFf+//KslyqP4AUmXAAAAAAAAAvKNt0w==</Event>
+        <Event presentationTime="15447169400227600" duration="300000000" id="1030">/DAlAAAAAAAAAP/wFAUAAAQGf+//K1mIvP4AKTLgAAAAAAAAt2zEbw==</Event>
+        <Event presentationTime="15447170450227600" duration="600000000" id="1031">/DAlAAAAAAAAAP/wFAUAAAQHf+//K+hc/v4AUmXAAAAAAAAANNRzVw==</Event>
+    </EventStream>
 ~~~
 
 >[!NOTE]
@@ -402,7 +394,7 @@ The fields of the DASHEventMessageBox are defined below:
 
 | **Field Name**          | **Field Type**          | **Required?** | **Description**                                                                                                                                                                                                                                                                                                                                                    |
 |-------------------------|-------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri           | string                  | Required      | Identifies the scheme of the message. The scheme is set to the value of the Scheme attribute in the Live Server Manifest box. The value SHOULD be a URN or URL identifying the message scheme; for example, “urn:example:signaling:1.0”. For [SCTE-35] messages, this takes the special value “urn:scte:scte35:2013a:bin”, although [SCTE-67] recommends something else. |
+| scheme_id_uri           | string                  | Required      | Identifies the scheme of the message. The scheme is set to the value of the Scheme attribute in the Live Server Manifest box. The value SHOULD be a URN or URL identifying the message scheme. For [SCTE-35] messages, this takes the special value “urn:scte:scte35:2013a:bin”, although [SCTE-67] recommends something else. |
 | Value                   | string                  | Required      | An additional string value used by the owners of the scheme to customize the semantics of the message. In order to differentiate multiple event streams with the same scheme, the value will be set to the name of the event stream (trackName for Smooth ingest or AMF message name for RTMP ingest).                                                                  |
 | Timescale               | 32-bit unsigned integer | Required      | The timescale, in ticks per second, of the times and duration fields within the ‘emsg’ box.                                                                                                                                                                                                                                                                        |
 | Presentation_time_delta | 32-bit unsigned integer | Required      | The media presentation time delta of the presentation time of the event and the earliest presentation time in this segment. The presentation time and duration SHOULD align with Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I.                                                                                            |
@@ -450,7 +442,7 @@ formats, 2nd edition
 
 **[MS-SSTR]** [“Microsoft Smooth Streaming Protocol”, May 15, 2014](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
-**[AMF0]** ["Action Message Format AMF0"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
+**[AMF0]** ["Action Message Format AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
 **[LIVE-FMP4]** [Azure Media Services Fragmented MP4 Live Ingest
 Specification](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)

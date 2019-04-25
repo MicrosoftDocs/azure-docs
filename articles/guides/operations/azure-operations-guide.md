@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid:
 ms.service: azure
 ms.devlang:
-ms.topic:
+ms.topic: overview
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 08/24/2018
@@ -103,7 +103,7 @@ Services for storing and managing data:
 
 - Microsoft Azure StorSimple
 
-- Azure Redis Cache
+- Azure Cache for Redis
 
 ### Application services
 
@@ -165,7 +165,7 @@ In addition to creating, managing, and deleting resources by using the Azure por
 
 #### Azure PowerShell
 
-Azure PowerShell is a set of modules that provide cmdlets for managing Azure. You can use the cmdlets to create, manage, and remove Azure services. The cmdlets can help you can achieve consistent, repeatable, and hands-off deployments. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Azure PowerShell is a set of modules that provide cmdlets for managing Azure. You can use the cmdlets to create, manage, and remove Azure services. The cmdlets can help you can achieve consistent, repeatable, and hands-off deployments. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 #### Azure command-line interface
 
@@ -477,9 +477,9 @@ There are several options for deploying a virtual network.
 
 - Azure Resource Manager Templates
 
->**When to use**: Anytime you are working with VMs in Azure, you will work with virtual networks. This allows for segmenting your VMs into public-facing and private subnets similar on-premises datacenters.
-
->**Get started**: Deploying an Azure virtual network by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new virtual network into a new or existing resource group. When you’re creating a new virtual machine from the portal, you can select an existing virtual network or create a new one. Get started and [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
+> **When to use**: Anytime you are working with VMs in Azure, you will work with virtual networks. This allows for segmenting your VMs into public-facing and private subnets similar on-premises datacenters.
+> 
+> **Get started**: Deploying an Azure virtual network by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new virtual network into a new or existing resource group. When you’re creating a new virtual machine from the portal, you can select an existing virtual network or create a new one. Get started and [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
 
 ### Access and security for virtual networks
 

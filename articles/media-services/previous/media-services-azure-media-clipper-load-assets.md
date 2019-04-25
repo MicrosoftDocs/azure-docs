@@ -7,9 +7,9 @@ keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 03/14/2019
 ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
+# Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
 # product-name-from-white-list
 
@@ -22,7 +22,8 @@ ms.service: media-services
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
 
-# Loading assets into Azure Media Clipper
+# Loading assets into Azure Media Clipper  
+
 Assets can be loaded into the Azure Media Clipper by two methods:
 1. Statically passing in a library of assets
 2. Dynamically generating a list of assets via API
@@ -142,7 +143,7 @@ Alternatively, you can load assets dynamically via a callback. In scenarios wher
     // - take: int value used for pagination in the back-end that allows defining the number of assets to include in the response.
     // - type: ('filter', 'asset') value that will be used in the back-end to filter assets by type.
     //
-    // Returns: a Promise object that, when resolved, retuns an object containing an array of assets (input contract)
+    // Returns: a Promise object that, when resolved, returns an object containing an array of assets (input contract)
     //          that satisfies the filter parameters, plus optionally the total types of files available:
     // {
     //  total: 100,

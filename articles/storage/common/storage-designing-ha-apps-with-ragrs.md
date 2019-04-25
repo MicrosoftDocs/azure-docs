@@ -1,16 +1,17 @@
 ---
-title: Designing Highly Available Applications using Azure Read-Access Geo-Redundant Storage (RA-GRS) | Microsoft Docs
+title: Designing highly available Aaplications using read-access geo-redundant storage (RA-GRS) | Microsoft Docs
 description: How to use Azure RA-GRS storage to architect a highly available application flexible enough to handle outages.
 services: storage
 author: tamram
+
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 01/17/2019
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
-# Designing Highly Available Applications using RA-GRS
+# Designing highly available applications using RA-GRS
 
 A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available platform for hosting applications. Developers of cloud-based applications must consider carefully how to leverage this platform to deliver highly available applications to their users. This article focuses on how developers can use Read Access Geo-Redundant Storage (RA-GRS) to ensure that their Azure Storage applications are highly available.
 
@@ -37,9 +38,7 @@ Keep in mind these key points when designing your application for RA-GRS:
 
 * You can use the Storage Client Library to interact with the data in either the primary or secondary region. You can also redirect read requests automatically to the secondary region if a read request to the primary region times out.
 
-* If there is a major issue affecting the accessibility of the data in the primary region, the Azure team may trigger a geo-failover, at which point the DNS entries pointing to the primary region will be changed to point to the secondary region.
-
-* If a geo-failover occurs, Azure will select a new secondary location and replicate the data to that location, then point the secondary DNS entries to it. The secondary endpoint will be unavailable until the storage account has finished replicating. For more information, please see [What to do if an Azure Storage outage occurs](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance).
+* If the primary region becomes unavailable, you can initiate an account failover. When you fail over to the secondary region, the DNS entries pointing to the primary region are changed to point to the secondary region. After the failover is complete, write access is restored for GRS and RA-GRS accounts. For more information, see [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
 
 ## Application design considerations when using RA-GRS
 
@@ -119,7 +118,7 @@ There are basically two scenarios to consider when you are deciding how to respo
 
     In this scenario, there is a performance penalty because all your read requests will try the primary endpoint first, wait for the timeout to expire, then switch to the secondary endpoint.
 
-For these scenarios, you should identify that there is an ongoing issue with the primary endpoint and send all read requests directly to the secondary endpoint by setting the **LocationMode** property to **SecondaryOnly**. At this time, you should also change the application to run in read-only mode. This approach is known as the [Circuit Breaker Pattern](https://msdn.microsoft.com/library/dn589784.aspx).
+For these scenarios, you should identify that there is an ongoing issue with the primary endpoint and send all read requests directly to the secondary endpoint by setting the **LocationMode** property to **SecondaryOnly**. At this time, you should also change the application to run in read-only mode. This approach is known as the [Circuit Breaker Pattern](/azure/architecture/patterns/circuit-breaker).
 
 ### Update requests
 
@@ -212,7 +211,7 @@ To recognize that it has potentially inconsistent data, the client can use the v
 
 It's important to test that your application behaves as expected when it encounters retryable errors. For example, you need to test that the application switches to the secondary and into read-only mode when it detects a problem, and switches back when the primary region becomes available again. To do this, you need a way to simulate retryable errors and control how often they occur.
 
-You can use [Fiddler](http://www.telerik.com/fiddler) to intercept and modify HTTP responses in a script. This script can identify responses that come from your primary endpoint and change the HTTP status code to one that the Storage Client Library recognizes as a retryable error. This code snippet shows a simple example of a Fiddler script that intercepts responses to read requests against the **employeedata** table to return a 502 status:
+You can use [Fiddler](https://www.telerik.com/fiddler) to intercept and modify HTTP responses in a script. This script can identify responses that come from your primary endpoint and change the HTTP status code to one that the Storage Client Library recognizes as a retryable error. This code snippet shows a simple example of a Fiddler script that intercepts responses to read requests against the **employeedata** table to return a 502 status:
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -224,7 +223,7 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-You could extend this example to intercept a wider range of requests and only change the **responseCode** on some of them to better simulate a real-world scenario. For more information about customizing Fiddler scripts, see [Modifying a Request or Response](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) in the Fiddler documentation.
+You could extend this example to intercept a wider range of requests and only change the **responseCode** on some of them to better simulate a real-world scenario. For more information about customizing Fiddler scripts, see [Modifying a Request or Response](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) in the Fiddler documentation.
 
 If you have made the thresholds for switching your application to read-only mode configurable, it will be easier to test the behavior with non-production transaction volumes.
 

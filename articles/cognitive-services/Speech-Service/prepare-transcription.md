@@ -1,13 +1,12 @@
 ---
-title: Transcription guidelines for the Speech Service training
+title: Transcription guidelines for training Speech Services models
 titleSuffix: Azure Cognitive Services
-description: Learn how to prepare text to customize acoustic and language models and voice fonts for the Speech Service.
+description: Learn how to prepare text to customize acoustic and language models and voices for the Speech Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
-
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
@@ -17,7 +16,7 @@ ms.author: panosper
 
 To customize **Speech to Text** or **Text to Speech**, you must provide text along with speech. Each line in the text corresponds to a single utterance. The text should match the speech as closely as possible. The text is called a *transcript*, and you must create it in a specific format.
 
-The Speech Service normalizes the input to keep text consistent. 
+The Speech Services normalize the input to keep text consistent.
 
 This article describes both types of normalizations. The guidelines vary slightly for various languages.
 
@@ -35,7 +34,7 @@ Avoid the use of extended (Latin-1) or Unicode punctuation characters. These cha
 
 ### Text normalization rules for English
 
-The Speech Service carries out the following normalization rules:
+The Speech Services carry out the following normalization rules:
 
 * Using lowercase letters for all text
 * Removing all punctuation except word-internal apostrophes
@@ -60,7 +59,7 @@ Apply the following normalization to your text transcripts:
 * Non-standard numeric strings (such as some date or accounting forms) should be written out in words.
 * Words with non-alphabetic characters or mixed alphanumeric characters should be transcribed as pronounced.
 * Leave abbreviations that are pronounced as words untouched (for example, "radar," "laser," "RAM," or "NATO").
-* Write abbreviations that are pronounced as separate letters, with letters separated by spaces (for example, "IBM," "CPU," "FBI," "TBD," or "NaN"). 
+* Write abbreviations that are pronounced as separate letters, with letters separated by spaces (for example, "IBM," "CPU," "FBI," "TBD," or "NaN").
 
 Here are some examples:
 
@@ -79,7 +78,7 @@ Here are some examples:
 
 ## Chinese (zh-cn)
 
-Text data that's uploaded to the Custom Speech Service should use UTF-8 encoding with a byte-order marker. The file should be written one utterance per line.
+Text data that's uploaded to the Custom Speech Services should use UTF-8 encoding with a byte-order marker. The file should be written one utterance per line.
 
 Avoid the use of half-width punctuation characters. These characters can be included inadvertently when you prepare the data in a word-processing program or scrape data from webpages. Replace them with appropriate full-width substitutions. For example:
 
@@ -90,7 +89,7 @@ Avoid the use of half-width punctuation characters. These characters can be incl
 
 ### Text normalization rules for Chinese
 
-The Speech Service carries out the following normalization rules:
+The Speech Services carry out the following normalization rules:
 
 * Removing all punctuation
 * Expanding numbers to spoken form
@@ -130,7 +129,7 @@ Text data uploaded to the **Speech to Text** service must use UTF-8 encoding wit
 
 ### Text normalization rules for German
 
-The Speech Service carries out the following normalization rules:
+The Speech Services carry out the following normalization rules:
 
 * Using lowercase letters for all text
 * Removing all punctuation, including various types of quotation marks ("test", 'test', "test„ and «test» are OK)
@@ -158,13 +157,13 @@ Before you import your text, apply the following normalization to it:
 
 Here are some examples:
 
-| Original text | After user's normalization | After system normalization
+| Original text | After user's normalization | After system normalization |
 |--------  | ----- | -------- |
 | Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
-| {12.45} | {12,45} | zwölf komma vier fünf ||
+| {12.45} | {12,45} | zwölf komma vier fünf |
 | 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
 
 ## Next steps
 
-- [Get your Speech Service trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [Get your Speech Services trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 - [Recognize speech in C#](quickstart-csharp-dotnet-windows.md)

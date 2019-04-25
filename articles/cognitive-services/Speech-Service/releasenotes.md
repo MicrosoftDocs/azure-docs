@@ -1,37 +1,180 @@
 ---
-title: Speech Service SDK Documentation
+title: Release Notes - Speech Services
 titlesuffix: Azure Cognitive Services
-description: Release notes - what has changed in the most recent releases
+description: See a running log of feature releases, improvements, bug fixes, and known issues for Azure Speech Services.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
-
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 4/24/2019
 ms.author: wolfma
+ms.custom: seodec18
 ---
 
 # Release notes
 
-## Speech Service SDK 1.1.0
+## Speech SDK 1.4.2
+
+This is a bug fix release and only affecting the native/managed SDK. It is not affecting the JavaScript version of the SDK.
+
+## Speech SDK 1.4.1
+
+This is a JavaScript-only release. No features have been added. The following fixes were made:
+
+* Prevent webpack from loading https-proxy-agent.
+
+## Speech SDK 1.4.0: 2019-April release
+
+**New features** 
+
+* The SDK now supports the text-to-speech service as a beta version. It is supported on Windows and Linux Desktop from C++ and C#. For more information check the [text-to-speech overview](text-to-speech.md#get-started-with-text-to-speech).
+* The SDK now supports MP3 and Opus/Ogg audio files as stream input files. This feature is available only on Linux from C++ and C# and is currently in beta (more details [here](how-to-use-compressed-audio-input-streams.md)).
+* The Speech SDK for Java, .NET core, C++ and Objective-C have gained macOS support. The Objective-C support for macOS is currently in beta.
+* iOS: The Speech SDK for iOS (Objective-C) is now also published as a CocoaPod.
+* JavaScript: Support for non-default microphone as an input device.
+* JavaScript: Proxy support for Node.js.
+
+**Samples**
+
+* Samples for using the Speech SDK with C++ and with Objective-C on macOS have been added.
+* Samples demonstrating the usage of the text-to-speech service have been added.
+
+**Improvements / Changes**
+
+* Python: Additional properties of recognition results are now exposed via the `properties` property.
+* For additional development and debug support you can redirect SDK logging and diagnostics information into a log file (more details [here](how-to-use-logging.md)).
+* JavaScript: Improve audio processing performance.
+
+**Bug fixes**
+
+* Mac/iOS: A bug that led to a long wait when a connection to the Speech Service could not be established was fixed.
+* Python: improve error handling for arguments in Python callbacks.
+* JavaScript: Fixed wrong state reporting for speech ended on RequestSession.
+
+## Speech SDK 1.3.1: 2019-February refresh
+
+This is a bug fix release and only affecting the native/managed SDK. It is not affecting the JavaScript version of the SDK.
+
+**Bug fix**
+
+* Fixed a memory leak when using microphone input. Stream based or file input is not affected.
+
+## Speech SDK 1.3.0: 2019-February release
+
+**New Features**
+
+* The Speech SDK supports selection of the input microphone through the AudioConfig class. This allows you to stream audio data to the Speech Services from a non-default microphone. For more information, see the documentation describing [audio input device selection](how-to-select-audio-input-devices.md). This is not yet available from JavaScript.
+* The Speech SDK now supports Unity in a beta version. Please provide feedback through the issue section in the [GitHub sample repository](https://aka.ms/csspeech/samples). This release supports Unity on Windows x86 and x64 (desktop or Universal Windows Platform applications), and Android (ARM32/64, x86). More information is available in our [Unity quickstart](quickstart-csharp-unity.md).
+* The file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (shipped in previous releases) isn't needed anymore. The functionality is now integrated into the core SDK.
+
+
+**Samples**
+
+The following new content is available in our [sample repository](https://aka.ms/csspeech/samples):
+
+* Additional samples for AudioConfig.FromMicrophoneInput.
+* Additional Python samples for intent recognition and translation.
+* Additional samples for using the Connection object in iOS.
+* Additional Java samples for translation with audio output.
+* New sample for use of the [Batch Transcription REST API](batch-transcription.md).
+
+**Improvements / Changes**
+
+* Python
+  * Improved parameter verification and error messages in SpeechConfig.
+  * Add support for the Connection object.
+  * Support for 32-bit Python (x86) on Windows.
+  * The Speech SDK for Python is out of beta.
+* iOS
+  * The SDK is now built against the iOS SDK version 12.1.
+  * The SDK now supports iOS versions 9.2 and later.
+  * Improve reference documentation and fix several property names.
+* JavaScript
+  * Add support for the Connection object.
+  * Add type definition files for bundled JavaScript
+  * Initial support and implementation for phrase hints.
+  * Return properties collection with service JSON for recognition
+* Windows DLLs do now contain a version resource.
+* If you create a recognizer `FromEndpoint` you can add parameters directly to the endpoint URL. Using `FromEndpoint` you can't configure the recognizer through the standard configuration properties.
+
+**Bug fixes**
+
+* Empty proxy username and proxy password were not handled correctly. With this release, if you set proxy username and proxy password to an empty string, they will not be submitted when connecting to the proxy.
+* SessionId's created by the SDK were not always truly random for some languages&nbsp;/ environments. Added random generator initialization to fix this.
+* Improve handling of authorization token. If you want to use an authorization token, specify in the SpeechConfig and leave the subscription key empty. Then create the recognizer as usual.
+* In some cases the Connection object wasn't released correctly. This has been fixed.
+* The JavaScript sample was fixed to support audio output for translation synthesis also on Safari.
+
+## Speech SDK 1.2.1
+
+This is a JavaScript-only release. No features have been added. The following fixes were made:
+
+* Fire end of stream at turn.end, not at speech.end.
+* Fix bug in audio pump that did not schedule next send if the current send failed.
+* Fix continuous recognition with auth token.
+* Bug fix for different recognizer / endpoints.
+* Documentation improvements.
+
+## Speech SDK 1.2.0: 2018-December release
+
+**New Features**
+
+* Python
+  * The Beta version of Python support (3.5 and above) is available with this release. For more information, see here](quickstart-python.md).
+* JavaScript
+  * The Speech SDK for JavaScript has been open-sourced. The source code is available on [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
+  * We now support Node.js, more info can be found [here](quickstart-js-node.md).
+  * The length restriction for audio sessions has been removed, reconnection will happen automatically under the cover.
+* Connection Object
+  * From the Recognizer, you can access a Connection object. This object allows you to explicitly initiate the service connection and subscribe to connect and disconnect events.
+    (This is not yet available from JavaScript and Python.)
+* Support for Ubuntu 18.04.
+* Android
+  * Enabled ProGuard support during APK generation.
+
+**Improvements**
+
+* Improvements in the internal thread usage, reducing the number of threads, locks, mutexes.
+* Improved error reporting / information. In several cases error messages have not been propagated all the way out.
+* Updated development dependencies in JavaScript to use up-to-date modules.
+
+**Bug fixes**
+
+* Fixed memory leaks due to a type mismatch in RecognizeAsync.
+* In some cases exceptions were being leaked.
+* Fixing memory leak in translation event arguments.
+* Fixed a locking issue on reconnect in long running sessions.
+* Fixed an issue that could lead to missing final result for failed translations.
+* C#: If an async operation wasn't awaited in the main thread, it was possible the recognizer could be disposed before the async task was completed.
+* Java: Fixed a problem resulting in a crash of the Java VM.
+* Objective-C: Fixed enum mapping; RecognizedIntent was returned instead of RecognizingIntent.
+* JavaScript: Set default output format to 'simple' in SpeechConfig.
+* JavaScript: Removing inconsistency between properties on the config object in JavaScript and other languages.
+
+**Samples**
+
+* Updated and fixed several samples (for example output voices for translation, etc.).
+* Added Node.js samples in the [sample repository](https://aka.ms/csspeech/samples).
+
+## Speech SDK 1.1.0
 
 **New Features**
 
 * Support for Android x86/x64.
-* Proxy Support: In the SpeechConfig object you can now call a function to set the proxy information (hostname, port, username, and password). This feature is not yet available on iOS.
+* Proxy Support: In the SpeechConfig object, you can now call a function to set the proxy information (hostname, port, username, and password). This feature is not yet available on iOS.
 * Improved error code and messages. If a recognition returned an error, this did already set `Reason` (in canceled event) or `CancellationDetails` (in recognition result) to `Error`. The canceled event now contains two additional members, `ErrorCode` and `ErrorDetails`. If the server returned additional error information with the reported error, it will now be available in the new members.
 
 **Improvements**
 
 * Added additional verification in the recognizer configuration, and added additional error message.
 * Improved handling of long-time silence in middle of an audio file.
-* NuGet package: for .NET Framework projects prevent building with AnyCPU configuration.
+* NuGet package: for .NET Framework projects, it prevents building with AnyCPU configuration.
 
 **Bug fixes**
 
-* Fixed several exceptions found in recognizers. In addition exceptions are caught and converted into Canceled event.
+* Fixed several exceptions found in recognizers. In addition, exceptions are caught and converted into Canceled event.
 * Fix a memory leak in property management.
 * Fixed bug in which an audio input file could crash the recognizer.
 * Fixed a bug where events could be received after a session stop event.
@@ -46,7 +189,7 @@ ms.author: wolfma
 
 * Added C++ and C# samplea for pull and push stream usage in the [sample repository](https://aka.ms/csspeech/samples).
 
-## Speech Service SDK 1.0.1
+## Speech SDK 1.0.1
 
 Reliability improvements and bug fixes:
 
@@ -69,7 +212,7 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 
 **Breaking changes**
 
-* With this release a number of breaking changes are introduced.
+* With this release, a number of breaking changes are introduced.
   Please check [this page](https://aka.ms/csspeech/breakingchanges_1_0_0) for details.
 
 ## Cognitive Services Speech SDK 0.6.0: 2018-August release

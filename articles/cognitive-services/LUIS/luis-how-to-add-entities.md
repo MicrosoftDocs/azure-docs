@@ -1,28 +1,29 @@
 ---
-title: Add entities in LUIS apps
-titleSuffix: Azure Cognitive Services
-description: Add entities (key data in your application's domain) in Language Understanding (LUIS) apps.
+title: Add entities
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Create entities to extract key data from user utterances in Language Understanding (LUIS) apps.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 04/01/2019
 ms.author: diberry
 ---
 
 # Create entities without utterances
 
-The entity represents a word or phrase inside the utterance that you want extracted. An utterance can include many entities or none at all. An entity represents a class including a collection of similar objects (places, things, people, events or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. 
-
-You can create entities before or apart from creating intents.
+The entity represents a word or phrase inside the utterance that you want extracted. An entity represents a class including a collection of similar objects (places, things, people, events, or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. You can create entities when you add an utterance to an intent or apart from (before or after) adding an utterance to an intent.
 
 You can add, edit, or delete entities in your LUIS app through the **Entities list** on the **Entities** page. LUIS offers two main types of entities: [prebuilt entities](luis-reference-prebuilt-entities.md), and your own [custom entities](luis-concept-entity-types.md#types-of-entities).
 
-Once an entity is created, it can be tagged in an intent's example utterance from the **Intent** details page. 
+Once a machine-learned entity is created, you need to mark that entity in all the example utterance of all the intents it is in.
 
-## Add prebuilt entity
+<a name="add-prebuilt-entity"></a>
+
+## Add a prebuilt entity to your app
 
 Common prebuilt entities added to an application are *number* and *datetimeV2*. 
 
@@ -34,7 +35,9 @@ Common prebuilt entities added to an application are *number* and *datetimeV2*.
 
     ![Screenshot of Add prebuilt entity dialog box](./media/add-entities/list-of-prebuilt-entities.png)
 
-## Add simple entities
+<a name="add-simple-entities"></a>
+
+## Add simple entities for single concepts
 
 A simple entity describes a single concept. Use the following procedure to create an entity that extracts company department names such as *Human resources* or *Operations*.   
 
@@ -46,7 +49,9 @@ A simple entity describes a single concept. Use the following procedure to creat
 
     A [phrase list](luis-concept-feature.md) is commonly used to boost the signal of a simple entity.
 
-## Add regular expression entities
+<a name="add-regular-expression-entities"></a>
+
+## Add regular expression entities for highly structured concepts
 
 A regular expression entity is used to pull out data from the utterance based on a regular expression you provide. 
 
@@ -54,7 +59,7 @@ A regular expression entity is used to pull out data from the utterance based on
 
 1. In the pop-up dialog box, enter `Human resources form name` in the **Entity name** box,  select **Regular expression** from the **Entity type** list, enter the regular expression `hrf-[0-9]{6}`, and then select **Done**. 
 
-    This regular expression literal characters `hrf-`, then 6 digits to represent a form number for a Human resources form.
+    This regular expression matches literal characters `hrf-`, then 6 digits to represent a form number for a Human resources form.
 
 ## Add hierarchical entities
 
@@ -79,7 +84,9 @@ To add hierarchical entities, complete the following steps:
 
     Once this entity is created, go to all intents that have example utterances that contain the entity. Select the text in the example utterance and mark the text as the entity. 
 
-## Add composite entities
+<a name="add-composite-entities"></a>
+
+## Add composite entities to group into a parent-child relationship
 
 You can define relationships between entities of different types by creating a composite entity. In the following example, the entity contains a regular expression, and a prebuilt entity of name.  
 
@@ -101,7 +108,9 @@ In the utterance `Send hrf-123456 to John Smith`, the text `hrf-123456` is match
 
 1. Select **Done**.
 
-## Add Pattern.any entities
+<a name="add-pattern-any-entities"></a>
+
+## Add Pattern.any entities to capture free-form entities
 
 [Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md), not intents. This type of entity helps LUIS find the end of entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance template.
 
@@ -117,9 +126,11 @@ In the utterance `Where is Request relocation from employee new to the company o
 
     If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-patterns.md#explicit-lists) to correct this problem. 
 
-## Add a role to pattern-based entity
+<a name="add-a-role-to-pattern-based-entity"></a>
 
-A role is a named subtype of an entity based on context. It is comparable to an [hierarchical](#add-hierarchical-entities) entity but roles are only used in [patterns](luis-how-to-model-intent-pattern.md). 
+## Add a role to distinguish different contexts
+
+A role is a named subtype based on context. It is available in all entities including prebuilt and non-machine-learned entities. 
 
 Using the same example as the hierarchical entity of origin and destination cities, the difference is that a role is named origin instead of a hierarchical child. 
 
@@ -135,7 +146,9 @@ The syntax for a role is **{Entityname:Rolename}** where the entity name is foll
 
     ![Screenshot of adding Origin role to Location entity](./media/add-entities/roles-enter-role-name-text.png)
 
-## Add list entities
+<a name="add-list-entities"></a>
+
+## Add list entities for exact matches
 
 List entities represent a fixed, closed set of related words. 
 
@@ -151,13 +164,13 @@ For a Human Resources app, you can have a list of all departments along with any
 
 1. If you want more normalized items for the list, select **Recommend** to see options from the [semantic dictionary](luis-glossary.md#semantic-dictionary).
 
-    ![Screenshot of adding Origin role to Location entity](./media/add-entities/hr-list-2.png)
+    ![Screenshot of selecting Recommend feature to see options](./media/add-entities/hr-list-2.png)
 
 
 1. Select an item in the recommended list to add it as a normalized value or select **Add all** to add all the items. 
     You can import values into an existing list entity using the following JSON format:
 
-    ```
+    ```JSON
     [
         {
             "canonicalForm": "Blue",
@@ -178,12 +191,15 @@ For a Human Resources app, you can have a list of all departments along with any
     ]  
     ```
 
+<a name="change-entity-type"></a>
 
-## Change entity type
+## Do not change entity type
 
 LUIS does not allow you to change the type of the entity because it doesn't know what to add or remove to construct that entity. In order to change the type, it is better to create a new entity of the correct type with a slightly different name. Once the entity is created, in each utterance, remove the old labeled entity name and add the new entity name. Once all the utterances have been relabeled, delete the old entity. 
 
-## Create a pattern from an utterance
+<a name="create-a-pattern-from-an-utterance"></a>
+
+## Create a pattern from an example utterance
 
 See [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 

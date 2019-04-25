@@ -3,14 +3,14 @@ title: About technical profiles in Azure Active Directory B2C custom policies | 
 description: Learn about how technical profiles are used in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # About technical profiles in Azure Active Directory B2C custom policies
@@ -102,7 +102,7 @@ Both **AAD-UserReadUsingAlternativeSecurityId-NoError** and  **AAD-UserReadUsing
 </TechnicalProfile>
 ```
 
-A technical profile may include or inherit another technical profile, which may include another one. There is no limit on the number of levels. Depending on the business requirements, your user journey may call **AAD-UserReadUsingAlternativeSecurityId** that raises an error if a user social account not exists, or **AAD-UserReadUsingAlternativeSecurityId-NoError** which doesn't raise an error.
+A technical profile may include or inherit another technical profile, which may include another one. There is no limit on the number of levels. Depending on the business requirements, your user journey may call **AAD-UserReadUsingAlternativeSecurityId** that raises an error if a user social account doesn't exist, or **AAD-UserReadUsingAlternativeSecurityId-NoError** which doesn't raise an error.
 
 
 

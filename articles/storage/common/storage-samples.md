@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 # Azure Storage samples
 
@@ -57,8 +57,8 @@ To explore the C++ samples, download the [C++ Storage Client Library](https://ww
 |----------|---------------|-------------|
 | .NET | [.NET Client Library Reference](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [Source code for the .NET storage client library](https://github.com/Azure/azure-storage-net) |
 | Java | [Java Client Library Reference](https://docs.microsoft.com/java/api/overview/azure/storage) | [Source code for the Java storage client library](https://github.com/azure/azure-storage-java) |
-| Node.js | [Node.js Client Library Reference](http://azure.github.io/azure-storage-node) | [Source code for the Node.js storage client library](https://github.com/Azure/azure-storage-node) |
-| C++ | [C++ Client Library Reference](http://azure.github.io/azure-storage-cpp/) | [Source code for the C++ storage client library](https://github.com/Azure/azure-storage-cpp)|
+| Node.js | [Node.js Client Library Reference](https://azure.github.io/azure-storage-node) | [Source code for the Node.js storage client library](https://github.com/Azure/azure-storage-node) |
+| C++ | [C++ Client Library Reference](https://azure.github.io/azure-storage-cpp/) | [Source code for the C++ storage client library](https://github.com/Azure/azure-storage-cpp)|
 
 ## Next steps
 

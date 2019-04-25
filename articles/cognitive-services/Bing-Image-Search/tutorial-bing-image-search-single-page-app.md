@@ -3,12 +3,12 @@ title: "Tutorial: Create a single-page web app - Bing Image Search API"
 titleSuffix: Azure cognitive services
 description: The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage.
 services: cognitive-services
-author: aahi
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 9/12/2018
+ms.date: 03/04/2019
 ms.author: aahi
 ---
 
@@ -29,7 +29,7 @@ The full source code for this tutorial is available on [GitHub](https://github.c
 ## Prerequisites
 
 * The latest version of [Node.js](https://nodejs.org/).
-* The [Express.js](https://expressjs.com/) framework for Node.js. Installation instructions for the source code are available in the gitHub sample readme file.
+* The [Express.js](https://expressjs.com/) framework for Node.js. Installation instructions for the source code are available in the GitHub sample readme file.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 03/08/2019
 ms.author: dobett
 ---
 
@@ -34,7 +34,7 @@ The steps in this article show you how to deploy an edge gateway using Docker on
 
 ## Choose a gateway device
 
-If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of their partners. For a list of gateway devices compatible with the Connected Factory solution, visit the [Azure IoT device catalog](https://catalog.azureiotsuite.com/?q=opc). Follow the instructions that come with the device to set up the gateway.
+If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of their partners. For a list of gateway devices compatible with the Connected Factory solution, visit the [Azure IoT device catalog](https://catalog.azureiotsolutions.com/?q=opc). Follow the instructions that come with the device to set up the gateway.
 
 If you need to manually configure an existing gateway device, use the following instructions.
 
@@ -65,7 +65,7 @@ For more information, see the [Use volumes](https://docs.docker.com/engine/admin
 
 Before you install the OPC components, complete the following steps to prepare your environment:
 
-1. To complete the gateway deployment, you need the **iothubowner** connection string of the IoT Hub in your Connected Factory deployment. In the [Azure portal](http://portal.azure.com/), navigate to your IoT Hub in the resource group created when you deployed the Connected Factory solution. Click **Shared access policies** to access the **iothubowner** connection string:
+1. To complete the gateway deployment, you need the **iothubowner** connection string of the IoT Hub in your Connected Factory deployment. In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub in the resource group created when you deployed the Connected Factory solution. Click **Shared access policies** to access the **iothubowner** connection string:
 
     ![Find the IoT Hub connection string](./media/iot-accelerators-connected-factory-gateway-deployment/image2.png)
 
