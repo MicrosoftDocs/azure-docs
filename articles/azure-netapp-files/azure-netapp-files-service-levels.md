@@ -13,19 +13,34 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 04/22/2019
 ms.author: b-juche
 ---
 # Service levels for Azure NetApp Files
-Azure NetApp Files supports two service levels: Premium and Standard. 
+The service level is an attribute of a capacity pool. Service levels are defined and differentiated by the maximum throughput allowed for a given volume in the capacity pool based on the quota assigned to the volume.
 
-## <a name="Premium"></a>Premium storage
+Azure NetApp Files supports the following service levels: *Ultra*, *Premium*, and *Standard*. 
 
-The *Premium* storage provides up to 64 MiB/s per TiB of throughput. Throughput performance is indexed against volume quota. For example, a volume from the Premium storage with 2 TiB of provisioned quota (regardless of actual consumption) has a throughput of 128 MiB/s.
+* <a name="Ultra"></a>Ultra storage
 
-## <a name="Standard"></a>Standard storage
+    The Ultra storage tier provides up to 128 MiB/s of throughput per 1TiB of volume quota assigned. 
 
-The *Standard* storage provides up to 16 MiB/s per TiB of throughput. Throughput performance is indexed against volume quota. For example, a volume from the Standard storage with 2 TiB of provisioned quota (regardless of actual consumption) has a throughput of 32 MiB/s.
+* <a name="Premium"></a>Premium storage
+
+    The Premium storage tier provides up to 64 MiB/s of throughput per 1TiB of volume quota assigned. 
+
+* <a name="Standard"></a>Standard storage
+
+    The Standard storage tier provides up to 16 MiB/s of throughput per 1TiB of volume quota assigned.
+
+The throughput limit for a volume is determined by the combination of the following:
+* The service level of the capacity pool to which the volume belongs
+* The quota assigned to the volume  
+This is illustrated in the diagram below:
+
+    ![Service level illustration](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
+
+In the example above, a volume from a capacity pool with the Premium storage tier that is assigned 2 TiB of quota will be assigned a throughput limit of 128 MiB/s.  This remains the case regardless of the capacity pool size or the actual volume consumption.
 
 ## Next steps
 
