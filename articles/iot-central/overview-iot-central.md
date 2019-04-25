@@ -80,10 +80,10 @@ As a builder, you can also customize the Azure IoT Central application UI for th
 
 After the builder defines the types of devices that can connect to the application, a device developer creates the code to run on the devices. As a device developer, you use Microsoft's open-source [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) to create your device code. These SDKs have broad language, platform, and protocol support to meet your needs to connect your devices to your Azure IoT Central application. The SDKs help you implement the following device capabilities:
 
-- Creating a secure connection.
-- Sending telemetry.
-- Reporting status.
-- Receiving configuration updates.
+- Create a secure connection.
+- Send telemetry.
+- Report status.
+- Receive configuration updates.
 
 For more information, see the blog post [Benefits of using the Azure IoT SDKs, and pitfalls to avoid if you don't](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/).
 
