@@ -97,7 +97,7 @@ For more details, see [Webhooks](webhooks.md).
 
 ## Sentiment
 
-Sentiment is a new feature in Batch Transcription API and is an important feature in the call centre domain. Customers can use the `AddSentiment` parameters to their requests to 
+Sentiment is a new feature in Batch Transcription API and is an important feature in the call center domain. Customers can use the `AddSentiment` parameters to their requests to 
 
 1.	Get insights on customer satisfaction
 2.	Get insight on the performance of the agents (team taking the calls)
