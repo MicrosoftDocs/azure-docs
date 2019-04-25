@@ -184,10 +184,10 @@ use BizTalk Server, these connectors might seem familiar already.
 
 Your logic apps can access enterprise systems, such as SAP and IBM MQ:
 
-|   |   | 
-|---|---| 
-| [![API icon][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API icon][sap-icon]<br/>**SAP**][sap-connector-doc] |
-||| 
+|   |   |   | 
+|---|---|---| 
+| [![API icon][ibm-3270-icon]<br/>**IBM 3270**][ibm-3270-doc] | [![API icon][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API icon][sap-icon]<br/>**SAP**][sap-connector-doc] |
+|||| 
 
 <a name="triggers-actions"></a>
 
@@ -323,6 +323,7 @@ visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 [google-drive-doc]: ./connectors-create-api-googledrive.md "Connect to GoogleDrive so you can work with your data"
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Connect to Google Sheets so you can modify your sheets"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Connects to Google Tasks so you can manage your tasks"
+[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Connect to 3270 apps on IBM mainframes"
 [ibm-db2-doc]: ./connectors-create-api-db2.md "Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more"
 [ibm-informix-doc]: ./connectors-create-api-informix.md "Connect to Informix in the cloud or on-premises. Read a row, list the tables, and more"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "Connect to IBM MQ on-premises or in Azure to send and receive messages"
@@ -429,6 +430,7 @@ visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 [google-sheets-icon]: ./media/apis-list/google-sheet.png
 [google-tasks-icon]: ./media/apis-list/google-tasks.png
 [hipchat-icon]: ./media/apis-list/hipchat.png
+[ibm-3270-icon]: ./media/apis-list/ibm-3270.png
 [ibm-db2-icon]: ./media/apis-list/ibm-db2.png
 [ibm-informix-icon]: ./media/apis-list/ibm-informix.png
 [ibm-mq-icon]: ./media/apis-list/ibm-mq.png
