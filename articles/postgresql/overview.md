@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 4/15/2018
 ---
 # What is Azure Database for PostgreSQL?
-Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the community version of open-source [PostgreSQL](https://www.postgresql.org/) database engine, versions 9.5, 9.6, and 10. It is available in two deployment options: Single Server and Hyperscale (Citus) (preview).
+Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the community version of open-source [PostgreSQL](https://www.postgresql.org/) database engine. It is available in two deployment options: Single Server and Hyperscale (Citus) (preview).
 
 ## Azure Database for PostgreSQL - Single Server
 The Single Server deployment option delivers:
