@@ -59,7 +59,11 @@ Modules are organized by functionality:
 **Machine learning algorithms** such as clustering, support vector machine, or neural networks, are available within individual modules that let you customize the machine learning task with appropriate parameters.  
   + [Score Model](score-model.md)
 
+  + [Assign Data to Clusters ](assign-data-to-clusters.md)
+
   + [Train Model](train-model.md)
+
+  + [Train Clustering Model](train-clustering-model.md)
 
   + [Evaluate Model](evaluate-model.md)
 
@@ -90,9 +94,13 @@ Modules are organized by functionality:
   + [Two-Class Neural Network](two-class-neural-network.md)
 
   + [Two-Class Support Vector Machine](two-class-support-vector-machine.md)
+  
+  + [K-Means Clustering](k-means-clustering.md)
 
 
 **Python module** makes it easy to run a custom function. You write the code, and embed it in a module, to integrate Python with an experiment service.
   + [Execute Python Script](execute-python-script.md)
+
+  + [Create Python Model](create-python-model.md)
 
 
