@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 04/15/2019
+ms.date: 05/02/2019
 # Customer intent: As a beginner data scientist who does not want to write code, I want to visualize my data so that I can use it to create machine learning models.
 ---
 
