@@ -12,9 +12,11 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Import from Azure Blob Storage
+# Import from Azure Blob Storage module
 
-This topic describes how to use the **Import from Azure Blob Storage** module in Azure Machine Learning service to read data from Azure blob storage, so that you can use the data in a machine learning experiment.  
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to read data from Azure blob storage, so that you can use the data in a machine learning experiment.  
 
 The Azure Blob Service is for storing large amounts of data, including binary data. Azure blobs can be accessed from anywhere, by using either HTTP or HTTPS. Authentication might be required depending on the type of blob storage. 
 
