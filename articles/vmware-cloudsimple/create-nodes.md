@@ -15,18 +15,28 @@ Provision nodes in the Azure portal. Then you can set up pay-as-you go capacity 
 
 ## Add a purchased node to your CloudSimple private cloud
 
-1. In the [Azure portal](https://portal.azure.com) left navigation menu, select **Dedicated VMware Cloud Nodes**.
-2. Select **Add Node**.
-3. Select the type of subscription.
-4. Enter a resource group for the node. To add a new resource group, click **Create New**.
-5. Enter a name or prefix to identify the node.
-6. Select the Azure region to host the node.
-7. Select the node location.
-8. Select the node type. You can choose the [CS28 or CS36 option](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). The latter option includes the maximum compute and memory capacity.
-9. Select the number of nodes to provision.
-10. Select **Next: Review**.
-11. Review the settings. To modify any settings, click **Previous**.
-12. Select **Add nodes**.
+
+1. Select **All services**.
+2. Search for **CloudSimple Nodes**.
+    
+    ![Search CloudSimple Nodes](media/create-cloudsimple-node-search.png)
+
+3. Select **CloudSimple Nodes**.
+4. Click **Add** to create nodes.
+
+    ![Add CloudSimple Nodes](media/create-cloudsimple-node-add.png)
+
+5. Select the subscription where you want to purchase CloudSimple nodes.
+6. Select the resource group for the nodes. To add a new resource group, click **Create New**.
+7. Enter the prefix to identify the nodes.
+8. Select the location for the node resources.
+9. Select the dedicated location to host the node resources.
+10. Select the node type. You can choose the [CS28 or CS36 option](cloudsimple-node.md). The latter option includes the maximum compute and memory capacity.
+11. Select the number of nodes to provision.
+12. Select **Review + Create**.
+13. Review the settings. To modify any settings, click **Previous**.
+14. Select **Create**.
+
 
 ## Next steps
 
