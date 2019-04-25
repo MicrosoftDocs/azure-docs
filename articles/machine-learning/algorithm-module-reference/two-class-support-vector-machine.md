@@ -13,7 +13,7 @@ ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
-# Two-Class Support Vector Machine
+# Two-Class Support Vector Machine module
 
 *Creates a binary classification model using the Support Vector Machine algorithm*  
   
@@ -21,7 +21,9 @@ ROBOTS: NOINDEX
   
 ## Module overview  
 
-This article describes how to use the **Two-Class Support Vector Machine** module in Azure Machine Learning service to create a model that is based on the support vector machine algorithm. 
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to create a model that is based on the support vector machine algorithm. 
 
 Support vector machines (SVMs) are a well-researched class of supervised learning methods. This particular implementation is suited to prediction of two possible outcomes, based on either continuous or categorical variables.
 

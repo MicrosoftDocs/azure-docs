@@ -13,7 +13,7 @@ ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
-# Two-Class Neural Network
+# Two-Class Neural Network module
 
 *Creates a binary classifier using a neural network algorithm*  
   
@@ -21,7 +21,9 @@ ROBOTS: NOINDEX
   
 ## Module overview  
 
-This article describes how to use the **Two-Class Neural Network** module in Azure Machine Learning service to create a neural network model that can be used to predict a target that has only two values.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to create a neural network model that can be used to predict a target that has only two values.
 
 Classification using neural networks is a supervised learning method, and therefore requires a *tagged dataset*, which includes a label column. For example, you could use this neural network model to predict binary outcomes such as whether or not a patient has a certain disease, or whether a machine is likely to fail within a specified window of time.  
 

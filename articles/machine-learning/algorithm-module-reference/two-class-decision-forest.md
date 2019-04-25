@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Two-Class Decision Forest
+# Two-Class Decision Forest module
 
 *Creates a two-class classification model using the decision forest algorithm*  
   
@@ -20,7 +20,9 @@ ROBOTS: NOINDEX
   
 ## Module overview
 
-This article describes how to use the **Two-Class Decision Forest** module in Azure Machine Learning service to create a machine learning model based on the decision forests algorithm.  
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to create a machine learning model based on the decision forests algorithm.  
 
 Decision forests are fast, supervised ensemble models. This module is a good choice if you want to predict a target with a maximum of two outcomes. 
 

@@ -13,7 +13,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Two-Class Logistic Regression
+# Two-Class Logistic Regression module
 
 *Creates a two-class logistic regression model*  
   
@@ -21,7 +21,9 @@ ROBOTS: NOINDEX
   
 ##  Module overview  
 
-This article describes how to use the **Two-Class Logistic Regression** module in Azure Machine Learning service to create a logistic regression model that can be used to predict two (and only two) outcomes. 
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to create a logistic regression model that can be used to predict two (and only two) outcomes. 
 
 Logistic regression is a well-known statistical technique that is used for modeling many kinds of problems. This algorithm is a *supervised learning* method;  therefore, you must provide a dataset that already contains the outcomes to train the model.  
 
