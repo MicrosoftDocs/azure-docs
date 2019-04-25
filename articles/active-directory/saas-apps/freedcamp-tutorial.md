@@ -136,7 +136,7 @@ To configure Azure AD single sign-on with Freedcamp, perform the following steps
 
 1. In a different web browser window, sign in to Freedcamp as a Security Administrator.
 
-2. On the top right corner of the page, click on **profile** and then navigate to **My Account**.
+2. On the top-right corner of the page, click on **profile** and then navigate to **My Account**.
 
 	![Freedcamp configuration](./media/freedcamp-tutorial/config01.png)
 
@@ -212,7 +212,7 @@ To enable Azure AD users to sign in to Freedcamp, they must be provisioned into 
 
 1. In a different web browser window, sign in to Freedcamp as a Security Administrator.
 
-2. On the top right corner of the page, click on **profile** and then navigate to **Manage System**.
+2. On the top-toright corner of the page, click on **profile** and then navigate to **Manage System**.
 
 	![Freedcamp configuration](./media/freedcamp-tutorial/config03.png)
 
