@@ -93,12 +93,12 @@ The ability to geocode in a country is dependent upon the road data coverage and
 | British Indian Ocean Territory                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Cambodia                                            |                 |                |              |      ✓     |          ✓         |
-| China                                               |        ✓        |        ✓       |              |      ✓     |          ✓         |
+| China                                               |                 |                |              |      ✓     |          ✓         |
 | Christmas Island                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Cocos (Keeling) Islands                             |                 |                |              |      ✓     |          ✓         |
 | Comoros                                             |                 |                |              |      ✓     |          ✓         |
 | Cook Islands                                        |                 |                |              |      ✓     |          ✓         |
-| Fiji                                                |                  |                |              |      ✓     |          ✓         |
+| Fiji                                                |                  |                |              |      ✓     |          ✓        |
 | French Polynesia                                    |                 |                |              |      ✓     |          ✓         |
 | Heard Island and McDonald Islands                   |                 |                |              |      ✓     |          ✓         |
 | Hong Kong SAR                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -108,7 +108,7 @@ The ability to geocode in a country is dependent upon the road data coverage and
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Korea                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
-| Macao                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Macao SAR                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malaysia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Micronesia                                          |                 |                |              |      ✓     |          ✓         |
 | Mongolia                                            |                 |                |              |      ✓     |          ✓         |
@@ -184,7 +184,7 @@ The ability to geocode in a country is dependent upon the road data coverage and
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lithuania                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxembourg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Macedonia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| North Macedonia                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Monaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |

@@ -3,8 +3,8 @@ title: Azure traffic analytics frequently asked questions | Microsoft Docs
 description: Get answers to some of the most frequently asked questions about traffic analytics.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: 
 
 ms.service: network-watcher
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 03/08/2018
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Traffic Analytics frequently asked questions
@@ -127,12 +127,6 @@ No. You can store raw logs in any storage account where an NSG is enabled for fl
 ## What if I can't configure an NSG for traffic analytics due to a "Not found" error?
 
 Select a supported region. If you select a non-supported region, you receive a "Not found" error. The supported regions are listed earlier in this article.
-
-## Why am I getting the error "Failed to update flow logs settings for ... InternalServerError..." when enabling NSG's in US Gov Virginia?
-
-This is due to a bug where ‘Microsoft.Network’ resource provider is not re-registered for a subscription in US Gov Virginia. The team is working on the fix for this. As a workaround, you would need to [manually re-register ‘Microsoft.Network’ RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
-
-Please contact support if the problem persists. 
 
 ## What if I am getting the status, “Failed to load,” under the NSG flow logs page?
 

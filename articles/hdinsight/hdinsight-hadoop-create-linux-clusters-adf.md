@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Create on-demand Apache Hadoop clusters in Azure HDInsight using Data Factory '
 description: Learn how to create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 

@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 02/08/2019
+ms.date: 05/06/2019
 ---
 # Azure SQL Database glossary of terms
 
@@ -33,6 +33,7 @@ Database objects|Azure SQL database|Any database in Azure SQL Database|
 ||General purpose database|A database created within or moved into the general purpose service tier of the vCore-based purchasing model|
 ||Hyperscale database|A database created within or moved into the hyperscale service tier of the vCore-based purchasing model|
 ||Business critical database|A database created within or moved into the business critical service tier of the vCore-based purchasing model|
+||Provisioned database|A database configured in the provisioned compute tier|
 |[Purchase models and resources](sql-database-purchase-models.md)|DTU-based purchasing model|[DTU-based purchasing model](sql-database-service-tiers-dtu.md)|
 ||vCore-based purchasing model|[vCore-based purchasing model](sql-database-service-tiers-vcore.md)|
 ||vCore|A core provided to the guest OS by the hypervisor.|

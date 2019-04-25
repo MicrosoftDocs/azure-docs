@@ -1,7 +1,7 @@
 ---
 title: Create and manage Azure Database for MySQL VNet service endpoints and rules using Azure CLI | Microsoft Docs
 description: This article describes how to create and manage Azure Database for MySQL VNet service endpoints and rules using Azure CLI command line.
-author: mbolz
+author: bolzmj
 ms.author: mbolz
 manager: jhubbard
 ms.service: mysql

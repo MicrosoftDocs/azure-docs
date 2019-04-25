@@ -38,7 +38,7 @@ The `Accept-Language` header and the `setLang` query parameter are mutually excl
 |Finland|FI|
 |France|FR|
 |Germany|DE|
-|Hong Kong, SAR|HK|
+|Hong Kong SAR|HK|
 |India|IN|
 |Indonesia|ID|
 |Italy|IT|
