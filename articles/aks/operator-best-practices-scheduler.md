@@ -139,10 +139,10 @@ This article focused on basic Kubernetes scheduler features. For more informatio
 [configure-default-quotas]: https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
 [kube-advisor]: https://github.com/Azure/kube-advisor
 [k8s-pdbs]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
-[k8s-node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
 
 <!-- INTERNAL LINKS -->
 [resource-limits]: developer-best-practices-resource-management.md#define-pod-resource-requests-and-limits
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selector

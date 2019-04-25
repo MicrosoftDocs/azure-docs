@@ -103,7 +103,6 @@ To implement some of these best practices, see the following articles:
 [k8s-resource-limits]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 [vscode-kubernetes]: https://github.com/Azure/vscode-kubernetes-tools
 [kube-advisor]: https://github.com/Azure/kube-advisor
-[k8s-node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
 [minikube]: https://kubernetes.io/docs/setup/minikube/
 
 <!-- INTERNAL LINKS -->
@@ -111,3 +110,4 @@ To implement some of these best practices, see the following articles:
 [dev-spaces]: ../dev-spaces/get-started-netcore.md
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

@@ -121,7 +121,7 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 [node-updates-kured]: node-updates-kured.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: faq.md
-[aks-windows-cli]: faq.md
+[aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
 
 <!-- LINKS - external -->

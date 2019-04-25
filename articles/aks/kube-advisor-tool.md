@@ -10,7 +10,6 @@ ms.date: 11/05/2018
 ms.author: seanmck
 ---
 
-
 # Checking for Kubernetes best practices in your cluster
 
 There are several best practices that you should follow on your Kubernetes deployments to ensure the best performance and resilience for your applications. You can use the kube-advisor tool to look for deployments that aren't following those suggestions.
@@ -72,4 +71,4 @@ If you are running the tool against a cluster that is not RBAC-enabled, no clean
 
 [kube-cpumem]: https://github.com/Azure/azure-quickstart-templates
 [kube-advisor-github]: https://github.com/azure/kube-advisor
-[k8s-node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selector

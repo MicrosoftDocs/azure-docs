@@ -76,4 +76,4 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
 [nodepool-upgrade]: windows-node-limitations.md
-[windows-node-cli]: windows-node-limitations.md
+[windows-node-cli]: windows-container-cli.md

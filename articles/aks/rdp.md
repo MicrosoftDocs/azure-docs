@@ -6,7 +6,7 @@ author: zr-msft
 
 ms.service: container-service
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 05/06/2019
 ms.author: zarhoads
 
 #Customer intent: As a cluster operator, I want to learn how to use RDP to connect to nodes in an AKS cluster to perform maintenance or troubleshoot a problem.
