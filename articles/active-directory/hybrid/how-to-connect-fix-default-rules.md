@@ -31,16 +31,16 @@ In the Editor, any modified default rules are shown with a warning icon in front
 
 ![Image of warning icon](media/how-to-connect-fix-default-rules/default2.png)
 
- A disabled rule with same name next to it also appears (this is the the standard default rule).
+ A disabled rule with same name next to it also appears (this is the standard default rule).
 
 ![Screenshot of Synchronization Rules Editor, showing standard default rule and modified default rule](media/how-to-connect-fix-default-rules/default2a.png)
 
 ## Common customizations
 The following are common customizations to the default rules:
 
-- [Change attribute flow](#changing-attribute-flow)
-- [Change scoping filter](#changing-scoping-filter)
-- [Change join condition](#changing-join-condition)
+- Change attribute flow
+- Change scoping filter
+- Change join condition
 
 Before changing any rules:
 
@@ -123,8 +123,8 @@ Azure AD Sync takes care of most of the objects. You can reduce the scope of obj
 
 Use one of the following methods to reduce the scope of the objects you're syncing:
 
-- [cloudFiltered attribute](#cloudfiltered-attribute)
-- [Organization unit filtering](#ou-filtering)
+- cloudFiltered attribute
+- Organization unit filtering
 
 If you reduce the scope of the users being synced, the password hash syncing also stops for the filtered-out users. If the objects are already syncing, after you reduce scope, the filtered-out objects are deleted from the target directory. For this reason, ensure that you scope very carefully.
 
