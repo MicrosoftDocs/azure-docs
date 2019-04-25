@@ -63,7 +63,7 @@ store.
     query should request information for one tenant at a time.
 
 Read the [multi-tenant
-tutorial](tutorial-design-database-hyperscale-multi-tenant) for an example of
+tutorial](./tutorial-design-database-hyperscale-multi-tenant) for an example of
 building this kind of application.
 
 ### Real-Time Apps
@@ -106,7 +106,7 @@ disproportionate amount of work.
     table to all of the nodes in the form of a reference table.
 
 Read the [real-time dashboard
-tutorial](tutorial-design-database-hyperscale-realtime) for an example of
+tutorial](./tutorial-design-database-hyperscale-realtime) for an example of
 building this kind of application.
 
 ### Timeseries Data
