@@ -165,8 +165,8 @@ If the web client is being used, confirm that there are no cached credentials is
 
 ## Next Steps
 
-- To see an overview for troubleshooting Windows Virtual Desktop and the escalation tracks, see [Overview for troubleshooting common set up issues for Windows Virtual Desktop](troubleshoot-set-up-overview.md).
-- To troubleshoot issues while setting up, see [Troubleshoot Windows Virtual Desktop set up issues](troubleshoot-set-up-issues.md)
+- For an overview of troubleshooting Windows Virtual Desktop and the escalation tracks, see [Overview for troubleshooting common set up issues for Windows Virtual Desktop](troubleshoot-set-up-overview.md).
+- To troubleshoot issues during initial setup of a Windows Virtual Desktop environment, see [Troubleshoot Windows Virtual Desktop set up issues](troubleshoot-set-up-issues.md)
 - To troubleshoot issues with VM configuration, see [Troubleshoot Windows Virtual Desktop VM issues](troubleshoot-vm-configuration.md)
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Troubleshoot common issues when using PowerShell](troubleshoot-powershell.md)
 - To learn more about the Preview service, see [Windows Desktop Preview environment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup?branch=pr-en-us-71423).
