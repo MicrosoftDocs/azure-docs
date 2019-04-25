@@ -29,7 +29,7 @@ Each language has specific build steps to create a deployment artifact, which ca
 
 #### .NET
 
-You can use the following samples to create your YAML file to build your .NET app, the **vmImage** should be changed depending on which Azure Functions hosting OS your app is on:
+You can use the following sample to create your YAML file to build your .NET app, the **vmImage** should be changed depending on which Azure Functions hosting OS your app is on:
 
 ```yaml
 jobs:
@@ -62,7 +62,7 @@ steps:
 
 #### JavaScript
 
-You can use the following samples to create your YAML file to build your JavaScript app:
+You can use the following sample to create your YAML file to build your JavaScript app:
 
 ```yaml
 jobs:
@@ -165,20 +165,23 @@ Templates in Azure DevOps, are predefined group of tasks that build or deploy an
 Building your app in Azure Pipelines depends on the programming language of your app. Each language has specific build steps to create a deployment artifact, that can be used to update your function app in Azure.
 To use the built-in build templates, when creating a new build pipeline, choose **Use the classic editor** to create a pipeline using the designer templates
 
-![](media/functions-how-to-azure-devops/classic-editor.png)
+![Azure Pipelines classic editor](media/functions-how-to-azure-devops/classic-editor.png)
 
 After configuring the source of your code, search for Azure Functions build templates, and choose the template that matches your app language.
 
-![](media/functions-how-to-azure-devops/build-templates.png)
+![Azure Functions build templates](media/functions-how-to-azure-devops/build-templates.png)
 
 #### JavaScript Apps
 
 If you JavaScript app have a dependency on Windows native modules, you will need to update:
+
 - The Agent Pool version to **Hosted VS2017**
-![](media/functions-how-to-azure-devops/change-agent.png)
+
+![Change Build Agent OS](media/functions-how-to-azure-devops/change-agent.png)
 
 - The script in the **Build extensions** step in the template to `IF EXIST *.csproj dotnet build extensions.csproj --output ./bin`
-![](media/functions-how-to-azure-devops/change-script.png)
+
+![Change Script](media/functions-how-to-azure-devops/change-script.png)
 
 ### Deploy your app
 
@@ -188,12 +191,12 @@ When creating a new release pipeline, search for Azure Functions release templat
 
 ## Creating an Azure Pipeline using the Azure CLI
 
-Using the `az functionapp devops-build create` [command](/cli/azure/functionapp/devops-build#az-functionapp-devops-build-create) a pipeline will get created to build and release any code changes in your repo. The command will generate a new YAML file that defines the build and release pipeline and commit it to your repo.
+Using the `az functionapp devops-build create` [command](/cli/azure/functionapp/devops-build#az-functionapp-devops-build-create), a pipeline will get created to build and release any code changes in your repo. The command will generate a new YAML file that defines the build and release pipeline and commit it to your repo.
 The pre-requisites for this command depend on the location of your code:
 
 - If your code is in GitHub:
 
-    - You need to have **write** permission (for example, owner) of your subscription.
+    - You need to have **write** permission to your subscription.
 
     - You are the project administrator in Azure DevOps.
 
@@ -203,8 +206,8 @@ The pre-requisites for this command depend on the location of your code:
 
 - If your code is in Azure Repos:
 
-    - You need to have **write** permission (for example, owner) of your subscription.
- 
+    - You need to have **write** permission to your subscription.
+
     - You are the project administrator in Azure DevOps.
 
 ## Next steps
