@@ -27,7 +27,7 @@ Single Sign-On (SSO) enables users to enter their credentials once to sign in an
 
 Azure AD provides SSO capabilities to applications by setting a session cookie when the user authenticates the first time. The MSAL.js library allows applications to leverage this in a few ways.
 
-## SSO in an app between browser tabs
+## SSO between browser tabs
 
 When your application is open in multiple tabs and you first sign in the user on one tab, the user is also signed in on the other tabs without being prompted. MSAL.js caches the ID token for the user in the browser `localStorage` and will sign the user in to the application on the other open tabs.
 
@@ -60,7 +60,7 @@ When applications are hosted on different domains, the tokens cached on domain A
 
 This means that when users signed in on domain A navigate to an application on domain B, they will be redirected or prompted with the Azure AD page. Since Azure AD still has the user session cookie, it will sign in the user and they will not have to re-enter the credentials. If the user has multiple user accounts in session with Azure AD, the user will be prompted to pick the relevant account to sign in with.
 
-## Automatically select account on Azure AD
+### Automatically select account on Azure AD
 
 In certain cases, the application has access to the user's authentication context and wants to avoid the Azure AD account selection prompt when multiple accounts are signed in.  This can be done a few different ways:
 
@@ -111,7 +111,7 @@ Read [here](v2-oauth2-implicit-grant-flow.md) for more information on the values
 > [!Note]
 > You cannot pass SID and login_hint at the same time. This will result in error response.
 
-## SSO to an app without MSAL.js login
+## SSO without MSAL.js login
 
 By design, MSAL.js requires that a login method is called to establish a user context before getting tokens for APIs. Since login methods are interactive, the user sees a prompt.
 
@@ -138,7 +138,7 @@ userAgentApplication.acquireTokenSilent(request).then(function(response) {
 });
 ```
 
-## SSO when updating from ADAL.js to MSAL.js
+## SSO in ADAL.js to MSAL.js update
 
 MSAL.js brings feature parity with ADAL.js for Azure AD authentication scenarios. To make the migration from ADAL.js to MSAL.js easy and to avoid prompting your users to sign in again, the library reads the ID token representing user’s session in ADAL.js cache, and seamlessly signs in the user in MSAL.js.  
 
@@ -169,3 +169,7 @@ const myMSALObj = new UserAgentApplication(config);
 ```
 
 Once this is configured, MSAL.js will be able to read the cached state of the authenticated user in ADAL.js and use that to provide SSO in MSAL.js.
+
+## Next steps
+
+Learn more about the [single sign-on session and token lifetime](active-directory-configurable-token-lifetimes.md) values in Azure AD.
