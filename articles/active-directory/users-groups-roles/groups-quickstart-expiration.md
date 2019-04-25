@@ -72,7 +72,7 @@ That's it! In this quickstart, you successfully set the expiration policy for th
 
 ## Next steps
 
-For more information about expiration including technical constraints, adding a list of custom blocked words, and end user experiences across Office 365 apps, see the following article containing those expiration policy details:
+For more information about expiration including PowerShell instructions and technical constraints, see the following article:
 
 > [!div class="nextstepaction"]
-> [Expiration policy all details](groups-lifecycle.md)
+> [Expiration policy PowerShell](groups-lifecycle.md)
