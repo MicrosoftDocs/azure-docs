@@ -57,11 +57,11 @@ There are some visual differences between embedded webview and system browser in
 
 **Interactive sign-in with MSAL.NET using the Embedded Webview:**
 
-![embedded](/media/msal-web-browsers/embedded-webview.png)
+![embedded](media/msal-web-browsers/embedded-webview.png)
 
 **Interactive sign-in with MSAL.NET using the System Browser:**
 
-![System browser](/media/msal-web-browsers/system-browser.png)
+![System browser](media/msal-web-browsers/system-browser.png)
 
 ### Developer Options
 
