@@ -246,6 +246,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|7|7|7|7|7|7|
 |||
+## Hyperscale service tier
 
 ### Generation 5 compute platform
 
@@ -267,7 +268,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Number of replicas|2|2|2|2|2|2|2|2|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Included backup storage (preview limit)|7|7|7|7|7|7|7|7|
+|Included backup storage |7|7|7|7|7|7|7|7|
 |||
 
 ## Next steps
