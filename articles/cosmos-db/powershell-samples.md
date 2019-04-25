@@ -16,12 +16,12 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |---|---|
 |**Azure Cosmos accounts**||
 |[Create an account](scripts/powershell/sql/ps-account-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos SQL API account. |
-|[Get an account](scripts/powershell/sql/ps-account-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get the properties of an Azure Cosmos account. |
+|[Get an account](scripts/powershell/sql/ps-account-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get the properties of an Azure Cosmos account. |
 |[Add a region](scripts/powershell/sql/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get an Azure Cosmos account and add a region to the list of locations. |
 |[Change the failover priority](scripts/powershell/sql/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Change the failover priority of an Azure Cosmos account with a manual failover trigger. |
 |[Update tags](scripts/powershell/sql/ps-account-tags-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Update the tags for an Azure Cosmos account. |
 |[Get account keys](scripts/powershell/sql/ps-account-key-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get the primary and secondary keys of an Azure Cosmos account. |
-|[Regenerate account keys](scripts/powershell/sql/ps-account-key-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Regenerate the primary and secondary keys of an Azure Cosmos account. |
+|[Regenerate account keys](scripts/powershell/sql/ps-account-key-regenerate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Regenerate the primary and secondary keys of an Azure Cosmos account. |
 |[List connection strings](scripts/powershell/sql/ps-account-connection-string-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get the primary and secondary connection strings of an Azure Cosmos account. |
 |[Create IP Firewall](scripts/powershell/sql/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create an IP Firewall for an Azure Cosmos account. |
 |[Delete an Azure Cosmos account](scripts/powershell/sql/ps-account-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Delete an Azure Cosmos account. |

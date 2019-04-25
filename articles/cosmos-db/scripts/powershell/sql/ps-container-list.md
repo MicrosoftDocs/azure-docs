@@ -33,13 +33,8 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 |**Azure Resources**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Creates a resource. |
 | [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | Gets a resource. |
-| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Updates a resource. |
-| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | Invokes an action on a resource. |
-| [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource) | Deletes a resource. |
 |**Azure Resource Groups**| |
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
