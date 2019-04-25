@@ -68,6 +68,7 @@ The following table lists the devices and browsers that have been tested.
 | One+ | Dolphin | User canceled auth|
 | One+ | CM browser | User canceled auth|
 | Huawei/One+ | none installed | AndroidActivityNotFound ex|
+
 &ast; Supports custom tabs
 
 ## Next steps
