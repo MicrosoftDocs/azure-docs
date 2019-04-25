@@ -46,10 +46,11 @@ You also have the choice of sending your data to Azure Monitor metrics time-seri
 To learn more on how to configure this sink, refer to the [Azure diagnostics schema documentation.](diagnostics-extension-schema-1dot3.md)
 
 ## Costs
-Each of the options above may incur costs. Be sure to research them to avoid unexpected bills.  Application Insights, Event hub, and Azure Storage have separate costs associated with ingestion and the time stored. In particular, Azure Storage will hold any data forever so you may want to purge older data after a certain time period to keep your costs down.
+Each of the options above may incur costs. Be sure to research them to avoid unexpected bills.  Application Insights, Event hub, and Azure Storage have separate costs associated with ingestion and the time stored. In particular, Azure Storage will hold any data forever so you may want to purge older data after a certain time period to keep your costs down.    
 
 ## Versioning and configuration schema
 See [Azure Diagnostics Version History and Schema](diagnostics-extension-schema.md).
+
 
 ## Next steps
 Choose which service you're trying to collect diagnostics on and use the following articles to get started. Use the general Azure diagnostics links for reference for specific tasks.
@@ -80,3 +81,4 @@ Get started at [Monitor a Service Fabric application](../../service-fabric/servi
 ## General articles
 * Learn to [use Performance Counters in Azure Diagnostics](../../cloud-services/diagnostics-performance-counters.md).
 * If you have trouble with diagnostics starting or finding your data in Azure storage tables, see [TroubleShooting Azure Diagnostics](diagnostics-extension-troubleshooting.md)
+
