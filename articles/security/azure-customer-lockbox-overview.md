@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 05/03/2019
+ms.date: 05/07/2019
 ---
 
 # Customer Lockbox for Microsoft Azure
