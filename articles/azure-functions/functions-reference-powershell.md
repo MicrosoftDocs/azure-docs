@@ -154,19 +154,28 @@ For more information, see [About CommonParameters](https://go.microsoft.com/fwli
 An HTTP trigger returns a response using an output binding named `response`. In the following example, the output binding of `response` has the value of "output #1":
 
 ```powershell
-PS >Push-OutputBinding -Name response -Value "output #1"
+PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
+    StatusCode = [System.Net.HttpStatusCode]::OK
+    Body = "output #1"
+})
 ```
 
 Because the output is to HTTP, which accepts a singleton value only, an error is thrown when `Push-OutputBinding` is called a second time.
 
 ```powershell
-PS >Push-OutputBinding -Name response -Value "output #2"
+PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
+    StatusCode = [System.Net.HttpStatusCode]::OK
+    Body = "output #2"
+})
 ```
 
 For outputs that only accept singleton values, you can use the `-Clobber` parameter to override the old value instead of trying to add to a collection. The following example assumes that you have already added a value. By using `-Clobber`, the response from the following example overrides the existing value to return a value of "output #3":
 
 ```powershell
-PS >Push-OutputBinding -Name response -Value "output #3" -Clobber
+PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
+    StatusCode = [System.Net.HttpStatusCode]::OK
+    Body = "output #3"
+}) -Clobber
 ```
 
 #### Push-OutputBinding example: Queue output binding
@@ -532,6 +541,50 @@ In this case, the `function.json` for `myFunction` includes a `scriptFile` prope
   ]
 }
 ```
+
+## Using PowerShell modules as Azure functions by configuring a function `entryPoint`
+
+This article has exclusively used `ps1`s as PowerShell functions.
+However, functions may also be declared in PowerShell modules by leveraging `scriptFile` and another `function.json` config, `entryPoint`.
+
+The `entryPoint`, in PowerShell functions, is the name of a function or cmdlet you want to run that exists in the PowerShell module you defined in `scriptFile`.
+
+Consider the following folder structure:
+
+```
+FunctionApp
+ | - host.json
+ | - myFunction
+ | | - function.json
+ | - lib
+ | | - PSFunction.psm1
+```
+
+Where `PSFunction.psm1` contains:
+
+```powershell
+function Invoke-PSTestFunc {
+    param($InputBinding, $TriggerMetadata)
+
+    Push-OutputBinding -Name OutputBinding -Value "output"
+}
+
+Export-ModuleMember -Function "Invoke-PSTestFunc"
+```
+
+In this case, the `function.json` for `myFunction` includes a `scriptFile` property referencing the file with the exported function to run and an `entryPoint` property referencing the function within the PowerShell module you want to invoke.
+
+```json
+{
+  "scriptFile": "../lib/PSFunction.psm1",
+  "entryPoint": "Invoke-PSTestFunc",
+  "bindings": [
+    // ...
+  ]
+}
+```
+
+With this configuration, the `Invoke-PSTestFunc` will get executed exactly as a `run.ps1` would.
 
 ## Considerations for PowerShell functions
 
