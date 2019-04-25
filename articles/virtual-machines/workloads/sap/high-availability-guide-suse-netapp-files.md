@@ -165,14 +165,11 @@ When considering Azure NetApp Files for the SAP Netweaver on SUSE High Availabil
 
 - The minimum capacity pool is 4 TiB. The capacity pool size must be in multiples of 4 TiB.
 - The minimum volume is 100 GiB
-- Azure NetApp Files and all virtual machines, where Azure NetApp Files volumes will be mounted must be in the same Azure Virtual Network. [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) isn't supported yet by Azure NetApp Files.
+- Azure NetApp Files and all virtual machines, where Azure NetApp Files volumes will be mounted, must be in the same Azure Virtual Network or in [peered virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) in the same region. Azure NetApp Files access over VNET peering in the same region is supported now. Azure NetApp access over global peering is not yet supported.
 - The selected virtual network must have a subnet, delegated to Azure NetApp Files.
 - Azure NetApp Files currently supports only NFSv3 
 - Azure NetApp Files offers [export policy](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
 - Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. 
-
-   > [!NOTE]
-   > Be aware that Azure NetApp Files doesn't support Virtual Network peering yet. Deploy the VMs and the Azure NetApp Files volumes in the same virtual network.
 
 ## Deploy Linux VMs manually via Azure portal
 
@@ -573,6 +570,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 9. **[1]** Create the SAP cluster resources
 
+If using enqueue server 1 architecture (ENSA1), define the resources as follows:
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
@@ -598,6 +597,35 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm node online <b>anftstsapcl1</b>
    sudo crm configure property maintenance-mode="false"
    </code></pre>
+
+   SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
+   If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), define the resources as follows:
+
+   <pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true
+   
+   sudo crm configure modgroup g-<b>QAS</b>_ASCS add rsc_sap_<b>QAS</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>QAS</b>_ERS add rsc_sap_<b>QAS</b>_ERS<b>01</b>
+   
+   sudo crm configure colocation col_sap_<b>QAS</b>_no_both -5000: g-<b>QAS</b>_ERS g-<b>QAS</b>_ASCS
+   sudo crm configure order ord_sap_<b>QAS</b>_first_start_ascs Optional: rsc_sap_<b>QAS</b>_ASCS<b>00</b>:start rsc_sap_<b>QAS</b>_ERS<b>01</b>:stop symmetrical=false
+   
+   sudo crm node online <b>anftstsapcl1</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+   If you are upgrading from an older version and switching to enqueue server 2, see sap note [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
@@ -1052,7 +1080,7 @@ The following tests are a copy of the test cases in the [best practices guides o
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
 
-   Create an enqueue lock by, for example edit a user in transaction su01. Run the following commands as <sapsid\>adm on the node where the ASCS instance is running. The commands will stop the ASCS instance and start it again. The enqueue lock is expected to be lost in this test.
+   Create an enqueue lock by, for example edit a user in transaction su01. Run the following commands as <sapsid\>adm on the node where the ASCS instance is running. The commands will stop the ASCS instance and start it again. If using enqueue server 1 architecture, the enqueue lock is expected to be lost in this test. If using enqueue server 2 architecture, the enqueue will be retained. 
 
    <pre><code>anftstsapcl2:qasadm 51> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1067,7 +1095,7 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>anftstsapcl2:qasadm 52> sapcontrol -nr 00 -function StartWait 600 2
    </code></pre>
 
-   The enqueue lock of transaction su01 should be lost and the back-end should have been reset. Resource state after the test:
+   The enqueue lock of transaction su01 should be lost, if using enqueue server replication 1 architecture and the back-end should have been reset. Resource state after the test:
 
    <pre><code>
     Resource Group: g-QAS_ASCS

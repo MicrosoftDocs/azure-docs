@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Configure security to access and manage Azure Time Series Insights Preview | Microsoft Docs'
 description: This article describes how to configure security and permissions as management access policies and data access policies to secure Azure Time Series Insights Preview.
 ms.service: time-series-insights
@@ -17,13 +17,16 @@ ms.custom: seodec18
 
 This article discusses the two types of Azure Time Series Insights Preview access policies.
 
-## Grant data access
-
-Follow these steps to grant data access for a user principal.
+## Sign in to TSI
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Locate your Time Series Insights environment. Enter `Time Series` in the **Search** box. Select **Time Series Environment** in the search results.
 1. Select your Time Series Insights environment from the list.
+
+## Grant data access
+
+Follow these steps to grant data access for a user principal.
+
 1. Select **Data Access Policies**, and then select **+ Add**.
 
     ![Data-access-one][1]
@@ -50,15 +53,12 @@ Follow these steps to grant data access for a user principal.
 
     ![Data-access-five][5]
 
-## Provide guest access to a user from another Azure Active Directory tenant
+## Provide guest access from another AAD tenant
 
 `Guest` isn’t a management role. It’s a term used for an account that’s invited from one tenant to another. After the guest account is invited into the tenant’s directory, it can have the same access control applied to it like any other account. You can grant management access to a Time Series Insights Environment by using the Access Control (IAM) blade. Or you can grant access to the data in the environment through the Data Access Policies blade. For more information on Azure Active Directory (Azure AD) tenant guest access, read [Add Azure Active Directory B2B collaboration users in the Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
 Follow these steps to grant guest access to a Time Series Insights environment to an Azure AD user from another tenant.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Locate your Time Series Insights environment. Enter **Time Series** in the **Search** box. Select **Time Series Environment** in the search results.
-1. Select your Time Series Insights environment from the list.
 1. Select **Data Access Policies**, and then select **+ Invite**.
 
     ![Data-access-six][6]
@@ -107,12 +107,14 @@ Follow these steps to grant guest access to a Time Series Insights environment t
 
     ![Data-access-fifteen][15]
 
-After the guest user selects your tenant, they see the Time Series Insights environment to which you provided them access. They now have all the capabilities associated with the role that you provided them with in step 8.
+After the guest user selects your tenant, they see the Time Series Insights environment to which you provided them access. They now have all the capabilities associated with the role that you provided them with in **step 5**.
 
 ## Next steps
 
 * Learn [how to add an Azure Event Hubs event source](./time-series-insights-how-to-add-an-event-source-eventhub.md) to your Time Series Insights environment.
+
 * Send [events to the event source](./time-series-insights-send-events.md).
+
 * View [your environment in the Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
 <!-- Images -->

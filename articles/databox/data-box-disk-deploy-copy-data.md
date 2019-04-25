@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -47,7 +47,7 @@ Review the following considerations before you copy the data to the disks:
 - Only the fixed VHDs can be uploaded to create managed disks. Dynamic VHDs, differencing VHDs or VHDX files are not supported.
 
 
-## Perform the following steps to connect and copy data from your computer to the Data Box Disk.
+Perform the following steps to connect and copy data from your computer to the Data Box Disk.
 
 1. View the contents of the unlocked drive. The list of the precreated folders and subfolders in the drive is different depending upon the options selected when placing the Data Box Disk order.
 

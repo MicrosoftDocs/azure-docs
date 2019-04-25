@@ -154,6 +154,9 @@
           href: apache-spark-creating-ml-pipelines.md
     - name: Analyze big data
       items:
+        - name: Apache Hive with Apache Spark
+          href: ../interactive-query/apache-hive-warehouse-connector.md
+          maintainContext: true
         - name: Use Apache Spark to read and write Apache HBase data
           href: ../hdinsight-using-spark-query-hbase.md
           maintainContext: true
@@ -440,14 +443,16 @@
     href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:
-    - name: Release notes
+  - name: Release notes
+    items:
+    - name: Current release notes
       href: ../hdinsight-release-notes.md
       maintainContext: true
       items:
       - name: Archived release notes
         href: ../hdinsight-release-notes-archive.md
         maintainContext: true
-      - name: Changes to cluster configuration access		
+      - name: Migrate to granular role-based access for cluster configurations
         href: ../hdinsight-migrate-granular-access-cluster-configurations.md
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics

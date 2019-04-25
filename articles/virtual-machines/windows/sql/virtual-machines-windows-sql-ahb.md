@@ -168,7 +168,7 @@ Register SQL Server VM using PowerShell with the following code snippet:
 # Register your existing SQL Server VM with the new resource provider
 # example: $vm=Get-AzVm -ResourceGroupName AHBTest -Name AHBTest
 $vm=Get-AzVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
-New-AzResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Proper
+New-AzResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id}
 ```
 
 

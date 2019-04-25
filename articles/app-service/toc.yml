@@ -67,8 +67,6 @@
     href: app-service-how-works-readme.md
   - name: App Service plans
     href: overview-hosting-plans.md
-  - name: Java runtime support
-    href: app-service-jre-support.md
   - name: OS functionality
     href: operating-system-functionality.md
   - name: Security
@@ -96,6 +94,8 @@
       href: web-sites-configure.md
     - name: Configure PHP
       href: web-sites-php-configure.md
+    - name: Java developer guide
+      href: configure-language-java.md
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md
   - name: Deploy to Azure
