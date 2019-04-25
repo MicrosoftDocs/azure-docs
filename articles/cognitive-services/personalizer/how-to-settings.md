@@ -27,7 +27,7 @@ Create a Personalizer resource for each feedback loop.
 
     ![Sign in to the Azure portal. Find your Personalizer resource. In the Resource management section, select Settings.](media/settings/how-to-configure.png)
 
-## Configure the reward settings for the feedback loop
+### Reward settings for the feedback loop
 
 Configure the service's settings for your feedback loop's use of rewards. Changes to the following settings will reset the current Personalizer model and retrain it with the last 2 days of data:
 
@@ -41,7 +41,7 @@ Configure the service's settings for your feedback loop's use of rewards. Change
 
 After changing these settings, make sure to select **Save**.
 
-## Configure the exploration setting 
+### Exploration setting 
 
 Personalization is able to discover new patterns and adapt to user behavior changes over time by exploring alternatives. The **Exploration** setting determines what percentage of Rank calls are answered with exploration. 
 
@@ -49,15 +49,31 @@ Changes to this setting will reset the current Personalizer model and retrain it
 
 ![The exploration setting determines what percentage of Rank calls are answered with exploration](media/settings/configure-exploration-setting.png)
 
-## Configure model update frequency
+After changing this setting, make sure to select **Save**.
+
+### Model update frequency
 
 **Model update frequency** sets how often a new Personalizer model is retrained. 
 
-![Model update frequency sets how often a new Personalizer model is retrained. ](media/settings/configure-model-update-frequency-settings.png)
+![Model update frequency sets how often a new Personalizer model is retrained.](media/settings/configure-model-update-frequency-settings.png)
 
-## Configure data retention
+After changing this setting, make sure to select **Save**.
+
+### Data retention
 
 **Data retention period** sets how many days Personalizer keeps data logs. Past data logs are required to perform [offline evaluations](concepts-offline-evaluation.md), which are used to measure the effectiveness of Personalizer and optimize Learning Policy.
+
+After changing this setting, make sure to select **Save**.
+
+## Export the Personalizer model
+
+From the Resource management's section for **Model and Policy**, review model creation and last updated date and export the current model.
+
+![Export current Personalizer model](media/settings/export-current-personalizer-model.png)
+
+## Import and export learning policy
+
+From the Resource management's section for **Model and Policy**, import a new learning policy or export the current learning policy.
 
 ## Next steps
 
