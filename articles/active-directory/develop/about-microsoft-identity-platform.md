@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) identity service and developer platform. It allows developers to build applications that sign in users, get tokens to call APIs, such as Microsoft Graph, or APIs that developers have built. It consists of an authentication service, open-source libraries, application registration, and configuration (through a developer portal and application API), full developer documentation, quickstart samples, code samples, tutorials, how-to guides, and other developer content. The Microsoft identity platform supports industry standard protocols such as OAuth 2.0 and OpenID Connect.
 
-Up until now, most developers have worked with the Azure AD v1.0 platform to authenticate work and school accounts (typically provisioned by Azure AD) by requesting tokens from the Azure AD v1.0 endpoint using Azure AD Authentication Library (ADAL), Azure portal for application registration and configuration, and Azure AD Graph API for programmatic application configuration.
+Up until now, most developers have worked with the Azure AD v1.0 platform to authenticate work and school accounts (provisioned by Azure AD) by requesting tokens from the Azure AD v1.0 endpoint, using Azure AD Authentication Library (ADAL), Azure portal for application registration and configuration, and Azure AD Graph API for programmatic application configuration.
 
 With Microsoft identity platform (v2.0), expand your reach to these kinds of users:
 
@@ -33,7 +33,7 @@ With Microsoft identity platform (v2.0), expand your reach to these kinds of use
 - Personal accounts (such as Outlook.com or Hotmail.com)
 - Your customers who bring their own email or social identity (such as LinkedIn, Facebook, Google) via the Azure AD B2C offering
 
-This unified Microsoft identity platform allows you to write code once and authenticate any Microsoft identity into your application. For several platforms, there’s a fully supported open-source library called Microsoft Authentication Library (MSAL).  MSAL is simple to use, provides great single sign-on (SSO) experiences for your users, helps you achieve high reliability and performance, and is developed using Microsoft Secure Development Lifecycle (SDL). When calling APIs, you can configure your application to take advantage of incremental consent, which allows you to delay the request for consent for more invasive scopes until the application’s usage warrants this at runtime.
+With the unified Microsoft identity platform, you can write code once and authenticate any Microsoft identity into your application. For several platforms, there’s a fully supported open-source library called Microsoft Authentication Library (MSAL). MSAL is simple to use, provides great single sign-on (SSO) experiences for your users, helps you achieve high reliability and performance, and is developed using Microsoft Secure Development Lifecycle (SDL). When calling APIs, you can configure your application to take advantage of incremental consent, which allows you to delay the request for consent for more invasive scopes until the application’s usage warrants this at runtime.
 
 You can use the Azure portal to register and configure your application, and use the Microsoft Graph API for programmatic application configuration.
 
@@ -47,7 +47,7 @@ The following diagram shows the Microsoft identity experience at a high level, i
 
 ### App registration experience
 
-The Azure portal **[App registrations](https://go.microsoft.com/fwlink/?linkid=2083908)** experience is the one portal experience for managing all applications you’ve integrated with Microsoft identity platform. If you have been using the Application Registration Portal should use the Azure portal app registration experience instead.
+The Azure portal **[App registrations](https://go.microsoft.com/fwlink/?linkid=2083908)** experience is the one portal experience for managing all applications you’ve integrated with Microsoft identity platform. If you have been using the Application Registration Portal, starting using the Azure portal app registration experience instead.
 
 For integration with Azure AD B2C (when authenticating social or local identities), you’ll need to register your application in a B2C tenant. This experience is also part of the Azure portal.
 
