@@ -223,7 +223,7 @@
           href: platform/diagnostic-logs-append-blobs.md
         - name: VM guest to metrics store
           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md  
-        - name: VM scale set guest to metrics store
+        - name: Virtual machine scale set guest to metrics store
           href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md  
         - name: VM classic guest to metrics store 
           href: platform/collect-custom-metrics-guestos-vm-classic.md  
@@ -303,8 +303,6 @@
             href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md
-        - name: Previews
-          href: app/previews.md
       - name: ASP.NET apps
         items:
         - name: Web apps
@@ -347,9 +345,7 @@
       - name: Java apps
         items:
         - name: Web apps
-          href: app/java-get-started.md
-        - name: Web apps - runtime
-          href: app/java-live.md
+          href: app/java-get-started.md        
         - name: Docker apps
           href: app/docker.md
         - name: Log traces
@@ -580,8 +576,8 @@
           href: insights/network-performance-monitor.md
         - name: Performance Monitor
           href: insights/network-performance-monitor-performance-monitor.md
-        - name: Service Endpoint
-          href: insights/network-performance-monitor-service-endpoint.md
+        - name: Service Connectivity Monitor
+          href: insights/network-performance-monitor-service-connectivity.md
         - name: ExpressRoute
           href: insights/network-performance-monitor-expressroute.md
         - name: Pricing
@@ -657,8 +653,9 @@
   - name: Visualize data
     items:
     - name: Views
-      href: platform/view-designer.md
       items:
+      - name: View Designer
+        href: platform/view-designer.md
       - name: Tile reference
         href: platform/view-designer-tiles.md
       - name: Visualization part reference
@@ -863,9 +860,9 @@
         href: platform/autoscale-common-scale-patterns.md
       - name: Autoscale using a custom metric
         href: platform/autoscale-custom-metric.md
-      - name: Autoscale VM scale sets using Resource Manager templates
+      - name: Autoscale virtual machine scale sets using Resource Manager templates
         href: platform/autoscale-virtual-machine-scale-sets.md
-      - name: Automatically scale machines in a VM scale set
+      - name: Automatically scale machines in a virtual machine scale set
         href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
       - name: Configure webhooks and email notifications on autoscale
         href: platform/autoscale-webhook-email.md

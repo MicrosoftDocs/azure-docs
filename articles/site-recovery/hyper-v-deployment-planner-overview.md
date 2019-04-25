@@ -1,12 +1,12 @@
 ﻿---
 title: About the Azure Site Recovery Deployment Planner for disaster recovery of Hyper-V VMs to Azure | Microsoft Docs
 description: Learn about the Azure Site Recovery Deployment Planner Hyper-V disaster recovery to Azure.
-author: nsoneji
+author: mayurigupta13
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: nisoneji
+ms.date: 4/9/2019
+ms.author: mayg
 
 ---
 # About the Azure Site Recovery Deployment Planner for Hyper-V disaster recovery to Azure
@@ -127,8 +127,8 @@ If you have previous version of the deployment planner, do either of the followi
   >Each new deployment planner is a cumulative update of the .zip file. You don't need to copy the newest files to the previous  folder. You can create and use a new folder.
 
 ## Version history
-The latest ASR Deployment Planner tool version is 2.3.
-Refer to [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
+The latest Azure Site Recovery Deployment Planner tool version is 2.3.
+Refer to [Azure Site Recovery Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
 
 
 ## Next steps

@@ -128,6 +128,8 @@ There are two parts to this scenario:
    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
    ```
 
+   Note that `Export-AzSOfflineMarketplaceItem` has an additional `-cloud` flag that specifies the cloud environment. By default, it is **azurecloud**.
+
 6. When the tool runs, you should see a screen similar to the following image, with the list of available marketplace items:
 
    [![Azure Marketplace items popup](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace items")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)

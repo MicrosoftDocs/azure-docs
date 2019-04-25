@@ -69,7 +69,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?i
 |Header|Content-Type|string|The media type of the body sent to the API. Default value is: ``|
 |Header|Authorization|string|Your endpoint key (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Post Body|JSON object|JSON|The question with settings|
-|Query string parameter (optional)|`isTest`|boolean|If set to true, returns results from `testkb` Search index instead of published index.|
+
 
 The JSON body has several settings:
 
@@ -78,6 +78,7 @@ The JSON body has several settings:
 |`question`|required|string|A user question to be sent to your knowledge base.|
 |`top`|optional|integer|The number of ranked results to include in the output. The default value is 1.|
 |`userId`|optional|string|A unique ID to identify the user. This ID will be recorded in the chat logs.|
+|`isTest`|optional|boolean|If set to true, returns results from `testkb` Search index instead of published index.|
 |`strictFilters`|optional|string|If specified, tells QnA Maker to return only answers that have the specified metadata.|
 
 An example JSON body looks like:
@@ -86,6 +87,7 @@ An example JSON body looks like:
 {
     "question": "qna maker and luis",
     "top": 6,
+    "isTest": true,
     "strictFilters": [
     {
         "name": "category",

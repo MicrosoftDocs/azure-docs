@@ -41,7 +41,7 @@ The following table lists the different ways that you can use Logs in Azure Moni
 | Analyze | Use [Log Analytics](../log-query/get-started-portal.md) in the Azure portal to write [log queries](../log-query/log-query-overview.md) and interactively analyze log data using the powerful Data Explorer analysis engine.<br>Use the [Application Insights analytics console](../app/analytics.md) in the Azure portal to write log queries and interactively analyze log data from Application Insights. |
 | Visualize | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](../app/usage-workbooks.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](powerbi.md) to use different visualizations and share with users outside of Azure.<br>Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources.|
 | Alert | Configure a [log alert rule](alerts-log.md) that sends a notification or takes [automated action](action-groups.md) when the results of the query match a particular result.<br>Configure a [metric alert rule](alerts-metric-logs.md) on certain log data logs extracted as metrics. |
-| Retrieve | Access log query results from a command line using [Azure CLI](/azure/ext/log-analytics/monitor/log-analytics).<br>Access log query results from a command line using [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Access log query results from a custom application using [REST API](https://dev.loganalytics.io/). |
+| Retrieve | Access log query results from a command line using [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Access log query results from a command line using [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Access log query results from a custom application using [REST API](https://dev.loganalytics.io/). |
 | Export | Build a workflow to retrieve log data and copy it to an external location using [Logic Apps](~/articles/logic-apps/index.yml). |
 
 
@@ -100,8 +100,8 @@ Azure Monitor can collect log data from a variety of sources both within Azure a
 |:---|:---|
 | Requests and exceptions | Detailed data about application requests and exceptions are in the  _requests_, _pageViews_, and _exceptions_ tables. Calls to [external components](../app/asp-net-dependencies.md) are in the _dependencies_ table. |
 | Usage and performance | Performance for the application is available in the _requests_, _browserTimings_ and _performanceCounters_ tables. Data for [custom metrics](../app/api-custom-events-metrics.md#trackevent) is in the _customMetrics_ table.|
-| Trace data | Results from [distributed tracing](/app/distributed-tracing) are stored in the _traces_ table. |
-| Availability tests | Summary data from [availability tests](/app/monitor-web-app-availability) is stored in the _availabilityResults_ table. Detailed data from these tests are in separate storage and accessed from  Application Insights in the Azure portal. |
+| Trace data | Results from [distributed tracing](../app/distributed-tracing.md) are stored in the _traces_ table. |
+| Availability tests | Summary data from [availability tests](../app/monitor-web-app-availability.md) is stored in the _availabilityResults_ table. Detailed data from these tests are in separate storage and accessed from  Application Insights in the Azure portal. |
 
 ### Insights
 
@@ -122,7 +122,7 @@ Azure Monitor can collect log data from a variety of sources both within Azure a
 | Data | Description |
 |:---|:---|
 | Azure Security Center | [Azure Security Center](/azure/security-center/) stores data that it collects in a Log Analytics workspace where it can be analyzed with other log data. See [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md) for details on workspace configuration. |
-| Azure Sentinel | [Azure Sentinel](/azure/sentinel/) stores data from data sources into a Log Analytics workspace. See [](/sentinel/connect-data-sources.md)  |
+| Azure Sentinel | [Azure Sentinel](/azure/sentinel/) stores data from data sources into a Log Analytics workspace. See [Connect data sources](/azure/sentinel/connect-data-sources).  |
 
 
 ## Next steps

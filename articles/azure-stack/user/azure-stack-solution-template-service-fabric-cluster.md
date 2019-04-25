@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy a secured Service Fabric cluster in Azure Stack | Microsoft Docs
 description: Learn how to deploy a secured Service Fabric cluster in Azure Stack
 services: azure-stack
@@ -43,7 +43,7 @@ The following are required to deploy the Service Fabric cluster:
 
 1. **The following items must be available in the Azure Stack Marketplace:**
     - **Windows Server 2016** – The template uses the Windows Server 2016 image to create the cluster.  
-    - **Customer Script Extension** - Virtual Machine Extension from Microsoft.  
+    - **Custom Script Extension** - Virtual Machine Extension from Microsoft.  
     - **PowerShell Desired Stage Configuration** - Virtual Machine Extension from Microsoft.
 
 

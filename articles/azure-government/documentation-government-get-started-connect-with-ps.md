@@ -28,6 +28,8 @@ This quickstart shows how to use PowerShell to access and start managing resourc
 
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 * Review [Guidance for developers](documentation-government-developer-guide.md).<br/> This article discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government. 
@@ -45,7 +47,7 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 
 | Connection type | Command |
 | --- | --- |
-| [Azure](/powershell/module/azurerm.profile/Connect-AzureRmAccount) commands |`Connect-AzureRmAccount -EnvironmentName AzureUSGovernment` |
+| [Azure](/powershell/module/az.accounts/Connect-AzAccount) commands |`Connect-AzAccount -EnvironmentName AzureUSGovernment` |
 | [Azure Active Directory](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
 | [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
 | [Azure Active Directory (Classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
@@ -57,7 +59,7 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 To list the available regions in Azure Government, run the following commands and print the current list:
 
 ```powershell
-Get-AzureRMLocation
+Get-AzLocation
 
 Get-AzureLocation # For classic deployment model 
 ```

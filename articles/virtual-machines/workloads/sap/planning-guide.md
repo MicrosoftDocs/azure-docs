@@ -778,8 +778,6 @@ The Azure portal is one of three interfaces to manage Azure VM deployments. The 
 
 ![Microsoft Azure portal - Virtual Machine overview][planning-guide-figure-800]
 
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 Administration and configuration tasks for the Virtual Machine instance are possible from within the Azure portal.
 
@@ -790,9 +788,6 @@ The Azure portal provides basic functionality to deploy and configure VMs and ma
 * Uploading VHDs to Azure
 * Copying VMs
 
-[comment]: <> (MShermannd TODO what about automation service for SAP VMs ? )
-[comment]: <> (MSSedusch deployment of multiple VMs os meanwhile possible)
-[comment]: <> (MSSedusch Also any type of automation regarding deployment is not possible with the Azure portal. Tasks such as scripted deployment of multiple VMs is not possible via the Azure portal.)
 
 ### Management via Microsoft Azure PowerShell cmdlets
 
@@ -807,7 +802,7 @@ Customer experience so far has been that PowerShell (PS) is certainly the more p
 See example here:
 <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-[comment]: <> (MShermannd TODO describe new CLI command when tested )
+
 Deployment of the Azure Monitoring Extension for SAP (see chapter [Azure Monitoring Solution for SAP][planning-guide-9.1] in this document) is only possible via PowerShell or CLI. Therefore it is mandatory to set up and configure PowerShell or CLI when deploying or administering an SAP NetWeaver system in Azure.  
 
 As Azure provides more functionality, new PS cmdlets are going to be added that requires an update of the cmdlets. Therefore it makes sense to check the Azure Download site at least once the month <https://azure.microsoft.com/downloads/> for a new version of the cmdlets. The new version is installed on top of the older version.
@@ -1597,7 +1592,7 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 
 ##### Template
 
-You can use the sample templates on the azure-quickstart-templates repository on github.
+You can use the sample templates on the azure-quickstart-templates repository on GitHub.
 
 * [Simple Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
 * [Simple Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
@@ -1642,13 +1637,13 @@ The cross-premises or hybrid scenario can be roughly described like in the graph
 
 ![Site-to-Site connectivity between on-premises and Azure assets][planning-guide-figure-2100]
 
-The scenario shown above describes a scenario where the on-premises AD/OpenLDAP and DNS are extended to Azure. On the on-premises side, a certain IP address range is reserved per Azure subscription. The IP address range will be assigned to an Azure Virtual Network on the Azure side.
-
-#### Security considerations
+The scenario shown above describes a scenario where the on-premise
 
 The minimum requirement is the use of secure communication protocols such as SSL/TLS for browser access or VPN-based connections for system access to the Azure services. The assumption is that companies handle the VPN connection between their corporate network and Azure differently. Some companies might blankly open all the ports. Some other companies might want to be precise in which ports they need to open, etc.
 
 In the table below typical SAP communication ports are listed. Basically it is sufficient to open the SAP gateway port.
+
+<!-- sapms is prefix of a SAP service name and not a spelling error -->
 
 | Service | Port Name | Example `<nn`> = 01 | Default Range (min-max) | Comment |
 | --- | --- | --- | --- | --- |
@@ -1850,7 +1845,7 @@ The setup of an SAP Portal in an Azure Virtual Machine does not differ from an o
 
 A special deployment scenario by some customers is the direct exposure of the SAP Enterprise Portal to the Internet while the virtual machine host is connected to the company network via site-to-site VPN tunnel or ExpressRoute. For such a scenario, you have to make sure that specific ports are open and not blocked by firewall or network security group. 
 
-The initial portal URI is http(s):`<Portalserver`>:5XX00/irj where the port is formed by 50000 plus (Systemnumber ?? 100). The default portal URI of SAP system 00 is `<dns name`>.`<azure region`>.Cloudapp.azure.com:PublicPort/irj. For more details, have a look at
+The initial portal URI is http(s):`<Portalserver`>:5XX00/irj where the port is formed as documented by SAP in 
 <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 
 ![Endpoint configuration][planning-guide-figure-2800]

@@ -163,13 +163,13 @@ Here's an example:
 
 Field | Type | Content
 ------|------|------|
-Tags  | object | Top-level object for array of tags
-tags[].Name | string	| Keyword from tags classifier
-tags[].Score	| number	| Confidence score, between 0 and 1.
-description	 | object	| Top-level object for a description.
-description.tags[] |	string	| List of tags.  If there insufficient confidence in the ability to produce a caption, the tags maybe the only information available to the caller.
-description.captions[].text	| string	| A phrase describing the image.
-description.captions[].confidence	| number	| Confidence for the phrase.
+Tags  | `object` | Top-level object for array of tags
+tags[].Name | `string`	| Keyword from tags classifier
+tags[].Score	| `number`	| Confidence score, between 0 and 1.
+description	 | `object`	| Top-level object for a description.
+description.tags[] |	`string`	| List of tags.  If there insufficient confidence in the ability to produce a caption, the tags maybe the only information available to the caller.
+description.captions[].text	| `string`	| A phrase describing the image.
+description.captions[].confidence	| `number`	| Confidence for the phrase.
 
 ## Retrieve and understand the JSON output of domain-specific models
 
@@ -225,10 +225,10 @@ The categories field is a list of one or more of the [86-categories](../Category
 
 Field	| Type	| Content
 ------|------|------|
-categories | object	| Top-level object
-categories[].name	 | string	| Name from 86-category taxonomy
-categories[].score	| number	| Confidence score, between 0 and 1
-categories[].detail	 | object?      | Optional detail object
+categories | `object`	| Top-level object
+categories[].name	 | `string`	| Name from 86-category taxonomy
+categories[].score	| `number`	| Confidence score, between 0 and 1
+categories[].detail	 | `object?`      | Optional detail object
 
 Note that if multiple categories match (for example, 86-category classifier returns a score for both people_ and people_young when model=celebrities), the details are attached to the most general level match (people_ in that example.)
 

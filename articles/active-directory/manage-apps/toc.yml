@@ -269,6 +269,10 @@
         href: application-sign-in-problem-federated-sso-gallery.md
       - name: Problem with custom-developed app
         href: application-sign-in-problem-custom-dev.md
+  - name: Reference
+    items:
+    - name: Application Proxy version history
+      href: application-proxy-release-version-history.md
   - name: Resources
     items:
     - name: Azure AD deployment plans

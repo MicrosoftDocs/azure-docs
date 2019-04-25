@@ -7,8 +7,8 @@ ms.subservice: service
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: sachinpMSFT
-ms.author: sachinp
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019

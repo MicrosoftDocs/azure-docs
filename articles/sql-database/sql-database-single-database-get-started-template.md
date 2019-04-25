@@ -7,11 +7,11 @@ ms.subservice: single-database
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: sachinpMSFT
-ms.author: sachinp
+author: mumian
+ms.author: jgao
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/08/2019
+ms.date: 04/09/2019
 ---
 
 # Quickstart: Create a single database in Azure SQL Database using the Azure Resource Manager template

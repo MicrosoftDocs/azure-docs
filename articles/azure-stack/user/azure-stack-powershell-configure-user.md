@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Stack with PowerShell as a user | Microsoft Docs
-description: Steps to connect to the user's Azure Stack instance.
+description: Steps to connect to Azure Stack using PowerShell. 
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2019
+ms.date: 04/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
@@ -23,7 +23,7 @@ ms.lastreviewed: 01/24/2019
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-This article provides you with the steps to connect to your Azure Stack instance. You must connect to manage Azure Stack resources with PowerShell. For example, you can use PowerShell to subscribe to offers, create virtual machines, and deploy Azure Resource Manager templates. in order to execute PowerShell cmdlets.
+You can connect to Azure Stack with PowerShell. You must connect to manage Azure Stack resources with PowerShell. For example, you can use PowerShell to subscribe to offers, create virtual machines, and deploy Azure Resource Manager templates.
 
 To get set up:
   - Make sure you have the requirements.
@@ -31,9 +31,9 @@ To get set up:
   - Register resource providers.
   - Test your connectivity.
 
-## Prerequisites
+## Prerequisites to connect using PowerShell
 
-You can configure these prerequisites from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+Configure these prerequisites from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
 * Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).
 * Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).

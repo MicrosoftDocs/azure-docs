@@ -14,7 +14,6 @@
   - name: Stream video files - Node.js
     href: stream-files-nodejs-quickstart.md
 - name: Tutorials
-  expanded: true
   items:
   - name: Encode remote file and stream video – REST
     displayName: encoding, job, transform
@@ -133,7 +132,12 @@
     - name: Azure Media Player
       href: use-azure-media-player.md
   - name: Developing with v3 APIs
-    href: entities-overview.md 
+    href: media-services-apis-overview.md
+    items:
+    - name: Page, filter, order entities
+      href: entities-overview.md 
+    - name: RBAC
+      href: rbac-overview.md
   - name: Migration guidance from v2 to v3
     href: migrate-from-v2-to-v3.md      
 - name: How-to guides
@@ -153,6 +157,8 @@
     - name: Develop with SDKs
       href: developers-guide.md
       items:
+      - name: Connect with Java
+        href: configure-connect-java-howto.md
       - name: Connect with .NET 
         href: configure-connect-dotnet-howto.md
       - name: Connect with Node.js

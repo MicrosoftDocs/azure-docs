@@ -105,7 +105,7 @@ Refer to the [SAP HANA Troubleshooting: Networking Performance and Connectivity 
 
 ## Storage
 
-From an end-user perspective, an application (or the system as a whole) runs sluggishly, is unresponsive, or can even seem to hang if there are issues with I/O performance. In the **Volumes** tab in SAP HANA Studio, you can see the attached volumes, and what volumes are used by each service.
+From an end-user perspective, an application (or the system as a whole) runs sluggishly, is unresponsive, or can even seem to stop responding if there are issues with I/O performance. In the **Volumes** tab in SAP HANA Studio, you can see the attached volumes, and what volumes are used by each service.
 
 ![In the Volumes tab in SAP HANA Studio, you can see the attached volumes, and what volumes are used by each service](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 

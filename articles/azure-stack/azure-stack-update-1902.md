@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
@@ -93,13 +93,14 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
   ```  
   
 - To improve on the overall reliability and availability of core infrastructure services during the update process, the native Update resource provider as part of the update action plan will detect and invoke automatic global remediations as-needed. Global remediation “repair” workflows include:
-    - Checking for infrastructure virtual machines that are in a non-optimal state and attempt to repair them as-needed 
-    - Check for SQL service issues as part of the control plan and attempt to repair them as-needed
-    - Check the state of the Software Load Balancer (SLB) service as part of the Network Controller (NC) and attempt to repair them as-needed
-    - Check the state of the Network Controller (NC) service and attempt to repair it as needed
-    - Check the state of the Emergency Recovery Console Service (ERCS) service fabric nodes and repair them as needed
-    - Check the state of the XRP service fabric nodes and repair them as needed
-    - Check the state of the Azure Consistent Storage (ACS) service fabric nodes and repair them as needed
+
+  - Checking for infrastructure virtual machines that are in a non-optimal state and attempt to repair them as-needed.
+  - Check for SQL service issues as part of the control plan and attempt to repair them as-needed.
+  - Check the state of the Software Load Balancer (SLB) service as part of the Network Controller (NC) and attempt to repair them as-needed.
+  - Check the state of the Network Controller (NC) service and attempt to repair it as needed
+  - Check the state of the Emergency Recovery Console Service (ERCS) service fabric nodes and repair them as needed.
+  - Check the state of the infrastructure role and repair as needed.
+  - Check the state of the Azure Consistent Storage (ACS) service fabric nodes and repair them as needed.
 
 <!-- 
 1426690	[SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log	Diagnostics
@@ -193,6 +194,14 @@ The following are post-installation known issues for this build version.
 <!-- 1663805 - IS ASDK --> 
 - You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use [PowerShell to verify permissions](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
 
+<!-- Daniel 3/28 -->
+- In the user portal, when you navigate to a blob within a storage account and try to open **Access Policy** from the navigation tree, the subsequent window fails to load. To work around this issue, the following PowerShell cmdlets enable creating, retrieving, setting and deleting access policies, respectively:
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
+
 <!-- ### Health and monitoring -->
 
 ### Compute
@@ -252,6 +261,10 @@ The following are post-installation known issues for this build version.
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### Syslog 
+
+- The syslog configuration is not persisted through an update cycle, causing the syslog client to lose its configuration, and the syslog messages to stop being forwarded. This issue applies to all versions of Azure Stack since the GA of the syslog client (1809). To work around this issue, reconfigure the syslog client after applying an Azure Stack update.
 
 ## Download the update
 

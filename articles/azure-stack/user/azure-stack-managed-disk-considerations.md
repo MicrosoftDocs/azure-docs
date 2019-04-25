@@ -70,7 +70,7 @@ You can use the following script to convert a currently provisioned VM from unma
 ```powershell
 $subscriptionId = 'subid'
 
-# The name of your resource group
+# The name of your resource group where your VM to be converted exists
 $resourceGroupName ='rgmgd'
 
 # The name of the managed disk
@@ -86,8 +86,9 @@ $vhdUri = 'https://rgmgddisks347.blob.local.azurestack.external/vhds/unmgdvm2018
 # The storage type for the managed disk; PremiumLRS or StandardLRS.
 $accountType = 'StandardLRS'
 
-# The Azure Stack location where the managed disk is located.
+# The Azure Stack location where the managed disk will be located.
 # The location should be the same as the location of the storage account in which VHD file is stored.
+# Configure the new managed VM point to the old unmanaged VM's configuration (network config, vm name, location).
 $location = 'local'
 $virtualMachineName = 'mgdvm'
 $virtualMachineSize = 'Standard_D1'
@@ -97,6 +98,9 @@ $nicname = 'unmgdvm295'
 
 # Set the context to the subscription ID in which the managed disk will be created
 Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+#Delete old VM, but keep the OS disk
+Remove-AzureRmVm -Name $virtualMachineName -ResourceGroupName $resourceGroupName
 
 $diskConfig = New-AzureRmDiskConfig -AccountType $accountType  -Location $location -DiskSizeGB $diskSize -SourceUri $vhdUri -CreateOption Import
 

@@ -5,7 +5,7 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 author: zr-msft
 ms.author: zarhoads
-ms.date: "09/26/2018"
+ms.date: 09/26/2018
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
@@ -19,17 +19,10 @@ In this guide, you will learn how to:
 - Productively develop and test your code in a team environment.
 
 > [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page.
-
-You're now ready to create a Kubernetes-based development environment in Azure.
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section.
 
 ## Install the Azure CLI
-Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Your local machine can run Windows, Mac, or Linux. For Linux, the following distributions are supported: Ubuntu (18.04, 16.04, and 14.04), Debian 8 and 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2, and SLES 12.
-
-Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
-
-> [!IMPORTANT]
-> If you already have the Azure CLI installed, make sure you are using version 2.0.43 or higher.
+Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### Sign in to Azure CLI
 Sign in to Azure. Type the following command in a terminal window:
