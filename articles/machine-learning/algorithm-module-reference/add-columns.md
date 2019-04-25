@@ -13,15 +13,17 @@ ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
-# Add Columns
+# Add Columns module
 
 Adds a set of columns from one dataset to another
 
- Category: Data Transformation / Manipulation 
+Category: Data Transformation / Manipulation 
 
 
 ## Module overview
-This article describes how to use the **Add Columns** module in Azure Machine Learning service to concatenate two datasets.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to concatenate two datasets.
 
 You combine all columns from the two datasets that you specify as inputs to create a single dataset. If you need to concatenate more than two datasets, use several instances of **Add Columns**.
 

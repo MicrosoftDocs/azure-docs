@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Export Data
+# Export Data module
 
 *Writes a dataset to Azure blob storage*
 
@@ -20,7 +20,9 @@ Category: Data Input and Output
 
 ## Module overview
 
-This article describes how to use the  **Export Data** module in Azure Machine Learning service to save results, intermediate data, and working data from your experiments into cloud storage destinations outside Azure Machine Learning.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to save results, intermediate data, and working data from your experiments into cloud storage destinations outside Azure Machine Learning.
 
 This module supports exporting or saving your data to the following cloud data services:
 

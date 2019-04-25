@@ -1,7 +1,7 @@
 ---
 title:  "Apply Transformation: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Apply Transformation module in Azure Machine Learning service to modify an input dataset based on a previously computed transformation.  . 
+description: Learn how to use the Apply Transformation module in Azure Machine Learning service to modify an input dataset based on a previously computed transformation. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,16 +13,17 @@ ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
-# Apply Transformation
+# Apply Transformation module
 
 *Applies a well-specified data transformation to a dataset*  
 
 
 ## Module overview  
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
-This article describes how to use the **Apply Transformation** module in Azure Machine Learning service to modify an input dataset based on a previously computed transformation.  
+Use this module to modify an input dataset based on a previously computed transformation.  
   
-For example, if you used z-scores to normalize your training data by using the **Normalize Data** module, you would want to use the z-score value that was computed for training during the scoring phase as well. In Azure Machine Learning, you can do this easily by saving the normalization method as a transform, and then using **Apply Transformation** to apply the z-score to the input data before scoring.
+For example, if you used z-scores to normalize your training data by using the **Normalize Data** module, you would want to use the z-score value that was computed for training during the scoring phase as well. In Azure Machine Learning, you can save the normalization method as a transform, and then using **Apply Transformation** to apply the z-score to the input data before scoring.
   
 Azure Machine Learning provides support for creating and then applying many different kinds of custom transformations. For example, you might want to save and then reuse transformations to:  
   
@@ -40,6 +41,6 @@ Azure Machine Learning provides support for creating and then applying many diff
   
 3. Connect the dataset that you want to transform. The dataset should have exactly the same schema (number of columns, column names, data types) as the dataset for which the transformation was first designed.  
   
-4. No other parameters need to be set; all customization is done when defining the transformation.  
+4. No other parameters need to be set since all customization is done when defining the transformation.  
   
 5. To apply a transformation to the new dataset, run the experiment.  

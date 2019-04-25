@@ -12,9 +12,11 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Import from Web URL via HTTP
+# Import from Web URL via HTTP module
 
-This article describes how to use the **Import from Web URL via HTTP** module in Azure Machine Learning service to read data from a public Web page for use in a machine learning experiment.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to read data from a public Web page for use in a machine learning experiment.
 
 The following restrictions apply to data published on a web page:
 

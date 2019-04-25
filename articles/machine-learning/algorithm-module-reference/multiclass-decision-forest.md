@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Multiclass Decision Forest
+# Multiclass Decision Forest module
 
 *Creates a multiclass classification model using the decision forest algorithm*
 
@@ -20,7 +20,9 @@ Category: Machine Learning / Initialize Model / Classification
 
 ## Module overview
 
-This article describes how to use the **Multiclass Decision Forest** module in Azure Machine Learning service to create a machine learning model based on the *decision forest* algorithm. A decision forest is an ensemble model that rapidly builds a series of decision trees, while learning from tagged data.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to create a machine learning model based on the *decision forest* algorithm. A decision forest is an ensemble model that rapidly builds a series of decision trees, while learning from tagged data.
 
 ## More about decision forests
 

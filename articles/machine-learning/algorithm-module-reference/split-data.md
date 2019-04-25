@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Split Data
+# Split Data module
 
 *Partitions the rows of a dataset into two distinct sets*
 
@@ -20,7 +20,9 @@ Category: Data Transformation / Sample and Split
 
 ## Module overview
 
-This topic describes how to use the **Split Data** module in Azure Machine Learning service to divide a dataset into two distinct sets.
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to divide a dataset into two distinct sets.
 
 This module is particularly useful when you need to separate data into training and testing sets. You can customize the way that data is divided as well. Some options support randomization of data; others are tailored for a certain data type or model type.
 

@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
-# Import Data
+# Import Data module
 
 *Loads data from external sources on the web; from Azure blob storage.
 
@@ -20,7 +20,9 @@ Category: Data Input and Output
 
 ## Module overview
 
-This article describes how to use the **Import Data** module in Azure Machine Learning service to load data into a machine learning experiment from existing cloud data services.  
+This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+
+Use this module to load data into a machine learning experiment from existing cloud data services.  
 
 The module now features a wizard to help you choose a storage option and select from among existing subscriptions and accounts to quickly configure all options. Need to edit an existing data connection? No problem; the wizard loads all previous configuration details so that you don't have to start again from scratch. 
   
