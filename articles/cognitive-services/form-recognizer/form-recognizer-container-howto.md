@@ -34,7 +34,7 @@ You must meet the following prerequisites before using Form Recognizer container
 
 ## Request access to the container registry
 
-You must first complete and submit the [Cognitive Services Form Recognizer Containers Request form](https://aka.ms/FormRecognizerRequestAccess) to request access to the container.
+You must first complete and submit the [Cognitive Services Form Recognizer Containers Request form](https://aka.ms/FormRecognizerRequestAccess) to request access to the container. This will also sign you up for Computer Vision. You do not need to sign up for the Computer Vision request form separately. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -109,8 +109,8 @@ containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
-formrecognizer:computervisionapikey={COMPUTER_VISION_API_KEY} \
-formrecognizer:computervisionendpointuri={COMPUTER_VISION_ENDPOINT_URI}
+FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
+FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 ```
 
 This command:
@@ -122,7 +122,7 @@ This command:
 * Mounts an /input and an /output volume to the container
 
 > [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` as well as `formrecognizer:computervisionapikey` and `formrecognizer:computervisionendpointuri` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+> The `Eula`, `Billing`, and `ApiKey` as well as `FormRecognizer:ComputerVisionApiKey` and `FormRecognizer:ComputerVisionEndpointUri` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
 ## Query the container's prediction endpoint
 

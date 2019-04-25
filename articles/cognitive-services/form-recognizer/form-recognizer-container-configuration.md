@@ -108,8 +108,8 @@ Eula=accept \
 --mount type=bind,source=c:\output,target=/output \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
-formrecognizer:computervisionapikey={COMPUTER_VISION_API_KEY} \
-formrecognizer:computervisionendpointuri={COMPUTER_VISION_ENDPOINT_URI}
+FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
+FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 ```
 
 ### Logging example for Form Recognizer
@@ -122,8 +122,8 @@ Eula=accept \
 --mount type=bind,source=c:\output,target=/output \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
-formrecognizer:computervisionapikey={COMPUTER_VISION_API_KEY} \
-formrecognizer:computervisionendpointuri={COMPUTER_VISION_API_ENDPOINT_URI}
+FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
+FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 Logging:Console:LogLevel:Default=Information
 ```
 
