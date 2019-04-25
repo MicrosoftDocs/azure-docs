@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script - Get keys for an Azure Cosmos account
-description: Azure PowerShell Script Sample - Get keys for an Azure Cosmos account
+title: Azure PowerShell script - Get keys for an Azure Cosmos account
+description: Azure PowerShell script sample - Get keys for an Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples

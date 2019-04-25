@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script - Update tags for an Azure Cosmos account
-description: Azure PowerShell Script Sample - Update tags for an Azure Cosmos account
+title: Azure PowerShell script - Update tags for an Azure Cosmos account
+description: Azure PowerShell script sample - Update tags for an Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples

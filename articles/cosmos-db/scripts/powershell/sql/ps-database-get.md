@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script - Get the properties of a database in an Azure Cosmos account
-description: Azure PowerShell Script Sample - Get the properties of a database in an Azure Cosmos account
+title: Azure PowerShell script - Get the properties of a database in an Azure Cosmos account
+description: Azure PowerShell script sample - Get the properties of a database in an Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples

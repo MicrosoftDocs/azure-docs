@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script - List all databases in an Azure Cosmos account
-description: Azure PowerShell Script Sample - List all databases in an Azure Cosmos account
+title: Azure PowerShell script - List all databases in an Azure Cosmos account
+description: Azure PowerShell script sample - List all databases in an Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples

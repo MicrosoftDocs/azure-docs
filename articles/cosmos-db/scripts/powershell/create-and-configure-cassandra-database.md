@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script-Create an Azure Cosmos DB Cassandra API account
-description: Azure PowerShell Script Sample - Create an Azure Cosmos DB Cassandra API account
+title: Azure PowerShell script-Create an Azure Cosmos DB Cassandra API account
+description: Azure PowerShell script sample - Create an Azure Cosmos DB Cassandra API account
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db

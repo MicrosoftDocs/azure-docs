@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script - Create an Azure Cosmos database with shared throughput
-description: Azure PowerShell Script Sample - Create an Azure Cosmos database with shared throughput
+title: Azure PowerShell script - Create an Azure Cosmos database with shared throughput
+description: Azure PowerShell script sample - Create an Azure Cosmos database with shared throughput
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples

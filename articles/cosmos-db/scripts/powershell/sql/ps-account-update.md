@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script - Update an Azure Cosmos account
-description: Azure PowerShell Script Sample - Update an Azure Cosmos account with added regions
+title: Azure PowerShell script - Update an Azure Cosmos account
+description: Azure PowerShell script sample - Update an Azure Cosmos account with added regions
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples

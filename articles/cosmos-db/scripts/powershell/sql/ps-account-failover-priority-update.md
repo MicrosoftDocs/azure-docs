@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script - Change failover priority for an Azure Cosmos account
-description: Azure PowerShell Script Sample - Change failover priority for an Azure Cosmos account
+title: Azure PowerShell script - Change failover priority for an Azure Cosmos account
+description: Azure PowerShell script sample - Change failover priority for an Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples

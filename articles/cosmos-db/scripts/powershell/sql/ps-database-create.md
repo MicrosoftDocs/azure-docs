@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script - Create an Azure Cosmos database
-description: Azure PowerShell Script Sample - Create an Azure Cosmos database
+title: Azure PowerShell script - Create an Azure Cosmos database
+description: Azure PowerShell script sample - Create an Azure Cosmos database
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples

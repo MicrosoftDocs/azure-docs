@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script - Create an Azure Cosmos account for Core (SQL) API
-description: Azure PowerShell Script Sample - Create an Azure Cosmos account for Core (SQL) API
+title: Azure PowerShell script - Create an Azure Cosmos account for Core (SQL) API
+description: Azure PowerShell script sample - Create an Azure Cosmos account for Core (SQL) API
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples

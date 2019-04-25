@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script - Create a container in an Azure Cosmos account
-description: Azure PowerShell Script Sample - Create a container in an Azure Cosmos account
+title: Azure PowerShell script - Create a container in an Azure Cosmos account
+description: Azure PowerShell script sample - Create a container in an Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples

@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script - Delete a database in an Azure Cosmos account
-description: Azure PowerShell Script Sample - Delete a database in an Azure Cosmos account
+title: Azure PowerShell script - Delete a database in an Azure Cosmos account
+description: Azure PowerShell script sample - Delete a database in an Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
