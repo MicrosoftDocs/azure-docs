@@ -17,7 +17,14 @@ ms.collection: M365-identity-device-management
 ---
 # Configure authentication session management with conditional access
 
-In complex deployments, organizations might have a need to restrict authentication sessions. Some scenarios might include resource access from an unmanaged or shared device, access to sensitive information from an external network, high impact users, or critical apps. Conditional access controls allow you to create policies that target specific use cases within your organization without affecting all users.
+In complex deployments, organizations might have a need to restrict authentication sessions. Some scenarios might include:
+
+* Resource access from an unmanaged or shared device
+* Access to sensitive information from an external network
+* High impact users
+* Critical business applications
+
+Conditional access controls allow you to create policies that target specific use cases within your organization without affecting all users.
 
 Before diving into details on how to configure the policy, let’s examine the default configuration.
 
@@ -25,7 +32,7 @@ Before diving into details on how to configure the policy, let’s examine the d
 
 Sign in frequency defines the time period before a user is asked to sign in again when attempting to access a resource.
 
-The Azure Active Directory (Azure AD) default configuration for user sign in frequency is a rolling window of 90 days. Asking users for credentials often seems like a sensible thing to do, it can backfire: users that are trained to enter their credentials without thinking can unintentionally supply them to a malicious credential prompt.
+The Azure Active Directory (Azure AD) default configuration for user sign in frequency is a rolling window of 90 days. Asking users for credentials often seems like a sensible thing to do, but it can backfire: users that are trained to enter their credentials without thinking can unintentionally supply them to a malicious credential prompt.
 
 It might sound alarming to not ask for a user to sign back in for 90 days, in reality any violation of IT policies will revoke the session. Some examples include (but are not limited to) a password change, an incompliant device, or account disable. You can also explicitly [revoke users’ sessions using PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). The Azure AD default configuration comes down to “don’t ask users to provide their credentials if security posture of their sessions has not changed”.
 
@@ -35,7 +42,7 @@ Sign in frequency setting works with apps that have implemented OATH2 or OIDC pr
 
 A persistent browser session allows users to remain signed in after closing and reopening their browser window.
 
-The Azure AD default for browser session persistence allows users on personal devices to choose whether to persist the session by showing a “Stay signed in?” prompt after successful authentication. If browser persistence is configured by the admin in AD FS using the guidance in the article [AD FS Single Sign-On Settings](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+The Azure AD default for browser session persistence allows users on personal devices to choose whether to persist the session by showing a “Stay signed in?” prompt after successful authentication. If browser persistence is configured in AD FS using the guidance in the article [AD FS Single Sign-On Settings](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
 ), we will comply with that policy and persist the Azure AD session as well. You can also configure whether users in your tenant see the “Stay signed in?” prompt by changing the appropriate setting in the company branding pane in Azure portal using the guidance in the article [Customize your Azure AD sign-in page](../fundamentals/customize-branding.md).
 
 ## Configuring authentication session controls
