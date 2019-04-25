@@ -38,6 +38,9 @@ ms.custom: seodec18
 **Bug fixes**
 
 * Fixed a problem where the speaker resource was destructed too early in text-to-speech.
+## Speech SDK 1.4.2
+
+This is a bug fix release and only affecting the native/managed SDK. It is not affecting the JavaScript version of the SDK.
 
 ## Speech SDK 1.4.1
 
