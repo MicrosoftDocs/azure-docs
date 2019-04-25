@@ -57,11 +57,13 @@ By [locking the boundaries of chart y-axis](metrics-charts.md#lock-boundaries-of
 
 ### You are looking at a Guest OS metric but didn’t enable Diagnostic Extension
 
-Collection of Guest OS metrics requires configuring the Azure Diagnostic Extension or enabling it using the Diagnostic Settings panel on your resource.
+Collection of **Guest OS** metrics requires configuring the Azure Diagnostics Extension or enabling it using the Diagnostic Settings panel for your resource.
 
-## I see “Error retrieving data” message over a metric chart on dashboard
+**Solution:** If Azure Diagnostics Extension is enabled but you are still unable to see your metrics, follow the steps outlined in [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
-This problem is common when your dashboard is created with a metric that was deprecated and removed from Azure. To verify that it is the case, open the Metrics tab of your resource, and check the available metrics in the metric picker. If the metric is not shown, the metric has been removed from Azure. Usually, when a metric is deprecated, there is a better new metric that provides with a similar perspective on the resource health.
+## I see “Error retrieving data” message on dashboard charts
+
+This problem is common when your dashboard was created with a metric that was later deprecated and removed from Azure. To verify that it is the case, open the **Metrics** tab of your resource, and check the available metrics in the metric picker. If the metric is not shown, the metric has been removed from Azure. Usually, when a metric is deprecated, there is a better new metric that provides with a similar perspective on the resource health.
 
 **Solution:** Update the failing tile by picking an alternative metric for your chart on dashboard. You can [review a list of available metrics for Azure services](metrics-supported.md).
 
