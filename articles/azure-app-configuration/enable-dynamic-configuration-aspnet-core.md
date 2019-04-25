@@ -95,7 +95,13 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 
 ## Use the latest configuration data
 
-1. Open *HomeController.cs* in the Controllers directory. Update the `HomeController` class to receive `Settings` through dependency injection, and make use of its values.
+1. Open *HomeController.cs* in the Controllers directory, and add a reference to the `Microsoft.Extensions.Options` package.
+
+   ```csharp
+   using Microsoft.Extensions.Options;
+   ```
+
+2. Update the `HomeController` class to receive `Settings` through dependency injection, and make use of its values.
 
     ```csharp
     public class HomeController : Controller
@@ -118,7 +124,7 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
     }
     ```
 
-2. Open *Index.cshtml* in the Views > Home directory, and replace its content with the following script:
+3. Open *Index.cshtml* in the Views > Home directory, and replace its content with the following script:
 
     ```html
     <!DOCTYPE html>
