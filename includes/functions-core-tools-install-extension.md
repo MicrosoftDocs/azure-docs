@@ -10,7 +10,7 @@ ms.author: cshoe
 ms.custom: include file
 ---
 
-Extension bundles make all bindings published by the Azure Functions team available through a setting in the *host.json* file. For local development, ensure you have the latest version of [Azure Functions Core Tools](./functions-run-local.md#install-the-azure-functions-core-tools).
+Extension bundles make all bindings published by the Azure Functions team available through a setting in the *host.json* file. For local development, ensure you have the latest version of [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
 
 To use extension bundles, update the *host.json* file to include the following entry for `extensionBundle`:
 
