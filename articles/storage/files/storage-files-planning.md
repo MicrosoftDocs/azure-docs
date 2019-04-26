@@ -81,7 +81,7 @@ If you'd like to learn how to create a premium file share, see our article on th
 Currently, you cannot directly convert between a standard file share and a premium file share. If you would like to switch to either tier, you must create a new file share in that tier and manually copy the data from your original share to the new share you created. You can do this using any of the Azure Files supported copy tools, such as AzCopy.
 
 > [!IMPORTANT]
-> Premium file shares are still in preview, are only available with LRS, and are available in most regions that offer storage accounts. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage) page for Azure.
+> Premium file shares are still in preview, are only available with LRS, and are available in most regions that offer storage accounts. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure.
 
 ### Provisioned shares
 
