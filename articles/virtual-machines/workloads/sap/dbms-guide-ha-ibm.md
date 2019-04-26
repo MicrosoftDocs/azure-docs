@@ -109,7 +109,7 @@ To deploy an IBM Db2 configuration, you need to follow these steps:
   + Update SUSE Linux and configure file systems.
   + Install and configure Pacemaker.
   + Install [highly available NFS][nfs-ha].
-  + Install [ASCS/ERS on a separate cluster][ascs-ha] .
+  + Install [ASCS/ERS on a separate cluster][ascs-ha].
   + Install IBM Db2 database with Distributed/High Availability option (SWPM).
   + Install and create a secondary database node and instance, and configure HADR.
   + Confirm that HADR is working.
@@ -142,7 +142,7 @@ For more information about Linux Pacemaker in Azure, see [Set up Pacemaker on SU
 
 The resource agent for IBM Db2 LUW is included in SUSE Linux Enterprise Server for SAP Applications. For the setup that's described in this document, you must use SUSE Linux Server for SAP Applications. The Azure Marketplace contains an image for SUSE Enterprise Server for SAP Applications 12 that you can use to deploy new Azure virtual machines. Be aware of the various support or service models that are offered by SUSE through the Azure Marketplace when you choose a VM image in the Azure VM Marketplace. 
 
-### Hosts - DNS updates
+### Hosts: DNS updates
 Make a list of all host names, including virtual host names, and update your DNS servers to enable proper IP address to host-name resolution. If a DNS server doesn't exist or you can't update and create DNS entries, you need to use the local host files of the individual VMs that are participating in this scenario. If you're using host files entries, make sure that the entries are applied to all VMs in the SAP system environment. However, we recommend that you use your DNS that, ideally, extends into Azure
 
 
@@ -226,7 +226,7 @@ We recommend the preceding parameters based on initial failover/takeover testing
 
 For demonstration purposes and the procedures described in this article, the database SID is **PTR**.
 
-##### IBM Db2 HADR check
+#### IBM Db2 HADR check
 After you've configured HADR and the status is PEER and CONNECTED on the primary and standby nodes, perform the following check:
 
 <pre><code>
