@@ -27,9 +27,9 @@ Authentication flows can be used in different scenarios.
 
 | Flow | Description | Application type|  Diagram |
 | ---- | ----------- | ------- | ------- |
-| [Authorization code](#authorization-code) | | Web Apps / Web APIs / daemon apps | ![Authorization code flow][media/msal-authentication-flows/authorization-code.png] | 
-| [On-behalf-of](#on-behalf-of) | An application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. | Web Apps / Web APIs / daemon apps | ![On-behalf-of flow][media/msal-authentication-flows/on-behalf-of.png] |
-| [Username/password](#username-password) | | | Desktop/mobile apps | ![Username/password flow][media/msal-authentication-flows/username-password.png]
+| [Authorization code](#authorization-code) | | Web Apps / Web APIs / daemon apps | ![Authorization code flow](media/msal-authentication-flows/authorization-code.png) | 
+| [On-behalf-of](#on-behalf-of) | An application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. | Web Apps / Web APIs / daemon apps | ![On-behalf-of flow](media/msal-authentication-flows/on-behalf-of.png) |
+| [Username/password](#username-password) | | | Desktop/mobile apps | ![Username/password flow](media/msal-authentication-flows/username-password.png)
 
 
 ## Implicit grant
@@ -38,6 +38,10 @@ Authentication flows can be used in different scenarios.
 MSAL supports the [OAuth 2 authorization code grant](v2-oauth2-auth-code-flow.md), which can be used in apps that are installed on a device to gain access to protected resources, such as web APIs. This allows you to add sign in and API access to your mobile and desktop apps. 
 
 When users sign in to web applications (web sites), the web application receives an authorization code.  The authorization code is redeemed to acquire a token to call web APIs. In ASP.NET / ASP.NET core web apps, the only goal of `AcquireTokenByAuthorizationCode` is to add a token to the token cache, so that it can then be used by the application (usually in the controllers) which just get a token for an API using `AcquireTokenSilent`.
+
+![Authorization code flow](media/msal-authentication-flows/authorization-code.png)
+
+
 
 The code is usable only once to redeem a token. AcquireTokenByAuthorizationCode should not be called several times with the same authorization code (it's explicitly prohibited by the protocol standard spec). If you redeem the code several times, consciously, or because you are not aware that a framework also does it for you, you'll get an error: 'invalid_grant', 'AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token
 
@@ -49,7 +53,7 @@ Finally, avoid sharing the access token with ASP.NET otherwise this might preven
 
 MSAL supports the [OAuth 2 on-behalf-of authentication flow](v2-oauth2-on-behalf-of-flow.md).  This flow is used when an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from the Microsoft identity platform, on behalf of the user.
 
-![On-behalf-of flow][media/msal-authentication-flows/on-behalf-of.png]
+![On-behalf-of flow](media/msal-authentication-flows/on-behalf-of.png)
 
 1. Acquires an access token for the Web API
 2. A client (Web, desktop, mobile, Single-page application) calls a protected Web API, adding the access token as a bearer token in the authentication header of the HTTP request. The Web API authenticates the user.
