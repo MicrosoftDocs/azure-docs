@@ -24,7 +24,7 @@ Version 2019-05-06 of the REST API contains some changes from earlier versions. 
 ## What's new in version 2019-05-06
 Version 2019-05-06 is the newest generally available release of the Azure Search Service REST API. Features that have transitioned to generally available status in this API version include:
 
-* [Autocomplete](index-add-suggesters.md) is a typeahead feature that completes a partially-specified term input.
+* [Autocomplete](index-add-suggesters.md) is a typeahead feature that completes a partially specified term input.
 
 * [Complex types](search-howto-complex-data-types.md) provides native support for structured object data in an Azure Search index.
 
@@ -44,7 +44,7 @@ If you are using a [Cosmos DB indexer](search-howto-index-cosmosdb.md ), you mus
 
 ### Indexer execution result errors no longer have status
 
-The error structure for indexer execution previously had a `status` element. This element was removed because it was not providing useful informational.
+The error structure for indexer execution previously had a `status` element. This element was removed because it was not providing useful information.
 
 ### Indexer data source API no longer returns connection strings
 
@@ -74,6 +74,66 @@ If your code uses these features, you will not be able to upgrade to API version
 > [!IMPORTANT]
 > Preview APIs are intended for testing and evaluation, and should not be used in production environments.
 > 
+
+### Upgrading complex types
+
+If your code uses complex types with the older preview API versions 2017-11-11-Preview or 2016-09-01-Preview, there are some new and changed limits in version 2019-05-06 of which you need to be aware:
+
++ The limits on the depth of sub-fields and the number of complex collections per index have been lowered. If you created indexes that exceed these limits using the preview api-versions, any attempt to update or recreate them using API version 2019-05-06 will fail. If this applies to you, you will need to redesign your schema to fit within the new limits and then rebuild your index.
+
++ There is a new limit in api-version 2019-05-06 on the number of elements of complex collections per document. If you created indexes with documents that exceed these limits using the preview api-versions, any attempt to reindex that data using api-version 2019-05-06 will fail. If this applies to you, you will need to reduce the number of complex collection elements per document before reindexing your data.
+
+For more information, see [Service limits for Azure Search](search-limits-quotas-capacity.md).
+
+### How to upgrade an old complex type structure
+
+If your code is using complex types with one of the older preview API versions, you may be using an index definition format that looks like this:
+
+```json
+{
+  "name": "hotels",  
+  "fields": [
+    { "name": "HotelId", "type": "Edm.String", "key": true, "filterable": true },
+    { "name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": true, "facetable": false },
+    { "name": "Description", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false, "analyzer": "en.microsoft" },
+    { "name": "Description_fr", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.microsoft" },
+    { "name": "Category", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true },
+    { "name": "Tags", "type": "Collection(Edm.String)", "searchable": true, "filterable": true, "sortable": false, "facetable": true, "analyzer": "tagsAnalyzer" },
+    { "name": "ParkingIncluded", "type": "Edm.Boolean", "filterable": true, "sortable": true, "facetable": true },
+    { "name": "LastRenovationDate", "type": "Edm.DateTimeOffset", "filterable": true, "sortable": true, "facetable": true },
+    { "name": "Rating", "type": "Edm.Double", "filterable": true, "sortable": true, "facetable": true },
+    { "name": "Address", "type": "Edm.ComplexType" },
+    { "name": "Address/StreetAddress", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "searchable": true },
+    { "name": "Address/City", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true },
+    { "name": "Address/StateProvince", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true },
+    { "name": "Address/PostalCode", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true },
+    { "name": "Address/Country", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true },
+    { "name": "Location", "type": "Edm.GeographyPoint", "filterable": true, "sortable": true },
+    { "name": "Rooms", "type": "Collection(Edm.ComplexType)" }, 
+    { "name": "Rooms/Description", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false, "analyzer": "en.lucene" },
+    { "name": "Rooms/Description_fr", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene" },
+    { "name": "Rooms/Type", "type": "Edm.String", "searchable": true },
+    { "name": "Rooms/BaseRate", "type": "Edm.Double", "filterable": true, "facetable": true },
+    { "name": "Rooms/BedOptions", "type": "Edm.String", "searchable": true },
+    { "name": "Rooms/SleepsCount", "type": "Edm.Int32", "filterable": true, "facetable": true },
+    { "name": "Rooms/SmokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true },
+    { "name": "Rooms/Tags", "type": "Collection(Edm.String)", "searchable": true, "filterable": true, "facetable": true, "analyzer": "tagsAnalyzer" }
+  ]
+}  
+```
+
+A newer tree-like format for defining index fields was introduced in API version 2017-11-11-Preview. In the new format, each complex field has a fields collection where its sub-fields are defined. In API version 2019-05-06, this new format is used exclusively and attempting to create or update an index using the old format will fail. If you have indexes created using the old format, you'll need to use API version 2017-11-11-Preview to update them to the new format before they can be managed using API version 2019-05-06.
+
+You can update "flat" indexes to the new format with the following steps using API version 2017-11-11-Preview:
+
+1. Perform a GET request to retrieve your index. If it’s already in the new format, you’re done.
+
+2. Translate the index from the “flat” format to the new format. You’ll have to write code for this since there is no sample code available at the time of this writing.
+
+3. Perform a PUT request to update the index to the new format. Make sure not to change any other details of the index such as the searchability/filterability of fields, since this is not allowed by the Update Index API.
+
+> [!NOTE]
+> It is not possible to manage indexes created with the old "flat" format from the Azure portal. Please upgrade your indexes from the “flat” representation to the “tree” representation at your earliest convenience.
 
 ## Next steps
 
