@@ -398,7 +398,20 @@ The custom image is based on the 'official image' of [WordPress from Docker Hub]
 
 Add the redis container to the bottom of the configuration file so it looks like the following example:
 
-[!code-yml[Main](../../../azure-app-service-multi-container/compose-wordpress.yml)]
+```yaml
+version: '3.3'
+
+services:
+   wordpress:
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
+     ports:
+       - "8000:80"
+     restart: always
+
+   redis:
+     image: redis:3-alpine
+     restart: always
+```
 
 ### Configure environment variables
 
