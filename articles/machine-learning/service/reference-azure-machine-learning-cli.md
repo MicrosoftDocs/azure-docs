@@ -188,7 +188,7 @@ environment:
 # Set True to perform this run inside a Docker container.
     enabled: true
 # Base image used for Docker-based runs.
-    baseImage: mcr.microsoft.com/azureml/base:0.2.1
+    baseImage: mcr.microsoft.com/azureml/base:0.2.4
 # Set False if necessary to work around shared volume bugs.
     sharedVolumes: true
 # Run with NVidia Docker extension to support GPUs.

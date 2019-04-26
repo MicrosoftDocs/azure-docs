@@ -1,7 +1,6 @@
 ---
 title: Sample - Allowed SKUs for storage accounts and virtual machines
 description: This sample policy definition requires that storage accounts and virtual machines use approved SKUs.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
@@ -23,7 +22,7 @@ You can deploy this template using the [Azure portal](#deploy-with-the-portal) o
 
 ## Deploy with the portal
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![Deploy the Policy sample to Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## Deploy with PowerShell
 

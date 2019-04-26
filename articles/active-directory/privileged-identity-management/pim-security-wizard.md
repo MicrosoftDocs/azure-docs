@@ -1,5 +1,5 @@
 ---
-title: Azure AD roles security wizard in PIM | Microsoft Docs
+title: Azure AD roles security wizard in PIM - Azure Active Directory | Microsoft Docs
 description: Describes the security wizard that you can use to convert permanent privileged Azure AD role assignments to eligible using Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/09/2018
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Azure AD roles security wizard in PIM
 
-If you're the first person to run Azure AD Privileged Identity Management (PIM) for your organization, you will be presented with a wizard. The wizard helps you understand the security risks of privileged identities and how to use PIM to reduce those risks. You don't need to make any changes to existing role assignments in the wizard, if you prefer to do it later.
+If you're the first person to run Azure Active Directory (Azure AD) Privileged Identity Management (PIM) for your organization, you will be presented with a wizard. The wizard helps you understand the security risks of privileged identities and how to use PIM to reduce those risks. You don't need to make any changes to existing role assignments in the wizard, if you prefer to do it later.
 
 ## Wizard overview
 
@@ -61,9 +61,9 @@ The second step of the wizard gives you an opportunity to change administrator's
 
     ![Notifications](./media/pim-security-wizard/notification-completion.png)
 
-If you need to convert other privileged role assignments to eligible, you can run the wizard again. If you want to use the PIM interface instead of the wizard, see [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md).
+If you need to convert other privileged role assignments to eligible, you can run the wizard again. If you want to use the PIM interface instead of the wizard, see [Assign Azure AD roles in PIM](pim-how-to-add-role-to-user.md).
 
 ## Next steps
 
-- [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md)
+- [Assign Azure AD roles in PIM](pim-how-to-add-role-to-user.md)
 - [Grant access to other administrators to manage PIM](pim-how-to-give-access-to-pim.md)

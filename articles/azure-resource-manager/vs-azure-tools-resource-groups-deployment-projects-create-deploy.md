@@ -22,6 +22,8 @@ With Visual Studio, you can create a project that deploys your infrastructure an
 
 This article shows how to use [Visual Studio 2017 with the Azure development and ASP.NET workloads installed](/dotnet/azure/dotnet-tools). If you use Visual Studio 2015 Update 2 and Microsoft Azure SDK for .NET 2.9, or Visual Studio 2013 with Azure SDK 2.9, your experience is largely the same.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Create Azure Resource Group project
 
 In this section, you create an Azure Resource Group project with a **Web app + SQL** template.
@@ -144,7 +146,7 @@ You're now ready to deploy your project. When you deploy an Azure Resource Group
    > [!NOTE]
    > Visual Studio may ask you to install the Azure PowerShell cmdlets. If prompted, install them. You need the Azure PowerShell modules to successfully deploy resource groups. The PowerShell script in the project doesn't work with the new [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az). 
    >
-   > For more information, see [Install and configure Azure PowerShell modules](/powershell/azure/azurerm/install-azurerm-ps).
+   > For more information, see [Install and configure Azure PowerShell modules](/powershell/azure/install-Az-ps).
    > 
    > 
 6. The deployment may take a few minutes. In the **Output** windows, you see the status of the deployment. When the deployment has finished, the last message indicates a successful deployment with something similar to:

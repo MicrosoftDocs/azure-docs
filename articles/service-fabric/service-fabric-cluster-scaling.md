@@ -4,7 +4,7 @@ description: Learn about scaling Azure Service Fabric clusters in or out and up 
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: aljo
 
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48

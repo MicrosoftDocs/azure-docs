@@ -1,9 +1,12 @@
 - name: Azure Media Services v3 
+  displayName: encode, stream, package, content protection, video analytics
   href: latest/
 - name: Azure Media Services v2 (legacy)
   href: previous/media-services-overview.md
-- name: Video Indexer
+- name: Azure Media Services Video Indexer
   href: video-indexer/
+- name: Azure Media Player
+  href: http://amp.azure.net/libs/amp/latest/docs/index.html
 - name: Resources
   items:
   - name: Azure Roadmap

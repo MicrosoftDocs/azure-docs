@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -50,7 +50,7 @@ To analyze your video and audio files, you also need to create **Transforms** an
 
 ## Packaging, delivery, protection
 
-Once your content is encoded, you can take advantage of **Dynamic Packaging**. **Streaming Endpoint** is the dynamic packaging service in Media Services used to deliver media content to client players. To make videos in the output asset available to clients for playback, you have to create a **Streaming Locator** and then build streaming URLs. 
+Once your content is encoded, you can take advantage of **Dynamic Packaging**. In Media Services, a **Streaming Endpoint**/Origin is the dynamic packaging service used to deliver media content to client players. To make videos in the output asset available to clients for playback, you have to create a **Streaming Locator** and then build streaming URLs. 
 
 When creating the **Streaming Locator**, in addition to asset's name, you need to specify **Streaming Policy**. **Streaming Policies** enable you to define streaming protocols and encryption options (if any) for your **Streaming Locators**.
 
@@ -100,6 +100,11 @@ To see the progress of the job, you should use **Event Grid**. Media Services al
 
 - [Handling Event Grid events](reacting-to-media-services-events.md)
 - [Schemas](media-services-event-schemas.md)
+
+### Azure Monitor
+
+Monitor metrics and diagnostic logs that help you understand how your applications are performing with Azure Monitor.
+
 - [Metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md)
 - [Diagnostic logs schemas](media-services-diagnostic-logs-schema.md)
 
@@ -109,6 +114,15 @@ You can use Azure Media Player to play back media content streamed by Media Serv
 
 - [Azure Media Player overview](use-azure-media-player.md)
 
+## Provide feedback
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
+
 ## Next steps
 
-[Upload, encode, and stream using Media Services](stream-files-tutorial-with-api.md)
+* [Encode remote file and stream video – REST](stream-files-tutorial-with-rest.md)
+* [Encode uploaded file and stream video - .NET](stream-files-tutorial-with-api.md)
+* [Stream live - .NET](stream-live-tutorial-with-api.md)
+* [Analyze your video - .NET](analyze-videos-tutorial-with-api.md)
+* [AES-128 dynamic encryption - .NET](protect-with-aes128.md)
+* [Encrypt dynamically with multi-DRM - .NET](protect-with-drm.md) 

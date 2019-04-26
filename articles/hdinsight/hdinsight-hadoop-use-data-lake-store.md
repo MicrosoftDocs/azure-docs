@@ -1,7 +1,6 @@
 ---
 title: Use Data Lake Storage Gen1 with Hadoop in Azure HDInsight
 description: Learn how to query data from Azure Data Lake Storage Gen1 and to store results of your analysis.
-services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -37,6 +36,7 @@ As of now, only some of the HDInsight cluster types/versions support using Data 
 
 | HDInsight cluster type | Data Lake Storage Gen1 as default storage | Data Lake Storage Gen1 as additional storage| Notes |
 |------------------------|------------------------------------|---------------------------------------|------|
+| HDInsight version 4.0 | No | No |ADLS Gen1 is not supported with HDInsight 4.0 |
 | HDInsight version 3.6 | Yes | Yes | With the exception of HBase|
 | HDInsight version 3.5 | Yes | Yes | With the exception of HBase|
 | HDInsight version 3.4 | No | Yes | |

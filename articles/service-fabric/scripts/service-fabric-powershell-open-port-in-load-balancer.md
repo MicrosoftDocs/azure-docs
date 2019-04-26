@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Open a port in the Azure load bala
 services: service-fabric
 documentationcenter: 
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: 
 tags: azure-service-management
 

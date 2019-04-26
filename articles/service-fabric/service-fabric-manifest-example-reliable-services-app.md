@@ -4,7 +4,7 @@ description: Learn how to configure application and service manifest settings fo
 services: service-fabric
 documentationcenter: na
 author: peterpogorski
-manager: timlt
+manager: chackdan
 editor: 
 ms.assetid: 
 ms.service: service-fabric

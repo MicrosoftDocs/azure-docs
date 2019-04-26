@@ -55,7 +55,7 @@ The following code makes an HTTPS request to the QnA Maker API to send the quest
 
 [!code-python[Add a POST request to send question to knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=27-48 "Add a POST request to send question to knowledge base")]
 
-The `Authorization` header's value includes the string `EndpointKey `. 
+The `Authorization` header's value includes the string `EndpointKey`. 
 
 ## Run the program
 

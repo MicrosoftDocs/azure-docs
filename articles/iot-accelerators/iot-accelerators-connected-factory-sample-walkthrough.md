@@ -68,7 +68,7 @@ OPC Publisher Module connects to the station OPC UA servers and subscribes to th
 
 1. Converts the node data into JSON format.
 1. Encrypts the JSON.
-1. Sends the JSON to IoT Hub as OPC UA Pub/Sub messages.
+1. Sends the JSON to IoT Hub as OPC UA pub/sub messages.
 
 The OPC Publisher module only requires an outbound https port (443) and can work with existing enterprise infrastructure.
 

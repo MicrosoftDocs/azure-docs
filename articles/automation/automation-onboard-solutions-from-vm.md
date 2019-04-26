@@ -4,7 +4,7 @@ description: Learn how to onboard an Azure virtual machine with Update Managemen
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
@@ -21,7 +21,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Enable the solutions
 
-Go to an existing virtual machine. Under **OPERATIONS**, select **Update management**, **Inventory**, or **Change tracking**. The virtual machine can exist in any region no matter the location of your Automation Account.
+Go to an existing virtual machine. Under **OPERATIONS**, select **Update management**, **Inventory**, or **Change tracking**. The virtual machine can exist in any region no matter the location of your Automation Account. When onboarding a solution from a VM you need to have the `Microsoft.OperationalInsights/workspaces/read` permission to determine if the VM is onboarded to a workspace. To learn about additional permissions that are needed in general, see [permissions needed to onboard machines](automation-role-based-access-control.md#onboarding).
 
 To enable the solution for the VM only, ensure that **Enable for this VM** is selected. To onboard multiple machines to the solution, select **Enable for VMs in this subscription**, and then select **Click to select machines to enable**. To learn how to onboard multiple machines at once, see [Onboard Update Management, Change Tracking, and Inventory solutions](automation-onboard-solutions-from-automation-account.md).
 
@@ -80,13 +80,13 @@ After you remove these solutions, you can perform the following steps to unlink 
 
 1. From the Azure portal, open your Automation account, and on the Automation account page  select **Linked workspace** under the section **Related Resources** on the left.
 
-1. On the Unlink workspace page, click **Unlink workspace**.
+2. On the Unlink workspace page, click **Unlink workspace**.
 
    ![Unlink workspace page](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
 
    You will receive a prompt verifying you wish to proceed.
 
-1. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
+3. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
 If you used the Update Management solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
 

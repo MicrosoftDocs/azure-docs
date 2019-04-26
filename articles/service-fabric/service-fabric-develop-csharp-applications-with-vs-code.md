@@ -4,7 +4,7 @@ description: This article shows how to build, deploy, and debug .NET Core Servic
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b

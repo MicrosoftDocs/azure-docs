@@ -1,7 +1,8 @@
 ---
-title: Create custom alerts for ASC for IoT Preview| Microsoft Docs
-description: Create and assign custom device alerts for ASC for IoT.
-services: ascforiot
+title: Create custom alerts for Azure Security Center for IoT Preview| Microsoft Docs
+description: Create and assign custom device alerts for Azure Security Center for IoT.
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess
@@ -20,7 +21,7 @@ ms.author: mlottner
 # Quickstart: Create custom alerts
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -30,7 +31,7 @@ Using custom security groups and alerts, take full advantage of the end-to-end s
 
 You know your IoT devices best.
 
-For customers who fully understand their expected device behavior, ASC for IoT allows you to translate this understanding into a device behavior policy and alert on any deviation from expected, normal behavior.
+For customers who fully understand their expected device behavior, Azure Security Center (ASC) for IoT allows you to translate this understanding into a device behavior policy and alert on any deviation from expected, normal behavior.
 
 ## Security Groups
 
@@ -87,4 +88,4 @@ The following table provides a summary of alerts available for customization.
 Advance to the next article to learn how to deploy a security agent...
 
 > [!div class="nextstepaction"]
-> [Deploy a security agent](select-deploy-agent.md)
+> [Deploy a security agent](how-to-deploy-agent.md)

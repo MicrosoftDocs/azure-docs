@@ -56,7 +56,7 @@ If you’re not going to continue to use this application, you can delete the te
 
     The tenant and its associated information is deleted.
 
-    ![Create directory page, with sample information](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![Overview page, with highlighted Delete directory button](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## Next steps
 - Change or add additional domain names, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md)

@@ -8,9 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/11/2019
 ms.author: aahi
 ---
+
 # Quickstart: Check spelling with the Bing Spell Check REST API and C#
 
 Use this quickstart to make your first call to the Bing Spell Check REST API. This simple C# application sends a request to the API and returns a list of suggested corrections. While this application is written in C#, the API is a RESTful Web service compatible with most programming languages. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
@@ -18,14 +19,17 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 ## Prerequisites
 
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
+* To install `Newtonsoft.Json` as a NuGet package in Visual studio:
+    1. In your Solution Explorer, right-click on the Solution file.
+    1. Select **Manage NuGet Packages for Solution**.
+    1. Search for `Newtonsoft.Json` and install the package.
 * If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## Create and initialize a project
 
-1. create a new console solution named `SpellCheckSample` in Visual Studio. Then add the following namespaces into the main code file.
+1. Create a new console solution named `SpellCheckSample` in Visual Studio. Then add the following namespaces into the main code file.
     
     ```csharp
     using System;
@@ -46,14 +50,14 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
         {
             static string host = "https://api.cognitive.microsoft.com";
             static string path = "/bing/v7.0/spellcheck?";
-            static string key = "enter your key here";
+            static string key = "<ENTER-KEY-HERE>";
             //text to be spell-checked
             static string text = "Hollo, wrld!";
         }
     }
     ```
 
-3. Create a variable for your search parameters. append your market code to `mkt=` and your spell-check mode to `&mode=`.
+3. Create a variable for your search parameters. Append your market code after `mkt=`. The market code is the country you make the request from. Also, append your spell-check mode after `&mode=`. Mode is either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling but not as many grammar errors).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -70,10 +74,10 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
         HttpResponseMessage response = new HttpResponseMessage();
-        //...
+        // add the rest of the code snippets here (except for main())...
     }
 
-2. Create the URI for your request by appending your host, path, and parameters. 
+2. Create the URI for your request by appending your host, path, and parameters.
     
     ```csharp
     string uri = host + path + params_;
@@ -175,7 +179,7 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single page web-app](../tutorials/spellcheck.md)
+> [Create a single-page web app](../tutorials/spellcheck.md)
 
 - [What is the Bing Spell Check API?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

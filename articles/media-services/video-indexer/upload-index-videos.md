@@ -18,7 +18,7 @@ When uploading videos with Video Indexer API, you have the following upload opti
 
 * upload your video from a URL (preferred),
 * send the video file as a byte array in the request body,
-* Use existing Azure Media Services asset by providing the [asset id](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (supported in paid accounts only).
+* Use existing Azure Media Services asset by providing the [asset ID](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (supported in paid accounts only).
 
 The article shows how to use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos based on a URL. The code sample in the article includes the commented out code that shows how to upload the byte array. <br/>The article also discusses some of the parameters that you can set on the API to change the process and output of the API.
 
@@ -28,7 +28,7 @@ Once your video has been uploaded, Video Indexer, optionally encodes the video (
 
 - When uploading your video based on the URL (preferred) the endpoint must be secured with TLS 1.2 (or higher)
 - The upload size with the URL option is limited to 30GB
-- In most browsers, URL length is limited to 2000 characters
+- The request URL length is limited to 2048 characters
 - The upload size with the byte array option is limited to 2GB
 - The byte array option times out after 30 min
 - The URL provided in the `videoURL` param needs to be encoded
@@ -57,7 +57,7 @@ A URL that is used to notify the customer (using a POST request) about the follo
     
         |Name|Description|
         |---|---|
-        |id|The video id|
+        |id|The video ID|
         |state|The video state|  
     - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Person identified in video:
@@ -65,7 +65,7 @@ A URL that is used to notify the customer (using a POST request) about the follo
     
       |Name|Description|
       |---|---|
-      |id| The video id|
+      |id| The video ID|
       |faceId|The face ID that appears in the video index|
       |knownPersonId|The person ID that is unique within a face model|
       |personName|The name of the person|
@@ -171,7 +171,7 @@ public async Task Sample()
     var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
     var uploadResult = await uploadRequestResult.Content.ReadAsStringAsync();
 
-    // get the video id from the upload result
+    // get the video ID from the upload result
     string videoId = JsonConvert.DeserializeObject<dynamic>(uploadResult)["id"];
     Debug.WriteLine("Uploaded");
     Debug.WriteLine("Video ID:");
@@ -286,4 +286,4 @@ The status codes listed in the following table may be returned by the Upload ope
 
 ## Next steps
 
-[Examine the Azure Video Indexer output produced by v2 API](video-indexer-output-json-v2.md)
+[Examine the Azure Video Indexer output produced by API](video-indexer-output-json-v2.md)

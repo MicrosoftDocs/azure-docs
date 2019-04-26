@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Load data and run queries on an Apache Spark cluster in Azure HDInsight '
 description: Learn how to load data and run interactive queries on Spark clusters in Azure HDInsight.
-services: azure-hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -9,7 +8,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 11/06/2018
+ms.date: 04/03/2019
 
 #custom intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to load data into a Spark cluster, so I can run interactive SQL queries against the data.
 ---
@@ -23,8 +22,6 @@ In this tutorial, you learn how to:
 > * Create a dataframe from a csv file
 > * Run queries on the dataframe
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-
 ## Prerequisites
 
 * Complete [Create an Apache Spark cluster in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
@@ -36,7 +33,11 @@ Applications can create dataframes directly from files or folders on the remote 
 ![Snapshot of data for interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Snapshot of data for interactive Spark SQL query")
 
 
-1. Open the Jupyter notebook that you created in the prerequisites section.
+1. Open the Jupyter notebook that you created in the prerequisites section and create a new notebook with PySpark.
+
+    > [!NOTE]  
+    > By using the PySpark kernel to create a notebook, the `spark` session is automatically created for you when you run the first code cell. You do not need to explicitly create the session.
+
 2. Paste the following code in an empty cell of the notebook, and then press **SHIFT + ENTER** to run the code. The code imports the types required for this scenario:
 
     ```python
@@ -56,10 +57,6 @@ Applications can create dataframes directly from files or folders on the remote 
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]  
-    > By using the PySpark kernel to create a notebook, the `spark` session is automatically created for you when you run the first code cell. You do not need to explicitly create the session.
-
-
 ## Run queries on the dataframe
 
 Once the table is created, you can run an interactive query on the data.
@@ -75,13 +72,13 @@ Once the table is created, you can run an interactive query on the data.
 
      ![Table output of interactive Spark query result](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Table output of interactive Spark query result")
 
-3. You can also see the results in other visualizations as well. To see an area graph for the same output, select **Area** then set other values as shown.
+2. You can also see the results in other visualizations as well. To see an area graph for the same output, select **Area** then set other values as shown.
 
     ![Area graph of interactive Spark query result](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Area graph of interactive Spark query result")
 
-10. From the **File** menu on the notebook, select **Save and Checkpoint**. 
+3. From the notebook menu bar, navigate to **File** > **Save and Checkpoint**.
 
-11. If you're starting the [next tutorial](apache-spark-use-bi-tools.md) now, leave the notebook open. If not, shut down the notebook to release the cluster resources: from the **File** menu on the notebook, select **Close and Halt**.
+4. If you're starting the [next tutorial](apache-spark-use-bi-tools.md) now, leave the notebook open. If not, shut down the notebook to release the cluster resources: from the notebook menu bar, navigate to **File** >  **Close and Halt**.
 
 ## Clean up resources
 
@@ -96,11 +93,10 @@ You can also select the resource group name to open the resource group page, and
 ## Next steps
 
 In this tutorial, you learned how to:
-
-* Create an Apache Spark dataframe.
-* Run Spark SQL against the dataframe.
+> [!div class="checklist"]
+> * Create an Apache Spark dataframe.
+> * Run Spark SQL against the dataframe.
 
 Advance to the next article to see how the data you registered in Apache Spark can be pulled into a BI analytics tool such as Power BI. 
 > [!div class="nextstepaction"]
 > [Analyze data using BI tools](apache-spark-use-bi-tools.md)
-

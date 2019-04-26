@@ -156,7 +156,7 @@ To create a virtual machine scale set with system-assigned managed identity enab
     }  
    ```  
 
-### Enable system-assigned managed identity on a existing virtual machine scale set
+### Enable system-assigned managed identity on an existing virtual machine scale set
 
 To enable system-assigned managed identity on an existing virtual machine scale set, you need to acquire an access token and then use CURL to call the Resource Manager REST endpoint to update the identity type.
 

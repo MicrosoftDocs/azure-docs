@@ -4,7 +4,7 @@ description: This guide compares Cloud Services Web and Worker Roles and Service
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603

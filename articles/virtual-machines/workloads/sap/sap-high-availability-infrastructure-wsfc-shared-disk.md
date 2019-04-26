@@ -233,14 +233,14 @@ For production SAP systems, deploy Azure virtual machines with [corporate networ
 3. To get a list of all Azure network subnets, run this PowerShell command:
 
    ```powershell
-   (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
+   (Get-AzVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
    ```
 
    The **ID** field shows the value for the subnet ID.
 4. To get a list of all subnet ID values, run this PowerShell command:
 
    ```powershell
-   (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
+   (Get-AzVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
    ```
 
    The subnet ID looks like this:

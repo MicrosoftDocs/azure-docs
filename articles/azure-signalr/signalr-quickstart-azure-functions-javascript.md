@@ -44,7 +44,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
     ![Create SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. In your code editor, open the *chat/src/javascript* folder in the cloned repository.
+1. In your code editor, open the *src/chat/javascript* folder in the cloned repository.
 
 1. Rename *local.settings.sample.json* to *local.settings.json*.
 
@@ -55,7 +55,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
     - **negotiate** - Uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
     - **messages** - Receives a chat message in the request body and uses the *SignalR* output binding to broadcast the message to all connected client applications.
 
-1. In the terminal, ensure that you are in the *chat/src/javascript* folder. Use the Azure Functions Core Tools to install extensions required to run the app.
+1. In the terminal, ensure that you are in the *src/chat/javascript* folder. Use the Azure Functions Core Tools to install extensions required to run the app.
 
     ```bash
     func extensions install

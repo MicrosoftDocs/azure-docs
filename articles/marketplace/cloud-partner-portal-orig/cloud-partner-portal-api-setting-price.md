@@ -156,7 +156,7 @@ customized core pricing, and their corresponding currency codes.
 | LI         | Liechtenstein        | CHF               |
 | LT         | Lithuania            | EUR               |
 | LU         | Luxembourg           | EUR               |
-| MK         | Macedonia FYRO       | MKD               |
+| MK         | North Macedonia      | MKD               |
 | MY         | Malaysia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Mexico               | MXN               |

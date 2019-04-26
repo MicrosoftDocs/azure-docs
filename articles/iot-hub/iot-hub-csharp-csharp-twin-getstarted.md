@@ -8,7 +8,7 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: robin.shahan
+ms.author: robinsh
 ---
 
 # Get started with device twins (.NET/.NET)
