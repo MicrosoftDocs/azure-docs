@@ -53,7 +53,7 @@ Internally, the pipeline generates a collection of enriched documents. You can d
 
 #### Add a knowledgeStore element to save enrichments
 
-[Search service REST api-version=2019-05-06](search-api-preview.md) extends skillsets with a knowledgeStore defintion that provides an Azure storage connection and projections that describe how the enrichments are stored. 
+[Search service REST api-version=2019-05-06](search-api-preview.md) extends skillsets with a knowledgeStore definition that provides an Azure storage connection and projections that describe how the enrichments are stored. 
 
 Adding a knowledge store to a skillset gives you the ability to project a representation of your enrichments for scenarios other than full text search. For more information, see [What is Knowledge Store](knowledge-store-concept-intro.md).
 
