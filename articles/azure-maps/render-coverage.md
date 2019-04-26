@@ -105,7 +105,6 @@ However, Maps does not have the same level of information and accuracy for all r
 | Canada                    | ✓ | ✓ |
 | Cayman Islands            | ✓ | ✓ |
 | Chile                     | ✓ | ✓ |
-| Clipperton Island         | ✓ | ✓ |
 | Colombia                  | ✓ | ✓ |
 | Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |
