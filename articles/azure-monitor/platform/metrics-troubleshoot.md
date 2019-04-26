@@ -14,16 +14,21 @@ ms.subservice: metrics
 
 Use this article if you run into issues with creating, customizing, or interpreting charts in Azure metrics explorer. If you are new to metrics, learn about [getting started with metrics explorer](metrics-getting-started.md) and [advanced features of metrics explorer](metrics-charts.md). You can also see [examples](metric-chart-samples.md) of the configured metric charts.
 
-## Chart shows unexpected drop in values
+## I can't find my resource
 
-In many cases, the perceived drop in the metric values is a misunderstanding of the data shown on the chart. You can be misled by a drop in sums or counts when the chart shows the most-recent minutes because the last metric data points haven’t been received or processed by Azure yet. Depending on the service, the latency of processing metrics can be within a couple minutes range. For charts showing a recent time range with a 1- or 5- minute granularity, a drop of the value over the last few minutes becomes more noticeable:
-    ![metric image](./media/metrics-troubleshoot/drop-in-values.png)
+You open the resource picker dialog but it doesn't list the resource you are looking for.
 
-**Solution:** This behavior is by design. We believe that showing data as soon as we receive it is beneficial even when the data is *partial* or *incomplete*. Doing so allows you to make important conclusion sooner and start investigation right away. For example, for a metric that shows the number of failures, seeing a partial value X tells you that there were at least X failures on a given minute. You can start investigating the problem right away, rather than wait to see the exact count of failures that happened on this minute, which might not be as important. The chart will update once we receive the entire set of data, but at that time it may also show new incomplete data points from more recent minutes.
+**Solution:** Metrics explorer resource picker only shows resources from selected subscription and resource groups. If you don't see the resource you are looking for:
 
-## Chart shows no data
+1. Ensure that you've selected correct subscription in the **Subscription** dropdown. If your subscription isn't listed, open the **Directory + Subscription settings** dialog and add a subscription that contains your resource.
+1. Ensure that you select correct resource group:
+    > [!NOTE]
+    > When you first open metrics explorer, the resource group picker has no resource group selected. You must pick at least one resource group to see  resources: ![empty resource picker image](./media/metrics-troubleshoot/resource-picker-empty.png)
+1. You can use **Resource type** filter to narrow down search results. 
 
-Sometimes the chart shows no data after selecting correct resource and metric. This behavior can be caused by several of the following reasons: 
+## My chart shows no data
+
+Sometimes the chart shows no data after selecting correct resource and metric. This behavior can be caused by several of the following reasons:
 
 ### Microsoft.Insights resource provider isn't registered for your subscription
 
@@ -61,20 +66,13 @@ Collection of **Guest OS** metrics requires configuring the Azure Diagnostics Ex
 
 **Solution:** If Azure Diagnostics Extension is enabled but you are still unable to see your metrics, follow steps outlined in [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
-##  “Error retrieving data” message on dashboard charts
+## I see “Error retrieving data” message on dashboard charts
 
 This problem is common when your dashboard was created with a metric that was later deprecated and removed from Azure. To verify that it is the case, open the **Metrics** tab of your resource, and check the available metrics in the metric picker. If the metric is not shown, the metric has been removed from Azure. Usually, when a metric is deprecated, there is a better new metric that provides with a similar perspective on the resource health.
 
 **Solution:** Update the failing tile by picking an alternative metric for your chart on dashboard. You can [review a list of available metrics for Azure services](metrics-supported.md).
 
-## Cannot pick Guest OS namespace and metrics
-
-You are looking at a **Guest OS** metric but metrics explorer only shows **Virtual Machine Host** metrics for your Azure virtual machine or virtual machine scale set:
-    ![metric image](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
-
-**Solution:** Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running as a process on the virtual machine. You install the agent by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md). If the agent isn't running, the **Guest OS** metrics namespace is not shown in metrics explorer. See also [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
-
-## See a dashed line on the chart
+## Chart shows a dashed line
 
 Azure metrics charts use dashed line style to indicate that there is a missing value (also known as “null value”) between two known time grain data points. For example, if in the time selector you picked “1 minute” time granularity but the metric was reported at 07:26, 07:27, 07:29, and 07:30 (note a minute gap between second and third data points), then a dashed line will connect 07:27 and 07:29 and a solid line will connect all other data points. The dashed line drops down to zero when the metric uses **count** and **sum** aggregation. For the **avg**, **min** or **max** aggregations, the dashed line connects two nearest known data points. Also, when the data is missing on the rightmost or leftmost side of the chart, the dashed line expands to the direction of the missing data point.
   ![metric image](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
@@ -84,3 +82,24 @@ Azure metrics charts use dashed line style to indicate that there is a missing v
 
    > [!NOTE]
    > If you still prefer a line chart for your metric, moving mouse over the chart may help to  assess the time granularity by highlighting the data point at the location of the mouse pointer.
+
+## Chart shows unexpected drop in values
+
+In many cases, the perceived drop in the metric values is a misunderstanding of the data shown on the chart. You can be misled by a drop in sums or counts when the chart shows the most-recent minutes because the last metric data points haven’t been received or processed by Azure yet. Depending on the service, the latency of processing metrics can be within a couple minutes range. For charts showing a recent time range with a 1- or 5- minute granularity, a drop of the value over the last few minutes becomes more noticeable:
+    ![metric image](./media/metrics-troubleshoot/drop-in-values.png)
+
+**Solution:** This behavior is by design. We believe that showing data as soon as we receive it is beneficial even when the data is *partial* or *incomplete*. Doing so allows you to make important conclusion sooner and start investigation right away. For example, for a metric that shows the number of failures, seeing a partial value X tells you that there were at least X failures on a given minute. You can start investigating the problem right away, rather than wait to see the exact count of failures that happened on this minute, which might not be as important. The chart will update once we receive the entire set of data, but at that time it may also show new incomplete data points from more recent minutes.
+
+## I cannot pick Guest OS namespace and metrics
+
+You are looking at a **Guest OS** metric but metrics explorer only shows **Virtual Machine Host** metrics for your Azure virtual machine or virtual machine scale set:
+    ![metric image](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
+
+**Solution:** Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running as a process on the virtual machine. You install the agent by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md). If the agent isn't running, the **Guest OS** metrics namespace is not shown in metrics explorer. See also [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+
+## Next steps
+
+* [Learn about getting started with Metric Explorer](metrics-getting-started.md)
+* [Learn about advanced features of Metric Explorer](metrics-charts.md)
+* [See a list of available metrics for Azure services](metrics-supported.md)
+* [See examples of configured charts](metric-chart-samples.md)
