@@ -429,9 +429,10 @@ inference_config.base_image_registry.password = "password"
 
 The following images are provided by Microsoft, and can be used without providing a user name or password value:
 
-* `docker pull mcr.microsoft.com/azureml/onnxruntime:v0.4.0`
-* `docker pull mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7`
-* `docker pull mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03`
+* `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`
+* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0`
+* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7`
+* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03`
 
 For more information on uploading your own images to an Azure Container Registry, see [Push your first image to a private Docker container registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
 
