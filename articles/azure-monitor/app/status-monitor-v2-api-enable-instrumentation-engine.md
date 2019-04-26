@@ -1,6 +1,6 @@
 ---
 title: Azure Status Monitor v2 Api Reference Enable Instrumentation Engine | Microsoft Docs
-description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+description: Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -15,7 +15,7 @@ ms.author: tilee
 ---
 # Status Monitor API reference: Enable-InstrumentationEngine (v0.2.0-alpha)
 
-This document describes a cmdlet that is shipped as member of the [ApplicationMonitor PowerShell Module.](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)
+This document describes a cmdlet that's shipped as a member of the [ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Status Monitor v2 is currently in public preview.
