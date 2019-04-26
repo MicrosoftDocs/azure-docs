@@ -39,7 +39,7 @@ You need to change your client application to manage the contextual conversation
 
 ## Create a multi-turn conversation from document's structure
 When you create a knowledge base, you will see an optional check-box to enable multi-turn extraction. If you select this option, when you import a document, the multi-turn conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you. 
-Multi-turn structure can only be inferred from URLs, .pdf or .docx files. 
+Multi-turn structure can only be inferred from URLs, PDF, or DOCX files. 
 
 The following image of a Microsoft Surface [PDF file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf) is meant to be used as a manual. 
 
@@ -263,11 +263,13 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
     ]
 }
 ```
-## Displaying prompts and sending context in the Client application 
-The client application displays all the questions with an option for the user to display the prompts as suggested actions or buttons.
-The client aplication then stores the current QnA pair and user query as context to be passed on with the next user query. 
 
-Use this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) to see multi-turn dialog working end-to-end in a QnA MAker bot.
+## Displaying prompts and sending context in the client application 
+
+The client application displays all the questions with an option for the user to display the prompts as suggested actions or buttons.
+The client application then stores the current QnA pair and user query as context to be passed on with the next user query. 
+
+Use this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) to see multi-turn dialog working end-to-end in a QnA Maker bot.
 
 
 ## Prompt order supported in API
