@@ -183,7 +183,7 @@ You can drill in further to see data trends for specific data types, for example
 
 ### Data volume by computer
 
-To see the **size** of billable events ingested per computer, use the [_BilledSize](log-standard-properties#_billedsize.md) property, which provides the size in bytes:
+To see the **size** of billable events ingested per computer, use the [_BilledSize](log-standard-properties.md#_billedsize) property, which provides the size in bytes:
 
 ```
 union withsource = tt * 
