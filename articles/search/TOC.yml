@@ -83,7 +83,7 @@
       href: search-security-trimming-for-azure-search.md
     - name: Filter on AAD identities
       href: search-security-trimming-for-azure-search-with-aad.md
-    - name: Manage encryption keys
+    - name: Manage encryption keys (preview)
       href: search-security-manage-encryption-keys.md
   - name: Development
     items:
@@ -165,7 +165,7 @@
       href: search-howto-index-cosmosdb.md
     - name: One-to-many blob indexing
       href: search-howto-index-one-to-many-blobs.md
-    - name: CSV blob indexing
+    - name: CSV blob indexing (preview)
       href: search-howto-index-csv-blobs.md
     - name: JSON blob indexing
       href: search-howto-index-json-blobs.md

@@ -1,6 +1,6 @@
 ---
-title: 'How to get started with Knowledge Store - Azure Search'
-description: Learn the steps for sending enriched documents created by AI indexing pipelines in Azure Search to an  Azure storage account. From there, you can view, reshape, and consume enriched documents in Azure Search and in other applications. 
+title: 'How to get started with Knowledge Store (preview) - Azure Search'
+description: Learn the steps for sending enriched documents created by AI indexing pipelines in Azure Search to a knowledge store in your Azure storage account. From there, you can view, reshape, and consume enriched documents in Azure Search and in other applications. 
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -29,7 +29,7 @@ The following services, tools, and data are used in this quickstart.
 
 + [Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search.
 
-+ [Postman collection](https://github.com/Azure-Samples/azure-search-postman-sample/tree/master/caselaw) with prepared requests for creating a data source, index, skillset, and indexer. Several object definitions are too long to include in this article. You must get this collection to see the index and skillset definitions in their entirety.
++ [Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/caselaw) with prepared requests for creating a data source, index, skillset, and indexer. Several object definitions are too long to include in this article. You must get this collection to see the index and skillset definitions in their entirety.
 
 + [Caselaw sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) originating from the [Caselaw Access Project](https://case.law/bulk/download/) Public Bulk Data download page. Specifically, the exercise uses the first 10 documents of the first download (Arkansas). We uploaded a 10-document sample to GitHub for this exercise.
 
