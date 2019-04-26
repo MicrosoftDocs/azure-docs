@@ -54,8 +54,6 @@ To generate a writable SAS of your empty managed disk, use the following command
 $diskSas = Grant-AzDiskAccess -ResourceGroupName 'myResouceGroup' -DiskName 'myDiskName' -DurationInSecond 86400 -Access 'Write'
 
 $disk = Get-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
-
-$disk.DiskState = 'ReadyToUpload'
 ```
 
 ## Upload vhd
@@ -68,10 +66,6 @@ This upload has the same throughput as the equivalent [standard HDD](disks-types
 
 ```
 AzCopy /Source:c:\somewhere\mydisk.vhd /Dest:$diskSas
-```
-
-```powershell
-$disk.DiskState = 'ActiveUpload'
 ```
 
 If your SAS expires during upload, and you haven't called `revoke-access` yet, you can get a new SAS to continue the upload using `grant-access`, again.
