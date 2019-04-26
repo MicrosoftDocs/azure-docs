@@ -216,6 +216,9 @@
           href: firewall-support.md
         - name: Access from virtual networks
           href: vnet-service-endpoint.md
+        - name: Role-based access control
+          displayName: rbac
+          href: role-based-access-control.md  
     - name: Enterprise readiness 
       items:
       - name: Online backup and on-demand restore
@@ -466,8 +469,14 @@
             href: /rest/api/storageservices/Table-Service-Concepts
     - name: Etcd API
       items:
+      - name: Introduction
+        href: etcd-api-introduction.md
       - name: Azure Kubernetes with Azure Cosmos DB
         href: bootstrap-kubernetes-cluster.md
+    - name: Spark API
+      items:
+      - name: Introduction
+        href: spark-api-introduction.md
   - name: How-to guides
     items:
     - name: Manage Azure Cosmos account
@@ -512,6 +521,9 @@
         href: data-explorer.md
       - name: Manage indexing policies
         href: how-to-manage-indexing-policy.md
+      - name: SQL subquery examples
+        displayName: subquery, exists
+        href: how-to-sql-subquery.md
     - name: Change Feed
       items:
       - name: Multiple Azure Cosmos DB Triggers
@@ -543,7 +555,7 @@
     - name : Manage Azure Cosmos DB resources
       items:
       - name: Manage using PowerShell 
-        href: manage-account-with-powershell.md
+        href: manage-with-powershell.md
       - name: Manage using Azure CLI
         href: manage-with-cli.md
       - name: Manage using Resource Manager templates

@@ -22,9 +22,27 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+## Prerequisites
+Before you deploy a dual stack application in Azure, you must configure your subscription only once for this preview feature using the following Azure PowerShell:
+
+Register as follows:
+```azurepowershell
+Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
+```
+It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure PowerShell command:
+Check on the registration as follows:
+```azurepowershell
+Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
+```
+After the registration is complete, run the following command:
+
+```azurepowershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
+```
+
 ## Sample script
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 
 ```azurepowershell
 # Dual-Stack VNET with 2 VMs.ps1
