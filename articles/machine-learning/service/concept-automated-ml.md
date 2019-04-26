@@ -30,8 +30,7 @@ Using **Azure Machine Learning service**, you can design and run your automated 
 
 1. **Identify the ML problem (**Classification**, **Forecasting**, or **Regression**) to be solved.**
    
-1. **Specify the labelled training data's source and format.** 
-   + Script data can be read into Numpy arrays or a Pandas dataframe.
+1. **Specify the labelled training data's source and format** (Numpy arrays or a Pandas dataframe).
 
 1. **Configure the compute target for model training.** 
    
