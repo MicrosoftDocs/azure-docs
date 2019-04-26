@@ -256,7 +256,7 @@ The following query returns cluster nodes disks which exceed 90% free space used
 ```kusto
 InsightsMetrics
 | extend Tags = todynamic(Tags)            
-| project TimeGenerated, ClusterId = Tags['container.azm.ms/clusterId'], Computer = tostring(Tags.hostName)   
+| project ClusterId = Tags['container.azm.ms/clusterId']   
 | distinct tostring(ClusterId)   
 ``` 
 
