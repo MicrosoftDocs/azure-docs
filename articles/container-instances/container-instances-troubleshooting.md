@@ -42,11 +42,7 @@ If you specify an image that Azure Container Instances doesn't support, an `OsVe
 }
 ```
 
-This error is most often encountered when deploying Windows Server Core images that are based on a Semi-Annual Channel (SAC) release. For example, Windows versions 1709 and 1803 are SAC releases, and images based on these releases generate this error upon deployment.
-
-To mitigate this issue when deploying Windows Server Core-based images, select an image based on a Windows Server 2016 or 2019 **Long-Term Servicing Channel (LTSC)** version. Use of Windows Server 2019-based images in Azure Container Instances is in preview.
-
-For details about the LTSC and SAC versions of Windows, see [Windows Server Semi-Annual Channel overview][windows-sac-overview].
+This error is most often encountered when deploying Windows images that are based on Semi-Annual Channel release 1709 or 1803, which are not supported. For supported Windows images in Azure Container Instances, see [Frequently asked questions](container-instances-faq.md#what-windows-base-OS-images-are-supported?).
 
 ## Unable to pull image
 
@@ -174,14 +170,10 @@ Another way to reduce the impact of the image pull on your container's startup t
 
 ### Cached images
 
-Azure Container Instances uses a caching mechanism to help speed container startup time for images based on common Windows and Linux images. For an up-to-date list of cached images and tags, use the [List Cached Images][list-cached-images] API.
+Azure Container Instances uses a caching mechanism to help speed container startup time for images based on common [supported Windows images](container-instances-faq.md#what-windows-base-OS-images-are-supported?), including `nanoserver:1809`, `servercore:ltsc2019`, and `servercore:1809`. Commonly used Linux images such as `ubuntu:1604` and `alpine:3.6` are also cached. For an up-to-date list of cached images and tags, use the [List Cached Images][list-cached-images] API.
 
-To ensure the fastest Windows container startup time, Azure Container Instances caches three  recent updates to the following images, which you can use as a base image:
-
-* [Windows Server Core 2016 or 2019][docker-hub-windows-core] (LTSC only) - OS Version 10.0.14393.x or 10.0.17763.x
-* [Windows Nano Server][docker-hub-windows-nano] - OS Version 10.0.14393.x or 10.0.17763.x
-
-Use of Windows Server 2019-based images in Azure Container Instances is in preview.
+> [!NOTE]
+> Use of Windows Server 2019-based images in Azure Container Instances is in preview.
 
 ### Windows containers slow network readiness
 
