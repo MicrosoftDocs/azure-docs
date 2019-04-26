@@ -5,7 +5,7 @@ services: container-service
 author: iainfoulds
 ms.topic: conceptual
 ms.service: container-service
-ms.date: 12/03/2018
+ms.date: 05/06/2019
 ms.author: iainfou
 ---
 
@@ -44,10 +44,16 @@ az provider register --namespace Microsoft.ContainerInstance
 The following regions are supported for virtual node deployments:
 
 * Australia East (australiaeast)
+* Central US (centralus)
 * East US (eastus)
+* East US 2 (eastus2)
+* Japan East (japaneast)
+* North Europe (northeurope)
+* Southeast Asia (southeastasia)
 * West Central US (westcentralus)
 * West Europe (westeurope)
 * West US (westus)
+* West US 2 (westus2)
 
 ## Known limitations
 Virtual Nodes functionality is heavily dependent on ACI's feature set. The following scenarios are not yet supported with Virtual Nodes
