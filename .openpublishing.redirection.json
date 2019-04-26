@@ -10959,6 +10959,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/data-factory/concepts-data-flow-datasets.md",
+      "redirect_url": "https://azure.microsoft.com/services/data-factory/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hdinsight/hdinsight-hadoop-install-mono.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-migrate-dotnet-to-linux",
       "redirect_document_id": false
@@ -17367,6 +17372,11 @@
       "source_path": "articles/active-directory/connect/active-directory-aadconnectsyncservice-features.md",
       "redirect_url": "/azure/active-directory/hybrid/how-to-connect-syncservice-features",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/conditional-access-for-exo-and-spo.md",
+      "redirect_url": "/azure/active-directory/conditional-access/block-legacy-authentication",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/connect/active-directory-aadconnectsyncservice-shadow-attributes.md",
