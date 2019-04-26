@@ -1,5 +1,5 @@
 ---
-title: Azure Status Monitor v2 Overview | Microsoft Docs
+title: Azure Status Monitor v2 overview | Microsoft Docs
 description: An overview of Status Monitor v2. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net

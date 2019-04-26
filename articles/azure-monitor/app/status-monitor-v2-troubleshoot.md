@@ -1,5 +1,5 @@
 ---
-title: Azure Status Monitor v2 Troubleshooting and Known Issues | Microsoft Docs
+title: Azure Status Monitor v2 troubleshooting and known issues | Microsoft Docs
 description: The known issues of Status Monitor v2 and troubleshooting examples. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
