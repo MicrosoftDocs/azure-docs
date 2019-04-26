@@ -20,7 +20,7 @@ to run code that fits this scenario:
 
 * Runs in JavaScript.
 * Finishes running in five seconds or fewer.
-* Handles data within a specific limit.
+* Handles data up to 50 MB in size.
 * Uses the same libraries that Azure Functions supports.
 
   For example, with JavaScript, this action uses these 
@@ -70,7 +70,7 @@ location that you want in your logic app's workflow.
    the arrow that connects those steps. Choose the plus sign (**+**), 
    and select **Add an action**.
 
-   This example adds the **Inline Code action** 
+   This example adds the **Inline Code** action 
    under the Office 365 Outlook trigger.
 
    ![Add new step](./media/logic-apps-add-run-inline-code/add-new-step.png)
@@ -111,10 +111,22 @@ select this action: **Execute JavaScript Code**
 
 ## Add parameters
 
-Optionally, you can reference outputs from the trigger 
-and previous actions in your code by adding parameters. 
-To add parameters, open the **Add new parameter** list, 
-and select the parameters you want. For example:
+Optionally, you can require that the **Inline Code** action 
+to include outputs from the trigger or specific actions that 
+your code references by adding the **Trigger** or **Actions** 
+parameters. 
+
+For example, suppose you have code that references the **To** 
+and **Subject** outputs from the **Send an email** action for 
+the Office 365 Outlook connector. At run time, the Logic Apps 
+engine analyzes your code to determine whether you've referenced 
+any trigger or action outputs and includes those outputs automatically. 
+However, should you get an error that a referenced output isn't available, 
+you can add the **Actions** parameter and specify that the **Inline Code** 
+action include the **To** and **Subject** outputs.
+
+To add these parameters, open the **Add new parameter** list, 
+and select the parameters you want:
 
    ![Add parameters](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
@@ -142,7 +154,7 @@ If you select **Actions**, you're prompted for the action outputs that you want.
 
 When you select **Triggers**, you're prompted whether to include trigger outputs.
 
-1. From the **Trigger** list, select **Yes**.
+* From the **Trigger** list, select **Yes**.
 
 ## Next steps
 
