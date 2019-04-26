@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 5/6/2019
+ms.date: 05/06/2019
 ---
 
 ## Compute and storage
