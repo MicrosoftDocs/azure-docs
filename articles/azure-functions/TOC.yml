@@ -41,7 +41,9 @@
     items:
     - name: Azure Cosmos DB
       href: functions-integrate-store-unstructured-data-cosmosdb.md
-    - name: Storage
+    - name: Storage - Python
+      href: functions-add-output-binding-storage-queue-python.md
+    - name: Storage - portal
       href: functions-integrate-storage-queue-output-binding.md
 - name: Tutorials
   items:
