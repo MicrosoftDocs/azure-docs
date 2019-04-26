@@ -17,6 +17,7 @@ The Single Server deployment option delivers:
 - Built-in high availability with no additional cost (99.99% SLA)
 - Predictable performance, using inclusive pay-as-you-go pricing
 - Vertical scale as needed within seconds
+- Monitoring and alerting to quickly assess the impact of scaling
 - Secured to protect sensitive data at-rest and in-motion
 - Automatic backups and point-in-time-restore for up to 35 days
 - Enterprise-grade security and compliance
