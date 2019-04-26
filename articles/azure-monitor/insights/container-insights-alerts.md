@@ -254,7 +254,10 @@ let endDateTime = now();
 The following query returns cluster nodes disks which exceed 90% free space used. To get the cluster ID, first run the following query and copy the value from the `ClusterId` property:
 
 ```kusto
+InsightsMetrics
+| extend Tags = todynamic(Tags)            
 | project TimeGenerated, ClusterId = Tags['container.azm.ms/clusterId'], Computer = tostring(Tags.hostName), Device = tostring(Tags.device), Path = tostring(Tags.path), DiskMetricName = Name, DiskMetricValue = Val   
+| distinct tostring(ClusterId)   
 ``` 
 
 ```kusto
