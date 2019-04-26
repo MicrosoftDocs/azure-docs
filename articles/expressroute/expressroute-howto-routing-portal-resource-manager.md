@@ -87,7 +87,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 ### <a name="getmsft"></a>To view Microsoft peering details
 
-You can view the properties of Azure public peering by selecting the peering.
+You can view the properties of Microsoft peering by selecting the peering.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
 
@@ -156,8 +156,8 @@ You can remove your peering configuration by selecting the delete icon, as shown
 
 This section helps you create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit.
 
-> [!NOTE]
-> Azure public peering is deprecated for new circuits.
+> [!Note]
+> Azure public peering is deprecated for new circuits. For more information, see [ExpressRoute peering](expressroute-circuit-peerings.md).
 >
 
 ### To create Azure public peering
