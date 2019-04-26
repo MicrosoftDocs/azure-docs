@@ -19,9 +19,9 @@ Azure Blockchain Service is a fully managed ledger service that enables users th
 
 * Simple network deployment and operations
 * Built-in consortium management
-* Open and extensible design
+* Develop smart contracts with familiar development tools
 
-Azure Blockchain Service is designed to support multiple ledger protocols, with currently providing support for the Ethereum [Quorum](https://www.jpmorgan.com/Quorum) ledger.
+Azure Blockchain Service is designed to support multiple ledger protocols, with currently providing support for the Ethereum [Quorum](https://www.jpmorgan.com/Quorum) ledger using the [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) consensus mechanism.
 
 These capabilities require almost no administration and all are provided at no additional cost. You can focus on app development and business logic rather than allocating time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open-source tools and platform of your choice to deliver your solutions without having to learn new skills.
 
@@ -59,11 +59,9 @@ When deploying your first blockchain member, you either join or create a new con
 
 Consortium management actions such as adding and removing members from a consortium can be accessed through PowerShell and a REST API. You can programmatically manage a consortium using common interfaces rather than modifying and submitting solidity-based smart contracts. For more information, see [consortium management](consortium.md).
 
-## Open and extensible design
+## Develop using familiar development tools
 
-Based on the open-sourced Quorum Ethereum ledger, you can develop applications for Azure Blockchain Service the same way as you do for existing Ethereum applications.  Support for tools such as Truffle, Ganache, Remix, and MetaMask work with Azure Blockchain Service.  Using the Azure Blockchain Visual Studio Code extension, you can create or connect to an existing consortium so that you can build and deploy your smart contracts all from one IDE.  For more information, see [Azure Blockchain VSCode Extension](https://marketplace.visualstudio.com/items?itemName=azblockchain.azure-blockchain).
-
-![VS Code](./media/overview/vscode.png)
+Based on the open-sourced Quorum Ethereum ledger, you can develop applications for Azure Blockchain Service the same way as you do for existing Ethereum applications. Working with leading industry partners, the Azure Blockchain Development Kit Visual Studio Code extension allows developers to leverage familiar tools like Truffle Suite to build smart contracts. Using the Azure Blockchain Development Kit extension, developers can create, or connect to and existing consortium so that you can build and deploy your smart contracts all from one IDE. Using the Azure Blockchain Visual Studio Code extension, you can create or connect to an existing consortium so that you can build and deploy your smart contracts all from one IDE. For more information, see [Azure Blockchain Development Kit in the VS Code marketplace](http://aka.ms/vscodebcextension)  and the [Azure Blockchain Development Kit user guide](http://aka.ms/vscodebcextensionwiki ).
 
 ## Support and feedback
 
