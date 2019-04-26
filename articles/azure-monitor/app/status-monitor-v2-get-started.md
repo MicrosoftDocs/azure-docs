@@ -1,6 +1,6 @@
 ---
 title: Azure Status Monitor v2 Getting Started | Microsoft Docs
-description: Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+description: A quick start guide for Status Monitor v2. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-## Download & install Status Monitor v2 via PowerShell Gallery
+## Download & install via PowerShell Gallery
 
 ### Install prerequisites
 Run PowerShell as Administrator
@@ -55,7 +55,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ```
 	
 		
-## Download & install Status Monitor v2 manually (offline option)
+## Download & install manually (offline option)
 ### Manual download
 Manually download the latest version of the Module from: https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 

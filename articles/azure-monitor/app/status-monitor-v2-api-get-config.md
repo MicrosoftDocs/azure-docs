@@ -1,6 +1,6 @@
 ---
 title: Azure Status Monitor v2 Api Reference Get Config | Microsoft Docs
-description: Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+description: Status Monitor v2 Api Reference Get-ApplicationInsightsMonitoringConfig. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Status Monitor API reference: Get-ApplicationInsightsMonitoringConfig (v0.2.0-alpha)
+# Status Monitor v2 API: Get-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
 
 This document describes a cmdlet that's shipped as a member of the [ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -47,7 +47,7 @@ PS C:\> Get-ApplicationInsightsMonitoringConfig
 ```
 RedfieldConfiguration:
 Filters:
-0)InstrumentationKey: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx AppFilter: .* MachineFilter: .*
-1)InstrumentationKey: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx AppFilter: two MachineFilter: two
-2)InstrumentationKey:  AppFilter: two MachineFilter: two
+0)InstrumentationKey:  AppFilter: WebAppExclude MachineFilter: .*
+1)InstrumentationKey: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2 AppFilter: WebAppTwo MachineFilter: .*
+2)InstrumentationKey: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault AppFilter: .* MachineFilter: .*
 ```

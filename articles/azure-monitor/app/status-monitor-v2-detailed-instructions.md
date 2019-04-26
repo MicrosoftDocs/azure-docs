@@ -26,7 +26,7 @@ We've also included manual instructions in the event that internet access isn't 
 
 ## Instrumentation key
 
-To get started, you must have an instrumentation key. For more information, read ["Create new resource."](create-new-resource.md#copy-the-instrumentation-key)
+To get started, you must have an instrumentation key. For more information, read [Create an Application Insights resource](create-new-resource.md#copy-the-instrumentation-key).
 
 ## Run PowerShell as administrator with an elevated execution policy
 
@@ -56,8 +56,9 @@ https:/go.microsoft.com/fwlink/?LinkID=135170.
 
 ## Prerequisites for PowerShell
 
-Audit your current version PowerShell by running the cmd: `$PSVersionTable`
-These instructions were written and tested on a Windows 10 machine with these versions:
+Audit your current version PowerShell by running the command: `$PSVersionTable`.
+The command produces the following output:
+
 
 ```
 Name                           Value
@@ -71,6 +72,8 @@ WSManStackVersion              3.0
 PSRemotingProtocolVersion      2.3
 SerializationVersion           1.1.0.1
 ```
+
+These instructions were written and tested on a Windows 10 machine with the versions listed above.
 
 ## Prerequisites for PowerShell Gallery
 
@@ -136,7 +139,7 @@ These steps will prepare your server to download modules from the PowerShell Gal
 	
 5. Restart PowerShell. It isn't possible to load the new version in the current session. Any new Powershell sessions will have the latest PowerShellGet loaded.
 
-## Download & install ApplicationMonitor via PowerShell Gallery
+## Download & install via PowerShell Gallery
 
 These steps will download the ApplicationMonitor module from PowerShell Gallery.
 
@@ -151,7 +154,7 @@ These steps will download the ApplicationMonitor module from PowerShell Gallery.
 		- `-AcceptLicense` This will skip the "Accept License" prompt
 		- `-Force` This will ignore the "Untrusted Repository" warning
 
-## Download & install ApplicationMonitor manually (offline option)
+## Download & install manually (offline option)
 
 If for any reason you can't connect to the PowerShell Module, you may manually download and install the ApplicationMonitor module.
 
@@ -218,7 +221,7 @@ Review the instructions above when writing your installation scripts.
 The Application Insights SDK will need to send your application's telemetry to Microsoft. We recommend configuring proxy settings for your application in your web.config. See [Application Insights FAQ: Proxy Passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough) for more information.
 
 
-## Enable Application Insights monitoring 
+## Enable monitoring 
 
 Cmd: `Enable-ApplicationInsightsMonitoring`
 

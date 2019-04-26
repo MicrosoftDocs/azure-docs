@@ -1,6 +1,6 @@
 ---
 title: Azure Status Monitor v2 Api Reference Enable Monitoring | Microsoft Docs
-description: Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+description: Status Monitor v2 Api Reference Enable-ApplicationInsightsMonitoring. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Status Monitor API reference: Enable-ApplicationInsightsMonitoring (v0.2.0-alpha)
+# Status Monitor v2 API: Enable-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
 This document describes a cmdlet that's shipped as a member of the [ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 

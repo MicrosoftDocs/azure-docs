@@ -1,6 +1,6 @@
 ---
 title: Azure Status Monitor v2 Troubleshooting and Known Issues | Microsoft Docs
-description: Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+description: The known issues of Status Monitor v2 and troubleshooting examples. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -17,7 +17,7 @@ ms.author: tilee
 
 When you enable monitoring, you may experience issues that prevent data collection. 
 This document lists all the known issues and troubleshooting examples.
-If you come across an issue not listed here, you may contact us [here](https://github.com/Microsoft/ApplicationInsights-Home).
+If you come across an issue not listed here, you may contact us [here](https://github.com/Microsoft/ApplicationInsights-Home/issues).
 
 
 > [!IMPORTANT]
@@ -83,10 +83,10 @@ After you run the Enable command,
 ### Troubleshooting PowerShell
 
 #### How to inspect what modules are available?
-You can audit installed Modules using cmd: `Get-Module -ListAvailable`
+You can audit installed Modules using the command: `Get-Module -ListAvailable`
 
 #### How to import a module into the current session?
-If the Module hasn't been loaded into a PowerShell session, can manually load using the command `Import-Module <path to psd1>`
+If the Module hasn't been loaded into a PowerShell session, can manually load using the command: `Import-Module <path to psd1>`
 
 
 ### Troubleshooting the Status Monitor v2 module
