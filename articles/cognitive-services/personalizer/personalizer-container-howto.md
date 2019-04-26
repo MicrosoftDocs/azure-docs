@@ -123,7 +123,7 @@ This command:
 
 If you intend to run multiple containers with exposed ports, make sure to run each container with a different port. For example, run the first container on port 5000 and the second container on port 5001.
 
-Replace the `<container-registry>` and `<container-name>` with the values of the containers you use. These do not have to be the same container. You can have the Face container and the LUIS container running on the HOST together or you can have multiple Face containers running. 
+Replace the `<container-registry>` and `<container-name>` with the values of the containers you use. These do not have to be the same container. You can have the Personalizer container and the LUIS container running on the HOST together or you can have multiple Personalizer containers running. 
 
 Run the first container on port 5000. 
 
