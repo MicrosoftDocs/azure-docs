@@ -215,9 +215,6 @@ module.exports = async function (context, req) {
 };
 ```
 
-> [!WARNING]
-> When you develop locally in JavaScript, to use methods on `DurableOrchestrationClient`, you must set the environment variable `WEBSITE_HOSTNAME` to `localhost:<port>` (for example, `localhost:7071`). For more information about this requirement, see [GitHub issue 28](https://github.com/Azure/azure-functions-durable-js/issues/28).
-
 In .NET, the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parameter is a value from the `orchestrationClient` output binding, which is part of the Durable Functions extension. In JavaScript, this object is returned by calling `df.getClient(context)`. These objects provide methods you can use to start, send events to, terminate, and query for new or existing orchestrator function instances.
 
 In the preceding examples, an HTTP-triggered function takes in a `functionName` value from the incoming URL and passes the value to [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). The [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) binding API then returns a response that contains a `Location` header and additional information about the instance. You can use the information later to look up the status of the started instance or to terminate the instance.
@@ -381,7 +378,7 @@ The sixth pattern is about aggregating event data over a period of time into a s
 
 The tricky thing about trying to implement this pattern with normal, stateless functions is that concurrency control becomes a huge challenge. Not only do you need to worry about multiple threads modifying the same data at the same time, you also need to worry about ensuring that the aggregator only runs on a single VM at a time.
 
-Using a [Durable Entity function](durable-functions-preview.md#durable-entities), one can implement this pattern easily as a single function.
+Using a [Durable Entity function](durable-functions-preview.md#entity-functions), one can implement this pattern easily as a single function.
 
 ```csharp
 public static async Task Counter(
@@ -476,7 +473,7 @@ Storage blobs are primarily used as a leasing mechanism to coordinate the scale-
 
 ![A screenshot of Azure Storage Explorer](./media/durable-functions-concepts/storage-explorer.png)
 
-> [!WARNING]
+> [!NOTE]
 > Although it's easy and convenient to see execution history in table storage, don't make any dependencies on this table. The table might change as the Durable Functions extension evolves.
 
 ## Known issues
