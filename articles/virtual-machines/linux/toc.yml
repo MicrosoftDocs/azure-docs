@@ -370,8 +370,8 @@
         href: openshift-prerequisites.md
       - name: OpenShift Container Platform
         href: openshift-container-platform.md
-      - name: OKD
-        href: openshift-okd.md
+      - name: OpenShift Marketplace Self-Managed
+        href: openshift-marketplace-self-managed.md
       - name: Azure Stack
         href: openshift-azure-stack.md
       - name: OpenShift post-deployment tasks

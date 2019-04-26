@@ -3,7 +3,7 @@ title: Frequently asked questions for Azure Active Directory B2C | Microsoft Doc
 description: Frequently asked questions (FAQ) about Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity

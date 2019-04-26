@@ -64,7 +64,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
         dotnet restore
 
-3. Open *Program.cs*, and add a reference to an App Configuration .NET Core configuration provider.
+3. Open *Program.cs*, and add a reference to the .NET Core App Configuration provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration;

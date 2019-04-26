@@ -9,14 +9,11 @@ ms.date: 12/03/2018
 ms.author: iainfou
 ---
 
-# Preview - Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes using the Azure CLI
+# Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes using the Azure CLI
 
-To rapidly scale application workloads in an Azure Kubernetes Service (AKS) cluster, you can use virtual nodes. With virtual nodes, you have quick provisioning of pods, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. This article shows you how to create and configure the virtual network resources and AKS cluster, then enable virtual nodes.
+To rapidly scale application workloads in an Azure Kubernetes Service (AKS) cluster, you can use virtual nodes. With virtual nodes, you have quick provisioning of pods, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. Virtual nodes are only supported with Linux pods and nodes.
 
-> [!IMPORTANT]
-> AKS preview features are self-service and opt-in. Previews are provided to gather feedback and bugs from our community. However, they are not supported by Azure technical support. If you create a cluster, or add these features to existing clusters, that cluster is unsupported until the feature is no longer in preview and graduates to general availability (GA).
->
-> If you encounter issues with preview features, [open an issue on the AKS GitHub repo][aks-github] with the name of the preview feature in the bug title.
+This article shows you how to create and configure the virtual network resources and AKS cluster, then enable virtual nodes.
 
 ## Before you begin
 
@@ -178,11 +175,6 @@ az aks enable-addons \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
-> [!NOTE]
-> If you receive an error about virtual-node not being found, you may need to install its CLI extension 
-> ```azurecli-interactive
-> az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
-> ```
 
 ## Connect to the cluster
 
@@ -261,7 +253,7 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 The pod is assigned an internal IP address from the Azure virtual network subnet delegated for use with virtual nodes.
 
 > [!NOTE]
-> If you use images stored in Azure Container Registry, [configure and use a Kubernetes secret][acr-aks-secrets]. A current limitation of the virtual nodes preview is that you can't use integrated Azure AD service principal authentication. If you don't use a secret, pods scheduled on virtual nodes fail to start and report the error `HTTP response status code 400 error code "InaccessibleImage"`.
+> If you use images stored in Azure Container Registry, [configure and use a Kubernetes secret][acr-aks-secrets]. A current limitation of virtual nodes is that you can't use integrated Azure AD service principal authentication. If you don't use a secret, pods scheduled on virtual nodes fail to start and report the error `HTTP response status code 400 error code "InaccessibleImage"`.
 
 ## Test the virtual node pod
 

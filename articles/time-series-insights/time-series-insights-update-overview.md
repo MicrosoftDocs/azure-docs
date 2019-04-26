@@ -19,7 +19,7 @@ Azure Time Series Insights Preview is an end-to-end platform-as-a-service offeri
 
 ## Video
 
-In this video, we provide an overview of Azure Time Series Insights Preview, a cloud-based IoT analytics platform.
+### In this video, we provide an overview of Azure Time Series Insights Preview, a cloud-based IoT analytics platform. </br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player]
 

@@ -3,8 +3,8 @@ title: Common Microsoft Power BI Workspace Collection scenarios
 description: Common Microsoft Power BI Embedded scenarios
 services: power-bi-workspace-collections
 ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017

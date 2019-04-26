@@ -18,6 +18,11 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 + The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
 + The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
+
+## 2019-04-22
+
+### Azure Machine Learning SDK for Python v1.0.30
+
 ## 2019-04-17
 
 ### Azure Machine Learning Data Prep SDK v1.1.2
@@ -46,9 +51,11 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
 ## 2019-04-15
 
 ### Azure Portal
++ **New features**
   + You can now resubmit an existing Script run on an existing remote compute cluster. 
   + You can now run a published pipeline with new parameters on the Pipelines tab. 
   + Run details now supports a new Snapshot file viewer. You can view a snapshot of the directory when you submitted a specific run. You can also download the notebook that was submitted to start the run.
+   + You can now cancel parent runs from the Azure Portal.
 
 ## 2019-04-08
 
