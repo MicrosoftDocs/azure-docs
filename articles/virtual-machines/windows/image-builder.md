@@ -8,9 +8,9 @@ ms.topic: article
 ms.service: virtual-machines-windows
 manager: jeconnoc
 ---
-# Preview: Create a Windows Vm with Azure Image Builder
+# Preview: Create a Windows VM with Azure Image Builder
 
-This article is to show you how you can create a customized Windows image using the Azure VM Image Builder, and distribute to a region.This covers using three different customizations:
+This article is to show you how you can create a customized Windows image using the Azure VM Image Builder, and distribute to a region. This covers using three different customizations:
 - PowerShell (ScriptUri) - download and run a PowerShell script.
 - PowerShell (inline) - run a specific command.
 - File - copy a file from GitHub.
@@ -59,7 +59,7 @@ We will be using some pieces of information repeatedly, so we will create some v
 
 ```azurecli-interactive
 # Resource group name - we are using myImageBuilderRG in this example
-imageResourceGroup=myImageBuilerRG
+imageResourceGroup=myWinImgBuilderRG
 # Region location 
 location=WestUS2
 # Name for the image 
