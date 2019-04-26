@@ -40,7 +40,9 @@ You can use [Azure role-based access control (RBAC)](../articles/role-based-acce
 
 ### Upload your vhd
 
-We make it easy to transfer your vhd to an azure managed disk through our direct upload feature. Previously, you had to follow a more involved process that included staging your data in a storage account. Now, there are fewer steps. It is easier to upload on premises VMs to azure, upload to large managed disks, and the backup and restore process is simplified. It also reduces cost by allowing you to upload data to managed disks directly without attaching them to VMs. You can use it to upload vhds up to 32 TiB in size. To learn about how use your own vhd, see our article .
+Direct upload makes it easy to transfer your vhd to an Azure managed disk. Previously, you had to follow a more involved process that included staging your data in a storage account. Now, there are fewer steps. It is easier to upload on premises VMs to Azure, upload to large managed disks, and the backup and restore process is simplified. It also reduces cost by allowing you to upload data to managed disks directly without attaching them to VMs. You can use it to upload vhds up to 32 TiB in size.
+
+To learn how to transfer your vhd to Azure, see the [CLI](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) or [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md) articles.
 
 ## Disk roles
 
