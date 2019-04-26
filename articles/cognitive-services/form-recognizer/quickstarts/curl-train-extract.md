@@ -32,12 +32,12 @@ First, you will need a set of training data. You can use data in an Azure Blob o
 
 To train a Form Recognizer model using the documents in your Azure Blob container, call the **Train** API by executing the cURL command below. Before running the command, make the following changes:
 
-* Replace `<Endpoint>` with the endpoint you obtained your Form Recognizer subscription key. You can find it in your Form Recognizer resource overview tab.
+* Replace `<Endpoint>` with the endpoint you obtained from your Form Recognizer subscription key. You can find it in your Form Recognizer resource overview tab.
 * Replace `<SAS URL>` with an Azure Blob Storage container shared access signature (SAS) URL where the training data is located.  
 * Replace `<subscription key>` with your subscription key.
 
 ```bash
-curl -v -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{{  "source": "<SAS URL>" }}"
+curl -v -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \"<SAS URL>\"}"
 ```
 
 You will receive a `200 (Success)` response with the following JSON output:
@@ -89,11 +89,12 @@ Next, you will analyze a document and extract key-value pairs and tables from it
 
 * Replace `<Endpoint>` with the endpoint you obtained your Form Recognizer subscription key. You can find it in your Form Recognizer resource overview tab.
 * Replace `<modelID>` with the model ID you received in the previous step of training the model.
-* Replace `<SAS URL>` with an Azure Blob Storage container shared access signature (SAS) URL where the form to extract data is located. 
+* Replace `<path to your forms` path to your form. 
 * Replace `<subscription key>` with your subscription key.
+* Replace `<file type>` with the file type - supported types pdf, image/jpeg, image/png.
 
 ```bash
-curl -v -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{{  "source": "<SAS URL>" }}"
+cURL cmd: curl -v -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@<path to your form>;type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### Examine the response
