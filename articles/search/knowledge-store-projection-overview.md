@@ -103,7 +103,7 @@ As demonstrated in this example, the key phrases and entities are modeled into d
 
 The following illustration is a reference to the Caselaw exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
 
-![Entities and relationships in tables](media/knowledge-store-projection-overview/table-relationships.png "Modeling relationships in table projections")
+![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
 
 ## Object projections
 
