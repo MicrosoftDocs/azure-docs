@@ -72,7 +72,7 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview](etcd-api-int
 1. From the command prompt, navigate to the folder where the Azure Kubernetes Engine executable is located. For example, on your command prompt you can navigate to the folder as:
 
    ```cmd
-   cd "\aks-engine-v0.34.1-windows-amd64\aks-engine-v0.34.1-windows-amd64"
+   cd "\aks-engine-v0.32.3-windows-amd64\aks-engine-v0.32.3-windows-amd64"
    ```
 
 1. Open a text editor of your choice and define a Resource Manager template that deploys the Azure Kubernetes cluster with Azure Cosmos DB etcd API. Copy the following JSON definition to your text editor and save the file as `apiModel.json`:

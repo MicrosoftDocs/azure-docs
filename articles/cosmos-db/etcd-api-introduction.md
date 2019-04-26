@@ -23,7 +23,9 @@ The etcd API in Azure Cosmos DB allows you to use Azure Cosmos DB as the backend
 
 ## Wire level compatibility
 
-Azure Cosmos DB implements the wire-protocol of etcd, and allows the [master node's](https://kubernetes.io/docs/concepts/overview/components/) API servers to use Azure Cosmos DB just like it would do in a locally installed etcd environment. 
+Azure Cosmos DB implements the wire-protocol of etcd version 3, and allows the [master node's](https://kubernetes.io/docs/concepts/overview/components/) API servers to use Azure Cosmos DB just like it would do in a locally installed etcd environment. The etcd API supports TLS mutual authentication. 
+
+The following diagram shows the components of a Kubernetes cluster. In the cluster master, the API Server uses Azure Cosmos DB etcd API, instead of locally installed etcd. 
 
 ![Azure Cosmos DB implementing the etcd wire-protocol](./media/etcd-api-introduction/etcd-api-wire-protocol.png)
 
@@ -31,7 +33,7 @@ Azure Cosmos DB implements the wire-protocol of etcd, and allows the [master nod
 
 ### No etcd operations management
 
-As a fully managed native cloud service, Azure Cosmos DB removes the need for Kubernetes developers to set up and manage etcd. The etcd API in Azure Cosmos DB is scalable, highly available, fault tolerant, and offers high performance. The overhead of setting up replication across multiple nodes, performing rolling updates, security patches, and monitoring the etcd health are handled by Azure Cosmos DB.  
+As a fully managed native cloud service, Azure Cosmos DB removes the need for Kubernetes developers to set up and manage etcd. The etcd API in Azure Cosmos DB is scalable, highly available, fault tolerant, and offers high performance. The overhead of setting up replication across multiple nodes, performing rolling updates, security patches, and monitoring the etcd health are handled by Azure Cosmos DB.
 
 ### Global distribution & high availability 
 
@@ -39,11 +41,12 @@ By using etcd API, Azure Cosmos DB guarantees 99.99% availability for data reads
 
 ### Elastic scalability
 
-Azure Cosmos DB offers elastic scalability for read and write requests across different regions. As the Kubernetes cluster grows, the etcd API account in Azure Cosmos DB elastically scales without any downtime. 
+Azure Cosmos DB offers elastic scalability for read and write requests across different regions.
+As the Kubernetes cluster grows, the etcd API account in Azure Cosmos DB elastically scales without any downtime. Storing etcd data in Azure Cosmos DB, instead of the Kubernetes master nodes also enables more flexible master node scaling. 
 
 ### Security & enterprise readiness
 
-When etcd data is stored in Azure Cosmos DB, Kubernetes developers automatically get the [built-in encryption at rest](database-encryption-at-rest.md) and [certifications and compliance](compliance.md) supported by Azure Cosmos DB. 
+When etcd data is stored in Azure Cosmos DB, Kubernetes developers automatically get the [built-in encryption at rest](database-encryption-at-rest.md),  [certifications and compliance](compliance.md), and [backup and restore capabilities](online-backup-and-restore.md) supported by Azure Cosmos DB. 
 
 ## Next steps
 
