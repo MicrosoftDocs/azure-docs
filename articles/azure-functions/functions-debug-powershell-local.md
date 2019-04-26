@@ -133,8 +133,8 @@ At this point, the debugger is attached and you can do all the normal debugger o
 
 After you continue and fully invoke your script, you'll notice that:
 
-1. The PowerShell console that did the `Invoke-RestMethod` has returned a result
-1. The PowerShell Integrated Console in Visual Studio Code is waiting for a script to be executed
+* The PowerShell console that did the `Invoke-RestMethod` has returned a result
+* The PowerShell Integrated Console in Visual Studio Code is waiting for a script to be executed
 
 Subsequent times when you invoke the same function, the debugger in PowerShell extension breaks right after the `Wait-Debugger`.
 
