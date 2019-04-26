@@ -239,12 +239,16 @@ This is useful for an entity that has data available only at query prediction ru
 
 `Send Hazem a new message`, where `Hazem` is directly matched as one of the user’s contacts.
 
+<!--
+
 In a [multi-intent](#detect-multiple-intents-within-single-utterance) utterance, you can use the external entity data to help with secondary references. For example, in the utterance `Send Hazem a new message, and let him know about the party.`, two segments of the utterance are predicted:
 
 * `Send Hazem a new message, and`
 * `let him know about the party.`
 
 The first segment can correctly predict Hazem when the external entity is sent with the prediction request. The second segment won't know that `him` is a secondary reference to the same data unless you send it with the request and mark it as the same entity.
+
+-->
 
 ### External entities JSON request body 
 
