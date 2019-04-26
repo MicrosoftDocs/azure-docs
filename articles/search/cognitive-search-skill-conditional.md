@@ -9,7 +9,7 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 05/01/2019
 ms.author: luisca
 ---
 
@@ -36,13 +36,14 @@ Microsoft.Skills.Util.ConditionalSkill
 
 ## Evaluated Fields
 
-Note that this skill is special because its inputs are actually evaluated fields. Expressions
+Note that this skill is special because its inputs are actually evaluated fields.
 
 The following are valid values of an expression:
 
 1.	Annotation Paths (paths in expressions must be delimited by "$(" and ")") <br/>
-    Example:
+    Examples:
     ```
+        "= $(/document)"
         "= $(/document/content)"
     ```
 
@@ -56,7 +57,7 @@ The following are valid values of an expression:
     ```
 
 3.  Expressions that use a comparison operator (==, !=, >=, >, <=, <)
-    Examples: 
+    Examples:
     ```
         "= $(/document/language) == 'en'"
         "= $(/document/sentiment) >= 0.5"
@@ -65,10 +66,11 @@ The following are valid values of an expression:
 4.	Expressions that use boolean operators  (&&, ||, !, ^)
     Examples:
     ```
-        "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"    
+        "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"
+        "= !true"
     ```
 
-5.	Expressions that use a numeric operator (+, -, *, /, %)
+5.	Expressions that use a numeric operator (+, -, \*, /, %)
     Examples: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
@@ -76,7 +78,7 @@ The following are valid values of an expression:
         "= $(/document/lengthInMeters) / 0.3049" // division
     ```
 
-Because of the evaluation supported, the Conditional Skill can be used for minor transformation scenarios. See sample [skill definition 4](#Transformation-Examples) for an example.
+Because of the evaluation supported, the Conditional Skill can be used for minor transformation scenarios. See sample [skill definition 4](#transformation-examples) for an example.
 
 ## Skill inputs
 Inputs are case-sensitive.
@@ -108,7 +110,7 @@ The following output will return an array of sentences ("/document/frenchSentenc
     "outputs": [ { "name": "output", "targetName": "frenchSentences" } ]
 }
 ```
-Note that if "/document/frenchSentences" is used as the *context* of another skill, that skill will only run if "/document/frenchSentences" is not set to null.
+Note that if "/document/frenchSentences" is used as the *context* of another skill, that skill will only run if "/document/frenchSentences" is not set to null
 
 
 ###	Sample skill definition 2: Setting a default value when it does not exist.
