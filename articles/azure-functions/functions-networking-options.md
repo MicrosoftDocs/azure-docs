@@ -26,15 +26,14 @@ You can host function apps in a couple of ways:
 
 ## Matrix of networking features
 
-|                |[Consumption plan](functions-scale.md#consumption-plan)|⚠ [Premium plan](functions-scale.md#premium-plan-public-preview)|[App Service plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
+|                |[Consumption plan](functions-scale.md#consumption-plan)|[Premium plan (preview)](functions-scale.md#premium-plan-public-preview)|[App Service plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Inbound IP restrictions](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
+|[Outbound IP Restrictions](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 |[Virtual network integration](#virtual-network-integration)|❌No|❌No|✅Yes|✅Yes|
-|[Preview of virtual network integration (Azure ExpressRoute and service endpoints)](#preview-version-of-virtual-network-integration)|❌No|⚠Yes|⚠Yes|✅Yes|
+|[Preview virtual network integration (Azure ExpressRoute and service endpoints outbound)](#preview-version-of-virtual-network-integration)|❌No|✅Yes|✅Yes|✅Yes|
 |[Hybrid Connections](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
-|[Private site access](#private-site-access)|❌No| ❌No|❌No|✅Yes|
-
-⚠ This preview feature is not for production use.
+|[Private site access](#private-site-access)|❌No| ✅Yes|✅Yes|✅Yes|
 
 ## Inbound IP restrictions
 
@@ -44,6 +43,10 @@ You can use IP restrictions to define a priority-ordered list of IP addresses th
 > To use the Azure portal editor, the portal must be able to directly access your running function app. Also, the device that you're using to access the portal must have its IP whitelisted. With network restrictions in place, you can still access any features on the **Platform features** tab.
 
 To learn more, see [Azure App Service static access restrictions](../app-service/app-service-ip-restrictions.md).
+
+## Outbound IP restrictions
+
+Outbound IP restrictions are only available for functions deployed to an App Service Environment. You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
 
 ## Virtual network integration
 
@@ -83,7 +86,10 @@ To learn more, see the [App Service documentation for Hybrid Connections](../app
 
 ## Private site access
 
-Private site access refers to making your app accessible only from a private network such as from within an Azure virtual network. Private site access is available only with an App Service Environment configured with an internal load balancer (ILB). For more information, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
+Private site access refers to making your app accessible only from a private network such as from within an Azure virtual network. 
+* Private site access is available in the Premium and App Service plan when **Service Endpoints** are configured.For more information, see [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
+    * Keep in mind that with Service Endpoints, your function still has full outbound access to the internet, even with VNET integration configured.
+* Private site access is available only with an App Service Environment configured with an internal load balancer (ILB). For more information, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 There are many ways to access virtual network resources in other hosting options. But an App Service Environment is the only way to allow triggers for a function to occur over a virtual network.
 

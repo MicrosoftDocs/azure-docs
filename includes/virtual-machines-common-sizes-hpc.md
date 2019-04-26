@@ -23,7 +23,6 @@ H-series VMs are optimized for applications driven by high CPU frequencies or la
 ## HB-series
 
 Premium Storage: Supported
-
 Premium Storage Caching: Supported
 
 | Size | vCPU | Processor | Memory (GB) | Memory bandwidth GB/s | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (GB/s) | MPI support | Temp storage (GB) | Max data disks | Max Ethernet NICs |
@@ -35,7 +34,6 @@ Premium Storage Caching: Supported
 ## HC-series
 
 Premium Storage: Supported
-
 Premium Storage Caching: Supported
 
 
