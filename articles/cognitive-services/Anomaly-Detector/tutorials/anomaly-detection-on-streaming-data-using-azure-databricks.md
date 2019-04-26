@@ -40,9 +40,9 @@ Before you start with this tutorial, make sure to meet the following requirement
 
 You can meet these requirements by completing the steps in the article, [Create an Azure Event Hubs namespace and event hub](../../../event-hubs/event-hubs-create.md).
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an Azure Databricks workspace
 
@@ -74,7 +74,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 1. In the Azure portal, go to the Databricks workspace that you created, and then select **Launch Workspace**.
 
-2. You are redirected to the Azure Databricks portal. From the portal, select **New Cluster**.
+2. You're redirected to the Azure Databricks portal. From the portal, select **New Cluster**.
 
     ![Databricks on Azure](../media/tutorials/databricks-on-azure.png "Databricks on Azure")
 
@@ -86,7 +86,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
    * Enter a name for the cluster.
    * For this article, create a cluster with **5.2** runtime. Do NOT select **5.3** runtime.
-   * Make sure the **Terminate after \_\_ minutes of inactivity** checkbox is selected. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+   * Make sure the **Terminate after \_\_ minutes of inactivity** checkbox is selected. Provide a duration (in minutes) to terminate the cluster, if the cluster isn't being used.
 
      Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
@@ -129,7 +129,7 @@ In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You als
 
     ![Select library to add](../media/tutorials/select-library.png "Select library to add")
 
-5. If there is no cluster in the library page, select **Clusters** and run the cluster you've just created. Wait until the state shows 'Running' and then go back to the library page.
+5. If there's no cluster in the library page, select **Clusters** and run the cluster you've created. Wait until the state shows 'Running' and then go back to the library page.
 On the library page, select the cluster where you want to use the library, and then select **Install**. Once the library is successfully associated with the cluster, the status immediately changes to **Installed**.
 
     ![Install library to cluster](../media/tutorials/databricks-library-attached.png "Install library to cluster")
@@ -138,7 +138,7 @@ On the library page, select the cluster where you want to use the library, and t
 
 ## Get a Cognitive Services access key
 
-In this tutorial, you use the [Microsoft Cognitive Services Anomaly Detector APIs](../overview.md) to run anomaly detection on a stream of tweets in near real time. Before you use the APIs, you must create an Anomaly Detector resource on Azure and retrieve an access key to use the Anomaly Detector APIs.
+In this tutorial, you use the [Azure Cognitive Services Anomaly Detector APIs](../overview.md) to run anomaly detection on a stream of tweets in near real time. Before you use the APIs, you must create an Anomaly Detector resource on Azure and retrieve an access key to use the Anomaly Detector APIs.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -425,7 +425,7 @@ To run the notebook, press **SHIFT + ENTER**. You see an output as shown in the 
     defined class AnomalyBatchResponse
     defined object AnomalyDetector
 
-Then prepare an aggregatetion functions for future usage.
+Then prepare an aggregation function for future usage.
 ```scala
 //
 // User Defined Aggregation Function for Anomaly Detection
@@ -526,7 +526,7 @@ display(msgStream)
 
 ```
 
-The output now resembles the following image. Please pay attention to that your date in the table might be different from the date in this tutorial as the data is real time. 
+The output now resembles the following image. Pay attention to that your date in the table might be different from the date in this tutorial as the data is real time.
 ![Load Data From Event hub](../media/tutorials/load-data-from-eventhub.png "Load Data From Event Hub")
 
 You have now streamed data from Azure Event Hubs into Azure Databricks at near real time using the Event Hubs connector for Apache Spark. For more information on how to use the Event Hubs connector for Spark, see the [connector documentation](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
@@ -561,7 +561,7 @@ groupTime                       average
 2019-04-26T09:00:00.000+0000	63.4
 ```
 
-Then get the aggregated output result to Delta. Because anomaly detection requires a longer history window, we are using Delta to keep the history data for the point you want to detect. 
+Then get the aggregated output result to Delta. Because anomaly detection requires a longer history window, we're using Delta to keep the history data for the point you want to detect. 
 
 
 ```scala
@@ -705,7 +705,7 @@ After you have finished running the tutorial, you can terminate the cluster. To 
 
 ![Stop a Databricks cluster](../media/tutorials/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
+If you don't manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
 
 ## Next steps
 In this tutorial, you learned how to use Azure Databricks to stream data into Azure Event Hubs and then read the streaming data from Event Hubs in real time. You learned how to:
