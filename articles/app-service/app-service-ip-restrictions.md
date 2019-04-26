@@ -30,43 +30,49 @@ The access restrictions capability is implemented in the App Service front-end r
 
 The ability to restrict access to your web app from an Azure Virtual Network (VNet) is called [service endpoints][serviceendpoints]. Service endpoints enable you to restrict access to a multi-tenant service from selected subnets. It must be enabled on both the networking side as well as the service that it is being enabled with. 
 
-![access restrictions flow](media/app-service-ip-restrictions/ip-restrictions-flow.png)
+![access restrictions flow](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
 ## Adding and editing Access Restriction rules in the portal ##
 
 To add an access restriction rule to your app, use the menu to open **Network**>**Access Restrictions** and click on **Configure Access Restrictions**
 
-![App Service networking options](media/app-service-ip-restrictions/ip-restrictions.png)  
+![App Service networking options](media/app-service-ip-restrictions/access-restrictions.png)  
 
 From the Access Restrictions UI, you can review the list of access restriction rules defined for your app.
 
-![list access restrictions](media/app-service-ip-restrictions/ip-restrictions-browse.png)
+![list access restrictions](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
 The list will show all of the current restrictions that are on your app. If you have a VNet restriction on your app, the table will show if service endpoints are enabled for Microsoft.Web. When there are no defined restrictions on your app, your app will be accessible from anywhere.  
 
 You can click on **[+] Add** to add a new access restriction rule. Once you add a rule, it will become effective immediately. Rules are enforced in priority order starting from the lowest number and going up. There is an implicit deny all that is in effect once you add even a single rule.
 
-![add an access restriction rule](media/app-service-ip-restrictions/ip-restrictions-add.png)
+![add an IP access restriction rule](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
 When creating a rule you must select allow/deny and also the type of rule. You are also required to provide the priority value and what you are restricting access to.  You can optionally add a name, and description to the rule.  
 
 To set an IP address based rule, select a type of IPv4 or IPv6. IP Address notation must be specified in CIDR notation for both IPv4 and IPv6 addresses. To specify an exact address, you can use something like 1.2.3.4/32 where the first four octets represent your IP address and /32 is the mask. The IPv4 CIDR notation for all addresses is 0.0.0.0/0. To learn more about CIDR notation, you can read [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
+![add a VNet access restriction rule](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+
 To restrict access to selected subnets, select a type of Virtual Network. Below that you will be able to pick the subscription, VNet and subnet you wish to allow or deny access with. If service endpoints is not already enabled with Microsoft.Web for the subnet that you selected, it will automatically be enabled for you unless you check the box asking not to do that. The situation where you would want to enable it on the app but not the subnet is largely related to if you have the permissions to enable service endpoints on the subnet or not. If you need to get somebody else to enable service endpoints on the subnet, you can check the box and have your app configured for service endpoints in anticipation of it being enabled later on the subnet. 
 
 You can click on any row to edit an existing access restriction rule. Edits are effective immediately including changes in priority ordering.
 
-![edit an access restriction rule](media/app-service-ip-restrictions/ip-restrictions-edit.png)
+![edit an access restriction rule](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+
+When you edit a rule, you cannot change the type between an IP address rule and a Virtual Network rule. 
+
+![edit an access restriction rule](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
 To delete a rule, click the **...** on your rule and then click **remove**.
 
-![delete access restriction rule](media/app-service-ip-restrictions/ip-restrictions-delete.png)
+![delete access restriction rule](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
 ### SCM site 
 
 In addition to being able to control access to your app, you can also restrict access to the scm site used by your app. The scm site is the web deploy endpoint and also the Kudu console. You can separately assign access restrictions to the scm site from the app or use the same set for both the app and the scm site. When you check the box to have the same restrictions as your app, everything is blanked out. If you uncheck the box, whatever settings you had earlier on the scm site are applied. 
 
-![list access restrictions](media/app-service-ip-restrictions/ip-restrictions-scm-browse.png)
+![list access restrictions](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## Programmatic manipulation of access restriction rules ##
 
