@@ -100,7 +100,7 @@ If you do want to set up an explicit field mapping, make sure that the _sourceFi
 + [Indexers in Azure Search](search-indexer-overview.md)
 + [Indexing Azure Blob Storage with Azure Search](search-howto-index-json-blobs.md)
 + [Indexing CSV blobs with Azure Search blob indexer](search-howto-index-csv-blobs.md)
-+ [Indexing JSON blobs with Azure Search blob indexer](search-howto-index-csv-blobs.md)
++ [Indexing JSON blobs with Azure Search blob indexer](search-howto-index-json-blobs.md)
 
 ## <a name="NextSteps"></a>Next steps
 * To learn more about Azure Search, see the [Search service page](https://azure.microsoft.com/services/search/).
