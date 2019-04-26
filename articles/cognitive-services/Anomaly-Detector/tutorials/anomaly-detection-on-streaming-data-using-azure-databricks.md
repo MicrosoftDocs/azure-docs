@@ -320,8 +320,9 @@ First, write a client to call Anomaly detector.
 ```scala
 
 //
-// Client to call Anomaly detector
+// Anomaly Detection Client
 //
+
 import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
 import java.net.URL
 import java.sql.Timestamp
@@ -337,8 +338,8 @@ case class AnomalyBatchResponse(var expectedValues: Array[Double], var upperMarg
 object AnomalyDetector extends Serializable {
 
   // Cognitive Services API connection settings
-  val subscriptionKey = "[Placeholder: Anomaly detector access key]"
-  val endpoint = "[Placeholder: Anomaly detector endpoint]"
+  val subscriptionKey = "fba29e45810f49d4b34bdb600cff96cc"
+  val endpoint = "https://westus2.api.cognitive.microsoft.com/"
   val latestPointDetectionPath = "/anomalydetector/v1.0/timeseries/last/detect"
   val batchDetectionPath = "/anomalydetector/v1.0/timeseries/entire/detect";
   val latestPointDetectionUrl = new URL(endpoint + latestPointDetectionPath)
@@ -378,6 +379,7 @@ object AnomalyDetector extends Serializable {
   // Calls the Latest Point Detection API for timeserie.
   def detectLatestPoint(series: Series): Option[AnomalySingleResponse] = {
     try {
+      println("Process Timestamp: " + series.series.apply(series.series.length-1).timestamp.toString + ", size: " + series.series.length)
       val response = processUsingApi(gson.toJson(series), latestPointDetectionUrl)
       println(response)
       // Deserializing the JSON response from the API into Scala types
@@ -387,6 +389,7 @@ object AnomalyDetector extends Serializable {
     } catch {
       case e: Exception => {
         println(e)
+        e.printStackTrace()
         return None
       }
     }
@@ -409,7 +412,6 @@ object AnomalyDetector extends Serializable {
     }
   }
 }
-
 ```
 
 To run the notebook, press **SHIFT + ENTER**. You see an output as shown in the following snippet. :
@@ -460,7 +462,7 @@ class AnomalyDetectorAggregationFunction_Hourly extends UserDefinedAggregateFunc
   
   override def evaluate(buffer: Row): Any = {
     val points = buffer.getAs[Map[java.sql.Timestamp, Float]](0)
-    if (points.size > 24) {
+    if (points.size > 12) {
       val sorted_points = ListMap(points.toSeq.sortBy(_._1.getTime):_*)
       var detect_points: List[Point] = List()
       sorted_points.keys.foreach {
@@ -470,7 +472,7 @@ class AnomalyDetectorAggregationFunction_Hourly extends UserDefinedAggregateFunc
       
       // 0.25 is maxAnomalyRatio. It represents 25%, max anomaly ratio in a time series.
       // 95 is the sensitivity of the algorithms. 
-      // Check [Anomaly detector API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-last-detect)
+      // Check Anomaly detector API reference (https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-last-detect)
       
       val series: Series = new Series(detect_points.toArray, 0.25, 95, "hourly")
       val response: Option[AnomalySingleResponse] = AnomalyDetector.detectLatestPoint(series)
@@ -549,7 +551,6 @@ To do anomaly detection, first, you need to aggregate your metric count by hour.
 //
 
 // If you want to change granularity, change the groupBy window. 
-
 val groupStream = msgStream.groupBy(window($"timestamp", "1 hour"))
   .agg(avg("favorite").alias("average"))
   .withColumn("groupTime", $"window.start")
@@ -582,12 +583,38 @@ Then get the aggregated output result to Delta. Because anomaly detection requir
 groupStream.writeStream
   .format("delta")
   .outputMode("complete")
-  .option("checkpointLocation", "/delta/random/_checkpoints/[Placeholder: filename]")
-  .table("random")
+  .option("checkpointLocation", "/delta/[Placeholder: table name]/_checkpoints/[Placeholder: folder name for checkpoints]")
+  .table("[Placeholder: table name]")
 
 ```
 
-Now the aggregated time series data is continuously ingested into the Delta. Then you can schedule a job every hour to detect the anomaly of latest point. If 
+```scala
+//
+// Show Aggregate Result
+//
+
+val twitterCount = spark.sql("SELECT COUNT(*) FROM [Placeholder: table name]")
+twitterCount.show()
+
+val twitterData = spark.sql("SELECT * FROM [Placeholder: table name] ORDER BY groupTime")
+twitterData.show(200, false)
+
+display(twitterData)
+```
+The output as below: 
+```
+groupTime                       average
+2019-04-08T01:00:00.000+0000	25.6
+2019-04-08T02:00:00.000+0000	6857
+2019-04-08T03:00:00.000+0000	71
+2019-04-08T04:00:00.000+0000	55.111111111111114
+2019-04-08T05:00:00.000+0000	2203.8
+...
+...
+
+```
+
+Now the aggregated time series data is continuously ingested into the Delta. Then you can schedule a job every hour to detect the anomaly of latest point. 
 
 ```scala
 //
@@ -597,7 +624,9 @@ Now the aggregated time series data is continuously ingested into the Delta. The
 import java.time.Instant
 import java.time.temporal.ChronoUnit
 
-val detectData = spark.read.format("delta").table("randomdemo")
+val detectData = spark.read.format("delta").table("[Placeholder: table name]")
+
+// How long history you want to use in anomaly detection. It is hourly time series in this tutorial, so 72 means 72 hours. 
 val batchSize = 72
 
 // Change the endTime to where you want to detect. You could use Databricks to schedule a job and change it to the latest hour. 
@@ -616,9 +645,33 @@ spark.udf.register("anomalydetect", new AnomalyDetectorAggregationFunction)
 val adResult = spark.sql("SELECT '" + endTime.toString + "' as timestamp, anomalydetect(groupTime, average) as anomaly FROM series")
 adResult.show()
 ```
+Result as below: 
+
+```
++--------------------+-------+
+|           timestamp|anomaly|
++--------------------+-------+
+|2019-04-16T00:00:00Z|  false|
++--------------------+-------+
+
+```
+Output the anomaly detection result back to the Delta. 
+```scala
+//
+// Output Batch AD Result to delta
+//
+
+adResult.writeStream
+  .format("delta")
+  .outputMode("complete")
+  .option("checkpointLocation", "/delta/[Placeholder: table name]/_checkpoints/[Placeholder: folder name for checkpoints]")
+  .table("[Placeholder: table name]")
+  
+```
 
 
 That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then ran anomaly detection on streaming data in near real time.
+Although in this tutorial, the granularity is hourly, you can always change the granularity to meet your need. 
 
 ## Clean up resources
 
