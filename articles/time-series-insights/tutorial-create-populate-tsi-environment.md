@@ -128,7 +128,7 @@ Next you define a new **consumer group** property, on the device simulation solu
 
    [![Device simulation solution IoT hub endpoints](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png)](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png#lightbox)
 
-### TSI environment configuration: define an event source
+### TSI configuration: define an event source
 
 Now connect the new IoT hub **consumer group** event endpoint, to the TSI environment, as an **event source**.
 
@@ -158,17 +158,17 @@ Now connect the new IoT hub **consumer group** event endpoint, to the TSI enviro
 
    [![TSI environment new event source](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png#lightbox)
 
-## Run a device simulation to stream data into the TSI environment
+## Run device simulation to stream data into TSI
 
 Now that all of the configuration work is complete, it's time to populate the TSI environment with sample data from the simulated devices.
 
 You may recall from the [Create a device simulation section](#create-a-device-simulation), several Azure resources were created by the accelerator to support the solution. Along with the IoT hub discussed previously, an Azure App Service web application was generated to create and transmit simulated device telemetry.
 
-1. Go back to your [Solution accelerators dashboard](https://www.azureiotsolutions.com/Accelerators#dashboard). Sign in again if necessary, using the same Azure account you've been using in this tutorial. Now you can click the **Launch** button under your "Device Simulation" solution:
+1. Go back to your [Solution accelerators dashboard](https://www.azureiotsolutions.com/Accelerators#dashboard). Sign in again if necessary, using the same Azure account you've been using in this tutorial. Now you can click the **Launch** button under your "Device Simulation" solution.
 
      [![Solution accelerators dashboard](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png#lightbox)
 
-1. The device simulation web app will start at this point, and may take several seconds upon initial load. You're also prompted for consent, to grant the web application the "Sign you in and read your profile" permission. This permission allows the application to retrieve the user profile information necessary to support the functioning of the application:
+1. The device simulation web app will start at this point, and may take several seconds upon initial load. You're also prompted for consent, to grant the web application the "Sign you in and read your profile" permission. This permission allows the application to retrieve the user profile information necessary to support the functioning of the application.
 
      [![Device simulation web application consent](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
 
@@ -198,19 +198,19 @@ In this final section, you verify that the telemetry data was generated and stor
 
    [![TSI environment resource group and environment](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png#lightbox)
 
-1. On the TSI environment **Overview** page, click the **Time Series Insights explorer URL** to open the TSI explorer:
+1. On the TSI environment **Overview** page, click the **Time Series Insights explorer URL** to open the TSI explorer.
 
    [![TSI explorer](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
-1. TSI explorer will load and authenticate using your Azure portal account. Upon initial view, you can see in the chart area that the TSI environment was indeed populated with simulated telemetry data. To filter a narrower range of time, select the drop-down in the upper left. Then enter a time range large enough to span the duration of the device simulation. Then click the search magnifying class:
+1. TSI explorer will load and authenticate using your Azure portal account. Upon initial view, you can see in the chart area that the TSI environment was indeed populated with simulated telemetry data. To filter a narrower range of time, select the drop-down in the upper left. Then enter a time range large enough to span the duration of the device simulation. Then click the search magnifying class.
 
    [![TSI explorer time range filter](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
 
-1. Narrowing the time range allows the chart to zoom in to the distinct bursts of data transfer, to the IoT hub and TSI environment. Also notice the **Streaming complete** text in the upper right, which shows the total number of events found. You can also drag the **Interval size** slider to control the plot granularity on the chart:
+1. Narrowing the time range allows the chart to zoom in to the distinct bursts of data transfer, to the IoT hub and TSI environment. Also notice the **Streaming complete** text in the upper right, which shows the total number of events found. You can also drag the **Interval size** slider to control the plot granularity on the chart.
 
    [![TSI explorer time range filtered view](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png#lightbox)
 
-1. Lastly, you can also left-click a region to filter a range, then right-click and use **Explore events** to show event details in the tabular **Events** view:
+1. Lastly, you can also left-click a region to filter a range, then right-click and use **Explore events** to show event details in the tabular **Events** view.
 
    [![TSI explorer time range filtered view and events](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png#lightbox)
 
