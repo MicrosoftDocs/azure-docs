@@ -1,5 +1,5 @@
 ---
-title: Create and manage dataset snapshots
+title: Compare data over time with snapshots
 titleSuffix: Azure Machine Learning service
 description: Learn how to create and manage dataset snapshots
 services: machine-learning
@@ -11,14 +11,11 @@ author: MayMSFT
 ms.date: 05/02/2019
 ---
 
-# Create and manage dataset snapshots (preview)
+# Compare or keep data over time with snapshots (preview)
 
-In this article, you learn to how to create, get, and delete snapshots of your [Azure Machine Learning Datasets](how-to-create-register-datasets.md) (datasets). Datasets make it easier to access and work with your data in the cloud in various scenarios. 
+In this article, you learn to how to create and manage snapshots of your [Azure Machine Learning Datasets](how-to-create-register-datasets.md) (datasets) so you can capture or compare data over time. Datasets make it easier to access and work with your data in the cloud in various scenarios. 
 
-Dataset snapshots store the following:
-+ The profile (summary statistics) of the data at the time it's created
-
-+ Optionally, a copy of the data
+Dataset snapshots store a profile (summary statistics) of the data at the time it's created. You can choose to also store a copy of the data in your snapshot. 
 
 ## When to use snapshots
 
@@ -32,7 +29,7 @@ Take snapshots at pivotal times in your ML workflow. Then, you can compare the d
   
 ## Prerequisites
 
-To create or manage dataset snapshots, you need a registered Azure Machine Learning Dataset. If you do not have one, see [Create and register datasets](how-to-create-register-datasets.md).
+To create dataset snapshots, you need a registered Azure Machine Learning Dataset. If you do not have one, see [Create and register datasets](how-to-create-register-datasets.md).
 
 ## Create dataset snapshots
 
