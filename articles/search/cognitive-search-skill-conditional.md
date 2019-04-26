@@ -14,7 +14,7 @@ ms.author: luisca
 ---
 
 
-#	Conditional Skill 
+#	Conditional skill
 
 The **Conditional skill** enables a variety of scenarios that require a boolean operation to decide the data that should be assigned to an output. These scenarios include: filtering, assigning a default value and merging data based on a condition.
 
@@ -34,20 +34,20 @@ else
 Microsoft.Skills.Util.ConditionalSkill
 
 
-## Evaluated Fields
+## Evaluated fields
 
 Note that this skill is special because its inputs are actually evaluated fields.
 
 The following are valid values of an expression:
 
-1.	Annotation Paths (paths in expressions must be delimited by "$(" and ")") <br/>
+-	Annotation Paths (paths in expressions must be delimited by "$(" and ")") <br/>
     Examples:
     ```
         "= $(/document)"
         "= $(/document/content)"
     ```
 
-2.  Literals (strings, numbers, true, false, null) <br/>
+-  Literals (strings, numbers, true, false, null) <br/>
     Examples:
     ```
        "= 'this is a string'"   // string, note the single quotes
@@ -56,21 +56,21 @@ The following are valid values of an expression:
        "= null"                 // null value
     ```
 
-3.  Expressions that use a comparison operator (==, !=, >=, >, <=, <) <br/>
+-  Expressions that use a comparison operator (==, !=, >=, >, <=, <) <br/>
     Examples:
     ```
         "= $(/document/language) == 'en'"
         "= $(/document/sentiment) >= 0.5"
     ```
 
-4.	Expressions that use boolean operators  (&&, ||, !, ^) <br/>
+-	Expressions that use boolean operators  (&&, ||, !, ^) <br/>
     Examples:
     ```
         "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"
         "= !true"
     ```
 
-5.	Expressions that use a numeric operator (+, -, \*, /, %) <br/>
+-	Expressions that use a numeric operator (+, -, \*, /, %) <br/>
     Examples: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
@@ -90,7 +90,7 @@ Inputs are case-sensitive.
 | whenFalse   | This is an [evaluated field](#evaluated-fields). The value to return if the condition is evaluated to false.  <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
 
 ## Skill outputs
-There is a single ouput called 'output'. It will return the value of whenFalse if the condition is false, or whenTrue if the condition is true.
+There is a single output called 'output'. It will return the value of whenFalse if the condition is false, or whenTrue if the condition is true.
 
 ## Examples
 
@@ -147,7 +147,7 @@ In this example some sentences have a *frenchSentiment* property. Whenever the *
 }
 ```
 
-## Transformation Examples
+## Transformation examples
 ###	Sample skill definition 4: Performing data transformations on a single field
 
 In this example we receive a sentiment between 0 and 1, and we would like to transform it so that it is between -1 and 1. This is a small math transformation that we could do using the Conditional Skill.
@@ -172,7 +172,7 @@ In this specific example, we never use the conditional aspect of the skill as th
 Please note that some of the parameters are evaluated, so you need to be especially careful following the documented pattern. Expressions must start with an equals sign "=" and paths must be delimited by "$(" and ")". Please make sure to put your strings in 'single quotes' as that will help the evaluator distinguish between strings and actual paths and operators. Also, make sure to put a whitespace around operators (for instance a * in a path has a different meaning than the multiplication operator).
 
 
-## See also
+## Next steps
 
 + [Predefined skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
