@@ -8,17 +8,15 @@ keywords: hadoop high availability
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 04/24/2019
 ms.author: hrasheed
-
 ---
+
 # Availability and reliability of Apache Hadoop clusters in HDInsight
 
 HDInsight clusters provide two head nodes to increase the availability and reliability of Apache Hadoop services and jobs running.
 
 Hadoop achieves high availability and reliability by replicating services and data across multiple nodes in a cluster. However standard distributions of Hadoop typically have only a single head node. Any outage of the single head node can cause the cluster to stop working. HDInsight provides two headnodes to improve Hadoop's availability and reliability.
-
-[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## Availability and reliability of nodes
 
@@ -100,7 +98,7 @@ To check the status of services that run on the head nodes, use the Ambari Web U
 
 ### Ambari Web UI
 
-The Ambari Web UI is viewable at https://CLUSTERNAME.azurehdinsight.net. Replace **CLUSTERNAME** with the name of your cluster. If prompted, enter the HTTP user credentials for your cluster. The default HTTP user name is **admin** and the password is the password you entered when creating the cluster.
+The Ambari Web UI is viewable at `https://CLUSTERNAME.azurehdinsight.net`. Replace **CLUSTERNAME** with the name of your cluster. If prompted, enter the HTTP user credentials for your cluster. The default HTTP user name is **admin** and the password is the password you entered when creating the cluster.
 
 When you arrive on the Ambari page, the installed services are listed on the left of the page.
 
@@ -243,27 +241,25 @@ From the Ambari Web UI, select the service you wish to view logs for (for exampl
 
 ## How to configure the node size
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 The size of a node can only be selected during cluster creation. You can find a list of the different VM sizes available for HDInsight on the [HDInsight pricing page](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-When creating a cluster, you can specify the size of the nodes. The following information provides guidance on how to specify the size using the [Azure portal][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure Classic CLI][azure-cli]:
+When creating a cluster, you can specify the size of the nodes. The following information provides guidance on how to specify the size using the [Azure portal][preview-portal], [Azure PowerShell module Az][azure-powershell], and the [Azure CLI][azure-cli]:
 
 * **Azure portal**: When creating a cluster, you can set the size of the nodes used by the cluster:
 
     ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure Classic CLI**: When using the `azure hdinsight cluster create` command, you can set the size of the head, worker, and ZooKeeper nodes by using the `--headNodeSize`, `--workerNodeSize`, and `--zookeeperNodeSize` parameters.
+* **Azure CLI**: When using the [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) command, you can set the size of the head, worker, and ZooKeeper nodes by using the `--headnode-size`, `--workernode-size`, and `--zookeepernode-size` parameters.
 
-* **Azure PowerShell**: When using the `New-AzHDInsightCluster` cmdlet, you can set the size of the head, worker, and ZooKeeper nodes by using the `-HeadNodeVMSize`, `-WorkerNodeSize`, and `-ZookeeperNodeSize` parameters.
+* **Azure PowerShell**: When using the [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet, you can set the size of the head, worker, and ZooKeeper nodes by using the `-HeadNodeSize`, `-WorkerNodeSize`, and `-ZookeeperNodeSize` parameters.
 
 ## Next steps
 
 Use the following links to learn more about things mentioned in this document.
 
 * [Apache Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Install and configure the Azure Classic CLI](../cli-install-nodejs.md)
-* [Install and configure Azure PowerShell](/powershell/azure/overview)
+* [Install and configure the Azure CLI](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Install and configure Azure PowerShell module Az](/powershell/azure/overview)
 * [Manage HDInsight using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 

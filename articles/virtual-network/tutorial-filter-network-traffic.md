@@ -5,7 +5,6 @@ description: In this tutorial, you learn how to filter network traffic to a subn
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
 tags: azure-resource-manager
 Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.service: virtual-network
