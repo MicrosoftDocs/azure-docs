@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 # Xamarin iOS-specific considerations with MSAL.NET
 On Xamarin iOS, there are several considerations that you must take into account when using MSAL.NET
 
-- [Known issues with iOS 12 and authentication](#known-issues-with-iOS-12-and-authentication)
+- [Known issues with iOS 12 and authentication](#known-issues-with-ios-12-and-authentication)
 - [Override and implement the `OpenUrl` function in the `AppDelegate`](#implement-openurl)
 - [Enable Keychain groups](#enable-keychain-groups)
 - [Enable token cache sharing](#enable-token-cache-sharing-across-ios-applications)
