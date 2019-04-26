@@ -335,7 +335,7 @@ As part of the configuration of the NPS extension, you must supply administrator
 
 ### Install the NPS extension
 
-The NPS extension must be installed on a server that has the Network Policy and Access Services role installed and that functions as the RADIUS server in your design. Do *not* install the NPS extension on your Remote Desktop server.
+The NPS extension must be installed on a server that has the Network Policy and Access Services role installed and that functions as the RADIUS server in your design. Do *not* install the NPS extension on your VPN server.
 
 1. Download the NPS extension from [Microsoft Download Center](https://aka.ms/npsmfa).
 
