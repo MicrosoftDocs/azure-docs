@@ -30,7 +30,7 @@ This is a standard perimeter network (also knowns as DMZ) scenario with a DMZ an
 
 |  | Pros | Cons |
 | --- | --- | --- |
-| NSG |No cost. <br/>Integrated into Azure RBAC. <br/>Rules can be created in ARM templates. |Complexity could vary in larger environments. |
+| NSG |No cost. <br/>Integrated into Azure RBAC. <br/>Rules can be created in Azure Resource Manager templates. |Complexity could vary in larger environments. |
 | Firewall |Full control over data plane. <br/>Central management through firewall console. |Cost of firewall appliance. <br/>Not integrated with Azure RBAC. |
 
 The solution below uses firewall virtual appliances to implement a perimeter network (DMZ)/protected network scenario.
@@ -163,5 +163,5 @@ To deploy this scenario, follow the high level steps below.
 2. If you want to deploy a VNet to mimic the on-premises network, provision the resources that are part of **ONPREMRG**.
 3. Provision the resources that are part of **AZURERG**.
 4. Provision the tunnel from **onpremvnet** to **azurevnet**.
-5. Once all resources are provisioned, log on to **onpremvm2** and ping 10.0.3.101 to test connectivity between **onpremsn2** and **azsn3**.
+5. Once all resources are provisioned, sign in to **onpremvm2** and ping 10.0.3.101 to test connectivity between **onpremsn2** and **azsn3**.
 
