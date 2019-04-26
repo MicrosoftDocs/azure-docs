@@ -83,7 +83,7 @@ You can use [CocoaPods](http://cocoapods.org/) to install `MSAL` by adding it to
 use_frameworks!
 
 target 'MSALiOS' do
-   pod 'MSAL', '0.4'
+   pod 'MSAL', '~> 0.4.0'
 end
 ```
 
