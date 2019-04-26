@@ -198,6 +198,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.microsoft.identity.client.*;
+import com.microsoft.identity.client.exception.*;
 ```
 
 #### Instantiating MSAL 
@@ -217,7 +218,7 @@ Button signOutButton;
 
 /* Azure AD Variables */
 private PublicClientApplication sampleApp;
-private AuthenticationResult authResult;
+private IAuthenticationResult authResult;
 ```
 
 Now, we can instantiate MSAL, copy the following code inside the `onCreate(...)` method:
