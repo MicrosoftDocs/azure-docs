@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/24/2019
+ms.date: 04/26/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -208,6 +208,8 @@ $ContractConnection | New-BlockchainMemberInvitation -SubscriptionId <Azure Subs
 ```
 
 ## New-Web3Connection
+
+Establishes a connection to the RPC endpoint of a transaction node.
 
 ```powershell
 New-Web3Connection [-RemoteRPCEndpoint <String>]
