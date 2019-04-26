@@ -49,7 +49,7 @@ Starting with the January 2017 release of Media Services, you have two streaming
 
 |Type|Description|
 |--------|--------|  
-|**Standard** (recommended)|The default Streaming Endpoint is a **Standard** type, but can be changed to the Premium type.<br/> The Standard type is the recommended option for virtually all streaming scenarios and audience sizes. The **Standard** type scales outbound bandwidth automatically. Video fragments cached in the CDN, do not use the Streaming Endpoint bandwidth.<br/>For customers with extremely demanding requirements Media Services offer **Premium** streaming endpoints, which can be used to scale out capacity for the largest internet audiences. If you expect large audiences and concurrent viewers, contact us at amsstreaming\@microsoft.com for guidance on whether you need to move to the **Premium** type. |
+|**Standard** (preview)|The default Streaming Endpoint is a **Standard** type (recommended), but can be changed to the Premium type by adjusting streaming units.<br/><br/>The Standard type is the recommended option for virtually all streaming scenarios and audience sizes. The **Standard** type scales outbound bandwidth automatically. Video fragments cached in the CDN, do not use the Streaming Endpoint bandwidth.<br/>For customers with extremely demanding requirements Media Services offer **Premium** Streaming Endpoints, which can be used to scale out capacity for the largest internet audiences. If you expect large audiences and concurrent viewers, contact us at amsstreaming\@microsoft.com for guidance on whether you need to move to the **Premium** type. |
 |**Premium** |This option is suitable for professional scenarios that require higher scale or control. You move to a **Premium** type by adjusting streaming units.<br/>Dedicated Streaming Endpoints live in isolated environment and do not compete for resources.|
 
 For more detailed information, see the [Compare Streaming types](#comparing-streaming-types) following section.
@@ -98,7 +98,7 @@ Recommended usage |Recommended for the vast majority of streaming scenarios.|Pro
 
 For SLA information, see [Pricing and SLA](https://azure.microsoft.com/pricing/details/media-services/).
 
-## Migrating between types
+## Migration between types
 
 From | To | Action
 ---|---|---
