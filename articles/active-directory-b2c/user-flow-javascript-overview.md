@@ -3,7 +3,7 @@ title: JavaScript and page contract versions for user flows in Azure Active Dire
 description: Learn how to enable JavaScript and use page contract versions to customize a user flow in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity

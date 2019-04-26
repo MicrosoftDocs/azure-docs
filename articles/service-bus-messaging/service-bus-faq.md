@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
-description: Answers some frequently-asked questions about Azure Service Bus.
+description: Answers some frequently asked questions about Azure Service Bus.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -52,6 +52,33 @@ See the following table for the outbound ports you need to open to use these pro
 | AMQP | 5671 and 5672 | See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
 | SBMP | 9350 to 9354 | See [Connectivity mode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
+
+### What IP addresses do I need to whitelist?
+To find the right IP addresses to white list for your connections, follow these steps:
+
+1. Run the following command from a command prompt: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Note down the IP address returned in `Non-authoritative answer`. This IP address is static. The only point in time it would change is if you restore the namespace on to a different cluster.
+
+If you use the zone redundancy for your namespace, you need to do a few additional steps: 
+
+1. First, you run nslookup on the namespace.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Note down the name in the **non-authoritative answer** section, which is in one of the following formats: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
+
 
 ## Best practices
 ### What are some Azure Service Bus best practices?
