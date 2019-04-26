@@ -42,7 +42,7 @@ Figure 1 – Azure regional pairs
 | North America |East US 2 |Central US |
 | North America |North Central US |South Central US |
 | North America |West US 2 |West Central US 
-| North America |West US 3 |East US
+| North America |West US |East US
 | Norway |Norway East |Norway West
 | South Africa | South Africa North | South Africa West
 | Sweden |Sweden Central |Sweden South
