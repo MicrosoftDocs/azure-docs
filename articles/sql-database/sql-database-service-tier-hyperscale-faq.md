@@ -71,7 +71,7 @@ The Azure SQL Database Hyperscale tier is currently available in the following r
 
 Australia East, Australia Southeast, Brazil South, Canada Central, Central US, East Asia, East US, East Us 2, France Central, Japan East, Japan West, North Central US, North Europe, South Africa North, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2
 
-See [Azure SQL Database Hyperscale Overview](sql-database-tier-hyperscale-faq.md) for the procedure if you need access in another region.
+See [Azure SQL Database Hyperscale Overview](sql-database-service-tier-hyperscale-faq.md) for the procedure if you need access in another region.
 
 ### Can I create multiple Hyperscale databases per logical server
 
