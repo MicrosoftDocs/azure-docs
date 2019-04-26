@@ -22,13 +22,15 @@ In this quickstart, you will learn how to get started with the ASP.NET and Azure
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 * [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
-* [ASP.NET SignalR 2.4.0](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
+* [ASP.NET SignalR 2.4.1](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
 
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
+
+*Serverless* mode is not supported for ASP.NET SignalR applications. Always use *Default* or *Classic* for the Azure SignalR Service instance.
 
 You can also create Azure resources used in this quickstart with [Create a SignalR Service script](scripts/signalr-cli-create-service.md).
 
@@ -108,8 +110,7 @@ After a few moments, the resource group and all of its contained resources are d
 
 ## Next steps
 
-In this quickstart, you created a new Azure SignalR Service resource and used it with an ASP.NET web app. Next, learn how to develop real-time applications using Azure SignalR Service with ASP.NET Core or Azure Functions.
+In this quickstart, you created a new Azure SignalR Service resource and used it with an ASP.NET web app. Next, learn how to develop real-time applications using Azure SignalR Service with ASP.NET Core.
 
 > [!div class="nextstepaction"]
 > [Azure SignalR Service with ASP.NET Core](./signalr-quickstart-dotnet-core.md)
-> [Azure SignalR Service with Azure Functions binding](./signalr-quickstart-azure-functions-csharp.md)
