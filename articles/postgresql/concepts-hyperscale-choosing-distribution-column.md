@@ -134,3 +134,6 @@ a hash distribution would lead to network overhead.
 
 Read the [timeseries tutorial](https://aka.ms/hyperscale-tutorial-timeseries)
 for an example of building this kind of application.
+
+## Next steps
+- Learn how [colocation](concepts-hyperscale-colocation.md) between distributed data helps queries run fast

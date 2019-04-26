@@ -30,3 +30,6 @@ parallelizes it across several depending on whether the required data lives on
 a single node or multiple. The coordinator decides what to do by consulting
 metadata tables. These tables track the DNS names and health of worker
 nodes, and the distribution of data across nodes.
+
+## Next steps
+- Learn how nodes store [distributed data](concepts-hyperscale-distributed-data.md)

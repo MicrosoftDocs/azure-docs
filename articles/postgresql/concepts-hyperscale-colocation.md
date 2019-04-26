@@ -149,3 +149,7 @@ a single step.
 
 In some cases, queries and table schemas must be changed to include the tenant ID in unique constraints and join conditions. However, this is usually a
 straightforward change.
+
+## Next steps
+
+- See how tenant data is colocated in the [multi-tenant tutorial](tutorial-design-database-hyperscale-multi-tenant.md)

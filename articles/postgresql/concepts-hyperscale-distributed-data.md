@@ -110,3 +110,6 @@ WHERE shardid = 102027;
     ├─────────┼───────────┼──────────┤
     │  102027 │ localhost │     5433 │
     └─────────┴───────────┴──────────┘
+
+## Next steps
+- Learn to [choose a distribution column](concepts-hyperscale-choosing-distribution-column.md) for distributed tables
