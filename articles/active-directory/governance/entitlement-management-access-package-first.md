@@ -236,7 +236,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. On the **Pending** tab, find **Requestor1**.
 
-    If you don't see the request from Requestor1, you should wait a few minutes and try again.
+    If you don't see the request from Requestor1, wait a few minutes and try again.
 
 1. Click the **View** link to open the Access request pane.
 
