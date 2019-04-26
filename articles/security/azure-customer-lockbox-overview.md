@@ -1,6 +1,6 @@
 ---
-title: Overview of Customer Lockbox for Microsoft Azure
-description: This article provides a technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft may need to access customer data.
+title: Customer Lockbox for Microsoft Azure
+description: Technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft may need to access customer data.
 author: cabailey
 ms.service: security
 ms.topic: article
@@ -102,7 +102,7 @@ Customer Lockbox is currently enabled for remote desktop access requests to virt
 
 #### Detailed audit logs
 
-For scenarios that involve direct remote desktop access to a virtual machine, you can also use the Windows Event Log. If a virtual machine agent is installed on the virtual machine, you can export these logs for analysis and alerting. This data can then be used by other monitoring solutions, such as Azure Monitor.
+For scenarios that involve remote desktop access, you can use Windows event logs to review the actions taken by the Microsoft engineer. Consider using Azure Security Center to collect your event logs and copy the data to your workspace for analysis. For more information, see [Data collection in Azure Security Center]( .. /security-center/security-center-enable-data-collection.md).
 
 ## Exclusions
 
