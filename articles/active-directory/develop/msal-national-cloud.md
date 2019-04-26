@@ -58,7 +58,7 @@ Once decided, the special consideration is where you perform your app registrati
 ### Step 1: Register your application
 
 1. Sign in to the [Azure portal](https://portal.azure.us/) to register an application.
-    1. To find Azure portal endpoints for other national clouds, see [App registration endpoints](authentication-national-cloud#app-registration-endpoints.md)
+    1. To find Azure portal endpoints for other national clouds, see [App registration endpoints](authentication-national-cloud.md#app-registration-endpoints)
 
 1. If your account gives you access to more than one tenant, select your account in the top-right corner, and set your portal session to the desired Azure AD tenant.
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://aka.ms/ra/ff) page.
@@ -83,7 +83,7 @@ And then skip to the ['Configure your JavaScript SPA'](#step-4-configure-your-ja
 
 ### Step 3: Use the Microsoft Authentication Library (MSAL) to sign in the user
 
-Follow steps in [Javascript tutorial](tutorial-v2-javascript-spa#create-your-project.md) to create your project and integrate with Microsoft Authentication Library (MSAL) to sign in the user.
+Follow steps in [Javascript tutorial](tutorial-v2-javascript-spa.md#create-your-project) to create your project and integrate with Microsoft Authentication Library (MSAL) to sign in the user.
 
 ### Step 4: Configure your JavaScript SPA
 
