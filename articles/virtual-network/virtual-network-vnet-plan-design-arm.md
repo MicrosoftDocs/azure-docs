@@ -3,8 +3,8 @@ title: Plan Azure virtual networks | Microsoft Docs
 description: Learn how to plan for virtual networks based on your isolation, connectivity, and location requirements.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
-ms.author: jdial
+ms.author: kumud
 
 ---
 # Plan virtual networks

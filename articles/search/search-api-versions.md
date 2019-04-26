@@ -7,9 +7,9 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
-ms.custom: seodec2018
+
 ---
 
 # API versions in Azure Search
@@ -27,16 +27,16 @@ Below is a snapshot of the current versions of all programming interfaces to Azu
 
 | Interfaces | Most recent major version | Status |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |5.0 |Generally Available, released April 2018 |
-| [.NET SDK Preview](https://aka.ms/search-sdk-preview) |4.0.1-preview |Preview, released May 2017 |
-| [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |Generally Available |
-| [Service REST API 2017-11-11-Preview](search-api-2017-11-11-preview.md) |2017-11-11-Preview |Preview |
-| [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |2.0 |Generally Available |
+| [.NET SDK](https://aka.ms/search-sdk) |5.0 |Generally Available, released April 2018. Unchanged as of May 2, 2019. |
+| [.NET SDK Preview](https://aka.ms/search-sdk-preview) |4.0.1-preview |Preview, released May 2017. Unchanged as of May 2, 2019. |
+| [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Generally Available |
+| [Service REST API 2019-05-06-Preview](search-api-preview.md) |2019-05-06-Preview |Preview |
+| [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |3.0 |Generally Available |
 | [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Generally Available |
 
 For the REST APIs, including the `api-version` on each call is required. Using `api-version` makes it easy to target a specific version, such as a preview API. The following example illustrates how the `api-version` parameter is specified:
 
-    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
+    GET https://my-demo-app.search.windows.net/indexes/hotels?api-version=2019-05-06
 
 > [!NOTE]
 > Although each request has an `api-version`, we recommend that you use the same version for all API requests. This is especially true when new API versions introduce attributes or operations that are not recognized by previous versions. Mixing API versions can have unintended consequences and should be avoided.

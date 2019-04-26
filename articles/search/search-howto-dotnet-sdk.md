@@ -7,11 +7,16 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
-ms.custom: seodec2018
+
 ---
 # How to use Azure Search from a .NET Application
+
+> [!Important]
+> While API releases are typically in tandem, there is not yet a generally available version of the .NET SDK that maps to the REST api-version=2019-05-06.
+> 
+
 This article is a walkthrough to get you up and running with the [Azure Search .NET SDK](https://aka.ms/search-sdk). You can use the .NET SDK to implement a rich search experience in your application using Azure Search.
 
 ## What's in the Azure Search SDK

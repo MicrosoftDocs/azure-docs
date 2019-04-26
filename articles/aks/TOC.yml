@@ -8,6 +8,7 @@
   expanded: true
   items:
   - name: Create an AKS Cluster
+    expanded: true
     items:
     - name: Use the Azure CLI
       href: kubernetes-walkthrough.md

@@ -480,7 +480,7 @@ Use the J2EE Config tool to check or update the JDBC URL. The the J2EE Config to
 1. Sign in to primary application server of J2EE instance and execute:
 	<pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
 2. In the left frame, choose security store.
-2. In the right frame, choose the key jdbc/pool/<SAPSID>/url.
+2. In the right frame, choose the key jdbc/pool/\<SAPSID>/url.
 2. Change the host name in the JDBC URL to the virtual host name
 	<pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
 5. Choose Add.
@@ -571,9 +571,9 @@ crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
 
-- crm resource migrate <res_name> <host> - creates location constraints and can cause issues with takeover
-- crm resource clear <res_name> - clears location constraints
-- crm resource cleanup <res_name> - clears all errors of the resource
+- crm resource migrate \<res_name> \<host> - creates location constraints and can cause issues with takeover
+- crm resource clear \<res_name> - clears location constraints
+- crm resource cleanup \<res_name> - clears all errors of the resource
 
 
 ### Test the fencing agent

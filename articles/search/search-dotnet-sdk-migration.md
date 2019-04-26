@@ -7,11 +7,23 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
 ---
 # Upgrading to the Azure Search .NET SDK version 3
+
+> [!Important]
+> While API releases are typically in tandem, there is not yet a generally available version of the .NET SDK that maps to the REST api-version=2019-05-06.
+> 
+
+<!--- DETAILS in the word doc
+cosmosdb
+NER v1 skill 
+Indexer execution result errors no longer have status
+the data source API will no longer return in the response of any REST operation, the connection string specified by the user.
+--->
+
 If you're using version 2.0-preview or older of the [Azure Search .NET SDK](https://aka.ms/search-sdk), this article will help you upgrade your application to use version 3.
 
 For a more general walkthrough of the SDK including examples, see [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md).

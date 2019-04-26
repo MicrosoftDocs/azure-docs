@@ -104,7 +104,7 @@ Shared code should be kept in a separate folder. To reference modules in the Sha
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Binding extensions used by the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#local-development-azure-functions-core-tools) using Azure Functions Core Tools. 
+Binding extensions used by the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles) using Azure Functions Core Tools. 
 
 When deploying a Functions project to your function app in Azure, the entire content of the FunctionApp folder should be included in the package, but not the folder itself.
 

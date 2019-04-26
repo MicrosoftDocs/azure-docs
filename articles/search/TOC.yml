@@ -13,7 +13,7 @@
     items:
     - name: Load and query an index
       href: search-get-started-portal.md
-    - name: Enrich with AI (cognitive search)
+    - name: Enrich with AI (Cognitive Search)
       href: cognitive-search-quickstart-blob.md
   - name: C#
     items:
@@ -33,7 +33,7 @@
     href: search-indexer-tutorial.md
   - name: Index Azure JSON blobs
     href: search-semi-structured-data.md
-  - name: Index with AI (Cognitive Services)
+  - name: Enrich with AI (Cognitive Search)
     items:
     - name: REST
       href: cognitive-search-tutorial-blob.md
