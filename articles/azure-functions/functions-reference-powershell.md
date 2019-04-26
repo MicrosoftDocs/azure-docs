@@ -572,7 +572,7 @@ function Invoke-PSTestFunc {
 Export-ModuleMember -Function "Invoke-PSTestFunc"
 ```
 
-In this example, the configuration for `myFunction` includes a `scriptFile` property that references `PSFunction.psm1`, which a PowerShell module in another folder.  The `entryPoint` property references the `Invoke-PSTestFunc` function, which is the entry point in the module.
+In this example, the configuration for `myFunction` includes a `scriptFile` property that references `PSFunction.psm1`, which is a PowerShell module in another folder.  The `entryPoint` property references the `Invoke-PSTestFunc` function, which is the entry point in the module.
 
 ```json
 {
