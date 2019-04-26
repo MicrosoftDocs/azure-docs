@@ -72,13 +72,15 @@ This Azure Resource Manager template will create an Azure Cosmos DB account for 
 
 ### <a id="add-remove-regions-via-portal"></a>Azure portal
 
+1. Sign in to [Azure portal](https://portal.azure.com). 
+
 1. Go to your Azure Cosmos account, and open the **Replicate data globally** menu.
 
-2. To add regions, select the hexagons on the map with the **+** label that corresponds to your desired region(s). Alternatively, to add a region, select the **+ Add region** option and choose a region from the drop-down menu.
+1. To add regions, select the hexagons on the map with the **+** label that corresponds to your desired region(s). Alternatively, to add a region, select the **+ Add region** option and choose a region from the drop-down menu.
 
-3. To remove regions, clear one or more regions from the map by selecting the blue hexagons with check marks. Or select the "wastebasket" (🗑) icon next to the region on the right side.
+1. To remove regions, clear one or more regions from the map by selecting the blue hexagons with check marks. Or select the "wastebasket" (🗑) icon next to the region on the right side.
 
-4. To save your changes, select **OK**.
+1. To save your changes, select **OK**.
 
    ![Add or remove regions menu](./media/how-to-manage-database-account/add-region.png)
 
@@ -216,7 +218,7 @@ An account can be migrated from single-master to multi-master by deploying the R
                 "consistencyPolicy": { "defaultConsistencyLevel": "Session" },
                 "locations": [
                     {
-                        "locationName": "[parameters('location')]"
+                        "locationName": "[parameters('location')]",
                         "failoverPriority": 0
                     }
                 ],
@@ -229,7 +231,7 @@ An account can be migrated from single-master to multi-master by deploying the R
 
 ## <a id="automatic-failover"></a>Enable automatic failover for your Azure Cosmos DB account
 
-Automatic failover will allow Azure Cosmos DB to fail over to the region with the highest failover priority with no user action should a region become unavailable. When automatic failover is enabled, region priority can be modified. Account must have two or more regions to enable automatic failover.
+The Automatic failover option allows Azure Cosmos DB to failover to the region with the highest failover priority with no user action should a region become unavailable. When automatic failover is enabled, region priority can be modified. Account must have two or more regions to enable automatic failover.
 
 ### <a id="enable-automatic-failover-via-portal"></a>Azure portal
 
@@ -278,7 +280,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 After a Cosmos account is configured for automatic failover, the failover priority for regions can be changed.
 
 > [!IMPORTANT]
-> You cannot modify the write region (failover priority of zero) on when the account is configured for automatic failover. To change the write region, you must disable automatic failover and do a manual failover.
+> You cannot modify the write region (failover priority of zero) when the account is configured for automatic failover. To change the write region, you must disable automatic failover and do a manual failover.
 
 ### <a id="set-failover-priorities-via-portal"></a>Azure portal
 

@@ -4,7 +4,7 @@ description: Learn how to manage conflicts in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/16/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
 ---
 

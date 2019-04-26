@@ -230,7 +230,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 
 ### <a id="ps-cassandra"></a>Cassandra API
 
-```
+```azurepowershell-interactive
 # Create an Azure Cosmos Account for Cassandra API
 $resourceGroupName = "myResourceGroup"
 $location = "West US"
