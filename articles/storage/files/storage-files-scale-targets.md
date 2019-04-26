@@ -2,11 +2,11 @@
 title: Azure Files scalability and performance targets | Microsoft Docs
 description: Learn about the scalability and performance targets for Azure Files, including the capacity, request rate, and inbound and outbound bandwidth limits.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 7/19/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -71,9 +71,9 @@ To help you plan your deployment for each of the stages, below are the results o
 
 | Initial one-time provisioning  |  |
 |-|-|
-| Number of objects | 10 million objects |
-| Dataset Size| ~4 TiB |
-| Average File Size | ~500 KiB (Largest File: 100 GiB) |
+| Number of objects | 25 million objects |
+| Dataset Size| ~4.7 TiB |
+| Average File Size | ~200 KiB (Largest File: 100 GiB) |
 | Upload Throughput | 20 objects per second |
 | Namespace Download Throughput* | 400 objects per second |
 

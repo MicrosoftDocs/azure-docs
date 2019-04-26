@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 04/23/2019
 ms.author: carlrab
 ---
 # SQL Database release notes
@@ -36,7 +36,25 @@ This article lists the new features and improvements in the SQL Database service
 |Batch Mode on Rowstore (under compatibility level 150)|For information, see [Batch Mode on Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
 |Memory Grant Feedback (Row Mode) (under compatibility level 150)|For information, see [Memory Grant Feedback (Row Mode)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
 |Table Variable Deferred Compilation (under compatibility level 150)|For information, see [Table Variable Deferred Compilation](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
+|SQL Analytics|For information, see [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
+| Time zone support for managed instances|For more information, see [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
 |||
+
+## April 2019
+
+### Service improvements
+
+| Service improvements | Details |
+| --- | --- |
+| Public endpoints for managed instance | For more information, see [Using Azure SQL Database managed instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md)
+| Time zone support for managed instance | For more information, see [Time Zone in Azure SQL Database Managed Instance (Preview)](sql-database-managed-instance-timezone.md)
+
+### Documentation improvements
+
+| Documentation improvements | Details |
+| --- | --- |
+| Public endpoints for managed instance | For more information, see [Using Azure SQL Database managed instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md)
+| Time zone support for managed instance | For more information, see [Time Zone in Azure SQL Database Managed Instance (Preview)](sql-database-managed-instance-timezone.md)
 
 ## March 2019
 
@@ -51,6 +69,7 @@ This article lists the new features and improvements in the SQL Database service
 
 | Documentation improvements | Details |
 | --- | --- |
+| Time zone support for managed instances|For more information, see [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
 | Added log limits for single databases|For more information, see [Single database vCore resource limits](sql-database-vcore-resource-limits-single-databases.md).|
 | Added log limits for elastic pools and pooled databases|For more information, see [Elastic pools vCore resource limits](sql-database-vcore-resource-limits-elastic-pools.md).|
 | Added Transaction log rate governance| Added new content for [Transaction log rate governance](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|

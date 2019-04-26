@@ -942,7 +942,7 @@ ProSort is a utility used in batch transactions for sorting data.
      export PATH
      ```
 
-6. To execute the bash profile, at the command prompt, type: ` . .bash_profile`
+6. To execute the bash profile, at the command prompt, type: `. .bash_profile`
 
 7. Create the configuration file. For example:
 
@@ -1052,7 +1052,7 @@ OFCOBOL is the OpenFrame compiler that interprets the mainframe’s COBOL progra
      0 NonFatalErrors 
      0 FatalError
      ```
-10. Use the `ofcob --version ` command and review the version number to verify the installation. For example:
+10. Use the `ofcob --version` command and review the version number to verify the installation. For example:
 
      ```
      [oframe7@ofdemo ~]$ ofcob --version 

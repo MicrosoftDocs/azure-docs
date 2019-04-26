@@ -43,7 +43,7 @@ Verify virtual network and firewall rules are configured properly on the storage
 
 In Linux, you receive an error message that resembles the following:
 
-**<filename> [permission denied] Disk quota exceeded**
+**\<filename> [permission denied] Disk quota exceeded**
 
 ### Cause
 

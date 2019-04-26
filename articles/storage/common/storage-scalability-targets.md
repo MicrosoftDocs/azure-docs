@@ -53,13 +53,13 @@ For example: A single share can achieve 100,000 IOPS and a single file can scale
 
 |Area  |Target  |
 |---------|---------|
-|Min size                        |100 GiB      |
-|Max size                        |100 TiB      |
+|Min provisioned size                        |100 GiB      |
+|Max provisioned size                        |100 TiB      |
 |Minimum size increase/decrease    |1 GiB      |
 |Baseline IOPS    |1 IOPS per GiB up to 100,000|
 |IOPS bursting    |3x IOPS per GiB up to 100,000|
-|Min bandwidth                     |100        |
-|Bandwidth |0.1 MB/s per GiB up to 5 GiB/s     |
+|Egress rate         |60 MiB/s + 0.06 * provisioned GiB        |
+|Ingress rate| 40 MiB/s + 0.04 * provisioned GiB |
 |Maximum number of snapshots        |200       |
 
 #### Premium file limits
@@ -84,7 +84,7 @@ Azure File Sync has been designed with the goal of limitless usage, but limitles
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## See Also
+## See also
 
 - [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md)

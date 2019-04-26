@@ -31,7 +31,7 @@ This article shows you how to connect to the Azure Media Services v3 .NET SDK us
 1. From the **File** menu, click **New** > **Project**. 
 1. Create a **.NET Core** console application.
 
-The sample app in this topic, targets `netcoreapp2.0`. The code in uses 'async main', which is available starting with C# 7.1. See this [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) for more details.
+The sample app in this topic, targets `netcoreapp2.0`. The code uses 'async main', which is available starting with C# 7.1. See this [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) for more details.
 
 ## Add required NuGet packages
 
@@ -219,7 +219,7 @@ namespace ConsoleApp1
 }
 ```
 
-## See also
+## Next steps
 
 - [Tutorial: Upload, encode, and stream videos - .NET](stream-files-tutorial-with-api.md) 
 - [Tutorial: Stream live with Media Services v3 - .NET](stream-live-tutorial-with-api.md)
@@ -233,6 +233,6 @@ namespace ConsoleApp1
 - [Create filters with Media Services - .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Advanced video on-demand examples of Azure Functions v2 with Media Services v3](https://aka.ms/ams3functions)
 
-## Next steps
+## See also
 
 [.NET reference](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)

@@ -1,5 +1,5 @@
 ---
-title: Understand the storage hierarchy of Azure NetApp Files | Microsoft Docs
+title: What is the storage hierarchy of Azure NetApp Files | Microsoft Docs
 description: Describes the storage hierarchy, including Azure NetApp Files accounts, capacity pools, and volumes.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/03/2019
+ms.topic: overview
+ms.date: 04/16/2019
 ms.author: b-juche
 ---
-# Understand the storage hierarchy of Azure NetApp Files
+# What is the storage hierarchy of Azure NetApp Files
 
 Before creating a volume in Azure NetApp Files, you must purchase and set up a pool for provisioned capacity.  To set up a capacity pool, you must have a NetApp account. Understanding the storage hierarchy helps you set up and manage your Azure NetApp Files resources.
 

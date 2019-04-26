@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 ## Before you start
 
 - Review the architecture for [VMware](vmware-azure-architecture.md), [Hyper-V](hyper-v-azure-architecture.md), and [physical server](physical-azure-architecture.md) disaster recovery.
-- Read common questions for [VMware](vmware-azure-common-questions.md) and Hyper-V(hyper-v-azure-common-questions.md)
+- Read common questions for [VMware](vmware-azure-common-questions.md) and [Hyper-V](hyper-v-azure-common-questions.md)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin. Then sign in to the [Azure portal](https://portal.azure.com).
 
@@ -50,7 +50,7 @@ To complete these tasks your account should be assigned the Virtual Machine Cont
 
 ## Create a Recovery Services vault
 
-1. In the Azure portal, click **+Create a resource**, and search the Marketplace for **Recovery services**.
+1. In the Azure portal, click **+Create a resource**, and search the Marketplace for **Recovery**.
 2. Click **Backup and Site Recovery (OMS)**, and in the Backup and Site Recovery page, click **Create**. 
 1. In **Recovery Services vault** > **Name**, enter a friendly name to identify the vault. For this set of tutorials we're using **ContosoVMVault**.
 2. In **Resource group**, select an existing resource group or create a new one. For this tutorial we're using **contosoRG**.

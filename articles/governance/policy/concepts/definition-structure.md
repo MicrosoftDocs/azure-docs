@@ -64,7 +64,7 @@ For example, the following JSON shows a policy that limits where resources are d
 }
 ```
 
-All Azure Policy samples are at [Policy samples](../samples/index.md).
+All Azure Policy samples are at [Azure Policy samples](../samples/index.md).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -112,6 +112,11 @@ A parameter has the following properties that are used in the policy definition:
   - `description`: The explanation of what the parameter is used for. Can be used to provide examples of acceptable values.
   - `displayName`: The friendly name shown in the portal for the parameter.
   - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides a context aware list. For more information, see [strongType](#strongtype).
+  - `assignPermissions`: (Optional) Set as _true_ to have Azure portal create role assignments
+    during policy assignment. This property is useful in case you wish to assign permissions outside
+    the assignment scope. There is one role assignment per role definition in the policy (or per
+    role definition in all of the policies in the initiative). The parameter value must be a valid
+    resource or scope.
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during assignment.
 
@@ -159,12 +164,17 @@ properties](#parameter-properties).
 Within the `metadata` property, you can use **strongType** to provide a multi-select list of
 options within the Azure portal. Allowed values for **strongType** currently include:
 
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+- `location`
+- `resourceTypes`
+- `storageSkus`
+- `vmSKUs`
+- `existingResourceGroups`
+- `omsWorkspace`
+- `Microsoft.EventHub/Namespaces/EventHubs`
+- `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
+- `Microsoft.EventHub/Namespaces/AuthorizationRules`
+- `Microsoft.RecoveryServices/vaults`
+- `Microsoft.RecoveryServices/vaults/backupPolicies`
 
 ## Definition location
 
@@ -424,7 +434,7 @@ evaluation.
 
 ### Effect
 
-Policy supports the following types of effect:
+Azure Policy supports the following types of effect:
 
 - **Deny**: generates an event in the activity log and fails the request
 - **Audit**: generates a warning event in activity log but doesn't fail the request
@@ -465,7 +475,7 @@ definition](../how-to/remediate-resources.md#configure-policy-definition).
 ```
 
 For complete details on each effect, order of evaluation, properties, and examples, see
-[Understanding Policy Effects](effects.md).
+[Understanding Azure Policy Effects](effects.md).
 
 ### Policy functions
 
@@ -555,39 +565,7 @@ another that has **[\*]** attached to it. For example:
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 The 'normal' alias represents the field as a single value. This field is for exact match comparison
-scenarios when the entire set of values must be exactly as defined, no more and no less. Using
-**ipRules**, an example would be validating that an exact set of rules exists including the number
-of rules and makeup of each rule. This sample rule checks for exactly both **192.168.1.1** and
-**10.0.4.1** with _action_ of **Allow** in **ipRules** to apply the **effectType**:
-
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "Equals": [
-                    {
-                        "action": "Allow",
-                        "value": "192.168.1.1"
-                    },
-                    {
-                        "action": "Allow",
-                        "value": "10.0.4.1"
-                    }
-                ]
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+scenarios when the entire set of values must be exactly as defined, no more and no less.
 
 The **[\*]** alias makes it possible to compare against the value of each element in the array and
 specific properties of each element. This approach makes it possible to compare element properties
@@ -702,9 +680,9 @@ and `productName`. It uses two built-in policies to apply the default tag value.
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md)
-- Review [Understanding policy effects](effects.md)
-- Understand how to [programmatically create policies](../how-to/programmatically-create.md)
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md)
-- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md)
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md)
+- Review examples at [Azure Policy samples](../samples/index.md).
+- Review [Understanding policy effects](effects.md).
+- Understand how to [programmatically create policies](../how-to/programmatically-create.md).
+- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
+- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

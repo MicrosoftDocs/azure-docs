@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 04/11/2019
 ms.author: celested
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
@@ -27,37 +27,32 @@ To assign a user or group to an enterprise app, you must have the appropriate pe
 
 ## Assign a user to an app - portal
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **All services**, enter Azure Active Directory in the text box, and then select **Enter**.
-3. Select **Enterprise applications**.
-
-    ![Opening Enterprise apps](./media/assign-user-or-group-access-portal/open-enterprise-apps.png)
-4. On the **Enterprise applications** blade, select **All applications**. This lists the apps you can manage.
-5. On the **Enterprise applications - All applications** blade, select an app.
-6. On the ***appname*** blade (that is, the blade with the name of the selected app in the title), select **Users & Groups**.
-
-    ![Selecting the all applications command](./media/assign-user-or-group-access-portal/select-app-users.png)
-7. On the ***appname*** **- User & Group Assignment** blade, select the **Add** command.
-8. On the **Add Assignment** blade, select **Users and groups**.
+1. Select **All services**, enter Azure Active Directory in the text box, and then select **Enter**.
+1. Select **Enterprise applications**.
+1. On the **Enterprise applications - All applications** pane, you see a list of the apps you can manage. Select an app.
+1. On the ***appname*** pane (that is, the pane with the name of the selected app in the title), select **Users & Groups**.
+1. On the ***appname*** **- User and groups** pane, select **Add user**.
+1. On the **Add Assignment** pane, select **Users and groups**.
 
     ![Assign a user or group to the app](./media/assign-user-or-group-access-portal/assign-users.png)
-9. On the **Users and groups** blade, select one or more users or groups from the list and then select the **Select** button at the bottom of the blade.
-10. On the **Add Assignment** blade, select **Role**. Then, on the **Select Role** blade, select a role to apply to the selected users or groups, and then select the **OK** button at the bottom of the blade.
-11. On the **Add Assignment** blade, select the **Assign** button at the bottom of the blade. The assigned users or groups have the permissions defined by the selected role for this enterprise app.
+1. On the **Users and groups** pane, select one or more users or groups from the list and then choose the **Select** button at the bottom of the pane.
+1. On the **Add Assignment** pane, select **Role**. Then, on the **Select Role** pane, select a role to apply to the selected users or groups, then select **OK** at the bottom of the pane.
+1. On the **Add Assignment** pane, select the **Assign** button at the bottom of the pane. The assigned users or groups have the permissions defined by the selected role for this enterprise app.
 
 ## Allow all users to access an app - portal
 To allow all users to access an application:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **All services**, enter Azure Active Directory in the text box, and then select **Enter**.
-3. Select **Enterprise applications**.
-4. On the **Enterprise applications** blade, select **All applications**. This lists the apps you can manage.
-5. On the **Enterprise applications - All applications** blade, select an app.
-6. On the ***appname*** blade, select **Properties**.
-7. On the ***appname* - Properties** blade, set the **User assignment required?** setting to **No**. 
+1. Select **All services**, enter Azure Active Directory in the text box, and then select **Enter**.
+1. Select **Enterprise applications**.
+1. On the **Enterprise applications** pane, select **All applications**. This lists the apps you can manage.
+1. On the **Enterprise applications - All applications** pane, select an app.
+1. On the ***appname*** pane, select **Properties**.
+1. On the ***appname* - Properties** pane, set the **User assignment required?** setting to **No**. 
 
 The **User assignment required?** option:
 
-- Does not affect whether or not an application appears on the application access panel. To show the application on the access panel, you need to assign an appropriate user or group to the application.
+- Doesn't affect whether or not an application appears on the application access panel. To show the application on the access panel, you need to assign an appropriate user or group to the application.
 - Only functions with the cloud applications that are configured for SAML single sign-on, and on-premises applications configured with Application Proxy. See [Single sign-on for applications](what-is-single-sign-on.md).
 - Requires that users consent to an application. An admin can grant consent for all users.  See [Configure the way end-users consent to an application](configure-user-consent.md).
 
@@ -69,8 +64,8 @@ The **User assignment required?** option:
 	>[!NOTE] 
 	> You need to install the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
 
-2. Run `Connect-AzureAD` and sign in with a Global Admin user account.
-3. Use the following script to assign a user and role to an application:
+1. Run `Connect-AzureAD` and sign in with a Global Admin user account.
+1. Use the following script to assign a user and role to an application:
 
     ```powershell
     # Assign the values to the variables
@@ -103,7 +98,7 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
     $app_name = "Workplace Analytics"
     ```
 
-2. In this example, we don't know what is the exact name of the application role we want to assign to Britta Simon. Run the following commands to get the user ($user) and the service principal ($sp) using the user UPN and the service principal display names.
+1. In this example, we don't know what is the exact name of the application role we want to assign to Britta Simon. Run the following commands to get the user ($user) and the service principal ($sp) using the user UPN and the service principal display names.
 
     ```powershell
     # Get the user to assign, and the service principal for the app to assign to
@@ -111,11 +106,11 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
     ```
 		
-3. Run the command `$sp.AppRoles` to display the roles available for the Workplace Analytics application. In this example, we want to assign Britta Simon the Analyst (Limited access) Role.
+1. Run the command `$sp.AppRoles` to display the roles available for the Workplace Analytics application. In this example, we want to assign Britta Simon the Analyst (Limited access) Role.
 	
 	![Workplace Analytics Role](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 
-4. Assign the role name to the `$app_role_name` variable.
+1. Assign the role name to the `$app_role_name` variable.
 		
     ```powershell
     # Assign the values to the variables
@@ -123,7 +118,7 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
     $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
     ```
 
-5. Run the following command to assign the user to the app role:
+1. Run the following command to assign the user to the app role:
 
     ```powershell
     # Assign the user to the app role

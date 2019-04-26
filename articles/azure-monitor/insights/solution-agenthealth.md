@@ -70,21 +70,21 @@ A record with a type of **Heartbeat** is created.  These records have the proper
 
 | Property | Description |
 | --- | --- |
-| Type | *Heartbeat*|
-| Category | Value is *Direct Agent*, *SCOM Agent*, or *SCOM Management Server*.|
-| Computer | Computer name.|
-| OSType | Windows or Linux operating system.|
-| OSMajorVersion | Operating system major version.|
-| OSMinorVersion | Operating system minor version.|
-| Version | Log Analytics Agent or Operations Manager Agent version.|
-| SCAgentChannel | Value is *Direct* and/or *SCManagementServer*.|
-| IsGatewayInstalled | If Log Analytics gateway is installed, value is *true*, otherwise value is *false*.|
-| ComputerIP | IP address of the computer.|
-| RemoteIPCountry | Geographic location where computer is deployed.|
-| ManagementGroupName | Name of Operations Manager management group.|
-| SourceComputerId | Unique ID of computer.|
-| RemoteIPLongitude | Longitude of computer's geographic location.|
-| RemoteIPLatitude | Latitude of computer's geographic location.|
+| `Type` | *Heartbeat*|
+| `Category` | Value is *Direct Agent*, *SCOM Agent*, or *SCOM Management Server*.|
+| `Computer` | Computer name.|
+| `OSType` | Windows or Linux operating system.|
+| `OSMajorVersion` | Operating system major version.|
+| `OSMinorVersion` | Operating system minor version.|
+| `Version` | Log Analytics Agent or Operations Manager Agent version.|
+| `SCAgentChannel` | Value is *Direct* and/or *SCManagementServer*.|
+| `IsGatewayInstalled` | If Log Analytics gateway is installed, value is *true*, otherwise value is *false*.|
+| `ComputerIP` | IP address of the computer.|
+| `RemoteIPCountry` | Geographic location where computer is deployed.|
+| `ManagementGroupName` | Name of Operations Manager management group.|
+| `SourceComputerId` | Unique ID of computer.|
+| `RemoteIPLongitude` | Longitude of computer's geographic location.|
+| `RemoteIPLatitude` | Latitude of computer's geographic location.|
 
 Each agent reporting to an Operations Manager management server will send two heartbeats, and SCAgentChannel property's value will include both **Direct** and **SCManagementServer** depending on what data sources and monitoring solutions you have enabled in your subscription. If you recall, data from solutions are either sent directly from an Operations Manager management server to Azure Monitor, or because of the volume of data collected on the agent, are sent directly from the agent to Azure Monitor. For heartbeat events which have the value **SCManagementServer**, the ComputerIP value is the IP address of the management server since the data is actually uploaded by it.  For heartbeats where SCAgentChannel is set to **Direct**, it is the public IP address of the agent.  
 
