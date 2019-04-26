@@ -23,7 +23,7 @@ With action rules you can do the following:
 * Suppress actions and notifications if you have planned maintenance windows or for the weekend/holidays, instead of having to disable each alert rule individually.
 * Define actions and notifications at scale: Instead of having to define an action group individually for each alert rule, you can now define an action group to trigger for alerts generated at any scope. For example, I can choose to have action group 'ContosoActionGroup' trigger for every alert generated within my subscription.
 
-## How do you configure an action rule?
+## Configuring an action rule
 
 You can access the feature by selecting **Manage actions** from the Alerts landing page in Azure Monitor. Then select **Action Rules (Preview)**. You can access them by selectiing **Action Rules (preview)**  from the dashboard of the landing page for Alerts.
 
@@ -33,7 +33,11 @@ Select **+ New Action Rule**.
 
 ![Add new action rule](media/alerts-action-rules/action-rules-new-rule.png)
 
-You should now see the action rule creation flow open. You have to configuire the following elements. 
+Alternatively, you can also choose to create an action rule while configuring an alert rule.
+
+![Add new action rule](media/alerts-action-rules/action-rules-alert-rule.png)
+
+You should now see the action rule creation flow open. You have to configuire the following elements: 
 
 ![New action rule creation flow](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
@@ -132,3 +136,63 @@ You can view and manage your action rules from the list view as shown below.
 ![Action rules list view](media/alerts-action-rules/action-rules-list-view.png)
 
 From here, you can enable/disable/delete action rules at scale by selecting the checkbox next to them. Clicking on any action rule opens up its configuration page, allowing you to update its definition and enable/disable it.
+
+## Best practices
+
+Log alerts created with the ['number of results'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option generate **a single alert instance** with the entirety of the search results (which could be across multiple computers for example). In this scenario, if an action rule uses the 'Alert Context (payload)' filter, it will act on the alert instance as long as there is a match. In scenario 2 as described above, if the search results for the log alert generated contains both 'Computer-01' and 'Computer-02', the entire notification is suppressed (there is no notification generated for 'Computer-02' at all).
+
+![Action rules and log alerts (number of results)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
+
+To best leverage log alerts with action rules, it is advised to create log alerts with the ['metric measurement'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option. In this scenario, separate alert instances are generated based on the Group Field defined. In scenario 2 as described above, if the log alert is created with the metric measurement option, separate alert instances are generated for 'Computer-01' and 'Computer-02'. With the action rule described in the scenario, only the notification for 'Computer-01' would be suppressed while the notification for 'Computer-02' will continue to fire as normal.
+
+![Action rules and log alerts (number of results)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
+
+## FAQ
+
+* Q. While configuring an action rule, I would like to see all the possible overlapping action rules so that I avoid duplicate notifications. Is it possible to do so?
+
+    A. Once you define a scope while configuring an action rule, you can see a list of action rules which overlap on the same scope (if any). This overlap could either be one of the following:
+    * An exact match: For example, the action rule you are defining and the overlapping action rule are on the same subscription.
+    * A subset: For example, the action rule you are defining is on a subscription, and the overlapping action rule is on a resource group within the subscription.
+    * A superset: For example, the action rule you are defining is on a resource group, and the overlapping action rule is on the subscription that contains the resource group.
+    * An intersection: For example, the action rule you are defining is on 'VM1' and 'VM2', and the overlapping action rule is on 'VM2' and 'VM3'.
+
+    ![Overlapping action rules](media/alerts-action-rules/action-rules-overlapping.png)
+
+* Q. While configuring an alert rule, is it possible to know if there are already action rules defined that might act on the alert rule I am defining?
+
+    A. Once you define the target resource for your alert rule, you can see the list of action rules which act on the same scope (if any) by clicking on 'View configured actions' under the 'Actions' section. This list is populated based on following scenarios for the scope:
+    * An exact match: For example, the alert rule you are defining and the  action rule are on the same subscription.
+    * A subset: For example, the alert rule you are defining is on a subscription, and the action rule is on a resource group within the subscription.
+    * A superset: For example, the alert rule you are defining is on a resource group, and the action rule is on the subscription that contains the resource group.
+    * An intersection: For example, the alert rule you are defining is on 'VM1' and 'VM2', and the action rule is on 'VM2' and 'VM3'.
+    
+
+
+    ![Overlapping action rules](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
+
+* Q. Can I see the alerts that have been suppressed by an action rule?
+
+    A. In the [alerts list page](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-managing-alert-instances), there is an additional column that can be chosen called 'Suppression Status'. If the notification for an alert instance was suppressed, it would show so in the list.
+
+    ![Suppressed alert instances](media/alerts-action-rules/action-rules-suppressed-alerts.png)
+
+* Q. If there's an action rule with an action group and another with suppression active on the same scope, what happens?
+
+    A. **Suppression always takes precedence on the same scope**.
+
+* Q. If I have an action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' and action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1', what happens?
+
+    A. For every alert on 'VM1' and 'VM3', action group 'AG1' would be triggered once. For every alert on 'VM2', action group 'AG1' would be triggered twice (**action rules do not de-duplicate actions**). 
+
+* Q. If I have an action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' and action rule 'AR2' defined for 'VM2' and 'VM3' with suppression, what happens?
+
+    A. For every alert on 'VM1', action group 'AG1' would be triggered once. Actions and notifications for every alert on 'VM2' and 'VM3' will be suppressed. 
+
+* Q. If I have an action rule 'AR1' defined for 'VM1' with action group 'AG1', and alert rule 'rule1' on 'VM1' with action group 'AG2', what happens?
+
+    A. For every alert on 'VM1', action group 'AG1' would be triggered once. Whenever alert rule 'rule1' is triggered, it will also trigger 'AG2' additionally. (**action groups defined within action rules and alert rules operate independently, with no de-duplication**) 
+
+## Next steps
+
+- [Learn more about alerts in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)
