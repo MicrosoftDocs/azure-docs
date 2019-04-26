@@ -28,15 +28,15 @@ Conditional access controls allow you to create policies that target specific us
 
 Before diving into details on how to configure the policy, let’s examine the default configuration.
 
-## User sign in frequency
+## User sign-in frequency
 
-Sign in frequency defines the time period before a user is asked to sign in again when attempting to access a resource.
+Sign-in frequency defines the time period before a user is asked to sign in again when attempting to access a resource.
 
 The Azure Active Directory (Azure AD) default configuration for user sign in frequency is a rolling window of 90 days. Asking users for credentials often seems like a sensible thing to do, but it can backfire: users that are trained to enter their credentials without thinking can unintentionally supply them to a malicious credential prompt.
 
 It might sound alarming to not ask for a user to sign back in for 90 days, in reality any violation of IT policies will revoke the session. Some examples include (but are not limited to) a password change, an incompliant device, or account disable. You can also explicitly [revoke users’ sessions using PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). The Azure AD default configuration comes down to “don’t ask users to provide their credentials if security posture of their sessions has not changed”.
 
-Sign in frequency setting works with apps that have implemented OATH2 or OIDC protocols according to the standards. Most Microsoft native apps for Windows, Mac, and Mobile comply with the setting.
+Sign-in frequency setting works with apps that have implemented OATH2 or OIDC protocols according to the standards. Most Microsoft native apps for Windows, Mac, and Mobile comply with the setting.
 
 ## Persistence of browsing sessions
 
@@ -100,6 +100,5 @@ To make sure that your policy works as expected, the recommended best practice i
 
 ## Next steps
 
-- If you want to know how to configure a conditional access policy, see the article [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
-
-- If you are ready to configure conditional access policies for your environment, see the article [Best practices for conditional access in Azure Active Directory](best-practices.md).
+* If you want to know how to configure a conditional access policy, see the article [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
+* If you are ready to configure conditional access policies for your environment, see the article [Best practices for conditional access in Azure Active Directory](best-practices.md).
