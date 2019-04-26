@@ -56,9 +56,7 @@ This guide uses the following authentication library:
 
 ## Set up your project
 
-### (Optional) Skip the setup and download the entire project
-
-Do you want to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
+This tutorial will create a new project. If you want to download the completed tutorial instead, [download the code](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip).
 
 ### Create a new project
 
