@@ -436,7 +436,7 @@ If you use the simple entity, make sure to give examples that use the first and 
 
 ### Names of places
 
-Location names are set and known such as cities, counties, states, provinces, and countries. Use the prebuilt entity **[geographyV2](luis-reference-prebuilt-geographyv2.md)** to extract location information.
+Location names are set and known such as cities, counties, states, provinces, and countries/regions. Use the prebuilt entity **[geographyV2](luis-reference-prebuilt-geographyv2.md)** to extract location information.
 
 ### New and emerging names
 
