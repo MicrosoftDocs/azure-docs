@@ -93,7 +93,7 @@ Next, you will analyze a document and extract key-value pairs and tables from it
 * Replace `<subscription key>` with your subscription key.
 
 ```bash
-curl -v -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/model/<modelID>/analyze" -H "Content-Type: multipart/form-data" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{{  "source": "<SAS URL>" }}"
+curl -v -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{{  "source": "<SAS URL>" }}"
 ```
 
 ### Examine the response
