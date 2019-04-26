@@ -22,7 +22,7 @@ Container support in Azure Cognitive Services allows developers to use the same 
 * [Face](Face/Overview.md)
 * [Form Recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Language Understanding](LUIS/luis-container-howto.md) (LUIS)
-* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
+* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
 * [Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Text Analytics](text-analytics/overview.md)
 
