@@ -15,7 +15,7 @@ ms.author: tilee
 ---
 # Status Monitor v2 API: Get-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
 
-This document describes a cmdlet that's shipped as a member of the [ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+This document describes a cmdlet that's shipped as a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Status Monitor v2 is currently in public preview.
@@ -24,7 +24,7 @@ This document describes a cmdlet that's shipped as a member of the [ApplicationM
 
 ## Description
 
-Get the config file for ApplicationMonitor and print the values to the console.
+Get the config file and print the values to the console.
 
 > [!IMPORTANT] 
 > This cmdlet requires a PowerShell Session with Administrator permissions.

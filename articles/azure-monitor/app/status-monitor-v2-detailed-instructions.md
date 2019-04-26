@@ -141,11 +141,11 @@ These steps will prepare your server to download modules from the PowerShell Gal
 
 ## Download & install via PowerShell Gallery
 
-These steps will download the ApplicationMonitor module from PowerShell Gallery.
+These steps will download the Az.ApplicationMonitor module from PowerShell Gallery.
 
 1. Prerequisites for PowerShell Gallery are required.
 2. Run PowerShell as Administrator with an elevated execution policy.
-3. Install the ApplicationMonitor Module
+3. Install the Az.ApplicationMonitor Module
 	- Reference: [Install-Module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6)
 	- Cmd: `Install-Module -Name Az.ApplicationMonitor`
 	- Optional Parameters:
@@ -156,7 +156,7 @@ These steps will download the ApplicationMonitor module from PowerShell Gallery.
 
 ## Download & install manually (offline option)
 
-If for any reason you can't connect to the PowerShell Module, you may manually download and install the ApplicationMonitor module.
+If for any reason you can't connect to the PowerShell Module, you may manually download and install the Az.ApplicationMonitor module.
 
 ### Manually download the latest nupkg
 
@@ -215,7 +215,7 @@ If installing into any other directory, you must manually import the module usin
 
 When monitoring a machine on your private intranet, it will be necessary to route http traffic through a proxy.
 
-The PowerShell commands to download and install the ApplicationMonitor from the PowerShell Gallery do support a `-Proxy` parameter.
+The PowerShell commands to download and install the Az.ApplicationMonitor from the PowerShell Gallery do support a `-Proxy` parameter.
 Review the instructions above when writing your installation scripts.
 
 The Application Insights SDK will need to send your application's telemetry to Microsoft. We recommend configuring proxy settings for your application in your web.config. See [Application Insights FAQ: Proxy Passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough) for more information.

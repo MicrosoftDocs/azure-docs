@@ -15,7 +15,7 @@ ms.author: tilee
 ---
 # Status Monitor v2 API: Disable-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
-This document describes a cmdlet that's shipped as a member of the [ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+This document describes a cmdlet that's shipped as a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Status Monitor v2 is currently in public preview.

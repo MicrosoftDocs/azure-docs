@@ -50,7 +50,7 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 
 ## FAQ
 
-- Does ApplicationMonitor support proxy installations?
+- Does Status Monitor v2 support proxy installations?
 
   **Yes**. You have multiple options to download Status Monitor v2. 
 If your computer has internet access, you can onboard to the PowerShell Gallery using `-Proxy` parameters. 
