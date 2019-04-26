@@ -160,7 +160,7 @@ To configure Azure AD single sign-on with Zoho One, perform the following steps:
 
 	d. Click **Save**.
 
-4. After saving the SAML Authentication setup, copy the **SAML-Identfier** value and append it with the **Reply URL** in place of `<saml-identifier>`, like `https://accounts.zoho.com/samlresponse/one.zoho.com` and paste the generated value in the **Reply URL** textbox under **Basic SAML Configuration** section.
+4. After saving the SAML Authentication setup, copy the **SAML-Identifier** value and append it with the **Reply URL** in place of `<saml-identifier>`, like `https://accounts.zoho.com/samlresponse/one.zoho.com` and paste the generated value in the **Reply URL** textbox under **Basic SAML Configuration** section.
 
 	![Zoho One saml](./media/zohoone-tutorial/tutorial_zohoone_samlidenti.png)
 
@@ -177,7 +177,7 @@ To configure Azure AD single sign-on with Zoho One, perform the following steps:
 	b. Click **Add**.
 
 	>[!Note]
-	>After adding the domain follow [these](https://www.zoho.com/one/help/admin-guide/domain-verification.html) steps to verify your domain. Once the domain is verfified, use your domain name in **Sign-on URL** in **Basic SAML Configuration** section in Azure portal.
+	>After adding the domain follow [these](https://www.zoho.com/one/help/admin-guide/domain-verification.html) steps to verify your domain. Once the domain is verified, use your domain name in **Sign-on URL** in **Basic SAML Configuration** section in Azure portal.
 
 ### Create an Azure AD test user 
 
