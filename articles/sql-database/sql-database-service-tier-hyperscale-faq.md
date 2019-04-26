@@ -126,7 +126,7 @@ No.
 
 ### Can I provision a compute with extra RAM for my memory-intensive workload
 
-No. To get more RAM, you need to upgrade to a higher compute size. Gen4 hardware provides more RAM compared to Gen5 hardware. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview).
+No. To get more RAM, you need to upgrade to a higher compute size. Gen4 hardware provides more RAM compared to Gen5 hardware. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview-for-provisioned-compute-tier).
 
 ### Can I provision multiple compute nodes of different sizes
 

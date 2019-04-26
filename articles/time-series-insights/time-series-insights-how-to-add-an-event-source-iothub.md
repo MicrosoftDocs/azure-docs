@@ -102,7 +102,9 @@ To add a new consumer group to your IoT hub:
 ## Next steps
 
 * [Define data access policies](time-series-insights-data-access.md) to secure the data.
+
 * [Send events](time-series-insights-send-events.md) to the event source.
+
 * Access your environment in the [Time Series Insights explorer](https://insights.timeseries.azure.com).
 
 <!-- Images -->

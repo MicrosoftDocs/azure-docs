@@ -247,7 +247,7 @@ Different releases may have different parameters so verify the necessary paramet
 
 | Property | Description | Valid Options | Default Value |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | URL for artifacts (json, scripts, etc.) |  |  https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
+| `_artifactsLocation`  | URL for artifacts (json, scripts, etc.) |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | Azure region to deploy resources to |  |  |
 | `masterVmSize` | Size of the Master VM. Select from one of the allowed VM sizes listed in the azuredeploy.json file |  | Standard_E2s_v3 |
 | `infraVmSize` | Size of the Infra VM. Select from one of the allowed VM sizes listed in the azuredeploy.json file |  | Standard_D4s_v3 |

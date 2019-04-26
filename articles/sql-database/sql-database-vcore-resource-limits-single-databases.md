@@ -7,11 +7,11 @@ ms.subservice: single-database
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: 
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/17/2019
+ms.date: 05/06/2019
 ---
 # Azure SQL Database vCore-based purchasing model limits for a single database
 
@@ -27,9 +27,11 @@ You can set the service tier, compute size, and storage amount for a single data
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale a single database](sql-database-single-database-scale.md).
 
-## General Purpose service tier: Storage sizes and compute sizes
+## General Purpose service tier
 
-### General Purpose service tier: Generation 4 compute platform (part 1)
+### Provisioned compute tier
+
+#### Generation 4 compute platform (part 1)
 
 |Compute size|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -52,7 +54,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-### General Purpose service tier: Generation 4 compute platform (part 2)
+#### Generation 4 compute platform (part 2)
 
 |Compute size|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -75,7 +77,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-### General Purpose service tier: Generation 5 compute platform (part 1)
+#### Generation 5 compute platform (part 1)
 
 |Compute size|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -98,7 +100,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-### General Purpose service tier: Generation 5 compute platform (part 2)
+#### Generation 5 compute platform (part 2)
 
 |Compute size|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -121,9 +123,10 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-## Business Critical service tier: Storage sizes and compute sizes
 
-### Business Critical service tier: Generation 4 compute platform (part 1)
+## Business Critical service tier for provisioned compute tier
+
+### Generation 4 compute platform (part 1)
 
 |Compute size|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -147,7 +150,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-### Business Critical service tier: Generation 4 compute platform (part 2)
+### Generation 4 compute platform (part 2)
 
 |Compute size|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -171,7 +174,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-### Business Critical service tier: Generation 5 compute platform (part 1)
+### Generation 5 compute platform (part 1)
 
 |Compute size|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -195,7 +198,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-### Business Critical service tier: Generation 5 compute platform (part 2)
+### Generation 5 compute platform (part 2)
 
 |Compute size|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -219,9 +222,9 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-## Hyperscale service tier (preview)
+## Hyperscale service tier (preview) for provisioned compute tier
 
-### Generation 4 compute platform: Storage sizes and compute sizes
+### Generation 4 compute platform
 
 |Performance level|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 04/23/2019
 ms.author: jingwang
 
 ---
@@ -32,9 +32,6 @@ Specifically, this Azure SQL Data Warehouse connector supports these functions:
 - Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieve data by using a SQL query or stored procedure.
 - As a sink, load data by using PolyBase or a bulk insert. We recommend PolyBase for better copy performance.
-
-> [!IMPORTANT]
-> Note that PolyBase supports only SQL authentication but not Azure AD authentication.
 
 > [!IMPORTANT]
 > If you copy data by using Azure Data Factory Integration Runtime, configure an [Azure SQL server firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) so that Azure services can access the server.
