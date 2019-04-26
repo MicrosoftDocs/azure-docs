@@ -40,7 +40,7 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 - A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](http://aka.ms/azml-deploy-cloud).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), or the Python SDK.
+- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), or the [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk).
 
 ## <a id="registermodel"></a> Register a machine learning model
 
@@ -48,7 +48,7 @@ The model registry is a way to store and organize your trained models in the Azu
 
 ### Register a model from an Experiment Run
 
-**SScikit-Learn example with the CLI**
+**Scikit-Learn example with the CLI**
 ```azurecli-interactive
 az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name plktexperiment  -f output.json -t model-output.json
 ```
