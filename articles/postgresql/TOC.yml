@@ -64,7 +64,7 @@
   items:
   - name: Single server
     items:
-    - name: DB & Servers
+    - name: Databases and servers
       items:
       - name: Servers
         href: concepts-servers.md
@@ -80,7 +80,7 @@
         href: concepts-pricing-tiers.md
       - name: Limits
         href: concepts-limits.md
-    - name: Data access & security
+    - name: Data access and security
       items:
       - name: Firewall rules
         href: concepts-firewall-rules.md
@@ -88,7 +88,7 @@
         href: concepts-ssl-connection-security.md
       - name: Advanced Threat Protection
         href: concepts-data-access-and-security-threat-protection.md
-      - name: VNet
+      - name: Virtual network
         href: concepts-data-access-and-security-vnet.md 
     - name: Business continuity
       items:
@@ -112,7 +112,7 @@
           href: concepts-query-store-best-practices.md
       - name: Query Performance Insight
         href: concepts-query-performance-insight.md
-      - name: Performance Recommendations
+      - name: Performance recommendations
         href: concepts-performance-recommendations.md
     - name: Development
       items:
@@ -138,8 +138,8 @@
       href: concepts-hyperscale-nodes.md
     - name: Distributed data
       href: concepts-hyperscale-distributed-data.md
-    - name: Choosing a distribution column
-      href: concepts-hyperscale-choosing-distribution-column.md
+    - name: Choose a distribution column
+      href: concepts-hyperscale-choose-distribution-column.md
     - name: Table colocation
       href: concepts-hyperscale-colocation.md
     - name: PostgreSQL extensions

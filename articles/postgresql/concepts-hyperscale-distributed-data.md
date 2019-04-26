@@ -15,12 +15,12 @@ This article outlines the three table types in Hyperscale (Citus).
 It shows how distributed tables are stored as shards, and the way
 shards are placed on nodes.
 
-## Table Types
+## Table types
 
 There are three types of tables in a Hyperscale server group, each
 used for different purposes.
 
-### Type 1: Distributed Tables
+### Type 1: distributed tables
 
 The first type, and most common, is *distributed* tables. They
 appear to be normal tables to SQL statements, but are horizontally
@@ -32,14 +32,14 @@ Hyperscale runs not only SQL but DDL statements throughout a cluster,
 so changing the schema of a distributed table cascades to update
 all the table's shards across workers.
 
-#### Distribution Column
+#### Distribution column
 
 Hyperscale uses algorithmic sharding to assign rows to shards. The assignment is made deterministically based on the value
 of a table column called the *distribution column.* The cluster
 administrator must designate this column when distributing a table.
 Making the right choice is important for performance and functionality.
 
-### Type 2: Reference Tables
+### Type 2: reference tables
 
 A reference table is a type of distributed table whose entire
 contents are concentrated into a single shard. The shard is replicated on every worker, so queries on any worker can access the reference
@@ -51,7 +51,7 @@ Reference tables are typically small, and are used to store data that is
 relevant to queries running on any worker node. For example, enumerated
 values like order statuses, or product categories.
 
-### Type 3: Local Tables
+### Type 3: local tables
 
 When you use Hyperscale, the coordinator node you connect to is a regular PostgreSQL database. You can create ordinary tables on the coordinator and choose
 not to shard them.
@@ -85,7 +85,7 @@ row, and checks which shard\'s range contains the hashed value. (The
 ranges are defined so that the image of the hash function is their
 disjoint union.)
 
-### Shard Placements
+### Shard placements
 
 Suppose that shard 102027 is associated with the row in question. The row
 will be read or written in a table called `github_events_102027` in one of
@@ -116,4 +116,4 @@ WHERE shardid = 102027;
     └─────────┴───────────┴──────────┘
 
 ## Next steps
-- Learn to [choose a distribution column](concepts-hyperscale-choosing-distribution-column.md) for distributed tables
+- Learn to [choose a distribution column](concepts-hyperscale-choose-distribution-column.md) for distributed tables
