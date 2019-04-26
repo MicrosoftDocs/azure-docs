@@ -19,25 +19,37 @@ This article addresses frequently asked questions about Azure Container Instance
 
 ### How large can my container image be?
 
-The size of your container image impacts how long it takes to deploy, so generally you want to keep your container images as small as possible. You should pick only the layers that you need, and start with the leanest base OS image.
-
-For example, if you're running Linux containers, consider using Alpine as your base image rather than a full Ubuntu Server. Similarly, for Windows containers, use a Nano Server base image if possible. 
-
 The maximum size for a deployable container image on Azure Container Instances is 15 GB. You might be able to deploy larger images depending on the exact availability at the moment you deploy, but this is not guaranteed.
+
+The size of your container image impacts how long it takes to deploy, so generally you want to keep your container images as small as possible.
 
 ### How can I speed up the deployment of my container?
 
-One of the main determinants of deployment times is the size of the image. Look for ways to reduce the size of your container image, by either removing layers you don't need or reducing the size of layers in the image (picking a lighter base OS image). You should also check the list of pre-cached images in Azure Container Images, available via the [List Cached Images](/rest/api/container-instances/listcachedimages) API. You might be able to switch out an image layer for one of the pre-cached images. 
+Because one of the main determinants of deployment times is the image size, look for ways to reduce the size. Remove layers you don't need, or reduce the size of layers in the image (by picking a lighter base OS image). For example, if you're running Linux containers, consider using Alpine as your base image rather than a full Ubuntu Server. Similarly, for Windows containers, use a Nano Server base image if possible. 
 
-See more [detailed guidance](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) on reducing image size.
+You should also check the list of pre-cached images in Azure Container Images, available via the [List Cached Images](/rest/api/container-instances/listcachedimages) API. You might be able to switch out an image layer for one of the pre-cached images. 
+
+See more [detailed guidance](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) on reducing container startup time.
 
 ### What Windows base OS images are supported?
 
-Currently, images based on Windows Server 2016 LTSC (Server Core) and Nano Server 1607 (related SAC release) are supported. Use of Windows Server 2019 LTSC Server Core and Nano Server (1809) images is in preview.
+#### Windows Server 2016 base images
+
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `10.0.14393.x`, `sac2016`
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,  `10.0.14393.x`
+
+> [!NOTE]
+> Windows images based on Semi-Annual Channel release 1709 or 1803 are not supported.
+
+#### Windows Server 2019 and client base images (preview)
+
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.x`
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.x`
+* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.x` 
 
 ### What .NET or .NET Core image layer should I use in my container? 
 
-Use the smallest image that satisfies your requirements. For Linux, you could use a *runtime-alpine* image, which has been supported since the release of .NET Core 2.1. For Windows, if you are using the full .NET Framework, then you need to use a Windows Server Core image (runtime only image, such as  *4.7.2-windowsservercore-ltsc2016*). 
+Use the smallest image that satisfies your requirements. For Linux, you could use a *runtime-alpine* .NET Core image, which has been supported since the release of .NET Core 2.1. For Windows, if you are using the full .NET Framework, then you need to use a Windows Server Core image (runtime-only image, such as  *4.7.2-windowsservercore-ltsc2016*). Runtime-only images are smaller but do not support workloads that require the .NET SDK.
 
 ## Availability and quotas
 

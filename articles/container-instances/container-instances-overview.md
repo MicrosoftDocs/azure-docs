@@ -52,7 +52,7 @@ Some features are currently restricted to Linux containers:
 * [Virtual network deployment](container-instances-vnet.md) (preview)
 * [GPU resources](container-instances-gpu.md) (preview)
 
-For Windows container deployments, use Windows Server Core 2016 or 2019 container images based on Long-Term Servicing Channel (LTSC) releases, or corresponding Nano Server base images.
+For Windows container deployments, use images based on common [Windows base images](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 > [!NOTE]
 > Use of Windows Server 2019-based images in Azure Container Instances is in preview.
