@@ -11,7 +11,7 @@ ms.date: 05/07/2019
 ms.author: aahi
 ---
 
-# Install and run containers
+# Install and run Anomaly Detector containers
 
 The Anomaly Detector has the following container: 
 
