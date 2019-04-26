@@ -21,12 +21,12 @@ In this article, you'll learn how to:
 > - Configure your managed instance network security group to allow traffic to the managed instance public endpoint
 > - Obtain the managed instance public endpoint connection string
 
-Public endpoint for a [managed instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) enables access to managed instance from outside the [virtual network](../virtual-network/virtual-networks-overview.md). Public endpoint is useful when accessing the managed instance from multi-tenant Azure services like Power BI, Azure App Service, or an on-premise network. Public endpoint enables managed instance data access to clients outside the virtual network, and can help avoid VPN throughput issues.
+Public endpoint for a [managed instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) enables access to managed instance from outside the [virtual network](../virtual-network/virtual-networks-overview.md). You are able to access your managed instance from multi-tenant Azure services like Power BI, Azure App Service, or an on-premise network. Public endpoint enables managed instance data access to clients outside the virtual network, and can help avoid VPN throughput issues.
 
-Due to the sensitivity of data that are in a managed instance, the configuration to enable managed instance public endpoint requires a two-step process. This security measure adheres to separation of duties (SoD):
+Due to the sensitivity of data that is in a managed instance, the configuration to enable managed instance public endpoint requires a two-step process. This security measure adheres to separation of duties (SoD):
 
 - Enabling public endpoint on a managed instance needs to be done by the managed instance admin.
-- Allow traffic on network security group that needs to be done by a network admin.
+- Allowing traffic using a network security group that needs to be done by a network admin.
 
 ## Enabling public endpoint for a managed instance in the Azure portal
 
@@ -49,17 +49,17 @@ Due to the sensitivity of data that are in a managed instance, the configuration
 
 1. Go back to your resource group that contains your managed instance. You should see the **Network security group** name noted above. Select the name to go into the network security group configuration page.
 
-1. Select the **Inbound security rules** tab, and **Add** a rule that has higher priority than the **deny_all_inbound** rule with the following settings:
+1. Select the **Inbound security rules** tab, and **Add** a rule that has higher priority than the **deny_all_inbound** rule with the following settings: </br> </br>
 
     |Setting  |Suggested value  |Description  |
     |---------|---------|---------|
-    |Source     |Any IP address or Service tag         |For Azure services like Power BI, select the Azure Cloud Service Tag.</br> For your computer or Azure VM, use NAT IP address          |
-    |Source port ranges     |*         |Leave this to * (any) as source ports are usually dynamically allocated and as such, unpredictable         |
-    |Destination     |Any         |Leaving destination as Any to allow traffic into the managed instance subnet         |
-    |Destination port ranges     |3342         |Scope destination port to 3342, which is the managed instance public TDS endpoint         |
-    |Protocol     |TCP         |Managed instance uses TCP protocol for TDS         |
-    |Action     |Allow         |Allow inbound traffic to managed instance through the public endpoint         |
-    |Priority     |1300         |Make sure this rule is higher priority than the **deny_all_inbound** rule         |
+    |Source     |Any IP address or Service tag         |For Azure services like Power BI, select the Azure Cloud Service Tag.</br> For your computer or Azure VM, use NAT IP address |
+    |Source port ranges     |*         |Leave this to * (any) as source ports are usually dynamically allocated and as such, unpredictable |
+    |Destination     |Any         |Leaving destination as Any to allow traffic into the managed instance subnet |
+    |Destination port ranges     |3342         |Scope destination port to 3342, which is the managed instance public TDS endpoint |
+    |Protocol     |TCP         |Managed instance uses TCP protocol for TDS |
+    |Action     |Allow         |Allow inbound traffic to managed instance through the public endpoint |
+    |Priority     |1300         |Make sure this rule is higher priority than the **deny_all_inbound** rule |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)
 
