@@ -1,6 +1,6 @@
 ---
 title: Preview - Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster
-description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container, and monitor performance in Azure Kubernetes Service (AKS) using the Azure CLI.
+description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
 author: zr-msft
 
@@ -14,7 +14,7 @@ ms.author: zarhoads
 
 # Preview - Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using the Azure CLI
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you deploy an AKS cluster using the Azure CLI. You also deploy an ASP.NET sample application in a Windows Server container to the cluster. You then see how to monitor the health of the cluster and pod that run your application.
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you deploy an AKS cluster using the Azure CLI. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
 
 This feature is currently in preview.
 
@@ -328,27 +328,6 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 To see the sample app in action, open a web browser to the external IP address of your service.
 
 ![Image of browsing to ASP.NET sample application](media/windows-container/asp-net-sample-app.png)
-
-## Monitor health and logs
-
-When the AKS cluster was created, Azure Monitor for containers was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal.
-
-To see current status, uptime, and resource usage for the Azure Vote pods, complete the following steps:
-
-1. Open a web browser to the Azure portal [https://portal.azure.com][azure-portal].
-1. Select your resource group, such as *myResourceGroup*, then select your AKS cluster, such as *myAKSCluster*.
-1. Under **Monitoring** on the left-hand side, choose **Insights**
-1. Across the top, choose to **+ Add Filter**
-1. Select *Namespace* as the property, then choose *\<All but kube-system\>*
-1. Choose to view the **Containers**.
-
-The *sample* container is displayed, as shown in the following example:
-
-![View the health of running containers in AKS](media/kubernetes-walkthrough/monitor-containers.png)
-
-To see logs for the `sample` pod, select the **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
-
-![View the containers logs in AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
 
 ## Delete cluster
 
