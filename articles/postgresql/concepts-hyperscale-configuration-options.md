@@ -11,22 +11,24 @@ ms.date: 05/06/2019
 
 ## Compute and storage
  
-You can select compute and storage settings independently for worker nodes and
-the coordinator node in a Hyperscale (Citus) server group.  Compute resources
-are provided as vCores, which represent the logical CPU of the underlying
-hardware. The storage size for provisioning refers to the capacity available to
-the coordinator and worker nodes in your Hyperscale (Citus) server group. The
-storage includes  database files, temporary files, transaction logs, and the
-Postgres server logs. The total amount of storage you provision also defines
-the I/O capacity available to each worker and coordinator node.
+You can select the compute and storage settings independently for
+worker nodes and the coordinator node in a Hyperscale (Citus) server
+group.  Compute resources are provided as vCores, which represent
+the logical CPU of the underlying hardware. The storage size for
+provisioning refers to the capacity available to the coordinator
+and worker nodes in your Hyperscale (Citus) server group. The storage
+includes  database files, temporary files, transaction logs, and
+the Postgres server logs. The total amount of storage you provision
+also defines the I/O capacity available to each worker and coordinator
+node.
  
-|                                | Worker node           | Coordinator node      |
-|--------------------------------|-----------------------|-----------------------|
-| Compute, vCores                | 4, 8, 16, 32          | 4, 8, 16, 32          |
-| Compure, memory per vCore, GiB | 8                     | 4                     |
-| Storage size, TiB              | 0.5, 1, 2             | 0.5, 1, 2             |
-| Storage type                   | General purpose (SSD) | General purpose (SSD) |
-| IOPS                           | Up to 3 IOPS/GiB      | Up to 3 IOPS/GiB      |
+|                       | Worker node           | Coordinator node      |
+|-----------------------|-----------------------|-----------------------|
+| Compute, vCores       | 4, 8, 16, 32          | 4, 8, 16, 32          |
+| Memory per vCore, GiB | 8                     | 4                     |
+| Storage size, TiB     | 0.5, 1, 2             | 0.5, 1, 2             |
+| Storage type          | General purpose (SSD) | General purpose (SSD) |
+| IOPS                  | Up to 3 IOPS/GiB      | Up to 3 IOPS/GiB      |
 
 
 ## Regions
