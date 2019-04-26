@@ -66,6 +66,7 @@ Do you want to download this sample's Android Studio project instead? [Download 
 2. Name your application, and then select **Next**.
 3. Select **API 19 or newer (Android 4.4)**, and then select **Next**.
 4. Leave **Empty Activity** as it is, select **Next**, and then select **Finish**.
+5. In your `app/build.gradle`, set the `targetedSdkVersion` to 27. 
 
 ## Register your application
 
