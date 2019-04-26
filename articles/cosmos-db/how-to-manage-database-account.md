@@ -162,7 +162,12 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 Open the **Replicate Data Globally** tab and select **Enable** to enable multi-region writes. After you enable multi-region writes, all the read regions that you currently have on the account will become read and write regions. 
 
+> [!NOTE]
+> After you enable multi-region writes, you cannot disable it. 
+
 ![Azure Cosmos account configures multi-master screenshot](./media/how-to-manage-database-account/single-to-multi-master.png)
+
+Please reach out to the askcosmosdb@microsoft.com alias for additional questions about this feature. 
 
 ### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
