@@ -27,8 +27,8 @@ This article explains how to add an R package to Azure SQL Database Machine Lear
 
 - This article includes an example of using [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) or [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is) to run an R script in Azure SQL Database. You can run R scripts using other database management or query tools, but this example assumes SSMS or Azure Data Studio.
    
-   > [!NOTE]
-   > You can't install a package by running an R script using **sp_execute_external_script** in SSMS. You can only install and remove packages using the R command line and R Desktop as described in this article. Once the package is installed, you can access the package functions in an R script using **sp_execute_external_script**.
+> [!NOTE]
+> You can't install a package by running an R script using **sp_execute_external_script** in SSMS. You can only install and remove packages using the R command line and R Desktop as described in this article. Once the package is installed, you can access the package functions in an R script using **sp_execute_external_script**.
 
 ## List R packages
 
