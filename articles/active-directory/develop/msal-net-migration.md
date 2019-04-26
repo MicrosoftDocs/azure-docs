@@ -30,7 +30,7 @@ This article describes how to choose between the Microsoft Authentication Librar
 ## Differences between ADAL and MSAL apps
 In most cases you want to use MSAL.NET and the Microsoft identity platform endpoint, which is the latest generation of Microsoft authentication libraries. Using MSAL.NET, you acquire tokens for users signing-in to your application with Azure AD (work and school accounts), Microsoft (personal) accounts (MSA), or Azure AD B2C. 
 
-If you are already familiar with the Azure AD for developers endpoint (v1.0) (and ADAL.NET), you might want to read [What's different about the Microsoft identity platform endpoint (v2.0)?](active-directory-v2-compare.md).
+If you are already familiar with the Azure AD for developers (v1.0) endpoint (and ADAL.NET), you might want to read [What's different about the Microsoft identity platform (v2.0) endpoint?](active-directory-v2-compare.md).
 
 However, you still need to use ADAL.NET if your application needs to sign in users with earlier versions of [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). For more details, see [ADFS support](https://aka.ms/msal-net-adfs-support).
 

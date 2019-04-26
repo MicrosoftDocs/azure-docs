@@ -57,7 +57,7 @@ MSAL can be used in many application scenarios, including the following:
 | ![MSAL for iOS](media/sample-v2-code/logo_iOS.png) <br/>[MSAL.Objective-C (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS|
 
 ## Differences between ADAL and MSAL
-Active Directory Authentication Library (ADAL) integrates with the Azure AD for developers endpoint (v1.0), where MSAL integrates with the Microsoft identity platform endpoint (v2.0). The v1.0 endpoint supports work accounts, but not personal accounts. The v2.0 endpoint is the unification of Microsoft personal accounts and work accounts into a single authentication system. Additionally, with MSAL you can also get authentications for Azure AD B2C.
+Active Directory Authentication Library (ADAL) integrates with the Azure AD for developers (v1.0) endpoint, where MSAL integrates with the Microsoft identity platform (v2.0) endpoint. The v1.0 endpoint supports work accounts, but not personal accounts. The v2.0 endpoint is the unification of Microsoft personal accounts and work accounts into a single authentication system. Additionally, with MSAL you can also get authentications for Azure AD B2C.
 
 For more specific information, read about [migrating to MSAL.NET from ADAL.NET](msal-net-migration.md) and [migrating to MSAL.js from ADAL.js](msal-compare-msal-js-and-adal-js.md).
 
