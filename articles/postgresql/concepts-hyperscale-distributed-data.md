@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 4/24/2019
+ms.date: 05/06/2019
 ---
 
 # Distributed data in Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
