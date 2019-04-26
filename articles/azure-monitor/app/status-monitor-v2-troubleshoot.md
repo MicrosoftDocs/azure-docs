@@ -183,9 +183,9 @@ If monitoring is working, at least 15 DLLS should be loaded.
 2. Launch PerfView64.exe
 3. Expand "Advanced Options"
 4. Uncheck:
-	a. Zip
-	b. Merge
-	c. .NET Symbol Collection
+	- Zip
+	- Merge
+	- .NET Symbol Collection
 5. Set Additional Providers: `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
