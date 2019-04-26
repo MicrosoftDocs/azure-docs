@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory v2.0 Android getting started | Microsoft Docs
-description: How an Android app can get an access token and call Microsoft Graph API or APIs that require access tokens from an Azure Active Directory v2.0 endpoint.
+title: Microsoft identity platform Android getting started | Microsoft Docs
+description: How an Android app can get an access token and call Microsoft Graph API or APIs that require access tokens from Microsoft identity platform.
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/25/2019
+ms.date: 04/26/2019
 ms.author: dadobali
 ms.custom: aaddev 
 ms.collection: M365-identity-device-management
