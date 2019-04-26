@@ -12,13 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/23/2019
+ms.date: 04/25/2019
 ms.author: pepogors
 ---
 
 # Capacity planning and scaling
 
-Before creating any Azure Service Fabric cluster or scaling compute resources hosting your cluster, it is important to plan for capacity. For more information about planning for capacity, see [Planning the Service Fabric cluster capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). In addition to considering Nodetype and Cluster characteristics, plan for scaling operations to take longer than an hour to complete for a production environment regardless of the number of VMs you are adding.
+Before creating any Azure Service Fabric cluster or scaling compute resources hosting your cluster, it is important to plan for capacity. For more information about planning for capacity, see [Planning the Service Fabric cluster capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). For further best practice guidance for cluster scalability see [Service Fabric scalability considerations](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations)
+
+In addition to considering Nodetype and cluster characteristics, plan for scaling operations to take longer than an hour to complete for a production environment regardless of the number of VMs you are adding.
 
 ## Auto Scaling
 Scaling operations should be performed via Azure Resource template deployment, because it’s a best practice to treat [resource configurations as code]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code), and using Virtual Machine Scale Set automatic scaling will result in your versioned Resource Manager template inaccurately defining your virtual machine scale set instance counts; increasing the risk of future deployments causing unintended scaling operations, and in general you should use auto scaling if:
