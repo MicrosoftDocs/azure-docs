@@ -1,13 +1,13 @@
 ---
-title: Manage usage and costs for Azure Log Analytics | Microsoft Docs
-description: Learn how to change the pricing plan and manage data volume and retention policy for your Log Analytics workspace in Azure.   
-services: log-analytics
-documentationcenter: log-analytics
+title: Manage usage and costs for Azure Monitor Logs | Microsoft Docs
+description: Learn how to change the pricing plan and manage data volume and retention policy for your Log Analytics workspace in Azure Monitor.   
+services: azure-monitor
+documentationcenter: azure-monitor
 author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
-ms.service: log-analytics
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
@@ -16,14 +16,14 @@ ms.author: magoedte
 ms.subservice: 
 ---
  
-# Manage usage and costs for Log Analytics in Azure Monitor
+# Manage usage and costs for Azure Monitor Logs
 
 > [!NOTE]
-> This article describes how to control your costs in Log Analytics by setting the data retention period.  Refer to the following articles for related information.
+> This article describes how to control your costs in Azure Monitor by setting the data retention period for your Log Analytics workspace.  Refer to the following articles for related information.
 > - [Analyze data usage in Log Analytics](manage-cost-storage.md) describes how to analyze and alert on your data usage.
 > - [Monitoring usage and estimated costs](usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
 
-Log Analytics in Azure Monitor is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, it's important to understand that the cost of a Log Analytics workspace isn't based only on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
+Azure Monitor Logs is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, it's important to understand that the cost of a Log Analytics workspace isn't based only on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
 
 In this article we review how you can proactively monitor data volume and storage growth, and define limits to control those associated costs. 
 
@@ -37,7 +37,7 @@ The cost of data can be considerable depending on the following factors:
 
 ## Understand your workspace's usage and estimated cost
 
-Log Analytics makes it easy to understand what the costs are likely be based on recent usage patterns.  To do this, use  **Log Analytics Usage and Estimated Costs**  to review and analyze data usage. The shows how much data is collected by each solution, how much data is being retained and an estimate of your costs 
+Azure Monitor Logs makes it easy to understand what the costs are likely be based on recent usage patterns.  To do this, use  **Log Analytics Usage and Estimated Costs**  to review and analyze data usage. The shows how much data is collected by each solution, how much data is being retained and an estimate of your costs 
 based on the amount of data ingested and any additional retention beyond the included amount.
 
 ![Usage and estimated costs](media/manage-cost-storage/usage-estimated-cost-dashboard-01.png)
@@ -62,7 +62,7 @@ Review [Log Analytics Usage and estimated costs](usage-estimated-costs.md) to un
 
 ### Manage the maximum daily data volume
 
-The following steps describe how to configure a limit to manage the volume of data that Log Analytics will ingest per day.  
+The following steps describe how to configure a limit to manage the volume of data that Log Analytics workspace will ingest per day.  
 
 1. From your workspace, select **Usage and estimated costs** from the left pane.
 2. On the **Usage and estimated costs** page for the selected workspace, click **Data volume management** from the top of the page. 
@@ -145,8 +145,8 @@ To be notified when data collection stops, use the steps described in *Create da
 ## Troubleshooting why usage is higher than expected
 
 Higher usage is caused by one, or both of:
-- More nodes than expected sending data to Log Analytics
-- More data than expected being sent to Log Analytics
+- More nodes than expected sending data to Log Analytics workspace
+- More data than expected being sent to Log Analytics workspace
 
 ## Understanding nodes sending data
 
@@ -392,7 +392,7 @@ When you receive an alert, use the steps in the following section to troubleshoo
 
 ## Next steps
 
-- See [Log searches in Log Analytics](../log-query/log-query-overview.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
+- See [Log searches in Azure Monitor Logs](../log-query/log-query-overview.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
 - Use the steps described in [create a new log alert](alerts-metric.md) to be notified when a search criteria is met.
 - Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers.
 - To configure an effective   event collection policy, review [Azure Security Center filtering policy](../../security-center/security-center-enable-data-collection.md).
