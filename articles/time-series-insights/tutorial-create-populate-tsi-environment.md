@@ -65,11 +65,11 @@ First, create a TSI environment in your Azure subscription:
 
    When finished, click **Create** to begin the provisioning process.
 
-   ![Create a Time Series Insights environment resource](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png)
+   [![Create a Time Series Insights environment resource](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png#lightbox)
 
 1. Check the **Notifications** panel to monitor deployment completion.  
 
-   ![Time Series Insights environment deployment succeeded](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)
+   [![Time Series Insights environment deployment succeeded](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
 
 ## Create a device simulation
 
@@ -77,7 +77,7 @@ Next, create the device simulation solution, which will generate test data to po
 
 1. In a separate window/tab, go to [azureiotsolutions.com](https://www.azureiotsolutions.com). Sign in using the same Azure subscription account and select the **Device Simulation** accelerator.
 
-   ![Run the Device Simulation accelerator](media/tutorial-create-populate-tsi-environment/sa-main.png)
+   [![Run the Device Simulation accelerator](media/tutorial-create-populate-tsi-environment/sa-main.png)](media/tutorial-create-populate-tsi-environment/sa-main.png#lightbox)
 
 1. Enter the required parameters on the **Create Device Simulation solution** page.
 
@@ -90,14 +90,14 @@ Next, create the device simulation solution, which will generate test data to po
 
    When finished, click **Create solution** to provision the solution's Azure resources. It may take 6-7 minutes to complete this process.
 
-   ![Provision the device simulation solution](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)
+   [![Provision the device simulation solution](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png#lightbox)
 
 1. Once provisioning has finished, the text above your new solution will change from **Provisioning...** to **Ready**:
 
    >[!IMPORTANT]
    > Don't click the **Launch** button yet! But keep this web page open as you will return to it later.
 
-   ![Device simulation solution provisioning complete](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png)
+   [![Device simulation solution provisioning complete](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png#lightbox)
 
 1. Now go back to the Azure portal and inspect the newly created resources in your subscription. In the portal **Resource groups** page, you'll notice a new resource group was created using the **Solution name** provided in the last step. Also notice all of the resources created to support the device simulation solution:
 
@@ -138,7 +138,7 @@ Now connect the new IoT hub **consumer group** event endpoint, to the TSI enviro
 
 1. On the TSI environment page, select **Event Sources**, then click **+ Add**.
 
-   ![TSI environment overview](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png)
+   [![TSI environment overview](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png#lightbox)
 
 1. Enter the required parameters on the **New event source** page.
 
@@ -156,7 +156,7 @@ Now connect the new IoT hub **consumer group** event endpoint, to the TSI enviro
 
    When finished, click **Create** to add the event source. When you return to the resource group **Overview** page, along with your TSI environment resource, you see a new "Time Series Insights event source" resource.
 
-   ![TSI environment new event source](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png)
+   [![TSI environment new event source](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png#lightbox)
 
 ## Run a device simulation to stream data into the TSI environment
 
@@ -166,11 +166,11 @@ You may recall from the [Create a device simulation section](#create-a-device-si
 
 1. Go back to your [Solution accelerators dashboard](https://www.azureiotsolutions.com/Accelerators#dashboard). Sign in again if necessary, using the same Azure account you've been using in this tutorial. Now you can click the **Launch** button under your "Device Simulation" solution:
 
-     ![Solution accelerators dashboard](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png)
+     [![Solution accelerators dashboard](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png#lightbox)
 
 1. The device simulation web app will start at this point, and may take several seconds upon initial load. You're also prompted for consent, to grant the web application the "Sign you in and read your profile" permission. This permission allows the application to retrieve the user profile information necessary to support the functioning of the application:
 
-     ![Device simulation web application consent](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)
+     [![Device simulation web application consent](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
 
 1. Once the **Simulation setup** page loads, enter the required parameters.
 
@@ -184,11 +184,11 @@ You may recall from the [Create a device simulation section](#create-a-device-si
 
    When finished, click **Start Simulation**. The simulation will run for a total of 5 minutes, generating data from 1000 simulated devices, every 10 seconds.  
 
-   ![Device simulation setup](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png)
+   [![Device simulation setup](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png)](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png#lightbox)
 
 1. While the simulation runs, you'll notice the **Total messages** and **Messages per second** fields update, approximately every 10 seconds. The simulation will end after approximately 5 minutes, and return you to **Simulation setup**.
 
-   ![Device simulation running](media/tutorial-create-populate-tsi-environment/sawa-simulation-running.png)
+   [![Device simulation running](media/tutorial-create-populate-tsi-environment/sawa-simulation-running.png)](media/tutorial-create-populate-tsi-environment/sawa-simulation-running.png#lightbox)
 
 ## Verify the telemetry data
 
