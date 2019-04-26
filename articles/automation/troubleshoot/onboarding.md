@@ -73,7 +73,7 @@ In order to successfully deploy the solution, you need to consider altering the 
 
 Check the notifications in the top-right corner of the Azure portal or navigate to the resource group that contains your automation account and select **Deployments** under **Settings** to view the failed deployment. To learn more about Azure Policy visit: [Overview of Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
-### <a name="offboarding"></a>Scenario: Errors trying to unlink a workspace
+### <a name="unlink"></a>Scenario: Errors trying to unlink a workspace
 
 #### Issue
 
