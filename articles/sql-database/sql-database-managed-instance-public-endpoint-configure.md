@@ -89,7 +89,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
     |Setting  |Suggested value  |Description  |
     |---------|---------|---------|
-    |**Source**     |Any IP address or Service tag         |For Azure services like Power BI, select the Azure Cloud Service Tag.</br> For your computer or Azure VM, use NAT IP address |
+    |**Source**     |Any IP address or Service tag         |<ul><li>For Azure services like Power BI, select the Azure Cloud Service Tag</li> <li>For your computer or Azure VM, use NAT IP address</li></ul> |
     |**Source port ranges**     |*         |Leave this to * (any) as source ports are usually dynamically allocated and as such, unpredictable |
     |**Destination**     |Any         |Leaving destination as Any to allow traffic into the managed instance subnet |
     |**Destination port ranges**     |3342         |Scope destination port to 3342, which is the managed instance public TDS endpoint |
