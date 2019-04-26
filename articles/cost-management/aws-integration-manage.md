@@ -86,7 +86,7 @@ The following table describes dimensions available to group and filter by in cos
 | Subscription ID | lineItem/UsageAccountId | Consolidated account and management group |   |
 | Subscription name | N/A | Consolidated account and management group | Account names are collected using the AWS Organization API. |
 | Tag | resourceTags/\* | All | The _user:_ prefix is removed from user-defined tags to allow cross-cloud tags. The _aws:_ prefix is left intact. |
-| Billing account Id | bill/PayerAccountId | Management group |   |
+| Billing account ID | bill/PayerAccountId | Management group |   |
 | Billing account name | N/A | Management group | Account names are collected using the AWS Organization API. |
 | Provider | N/A | Management group | Either AWS or Azure. |
 

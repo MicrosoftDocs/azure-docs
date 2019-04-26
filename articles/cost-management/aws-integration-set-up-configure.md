@@ -127,7 +127,7 @@ Use the following information to create a new AWS connector and start monitoring
     ![Example showing the Cloud connectors (Preview setting)](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
 4. Click **+Add** at the top of the page to create a new connector.
 5. On the Create an AWS connector page, type a **Display Name** to name your connector.  
-    ![Example of the Create an AWS Connector page](./media/aws-integration-setup-configure/create-an-aws-connector01.png)
+    ![Example of the Create an AWS Connector page](./media/aws-integration-setup-configure/create-aws-connector01.png)
 6. Optionally, select the default management group. It will store all discovered linked accounts. You can set it up later.
 7. Under the **Billing** section, select **Automatically charge the 1% at general availability** if you want to ensure continuous operation when the preview expires. If you select the automatic option, you must select a billing **Subscription**.
 8. Enter the **Role ARN**. It's the value that you used when you set up the role in AWS.
@@ -156,7 +156,7 @@ When you select a connector on the Cloud connectors page, you can:
 - Click **Edit** to update the connector. You can't change the AWS Account number, as it appears in the Role ARN. However, you can create a new connector.
 - Click **Verify** to rerun the verification test to make sure that Cost Management can collect data using the connector settings.
 
-![Example showing the list of created AWS connectors](./media/aws-integration-setup-configure/list-of-aws-connectors.png)
+![Example showing the list of created AWS connectors](./media/aws-integration-setup-configure/list-aws-connectors.png)
 
 ## Role of Azure management groups
 
