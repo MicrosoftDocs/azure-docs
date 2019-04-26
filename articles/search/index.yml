@@ -14,7 +14,7 @@ metadata:
   ms.date: 05/02/2019
   ms.author: heidist
 abstract:
-  description: Learn how to create an enterprise search solution over private, heterogenous content using Azure Search. Tutorials, API references, and other docs show you how to consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of scenarios. <p/><a href="/azure/search/knowledge-store-concept-intro"><b>New Knowledge Store preview.</b></a> Save enriched documents created by AI-powered indexing to Azure storage to view, reshape, and consume enriched documents in other applications as well as Azure Search. <p/><a href="/azure/search/knowledge-store-howto"><b>Get started with Knowledge Store</b></a> using Azure resources and sample data.
+  description: Learn how to create an enterprise search solution over private, heterogenous content using Azure Search. Tutorials, API references, and other docs show you how to consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of scenarios. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Cognitive Search</b></a> is now generally available, with AI enrichments supported for production scenarios.<p/><a href="/azure/search/knowledge-store-concept-intro"><b>Knowledge Store (Preview)</b></a> extends Cognitive Search. Save AI enrichments to storage where you can view, reshape, and consume enrichments in other apps besides Azure Search. <a href="/azure/search/knowledge-store-howto"><b>Get started</b></a> today.
   aside:
     image:
       alt: 
@@ -51,11 +51,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Index with AI (Cognitive Services)</a> 
-    - html: <a href="/azure/search/search-howto-dotnet-sdk">How to use Azure Search with .NET</a> 
+    - html: <a href="/azure/search/search-get-started-portal">Use the portal for indexing and query testing</a> 
+    - html: <a href="/azure/search/search-howto-dotnet-sdk">Use .NET to write your first search solution</a> 
+    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Enrich with AI (Cognitive Services)</a> 
     - html: <a href="/azure/search/search-indexer-tutorial">Index Azure SQL Database content with .NET</a>
     - html: <a href="/azure/search/search-semi-structured-data">Index semi-structured data in Azure Blob storage with REST</a>
-    - html: <a href="/azure/search/search-get-started-portal">Use the portal for indexing and query testing</a> 
 - title: Reference
   items:
   - type: list

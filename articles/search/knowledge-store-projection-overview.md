@@ -13,7 +13,7 @@ ms.custom: seomay2019
 ---
 # Working with projections in a knowledge store in Azure Search
 
-Azure Search enables content enrichment through AI cognitive skills as part of indexing. Enrichments add structure to your documents and make searching more effective. In many instances, the enriched documents are useful for scenarios other than search, such as for knowledge mining.
+Azure Search enables content enrichment through AI cognitive skills and custom skills as part of indexing. Enrichments add structure to your documents and make searching more effective. In many instances, the enriched documents are useful for scenarios other than search, such as for knowledge mining.
 
 Projections, a component of [knowledge store (preview)](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort. 
 
@@ -103,7 +103,7 @@ As demonstrated in this example, the key phrases and entities are modeled into d
 
 The following illustration is a reference to the Caselaw exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
 
-![Entities and relationships in tables](media/knowledge-store-projection-overview/table-relationships.png "Modeling relationships in table projections")
+![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
 
 ## Object projections
 
@@ -147,6 +147,10 @@ Generating an object projection requires a few object-specific attributes:
 + storageContainer: The container where the objects will be saved
 + source: The path to the node of the enrichment tree that is the root of the projection
 + key: A path that represents a unique key for the object to be stored. It will be used to create the name of the blob in the container.
+
+## Projection Lifecycle
+
+Your projections have a lifecycle that is tied to the source data in your data source. As your data is updated and re-indexed, your projections are updated with the results of the enrichments ensuring your projections are eventually consistent with the data in your data source. The projections inherit the delete policy you have configured for your index. 
 
 ## Using projections
 
