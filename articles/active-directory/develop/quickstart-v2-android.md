@@ -84,7 +84,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extract and open the Project in Android Studio.
-> 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
+> 1. Inside **app** > **src** > **main** > **res** > **raw**, open **auth_config.json**.
 > 1. Edit **auth_config.json** and replace it with the JSON from the Azure portal. If instead you want to manually make the changes:
 >    ```javascript
 >    {
@@ -187,10 +187,12 @@ MSAL has two methods used acquire tokens: `acquireToken` and `acquireTokenSilent
 
 #### acquireToken: Getting a token interactively
 
-Some situations require users to interact with Microsoft identity platform. In these cases, the end user may be required to select their account, enter their credentials, or consent to your app's permissions. For example, 
+Some situations require users to interact with Microsoft identity platform. In these cases, the end user may be required to select their account, enter their credentials, or consent to the permissions your app has requested. For example, 
 
 * The first time users sign in to the application
 * If a user resets their password, they will need to enter their credentials 
+* If consent is revoked 
+* If your app explicitly requires consent. 
 * When your application is requesting access to a resource for the first time
 * When MFA or other Conditional Access policies are required
 
@@ -212,10 +214,10 @@ Apps shouldn't require their users to sign in every time they request a token. I
         @Override
         public void onAccountsLoaded(final List<IAccount> accounts) {
 
-            if (accounts.isEmpty() && accounts.size() == 1) {
+            if (!accounts.isEmpty()) {
                 sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
             } else {
-                /* No accounts or >1 account */
+                /* No accounts */
             }
         }
     });

@@ -90,7 +90,7 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 >
 >    ```
 > 1. Right click **Info.plist** and select **Open As** > **Source Code**.
-> 1. Under the dict root node, paste the following:
+> 1. Under the dict root node, replace with your ***Bundle Id***:
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
