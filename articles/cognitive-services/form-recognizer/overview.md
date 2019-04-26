@@ -43,9 +43,9 @@ Form Recognizer works on input documents that meet the following requirements:
 * Must contain keys and values
 * Keys can appear above or to the left of the values, but not below or to the right.
 
-Additionally, Form Recognizer **does not** yet support the following types of input data:
+Additionally, Form Recognizer does not yet support the following types of input data:
 
-* Complex tables (nested tables, merged headers or cells etc.) 
+* Complex tables (nested tables, merged headers or cells, and so on) 
 * Checkboxes or radio buttons
 * PDF documents longer than 50 pages
 
