@@ -271,7 +271,7 @@ version: '3.3'
 
 services:
    wordpress:
-     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
+     image: microsoft/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
@@ -347,7 +347,7 @@ version: '3.3'
 
 services:
    wordpress:
-     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
+     image: microsoft/multicontainerwordpress
      volumes:
       - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
      ports:
@@ -403,7 +403,7 @@ version: '3.3'
 
 services:
    wordpress:
-     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
+     image: microsoft/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
