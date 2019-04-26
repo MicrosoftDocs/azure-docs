@@ -3,7 +3,7 @@ title: Map style functionalities in Azure Maps| Microsoft Docs
 description: Learn about Azure Maps style related functionalities for Android SDK.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/24/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -66,13 +66,6 @@ Map style can be set in the activity class. Follow the steps below to set the ma
         //Set the style of the map.
         map.setStyle(style(MapStyle.SATELLITE));
     });
-    ```
-
-2. Remove the following lines of code from your `MainActivity.java`:
-
-    ```Java
-    setContentView(R.layout.activity_main);
-    mapControl = findViewById(R.id.mapcontrol);
     ```
 
 <center>

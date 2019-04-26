@@ -1,9 +1,9 @@
 ---
-title: How to use the Android map control in Azure Maps | Microsoft Docs
+title: Getting started with Android map control in Azure Maps | Microsoft Docs
 description: The Android map control in Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/24/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -11,7 +11,7 @@ manager: timlt
 ms.custom: mvc
 ---
 
-# How to use the Azure Maps Android SDK
+# Getting started with Azure Maps Android SDK
 
 The Azure Maps Android SDK is a vector map library for Android. This article guides you through the processes of installing the Azure Maps Android SDK, loading a map, and placing a pin on the map.
 
