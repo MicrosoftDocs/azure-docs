@@ -26,7 +26,7 @@ You can also use transactional replication to push changes made in an instance d
 Transactional replication is in public preview on [Azure SQL Database managed instance](sql-database-managed-instance.md). A managed instance can host publisher, distributor, and subscriber databases. See [transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) for available configurations.
 
   > [!NOTE]
-  > This article is intended to guide a user in configuring replication from end to end, starting with creating the resource group. If you already have managed instances deployed, skip ahead to  [Step 4](#4---create-a-publisher-database) to create your publisher database, or [Step 6](#6---configure-distribution) if you already have a publisher and subscriber database, and you just need to configure distribution. 
+  > This article is intended to guide a user in configuring replication with an Azure Database managed instance from end to end, starting with creating the resource group. If you already have managed instances deployed, skip ahead to  [Step 4](#4---create-a-publisher-database) to create your publisher database, or [Step 6](#6---configure-distribution) if you already have a publisher and subscriber database, and you just need to configure distribution. 
 
 ## Requirements
 
@@ -117,7 +117,7 @@ GO
 
 ## 5 - Create a subscriber database
 
-Connect to your `sql-mi-sub` managed instance using SQL Server Management Studio and run the following Transact-SQL (T-SQL) code to create your empty subscriber database:
+Connect to your `sql-mi-sub` managed instance using SQL Server Management Studio and run the following T-SQL code to create your empty subscriber database:
 
 ```sql
 USE [master]
