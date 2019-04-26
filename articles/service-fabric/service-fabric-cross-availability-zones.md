@@ -32,10 +32,11 @@ The recommended topology for the primary node type requires the resources outlin
 
 * The cluster reliability level set to Platinum.
 * Three Node Types marked as primary.
-    * Each Node Type should be mapped to its own virtual machine scale set (VMSS) located in different zones.
+    * Each Node Type should be mapped to its own virtual machine scale set located in different zones.
     * Each virtual machine scale set should have at least five nodes (Silver Durability).
 * A Single Public IP Resource using Standard SKU.
 * A Single Load Balancer Resource using Standard SKU.
+* A NSG referenced by the subnet in which you deploy your virtual machine scale sets.
 
 >[!NOTE]
 > Service Fabric does not support a single virtual machine scale set which span zones. The virtual machine scale set **single placement group property must be set to true**.
