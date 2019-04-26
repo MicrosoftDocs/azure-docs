@@ -25,18 +25,17 @@ You can also use transactional replication to push changes made in an instance d
  
 Transactional replication is in public preview on [Azure SQL Database managed instance](sql-database-managed-instance.md). A managed instance can host publisher, distributor, and subscriber databases. See [transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) for available configurations.
 
-  > [!NOTE]
-  > Replication with Azure SQL Database managed instance is in public preview. 
+
 
 ## Requirements
 
 Configuring a managed instance to function as a publisher and/or a distributor requires:
 
 - That the managed instance is not currently participating in a geo-replication relationship.
-- That the publisher managed instances is on the same virtual network as the distributor and the subscriber, or [vNet peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) has been established between the virtual networks of all three entities. 
+- That the publisher managed instance is on the same virtual network as the distributor and the subscriber, or [vNet peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) has been established between the virtual networks of all three entities. 
 - Connectivity uses SQL Authentication between replication participants.
 - An Azure Storage Account share for the replication working directory.
-- Port 445 (TCP outbound) is open in the security rules of the managed instance NSG to access the Azure file share. 
+- Port 445 (TCP outbound) is open in the security rules of NSG for the managed instances to access the Azure file share. 
 
 
  > [!NOTE]
@@ -138,7 +137,7 @@ GO
 
 ## 6 - Configure distribution
 
-Connect to your `sql-mi-pub` managed instance using SQL Server Management Studio and run the following Transact-SQL (T-SQL) code to configure your distribution database. 
+Connect to your `sql-mi-pub` managed instance using SQL Server Management Studio and run the following T-SQL code to configure your distribution database. 
 
 ```sql
 USE [master]​
@@ -175,7 +174,7 @@ This script configures a local publisher on the managed instance, adds a linked 
 
 ## 8 - Create publication and subscriber
 
-Using [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) mode, run the following Transact-SQL (T-SQL) script to enable replication for your database, and configure replication between your publisher, distributor, and subscriber. 
+Using [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) mode, run the following T-SQL script to enable replication for your database, and configure replication between your publisher, distributor, and subscriber. 
 
 ```sql
 -- Set variables
@@ -254,7 +253,7 @@ EXEC sp_startpublication_snapshot
 
 ## 9 - Modify agent parameters
 
-Azure SQL Database managed instance is currently experiencing some backend issues with connectivity. While this issue is addressed, the workaround for this issue is to increase the login time out value for the replication agents. 
+Azure SQL Database managed instance is currently experiencing some backend issues with connectivity with the replication agents. While this issue is being addressed addressed, the workaround to increase the login time out value for the replication agents. 
 
 Run the following T-SQL command on the publisher to increase the login timeout: 
 
@@ -264,7 +263,7 @@ update msdb..sysjobsteps set command = command + N' -LoginTimeout 150'
 where subsystem in ('Distribution','LogReader','Snapshot') and command not like '%-LoginTimeout %'
 ```
 
-Run the following Transact-SQL (T-SQL) command again to set the login timeout back to the default value:
+Run the following T-SQL command again to set the login timeout back to the default value, should you need to do so:
 
 ```sql
 -- Increase login timeout to 30
@@ -278,13 +277,13 @@ Restart all three agents to apply these changes.
 
 Once replication has been configured, you can test it by inserting new items on the publisher and watching the changes propagate to the subscriber. 
 
-Run the following Transact-SQL snippet to view the rows on the subscriber:
+Run the following T-SQL snippet to view the rows on the subscriber:
 
 ```sql
 select * from dbo.ReplTest
 ```
 
-Run the following Transact-SQL snippet to insert additional rows on the publisher, and then check the rows again on the subscriber. 
+Run the following T-SQL snippet to insert additional rows on the publisher, and then check the rows again on the subscriber. 
 
 ```sql
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
@@ -292,7 +291,7 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 
 ## Clean up resources
 
-To drop the publication, run the following Transact-SQL (T-SQL) command:
+To drop the publication, run the following T-SQL command:
 
 ```sql
 -- Drops the publication
@@ -301,7 +300,7 @@ EXEC sp_droppublication @publication = N'PublishData'
 GO
 ```
 
-To remove the replication option from the database, run the following Transact-SQL command:
+To remove the replication option from the database, run the following T-SQL command:
 
 ```sql
 -- Disables publishing of the database
@@ -310,7 +309,7 @@ EXEC sp_removedbreplication
 GO
 ```
 
-To disable publishing and distribution, run the following Transact-SQL command:
+To disable publishing and distribution, run the following T-SQL command:
 
 ```sql
 -- Drops the distributor
