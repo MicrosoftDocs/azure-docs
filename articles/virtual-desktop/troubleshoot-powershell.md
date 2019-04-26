@@ -21,7 +21,7 @@ We currently aren't taking support cases while Windows Virtual Desktop is in pre
 
 This section lists PowerShell commands that are typically used while setting up Windows Virtual Desktop and provides ways to resolve issues that may occur while using them.
 
-### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName is already assigned to a RemoteApp AppGroup in the specified Host Pool
+### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName is already assigned to a RemoteApp app group in the specified Host Pool
 
 ```Powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
@@ -31,7 +31,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 **Fix:** If user needs both remote apps and remote desktop, create different host pools or grant user access to the remote desktop, which will permit the use of any application on the session host VM.
 
-### Error: dd-RdsAppGroupUser command -- The specified UserPrincipalName doesn't exist in the Azure Active Directory associated with the Remote Desktop tenant
+### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName doesn't exist in the Azure Active Directory associated with the Remote Desktop tenant
 
 ```PowerShell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName “Desktop Application Group” -UserPrincipalName <UserPrincipalName>
@@ -51,7 +51,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 ```
 
-**Cause:** -TenantName switch isn't specified. Issuing Get-RdsDiagnosticActivities without -TenantName <TenantName> will query the entire Windows Virtual Desktop service, which isn't allowed.
+**Cause:** -TenantName parameter
 
 **Fix:** Issue Get-RdsDiagnosticActivities with -TenantName <TenantName>.
 
@@ -71,7 +71,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **Fix 1:** A user with Remote Desktop Services owner permissions needs to execute the role assignment.
 
-**Cause 2:** The account being used has Remote Desktop Services owner permissions but isn't part of AD or doesn't have permissions to query AD where the user is located.
+**Cause 2:** The account being used has Remote Desktop Services owner permissions but isn't part of the tenant’s Azure Active Directory or doesn't have permissions to query the Azure Active Directory where the user is located.
 
 **Fix 2:** A user with Active Directory permissions needs to execute the role assignment.
 
