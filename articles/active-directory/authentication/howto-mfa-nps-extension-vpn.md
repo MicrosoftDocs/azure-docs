@@ -73,7 +73,7 @@ When the NPS extension for Azure is integrated with the NPS, a successful authen
 
 ## Prerequisites
 
-This section details the prerequisites that must be completed before you can integrate MFA with the Remote Desktop Gateway. Before you begin, you must have the following prerequisites in place:
+This section details the prerequisites that must be completed before you can integrate MFA with the VPN. Before you begin, you must have the following prerequisites in place:
 
 * VPN infrastructure
 * Network Policy and Access Services role
