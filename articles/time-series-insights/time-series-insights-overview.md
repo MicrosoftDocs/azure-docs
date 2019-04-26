@@ -22,11 +22,8 @@ Azure Time Series Insights (TSI) is built for storing, visualizing, and querying
 Time Series Insights has four key jobs:
 
 1. It's fully integrated with cloud gateways like Azure IoT Hub and Azure Event Hubs. It easily connects to these event sources and parses JSON from messages and structures that have data in clean rows and columns. It joins metadata with telemetry and indexes your data in a columnar store.
-
 1. TSI manages the storage of your data. To ensure data is always easily accessible, it stores your data in memory and SSD’s for up to 400 days. You can interactively query billions of events in seconds – on demand.
-
 1. TSI provides out-of-the-box visualization through the TSI explorer.  
-
 1. TSI provides a query service, both in the TSI explorer and by using APIs that are easy to integrate for embedding your time series data into custom applications.  
 
 If you're building an application, either for internal consumption or for external customers to use, TSI can be used as a back-end for indexing, storing, and aggregating time series data. You can build a custom visualization and user experience on top using the [Client SDK](tutorial-explore-js-client-lib.md). TSI is also equipped with several [Query APIs](how-to-shape-query-json.md) to enable these customized scenarios.  
@@ -75,11 +72,8 @@ There is no new language to learn; Time Series Insights provides a granular, fre
 Getting started takes less than 5 minutes.
 
 1. To get started, provision a Time Series Insights environment in the Azure portal.
-
 1. Connect an event source like an Azure IoT Hub or Event Hub.  
-
 1. Upload reference data (this is not an additional service).
-
 1. See your data in minutes with the Time Series Insights explorer.
 
 ## Time Series Insights explorer
