@@ -71,7 +71,7 @@ To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` par
     
 
     > [!TIP]
-    >  If you are not familiar with the Python SDK, start from [Azure Machine Learning Python SDK Overview.](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py)
+    >  If you are not familiar with the Python SDK, start from [Azure Machine Learning Python SDK Overview.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 
 
     ```python
