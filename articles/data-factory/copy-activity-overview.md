@@ -1,6 +1,6 @@
 ---
 title: Copy Activity in Azure Data Factory | Microsoft Docs
-description: Learn about the copy activity in Azure Data Factory that you can use to copy data from a supported source data store to a supported sink data store. 
+description: Learn about the copy activity in Azure Data Factory that you can use to copy data from a supported source data store to a supported sink data store.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -71,7 +71,7 @@ To use copy activity in Azure Data Factory, you need to:
 
 1. **Create linked services for source data store and sink data store.** Refer to the connector article's "Linked service properties" section on how to configure and the supported properties. You can find the supported connector list in [Supported data stores and formats](#supported-data-stores-and-formats) section.
 2. **Create datasets for source and sink.** Refer to the source and sink connector articles' "Dataset properties" section on how to configure and the supported properties.
-3. **Create a pipeline with copy activity.** The next section provides an example.  
+3. **Create a pipeline with copy activity.** The next section provides an example.
 
 ### Syntax
 
@@ -145,7 +145,7 @@ You can monitor the copy activity run on Azure Data Factory "Author & Monitor" U
 
 ### Monitor visually
 
-To visually monitor the copy activity run, go to your data factory -> **Author & Monitor** -> **Monitor tab**, you see a list of pipeline runs with a "View Activity Runs" link in the **Actions** column. 
+To visually monitor the copy activity run, go to your data factory -> **Author & Monitor** -> **Monitor tab**, you see a list of pipeline runs with a "View Activity Runs" link in the **Actions** column.
 
 ![Monitor pipeline runs](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
@@ -153,7 +153,7 @@ Click to see the list of activities in this pipeline run. In the **Actions** col
 
 ![Monitor activity runs](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Click the "**Details**" link under **Actions** to see copy activity's execution details and performance characteristics. It shows you information including volume/rows/files of data copied from source to sink, throughput, steps it goes through with corresponding duration and used configurations for your copy scenario. 
+Click the "**Details**" link under **Actions** to see copy activity's execution details and performance characteristics. It shows you information including volume/rows/files of data copied from source to sink, throughput, steps it goes through with corresponding duration and used configurations for your copy scenario.
 
 >[!TIP]
 >For some scenarios, you will also see "**Performance tuning tips**" on top of the copy monitoring page,  which tells you the bottleneck identified and guides you on what to change so as to boost copy throughput, see example with details [here](#performance-and-tuning).
@@ -238,12 +238,12 @@ In some cases, when you execute a copy activity in ADF, you will directly see "*
 
 **Example: copy into Azure SQL DB with performance tuning tips**
 
-In this sample, during copy run, ADF notice the sink Azure SQL DB reaches high DTU utilization which slows down the write operations, thus the suggestion is to increase the Azure SQL DB tier with more DTU. 
+In this sample, during copy run, ADF notice the sink Azure SQL DB reaches high DTU utilization which slows down the write operations, thus the suggestion is to increase the Azure SQL DB tier with more DTU.
 
 ![Copy monitoring with performance tuning tips](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-## Incremental copy 
-Data Factory supports scenarios for incrementally copying delta data from a source data store to a destination data store. See [Tutorial: incrementally copy data](tutorial-incremental-copy-overview.md). 
+## Incremental copy
+Data Factory supports scenarios for incrementally copying delta data from a source data store to a destination data store. See [Tutorial: incrementally copy data](tutorial-incremental-copy-overview.md).
 
 ## Read and write partitioned data
 In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In the current version, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. For more information, see [How to read or write partitioned data](how-to-read-write-partitioned-data.md).

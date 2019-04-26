@@ -69,7 +69,7 @@ Property | Description | Required |
 -------- | ----------- | -------- |
 name | Name of the dataset. See [Azure Data Factory - Naming rules](naming-rules.md). |  Yes |
 type | Type of the dataset. Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-type). | Yes |
-structure | Schema of the dataset. For details, see [Dataset schema](#dataset-structure). | No |
+structure | Schema of the dataset. For details, see [Dataset schema](#dataset-structure-or-schema). | No |
 typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset type](#dataset-type). | Yes |
 
 ### Data flow compatible dataset
@@ -114,7 +114,7 @@ Property | Description | Required |
 -------- | ----------- | -------- |
 name | Name of the dataset. See [Azure Data Factory - Naming rules](naming-rules.md). |  Yes |
 type | Type of the dataset. Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-type). | Yes |
-schema | Schema of the dataset. For details, see [Data Flow compatible datasets](#dataset-schema). | No |
+schema | Schema of the dataset. For details, see [Data Flow compatible datasets](#dataset-type). | No |
 typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset type](#dataset-type). | Yes |
 
 
