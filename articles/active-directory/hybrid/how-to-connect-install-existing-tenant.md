@@ -56,14 +56,12 @@ For a new installation of Connect, there is no practical difference between a so
 For mail-enabled groups and contacts, you can soft-match based on proxyAddresses. Hard-match is not applicable since you can only update the sourceAnchor/immutableID (using PowerShell) on Users only. For groups that aren't mail-enabled, there is currently no support for soft-match or hard-match.
 
 ### Admin role considerations
-To prevent untrusted on-premises users from matching with a cloud user that has the admin role, Azure AD Connect will not match on-premises user objects with objects that have the admin role. This is by default. To workaround this behavior you can do the following:
+To prevent untrusted on-premises users from matching with a cloud user that has any admin role, Azure AD Connect will not match on-premises user objects with objects that have an admin role. This is by default. To workaround this behavior you can do the following:
 
-1.	Move the user out of scope for sync
+1.	Remove the directory roles from the cloud-only user object
 2.	Trigger a sync
-3.	Permanently delete the second user object from deleted users in the tenant after
-4.	Remove the directory roles from the cloud-only user object
-5.	Move the user back into scope for sync
-6.	Trigger a sync
+3.	Optionally add the directory roles back to the user object in cloud once the matching has occurred.
+
 
 
 ## Create a new on-premises Active Directory from data in Azure AD
