@@ -64,6 +64,8 @@ If you create resources for use with your AKS cluster, such as storage accounts 
 
 Yes. By default, the AKS resource provider automatically creates a secondary resource group during deployment, such as *MC_myResourceGroup_myAKSCluster_eastus*. To comply with corporate policy, you can provide your own name for this managed cluster (*MC_*) resource group.
 
+To specify your own resource group name, install the [aks-preview][aks-preview-cli] Azure CLI extension version *0.3.2* or later. When you create an AKS cluster using the [az aks create][az-aks-create] command, use the *--node-resource-group* parameter and specify a name for the resource group. If you [use an Azure Resource Manager template][aks-rm-template] to deploy an AKS cluster, you can define the resource group name using the *nodeResourceGroup* property.
+
 * This resource group is automatically created by the Azure resource provider in your own subscription.
 * You can only specify a custom resource group name when the cluster is created.
 
@@ -119,12 +121,16 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md
+[aks-preview-cli]: /cli/azure/ext/aks-preview/aks
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: faq.md
 [aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
 
 <!-- LINKS - external -->
+
 [auto-scaler]: https://github.com/kubernetes/autoscaler
 [cordon-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
