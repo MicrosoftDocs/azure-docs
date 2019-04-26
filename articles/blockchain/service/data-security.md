@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/24/2019
+ms.date: 04/26/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
@@ -35,17 +35,23 @@ Transactions can be sent to blockchain nodes via an RPC endpoint. Clients commun
 
 There are three modes of authentication for RPC access.
 
-**Basic authentication** uses an HTTP authentication header containing the user name and password. User name is the name of the blockchain node. Password is set during provisioning of a member or node. The password can be changed using the Azure portal or CLI.
+### Basic authentication
 
-**Access keys** use a randomly generated string included in the endpoint URL. Two access keys help enable key rotation. Keys can be regenerated from the Azure portal and CLI.
+Basic authentication uses an HTTP authentication header containing the user name and password. User name is the name of the blockchain node. Password is set during provisioning of a member or node. The password can be changed using the Azure portal or CLI.
 
-**Azure Active Directory (Azure AD)** uses a claim-based authentication mechanism where the user is authenticated by Azure AD using Azure AD user credentials. Azure AD provides cloud-based identity management and allows customers to use a single identity across an entire enterprise and access applications on the cloud. Azure Blockchain Service integrates with Azure AD enabling ID federation, single sign-on and multi-factor authentication. You can assign users, groups, and application roles in your organization for blockchain member and node access.
+### Access keys
+
+Access keys use a randomly generated string included in the endpoint URL. Two access keys help enable key rotation. Keys can be regenerated from the Azure portal and CLI.
+
+### Azure Active Directory
+
+Azure Active Directory (Azure AD) uses a claim-based authentication mechanism where the user is authenticated by Azure AD using Azure AD user credentials. Azure AD provides cloud-based identity management and allows customers to use a single identity across an entire enterprise and access applications on the cloud. Azure Blockchain Service integrates with Azure AD enabling ID federation, single sign-on and multi-factor authentication. You can assign users, groups, and application roles in your organization for blockchain member and node access.
 
 The Azure AD client proxy is available on [GitHub](https://github.com/Microsoft/azure-blockchain-connector/releases). The client proxy directs the user to the Azure AD sign-in page and obtains a bearer token upon successful authentication. Subsequently, the user connects an Ethereum client application such as Geth or Truffle to the client proxy's endpoint. Finally, when a transaction is submitted, the client proxy injects the bearer token in the http header and the reverse proxy validates the token using OAuth protocol.
 
-### Keys and Ethereum accounts
+## Keys and Ethereum accounts
 
-When provisioning a blockchain ledger service, an Ethereum account and a public and private key pair is generated. The private key is used to send transactions to the blockchain. The Ethereum account is the last 20 bytes of the public key's hash. The Ethereum account is also called a wallet.
+When provisioning an Azure Blockchain Service member, an Ethereum account and a public and private key pair is generated. The private key is used to send transactions to the blockchain. The Ethereum account is the last 20 bytes of the public key's hash. The Ethereum account is also called a wallet.
 
 The private and public key pair is stored as a keyfile in JSON format. The private key is encrypted using the password entered when the blockchain ledger service is created.
 
