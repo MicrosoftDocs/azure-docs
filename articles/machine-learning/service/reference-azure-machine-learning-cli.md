@@ -89,7 +89,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
     az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
     ```
     
-## ## <a id="experiments"></a>Run Experiments
+## <a id="experiments"></a>Run Experiments
 
 + Attach a workspace configuration to a folder to enable CLI contextual awareness.
     ```azurecli-interactive
@@ -121,5 +121,5 @@ The following commands demonstrate how to register a trained model, and then dep
 + Deploy your model to AKS
 
   ```azurecli-interactive
-  az ml model deploy -n myservice -m mymodel:1 -if inferenceconfig.yml -df deployconfig.yml
+  az ml model deploy -n myservice -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
   ```
