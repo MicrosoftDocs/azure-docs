@@ -22,7 +22,7 @@ For information about quotas and other limits in your deployments, see [Quotas a
 
 ## Availability - General
 
-The following regions and resources are available to container groups with Linux and supported Windows Server 2016 containers.
+The following regions and resources are available to container groups with Linux and [supported](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server 2016-based containers.
 
 | Location | OS | CPU | Memory (GB) |
 | -------- | -- | :---: | :-----------: |
@@ -35,6 +35,8 @@ The following regions and resources are available to container groups with Linux
 | Australia East, Canada Central, Central India, Central US, East Asia, East US 2, Japan East, North Central US, North Europe, South Central US, South India, Southeast Asia, West US 2 | Windows | 2 | 3.5 |
 
 ## Availability - Windows Server 2019 LTSC, 1809 deployments (preview)
+
+The following regions and resources are available to container groups with Windows Server 2019-based containers (preview).
 
 | Location | OS | CPU | Memory (GB) |
 | -------- | -- | :---: | :-----------: |
