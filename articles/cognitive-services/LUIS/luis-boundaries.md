@@ -27,7 +27,8 @@ If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS
 | Explicit list | 50 per application|
 | [Intents][intents]|500 per application: 499 custom intents, and the required _None_ intent.<br>[Dispatch-based](https://aka.ms/dispatch-tool) application has corresponding 500 dispatch sources.|
 | [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items. Canonical name is *default character max. Synonym values have no length restriction. |
-| [Machine-learned entities](./luis-concept-entity-types.md):<br> Composite,<br>Simple|A limit of either 100 parent entities or 330 entities, whichever limit the user hits first.|
+| [Machine-learned entities + roles](./luis-concept-entity-types.md):<br> composite,<br>simple,<br>entity role|A limit of either 100 parent entities or 330 entities, whichever limit the user hits first. A role counts as an entity for the purpose of this boundary. An example is a composite with a simple entity which has 2 roles is: 1 composite + 1 simple + 2 roles = 4 of the 330 entities.|
+| [Preview - Dynamic list entities](luis-migration-api-v3.md##dynamic-lists-passed-in-at-prediction-time)|~2k|
 | [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per application, 3 pattern.any entities per pattern |
 | [Phrase list][phrase-list]|10 phrase lists, 5,000 items per list|

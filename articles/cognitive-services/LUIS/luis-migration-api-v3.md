@@ -22,8 +22,11 @@ This V3 API provides the following new features, which include significant JSON 
 
 * [External entities](#external-entities-passed-in-at-prediction-time)
 * [Dynamic lists](#dynamic-lists-passed-in-at-prediction-time)
-* [Multi-intent detection of utterance](#detect-multiple-intents-within-single-utterance)
 * [Prebuilt entity JSON changes](#prebuilt-entities-with-new-json)
+
+<!--
+* [Multi-intent detection of utterance](#detect-multiple-intents-within-single-utterance)
+-->
 
 The query prediction endpoint [request](#request-changes) and [response](#response-changes) have significant changes to support the new features listed above, including the following:
 
@@ -67,10 +70,14 @@ The V3 API has different query string parameters.
 
 |Param name|Type|Version|Purpose|
 |--|--|--|--|
-|`multiple-segments`|boolean|V3 only|Break utterance into segments and predict each segment for intents and entities.|
 |`query`|string|V3 only|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
 |`show-all-intents`|boolean|V3 only|Return all intents with the corresponding score in the **prediction.intents** object. Intents are returned as objects in a parent `intents` object. This allows programmatic access without needing to find the intent in an array: `prediction.intents.give`. In V2, these were returned in an array. |
 |`verbose`|boolean|V2 & V3|**In V2**, when set to true, all predicted intents were returned. If you need all predicted intents, use the V3 param of `show-all-intents`.<br><br>**In V3**, this parameter only provides entity metadata details of entity prediction.  |
+
+<!--
+|`multiple-segments`|boolean|V3 only|Break utterance into segments and predict each segment for intents and entities.|
+-->
+
 
 ### The query prediction JSON body for the `POST` request
 
@@ -206,8 +213,8 @@ In V3, the same result with the `verbose` flag to return entity metadata:
     "$instance":{
         "Destination": [
             {
-                "role": "Role1",
-                "type": "simple",
+                "role": "Destination",
+                "type": "Location",
                 "text": "Yellow Bird Lane",
                 "startIndex": 25,
                 "length":16,
@@ -232,12 +239,16 @@ This is useful for an entity that has data available only at query prediction ru
 
 `Send Hazem a new message`, where `Hazem` is directly matched as one of the user’s contacts.
 
+<!--
+
 In a [multi-intent](#detect-multiple-intents-within-single-utterance) utterance, you can use the external entity data to help with secondary references. For example, in the utterance `Send Hazem a new message, and let him know about the party.`, two segments of the utterance are predicted:
 
 * `Send Hazem a new message, and`
 * `let him know about the party.`
 
 The first segment can correctly predict Hazem when the external entity is sent with the prediction request. The second segment won't know that `him` is a secondary reference to the same data unless you send it with the request and mark it as the same entity.
+
+-->
 
 ### External entities JSON request body 
 
@@ -332,6 +343,9 @@ Send in the following JSON body to add a new sublist with synonyms to the list, 
 
 The prediction response includes that list entity, with all the other predicted entities, because it is defined in the request. 
 
+<!--
+
+
 ## Detect multiple intents within single utterance
 
 This feature identifies multiple intents from an utterance, enabling better understanding of complex and compound utterances that include more than one action. There is not prerequisite, or change needed to support this, in the LUIS app for this feature to work. It happens at the query prediction runtime if the associated query string parameter is passed in. 
@@ -421,6 +435,8 @@ LUIS doesn't split into segments when:
 
 * Utterance has consecutive verbs. 
 * Entity is at the end of the utterance.
+
+--->
 
 ## Marking placement of entities in utterances
 
