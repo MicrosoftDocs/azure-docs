@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Training guide: App registrations in the Azure portal  
 
-You can find a lot of improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're more familiar with the legacy experience, use this training guide to get you started using the new experience.
+You can find numerous improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're more familiar with the legacy experience, use this training guide to get you started using the new experience.
 
 ## Key changes
 
@@ -33,7 +33,7 @@ You can find a lot of improvements in the new [App registrations](https://go.mic
 ## List of applications
 
 - The new app list shows applications that were registered through the legacy app registrations experience in the Azure portal (apps that sign in Azure AD accounts) as well as apps registered though the [Application Registration Portal](https://apps.dev.microsoft.com/) (apps that sign in Azure AD and personal Microsoft accounts).
-- The new app list doesn't have an **Application type** column (since a single app registration can be several types) and has two additional columns: a **Created on** column and a **Certificates & secrets** column which shows the status (current, expiring soon, or expired) of credentials that have been registered on the app.
+- The new app list doesn't have an **Application type** column (since a single app registration can be several types) and has two additional columns: a **Created on** column and a **Certificates & secrets** column that shows the status (current, expiring soon, or expired) of credentials that have been registered on the app.
 
 ## New app registration
 
@@ -43,13 +43,13 @@ In the new experience, you must provide a **Name** for the app and choose the **
 
 ## The legacy Properties page
 
-The legacy experience had a **Properties** page which the new experience doesn't have. The **Properties** blade had the following fields:**Name**, **Object ID**, **Application ID**, **App ID URI**, **Logo**, **Home page URL**, **Logout URL**, **Terms of service URL**, **Privacy statement URL**, **Application type**, and **Multi-tenant.**
+The legacy experience had a **Properties** page that the new experience doesn't have. The **Properties** blade had the following fields: **Name**, **Object ID**, **Application ID**, **App ID URI**, **Logo**, **Home page URL**, **Logout URL**, **Terms of service URL**, **Privacy statement URL**, **Application type**, and **Multi-tenant.**
 
 Here's where you can find the equivalent functionality in the new experience:
 
 - **Name**, **Logo**, **Home page URL**, **Terms of service URL**, and **Privacy statement URL** is now on the app's **Branding** page.
 - **Object ID** and **Application (client) ID** is on the **Overview** page.
-- The functionality controlled by the **Multi-tenant** toggle in the legacy experience has been replaced by **Supported account types** on the **Authentication** page. For more details about how multi-tenant maps to the supported account type options, see [this quickstart](quickstart-modify-supported-accounts.md).
+- The functionality controlled by the **Multi-tenant** toggle in the legacy experience has been replaced by **Supported account types** on the **Authentication** page. For more information about how multi-tenant maps to the supported account type options, see [this quickstart](quickstart-modify-supported-accounts.md).
 - **Logout URL** is now on the **Authentication** page.
 - **Application type** is no longer a valid field. Instead, redirect URIs (which you can find on the **Authentication** page) determine which app types are supported.
 - **App ID URI** is now called **Application ID URI** and you can find this on the **Expose an API** blade. In the legacy experience, this property was auto-registered using the following format: `https://{tenantdomain}/{appID}` (for example, `https://microsoft.onmicrosoft.com/aeb4be67-a634-4f20-9a46-e0d4d4f1f96d`). In the new format, it's auto-generated as `api://{appID}`, but it needs to be explicitly saved.
@@ -79,7 +79,7 @@ In the legacy experience, an app had **Keys** page. In the new experience, it ha
 
 ## Deleting an app registration
 
-In the legacy experience, an app had to be single-tenant to be deleted. The delete button was disabled for multi-tenant apps. In the new experience, apps can be deleted in any state, but you must confirm the action. For more details about deleting app registrations, see [this quickstart](quickstart-remove-app.md).
+In the legacy experience, an app had to be single-tenant to be deleted. The delete button was disabled for multi-tenant apps. In the new experience, apps can be deleted in any state, but you must confirm the action. For more information about deleting app registrations, see [this quickstart](quickstart-remove-app.md).
 
 ## Application manifest
 
@@ -95,7 +95,7 @@ There's new UI for properties that could previously only be set using the manife
 
 ## Limitations
 
-The new experience has the following limitions:
+The new experience has the following limitations:
 
 - The new experience is currently not available in Azure AD B2C tenants.
 - The format of client secrets (app passwords) is different than that of the legacy experience and breaks CLI.
