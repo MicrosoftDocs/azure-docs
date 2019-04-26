@@ -19,6 +19,9 @@ ms.author: willzhan;juliako;johndeu
 
 # Use Azure AD authentication to access the Media Services API with REST
 
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+
 When you're using Azure AD authentication with Azure Media Services, you can authenticate in one of two ways:
 
 - **User authentication** authenticates a person who is using the app to interact with Azure Media Services resources. The interactive application should first prompt the user for credentials. An example is a management console app that's used by authorized users to monitor encoding jobs or live streaming. 
