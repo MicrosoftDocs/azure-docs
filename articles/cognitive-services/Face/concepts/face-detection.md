@@ -9,7 +9,7 @@ manager: nitime
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/26/2019
 ms.author: pafarley
 ---
 
