@@ -41,7 +41,7 @@ If you have an Azure Machine Learning service workspace, skip to the [next secti
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).  
 
-1. In your workspace, select **Visual interface (preview)**.  Then select **Launch visual interface**.  
+1. In your workspace, select **Visual interface**.  Then select **Launch visual interface**.  
 
     ![Screenshot of the Azure portal showing how to access the Visual interface from a Machine Learning service workspace](./media/ui-tutorial-automobile-price-train-score/launch-ui.png)
 
