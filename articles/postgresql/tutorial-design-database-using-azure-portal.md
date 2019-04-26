@@ -1,14 +1,14 @@
 ---
-title: 'Tutorial: Design an Azure Database for PostgreSQL using Azure portal'
-description: This tutorial shows how to Design your first Azure Database for PostgreSQL using the Azure portal.
+title: 'Tutorial: Design an Azure Database for PostgreSQL - Single Server using Azure portal'
+description: This tutorial shows how to Design your first Azure Database for PostgreSQL - Single Server using the Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 03/20/2018
+ms.date: 5/16/2019
 ---
-# Tutorial: Design an Azure Database for PostgreSQL using the Azure portal
+# Tutorial: Design an Azure Database for PostgreSQL - Single Server using the Azure portal
 
 Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. Using the Azure portal, you can easily manage your server and design a database.
 
