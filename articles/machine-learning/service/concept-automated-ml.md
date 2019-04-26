@@ -26,11 +26,11 @@ You still have control over your experiment and transparency into what is happen
 
 ## How automated ML works
 
-Using **Azure Machine Learning service**, you can design and run your automated ML training experiments [in Azure portal](how-to-create-portal-experiments.md) interface or using the [Python SDK](how-to-configure-auto-train.md).  When you use Azure Machine Learning to automate ML modeling and tuning, you go through these steps:
+Using **Azure Machine Learning service**, you can design and run your automated ML training experiments with these steps:
 
-1. **Identify the ML problem (**Classification**, **Forecasting**, or **Regression**) to be solved.**
+1. **Identify the ML problem** to be solved: classification, forecasting, or regression
    
-1. **Specify the labelled training data's source and format** (Numpy arrays or a Pandas dataframe).
+1. **Specify the source and format of the labelled training data**: Numpy arrays or Pandas dataframe
 
 1. **Configure the compute target for model training**, such as your [local computer, Azure Machine Learning Computes, remote VMs, or Azure Databricks](how-to-set-up-training-targets.md).  Learn about automated training [on a remote resource](how-to-auto-train-remote.md).
 
