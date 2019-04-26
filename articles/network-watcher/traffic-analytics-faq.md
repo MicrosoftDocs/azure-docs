@@ -259,8 +259,8 @@ Steps :
 
 The geo map page contains two main sections:
     
-- **Banner**: The banner at the top of the geo map provides buttons to select traffic distribution filters (for example, Deployment, Traffic from countries, and Malicious). When you select a button, the respective filter is applied on the map. For example, if you select the Active button, the map highlights the active datacenters in your deployment.
-- **Map**: Below the banner, the map section shows traffic distribution among Azure datacenters and countries.
+- **Banner**: The banner at the top of the geo map provides buttons to select traffic distribution filters (for example, Deployment, Traffic from countries/regions, and Malicious). When you select a button, the respective filter is applied on the map. For example, if you select the Active button, the map highlights the active datacenters in your deployment.
+- **Map**: Below the banner, the map section shows traffic distribution among Azure datacenters and countries/regions.
     
 ### Keyboard navigation on the banner
     
