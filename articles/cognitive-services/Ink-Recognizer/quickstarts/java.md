@@ -42,13 +42,11 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     ```java
     import org.apache.http.HttpEntity;
     import org.apache.http.client.methods.CloseableHttpResponse;
-    import org.apache.http.client.methods.HttpPut;
+    import org.apache.http.client.methods.HttpPost;
     import org.apache.http.entity.StringEntity;
     import org.apache.http.impl.client.CloseableHttpClient;
     import org.apache.http.impl.client.HttpClients;
     import org.apache.http.util.EntityUtils;
-    import org.json.JSONArray;
-    import org.json.JSONObject;
     import java.io.IOException;
     import java.nio.file.Files;
     import java.nio.file.Paths;
@@ -58,9 +56,9 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
-    static final String subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";
+    static final String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
     // Replace the dataPath string with a path to the JSON formatted ink stroke data file.
-    static final String dataPath = "[PATH_TO_INK_STROKE_DATA]";
+    static final String dataPath = "PATH_TO_INK_STROKE_DATA";
     
     static final String endpoint = "https://api.cognitive.microsoft.com";
     static final String inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
