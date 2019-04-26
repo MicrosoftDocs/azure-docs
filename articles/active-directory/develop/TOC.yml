@@ -219,6 +219,8 @@
             href: msal-acquire-cache-tokens.md
           - name: Scopes for v1.0 apps
             href: msal-v1-app-scopes.md
+          - name: Token cache serialization (.NET)
+            href: msal-net-token-cache-serialization.md
         - name: Client applications
           items:
           - name: Client applications
