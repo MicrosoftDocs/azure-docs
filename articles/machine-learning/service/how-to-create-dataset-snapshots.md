@@ -22,7 +22,13 @@ Dataset snapshots store the following:
 
 ## When to use snapshots
 
-Take snapshots at pivotal times in your ML workflow. Then, validate your models by comparing the profiles of your data between training runs or against production data. Similarly, you can compare data profiles prior to and after training to check for reproducibility. You can also use snapshots to track data over time to see how data has evolved.
+Take snapshots at pivotal times in your ML workflow. Then, you can compare the data profile in one snapshot again the data profile in other snapshots. Understanding your data in this way can help you:
+
++ Validate your models by comparing the profiles of your data between training runs or against production data. 
+
++ Check for reproducibility by comparing profiles prior to and after training. 
+
++ Track data over time to see how the dataset has evolved.
   
 ## Prerequisites
 
