@@ -35,7 +35,7 @@ The following table lists the provisioning states for a SaaS subscription, inclu
 
 #### Provisioning
 
-When a customer initiates a purchase, the ISV receives this information in an AuthCode on a customer interactive web page using a URL parameter. The AuthCode can be validated and exchanged for the details of what needs to be provisioned.  When the SaaS service finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed.  The following diagram shows the sequence of API calls for a provisioning scenario.  
+When a customer initiates a purchase, the ISV receives this information in an Auth Code on a customer interactive web page using a URL parameter (For example: https://contoso.com/signup?token=..). The Auth code can be validated and exchanged for the details of what needs to be provisioned by calling the Resolve API.  When the SaaS service finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed.  The following diagram shows the sequence of API calls for a provisioning scenario.  
 
 ![API calls for provisioning a SaaS service.](./media/saas-post-provisioning-api-v2-calls.png)
 
@@ -83,15 +83,73 @@ The following table lists the definitions for common parameters and entities use
 |     ----------------     |     ----------                         |
 | `subscriptionId`         | GUID identifier for a SaaS resource  |
 | `name`                   | Friendly name provided for this resource by the customer |
-| `publisherId`            | Unique string identifier automatically generated for each publisher, for example "conotosocorporation" |
-| `offerId`                | Unique string identifier automatically generated for each offer, for example "contosooffer1"  |
-| `planId`                 | Unique string identifier automatically generated for each plan/sku, for example "contosobasicplan" |
+| `publisherId`            | Unique string identifier for each publisher, for example "contoso" |
+| `offerId`                | Unique string identifier for each offer, for example "offer1"  |
+| `planId`                 | Unique string identifier for each plan/sku, for example "silver" |
 | `operationId`            | GUID identifier for a particular operation  |
-|  `action`                | The action being performed on a resource, either `subscribe`, `unsubscribe`, `suspend`,  `reinstate`, or `changePlan`  |
+|  `action`                | The action being performed on a resource, either `subscribe`, `unsubscribe`, `suspend`,  `reinstate`, or `changePlan`, `changeQuantity`, `transfer`  |
 |   |   |
 
 Globally unique identifiers ([GUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier)) are 128-bit (32 hexadecimal) numbers that are typically automatically generated. 
 
+#### Resolve a subscription 
+
+The resolve endpoint enables the publisher to resolve a marketplace token to a persistent Resource ID. The Resource ID is the unique identifier for SAAS subscription.  When a user is redirected to an ISV’s website, the URL contains a token in the query parameters. The ISV is expected to use this token, and make a request to resolve it. The response contains the unique SAAS subscription ID, name, offer ID, and plan for the resource. This token is valid for an hour only. 
+
+**Post:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
+
+*Query parameters:*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  ApiVersion        |  Version of the operation to use for this request  |
+
+*Request headers:*
+ 
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  Content-Type      | `application/json` |
+|  x-ms-requestid    |  Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
+|  x-ms-correlationid |  Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value is not provided, one will be generated and provided in the response headers.  |
+|  authorization     |  [Get JSON web token (JWT) bearer token](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  x-ms-marketplace-token  |  Token query parameter in the URL when the user is redirected to the SaaS ISV’s website from Azure (For eg: https://contoso.com/signup?token=..). *Note:* The URL decodes the token value from the browser before using it.  |
+
+*Response codes:*
+
+Code: 200<br>
+Resolves the opaque token to a SaaS subscription.<br>
+
+```json
+Response body:
+{
+    "subscriptionId": "<guid>",  
+    "subscriptionName": "Contoso Cloud Solution",
+    "offerId": "offer1",
+    "planId": "silver",
+    "quantity": "20" 
+}
+```
+
+Code: 404<br>
+Not Found
+
+Code: 400<br>
+Bad request. x-ms-marketplace-token is missing, malformed or expired.
+
+Code: 403<br>
+Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
+
+Code: 500<br>
+Internal Server Error
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+```
 
 ### Subscription API
 
@@ -117,7 +175,7 @@ Lists all the SaaS subscriptions for a publisher.
 | Content-Type       |  `application/json`  |
 | x-ms-requestid     |  Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 | x-ms-correlationid |  Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
-| authorization      |  The JSON web token (JWT) bearer token.  |
+| authorization      |  [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Response codes:*
 
@@ -132,7 +190,7 @@ Response payload:<br>
           "id": "<guid>",
           "name": "Contoso Cloud Solution",
           "publisherId": "contoso",
-          "offerId": "cont-cld-tier2",
+          "offerId": "offer1",
           "planId": "silver",
           "quantity": "10",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
@@ -156,7 +214,7 @@ The continuation token will only be present if there are additional "pages" of p
 
 
 Code: 403 <br>
-Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current user. 
+Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher. 
 
 Code: 500
 Internal Server Error
@@ -190,7 +248,7 @@ Gets the specified SaaS subscription. Use this call to get license information a
 |  Content-Type      |  `application/json`  |
 |  x-ms-requestid    |  Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 |  x-ms-correlationid |  Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
-|  authorization     |  JSON web token (JWT) bearer token  |
+|  authorization     |  [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Response codes:*
 
@@ -204,9 +262,9 @@ Response Body:
         "id":"",
         "name":"Contoso Cloud Solution",
         "publisherId": "contoso",
-        "offerId": "cont-cld-tier2",
+        "offerId": "offer1",
         "planId": "silver",
-        "quantity": "10"",
+        "quantity": "10",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
               "tenantId": "<guid>"
           },
@@ -223,7 +281,7 @@ Code: 404<br>
 Not Found<br> 
 
 Code: 403<br>
-Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current user.
+Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
 
 Code: 500<br>
 Internal Server Error<br>
@@ -238,7 +296,7 @@ Internal Server Error<br>
 
 #### List available plans
 
-Use this call to find out if there are any private/public offers for the current user.
+Use this call to find out if there are any private/public offers for the current publisher.
 
 **Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`**
 
@@ -255,7 +313,7 @@ Use this call to find out if there are any private/public offers for the current
 |   Content-Type     |  `application/json` |
 |   x-ms-requestid   |   Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 |  x-ms-correlationid  | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value is not provided, one will be generated and provided in the response headers. |
-|  authorization     |  JSON web token (JWT) bearer token |
+|  authorization     |  [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *Response codes:*
 
@@ -278,7 +336,7 @@ Code: 404<br>
 Not Found<br> 
 
 Code: 403<br>
-Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current user. <br> 
+Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher. <br> 
 
 Code: 500<br>
 Internal Server Error<br>
@@ -289,66 +347,6 @@ Internal Server Error<br>
       "code": "UnexpectedError", 
       "message": "An unexpected error has occurred." 
     } 
-```
-
-#### Resolve a subscription 
-
-The resolve endpoint enables users to resolve a marketplace token to a persistent Resource ID. The Resource ID is the unique identifier for SAAS subscription.  When a user is redirected to an ISV’s website, the URL contains a token in the query parameters. The ISV is expected to use this token, and make a request to resolve it. The response contains the unique SAAS subscription ID, name, offer ID, and plan for the resource. This token is valid for an hour only. 
-
-**Post:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
-
-*Query parameters:*
-
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  ApiVersion        |  Version of the operation to use for this request  |
-
-*Request headers:*
- 
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
-|  x-ms-requestid    |  Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
-|  x-ms-correlationid |  Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value is not provided, one will be generated and provided in the response headers.  |
-|  authorization     |  JSON web token (JWT) bearer token  |
-|  x-ms-marketplace-token  |  Token query parameter in the URL when the user is redirected to the SaaS ISV’s website from Azure. *Note:* The URL decodes the token value from the browser before using it. |
-
-*Response codes:*
-
-Code: 200<br>
-Resolves the opaque token to a SaaS subscription.<br>
-
-```json
-Response body:
-{
-    "subscriptionId": "<guid>",  
-    "subscriptionName": "Contoso Cloud Solution",
-    "offerId": "cont-cld-tier2",
-    "planId": "silver",
-    "quantity": "20",
-    "operationId": "<guid>"  
-}
-```
-
-Code: 404<br>
-Not Found
-
-Code: 400<br>
-Bad request- Validation failures
-
-Code: 403<br>
-Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current user.
-
-Code: 500<br>
-Internal Server Error
-
-```json
-{
-    "error": {
-      "code": "UnexpectedError",
-      "message": "An unexpected error has occurred."
-    }
-}
 ```
 
 #### Activate a subscription
@@ -369,7 +367,7 @@ Internal Server Error
 |  Content-Type      | `application/json`  |
 |  x-ms-requestid    | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers.  |
 |  x-ms-correlationid  | Unique string value for operation on the client. This string correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
-|  authorization     |  JSON web token (JWT) bearer token |
+|  authorization     |  [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *Request:*
 
@@ -392,7 +390,7 @@ Code: 400<br>
 Bad request- Validation failures
 
 Code: 403<br>
-Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current user.
+Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
 
 Code: 500<br>
 Internal Server Error
@@ -406,9 +404,9 @@ Internal Server Error
 }
 ```
 
-#### Update a subscription
+#### Change the plan on the subscription
 
-Update or change a subscription plan with the provided values.
+Update the plan on the subscription.
 
 **Patch:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`**
 
@@ -426,15 +424,14 @@ Update or change a subscription plan with the provided values.
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |   A unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers.  |
 |  x-ms-correlationid  |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.    |
-| authorization      |  The JSON web token (JWT) bearer token.  |
+| authorization      |  [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Request payload:*
 
 ```json
 Request Body:
 {
-    "planId": "gold",
-    "quantity": ""
+    "planId": "gold"
 }
 ```
 
@@ -447,7 +444,7 @@ Request Body:
 *Response codes:*
 
 Code: 202<br>
-ISV initiates a change plan or a change quantity. <br>
+The request to change plan has been accepted. The ISV is expected to poll the Operation-Location to determine a success/failure. <br>
 
 Code: 404<br>
 Not Found
@@ -459,7 +456,73 @@ Bad request- Validation failures.
 >Only a plan or quantity can be patched at one time, not both. Edits on a subscription with **Update** isn't  in `allowedCustomerOperations`.
 
 Code: 403<br>
-Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current user.
+Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
+
+Code: 500<br>
+Internal Server Error
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+```
+
+#### Change the quantity on the subscription
+
+Update the quantity on the subscription.
+
+**Patch:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`**
+
+*Query parameters:*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  ApiVersion        |  The version of the operation to use for this request.  |
+| subscriptionId     | Unique identifier of the SaaS subscription that's obtained after resolving the token using the Resolve API.  |
+
+*Request headers:*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  Content-Type      | `application/json` |
+|  x-ms-requestid    |   A unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers.  |
+|  x-ms-correlationid  |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.    |
+| authorization      |  [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+
+*Request payload:*
+
+```json
+Request Body:
+{
+    "quantity": 5
+}
+```
+
+*Request headers:*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+| Operation-Location | Link to a resource to get the operation's status.   |
+
+*Response codes:*
+
+Code: 202<br>
+Accepted. The request to change quantity has been accepted. The ISV is expected to poll the Operation-Location to determine a success/failure. <br>
+
+Code: 404<br>
+Not Found
+
+Code: 400<br>
+Bad request- Validation failures.
+
+>[!Note]
+>Only a plan or quantity can be patched at one time, not both. Edits on a subscription with **Update** isn't  in `allowedCustomerOperations`.
+
+Code: 403<br>
+Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
 
 Code: 500<br>
 Internal Server Error
@@ -493,7 +556,7 @@ Unsubscribe and delete the specified subscription.
 |   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers.   |
 |  x-ms-correlationid  |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.   |
-|  authorization     |  The JSON web token (JWT) bearer token.   |
+|  authorization     |  [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Response codes:*
 
@@ -507,7 +570,7 @@ Code: 400<br>
 Delete on a subscription with **Delete** not in `allowedCustomerOperations`.
 
 Code: 403<br>
-Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current user.
+Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
 
 Code: 500<br>
 Internal Server Error
@@ -526,10 +589,138 @@ Internal Server Error
 
 The operations API supports the following Patch and Get operations.
 
+#### List outstanding operations 
 
-#### Update a subscription
+Lists the outstanding operations for the current publisher. 
 
-Update a subscription with the provided values.
+**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
+
+*Query parameters:*
+
+|             |        |
+|  ---------------   |  ---------------  |
+|    ApiVersion                |   The version of the operation to use for this request.                |
+| subscriptionId     | Unique identifier of the SaaS subscription that's obtained after resolving the token using the Resolve API.  |
+
+*Request headers:*
+ 
+|                    |                   |
+|  ---------------   |  ---------------  |
+|   Content-Type     |  `application/json` |
+|  x-ms-requestid    |  A unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers.  |
+|  x-ms-correlationid |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
+|  authorization     |  [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+
+*Response codes:*
+
+Code: 200<br> 
+Gets the list of pending operations on a subscription.<br>
+Response payload:
+
+```json
+[{
+    "id": "<guid>",  
+    "activityId": "<guid>",
+    "subscriptionId": "<guid>",
+    "offerId": "offer1",
+    "publisherId": "contoso",  
+    "planId": "silver",
+    "quantity": "20",
+    "action": "Convert",
+    "timeStamp": "2018-12-01T00:00:00",  
+    "status": "NotStarted"  
+}]
+```
+
+Code: 404<br>
+Not Found
+
+Code: 400<br>
+Bad request- Validation failures
+
+Code: 403<br>
+Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
+
+Code: 500<br>
+Internal Server Error
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+
+```
+
+#### Get operation status
+
+Enables the publisher to track the status of the specified triggered async operation (Subscribe / Unsubscribe / Change plan/ Change Quantity).
+
+**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
+
+*Query parameters:*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  ApiVersion        |  The version of the operation to use for this request.  |
+
+*Request headers:*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  Content-Type      |  `application/json`   |
+|  x-ms-requestid    |   A unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers.  |
+|  x-ms-correlationid |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
+|  authorization     |[Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+
+*Response codes:*
+Code: 200<br> 
+Gets the specified pending SaaS operation<br>
+Response payload:
+
+```json
+Response body:
+{
+    "id  ": "<guid>",
+    "activityId": "<guid>",
+    "subscriptionId":"<guid>",
+    "offerId": "offer1",
+    "publisherId": "contoso",  
+    "planId": "silver",
+    "quantity": "20",
+    "action": "Convert",
+    "timeStamp": "2018-12-01T00:00:00",
+    "status": "NotStarted"
+}
+
+```
+
+Code: 404<br>
+Not Found
+
+Code: 400<br>
+Bad request- Validation failures
+
+Code: 403<br>
+Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
+ 
+Code: 500<br> 
+Internal Server Error
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+
+```
+#### Update the status of an operation
+
+Update the status of an operaiton to indicate success/failure with the provided values.
 
 **Patch:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
@@ -548,16 +739,17 @@ Update a subscription with the provided values.
 |   Content-Type     | `application/json`   |
 |   x-ms-requestid   |   A unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 |  x-ms-correlationid |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers. |
-|  authorization     |  The JSON web token (JWT) bearer token.  |
+|  authorization     |  [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Request payload:*
 
 ```json
 {
-    "planId": "cont-cld-tier2",
+    "planId": "offer1",
     "quantity": "44",
     "status": "Success"    // Allowed Values: Success/Failure. Indicates the status of the operation.
 }
+
 ```
 
 *Response codes:*
@@ -572,141 +764,11 @@ Code: 400<br>
 Bad request- Validation failures
 
 Code: 403<br>
-Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current user.
+Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
 
 Code: 409<br>
 Conflict. For example, a newer transaction is already fulfilled
 
-Code: 500<br> 
-Internal Server Error
-
-```json
-{
-    "error": {
-      "code": "UnexpectedError",
-      "message": "An unexpected error has occurred."
-    }
-}
-
-```
-
-#### List outstanding operations 
-
-Lists the outstanding operations for the current user. 
-
-**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
-
-*Query parameters:*
-
-|             |        |
-|  ---------------   |  ---------------  |
-|    ApiVersion                |   The version of the operation to use for this request.                |
-| subscriptionId     | Unique identifier of the SaaS subscription that's obtained after resolving the token using the Resolve API.  |
-
-*Request headers:*
- 
-|                    |                   |
-|  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
-|  x-ms-requestid    |  A unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers.  |
-|  x-ms-correlationid |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
-|  authorization     |  The JSON web token (JWT) bearer token.  |
-
-*Response codes:*
-
-Code: 200<br> 
-Gets the list of pending operations on a subscription.<br>
-Response payload:
-
-```json
-[{
-    "id": "<guid>",  
-    "activityId": "<guid>",
-    "subscriptionId": "<guid>",
-    "offerId": "cont-cld-tier2",
-    "publisherId": "contoso",  
-    "planId": "silver",
-    "quantity": "20",
-    "action": "Convert",
-    "timeStamp": "2018-12-01T00:00:00",  
-    "status": "NotStarted"  
-}]
-```
-
-Code: 404<br>
-Not Found
-
-Code: 400<br>
-Bad request- Validation failures
-
-Code: 403<br>
-Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current user.
-
-Code: 500<br>
-Internal Server Error
-
-```json
-{
-    "error": {
-      "code": "UnexpectedError",
-      "message": "An unexpected error has occurred."
-    }
-}
-
-```
-
-#### Get operation status
-
-Enables the user to track the status of the specified triggered async operation (Subscribe/Unsubscribe/Change plan).
-
-**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
-
-*Query parameters:*
-
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  ApiVersion        |  The version of the operation to use for this request.  |
-
-*Request headers:*
-
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  Content-Type      |  `application/json`   |
-|  x-ms-requestid    |   A unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers.  |
-|  x-ms-correlationid |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
-|  authorization     | The JSON web token (JWT) bearer token.  |
-
-*Response codes:*
-Code: 200<br> 
-Gets the specified pending SaaS operation<br>
-Response payload:
-
-```json
-Response body:
-{
-    "id  ": "<guid>",
-    "activityId": "<guid>",
-    "subscriptionId":"<guid>",
-    "offerId": "cont-cld-tier2",
-    "publisherId": "contoso",  
-    "planId": "silver",
-    "quantity": "20",
-    "action": "Convert",
-    "timeStamp": "2018-12-01T00:00:00",
-    "status": "NotStarted"
-}
-
-```
-
-Code: 404<br>
-Not Found
-
-Code: 400<br>
-Bad request- Validation failures
-
-Code: 403<br>
-Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current user.
- 
 Code: 500<br> 
 Internal Server Error
 
@@ -729,14 +791,21 @@ The publisher must implement a webhook in this SaaS service to proactively notif
     "operationId": "<guid>",
     "activityId": "<guid>",
     "subscriptionId":"<guid>",
-    "offerId": "cont-cld-tier2",
+    "offerId": "offer1",
     "publisherId": "contoso",
     "planId": "silver",
     "quantity": "20"  ,
-    "action": "Activate",   // Activate/Delete/Suspend/Reinstate/Change[new]  
+    "action": "Subscribe",
     "timeStamp": "2018-12-01T00:00:00"
 }
 
+Where action can be one of these: 
+       Subscribe, (When the resource has been activated)
+       Unsubscribe, (When the resource has been deleted)
+       ChangePlan, (When the change plan operation has completed)
+       ChangeQuantity, (When the change quantity operation has completed),
+       Suspend, (When resource has been suspended)
+       Reinstate, (When resource has been reinstated after suspension)
 ```
 
 
