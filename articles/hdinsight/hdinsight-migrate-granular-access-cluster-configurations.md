@@ -6,7 +6,7 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 04/26/2019
 ---
     
 # Migrate to granular role-based access for cluster configurations
@@ -21,7 +21,7 @@ roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-direc
 Going forward, these secrets will no longer be accessible to users with the
 Reader role. Secrets are defined as values that could be used to obtain more elevated access than a user's role should allow. These include values such as cluster gateway HTTP credentials, storage account keys, and database credentials.
 
-We are also introducing a new ‘HDInisght Cluster Operator’ Role
+We are also introducing a new [HDInisght Cluster Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) role
 that will be able to retrieve secrets without being granted the administrative
 permissions of Contributor or Owner. To summarize:
 
@@ -136,7 +136,7 @@ Update to [version 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/master
 
 ## Add the HDInsight Cluster Operator role assignment to a user
 
-A user with the [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role can assign the HDInsight Cluster Operator role to users that you would want to have read/write access to sensitive HDInsight cluster configuration values (such as cluster gateway credentials and storage account keys).
+A user with the [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role can assign the [HDInisght Cluster Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) role to users that you would want to have read/write access to sensitive HDInsight cluster configuration values (such as cluster gateway credentials and storage account keys).
 
 ### Using the Azure CLI
 
