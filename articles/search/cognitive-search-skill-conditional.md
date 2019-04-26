@@ -140,8 +140,8 @@ In this example some sentences have a *frenchSentiment* property. Whenever the *
     "context": "/document/sentences/*",
     "inputs": [
         { "name": "condition", "source": "= $(/document/sentences/*/frenchSentiment) == null" },
-        { "name": "whenTrue", "source": "document/sentences/*/englishSentiment" },
-        { "name": "whenFalse", "source": "document/sentences/*/frenchSentiment" }
+        { "name": "whenTrue", "source": "/document/sentences/*/englishSentiment" },
+        { "name": "whenFalse", "source": "/document/sentences/*/frenchSentiment" }
     ],
     "outputs": [ { "name": "output", "targetName": "sentiment" } ]
 }
@@ -160,7 +160,7 @@ In this specific example, we never use the conditional aspect of the skill as th
     "context": "/document/sentences/*",
     "inputs": [
         { "name": "condition", "source": "= true" },
-        { "name": "whenTrue", "source": "= $(document/sentences/*/sentiment) * 2 - 1" },
+        { "name": "whenTrue", "source": "= $(/document/sentences/*/sentiment) * 2 - 1" },
         { "name": "whenFalse", "source": "= 0" }
     ],
     "outputs": [ { "name": "output", "targetName": "normalizedSentiment" } ]
