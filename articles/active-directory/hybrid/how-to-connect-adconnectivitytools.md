@@ -14,7 +14,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Troubleshoot AD Connectivity with the ADConnectivityTool PowerShell Module?
+# Troubleshoot Azure AD connectivity with the ADConnectivityTool PowerShell module
 
 The ADConnectivity tool is a PowerShell module that is used in one of the following:
 
