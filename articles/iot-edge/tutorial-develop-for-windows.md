@@ -17,7 +17,7 @@ Use Visual Studio 2017 to develop and deploy code to Windows devices running IoT
 
 In the quickstart, you created an IoT Edge device using a Windows virtual machine and deployed a pre-built module from the Azure Marketplace. This tutorial walks through what it takes to develop and deploy your own code to an IoT Edge device. This tutorial is a useful prerequisite for all the other tutorials, which will go into more detail about specific programming languages or Azure services. 
 
-This tutorial uses the example of deploying a **C module to a Windows device**. This example was chosen because it has the fewest prerequisites, so that you can learn about the development tools without worrying about whether you have the right libraries installed. Once you understand the development concepts, then you can choose your preferred language or Azure service to dive into the details. 
+This tutorial uses the example of deploying a **C module to a Windows device**. This example was chosen for its simplicity, so that you can learn about the development tools without worrying about whether you have the right libraries installed. Once you understand the development concepts, then you can choose your preferred language or Azure service to dive into the details. 
 
 In this tutorial, you learn how to:
 
@@ -65,6 +65,8 @@ A development machine:
    .\vcpkg --triplet x64-windows integrate install
    ```
 
+<!--vcpkg only required for C development-->
+
 An Azure IoT Edge device on Windows:
 
 * We recommend that you don't run IoT Edge on your development machine, but instead use a separate device. This distinction between development machine and IoT Edge device more accurately mirrors a true deployment scenario, and helps to keep the different concepts straight.
@@ -89,10 +91,13 @@ Use the Docker documentation to install on your development machine:
 
 Use the IoT extensions for Visual Studio 2017 to develop IoT Edge modules. These extensions provide project templates, automate the creation of the deployment manifest, and allow you to monitor and manage IoT Edge devices. In this section, you install Visual Studio and the IoT Edge extension, then set up your Azure account to manage IoT Hub resources from within Visual Studio. 
 
-1. [Install Visual Studio Community 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017) on your development machine with the following workloads: 
+1. If you don't already have Visual Studio on your development machine, [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017) with the following workloads: 
 
    * Azure development
    * Desktop development with C++
+   * .NET Core cross-platform development
+
+1. If you do already have Visual Studio 2017 on your development machine, make sure that its version is 15.7 or higher. Follow the steps in [Modify Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2017) to add the required workloads if you don't have them already.
 
 2. Download and install the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) extension for Visual Studio 2017. 
 

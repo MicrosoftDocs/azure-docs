@@ -4,7 +4,7 @@ description: This tutorial walks through setting up your development machine and
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/20/2019
+ms.date: 04/26/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -141,6 +141,8 @@ Once your new solution loads in the Visual Studio Code window, take a moment to 
 
 The environment file stores the credentials for your container registry and shares them with the IoT Edge runtime. The runtime needs these credentials to pull your container images onto the IoT Edge device. 
 
+The IoT Edge extension tries to pull your container registry credentials from Azure and populate them in the environment file. Check to see if your credentials are already included. If not, add them now:
+
 1. Open the **.env** file in your module solution. 
 2. Add the **username** and **password** values that you copied from your Azure container registry.
 3. Save your changes to the .env file. 
@@ -239,6 +241,8 @@ Visual Studio Code now has access to your container registry, so it's time to tu
 10. In your container registry, select **Repositories** then **samplemodule**. Verify that both versions of the image were pushed to the registry.
 
    ![View both image versions in container registry](./media/tutorial-develop-for-linux/view-repository-versions.png)
+
+<!--Alternative steps: Use VS Code Docker tools to view ACR images with tags-->
 
 ### Troubleshoot
 
