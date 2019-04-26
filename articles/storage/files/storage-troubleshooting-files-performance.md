@@ -1,6 +1,6 @@
 ---
-title: Premium file shares (preview) troubleshooting guide
-description: Known issues with Azure premium file shares (preview) and associated workarounds.
+title: Azure Files performance troubleshooting guide
+description: Known performance issues with Azure premium file shares (preview) and associated workarounds.
 services: storage
 author: jeffpatt24
 ms.service: storage
@@ -11,7 +11,7 @@ ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Troubleshoot Azure premium file shares (preview) issues
+# Troubleshoot Azure Files performance issues
 
 This article lists some common problems related to Microsoft Azure premium file shares (preview). It provides potential causes and workarounds when these problems are encountered.
 
