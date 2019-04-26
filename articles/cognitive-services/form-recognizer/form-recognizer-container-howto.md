@@ -131,7 +131,7 @@ Run the first container on port 5000.
 
 ```bash 
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-<container-registry path including first container-name> \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}
@@ -144,7 +144,7 @@ Run the second container on port 5001.
 
 ```bash 
 docker run --rm -it -p 5001:5000 --memory 4g --cpus 1 \
-<container-registry path including second container-name> \
+containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
 Eula=accept \
 Billing={COMPUTER_VISION_ENDPOINT_URI} \
 ApiKey={COMPUTER_VISION_API_KEY}
