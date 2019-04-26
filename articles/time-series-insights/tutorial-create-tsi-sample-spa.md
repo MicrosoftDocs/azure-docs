@@ -21,10 +21,8 @@ This tutorial guides you through the process of creating your own single-page we
 > * How to build, publish, and test your web application
 
 > [!NOTE]
-> The source code for this tutorial is provided on [GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
-
-> [!TIP]
-> The Time Series Insights [client sample app](https://insights.timeseries.azure.com/clientsample) is hosted to show the completed app used in this Tutorial.
+> * The source code for this tutorial is provided on [GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
+> * The Time Series Insights [client sample app](https://insights.timeseries.azure.com/clientsample) is hosted to show the completed app used in this Tutorial.
 
 ## Prerequisites
 
@@ -105,6 +103,9 @@ Before building the application, you need to register it with Azure AD. Registra
 
     * You'll need the **IIS Express**, **Web Deploy**, and **Azure Cloud Services core tools** components for Visual Studio.
 
+    > [!NOTE]
+    > Your Visual Studio experience may vary slightly from the depicted examples depending on version and configuration settings.
+
 1. Start and sign in to Visual Studio, to create a project for the web application. On the **File** menu, select the **Open**, **Web Site** option.
 
     [![VS - Create new solution](media/tutorial-create-tsi-sample-spa/vs-solution-create.png)](media/tutorial-create-tsi-sample-spa/vs-solution-create.png#lightbox)
@@ -163,7 +164,7 @@ Before building the application, you need to register it with Azure AD. Registra
 
       [![VS - Publish profile](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png#lightbox)
 
-   c. Select the subscription you'd like to use for publishing the application, then click “New”:
+   c. Select the subscription you'd like to use for publishing the application. Then, **OK**:
 
       [![VS - Publish profile - app service](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png#lightbox)
 
