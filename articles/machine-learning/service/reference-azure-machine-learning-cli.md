@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 04/12/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
 ---
 
@@ -39,6 +39,8 @@ To install the Machine Learning CLI extension, use the following command:
 ```azurecli-interactive
 az extension add -n azure-cli-ml
 ```
+
+> [!TIP] Example files you can use with the commands below can be found [here](http://aka.ms/azml-deploy-cloud).
 
 When prompted, select `y` to install the extension.
 
