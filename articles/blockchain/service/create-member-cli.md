@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/25/2019
+ms.date: 04/26/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: seal
@@ -55,7 +55,9 @@ There are several parameters and properties you need to pass. Replace the follow
 az resource create --resource-group myResourceGroup --name myblockchainmember --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties '{ "location": "eastus", "properties": {"password": "strongMemberAccountPassword@1", "protocol": "Quorum", "consortium": "myConsortiumName", "consortiumManagementAccountPassword": "strongConsortiumManagementPassword@1" }, "sku": { "name": "S0" } }'
 ```
 
-It takes about 10 minutes to create the blockchain member and supporting resources. The following shows example output of a successful create operation.
+It takes about 10 minutes to create the blockchain member and supporting resources.
+
+The following shows example output of a successful create operation.
 
 ```json
 {
