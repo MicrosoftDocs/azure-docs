@@ -17,9 +17,9 @@ manager: jeconnoc
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
-This article shows you how to use command-line tools to create a Python project that runs in Azure Functions. The function you create is triggered by anonymous HTTP requests. Finally, you publish your project to run as a [serverless function](functions-scale.md#consumption-plan) in Azure.
+This article shows you how to use command-line tools to create a Python project that runs in Azure Functions. The function you create is triggered by HTTP requests. Finally, you publish your project to run as a [serverless function](functions-scale.md#consumption-plan) in Azure.
 
-This article is the first of two quickstarts for Azure Functions. After you complete this article, you [add an Azure Storage queue output binding](add-output-binding-storage-queue-python.md) to your function.
+This article is the first of two quickstarts for Azure Functions. After you complete this article, you [add an Azure Storage queue output binding](functions-add-output-binding-storage-queue-python.md) to your function.
 
 ## Prerequisites
 
