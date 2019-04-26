@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Design an Azure Database for PostgreSQL - Single Server using Azure portal
+title: 'Tutorial: Design an Azure Database for PostgreSQL - Single Server using Azure portal'
 description: This tutorial shows how to Design your first Azure Database for PostgreSQL - Single Server using the Azure portal.
 author: rachel-msft
 ms.author: raagyema
