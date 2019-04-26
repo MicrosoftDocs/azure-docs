@@ -205,11 +205,9 @@ Automated ML helps you with deploying the model without writing code:
 
     You can identify the model by its description, which includes the run ID and iteration number, in the following format: <Run_ID>_<Iteration_number>_Model.
 
-1. Enter a name for the image and upload the scoring file you previously downloaded. For the Conda file, [Create your own](tutorial-deploy-models-with-aml.md#create-environment-file) and  be sure to include `azureml-sdk` and `scikit-learn`.
+1. Enter a name for the image and upload the scoring file you previously downloaded. [Learn more about scoring scripts](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where.md#script). You can use your own scoring script and Conda file, as well as upload additional files.  When you [create your own](tutorial-deploy-models-with-aml.md#create-environment-file) Conda file, be sure to include `azureml-sdk` and `scikit-learn`.
 
     ![Create an image form](media/how-to-create-portal-experiments/create-image.png)
-
-    You can use your own scoring script and conda file, as well as upload additional files. [Learn more about scoring scripts](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
 
 1. Select the "Create" button to start the image creation. This will take a few minutes to complete, once done, you will see a message on the top bar.
 
@@ -232,4 +230,4 @@ Automated ML helps you with deploying the model without writing code:
 ## Next steps
 
 * [How to consume a deployed model](how-to-consume-web-service.md).
-* [Learn more about deployments](how-to-deploy-and-where.md).
+* [Collect data for models in production](how-to-enable-data-collection.md).
