@@ -1,5 +1,5 @@
 ---
-title: Use HeadPost to adjust the face rectangle
+title: Use HeadPose to adjust the face rectangle
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the HeadPose attribute to automatically rotate the face rectangle.
 author: PatrickFarley
