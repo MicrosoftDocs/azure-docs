@@ -293,31 +293,31 @@
         items:
         - name: Web apps
           href: app/asp-net.md
-        - name: Application Monitor
-          href: app/iis-configurator-overview.md
+        - name: Status Monitor 
+          href: app/monitor-performance-live-website-now.md
+        - name: Status Monitor v2
+          href: app/statusmonitor-overview.md
           items:
           - name: Getting started
-            href: app/iis-configurator-getting-started.md
+            href: app/statusmonitor-getting-started.md
           - name: Detailed instructions
-            href: app/iis-configurator-detailed-instructions.md
+            href: app/statusmonitor-detailed-instructions.md
           - name: Troubleshooting and known issues
-            href: app/iis-configurator-troubleshoot.md
+            href: app/statusmonitor-troubleshoot.md
           - name: API Disable-InstrumentationEngine
-            href: app/iis-configurator-api-disableinstrumentationengine.md
+            href: app/statusmonitor-api-disableinstrumentationengine.md
           - name: API Disable-ApplicationInsightsMonitoring
-            href: app/iis-configurator-api-disablemonitoring.md
+            href: app/statusmonitor-api-disablemonitoring.md
           - name: API Enable-InstrumentationEngine
-            href: app/iis-configurator-api-enableinstrumentationengine.md
+            href: app/statusmonitor-api-enableinstrumentationengine.md
           - name: API Enable-ApplicationInsightsMonitoring
-            href: app/iis-configurator-api-enablemonitoring.md
+            href: app/statusmonitor-api-enablemonitoring.md
           - name: API Get-ApplicationInsightsMonitoringConfig
-            href: app/iis-configurator-api-getconfig.md
+            href: app/statusmonitor-api-getconfig.md
           - name: API Get-ApplicationInsightsMonitoringStatus
-            href: app/iis-configurator-api-getstatus.md
+            href: app/statusmonitor-api-getstatus.md
           - name: API Set-ApplicationInsightsMonitoringConfig
-            href: app/iis-configurator-api-setconfig.md
-        - name: Status Monitor
-          href: app/monitor-performance-live-website-now.md
+            href: app/statusmonitor-api-setconfig.md
         - name: Windows services
           href: app/windows-services.md
         - name: Windows desktop

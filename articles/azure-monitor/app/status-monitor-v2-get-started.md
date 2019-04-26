@@ -1,9 +1,9 @@
 ---
-title: Azure Monitor Application Insights Application Monitor | Microsoft Docs
+title: Azure Status Monitor v2 Getting Started | Microsoft Docs
 description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
-author: tilee
+author: MS-TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -13,21 +13,23 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Getting started instructions
+# Getting started with Status Monitor v2
 
 This document contains the quickstart commands expected to work for most environments. 
 These instructions depend on the PowerShell Gallery to distribute updates. 
 These commands support the PowerShell `-Proxy` parameter.
 
-Review our [Detailed instructions](iis-configurator-detailed-instructions.md) page for an explanation of these commands, 
+Review our [Detailed instructions](status-monitor-v2-detailed-instructions.md) page for an explanation of these commands, 
 instructions on how to customize, and how to troubleshoot.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-> [!CAUTION] 
-> This module is a prototype application, and isn't recommended for your production environments.
+> [!IMPORTANT]
+> Status Monitor v2 is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-## Download & install ApplicationMonitor via PowerShell Gallery
+## Download & install Status Monitor v2 via PowerShell Gallery
 
 ### Install prerequisites
 Run PowerShell as Administrator
@@ -39,7 +41,7 @@ Install-Module -Name PowerShellGet -Force
 ```	
 Exit PowerShell
 
-### Install ApplicationMonitor
+### Install Status Monitor v2
 Run PowerShell as Administrator
 ```powershell	
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -53,16 +55,16 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ```
 	
 		
-## Download & install ApplicationMonitor manually (offline option)
+## Download & install Status Monitor v2 manually (offline option)
 ### Manual download
 Manually download the latest version of the Module from: https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 
-### Unzip and install ApplicationMonitor
+### Unzip and install Status Monitor v2
 ```powershell
-$pathToNupkg = "C:\Users\t\Desktop\Microsoft.ApplicationInsights.IISConfigurator.0.2.0-alpha.nupkg"
+$pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMointor.0.2.1-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
 $pathToNupkg | rename-item -newname $pathToZip
-$pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\microsoft.applicationinsights.iisconfigurator"
+$pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\Az.ApplicationMonitor"
 Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ```
 ### Enable monitoring

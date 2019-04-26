@@ -1,9 +1,9 @@
 ---
-title: Azure Monitor Application Insights Application Monitor | Microsoft Docs
+title: Azure Status Monitor v2 Detailed Instructions | Microsoft Docs
 description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
-author: tilee
+author: MS-TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -13,15 +13,16 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# ApplicationMonitor detailed instructions
+# Status Monitor v2 detailed instructions
 
 This document details how to onboard to the PowerShell Gallery and download the ApplicationMonitor Module. 
 We've documented the most common parameters required to get started.
 We've also included manual instructions in the event that internet access isn't available.
 
-
-> [!CAUTION] 
-> This module is a prototype application, and isn't recommended for your production environments.
+> [!IMPORTANT]
+> Status Monitor v2 is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Instrumentation key
 
@@ -72,6 +73,8 @@ SerializationVersion           1.1.0.1
 ```
 
 ## Prerequisites for PowerShell Gallery
+
+These steps will prepare your server to download modules from the PowerShell Gallery.
 
 > [!NOTE] 
 > Support for PowerShell Gallery is included on Windows 10, Windows Server 2016, and PowerShell 6. 
@@ -135,6 +138,8 @@ SerializationVersion           1.1.0.1
 
 ## Download & install ApplicationMonitor via PowerShell Gallery
 
+These steps will download the ApplicationMonitor module from PowerShell Gallery.
+
 1. Prerequisites for PowerShell Gallery are required.
 2. Run PowerShell as Administrator with an elevated execution policy.
 3. Install the ApplicationMonitor Module
@@ -147,6 +152,8 @@ SerializationVersion           1.1.0.1
 		- `-Force` This will ignore the "Untrusted Repository" warning
 
 ## Download & install ApplicationMonitor manually (offline option)
+
+If for any reason you can't connect to the PowerShell Module, you may manually download and install the ApplicationMonitor module.
 
 ### Manually download the latest nupkg
 
@@ -166,10 +173,10 @@ For more information, see: [Installing a PowerShell Module](https://docs.microso
 - Cmd: 
 
 	```
-	$pathToNupkg = "C:\microsoft.applicationinsights.iisconfigurator.0.2.0-alpha.nupkg"
+	$pathToNupkg = "C:\az.applicationmonitor.0.2.1-alpha.nupkg"
 	$pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
 	$pathToNupkg | rename-item -newname $pathToZip
-	$pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\microsoft.applicationinsights.iisconfigurator"
+	$pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\az.applicationmonitor"
 	Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 	```
 
@@ -180,8 +187,8 @@ For more information, see: [Installing a PowerShell Module](https://docs.microso
 - Cmd:
 
 	```
-	$pathToNupkg = "C:\microsoft.applicationinsights.iisconfigurator.0.2.0-alpha.nupkg"
-	$pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\microsoft.applicationinsights.iisconfigurator"
+	$pathToNupkg = "C:\az.applicationmonitor.0.2.1-alpha.nupkg"
+	$pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\az.applicationmonitor"
 	Expand-Archive -LiteralPath $pathToNupkg -DestinationPath $pathInstalledModule
 	```
 
@@ -195,10 +202,10 @@ If installing into any other directory, you must manually import the module usin
 > Installation will install DLLs via relative paths. 
 > Store the contents of this package into your intended runtime directory and confirm that access permissions allow read but not write.
 
-- Change the extension to ".zip" and extract contents of package into your intended installation directory.
-- Find the file path to "microsoft.applicationinsights.iisconfigurator.psd1".
-- Run PowerShell as Administrator with an elevated execution policy. 
-- Load the module via cmd: `Import-Module microsoft.applicationinsights.iisconfigurator.psd1`.
+1. Change the extension to ".zip" and extract contents of package into your intended installation directory.
+2. Find the file path to "Az.ApplicationMonitor.psd1".
+3. Run PowerShell as Administrator with an elevated execution policy. 
+4. Load the module via cmd: `Import-Module Az.ApplicationMonitor.psd1`.
 	
 
 ## Proxy
@@ -215,4 +222,4 @@ The Application Insights SDK will need to send your application's telemetry to M
 
 Cmd: `Enable-ApplicationInsightsMonitoring`
 
-Review our [API Reference](iis-configurator-api-enablemonitoring.md) for a detailed description of how to use this cmdlet. 
+Review our [API Reference](status-monitor-v2-api-enable-monitoring.md) for a detailed description of how to use this cmdlet. 

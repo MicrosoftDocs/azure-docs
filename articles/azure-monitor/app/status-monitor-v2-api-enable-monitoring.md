@@ -1,9 +1,9 @@
 ---
-title: Azure Monitor Application Insights Application Monitor | Microsoft Docs
+title: Azure Status Monitor v2 Api Reference Enable Monitoring | Microsoft Docs
 description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
-author: tilee
+author: MS-TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -13,20 +13,14 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Application Monitor API reference
+# Status Monitor API reference: Enable-ApplicationInsightsMonitoring (v0.2.0-alpha)
 
 This document describes a cmdlet that is shipped as member of the [ApplicationMonitor PowerShell Module.](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)
 
-> [!CAUTION] 
-> This module is a prototype application, and isn't recommended for your production environments.
-
-## Enable-ApplicationInsightsMonitoring (v0.2.0-alpha)
-
-> [!IMPORTANT] 
-> This cmdlet requires a PowerShell Session with Administrator permissions and with an elevated execution policy. Read [here](iis-configurator-detailed-instructions.md#run-powershell-as-administrator-with-an-elevated-execution-policy) for more information.
-
-> [!NOTE] 
-> This cmdlet will require you to review and accept our license and privacy statement.
+> [!IMPORTANT]
+> Status Monitor v2 is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Description
 
@@ -41,6 +35,13 @@ After enabling monitoring, we recommend using [Live Metrics](live-stream.md) to 
 
 > [!NOTE] 
 > To get started, you must have an instrumentation key. For more information, read [create new resource](create-new-resource.md#copy-the-instrumentation-key).
+
+
+> [!IMPORTANT] 
+> This cmdlet requires a PowerShell Session with Administrator permissions and with an elevated execution policy. Read [here](status-monitor-v2-detailed-instructions.md#run-powershell-as-administrator-with-an-elevated-execution-policy) for more information.
+
+> [!NOTE] 
+> This cmdlet will require you to review and accept our license and privacy statement.
 
 
 ## Examples
@@ -134,7 +135,7 @@ Registry: skipping non-existent 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Ser
 Registry: skipping non-existent 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WAS[Environment]
 Configuring registry for instrumentation engine...
 Successfully disabled Application Insights Status Monitor
-Installing GAC module 'C:\Program Files\WindowsPowerShell\Modules\Microsoft.ApplicationInsights.IISConfigurator\0.2.0\content\Runtime\Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.dll'
+Installing GAC module 'C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.0\content\Runtime\Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.dll'
 Applying transformation to 'C:\Windows\System32\inetsrv\config\applicationHost.config'
 Found GAC module Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.ManagedHttpModuleHelper, Microsoft.AppInsights.IIS.ManagedHttpModuleHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
 'C:\Windows\System32\inetsrv\config\applicationHost.config' backed up to 'C:\Windows\System32\inetsrv\config\applicationHost.config.backup-2019-03-26_08-59-52z_1'
