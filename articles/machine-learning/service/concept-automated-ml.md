@@ -48,6 +48,8 @@ You can also inspect the logged run information, which contains metrics gathered
 
 While model building is automated, you can also [learn how important or relevant features are](how-to-configure-auto-train.md#explain) to the generated models. 
 
+> [!VIDEO https://www.youtube.com/embed/l8c-4iDPE0M]
+
 <a name="preprocess"></a>
 
 ## Preprocessing
