@@ -23,14 +23,14 @@ ms.collection: M365-identity-device-management
 
 # Migrating applications to MSAL.NET
 
-Both Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentication Library for .NET (ADAL.NET) are used to authenticate Azure AD entities and request tokens from Azure AD. Up until now, most developers have worked with Azure AD v1.0 platform to authenticate Azure AD identities (work and school accounts) by requesting tokens using Azure AD Authentication Library (ADAL). Now, using MSAL.NET, you can authenticate a broader set of Microsoft identities (Azure AD identities and Microsoft accounts, and social and local accounts through Azure AD B2C) through what has been known as the Azure AD v2.0 endpoint. 
+Both Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentication Library for .NET (ADAL.NET) are used to authenticate Azure AD entities and request tokens from Azure AD. Up until now, most developers have worked with Azure AD for developers platform (v1.0) to authenticate Azure AD identities (work and school accounts) by requesting tokens using Azure AD Authentication Library (ADAL). Now, using MSAL.NET, you can authenticate a broader set of Microsoft identities (Azure AD identities and Microsoft accounts, and social and local accounts through Azure AD B2C) through the Microsoft identity platform endpoint. 
 
 This article describes how to choose between the Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentication Library for .NET (ADAL.NET) and compares the two libraries.  
 
 ## Differences between ADAL and MSAL apps
-In most cases you want to use MSAL.NET and the Azure AD v2.0 endpoint, which is the latest generation of Microsoft authentication libraries. Using MSAL.NET, you acquire tokens for users signing-in to your application with Azure AD (work and school accounts), Microsoft (personal) accounts (MSA), or Azure AD B2C. 
+In most cases you want to use MSAL.NET and the Microsoft identity platform endpoint, which is the latest generation of Microsoft authentication libraries. Using MSAL.NET, you acquire tokens for users signing-in to your application with Azure AD (work and school accounts), Microsoft (personal) accounts (MSA), or Azure AD B2C. 
 
-If you are already familiar with the v1.0 endpoint (and ADAL.NET), you might want to read [What's different about the v2.0 endpoint?](active-directory-v2-compare.md).
+If you are already familiar with the Azure AD for developers (v1.0) endpoint (and ADAL.NET), you might want to read [What's different about the Microsoft identity platform (v2.0) endpoint?](active-directory-v2-compare.md).
 
 However, you still need to use ADAL.NET if your application needs to sign in users with earlier versions of [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). For more details, see [ADFS support](https://aka.ms/msal-net-adfs-support).
 
@@ -106,7 +106,7 @@ In MSAL.NET, claim challenge exceptions are handled in the following way:
 
 ### Supported grants
 
-Not all the grants are yet supported in MSAL.NET and the AAD v2.0 endpoint. The following is a summary comparing ADAL.NET and MSAL.NET's supported grants.
+Not all the grants are yet supported in MSAL.NET and the v2.0 endpoint. The following is a summary comparing ADAL.NET and MSAL.NET's supported grants.
 
 #### Public client applications
 
@@ -141,7 +141,7 @@ In v1.0, if you use the https://login.microsoftonline.com/common authority, you 
 
 If you use the https://login.microsoftonline.com/common authority in v2.0, you will allow users to sign in with any AAD organization or a Microsoft personal account (MSA). In MSAL.NET, if you want to restrict login to any AAD account (same behavior as with ADAL.NET), you need to use https://login.microsoftonline.com/organizations. For details, see the `authority` parameter in [public client application](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
 
-## v1.0 and v2.0 Tokens
+## v1.0 and v2.0 tokens
 
 There are two versions of tokens:
 - v1.0 tokens
@@ -260,4 +260,4 @@ You can also use this method for various integration scenarios where you have a 
 
 ## Next steps
 
-You can find more information about the scopes in [Scopes, permissions, and consent in the Azure Active Directory v2.0 endpoint](v2-permissions-and-consent.md)
+You can find more information about the scopes in [Scopes, permissions, and consent in the Microsoft identity platform endpoint](v2-permissions-and-consent.md)
