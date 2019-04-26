@@ -14,8 +14,8 @@ ms.author: brjohnst
 # How to use Azure Search from a .NET Application
 
 > [!Important]
-> While API releases are typically in tandem, there is not yet a generally available version of the .NET SDK that maps to the REST api-version=2019-05-06.
-> 
+> This content is still under construction. Version 9.0 of the Azure Search .NET SDK is available on NuGet. We are working on updating this migration guide to explain how to upgrade to the new version. Stay tuned.
+>
 
 This article is a walkthrough to get you up and running with the [Azure Search .NET SDK](https://aka.ms/search-sdk). You can use the .NET SDK to implement a rich search experience in your application using Azure Search.
 
@@ -37,7 +37,7 @@ The various client libraries define classes like `Index`, `Field`, and `Document
 
 The current version of the Azure Search .NET SDK is now generally available. If you would like to provide feedback for us to incorporate in the next version, please visit our [feedback page](https://feedback.azure.com/forums/263029-azure-search/).
 
-The .NET SDK supports version `2017-11-11` of the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). This version now includes support for synonyms, as well as incremental improvements to indexers. Preview features that are *not* part of this version, such as support for indexing CSV files, are in [preview](search-api-2016-09-01-preview.md) and available via [4.0-preview version of the .NET SDK](https://aka.ms/search-sdk-preview).
+The .NET SDK supports version `2017-11-11` of the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). This version now includes support for synonyms, as well as incremental improvements to indexers. 
 
 This SDK does not support [Management Operations](https://docs.microsoft.com/rest/api/searchmanagement/) such as creating and scaling Search services and managing API keys. If you need to manage your Search resources from a .NET application, you can use the [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk).
 
@@ -391,7 +391,7 @@ public partial class Hotel
 The first thing to notice is that each public property of `Hotel` corresponds to a field in the index definition, but with one crucial difference: The name of each field starts with a lower-case letter ("camel case"), while the name of each public property of `Hotel` starts with an upper-case letter ("Pascal case"). This is a common scenario in .NET applications that perform data-binding where the target schema is outside the control of the application developer. Rather than having to violate the .NET naming guidelines by making property names camel-case, you can tell the SDK to map the property names to camel-case automatically with the `[SerializePropertyNamesAsCamelCase]` attribute.
 
 > [!NOTE]
-> The Azure Search .NET SDK uses the [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) library to serialize and deserialize your custom model objects to and from JSON. You can customize this serialization if needed. For more details, see [Custom Serialization with JSON.NET](#JsonDotNet).
+> The Azure Search .NET SDK uses the [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) library to serialize and deserialize your custom model objects to and from JSON. You can customize this serialization if needed. For more information, see [Custom Serialization with JSON.NET](#JsonDotNet).
 > 
 > 
 

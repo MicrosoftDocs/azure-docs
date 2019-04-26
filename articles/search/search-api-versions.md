@@ -25,10 +25,11 @@ The same rule applies for SDK updates. The Azure Search SDK follows the [semanti
 ## Snapshot of current versions
 Below is a snapshot of the current versions of all programming interfaces to Azure Search.
 
+
 | Interfaces | Most recent major version | Status |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |5.0 |Generally Available, released April 2018. Unchanged as of May 2, 2019. |
-| [.NET SDK Preview](https://aka.ms/search-sdk-preview) |4.0.1-preview |Preview, released May 2017. Unchanged as of May 2, 2019. |
+| [.NET SDK](https://aka.ms/search-sdk) |9.0 |Generally Available, released May 2019. Content is still under construction.  |
+| [.NET SDK Preview](https://aka.ms/search-sdk-preview) |8.0.0-preview |Preview, released April 2019. Content is still under construction.|
 | [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Generally Available |
 | [Service REST API 2019-05-06-Preview](search-api-preview.md) |2019-05-06-Preview |Preview |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |3.0 |Generally Available |
