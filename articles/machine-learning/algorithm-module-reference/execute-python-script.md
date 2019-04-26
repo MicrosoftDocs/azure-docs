@@ -8,15 +8,11 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 # Execute Python Script module
-
-*Executes a Python script from an Azure Machine Learning experiment*
-
-Category: Python Language Modules
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
@@ -74,8 +70,6 @@ The pre-installed packages are:
 import os
 os.system(f"pip install scikit-misc")
 ```
-
-
 
 ## How to use
 
