@@ -24,25 +24,25 @@ This article also describes features and tools that have limited support for Azu
 | **Azure Content Delivery Network (CDN)** |Not yet supported|
 | **Azure search** |Not yet supported|
 | **Blob container ACLs** |Not yet supported|
-| **Blob storage APIs** |Not yet supported <br>These APIs are disabled to prevent inadvertent data access issues that could arise because Blob Storage APIs aren't yet interoperable with Azure Data Lake Gen2 APIs. <br> For more details, see the [Blob storage APIs are disabled for Data Lake Storage Gen2 storage accounts](#blob-apis-disabled) section of this article.|
+| **Blob storage APIs** |Not yet supported <br><br>These APIs are disabled to prevent inadvertent data access issues that could arise because Blob Storage APIs aren't yet interoperable with Azure Data Lake Gen2 APIs. <br> For more details, see the [Blob storage APIs are disabled for Data Lake Storage Gen2 storage accounts](#blob-apis-disabled) section of this article.<br>|
 | **Blobfuse** |Not yet supported|
 | **Custom domains** |Not yet supported|
 | **Diagnostic logs** |Not yet supported|
-| **Immutable storage** |Not yet supported <br>Immutable storage gives the ability to store data in a [WORM (Write Once, Read Many) state](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage).|
-| **Object-level tiers** |Not yet supported <br>For example: Premium, Hot, Cold, and Archive tiers.|
-| **Static websites** |Not yet supported <br>Specifically, the ability to serve files to [Static websites](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
-| **Versioning features** |Not yet supported <br>This includes [snapshots](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) and [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete).|
+| **Immutable storage** |Not yet supported <br><br>Immutable storage gives the ability to store data in a [WORM (Write Once, Read Many) state](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage).|
+| **Object-level tiers** |Not yet supported <br><br>For example: Premium, Hot, Cold, and Archive tiers.|
+| **Static websites** |Not yet supported <br><br>Specifically, the ability to serve files to [Static websites](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
+| **Versioning features** |Not yet supported <br><br>This includes [snapshots](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) and [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete).|
 
 ## Features and tools that have limited support
 
 | Feature / Tool    | More information    |
 |--------|-----------|
-| **APIs for Data Lake Storage Gen2 storage accounts** | Partially supported <br>You can use Data Lake Storage Gen2 **REST** APIs, but APIs in other Blob SDKs such as the .NET, Java, Python SDKs are not yet available.|
-| **AzCopy** | Version-specific support <br>Use only the latest version of AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.|
-| **Azure Storage Explorer** | Version-specific support <br>Use only version `1.6.0` or higher. <br>Version `1.6.0` is available as a [free download](https://azure.microsoft.com/features/storage-explorer/).|
+| **APIs for Data Lake Storage Gen2 storage accounts** | Partially supported <br><br>You can use Data Lake Storage Gen2 **REST** APIs, but APIs in other Blob SDKs such as the .NET, Java, Python SDKs are not yet available.|
+| **AzCopy** | Version-specific support <br><br>Use only the latest version of AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.|
+| **Azure Storage Explorer** | Version-specific support <br><br>Use only version `1.6.0` or higher. <br>Version `1.6.0` is available as a [free download](https://azure.microsoft.com/features/storage-explorer/).|
 | **File System Explorer** | Limited support |
-| **Powershell and CLI support** | Limited functionality <br>You can create an account by using Powershell or the CLI. You can't perform operations or set access control lists on file systems, directories, and files.|
-| **Third party applications** | Limited support <br>Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2. <br>If you have an application that uses Blob APIs, that application will most likely have issues if you use that application with Data Lake Storage Gen2. To learn more, see the [Blob storage APIs are disabled for Data Lake Storage Gen2 storage accounts](#blob-apis-disabled) section of this article.|
+| **Powershell and CLI support** | Limited functionality <br><br>You can create an account by using Powershell or the CLI. You can't perform operations or set access control lists on file systems, directories, and files.|
+| **Third party applications** | Limited support <br><br>Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2. <br>If you have an application that uses Blob APIs, that application will most likely have issues if you use that application with Data Lake Storage Gen2. To learn more, see the [Blob storage APIs are disabled for Data Lake Storage Gen2 storage accounts](#blob-apis-disabled) section of this article.|
 
 <a id="blob-apis-disabled" />
 
