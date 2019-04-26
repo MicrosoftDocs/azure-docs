@@ -102,7 +102,7 @@ Customer Lockbox is currently enabled for remote desktop access requests to virt
 
 #### Detailed audit logs
 
-For scenarios that involve remote desktop access, you can use Windows event logs to review the actions taken by the Microsoft engineer. Consider using Azure Security Center to collect your event logs and copy the data to your workspace for analysis. For more information, see [Data collection in Azure Security Center]( .. /security-center/security-center-enable-data-collection.md).
+For scenarios that involve remote desktop access, you can use Windows event logs to review the actions taken by the Microsoft engineer. Consider using Azure Security Center to collect your event logs and copy the data to your workspace for analysis. For more information, see [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md).
 
 ## Exclusions
 
