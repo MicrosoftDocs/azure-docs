@@ -82,7 +82,7 @@ When planning your SCCA compliancy strategy and technical architecture, there ar
         - Due to additional approval and a physical build out, this option takes the most time. 
     - Microsoft’s recommendation is to utilize the DISA BCAP. This option is readily available, has built in redundancy, and already has customers operating on it today in production.
 - DoD routable IP space
-    - You will be required to use DoD routable IP space at your edge. The option to NAT those to private IP space in Azure is available.  
+    - You will be required to use DoD routable IP space at your edge. The option to NAT those to private IP space in Azure is available. 
     - Contact DoD NIC to obtain IP space, it will be needed as part of your SNAP submission with DISA. 
     - If you plan to NAT to private address space in Azure, you will need a minimum of a /24 subnet of address space assigned from the NIC for each region you plan to deploy SACA. 
 - Redundancy 
@@ -91,7 +91,7 @@ When planning your SCCA compliancy strategy and technical architecture, there ar
 - DoD component-specific requirements
     - Does your organization have any specific requirements outside the SCCA requirements? (Some organizations have specific IPS requirements)
 - SACA is a modular architecture  
-    - Use only which components you need for your environment. 
+    - Use only which components you need for your environment.
         - Deploy NVAs in a single tier or multi-tier
         - Integrated IPS, or bring your own IPS
 - DoD impact level of your applications and data
