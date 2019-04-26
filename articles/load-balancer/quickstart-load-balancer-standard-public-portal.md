@@ -149,10 +149,10 @@ Standard Load Balancer only supports VMs with Standard IP addresses in the backe
 
     | Setting | VM 2| VM 3|
     | ------- | ----- |---|
-    | Name |  *myVM1* |*myVM3*|
+    | Name |  *myVM2* |*myVM3*|
     | Availability zone | 2 |3|
     |Public IP| **Standard** SKU|**Standard** SKU|
-    | Public IP - Availability zone| Zone redundant |
+    | Public IP - Availability zone| **Zone redundant** |
     | Network security group | Select the existing *myNetworkSecurity Group*| Select the existing *myNetworkSecurity Group*|
 
  ### Create NSG rule
