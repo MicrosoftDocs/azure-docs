@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/29/2018
+ms.date: 04/26/2019
 ms.author: magoedte
 ms.subservice: 
 ---
@@ -65,7 +65,7 @@ The following steps describe how to configure a limit to manage the volume of da
 3. Daily cap is **OFF** by default – click **ON** to enable it, and then set the data volume limit in GB/day.<br><br> ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### Alert when daily cap reached
-While we present a visual cue in the Azure portal when your data limit threshold is met, this behavior doesn't necessarily align to how you manage operational issues requiring immediate attention.  To receive an alert notification, you can create a new alert rule in Azure Monitor.  To learn more, see [how to create, view and manage alerts](alerts-metric.md).      
+While we present a visual cue in the Azure portal when your data limit threshold is met, this behavior doesn't necessarily align to how you manage operational issues requiring immediate attention.  To receive an alert notification, you can create a new alert rule in Azure Monitor.  To learn more, see [how to create, view and manage alerts](alerts-metric.md).
 
 To get you started, here are the recommended settings for the alert:
 
@@ -117,6 +117,7 @@ If you want to move your workspace into the current pricing tier, you need to [c
 
 
 ## Troubleshooting why Log Analytics is no longer collecting data
+
 If you are on the legacy Free pricing tier and have sent more than 500 MB of data in a day, data collection stops for the rest of the day. Reaching the daily limit is a common reason that Log Analytics stops collecting data, or data appears to be missing.  Log Analytics creates an event of type Operation when data collection starts and stops. Run the following query in search to check if you are reaching the daily limit and missing data: 
 
 `Operation | where OperationCategory == 'Data Collection Status'`
@@ -132,6 +133,7 @@ When data collection stops, the OperationStatus is Warning. When data collection
 To be notified when data collection stops, use the steps described in *Create daily data cap* alert to be notified when data collection stops and follow the steps Use the steps described in add actions to alert rules configure an e-mail, webhook, or runbook action for the alert rule. 
 
 ## Troubleshooting why usage is higher than expected
+
 Higher usage is caused by one, or both of:
 - More nodes than expected sending data to Log Analytics
 - More data than expected being sent to Log Analytics
@@ -181,7 +183,7 @@ You can drill in further to see data trends for specific data types, for example
 
 ### Data volume by computer
 
-To see the **size** of billable events ingested per computer, use the `_BilledSize` property ([log-standard-properties#_billedsize.md](learn more)) which provides the size in bytes:
+To see the **size** of billable events ingested per computer, use the [_BilledSize](log-standard-properties#_billedsize.md) property, which provides the size in bytes:
 
 ```
 union withsource = tt * 
@@ -189,7 +191,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
 ```
 
-The `_IsBillable` property specifies whether the ingested data will incur charges ([log-standard-properties.md#_isbillable](Learn more).)
+The [_IsBillable](log-standard-properties.md#_isbillable) property specifies whether the ingested data will incur charges.
 
 To see the **count** of events ingested per computer, use
 
@@ -213,7 +215,7 @@ union withsource = tt *
 
 ### Data volume by Azure resource, resource group or subscription
 
-For data from nodes hosted in Azure you can get the **size** of billable events ingested __per computer__, use the `_ResourceId` property which provides the full path to the resource ([log-standard-properties.md#_resourceid](learn more)):
+For data from nodes hosted in Azure you can get the **size** of billable events ingested __per computer__, use the [_ResourceId](log-standard-properties.md#_resourceid) property, which provides the full path to the resource:
 
 ```
 union withsource = tt * 
