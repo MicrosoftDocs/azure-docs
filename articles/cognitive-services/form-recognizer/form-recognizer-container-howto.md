@@ -103,6 +103,40 @@ Replace these parameters with your own values in the following example `docker r
 
 [!INCLUDE [Running multiple containers Compose on the same host with H2 & H3](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
+For the Form Recognizer and Text Recognizer combination hosted locally on the same Host, an example Docker Compose YAML file follows. The Text Recognizer `{COMPUTER_VISION_API_KEY}` must be the same for both the `form` and `ocr` containers. The `{COMPUTER_VISION_ENDPOINT_URI}` is only used in the `ocr` container because the `form` container uses the `ocr` name and port. 
+
+```docker
+version: '3.3'
+services:
+  form:
+    image:  "containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer"
+    environment:
+       eula: accept
+       billing: "{BILLING_ENDPOINT_URI}"
+       apiKey: {BILLING_KEY}
+       FormRecognizer__ComputerVisionApiKey: {COMPUTER_VISION_API_KEY}
+       FormRecognizer__ComputerVisionEndpointUri: "http://ocr:5000"
+    volumes:
+       - type: bind
+         source: c:\output
+         target: /output
+       - type: bind
+         source: c:\input
+         target: /input
+    ports:
+      - "5000:5000"
+
+  ocr:
+    image: "containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text"
+    environment:
+      eula: accept
+      apikey: {COMPUTER_VISION_API_KEY}
+      billing: "{COMPUTER_VISION_ENDPOINT_URI}"
+    ports:
+      - "5001:5000"
+
+```
+
 ### Form Recognizer
 
 ```bash
