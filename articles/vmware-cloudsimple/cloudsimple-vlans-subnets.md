@@ -36,10 +36,10 @@ Selecting vSphere/vSAN subnets CIDR range size has an impact on the size of your
 
 | Specified vSphere/vSAN subnets CIDR prefix length | Maximum number of nodes |
 |---------------------------------------------------|-------------------------|
-| /24 | 28 |
-| /23 | 60 |
-| /22 | 124 |
-| /21 | 233 |
+| /24 | 26 |
+| /23 | 58 |
+| /22 | 118 |
+| /21 | 220 |
 
 ### Management subnets created on a Private Cloud
 
