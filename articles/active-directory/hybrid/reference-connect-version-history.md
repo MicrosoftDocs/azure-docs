@@ -42,7 +42,13 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 
 ### Release status 
 
+<<<<<<< HEAD
 04/24/2019: Released for download 
+=======
+
+04/24/2019: Released for download
+=======
+>>>>>>> ed372a85be95a4c9881c7aecab4c0a11a48fa059
 
  
 ### New features and improvements 
