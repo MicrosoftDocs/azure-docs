@@ -33,6 +33,4 @@ Your application will connect to a SignalR Service instance in Azure.
 
 1. Select **Create** to start deploying the SignalR Service instance.
 
-1. After the instance is deployed, open it in the portal and locate its Settings page. Change the Service Mode setting to *Serverless* if you are using Azure SignalR Service through Azure Functions binding or REST API. Leave it in *Classic* or *Default* otherwise.
-
-    ![SignalR Service Mode](../media/signalr-concept-azure-functions/signalr-service-mode.png)
+1. After the instance is deployed, open it in the portal and locate its Settings page. Change the Service Mode setting to *Serverless* only if you are using Azure SignalR Service through Azure Functions binding or REST API. Leave it in *Classic* or *Default* otherwise.
