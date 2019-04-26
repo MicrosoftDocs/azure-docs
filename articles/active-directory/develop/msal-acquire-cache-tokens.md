@@ -62,8 +62,8 @@ Application code should try to get a token silently (from the cache), first.  If
 
 However, there are two flows before which you **should not** attempt to silently acquire a token:
 
-- [client credentials flow](v2-oauth2-client-creds-grant-flow.md), which does not use the user token cache, but an application token cache. This method takes care of verifying this application token cache before sending a request to the STS.
-- [authorization code flow](v2-oauth2-auth-code-flow.md) in Web Apps, as it redeems a code that the application got by signing-in the user, and having them consent for more scopes. Since a code is passed as a parameter, and not an account, the method cannot look in the cache before redeeming the code, which requires, anyway, a call to the service.
+- [client credentials flow](msal-authentication-flows.md#confidential-client), which does not use the user token cache, but an application token cache. This method takes care of verifying this application token cache before sending a request to the STS.
+- [authorization code flow](msal-authentication-flows.md#authorization-code) in Web Apps, as it redeems a code that the application got by signing-in the user, and having them consent for more scopes. Since a code is passed as a parameter, and not an account, the method cannot look in the cache before redeeming the code, which requires, anyway, a call to the service.
 
 ### Recommended call pattern in Web Apps using the Authorization Code flow 
 For Web applications that use the [OpenID Connect authorization code flow](v2-protocols-oidc.md), the recommended pattern in the controllers is to:
@@ -77,15 +77,15 @@ Generally, the method of acquiring a token depends on whether it's a public clie
 ### Public client applications
 For public client applications (desktop or mobile app), you:
 - Often acquire tokens interactively, having the user sign in through a UI or pop-up window.
-- Can [get a token silently for the signed-in user](https://aka.ms/msal-net-iwa) using Integrated Windows Authentication (IWA/Kerberos) if the desktop application is running on a Windows computer joined to a domain or to Azure.
-- Can [get a token with a username and password](v2-oauth-ropc.md) in .NET framework desktop client applications, but this is not recommended. Do not use username/password in confidential client applications.
-- Can acquire a token through the [device code flow](v2-oauth2-device-code.md) in applications running on devices which don't have a web browser. The user is provided with a URL and a code, who then goes to a web browser on another device and enters the code and signs in.  Azure AD then sends a token back to the browser-less device.
+- Can [get a token silently for the signed-in user](msal-authentication-flows.md#integrated-windows-authentication) using Integrated Windows Authentication (IWA/Kerberos) if the desktop application is running on a Windows computer joined to a domain or to Azure.
+- Can [get a token with a username and password](msal-authentication-flows.md#usernamepassword) in .NET framework desktop client applications, but this is not recommended. Do not use username/password in confidential client applications.
+- Can acquire a token through the [device code flow](msal-authentication-flows.md#device-code) in applications running on devices which don't have a web browser. The user is provided with a URL and a code, who then goes to a web browser on another device and enters the code and signs in.  Azure AD then sends a token back to the browser-less device.
 
 ### Confidential client applications 
 For confidential client applications (Web App, Web API, or daemon application like a Windows service), you:
-- Acquire tokens **for the application itself** and not for a user, using the [client credentials flow](v2-oauth2-client-creds-grant-flow.md). This can be used for syncing tools, or tools that process users in general and not a specific user. 
-- Use the [On-behalf-of flow](v2-oauth2-on-behalf-of-flow.md) for a web API to call an API on behalf of the user. The application is identified with client credentials in order to acquire a token based on a user assertion (SAML for example, or a JWT token). This flow is used by applications that need to access resources of a particular user in service-to-service calls.
-- Acquire tokens using the [authorization code flow](v2-oauth2-auth-code-flow.md) in web apps after the user signs in through the authorization request URL. OpenID Connect application typically use this mechanism, which lets the user sign in using Open ID connect and then access web APIs on behalf of the user.
+- Acquire tokens **for the application itself** and not for a user, using the [client credentials flow](msal-authentication-flows.md#confidential-client). This can be used for syncing tools, or tools that process users in general and not a specific user. 
+- Use the [On-behalf-of flow](msal-authentication-flows.md#on-behalf-of) for a web API to call an API on behalf of the user. The application is identified with client credentials in order to acquire a token based on a user assertion (SAML for example, or a JWT token). This flow is used by applications that need to access resources of a particular user in service-to-service calls.
+- Acquire tokens using the [authorization code flow](msal-authentication-flows.md#authorization-code) in web apps after the user signs in through the authorization request URL. OpenID Connect application typically use this mechanism, which lets the user sign in using Open ID connect and then access web APIs on behalf of the user.
 
 
 ## Authentication results 

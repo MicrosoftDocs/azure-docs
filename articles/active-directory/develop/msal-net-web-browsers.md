@@ -138,4 +138,4 @@ App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, !useSystemB
 
 ## .NET Core does not support interactive authentication
 
-For .NET Core, acquisition of tokens interactively is not available. Indeed, .NET Core does not provide UI yet. If you want to provide interactive sign-in for a .NET Core application, you could let the application present to the user a code and a URL to go to sign in interactively (See [Device Code Flow](https://aka.ms/msal-net-device-code-flow)).
+For .NET Core, acquisition of tokens interactively is not available. Indeed, .NET Core does not provide UI yet. If you want to provide interactive sign-in for a .NET Core application, you could let the application present to the user a code and a URL to go to sign in interactively (See [Device Code Flow](msal-authentication-flows.md#device-code)).
