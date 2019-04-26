@@ -54,19 +54,6 @@ This guide uses the following authentication library:
 |---|---|
 |[com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft Authentication Library (MSAL)|
 
-## Register your application
-
-You can register your application in either of two ways, as described in the next two sections.
-
-### Register your app
-
-1. Go to the [Azure portal](https://aka.ms/MobileAppReg) > Select `New registration`. 
-2. Enter a **Name** for your app > `Register`. **Do not set a Redirect URI at this stage**. 
-3. In the `Manage` section, Go to `Authentication` blade > `Add a platform` > `Android`
-    - Enter your project's Package Name. If you downloaded the code, this is `com.azuresamples.msalandroidapp`. 
-    - Enter your debug/development signature hash. Use the KeyTool command in the portal to generate this. 
-4. Hit `Configure` and store the ***MSAL Configuration*** for later. 
-
 ## Set up your project
 
 ### (Optional) Skip the setup and download the entire project
@@ -79,6 +66,19 @@ Do you want to download this sample's Android Studio project instead? [Download 
 2. Name your application, and then select **Next**.
 3. Select **API 19 or newer (Android 4.4)**, and then select **Next**.
 4. Leave **Empty Activity** as it is, select **Next**, and then select **Finish**.
+
+## Register your application
+
+You can register your application in either of two ways, as described in the next two sections.
+
+### Register your app
+
+1. Go to the [Azure portal](https://aka.ms/MobileAppReg) > Select `New registration`. 
+2. Enter a **Name** for your app > `Register`. **Do not set a Redirect URI at this stage**. 
+3. In the `Manage` section, Go to `Authentication` blade > `Add a platform` > `Android`
+    - Enter your project's Package Name. If you downloaded the code, this is `com.azuresamples.msalandroidapp`. 
+    - Enter your debug/development signature hash. Use the KeyTool command in the portal to generate this. 
+4. Hit `Configure` and store the ***MSAL Configuration*** for later. 
 
 ## Building your app
 
