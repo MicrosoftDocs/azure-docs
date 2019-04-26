@@ -11,7 +11,7 @@ ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
 ---
-# Install and run containers
+# Install and run Form Recognizer containers
 Form Recognizer applies machine learning technology to identify and extract key-value pairs and tables from forms. It associates values and table entries to them and then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model using a simple REST API in order to reduce complexity and easily integrate it in your workflow automation process or other application. Only five documents (or an empty form) are needed, so you can get results quickly, accurately and tailored to your specific content, without heavy manual intervention or extensive data science expertise. It does not require data labeling or data annotation.
 
 |Function|Features|
