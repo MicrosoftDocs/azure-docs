@@ -193,7 +193,7 @@ In this section, you define a set of enrichment steps that you want to apply to 
 
 + [Language Detection](cognitive-search-skill-language-detection.md) to identify the content's language.
 
-+ [Text Split](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill and the named entity recognition skill. Key phrase extraction and named entity recogntion accept inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
++ [Text Split](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill and the named entity recognition skill. Key phrase extraction and named entity recognition accept inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
 
 + [Named Entity Recognition](cognitive-search-skill-named-entity-recognition.md) for extracting the names of organizations from content in the blob container.
 
