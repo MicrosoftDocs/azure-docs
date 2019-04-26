@@ -48,13 +48,13 @@ You can click on **[+] Add** to add a new access restriction rule. Once you add 
 
 ![add an IP access restriction rule](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
-When creating a rule you must select allow/deny and also the type of rule. You are also required to provide the priority value and what you are restricting access to.  You can optionally add a name, and description to the rule.  
+When creating a rule, you must select allow/deny and also the type of rule. You are also required to provide the priority value and what you are restricting access to.  You can optionally add a name, and description to the rule.  
 
 To set an IP address based rule, select a type of IPv4 or IPv6. IP Address notation must be specified in CIDR notation for both IPv4 and IPv6 addresses. To specify an exact address, you can use something like 1.2.3.4/32 where the first four octets represent your IP address and /32 is the mask. The IPv4 CIDR notation for all addresses is 0.0.0.0/0. To learn more about CIDR notation, you can read [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
 ![add a VNet access restriction rule](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
-To restrict access to selected subnets, select a type of Virtual Network. Below that you will be able to pick the subscription, VNet and subnet you wish to allow or deny access with. If service endpoints is not already enabled with Microsoft.Web for the subnet that you selected, it will automatically be enabled for you unless you check the box asking not to do that. The situation where you would want to enable it on the app but not the subnet is largely related to if you have the permissions to enable service endpoints on the subnet or not. If you need to get somebody else to enable service endpoints on the subnet, you can check the box and have your app configured for service endpoints in anticipation of it being enabled later on the subnet. 
+To restrict access to selected subnets, select a type of Virtual Network. Below that you will be able to pick the subscription, VNet, and subnet you wish to allow or deny access with. If service endpoints are not already enabled with Microsoft.Web for the subnet that you selected, it will automatically be enabled for you unless you check the box asking not to do that. The situation where you would want to enable it on the app but not the subnet is largely related to if you have the permissions to enable service endpoints on the subnet or not. If you need to get somebody else to enable service endpoints on the subnet, you can check the box and have your app configured for service endpoints in anticipation of it being enabled later on the subnet. 
 
 You can click on any row to edit an existing access restriction rule. Edits are effective immediately including changes in priority ordering.
 
@@ -96,7 +96,7 @@ The JSON syntax for the earlier example is:
 
 ## Function App IP Restrictions
 
-IP restrictions are available for both Function Apps with the same functionality as App Service plans. Note that enabling IP restrictions will disable the portal code editor for any disallowed IPs.
+IP restrictions are available for both Function Apps with the same functionality as App Service plans. Enabling IP restrictions will disable the portal code editor for any disallowed IPs.
 
 [Learn more here](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
