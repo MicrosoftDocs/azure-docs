@@ -16,11 +16,10 @@ ms.author: magoedte
 ms.subservice: 
 ---
  
-# Manage usage and costs for Azure Monitor Logs
+# Manage usage and costs with Azure Monitor Logs
 
 > [!NOTE]
-> This article describes how to control your costs in Azure Monitor by setting the data retention period for your Log Analytics workspace.  Refer to the following articles for related information.
-> - [Analyze data usage in Log Analytics](manage-cost-storage.md) describes how to analyze and alert on your data usage.
+> This article describes how to control your costs in Azure Monitor by setting the data retention period for your Log Analytics workspace.  Refer to the following article for related information.
 > - [Monitoring usage and estimated costs](usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
 
 Azure Monitor Logs is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, it's important to understand that the cost of a Log Analytics workspace isn't based only on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
@@ -37,8 +36,7 @@ The cost of data can be considerable depending on the following factors:
 
 ## Understand your workspace's usage and estimated cost
 
-Azure Monitor Logs makes it easy to understand what the costs are likely be based on recent usage patterns.  To do this, use  **Log Analytics Usage and Estimated Costs**  to review and analyze data usage. The shows how much data is collected by each solution, how much data is being retained and an estimate of your costs 
-based on the amount of data ingested and any additional retention beyond the included amount.
+Azure Monitor Logs makes it easy to understand what the costs are likely be based on recent usage patterns. To do this, use  **Log Analytics Usage and Estimated Costs** to review and analyze data usage. The shows how much data is collected by each solution, how much data is being retained and an estimate of your costs based on the amount of data ingested and any additional retention beyond the included amount.
 
 ![Usage and estimated costs](media/manage-cost-storage/usage-estimated-cost-dashboard-01.png)
 
