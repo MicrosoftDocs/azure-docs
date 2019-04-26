@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 # Encoding with Media Services
 
-In order to prepare content for delivery by [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video needs to be encoded at multiple bit-rates (high to low). In order to ensure graceful degradation of quality, as the bitrate is lowered so is the resolution of the video. This results in a so-called encoding ladder – a table of resolutions and bitrates
+In order to prepare content for delivery by [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video needs to be encoded at multiple bit-rates (high to low). In order to ensure graceful degradation of quality, as the bitrate is lowered so is the resolution of the video. This results in a so-called encoding ladder – a table of resolutions and bitrates (see [auto-generated adaptive bitrate ladder](autogen-bitrate-ladder.md). 
 
 Azure Media Services enables you to encode your high-quality digital media files into adaptive bitrate MP4 files. A successful Media Services encoding job creates an output Asset with a set of adaptive bitrate MP4s and streaming configuration files. The configuration files include .ism, .ismc, .mpi, and other files that you should not modify. Once the encoding job is done, you can take advantage of [Dynamic Packaging](dynamic-packaging-overview.md) and start streaming.
 
