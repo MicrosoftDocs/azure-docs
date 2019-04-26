@@ -251,7 +251,11 @@ let endDateTime = now();
 >[!NOTE]
 >To alert on certain pod phases, such as *Pending*, *Failed*, or *Unknown*, modify the last line of the query. For example, to alert on *FailedCount* use: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
-The following query returns cluster nodes disks which exceed 90% free space used.  
+The following query returns cluster nodes disks which exceed 90% free space used. To get the cluster ID, first run the following query and copy the value from the `ClusterId` property:
+
+```kusto
+| project TimeGenerated, ClusterId = Tags['container.azm.ms/clusterId'], Computer = tostring(Tags.hostName), Device = tostring(Tags.device), Path = tostring(Tags.path), DiskMetricName = Name, DiskMetricValue = Val   
+``` 
 
 ```kusto
 let clusterId = '<cluster-id>';
@@ -268,7 +272,7 @@ InsightsMetrics
 | where ClusterId =~ clusterId       
 | where DiskMetricName == 'used_percent'
 | summarize AggregatedValue = max(DiskMetricValue) by bin(TimeGenerated, trendBinSize)
-| where AggregatedValue > 90
+| where AggregatedValue >= 90
 ```
 
 ## Create an alert rule
