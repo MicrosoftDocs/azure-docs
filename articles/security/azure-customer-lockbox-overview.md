@@ -14,7 +14,7 @@ ms.date: 05/07/2019
 > [!NOTE]
 > To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
 
-As a cloud service provider, we understand the importance of maintaining the integrity and confidentiality of customer data. We continually invest in our policies, processes, and tools for governing when Microsoft may need to access customer data hosted in Azure. One of the key tools to provide control over these processes is Customer Lockbox for Microsoft Azure.
+As a cloud service provider, Microsoft understands the importance of maintaining the integrity and confidentiality of customer data. We continually invest in our policies, processes, and tools for governing when Microsoft may need to access customer data hosted in Azure. One of the key tools to provide control over these processes is Customer Lockbox for Microsoft Azure.
 
 In most cases, Microsoft engineers do not access customer data. For example, routine platform maintenance doesn't need access to customer data and if customers have opened support tickets, Microsoft support engineers can typically troubleshoot issues by using tools and telemetry.
 
