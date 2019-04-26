@@ -77,7 +77,7 @@ Check the notifications in the top-right corner of the Azure portal or navigate 
 
 #### Issue
 
-You receive the following error when trying to unlink a workspace
+You receive the following error when trying to unlink a workspace:
 
 ```error
 The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
@@ -98,10 +98,10 @@ To resolve this you'll need to remove the following solutions from your Workspac
 Once you remove the solutions you can unlink your workspace. It is important to clean up any existing artifacts from those solutions from your workspace and Automation Account as well.  
 
 * Update Management
-  * Remove Update Deployments (Schedules)
-* Start/Stop VMs
-  * Remove any locks on solution components under **Settings** > **Locks**
-  * Remove the runbooks, varibles, and schedules created. To learn more about what is created, see [solution components](../automation-solution-vm-management.md#solution-components).
+  * Remove Update Deployments (Schedules) from your Automation Account
+* Start/Stop VMs during off-hours
+  * Remove any locks on solution components in your Automation Account under **Settings** > **Locks**
+  * Remove the runbooks, variables, and schedules created by the solution. To learn more about what is created, see [solution components](../automation-solution-vm-management.md#solution-components).
 
 ## <a name="mma-extension-failures"></a>MMA Extension failures
 
