@@ -6,20 +6,19 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 4/26/2019
+ms.date: 5/6/2019
 ---
 
 ## Compute and storage
  
-You can select various compute and storage settings for the worker nodes and
-separately for the coordinator node in a Hyperscale (Citus) server group.
-Compute resources are provided as vCores, which represent the logical CPU of
-the underlying hardware. The storage you provision is the amount of storage
-capacity available to the coordinator and worker nodes in your Hyperscale
-(Citus) server group. The storage is used for the database files, temporary
-files, transaction logs, and the Postgres server logs. The total amount of
-storage you provision also defines the I/O capacity available to each worker
-and coordinator node.
+You can select compute and storage settings independently for worker nodes and
+the coordinator node in a Hyperscale (Citus) server group.  Compute resources
+are provided as vCores, which represent the logical CPU of the underlying
+hardware. The storage size for provisioning refers to the capacity available to
+the coordinator and worker nodes in your Hyperscale (Citus) server group. The
+storage includes  database files, temporary files, transaction logs, and the
+Postgres server logs. The total amount of storage you provision also defines
+the I/O capacity available to each worker and coordinator node.
  
 |                                | Worker node      | Coordinator node |
 |--------------------------------|------------------|------------------|
@@ -38,7 +37,17 @@ Hyperscale (Citus) server groups are available in the following Azure regions:
 * West US 2
 
 ## Pricing
-For the most up-to-date pricing information, see the service pricing page. To see the cost for the configuration you want, the Azure portal shows the monthly cost on the Configure tab based on the options you select. If you don't have an Azure subscription, you can use the Azure pricing calculator to get an estimated price. On the Azure pricing calculator website, select **Add items**, expand the **Databases** category, and choose **Azure Database for PostgreSQL – Hyperscale (Citus)** to customize the options.
+For the most up-to-date pricing information, see the service [pricing
+page](https://azure.microsoft.com/pricing/details/postgresql/). To see the cost
+for the configuration you want, the [Azure
+portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) shows the
+monthly cost on the **Configure** tab based on the options you select. If you
+don't have an Azure subscription, you can use the Azure pricing calculator to
+get an estimated price. On the [Azure pricing
+calculator](https://azure.microsoft.com/en-us/pricing/calculator/) website,
+select **Add items**, expand the **Databases** category, and choose **Azure
+Database for PostgreSQL – Hyperscale (Citus)** to customize the options.
  
 ## Next steps
-Learn how to [create a Hyperscale (Citus) server group in the portal](quickstart-create-hyperscale-portal.md).
+Learn how to [create a Hyperscale (Citus) server group in the
+portal](quickstart-create-hyperscale-portal.md).
