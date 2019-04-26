@@ -142,7 +142,7 @@ If the Module hasn't been loaded into a PowerShell session, can manually load us
 ### Troubleshooting running processes
 
 You can inspect the process on the instrumented machine to see if all DLLs are loaded.
-If monitoring is working, at least 15 DLLS should be loaded.
+If monitoring is working, at least 12 DLLS should be loaded.
 
 - Cmd: `Get-ApplicationInsightsMonitoringStatus -InspectProcess`
 
