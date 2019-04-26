@@ -559,7 +559,7 @@ To create a virtual machine scale set that assigns a public IP address to each V
 
 ### Can I configure a scale set to work with multiple Application Gateways?
 
-Yes. You can add the resource id's for multiple Application Gateway backend address pools to the _applicationGatewayBackendAddressPools_ list in the _ipConfigurations_ section of your scale set network profile.
+Yes. You can add the resource IDs for multiple Application Gateway backend address pools to the _applicationGatewayBackendAddressPools_ list in the _ipConfigurations_ section of your scale set network profile.
 
 ## Scale
 
@@ -698,8 +698,8 @@ The main difference between deleting a VM in a virtual machine scale set and dea
   - Related to this scenario, you might have created your own autoscale engine and want a faster end-to-end scale.
 - You have a virtual machine scale set that is unevenly distributed across fault domains or update domains. This might be because you selectively deleted VMs, or because VMs were deleted after overprovisioning. Running `stop deallocate` followed by `start` on the virtual machine scale set evenly distributes the VMs across fault domains or update domains.
 
-### How do I take a snapshot of a VMSS instance?
-Create a snapshot from an instance of a VMSS.
+### How do I take a snapshot of a virtual machine scale set instance?
+Create a snapshot from an instance of a virtual machine scale set.
 
 ```azurepowershell-interactive
 $rgname = "myResourceGroup"
