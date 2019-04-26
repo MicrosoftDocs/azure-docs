@@ -2,12 +2,12 @@
 title: Azure Monitor - Application Insights for Kubernetes with service mesh | Microsoft Docs
 description: Application Insight for Kubernetes is a monitoring solution that allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your Kubernetes cluster. 
 services: application-insights
-author: rishabjolly
+author: tokaplan
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: rijolly
+ms.author: alkaplan
 ---
 
 # Application Insights for Kubernetes with service mesh
