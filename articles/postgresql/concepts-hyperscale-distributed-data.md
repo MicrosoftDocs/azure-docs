@@ -11,6 +11,10 @@ ms.date: 4/24/2019
 
 # Distributed data in Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
 
+This article outlines the three table types in Hyperscale (Citus).
+It shows how distributed tables are stored as shards, and the way
+shards are placed on nodes.
+
 ## Table Types
 
 There are three types of tables in a Hyperscale server group, each
