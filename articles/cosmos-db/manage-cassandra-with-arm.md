@@ -10,7 +10,7 @@ ms.author: mjbrown
 
 # Create Azure Cosmos DB Cassandra API resources from a Resource Manager template
 
-Learn how to create an Azure Cosmos account for Cassandra API using an Azure Resource Manager template. The following example creates an Azure Cosmos DB Cassandra API account from the [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-cassandra/azuredeploy.json). This template will create an Azure Cosmos account for Cassandra API with two tables that share 400 RU/s throughput at the keyspace-level. 
+Learn how to create an Azure Cosmos account for Cassandra API using an Azure Resource Manager template. The following example creates an Azure Cosmos DB Cassandra API account from the [Azure Quickstart template](https://aka.ms/cassandra-arm-qs). This template will create an Azure Cosmos account for Cassandra API with two tables that share 400 RU/s throughput at the keyspace-level. 
 
 Here is a copy of the template:
 

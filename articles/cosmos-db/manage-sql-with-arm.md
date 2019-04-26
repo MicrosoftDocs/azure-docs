@@ -10,7 +10,7 @@ ms.author: mjbrown
 
 # Create Azure Cosmos DB Core (SQL) API resources from a Resource Manager template
 
-Learn how to create an Azure Cosmos DB resources using an Azure Resource Manager template. The following example creates an Azure Cosmos DB account from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql/azuredeploy.json). This template will create an Azure Cosmos account with two containers that share 400 RU/s throughput at the database level.
+Learn how to create an Azure Cosmos DB resources using an Azure Resource Manager template. The following example creates an Azure Cosmos DB account from an [Azure Quickstart template](https://aka.ms/sql-arm-qs). This template will create an Azure Cosmos account with two containers that share 400 RU/s throughput at the database level.
 
 Here is a copy of the template:
 

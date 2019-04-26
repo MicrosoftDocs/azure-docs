@@ -10,7 +10,7 @@ ms.author: mjbrown
 
 # Create Azure Cosmos DB Table API resources from a Resource Manager template
 
-Learn how to create an Azure Cosmos DB Table API resources using an Azure Resource Manager template. The following example creates an Azure Cosmos DB Table API from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-table/azuredeploy.json). This template will create an Azure Cosmos account for Table API with one table with 400 RU/s throughput.
+Learn how to create an Azure Cosmos DB Table API resources using an Azure Resource Manager template. The following example creates an Azure Cosmos DB Table API from an [Azure Quickstart template](https://aka.ms/table-arm-qs). This template will create an Azure Cosmos account for Table API with one table with 400 RU/s throughput.
 
 Here is a copy of the template:
 

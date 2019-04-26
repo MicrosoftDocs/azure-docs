@@ -10,7 +10,7 @@ ms.author: mjbrown
 
 # Create Azure Cosmos DB API for MongoDB resources from a Resource Manager template
 
-Learn how to create an Azure Cosmos DB API for MongoDB resources using an Azure Resource Manager template. The following example creates an Azure Cosmos DB account for MongoDB API from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-mongodb/azuredeploy.json). This template will create an Azure Cosmos account for MongoDB API with two collections that share 400 RU/s throughput at the database level.
+Learn how to create an Azure Cosmos DB API for MongoDB resources using an Azure Resource Manager template. The following example creates an Azure Cosmos DB account for MongoDB API from an [Azure Quickstart template](https://aka.ms/mongodb-arm-qs). This template will create an Azure Cosmos account for MongoDB API with two collections that share 400 RU/s throughput at the database level.
 
 Here is a copy of the template:
 

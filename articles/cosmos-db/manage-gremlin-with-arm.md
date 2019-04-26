@@ -10,7 +10,7 @@ ms.author: mjbrown
 
 # Create Azure Cosmos DB Gremlin API resources from a Resource Manager template
 
-Learn how to create an Azure Cosmos DB Gremlin API resources using an Azure Resource Manager template. The following example creates an Azure Cosmos DB Gremlin API from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-gremlin/azuredeploy.json). This template will create an Azure Cosmos account for Gremlin API with two graphs that share 400 RU/s throughput at the database level.
+Learn how to create an Azure Cosmos DB Gremlin API resources using an Azure Resource Manager template. The following example creates an Azure Cosmos DB Gremlin API from an [Azure Quickstart template](https://aka.ms/gremlin-arm-qs). This template will create an Azure Cosmos account for Gremlin API with two graphs that share 400 RU/s throughput at the database level.
 
 Here is a copy of the template:
 
