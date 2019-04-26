@@ -25,54 +25,36 @@ ms.collection: M365-identity-device-management
 
 Authentication flows can be used in different scenarios.
 
-| Flow | Description | Diagram |
-| ---- | ----------- | ------- |
-| [On-behalf-of](#on-behalf-of) | An application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. |![On-behalf-of flow][media/msal-authentication-flows/on-behalf-of.png] |
+| Flow | Description | Application type|  Diagram |
+| ---- | ----------- | ------- | ------- |
+| [Authorization code](#authorization-code) | | Web Apps / Web APIs / daemon apps | ![Authorization code flow][media/msal-authentication-flows/authorization-code.png] | 
+| [On-behalf-of](#on-behalf-of) | An application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. | Web Apps / Web APIs / daemon apps | ![On-behalf-of flow][media/msal-authentication-flows/on-behalf-of.png] |
+| [Username/password](#username-password) | | | Desktop/mobile apps | ![Username/password flow][media/msal-authentication-flows/username-password.png]
 
 
 ## Implicit grant
 
 ## Authorization code
-When users login to Web applications (web sites) using Open Id connect, the web application receives an authorization code which it can redeem to acquire a token to call Web APIs. In ASP.NET / ASP.NET core web apps, the only goal of `AcquireTokenByAuthorizationCode` is to add a token to the token cache, so that it can then be used by the application (usually in the controllers) which just get a token for an API using `AcquireTokenSilent`.
+MSAL supports the [OAuth 2 authorization code grant](v2-oauth2-auth-code-flow.md), which can be used in apps that are installed on a device to gain access to protected resources, such as web APIs. This allows you to add sign in and API access to your mobile and desktop apps. 
+
+When users sign in to web applications (web sites), the web application receives an authorization code.  The authorization code is redeemed to acquire a token to call web APIs. In ASP.NET / ASP.NET core web apps, the only goal of `AcquireTokenByAuthorizationCode` is to add a token to the token cache, so that it can then be used by the application (usually in the controllers) which just get a token for an API using `AcquireTokenSilent`.
+
+The code is usable only once to redeem a token. AcquireTokenByAuthorizationCode should not be called several times with the same authorization code (it's explicitly prohibited by the protocol standard spec). If you redeem the code several times, consciously, or because you are not aware that a framework also does it for you, you'll get an error: 'invalid_grant', 'AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token
+
+In particular, if you are writing an ASP.NET / ASP.NET Core application, this might happen if you don't tell the ASP.NET/Core framework that you have already redeemed the code. For this you need to call context.HandleCodeRedemption() part of the AuthorizationCodeReceived event handler.
+
+Finally, avoid sharing the access token with ASP.NET otherwise this might prevent incremental consent happening correctly, (for details see issue #693).
 
 ## On-behalf-of
 
-MSAL supports the [OAuth 2 on-behalf-of authentication flow](v2-oauth2-on-behalf-of-flow).  This flow is used when an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from the Microsoft identity platform, on behalf of the user.
+MSAL supports the [OAuth 2 on-behalf-of authentication flow](v2-oauth2-on-behalf-of-flow.md).  This flow is used when an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from the Microsoft identity platform, on behalf of the user.
 
 ![On-behalf-of flow][media/msal-authentication-flows/on-behalf-of.png]
 
-- A client (Web, desktop, mobile, Single-page application) calls a protected Web API, providing a JWT bearer token in its "Authorization" Http Header.
-- The protected Web API validates the token, requests a token on-behalf-of, to Azure AD, another token so that it can, itself, call a second Web API (named the downstream Web API) on behalf of the user.
-- The protected Web API uses this token to call a downstream API, it can also later call `AcquireTokenSilent` to request tokens for other downstream APIs (but still on behalf of the same user). `AcquireTokenSilent` refreshes the token when needed.
-
-## Username/password 
-[Resource owner password credentials](v2-oauth-ropc.md)
-
-In your desktop application, you can use the Username/Password flow to acquire a token silently. No UI is required when using the application.
-
-> [!WARNING]
-> This flow is **not recommended** because your application asking a user for their password is not secure. For more information about this problem, see [this article](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
-
-The preferred flow for acquiring a token silently on Windows domain joined machines is [Integrated Windows Authentication](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Otherwise you can also use [Device code flow](https://aka.ms/msal-net-device-code-flow)
-
-Although this is useful in some cases (DevOps scenarios), if you want to use Username/password in interactive scenarios where you provide your onw UI, you should really think about how to move away from it. By using username/password you are giving-up a number of things:
-- core tenants of modern identity: password gets fished, replayed. Because we have this concept of a share secret that can be intercepted.
-This is incompatible with passwordless.
-- users who need to do MFA won't be able to sign-in (as there is no interaction)
-- Users won't be able to do single sign-on
-
-### Constraints
-
-Apart from the [Integrated Windows Authentication constraints](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication#constraints), the following constraints also apply:
-
-- Available starting with MSAL 2.1.0
-- The Username/Password flow is not compatible with conditional access and multi-factor authentication: As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multi-factor authentication, you cannot use this flow. Many organizations do that.
-- It works only for Work and school accounts (not MSA)
-- The flow is available on .net desktop and .net core, but not on UWP
-
-### Azure AD B2C specifics
-
-[More information on using ROPC with Azure AD B2C](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics#resource-owner-password-credentials-ropc-with-b2c).
+1. Acquires an access token for the Web API
+2. A client (Web, desktop, mobile, Single-page application) calls a protected Web API, adding the access token as a bearer token in the authentication header of the HTTP request. The Web API authenticates the user.
+3. When the client calls the Web API, the Web API requests another token on-behalf-of the user.  
+4. The protected Web API uses this token to call a downstream Web API on-behalf-of the user.  The Web API can also later request tokens for other downstream APIs (but still on behalf of the same user).
 
 ## Confidential client
 
@@ -134,3 +116,29 @@ If your desktop or mobile application runs on Windows, and on a machine connecte
 - This flow is enabled for .net desktop, .net core and Windows Universal Apps. On .net core only the overload taking the username is available as the .NET Core platform cannot ask the username to the OS.
   
 For more details on consent see [v2.0 permissions and consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent)
+
+## Username/password 
+MSAL supports the [OAuth 2 resource owner password credentials grant](v2-oauth-ropc.md), which allows an application to sign in the user by directly handling their password. In your desktop application, you can use the username/password flow to acquire a token silently. No UI is required when using the application.
+
+> [!WARNING]
+> This flow is **not recommended** because it requires a high degree of trust and user exposure.  You should only use this flow when other, more secure, flows can't be used. For more information about this problem, see [this article](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
+
+The preferred flow for acquiring a token silently on Windows domain joined machines is [Integrated Windows Authentication](#integrated-windows-authentication). Otherwise, you can also use [Device code flow](#device-code)
+
+Although this is useful in some cases (DevOps scenarios), if you want to use Username/password in interactive scenarios where you provide your own UI, you should really think about how to move away from it. By using username/password you are giving-up a number of things:
+- core tenants of modern identity: password gets fished, replayed. Because we have this concept of a share secret that can be intercepted.
+This is incompatible with passwordless.
+- users who need to do MFA won't be able to sign-in (as there is no interaction)
+- Users won't be able to do single sign-on
+
+### Constraints
+
+Apart from the [Integrated Windows Authentication constraints](#integrated-windows-authentication), the following constraints also apply:
+
+- The username/password flow is not compatible with conditional access and multi-factor authentication: As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multi-factor authentication, you cannot use this flow. Many organizations do that.
+- It works only for Work and school accounts (not MSA)
+- The flow is available on .NET desktop and .NET core, but not on Universal Windows Platform.
+
+### Azure AD B2C specifics
+
+For more information on using MSAL.NET and Azure AD B2C, read [Using ROPC with Azure AD B2C (MSAL.NET)](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc-with-azure-ad-b2c).
