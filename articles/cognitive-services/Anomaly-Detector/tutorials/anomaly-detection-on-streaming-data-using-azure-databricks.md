@@ -35,7 +35,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 Before you start with this tutorial, make sure to meet the following requirements:
 - An Azure Event Hubs namespace.
 - An Event Hub within the namespace.
-- Connection string to access the Event Hubs namespace. The connection string should have a format similar to `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`. You can find the connection string follow the article, [Get an Event Hubs connection string](../../../event-hubs/event-hubs-get-connection-string.md)
+- Connection string to access the Event Hubs namespace. The connection string should have a format similar to `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`. You can find the connection string follow the article, [Get an Event Hubs connection string](../../../event-hubs/event-hubs-get-connection-string.md).
 - Shared access policy name and policy key for Event Hubs.
 
 You can meet these requirements by completing the steps in the article, [Create an Azure Event Hubs namespace and event hub](../../../event-hubs/event-hubs-create.md).
@@ -499,13 +499,13 @@ import org.apache.spark.eventhubs._
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.functions._
 
-val connectionString = ConnectionStringBuilder("Endpoint=sb://ad-databricks.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=NOXojBfXQZ+phyR86VVvBmtRzrctIS9APu+CPond5eE=")
-  .setEventHubName("demo-eventhub")
+val connectionString = ConnectionStringBuilder("[Placeholder: EventHub namespace connection string]")
+  .setEventHubName("[Placeholder: EventHub name]")
   .build
 
 val customEventhubParameters =
   EventHubsConf(connectionString)
-  .setConsumerGroup("ad-con-grp")
+  .setConsumerGroup("$Default")
   .setMaxEventsPerTrigger(100)
 
 val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
