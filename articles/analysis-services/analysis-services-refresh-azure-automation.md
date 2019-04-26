@@ -5,7 +5,7 @@ author: chrislound
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 04/26/2019
 ms.author: chlound
 
 ---
@@ -40,11 +40,11 @@ Install the SqlServer modules from the gallery.
 
 2. In the search bar, search for **SqlServer**.
 
- ![Search Modules](./media/analysis-services-refresh-azure-automation/1.png)
+    ![Search Modules](./media/analysis-services-refresh-azure-automation/1.png)
 
 3. Select SqlServer, then click **Import**.
  
-![Import Module](./media/analysis-services-refresh-azure-automation/2.png)
+    ![Import Module](./media/analysis-services-refresh-azure-automation/2.png)
 
 4. Click **OK**
  
@@ -57,15 +57,15 @@ Make sure you have a Service Principal (SPN) created.
 
 1. Connect to the Azure Analysis Services instance through SQL Server Management Studio, and sign in when prompted.
 
- ![Connect to Azure Analysis Services](./media/analysis-services-refresh-azure-automation/3.png)
+    ![Connect to Azure Analysis Services](./media/analysis-services-refresh-azure-automation/3.png)
 
 2. In object explorer, right click the instance, and select **properties**
 
- ![Instance Properties](./media/analysis-services-refresh-azure-automation/4.png)
+    ![Instance Properties](./media/analysis-services-refresh-azure-automation/4.png)
 
 3. In the security tab, click **Add**.  Search for your Service Principal, and click **Add**.
 
- ![Add service principal](./media/analysis-services-refresh-azure-automation/5.png)
+    ![Add service principal](./media/analysis-services-refresh-azure-automation/5.png)
 
 If you are unable to find the SPN in the list, add it manually using the following format:
 App:*SPN ClientID*@*TenantID*
@@ -77,38 +77,38 @@ App:*SPN ClientID*@*TenantID*
 
 1. In the Automation Account, create a **Credentials** resource which will be used to securely store the Service Principal.
 
- ![Create credential](./media/analysis-services-refresh-azure-automation/6.png)
+    ![Create credential](./media/analysis-services-refresh-azure-automation/6.png)
 
 2. Enter the details for the credential.  For the **User name**, enter the **SPN ClientId**, for the **Password**, enter the **SPN Secret**.
 
- ![Create credential](./media/analysis-services-refresh-azure-automation/7.png)
+    ![Create credential](./media/analysis-services-refresh-azure-automation/7.png)
 
 3. Import the Automation Runbook
 
- ![Import Runbook](./media/analysis-services-refresh-azure-automation/8.png)
+    ![Import Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
 4. Browse for the **Refresh-Model.ps1** file, provide a **Name**, and give the runbook a **description**.  Then click **Create**.
 
- ![Import Runbook](./media/analysis-services-refresh-azure-automation/9.png)
+    ![Import Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
 5. When the Runbook has been created, it will automatically go into edit mode.  Select **Publish**.
 
- ![Publish Runbook](./media/analysis-services-refresh-azure-automation/10.png)
+    ![Publish Runbook](./media/analysis-services-refresh-azure-automation/10.png)
 
 > [!NOTE]
 > The credential resource that was created previously is retrieved by the runbook by using the **Get-AutomationPSCredential** command.  This command is then passed to the **Invoke-ProcessASADatabase** PowerShell command to perform the authentication to Azure Analysis Services.
 
 6. Test the runbook by clicking **Start**.
 
- ![Start the Runbook](./media/analysis-services-refresh-azure-automation/11.png)
+    ![Start the Runbook](./media/analysis-services-refresh-azure-automation/11.png)
 
 7. Fill out the **DATABASENAME**, **ANALYSISSERVER** and **REFRESHTYPE** parameters and click **OK**.  The **WEBHOOKDATA** parameter is not required when the Runbook is run manually.
 
- ![Start the Runbook](./media/analysis-services-refresh-azure-automation/12.png)
+    ![Start the Runbook](./media/analysis-services-refresh-azure-automation/12.png)
 
 If the Runbook was executed successfully, you will receive an output like the following:
 
- ![Successful Run](./media/analysis-services-refresh-azure-automation/13.png)
+![Successful Run](./media/analysis-services-refresh-azure-automation/13.png)
 
 ## Using a self-contained Azure Automation Runbook
 
@@ -118,17 +118,17 @@ This can be configured as follows:
 
 1. In the Automation Runbook, click **Schedules**, then **Add a Schedule**.
  
- ![Create schedule](./media/analysis-services-refresh-azure-automation/14.png)
+    ![Create schedule](./media/analysis-services-refresh-azure-automation/14.png)
 
 2. Click **Schedule** > **Create a new schedule** and fill in the details.
 
- ![Configure schedule](./media/analysis-services-refresh-azure-automation/15.png)
+    ![Configure schedule](./media/analysis-services-refresh-azure-automation/15.png)
 
 3. Click **Create**.
 
 4. Fill in the parameters for the schedule.  These will be used each time the Runbook triggers.  The **WEBHOOKDATA** parameter should be left blank when running via a schedule.
 
- ![Configure parameters](./media/analysis-services-refresh-azure-automation/16.png)
+    ![Configure parameters](./media/analysis-services-refresh-azure-automation/16.png)
 
 5. Click **OK**.
 
@@ -141,14 +141,14 @@ To consume the runbook using Azure Data Factory, first create a **Webhook** for 
 
 1. In your Automation Runbook, click **Webhooks**, then Add **Webhook**.
 
-![Add Webhook](./media/analysis-services-refresh-azure-automation/17.png)
+   ![Add Webhook](./media/analysis-services-refresh-azure-automation/17.png)
 
 2. Give the Webhook a name and an expiry.  The name only identifies the Webhook inside the Automation Runbook, it doesn't form part of the URL.
 
 > [!CAUTION]
 > Ensure to copy the URL before closing the wizard as you cannot get it back once closed.
 
-![Configure Webhook](./media/analysis-services-refresh-azure-automation/18.png)
+   ![Configure Webhook](./media/analysis-services-refresh-azure-automation/18.png)
 
 The parameters for the webhook can remain blank.  When configuring the Azure Data Factory web activity, the parameters can be passed into the body of the web call.
 
@@ -156,7 +156,7 @@ The parameters for the webhook can remain blank.  When configuring the Azure Dat
 
 Example
 
-![Example Web Activity](./media/analysis-services-refresh-azure-automation/19.png)
+   ![Example Web Activity](./media/analysis-services-refresh-azure-automation/19.png)
 
 The **URL** is the URL created from the Webhook.
 

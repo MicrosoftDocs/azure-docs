@@ -5,7 +5,7 @@ author: chrislound
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 04/26/2019
 ms.author: chlound
 
 ---
@@ -36,15 +36,15 @@ Once the SPN is created, assign it permissions to Azure Analysis Services.  For 
 
 1. Connect to the Azure Analysis Services instance through SQL Server Management Studio, and sign in when prompted.
 
- ![Connect to Azure Analysis Services](./media/analysis-services-async-refresh-logic-app/3.png)
+    ![Connect to Azure Analysis Services](./media/analysis-services-async-refresh-logic-app/3.png)
 
 2. In object explorer, right click the instance, and select **properties**
 
- ![Instance Properties](./media/analysis-services-async-refresh-logic-app/4.png)
+    ![Instance Properties](./media/analysis-services-async-refresh-logic-app/4.png)
 
 3. In the security tab, click **Add**.  Search for your Service Principal, and click **Add**.
 
- ![Add service principal](./media/analysis-services-async-refresh-logic-app/5.png)
+    ![Add service principal](./media/analysis-services-async-refresh-logic-app/5.png)
 
 If you are unable to find the SPN in the list, add it manually using the following format:
 App:*SPN ClientID*@*TenantID*
@@ -57,19 +57,19 @@ Once you have created a Logic App:
 
 1. In the Logic App designer, choose the first action as **When a HTTP request is received**.
 
-![Add HTTP received activity](./media/analysis-services-async-refresh-logic-app/1.png)
+   ![Add HTTP received activity](./media/analysis-services-async-refresh-logic-app/1.png)
 
 This step will populate with the HTTP POST URL once the Logic App is saved.
 
 2. Add a new step and search for **HTTP**.  
 
-![Add HTTP activity](./media/analysis-services-async-refresh-logic-app/9.png)
+   ![Add HTTP activity](./media/analysis-services-async-refresh-logic-app/9.png)
 
-![Add HTTP activity](./media/analysis-services-async-refresh-logic-app/10.png)
+   ![Add HTTP activity](./media/analysis-services-async-refresh-logic-app/10.png)
 
 3. Select **HTTP** to add this action.
 
-![Add HTTP activity](./media/analysis-services-async-refresh-logic-app/2.png)
+   ![Add HTTP activity](./media/analysis-services-async-refresh-logic-app/2.png)
 
 Configure the HTTP activity as follows:
 
