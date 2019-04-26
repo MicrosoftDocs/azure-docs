@@ -3,7 +3,7 @@ title: JavaScript samples for use in Azure Active Directory B2C | Microsoft Docs
 description: Learn about using JavaScript in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
@@ -136,7 +136,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-In the code, replace `terms-of-use-url` with the link to your terms of use agreement. For your directory, create a new user attribute called **termsOfUse** and then include **termsOfUse** as a user attribute for your user flow.
+In the code, replace `termsOfUseUrl` with the link to your terms of use agreement. For your directory, create a new user attribute called **termsOfUse** and then include **termsOfUse** as a user attribute for your user flow.
 
 ## Next steps
 

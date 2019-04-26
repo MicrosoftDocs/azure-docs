@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 04/17/2019
 ms.author: magoedte
 ---
 
@@ -280,5 +280,5 @@ Follow these steps to create a log alert in Azure Monitor by using one of the lo
 
 ## Next steps
 
-* View [log query examples](container-insights-analyze.md#search-logs-to-analyze-data) to learn about pre-defined queries and examples to evaluate or customize for other alert scenarios.
-* To learn more about Azure Monitor and how to monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
+- View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
+- To learn more about Azure Monitor and how to monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).

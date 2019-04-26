@@ -124,6 +124,6 @@ In the preceding example, note the following points:
 
 ## Next steps
 
-To put these guidelines into practice, see [Azure Time Series Insights Preview query syntax](./time-series-insights-query-data-csharp.md). You'll learn more about the query syntax for the Time Series Insights Preview data access REST API.
+- To put these guidelines into practice, see [Azure Time Series Insights Preview query syntax](./time-series-insights-query-data-csharp.md). You'll learn more about the query syntax for the Time Series Insights Preview data access REST API.
 
-To learn about supported JSON shapes, see [Supported JSON shapes](./time-series-insights-send-events.md#json).
+- To learn about supported JSON shapes, see [Supported JSON shapes](./time-series-insights-send-events.md#json).

@@ -3,7 +3,7 @@ title: Define a self-asserted technical profile in a custom policy in Azure Acti
 description: Define a self-asserted technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity

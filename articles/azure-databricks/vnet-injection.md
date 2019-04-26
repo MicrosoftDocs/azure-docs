@@ -183,7 +183,7 @@ Possible cause: Container cannot talk to hosting instance or DBFS storage accoun
 
 ### Notebook command errors
 
-**Command is hanging**
+**Command is not responding**
 
 Possible cause: worker-to-worker communication is blocked. Fix by making sure the inbound security rules meet requirements.
 

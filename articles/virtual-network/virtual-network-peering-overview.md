@@ -58,8 +58,7 @@ When virtual networks are peered, you can also configure the gateway in the peer
 
 ![virtual network peering transit](./media/virtual-networks-peering-overview/figure04.png)
 
-Gateway transit is supported for both VNet Peering and Global VNet Peering (preview). You can use remote gateways or allow gateway transit in globally peered virtual networks in preview. The preview is available in all Azure regions, China cloud regions, and Government cloud regions. No whitelisting is required. You can test in preview through CLI, PowerShell, Templates, or API. Portal is not supported in the preview.
-Gateway transit between virtual networks created through different deployment models (Resource Manager and classic) is supported only if the gateway is in the virtual network (Resource Manager). To learn more about using a gateway for transit, see [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Gateway transit is supported for both VNet Peering and Global VNet Peering. Gateway transit between virtual networks created through different deployment models (Resource Manager and classic) is supported only if the gateway is in the virtual network (Resource Manager). To learn more about using a gateway for transit, see [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 When the virtual networks that are sharing a single Azure ExpressRoute connection are peered, the traffic between them goes through the peering relationship (that is, through the Azure backbone network). You can still use local gateways in each virtual network to connect to the on-premises circuit. Alternatively, you can use a shared gateway and configure transit for on-premises connectivity.
 

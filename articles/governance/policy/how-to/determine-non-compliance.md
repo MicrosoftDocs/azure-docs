@@ -3,7 +3,7 @@ title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Learn to find out what caused the non-compliance.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 03/30/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -138,6 +138,9 @@ triggered when the Resource Manager properties are added, removed, or altered.
 
 The _visual diff_ aides in identifying changes to a resource. The changes detected may not be
 related to the current compliance state of the resource.
+
+Change history data is provided by [Azure Resource Graph](../../resource-graph/overview.md). To
+query this information outside of the Azure portal, see [Get resource changes](../../resource-graph/how-to/get-resource-changes.md).
 
 ## Next steps
 

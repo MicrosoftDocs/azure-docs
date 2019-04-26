@@ -67,6 +67,8 @@
     href: backup-azure-backup-server-import-export-.md
   - name: Replace your tape library
     href: backup-azure-backup-cloud-as-tape.md
+  - name: Azure Common Security Attributes
+    href: backup-security-attributes.md
 - name: How to
   items:
   - name: Azure Backup Server
@@ -265,8 +267,6 @@
     href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Resources
   items:
-  - name: Common Security Attributes
-    href: backup-security-attributes.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum
