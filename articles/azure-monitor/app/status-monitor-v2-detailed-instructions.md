@@ -121,7 +121,7 @@ These steps will prepare your server to download modules from the PowerShell Gal
 	- Can confirm this change and audit all PSRepositories by running the cmd: `Get-PSRepository`
 
 4. PowerShellGet version 
-	- Description: This module contains the tooling used to get other modules from PowerShell Gallery. v1.0.0.1 ships with Windows 10 and Windows Server. Min version required is v1.6.0. To audit which version is installed run cmd: `Get-Command`
+	- Description: This module contains the tooling used to get other modules from PowerShell Gallery. v1.0.0.1 ships with Windows 10 and Windows Server. Min version required is v1.6.0. To audit which version is installed run the command: `Get-Command -Module PowerShellGet`
 	- Reference: [Installing PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget)
 	- Cmd: `Install-Module -Name PowerShellGet`
 	- Optional Parameters:
@@ -208,7 +208,7 @@ If installing into any other directory, you must manually import the module usin
 1. Change the extension to ".zip" and extract contents of package into your intended installation directory.
 2. Find the file path to "Az.ApplicationMonitor.psd1".
 3. Run PowerShell as Administrator with an elevated execution policy. 
-4. Load the module via cmd: `Import-Module Az.ApplicationMonitor.psd1`.
+4. Load the module via the command: `Import-Module Az.ApplicationMonitor.psd1`.
 	
 
 ## Proxy

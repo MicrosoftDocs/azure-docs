@@ -92,7 +92,7 @@ If the Module hasn't been loaded into a PowerShell session, can manually load us
 ### Troubleshooting the Status Monitor v2 module
 
 #### How to review what commands are available in the Status Monitor v2 module?
-- Run the cmd: `Get-Command -Module Az.ApplicationMonitor` to get the available commands
+- Run the command: `Get-Command -Module Az.ApplicationMonitor` to get the available commands:
 
 	```
 	CommandType     Name                                               Version    Source
@@ -107,7 +107,7 @@ If the Module hasn't been loaded into a PowerShell session, can manually load us
 	```
 
 #### What is the current version of the Status Monitor v2 module?
-- Run the cmd: `Get-ApplicationInsightsMonitoringStatus` to get an output of information about this module.
+- Run the command: `Get-ApplicationInsightsMonitoringStatus` to get an output of information about this module:
 
 	```
 	PowerShell Module version:
@@ -191,9 +191,9 @@ If monitoring is working, at least 15 DLLS should be loaded.
 
 #### Collecting logs
 
-- In a cmd window with admin privileges, execute `iisreset /stop` To turn off IIS and all web apps.
+- In a cmd console with admin privileges, execute `iisreset /stop` To turn off IIS and all web apps.
 - In PerfView, click "Start Collection"
-- In a cmd window with admin privileges, execute `iisreset /start` To start IIS.
+- In a cmd console with admin privileges, execute `iisreset /start` To start IIS.
 - Try to browse to your app.
 - After your app finishes loading, return to PerfView and click "Stop Collection"
 
