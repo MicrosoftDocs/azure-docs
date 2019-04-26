@@ -1,20 +1,20 @@
 ---
-title: Setup your application in the Publishing Portal | Microsoft Docs
+title: Setup your application in the Publishing Portal 
 description: Instructions in how to setup your application in the Cloud Publishing Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
+
 author: pbutlerm
 manager: Ricardo.Villalobos  
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Setup your application in the Publishing Portal

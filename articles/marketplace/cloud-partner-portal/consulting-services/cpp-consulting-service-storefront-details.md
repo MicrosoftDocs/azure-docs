@@ -1,20 +1,20 @@
 ---
-title: Azure and Dynamics 365 consulting service offer - Enter storefront details | Microsoft Docs
+title: Azure and Dynamics 365 consulting service offer - Enter storefront details 
 description: Guide for defining storefront details in an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: qianw211
-manager: Patrick.Butler  
-editor:
 
-ms.assetid: 
+author: qianw211
+
+
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Storefront Details tab

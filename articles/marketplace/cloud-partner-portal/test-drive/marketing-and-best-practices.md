@@ -1,20 +1,20 @@
 ---
-title: Test Drive Marketing Best Practices | Microsoft Docs
+title: Test Drive Marketing Best Practices 
 description: Test Drive marketing best pratices for publishers
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
+
 author: pbutlerm
 manager: Ricardo.Villalobos  
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 

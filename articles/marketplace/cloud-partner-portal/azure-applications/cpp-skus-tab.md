@@ -1,20 +1,20 @@
 ---
-title: Configure SKUs for an Azure application offer | Microsoft Docs
+title: Configure SKUs for an Azure application offer 
 description: How to configure the SKUs for an Azure managed application and an Azure solution template.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: dan-wesley
-manager: Patrick.Butler  
-editor:
 
-ms.assetid: 
+author: dan-wesley
+
+
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Azure application SKUs tab

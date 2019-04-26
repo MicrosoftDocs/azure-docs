@@ -2,16 +2,16 @@
 title: Marketplace FAQ | Azure
 description: Answers to common questions about the Microsoft Azure Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
-author: qianw211
-manager: Patrick.Butler
-editor:
 
-ms.assetid: 
+author: qianw211
+
+
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi

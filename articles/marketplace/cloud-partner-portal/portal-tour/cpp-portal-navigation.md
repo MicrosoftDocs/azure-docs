@@ -1,20 +1,20 @@
 ---
-title: Cloud Partner Portal navigation for Azure Marketplace | Microsoft Docs
+title: Cloud Partner Portal navigation for Azure Marketplace 
 description: .
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: v-miclar
-manager: Patrick.Butler  
-editor:
 
-ms.assetid: 
+author: v-miclar
+
+
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Cloud Partner Portal navigation

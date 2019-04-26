@@ -1,20 +1,20 @@
 ---
-title: Virtual machine Marketplace tab in the Cloud Partner Portal for Azure | Microsoft Docs
+title: Virtual machine Marketplace tab in the Cloud Partner Portal for Azure 
 description: Describes the Marketplace tab used in creating an Azure Marketplace VM offer.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-documentationcenter:
-author: v-miclar
-manager: Patrick.Butler  
-editor:
 
-ms.assetid: 
+author: v-miclar
+
+
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Virtual machine Marketplace tab

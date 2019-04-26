@@ -1,20 +1,20 @@
 ---
-title: HTTPS Endpoint | Microsoft Docs
+title: HTTPS Endpoint 
 description: Configure lead management for an HTTPS endpoint.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: dan-wesley
-manager: Patrick.Butler  
-editor:
 
-ms.assetid: 
+author: dan-wesley
+
+
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 12/24/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Configure lead management using an HTTPS endpoint

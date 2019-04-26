@@ -1,20 +1,20 @@
 ---
-title: Azure SaaS application offer channel info | Microsoft Docs
+title: Azure SaaS application offer channel info 
 description: Configure Channel Info for SaaS application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: dan-wesley
-manager: Patrick.Butler  
-editor:
 
-ms.assetid: 
+author: dan-wesley
+
+
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # SaaS application Channel Info tab

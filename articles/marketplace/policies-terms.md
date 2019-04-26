@@ -3,7 +3,7 @@ title: Azure Marketplace policies and terms | Azure
 description: Microsoft Azure Marketplace policies and terms apply to all publishers and offerings in the Microsoft Azure Marketplace.
 services: Azure, Marketplace, AppSource
 author: qianw211
-manager: Patrick.Butler
+
 
 ms.service: marketplace
 ms.topic: article
