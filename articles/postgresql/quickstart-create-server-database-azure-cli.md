@@ -1,15 +1,15 @@
 ---
-title: Quickstart - Create an Azure Database for PostgreSQL using the Azure CLI
-description: Quickstart guide to create and manage Azure Database for PostgreSQL server using Azure CLI (command line interface).
+title: Quickstart - Create an Azure Database for PostgreSQL - Single Server using the Azure CLI
+description: Quickstart guide to create and manage Azure Database for PostgreSQL - Single Server using Azure CLI (command line interface).
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/12/2019
+ms.date: 5/6/2019
 ms.custom: mvc
 ---
-# Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI
+# Quickstart: Create an Azure Database for PostgreSQL - Single Server using the Azure CLI
 
 > [!TIP]
 > Consider using the simpler [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI command (currently in preview). Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).

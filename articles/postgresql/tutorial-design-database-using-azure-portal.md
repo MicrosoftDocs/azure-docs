@@ -1,14 +1,14 @@
 ---
-title: 'Tutorial: Design an Azure Database for PostgreSQL using Azure portal'
-description: This tutorial shows how to Design your first Azure Database for PostgreSQL using the Azure portal.
+title: Tutorial: Design an Azure Database for PostgreSQL - Single Server using Azure portal
+description: This tutorial shows how to Design your first Azure Database for PostgreSQL - Single Server using the Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 03/20/2018
+ms.date: 05/6/2019
 ---
-# Tutorial: Design an Azure Database for PostgreSQL using the Azure portal
+# Tutorial: Design an Azure Database for PostgreSQL - Single Server using the Azure portal
 
 Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. Using the Azure portal, you can easily manage your server and design a database.
 
@@ -37,34 +37,40 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 2. Select **Databases** from the **New** page, and select **Azure Database for PostgreSQL** from the **Databases** page.
    ![Azure Database for PostgreSQL - Create the database](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3. Fill out the new server details form with the following information:
+3. Select the **Single server** deployment option.
 
-   ![Create a server](./media/tutorial-design-database-using-azure-portal/2-create.png)
+   ![Select Azure Database for PostgreSQL - Single server deployment option](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
 
-   - Server name: **mydemoserver** (name of a server maps to DNS name and is thus required to be globally unique) 
-   - Subscription: If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for.
-   - Resource group: **myresourcegroup**
-   - Server admin login and password of your choice
-   - Location
-   - PostgreSQL Version
+4. Fill out the new server Basics form with the following information:
 
-   > [!IMPORTANT]
-   > The server admin login and password that you specify here are required to log in to the server and its databases later in this tutorial. Remember or record this information for later use.
+    ![Create a server](./media/tutorial-design-database-using-azure-portal/create-basics.png)
 
-4. Click **Pricing tier** to specify the pricing tier for your new server. For this tutorial, select **General Purpose**, **Gen 5** compute generation, 2 **vCores**, 5 GB of **storage** and 7 days **backup retention period**. Select the **Geographically Redundant** backup redundancy option to have your server's automatic backups stored in geo-redundant storage.
-   ![Azure Database for PostgreSQL - pick the pricing tier](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
+    Setting|Suggested Value|Description
+    ---|---|---
+    Subscription|Your subscription name|The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you're billed for the resource.
+    Resource group|*myresourcegroup*| A new resource group name or an existing one from your subscription.
+    Server name |*mydemoserver*|A unique name that identifies your Azure Database for PostgreSQL server. The domain name *postgres.database.azure.com* is appended to the server name you provide. The server can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain at least 3 through 63 characters.
+    Data source | *None* | Select *None* to create a new server from scratch. (You would select *Backup* if you were creating a server from a geo-backup of an existing Azure Database for PostgreSQL server).
+    Admin username |*myadmin*| Your own login account to use when you connect to the server. The admin login name can't be **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest**, or **public**. It can't start with **pg_**.
+    Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
+    Location|The region closest to your users| The location that is closest to your users.
+    Version|The latest major version| The latest PostgreSQL major version, unless you have specific requirements otherwise.
+    Compute + storage | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Configure server**. Next, select the **General Purpose** tab. *Gen 5*, *4 vCores*, *100 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is or adjust them. To enable your server backups in geo-redundant storage select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
 
-5. Click **Ok**.
+   > [!NOTE]
+   > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/postgresql/) for more information.
+   > 
 
-6. Click **Create** to provision the server. Provisioning takes a few minutes.
+    ![The "Pricing tier" pane](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
-7. On the toolbar, click **Notifications** to monitor the deployment process.
-   ![Azure Database for PostgreSQL - See notifications](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
+5. Select **Review + create** to review your selections. Select **Create** to provision the server. This operation may take a few minutes.
 
-   > [!TIP]
-   > Check the **Pin to dashboard** option to allow easy tracking of your deployments.
+6. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this server on your Azure portal dashboard as a shortcut to the server's **Overview** page. Selecting **Go to resource** opens the server's **Overview** page.
 
-   By default, **postgres** database gets created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database meant for use by users, utilities, and third-party applications. 
+    ![The "Notifications" pane](./media/quickstart-create-database-portal/3-notifications.png)
+   
+   By default, a **postgres** database is created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database that's meant for use by users, utilities, and third-party applications. (The other default database is **azure_maintenance**. Its function is to separate the managed service processes from user actions. You cannot access this database.)
+
 
 ## Configure a server-level firewall rule
 
