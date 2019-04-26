@@ -12,7 +12,7 @@ ms.custom:
 ---
 # Azure Search encryption using customer-managed keys in Azure Key Vault
 
-By default, Azure Search encrypts user content (indexes and synonym maps) at rest with [service-managed keys](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models). 
+By default, Azure Search encrypts user content at rest with [service-managed keys](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models). 
 You can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. This article walks you through the steps.
 
 Server-side encryption is supported through integration with [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage. 
