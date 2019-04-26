@@ -68,7 +68,7 @@ Alternatively, you can connect to the PowerShell interface of the device and use
 6. Schedule a pickup with UPS. To schedule a pickup:
 
     1. Call the local UPS (country-specific toll free number).
-    2. In your call, quote the reverse shipment tracking number as shown in the E-ink display or your printed label.
+    2. In your call, quote the reverse shipment tracking number as shown on your printed label.
     3. If the tracking number isn't quoted, UPS will require you to pay an additional charge during pickup.
 
     Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
