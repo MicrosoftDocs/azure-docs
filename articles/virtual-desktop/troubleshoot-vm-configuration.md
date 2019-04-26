@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Windows Virtual Desktop session host VM configuration - Azure
-description: How to resolve common issues when you're configuring a session host VM in a Windows Virtual Desktop tenant environment.
+title: Tenant and host pool creation in Windows Virtual Desktop - Azure
+description: How to resolve issues when you're configuring a tenant and session host virtual machine (VM) in a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: ChJenk
 
@@ -9,9 +9,9 @@ ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
 ---
-# Troubleshoot Windows Virtual Desktop session host VM configuration
+# Tenant and host pool creation
 
-Use this article to troubleshoot issues you're having when configuring the Windows Virtual Desktop session host VMs.
+Use this article to troubleshoot issues you're having when configuring the Windows Virtual Desktop session host virtual machines (VMs).
 
 ## Provide feedback
 
@@ -99,7 +99,7 @@ Follow these instructions to confirm the components are installed and to check f
 
 ## Windows Virtual Desktop Agent is not registering with the Windows Virtual Desktop service
 
-When the Windows Virtual Desktop Agent is first installed on session host VMs (either manually or through the Azure Resource Manager template and PowerShell DSC), it provides a registration token. The following section covers common troubleshooting issues applicable to the Windows Virtual Desktop Agent and the token.
+When the Windows Virtual Desktop Agent is first installed on session host VMs (either manually or through the Azure Resource Manager template and PowerShell DSC), it provides a registration token. The following section covers troubleshooting issues applicable to the Windows Virtual Desktop Agent and the token.
 
 ### Error: The status filed in Get-RdsSessionHost cmdlet shows status as Unavailable
 
@@ -197,7 +197,7 @@ Examine the registry entries listed below and confirm that their values match. I
 **Fix:** Follow these instructions to install the side-by-side stack on the session host VM.
 
 1. Use Remote Desktop Protocol (RDP) to get directly into the session host VM as local administrator.
-2. Download and import [the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
+2. Download and import [The Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
 3. Install the side-by-side stack using [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
 ## How to fix a Windows Virtual Desktop side-by-side stack that malfunctions
@@ -279,12 +279,13 @@ If your operating system is Microsoft Windows 10, continue with the instructions
 
 16. When the cmdlets are done running, restart the VM with the malfunctioning side-by-side stack.
 
-## Next Steps
+## Next steps
 
-- To see an overview for troubleshooting Windows Virtual Desktop and the escalation tracks, see [Overview of common issues when setting up Windows Virtual Desktop](troubleshoot-set-up-overview.md).
-- To troubleshoot issues during initial setup of Windows Virtual Desktop, see [Troubleshoot issues during initial setup of Windows Virtual Desktop](troubleshoot-set-up-issues.md).
-- To troubleshoot issues with Windows Virtual Desktop client connections, see [Troubleshoot Windows Virtual Desktop client connections](troubleshoot-client-connection.md).
-- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Troubleshoot common issues when using PowerShell](troubleshoot-powershell.md).
+- For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
+- To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
+- To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
+- To troubleshoot issues with Windows Virtual Desktop client connections, see [Remote Desktop client connections](troubleshoot-client-connection.md).
+- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - To learn more about the Preview service, see [Windows Desktop Preview environment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup?branch=pr-en-us-71423).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).

@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Windows Virtual Desktop client connection issues - Azure
-description: How to resolve common issues when you set up client connections in a Windows Virtual Desktop tenant environment.
+title: Remote Desktop client connections in Windows Virtual Desktop - Azure
+description: How to resolve issues when you set up client connections in a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
 author: ChJenk
 
@@ -9,9 +9,9 @@ ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
 ---
-# Troubleshoot Windows Virtual Desktop client connection issues
+# Remote Desktop client connections
 
-Use this article to resolve common issues with Windows Virtual Desktop client connections.
+Use this article to resolve issues with Windows Virtual Desktop client connections.
 
 ## Provide feedback
 
@@ -98,7 +98,7 @@ Sometimes users can access their feed and local resources, but still have config
 
 ![Can't connect to the gateway error message.](media/a8fbb9910d4672147335550affe58481.png)
 
-Follow these general troubleshooting instructions for common error codes.
+Follow these general troubleshooting instructions for client connection error codes.
 
 1. Confirm user name and time when issue was experienced.
 2. Open **PowerShell** and establish connection to the Windows Virtual Desktop tenant where the issue was reported.
@@ -163,12 +163,12 @@ Confirm that the user is logging in with the correct credentials.
 
 If the web client is being used, confirm that there are no cached credentials issues.
 
-## Next Steps
+## Next steps
 
-- For an overview of common Windows Virtual Desktop issues during setup and the escalation tracks, see [Overview of common issues when setting up Windows Virtual Desktop](troubleshoot-set-up-overview.md).
-- To troubleshoot issues during initial setup of a Windows Virtual Desktop environment, see [Troubleshoot issues during initial setup of Windows Virtual Desktop](troubleshoot-set-up-issues.md).
-- To troubleshoot issues with VM configuration, see [Troubleshoot Windows Virtual Desktop session host VM configuration](troubleshoot-vm-configuration.md).
-- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Troubleshoot Windows Virtual Desktop issues when using PowerShell](troubleshoot-powershell.md).
+- For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
+- To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
+- To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
+- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - To learn more about the Preview service, see [Windows Desktop Preview environment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup?branch=pr-en-us-71423).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).

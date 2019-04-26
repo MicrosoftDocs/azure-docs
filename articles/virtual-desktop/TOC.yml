@@ -46,15 +46,15 @@
     href: host-pool-load-balancing.md
 - name: Troubleshoot
   items:
-  - name: Overview of common issues when setting up Windows Virtual Desktop
+  - name: Troubleshooting overview, feedback, and support
     href: troubleshoot-set-up-overview.md
-  - name: Troubleshoot issues during initial setup of Windows Virtual Desktop
+  - name: Tenant and host pool creation
     href: troubleshoot-set-up-issues.md
-  - name: Troubleshoot Windows Virtual Desktop session host VM configuration
+  - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md
-  - name: Troubleshoot Windows Virtual Desktop client connection issues
+  - name: Remote Desktop client connections
     href: troubleshoot-client-connection.md
-  - name: Troubleshoot Windows Virtual Desktop issues when using PowerShell 
+  - name: Windows Virtual Desktop PowerShell 
     href: troubleshoot-powershell.md
 - name: Reference
   items:
