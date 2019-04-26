@@ -1,5 +1,5 @@
 ---
-title: "Configure replication in an Azure SQL Database managed instance database| Microsoft Docs"
+title: "Configure replication in an Azure SQL Database managed instance database | Microsoft Docs"
 description: Learn about configuring transactional replication in an Azure SQL Database managed instance database
 services: sql-database
 ms.service: sql-database
@@ -30,13 +30,13 @@ Transactional replication is in public preview on [Azure SQL Database managed in
 
 ## Requirements
 
-Configuring a managed instance to function as a publisher or a distributor requires:
+Configuring a managed instance to function as a publisher and/or a distributor requires:
 
 - That the managed instance is not currently participating in a geo-replication relationship.
-- That the managed instances are be on the same vNet.
+- That the publisher managed instances is on the same virtual network as the distributor and the subscriber, or [vNet peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) has been established between the virtual networks of all three entities. 
 - Connectivity uses SQL Authentication between replication participants.
 - An Azure Storage Account share for the replication working directory.
-- Port 445 (TCP outbound) is open in the security rules of the managed instance subnet to access the Azure file share. 
+- Port 445 (TCP outbound) is open in the security rules of the managed instance NSG to access the Azure file share. 
 
 
  > [!NOTE]
