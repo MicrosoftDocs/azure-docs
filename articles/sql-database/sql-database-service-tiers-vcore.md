@@ -53,8 +53,6 @@ The following table helps you understand the differences between the three tiers
 - For more information about the General Purpose and Business Critical service tiers, see [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md).
 - For details on the Hyperscale service tier in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).  
 
-> [!IMPORTANT]
-> If you need less than one vCore of compute capacity, use the serverless compute tier or the DTU-based purchasing model.
 
 ## Azure Hybrid Benefit
 
