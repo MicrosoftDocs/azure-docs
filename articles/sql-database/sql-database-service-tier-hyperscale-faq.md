@@ -67,7 +67,11 @@ The Hyperscale service tier is primarily intended for customers who have large o
 
 ### What regions currently support Hyperscale
 
-Hyperscale is currently available for single databases in the following regions:  West US1, West US2, East US1, Central US, West Europe, North Europe, UK West, SouthEast Asia, Japan East, Korea Central, Australia SouthEast, and Australia East.
+The Azure SQL Database Hyperscale tier is currently available in the following regions:
+
+Australia East, Australia Southeast, Brazil South, Canada Central, Central US, East Asia, East US, East Us 2, France Central, Japan East, Japan West, North Central US, North Europe, South Africa North, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2
+
+See [Azure SQL Database Hyperscale Overview](sql-database-tier-hyperscale-faq.md) for the procedure if you need access in another region.
 
 ### Can I create multiple Hyperscale databases per logical server
 
@@ -92,7 +96,7 @@ SQL Database Hyperscale provides rapid scalability based on your workload demand
 
 ## Deep dive questions
 
-### Can I mix Hyperscale and single databases a my logical server
+### Can I mix Hyperscale and single databases in a single logical server
 
 Yes, you can.
 
@@ -126,7 +130,7 @@ Not at this time, however you can scale your compute and number of replicas down
 
 ### Can I provision a compute with extra RAM for my memory-intensive workload
 
-No. To get more RAM, you need to upgrade to a higher compute size. Gen4 hardware provides more RAM per core compared to Gen5 hardware. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier).
+No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier).
 
 ### Can I provision multiple compute nodes of different sizes
 
@@ -138,7 +142,7 @@ The Hyperscale databases are created with one read-scale replica (two replicas i
 
 ### For high availability, do I need to provision additional compute nodes
 
-In Hyperscale databases, the high availability is provided at the storage level. You only need one replica to provide high availability. When the compute replica is down, a new replica is created automatically with no data loss.
+In Hyperscale databases, the resiliency is provided at the storage level. You only need one replica to provide resiliency. When the compute replica is down, a new replica is created automatically with no data loss.
 
 However, if there’s only one replica, it may take some time to build the local cache in the new replica after failover. During the cache rebuild phase, the database fetches data directly from the page servers, resulting in degraded IOPS and query performance.
 
@@ -152,7 +156,7 @@ For mission-critical apps that require high availability, you should provision a
 
 ### What is the size of the transaction log with Hyperscale
 
-The transaction log with Hyperscale is practically infinite. You do not need to worry about running out of log space on a system that has a high log throughput. However, the log generation rate might be throttled for continuous aggressive workloads. The peak log generation rate is approximately 100 MB/sec.
+The transaction log with Hyperscale is practically infinite. You do not need to worry about running out of log space on a system that has a high log throughput. However, the log generation rate might be throttled for continuous aggressive workloads. The peak sustained log generation rate is approximately 100 MB/sec.
 
 ### Does my temp db scale as my database grows
 
@@ -210,13 +214,13 @@ No. At this time, you can’t move a Hyperscale database to another service tier
 
 ### Do I lose any functionality or capabilities after migration to the Hyperscale service tier
 
-Yes. Some of Azure SQL Database features are not supported in Hyperscale yet, including but not limited long term retention backup. After you migrate your databases to Hyperscale, those features stop working.
+Yes. Some of Azure SQL Database features are not supported in Hyperscale yet, including but not limited long term retention backup. After you migrate your databases to Hyperscale, those features stop working.  We expect these limitations to be temporary.
 
 ### Can I move my  on-premises SQL Server database or my SQL Server virtual machine database to Hyperscale
 
 Yes. You can use all existing migration technologies to migrate to Hyperscale, including BACPAC, transactional replication, logical data loading. See also the [Azure Database Migration Service](../dms/dms-overview.md).
 
-### What is my downtown during migration from an on-premises or virtual machine environment to Hyperscale and how can I minimize it
+### What is my downtime during migration from an on-premises or virtual machine environment to Hyperscale and how can I minimize it
 
 Downtime is the same as the downtime when you migrate your databases to a single database in Azure SQL Database. You can use [transactional replication](replication-to-sql-database.md#data-migration-scenario
 ) to minimize downtime migration for databases up to few TB in size. For very large database (10+ TB), you can consider to migrate data using ADF, Spark, or other data movement technologies.
@@ -319,13 +323,13 @@ No. Compute is decoupled from the storage layer to avoid impact on compute.
 
 ### Does my throughput get affected as I provision additional compute nodes
 
-Because the storage is shared and there is no direct physical replication happening between primary and secondary compute nodes, technically, the throughput on primary node will be affected by adding read-scale nodes. However, we may throttle continuous aggressive workload to allow log apply on secondary nodes and page servers to catch up, and avoid bad read performance on secondary nodes.
+Because the storage is shared and there is no direct physical replication happening between primary and secondary compute nodes, technically, the throughput on primary node will not be affected by adding read-scale nodes. However, we may throttle continuous aggressive workload to allow log apply on secondary nodes and page servers to catch up, and avoid bad read performance on secondary nodes.
 
 ## Scalability questions
 
 ### How long would it take to scale up and down a compute node
 
-Several minutes
+Scaling compute up or down should take 5-10 minutes regardless of data size.
 
 ### Is my database offline while the scaling up/down operation is in progress
 
