@@ -29,13 +29,13 @@ Each language has specific build steps to create a deployment artifact, which ca
 
 #### .NET
 
-You can use the following sample to create your YAML file to build your .NET app, the **vmImage** should be changed depending on which Azure Functions hosting OS your app is on:
+You can use the following sample to create your YAML file to build your .NET app.
 
 ```yaml
 jobs:
   - job: Build
     pool:
-      vmImage: 'VS2017-Win2016' # Use ubuntu-16.04 for Linux Azure Functions
+      vmImage: 'VS2017-Win2016'
 steps:
 - script: |
     dotnet restore
@@ -68,7 +68,7 @@ You can use the following sample to create your YAML file to build your JavaScri
 jobs:
   - job: Build
     pool:
-      vmImage: ubuntu-16.04 # Use 'VS2017-Win2016' for Windows Azure Functions
+      vmImage: ubuntu-16.04 # Use 'VS2017-Win2016' if you have Windows native +Node modules
 steps:
 - bash: |
     if [ -f extensions.csproj ]

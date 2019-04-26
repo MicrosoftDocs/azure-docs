@@ -149,7 +149,7 @@
     - name: Continuous deployment
       href: functions-continuous-deployment.md
     - name: Build and deploy using Azure Pipelines
-      href: functions-how-to-azure-devops.ms
+      href: functions-how-to-azure-devops.md
     - name: Zip deployment
       href: deployment-zip-push.md
     - name: Run from package
