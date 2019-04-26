@@ -1,13 +1,9 @@
 ---
-title: include file
-description: include file
-services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
 ms.date: 04/25/2019
 ms.author: jingwang
-ms.custom: include file
 ---
 
 | Category | Data store | Supported as a source | Supported as a sink | Supported by [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Supported by [Self-hosted IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) | Supported by [Data Flow](../articles/data-factory/concepts-data-flow-overview.md)
