@@ -95,17 +95,21 @@ For more information about the apps, see [SaaS application integration with Azur
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
 
-Azure Active Directory (Azure AD) Identity Governance combines several features, including viewing role assignments, creating and viewing access reviews or packages, entitlement management (public preview), Privileged Identity Management (PIM), and the ability to manage your Terms of use in a single view. To learn more about each of the available features along with the relevant tutorials and support information, see [What is Azure AD Identity Governance?](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview).
+Azure Active Directory (Azure AD) Identity Governance combines all the governance features, including access reviews, entitlement management (public preview), Privileged Identity Management (PIM), and Terms of use in a single view; helping you perform tasks such as creating an access review, creating an access package, viewing role assignments, or managing your Terms of use all in one place.
+
+To learn more about each of the available features, along with the relevant tutorials and support documentation, go to the Azure portal, click **Azure Active Directory**, click **Identity Governance**, and then visit the new getting started page.
+
+For more information, see [What is Azure AD Identity Governance?](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview).
 
 ---
 
-### Azure AD entitlement management is now available (Public preview)
+### Azure Active Directory (Azure AD) entitlement management is now available (Public preview)
 
 **Type:** New feature  
 **Service category:** Identity Governance  
 **Product capability:** Identity Governance
 
-Azure AD entitlement management, now in public preview, enables customers to delegate management of access packages, which define how employees and business partners can request access, who must approve, and how long they have access. Access packages can manage membership in Azure AD and Office 365 groups, role assignments in enterprise applications, and role assignments in SharePoint Online sites. Read more about entitlement management at the [overview of Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). To learn more about the breadth of Azure AD Identity Governance features, including Privileged Identity Management, access reviews and Terms of use, see [What is Azure AD Identity Governance?](../governance/identity-governance-overview.md).
+Azure AD entitlement management, now in public preview, helps customers to delegate management of access packages, which defines how employees and business partners can request access, who must approve, and how long they have access. Access packages can manage membership in Azure AD and Office 365 groups, role assignments in enterprise applications, and role assignments for SharePoint Online sites. Read more about entitlement management at the [overview of Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). To learn more about the breadth of Azure AD Identity Governance features, including Privileged Identity Management, access reviews and Terms of use, see [What is Azure AD Identity Governance?](../governance/identity-governance-overview.md).
 
 ---
 
@@ -117,11 +121,9 @@ Azure AD entitlement management, now in public preview, enables customers to del
 
 New updates in Azure AD access reviews allow you to:
 
-- Change the frequency of your access reviews to semi-annually, in addition to the previously existing options of weekly, monthly, quarterly, and annually.
+- Change the frequency of your access reviews to **semi-annually**, in addition to the previously existing options of weekly, monthly, quarterly, and annually.
 
-- Choose the specific length of days for your access review cycle.
-
-- Select multiple Azure AD and Azure resource roles when creating access reviews. In this situation, all roles are set up with the same settings and all reviewers are notified at the same time.
+- Select multiple Azure AD and Azure resource roles when creating a single access review. In this situation, all roles are set up with the same settings and all reviewers are notified at the same time.
 
 For more information about how to create an access review, see [Create an access review of groups or applications in Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/governance/create-access-review).
 
