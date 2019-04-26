@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 04/25/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -36,15 +36,16 @@ MSAL gives you many ways to get tokens, with a consistent API for a number of pl
 ## Application types and scenarios
 Using MSAL, a token can be acquired from a number of application types: web applications, web APIs, single-page apps (JavaScript), mobile and native applications, and daemons and server-side applications. 
 
-MSAL can be used in many authentication scenarios, including the following:
+MSAL can be used in many application scenarios, including the following:
 
-* Web Application signing in a user and calling a Web API on behalf of the user
-* Mobile application calling a Web API on behalf of the user who's signed-in interactively.
-* Desktop/service daemon application calling Web API in without a user (in its own name)
-* Desktop application calling a Web API on behalf of the signed-in user
-* Application without a browser, or iOT application calling an API on behalf of the user
-* Web API calling another downstream Web API on behalf of the user for whom it was called
-* Web API calling another API in its own name.
+* [Single page applications (JavaScript)](scenario-spa-overview.md) 
+* [Web app signing in users](scenario-web-app-sign-user-overview.md)
+* [Web application signing in a user and calling a web API on behalf of the user](scenario-web-app-call-api-overview.md)
+* [Protecting a web API so only authenticated users can access it](scenario-protected-web-api-overview.md)
+* [Web API calling another downstream web API on behalf of the signed-in user](scenario-web-api-call-api-overview.md)
+* [Desktop application calling a web API on behalf of the signed-in user](scenario-desktop-overview.md)
+* [Mobile application calling a Web API on behalf of the user who's signed-in interactively](scenario-mobile-overview.md).
+* [Desktop/service daemon application calling web API on behalf of itself](scenario-daemon-overview.md)
 
 ## Languages and frameworks
 

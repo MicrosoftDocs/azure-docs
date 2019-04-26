@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 04/24/2019
 ms.author: pbutlerm
 ---
 
@@ -25,21 +25,22 @@ Use the **Support** tab of the **New Offer** page to provide technical and user 
 
 ## Support form fields
 
-The following table describes the form fields and the input required for each field.
+The following table describes the form fields and the input required for each field. Required fields are indicted by an asterisk (*).
 
 |  **Field**                |     **Description**                                                          |
 |  ---------                |     ---------------                                                          |
 | ***Engineering Contact***  |  *Serves as a technical contact between Microsoft and your organization* | 
-| **Name**                  | Name of the person or group that serves as technical/engineering support     |
-| **Email**                 | Email address of this technical contact                                      |
-| **Phone**                 | Phone number for technical support                                           |
+| **Name\***                  | Name of the person or group that serves as technical/engineering support     |
+| **Email\***                 | Email address of this technical contact                                      |
+| **Phone\***                 | Phone number for technical support                                           |
 | ***Customer Support***  | *Receives support tickets opened by customers in Azure* |
-| **Name**                  | Name of the person or group that serves as customer support                  |
-| **Email**                 | Email address of customer support                                            |
-| **Phone**                 | Phone number for customer support                                            |
+| **Name\***                  | Name of the person or group that serves as customer support                  |
+| **Email\***                 | Email address of customer support                                            |
+| **Phone\***                 | Phone number for customer support                                            |
 | ***Support Urls***  | *Support sites that Microsoft will use when your customers open support tickets* |
 | **Public Azure**          | URL for public internet support site                                         |
 | **Azure Government Cloud**| URL for government cloud support site                                        |
+|   |   |
 
 ## Next steps
 

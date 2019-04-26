@@ -129,6 +129,8 @@
       href: platform/activity-log-alerts.md  
     - name: Common alert schema
       href: platform/alerts-common-schema.md
+    - name: Action rules
+      href: platform/alerts-action-rules.md  
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations
@@ -682,8 +684,10 @@
         href: platform/metrics-getting-started.md
       - name: Advanced features of Metrics Explorer
         href: platform/metrics-charts.md
-      - name: Examples of metrics charts
+      - name: Examples of metric charts
         href: platform/metric-chart-samples.md
+      - name: Troubleshooting metric charts
+        href: platform/metrics-troubleshoot.md
     - name: Logs
       items:
       - name: Log queries
