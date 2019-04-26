@@ -23,10 +23,11 @@ ms.collection: M365-identity-device-management
 
 # Authentication flows
 
-Authentication flows can be used in different scenarios.
+This article describes the different authentication flows provided by Microsoft Authentication Library (MSAL).  These flows can be used in a variety of different application scenarios.
 
 | Flow | Description | Application type|  
 | ---- | ----------- | ------- | 
+| [Implicit grant](#implicit-grant) | Allows the app to get tokens without performing a backend server credential exchange. This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code.| Single-page applications (SPA) |
 | [Authorization code](#authorization-code) | Used in apps that are installed on a device to gain access to protected resources, such as web APIs. This allows you to add sign in and API access to your mobile and desktop apps. | Web Apps / Web APIs / daemon apps | 
 | [On-behalf-of](#on-behalf-of) | An application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. | Web Apps / Web APIs / daemon apps |
 | [Confidential client](#confidential-client) | Allows you to access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. | Web Apps / Web APIs / daemon apps |
@@ -37,6 +38,14 @@ Authentication flows can be used in different scenarios.
 
 ## Implicit grant
 
+MSAL supports the [OAuth 2 implicit grant flow](v2-oauth2-implicit-grant-flow.md), which allows the app to get tokens from Microsoft identity platform without performing a backend server credential exchange. This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code.
+
+![Implicit grant flow](media/msal-authentication-flows/implicit-grant.svg)
+
+Many modern web applications are built as client-side single page applications written using JavaScript or a SPA framework such as Angular, Vue.js, and React.js. These applications run in a web browser and have different authentication characteristics than traditional server-side web applications. The Microsoft identity platform enables single page applications to sign in users and get tokens to access backend services or web APIs using the implicit grant flow. The implicit flow allows the application to get ID tokens to represent the authenticated user and also access tokens needed to call protected APIs.
+
+This authentication flow does not include application scenarios using cross-platform JavaScript frameworks such as Electron and React-Native, since they require further capabilities for interaction with the native platforms.
+
 ## Authorization code
 MSAL supports the [OAuth 2 authorization code grant](v2-oauth2-auth-code-flow.md), which can be used in apps that are installed on a device to gain access to protected resources, such as web APIs. This allows you to add sign in and API access to your mobile and desktop apps. 
 
@@ -45,9 +54,9 @@ When users sign in to web applications (web sites), the web application receives
 ![Authorization code flow](media/msal-authentication-flows/authorization-code.png)
 
 ### Considerations
-- The authorization code is usable only once to redeem a token. Acquring a token should not be called multiple times with the same authorization code (it's explicitly prohibited by the protocol standard specification). If you redeem the code several times intentionally, or because you are not aware that a framework also does it for you, you'll get an error: `AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
+- The authorization code is usable only once to redeem a token. Do not try to acquire a token multiple times with the same authorization code (it's explicitly prohibited by the protocol standard specification). If you redeem the code several times intentionally, or because you are not aware that a framework also does it for you, you'll get an error: `AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
 
-- If you are writing an ASP.NET/ASP.NET Core application, this might happen if you don't tell the ASP.NET/Core framework that you have already redeemed the authorization code. For this you need to call `context.HandleCodeRedemption()` method of the `AuthorizationCodeReceived` event handler.
+- If you are writing an ASP.NET/ASP.NET Core application, this might happen if you don't tell the ASP.NET/Core framework that you have already redeemed the authorization code. For this, you need to call `context.HandleCodeRedemption()` method of the `AuthorizationCodeReceived` event handler.
 
 - Avoid sharing the access token with ASP.NET, which might prevent incremental consent happening correctly.  For more information, see [issue #693](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/693).
 
@@ -84,7 +93,7 @@ These client credentials need to be:
 
 
 ## Device code
-MSAL supports the [OAuth 2 device code flow](v2-oauth2-device-code.md), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer. Interactive authentication with Azure AD requires a web browser. The device code flow lets the user use another device (for instance another computer or a mobile phone) to sign-in interactively where the device or operating system doesn't provide a Web browser.
+MSAL supports the [OAuth 2 device code flow](v2-oauth2-device-code.md), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer. Interactive authentication with Azure AD requires a web browser. The device code flow lets the user use another device (for instance another computer or a mobile phone) to sign in interactively where the device or operating system doesn't provide a Web browser.
 
 ![Device code flow](media/msal-authentication-flows/device-code.png)
 
@@ -94,7 +103,7 @@ By using the device code flow, the application obtains tokens through a two-step
 
 2. Upon successful authentication, the command-line app will receive the required tokens through a back channel and will use it to perform the web API calls it needs.
 
-## Constraints
+### Constraints
 
 - Device code flow is only available on public client applications.
 - The authority passed in when constructing the public client application must be:
@@ -109,27 +118,26 @@ MSAL supports Integrated Windows Authentication (IWA) for desktop or mobile appl
 
 ### Constraints
 
-- **Federated** users only, those created in an Active Directory and backed by Azure Active Directory. Users created directly in Azure AD, without AD backing - **managed** users - cannot use this authentication flow. This limitation does not affect the [username/password flow](#usernamepassword).
-- IWA is for apps written for .NET Framework, .NET Core and Universal Windows Platform platforms.
-- IWA does NOT bypass MFA (multi factor authentication). If MFA is configured, IWA might fail if a MFA challenge is required because MFA requires user interaction. 
-  > This one is tricky. IWA is non-interactive, but 2FA requires user interactivity. You do not control when the identity provider requests 2FA to be performed, the tenant admin does. From our observations, 2FA is required when you login from a different country, when not connected via VPN to a corporate network, and sometimes even when connected via VPN. Don’t expect a deterministic set of rules, Azure Active Directory uses AI to continuously learn if 2FA is required. You should fallback to a user prompt (https://aka.ms/msal-net-interactive) if IWA fails
+IWA supports **Federated** users only.  Users created in an Active Directory and backed by Azure Active Directory. Users created directly in Azure AD, without AD backing (**managed** users) cannot use this authentication flow. This limitation does not affect the [username/password flow](#usernamepassword).
 
-- The authority passed in the `PublicClientApplicationBuilder` needs to be:
-  - tenanted (of the form `https://login.microsoftonline.com/{tenant}/` where `tenant` is either the guid representing the tenant ID or a domain associated with the tenant.
-  - for any work and school accounts (`https://login.microsoftonline.com/organizations/`)
+IWA is for apps written for .NET Framework, .NET Core, and Universal Windows Platform platforms.
 
-  > Microsoft personal accounts are not supported (you cannot use /common or /consumers tenants)
+IWA does NOT bypass MFA (multi factor authentication). If MFA is configured, IWA might fail if a MFA challenge is required because MFA requires user interaction. This one is tricky. IWA is non-interactive, but two-factor authorization (2FA) requires user interactivity. You do not control when the identity provider requests 2FA to be performed, the tenant admin does. From our observations, 2FA is required when you login from a different country, when not connected via VPN to a corporate network, and sometimes even when connected via VPN. Don’t expect a deterministic set of rules, Azure Active Directory uses AI to continuously learn if 2FA is required. You should fallback to a user prompt (https://aka.ms/msal-net-interactive) if IWA fails.
 
-- Because IWA is a silent flow:
-  - the user of your application must have previously consented to use the application 
-  - or the tenant admin must have previously consented to all users in the tenant to use the application.
-  - This means that:
-     - either you as a developer have pressed the **Grant** button on the Azure portal for yourself, 
-     - or a tenant admin has pressed the **Grant/revoke admin consent for {tenant domain}** button in the **API permissions** tab of the registration for the application (See [Add permissions to access web APIs](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis))
-     - or you have provided a way for users to consent to the application (See [Requesting individual user consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent))
-     - or you have provided a way for the tenant admin to consent for the application (See [admin consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant))
+The authority passed in when constructing the public client application must be:
+- tenanted (of the form `https://login.microsoftonline.com/{tenant}/` where `tenant` is either the guid representing the tenant ID or a domain associated with the tenant.
+- for any work and school accounts (`https://login.microsoftonline.com/organizations/`). Microsoft personal accounts are not supported (you cannot use `/common` or `/consumers` tenants).
 
-- This flow is enabled for .NET desktop, .NET Core, and Windows Universal Platform apps. On .NET Core only the overload taking the username is available as the .NET Core platform cannot ask the username to the OS.
+Because IWA is a silent flow:
+- the user of your application must have previously consented to use the application. 
+- or, the tenant admin must have previously consented to all users in the tenant to use the application.
+- This means that:
+    - either you as a developer have pressed the **Grant** button on the Azure portal for yourself, 
+    - or, a tenant admin has pressed the **Grant/revoke admin consent for {tenant domain}** button in the **API permissions** tab of the registration for the application (see [Add permissions to access web APIs](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis))
+    - or, you have provided a way for users to consent to the application (see [Requesting individual user consent](v2-permissions-and-consent.md#requesting-individual-user-consent))
+    - or, you have provided a way for the tenant admin to consent for the application (see [admin consent](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant))
+
+The IWA flow is enabled for .NET desktop, .NET Core, and Windows Universal Platform apps. On .NET Core only the overload taking the username is available as the .NET Core platform cannot ask the username to the OS.
   
 For more information on consent, see [v2.0 permissions and consent](v2-permissions-and-consent.md).
 
@@ -141,10 +149,10 @@ MSAL supports the [OAuth 2 resource owner password credentials grant](v2-oauth-r
 
 The preferred flow for acquiring a token silently on Windows domain joined machines is [Integrated Windows Authentication](#integrated-windows-authentication). Otherwise, you can also use [Device code flow](#device-code)
 
-Although this is useful in some cases (DevOps scenarios), if you want to use Username/password in interactive scenarios where you provide your own UI, you should really think about how to move away from it. By using username/password you are giving-up a number of things:
+Although this is useful in some cases (DevOps scenarios), if you want to use Username/password in interactive scenarios where you provide your own UI, you should really think about how to move away from it. By using username/password, you are giving-up a number of things:
 - core tenants of modern identity: password gets fished, replayed. Because we have this concept of a share secret that can be intercepted.
 This is incompatible with passwordless.
-- users who need to do MFA won't be able to sign-in (as there is no interaction)
+- users who need to do MFA won't be able to sign in (as there is no interaction)
 - Users won't be able to do single sign-on
 
 ### Constraints
