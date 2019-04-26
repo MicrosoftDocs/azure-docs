@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 04/26/2019
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with MyWorkDrive, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
 * MyWorkDrive single sign-on enabled subscription
 
 ## Scenario description
@@ -62,7 +62,7 @@ To configure the integration of MyWorkDrive into Azure AD, you need to add MyWor
 
 4. In the search box, type **MyWorkDrive**, select **MyWorkDrive** from result panel then click **Add** button to add the application.
 
-	 ![MyWorkDrive in the results list](common/search-new-app.png)
+	![MyWorkDrive in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -121,11 +121,11 @@ To configure Azure AD single sign-on with MyWorkDrive, perform the following ste
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![The Certificate download link](common/copy-metadataurl.png)
 
 ### Configure MyWorkDrive Single Sign-On
 
-1. In a different web browser window, login to MyWorkDrive as a Security Administrator.
+1. In a different web browser window, sign in to MyWorkDrive as a Security Administrator.
 
 2. On the MyWorkDrive Server in the admin panel, click on **ENTERPRISE** and perform the following steps:
 
@@ -139,10 +139,10 @@ To configure Azure AD single sign-on with MyWorkDrive, perform the following ste
 
 	d. Click **Save**
 
-	>[!NOTE]
-	>For additional information review the [MyWorkDrive Azure AD support article](https://www.myworkdrive.com/support/saml-single-sign-on-azure-ad/).
+	> [!NOTE]
+	> For additional information review the [MyWorkDrive Azure AD support article](https://www.myworkdrive.com/support/saml-single-sign-on-azure-ad/).
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -160,8 +160,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon\@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -197,7 +196,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you create a user called Britta Simon in MyWorkDrive. Work with [MyWorkDrive support team](mailto:support@myworkdrive.com) to add the users in the MyWorkDrive platform. Users must be created and activated before you use single sign-on.
 
-### Test single sign-on 
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
@@ -210,4 +209,3 @@ When you click the MyWorkDrive tile in the Access Panel, you should be automatic
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
