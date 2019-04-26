@@ -24,7 +24,7 @@ This article describes how to enable alerts for the following situations:
 - When CPU or memory utilization on any container within a controller exceeds a threshold as compared to a limit that's set on the corresponding resource
 - *NotReady* status node counts
 - *Failed*, *Pending*, *Unknown*, *Running*, or *Succeeded* pod-phase counts
-- When disk free space on the disk exceeds a threshold 
+- When free disk space on cluster nodes exceeds a threshold 
 
 To alert for high CPU or memory utilization on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. Metric alerts have lower latency than log alerts. But log alerts provide advanced querying and greater sophistication. Log alerts queries compare a datetime to the present by using the *now* operator and going back one hour. (Azure Monitor for containers stores all dates in Coordinated Universal Time (UTC) format.)
 
