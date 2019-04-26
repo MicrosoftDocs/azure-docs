@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 This article describes the different authentication flows provided by Microsoft Authentication Library (MSAL).  These flows can be used in a variety of different application scenarios.
 
-| Flow | Description | Application type|  
+| Flow | Description | Used in|  
 | ---- | ----------- | ------- | 
 | [Implicit grant](#implicit-grant) | Allows the app to get tokens without performing a backend server credential exchange. This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code.| Single-page applications (SPA) |
 | [Authorization code](#authorization-code) | Used in apps that are installed on a device to gain access to protected resources, such as web APIs. This allows you to add sign in and API access to your mobile and desktop apps. | Web Apps / Web APIs / daemon apps | 
@@ -95,9 +95,9 @@ These client credentials need to be:
 ## Device code
 MSAL supports the [OAuth 2 device code flow](v2-oauth2-device-code.md), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer. Interactive authentication with Azure AD requires a web browser. The device code flow lets the user use another device (for instance another computer or a mobile phone) to sign in interactively where the device or operating system doesn't provide a Web browser.
 
-![Device code flow](media/msal-authentication-flows/device-code.png)
-
 By using the device code flow, the application obtains tokens through a two-step process especially designed for these devices/OS. Examples of such applications are applications running on iOT devices or Command-Line tools (CLI). 
+
+![Device code flow](media/msal-authentication-flows/device-code.png)
 
 1. Whenever user authentication is required, the app provides a code and asks the user to use another device (such as an internet-connected smartphone) to navigate to a URL (for example, http://microsoft.com/devicelogin), where the user will be prompted to enter the code. That done, the web page will lead the user through a normal authentication experience, including consent prompts and multi-factor authentication if necessary.
 
@@ -143,6 +143,8 @@ For more information on consent, see [v2.0 permissions and consent](v2-permissio
 
 ## Username/password 
 MSAL supports the [OAuth 2 resource owner password credentials grant](v2-oauth-ropc.md), which allows an application to sign in the user by directly handling their password. In your desktop application, you can use the username/password flow to acquire a token silently. No UI is required when using the application.
+
+![Username/password flow](media/msal-authentication-flows/username-password.png)
 
 > [!WARNING]
 > This flow is **not recommended** because it requires a high degree of trust and user exposure.  You should only use this flow when other, more secure, flows can't be used. For more information about this problem, see [this article](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
