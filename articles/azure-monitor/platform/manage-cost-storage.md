@@ -153,7 +153,7 @@ To understand the number of computers (nodes) reporting data each day in the las
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-To get a list of computers sending **billed data types** (some data types are free), leverage the [_IsBillable](log-standard-properties.md#_isbillable) property:
+To get a list of computers sending **billed data types** (some data types are free), leverage the `_IsBillable` [property](log-standard-properties.md#_isbillable):
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -224,7 +224,7 @@ union withsource = tt *
 
 ### Data volume by Azure resource, resource group, or subscription
 
-For data from nodes hosted in Azure you can get the **size** of billable events ingested __per computer__, use the [_ResourceId](log-standard-properties.md#_resourceid) property, which provides the full path to the resource:
+For data from nodes hosted in Azure you can get the **size** of billable events ingested __per computer__, use the _ResourceId [property](log-standard-properties.md#_resourceid), which provides the full path to the resource:
 
 ```kusto
 union withsource = tt * 
