@@ -197,22 +197,34 @@ In this section, you create two notebooks in Databricks workspace with the follo
 In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholder with values for your Event Hubs namespace and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Event Hubs in real time.
 
 ```scala
-import java.util._
+//
+// Send Data to Eventhub
+//
+
 import scala.collection.JavaConverters._
 import com.microsoft.azure.eventhubs._
 import java.util.concurrent._
+import com.google.gson.{Gson, GsonBuilder, JsonParser}
+import java.util.Date
+import scala.util.control._
+import twitter4j._
+import twitter4j.TwitterFactory
+import twitter4j.Twitter
+import twitter4j.conf.ConfigurationBuilder
 
-val namespaceName = "<EVENT HUBS NAMESPACE>"
-val eventHubName = "<EVENT HUB NAME>"
-val sasKeyName = "<POLICY NAME>"
-val sasKey = "<POLICY KEY>"
+// Event Hub Config
+val namespaceName = "[Placeholder: EventHub namespace]"
+val eventHubName = "[Placeholder: EventHub name]"
+val sasKeyName = "[Placeholder: EventHub access key name]"
+val sasKey = "[Placeholder: EventHub access key key]"
 val connStr = new ConnectionStringBuilder()
-            .setNamespaceName(namespaceName)
-            .setEventHubName(eventHubName)
-            .setSasKeyName(sasKeyName)
-            .setSasKey(sasKey)
+  .setNamespaceName(namespaceName)
+  .setEventHubName(eventHubName)
+  .setSasKeyName(sasKeyName)
+  .setSasKey(sasKey)
 
-val pool = Executors.newFixedThreadPool(1)
+// Connect to the Event Hub
+val pool = Executors.newScheduledThreadPool(1)
 val eventHubClient = EventHubClient.create(connStr.toString(), pool)
 
 def sendEvent(message: String) = {
@@ -221,21 +233,16 @@ def sendEvent(message: String) = {
   System.out.println("Sent event: " + message + "\n")
 }
 
-import twitter4j._
-import twitter4j.TwitterFactory
-import twitter4j.Twitter
-import twitter4j.conf.ConfigurationBuilder
+case class MessageBody(var timestamp: Date, var favorite: Int)
+val gson: Gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").create()
 
-// Twitter configuration!
-// Replace values below with yours
-
-val twitterConsumerKey = "<CONSUMER KEY>"
-val twitterConsumerSecret = "<CONSUMER SECRET>"
-val twitterOauthAccessToken = "<ACCESS TOKEN>"
-val twitterOauthTokenSecret = "<TOKEN SECRET>"
+val twitterConsumerKey = "[Placeholder: Twitter consumer key]"
+val twitterConsumerSecret = "[Placeholder: Twitter consumer seceret]"
+val twitterOauthAccessToken = "[Placeholder: Twitter oauth access token]"
+val twitterOauthTokenSecret = "[Placeholder: Twitter oauth token secret]"
 
 val cb = new ConfigurationBuilder()
-  cb.setDebugEnabled(true)
+cb.setDebugEnabled(true)
   .setOAuthConsumerKey(twitterConsumerKey)
   .setOAuthConsumerSecret(twitterConsumerSecret)
   .setOAuthAccessToken(twitterOauthAccessToken)
@@ -279,8 +286,9 @@ while (!finished) {
   query.setMaxId(lowestStatusId - 1)
 }
 
-// Closing connection to the Event Hub
- eventHubClient.get().close()
+// Close connection to the Event Hub
+eventHubClient.get().close()
+pool.shutdown()
 ```
 
 To run the notebook, press **SHIFT + ENTER**. You see an output as shown in the following snippet. Each event in the output is a tweet that is ingested into the Event Hubs.
@@ -308,12 +316,12 @@ To run the notebook, press **SHIFT + ENTER**. You see an output as shown in the 
 
 In the **AnalyzeTweetsFromEventHub** notebook, paste the following code, and replace the placeholder with values for your Azure Event Hubs that you created earlier. This notebook reads the tweets that you earlier streamed into Event Hubs using the **SendTweetsToEventHub** notebook.
 
+First, write a client to call Anomaly detector. 
 ```scala
 
 //
-// Anomaly Detection Client
+// Client to call Anomaly detector
 //
-
 import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
 import java.net.URL
 import java.sql.Timestamp
@@ -329,7 +337,7 @@ case class AnomalyBatchResponse(var expectedValues: Array[Double], var upperMarg
 object AnomalyDetector extends Serializable {
 
   // Cognitive Services API connection settings
-  val subscriptionKey = "[Your subscription key]"
+  val subscriptionKey = "fba29e45810f49d4b34bdb600cff96cc"
   val endpoint = "https://westus2.api.cognitive.microsoft.com/"
   val latestPointDetectionPath = "/anomalydetector/v1.0/timeseries/last/detect"
   val batchDetectionPath = "/anomalydetector/v1.0/timeseries/entire/detect";
@@ -348,6 +356,7 @@ object AnomalyDetector extends Serializable {
 
   // Handles the call to Cognitive Services API.
   def processUsingApi(request: String, path: URL): String = {
+    println(request)
     val encoded_text = request.getBytes("UTF-8")
     val connection = getConnection(path)
     val wr = new DataOutputStream(connection.getOutputStream())
@@ -370,6 +379,7 @@ object AnomalyDetector extends Serializable {
   def detectLatestPoint(series: Series): Option[AnomalySingleResponse] = {
     try {
       val response = processUsingApi(gson.toJson(series), latestPointDetectionUrl)
+      println(response)
       // Deserializing the JSON response from the API into Scala types
       val anomaly = gson.fromJson(response, classOf[AnomalySingleResponse])
       Thread.sleep(5000)
@@ -386,6 +396,7 @@ object AnomalyDetector extends Serializable {
   def detectBatch(series: Series): Option[AnomalyBatchResponse] = {
     try {
       val response = processUsingApi(gson.toJson(series), batchDetectionUrl)
+      println(response)
       // Deserializing the JSON response from the API into Scala types
       val anomaly = gson.fromJson(response, classOf[AnomalyBatchResponse])
       Thread.sleep(5000)
@@ -423,49 +434,50 @@ Then prepare an aggregatetion functions for future usage.
 import org.apache.spark.sql.Row
 import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
 import org.apache.spark.sql.types.{StructType, TimestampType, FloatType, MapType, BooleanType, DataType}
+//import org.apache.spark.sql.functions._
 import scala.collection.immutable.ListMap
 
 class AnomalyDetectorAggregationFunction extends UserDefinedAggregateFunction {
-    override def inputSchema: StructType = new StructType().add("timestamp", TimestampType).add("value", FloatType)
-
-    override def bufferSchema: StructType = new StructType().add("point", MapType(TimestampType, FloatType))
-
-    override def dataType: DataType = BooleanType
-
-    override def deterministic: Boolean = false
-
-    override def initialize(buffer: MutableAggregationBuffer): Unit = {
-        buffer(0) = Map()
+  override def inputSchema: StructType = new StructType().add("timestamp", TimestampType).add("value", FloatType)
+  
+  override def bufferSchema: StructType = new StructType().add("point", MapType(TimestampType, FloatType))
+  
+  override def dataType: DataType = BooleanType
+  
+  override def deterministic: Boolean = false
+  
+  override def initialize(buffer: MutableAggregationBuffer): Unit = {
+    buffer(0) = Map()
+  }
+  
+  override def update(buffer: MutableAggregationBuffer, input: Row): Unit = {
+    buffer(0) = buffer.getAs[Map[java.sql.Timestamp, Float]](0) + (input.getTimestamp(0) -> input.getFloat(1))
+  }
+  
+  override def merge(buffer1: MutableAggregationBuffer, buffer2: Row): Unit = {
+    buffer1(0) = buffer1.getAs[Map[java.sql.Timestamp, Float]](0) ++ buffer2.getAs[Map[java.sql.Timestamp, Float]](0)
+  }
+  
+  override def evaluate(buffer: Row): Any = {
+    val points = buffer.getAs[Map[java.sql.Timestamp, Float]](0)
+    if (points.size > 24) {
+      val sorted_points = ListMap(points.toSeq.sortBy(_._1.getTime):_*)
+      var detect_points: List[Point] = List()
+      sorted_points.keys.foreach {
+        key => detect_points = detect_points :+ new Point(key, sorted_points(key))
+      }
+      
+      val series: Series = new Series(detect_points.toArray, 0.25, 95, "hourly")
+      val response: Option[AnomalySingleResponse] = AnomalyDetector.detectLatestPoint(series)
+      if (!response.isEmpty) {
+        return response.get.isAnomaly
+      }
     }
-
-    override def update(buffer: MutableAggregationBuffer, input: Row): Unit = {
-        buffer(0) = buffer.getAs[Map[java.sql.Timestamp, Float]](0) + (input.getTimestamp(0) -> input.getFloat(1))
-    }
-
-    override def merge(buffer1: MutableAggregationBuffer, buffer2: Row): Unit = {
-        buffer1(0) = buffer1.getAs[Map[java.sql.Timestamp, Float]](0) ++ buffer2.getAs[Map[java.sql.Timestamp, Float]](0)
-    }
-
-    override def evaluate(buffer: Row): Any = {
-        val points = buffer.getAs[Map[java.sql.Timestamp, Float]](0)
-        if (points.size > 24) {
-        val sorted_points = ListMap(points.toSeq.sortBy(_._1.getTime):_*)
-        var detect_points: List[Point] = List()
-        sorted_points.keys.foreach {
-            key => detect_points = detect_points :+ new Point(key, sorted_points(key))
-        }
-        
-        val series: Series = new Series(detect_points.toArray, 0.25, 95, "hourly")
-        val response: Option[AnomalySingleResponse] = AnomalyDetector.detectLatestPoint(series)
-        if (!response.isEmpty) {
-            println(response)
-            return response.get.isAnomaly
-        }
-        }
-        
-        return None
-    }
+    
+    return None
+  }
 }
+
 ```
 
 To run the notebook, press **SHIFT + ENTER**. You see an output as shown in the following snippet. 
@@ -476,7 +488,7 @@ To run the notebook, press **SHIFT + ENTER**. You see an output as shown in the 
     import scala.collection.immutable.ListMap
     defined class AnomalyDetectorAggregationFunction
 
-Then load data from event hub.
+Then load data from event hub for anomaly detection.
 
 ```scala
 //
@@ -511,6 +523,7 @@ val msgStream = messages.select(from_json('body, bodySchema) as 'fields).select(
 msgStream.printSchema
 
 display(msgStream)
+
 ```
 
 The output now resembles the following image. Please pay attention to that your date in the table might be different from the date in this tutorial as the data is real time. 
@@ -541,14 +554,14 @@ display(groupStream)
 ```
 The output now resembles the following snippets.
 ```
-root
- |-- groupTime: timestamp (nullable = true)
- |-- average: double (nullable = true)
-
-groupStream: org.apache.spark.sql.DataFrame = [groupTime: timestamp, average: double]
+groupTime                       average
+2019-04-23T04:00:00.000+0000	24
+2019-04-26T19:00:00.000+0000	47.888888888888886
+2019-04-25T12:00:00.000+0000	32.25
+2019-04-26T09:00:00.000+0000	63.4
 ```
 
-Then get the aggregated output result to Delta. 
+Then get the aggregated output result to Delta. Because anomaly detection requires a longer history window, we are using Delta to keep the history data for the point you want to detect. 
 
 
 ```scala
@@ -559,7 +572,7 @@ Then get the aggregated output result to Delta.
 groupStream.writeStream
   .format("delta")
   .outputMode("complete")
-  .option("checkpointLocation", "/delta/random/_checkpoints/etl-from-eventhub-20190425")
+  .option("checkpointLocation", "/delta/random/_checkpoints/[Placeholder: filename]")
   .table("random")
 
 ```
@@ -580,6 +593,18 @@ display(twitterData)
 ```
 To run the notebook, press **SHIFT + ENTER**. You see an output as shown in the following image. 
 ![Show Aggragted Result](../media/tutorials/show-aggregated-result.png "Show Aggregated Result")
+
+```
+groupTime                       average
+2019-04-08T00:00:00.000+0000	40.77777777777778
+2019-04-08T01:00:00.000+0000	43.625
+2019-04-08T02:00:00.000+0000	67.2
+2019-04-08T03:00:00.000+0000	70
+2019-04-08T04:00:00.000+0000	2922
+2019-04-08T05:00:00.000+0000	36
+2019-04-08T06:00:00.000+0000	42.333333333333336
+2019-04-08T07:00:00.000+0000	50.44444444444444
+```
 
 Reload the aggregation stream.
 ```scala
@@ -621,18 +646,18 @@ To run the notebook, press **SHIFT + ENTER**. You see an output as shown in the 
 You can also output your anomaly detection result to external store.
 ```scala
 //
-// Output Anomaly Detect Result to External Store
+// Output Anomaly Detect Result to External Store or somewhere else
 //
 
 anomalyStream.writeStream
   .format("delta")
   .outputMode("complete")
-  .option("checkpointLocation", "/delta/anomaly/_checkpoints/etl-from-eventhub-20190423100")
+  .option("checkpointLocation", "/delta/anomaly/_checkpoints/[Placeholder: filename]")
   .table("anomaly")
 
 ```
 
-By the way,ou can also show your anomaly result directly.
+By the way, you can also show your anomaly result directly.
 ```scala
 //
 // Show Anomaly Detection Result
