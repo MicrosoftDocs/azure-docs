@@ -104,8 +104,15 @@ You can register your application in either of two ways, as described in the nex
         </intent-filter>
     </activity>
     ```
-   <!-- Workaround for Docs conversion bug -->
-3. In the `BrowserTabActivity`, replace the ***Package Name*** and ***Signature Hash*** with the values registered in the Azure portal.
+
+3. Inside the **AndroidManifest.xml** and just above the `<application` tag, add the following permissions:
+
+    ```xml
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    ```
+
+4. In the `BrowserTabActivity`, replace the ***Package Name*** and ***Signature Hash*** with the values registered in the Azure portal.
 
 ### Create the app's UI
 
