@@ -121,9 +121,9 @@ This command:
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 * Mounts an /input and an /output volume to the container
 
-[!INCLUDE [Running multiple containerson the same host H2](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+[!INCLUDE [Running multiple containers on the same host H2](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-[!INCLUDE [Running multiple containers CLI on the same host - H3](../../../includes/cognitive-services-containers-run-multiple-docker-cli.md)]
+### Run separate containers as separate docker run commands
 
 For the Form Recognizer and Text Recognizer combination hosted locally on the same host, two example Docker CLI commands follow.
 
@@ -151,7 +151,7 @@ ApiKey={COMPUTER_VISION_API_KEY}
 ```
 Each subsequent container should be on a different port. 
 
-[!INCLUDE [Running multiple containers Compose on the same host - H3](../../../includes/cognitive-services-containers-run-multiple-docker-compose.md)]
+### Run separate containers with Docker Compose
 
 For the Form Recognizer and Text Recognizer combination hosted locally on the same host, an example Docker Compose YAML file follows. The Text Recognizer `{COMPUTER_VISION_API_KEY}` must be the same for both the `form` and `ocr` containers. The `{COMPUTER_VISION_ENDPOINT_URI}` is only used in the `ocr` container because the `form` container uses the `ocr` name and port. 
 
