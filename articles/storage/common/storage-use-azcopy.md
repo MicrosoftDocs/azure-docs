@@ -15,9 +15,8 @@ ms.subservice: common
 AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob, File, and Table storage, using simple commands designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
 
 > [!IMPORTANT]
-> This article describes an older version of AzCopy (AzCopy v8.1).
->
->To install the most recent version of AzCopy (AzCopy v10), see [AzCopy v10](storage-use-azcopy-v10.md).
+> This article describes an older version of AzCopy.
+>To install the most recent version of AzCopy, see [AzCopy v10](storage-use-azcopy-v10.md).
 
 If you choose to install the older version of AzCopy (AzCopy v8.1), then there are multiple versions that you can download. AzCopy on Windows offers Windows style command-line options. [AzCopy on Linux](storage-use-azcopy-linux.md) targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Windows.
 
