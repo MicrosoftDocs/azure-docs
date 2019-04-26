@@ -12,21 +12,21 @@ ms.author: zhshang
 
 Azure SignalR Service is based on [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction), which is **not** 100% compatible with ASP.NET SignalR. Some code changes and proper version of dependent libraries are needed to make ASP.NET SignalR application work with SignalR Service.
 
-Refer to the [doc](https://docs.microsoft.com/aspnet/core/signalr/version-differences?view=aspnetcore-2.2) for a complete list of features comparison between ASP.NET SignalR and ASP.NET Core SignalR.
+Refer to the [version differences doc](https://docs.microsoft.com/aspnet/core/signalr/version-differences?view=aspnetcore-2.2) for a complete list of feature comparison between ASP.NET SignalR and ASP.NET Core SignalR.
 
 In this quickstart, you will learn how to get started with the ASP.NET and Azure SignalR Service for a similar [Chat Room application](./signalr-quickstart-dotnet-core.md).
 
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 ## Prerequisites
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-* [.NET 4.6.1+](https://www.microsoft.com/net/download/windows)
-* [ASP.NET SignalR 2.4.1](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
+* [ASP.NET SignalR 2.4.0](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
+Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
@@ -108,9 +108,8 @@ After a few moments, the resource group and all of its contained resources are d
 
 ## Next steps
 
-In this quickstart, you created a new Azure SignalR Service resource and used it with an ASP.NET web app. To learn more about using Azure SignalR Service, continue to the next tutorial on how to develop real-time applications using Azure SignalR Service with ASP.NET Core or Azure Functions.
+In this quickstart, you created a new Azure SignalR Service resource and used it with an ASP.NET web app. Next, learn how to develop real-time applications using Azure SignalR Service with ASP.NET Core or Azure Functions.
 
 > [!div class="nextstepaction"]
 > [Azure SignalR Service with ASP.NET Core](./signalr-quickstart-dotnet-core.md)
-
 > [Azure SignalR Service with Azure Functions binding](./signalr-quickstart-azure-functions-csharp.md)
