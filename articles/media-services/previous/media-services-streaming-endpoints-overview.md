@@ -94,7 +94,7 @@ Recommended usage |Recommended for the vast majority of streaming scenarios.|Pro
 
 <sup>1</sup> The free trial only applies to newly created media services accounts and the default Streaming Endpoint.<br/>
 <sup>2</sup> Only used directly on the Streaming Endpoint when the CDN is not enabled on the endpoint.<br/>
-<sup>3</sup> If you think you may have needs beyond Standard. Contact us (amsstreaming@microsoft.com) if you expect a concurrent audience size larger than 50,000 viewers.
+<sup>3</sup> If you expect a concurrent audience size larger than 50,000 viewers, contact us at amsstreaming@microsoft.com for guidance on whether you need to move to the **Premium** type. 
 
 For SLA information, see [Pricing and SLA](https://azure.microsoft.com/pricing/details/media-services/).
 
