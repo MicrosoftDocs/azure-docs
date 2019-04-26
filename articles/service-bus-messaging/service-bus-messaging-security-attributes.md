@@ -23,7 +23,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
 | Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  Yes for server-side encryption-at-rest by default. | Customer managed keys and BYOK are not yet supported. Client side encryption is the client's responsibility |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | Supports standard HTTPS/TLS mechanism. |
+| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | Supports standard HTTPS/TLS mechanism. |
 | Encryption key handling (CMK, BYOK, etc.)| No |   |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | API calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS. |
@@ -32,8 +32,8 @@ Security is integrated into every aspect of an Azure service. This article docum
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Service endpoint support| Yes (Premium tier only) | VNET service endpoints are supported for [Service Bus Premium tier](service-bus-premium-messaging.md) only. |
-| vNET injection support| No | |
+| Service endpoint support| Yes (Premium tier only) | VNet service endpoints are supported for [Service Bus Premium tier](service-bus-premium-messaging.md) only. |
+| VNet injection support| No | |
 | Network isolation and firewalling support| Yes (Premium tier only) |  |
 | Forced tunneling support| No |  |
 

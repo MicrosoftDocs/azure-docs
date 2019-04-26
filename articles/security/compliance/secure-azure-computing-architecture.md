@@ -23,7 +23,7 @@ A rapidly increasing number of DoD customers deploying workloads to Azure have b
  
 There are four components of the SCCA. The Boundary Cloud Access Point (BCAP), Virtual Datacenter Security Stack (VDSS), Virtual Datacenter Services (VDMS), and Trusted Cloud Credential Manager (TCCM). Microsoft has developed a solution that will meet the SCCA requirements for both IL4 and IL5 workloads running in Azure. This Azure specific solution is called Secure Azure Computing Architecture (SACA). Customers who deploy SACA will be in compliance with the SCCA FRD and will enable DoD customers to move workloads into Azure once connected. 
 
-While SCCA guidance and architectures are specific to DoD customers, the latest revisions to SACA will also help Civilian customers comply with trusted internet connection (TIC) guidance, as well as commercial customers that with to implement a secure DMZ to protect their azure environments. 
+While SCCA guidance and architectures are specific to DoD customers, the latest revisions to SACA will also help Civilian customers comply with trusted internet connection (TIC) guidance, as well as commercial customers that wish to implement a secure DMZ to protect their azure environments. 
 
 
 ## Secure Cloud Computing Architecture components
