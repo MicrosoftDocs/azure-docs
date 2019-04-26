@@ -1,4 +1,4 @@
-- name: Azure Blockchain Service (public preview)
+- name: Azure Blockchain Service (Preview)
   href: index.yml
 - name: Overview
   items:
@@ -11,7 +11,7 @@
     href: create-member.md
   - name: Create member - CLI
     href: create-member-cli.md
-  - name: Connect to node
+  - name: Connect to transaction node
     items:
     - name: Using MetaMask
       href: connect-metamask.md
@@ -21,19 +21,19 @@
       href: connect-truffle.md
 - name: Tutorials
   items:
-  - name: Send transaction
+  - name: Send transactions
     href: send-transaction.md
 - name: Concepts
   items:
   - name: Consortium
     href: consortium.md
-  - name: Data access, security
+  - name: Data access and security
     href: data-security.md
   - name: Develop
     href: develop.md
   - name: Limits
     href: limits.md
-  - name: Patch, update, version
+  - name: Patching, updating, versioning
     href: ledger-versions.md
 - name: How-to guides
   items: 
