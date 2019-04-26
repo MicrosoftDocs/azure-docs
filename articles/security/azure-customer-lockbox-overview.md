@@ -1,6 +1,6 @@
 ---
-title: Overview of Customer Lockbox for Microsoft Azure
-description: This article provides a technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft may need to access customer data.
+title: Customer Lockbox for Microsoft Azure
+description: Technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft may need to access customer data.
 author: cabailey
 ms.service: security
 ms.topic: article
@@ -14,9 +14,9 @@ ms.date: 05/07/2019
 > [!NOTE]
 > To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
 
-As a cloud service provider, we understand the importance of maintaining the integrity and confidentiality of customer data. We continually invest in our policies, processes, and tools for governing when Microsoft may need to access customer data hosted in Azure. One of the key tools to provide control over these processes is Customer Lockbox for Microsoft Azure.
+As a cloud service provider, Microsoft understands the importance of maintaining the integrity and confidentiality of customer data. We continually invest in our policies, processes, and tools for governing when Microsoft may need to access customer data hosted in Azure. One of the key tools to provide control over these processes is Customer Lockbox for Microsoft Azure.
 
-In most cases, Microsoft engineers do not access customer data. For example, routine platform maintenance does not need access to customer data and if customers have opened support tickets, Microsoft support engineers can troubleshoot most issues by using tools and telemetry.
+In most cases, Microsoft engineers do not access customer data. For example, routine platform maintenance doesn't need access to customer data and if customers have opened support tickets, Microsoft support engineers can troubleshoot the majority of issues by using tools and telemetry.
 
 However, If a Microsoft engineer does needs to access customer data during a support request, Customer Lockbox provides an interface for a customer to review this access request, and approve or reject it, as well as track historical request logs. This article covers how this workflow is initiated, tracked, and stored for later reviews and audits.
 
@@ -102,7 +102,7 @@ Customer Lockbox is currently enabled for remote desktop access requests to virt
 
 #### Detailed audit logs
 
-For scenarios that involve direct remote desktop access to a virtual machine, you can also use the Windows Event Log. If a virtual machine agent is installed on the virtual machine, you can export these logs for analysis and alerting. This data can then be used by other monitoring solutions, such as Azure Monitor.
+For scenarios that involve remote desktop access, you can use Windows event logs to review the actions taken by the Microsoft engineer. Consider using Azure Security Center to collect your event logs and copy the data to your workspace for analysis. For more information, see [Data collection in Azure Security Center]( .. /security-center/security-center-enable-data-collection.md).
 
 ## Exclusions
 
