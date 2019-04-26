@@ -39,7 +39,6 @@ The ability to geocode in a country is dependent upon the road data coverage and
 | Canada                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cayman Islands                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Chile                                               |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
-| Clipperton Island                                   |                 |                |              |      ✓     |                    |
 | Colombia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Costa Rica                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Cuba                                                |                 |                |       ✓      |      ✓     |          ✓         |
