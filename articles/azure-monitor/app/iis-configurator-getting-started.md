@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Application Insights IIS Configurator | Microsoft Docs
+title: Azure Monitor Application Insights Application Monitor | Microsoft Docs
 description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > [!CAUTION] 
 > This module is a prototype application, and isn't recommended for your production environments.
 
-## Download & install IISConfigurator via PowerShell Gallery
+## Download & install ApplicationMonitor via PowerShell Gallery
 
 ### Install prerequisites
 Run PowerShell as Administrator
@@ -39,11 +39,11 @@ Install-Module -Name PowerShellGet -Force
 ```	
 Exit PowerShell
 
-### Install IISConfigurator
+### Install ApplicationMonitor
 Run PowerShell as Administrator
 ```powershell	
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-Install-Module -Name Microsoft.ApplicationInsights.IISConfigurator -AllowPrerelease -AcceptLicense
+Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 ```	
 
 ### Enable monitoring
@@ -53,11 +53,11 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ```
 	
 		
-## Download & install IISConfigurator manually (offline option)
+## Download & install ApplicationMonitor manually (offline option)
 ### Manual download
-Manually download the latest version of the Module from: https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator.POC 
+Manually download the latest version of the Module from: https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 
-### Unzip and install IISConfigurator
+### Unzip and install ApplicationMonitor
 ```powershell
 $pathToNupkg = "C:\Users\t\Desktop\Microsoft.ApplicationInsights.IISConfigurator.0.2.0-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))

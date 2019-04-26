@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Application Insights IIS Configurator | Microsoft Docs
+title: Azure Monitor Application Insights Application Monitor | Microsoft Docs
 description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
@@ -13,9 +13,9 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# IISConfigurator detailed instructions
+# ApplicationMonitor detailed instructions
 
-This document details how to onboard to the PowerShell Gallery and download the IISConfigurator Module. 
+This document details how to onboard to the PowerShell Gallery and download the ApplicationMonitor Module. 
 We've documented the most common parameters required to get started.
 We've also included manual instructions in the event that internet access isn't available.
 
@@ -133,24 +133,24 @@ SerializationVersion           1.1.0.1
 	
 5. Restart PowerShell. It isn't possible to load the new version in the current session. Any new Powershell sessions will have the latest PowerShellGet loaded.
 
-## Download & install IISConfigurator via PowerShell Gallery
+## Download & install ApplicationMonitor via PowerShell Gallery
 
 1. Prerequisites for PowerShell Gallery are required.
 2. Run PowerShell as Administrator with an elevated execution policy.
-3. Install IISConfigurator Module
+3. Install the ApplicationMonitor Module
 	- Reference: [Install-Module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6)
-	- Cmd: `Install-Module -Name Microsoft.ApplicationInsights.IISConfigurator`
+	- Cmd: `Install-Module -Name Az.ApplicationMonitor`
 	- Optional Parameters:
 		- `-Proxy` Specifies a proxy server for the request.
 		- `-AllowPrerelease` This will allow installing alpha and beta releases.
 		- `-AcceptLicense` This will skip the "Accept License" prompt
 		- `-Force` This will ignore the "Untrusted Repository" warning
 
-## Download & install IISConfigurator manually (offline option)
+## Download & install ApplicationMonitor manually (offline option)
 
 ### Manually download the latest nupkg
 
-1. Navigate to: https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator.POC
+1. Navigate to: https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 2. Select the latest version from the version history.
 3. Find "Installation Options" and select "Manual Download".
 
@@ -205,7 +205,7 @@ If installing into any other directory, you must manually import the module usin
 
 When monitoring a machine on your private intranet, it will be necessary to route http traffic through a proxy.
 
-The PowerShell commands to download and install the IISConfigurator from the PowerShell Gallery do support a `-Proxy` parameter.
+The PowerShell commands to download and install the ApplicationMonitor from the PowerShell Gallery do support a `-Proxy` parameter.
 Review the instructions above when writing your installation scripts.
 
 The Application Insights SDK will need to send your application's telemetry to Microsoft. We recommend configuring proxy settings for your application in your web.config. See [Application Insights FAQ: Proxy Passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough) for more information.

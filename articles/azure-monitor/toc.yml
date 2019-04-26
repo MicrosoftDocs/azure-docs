@@ -293,7 +293,7 @@
         items:
         - name: Web apps
           href: app/asp-net.md
-        - name: IISConfigurator
+        - name: Application Monitor
           href: app/iis-configurator-overview.md
           items:
           - name: Getting started

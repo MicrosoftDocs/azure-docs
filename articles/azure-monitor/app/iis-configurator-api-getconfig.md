@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Application Insights IIS Configurator | Microsoft Docs
+title: Azure Monitor Application Insights Application Monitor | Microsoft Docs
 description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
@@ -13,9 +13,9 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# IISConfigurator API reference
+# Application Monitor API reference
 
-This document describes a cmdlet that is shipped as member of the [IISConfigurator PowerShell Module](https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator.POC).
+This document describes a cmdlet that is shipped as member of the [ApplicationMonitor PowerShell Module.](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)
 
 > [!CAUTION] 
 > This module is a prototype application, and isn't recommended for your production environments.
@@ -27,7 +27,7 @@ This document describes a cmdlet that is shipped as member of the [IISConfigurat
 
 ## Description
 
-Get the config file for IISConfigurator and print the values to the console.
+Get the config file for ApplicationMonitor and print the values to the console.
 
 ## Examples
 

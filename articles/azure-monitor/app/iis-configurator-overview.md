@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Application Insights IIS Configurator | Microsoft Docs
+title: Azure Monitor Application Insights Application Monitor | Microsoft Docs
 description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
@@ -13,9 +13,9 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Application Insights IISConfigurator
+# Application Monitor
 
-IISConfigurator is a PowerShell Module published to the [PowerShellGallery](https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator.POC) 
+ApplicationMonitor is a PowerShell Module published to the [PowerShellGallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor) 
 and is the replacement for [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now). 
 This module provides code-less instrumentation of .NET web applications hosted on-prem. 
 Telemetry will be sent to the Azure portal where you can [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) your application.
@@ -25,7 +25,7 @@ Telemetry will be sent to the Azure portal where you can [monitor](https://docs.
 
 ## PowerShell Gallery
 
-https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator.POC
+https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 
 
 ## Instructions
@@ -48,9 +48,9 @@ https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConf
 
 ## FAQ
 
-- Does IISConfigurator support proxy installations?
+- Does ApplicationMonitor support proxy installations?
 
-  **Yes**. You have multiple options to download the IISConfigurator. 
+  **Yes**. You have multiple options to download the ApplicationMonitor. 
 If your computer has internet access, you can onboard to the PowerShell Gallery using `-Proxy` parameters. 
 You can also manually download this module and either install it on your machine or use the module directly. 
 Each of these options is described in our [Detailed Instructions](iis-configurator-detailed-instructions.md).

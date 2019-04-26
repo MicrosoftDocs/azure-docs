@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Application Insights IIS Configurator | Microsoft Docs
+title: Azure Monitor Application Insights Application Monitor | Microsoft Docs
 description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
@@ -13,9 +13,9 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# IISConfigurator API reference
+# Application Monitor API reference
 
-This document describes a cmdlet that is shipped as member of the [IISConfigurator PowerShell Module](https://www.powershellgallery.com/packages/Microsoft.ApplicationInsights.IISConfigurator.POC).
+This document describes a cmdlet that is shipped as member of the [ApplicationMonitor PowerShell Module.](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)
 
 > [!CAUTION] 
 > This module is a prototype application, and isn't recommended for your production environments.
@@ -38,7 +38,7 @@ Events and messages will be collected that describe the execution of a managed p
 Including but not limited to Dependency Result Codes, HTTP Verbs, and SQL Command Text. 
 
 Enable the Instrumentation Engine if:
-- You've already enabled monitoring using the IISConfigurator but didn't enable the InstrumentationEngine.
+- You've already enabled monitoring using Enable cmdlet but didn't enable the InstrumentationEngine.
 - You've manually instrumented your application with the .NET SDKs and want to collect additional telemetry.
 
 > [!NOTE] 

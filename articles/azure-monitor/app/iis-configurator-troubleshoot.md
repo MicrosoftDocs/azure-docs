@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Application Insights IIS Configurator | Microsoft Docs
+title: Azure Monitor Application Insights Application Monitor | Microsoft Docs
 description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# IISConfigurator troubleshooting
+# ApplicationMonitor troubleshooting
 
 When you enable monitoring, you may experience issues that prevent data collection. 
 This document lists all the known issues and troubleshooting examples.
@@ -90,7 +90,7 @@ Can audit installed Modules using cmd: `Get-Module -ListAvailable`
 - If the Module hasn't been loaded into a PowerShell session, can manually load using the command `Import-Module <path to psd1>`
 
 
-- Run the cmd: `Get-Command -Module microsoft.applicationinsights.iisconfigurator.poc` to get the available commands
+- Run the cmd: `Get-Command -Module Az.ApplicationMonitor` to get the available commands
 
 	```
 	CommandType     Name                                               Version    Source
