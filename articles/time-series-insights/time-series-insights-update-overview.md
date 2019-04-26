@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Overview: Azure Time Series Insights Preview | Microsoft Docs'
 description: Azure Time Series Insights Preview overview.
 ms.service: time-series-insights
