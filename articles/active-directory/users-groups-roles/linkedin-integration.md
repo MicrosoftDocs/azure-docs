@@ -47,7 +47,8 @@ You can enable LinkedIn account connections for only the users you want to have 
 
 1. When you're done, select **Save** to save your settings.
 
-Note: LinkedIn integration is not fully enabled for your users until they consent to connect their accounts. No data is shared when you enable account connections for your users.
+> [!Important]
+> LinkedIn integration is not fully enabled for your users until they consent to connect their accounts. No data is shared when you enable account connections for your users.
 
 ### Assign selected users with a group
 We have replaced the ‘Selected’ option with ‘Selected group’ so that you can enable the ability to connect LinkedIn and Microsoft accounts for one group instead of individual users. If you don’t have LinkedIn account connections enabled for Selected individual users, you don’t need to do anything. If you have previously enabled LinkedIn account connections for selected, individual users, you should:
