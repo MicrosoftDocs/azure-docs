@@ -18,13 +18,13 @@ This article shows how resource provider namespaces map to Azure services.
 | --------------------------- | ------------- |
 | Microsoft.AAD | [Azure Active Directory Domain Services](../active-directory-domain-services/index.yml) |
 | microsoft.aadiam | [Azure Active Directory](/azure/active-directory/) |
-| Microsoft.Addons | Core |
+| Microsoft.Addons | core |
 | Microsoft.ADHybridHealthService | [Azure Active Directory](/azure/active-directory/) |
 | Microsoft.Advisor | [Azure Advisor](../advisor/index.yml) |
 | Microsoft.AlertsManagement | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.AnalysisServices | [Azure Analysis Services](/azure/analysis-services/) |
 | Microsoft.ApiManagement | [API Management](../api-management/index.yml) |
-| Microsoft.AppConfiguration | Core |
+| Microsoft.AppConfiguration | core |
 | Microsoft.Authorization | [Azure Resource Manager](index.yml) |
 | Microsoft.Automation | [Automation](../automation/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../active-directory-b2c/index.yml) |
@@ -37,7 +37,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.Blueprint | [Azure Blueprints](/azure/governance/blueprints/) |
 | Microsoft.BotService | [Azure Bot Service](/azure/bot-service/) |
 | Microsoft.Cache | [Azure Cache for Redis](/azure/azure-cache-for-redis/) |
-| Microsoft.Capacity | Core |
+| Microsoft.Capacity | core |
 | Microsoft.Cdn | [Content Delivery Network](../cdn/index.yml) |
 | Microsoft.CertificateRegistration | [App Service Certificates](../app-service/web-sites-purchase-ssl-web-site.md) |
 | Microsoft.ClassicCompute | Classic deployment model virtual machine |
@@ -46,7 +46,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.ClassicStorage | Classic deployment model storage |
 | Microsoft.ClassicSubscription | Classic deployment model |
 | Microsoft.CognitiveServices | [Cognitive Services](/azure/cognitive-services/) |
-| Microsoft.Commerce | Core |
+| Microsoft.Commerce | core |
 | Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/) |
 | Microsoft.Consumption | [Cost Management](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Container Instances](/azure/container-instances/) |
@@ -92,7 +92,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.Kusto | [Azure Data Explorer](../data-explorer/index.yml) |
 | Microsoft.LabServices | [Azure Lab Services](../lab-services/index.yml) |
 | Microsoft.LocationBasedServices | [Azure Maps](../azure-maps/index.yml) |
-| Microsoft.LocationServices | Core |
+| Microsoft.LocationServices | core |
 | Microsoft.LogAnalytics | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.Logic | [Logic Apps](../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../machine-learning/studio/index.yml) |
@@ -103,9 +103,9 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.ManagedLab | [Azure Lab Services](../lab-services/index.yml) |
 | Microsoft.Management | [Management Groups](/azure/governance/management-groups/) |
 | Microsoft.Maps | [Azure Maps](../azure-maps/index.yml) |
-| Microsoft.Marketplace | Core |
-| Microsoft.MarketplaceApps | Core |
-| Microsoft.MarketplaceOrdering | Core |
+| Microsoft.Marketplace | core |
+| Microsoft.MarketplaceApps | core |
+| Microsoft.MarketplaceOrdering | core |
 | Microsoft.Media | [Media Services](../media-services/index.yml) |
 | Microsoft.Migrate | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](/azure/spatial-anchors/) |
@@ -121,9 +121,9 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft.RecoveryServices | [Site Recovery](../site-recovery/index.yml) |
 | Microsoft.Relay | [Azure Relay](../service-bus-relay/relay-what-is-it.md) |
-| Microsoft.ResourceHealth | Core |
+| Microsoft.ResourceHealth | core |
 | Microsoft.Resources | [Azure Resource Manager](index.yml) |
-| Microsoft.SaaS | Core |
+| Microsoft.SaaS | core |
 | Microsoft.Scheduler | [Scheduler](/azure/scheduler/) |
 | Microsoft.Search | [Azure Search](../search/index.yml) |
 | Microsoft.Security | [Security Center](../security-center/index.yml) |
@@ -139,8 +139,8 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.StorageSync | [Storage](../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](/azure/storsimple/) |
 | Microsoft.StreamAnalytics | [Stream Analytics](../stream-analytics/index.yml) |
-| Microsoft.Subscription | Core |
-| microsoft.support | Core |
+| Microsoft.Subscription | core |
+| microsoft.support | core |
 | Microsoft.TimeSeriesInsights | [Time Series Insights](../time-series-insights/index.yml) |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
 | Microsoft.Web | [App Service](../app-service/index.yml)<br />[Functions](../azure-functions/index.yml) |
