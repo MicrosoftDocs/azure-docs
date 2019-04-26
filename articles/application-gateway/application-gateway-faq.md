@@ -262,7 +262,7 @@ Application Gateway supports up to 10 authentication certificates. The default i
 
 ### Does Application Gateway natively integrate with Azure Key Vault?
 
-Yes. Find more information [here](https://docs.microsoft.com/en-us/azure/application-gateway/key-vault-certs).
+Yes. Find more information [here](key-vault-certs.md).
 
 ### How do I configure HTTPS listeners for .com and .net sites? 
 
