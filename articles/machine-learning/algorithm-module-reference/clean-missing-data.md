@@ -15,8 +15,6 @@ ROBOTS: NOINDEX
 
 # Clean Missing Data module
 
-*Specifies how to handle the values missing from a dataset*  
-
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to remove, replace, or infer missing values. 

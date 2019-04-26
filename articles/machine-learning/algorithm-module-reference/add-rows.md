@@ -15,10 +15,6 @@ ROBOTS: NOINDEX
 
 # Add Rows module
 
-*Appends a set of rows from an input dataset to the end of another dataset*  
-
- Category: Data Transformation / Manipulation 
-
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to concatenate two datasets. In concatenation, the rows of the second dataset are added to the end of the first dataset.  

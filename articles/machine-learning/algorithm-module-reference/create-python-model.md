@@ -14,12 +14,6 @@ ROBOTS: NOINDEX
 ---
 # Create Python Model
 
-*Creates a Python model using custom script*
-
-Category: Python Language Modules
-
-## Module overview
-
 This article describes how to use the **Create Python Model** module to create an untrained model from a Python script. 
 
 You can base the model on any learner that is included in an Python package in the Azure Machine Learning environment. 

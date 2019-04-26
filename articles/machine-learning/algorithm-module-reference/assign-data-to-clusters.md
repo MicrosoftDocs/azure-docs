@@ -14,12 +14,6 @@ ROBOTS: NOINDEX
 ---
 # Assign Data to Clusters
 
-*Assigns data to clusters using an existing trained clustering model*  
-
-Category: Score
-
-## Module overview  
-
 This article describes how to use the [Assign Data to Clusters](assign-data-to-clusters.md) module in visual interface, to generate predictions using a clustering model that was trained using the K-Means clustering algorithm.
 
 The module returns a dataset that contains the probable assignments for each new data point. 
