@@ -119,9 +119,9 @@ The following matrix maps each possible _reason_ to the responsible
 
 For Audit policies in the Guest Configuration category there could be multiple settings evaluated inside the VM and you will need to view per-setting details. For example, if you are auditing for a list of installed applications and the assignment status is not-compliant, you will need to know which specific applications are missing.
 
-You also might not have access to log in to the VM directly but you need to report on why the VM is not compliant.  For example, you might audit that VMs are joined to the correct domain and include the current domain membership in the reporting details.
+You also might not have access to sign in to the VM directly but you need to report on why the VM is not compliant.  For example, you might audit that VMs are joined to the correct domain and include the current domain membership in the reporting details.
 
-### Azure Portal
+### Azure portal
 
 From the Compliance view in Azure Policy, open the Policy assignment for any initiative that contains a Guest Configuration definition. Click on the Audit policy and you will see each Guest Assignment in the Name column. You can also see the name of the virtual machine it applies to in the column named Parent Resource.
 
