@@ -14,7 +14,7 @@ ms.custom: seodec2018
 # Upgrading to the Azure Search .NET SDK version 3
 
 > [!Important]
-> While API releases are typically in tandem, there is not yet a generally available version of the .NET SDK that maps to the REST api-version=2019-05-06.
+> This content is still under construction. Version 9.0 of the Azure Search .NET SDK is available on NuGet. We are working on updating this migration guide to explain how to upgrade to 9.0. 
 > 
 
 <!--- DETAILS in the word doc

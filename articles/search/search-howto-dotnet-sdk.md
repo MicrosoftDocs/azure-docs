@@ -13,9 +13,8 @@ ms.author: brjohnst
 ---
 # How to use Azure Search from a .NET Application
 
-> [!Important]
-> While API releases are typically in tandem, there is not yet a generally available version of the .NET SDK that maps to the REST api-version=2019-05-06.
-> 
+[!Important]
+This content is still under construction. Version 9.0 of the Azure Search .NET SDK is available on NuGet. We are working on updating this migration guide to explain how to upgrade to the new version. Stay tuned.
 
 This article is a walkthrough to get you up and running with the [Azure Search .NET SDK](https://aka.ms/search-sdk). You can use the .NET SDK to implement a rich search experience in your application using Azure Search.
 

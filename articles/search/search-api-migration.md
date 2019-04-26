@@ -17,22 +17,22 @@ If you're using a previous version of the [Azure Search Service REST API](https:
 Version 2019-05-06 of the REST API contains some changes from earlier versions. These are mostly backward compatible, so changing your code should require only minimal effort, depending on which version you were using before. [Steps to upgrade](#UpgradeSteps) outlines the code changes required for using new features.
 
 > [!NOTE]
-> An Azure Search service instance supports a range of REST API versions, including earlier ones. You can continue to use those API versions, but you should migrate your code for access to new features as well as more robust versions of current functionality.
+> An Azure Search service instance supports a range of REST API versions, including earlier ones. You can continue to use those API versions, but we recommend migrating your code to the newest version so that you can access new capabilities.
 
 <a name="WhatsNew"></a>
 
 ## What's new in version 2019-05-06
-Version 2019-05-06 is the newest generally available release of the Azure Search Service REST API. New features in this API version include:
+Version 2019-05-06 is the newest generally available release of the Azure Search Service REST API. Features that have transitioned to generally available status in this API version include:
 
-* [Complex types](search-howto-complex-data-types.md). Native supported for nested data structures in an Azure Search index. This feature was tested extensively in private preview so it is bypassing public preview and moving straight into general availability.
+* [Autocomplete](index-add-suggesters.md) is a typeahead feature that completes a partially-specified term input.
 
-* [Cognitive Search with AI-enriched indexing](cognitive-search-concept-intro.md). Indexing that leverages the AI enrichment engines of Cognitive Services is now generally available.
+* [Complex types](search-howto-complex-data-types.md) provides native support for structured object data in an Azure Search index.
 
-* [Autocomplete](index-add-suggesters.md) is a typeahead feature that completes a partially specified term input. For a walkthrough, see [Add Suggestions or Autocomplete to your Azure Search application](search-autocomplete-tutorial.md).
+* [JsonLines parsing modes](search-howto-index-json-blobs.md), part of Azure Blob indexing, creates one search document per JSON entity that is separated by a newline.
 
-* [JsonArray and JsonLines parsing modes](search-howto-index-json-blobs.md) specified in Azure Blob indexing are now generally available.
+* [Cognitive Search with AI-enriched indexing](cognitive-search-concept-intro.md) provides indexing that leverages the AI enrichment engines of Cognitive Services.
 
-Several preview feature releases coincide with this generally available update. To review the list, see [Search REST api-version 2019-05-06-Preview](search-api-preview.md).
+Several preview feature releases coincide with this generally available update. To review the list of new preview features, see [Search REST api-version 2019-05-06-Preview](search-api-preview.md).
 
 ## Breaking changes
 
@@ -65,13 +65,13 @@ If you are upgrading from a previous GA version, 2017-11-11 or 2016-09-01, you p
 
 If either of these situations apply to you, then you may need to change your code accordingly. Otherwise, no changes should be necessary unless you want to start using the [new features](#WhatsNew) of version 2019-05-06.
 
-If you are upgrading from a preview api-version, the above also applies, but you must also be aware that some preview features remain in preview for 2019-05-06:
+If you are upgrading from a preview API version, the above also applies, but you must also be aware that some preview features are not available in version 2019-05-06:
 
 * Azure Blob Storage indexer [support for CSV files](search-howto-index-csv-blobs.md) is still in preview.
 
 * ["More like this" queries](search-more-like-this.md) continue to be a preview-only feature.
 
-If your code uses these features, you will not be able to upgrade to generally available 2019-05-06 without removing your usage of them.
+If your code uses these features, you will not be able to upgrade to API version 2019-05-06 without removing your usage of them.
 
 > [!IMPORTANT]
 > Preview APIs are intended for testing and evaluation, and should not be used in production environments.
