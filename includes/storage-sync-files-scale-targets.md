@@ -20,7 +20,7 @@
 | Endpoint size | 4 TiB | No |
 | File system objects (directories and files) per sync group | 25 million objects | No |
 | Maximum number of file system objects (directories and files) in a directory | 1 million objects | Yes |
-| Maximum object (directories and files) security descriptor size | 4 KiB | Yes |
+| Maximum object (directories and files) security descriptor size | 64 KiB | Yes |
 | File size | 100 GiB | No |
 | Minimum file size for a file to be tiered | 64 KiB | Yes |
 | Concurrent sync sessions | V4 agent and later: The limit varies based on available system resources. <BR> V3 agent: Two active sync sessions per processor or a maximum of eight active sync sessions per server. | Yes

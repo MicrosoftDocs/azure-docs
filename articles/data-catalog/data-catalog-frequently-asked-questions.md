@@ -2,8 +2,8 @@
 title: Azure Data Catalog frequently asked questions
 description: Frequently asked questions about Azure Data Catalog, including capabilities for data source discovery, annotation, and management.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual

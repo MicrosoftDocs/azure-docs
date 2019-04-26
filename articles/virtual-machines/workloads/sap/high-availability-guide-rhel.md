@@ -71,6 +71,8 @@ Read the following SAP Notes and papers first
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Configuring ASCS/ERS for SAP Netweaver with standalone resources in RHEL 7.5](https://access.redhat.com/articles/3569681)
+  * [Configure SAP S/4HANA ASCS/ERS with Standalone Enqueue Server 2 (ENSA2) in Pacemaker on RHEL
+](https://access.redhat.com/articles/3974941)
 * Azure specific RHEL documentation:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
@@ -480,6 +482,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Create the SAP cluster resources
 
+  If using enqueue server 1 architecture (ENSA1), define the resources as follows:
+
    <pre><code>sudo pcs property set maintenance-mode=true
    
    sudo pcs resource create rsc_sap_<b>NW1</b>_ASCS00 SAPInstance \
@@ -495,12 +499,36 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
       
    sudo pcs constraint colocation add g-<b>NW1</b>_AERS with g-<b>NW1</b>_ASCS -5000
    sudo pcs constraint location rsc_sap_<b>NW1</b>_ASCS<b>00</b> rule score=2000 runs_ers_<b>NW1</b> eq 1
-   
    sudo pcs constraint order g-<b>NW1</b>_ASCS then g-<b>NW1</b>_AERS kind=Optional symmetrical=false
    
    sudo pcs node unstandby <b>nw1-cl-0</b>
    sudo pcs property set maintenance-mode=false
    </code></pre>
+
+   SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
+   If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), install resource agent resource-agents-sap-4.1.1-12.el7.x86_64 or newer and define the resources as follows:
+
+<pre><code>sudo pcs property set maintenance-mode=true
+   
+   sudo pcs resource create rsc_sap_<b>NW1</b>_ASCS00 SAPInstance \
+    InstanceName=<b>NW1</b>_ASCS00_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS00_<b>nw1-ascs</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000 \
+    --group g-<b>NW1</b>_ASCS
+   
+   sudo pcs resource create rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
+    InstanceName=<b>NW1</b>_ERS02_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS02_<b>nw1-aers</b>" \
+    AUTOMATIC_RECOVER=false IS_ERS=true \
+    --group g-<b>NW1</b>_AERS
+      
+   sudo pcs constraint colocation add g-<b>NW1</b>_AERS with g-<b>NW1</b>_ASCS -5000
+   sudo pcs constraint order g-<b>NW1</b>_ASCS then g-<b>NW1</b>_AERS kind=Optional symmetrical=false
+   
+   sudo pcs node unstandby <b>nw1-cl-0</b>
+   sudo pcs property set maintenance-mode=false
+   </code></pre>
+
+   If you are upgrading from an older version and switching to enqueue server 2, see sap note [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 

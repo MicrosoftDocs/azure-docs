@@ -97,7 +97,7 @@ New-AzStorageTable –Name $tableName –Context $ctx
 
 ## Retrieve a list of tables in the storage account
 
-Retrieve a list of tables in the storage account using [Get-AzStorageTable](/powershell/module/az.storage/Get-AzureStorageTable).
+Retrieve a list of tables in the storage account using [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
 Get-AzStorageTable –Context $ctx | select Name
@@ -105,7 +105,7 @@ Get-AzStorageTable –Context $ctx | select Name
 
 ## Retrieve a reference to a specific table
 
-To perform operations on a table, you need a reference to the specific table. Get a reference using [Get-AzStorageTable](/powershell/module/az.storage/Get-AzureStorageTable).
+To perform operations on a table, you need a reference to the specific table. Get a reference using [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
 $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx

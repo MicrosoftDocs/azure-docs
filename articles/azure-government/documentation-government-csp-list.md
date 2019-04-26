@@ -45,13 +45,13 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Atmosera, Inc.](https://www.atmosera.com)|
 |[Atos IT Solutions and Services](https://atos.net)|
 |[Avolve Software Corp.](https://www.avolvesoftware.com)|
-|[Avtex Solutions](http://www.avtex.com)|
+|[Avtex Solutions](https://www.avtex.com)|
 |[BAE Systems Inc. and Affiliates](https://www.baesystems.com)|
 |[BEMO Corp](https://www.bemopro.com/)|
 |[Bio Automation Support](http://www.stacsdna.com/)|
-|[Blackwood Associates, Inc. (dba BAI Federal)](http://www.blackwoodassociates.com/)|
-|[Blue Source Group, Inc.](http://www.blackwoodassociates.com/)|
-|[Blueforce Development Corporation](http://www.blueforcedev.com/)|
+|[Blackwood Associates, Inc. (dba BAI Federal)](https://www.blackwoodassociates.com/)|
+|[Blue Source Group, Inc.](https://www.blackwoodassociates.com/)|
+|[Blueforce Development Corporation](https://www.blueforcedev.com/)|
 |[Booz Allen Hamilton](https://www.boozallen.com/)|
 |[Bridge Partners LLC](https://www.bridgepartnersllc.com)|
 |[CACI Inc - Federal](https://www.caci.com/)|
@@ -76,8 +76,8 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[ConvergeOne](https://www.convergeone.com)|
 |[Coretek Services](https://www.coretekservices.com/)|
 |[CorpInfo Services](https://www.corpinfo.com)|
-|[Corporate Technologies LLC](http://www.gocorptech.com/)|
-|[Cre8tive Technology Design](http://www.ctnd.com/)|
+|[Corporate Technologies LLC](https://www.gocorptech.com/)|
+|[Cre8tive Technology Design](https://www.ctnd.com/)|
 |[CSI, L.L.C.](http://www.csinov.com/index.php)|
 |[CSRA, LLC](https://www.csra.com)|
 |[CWPS](https://www.cwps.com/)|
@@ -128,11 +128,11 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[i3 LLC](http://i3llc.net/)|
 |[IBM Corporation](https://www.ibm.com/industries/federal)|
 |[ImageSource](https://imagesourceinc.com/)|
-|[Imperitive Solutions LLC](http://www.imperitiv.com/)|
+|[Imperitive Solutions LLC](https://www.imperitiv.com/)|
 |[Indicium Technologies Inc](https://www.istech-corp.com/)|
 |[Info Gain Consulting LLC](http://infogainconsulting.com/)|
 |[Inforeliance LLC](https://www.inforeliance.com/)|
-|[InnovaSystems International](http://www.innovasi.com/)|
+|[InnovaSystems International](https://www.innovasi.com/)|
 |[Inquisit, LLC](https://www.inquisitllc.com)|
 |[InsITe Business Solutions Inc.](https://trustedinsite.com/)|
 |[Inspired Technologies](https://www.inspired-tech.net)|
@@ -173,7 +173,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[NCI](https://www.nciinc.com/)|
 |[NeoTech Solutions Inc.](https://www.neotechsolutions.com)|
 |[Netwize](https://www.netwize.com)|
-|[NewWave Telecom & Technologies, Inc](http://www.newwave.io)|
+|[NewWave Telecom & Technologies, Inc](https://www.newwave.io)|
 |[Norseman, Inc](https://www.norseman.com)|
 |[Northern Sky Technologies, Inc](https://www.northernskytech.com)|
 |[NTS Cloud](http://ntscloud.com/ )|
@@ -201,9 +201,9 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Planet Technologies](https://go-planet.com)|
 |[Plexhosted LLC](https://plexhosted.com/)|
 |[Practical Solutions](https://www.ps4b.com)|
-|[ProArch IT Solutions](http://www.proarch.com/)|
+|[ProArch IT Solutions](https://www.proarch.com/)|
 |[Project Hosts Inc.](https://www.projecthosts.com)|
-|[Protected Trust](http://www.proarch.com/)|
+|[Protected Trust](https://www.proarch.com/)|
 |[Pueo Business Solutions, LLC](https://www.pueobusinesssolutions.com)|
 |[Ravnur Inc.](https://www.ravnur.com)|
 |[Razor Technology, LLC](https://www.razor-tech.com)|

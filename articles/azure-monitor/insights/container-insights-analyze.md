@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2019
+ms.date: 04/17/2019
 ms.author: magoedte
 ---
 
@@ -35,8 +35,9 @@ To view the health status of all AKS clusters deployed, select **Monitor** from 
 On the **Monitored clusters** tab, you are able to learn the following:
 
 1. How many clusters are in a critical or unhealthy state, versus how many are healthy or not reporting (referred to as an unknown state)?
-1. Are all of my [Azure Kubernetes Engine (AKS-engine)](https://github.com/Azure/aks-engine) deployments healthy?
-1. How many nodes, user and system pods are deployed per cluster.  
+2. Are all of my [Azure Kubernetes Engine (AKS-engine)](https://github.com/Azure/aks-engine) deployments healthy?
+3. How many nodes, user and system pods are deployed per cluster?
+4. How much disk space is available and is there a capacity issue?
 
 The health statuses included are: 
 
@@ -50,7 +51,7 @@ The health statuses included are:
 * **Mis configured** - Azure Monitor for containers was not configured correctly in the specified workspace.
 * **No data** - Data has not reported to the workspace in the last 30 minutes.
 
-Health state calculates overall cluster status as *worst of*” the three states with one exception – if any of the three states is *unknown*, overall cluster state will show **Unknown**.  
+Health state calculates overall cluster status as *worst of* the three states with one exception – if any of the three states is *unknown*, overall cluster state will show **Unknown**.  
 
 The following table provides a breakdown of the calculation controlling the health states for a monitored cluster on the multi-cluster view.
 
@@ -126,9 +127,9 @@ When you switch to **Nodes**, **Controllers**, and **Containers** tab, automatic
 
 ![Example Kubernetes perspectives properties pane](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you can also view Kubernetes events with pre-defined log searches by clicking on the **View Kubernetes event logs** link at the top of the pane. For more information about viewing Kubernetes log data, see [Search logs to analyze data](#search-logs-to-analyze-data). While you are reviewing your containers in the **Containers** view, you can see container logs in real time. For more information about this feature and the configuration required to grant and control access, see [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md). 
+As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you can also view Kubernetes events with pre-defined log searches by clicking on the **View Kubernetes event logs** link at the top of the pane. For more information about viewing Kubernetes log data, see [Search logs to analyze data](container-insights-log-search.md). While you are reviewing your containers in the **Containers** view, you can see container logs in real time. For more information about this feature and the configuration required to grant and control access, see [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md). 
 
-Use the **+ Add Filter** option from the top of the page to filter the results for the view by **Service**, **Node**, or **Namespace** and after selecting the filter scope, you then select from one of the values shown in the **Select value(s)** field.  After the filter is configured, it is applied globally while viewing any perspective of the AKS cluster.  The formula only supports the equal sign.  You can add additional filters on top of the first one to further narrow your results.  For example, if you specified a filter by **Node**, your second filter would only allow you to select **Service** or **Namespace**.  
+Use the **+ Add Filter** option from the top of the page to filter the results for the view by **Service**, **Node**, **Namespace**, or **Node Pool** and after selecting the filter scope, you then select from one of the values shown in the **Select value(s)** field.  After the filter is configured, it is applied globally while viewing any perspective of the AKS cluster.  The formula only supports the equal sign.  You can add additional filters on top of the first one to further narrow your results.  For example, if you specified a filter by **Node**, your second filter would only allow you to select **Service** or **Namespace**.  
 
 ![Example using the filter to narrow down results](./media/container-insights-analyze/add-filter-option-01.png)
 
@@ -253,49 +254,6 @@ The icons in the status field indicate the online statuses of pods, as described
 | ![Terminated status icon](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|  
 | ![Failed status icon](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |  
 
-
-## Container data-collection details
-Container Insights collects various performance metrics and log data from container hosts and containers. Data is collected every three minutes.
-
-### Container records
-
-Examples of records that are collected by Azure Monitor for containers and the data types that appear in log search results are displayed in the following table:
-
-| Data type | Data type in Log Search | Fields |
-| --- | --- | --- |
-| Performance for hosts and containers | `Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
-| Container inventory | `ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| Container image inventory | `ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
-| Container log | `ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
-| Container service log | `ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
-| Container node inventory | `ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Container process | `ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Inventory of pods in a Kubernetes cluster | `KubePodInventory` | TimeGenerated, Computer, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, PodIp, SourceSystem |
-| Inventory of nodes part of a Kubernetes cluster | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
-| Kubernetes Events | `KubeEvents_CL` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message,  SourceSystem | 
-| Services in the Kubernetes cluster | `KubeServices_CL` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Performance metrics for nodes part of the Kubernetes cluster | Perf &#124; where ObjectName == “K8SNode” | Computer, ObjectName, CounterName &#40;cpuUsageNanoCores, , memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes&#41;,CounterValue, TimeGenerated, CounterPath, SourceSystem | 
-| Performance metrics for containers part of the Kubernetes cluster | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;,CounterValue, TimeGenerated, CounterPath, SourceSystem | 
-
-## Search logs to analyze data
-Log Analytics can help you look for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally. Pre-defined log searches are provided for you to immediately start using or to customize to return the information the way you want. 
-
-You can perform interactive analysis of data in the workspace by selecting the **View Kubernetes event logs** or **View container logs** option in the preview pane. The **Log Search** page appears to the right of the Azure portal page that you were on.
-
-![Analyze data in Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)   
-
-The container logs output that's forwarded to Log Analytics are STDOUT and STDERR. Because Azure Monitor is monitoring Azure-managed Kubernetes (AKS), Kube-system is not collected today because of the large volume of generated data. 
-
-### Example log search queries
-It's often useful to build queries that start with an example or two and then modify them to fit your requirements. To help build more advanced queries, you can experiment with the following sample queries:
-
-| Query | Description | 
-|-------|-------------|
-| ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | List all of a container's lifecycle information| 
-| KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | Kubernetes events|
-| ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | Image inventory | 
-| **Select the Line chart display option**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container CPU | 
-| **Select the Line chart display option**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container memory |
-
 ## Next steps
-Azure Monitor for containers does not include a predefined set of alerts to copy and modify according to your supporting processes and procedures. Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization.  
+- Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures. 
+- View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.

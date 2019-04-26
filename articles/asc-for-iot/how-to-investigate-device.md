@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 04/18/2019
 ms.author: mlottner
 
 ---
@@ -42,7 +42,7 @@ By default, ASC for IoT stores your security alerts and recommendations in your 
 To locate the your Log Analytics workspace for data storage:
 
 1. Open your IoT hub, 
-1. Click **Security**, then select **Settings**.
+1. Under **Security**, click **Overview**, and then select **Settings**.
 1. Change your Log Analytics workspace configuration details. 
 1. Click **Save**. 
 
@@ -93,7 +93,7 @@ Use this data to discover:
 
 ### Open ports
 
-To find out which ports in the device are currently in use or were used use the following kql query: 
+To find out which ports in the device are currently in use or were used, use the following kql query: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -146,12 +146,12 @@ To find out users that logged into the device use the following kql query:
 
     Use the query results to discover:
   1. Which users logged in to the device?
-  2. Are the users that logged in supposed to log in?
+  2. Are the users that logged in, supposed to log in?
   3. Did the users that logged in connect from expected or unexpected IP addresses?
   
 ### Process list
 
-To find out if the process list is as expected use the following kql query: 
+To find out if the process list is as expected, use the following kql query: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -187,4 +187,5 @@ To find out if the process list is as expected use the following kql query:
   3. Did any command line executions contain the correct and expected arguments?
 
 ## Next steps
+
 After investigating a device, and gaining a better understanding of your risks, you may want to consider [Configuring custom alerts](quickstart-create-custom-alerts.md) to improve your IoT solution security posture. If you don't already have a device agent, consider [Deploying a security agent](how-to-deploy-agent.md) or [changing the configuration of an existing device agent](how-to-agent-configuration.md) to improve your results. 
