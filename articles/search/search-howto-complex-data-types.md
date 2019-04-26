@@ -17,7 +17,7 @@ External datasets used to populate an Azure Search index sometimes include hiera
 
 Azure Search natively supports complex types and collections. Together, these types allow you to model almost any nested JSON structure in an Azure Search index. In previous versions of Azure Search APIs, only flattened row sets could be imported. In the newest version, your index can now more closely correspond to source data. In other words, if your source data has complex types, your index can have complex types also.
 
-To get started, we recommend the [Hotels demo data set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), which you can load in the **Import data** wizard. The wizard detects complex types in the source and infers those structures in the default index schema.
+To get started, we recommend the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), which you can load in the **Import data** wizard. The wizard detects complex types in the source and infers those structures in the default index schema.
 
 > [!Note]
 > Support for complex types is generally available in `api-version=2019-05-06`. 
@@ -140,11 +140,18 @@ Indexers are a different story. When defining an indexer, in particular one used
 ```
 ## Updating complex fields
 
-All of the [reindexing rules](search-howto-reindex.md) that apply to fields in general still apply to complex fields. Restating a few of the main ones here, adding a field does not require an index rebuild, but modifying a field does.
+All of the [reindexing rules](search-howto-reindex.md) that apply to fields in general still apply to complex fields. Restating a few of the main ones here, adding a field does not require an index rebuild, but most modifications do.
 
-For complex fields containing sub-fields (Addresses), or for collections of complex fields (Rooms), the unit of operation for adding or modifying fields is on the structure as a whole. If you want to add or modify a sub-field in a complex type, you will need to rebuild the index. 
+### Structural updates to the definition
 
-Routine data refresh behaviors, where you pick up new or changed rows but leave the index structure intact, vary for collections and non-collections. On simple fields or sub-fields that are one-level deep (like Address), data refresh overwrites old values with new. On collections, there is no "merge" support where you keep the original and add only the new. A revised collection must be submitted in its entirety, with the full complement of items that you want it to contain.
+For complex fields containing sub-fields (Addresses), or for collections of complex fields (Rooms), you can add new sub-fields or new complex types at any time. For example, adding `"ZipCode"` to Address or `"Amenities"` to Rooms is equivalent to adding a simple field to an index. You can do this with no rebuild required. Existing documents have a null value for new fields until you do a content refresh.
+
+### Data updates
+
+Data updates in an index are either upload or merge actions. For an upload, all fields are replaced, and this behavior applies equally whether you have simple fields, complex fields, or collections of any type. 
+
+Merge replaces only those fields you have specified. However, merge doesn't work the same across all data structures. Specifically, the logic of merge only operates on top-level fields, or on a complex type that is only one-level deep. For collections of simple fields and complex types, data updates must be upload, or merge with all values specified (original and new), which is the functional equivalent of upload.
+
 
 ## Searching complex fields
 
@@ -182,19 +189,17 @@ the facet count will be one for the parent document (hotels) and not intermediat
 
 ### Sorting complex fields
 
-Sort operations work when fields are single-valued, whether as a simple field, or as a sub-field in a complex type. For this reason, the previous restrictions on sorting a collection still apply, assuming that collection is a list of arbitrary strings.
+Sort operations apply to documents (Hotels) and not sub-documents (Rooms). When you have a complex type collection, such as Rooms, it's important to realize that you cannot sort on Rooms at all. In fact, you cannot sort on any collection. 
 
-As you might expect, `$orderby=Address/ZipCode` complex type is sortable because there is only one zip code per hotel. Similarly, `Rooms/Description` can be sorted because there is only one description per room.
+Sort operations work when fields are single-valued, whether as a simple field, or as a sub-field in a complex type. For example, `$orderby=Address/ZipCode` complex type is sortable because there is only one zip code per hotel. 
 
-What you cannot sort are the fields within a collection under a complex type. Consider the `Rooms` collection, with sub-fields for base rate, type, and description. `Rooms/BaseRate` sub-field is not sortable because each hotel has multiple rooms with different rates. 
-
-Recall that fields must be marked as Filterable and Sortable in the index to be used in an `$orderby` statement. 
+Restating the rules around sorting, within an index field must be marked as Filterable and Sortable to be used in an `$orderby` statement. 
 
 ## Next steps
 
- Try the [Hotels demo data set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) in the **Import data** wizard. You'll need the Cosmos DB connection information provided in the readme. 
+ Try the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) in the **Import data** wizard. You'll need the Cosmos DB connection information provided in the readme to access the data. 
  
- With that information in hand, your first step in the wizard is to create a new Azure Cosmos DB data source. Further on, when you get to the target index page, you will see an index with complex types. Create and load this index, and then execute queries to understand the new structure.
+ With that information in hand, your first step in the wizard is to create a new Azure Cosmos DB data source. Further on in the wizard, when you get to the target index page, you will see an index with complex types. Create and load this index, and then execute queries to understand the new structure.
 
 > [!div class="nextstepaction"]
 > [Quickstart: portal wizard for import, indexing, and queries](search-get-started-portal.md)
