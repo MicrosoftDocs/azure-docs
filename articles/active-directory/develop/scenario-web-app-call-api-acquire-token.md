@@ -19,7 +19,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Web app that calls web APIs - acquiring a token for the app
+# Web app that calls web APIs - acquire a token for the app
 
 Now you have built you client application object, you'll use it to acquire a token that you'll then use to call a web APIs. In ASP.NET or ASP.NET Core, calling a web API is then done in controller. It's about:
 

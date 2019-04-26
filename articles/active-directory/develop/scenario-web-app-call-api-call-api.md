@@ -19,7 +19,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Web app that calls web APIs - calling a web API
+# Web app that calls web APIs - call a web API
 
 Now that you have a token, you can call a protected web API.
 

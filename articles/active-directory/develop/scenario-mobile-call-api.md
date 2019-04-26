@@ -5,23 +5,21 @@ services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2019
+ms.date: 05/07/2019
 ms.author: dadobali
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls Web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Mobile app that calls web APIs - calling a web API
+# Mobile app that calls web APIs - call a web API
 
 Once your app has signed in a user and received tokens, MSAL exposes several pieces of information about the user, their environment, and the tokens issued. Your app can use these values to call a web API or display a welcome message to a user.
 

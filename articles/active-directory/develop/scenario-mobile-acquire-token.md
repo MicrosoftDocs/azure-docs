@@ -19,7 +19,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Mobile app that calls web APIs - acquiring a token
+# Mobile app that calls web APIs - acquire a token
 
 Before you can begin calling protected web APIs, your app will need an access token. This section walks you through the process to get a token using the Microsoft Authentication Library (MSAL).
 
@@ -159,7 +159,7 @@ catch(MsalUiRequiredException e)
 
 ### via Protocol
 
-We do not advise going directly against the protocol. Your app will not be capable of many SSO scenarios and will not be able to support all device management and Conditional Access scenarios.
+We do not advise going directly against the protocol. Your app will not be capable of many single sign-on (SSO) scenarios and will not be able to support all device management and Conditional Access scenarios.
 
 When getting tokens for mobile apps using the protocol, you'll need to make 2 requests: get an authorization code and exchange it for a token. 
 

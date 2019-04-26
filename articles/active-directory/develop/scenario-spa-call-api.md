@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Single-page application - call a web API
 
-It is recommended to call the `acquireTokenSilent` method to acquire or renew an access token before calling a web API. Now that you have a token, you can call a protected web API.
+We recommend calling the `acquireTokenSilent` method to acquire or renew an access token before calling a web API. Once you have a token, you can call a protected web API.
 
 ## Call a web API
 

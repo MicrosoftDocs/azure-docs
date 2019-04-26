@@ -1,6 +1,6 @@
 ---
-title: Single Page Application - Sign in | Azure
-description: Learn how to build a Single Page Application (Sign in)
+title: Single-page application - Sign in | Azure
+description: Learn how to build a single-page application (Sign in)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -17,13 +17,13 @@ ms.workload: identity
 ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a Single Page Application using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a single-page application using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
 # Single-page application - sign in
 
-Learn how to add sign in to the code for your Single Page Application.
+Learn how to add sign in to the code for your single-page application.
 
 Before you can get tokens to access APIs in your application, you will need an authenticated user context. You can sign in users to your application in MSAL.js in two ways:
 
@@ -35,7 +35,7 @@ You can also optionally pass the scopes of the APIs for which you need the user 
 > [!NOTE]
 > If your application already has access to an authenticated user context or id token, you can skip the login step and directly acquire tokens. For more details, see [sso without msal.js login](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Sso#sso-to-an-app-without-msaljs-login).
 
-**Choosing between a pop-up or redirect experience**
+## Choosing between a pop-up or redirect experience
 
 You cannot use a combination of both the pop-up and redirect methods in your application. The choice between a pop-up or redirect experience depends on your application flow.
 

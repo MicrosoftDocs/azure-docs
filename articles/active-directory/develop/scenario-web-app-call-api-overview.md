@@ -32,7 +32,7 @@ This scenario supposes that you've gone through the following scenario:
 > [!div class="nextstepaction"]
 > [Web app that signs-in users](scenario-web-app-sign-user-overview.md)
 
-## Scenario overview
+## Overview
 
 You add authentication to your Web App, which can therefore sign in users and calls a web API on behalf of the signed-in user.
 
@@ -43,7 +43,7 @@ Web Apps that calls web APIs:
 - are confidential client applications.
 - that's why they've registered a secret (application password or certificate) with Azure AD. This secret is passed-in during the call to Azure AD to get a token
 
-### Specifics
+## Specifics
 
 > [!NOTE]
 > Adding sign-in to a Web App does not use the MSAL libraries as this is about protecting the Web App. Protecting libraries is achieved by libraries named Middleware. This was the object of the previous scenario [Sign-in users to a Web App](scenario-web-app-sign-user-overview.md)

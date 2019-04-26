@@ -20,9 +20,9 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Daemon app registration specifics
+# Daemon app that calls web APIs - app registration
 
-This page explains the app registration specifics for a daemon application
+For a daemon application, here's what you need to know when registering the app.
 
 ## Supported account types
 
@@ -31,7 +31,7 @@ Given that daemon applications only make sense in Azure AD tenant, when you crea
 - either **Accounts in this organizational directory only**. This choice is the most common case, as daemon applications are usually written by line-of-business (LOB) developers.
 - or **Accounts in any organizational directory**. You'll make this choice if you're an ISV providing a utility tool to your customers. You'll need customer's tenants admins to approve it.
 
-## Authentication - No Reply URI needed
+## Authentication - no Reply URI needed
 
 In the case where your confidential client application uses **only** the client credentials flow, the reply URL doesn't need to be registered. It's not needed either for the application configuration/construction. The client credentials flow doesn't use it.
 

@@ -27,7 +27,7 @@ Follow the steps to [register a new application with Azure AD](quickstart-regist
 
 Next, here are the specific aspects of application registration that apply to single-page applications.
 
-## Register a Redirect URI
+## Register a redirect URI
 
 The implicit flow sends the tokens in a redirect to the single-page application running in a web browser. Therefore, it is an important requirement to register a redirect URI where your application can receive the tokens. Please ensure that the redirect URI matches exactly with the URI for your application.
 
@@ -40,7 +40,7 @@ If your application also needs to get access tokens to call APIs, make sure to e
 
 ## API permissions
 
-Single page applications can call APIs on behalf of the signed-in user. They need to request delegated permissions. For details see [Add permissions to access web APIs](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)
+Single-page applications can call APIs on behalf of the signed-in user. They need to request delegated permissions. For details, see [Add permissions to access web APIs](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)
 
 ## Next steps
 

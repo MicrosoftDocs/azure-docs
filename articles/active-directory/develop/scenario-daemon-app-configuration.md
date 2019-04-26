@@ -20,7 +20,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Daemon app code configuration
+# Daemon app that calls web APIs - code configuration
 
 Learn how to configure the code for your daemon application that calls web APIs.
 

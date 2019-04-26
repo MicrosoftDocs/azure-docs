@@ -20,7 +20,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Acquire a token for daemon apps
+# Daemon app that calls web APIs - acquire a token
 
 Once the confidential client application is constructed, you can acquire a token for the app by calling ``AcquireTokenForClient``, passing the scope, and forcing or not a refresh of the token.
 

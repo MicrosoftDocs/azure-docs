@@ -5,16 +5,14 @@ services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2019
+ms.date: 05/07/2019
 ms.author: dadobali
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs using the Microsoft identity platform for developers.
@@ -33,7 +31,7 @@ The account types supported in mobile applications depend on the experience you 
 
 When building a mobile app, the most critical registration step is the redirect URI. This can be set through the [platform configuration in the Authentication blade](https://aka.ms/MobileAppReg).
 
-This experience will enable your app to get SSO through the Microsoft Authenticator (and Intune Company Portal on Android) as well as support device management policies.
+This experience will enable your app to get single sign-on (SSO) through the Microsoft Authenticator (and Intune Company Portal on Android) as well as support device management policies.
 
 If you prefer to manually configure the redirect URI, you can do so through the Application Manifest. The recommended format is the following:
 

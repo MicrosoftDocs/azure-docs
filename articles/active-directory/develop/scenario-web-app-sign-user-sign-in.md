@@ -1,6 +1,6 @@
 ---
 title: Web app that signs-in users - sign-in | Azure
-description: Learn how to build a Web app that signs-in users (sign-in)
+description: Learn how to build a web app that signs-in users (sign-in)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,13 +15,13 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a Web app that signs-in users using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web app that signs-in users using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
 # Web app that signs-in users - sign-in
 
-Learn how to add sign-in to the code for your Web app that signs-in users.
+Learn how to add sign-in to the code for your web app that signs-in users.
 
 ## Sign-in
 
@@ -30,10 +30,10 @@ Once the user has signed-in to your app, you probably want to enable them to sig
 
 ## What sign out involves
 
-Signing out from a Web app is about more than removing the information about the signed-in account from the Web App's state.
-The Web app must also redirect the user to the Microsoft identity platform v2.0 `logout` endpoint to sign out. When your web app redirects the user to the `logout` endpoint, this endpoint clears the user's session from the browser. If your app didn't go to the `logout` endpoint, the user would reauthenticate to your app without entering their credentials again, because they would have a valid single sign-in session with the Microsoft Identity platform v2.0 endpoint.
+Signing out from a web app is about more than removing the information about the signed-in account from the web app's state.
+The web app must also redirect the user to the Microsoft identity platform v2.0 `logout` endpoint to sign out. When your web app redirects the user to the `logout` endpoint, this endpoint clears the user's session from the browser. If your app didn't go to the `logout` endpoint, the user would reauthenticate to your app without entering their credentials again, because they would have a valid single sign-in session with the Microsoft Identity platform v2.0 endpoint.
 
-To learn more, see the [Send a sign-out request](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc#send-a-sign-out-request) paragraph in the [Microsoft Identity platform v2.0 and the OpenID Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) conceptual documentation
+To learn more, see the [Send a sign-out request](v2-protocols-oidc.md#send-a-sign-out-request) section in the [Microsoft Identity platform v2.0 and the OpenID Connect protocol](v2-protocols-oidc.md) conceptual documentation.
 
 ## Application registration
 
@@ -65,15 +65,16 @@ else
 
 ### `Signout()` action of the `AccountController`
 
-Pressing the **Sign out** button on the web app, triggers the `SignOut` action on the `Account` controller. In previous versions of the ASP.NET core templates, the `Account` controller
-was embedded with the Web App, but this is no longer the case as it's now part of the ASP.NET Core framework itself. The code for the `AccountController` is available from the ASP.NET core repository at
-from [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs), and what it does is:
+Pressing the **Sign out** button on the web app triggers the `SignOut` action on the `Account` controller. In previous versions of the ASP.NET core templates, the `Account` controller was embedded with the web app, but this is no longer the case as it's now part of the ASP.NET Core framework itself. 
 
-- set an openid redirect URI to `/Account/SignedOut` so that the controller is called back when Azure AD has performed the sign out
-- call `Signout()`, which lets the OpenId connect middleware contact the Microsoft identity platform `logout` endpoint which:
+The code for the `AccountController` is available from the ASP.NET core repository at
+from [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs). The account control:
 
-  - clears the session cookie from the browser,
-  - and finally calls back the **logout URL**, which, by default, displays the signed out view page [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml) also provided as part of ASP.NET Core.
+- Sets an OpenID redirect URI to `/Account/SignedOut` so that the controller is called back when Azure AD has performed the sign out
+- Calls `Signout()`, which lets the OpenIdConnect middleware contact the Microsoft identity platform `logout` endpoint which:
+
+  - Clears the session cookie from the browser, and
+  - Calls finally calls back the **logout URL**, which )by default, displays the signed out view page [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml) also provided as part of ASP.NET Core.
 
 ### Intercepting the call to the `logout` endpoint
 

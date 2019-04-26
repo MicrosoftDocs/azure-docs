@@ -20,7 +20,9 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Call a web API from a daemon application
+# Daemon app that calls web APIs - call a web API from the app
+
+A daemon app can call a web API from a .NET daemon application or call several pre-approved web APIs.
 
 ## Calling a web API from a .NET daemon application
 

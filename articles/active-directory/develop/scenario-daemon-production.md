@@ -20,7 +20,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Move a daemon application to production
+# Daemon app that calls web APIs - move to production
 
 Now that you know how to acquire and use a token for a service-to-service call, learn how to move your app to production.
 
