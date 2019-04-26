@@ -40,7 +40,7 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 - A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](http://aka.ms/azml-deploy-cloud).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), or the Python SDK.
+- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), or the [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk).
 
 ## <a id="registermodel"></a> Register a machine learning model
 
@@ -48,9 +48,9 @@ The model registry is a way to store and organize your trained models in the Azu
 
 ### Register a model from an Experiment Run
 
-**SScikit-Learn example with the CLI**
+**Scikit-Learn example with the CLI**
 ```azurecli-interactive
-az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name plktexperiment  -f output.json -t model-output.json
+az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
 ```
 **Using the SDK**
 ```python
@@ -69,14 +69,14 @@ urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
 
 model = Model.register(workspace = ws,
                        model_path ="mnist/model.onnx",
-                       model_name = "mnist_1",
+                       model_name = "onnx_mnist",
                        tags = {"onnx": "demo"},
                        description = "MNIST image classification CNN from ONNX Model Zoo",)
 ```
 
 **Using the CLI**
 ```azurecli-interactive
-az ml model register -n sklearn_mnist -p sklearn_mnist_model.pkl
+az ml model register -n onnx_mnist -p mnist/model.onnx
 ```
 
 **Time estimate**: Approximately 10 seconds.
@@ -175,7 +175,7 @@ For more example scripts, see the following examples:
 * ONNX: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 * Scoring against binary data: [How to consume a web service](how-to-consume-web-service.md)
 
-### 2. Define your InferenceConfiguration
+### 2. Define your InferenceConfig
 
 The inference configuration describes how to configure the model to make predictions. The following example demonstrates how to create an inference configuration:
 
@@ -195,7 +195,7 @@ In this example, the configuration contains the following items:
 
 For information on InferenceConfig functionality, please click <a href="#advanced-config">here</a>.
 
-### 3. Define your DeploymentConfiguration
+### 3. Define your Deployment configuration
 
 Before deploying, you must define the deployment configuration. The deployment configuration is specific to the compute target that will host the web service. For example, when deploying locally you must specify the port where the service accepts requests.
 
@@ -231,7 +231,7 @@ print(service.state)
 **Using the CLI**
 
 ```azurecli-interactive
-az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
+az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
 ```
 
 ### <a id="aci"></a> Deploy to Azure Container Instances (DEVTEST)
@@ -254,7 +254,7 @@ print(service.state)
 **Using the CLI**
 
 ```azurecli-interactive
-az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
+az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
 ```
 
 For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
@@ -272,7 +272,7 @@ You can use an existing AKS cluster or create a new one using the Azure Machine 
 
 You can deploy to AKS with the Azure ML CLI:
 ```azurecli-interactive
-az ml model deploy -ct myaks -ic inferenceconfig.json -dc deploymentconfig.json
+az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
 ```
 
 You can also use the Python SDK:
