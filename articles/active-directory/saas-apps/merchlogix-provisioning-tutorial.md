@@ -7,21 +7,21 @@ author: zhchia
 writer: zhchia
 manager: beatrizd-msft
 
-ms.assetid: na
+ms.assetid: 9df4c7c5-9a58-478e-93b7-2f77aae12807
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/27/2019
 ms.author: zhchia
 ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure MerchLogix for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in MerchLogix and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to MerchLogix. 
+The objective of this tutorial is to demonstrate the steps to be performed in MerchLogix and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to MerchLogix.
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
@@ -30,11 +30,12 @@ The objective of this tutorial is to demonstrate the steps to be performed in Me
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-*   An Azure AD tenant
-*   A MerchLogix tenant
-*   A technical contact at MerchLogix who can provide the SCIM endpoint URL and secret token required for user provisioning
+* An Azure AD tenant
+* A MerchLogix tenant
+* A technical contact at MerchLogix who can provide the SCIM endpoint URL and secret token required for user provisioning
 
 ## Adding MerchLogix from the gallery
+
 Before configuring MerchLogix for automatic user provisioning with Azure AD, you need to add MerchLogix from the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add MerchLogix from the Azure AD application gallery, perform the following steps:**
@@ -46,7 +47,7 @@ Before configuring MerchLogix for automatic user provisioning with Azure AD, you
 2. Navigate to **Enterprise applications** > **All applications**.
 
 	![The Enterprise applications Section][2]
-	
+
 3. To add MerchLogix, click the **New application** button on the top of the dialog.
 
 	![The New application button][3]
@@ -63,13 +64,13 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to MerchLogix. Once decided, you can assign these users and/or groups to MerchLogix by following the instructions here:
 
-*   [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
+* [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to MerchLogix
 
-*    It is recommended that a single Azure AD user is assigned to MerchLogix to test your initial automatic user provisioning configuration. Additional users and/or groups may be assigned later once the tests are successful.
+* It is recommended that a single Azure AD user is assigned to MerchLogix to test your initial automatic user provisioning configuration. Additional users and/or groups may be assigned later once the tests are successful.
 
-*	When assigning a user to MerchLogix, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+* When assigning a user to MerchLogix, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
 ## Configuring automatic user provisioning to MerchLogix 
 
@@ -92,13 +93,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section:
 
-	*   In the **Tenant URL** field, enter the SCIM endpoint URL provided by your MerchLogix technical contact.
+	* In the **Tenant URL** field, enter the SCIM endpoint URL provided by your MerchLogix technical contact.
 
-	*   In the **Secret Token** field, enter secret token provided by your MerchLogix technical contact.
+	* In the **Secret Token** field, enter secret token provided by your MerchLogix technical contact.
 
 6. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to MerchLogix. If the connection fails, ensure your MerchLogix account has Admin permissions and try again.
 
-	
 7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
 8. Click **Save**.
@@ -114,7 +114,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 13. To enable the Azure AD provisioning service for MerchLogix, change the **Provisioning Status** to **On** in the **Settings** section.
 
 14. When you are ready to provision, click **Save**.
-
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on MerchLogix.
 

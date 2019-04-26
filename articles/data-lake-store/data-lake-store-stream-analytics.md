@@ -3,8 +3,8 @@ title: Stream data from Stream Analytics into Azure Data Lake Storage Gen1 | Mic
 description: Use Azure Stream Analytics to stream data into Azure Data Lake Storage Gen1
 services: data-lake-store,stream-analytics
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: edb58e0b-311f-44b0-a499-04d7e6c07a90
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Stream data from Azure Storage Blob into Azure Data Lake Storage Gen1 using Azure Stream Analytics

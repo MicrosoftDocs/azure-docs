@@ -2,11 +2,11 @@
 title: How to deploy Azure Files | Microsoft Docs
 description: Learn how to deploy Azure Files from start to finish.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 05/22/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -127,7 +127,7 @@ To replace an on-premises file share, it is helpful to pre-mount the shares on t
 ### Windows
 PowerShell can be used run the mount command on multiple PCs. In the following example, `$computers` is manually populated, but you can generate the list of computers to mount automatically. For example, you can populate this variable with results from Active Directory.
 
-```PowerShell
+```powershell
 $computer = "MyComputer1", "MyComputer2", "MyComputer3", "MyComputer4"
 $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name> /PERSISTENT:YES } }
 ```

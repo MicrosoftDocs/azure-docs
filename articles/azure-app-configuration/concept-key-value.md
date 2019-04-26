@@ -4,14 +4,14 @@ description: An overview of how configuration data is stored in Azure App Config
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
-manager: balans
+manager: maiye
 editor: ''
 
 ms.service: azure-app-configuration
 ms.devlang: na
 ms.topic: overview
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 04/19/2019
 ms.author: yegu
 ---
 
@@ -41,29 +41,27 @@ You can organize keys in App Configuration hierarchically in many ways. Think of
 
 Here are several examples of how you can structure your key names into a hierarchy:
 
-* Based on environments
-
-        AppName:Test:DB:Endpoint
-        AppName:Staging:DB:Endpoint
-        AppName:Production:DB:Endpoint
-
 * Based on component services
 
-        AppName:Service1:Test:DB:Endpoint
-        AppName:Service1:Staging:DB:Endpoint
-        AppName:Service1:Production:DB:Endpoint
-        AppName:Service2:Test:DB:Endpoint
-        AppName:Service2:Staging:DB:Endpoint
-        AppName:Service2:Production:DB:Endpoint
+        AppName:Service1:ApiEndpoint
+        AppName:Service2:ApiEndpoint
 
 * Based on deployment regions
 
-        AppName:Production:Region1:DB:Endpoint
-        AppName:Production:Region2:DB:Endpoint
+        AppName:Region1:DbEndpoint
+        AppName:Region2:DbEndpoint
+
+### Label keys
+
+Key values in App Configuration can optionally have a label attribute. Labels are used to differentiate key values with the same key. A key *app1* with labels *A* and *B* forms two separate keys in an app configuration store. By default, the label for a key value is empty, or `null`.
+
+Label provides a convenient way to create variants of a key. A common use of labels is to specify multiple environments for the same key:
+
+    Key = AppName:DbEndpoint & Label = Test
+    Key = AppName:DbEndpoint & Label = Staging
+    Key = AppName:DbEndpoint & Label = Production
 
 ### Version key values
-
-Key values in App Configuration can optionally have a label attribute. Labels are used to differentiate key values with the same key. A key *app1* with labels *v1* and *v2* form two separate key values in an app configuration store. By default, the label for a key value is empty, or `null`.
 
 App Configuration doesn't version key values automatically as they're modified. Use labels as a way to create multiple versions of a key value. For example, you can input an application version number or a Git commit ID in labels to identify key values associated with a particular software build.
 
@@ -102,4 +100,5 @@ Configuration data stored in an app configuration store, which includes all keys
 
 ## Next steps
 
-* [Concept: Point-in-time snapshot](concept-point-time-snapshot.md)  
+> [!div class="nextstepaction"]
+> [Point-in-time snapshot](./concept-point-time-snapshot.md)  

@@ -3,7 +3,7 @@ title: How SSO to on-premises resources works on Azure AD joined devices | Micro
 description: Learn how to configure hybrid Azure Active Directory joined devices.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management

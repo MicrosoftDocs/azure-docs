@@ -152,6 +152,7 @@ To configure Azure AD single sign-on with Rightscale, perform the following step
 
 8. Click **Browser** button to upload the certificate which you downloaded from Azure portal.
 
+
     ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
 9. Click **Save**.

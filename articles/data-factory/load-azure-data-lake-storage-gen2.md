@@ -30,14 +30,15 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 ## Prerequisites
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* Azure Storage account with Data Lake Storage Gen2 enabled: If you don't have a Storage account, click [here](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) to create one.
+* Azure Storage account with Data Lake Storage Gen2 enabled: If you don't have a Storage account, [create an account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 * AWS account with an S3 bucket that contains data: This article shows how to copy data from Amazon S3. You can use other data stores by following similar steps.
 
 ## Create a data factory
 
-1. On the left menu, select **New** > **Data + Analytics** > **Data Factory**:
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
    
-   ![Create a new data factory](./media/load-azure-data-lake-storage-gen2/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. In the **New data factory** page, provide values for the fields that are shown in the following image: 
       
    ![New data factory page](./media/load-azure-data-lake-storage-gen2//new-azure-data-factory.png)
@@ -99,7 +100,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
    
    ![Specify Azure Data Lake Storage Gen2 account](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 
-9. In the **Choose the output file or folder** page, enter **copyfroms3** as the output folder name, and select **Next**: 
+9. In the **Choose the output file or folder** page, enter **copyfroms3** as the output folder name, and select **Next**. ADF will create the corresponding ADLS Gen2 file system and sub-folders during copy if it doesn't exist.
 
     ![Specify output folder](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
 

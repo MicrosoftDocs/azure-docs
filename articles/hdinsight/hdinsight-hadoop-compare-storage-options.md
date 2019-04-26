@@ -1,13 +1,12 @@
 ---
 title: Compare storage options for use with Azure HDInsight clusters
 description: Provides an overview of storage types and how they work with Azure HDInsight.
-services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 04/08/2019
 ---
 # Compare storage options for use with Azure HDInsight clusters
 
@@ -26,8 +25,12 @@ The following table summarizes the Azure Storage services that are supported wit
 |Azure Data Lake Storage Gen2| General-purpose V2 | Hierarchical (filesystem) | Blob | Standard | Hot, Cool, Archive | 3.6+ | All |
 |Azure Storage| General-purpose V2 | Object | Blob | Standard | Hot, Cool, Archive | 3.6+ | All |
 |Azure Storage| General-purpose V1 | Object | Blob | Standard | N/A | All | All |
-|Azure Storage| Blob Storage | Object | Blob | Standard | Hot, Cool, Archive | All | All |
+|Azure Storage| Blob Storage** | Object | Block Blob | Standard | Hot, Cool, Archive | All | All |
 |Azure Data Lake Storage Gen1| N/A | Hierarchical (filesystem) | N/A | N/A | N/A | 3.6 Only | All except HBase |
+
+**For HDInsight clusters, only secondary storage accounts can be of type BlobStorage.
+
+For more information on Azure Storage account types, see [Azure storage account overview](../storage/common/storage-account-overview.md)
 
 For more information on Azure Storage access tiers, see [Azure Blob storage: Premium (preview), Hot, Cool, and Archive storage tiers](../storage/blobs/storage-blob-storage-tiers.md)
 
@@ -35,14 +38,14 @@ You can create a cluster using different combinations of services for primary an
 
 | HDInsight Version | Primary Storage | Secondary Storage | Supported |
 |---|---|---|---|
-| 3.6 & 4.0 | Standard Blob | Standard Blob | Yes |
-| 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen2 | No |
-| 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen1 | Yes |
+| 3.6 & 4.0 | General Purpose V1 , General Purpose V2 | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Yes |
+| 3.6 & 4.0 | General Purpose V1 , General Purpose V2 | Data Lake Storage Gen2 | No |
+| 3.6 & 4.0 | General Purpose V1 , General Purpose V2 | Data Lake Storage Gen1 | Yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | Yes |
-| 3.6 & 4.0 | Data Lake Storage Gen2* | Standard Blob | Yes |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Yes |
-| 3.6 | Data Lake Storage Gen1 | Standard Blob | Yes |
+| 3.6 | Data Lake Storage Gen1 | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Yes |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
 | 4.0 | Data Lake Storage Gen1 | Any | No |
 
@@ -113,6 +116,8 @@ For more information, see [Use the Azure Data Lake Storage Gen2 URI](../storage/
 Azure Storage is a robust general-purpose storage solution that integrates seamlessly with HDInsight. HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through an HDFS interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs.
 
 We recommend to use separate storage containers for your default cluster storage and your business data, to isolate the HDInsight logs and temporary files from your own business data. We also recommend deleting the default blob container, which contains application and system logs, after each use to reduce storage cost. Make sure to retrieve the logs before deleting the container.
+
+If you choose to secure your storage account with the **Firewalls and virtual networks** restrictions on **Selected networks**, be sure to enable the exception **Allow trusted Microsoft services...** so that HDInsight can access your storage account.
 
 ### HDInsight storage architecture
 

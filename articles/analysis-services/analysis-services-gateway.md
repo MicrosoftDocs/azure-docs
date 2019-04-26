@@ -14,7 +14,7 @@ The on-premises data gateway provides secure data transfer between on-premises d
 
 Getting setup with the gateway the first time is a four-part process:
 
-- **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign in to Azure using an account in your [tenant's](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (guest) accounts are not supported.
+- **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign in to Azure using an account in your [tenant's](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (guest) accounts are not supported.
 
 - **Register your gateway** - In this step, you specify a name and recovery key for your gateway and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource can be registered in any region, but we recommend it be in the same region as your Analysis Services servers. 
 

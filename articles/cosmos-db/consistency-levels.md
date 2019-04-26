@@ -25,41 +25,41 @@ Read consistency applies to a single read operation scoped within a partition-ke
 
 ## Configure the default consistency level
 
-You can configure the default consistency level on your Azure Cosmos account at any time. The default consistency level configured on your account applies to all Azure Cosmos DB databases and containers under that account. All reads and queries issued against a container or a database use the specified consistency level by default. To learn more, see how to [configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level).
+You can configure the default consistency level on your Azure Cosmos account at any time. The default consistency level configured on your account applies to all Azure Cosmos databases and containers under that account. All reads and queries issued against a container or a database use the specified consistency level by default. To learn more, see how to [configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level).
 
 ## Guarantees associated with consistency levels
 
-The comprehensive SLAs provided by Azure Cosmos DB guarantee that 100 percent of read requests meet the consistency guarantee for any consistency level you choose. A read request meets the consistency SLA if all the consistency guarantees associated with the consistency level are satisfied. The precise definitions of the five consistency levels in Azure Cosmos DB by using the [TLA+ specification language](https://lamport.azurewebsites.net/tla/tla.html) are provided in the [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub repo. 
+The comprehensive SLAs provided by Azure Cosmos DB guarantee that 100 percent of read requests meet the consistency guarantee for any consistency level you choose. A read request meets the consistency SLA if all the consistency guarantees associated with the consistency level are satisfied. The precise definitions of the five consistency levels in Azure Cosmos DB using the [TLA+ specification language](https://lamport.azurewebsites.net/tla/tla.html) are provided in the [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub repo. 
 
 The semantics of the five consistency levels are described here:
 
 - **Strong**: Strong consistency offers a [linearizability](https://aphyr.com/posts/313-strong-consistency-models) guarantee. The reads are guaranteed to return the most recent committed version of an item. A client never sees an uncommitted or partial write. Users are always guaranteed to read the latest committed write.
 
-- **Bounded staleness**: The reads are guaranteed to honor the consistent-prefix guarantee. The reads might lag behind writes by at most "K" versions (that is "updates") of an item or by "t" time interval. When you choose bounded staleness, the "staleness" can be configured in two ways: 
+- **Bounded staleness**: The reads are guaranteed to honor the consistent-prefix guarantee. The reads might lag behind writes by at most *"K"* versions (i.e., "updates") of an item or by *"T"* time interval. In other words, when you choose bounded staleness, the "staleness" can be configured in two ways: 
 
-  * The number of versions (K) of the item
-  * The time interval (t) by which the reads might lag behind the writes 
+  * The number of versions (*K*) of the item
+  * The time interval (*T*) by which the reads might lag behind the writes 
 
-  Bounded staleness offers total global order except within the "staleness window." The monotonic read guarantees exist within a region both inside and outside the staleness window. Strong consistency has the same semantics as the ones offered by bounded staleness. The staleness window is equal to zero. Bounded staleness is also referred to as time-delayed linearizability. When a client performs read operations within a region that accepts writes, the guarantees provided by bounded staleness consistency are identical to those guarantees with the strong consistency.
+  Bounded staleness offers total global order except within the "staleness window." The monotonic read guarantees exist within a region both inside and outside the staleness window. Strong consistency has the same semantics as the one offered by bounded staleness. The staleness window is equal to zero. Bounded staleness is also referred to as time-delayed linearizability. When a client performs read operations within a region that accepts writes, the guarantees provided by bounded staleness consistency are identical to those guarantees by the strong consistency.
 
 - **Session**: The reads are guaranteed to honor the consistent-prefix (assuming a single “writer” session), monotonic reads, monotonic writes, read-your-writes, and write-follows-reads guarantees. Session consistency is scoped to a client session.
 
-- **Consistent prefix**: Updates that are returned contain some prefix of all the updates, with no gaps. Consistent prefix guarantees that reads never see out-of-order writes.
+- **Consistent prefix**: Updates that are returned contain some prefix of all the updates, with no gaps. Consistent prefix consistency level guarantees that reads never see out-of-order writes.
 
 - **Eventual**: There's no ordering guarantee for reads. In the absence of any further writes, the replicas eventually converge.
 
 ## Consistency levels explained through baseball
 
-Let's take a baseball game scenario as an example. Imagine a sequence of writes that represent the score from a baseball game. The inning-by-inning line score is described in the [Replicated data consistency through baseball](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) paper. This hypothetical baseball game is currently in the middle of the seventh inning. It's the seventh-inning stretch. The visitors are behind with a score of 2 to 5.
+Let's take a baseball game scenario as an example. Imagine a sequence of writes that represent the score from a baseball game. The inning-by-inning line score is described in the [Replicated data consistency through baseball](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) paper. This hypothetical baseball game is currently in the middle of the seventh inning. It's the seventh-inning stretch. The visitors are behind with a score of 2 to 5 as shown below:
 
 | | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Runs** |
 | - | - | - | - | - | - | - | - | - | - | - |
 | **Visitors** | 0 | 0 | 1 | 0 | 1 | 0 | 0 |  |  | 2 |
 | **Home** | 1 | 0 | 1 | 1 | 0 | 2 |  |  |  | 5 |
 
-An Azure Cosmos DB container holds the visitors' and home team run totals. While the game is in progress, different read guarantees might result in clients reading different scores. The following table lists the complete set of scores that might be returned by reading the visitors' and home scores with each of the five consistency guarantees. The visitors' score is listed first. Different possible return values are separated by commas.
+An Azure Cosmos container holds the run totals for the visitors and home teams. While the game is in progress, different read guarantees might result in clients reading different scores. The following table lists the complete set of scores that might be returned by reading the visitors' and home scores with each of the five consistency guarantees. The visitors' score is listed first. Different possible return values are separated by commas.
 
-| **Consistency level** | **Scores** |
+| **Consistency level** | **Scores (Visitors, Home)** |
 | - | - |
 | **Strong** | 2-5 |
 | **Bounded staleness** | Scores that are at most one inning out of date: 2-3, 2-4, 2-5 |

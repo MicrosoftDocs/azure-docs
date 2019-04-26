@@ -117,6 +117,12 @@ To verify that events are reaching the Kafka-enabled event hub, see the ingress 
 
 With MirrorMaker running, any events sent to the source Kafka cluster are received by both the Kafka cluster and the mirrored Kafka enabled event hub service. By using MirrorMaker and an Event Hubs Kafka endpoint, you can migrate an existing Kafka pipeline to the managed Azure Event Hubs service without changing the existing cluster or interrupting any ongoing data flow.
 
+## Samples
+See the following samples on GitHub:
+
+- [Sample code for this tutorial on GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
+- [Azure Event Hubs Kafka MirrorMaker running on an Azure Container Instance](https://github.com/djrosanova/EventHubsMirrorMaker)
+
 ## Next steps
 
 In this tutorial, you learn how to:

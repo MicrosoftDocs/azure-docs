@@ -26,6 +26,8 @@ ASP.NET Core builds a single key-value-based configuration object by using setti
 
 You can use any code editor to do the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
+![Quickstart app launch local](./media/quickstarts/aspnet-core-app-launch-local.png)
+
 ## Prerequisites
 
 To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
@@ -35,6 +37,17 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 ## Create an app configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Select **Key/Value Explorer** > **+ Create** to add the following key-value pairs:
+
+    | Key | Value |
+    |---|---|
+    | TestApp:Settings:BackgroundColor | White |
+    | TestApp:Settings:FontSize | 24 |
+    | TestApp:Settings:FontColor | Black |
+    | TestApp:Settings:Message | Data from Azure App Configuration |
+
+    Leave **Label** and **Content Type** empty for now.
 
 ## Create an ASP.NET Core web app
 
@@ -72,7 +85,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 1. Add a reference to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by running the following command:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
 
 2. Run the following command to restore packages for your project:
 
@@ -84,13 +97,19 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
     This command must be executed in the same directory as the *.csproj* file.
 
-        dotnet user-secrets set ConnectionStrings:AppConfig "Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>"
+        dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
     Secret Manager is used only to test the web app locally. When the app is deployed, for example, to [Azure App Service](https://azure.microsoft.com/services/app-service/web), you use an application setting, for example, **Connection Strings** in App Service. You use this setting instead of storing the connection string with Secret Manager.
 
     This secret is accessed with the configuration API. A colon (:) works in the configuration name with the configuration API on all supported platforms. See [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Open Program.cs, and update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
+4. Open *Program.cs*, and add a reference to the .NET Core App Configuration provider.
+
+    ```csharp
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
+
+5. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -103,7 +122,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
             .UseStartup<Startup>();
     ```
 
-5. Open Index.cshtml in the Views > Home directory, and replace its content with the following code:
+6. Open *Index.cshtml* in the Views > Home directory, and replace its content with the following code:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -129,7 +148,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     </html>
     ```
 
-6. Open _Layout.cshtml in the Views > Shared directory, and replace its content with the following code:
+7. Open *_Layout.cshtml* in the Views > Shared directory, and replace its content with the following code:
 
     ```html
     <!DOCTYPE html>
@@ -168,15 +187,13 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 3. Open a browser window, and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
 
-    ![Quickstart app launch local](./media/quickstarts/aspnet-core-app-launch-local.png)
-
 ## Clean up resources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## Next steps
 
-In this quickstart, you created a new app configuration store and used it with an ASP.NET Core web app. To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
+In this quickstart, you created a new app configuration store and used it with an ASP.NET Core web app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
 
 > [!div class="nextstepaction"]
-> [Managed identities for Azure resources integration](./integrate-azure-managed-service-identity.md)
+> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

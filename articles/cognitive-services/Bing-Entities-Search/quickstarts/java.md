@@ -210,8 +210,6 @@ A successful response is returned in JSON, as shown in the following example:
 }
 ```
 
-[Back to top](#main)
-
 ## Next steps
 
 > [!div class="nextstepaction"]

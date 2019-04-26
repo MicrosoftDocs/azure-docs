@@ -156,8 +156,13 @@ Application Insights SDK looks for the key in this order:
 
 You can also [set it in code](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
 
-```Java
-    TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
+```java
+    String instrumentationKey = "00000000-0000-0000-0000-000000000000";
+
+    if (instrumentationKey != null)
+    {
+        TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
+    }
 ```
 
 ## 4. Add an HTTP filter

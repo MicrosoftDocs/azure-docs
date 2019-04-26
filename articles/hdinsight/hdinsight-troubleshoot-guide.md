@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight troubleshooting guides
 description: Troubleshoot Apache Hadoop workloads by using Azure HDInsight. Step-by-step documentation shows you how to use HDInsight to solve common problems with Apache Hive, Apache Spark, Apache YARN, Apache HBase, HDFS, and Apache Storm.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
@@ -28,4 +27,4 @@ ms.date: 11/2/2017
 | HDInsight on Linux and optimization | - [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md)<br>- [Apache Hadoop memory and performance troubleshooting](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Apache Hive query performance](https://web.archive.org/web/20190217214250/https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
 | Logs and dumps | - [Access Apache Hadoop YARN application logs on Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Enable heap dumps for Apache Hadoop services on Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [Analyze HDInsight logs](hdinsight-debug-jobs.md)|
 | Errors | - [Understand and resolve WebHCat errors](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Apache Hive settings to fix OutofMemory error](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
-| Tools | - [Use Apache Ambari Views to debug Apache Tez jobs](hdinsight-debug-ambari-tez-view.md)<br>- [Optimize Apache Hive queries](hdinsight-hadoop-optimize-hive-query.md)<br>- [HDInsight IntelliJ tool](./spark/apache-spark-intellij-tool-plugin.md)<br>- [HDInsight Eclipse tool](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [HDInsight VSCode tool](hdinsight-for-vscode.md)<br>- [HDInsight Visual Studio tool](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |
+| Tools | - [Optimize Apache Hive queries](hdinsight-hadoop-optimize-hive-query.md)<br>- [HDInsight IntelliJ tool](./spark/apache-spark-intellij-tool-plugin.md)<br>- [HDInsight Eclipse tool](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [HDInsight VSCode tool](hdinsight-for-vscode.md)<br>- [HDInsight Visual Studio tool](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: alkohli
 ---
 # Azure Data Box Edge technical specifications
@@ -52,9 +52,17 @@ The following table lists the dimensions of the enclosure in millimeters and inc
 
 |     Enclosure     |     Millimeters     |     Inches     |
 |-------------------|---------------------|----------------|
-|    Height         |    304.8            |    12          |
-|    Width          |    660.4            |    26          |
-|    Depth          |    1041.4           |    41          |
+|    Height         |    44.45            |    1.75"          |
+|    Width          |    434.1           |    17.09"          |
+|    Length          |    740.4           |    29.15"          |
+
+The following table lists the dimensions of the shipping package in millimeters and inches.
+
+|     Package     |     Millimeters     |     Inches     |
+|-------------------|---------------------|----------------|
+|    Height         |    311.2            |    12.25"          |
+|    Width          |    642.8          |    25.31"          |
+|    Length          |   1,051.1          |    41.38"          |
 
 ### Enclosure weight
 
@@ -62,8 +70,8 @@ The device package weighs 66 lbs. and requires two persons to handle it. The wei
 
 |     Enclosure                                 |     Weight          |
 |-----------------------------------------------|---------------------|
-|    Total weight including the packaging       |    66 lbs.          |
-|    Weight of the device                       |    48.3 lbs.        |
+|    Total weight including the packaging       |    61 lbs.          |
+|    Weight of the device                       |    35 lbs.          |
 
 ## Enclosure environment specifications
 

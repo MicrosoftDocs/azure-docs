@@ -43,6 +43,8 @@
         href: connect-azure-atp.md
       - name: Connect Azure Security Center
         href: connect-azure-security-center.md
+      - name: Connect Microsoft web application firewall
+        href: connect-microsoft-waf.md
       - name: Connect Windows firewall
         href: connect-windows-firewall.md
       - name: Connect Windows security events
@@ -64,12 +66,12 @@
         href: connect-f5.md  
       - name: Connect Syslog
         href: connect-syslog.md
+      - name: Connect Symantec ICDX
+        href: connect-symantec.md
       - name: Connect Cisco
         href: connect-cisco.md
     - name: Connect threat intelligence
-      href: connect-threat-intelligence.md
-  - name: User analytics
-    href: user-analytics.md
+      href: connect-threat-intelligence.md  
   - name: Hunting
     href: hunting.md
     items:

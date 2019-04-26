@@ -6,12 +6,16 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: sachdevaswati
 ---
 # FAQ about SQL Server databases that are running on an Azure VM backup
 
 This article answers common questions about backing up SQL Server databases that run on Azure virtual machines (VMs) and that use the [Azure Backup](backup-overview.md) service.
+
+## Can I use Azure backup for IaaS VM as well as SQL Server on the same machine?
+Yes, you can have both VM backup and SQL backup on the same VM. In this case, we internally trigger copy-only full backup on the VM to not truncate the logs.
+
 
 ## Does the solution retry or auto-heal the backups?
 
@@ -37,10 +41,11 @@ Auto-heal as a capability is enabled for all user by default; However in case yo
 Yes. You can throttle the rate at which the backup policy runs to minimize the impact on a SQL Server instance. To change the setting:
 1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create the *ExtensionSettingsOverrides.json* file.
 2. In the *ExtensionSettingsOverrides.json* file, change the **DefaultBackupTasksThreshold** setting to a lower value (for example, 5). <br>
-  ` {"DefaultBackupTasksThreshold": 5}`
+  `{"DefaultBackupTasksThreshold": 5}`
 
 3. Save your changes and close the file.
-4. On the SQL Server instance, open **Task Manager**. Restart the **AzureWLBackupCoordinatorSvc** service.
+4. On the SQL Server instance, open **Task Manager**. Restart the **AzureWLBackupCoordinatorSvc** service.<br/> <br/>
+ While this method helps if the backup application is consuming a lot of resources, SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) is a more generic way to specify limits on the amount of CPU, physical IO, and memory that incoming application requests can use.
 
 > [!NOTE]
 > In the UX you can still go ahead and schedule as many backups at any given time, however they will processed in a sliding window of say, 5, as per the above example.

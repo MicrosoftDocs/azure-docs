@@ -3,7 +3,7 @@ title: Set up sign-in with a Salesforce SAML provider by using custom policies i
 description: Set up sign-in with a Salesforce SAML provider by using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
@@ -68,7 +68,7 @@ Requests sent to Salesforce need to be signed by Azure AD B2C. To generate a sig
 > [!NOTE]
 > Make sure that you update the tenant name and password in the top two lines.
 
-```PowerShell
+```powershell
 $tenantName = "<YOUR TENANT NAME>.onmicrosoft.com"
 $pwdText = "<YOUR PASSWORD HERE>"
 

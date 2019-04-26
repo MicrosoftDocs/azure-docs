@@ -1,6 +1,6 @@
 ---
-title: Confidence Score - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: Confidence Score - QnA Maker 
+titleSuffix: Azure Cognitive Services
 description: The confidence score indicates the confidence that the answer is the right match for the given user query. 
 services: cognitive-services
 author: tulasim88
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -40,13 +40,13 @@ The following table indicates typical confidence associated for a given score.
 |0|No match, so the answer is not returned.|"How much does the service cost"|
 
 ## Choose a score threshold
-The table above shows the scores that are expected on most KBs. However, since every KB is different, and has different types of words, intents and goals- we recommend you test and choose the threshold that best works for you. The default and recommended threshold that should work for most KBs, is **50**.
+The table above shows the scores that are expected on most KBs. However, since every KB is different, and has different types of words, intents and goals- we recommend you test and choose the threshold that best works for you. By default the threshold is set to 0, so that all possible answers are returned. The recommended threshold that should work for most KBs, is **50**.
 
 When choosing your threshold, keep in mind the balance between Accuracy and Coverage, and tweak your threshold based on your requirements.
 
 - If **Accuracy** (or precision) is more important for your scenario, then increase your threshold. This way, every time you return an answer, it will be a much more CONFIDENT case, and much more likely to be the answer users are looking for. In this case, you might end up leaving more questions unanswered. *For example:* if you make the threshold **70**, you might miss some ambiguous examples likes "what is save and train?".
 
-- If **Coverage** (or recall) is more important- and you want to answer as many questions as possible, even if there is only a partial relation to the user's question- then LOWER the threshold. This means there could be more cases where the answer does not answer the user's actual query, but gives some other somewhat related answer. *For example:* if you make the threshold **30**, you might give not very related answers like, answering with the above example, for queries like "Where can I edit my KB?"
+- If **Coverage** (or recall) is more important- and you want to answer as many questions as possible, even if there is only a partial relation to the user's question- then LOWER the threshold. This means there could be more cases where the answer does not answer the user's actual query, but gives some other somewhat related answer. *For example:* if you make the threshold **30**, you might give answers for queries like "Where can I edit my KB?"
 
 > [!NOTE]
 > Newer versions of QnA Maker include improvements to scoring logic, and could affect your threshold. Any time you update the service, make sure to test and tweak the threshold if necessary. You can check your QnA Service version [here](https://www.qnamaker.ai/UserSettings), and see how to get the latest updates [here](../How-To/troubleshooting-runtime.md).
@@ -60,7 +60,7 @@ When multiple responses have a similar confidence score, it is likely that the q
 
 
 ## Confidence score differences
-The confidence score of an answer may change negligibly between the test and published version of the knowledge base even if the content is the same. This is because the content of the test and the published knowledge base are located in different Azure Search indexes. When you publish a knowledge base, the question and answer contents of your knowledge base moves from the test index to a production index in Azure search. See how the [publish](../How-To/publish-knowledge-base.md) operation works.
+The confidence score of an answer may change negligibly between the test and published version of the knowledge base even if the content is the same. This is because the content of the test and the published knowledge base are located in different Azure Search indexes. When you publish a knowledge base, the question and answer contents of your knowledge base moves from the test index to a production index in Azure search. See how the [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) operation works.
 
 If you have a knowledge base in different regions, each region uses its own Azure Search index. Because different indexes are used, the scores will not be exactly the same. 
 

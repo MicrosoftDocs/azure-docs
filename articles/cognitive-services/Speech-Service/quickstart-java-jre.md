@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Recognize speech, Java (Windows, Linux) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn create a simple Java application that captures and transcribes user speech from your computer's microphone.
+description: In this quickstart, you'll learn to create a simple Java application that captures and transcribes user speech from your computer's microphone.
 services: cognitive-services
 author: fmegen
 manager: nitinme
@@ -16,7 +16,7 @@ ms.author: fmegen
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you create a Java console application by using the [Speech SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows or 64-bit Ubuntu Linux 16.04 / 18.04. It runs on a 64-bit Java 8 runtime environment (JRE).
+In this article, you create a Java console application by using the [Speech SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows, 64-bit Ubuntu Linux 16.04 / 18.04 or on macOS 10.13 or later. It runs on a 64-bit Java 8 runtime environment (JRE).
 
 > [!NOTE]
 > For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
@@ -25,7 +25,7 @@ In this article, you create a Java console application by using the [Speech SDK]
 
 This quickstart requires:
 
-* Operating System: Windows (64-bit) or Ubuntu Linux 16.04/18.04 (64-bit)
+* Operating System: Windows (64-bit), Ubuntu Linux 16.04/18.04 (64-bit), or macOS 10.13 or later
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
@@ -37,7 +37,7 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
-If you're running Windows (64-bit) please ensure you have installed Microsoft Visual C++ Redistributable for your platform.
+If you're running Windows (64-bit) ensure you have installed Microsoft Visual C++ Redistributable for your platform.
 * [Download Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 

@@ -44,7 +44,7 @@ Below policies can be configured to check the issuer and subject of a client cer
 
 ```xml
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Issuer != 'trusted-issuer' || context.Request.Certificate.SubjectName != 'expected-subject-name')" >
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Issuer != "trusted-issuer" || context.Request.Certificate.SubjectName.Name != "expected-subject-name")" >
         <return-response>
             <set-status code="403" reason="Invalid client certificate" />
         </return-response>
@@ -58,7 +58,7 @@ Below policies can be configured to check the thumbprint of a client certificate
 
 ```xml
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != 'desired-thumbprint')" >
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != "desired-thumbprint")" >
         <return-response>
             <set-status code="403" reason="Invalid client certificate" />
         </return-response>
@@ -84,5 +84,5 @@ The following example shows how to check the thumbprint of a client certificate 
 ## Next step
 
 *  [How to secure back-end services using client certificate authentication](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
-*  [How to upload certificates](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
+*  [How to upload certificates](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 

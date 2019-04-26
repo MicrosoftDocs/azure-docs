@@ -4,6 +4,8 @@
   items:
   - name: About application gateways
     href: overview.md
+  - name: What's new?
+    href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -15,22 +17,18 @@
     href: quick-create-cli.md
 - name: Tutorials
   items:
-  - name: Host single site
-    href: tutorial-manage-web-traffic-cli.md
   - name: Enable web application firewall
-    href: tutorial-restrict-web-traffic-cli.md
+    href: application-gateway-web-application-firewall-portal.md
   - name: Secure with SSL
-    href: tutorial-ssl-cli.md
+    href: create-ssl-portal.md
   - name: Host multiple sites
-    href: tutorial-multiple-sites-cli.md
+    href: create-multiple-sites-portal.md
   - name: Route by URL
-    href: tutorial-url-route-cli.md
+    href: create-url-route-portal.md
   - name: Redirect web traffic
     href: tutorial-url-redirect-cli.md
   - name: Autoscaling and zone redundant
     href: tutorial-autoscale-ps.md
-  - name: Rewrite HTTP headers
-    href: tutorial-http-header-rewrite-powershell.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -65,6 +63,8 @@
       href: ssl-overview.md
     - name: SSL policy overview
       href: application-gateway-ssl-policy-overview.md
+    - name: Using Key Vault
+      href: key-vault-certs.md
   - name: WAF
     items:
     - name: Web application firewall
@@ -88,9 +88,11 @@
 - name: How-to guides
   items:
   - name: Host single site
-    items:
-    - name: Azure portal
+    items:   
+    - name: Azure PowerShell
       href: tutorial-manage-web-traffic-powershell.md
+    - name: Azure CLI
+      href: tutorial-manage-web-traffic-cli.md       
     - name: Template
       href: create-vmss-template.md
   - name: Configure internal load balancer
@@ -103,10 +105,12 @@
     items:
     - name: SSL termination
       items:
-      - name: SSL termination - portal
-        href: create-ssl-portal.md
       - name: SSL termination - PowerShell
         href: tutorial-ssl-powershell.md
+      - name: SSL termination - Azure CLI
+        href: tutorial-ssl-cli.md
+      - name: Configure Key Vault - PowerShell
+        href: configure-keyvault-ps.md
     - name: End-to-end SSL
       items:        
       - name: End-to-end SSL - Portal
@@ -125,10 +129,10 @@
         href: application-gateway-configure-ssl-policy-powershell.md
   - name: Configure Web Application Firewall
     items:
-    - name: Azure portal
-      href: application-gateway-web-application-firewall-portal.md
     - name: Azure PowerShell
       href: tutorial-restrict-web-traffic-powershell.md
+    - name: Azure CLI
+      href: tutorial-restrict-web-traffic-cli.md      
   - name: Configure WAF rule sets
     items:
     - name: Azure portal
@@ -139,16 +143,16 @@
       href: application-gateway-customize-waf-rules-cli.md
   - name: Route by URL
     items:
-    - name: Azure portal
-      href: create-url-route-portal.md
     - name: Azure PowerShell
       href: tutorial-url-route-powershell.md
+    - name: Azure CLI
+      href: tutorial-url-route-cli.md
   - name: Host multiple sites
     items:
-    - name: Azure portal
-      href: create-multiple-sites-portal.md
     - name: Azure PowerShell
-      href: tutorial-multiple-sites-powershell.md
+      href: tutorial-multiple-sites-powershell.md    
+    - name: Azure CLI
+      href: tutorial-multiple-sites-cli.md
   - name: Redirect traffic
     items:
     - name: External traffic
@@ -173,8 +177,10 @@
         href: redirect-internal-site-cli.md
     - name: Redirect web traffic using Azure PowerShell
       href: tutorial-url-redirect-powershell.md
-  - name: Rewrite HTTP headers in existing gateway
+  - name: Rewrite HTTP headers
     items:
+    - name: Azure portal
+      href: rewrite-http-headers-portal.md    
     - name: Azure PowerShell
       href: add-http-header-rewrite-rule-powershell.md
   - name: Configure App service webapp and multi-tenant service

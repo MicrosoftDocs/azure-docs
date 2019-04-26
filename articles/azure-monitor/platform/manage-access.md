@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: magoedte
 ---
 
@@ -97,7 +97,6 @@ The _access mode_ refers to how a user accesses a Log Analytics workspace and de
 > - Service Fabric
 > - Application Insights
 > - Containers
-> - Custom logs created by HTTP Data collector API
 >
 > You can test if logs are properly associated with their resource by running a query and inspecting the records you're interested in. If the correct resource ID is in the [_ResourceId](log-standard-properties.md#_resourceid) property, then data is available to resource-centric queries.
 
@@ -109,7 +108,7 @@ The following table summarizes the access modes:
 |:---|:---|:---|
 | Who is each model intended for? | Central administration. Administrators who need to configure data collection and users who need access to a wide variety of resources. Also currently required for users who have to access logs for resources outside of Azure. | Application teams. Administrators of Azure resources being monitored. |
 | What does a user require to view logs? | Permissions to the workspace. See **Workspace permissions** in [Manage accounts and users](#manage-accounts-and-users). | Read access to the resource. See **Resource permissions** in [Manage accounts and users](#manage-accounts-and-users). Permissions can be inherited (such as from the containing resource group) or directly assigned to the resource. Permission to the logs for the resource will be automatically assigned. |
-| What is the scope of permissions? | Workspace. Users with access to the workspace can query all logs in that workspace from tables that they have permissions to. See [Table access control](#table-access-control) | Azure resource. User can query logs for resources they have access to from any workspace but can't query logs for other resources. |
+| What is the scope of permissions? | Workspace. Users with access to the workspace can query all logs in that workspace from tables that they have permissions to. See [Table access control](#table-level-rbac) | Azure resource. User can query logs for resources they have access to from any workspace but can't query logs for other resources. |
 | How can user access logs? | Start **Logs** from **Azure Monitor** menu or **Log Analytics workspaces**. | Start **Logs** from the menu for the Azure resource. |
 
 
@@ -145,13 +144,13 @@ You can change this setting on the **Properties** page for the workspace. Changi
 
 Use the following command to examine the access control mode for all workspaces in the subscription:
 
-```PowerShell
+```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
 ```
 
 Use the following script to set the access control mode for a specific workspace:
 
-```PowerShell
+```powershell
 $WSName = "my-workspace"
 $Workspace = Get-AzResource -Name $WSName -ExpandProperties
 if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
@@ -163,7 +162,7 @@ Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properti
 
 Use the following script to set the access control mode for all workspaces in the subscription
 
-```PowerShell
+```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
 if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
     { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
@@ -268,13 +267,13 @@ When users query logs from a workspace using resource-centric access, they'll ha
 
 This permission is usually granted from a role that includes _\*/read or_ _\*_ permissions such as the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles. Note that custom roles that include specific actions or dedicated built-in roles might not include this permission.
 
-See [Defining per-table access control](#defining-per-table-access-control) below if you want to create different access control for different tables.
+See [Defining per-table access control](#table-level-rbac) below if you want to create different access control for different tables.
 
 
 ## Table level RBAC
 **Table level RBAC** allows you to provide more granular control to data in a Log Analytics workspace in addition to the other permissions. This control allows you to define specific data types that are accessible only to a specific set of users.
 
-You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant or deny access to specific [tables](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) in the workspace. These roles are applied to workspaces with either workspace-centric or resource-centric [access control modes](#access-control-modes) regardless of the user's [access mode](#access-mode).
+You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant or deny access to specific [tables](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) in the workspace. These roles are applied to workspaces with either workspace-centric or resource-centric [access control modes](#access-control-mode) regardless of the user's [access mode](#access-modes).
 
 Create a [custom role](../../role-based-access-control/custom-roles.md) with the following actions to define access to table access control.
 
@@ -295,10 +294,10 @@ To create a role with access to only _SecurityBaseline_ and no other tables, cre
 
 ```
     "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/*/read"
+        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
     ],
     "NotActions":  [
-        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+        "Microsoft.OperationalInsights/workspaces/query/*/read"
     ],
 ```
 

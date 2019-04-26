@@ -1,16 +1,15 @@
 ---
 title: Embed a report in Azure Power BI Workspace Collections | Microsoft Docs
 description: Learn how to embed a report that is in Power BI Workspace Collections into your application.
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 
-ms.service: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
 ---
+
 # Embed a report in Power BI Workspace Collections
 
 Learn how to embed a report that is in Power BI Workspace Collections into your application.

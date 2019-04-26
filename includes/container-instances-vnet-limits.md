@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 03/01/2019
 ms.author: danlep
 ---
-### Supported regions and resource availability
+### Regions and resource availability
 
 | Location | OS | CPU | Memory (GB) |
 | -------- | :---: | :---: | :-----------: |

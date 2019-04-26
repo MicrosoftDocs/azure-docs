@@ -2,12 +2,12 @@
 title: Deploy containers with Helm in Kubernetes on Azure
 description: Learn how to use the Helm packaging tool to deploy containers in an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: iainfoulds
+author: zr-msft
 
 ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2019
-ms.author: iainfou
+ms.author: zarhoads
 
 #Customer intent: As a cluster operator or developer, I want to learn how to deploy Helm into an AKS cluster and then install and manage applications using Helm charts.
 ---
@@ -131,7 +131,7 @@ To update the list of charts, use the [helm repo update][helm-repo-update] comma
 ```console
 $ helm repo update
 
-Hang tight while we grab the latest from your chart repositories...
+Hold tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
 Update Complete. ⎈ Happy Helming!⎈
