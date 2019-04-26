@@ -56,7 +56,7 @@ To interact with your Azure Search service you will need the service URL and an 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+   ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
 Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -82,7 +82,7 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 
 There are other ways to specify the connection string, such as providing a shared access signature. To learn more about data source credentials, see [Indexing Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#Credentials).
 
-## Setup your environment
+## Set up your environment
 
 Begin by opening Visual Studio and creating a new Console App project that can run on .NET Core.
 
@@ -205,7 +205,7 @@ Outputs can be mapped to an index, used as input to a downstream skill, or both 
 
 For more information about skillset fundamentals, see [How to define a skillset](cognitive-search-defining-skillset.md).
 
-### OCR Skill
+### OCR skill
 
 The **OCR** skill extracts text from images. This skill assumes that a normalized_images field exists. To generate this field, later in the tutorial we'll set the ```"imageAction"``` configuration in the indexer definition to ```"generateNormalizedImages"```.
 
@@ -229,7 +229,7 @@ OcrSkill ocrSkill = new OcrSkill(
     shouldDetectOrientation: true);
 ```
 
-### Merge Skill
+### Merge skill
 
 In this section you'll create a **Merge** skill that merges the document content field with the text that was produced by the OCR skill.
 
@@ -259,7 +259,7 @@ MergeSkill mergeSkill = new MergeSkill(
     insertPostTag: " ");
 ```
 
-### Language Detection Skill
+### Language detection skill
 
 The **Language Detection** skill detects the language of the input text and reports a single language code for every document submitted on the request. We'll use the output of the **Language Detection** skill as part of the input to the **Text Split** skill.
 
@@ -281,7 +281,7 @@ LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
     outputs: outputMappings);
 ```
 
-### Text Split Skill
+### Text split skill
 
 The below **Split** skill will split text by pages and limit the page length to 4,000 characters as measured by `String.Length`. The algorithm will try to split the text into chunks that are at most `maximumPageLength` in size. In this case, the algorithm will do its best to break the sentence on a sentence boundary, so the size of the chunk may be slightly less than `maximumPageLength`.
 
@@ -308,7 +308,7 @@ SplitSkill splitSkill = new SplitSkill(
     maximumPageLength: 4000);
 ```
 
-### Named Entity Recognition Skill
+### Named entity recognition skill
 
 This `NamedEntityRecognitionSkill` instance is set to recognize category type `organization`. The **Named Entity Recognition** skill can also recognize category types `person` and `location`.
 
@@ -337,7 +337,7 @@ NamedEntityRecognitionSkill namedEntityRecognition = new NamedEntityRecognitionS
     defaultLanguageCode: NamedEntityRecognitionSkillLanguage.En);
 ```
 
-### Key Phrase Extraction Skill
+### Key phrase extraction skill
 
 Like the `NamedEntityRecognitionSkill` instance that was just created, the **Key Phrase Extraction** skill is called for each page of the document.
 
@@ -636,7 +636,7 @@ The ```enriched``` field is intended for debugging purposes, only to help you un
 
 Repeat the previous exercise, including an `enriched` field to capture the contents of an enriched document:
 
-### Request Body Syntax
+### Request body syntax
 ```csharp
 // The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
 // It ensures that Pascal-case property names in the model class are mapped to camel-case
