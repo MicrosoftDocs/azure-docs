@@ -6,7 +6,7 @@ author: sauryadas
 
 ms.service: container-service
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/26/2019
 ms.author: saudas
 ---
 
@@ -25,7 +25,7 @@ AKS supports four minor versions of Kubernetes:
 
 For example, if AKS introduces *1.12.x* today, support is also provided for *1.11.a* + *1.11.b*, *1.10.c* + *1.10d*, *1.9.e* + *1.9f* (where the lettered patch releases are two latest stable builds).
 
-When a new minor version is introduced, the oldest minor version and patch releases supported are retired. 15 days before the release of the new minor version and upcoming version retirement, an announcement is made through the [Azure update channels][azure-update-channel]. In the example above where *1.12.x* is released, the retired versions are *1.8.g* + *1.8.h*.
+When a new minor version is introduced, the oldest minor version and patch releases supported are retired. 30 days before the release of the new minor version and upcoming version retirement, an announcement is made through the [Azure update channels][azure-update-channel]. In the example above where *1.12.x* is released, the retired versions are *1.8.g* + *1.8.h*.
 
 When you deploy an AKS cluster in the portal or with the Azure CLI, the cluster is always set to the n-1 minor version and latest patch. For example, if AKS supports *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d*, *1.9.e* + *1.9f*, the default version for new clusters is *1.11.b*.
 
