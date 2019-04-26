@@ -125,7 +125,7 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
 [aks-cluster-autoscaler]: cluster-autoscaler.md
-[nodepool-upgrade]: faq.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
 

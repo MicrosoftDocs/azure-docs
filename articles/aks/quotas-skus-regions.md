@@ -54,4 +54,4 @@ Certain default limits and quotas can be increased. To request an increase of on
 
 <!-- LINKS - Internal -->
 [vm-skus]: ../virtual-machines/linux/sizes.md
-[nodepool-upgrade]: quotas-skus-regions.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

@@ -185,4 +185,4 @@ This article focused on network connectivity and security. For more information 
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors
-[nodepool-upgrade]: operator-best-practices-network.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

@@ -100,4 +100,4 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
-[nodepool-upgrade]: concepts-security.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

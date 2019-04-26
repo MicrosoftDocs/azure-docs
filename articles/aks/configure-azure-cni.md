@@ -199,4 +199,4 @@ Kubernetes clusters created with AKS Engine support both the [kubenet][kubenet] 
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
-[nodepool-upgrade]: configure-azure-cni.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
