@@ -150,6 +150,8 @@ Each GPU in NV instances comes with a GRID license. This license gives you the f
 
 ## NVv3-series (Preview)
 
+If you are looking for NVv2-series(Preview) please note that NVv3 replaces NVv2. NVv3 is same as NVv2 but with hyperthreading enabled, which doubles the number of vCPUs avaialable.
+
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
