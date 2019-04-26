@@ -49,6 +49,9 @@ Once the SPN is created, assign it permissions to Azure Analysis Services.  For 
 If you are unable to find the SPN in the list, add it manually using the following format:
 App:*SPN ClientID*@*TenantID*
 
+> [!NOTE]
+> For more information on creating a Service Principal, see the following article: https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal
+
 In this example, the Logic App is designed to trigger when a HTTP request is received.  This will enable the use of an orchestration tool, such as Azure Data Factory, to trigger the Azure Analysis Services model refresh.
 
 ### Configure the Logic App

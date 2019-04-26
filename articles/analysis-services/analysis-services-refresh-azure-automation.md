@@ -190,7 +190,7 @@ This is deserialized and stored as PowerShell parameters, which are then used by
 An Azure Virtual Machine with a static public IP address can be used as an Azure Automation Hybrid Worker.  This public IP address can then be added to the Azure Analysis Services firewall.
 
 > [!IMPORTANT]
-> Ensure that the Virtual machine public IP address is configured as static.
+> Ensure that the Virtual Machine public IP address is configured as static.
 >
 >To learn more about configuring Azure Automation Hybrid Workers see the following article https://docs.microsoft.com/en-gb/azure/automation/automation-hybrid-runbook-worker#installing-a-hybrid-runbook-worker
 
