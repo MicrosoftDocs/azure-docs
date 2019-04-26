@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Quickstart: Train a Form Recognizer model and extract form data using REST API with Python
 
-In this quickstart, you will use using Form Recognizer's REST API with Python to train and score forms to extract key-value pairs and tables.
+In this quickstart, you will use Form Recognizer's REST API with Python to train and score forms to extract key-value pairs and tables.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,19 +36,17 @@ To create and run the sample, make the following changes to the code snippet bel
 
     ```python
     ########### Python Form Recognizer Train #############
-    from requests import delete as http_delete
-    from requests import get as http_get
     from requests import post as http_post
 
     # Endpoint URL
-    base_url = r"<Endpoint>"
+    base_url = r"<Endpoint>" + "/formrecognizer/v1.0-preview/custom"
     source = r"<SAS URL>"
     headers = {
         # Request headers
         'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': '<Subscription Key>',
     }
-    url = base_url + "/formrecognizer/v1.0-preview/custom/train" 
+    url = base_url + "/train" 
     body = {"source": source}
     try:
         resp = http_post(url = url, json = body, headers = headers)
@@ -56,7 +54,6 @@ To create and run the sample, make the following changes to the code snippet bel
         print("Response body: %s" % resp.json())
     except Exception as e:
         print(str(e))
-    ####################################
     ```
 1. Save the code as a file with an `.py` extension. For example, `form-recognize-train.py`.
 1. Open a command prompt window.
@@ -116,29 +113,28 @@ Next, you will analyze a document and extract key-value pairs and tables from it
 1. Replace `<subscription key>` with your subscription key.
 
     ```python
-        ########### Python Form Recognizer Analyze #############
-        from requests import post as http_post
+    ########### Python Form Recognizer Analyze #############
+    from requests import post as http_post
     
-        # PPE endpoint
-        base_url = r"<Endpoint>"
-        file_path = r"<File Path>"
-        model_id = "<modelID>"
-        headers = {
-            # Request headers
-            'Content-Type': 'application/<file type>',
-            'Ocp-Apim-Subscription-Key': '<subscription key>',
-        }
-    
-        try:
-            url = base_url + "/models/" + model_id + "/analyze" 
-            with open(file_path, "rb") as f:
-                data_bytes = f.read()  
-            resp = http_post(url = url, data = data_bytes, headers = headers)
-            print("Response status code: %d" % resp.status_code)    
-            print("Response body:\n%s" % resp.json())   
-        except Exception as e:
-            print(str(e))
-        ####################################
+    # Endpoint URL
+    base_url = r"<Endpoint>" + "/formrecognizer/v1.0-preview/custom"
+    file_path = r"<File Path>"
+    model_id = "<modelID>"
+    headers = {
+        # Request headers
+        'Content-Type': 'application/<file type>',
+        'Ocp-Apim-Subscription-Key': '<subscription key>',
+    }
+
+    try:
+        url = base_url + "/models/" + model_id + "/analyze" 
+        with open(file_path, "rb") as f:
+            data_bytes = f.read()  
+        resp = http_post(url = url, data = data_bytes, headers = headers)
+        print("Response status code: %d" % resp.status_code)    
+        print("Response body:\n%s" % resp.json())   
+    except Exception as e:
+        print(str(e))
     ```
 
 1. Save the code as a file with an `.py` extension. For example, `form-recognize-analyze.py`.
