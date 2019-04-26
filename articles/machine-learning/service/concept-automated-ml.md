@@ -84,7 +84,7 @@ You can train ensemble models using automated machine learning with the [Caruana
 
 With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. The ONNX runtime supports  C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Try an example of this flow [in this Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-with-onnx/auto-ml-classification-with-onnx.ipynb).
 
-## Automated ML in other Microsoft solutions.
+## Automated ML across Microsoft
 
 Automated ML is also available in other Microsoft solutions such as:
 + In .NET apps using Visual Studio and Visual Studio Code with [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet)
