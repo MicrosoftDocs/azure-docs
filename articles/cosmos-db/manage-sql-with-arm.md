@@ -14,7 +14,7 @@ Learn how to create an Azure Cosmos DB resources using an Azure Resource Manager
 
 Here is a copy of the template:
 
-[!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
+[!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-create-account/azuredeploy.json)]
 
 ## Deploy via PowerShell
 

@@ -14,7 +14,7 @@ Learn how to create an Azure Cosmos DB Table API resources using an Azure Resour
 
 Here is a copy of the template:
 
-[!code-json[create-cosmos-table](~/quickstart-templates/101-cosmosdb-table/azuredeploy.json)]
+[!code-json[create-cosmos-table](~/quickstart-templates/101-cosmosdb-create-account/azuredeploy.json)]
 
 ## Deploy via PowerShell
 

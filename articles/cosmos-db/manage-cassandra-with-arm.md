@@ -14,7 +14,7 @@ Learn how to create an Azure Cosmos account for Cassandra API using an Azure Res
 
 Here is a copy of the template:
 
-[!code-json[create-cosmos-Cassandra](~/quickstart-templates/101-cosmosdb-cassandra/azuredeploy.json)]
+[!code-json[create-cosmos-Cassandra](~/quickstart-templates/101-cosmosdb-create-account/azuredeploy.json)]
 
 ## Deploy with Azure CLI
 
