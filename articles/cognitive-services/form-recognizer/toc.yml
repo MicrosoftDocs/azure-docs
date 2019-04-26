@@ -33,6 +33,8 @@
   items: 
   - name: Pricing and limits
     href: https://go.microsoft.com/fwlink/?linkid=2087258
+  - name: UserVoice
+    href: https://go.microsoft.com/fwlink/?linkid=2090535
   - name: Stack Overflow
     href: https://go.microsoft.com/fwlink/?linkid=2087186
   - name: Azure roadmap
