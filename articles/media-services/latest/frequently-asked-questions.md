@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/24/2019
 ms.author: juliako
 ---
 
@@ -38,6 +38,10 @@ Use [Transforms](https://docs.microsoft.com/rest/api/media/transforms) to config
 ### How does pagination work?
 
 When using pagination, you should always use the next link to enumerate the collection and not depend on a particular page size. For details and examples, see [Filtering, ordering, paging](entities-overview.md).
+
+### What features are not yet available in Azure Media Services v3?
+
+For details, see [feature gaps with respect to v2 APIs](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ## Live streaming 
 
