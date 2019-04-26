@@ -46,7 +46,7 @@ To explore your data in more detail, click on the icon at the top right of eithe
 
 ![Logs view](media/manage-cost-storage/logs.png)
 
-From the **Usage and Estimated Costs** page you can review your data volume for the month. This includes all the data received and retained in your Log Analytics workspace.  Click **Usage details** from the top of the page to view the usage dashboard with information on data volume trends by source, computers and offering. To view and set a daily cap or to modify the retention period, click **Data volume management**.
+From the **Usage and Estimated Costs** page you can review your data volume for the month. This includes all the data received and retained in your Log Analytics workspace.  Click **Usage details** from the top of the page, to view the usage dashboard with information on data volume trends by source, computers, and offering. To view and set a daily cap or to modify the retention period, click **Data volume management**.
  
 Log Analytics charges are added to your Azure bill. You can see details of your Azure bill under the Billing section of the Azure portal or in the [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
 
