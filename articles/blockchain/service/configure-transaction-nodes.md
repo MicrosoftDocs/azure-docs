@@ -15,7 +15,7 @@ manager: femila
 
 # Configure Azure Blockchain Service transaction nodes
 
-To quickly create and manage transaction nodes for your Azure Blockchain blockchain member, you can use Azure portal for configuration.
+To interact with Azure Blockchain Service, you do so through connecting to one or more transaction nodes in your blockchain member.  In order to interact with transaction nodes, you will need to configure your nodes for access.
 
 ## Prerequisites
 
@@ -23,20 +23,20 @@ To quickly create and manage transaction nodes for your Azure Blockchain blockch
 
 ## Transaction node overview
 
-Transaction nodes are used to send blockchain transactions to Azure Blockchain Service through a public endpoint. When you create a blockchain member, a default transaction node with the same name as the blockchain member is provisioned. The default transaction node can't be deleted.
+Transaction nodes are used to send blockchain transactions to Azure Blockchain Service through a public endpoint. The default transaction node contains the private key of the Ethereum account registered on the blockchain, and as such cannot be deleted.
 
 To view the default transaction node details:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to your Azure Blockchain Service member and select **Transaction nodes > Overview**.
+1. Navigate to your Azure Blockchain Service member. Select **Transaction nodes**.
 
-    ![Transaction node overview](./media/configure-transaction-nodes/node-overview.png)
+    ![Select default transaction node](./media/configure-transaction-nodes/nodes.png)
 
     Overview details include public endpoint addresses and public key.
 
 ## Create transaction node
 
-You can add transaction nodes to your blockchain member. By adding transaction nodes, you can increase scalability or distribute load. For example, you could have a transaction node endpoint for different client applications.
+You can add up to nine additional transaction nodes to your blockchain member, for a total of ten transaction nodes. By adding transaction nodes, you can increase scalability or distribute load. For example, you could have a transaction node endpoint for different client applications.
 
 To add a transaction node:
 
@@ -52,7 +52,7 @@ To add a transaction node:
 
 1. Select **Create**.
 
-    Provisioning a new transaction node takes about 10 minutes. Additional transaction nodes incur cost. For more information on costs, see [Azure pricing](https://azure.microsoft.com/pricing/).
+    Provisioning a new transaction node takes about 10 minutes. Additional transaction nodes incur cost. For more information on costs, see [Azure pricing](https://aka.ms/ABSPricing).
 
 ## Endpoints
 
@@ -64,7 +64,7 @@ To view a transaction node's endpoint details:
 
     ![Endpoints](./media/configure-transaction-nodes/endpoints.png)
 
-Transaction node endpoints are secure and require authentication. You can connect to a transaction endpoint using Azure AD authentication, HTTP basic authentication, and using an access key.
+Transaction node endpoints are secure and require authentication. You can connect to a transaction endpoint using Azure AD authentication, HTTPS basic authentication, and using an access key over HTTPS or Websocket over SSL.
 
 ### Azure Active Directory access control
 
@@ -91,7 +91,7 @@ For details on how to connect using Azure AD authentication, see [connect to you
 
 ### Basic authentication
 
-For HTTP basic authentication, user name and password credentials are passed in the HTTP header of the request to the endpoint.
+For HTTPS basic authentication, user name and password credentials are passed in the HTTPS header of the request to the endpoint.
 
 You can view a transaction node's basic authentication endpoint details in the Azure portal. Navigate to one of your Azure Blockchain Service member transaction nodes and select **Basic Authentication** in settings.
 

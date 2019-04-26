@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 03/13/2019
+ms.date: 04/26/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
@@ -35,21 +35,28 @@ Decreasing ledger and log storage size is not supported.
 
 ## Consortium limits
 
-**Consortium and member names must be unique** from other consortium and member names in the Azure Blockchain Service.
+* **Consortium and member names must be unique** from other consortium and member names in the Azure Blockchain Service.
 
-**Member and consortium names cannot be changed**.
+* **Member and consortium names cannot be changed**
 
-**All members in a consortium must be in the same pricing tier.**
+* **All members in a consortium must be in the same pricing tier**
 
-**All members that participate in a consortium must reside in the same region**.  The first member created in a consortium dictates the region. Invited members to the consortium must reside in the same region as the first member. Limiting all members to the same region helps ensure network consensus is not negatively impacted.
+* **All members that participate in a consortium must reside in the same region**
 
-**A consortium must have at least one administrator**. If there is only one administrator in a consortium, they cannot remove themselves from the consortium or delete their member until another administrator is added or promoted in the consortium.
+    The first member created in a consortium dictates the region. Invited members to the consortium must reside in the same region as the first member. Limiting all members to the same region helps ensure network consensus is not negatively impacted.
 
-**Members removed from the consortium cannot be added again**.  Rather, they must be reinvited to join the consortium and create a new member. Their existing member resource are not deleted to preserve historical transactions.
+* **A consortium must have at least one administrator**
 
-**All members in a consortium must be using the same ledger version**. For more information on the patching, upgrade, and ledger versions available in Azure Blockchain Service, see [Patching, upgrade and ledger versions]().
+    If there is only one administrator in a consortium, they cannot remove themselves from the consortium or delete their member until another administrator is added or promoted in the consortium.
+
+* **Members removed from the consortium cannot be added again**
+
+    Rather, they must be reinvited to join the consortium and create a new member. Their existing member resource are not deleted to preserve historical transactions.
+
+* **All members in a consortium must be using the same ledger version**
+
+    For more information on the patching, updates, and ledger versions available in Azure Blockchain Service, see [Patching, updates, and versions](ledger-versions.md).
 
 ## Next steps
 
-* [What’s available in each service tier]()
-* [Patching, upgrade, and ledger versions](ledger-versions.md)
+* [Patching, updates, and versions](ledger-versions.md)
