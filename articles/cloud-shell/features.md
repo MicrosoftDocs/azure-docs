@@ -49,7 +49,7 @@ Any changes made to the Azure resources, either made directly in Azure portal or
 
 ### Manage Exchange Online
 
-PowerShell in Cloud Shell contains a private build of the the Exchange Online module.  Run `Connect-EXOPSSession` to get your Exchange cmdlets.
+PowerShell in Cloud Shell contains a private build of the Exchange Online module.  Run `Connect-EXOPSSession` to get your Exchange cmdlets.
 
 ![](media/features-powershell/exchangeonline.png)
 
