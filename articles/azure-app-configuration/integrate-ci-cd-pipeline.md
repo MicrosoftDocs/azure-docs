@@ -24,7 +24,7 @@ Using the [Export](./howto-import-export-data.md#export-data) function of Azure 
 
 The following example shows how to include App Configuration data as a build step for the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
-You can use any code editor to do the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
+You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](ht
 
     Add the *ConnectionString* associated with your app configuration store as an environment variable.
 
-2. Open Program.cs, and update the `CreateWebHostBuilder` method to use the exported JSON file by calling the `config.AddJsonFile()` method.
+2. Open *Program.cs*, and update the `CreateWebHostBuilder` method to use the exported JSON file by calling the `config.AddJsonFile()` method.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

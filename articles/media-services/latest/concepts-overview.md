@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -50,7 +50,7 @@ To analyze your video and audio files, you also need to create **Transforms** an
 
 ## Packaging, delivery, protection
 
-Once your content is encoded, you can take advantage of **Dynamic Packaging**. **Streaming Endpoint** is the dynamic packaging service in Media Services used to deliver media content to client players. To make videos in the output asset available to clients for playback, you have to create a **Streaming Locator** and then build streaming URLs. 
+Once your content is encoded, you can take advantage of **Dynamic Packaging**. In Media Services, a **Streaming Endpoint**/Origin is the dynamic packaging service used to deliver media content to client players. To make videos in the output asset available to clients for playback, you have to create a **Streaming Locator** and then build streaming URLs. 
 
 When creating the **Streaming Locator**, in addition to asset's name, you need to specify **Streaming Policy**. **Streaming Policies** enable you to define streaming protocols and encryption options (if any) for your **Streaming Locators**.
 
@@ -113,6 +113,10 @@ Monitor metrics and diagnostic logs that help you understand how your applicatio
 You can use Azure Media Player to play back media content streamed by Media Services on a wide variety of browsers and devices. Azure Media Player utilizes industry standards, such as HTML5, Media Source Extensions (MSE), and Encrypted Media Extensions (EME) to provide an enriched adaptive streaming experience. 
 
 - [Azure Media Player overview](use-azure-media-player.md)
+
+## Provide feedback
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 

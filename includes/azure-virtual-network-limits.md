@@ -36,7 +36,7 @@ The following limits apply only for networking resources managed through Azure R
 > [!NOTE]
 > We recently increased all default limits to their maximum limits. If there's no maximum limit column, the resource doesn't have adjustable limits. If you had these limits increased by support in the past and don't see updated limits in the following tables, [open an online customer support request at no charge](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| Resource | Default limit | 
+| Resource | Default limit/maximum limit | 
 | --- | --- |
 | Virtual networks |1,000 |
 | Subnets per virtual network |3,000 |

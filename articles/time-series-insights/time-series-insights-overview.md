@@ -32,7 +32,7 @@ If you are unsure if your data is time series, here is what you should know.  Ti
 
 ## Video
 
-In this video, we provide an overview of Time Series Insights, a cloud-based IoT analytics platform.
+### In this video, we provide an overview of Time Series Insights, a cloud-based IoT analytics platform.</br>
 
 > [!VIDEO https://youtube.com/embed/GaARrFfjoss]
 
@@ -62,18 +62,21 @@ There is no new language to learn; Time Series Insights provides a granular, fre
 - **Scalability:** Time Series Insights is designed to support IoT at scale. It can ingress from 1 million to 100 million events per day, with a default retention span of 31 days. You can visualize and analyze live data streams in near real-time, alongside historical data. Moving forward, ingress and retention rates will increase to accommodate enterprise scale.
 
 ## Getting started
-Getting started takes less than 5 minutes. 
 
-1.	To get started, provision a Time Series Insights environment in the Azure portal. 
-2.	Connect an event source like an Azure IoT Hub or Event Hub.  
-3.	Upload reference data (this is not an additional service).
-4.	See your data in minutes with the Time Series Insights explorer.
+Getting started takes less than 5 minutes.
+
+1. To get started, provision a Time Series Insights environment in the Azure portal.
+1. Connect an event source like an Azure IoT Hub or Event Hub.  
+1. Upload reference data (this is not an additional service).
+1. See your data in minutes with the Time Series Insights explorer.
 
 ## Time Series Insights explorer
+
 This diagram shows an example of time series insights data viewed through the explorer:
 ![Time Series Insights explorer](media/time-series-insights-explorer/explorer4.png)
 
 ## Next steps
- - [Explore using Time Series Insights explorer in a demonstration environment](./time-series-quickstart.md)
- - [Plan your own Time Series Insights environment](time-series-insights-environment-planning.md)
 
+- Explore the Azure Time Series Insights general availability [free demonstration environment](./time-series-quickstart.md).
+
+- Learn more about [planning your Time Series Insights](time-series-insights-environment-planning.md) environment.
