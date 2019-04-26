@@ -72,7 +72,7 @@ However, Maps does not have the same level of information and accuracy for all r
 | Réunion                          | ✓ | ✓ |
 | Rwanda                           | ✓ | ✓ |
 | Saint Helena, Ascension and Tristan da Cunha | ✓ | Ø |
-| Sao Tome and Principe            | ✓ | Ø |
+| São Tomé and Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
 | Sierra Leone                     | ✓ | ✓ |
 | Somalia                          | ✓ | ✓ |
@@ -105,7 +105,6 @@ However, Maps does not have the same level of information and accuracy for all r
 | Canada                    | ✓ | ✓ |
 | Cayman Islands            | ✓ | ✓ |
 | Chile                     | ✓ | ✓ |
-| Clipperton Island         | ✓ | ✓ |
 | Colombia                  | ✓ | ✓ |
 | Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |

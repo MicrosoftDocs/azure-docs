@@ -81,6 +81,8 @@
     href: service-bus-async-messaging.md
   - name: Handling outages and disasters
     href: service-bus-outages-disasters.md
+  - name: Azure common security attributes
+    href: service-bus-messaging-security-attributes.md
 - name: How-to guides
   items:
   - name: Create a namespace

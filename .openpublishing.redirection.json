@@ -4371,6 +4371,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/logic-apps/logic-apps-enterprise-integration-as2-encode.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-as2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-enterprise-integration-as2-decode.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-as2",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/logic-apps/custom-connector-build-web-api-app-tutorial.md",
       "redirect_url": "https://docs.microsoft.com/connectors/custom-connectors/create-web-api-connector",
       "redirect_document_id": true
@@ -10837,17 +10847,17 @@
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-go-get-started-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-go-get-started-send",
       "redirect_document_id": false
-    },        
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-handling-errors-retry.md",
       "redirect_url": "/azure/event-hubs/",
@@ -10867,7 +10877,7 @@
       "source_path": "articles/event-hubs/event-hubs-java-get-started-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-java-storm-getstarted.md",
       "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
@@ -10887,7 +10897,7 @@
       "source_path": "articles/event-hubs/event-hubs-python-get-started-receive.md",
       "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/active-directory/active-directory-saml-protocol-reference.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
@@ -10940,6 +10950,11 @@
     },
     {
       "source_path": "articles/data-factory/data-factory-sdks.md",
+      "redirect_url": "https://azure.microsoft.com/services/data-factory/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/concepts-data-flow-datasets.md",
       "redirect_url": "https://azure.microsoft.com/services/data-factory/",
       "redirect_document_id": false
     },
@@ -17352,6 +17367,11 @@
       "source_path": "articles/active-directory/connect/active-directory-aadconnectsyncservice-features.md",
       "redirect_url": "/azure/active-directory/hybrid/how-to-connect-syncservice-features",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/conditional-access-for-exo-and-spo.md",
+      "redirect_url": "/azure/active-directory/conditional-access/block-legacy-authentication",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/connect/active-directory-aadconnectsyncservice-shadow-attributes.md",
@@ -25342,8 +25362,8 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-streaming-python.md",
-      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-streaming-python",
-      "redirect_document_id": true
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-use-hive-ambari-view.md",
@@ -36617,6 +36637,91 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/analysis-services/tutorials/aas-adventure-works-tutorial.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-lesson-1-create-a-new-tabular-model-project.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-lesson-2-Get-data.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-lesson-3-mark-as-date-table.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-lesson-4-create-relationships.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-lesson-5-create-calculated-columns.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-lesson-6-create-measures.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-lesson-7-create-key-performance-indicators.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-lesson-8-create-perspectives.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-lesson-9-create-hierarchies.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-lesson-10-create-partitions.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-lesson-11-create-roles.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-lesson-12-analyze-in-excel.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-lesson-13-deploy.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-supplemental-lesson-detail-rows.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-supplemental-lesson-dynamic-security.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/tutorials/aas-supplemental-lesson-ragged-hierarchies.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/app/java-live.md",
       "redirect_url": "/azure/azure-monitor/app/java-get-started",
       "redirect_document_id": false
@@ -36847,6 +36952,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Face/FAQ.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/Glossary.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Computer-vision/Home-v1.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/home",
       "redirect_document_id": false
@@ -36995,6 +37110,11 @@
       "source_path": "articles/biztalk-services/integration-hybrid-connection-overview.md",
       "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/container-service-quotas.md",
+      "redirect_url": "/azure/aks/quotas-skus-regions",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/publish-knowledge-base.md",
@@ -38499,6 +38619,11 @@
     {
       "source_path": "articles/app-service/app-service-jre-support.md",
       "redirect_url": "/azure/app-service/configure-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-data-lake-storage-security-guide.md",
+      "redirect_url": "/azure/storage/common/storage-security-guide",
       "redirect_document_id": false
     }
   ]

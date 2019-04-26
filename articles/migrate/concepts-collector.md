@@ -4,7 +4,7 @@ description: Provides information about the Collector appliance in Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/26/2019
 ms.author: snehaa
 services: azure-migrate
 ---
@@ -233,7 +233,7 @@ We recommend the following steps to secure the Collector appliance:
 
 ## OS license in the collector VM
 
-The collector comes with a Windows Server 2012 R2 evaluation license which is valid for 180 days. If the evaluation period is expiring for your collector VM, it is recommended to download a new OVA and create a new appliance.
+The collector comes with a Windows Server 2016 evaluation license which is valid for 180 days. If the evaluation period is expiring for your collector VM, it is recommended to download a new OVA and create a new appliance.
 
 ## Updating the OS of the Collector VM
 

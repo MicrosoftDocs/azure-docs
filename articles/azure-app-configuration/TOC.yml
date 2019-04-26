@@ -56,4 +56,4 @@
     - name: Getting started video
       href: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
     - name: Provide product feedback
-      href: https://github.com/Azure/AppConfiguration
+      href: https://github.com/Azure/AppConfiguration/issues

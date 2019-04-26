@@ -3,7 +3,7 @@ title: About claim resolvers in Azure Active Directory B2C custom policies | Mic
 description: Learn about how claims resolvers are used in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
