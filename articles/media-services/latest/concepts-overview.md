@@ -36,11 +36,11 @@ A **Live Event** represents a pipeline for ingesting, transcoding (optionally), 
 
 For customers migrating from Media Services v2 APIs, the **Live Event** replaces the **Channel** entity in v2. For more information, see [Migrating from v2 to v3](migrate-from-v2-to-v3.md).
 
-### Streaming Endpoint (Origin)
+### Streaming Endpoint (Packaging and Origin)
 
-An **Streaming Endpoint** represents a dynamic packaging and streaming service that can deliver your live and on-demand content encrypted dynamically directly to a client player application.  
+A **Streaming Endpoint** represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application, using one of the common streaming media protocols (HLS or DASH). In addition, the **Streaming Endpoint** provides dynamic (just-in-time) encryption to industry leading DRMs.
 
-In the media streaming industry, this service commonly called **Origin**.  
+In the media streaming industry, this service is commonly referred to as a **Packager** or **Origin**.  Other common terms in the industry for this capability include JITP (Just-in-time-packager) or JITE (Just-in-time-encryption). 
  
 ## Cloud upload and storage
 
