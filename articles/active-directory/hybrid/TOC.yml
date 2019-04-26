@@ -254,6 +254,8 @@
       href: how-to-connect-sync-best-practices-changing-default-configuration.md
     - name: Change the default configuration
       href: how-to-connect-sync-change-the-configuration.md
+    - name: Fix modified default rules
+      href: how-to-connect-fix-default-rules.md
     - name: Configure directory extensions
       href: how-to-connect-sync-feature-directory-extensions.md
     - name: Configure preferred data location
@@ -276,6 +278,8 @@
          href: how-to-connect-sync-service-manager-ui-mvsearch.md
   - name: Troubleshoot
     items:
+    - name: What is the Azure AD Connect Admin Agent?
+      href: whatis-aadc-admin-agent.md
     - name: What is the ADConnectivityTools PowerShell module?
       href: how-to-connect-adconnectivitytools.md
     - name: Connectivity
@@ -284,6 +288,8 @@
       href: tshoot-connect-sync-errors.md
     - name: Object is not synchronized
       href: tshoot-connect-object-not-syncing.md
+    - name: Source anchor during installation
+      href: tshoot-connect-source-anchor.md
     - name: Object sync using the troubleshooting task
       href: tshoot-connect-objectsync.md
     - name: Password hash synchronization

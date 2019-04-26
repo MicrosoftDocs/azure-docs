@@ -1,7 +1,6 @@
 ---
 title: Author policies for array properties on Azure resources
 description: Learn to create array parameters, create rules for array language expressions, evaluate the [*] alias, and to append elements to an existing array with Azure Policy definition rules.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/06/2019

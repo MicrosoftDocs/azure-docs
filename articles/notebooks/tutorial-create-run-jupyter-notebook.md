@@ -7,7 +7,7 @@ author: kraigb
 manager: douge
 
 ms.assetid: 65bbb5fe-9939-4e8e-8f5b-c197d4be142a
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -45,8 +45,7 @@ The completed notebook can be found on [GitHub - Azure Notebooks Samples](https:
 
 ## Create the data file
 
-The linear regression model you create in the notebook draws data from a file in your project called *cricket_chirps.csv*. You can create this file either by copying it from [GitHub - Azure Notebooks Samples]
-(https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), or by entering the data directly. The following sections describe both approaches.
+The linear regression model you create in the notebook draws data from a file in your project called *cricket_chirps.csv*. You can create this file either by copying it from [GitHub - Azure Notebooks Samples](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), or by entering the data directly. The following sections describe both approaches.
 
 ### Upload the data file
 

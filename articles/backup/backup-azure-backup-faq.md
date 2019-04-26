@@ -35,7 +35,7 @@ No. A Recovery Services vault can only change storage options before any backups
 
 ### Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?
 - ILR is supported for Azure VMs backed up by Azure VM backup. For more information see, [article](backup-azure-restore-files-from-vm.md)
-- ILR is not supported for online recovery points of on-premise VMs backed up by Azure backup Server or System Center DPM.
+- ILR is not supported for online recovery points of on-premises VMs backed up by Azure backup Server or System Center DPM.
 
 
 ## Azure Backup agent
@@ -113,7 +113,7 @@ For Azure VM Linux backups, Azure Backup supports [the list of distributions end
 Sizes limits are as follows:
 
 OS/machine | Size limit of data source
---- | --- | ---
+--- | --- 
 Windows 8 or later | 54,400 GB
 Windows 7 |1700 GB
 Windows Server 2012 or later | 54,400 GB

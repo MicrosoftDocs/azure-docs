@@ -20,7 +20,7 @@ Use this guide to create a speech-to-text console application using the .NET fra
 
 For a quick demonstration (without building the Visual Studio project yourself as shown below):
 
-Get the latest [Cognitive Services Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk) from Github.
+Get the latest [Cognitive Services Speech SDK Samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk) from GitHub.
 
 ## Prerequisites
 

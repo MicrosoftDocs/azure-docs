@@ -3,7 +3,7 @@ title: Frequently asked questions for Azure Active Directory B2C | Microsoft Doc
 description: Frequently asked questions (FAQ) about Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
@@ -76,7 +76,7 @@ Currently there is no way to change the "From:" field on the email.
 You can use the Azure AD Graph API to write your migration tool. See the [User migration guide](active-directory-b2c-user-migration.md) for details.
 
 ### What password user flow is used for local accounts in Azure AD B2C?
-The Azure AD B2C password user flow for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. Read the [Azure AD password policy](https://msdn.microsoft.com/library/azure/jj943764.aspx) for more details. For information about account lockouts and passwords, see [Manages threats to resources and data in Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
+The Azure AD B2C password user flow for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. Read the [Azure AD password policy](/previous-versions/azure/jj943764(v=azure.100)) for more details. For information about account lockouts and passwords, see [Manages threats to resources and data in Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
 No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) for user migration.  See the [User migration guide](active-directory-b2c-user-migration.md) for details.
@@ -109,7 +109,8 @@ Not currently. This feature is on our roadmap. Verifying your domain in the **Do
 ### How do I delete my Azure AD B2C tenant?
 Follow these steps to delete your Azure AD B2C tenant:
 
-1. Delete all the policies in your Azure AD B2C tenant.
+1. Delete all the user flows (policies) in your Azure AD B2C tenant.
+1. Delete all the applications you registered in your Azure AD B2C tenant.
 1. Now sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator. (Use the same work or school account or the same Microsoft account that you used to sign up for Azure.)
 1. Switch to the Azure AD B2C tenant you want to delete.
 2. Navigate to the Active Directory menu on the left.

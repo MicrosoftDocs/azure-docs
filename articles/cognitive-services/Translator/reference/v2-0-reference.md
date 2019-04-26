@@ -3,7 +3,7 @@ title: Translator Text API V2.0
 titleSuffix: Azure Cognitive Services
 description: Reference documentation for the V2.0 Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 
 ms.service: cognitive-services
@@ -41,7 +41,7 @@ If you want to avoid getting profanity in the translation, regardless of the pre
 |ProfanityAction	|Action	|Example Source (Japanese)	|Example Translation (English)	|
 |:--|:--|:--|:--|
 |NoAction	|Default. Same as not setting the option. Profanity will pass from source to target.		|彼はジャッカスです。		|He is a jackass.	|
-|Marked		|Profane words will be surrounded by XML tags <profanity> and </profanity>.		|彼はジャッカスです。	|He is a <profanity>jackass</profanity>.	|
+|Marked		|Profane words will be surrounded by XML tags \<profanity> and \</profanity>.		|彼はジャッカスです。	|He is a \<profanity>jackass\</profanity>.	|
 |Deleted	|Profane words will be removed from the output without replacement.		|彼はジャッカスです。	|He is a.	|
 
 	
@@ -323,7 +323,7 @@ Response Content Type: application/xml
 |text|(empty)	|Required. A string containing a sentence or sentences of the specified language to be spoken for the wave stream. The size of the text to speak must not exceed 2000 characters.|query|string|
 |language|(empty)	|Required. A string representing the supported language code to speak the text in. The code must be present in the list of codes returned from the method  `GetLanguagesForSpeak`.|query|string|
 |format|(empty)|Optional. A string specifying the content-type ID. Currently,  `audio/wav` and `audio/mp3` are available. The default value is `audio/wav`.|query|string|
-|options|(empty)	|<ul><li>Optional. A string specifying properties of the synthesized speech:<li>`MaxQuality` and `MinSize` are available to specify the quality of the audio signals. With `MaxQuality`, you can get voices with the highest quality, and with `MinSize`, you can get the voices with the smallest size. Default is  `MinSize`.</li><li>`female` and `male` are available to specify the desired gender of the voice. Default is `female`. Use the vertical bar `|` to include multiple options. For example  `MaxQuality|Male`.</li></li></ul>	|query|string|
+|options|(empty)	|<ul><li>Optional. A string specifying properties of the synthesized speech:<li>`MaxQuality` and `MinSize` are available to specify the quality of the audio signals. With `MaxQuality`, you can get voices with the highest quality, and with `MinSize`, you can get the voices with the smallest size. Default is  `MinSize`.</li><li>`female` and `male` are available to specify the desired gender of the voice. Default is `female`. Use the vertical bar <code>\|</code> to include multiple options. For example  `MaxQuality|Male`.</li></li></ul>	|query|string|
 |Authorization|(empty)|Required if the `appid` field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(empty)	|Required if the `appid` field or `Authorization` header is not specified.|header|string|
 

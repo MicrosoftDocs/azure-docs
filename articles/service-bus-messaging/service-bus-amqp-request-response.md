@@ -604,7 +604,7 @@ Each map entry in the array includes the following properties:
 `com.microsoft:correlation-filter:list` is a described array which includes:
 
 |Index (if exists)|Value Type|Value Contents|  
-|---------|----------------|--------------|--------------------|  
+|---------|----------------|--------------|
 | 0 | string | Correlation ID |
 | 1 | string | Message ID |
 | 2 | string | To |

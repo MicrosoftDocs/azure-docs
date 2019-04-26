@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
@@ -69,7 +69,7 @@ To start the streaming endpoint, do the following:
 2. In the Settings window, click Streaming endpoints.
 3. Click the default streaming endpoint.
 
-	The DEFAULT STREAMING ENDPOINT DETAILS window appears.
+    The DEFAULT STREAMING ENDPOINT DETAILS window appears.
 
 4. Click the Start icon.
 5. Click the Save button to save your changes.
@@ -556,7 +556,7 @@ If successful, the following response is returned:
 There are a few important things to note in any Job request:
 
 * TaskBody properties MUST use literal XML to define the number of input, or output assets that are used by the Task. The Task article contains the XML Schema Definition for the XML.
-* In the TaskBody definition, each inner value for <inputAsset> and <outputAsset> must be set as JobInputAsset(value) or JobOutputAsset(value).
+* In the TaskBody definition, each inner value for `<inputAsset>` and `<outputAsset>` must be set as JobInputAsset(value) or JobOutputAsset(value).
 * A task can have multiple output assets. One JobOutputAsset(x) can only be used once as an output of a task in a job.
 * You can specify JobInputAsset or JobOutputAsset as an input asset of a task.
 * Tasks must not form a cycle.
@@ -568,7 +568,7 @@ There are a few important things to note in any Job request:
 >
 
 * InputMediaAssets maps to one or more Assets you have created in Media Services. OutputMediaAssets are created by the system. They do not reference an existing asset.
-* OutputMediaAssets can be named using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample", then the OutputMediaAsset Name property would be set to "Sample". However, if you did not set a value for assetName, but did set the job name to "NewJob", then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob".
+* OutputMediaAssets can be named using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the `<outputAsset>` element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample", then the OutputMediaAsset Name property would be set to "Sample". However, if you did not set a value for assetName, but did set the job name to "NewJob", then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob".
 
     The following example shows how to set the assetName attribute:
 
@@ -813,8 +813,6 @@ Once you have the AccessPolicy and Locator set, you can download files using the
 
 > [!NOTE]
 > You must add the file name for the file you want to download to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
->
->
 
 For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 

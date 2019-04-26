@@ -178,4 +178,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-[Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

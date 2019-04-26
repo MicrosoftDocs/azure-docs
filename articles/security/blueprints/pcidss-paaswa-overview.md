@@ -225,10 +225,10 @@ This Azure Security and Compliance Blueprint Automation is comprised of JSON con
 2. Review 0-Setup-AdministrativeAccountAndPermission.md and run the provided commands.
 
 3. Deploy a test solution with Contoso sample data or pilot an initial production environment.
-  - 1A-ContosoWebStoreDemoAzureResources.ps1
-    - This script deploys Azure resources for a demonstration of a webstore using Contoso sample data.
-  - 1-DeployAndConfigureAzureResources.ps1
-    - This script deploys the Azure resources needed for supporting a production environment for a customer-owned web application. This environment should be further customized by the customer based on organizational requirements.
+   - 1A-ContosoWebStoreDemoAzureResources.ps1
+     - This script deploys Azure resources for a demonstration of a webstore using Contoso sample data.
+   - 1-DeployAndConfigureAzureResources.ps1
+     - This script deploys the Azure resources needed for supporting a production environment for a customer-owned web application. This environment should be further customized by the customer based on organizational requirements.
 
 ## Guidance and recommendations
 

@@ -4,7 +4,7 @@ description: Learn how to set up the different networking modes that are support
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6

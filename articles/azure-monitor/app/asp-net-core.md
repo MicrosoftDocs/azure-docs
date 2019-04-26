@@ -83,15 +83,15 @@ Select **View** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Project** > **Changes**
 
 - One new file is created:
 
-  -  _ConnectedService.json_
+  - _ConnectedService.json_
 
     ```json
     {
-      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
-      "Version": "8.12.10405.1",
-      "GettingStartedDocument": {
-        "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
-      }
+     "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+     "Version": "8.12.10405.1",
+     "GettingStartedDocument": {
+       "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
+     }
     }
     ```
 
@@ -192,7 +192,7 @@ To automate requests to your app by using synthetic transactions:
 
 3. Run the following PowerShell loop to create 100 synthetic transactions by using your test app. Modify the port number after `localhost:` to match the URl that you copied in the preceding step. For example:
 
-   ```PowerShell
+   ```powershell
    for ($i = 0 ; $i -lt 100; $i++)
    {
     Invoke-WebRequest -uri http://localhost:50984/
@@ -404,6 +404,6 @@ The issue with using either of these methods is that they don't disable only App
 
 ## Next steps
 * [Explore User Flows](../../azure-monitor/app/usage-flows.md) to understand how users navigate through your app.
-* [Configure snapshot collection](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) to see the state of source code and variables at the moment an exception is thrown.
+* [Configure snapshot collection](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) to see the state of source code and variables at the moment an exception is thrown.
 * [Use the API](../../azure-monitor/app/api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
 * Use [availability tests](../../azure-monitor/app/monitor-web-app-availability.md) to check your app constantly from around the world.

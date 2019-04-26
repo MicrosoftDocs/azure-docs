@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 03/17/2019
 ms.author: monhaber
 ---
 # Upgrade to Security Center's Standard tier for enhanced security
@@ -41,10 +41,11 @@ To get the Standard tier:
 4. Select **Standard** to upgrade.
 5. Click **Save**.
 
+(Prices in the image are for example purposes only.)
 ![Security Center Pricing](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> To enable all Security Center features, you must apply the Standard pricing tier to the subscription or resource group containing the applicable virtual machines. Configuring pricing for a workspace does not enable just in time VM access, adaptive application controls, and network detections for Azure resources.
+> To enable all Security Center features, you must apply the Standard pricing tier to the subscription containing the applicable virtual machines. Configuring pricing for a workspace does not enable just in time VM access, adaptive application controls, and network detections for Azure resources.
 >
 >
 

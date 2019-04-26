@@ -2,7 +2,6 @@
 title: Create non-interactive authentication .NET applications in Azure HDInsight 
 description: Learn how to create non-interactive authentication Microsoft .NET applications in Azure HDInsight.
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 
 ms.service: hdinsight

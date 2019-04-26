@@ -66,7 +66,7 @@ Use the following steps to add the service principal:
 
      ![Add a managed app to the portal](./media/cloud-partner-portal-api-prerequisites/managedapp.png)
 
-4. Click **Add** to add the service principal to your account.
+1. Click **Add** to add the service principal to your account.
 
    ![Add a service principal](./media/cloud-partner-portal-api-prerequisites/add-service-principal.jpg)
 

@@ -159,7 +159,7 @@ else
 {
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add a environment variable named 'storageconnectionstring' with your storage " +
+        "Add an environment variable named 'storageconnectionstring' with your storage " +
         "connection string as a value.");
 }
 ```

@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 04/04/2018
+ ms.date: 03/22/2019
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -50,9 +50,11 @@ Create the new ASP.NET WebAPI backend by doing the following actions:
     * Select an app service plan that you've already created.
     * Select **Create a new app service plan**, and then create one.
 
-  You do not need a database for this tutorial. After you have selected your app service plan, select **OK** to create the project.
+   You do not need a database for this tutorial. After you have selected your app service plan, select **OK** to create the project.
 
     ![The Configure Microsoft Azure Web App window][B5]
+
+    If you don't see this page for configure app service plan, continue with the tutorial. You can configure it while publishing the app later. 
 
 ## Authenticate clients to the WebAPI backend
 
@@ -79,9 +81,9 @@ In this section, you create a new message-handler class named **AuthenticationTe
    * The request uses *basic* authentication.
    * The user name string and the password string are the same string.
 
-  Otherwise, the request is rejected. This authentication is not a true authentication and authorization approach. It is only a simple example for this tutorial.
+   Otherwise, the request is rejected. This authentication is not a true authentication and authorization approach. It is only a simple example for this tutorial.
 
-  If the request message is authenticated and authorized by `AuthenticationTestHandler`, the basic authentication user is attached to the current request on [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
+   If the request message is authenticated and authorized by `AuthenticationTestHandler`, the basic authentication user is attached to the current request on [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler
@@ -260,8 +262,8 @@ In this section, you add a new controller to the WebAPI backend to handle reques
             case "apns":
                 registration = new AppleRegistrationDescription(deviceUpdate.Handle);
                 break;
-            case "gcm":
-                registration = new GcmRegistrationDescription(deviceUpdate.Handle);
+            case "fcm":
+                registration = new FcmRegistrationDescription(deviceUpdate.Handle);
                 break;
             default:
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
@@ -349,10 +351,10 @@ In this section, you add a new controller that exposes a way for client devices 
                 var alert = "{\"aps\":{\"alert\":\"" + "From " + user + ": " + message + "\"}}";
                 outcome = await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
                 break;
-            case "gcm":
+            case "fcm":
                 // Android
                 var notif = "{ \"data\" : {\"message\":\"" + "From " + user + ": " + message + "\"}}";
-                outcome = await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
+                outcome = await Notifications.Instance.Hub.SendFcmNativeNotificationAsync(notif, userTag);
                 break;
         }
 

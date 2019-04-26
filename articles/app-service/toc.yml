@@ -94,6 +94,8 @@
       href: web-sites-configure.md
     - name: Configure PHP
       href: web-sites-php-configure.md
+    - name: Java developer guide
+      href: configure-language-java.md
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md
   - name: Deploy to Azure

@@ -7,7 +7,7 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 author: zr-msft
 ms.author: zarhoads
-ms.date: "07/09/2018"
+ms.date: 07/09/2018
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
@@ -22,7 +22,7 @@ In this guide, you will learn how to:
 - Productively develop and test your code in a team environment.
 
 > [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page.
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section.
 
 
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces

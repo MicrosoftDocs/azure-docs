@@ -3,7 +3,7 @@ title: Translator Text API Transliterate Method
 titlesuffix: Azure Cognitive Services
 description: Use the Translator Text API Transliterate method.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 
 ms.service: cognitive-services
@@ -56,8 +56,8 @@ Request headers include:
   <th width="20%">Headers</th>
   <th>Description</th>
   <tr>
-    <td>_One authorization_<br/>_header_</td>
-    <td>*Required request header*.<br/>See [available options for authentication](./v3-0-reference.md#authentication).</td>
+    <td>Authentication header(s)</td>
+    <td><em>Required request header</em>.<br/>See <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>

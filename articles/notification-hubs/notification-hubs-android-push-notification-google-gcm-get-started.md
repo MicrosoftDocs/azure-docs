@@ -163,13 +163,13 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
      `NotificationSettings` code:
 
-    ```java
-    public class NotificationSettings {
+     ```java
+     public class NotificationSettings {
         public static String SenderId = "<Your project number>";
         public static String HubName = "<Your HubName>";
         public static String HubListenConnectionString = "<Your default listen connection string>";
-    }
-    ```
+     }
+     ```
 2. Add another new class named `MyInstanceIDService`. This class is the Instance ID listener service implementation.
 
     The code for this class calls `IntentService` to [refresh the GCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) in the background.

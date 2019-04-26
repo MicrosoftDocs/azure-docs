@@ -1,18 +1,15 @@
 ---
 title: What is HBase in Azure HDInsight? 
 description: An introduction to Apache HBase in HDInsight, a NoSQL database build on Hadoop. Learn about use cases and compare HBase to other Hadoop clusters.
-keywords: bigtable,nosql,what is hbase,apache hbase,hbase,habase overview,
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-
 ---
+
 # What is Apache HBase in HDInsight: A NoSQL database that provides BigTable-like capabilities for Apache Hadoop
 [Apache HBase](https://hbase.apache.org/) is an open-source, NoSQL database that is built on [Apache Hadoop](https://hadoop.apache.org/) and modeled after [Google BigTable](https://cloud.google.com/bigtable/). HBase provides random access and strong consistency for large amounts of unstructured and semistructured data in a schemaless database organized by column families.
 
@@ -58,8 +55,3 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
 * [Apache HBase](https://hbase.apache.org/)
 * [Apache HBase Reference Guide](https://hbase.apache.org/book.html)
 * [Bigtable: A Distributed Storage System for Structured Data](https://research.google.com/archive/bigtable.html)
-* [Apache HBase/Phoenix – Tips , Tricks & Best Practices in Azure HDInsight](https://blogs.msdn.microsoft.com/ashish/2016/08/28/hdinsight-hbase-faq/)
-
-
-
-

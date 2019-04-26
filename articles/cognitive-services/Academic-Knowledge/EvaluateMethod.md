@@ -23,6 +23,7 @@ The **evaluate** REST API is used to return a set of academic entities based on 
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate? 
 ```   
 <br>
+
 ## Request Parameters  
 
 Name     | Value | Required?  | Description
@@ -35,6 +36,7 @@ Name     | Value | Required?  | Description
 **orderby** |	Text string | No<br>Default: by decreasing prob	| Name of an attribute that is used for sorting the entities. Optionally, ascending/descending can be specified. The format is: *name:asc* or *name:desc*.
   
  <br>
+
 ## Response (JSON)
 
 Name | Description
@@ -44,6 +46,7 @@ Name | Description
 **aborted** | True if the request timed out.
 
 <br>
+
 #### Example:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?expr=

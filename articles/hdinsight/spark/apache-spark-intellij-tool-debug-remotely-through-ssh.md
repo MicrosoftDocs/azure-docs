@@ -2,7 +2,6 @@
 title: 'Azure Toolkit for IntelliJ: Debug Spark applications remotely through SSH '
 description: Step-by-step guidance on how to use HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on HDInsight clusters through SSH
 keywords: debug remotely intellij, remote debugging intellij, ssh, intellij, hdinsight, debug intellij, debugging
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed
 ms.author: hrasheed-msft
@@ -29,23 +28,23 @@ This article provides step-by-step guidance on how to use HDInsight Tools in [Az
 
    b. Select a Java or Scala template based on your preference. Select between the following options:
 
-      - **Spark Project (Java)**
+   - **Spark Project (Java)**
 
-      - **Spark Project (Scala)**
+   - **Spark Project (Scala)**
 
-      - **Spark Project with Samples (Scala)**
+   - **Spark Project with Samples (Scala)**
 
-      - **Spark Project with Failure Task Debugging Samples (Preview) (Scala)**
+   - **Spark Project with Failure Task Debugging Samples (Preview) (Scala)**
 
-      This example uses a **Spark Project with Samples (Scala)** template.
+     This example uses a **Spark Project with Samples (Scala)** template.
 
    c. In the **Build tool** list, select either of the following, according to your need:
 
-      - **Maven**, for Scala project-creation wizard support
+   - **Maven**, for Scala project-creation wizard support
 
-      - **SBT**, for managing the dependencies and building for the Scala project 
+   - **SBT**, for managing the dependencies and building for the Scala project 
 
-      ![Create a debug project](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
+     ![Create a debug project](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
    d. Select **Next**.     
  

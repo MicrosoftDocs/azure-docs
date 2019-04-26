@@ -122,9 +122,9 @@ After restarting, run the following commands once:
      /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
-   *  Create a directory for mounting with `mkdir /mnt/huge`.
-   *  Mount hugepages with `mount -t hugetlbfs nodev /mnt/huge`.
-   *  Check that hugepages are reserved with `grep Huge /proc/meminfo`.
+   * Create a directory for mounting with `mkdir /mnt/huge`.
+   * Mount hugepages with `mount -t hugetlbfs nodev /mnt/huge`.
+   * Check that hugepages are reserved with `grep Huge /proc/meminfo`.
 
      > [!NOTE]
      > There is a way to modify the grub file so that hugepages are reserved on boot by following the [instructions](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) for the DPDK. The instructions are at the bottom of the page. When you're using an Azure Linux virtual machine, modify files under **/etc/config/grub.d** instead, to reserve hugepages across reboots.
@@ -240,7 +240,7 @@ The following commands periodically print the packets per second statistics:
      -w <pci address NIC2> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      --vdev="net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>" (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
-     -- --nb-cores <number of cores to use for test pmd> \
+     -- --nb-cores <number of cores to use for test pmd> \
      --forward-mode=io \
      --eth-peer=<recv port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>

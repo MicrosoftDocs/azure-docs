@@ -1,6 +1,6 @@
 ---
-title: Move your Azure Automation Account to another subscription
-description: This article describes how to move your Automation Account to another subscription
+title: Move your Azure Automation account to another subscription
+description: This article describes how to move your Automation account to another subscription
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -10,23 +10,28 @@ ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm 
 ---
-# Move your Automation Account to another subscription
+# Move your Azure Automation account to another subscription
 
-Azure provides you the ability to move some resources to a new resource group or subscription with the same tenant natively through the Azure portal, PowerShell, Azure CLI, or REST API. To learn more about the process, see [move resources to a new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md). Automation Accounts are one of the resources that can be moved but there are special steps needed when moving your Automation Account.
+Azure provides you the ability to move some resources to a new resource group or subscription. You can move resources through the Azure portal, PowerShell, the Azure CLI, or the REST API. To learn more about the process, see [Move resources to a new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md). 
 
-The high-level steps to moving your Automation Account to are:
+Azure Automation accounts are one of the resources that can be moved. In this article, you'll learn the steps to move Automation accounts to another resource or subscription.
 
-* Remove your solutions
-* Unlink your workspace
-* Move the Automation Account
-* Delete and Re-create the Run As Accounts
-* Re-enable your Solutions
+The high-level steps to moving your Automation account are:
+
+1. Remove your solutions.
+2. Unlink your workspace.
+3. Move the Automation account.
+4. Delete and re-create the Run As accounts.
+5. Re-enable your solutions.
 
 ## Remove solutions
 
-To unlink your workspace from your Automation Account, the Change and Inventory, Update Management and the Start/Stop VMs during off hours solutions must be removed from your workspace.
+To unlink your workspace from your Automation account, these solutions must be removed from your workspace:
+- **Change Tracking and Inventory**
+- **Update Management** 
+- **Start/Stop VMs during off hours** 
 
-In your Resource Group, select each **Solution** and click **Delete**. On the **Delete Resources** page, confirm the resources to be removed, and click **Delete**.
+In your resource group, find each solution and select **Delete**. On the **Delete Resources** page, confirm the resources to be removed, and select **Delete**.
 
 ![Delete solutions from the Azure portal](../media/move-account/delete-solutions.png)
 
@@ -42,34 +47,34 @@ Remove-AzureRmResource -ResourceType 'Microsoft.OperationsManagement/solutions' 
 
 ### Additional steps for Start/Stop VMs
 
-For the **Start/Stop VM** solution, you also need to remove the alert rules created by the solution.
+For the **Start/Stop VMs** solution, you also need to remove the alert rules created by the solution.
 
-In the Azure portal, navigate to your resource group and select **Alerts** under **Monitoring**. On the **Alerts** page, select **Manage alert rules**
+In the Azure portal, go to your resource group and select **Monitoring** > **Alerts** > **Manage alert rules**.
 
-![Alerts page showing you click on Manage Alert rules](../media/move-account/alert-rules.png)
+![Alerts page showing selection of Manage Alert rules](../media/move-account/alert-rules.png)
 
-On the **Rules** page, you should see a listing of all of the alerts configured in that resource group. The **Start/Stop VMs** solution creates 3 alert rules
+On the **Rules** page, you should see a list of the alerts configured in that resource group. The **Start/Stop VMs** solution creates three alert rules:
 
 * AutoStop_VM_Child
 * ScheduledStartStop_Parent
 * SequencedStartStop_Parent
 
-Select these 3 alert rules and click **Delete**. This action will remove these alert rules.
+Select these three alert rules, and then select **Delete**. This action will remove these alert rules.
 
-![Rules page with rules selected and being deleted](../media/move-account/delete-rules.png)
+![Rules page requesting confirmation of deletion for selected rules](../media/move-account/delete-rules.png)
 
 > [!NOTE]
-> If you do not see any alert rules on the **Rules** page, change the **Status** to show **Disabled** alerts as you may have disabled them.
+> If you don't see any alert rules on the **Rules** page, change the **Status** to show **Disabled** alerts, because you might have disabled them.
 
-Once the alert rules are removed, you need to remove the Action group that was created for notifications for the Start/Stop VM Solution.
+When the alert rules are removed, remove the action group that was created for the **Start/Stop VMs** solution notifications.
 
-In the Azure portal go to **Monitor**, select **Alerts**, and click **Manage action groups**.
+In the Azure portal, select **Monitor** > **Alerts** > **Manage action groups**.
 
-Select your Action group from the list, it will have the name **StartStop_VM_Notification**. On the Action groups page, click **Delete**
+Select **StartStop_VM_Notification** from the list. On the action group page, select **Delete**.
 
-![Action group page, clicking delete](../media/move-account/delete-action-group.png)
+![Action group page, select delete](../media/move-account/delete-action-group.png)
 
-Similarly, you can delete your Action group with PowerShell. This action is done with the [Remove-AzureRmActionGroup](/powershell/module/azurerm.insights/remove-azurermactiongroup) cmdlet as seen in the following example:
+Similarly, you can delete your action group by using PowerShell with the [Remove-AzureRmActionGroup](/powershell/module/azurerm.insights/remove-azurermactiongroup) cmdlet, as seen in the following example:
 
 ```azurepowershell-interactive
 Remove-AzureRmActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
@@ -77,62 +82,62 @@ Remove-AzureRmActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_V
 
 ## Unlink your workspace
 
-In the Azure portal, go to your **Automation Account**. Under **Related Resources**, click **Linked workspace**. Click **Unlink workspace** to unlink the workspace from your Automation Account.
+In the Azure portal, select **Automation account** > **Related Resources** > **Linked workspace**. Select **Unlink workspace** to unlink the workspace from your Automation account.
 
-![Unlinking a workspace from an Automation Account](../media/move-account/unlink-workspace.png)
+![Unlink a workspace from an Automation account](../media/move-account/unlink-workspace.png)
 
-## Move your Automation Account
+## Move your Automation account
 
-Once all the previous items have been removed, you can continue to remove your Automation Account and its runbooks. In the Azure portal, navigate to the resource group of your Automation Account. Select **Move** and then **Move to another subscription**.
+After removing the previous items, you can continue to remove your Automation account and its runbooks. In the Azure portal, browse to the resource group of your Automation account. Select **Move** > **Move to another subscription**.
 
-![Resource group page selecting move to another subscription](../media/move-account/move-resources.png)
+![Resource group page, move to another subscription](../media/move-account/move-resources.png)
 
-Select the resources in your Resource Group that you want to move. Ensure you include your **Automation Account**, **Runbook**, and **Log Analytics workspace** resources.
+Select the resources in your resource group that you want to move. Ensure you include your **Automation account**, **Runbook**, and **Log Analytics workspace** resources.
 
-Once the move is complete, there are additional steps that must be taken to get everything working.
+After the move is complete, there are additional steps required to make everything work.
 
-## Recreate Run As Accounts
+## Re-create Run As accounts
 
-[Run As Accounts](../manage-runas-account.md) create a service principal in Azure Active Directory to authenticate with Azure resources. When you change subscriptions, the existing Run As account is no longer usable by the Automation Account.
+[Run As accounts](../manage-runas-account.md) create a service principal in Azure Active Directory to authenticate with Azure resources. When you change subscriptions, the Automation account no longer uses the existing Run As account.
 
-Navigate to your Automation Account in the new subscription and select **Run as accounts** under **Account Settings**. You'll see that the Run As Accounts show as incomplete now.
+Go to your Automation account in the new subscription and select **Run as accounts** under **Account Settings**. You'll see that the Run As accounts show as incomplete now.
 
-![Run As Accounts showing as Incomplete](../media/move-account/run-as-accounts.png)
+![Run As accounts are incomplete](../media/move-account/run-as-accounts.png)
 
-Click each Run As Account and on the **Properties** page, click **Delete** to delete the Run As Account.
+Select each Run As account. On the **Properties** page, select **Delete** to delete the Run As account.
 
-> ![NOTE]
-> If you do not have permissions to create or view the Run As accounts you'll see the following message `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.`. To learn about the permissions required to configure a Run As account, see [Permissions required to configure Run As accounts](../manage-runas-account.md#permissions).
+> [!NOTE]
+> If you do not have permissions to create or view the Run As accounts, you'll see the following message: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` To learn about the permissions required to configure a Run As account, see [Permissions required to configure Run As accounts](../manage-runas-account.md#permissions).
 
-Once the Run As Accounts are deleted, click **Create** on the **Azure Run As Account**. On the **Add Azure Run As Account** page, click **Create** to create the Run As Account and service principal. Repeat the preceding steps with the **Azure Classic Run As Account**.
+After the Run As accounts are deleted, select **Create** under **Azure Run As account**. On the **Add Azure Run As account** page, select **Create** to create the Run As account and service principal. Repeat the preceding steps with the **Azure Classic Run As account**.
 
 ## Enable solutions
 
-After the Run As Accounts have been recreated, you'll re-enable the solutions that you remove before the move. To enable **Change Tracking and Inventory** and **Update Management**, select the respective capability in your Automation Account. Choose the Log Analytics workspace you moved over and click **Enable**.
+After you re-create the Run As accounts, you'll re-enable the solutions that you removed before the move. To turn on **Change Tracking and Inventory** and **Update Management**, select the respective capability in your Automation account. Choose the Log Analytics workspace you moved over and select **Enable**.
 
-![Re-enable solutions in your moved Automation Account](../media/move-account/reenable-solutions.png)
+![Re-enable solutions in your moved Automation account](../media/move-account/reenable-solutions.png)
 
-Your machines that are onboarded with your solutions will show up again since you're connecting the existing Log Analytics workspace.
+Machines that are onboarded with your solutions will be visible when you've connected the existing Log Analytics workspace.
 
-To re-enable the Start/Stop VMs during off-hours solution, you'll need to redeploy the solution. Under **Related Resources**, select **Start/Stop VM**. Click **Learn more about and enable the solution** and click **Create** to start the deployment.
+To turn on the **Start/Stop VMs** during off-hours solution, you'll need to redeploy the solution. Under **Related Resources**, select **Start/Stop VMs** > **Learn more about and enable the solution** > **Create** to start the deployment.
 
-On the **Add Solution** page, choose your Log Analytics Workspace and Automation Account.  
+On the **Add Solution** page, choose your Log Analytics Workspace and Automation account.  
 
-![Run As Accounts showing as Incomplete](../media/move-account/add-solution-vm.png)
+![Add Solution menu](../media/move-account/add-solution-vm.png)
 
-For detailed instructions on configuring the solution, see [Start/Stop VMs during off-hours solution in Azure Automation](../automation-solution-vm-management.md)
+For detailed instructions on configuring the solution, see [Start/Stop VMs during off-hours solution in Azure Automation](../automation-solution-vm-management.md).
 
-## Post move verification
+## Post-move verification
 
-Once the move is complete, make sure to verify the different scenarios in your Automation Account to ensure everything is working as expected. The following table shows a list of tasks that should be verified after the move has been completed:
+When the move is complete, check the following list of tasks that should be verified:
 
 |Capability|Tests|Troubleshooting link|
 |---|---|---|
-|Runbooks|A Runbook can successfully run and connect to Azure resources.|[Troubleshoot runbooks](../troubleshoot/runbooks.md)
-| Source Control|You can run a manual sync on your source control repo.|[Source Control integration](../source-control-integration.md)|
-|Change Tracking and Inventory|Verify you see current inventory data from your machines.|[Troubleshoot Change Tracking](../troubleshoot/change-tracking.md)|
-|Update Management|Verify you see your machines and they're healthy</br>Run a test software update deployment.|[Troubleshoot Update Management](../troubleshoot/update-management.md)|
+|Runbooks|A runbook can successfully run and connect to Azure resources.|[Troubleshoot runbooks](../troubleshoot/runbooks.md)
+| Source control|You can run a manual sync on your source control repo.|[Source control integration](../source-control-integration.md)|
+|Change tracking and inventory|Verify you see current inventory data from your machines.|[Troubleshoot change tracking](../troubleshoot/change-tracking.md)|
+|Update management|Verify you see your machines and they're healthy.</br>Run a test software update deployment.|[Troubleshoot update management](../troubleshoot/update-management.md)|
 
 ## Next steps
 
-To learn more about moving resources in Azure, see [Move resources in Azure](../../azure-resource-manager/move-support-resources.md)
+To learn more about moving resources in Azure, see [Move resources in Azure](../../azure-resource-manager/move-support-resources.md).

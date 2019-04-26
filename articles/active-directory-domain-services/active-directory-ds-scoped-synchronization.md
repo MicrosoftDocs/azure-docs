@@ -35,12 +35,10 @@ The following table helps you determine how to use scoped synchronization:
 
 > [!WARNING]
 > **Changing the scope of synchronization causes your managed domain to go through resynchronization.**
->
- * When you change the synchronization scope for a managed domain, a full resynchronization occurs.
- * Objects which are no longer required in the managed domain are deleted. New objects are created in the managed domain.
- * Resynchronization may take a long time to complete, depending on the number of objects (users, groups, and group memberships) in your managed domain and your Azure AD directory. For large directories with many hundreds of thousands of objects, resynchronization may take a few days.
->
->
+> 
+>  * When you change the synchronization scope for a managed domain, a full resynchronization occurs.
+>  * Objects which are no longer required in the managed domain are deleted. New objects are created in the managed domain.
+>  * Resynchronization may take a long time to complete, depending on the number of objects (users, groups, and group memberships) in your managed domain and your Azure AD directory. For large directories with many hundreds of thousands of objects, resynchronization may take a few days.
 
 
 ## Create a new managed domain and enable group-based scoped synchronization using Azure portal
@@ -54,46 +52,46 @@ Use PowerShell to complete this set of steps. Refer to the instructions to [enab
 Complete the following steps to configure group-based scoped synchronization to your managed domain:
 
 1. Complete the following tasks:
-  * [Task 1: Install the required PowerShell modules](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
-  * [Task 2: Create the required service principal in your Azure AD directory](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-  * [Task 3: Create and configure the 'AAD DC Administrators' group](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
-  * [Task 4: Register the Azure AD Domain Services resource provider](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
-  * [Task 5: Create a resource group](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
-  * [Task 6: Create and configure the virtual network](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
+   * [Task 1: Install the required PowerShell modules](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
+   * [Task 2: Create the required service principal in your Azure AD directory](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
+   * [Task 3: Create and configure the 'AAD DC Administrators' group](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
+   * [Task 4: Register the Azure AD Domain Services resource provider](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
+   * [Task 5: Create a resource group](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
+   * [Task 6: Create and configure the virtual network](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
 
 2. Select the groups you want to sync and provide the display name of the groups you want synchronized to your managed domain.
 
 3. Save the [script in the following section](active-directory-ds-scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) to a file called ```Select-GroupsToSync.ps1```. Execute the script like below:
 
-  ```powershell
-  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
-  ```
+   ```powershell
+   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
+   ```
 
-  > [!WARNING]
-  > **Do not forget to include the 'AAD DC Administrators' group.**
-  >
-  > You must include the 'AAD DC Administrators' group in the list of groups configured for scoped synchronization. If you do not include this group, the managed domain will be unusable.
-  >
+   > [!WARNING]
+   > **Do not forget to include the 'AAD DC Administrators' group.**
+   >
+   > You must include the 'AAD DC Administrators' group in the list of groups configured for scoped synchronization. If you do not include this group, the managed domain will be unusable.
+   >
 
 4. Now, create the managed domain and enable group-based scoped synchronization for the managed domain. Include the property ```"filteredSync" = "Enabled"``` in the ```Properties``` parameter. For instance, see the following script fragment, copied from [Task 7: Provision the Azure AD Domain Services managed domain](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
 
-  ```powershell
-  $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-  $ManagedDomainName = "contoso100.com"
-  $ResourceGroupName = "ContosoAaddsRg"
-  $VnetName = "DomainServicesVNet_WUS"
-  $AzureLocation = "westus"
+   ```powershell
+   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
+   $ManagedDomainName = "contoso100.com"
+   $ResourceGroupName = "ContosoAaddsRg"
+   $VnetName = "DomainServicesVNet_WUS"
+   $AzureLocation = "westus"
 
-  # Enable Azure AD Domain Services for the directory.
-  New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
+   # Enable Azure AD Domain Services for the directory.
+   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+   -Location $AzureLocation `
+   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -ApiVersion 2017-06-01 -Force -Verbose
-  ```
+   -ApiVersion 2017-06-01 -Force -Verbose
+   ```
 
-  > [!TIP]
-  > Do not forget to include ```"filteredSync" = "Enabled"``` in the ```-Properties``` parameter, so scoped synchronization is enabled for the managed domain.
+   > [!TIP]
+   > Do not forget to include ```"filteredSync" = "Enabled"``` in the ```-Properties``` parameter, so scoped synchronization is enabled for the managed domain.
 
 
 ## Script to select groups to synchronize to the managed domain (Select-GroupsToSync.ps1)

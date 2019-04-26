@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017

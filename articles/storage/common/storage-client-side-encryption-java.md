@@ -92,8 +92,8 @@ In batch operations, the same KEK will be used across all the rows in that batch
 > [!NOTE]
 > Because the entities are encrypted, you cannot run queries that filter on an encrypted property.  If you try, results will be incorrect, because the service would be trying to compare encrypted data with unencrypted data.
 > 
->
-To perform query operations, you must specify a key resolver that is able to resolve all the keys in the result set. If an entity contained in the query result cannot be resolved to a provider, the client library will throw an error. For any query that performs server side projections, the client library will add the special encryption metadata properties (_ClientEncryptionMetadata1 and _ClientEncryptionMetadata2) by default to the selected columns.
+> 
+> To perform query operations, you must specify a key resolver that is able to resolve all the keys in the result set. If an entity contained in the query result cannot be resolved to a provider, the client library will throw an error. For any query that performs server side projections, the client library will add the special encryption metadata properties (_ClientEncryptionMetadata1 and _ClientEncryptionMetadata2) by default to the selected columns.
 
 ## Azure Key Vault
 Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Azure Key Vault, users can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For more information, see [What is Azure Key Vault?](../../key-vault/key-vault-whatis.md).
@@ -112,7 +112,7 @@ There are three Key Vault packages:
 1. Create a secret offline and upload it to Key Vault.  
 2. Use the secret's base identifier as a parameter to resolve the current version of the secret for encryption and cache this information locally. Use CachingKeyResolver for caching; users are not expected to implement their own caching logic.  
 3. Use the caching resolver as an input while creating the encryption policy.
-   More information regarding Key Vault usage can be found in the encryption code samples. <fix URL>  
+   More information regarding Key Vault usage can be found in the encryption code samples.
 
 ## Best practices
 Encryption support is available only in the storage client library for Java.
@@ -136,7 +136,7 @@ While creating an EncryptionPolicy object, users can provide only a Key (impleme
   * The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.  
   * If resolver is not specified but a key is specified, the key is used if its identifier matches the required key identifier. If the identifier does not match, an error is thrown.  
     
-    The [encryption samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>demonstrate a more detailed end-to-end scenario for blobs, queues and tables, along with Key Vault integration.
+    The [encryption samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) demonstrate a more detailed end-to-end scenario for blobs, queues and tables, along with Key Vault integration.
 
 ### RequireEncryption mode
 Users can optionally enable a mode of operation where all uploads and downloads must be encrypted. In this mode, attempts to upload data without an encryption policy or download data that is not encrypted on the service will fail on the client. The **requireEncryption** flag of the request options object controls this behavior. If your application will encrypt all objects stored in Azure Storage, then you can set the **requireEncryption** property on the default request options for the service client object.   

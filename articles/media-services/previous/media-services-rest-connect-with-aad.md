@@ -12,12 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: willzhan;juliako;johndeu
 
 ---
 
 # Use Azure AD authentication to access the Media Services API with REST
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 When you're using Azure AD authentication with Azure Media Services, you can authenticate in one of two ways:
 
@@ -80,33 +83,33 @@ To get the information, follow these steps:
 
     If you need to create a new AD app, follow these steps:
     
-    1. Press **Create New**.
-    2. Enter a name.
-    3. Press **Create New** again.
-    4. Press **Save**.
+   1. Press **Create New**.
+   2. Enter a name.
+   3. Press **Create New** again.
+   4. Press **Save**.
 
-    ![API access](./media/connect-with-rest/new-app.png)
+      ![API access](./media/connect-with-rest/new-app.png)
 
-    The new app shows up on the page.
+      The new app shows up on the page.
 
 6. Get the **Client ID** (Application ID).
     
-    1. Select the application.
-    2. Get the **Client ID** from the window on the right. 
+   1. Select the application.
+   2. Get the **Client ID** from the window on the right. 
 
-    ![API access](./media/connect-with-rest/existing-client-id.png)
+      ![API access](./media/connect-with-rest/existing-client-id.png)
 
-7.  Get the application's **Key** (client secret). 
+7. Get the application's **Key** (client secret). 
 
-    1. Click the **Manage application** button (notice that the Client ID info is under **Application ID**). 
-    2. Press **Keys**.
+   1. Click the **Manage application** button (notice that the Client ID info is under **Application ID**). 
+   2. Press **Keys**.
     
-        ![API access](./media/connect-with-rest/manage-app.png)
-    3. Generate the app key (client secret) by filling in **DESCRIPTION** and **EXPIRES** and pressing **Save**.
+       ![API access](./media/connect-with-rest/manage-app.png)
+   3. Generate the app key (client secret) by filling in **DESCRIPTION** and **EXPIRES** and pressing **Save**.
     
-        Once the **Save** button is pressed, the key value appears. Copy the key value before leaving the blade.
+       Once the **Save** button is pressed, the key value appears. Copy the key value before leaving the blade.
 
-    ![API access](./media/connect-with-rest/connect-with-rest03.png)
+   ![API access](./media/connect-with-rest/connect-with-rest03.png)
 
 You can add values for AD connection parameters to your web.config or app.config file, to later use in your code.
 

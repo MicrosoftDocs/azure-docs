@@ -7,9 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 
-author: hning86
-ms.author: haining
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/29/2019
 ms.custom: seodec18
 # As a professional data scientist, I can deploy the model previously trained in tutorial1.

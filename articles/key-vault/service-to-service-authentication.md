@@ -10,7 +10,6 @@ ms.author: mbaldwin
 ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 
 ---
 
@@ -98,7 +97,7 @@ To use Azure CLI for local development:
 
 Use `az account get-access-token` to verify access.  If you receive an error, verify that Step 1 completed successfully. 
 
-If Azure CLI is not installed to the default directory, you may receive an error reporting that `AzureServiceTokenProvider` cannot find the path for Azure CLI.  Use the **AzureCLIPath**environment variable to define the Azure CLI installation folder. `AzureServiceTokenProvider` adds the directory specified in the **AzureCLIPath** environment variable to the **Path** environment variable when necessary.
+If Azure CLI is not installed to the default directory, you may receive an error reporting that `AzureServiceTokenProvider` cannot find the path for Azure CLI.  Use the **AzureCLIPath** environment variable to define the Azure CLI installation folder. `AzureServiceTokenProvider` adds the directory specified in the **AzureCLIPath** environment variable to the **Path** environment variable when necessary.
 
 If you are signed in to Azure CLI using multiple accounts or your account has access to multiple subscriptions, you need to specify the specific subscription to be used.  To do so, use:
 
@@ -150,7 +149,7 @@ This applies only to local development. When your solution is deployed to Azure,
 
 When you run your code on an Azure App Service or an Azure VM with a managed identity enabled, the library automatically uses the managed identity. No code changes are required. 
 
-Alternatively, you may authenticate with a user-assigned identity. For more information on user-assigned identities, see [About Managed Identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka). The connection string is specified in the [Connection String Support](#connection-string-support) section below.
+Alternatively, you may authenticate with a user-assigned identity. For more information on user-assigned identities, see [About Managed Identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). The connection string is specified in the [Connection String Support](#connection-string-support) section below.
 
 ## Running the application using a Service Principal 
 
@@ -209,7 +208,7 @@ The following options are supported:
 | `RunAs=Developer; DeveloperTool=VisualStudio`	| Local development | AzureServiceTokenProvider uses Visual Studio to get token. |
 | `RunAs=CurrentUser` | Local development | AzureServiceTokenProvider uses Azure AD Integrated Authentication to get token. |
 | `RunAs=App` | [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/index.yml) | AzureServiceTokenProvider uses a managed identity to get token. |
-| `RunAs=App;AppId={ClientId of user-assigned identity}` | [User-assigned identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka) | AzureServiceTokenProvider uses a user-assigned identity to get token. |
+| `RunAs=App;AppId={ClientId of user-assigned identity}` | [User-assigned identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) | AzureServiceTokenProvider uses a user-assigned identity to get token. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`	| Service principal	| `AzureServiceTokenProvider` uses certificate to get token from Azure AD. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Service principal | `AzureServiceTokenProvider` uses certificate to get token from Azure AD|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Service principal |`AzureServiceTokenProvider` uses secret to get token from Azure AD. |

@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
@@ -99,7 +99,7 @@ from azure.storage.blob import BlockBlobService
 block_blob_service = BlockBlobService(account_name='account_name', account_key='account_key', protocol='http')
 ```
 
-4. Disable **Secure transfer required** in your Storage **Configuration** setting tab
+1. Disable **Secure transfer required** in your Storage **Configuration** setting tab
 
 ![Disable Secure transfer required in the Azure portal](./media/execute-python-scripts/disable-secure-transfer-required.png)
 

@@ -31,19 +31,19 @@ Search is available in both the Free tier and Standard tier of Security Center. 
 ## Access search
 1. Under the Security Center main menu, select **Search**.
 
-  ![Select Log search][1]
+   ![Select Log search][1]
 
 2. Security Center lists all workspaces under your Azure subscriptions. Select a workspace. (If you have only one workspace, this workspace selector does not appear.)
 
-  ![Select a workspace][2]
+   ![Select a workspace][2]
 
 3. **Log Search** opens. To query for more data under the selected workspace, enter this example query:
 
-  SecurityEvent | where EventID == 4625 | summarize count() by TargetAccount
+   SecurityEvent | where EventID == 4625 | summarize count() by TargetAccount
 
-  Result shows all accounts that failed to logon (event 4625).
+   Result shows all accounts that failed to logon (event 4625).
 
-  ![Search results][3]
+   ![Search results][3]
 
 See [Kusto query language](../log-analytics/log-analytics-search-reference.md) for more information on how to query for data under the selected workspace.
 

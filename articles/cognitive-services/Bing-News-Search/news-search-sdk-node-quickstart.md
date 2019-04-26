@@ -47,7 +47,7 @@ To set up a console application using the Bing News Search SDK:
 
 ## Send a search query
 
-3. Use the client to search with a query term, in this case "Winter Olympics":
+1. Use the client to search with a query term, in this case "Winter Olympics":
     
     ```javascript
     client.newsOperations.search(search_term).then((result) => {
@@ -67,4 +67,4 @@ The code prints `result.value` items to the console without parsing any text. Th
 ## Next steps
 
 > [!div class="nextstepaction"]
-[Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

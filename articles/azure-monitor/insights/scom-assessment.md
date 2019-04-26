@@ -39,11 +39,11 @@ The solution works with Microsoft System Center 2012 Operations Manager Service 
 
 Use the following information to install and configure the solution.
 
- - Before you can use the Health Check solution in Log Analytics, you must have the solution installed. Install the solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
+- Before you can use the Health Check solution in Log Analytics, you must have the solution installed. Install the solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
- - After adding the solution to the workspace, the **System Center Operations Manager Health Check** tile on the dashboard displays an additional configuration required message. Click on the tile and follow the configuration steps mentioned in the page
+- After adding the solution to the workspace, the **System Center Operations Manager Health Check** tile on the dashboard displays an additional configuration required message. Click on the tile and follow the configuration steps mentioned in the page
 
- ![System Center Operations Manager dashboard tile](./media/scom-assessment/scom-configrequired-tile.png)
+  ![System Center Operations Manager dashboard tile](./media/scom-assessment/scom-configrequired-tile.png)
 
 > [!NOTE]
 > Configuration of System Center Operations Manager can be done using a script by following the steps mentioned in the configuration page of the solution in Log Analytics.
@@ -292,7 +292,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 *Why display only the top 10 recommendations?* Instead of giving you an exhaustive, overwhelming list of tasks, we recommend that you focus on addressing the prioritized recommendations first. After you address them, additional recommendations will become available. If you prefer to see the detailed list, you can view all recommendations using Log Search.
 
-*Is there a way to ignore a recommendation?* Yes, see the [Ignore recommendations](#Ignore-recommendations).
+*Is there a way to ignore a recommendation?* Yes, see the [Ignore recommendations](#ignore-recommendations).
 
 
 ## Next steps

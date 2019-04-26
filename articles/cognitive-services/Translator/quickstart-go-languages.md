@@ -24,7 +24,7 @@ This quickstart requires:
 
 ## Create a project and import required modules
 
-Create a new Go project using your favorite IDE or editor. Then copy this code snippet into your project in a file named `get-languages.go`.
+Create a new Go project using your favorite IDE or editor or new folder on your desktop. Then copy this code snippet into your project/folder in a file named `get-languages.go`.
 
 ```go
 package main
@@ -129,6 +129,8 @@ go run get-languages.go
 If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
 
 ## Sample response
+
+Find the country abbreviation in this [list of languages](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
 
 A successful response is returned in JSON as shown in the following example:
 

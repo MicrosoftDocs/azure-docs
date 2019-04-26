@@ -102,6 +102,7 @@ To configure Azure AD single sign-on with Powerschool Performance Matters, perfo
     ![[Application Name] Domain and URLs single sign-on information](common/sp-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
+    
     | |
     |-|
     | `https://ola.performancematters.com/ola/?clientcode=<Client Code>`|
@@ -192,8 +193,8 @@ When you click the Powerschool Performance Matters tile in the Access Panel, you
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

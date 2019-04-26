@@ -70,7 +70,7 @@ The table below summarize the eligibility requirements:
 
 \* Requires silver or gold competency. <br>
 \*\* Requires gold competency. <br>
-\*\*\* Requires gold competency and Co-sell Ready listing in OCP Catalog. <br>
+\*\*\* Requires gold competency and Co-sell Ready in Partner Listings. <br>
 ^ Transact only, applicable to Azure Marketplace.
 
 ## Next steps

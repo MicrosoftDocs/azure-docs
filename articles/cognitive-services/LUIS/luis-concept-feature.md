@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 04/01/2019
 ms.author: diberry
 ---
 # Phrase list features in your LUIS app
@@ -87,7 +87,7 @@ While both a phrase list and list entities can impact utterances across all inte
 ### Use a phrase list
 With a phrase list, LUIS can still take context into account and generalize to identify items that are similar to, but not an exact match, as items in a list. If you need your LUIS app to be able to generalize and identify new items in a category, use a phrase list. 
 
-When you want to be able to recognize new instances of an entity, like a meeting scheduler that should recognize the names of new contacts, or an inventory app that should recognize new products, use another type of machine-learned entity such as a simple or hierarchical entity. Then create a phrase list of words and phrases that helps LUIS find other words similar to the entity. This list guides LUIS to recognize examples of the entity by adding additional significance to the value of those words. 
+When you want to be able to recognize new instances of an entity, like a meeting scheduler that should recognize the names of new contacts, or an inventory app that should recognize new products, use another type of machine-learned entity such as a simple entity. Then create a phrase list of words and phrases that helps LUIS find other words similar to the entity. This list guides LUIS to recognize examples of the entity by adding additional significance to the value of those words. 
 
 Phrase lists are like domain-specific vocabulary that help with enhancing the quality of understanding of both intents and entities. A common usage of a phrase list is proper nouns such as city names. A city name can be several words including hyphens, or apostrophes.
  

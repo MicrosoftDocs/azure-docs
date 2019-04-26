@@ -1,5 +1,5 @@
 ---
-title: Use a template to create a workspace
+title: Use an Azure Resource Manager template to create a workspace
 titleSuffix: Azure Machine Learning service
 description: Learn how to use an Azure Resource Manager template to create a new Azure Machine Learning service workspace.
 services: machine-learning
@@ -7,17 +7,18 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 
-ms.reviewer: larryfr
-ms.author: haining
-author: hning86
-ms.date: 02/11/2019
+ms.author: larryfr
+author: Blackmist
+ms.date: 04/02/2019
+
+ms.custom: seoapril2019
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning service by using templates.
 ---
 
-# Create an Azure Machine Learning service workspace by using a template
+# Use an Azure Resource Manager template to create a workspace for Azure Machine Learning service
 
-In this article, you learn several ways to create an Azure Machine Learning service workspace using Azure Resource Manager templates. 
+In this article, you learn several ways to create an Azure Machine Learning service workspace using Azure Resource Manager templates. A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
 
 For more information, see [Deploy an application with Azure Resource Manager template](../../azure-resource-manager/resource-group-template-deploy.md).
 
@@ -29,9 +30,7 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 ## Resource Manager template
 
-A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
-
-The following template can be used to create an Azure Machine Learning service workspace and associated Azure resources:
+The following Resource Manager template can be used to create an Azure Machine Learning service workspace and associated Azure resources:
 
 ```json
 {
@@ -191,12 +190,12 @@ For more information on templates, see the following articles:
 1. Follow the steps in [Deploy resources from custom template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). When you arrive at the __Edit template__ screen, paste in the template from this document.
 1. Select __Save__ to use the template. Provide the following information and agree to the listed terms and conditions:
 
-    * Subscription: Select the Azure subscription to use for these resources.
-    * Resource group: Select or create a resource group to contain the services.
-    * Workspace name: The name to use for the Azure Machine Learning workspace that will be created. The workspace name must be between 3 and 33 characters. It may only contain alphanumeric characters and '-'.
-    * Location: Select the location where the resources will be created.
+   * Subscription: Select the Azure subscription to use for these resources.
+   * Resource group: Select or create a resource group to contain the services.
+   * Workspace name: The name to use for the Azure Machine Learning workspace that will be created. The workspace name must be between 3 and 33 characters. It may only contain alphanumeric characters and '-'.
+   * Location: Select the location where the resources will be created.
 
-    ![The template parameters in the Azure portal](media/how-to-create-workspace-template/template-parameters.png)
+     ![The template parameters in the Azure portal](media/how-to-create-workspace-template/template-parameters.png)
 
 For more information, see [Deploy resources from custom template](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

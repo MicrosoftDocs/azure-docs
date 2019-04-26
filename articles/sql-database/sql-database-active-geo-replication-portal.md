@@ -26,7 +26,7 @@ To configure active geo-replication by using the Azure portal, you need the foll
 * An Azure SQL database: The primary database that you want to replicate to a different geographical region.
 
 > [!Note]
-When using Azure portal, you can only create a secondary database within the same subscription as the primary. If secondary database is required to be in a different subscription, use  [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) or [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
+> When using Azure portal, you can only create a secondary database within the same subscription as the primary. If secondary database is required to be in a different subscription, use  [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) or [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
 
 ## Add a secondary database
 
@@ -67,7 +67,7 @@ The secondary database can be switched to become the primary.
     ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Click **Yes** to begin the failover.
 
-The command immediately switches the secondary database into the primary role.
+The command immediately switches the secondary database into the primary role. This process normally should complete within 30 sec or less.
 
 There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. If the primary database has multiple secondary databases, the command automatically reconfigures the other secondaries to connect to the new primary. The entire operation should take less than a minute to complete under normal circumstances.
 

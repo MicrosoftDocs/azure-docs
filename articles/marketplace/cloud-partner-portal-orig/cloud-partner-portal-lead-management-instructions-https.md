@@ -44,8 +44,8 @@ You can use an HTTPS endpoint to handle Azure Marketplace and AppSource leads. T
 
 7. Use one of the following steps to configure the **Request Body JSON Schema**:
 
-   - Copy the [JSON schema](#JSON-schema) at the end of this article into the **Request Body JSON Schema** text box.
-   - Select **Use sample payload to generate schema**. In the **Enter or paste a sample JSON payload** text box, paste in the [JSON example](#JSON-example). Select **Done** to create the schema.
+   - Copy the [JSON schema](#json-schema) at the end of this article into the **Request Body JSON Schema** text box.
+   - Select **Use sample payload to generate schema**. In the **Enter or paste a sample JSON payload** text box, paste in the [JSON example](#json-example). Select **Done** to create the schema.
 
    >[!Note]
    >At this point in the flow you can either connect to a CRM system or configure an email notification.
@@ -84,7 +84,7 @@ You can use an HTTPS endpoint to handle Azure Marketplace and AppSource leads. T
    - **To** - Enter at least one valid email address.
    - **Subject** - Flow gives you the option of adding Dynamic content, like **LeadSource** in the following screen capture.
 
-    ![Add an email action using dynamic content](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
+     ![Add an email action using dynamic content](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
 
    - **Body** - From the Dynamic content list, add the information you want in the body of the email. For example, LastName, FirstName, Email, and Company.
 

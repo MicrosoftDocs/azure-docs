@@ -132,7 +132,7 @@ You can access data in log and metric data in Azure Monitor through their API us
 
 
 ## Next steps
-- Learn about the [data collected by Azure Monitor](platform/data-collection.md).
+- Learn about the [data collected by Azure Monitor](platform/data-platform.md).
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
 - Learn about [Views in Azure Monitor](platform/view-designer.md).
 - Learn about [Workbooks](../azure-monitor/app/usage-workbooks.md).

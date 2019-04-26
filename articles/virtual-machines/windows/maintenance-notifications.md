@@ -79,22 +79,22 @@ You can also use Azure Powershell to see when VMs are scheduled for maintenance.
  
 Maintenance information is returned only if there is maintenance planned. If no maintenance is scheduled that impacts the VM, the cmdlet does not return any maintenance information. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ```powershell
 Get-AzVM -ResourceGroupName rgName -Name vmName -Status
 ```
 
 The following properties are returned under MaintenanceRedeployStatus: 
-| Value	| Description	|
 
+| Value	| Description	|
 |-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time ||
-| PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM ||
-| PreMaintenanceWindowEndTime           | The end of the maintenance self-service window when you can initiate maintenance on your VM ||
-| MaintenanceWindowStartTime            | The beginning of the maintenance scheduled in which Azure initiates maintenance on your VM ||
-| MaintenanceWindowEndTime              | The end of the maintenance scheduled window in which Azure initiates maintenance on your VM ||
-| LastOperationResultCode               | The result of the last attempt to initiate maintenance on the VM ||
+| IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time |
+| PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM |
+| PreMaintenanceWindowEndTime           | The end of the maintenance self-service window when you can initiate maintenance on your VM |
+| MaintenanceWindowStartTime            | The beginning of the maintenance scheduled in which Azure initiates maintenance on your VM |
+| MaintenanceWindowEndTime              | The end of the maintenance scheduled window in which Azure initiates maintenance on your VM |
+| LastOperationResultCode               | The result of the last attempt to initiate maintenance on the VM |
 
 
 

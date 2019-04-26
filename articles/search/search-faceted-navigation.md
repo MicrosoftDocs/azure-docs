@@ -6,7 +6,7 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/10/2017
+ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -28,7 +28,7 @@ In your application development, writing code that constructs queries constitute
 ## Sample code and demo
 This article uses a job search portal as an example. The example is implemented as an ASP.NET MVC application.
 
--   See and test the working demo online at [Azure Search Job Portal Demo](https://azjobsdemo.azurewebsites.net/).
+-   See and test the working demo online at [Azure Search Job Portal Demo](http://azjobsdemo.azurewebsites.net/).
 
 -   Download the code from the [Azure-Samples repo on GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -316,7 +316,7 @@ Under certain circumstances, you might find that facet counts do not match the r
 
 Facet counts can be inaccurate due to the sharding architecture. Every search index has multiple shards, and each shard reports the top N facets by document count, which is then combined into a single result. If some shards have many matching values, while others have fewer, you may find that some facet values are missing or under-counted in the results.
 
-Although this behavior could change at any time, if you encounter this behavior today, you can work around it by artificially inflating the count:<number> to a large number to enforce full reporting from each shard. If the value of count: is greater than or equal to the number of unique values in the field, you are guaranteed accurate results. However, when document counts are high, there is a performance penalty, so use this option judiciously.
+Although this behavior could change at any time, if you encounter this behavior today, you can work around it by artificially inflating the count:\<number> to a large number to enforce full reporting from each shard. If the value of count: is greater than or equal to the number of unique values in the field, you are guaranteed accurate results. However, when document counts are high, there is a performance penalty, so use this option judiciously.
 
 ### User interface tips
 **Add labels for each field in facet navigation**
@@ -359,7 +359,7 @@ There are two Geospatial functions in Azure Search, **geo.distance** and **geo.i
 * The **geo.distance** function returns the distance in kilometers between two points. One point is a field and other is a constant passed as part of the filter. 
 * The **geo.intersects** function returns true if a given point is within a given polygon. The point is a field and the polygon is specified as a constant list of coordinates passed as part of the filter.
 
-You can find filter examples in [OData expression syntax (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+You can find filter examples in [OData expression syntax (Azure Search)](query-odata-filter-orderby-syntax.md).
 
 <a name="tryitout"></a>
 

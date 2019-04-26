@@ -3,14 +3,14 @@ title: "Tutorial: Use the Azure Database Migration Service to migrate MongoDB to
 description: Learn to migrate from MongoDB on-premises to Azure Cosmos DB's API for MongoDB online by using the Azure Database Migration Service.
 services: dms
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/03/2019
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB online using DMS (Preview)
@@ -38,6 +38,7 @@ This article describes an online migration from MongoDB to Azure Cosmos DB's API
 
 ## Prerequisites
 To complete this tutorial, you need to:
+- [Complete the pre-migration](../cosmos-db/mongodb-pre-migration.md) steps such as estimating throughput, choosing a partition key, and the indexing policy.
 - [Create an Azure Cosmos DB's API for MongoDB account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - Create an Azure Virtual Network (VNET) for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
@@ -49,7 +50,7 @@ To complete this tutorial, you need to:
     >
     > This configuration is necessary because the Azure Database Migration Service lacks internet connectivity.
 
-- Ensure that your VNET Network Security Group rules don't block the following communication ports: 443, 53, 9354, 445, and 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Ensure that your VNET Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, and 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Change the source server's firewall to allow the Azure Database Migration Service to access the source MongoDB server, which by default is TCP port 27017.
 - When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow the Azure Database Migration Service to access the source database(s) for migration.
 
@@ -121,20 +122,20 @@ After the service is created, locate it within the Azure portal, open it, and th
 1. On the **Source details** screen, specify the connection details for the source MongoDB server.
 
     There are three modes to connect to a source:
-    * **Standard mode**, which accepts a fully qualified domain name or an IP address, Port number, and connection credentials.
-    * **Connection string mode**, which accepts a MongoDB Connection string as described in the article [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/).
-    * **Data from Azure storage**, which accepts a blob container SAS URL. Select **Blob contains BSON dumps** if the blob container has BSON dumps produced by the MongoDB [bsondump tool](https://docs.mongodb.com/manual/reference/program/bsondump/), and de-select it if the container contains JSON files.
+   * **Standard mode**, which accepts a fully qualified domain name or an IP address, Port number, and connection credentials.
+   * **Connection string mode**, which accepts a MongoDB Connection string as described in the article [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/).
+   * **Data from Azure storage**, which accepts a blob container SAS URL. Select **Blob contains BSON dumps** if the blob container has BSON dumps produced by the MongoDB [bsondump tool](https://docs.mongodb.com/manual/reference/program/bsondump/), and de-select it if the container contains JSON files.
 
-      If you select this option, be sure that the storage account connection string appears in the format:
+     If you select this option, be sure that the storage account connection string appears in the format:
 
-    ```
-    https://blobnameurl/container?SASKEY
-    ```
-      Also, based on the type dump information in Azure storage, keep the following detail in mind.
+     ```
+     https://blobnameurl/container?SASKEY
+     ```
+     Also, based on the type dump information in Azure storage, keep the following detail in mind.
 
-      * For BSON dumps, the data within the blob container must be in bsondump format, such that data files are placed into folders named after the containing databases in the format collection.bson. Metadata files (if any) should be named using the format *collection*.metadata.json.
+     * For BSON dumps, the data within the blob container must be in bsondump format, such that data files are placed into folders named after the containing databases in the format collection.bson. Metadata files (if any) should be named using the format *collection*.metadata.json.
 
-      * For JSON dumps, the files in the blob container must be placed into folders named after the containing databases. Within each database folder, data files must be placed in a subfolder called "data" and named using the format *collection*.json. Metadata files (if any) must be placed in a subfolder called "metadata" and named using the same format, *collection*.json. The metadata files must be in the same format as produced by the MongoDB bsondump tool.
+     * For JSON dumps, the files in the blob container must be placed into folders named after the containing databases. Within each database folder, data files must be placed in a subfolder called "data" and named using the format *collection*.json. Metadata files (if any) must be placed in a subfolder called "metadata" and named using the same format, *collection*.json. The metadata files must be in the same format as produced by the MongoDB bsondump tool.
 
    You can use the IP Address for situations in which DNS name resolution isn't possible.
 
@@ -210,6 +211,10 @@ After the service is created, locate it within the Azure portal, open it, and th
     This action will finish replaying all the pending changes and complete the migration.
 
     ![Activity status replaying](media/tutorial-mongodb-to-cosmosdb-online/dms-finish-migration.png)
+
+## Post-migration optimization
+
+After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API for MongoDB, you can connect to Azure Cosmos DB and manage the data. You can also perform other post-migration optimization steps such as- optimizing the indexing policy, update the default consistency level or configure global distribution for your Azure Cosmos DB account. For more details, see the [Post-migration optimization](../cosmos-db/mongodb-post-migration.md) article. 
 
 ## Additional resources
 

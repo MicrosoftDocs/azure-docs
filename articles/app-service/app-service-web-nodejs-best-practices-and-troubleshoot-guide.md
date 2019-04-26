@@ -93,7 +93,7 @@ The default value is false. If enabled, your node application can connect to a n
 
 ### idlePageOutTimePeriod
 
-The default value is 0, which means this feature is disabled. When set to some value greater than 0, iisnode will page out all its child processes every ‘idlePageOutTimePeriod’ in milliseconds. See [documentation](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx) to understand what page out means. This setting is useful for applications that consume a high amount of memory and want to page out memory to disk occasionally to free up RAM.
+The default value is 0, which means this feature is disabled. When set to some value greater than 0, iisnode will page out all its child processes every ‘idlePageOutTimePeriod’ in milliseconds. See [documentation](/windows/desktop/api/psapi/nf-psapi-emptyworkingset) to understand what page out means. This setting is useful for applications that consume a high amount of memory and want to page out memory to disk occasionally to free up RAM.
 
 > [!WARNING]
 > Use caution when enabling the following configuration settings on production applications. The recommendation is to not enable them on live production applications.
@@ -113,7 +113,7 @@ The default value is false. When set to true, iisnode displays the HTTP status c
 
 ### debuggingEnabled (do not enable on live production site)
 
-This setting controls debugging feature. Iisnode is integrated with node-inspector. By enabling this setting, you enable debugging of your node application. Upon enabling this setting, iisnode creates node-inspector files in ‘debuggerVirtualDir’ directory on the first debug request to your node application. You can load the node-inspector by sending a request to http://yoursite/server.js/debug. You can control the debug URL segment with ‘debuggerPathSegment’ setting. By default, debuggerPathSegment=’debug’. You can set `debuggerPathSegment` to a GUID, for example, so that it is more difficult to be discovered by others.
+This setting controls debugging feature. Iisnode is integrated with node-inspector. By enabling this setting, you enable debugging of your node application. Upon enabling this setting, iisnode creates node-inspector files in ‘debuggerVirtualDir’ directory on the first debug request to your node application. You can load the node-inspector by sending a request to `http://yoursite/server.js/debug`. You can control the debug URL segment with ‘debuggerPathSegment’ setting. By default, debuggerPathSegment=’debug’. You can set `debuggerPathSegment` to a GUID, for example, so that it is more difficult to be discovered by others.
 
 Read [Debug node.js applications on Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) for more details on debugging.
 
@@ -168,7 +168,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Go to the Debug Console site https://yoursite.scm.azurewebsites.net/DebugConsole
+Go to the Debug Console site `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 Go into your site/wwwroot directory. You see a command prompt as shown in the following example:
 

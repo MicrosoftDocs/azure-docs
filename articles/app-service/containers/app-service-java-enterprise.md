@@ -40,7 +40,7 @@ You can write a startup Bash script to call the WildFly CLI to:
 - Configure messaging providers
 - Add other modules and dependencies to the Wildfly server configuration.
 
- The script runs when Wildfly is up and running, but before the application starts. The script should use the [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) called from `/opt/jboss/wildfly/bin/jboss-cli.sh` to configure the application server with any configuration or changes needed after the server starts. 
+  The script runs when Wildfly is up and running, but before the application starts. The script should use the [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) called from `/opt/jboss/wildfly/bin/jboss-cli.sh` to configure the application server with any configuration or changes needed after the server starts. 
 
 Do not use the interactive mode of the CLI to configure Wildfly. Instead, you can provide a script of commands to the JBoss CLI using the `--file` command, for example:
 
@@ -116,4 +116,4 @@ App Service provides tools to help you troubleshoot problems with your applicati
 -	Turn on logging by clicking **Diagnostic Logs** in the left-hand navigation pane. Click **File System** to set your storage quota and retention period, and save your changes. You can find these logs under `/home/LogFiles/`.
 -	[Use SSH to connect to the application instance](app-service-linux-ssh-support.md) to view logs for running applications.
 -	Check diagnostic logs in the **Diagnostic Logs** panel of the Portal, or by using the Azure CLI command:
-` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `
+`az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`

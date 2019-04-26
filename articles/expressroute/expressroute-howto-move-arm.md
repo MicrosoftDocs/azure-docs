@@ -33,28 +33,28 @@ Sign in to the Azure classic environment and gather the service key.
 
 1. Sign in to your Azure account.
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 
 2. Select the appropriate Azure subscription.
 
-  ```powershell
-  Select-AzureSubscription "<Enter Subscription Name here>"
-  ```
+   ```powershell
+   Select-AzureSubscription "<Enter Subscription Name here>"
+   ```
 
 3. Import the PowerShell modules for Azure and ExpressRoute.
 
-  ```powershell
-  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-  ```
+   ```powershell
+   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
+   ```
 
 4. Use the cmdlet below to get the service keys for all of your ExpressRoute circuits. After retrieving the keys, copy the **service key** of the circuit that you want to move to the Resource Manager deployment model.
 
-  ```powershell
-  Get-AzureDedicatedCircuit
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit
+   ```
 
 ### Step 2: Sign in and create a resource group
 
@@ -62,21 +62,21 @@ Sign in to the Resource Manager environment and create a new resource group.
 
 1. Sign in to your Azure Resource Manager environment.
 
-  ```powershell
-  Connect-AzAccount
-  ```
+   ```powershell
+   Connect-AzAccount
+   ```
 
 2. Select the appropriate Azure subscription.
 
-  ```powershell
-  Get-AzSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzSubscription
-  ```
+   ```powershell
+   Get-AzSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzSubscription
+   ```
 
 3. Modify the snippet below to create a new resource group if you don't already have a resource group.
 
-  ```powershell
-  New-AzResourceGroup -Name "DemoRG" -Location "West US"
-  ```
+   ```powershell
+   New-AzResourceGroup -Name "DemoRG" -Location "West US"
+   ```
 
 ### Step 3: Move the ExpressRoute circuit to the Resource Manager deployment model
 
@@ -102,27 +102,27 @@ After moving your classic ExpressRoute circuit to the Resource Manager deploymen
 
 1. Get the circuit details.
 
-  ```powershell
-  $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
-  ```
+   ```powershell
+   $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
+   ```
 
 2. Set "Allow Classic Operations" to TRUE.
 
-  ```powershell
-  $ckt.AllowClassicOperations = $true
-  ```
+   ```powershell
+   $ckt.AllowClassicOperations = $true
+   ```
 
 3. Update the circuit. After this operation has finished successfully, you will be able to view the circuit in the classic deployment model.
 
-  ```powershell
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   ```powershell
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
 4. Run the following cmdlet to get the details of the ExpressRoute circuit. You must be able to see the service key listed.
 
-  ```powershell
-  get-azurededicatedcircuit
-  ```
+   ```powershell
+   get-azurededicatedcircuit
+   ```
 
 5. You can now manage links to the ExpressRoute circuit using the classic deployment model commands for classic VNets, and the Resource Manager commands for Resource Manager VNets. The following articles help you manage links to the ExpressRoute circuit:
 
@@ -135,21 +135,21 @@ Run the following cmdlets to disable access to the classic deployment model.
 
 1. Get details of the ExpressRoute circuit.
 
-  ```powershell
-  $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
-  ```
+   ```powershell
+   $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
+   ```
 
 2. Set "Allow Classic Operations" to FALSE.
 
-  ```powershell
-  $ckt.AllowClassicOperations = $false
-  ```
+   ```powershell
+   $ckt.AllowClassicOperations = $false
+   ```
 
 3. Update the circuit. After this operation has finished successfully, you will not be able to view the circuit in the classic deployment model.
 
-  ```powershell
-Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   ```powershell
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
 ## Next steps
 

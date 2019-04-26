@@ -44,26 +44,26 @@ A virtual network is needed for communication between the resources that you cre
 2. Select **Networking** and then select **Application Gateway** in the Featured list.
 3. Enter these values for the application gateway:
 
-    - *myAppGateway* - for the name of the application gateway.
-    - *myResourceGroupAG* - for the new resource group.
+   - *myAppGateway* - for the name of the application gateway.
+   - *myResourceGroupAG* - for the new resource group.
 
-    ![Create new application gateway](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
+     ![Create new application gateway](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
 4. Accept the default values for the other settings and then click **OK**.
 5. Click **Choose a virtual network**, click **Create new**, and then enter these values for the virtual network:
 
-    - *myVNet* - for the name of the virtual network.
-    - *10.0.0.0/16* - for the virtual network address space.
-    - *myAGSubnet* - for the subnet name.
-    - *10.0.0.0/24* - for the subnet address space.
+   - *myVNet* - for the name of the virtual network.
+   - *10.0.0.0/16* - for the virtual network address space.
+   - *myAGSubnet* - for the subnet name.
+   - *10.0.0.0/24* - for the subnet address space.
 
-    ![Create virtual network](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
+     ![Create virtual network](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
 6. Click **OK** to create the virtual network and subnet.
 7. Click **Choose a public IP address**, click **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then click **OK**.
 8. Accept the default values for the Listener configuration, leave the Web application firewall disabled, and then click **OK**.
 9. Review the settings on the summary page, and then click **OK** to create the network resources and the application gateway. It may take several minutes for the application gateway to be created, wait until
-the deployment finishes successfully before moving on to the next section.
+   the deployment finishes successfully before moving on to the next section.
 
 ### Add a subnet
 
@@ -153,7 +153,7 @@ In this example, you create three virtual machines to be used as backend servers
 
     ![Record application gateway public IP address](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http://http://40.121.222.19.
+2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http:\//40.121.222.19.
 
     ![Test base URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

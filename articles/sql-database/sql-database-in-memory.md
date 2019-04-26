@@ -7,11 +7,11 @@ ms.subservice: development
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: jodebrui
-ms.author: jodebrui
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 03/19/2019
 ---
 # Optimize performance by using In-Memory technologies in SQL Database
 
@@ -77,7 +77,7 @@ In-memory OLTP technology provides extremely fast data access operations by keep
 
 - **Memory-optimized rowstore** format where every row is a separate memory object. This is a classic In-Memory OLTP format optimized for high-performance OLTP workloads. There are two types of memory-optimized tables that can be used in the memory-optimized rowstore format:
   - *Durable tables* (SCHEMA_AND_DATA) where the rows placed in memory are preserved after server restart. This type of tables behaves like a traditional rowstore table with the additional benefits of in-memory optimizations.
-  - *Non-durable tables* (SCEMA_ONLY) where the rows are not-preserved after restart. This type of table is designed for temporary data (for example, replacement of temp tables), or tables where you need to quickly load data before you move it to some persisted table (so called staging tables).
+  - *Non-durable tables* (SCHEMA_ONLY) where the rows are not-preserved after restart. This type of table is designed for temporary data (for example, replacement of temp tables), or tables where you need to quickly load data before you move it to some persisted table (so called staging tables).
 - **Memory-optimized columnstore** format where data is organized in a columnar format. This structure is designed for HTAP scenarios where you need to run analytic queries on the same data structure where your OLTP workload is running.
 
 > [!Note]

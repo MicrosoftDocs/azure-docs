@@ -55,12 +55,12 @@ The pane shows the following Azure Repos code repository settings:
 | Setting | Description | Value |
 |:--- |:--- |:--- |
 | **Repository Type** | The type of the Azure Repos code repository.<br/>**Note**: GitHub is not currently supported. | Azure Repos Git |
-| **Azure Active Directory** | Your Azure AD tenant name. | <your tenant name> |
-| **Azure Repos Organization** | Your Azure Repos organization name. You can locate your Azure Repos organization name at `https://{organization name}.visualstudio.com`. You can [sign in to your Azure Repos organization](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | <your organization name> |
-| **ProjectName** | Your Azure Repos project name. You can locate your Azure Repos project name at `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
-| **RepositoryName** | Your Azure Repos code repository name. Azure Repos projects contain Git repositories to manage your source code as your project grows. You can create a new repository or use an existing repository that's already in your project. | <your Azure Repos code repository name> |
-| **Collaboration branch** | Your Azure Repos collaboration branch that is used for publishing. By default, it is `master`. Change this setting in case you want to publish resources from another branch. | <your collaboration branch name> |
-| **Root folder** | Your root folder in your Azure Repos collaboration branch. | <your root folder name> |
+| **Azure Active Directory** | Your Azure AD tenant name. | `<your tenant name>` |
+| **Azure Repos Organization** | Your Azure Repos organization name. You can locate your Azure Repos organization name at `https://{organization name}.visualstudio.com`. You can [sign in to your Azure Repos organization](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | `<your organization name>` |
+| **ProjectName** | Your Azure Repos project name. You can locate your Azure Repos project name at `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
+| **RepositoryName** | Your Azure Repos code repository name. Azure Repos projects contain Git repositories to manage your source code as your project grows. You can create a new repository or use an existing repository that's already in your project. | `<your Azure Repos code repository name>` |
+| **Collaboration branch** | Your Azure Repos collaboration branch that is used for publishing. By default, it is `master`. Change this setting in case you want to publish resources from another branch. | `<your collaboration branch name>` |
+| **Root folder** | Your root folder in your Azure Repos collaboration branch. | `<your root folder name>` |
 | **Import existing Data Factory resources to repository** | Specifies whether to import existing data factory resources from the UX **Authoring canvas** into an Azure Repos Git repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
 
 #### Configuration method 2 (Azure Repos Git repo): UX authoring canvas

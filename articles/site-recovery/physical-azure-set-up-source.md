@@ -6,7 +6,7 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/14/2019
 ms.author: ramamill
 ---
 
@@ -42,7 +42,7 @@ The following table lists the minimum hardware, software, and network requiremen
 
 1. In **Prepare source**, if you don’t have a configuration server, click **+Configuration server** to add one.
 
-  ![Set up source](./media/physical-azure-set-up-source/plus-config-srv.png)
+   ![Set up source](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. In the **Add Server** blade, check that **Configuration Server** appears in **Server type**.
 4. Download the Site Recovery Unified Setup installation file.
 5. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for five days after you generate it.

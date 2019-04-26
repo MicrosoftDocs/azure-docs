@@ -23,8 +23,8 @@ Sign up for Azure Active Directory (Azure AD) or a new Microsoft Azure subscript
 
 - **Work or school account.** Use your work or school-related account to get access to all the small, medium, and enterprise cloud services from Microsoft, such as Azure, Microsoft Intune, or Office 365. After you sign up for one of these services as an organization, Azure AD automatically provisions a cloud-based directory that represents your organization. For more information, see [Manage your Azure AD directory](active-directory-administer.md).
 
-    >[!Note]
-    We recommend that you use your work or school account if you already have access to Azure AD. However, you should use whichever type of account is associated with your Azure subscription.
+  > [!Note]
+  >   We recommend that you use your work or school account if you already have access to Azure AD. However, you should use whichever type of account is associated with your Azure subscription.
 
 ## Next steps
 

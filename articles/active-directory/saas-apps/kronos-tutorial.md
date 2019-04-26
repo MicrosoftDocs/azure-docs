@@ -64,7 +64,7 @@ To configure the integration of Kronos into Azure AD, you need to add Kronos fro
 4. In the search box, type **Kronos**, select **Kronos** from result panel then click **Add** button to add the application.
 
 	 ![Kronos in the results list](common/search-new-app.png)
-## Configure and test Azure AD single sign-on
+   ## Configure and test Azure AD single sign-on
 
 In this section, you configure and test Azure AD single sign-on with Kronos based on a test user called **Britta Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in Kronos needs to be established.

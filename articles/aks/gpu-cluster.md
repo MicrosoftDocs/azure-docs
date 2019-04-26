@@ -2,13 +2,13 @@
 title: Use GPUs on Azure Kubernetes Service (AKS)
 description: Learn how to use GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: zr-msft
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.author: iainfou
+ms.author: zarhoads
 
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads.
 ---
@@ -19,6 +19,8 @@ Graphical processing units (GPUs) are often used for compute-intensive workloads
 
 > [!NOTE]
 > GPU-enabled VMs contain specialized hardware that is subject to higher pricing and region availability. For more information, see the [pricing][azure-pricing] tool and [region availability][azure-availability].
+
+Currently, using GPU-enabled node pools is only available for Linux node pools.
 
 ## Before you begin
 

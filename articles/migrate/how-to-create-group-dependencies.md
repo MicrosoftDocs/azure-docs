@@ -59,7 +59,7 @@ To install the agent on a Windows machine:
 4. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
 5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
-You can install the agent from the command line or using an automated method such as Azure Automation DSC, System Center Configuration Manager, or with an Azure Resource Manager template if you have deployed Microsoft Azure Stack in your datacenter. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) about using these methods to install the MMA agent.
+You can install the agent from the command line or using an automated method such as System Center Configuration Manager. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) about using these methods to install the MMA agent.
 
 #### Install the agent on a Linux machine
 
@@ -90,18 +90,18 @@ Once you have installed agents on all the machines of the group, you can visuali
 1. In the Azure Migrate project, under **Manage**, click **Groups**, and select the group.
 2. On the group page, click **View Dependencies**, to open the group dependency map.
 3. The dependency map for the group shows the following details:
-    - Inbound (Clients) and outbound (Servers) TCP connections to/from all the machines that are part of the group
-        - The dependent machines that do not have the MMA and dependency agent installed are grouped by port numbers
-        - The dependent machines that have the MMA and the dependency agent installed are shown as separate boxes
-    - Processes running inside the machine, you can expand each machine box to view the processes
-    - Properties like Fully Qualified Domain Name, Operating System, MAC Address etc. of each machine, you can click on each machine box to view these details
+   - Inbound (Clients) and outbound (Servers) TCP connections to/from all the machines that are part of the group
+       - The dependent machines that do not have the MMA and dependency agent installed are grouped by port numbers
+       - The dependent machines that have the MMA and the dependency agent installed are shown as separate boxes
+   - Processes running inside the machine, you can expand each machine box to view the processes
+   - Properties like Fully Qualified Domain Name, Operating System, MAC Address etc. of each machine, you can click on each machine box to view these details
 
      ![View group dependencies](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. To view more granular dependencies, click the time range to modify it. By default, the range is an hour. You can modify the time range, or specify start and end dates, and duration.
 
-    > [!NOTE]
-      Currently, the dependency visualization UI does not support selection of a time range longer than an hour. Use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) over a longer duration.
+   > [!NOTE]
+   >    Currently, the dependency visualization UI does not support selection of a time range longer than an hour. Use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) over a longer duration.
 
 4. Verify the dependent machines, the process running inside each machine and identify the machines that should be added or removed from the group.
 5. Use Ctrl+Click to select machines on the map to add or remove them from the group.
@@ -123,11 +123,47 @@ To run the Kusto queries:
 1. After you install the agents, go to the portal and click **Overview**.
 2. In **Overview**, go to **Essentials** section of the project and click on workspace name provided next to **OMS Workspace**.
 3. On the Log Analytics workspace page, click **General** > **Logs**.
-4. Write your query to gather dependency data using Azure Monitor logs. Sample queries to gather dependency data are available [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Write your query to gather dependency data using Azure Monitor logs. Find sample queries in the next section.
 5. Run your query by clicking on Run. 
 
 [Learn more](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) about how to write Kusto queries. 
 
+## Sample Azure Monitor logs queries
+
+Following are sample queries you can use to extract dependency data. You can modify the queries to extract your preferred data points. An exhaustive list of the fields in dependency data records is available [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Find more sample queries [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+
+### Summarize inbound connections on a set of machines
+
+Note that the records in the table for connection metrics, VMConnection, do not represent individual physical network connections. Multiple physical network connections are grouped into a logical connection. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) about how physical network connection data is aggregated into a single logical record in VMConnection. 
+
+```
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+let StartDateTime = datetime(2019-03-25T00:00:00Z);
+let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+VMConnection
+| where Direction == 'inbound' 
+| where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
+| join kind=inner (ips) on $left.DestinationIp == $right.ips
+| summarize sum(LinksEstablished) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
+```
+
+#### Summarize volume of data sent and received on inbound connections between a set of machines
+
+```
+// the machines of interest
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+let StartDateTime = datetime(2019-03-25T00:00:00Z);
+let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+VMConnection
+| where Direction == 'inbound' 
+| where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
+| join kind=inner (ips) on $left.DestinationIp == $right.ips
+| summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
+```
 
 ## Next steps
 - [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) about the FAQs on dependency visualization.

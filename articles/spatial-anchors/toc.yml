@@ -28,27 +28,31 @@
     href: tutorials/tutorial-share-anchors-across-devices.md
   - name: Sharing in Unity with Azure Cosmos DB
     href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+  - name: Starting a new Android app
+    href: tutorials/tutorial-new-android-app.md
+- name: How-to
+  items:
+  - name: Create and locate anchors
+    href: create-locate-anchors-overview.md
+    items:
+    - name: In Unity
+      href: how-tos/create-locate-anchors-unity.md
+    - name: In Objective-C
+      href: how-tos/create-locate-anchors-objc.md
+    - name: In Swift
+      href: how-tos/create-locate-anchors-swift.md
+    - name: In Java
+      href: how-tos/create-locate-anchors-java.md
+    - name: In C++/NDK
+      href: how-tos/create-locate-anchors-cpp-ndk.md
+    - name: In C++/WinRT
+      href: how-tos/create-locate-anchors-cpp-winrt.md
 - name: Samples
   items:
   - name: Azure Spatial Anchors samples (GitHub)
     href: https://github.com/Azure/azure-spatial-anchors-samples
 - name: Concepts
   items:
-  - name: Create and locate anchors
-    href: create-locate-anchors-overview.md
-    items:
-    - name: In Unity
-      href: concepts/create-locate-anchors-unity.md
-    - name: In Objective-C
-      href: concepts/create-locate-anchors-objc.md
-    - name: In Swift
-      href: concepts/create-locate-anchors-swift.md
-    - name: In Java
-      href: concepts/create-locate-anchors-java.md
-    - name: In C++/NDK
-      href: concepts/create-locate-anchors-cpp-ndk.md
-    - name: In C++/WinRT
-      href: concepts/create-locate-anchors-cpp-winrt.md
   - name: Anchor relationships
     href: concepts/anchor-relationships-way-finding.md
   - name: Experience guidelines

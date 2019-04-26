@@ -43,6 +43,9 @@ https://contoso.z4.web.core.windows.net/image.png
 
 The selected default file name is used at the root and any subdirectories when a file name is not provided. If the server returns a 404 and you do not provide an error document path, then a default 404 page is returned to the user.
 
+> [!NOTE]
+> The default public access level for files is Private. Because the files are served through anonymous access requests, this setting is ignored. There's public access to all files, and RBAC permissions are ignored.
+
 ## CDN and SSL support
 
 To make your static website files available over HTTPS, see [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md). As a part of this process, you need to *point your CDN to the web endpoint* as opposed to the blob endpoint. You may need to wait a few minutes before your content is visible as the CDN configuration is not immediately executed.
@@ -105,7 +108,7 @@ az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_N
 Methods available for deploying content to a storage container include the following:
 
 - [AzCopy](../common/storage-use-azcopy.md)
-- [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 - [Visual Studio Code extension](https://code.visualstudio.com/tutorials/static-website/getting-started)
 

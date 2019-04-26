@@ -88,23 +88,15 @@ Azure Storage also includes managed and unmanaged disk capabilities used by virt
 
 For more information about storage account types, see [Azure storage account overview](storage-account-overview.md). 
 
-## Accessing your blobs, files, and queues
+## Securing access to storage accounts
 
-Each storage account has two authentication keys, either of which can be used for any operation. There are two keys so you can roll over the keys occasionally to enhance security. It is critical that these keys be kept secure because their possession, along with the account name, allows unlimited access to all data in the storage account.
+Every request to Azure Storage must be authorized. Azure Storage supports the following authorization methods:
 
-This section looks at two ways to secure the storage account and its data. For detailed information about securing your storage account and your data, see the [Azure Storage security guide](storage-security-guide.md).
-
-### Securing access to storage accounts using Azure AD
-
-One way to secure access to your storage data is by controlling access to the storage account keys. With Resource Manager Role-Based Access Control (RBAC), you can assign roles to users, groups, or applications. These roles are tied to a specific set of actions that are allowed or disallowed. Using RBAC to grant access to a storage account only handles the management operations for that storage account, such as changing the access tier. You can't use RBAC to grant access to data objects like a specific container or file share. You can, however, use RBAC to grant access to the storage account keys, which can then be used to read the data objects.
-
-### Securing access using shared access signatures
-
-You can use shared access signatures and stored access policies to secure your data objects. A shared access signature (SAS) is a string containing a security token that can be attached to the URI for an asset that allows you to delegate access to specific storage objects and to specify constraints such as permissions and the date/time range of access. This feature has extensive capabilities. For detailed information, refer to [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
-
-### Public access to blobs
-
-The Blob Service allows you to provide public access to a container and its blobs, or a specific blob. When you indicate that a container or blob is public, anyone can read it anonymously; no authentication is required. An example of when you would want to do this is when you have a website that is using images, video, or documents from Blob storage. For more information, see [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md)
+- **Azure Active Directory (Azure AD) integration for blob and queue data.** Azure Storage supports authentication and authorization with Azure AD credentials for the Blob and Queue services via role-based access control (RBAC). Authorizing requests with Azure AD is recommended for superior security and ease of use. For more information, see [Authenticate access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md).
+- **Azure AD authorization over SMB for Azure Files (preview).** Azure Files supports identity-based authorization over SMB (Server Message Block) through Azure Active Directory Domain Services. Your domain-joined Windows virtual machines (VMs) can access Azure file shares using Azure AD credentials. For more information, see [Overview of Azure Active Directory authorization over SMB for Azure Files (preview)](../files/storage-files-active-directory-overview.md).
+- **Authorization with Shared Key.** The Azure Storage Blob, Queue, and Table services and Azure Files support authorization with Shared Key.A client using Shared Key authorization passes a header with every request that is signed using the storage account access key. For more information, see [Authorize with Shared Key](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
+- **Authorization using shared access signatures (SAS).** A shared access signature (SAS) is a string containing a security token that can be appended to the URI for a storage resource. The security token encapsulates constraints such as permissions and the interval of access. For more information, refer to [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+- **Anonymous access to containers and blobs.** A container and its blobs may be publicly available. When you specify that a container or blob is public, anyone can read it anonymously; no authentication is required. For more information, see [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md)
 
 ## Encryption
 

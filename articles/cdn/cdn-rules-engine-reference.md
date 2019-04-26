@@ -66,7 +66,7 @@ Special Character | Description
 ------------------|------------
 \ | A backslash escapes the character the follows it, which causes that character to be treated as a literal value instead of taking on its regular expression meaning. For example, the following syntax escapes an asterisk: `\*`
 % | The meaning of a percentage symbol depends on its usage.<br/><br/> `%{HTTPVariable}`: This syntax identifies an HTTP variable.<br/>`%{HTTPVariable%Pattern}`: This syntax uses a percentage symbol to identify an HTTP variable and as a delimiter.<br />`\%`: Escaping a percentage symbol allows it to be used as a literal value or to indicate URL encoding (for example, `\%20`).
-* | An asterisk allows the preceding character to be matched zero or more times. 
+\* | An asterisk allows the preceding character to be matched zero or more times. 
 Space | A space character is typically treated as a literal character. 
 'value' | Single quotes are treated as literal characters. A set of single quotes does not have special meaning.
 

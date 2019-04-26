@@ -56,7 +56,7 @@ Create a new Java project in your favorite IDE or editor, and import the followi
 
 ## Create a search client
 
-2. Implement the `VideoSearchAPIImpl` client, which requires your API endpoint, and an instance of the `ServiceClientCredentials` class.
+1. Implement the `VideoSearchAPIImpl` client, which requires your API endpoint, and an instance of the `ServiceClientCredentials` class.
 
     ```java
     public static VideoSearchAPIImpl getClient(final String subscriptionKey) {

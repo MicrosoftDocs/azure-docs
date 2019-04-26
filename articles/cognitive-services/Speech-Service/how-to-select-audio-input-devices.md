@@ -14,7 +14,7 @@ ms.author: chlandsi
 
 # Select an audio input device with the Speech SDK
 
-Version 1.3.0 of the Speech SDK introduces an API to select the audio input
+Version 1.3.0 of the Speech SDK introduces an API to select the audio input.
 This article describes how to obtain the IDs of the audio devices connected to a system.
 These can then be used in the Speech SDK by configuring the audio device through the `AudioConfig` object:
 
@@ -38,8 +38,11 @@ audioConfig = AudioConfiguration.FromMicrophoneInput("<device id>");
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 
-> [!NOTE]
-> This functionality is not yet available from JavaScript.
+```JavaScript
+audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
+```
+>[!Note]
+> Microphone usage is not available for JavaScript running in Node.js
 
 ## Audio device IDs on Windows for Desktop applications
 
@@ -363,6 +366,10 @@ For example, the instruction
 ```
 
 enables the use of a Bluetooth headset for a speech-enabled app.
+
+## Audio device IDs in JavaScript
+
+In JavaScript the [MediaDevices.enumerateDevices()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) method can be used to enumerate the media devices and find a device ID to pass to `fromMicrophone(...)`.
 
 ## Next steps
 

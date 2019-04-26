@@ -65,13 +65,19 @@ Get-Command -Module AdSyncConfig
 
 Each cmdlet has the same parameters to input the AD DS Connector Account and an AdminSDHolder switch. To specify your AD DS Connector Account, you can provide the account name and domain, or just the account Distinguished Name (DN),
 
-e.g.: 
+e.g.:
 
-`Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName ADaccount -ADConnectorAccountDomain Contoso`
+```powershell
+Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <ADAccountName> -ADConnectorAccountDomain <ADDomainName>
+```
 
-Or; 
+Or;
 
-`Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN 'CN=ADaccount,OU=AADconnect,DC=Contoso,DC=com'`
+```powershell
+Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
+```
+
+Make sure to replace `<ADAccountName>`, `<ADDomainName>` and `<ADAccountDN>` with the proper values for your environment.
 
 In case you don’t want to modify permissions on the AdminSDHolder container, use the switch `-SkipAdminSdHolders`. 
 
@@ -267,7 +273,7 @@ This PowerShell script will tighten permissions for the AD Connector Account pro
 - Disable inheritance on the specified object 
 - Remove all ACEs on the specific object, except ACEs specific to SELF as we want to keep the default permissions intact when it comes to SELF. 
  
- The -ADConnectorAccountDN parameter is the AD account whose permissions need to be tightened. This is typically the MSOL_nnnnnnnnnnnn domain account that is configured in the AD DS Connector (see Determine your AD DS Connector Account). The -Credential parameter is necessary to specify the Administrator account that has the necessary privileges to restrict Active Directory permissions on the target AD object. This is typically the Enterprise or Domain Administrator.  
+  The -ADConnectorAccountDN parameter is the AD account whose permissions need to be tightened. This is typically the MSOL_nnnnnnnnnnnn domain account that is configured in the AD DS Connector (see Determine your AD DS Connector Account). The -Credential parameter is necessary to specify the Administrator account that has the necessary privileges to restrict Active Directory permissions on the target AD object. This is typically the Enterprise or Domain Administrator.  
 
 ``` powershell
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 

@@ -6,13 +6,13 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 04/10/2019
 
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
-
+manager: celested
+ms.reviewer: mal
+ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
@@ -22,7 +22,7 @@ When collaborating with external B2B guest users, it’s a good idea to protect 
 
 Example:
 
-![B2B app requiring MFA](media/tutorial-mfa/aad-b2b-mfa-example.png)
+![Diagram showing a guest user signing into a company's apps](media/tutorial-mfa/aad-b2b-mfa-example.png)
 
 1.	An admin or employee at Company A invites a guest user to use a cloud or on-premises application that is configured to require MFA for access.
 2.	The guest user signs in with their own work, school, or social identity. 
@@ -54,11 +54,11 @@ To complete the scenario in this tutorial, you need:
 3.	Under **Manage**, select **Users**.
 4.	Select **New guest user**.
 
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-user-3.png)
+    ![Screenshot showing where to select the New guest user option](media/tutorial-mfa/tutorial-mfa-user-3.png)
 
 5.	Under **User name**, enter the email address of the external user. Optionally, include a welcome message. 
 
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-user-4.png)
+    ![Screenshot showing where to enter the guest invitation message](media/tutorial-mfa/tutorial-mfa-user-4.png)
 
 6.	Select **Invite** to automatically send the invitation to the guest user. A **Successfully invited user** message appears. 
 7.	After you send the invitation, the user account is automatically added to the directory as a guest.
@@ -69,7 +69,7 @@ To complete the scenario in this tutorial, you need:
 3.	Sign out.
 
 ## Create a conditional access policy that requires MFA
-1.	Sign in to your [Azure portal](https://portal.azure.com/) as global administrator, security administrator, or a conditional access administrator.
+1.	Sign in to your [Azure portal](https://portal.azure.com/) as a security administrator or a conditional access administrator.
 2.	In the Azure portal, select **Azure Active Directory**. 
 3.	On the **Azure Active Directory** page, in the **Security** section, select **Conditional access**.
 4.	On the **Conditional Access** page, in the toolbar on the top, select **New policy**.
@@ -77,26 +77,26 @@ To complete the scenario in this tutorial, you need:
 6.	In the **Assignments** section, select **Users and groups**.
 7.	On the **Users and groups** page, choose **Select users and groups**, and then select **All guest users (preview)**.
 
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-6.png)
+    ![Screenshot showing selecting all guest users](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9.	Select **Done**.
 10.	On the **New** page, in the **Assignments** section, select **Cloud apps**.
 11.	On the **Cloud apps** page, choose **Select apps**, and then choose **Select**.
 
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-10.png)
+    ![Screenshot showing the Cloud apps page and the Select option](media/tutorial-mfa/tutorial-mfa-policy-10.png)
 
 12.	On the **Select** page, choose **Microsoft Azure Management**, and then choose **Select**.
 
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-11.png)
+    ![Screenshot showing the Microsoft Azure Management app selected](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
 13.	On the **Cloud apps** page, select **Done**.
 14.	On the **New** page, in the **Access controls** section, select **Grant**.
 15.	On the **Grant** page, choose **Grant access**, select the **Require multi-factor authentication** check box, and then choose **Select**.
 
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-13.png)
+    ![Screenshot showing the Require multi-factor authentication option](media/tutorial-mfa/tutorial-mfa-policy-13.png)
 
 16.	Under **Enable policy**, select **On**.
 
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-14.png)
+    ![Screenshot showing the Enable policy option set to On](media/tutorial-mfa/tutorial-mfa-policy-14.png)
 
 17.	Select **Create**.
 
@@ -104,27 +104,27 @@ To complete the scenario in this tutorial, you need:
 
 1.	On the **Conditional access - Policies** page, select **What If**. 
 
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
+    ![Screenshot showing where to select the What if option](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
 2.	Select **User**, choose your test guest user, and then choose **Select**.
 
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
+    ![Screenshot showing a guest user selected](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
 
 3.	Select **Cloud apps**.
 4.	On the **Cloud apps** page, choose **Select apps** and then click  **Select**. In the applications list, select **Microsoft Azure Management**, and then click **Select**. 
 
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
+    ![Screenshot showing the Microsoft Azure Management app selected](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
 
 5.	On the **Cloud apps** page, select **Done**.
 6.	Select **What If**, and verify that your new policy appears under **Evaluation results** on the **Policies that will apply** tab.
 
-    ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
+    ![Screenshot showing where to select the What if option](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
 ## Test your conditional access policy
 1.	Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
 2.	You should see a request for additional authentication methods. Note that it could take some time for the policy to take effect.
 
-    ![Select Azure Active Directory](media/tutorial-mfa/mfa-required.png)
+    ![Screenshot showing the More information required message](media/tutorial-mfa/mfa-required.png)
  
 3.	Sign out.
 

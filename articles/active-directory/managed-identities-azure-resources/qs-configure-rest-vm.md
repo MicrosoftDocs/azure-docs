@@ -3,7 +3,7 @@ title: How to configure system and user-assigned managed identities on an Azure 
 description: Step by step instructions for configuring a system and user-assigned managed identities on an Azure VM using CURL to make REST API calls.
 services: active-directory
 documentationcenter: 
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
@@ -59,7 +59,7 @@ To create an Azure VM with the system-assigned managed identity enabled,your acc
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system-assigned managed identity.
+3. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system-assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -313,7 +313,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system-assigned managed identity.
+3. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system-assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token

@@ -46,26 +46,26 @@ Currently, the admin can require B2B collaboration users to proof up again only 
 
 1. Connect to Azure AD
 
-  ```
-  $cred = Get-Credential
-  Connect-MsolService -Credential $cred
-  ```
+   ```
+   $cred = Get-Credential
+   Connect-MsolService -Credential $cred
+   ```
 2. Get all users with proof up methods
 
-  ```
-  Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
-  ```
-  Here is an example:
+   ```
+   Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
+   ```
+   Here is an example:
 
-  ```
-  Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
-  ```
+   ```
+   Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
+   ```
 
 3. Reset the MFA method for a specific user to require the B2B collaboration user to set proof-up methods again. Example:
 
-  ```
-  Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
-  ```
+   ```
+   Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
+   ```
 
 ### Why do we perform MFA at the resource tenancy?
 

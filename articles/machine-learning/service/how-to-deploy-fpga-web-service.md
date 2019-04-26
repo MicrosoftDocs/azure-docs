@@ -42,10 +42,6 @@ You can deploy a model as a web service on [field programmable gate arrays (FPGA
     pip install "tensorflow==1.10"
     ```
 
-### Get the notebook
-
-For your convenience, this tutorial is available as a Jupyter notebook. Follow the code here or run the [quickstart notebook](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb).
-
 ## Create and deploy your model
 Create a pipeline to preprocess the input image, make it a feature using ResNet 50 on an FPGA, and then run the features through a classifier trained on the ImageNet data set.
 

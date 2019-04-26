@@ -36,14 +36,14 @@ To forecast your monthly bill for migrated workloads, there are a number of tool
 
 - **Azure pricing calculator**: You select the products you want to estimate, for example VMs and storage. You input costs into the pricing calculator, to build an estimate.
 
- ![Azure pricing calculator](./media/migrate-best-practices-costs/pricing.png)
+  ![Azure pricing calculator](./media/migrate-best-practices-costs/pricing.png)
     *Azure pricing calculator*
 
 - **Azure Migrate**: To estimate costs, you need to review and account for all the resources required to run your workloads in Azure. To acquire this data, you create inventory of your assets, including servers, VMs, databases, and storage. You can use Azure Migrate to collect this information.
 
- - Azure Migrate discovers and assesses your on-premises environment to provide an inventory.
- - Azure Migrate can map and show you dependencies between VMs so that you have a complete picture.
- - An Azure Migrate assessment contains estimated cost.
+  - Azure Migrate discovers and assesses your on-premises environment to provide an inventory.
+  - Azure Migrate can map and show you dependencies between VMs so that you have a complete picture.
+  - An Azure Migrate assessment contains estimated cost.
     - Compute costs: Using the Azure VM size recommended when you create an assessment, Azure Migrate uses the Billing API to calculate estimated monthly VM costs. The estimation considers the operating system, software assurance, reserved instances, VM uptime, location, and currency settings. It aggregates the cost across all VMs in the assessment, and calculates a total monthly compute cost.
     - Storage cost: Azure Migrate calculates total monthly storage costs by aggregating the storage costs of all VMs in an assessment. You can calculate the monthly storage cost for a specific machine by aggregating the monthly cost of all disks attached to it. 
 
@@ -90,13 +90,13 @@ Tuning and maintaining on-premises storage (SAN or NAS), and the networks to sup
 
 Azure provides different types of storage data.
 
-**Data type** | **Details** | **Usage** 
---- | --- |  ---
-**Blobs** | Optimized to store massive amounts of unstructured objects, such as text or binary data<br/><br/> | Access data from everywhere over HTTP/HTTPS. | Use for streaming and random access scenarios. For example, to serve images and documents directly to a browser, stream video and audio, and store backup and disaster recovery data.
-**Files** | Managed file shares accessed over SMB 3.0 | Use when migrating on-premises file shares, and to provide multiple access/connections to file data.
-**Disks** | Based on page blobs.<br/><br/> Disk type (speed): Standard (HDD or SSD) or Premium (SSD).<br/><br/>Disk management: Unmanaged (you manage disk settings and storage) or Managed (you select the disk type and Azure manages the disk for you). | Use Premium disks for VMs. Use managed disks for simple management and scaling.
-**Queues** | Store and retrieve large numbers of messages accessed via authenticated calls (HTTP or HTTPS) | Connect app components with asynchronous message queueing.
-**Tables** | Store tables. | Now part of Azure Cosmos DB Table API.
+| **Data type** | **Details** | **Usage** |
+|--- | --- |  --- |
+|**Blobs** | Optimized to store massive amounts of unstructured objects, such as text or binary data<br/>Access data from everywhere over HTTP/HTTPS. | Use for streaming and random access scenarios. For example, to serve images and documents directly to a browser, stream video and audio, and store backup and disaster recovery data.|
+|**Files** | Managed file shares accessed over SMB 3.0 | Use when migrating on-premises file shares, and to provide multiple access/connections to file data.|
+|**Disks** | Based on page blobs.<br/><br/> Disk type (speed): Standard (HDD or SSD) or Premium (SSD).<br/><br/>Disk management: Unmanaged (you manage disk settings and storage) or Managed (you select the disk type and Azure manages the disk for you). | Use Premium disks for VMs. Use managed disks for simple management and scaling.|
+|**Queues** | Store and retrieve large numbers of messages accessed via authenticated calls (HTTP or HTTPS) | Connect app components with asynchronous message queueing.|
+|**Tables** | Store tables. | Now part of Azure Cosmos DB Table API.|
 
 
 
@@ -209,18 +209,18 @@ In Cost Management, you can:
 
 
 - **Create a budget**: Create a budget for financial accountability.
-    - You can account for the services you consume or subscribe to for a specific period (monthly, quarterly, annually) and a scope (subscriptions/resource groups). For example, you can create an Azure subscription budget for a monthly, quarterly, or annual period.
-    - After you create a budget, it's shown in cost analysis. Viewing your budget against current spending is one of the first steps needed when analyzing your costs and spending.
-    - Email notifications can be sent when budget thresholds are reached.
-    - You can export costs management data to Azure storage, for analysis.
+  - You can account for the services you consume or subscribe to for a specific period (monthly, quarterly, annually) and a scope (subscriptions/resource groups). For example, you can create an Azure subscription budget for a monthly, quarterly, or annual period.
+  - After you create a budget, it's shown in cost analysis. Viewing your budget against current spending is one of the first steps needed when analyzing your costs and spending.
+  - Email notifications can be sent when budget thresholds are reached.
+  - You can export costs management data to Azure storage, for analysis.
 
     ![Cost Management budget](./media/migrate-best-practices-costs/budget.png)
     *Azure Cost Management budget*
 
 - **Do a cost analysis**: Get a cost analysis to explore and analyze your organizational costs, to help you understand how costs are accrued, and identify spending trends.
-    - Cost analysis is available to EA users.
-    - You can view cost analysis data for a number of scopes, including by department, account, subscription or resource group.
-    - You can get a cost analysis that shows total costs for the current month, and accumulated daily costs. 
+  - Cost analysis is available to EA users.
+  - You can view cost analysis data for a number of scopes, including by department, account, subscription or resource group.
+  - You can get a cost analysis that shows total costs for the current month, and accumulated daily costs. 
 
     ![Cost Management analysis](./media/migrate-best-practices-costs/analysis.png)
     *Azure Cost Management analysis*

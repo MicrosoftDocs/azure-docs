@@ -42,6 +42,7 @@ To perform the steps described in this article, you must have:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + **An Azure API Management instance**. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
++ When an API Management service is deployed in a virtual network, a [list of ports](./api-management-using-with-vnet.md#required-ports) are used and need to be opened. 
 
 ## <a name="enable-vpn"> </a>Creating an API Management in an internal virtual network
 The API Management service in an internal virtual network is hosted behind an [internal load balancer (classic)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). This is the only option available and can't be changed.
@@ -105,11 +106,11 @@ If you use a custom DNS server in a virtual network, you can also create A DNS r
 
 ### Access on custom domain names
 
-   1. If you don’t want to access the API Management service with the default host names, you can set up custom domain names for all your service endpoints as shown in the following image:
+1. If you don’t want to access the API Management service with the default host names, you can set up custom domain names for all your service endpoints as shown in the following image:
 
    ![Setting up a custom domain for API Management][api-management-custom-domain-name]
 
-   2. Then you can create records in your DNS server to access the endpoints that are only accessible from within your virtual network.
+2. Then you can create records in your DNS server to access the endpoints that are only accessible from within your virtual network.
 
 ## <a name="routing"> </a> Routing
 + A load balanced private virtual IP address from the subnet range will be reserved and used to access the API Management service endpoints from within the vnet.
@@ -121,7 +122,7 @@ If you use a custom DNS server in a virtual network, you can also create A DNS r
 To learn more, see the following articles:
 * [Common network configuration problems while setting up Azure API Management in a virtual network][Common network configuration problems]
 * [Virtual network FAQs](../virtual-network/virtual-networks-faq.md)
-* [Creating a record in DNS](https://msdn.microsoft.com/library/bb727018.aspx)
+* [Creating a record in DNS](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10))
 
 [api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png

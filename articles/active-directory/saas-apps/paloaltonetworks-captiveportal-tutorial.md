@@ -101,14 +101,14 @@ First, enable Azure AD single sign-on in the Azure portal:
 
     ![Palo Alto Networks Captive Portal Basic SAML Configuration pane](common/idp-intiated.png)
 
-    1. For **Identifier**, enter a URL that has the pattern
-    `https://<customer_firewall_host_name>/SAML20/SP`.
+   1. For **Identifier**, enter a URL that has the pattern
+      `https://<customer_firewall_host_name>/SAML20/SP`.
 
-    2. For **Reply URL**, enter a URL that has the pattern
-    `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
+   2. For **Reply URL**, enter a URL that has the pattern
+      `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
 
-	> [!NOTE]
-	> Update the placeholder values in this step with the actual identifier and reply URLs. To get the actual values, contact [Palo Alto Networks Captive Portal Client support team](https://support.paloaltonetworks.com/support).
+      > [!NOTE]
+      > Update the placeholder values in this step with the actual identifier and reply URLs. To get the actual values, contact [Palo Alto Networks Captive Portal Client support team](https://support.paloaltonetworks.com/support).
 
 5. In the **SAML Signing Certificate** section, next to **Federation Metadata XML**, select **Download**. Save the downloaded file on your computer.
 

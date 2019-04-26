@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/12/2019
+ms.date: 04/16/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -85,7 +85,7 @@ If you want to control outbound connectivity using IP addresses instead of URLs,
   - [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)
 
-You can use this [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) to create the required NSG rules.
+If you're using NSG you can create a storage service tag NSG rules for the source region. [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
 
 ## Verify Azure VM certificates
 
@@ -143,7 +143,7 @@ Site Recovery creates default settings and replication policy for the target reg
 1. Click **Settings** to view the target and replication settings.
 2. To override the default target settings, click **Customize** next to **Resource group, Network, Storage and Availability**.
 
-  ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+   ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 3. Customize target settings as summarized in the table.

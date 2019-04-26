@@ -450,8 +450,8 @@ Security Mode Across all service bindings there are five possible security modes
 * Both. Allows you to supply settings for transport and message-level security (only MSMQ supports this). 
 * TransportWithMessageCredential. Credentials are passed with the message and message protection and server authentication are provided by the transport layer. 
 * TransportCredentialOnly. Client credentials are passed with the transport layer and no message protection is applied. Use transport and message security to protect the integrity and confidentiality of messages. The configuration below tells the service to use transport security with message credentials.
-```
-<system.serviceModel>
+  ```
+  <system.serviceModel>
   <bindings>
     <wsHttpBinding>
     <binding name=""MyBinding""> 
@@ -459,5 +459,5 @@ Security Mode Across all service bindings there are five possible security modes
     <message clientCredentialType=""Windows""/> 
     </binding> 
   </bindings> 
-</system.serviceModel> 
-```
+  </system.serviceModel> 
+  ```

@@ -3,8 +3,8 @@ title: Convert a Windows virtual machine from unmanaged disks to managed disks -
 description: How to convert a Windows VM from unmanaged disks to managed disks by using PowerShell in the Resource Manager deployment model
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: cynthn
+ms.author: rogarana
 ---
 
 # Convert a Windows virtual machine from unmanaged disks to managed disks
 
 If you have existing Windows virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use managed disks through the [Azure Managed Disks](managed-disks-overview.md) service. This process converts both the OS disk and any attached data disks.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Before you begin
 
@@ -41,17 +41,17 @@ This section covers how to convert single-instance Azure VMs from unmanaged disk
 
 1. Deallocate the VM by using the [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet. The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`: 
 
-  ```azurepowershell-interactive
-  $rgName = "myResourceGroup"
-  $vmName = "myVM"
-  Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
-  ```
+   ```azurepowershell-interactive
+   $rgName = "myResourceGroup"
+   $vmName = "myVM"
+   Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
+   ```
 
 2. Convert the VM to managed disks by using the [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk) cmdlet. The following process converts the previous VM, including the OS disk and any data disks, and starts the Virtual Machine:
 
-  ```azurepowershell-interactive
-  ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
-  ```
+   ```azurepowershell-interactive
+   ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
+   ```
 
 
 
@@ -61,33 +61,33 @@ If the VMs that you want to convert to managed disks are in an availability set,
 
 1. Convert the availability set by using the [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) cmdlet. The following example updates the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
 
-  ```azurepowershell-interactive
-  $rgName = 'myResourceGroup'
-  $avSetName = 'myAvailabilitySet'
+   ```azurepowershell-interactive
+   $rgName = 'myResourceGroup'
+   $avSetName = 'myAvailabilitySet'
 
-  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
-  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
-  ```
+   $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+   Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
+   ```
 
-  If the region where your availability set is located has only 2 managed fault domains but the number of unmanaged fault domains is 3, this command shows an error similar to "The specified fault domain count 3 must fall in the range 1 to 2." To resolve the error, update the fault domain to 2 and update `Sku` to `Aligned` as follows:
+   If the region where your availability set is located has only 2 managed fault domains but the number of unmanaged fault domains is 3, this command shows an error similar to "The specified fault domain count 3 must fall in the range 1 to 2." To resolve the error, update the fault domain to 2 and update `Sku` to `Aligned` as follows:
 
-  ```azurepowershell-interactive
-  $avSet.PlatformFaultDomainCount = 2
-  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
-  ```
+   ```azurepowershell-interactive
+   $avSet.PlatformFaultDomainCount = 2
+   Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
+   ```
 
 2. Deallocate and convert the VMs in the availability set. The following script deallocates each VM by using the [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet, converts it by using [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk), and restarts it automatically as apart of the conversion process:
 
-  ```azurepowershell-interactive
-  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+   ```azurepowershell-interactive
+   $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
 
-  foreach($vmInfo in $avSet.VirtualMachinesReferences)
-  {
+   foreach($vmInfo in $avSet.VirtualMachinesReferences)
+   {
      $vm = Get-AzVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
      Stop-AzVM -ResourceGroupName $rgName -Name $vm.Name -Force
      ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
-  }
-  ```
+   }
+   ```
 
 
 ## Troubleshooting

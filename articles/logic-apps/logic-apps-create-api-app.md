@@ -401,13 +401,13 @@ register your APIs as Logic App connectors, and nominate your connectors for the
 ## Get support
 
 * For specific help with custom APIs, 
-contact [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
+  contact [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
 * For questions, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+  [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 * To help improve Logic Apps, vote on or submit ideas at the 
-[Logic Apps user feedback site](https://aka.ms/logicapps-wish). 
+  [Logic Apps user feedback site](https://aka.ms/logicapps-wish). 
 
 ## Next steps
 

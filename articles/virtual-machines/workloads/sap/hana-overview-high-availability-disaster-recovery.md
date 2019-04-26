@@ -82,7 +82,7 @@ In addition to the preceding requirements for a disaster recovery setup with HAN
 - Order additional storage on the DR site for each of your SAP HANA on Azure (Large Instances) SKUs that you want to recover in the disaster recovery site. Buying additional storage lets you allocate the storage volumes. You can allocate the volumes that are the target of the storage replication from your production Azure region into the disaster recovery Azure region.
 - In the case, where you have HSR setup on primary, and you setup storage based replication to the DR site, you must purchase additional storage at the DR site so both primary and secondary nodes data gets replicated to the DR site.
 
- **Next steps**
+  **Next steps**
 - Refer [Backup and restore](hana-backup-restore.md).
 
 

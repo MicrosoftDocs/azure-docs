@@ -4,14 +4,15 @@ titlesuffix: Azure Virtual Network
 description: Learn what a network interface is and how to create, change settings for, and delete one.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Create, change, or delete a network interface

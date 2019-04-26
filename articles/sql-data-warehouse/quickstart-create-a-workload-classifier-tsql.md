@@ -17,7 +17,7 @@ ms.reviewer: jrasnick
 In this quickstart, you'll quickly create a workload classifier with high importance for the CEO of your organization. This workload classifier will allow CEO queries to take precedence over other queries with lower importance in the queue.
 
 > [!Note]
-> Workload classification is available on SQL Data Warehouse Gen2.
+> Workload classification is available for preview on SQL Data Warehouse Gen2. Workload Management Classification and Importance preview is for builds with a release date of April 9th, 2019 or later.  Users should avoid using builds earlier than this date for workload management testing.  To determine if your build is workload management capable, run select @@version when connected to your SQL Data Warehouse instance.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -46,7 +46,9 @@ END
 ;
 ```
 
-## Create TheCEO user in mySampleDataWarehouse
+## Create user
+
+[Create user](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest), "TheCEO", in mySampleDataWarehouse
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'THECEO')
@@ -56,7 +58,9 @@ END
 ;
 ```
 
-## Create a workload classifier for TheCEO with high importance
+## Create a workload classifier
+
+Create a [workload classifier](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) for "TheCEO" with high importance.
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcTheCEO];

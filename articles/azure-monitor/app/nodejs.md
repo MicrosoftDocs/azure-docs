@@ -50,29 +50,29 @@ Include the SDK in your app, so it can gather data.
 
 1. Copy your resource's Instrumentation Key (also called an *ikey*) from the Azure portal. Application Insights uses the ikey to map data to your Azure resource. Before the SDK can use your ikey, you must specify the ikey in an environment variable or in your code.  
 
-  ![Copy instrumentation key](./media/nodejs/instrumentation-key-001.png)
+   ![Copy instrumentation key](./media/nodejs/instrumentation-key-001.png)
 
 2. Add the Node.js SDK library to your app's dependencies via package.json. From the root folder of your app, run:
 
-  ```bash
-  npm install applicationinsights --save
-  ```
+   ```bash
+   npm install applicationinsights --save
+   ```
 
 3. Explicitly load the library in your code. Because the SDK injects instrumentation into many other libraries, load the library as early as possible, even before other `require` statements. 
 
-  At the top of your first .js file, add the following code. The `setup` method configures the ikey (and thus, the Azure resource) to be used by default for all tracked items.
+   At the top of your first .js file, add the following code. The `setup` method configures the ikey (and thus, the Azure resource) to be used by default for all tracked items.
 
-  ```javascript
-  const appInsights = require("applicationinsights");
-  appInsights.setup("<instrumentation_key>");
-  appInsights.start();
-  ```
+   ```javascript
+   const appInsights = require("applicationinsights");
+   appInsights.setup("<instrumentation_key>");
+   appInsights.start();
+   ```
    
-  You also can provide an ikey via the environment variable APPINSIGHTS\_INSTRUMENTATIONKEY, instead of passing it manually to  `setup()` or `new appInsights.TelemetryClient()`. This practice lets you keep ikeys out of committed source code, and you can specify different ikeys for different environments.
+   You also can provide an ikey via the environment variable APPINSIGHTS\_INSTRUMENTATIONKEY, instead of passing it manually to  `setup()` or `new appInsights.TelemetryClient()`. This practice lets you keep ikeys out of committed source code, and you can specify different ikeys for different environments.
 
-  For additional configuration options, see the following sections.
+   For additional configuration options, see the following sections.
 
-  You can try the SDK without sending telemetry by setting `appInsights.defaultClient.config.disableAppInsights = true`.
+   You can try the SDK without sending telemetry by setting `appInsights.defaultClient.config.disableAppInsights = true`.
 
 ### <a name="monitor"></a> Monitor your app
 

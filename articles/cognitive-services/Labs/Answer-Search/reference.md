@@ -31,7 +31,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ```
 
 The request must use the HTTPS protocol and include following query parameter:
--  q=<URL> - The query that identifies the object of search
+-  `q=<URL>` - The query that identifies the object of search
 
 For examples that show how to make requests, see [C# quickstart](c-sharp-quickstart.md) or [Java quickstart](java-quickstart.md). 
 
@@ -52,7 +52,7 @@ For information about permitted use and display of results, see [Use and display
 > - Pragma – the caller does not have control over whether URL Preview uses cache
 > - Cache-Control – the caller does not have control over whether URL Preview uses cache
 > - User-Agent
-
+> 
 > Also, some parameters are not currently meaningful for URL Preview API, but may be used in the future for improved globalization. 
  
 ## Headers  

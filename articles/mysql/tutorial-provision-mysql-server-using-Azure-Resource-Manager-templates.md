@@ -203,5 +203,5 @@ In this tutorial you learned to:
 > * Load sample data
 > * Query data
 > * Update data
-
+> 
 > [How to connect applications to Azure Database for MySQL](./howto-connection-string.md)

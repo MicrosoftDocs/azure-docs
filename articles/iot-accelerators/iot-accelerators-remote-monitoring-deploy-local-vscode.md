@@ -74,7 +74,7 @@ npm install
 npm start
 ```
 
-When the start is complete, your browser displays the page **http://localhost:3000/dashboard**. The errors on this page are expected. To view the application without errors, complete the following step.
+When the start is complete, your browser displays the page **http:\//localhost:3000/dashboard**. The errors on this page are expected. To view the application without errors, complete the following step.
 
 ### Configure and run NGINX
 
@@ -87,7 +87,7 @@ For more information about running **nginx**, see [nginx for Windows](https://ng
 
 ### Connect to the dashboard
 
-To access the Remote Monitoring solution dashboard, navigate to [http://localhost:9000](http://localhost:9000) in your browser.
+To access the Remote Monitoring solution dashboard, navigate to http:\//localhost:9000 in your browser.
 
 ## Clean up
 

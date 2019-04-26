@@ -3,7 +3,7 @@ title: Web service parameters - Azure Machine Learning Studio | Microsoft Docs
 description: How to use Azure Machine Learning Web Service Parameters to modify the behavior of your model when the web service is accessed.
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 

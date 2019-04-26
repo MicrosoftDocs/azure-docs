@@ -19,11 +19,11 @@ ms.author: diberry
 This tutorial walks you through programmatically creating and publishing a knowledge base (KB), then answering a customer question with the knowledge base. 
 
 > [!div class="checklist"]
-* Create a knowledge base 
-* Check creation status
-* Train and publish the knowledge base
-* Get endpoint information
-* Use Curl to query the knowledge base
+> * Create a knowledge base 
+> * Check creation status
+> * Train and publish the knowledge base
+> * Get endpoint information
+> * Use Curl to query the knowledge base
 
 
 This quickstart calls QnA Maker APIs:
@@ -154,7 +154,7 @@ The _primary endpoint_ is passed as a header to authenticate the request to gene
 
 |Header name|Header value|
 |--|--|
-|Authorization|`Endpoint ` + **primary endpoint**<br>Example: `Endpoint xxxxxxx`<br>Notice the space between the text of `Endpoint` and the value the of primary endpoint. 
+|Authorization|`Endpoint` + **primary endpoint**<br>Example: `Endpoint xxxxxxx`<br>Notice the space between the text of `Endpoint` and the value the of primary endpoint. 
 
 The body of the request needs to pass the proper JSON:
 

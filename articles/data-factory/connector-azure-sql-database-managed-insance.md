@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
 
 ---
@@ -279,7 +279,7 @@ To copy data to Azure SQL Database Managed Instance, set the sink type in the co
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to **SqlSink**. | Yes. |
-| writeBatchSize |This property inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are integers for the number of rows. |No (default: 10,000). |
+| writeBatchSize |Number of rows to inserts into the SQL table **per batch**.<br/>Allowed values are integers for the number of rows. |No (default: 10,000). |
 | writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for the time span. An example is “00:30:00,” which is 30 minutes. |No. |
 | preCopyScript |This property specifies a SQL query for the copy activity to execute before writing data into the managed instance. It's invoked only once per copy run. You can use this property to clean up preloaded data. |No. |
 | sqlWriterStoredProcedureName |This name is for the stored procedure that defines how to apply source data into the target table. Examples of procedures are to do upserts or transforms by using your own business logic. <br/><br/>This stored procedure is *invoked per batch*. To do an operation that runs only once and has nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. |No. |
@@ -435,9 +435,9 @@ When data is copied into Azure SQL Database Managed Instance, a stored procedure
 
 You can use a stored procedure when built-in copy mechanisms don't serve the purpose. It's typically used when an upsert (update + insert) or extra processing must be done before the final insertion of source data in the destination table. Extra processing can include tasks such as merging columns, looking up additional values, and insertion into multiple tables.
 
-The following sample shows how to use a stored procedure to do an upsert into a table in the managed instance. The sample assumes that input data and the sink "Marketing" table each have three columns: ProfileID, State, and Category. Perform the upsert based on the ProfileID column, and apply for only a specific category.
+The following sample shows how to use a stored procedure to do an upsert into a table in the SQL Server database. Assume that input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column, and only apply it for a specific category.
 
-**Output dataset**
+**Output dataset:** the "tableName" should be the same table type parameter name in your stored procedure (see below stored procedure script).
 
 ```json
 {
@@ -456,7 +456,7 @@ The following sample shows how to use a stored procedure to do an upsert into a 
 }
 ```
 
-Define the SqlSink section in a copy activity as follows:
+Define the **SQL sink** section in copy activity as follows.
 
 ```json
 "sink": {
@@ -471,7 +471,7 @@ Define the SqlSink section in a copy activity as follows:
 }
 ```
 
-In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName. It handles input data from your specified source, and merges it into the output table. The parameter name of the table type in the stored procedure is the same as "tableName" that's defined in the dataset.
+In your database, define the stored procedure with the same name as the **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure should be the same as the **tableName** defined in the dataset.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

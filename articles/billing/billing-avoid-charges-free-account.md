@@ -57,4 +57,4 @@ Once your free services and quantities are expired, Azure charges you pay-as-you
 
 ## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -3,9 +3,9 @@ title: "Quickstart: Create Azure Database Migration Service instance using the A
 description: Use the Azure portal to create an instance of the Azure Database Migration Service
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc

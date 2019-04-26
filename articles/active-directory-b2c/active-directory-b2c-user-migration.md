@@ -3,7 +3,7 @@ title: User migration approaches in Azure Active Directory B2C | Microsoft Docs
 description: Discuss core and advanced concepts on user migration using Graph API and optionally using Azure AD B2C custom policies.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
@@ -59,7 +59,7 @@ First, register your migration application in Azure AD. Then, create an applicat
 1. Create a new application by doing the following:
    - For **Name**, use **B2CUserMigration** or any other name you want.
    - For **Application type**, use **Web app/API**.
-   - For **Sign-on URL**, use **https://localhost** (as it's not relevant for this application).
+   - For **Sign-on URL**, use `https://localhost` (as it's not relevant for this application).
    - Select **Create**.
    
 1. After the application is created, in the **Applications** list, select the newly created **B2CUserMigration** application.
@@ -100,7 +100,7 @@ In this PowerShell script, do the following:
    
 1. Use the **Application ID** to assign the application the user account administrator role. These roles have well-known identifiers, so all you need to do is enter your **Application ID** in the script.
    
-```PowerShell
+```powershell
 Connect-AzureAD
 
 $AppId = "<Your application ID>"
@@ -253,7 +253,7 @@ To track the password change, you use an Azure table. When you run the pre-migra
 ### 4.1: Update your application setting
 1. To test the RESTful API demo, open `AADB2C.UserMigration.sln` in Visual Studio.
 
-1. In the `AADB2C.UserMigration.API` project, open the *appsettings.json* file. Replace the setting with the one configured in [Step 2.2](#step-22-configure-the-application-settings):
+1. In the `AADB2C.UserMigration.API` project, open the *Web.config* file. Replace the setting with the one configured in [Step 2.2](#step-22-configure-the-application-settings):
 
     ```json
     {

@@ -1,7 +1,6 @@
 ---
 title: Create a policy for non-compliant resources
 description: This article walks you through the steps to create a policy definition to identify non-compliant resources.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/06/2018
@@ -29,15 +28,15 @@ managed disks* policy definition.
 
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching for and selecting **Policy**.
 
-   ![Search for policy](./media/assign-policy-portal/search-policy.png)
+   ![Search for Policy in All Services](./media/assign-policy-portal/search-policy.png)
 
 1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that has been assigned to take place within a specific scope.
 
-   ![Select assignments](./media/assign-policy-portal/select-assignments.png)
+   ![Select Assignments page from Policy Overview page](./media/assign-policy-portal/select-assignments.png)
 
 1. Select **Assign Policy** from the top of the **Policy - Assignments** page.
 
-   ![Assign a policy definition](./media/assign-policy-portal/select-assign-policy.png)
+   ![Assign a policy definition from Assignments page](./media/assign-policy-portal/select-assign-policy.png)
 
 1. On the **Assign Policy** page, select the **Scope** by clicking the ellipsis and selecting either a management group or subscription. Optionally, select a resource group. A scope determines what resources or grouping of resources the policy assignment gets enforced on.  Then click **Select** at the bottom of the **Scope** page.
 
@@ -71,7 +70,7 @@ environment.
 Select **Compliance** in the left side of the page. Then locate the **Audit VMs that do not use
 managed disks** policy assignment you created.
 
-![Policy compliance](./media/assign-policy-portal/policy-compliance.png)
+![Compliance details on the Policy Compliance page](./media/assign-policy-portal/policy-compliance.png)
 
 If there are any existing resources that aren't compliant with this new assignment, they appear
 under **Non-compliant resources**.
@@ -99,7 +98,7 @@ To remove the assignment created, follow these steps:
 
 1. Right-click the **Audit VMs that do not use managed disks** policy assignment and select **Delete assignment**
 
-   ![Delete an assignment](./media/assign-policy-portal/delete-assignment.png)
+   ![Delete an assignment from the Compliance page](./media/assign-policy-portal/delete-assignment.png)
 
 ## Next steps
 

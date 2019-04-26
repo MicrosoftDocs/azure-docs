@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/3/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
 
 ---
@@ -56,7 +56,7 @@ Azure security solutions that are deployed from Security Center are automaticall
 
 3. Under the Security Center menu, select **Security solutions**.
 
-  ![Security Center Overview](./media/security-center-partner-integration/overview.png)
+   ![Security Center Overview](./media/security-center-partner-integration/overview.png)
 
 Under **Security solutions**, you can view information about the health of integrated Azure security solutions and perform basic management tasks. You can also connect other types of security data sources, such as Azure Active Directory Identity Protection alerts and firewall logs in Common Event Format (CEF).
 
@@ -78,12 +78,12 @@ The status of a partner solution can be:
 >
 >
 
-2. Select **VIEW** for additional information and options, which includes:
+1. Select **VIEW** for additional information and options, which includes:
 
-  - **Solution console**. Opens the management experience for this solution.
-  - **Link VM**. Opens the Link Applications blade. Here you can connect resources to the partner solution.
-  - **Delete solution**.
-  - **Configure**.
+   - **Solution console**. Opens the management experience for this solution.
+   - **Link VM**. Opens the Link Applications blade. Here you can connect resources to the partner solution.
+   - **Delete solution**.
+   - **Configure**.
 
    ![Partner solution detail](./media/security-center-partner-solutions/partner-solutions-detail.png)
 
@@ -226,8 +226,6 @@ Here is a couple of Splunk queries that you can use to pull alert data:
 
 In this article, you learned how to integrate partner solutions in Security Center. To learn more about Security Center, see the following articles:
 
-* [Connecting Microsoft Advanced Threat Analytics to Azure Security Center](security-center-ata-integration.md)
-* [Connecting Azure Active Directory Identity Protection to Azure Security Center](security-center-aadip-integration.md)
 * [Security health monitoring in Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
 * [Monitor partner solutions with Security Center](security-center-partner-solutions.md). Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQs](security-center-faq.md). Get answers to frequently asked questions about using Security Center.

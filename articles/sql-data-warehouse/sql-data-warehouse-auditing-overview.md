@@ -146,6 +146,7 @@ There are several methods you can use to view blob auditing logs:
 
 
 <br>
+
 ### Database-level policy audit logs
 Database-level audit logs are aggregated in a collection of Store Tables with a **SQLDBAuditLogs** prefix in the Azure storage account you chose during setup. You can view log files using a tool such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com).
 

@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 3/20/2019
 ms.author: mayg
 
 ---
@@ -36,6 +36,9 @@ The On-premises summary worksheet provides an overview of the profiled VMware en
 **Observed typical data churn per day (GB)**: The average data churn observed across all profiling days. This number is used as one of the inputs to decide the number of configuration servers and additional process servers to be used in the deployment.
 
 ## Recommendations
+
+>[!Note]
+>When replicating directly to managed disks, ignore the recommendation for number of storage accounts.
 
 The recommendations sheet of the VMware to Azure report has the following details as per the selected desired RPO:
 
@@ -154,6 +157,9 @@ You might have a situation where you know that you cannot set a bandwidth of mor
 
 ## VM-storage placement
 
+>[!Note]
+>When replicating directly to managed disks, you do not need to worry about number of storage accounts. For storage, use only the recommendation on type of storage (Standard or Premium). The same type is applicable for managed disks.
+
 ![VM-storage placement](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
 **Disk Storage Type**: Either a standard or premium storage account, which is used to replicate all the corresponding VMs mentioned in the **VMs to Place** column.
@@ -271,7 +277,7 @@ Premium P10 or P15 disk | 8 KB	| 2 MB/s | 168 GB per disk
 Premium P10 or P15 disk | 16 KB | 4 MB/s |	336 GB per disk
 Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 16 KB or greater | 20 MB/s | 1684 GB per disk
 
 **Source data churn** | **Maximum Limit**
 ---|---
