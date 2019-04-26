@@ -248,7 +248,7 @@ ms.collection: M365-identity-device-management
                                                             <a href="hybrid/index.yml"><i>See more &gt;</i></a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="governance/index.yml">Identity governance</a></h3>
+                                                        <h3><a href="governance/index.yml">Identity Governance</a></h3>
                                                         <p>
                                                             <a href="governance/entitlement-management-overview.md">What is entitlement management?</a><br>
                                                             <a href="governance/access-reviews-overview.md">What are access reviews?</a><br>
