@@ -179,21 +179,21 @@ If monitoring is working, at least 15 DLLS should be loaded.
 
 #### Setup
 
-- Download PerfView.exe and PerfView64.exe from https://github.com/Microsoft/perfview/releases
-- Launch PerfView64.exe
-- Expand "Advanced Options"
-- Uncheck:
-	- Zip
-	- Merge
-	- .NET Symbol Collection
-- Set Additional Providers: `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
+1. Download PerfView.exe and PerfView64.exe from https://github.com/Microsoft/perfview/releases
+2. Launch PerfView64.exe
+3. Expand "Advanced Options"
+4. Uncheck:
+	a. Zip
+	b. Merge
+	c. .NET Symbol Collection
+5. Set Additional Providers: `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
 #### Collecting logs
 
-- In a cmd console with admin privileges, execute `iisreset /stop` To turn off IIS and all web apps.
-- In PerfView, click "Start Collection"
-- In a cmd console with admin privileges, execute `iisreset /start` To start IIS.
-- Try to browse to your app.
-- After your app finishes loading, return to PerfView and click "Stop Collection"
+1. In a cmd console with admin privileges, execute `iisreset /stop` To turn off IIS and all web apps.
+2. In PerfView, click "Start Collection"
+3. In a cmd console with admin privileges, execute `iisreset /start` To start IIS.
+4. Try to browse to your app.
+5. After your app finishes loading, return to PerfView and click "Stop Collection"
 
