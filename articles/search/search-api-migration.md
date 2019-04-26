@@ -67,8 +67,6 @@ If either of these situations apply to you, then you may need to change your cod
 
 If you are upgrading from a preview API version, the above also applies, but you must also be aware that some preview features are not available in version 2019-05-06:
 
-* Azure Blob Storage indexer [support for CSV files](search-howto-index-csv-blobs.md) is still in preview.
-
 * ["More like this" queries](search-more-like-this.md) continue to be a preview-only feature.
 
 If your code uses these features, you will not be able to upgrade to API version 2019-05-06 without removing your usage of them.
