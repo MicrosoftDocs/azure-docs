@@ -116,12 +116,11 @@ If your Log Analytics workspace has access to legacy pricing tiers, to change be
 3. Under **Pricing tier**, select a pricing tier and then click **Select**.  
     ![Selected pricing plan](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-If you want to move your workspace into the current pricing tier, you need to [change your subscription's monitoring pricing model in Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model) which will change the pricing tier of all workspaces in that subscription.
+If you want to move your workspace into the current pricing tier, you need to change your subscription's monitoring pricing model in Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model) which will change the pricing tier of all workspaces in that subscription.
 
 
 > [!NOTE]
-> You can learn more about [setting the pricing tier via ARM](template-workspace-configuration.md#create-a-log-analytics-workspace) and 
-> how to ensure that your ARM deployment will succeed regardless of whether the subscription is in the legacy or new pricing model. 
+> You can learn more about setting the pricing tier when [using an Azure Resource Manager template](template-workspace-configuration.md#create-a-log-analytics-workspace) to create a workspace, and ensure that your Azure Resource Manager template deployment will succeed regardless of whether the subscription is in the legacy or new pricing model. 
 
 
 ## Troubleshooting why Log Analytics is no longer collecting data
@@ -189,7 +188,7 @@ You can drill in further to see data trends for specific data types, for example
 
 ### Data volume by computer
 
-To see the **size** of billable events ingested per computer, use the [_BilledSize](log-standard-properties.md#_billedsize) property, which provides the size in bytes:
+To see the **size** of billable events ingested per computer, use the `_BilledSize` [property](log-standard-properties.md#_billedsize), which provides the size in bytes:
 
 ```kusto
 union withsource = tt * 
@@ -197,7 +196,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
 ```
 
-The [_IsBillable](log-standard-properties.md#_isbillable) property specifies whether the ingested data will incur charges.
+The `_IsBillable` [property](log-standard-properties.md#_isbillable) specifies whether the ingested data will incur charges.
 
 To see the **count** of events ingested per computer, use
 
@@ -327,7 +326,7 @@ To see the number of distinct Automation nodes, use the query:
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
 ```
 
-## Create an alert when data collection is higher than expected
+## Create an alert when data collection is high
 
 This section describes how to create an alert if:
 - Data volume exceeds a specified amount.
