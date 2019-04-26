@@ -19,14 +19,14 @@ ms.author: pepogors
 ---
 # Deploy an Azure Service Fabric cluster across Availability Zones
 ## Overview
-Availability Zones in Azure is a high-availability offering that protects your applications and data from datacenter failures. An Availability Zone is a unique physical location within an Azure region. Each zone is comprised of one or more datacenters equipped with independent power, cooling, and networking.
+Availability Zones in Azure is a high-availability offering that protects your applications and data from datacenter failures. An Availability Zone is a unique physical location equipped with independent power, cooling, and networking within an Azure region.
 
 Service Fabric supports clusters that span across Availability Zones by deploying node types that are pinned to specific zones. This will ensure high-availability of your applications. Azure Availability Zones are only available in select regions. For more information, see [Azure Availability Zones Overview](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 Sample templates are available: [Service Fabric cross availability zone template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
 ## Recommended Topology for primary node type of Azure Service Fabric clusters spanning across availability zones
-A Service Fabric cluster distributed across Availability Zones ensures high availability of the cluster state. To span a Service Fabric cluster across zones, you must create a primary node type in each Availability Zone supported by the region. To spread a primary node type across availability zones, you can mark multiple node types as primary. This will also distribute seed nodes evenly across each primary node types.
+A Service Fabric cluster distributed across Availability Zones ensures high availability of the cluster state. To span a Service Fabric cluster across zones, you must create a primary node type in each Availability Zone supported by the region. This will distribute seed nodes evenly across each of the primary node types.
 
 The recommended topology for the primary node type requires the resources outlined below:
 
@@ -39,7 +39,7 @@ The recommended topology for the primary node type requires the resources outlin
 * A NSG referenced by the subnet in which you deploy your virtual machine scale sets.
 
 >[!NOTE]
-> Service Fabric does not support a single virtual machine scale set which span zones. The virtual machine scale set **single placement group property must be set to true**.
+> The virtual machine scale set single placement group property must be set to true, since Service Fabric does not support a single virtual machine scale set which spans zones.
 
  ![Azure Service Fabric Availability Zone Architecture][sf-architecture]
 
