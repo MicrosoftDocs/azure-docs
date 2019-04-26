@@ -13,20 +13,19 @@ ms.author: chlound
 By using Logic Apps and REST calls, you can do data-refresh operations on your Azure Analysis tabular models.  This includes synchronizations of read-only replicas for query scale-out.
 
 > [!NOTE]
-> For more information on using REST APIs with Azure Analysis Services, see the following article:  https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-async-refresh
+> For more information on using REST APIs with Azure Analysis Services, see the following article:  https://docs.microsoft.com/azure/analysis-services/analysis-services-async-refresh
 
 ## Authentication
 All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token.  The examples in this article will use a Service Principal (SPN) to authenticate to Azure Analysis Services.
 
-> [!NOTE]
-> For more information on creating a Service Principal, see the following article: https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal
+For more information on creating a Service Principal, see the following article: https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
 
 ## Designing the Logic App
 
 > [!IMPORTANT]
 > The following examples assume that the Azure Analysis Services firewall is disabled.  If the firewall is enabled then the public IP address of the request initiator will need to be white listed in the Azure Analysis Services firewall.
 >
->See the following article for Logic App IP ranges per region:  https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config#firewall-configuration-ip-addresses
+>See the following article for Logic App IP ranges per region:  https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#firewall-configuration-ip-addresses
 
 ### Pre-requisites
 
@@ -49,8 +48,7 @@ Once the SPN is created, assign it permissions to Azure Analysis Services.  For 
 If you are unable to find the SPN in the list, add it manually using the following format:
 App:*SPN ClientID*@*TenantID*
 
-> [!NOTE]
-> For more information on creating a Service Principal, see the following article: https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal
+For more information on creating a Service Principal, see the following article: https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
 
 In this example, the Logic App is designed to trigger when a HTTP request is received.  This will enable the use of an orchestration tool, such as Azure Data Factory, to trigger the Azure Analysis Services model refresh.
 

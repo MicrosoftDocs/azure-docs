@@ -13,21 +13,15 @@ ms.author: chlound
 
 By using Azure Automation and PowerShell Runbooks, you can perform data-refresh operations on your Azure Analysis tabular models.  
 
-> [!NOTE]
-> The example in this article uses the PowerShell SqlServer modules.  For more information on these modules, see the following article:  https://docs.microsoft.com/en-gb/powershell/module/sqlserver/?view=sqlserver-ps
+The example in this article uses the PowerShell SqlServer modules.  For more information on these modules, see the following article:  https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps
 
-## Download the example Azure Automation Runbook
-
-This example runbook is a basic example of how to use PowerShell to process an Azure Analysis Services model.
-
-ADD LINK TO POWERSHELL FILE HERE
+A sample PowerShell Runbook is provided later in this article which demonstrates refreshing the Analysis Services model.  
 
 ## Authentication
 
 All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token.  The example in this article will use a Service Principal (SPN) to authenticate to Azure Analysis Services.
 
-> [!NOTE]
-> For more information on creating a Service Principal, see the following article: https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal
+For more information on creating a Service Principal, see the following article: https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
 
 ## Pre-requisites
 
@@ -53,7 +47,7 @@ Configure permissions to Azure Analysis Services
 Make sure you have a Service Principal (SPN) created.
 
 > [!NOTE]
-> For more information on creating a Service Principal, see the following article: https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal
+> For more information on creating a Service Principal, see the following article: https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
 
 1. Connect to the Azure Analysis Services instance through SQL Server Management Studio, and sign in when prompted.
 
@@ -70,8 +64,7 @@ Make sure you have a Service Principal (SPN) created.
 If you are unable to find the SPN in the list, add it manually using the following format:
 App:*SPN ClientID*@*TenantID*
 
-> [!NOTE]
-> See [Create service principal - Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) and [Add a service principal to the server administrator role](https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-addservprinc-admins) for more info on how to set up a service principal and assign the necessary permissions in Azure AS.
+See [Create service principal - Azure portal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) and [Add a service principal to the server administrator role](https://docs.microsoft.com/azure/analysis-services/analysis-services-addservprinc-admins) for more info on how to set up a service principal and assign the necessary permissions in Azure AS.
 
 ## Designing the Azure Automation Runbook
 
@@ -192,13 +185,56 @@ An Azure Virtual Machine with a static public IP address can be used as an Azure
 > [!IMPORTANT]
 > Ensure that the Virtual Machine public IP address is configured as static.
 >
->To learn more about configuring Azure Automation Hybrid Workers see the following article https://docs.microsoft.com/en-gb/azure/automation/automation-hybrid-runbook-worker#installing-a-hybrid-runbook-worker
+>To learn more about configuring Azure Automation Hybrid Workers see the following article https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker#installing-a-hybrid-runbook-worker
 
 Once a Hybrid Worker is configured, create a Webhook as described in the section [Consume the Azure Automation Runbook with Azure Data Factory](#consume-the-azure-automation-runbook-with-azure-data-factory).  The only difference here is to select the **Run on** > **Hybrid Worker** option when configuring the Webhook.
 
 Example webhook using Hybrid Worker:
 
 ![Example Hybrid Worker Webhook](./media/analysis-services-refresh-azure-automation/21.png)
+
+## Sample PowerShell Runbook
+
+The following code snippet is an example of how to perform the Azure Analysis Services model refresh using a PowerShell Runbook.
+
+```powershell
+param
+(
+    [Parameter (Mandatory = $false)]
+    [object] $WebhookData,
+
+    [Parameter (Mandatory = $false)]
+    [String] $DatabaseName,
+    [Parameter (Mandatory = $false)]
+    [String] $AnalysisServer,
+    [Parameter (Mandatory = $false)]
+    [String] $RefreshType
+)
+
+$_Credential = Get-AutomationPSCredential -Name "ServicePrincipal"
+
+# If runbook was called from Webhook, WebhookData will not be null.
+if ($WebhookData)
+{ 
+    # Retrieve AAS details from Webhook request body
+    $atmParameters = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
+    Write-Output "CredentialName: $($atmParameters.CredentialName)"
+    Write-Output "AnalysisServicesDatabaseName: $($atmParameters.AnalysisServicesDatabaseName)"
+    Write-Output "AnalysisServicesServer: $($atmParameters.AnalysisServicesServer)"
+    Write-Output "DatabaseRefreshType: $($atmParameters.DatabaseRefreshType)"
+    
+    $_databaseName = $atmParameters.AnalysisServicesDatabaseName
+    $_analysisServer = $atmParameters.AnalysisServicesServer
+    $_refreshType = $atmParameters.DatabaseRefreshType
+ 
+    Invoke-ProcessASDatabase -DatabaseName $_databaseName -RefreshType $_refreshType -Server $_analysisServer -ServicePrincipal -Credential $_credential
+}
+else 
+{
+    Invoke-ProcessASDatabase -DatabaseName $DatabaseName -RefreshType $RefreshType -Server $AnalysisServer -ServicePrincipal -Credential $_Credential
+}
+```
+
 
 ## See also
 
