@@ -175,13 +175,15 @@ To request the ability to create Hyperscale databases in regions not listed:
 
 9. Fill in the following template:
 
+    ![Quota details](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
+
+    In the template, provide the following information
+
     > Request to create Azure Hyperscale SQL Database in a new region<br/> 
     > Region: [Fill in your requested region]  <br/>
     > Compute SKU/total cores including readable replicas <br/>
     > Number of TB estimated 
     >
-
-    ![Quota details](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
 
 10. Choose **Severity C**
 
