@@ -223,6 +223,8 @@
           items:
           - name: Client applications
             href: msal-client-applications.md
+          - name: Application configuration
+            href: msal-client-application-configuration.md
           - name: Initialize applications (.NET)
             href: msal-net-initializing-client-applications.md
           - name: Initialize applications (JS)
