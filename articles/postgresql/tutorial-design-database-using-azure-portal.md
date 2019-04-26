@@ -41,7 +41,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 
    ![Select Azure Database for PostgreSQL - Single server deployment option](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
 
-4. Fill out the new server Basics form with the following information:
+4. Fill out the **Basics** form with the following information:
 
     ![Create a server](./media/tutorial-design-database-using-azure-portal/create-basics.png)
 
