@@ -17,7 +17,7 @@ ms.date: 05/06/2019
 
 Azure SQL Database enables you to easily purchase fully managed PaaS database engine that fits your performance and cost needs. Depending on the deployment model of Azure SQL Database, you can select the purchasing model that fits your needs:
 
-- [vCore-based purchasing model](sql-database-service-tiers-vcore.md) (recommended). This purchasing model provides a choice between the provisioned compute tier and serverless compute tier. With the provisioned compute tier, you choose the exact amount of compute that is always provisioned for your workload. With the serverless compute tier, you configure the auto-scaling of compute over a configurable compute range. With this compute tier, you also have an option to automatically pause and resume the database based on workload activity. The vCore unit price per unit of time is lower in the provisioned compute tier than in the serverless compute tier.
+- [vCore-based purchasing model](sql-database-service-tiers-vcore.md) (recommended). This purchasing model provides a choice between the provisioned compute tier and serverless (preview) compute tier. With the provisioned compute tier, you choose the exact amount of compute that is always provisioned for your workload. With the serverless compute tier, you configure the auto-scaling of compute over a configurable compute range. With this compute tier, you also have an option to automatically pause and resume the database based on workload activity. The vCore unit price per unit of time is lower in the provisioned compute tier than in the serverless compute tier.
 - [DTU-based purchasing model](sql-database-service-tiers-dtu.md). This purchasing model provides bundled compute and storage packages balanced for common workloads.
 
 Different purchasing models are available in Azure SQL Database deployment models:
@@ -46,7 +46,7 @@ In the provisioned compute tier, the compute cost reflects the total compute cap
 
 ### Serverless compute costs
 
-For the serverless compute tier, see [serverless compute tier](sql-database-serverless.md) for a description of how compute capacity is defined and costs are calculated.
+For the serverless compute tier, see [SQL Database serverless (preview)](sql-database-serverless.md) for a description of how compute capacity is defined and costs are calculated.
 
 ## Storage costs
 
