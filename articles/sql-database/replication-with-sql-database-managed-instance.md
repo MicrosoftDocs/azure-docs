@@ -25,6 +25,9 @@ You can also use transactional replication to push changes made in an instance d
  
 Transactional replication is in public preview on [Azure SQL Database managed instance](sql-database-managed-instance.md). A managed instance can host publisher, distributor, and subscriber databases. See [transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) for available configurations.
 
+  > [!NOTE]
+  > Replication with Azure SQL Database managed instance is in public preview. 
+
 ## Requirements
 
 Configuring a managed instance to function as a publisher or a distributor requires:
@@ -251,6 +254,8 @@ EXEC sp_startpublication_snapshot
 
 ## 9 - Modify agent parameters
 
+Azure SQL Database managed instance is currently experiencing some backend issues with connectivity. While this issue is addressed, the workaround for this issue is to increase the login time out value for the replication agents. 
+
 Run the following T-SQL command on the publisher to increase the login timeout: 
 
 ```sql
@@ -259,13 +264,12 @@ update msdb..sysjobsteps set command = command + N' -LoginTimeout 150'
 where subsystem in ('Distribution','LogReader','Snapshot') and command not like '%-LoginTimeout %'
 ```
 
-SQL Database managed instances do not support named pipes. Run the following T-SQL command on the publisher and distributor to force the three replication agents to utilize TCP: 
+Run the following Transact-SQL (T-SQL) command again to set the login timeout back to the default value:
 
 ```sql
--- Force replication agents to use TCP over named pipes
-update msdb..sysjobsteps set command = replace(command,' -Distributor [',' -Distributor [tcp:') 
-where subsystem in ('Distribution','LogReader','Snapshot') and command not like '% -Distributor \[tcp:%' escape '\'
-GO
+-- Increase login timeout to 30
+update msdb..sysjobsteps set command = command + N' -LoginTimeout 30' 
+where subsystem in ('Distribution','LogReader','Snapshot') and command not like '%-LoginTimeout %'
 ```
 
 Restart all three agents to apply these changes. 
@@ -287,7 +291,35 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
 ## Clean up resources
-Once you're done testing, you can clean up your resources by [deleting the resource group](../azure-resource-manager/manage-resources-portal.md#delete-resources) `SQLMI-Repl`. 
+
+To drop the publication, run the following Transact-SQL (T-SQL) command:
+
+```sql
+-- Drops the publication
+USE [ReplTran_PUB]
+EXEC sp_droppublication @publication = N'PublishData'
+GO
+```
+
+To remove the replication option from the database, run the following Transact-SQL command:
+
+```sql
+-- Disables publishing of the database
+USE [ReplTran_PUB]
+EXEC sp_removedbreplication
+GO
+```
+
+To disable publishing and distribution, run the following Transact-SQL command:
+
+```sql
+-- Drops the distributor
+USE [master]
+EXEC sp_dropdistributor @no_checks = 1
+GO
+```
+
+You can clean up your Azure resources by [deleting the managed instance resources from the resource group](../azure-resource-manager/manage-resources-portal.md#delete-resources) and then deleting the resource group `SQLMI-Repl`. 
 
    
 ## See Also
