@@ -95,7 +95,7 @@ First, let's view the [HTML and JavaScript source code](https://github.com/Micro
 
 ## TSI JavaScript client library concepts
 
-The TSI Client library (**tsclient.js**) provides an abstraction for two important JavaScript functionalities:
+The TSI Client library (**tsclient.js**) provides abstractions for two important JavaScript functionalities:
 
 * **Wrapper methods for calling the TSI Query APIs**: REST APIs that allow you to query for TSI data by using aggregate expressions. The methods are organized under the `TsiClient.Server` namespace of the library.
 
@@ -194,7 +194,16 @@ Populating and rendering chart controls follows a general pattern. This general 
 
 ## Rendering controls
 
-The TSI Client library currently exposes eight unique analytics controls: line chart, pie chart, bar chart, heatmap, hierarchy controls, accessible grid, discrete event timelines, and state transition timelines.
+The TSI Client library provides eight unique, out-of-the-box, analytics controls:
+
+* **line chart**
+* **pie chart**
+* **bar chart**
+* **heatmap**
+* **hierarchy controls**
+* **accessible grid**
+* **discrete event timelines**
+* **state transition timelines**
 
 ### Line, bar, pie chart examples
 
@@ -214,7 +223,7 @@ The three charts appear as follows when rendered:
 
 ## Advanced features
 
-The TSI Client library also exposes some optional advanced features that you might want to take advantage of.
+The TSI Client library has several additional features you can use to implement data visualizations creatively.
 
 ### States and events
 
