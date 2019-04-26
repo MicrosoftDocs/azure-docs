@@ -361,11 +361,11 @@ Consider this example:
 
 Use these 2 APIs on the first step of fitted model to understand more.  See [this sample notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
-+ API 1: `get_engineered_Feature_names()` returns a list of engineered feature names.
++ API 1: `get_engineered_feature_names()` returns a list of engineered feature names.
 
   Usage: 
   ```python
-  fitted_model.named_steps['timeseriestransformer']. get_engineered_Feature_names ()
+  fitted_model.named_steps['timeseriestransformer']. get_engineered_feature_names ()
   ```
 
   ```
