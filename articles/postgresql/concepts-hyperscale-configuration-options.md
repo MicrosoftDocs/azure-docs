@@ -39,17 +39,17 @@ Hyperscale (Citus) server groups are available in the following Azure regions:
 * West US 2
 
 ## Pricing
-For the most up-to-date pricing information, see the service [pricing
-page](https://azure.microsoft.com/pricing/details/postgresql/). To see the cost
-for the configuration you want, the [Azure
-portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) shows the
-monthly cost on the **Configure** tab based on the options you select. If you
-don't have an Azure subscription, you can use the Azure pricing calculator to
-get an estimated price. On the [Azure pricing
-calculator](https://azure.microsoft.com/pricing/calculator/) website,
-select **Add items**, expand the **Databases** category, and choose **Azure
-Database for PostgreSQL – Hyperscale (Citus)** to customize the options.
+For the most up-to-date pricing information, see the service
+[pricing page](https://azure.microsoft.com/pricing/details/postgresql/).
+To see the cost for the configuration you want, the
+[Azure portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)
+shows the monthly cost on the **Configure** tab based on the options you
+select. If you don't have an Azure subscription, you can use the Azure pricing
+calculator to get an estimated price. On the
+[Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+website, select **Add items**, expand the **Databases** category, and choose
+**Azure Database for PostgreSQL – Hyperscale (Citus)** to customize the
+options.
  
 ## Next steps
-Learn how to [create a Hyperscale (Citus) server group in the
-portal](quickstart-create-hyperscale-portal.md).
+Learn how to [create a Hyperscale (Citus) server group in the portal](quickstart-create-hyperscale-portal.md).
