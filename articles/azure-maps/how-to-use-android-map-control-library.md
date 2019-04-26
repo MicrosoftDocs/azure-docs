@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Getting started with Azure Maps Android SDK
 
-The Azure Maps Android SDK is a vector map library for Android. This article guides you through the processes of installing the Azure Maps Android SDK, loading a map, and placing a pin on the map.
+The Azure Maps Android SDK is a vector map library for Android. This article guides you through the processes of installing the Azure Maps Android SDK and loading a map.
 
 ## Prerequisites
 
