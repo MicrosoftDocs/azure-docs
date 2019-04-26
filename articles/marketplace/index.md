@@ -60,7 +60,7 @@ Learn about Azure Marketplace, an online applications and services marketplace t
         </a>
     </li>
     <li>
-        <a href="/azure/marketplace/commercial-marketplace-overview.md">
+        <a href="/azure/marketplace/partner-center-portal/commercial-marketplace-overview.md">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
