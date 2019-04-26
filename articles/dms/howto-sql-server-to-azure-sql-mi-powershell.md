@@ -38,7 +38,7 @@ To complete these steps, you need:
 * To configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 * An Azure SQL Database managed instance. You can create an Azure SQL Database managed instance by following the detail in the article [Create an Azure SQL Database managed instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
-* TO download and instanll [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
+* To download and install [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 * An Azure Virtual Network (VNet) created using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 * A completed assessment of your on-premises database and schema migration using Data Migration Assistant, as described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).
 * To download and install the `Az.DataMigration` module (version 0.7.2 or later) from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
