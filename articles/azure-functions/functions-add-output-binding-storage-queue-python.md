@@ -120,16 +120,6 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
 
 By using an output binding, you don't have to write code for tasks such as authenticating to your storage account, getting a reference to the queue, or using the SDK methods to write to it. The Azure Functions runtime and queue output binding do those tasks for you.
 
-## Install binding extensions
-
-The code that powers bindings come from external code extensions. You must install these extensions before your functions can use them. Core Tools installs the extensions you need based on the bindings you have declared. Use the following command to install required extensions in your local project.  
-
-```bash
-func extensions install
-```
-
-Now, you can run your updated function locally.
-
 ## Run the function locally
 
 As before, use the following command to start the Functions runtime locally:
@@ -142,7 +132,7 @@ Copy the URL of your `HttpTrigger` function from the runtime output and paste it
 
 This time, the output binding also creates a queue named **outqueue** in your Storage account and adds a message with this same string. You you can use the [Microsoft Azure Storage Explorer][Azure Storage Explorer] to view the new queue and verify that a message was added.
 
-### Connect Storage Explorer to your account
+### Connect Azure Storage Explorer to your Storage account
 
 Use the following steps to connect to your Storage account.
 
