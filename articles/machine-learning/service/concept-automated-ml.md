@@ -16,13 +16,13 @@ ms.custom: seodec18
 
 # What is automated machine learning?
 
-Automated machine learning, also referred to as AutoML, allows data scientists, analysts, and developers to build ML models with high scale, efficiency and productivity all while sustaining model quality. 
+Automated machine learning, also referred to as AutoML, allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. 
 
 Automated ML builds a set of ML models automatically, intelligently selecting models for training and then recommends the best one for you. Traditional machine learning model development is resource-intensive requiring significant domain knowledge and time to produce and compare dozens of models. With automated ML, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
 Behind the scenes, your training data is taken with a defined target feature, and intelligently iterated upon through combinations of ML algorithms and feature selections. Then, based on training scores, the best fitted model is identified and recommended to you. 
 
-You still have control over your experiment and transparency into what is happening. You can define constraints and experiment goals based on time, accuracy or number of iterations, for example. You can see each model that was generated for your experiment, the training flow for each iteration, and the most influencial features for a given model.
+You still have control over your experiment and transparency into what is happening. You can define constraints and experiment goals based on time, accuracy, or number of iterations, for example. You can see each model that was generated for your experiment, the training flow for each iteration, and the most influential features for a given model.
 
 ## How automated ML works
 
@@ -30,7 +30,7 @@ Using **Azure Machine Learning service**, you can design and run your automated 
 
 1. **Identify the ML problem** to be solved: classification, forecasting, or regression
    
-1. **Specify the source and format of the labelled training data**: Numpy arrays or Pandas dataframe
+1. **Specify the source and format of the labeled training data**: Numpy arrays or Pandas dataframe
 
 1. **Configure the compute target for model training**, such as your [local computer, Azure Machine Learning Computes, remote VMs, or Azure Databricks](how-to-set-up-training-targets.md).  Learn about automated training [on a remote resource](how-to-auto-train-remote.md).
 
@@ -71,7 +71,7 @@ In every automated machine learning experiment, your data is automatically scale
 
 ### Advanced preprocessing: optional featurization
 
-Additional advanced preprocessing and featurization is also available, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). Enable this setting with:
+Additional advanced preprocessing and featurization are also available, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). Enable this setting with:
 + Azure portal: Selecting the **Preprocess** checkbox in the **Advanced settings** [with these steps](how-to-create-portal-experiments.md). 
 + Python SDK: Specifying `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
