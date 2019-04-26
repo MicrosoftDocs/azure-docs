@@ -48,10 +48,7 @@ This table lists the core features for text-to-speech:
 | Create and manage voice font tests. | No | Yes\* |
 | Manage subscriptions. | No | Yes\* |
 
-\* *These services are available using the cris.ai endpoint. See [Swagger reference](https://westus.cris.ai/swagger/ui/index).*
-
-> [!NOTE]
-> The text-to-speech endpoint implements throttling that limits requests to 25 per 5 seconds. When throttling occurs, you'll be notified via message headers.
+\* *These services are available using the cris.ai endpoint. See [Swagger reference](https://westus.cris.ai/swagger/ui/index). These custom voice training and management APIs implement throttling that limits requests to 25 per 5 seconds, while the speech synthesis API itself implements throttling that allows 200 requests per second as the highest. When throttling occurs, you'll be notified via message headers.*
 
 ## Get started with text to speech
 

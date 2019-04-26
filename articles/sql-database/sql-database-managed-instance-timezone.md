@@ -10,9 +10,9 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: 
 manager: craigg
-ms.date: 04/09/2019
+ms.date: 04/25/2019
 ---
-# Time Zone in Azure SQL Database Managed Instance
+# Time Zone in Azure SQL Database Managed Instance (Preview)
 
 While using Coordinated Universal Time (UTC) is a recommended practice for data tier of cloud solutions, Azure SQL Database Managed Instance offers a choice of time zone to meet the needs of the existing applications that store date and time values and call date and time functions with an implicit context of a specific time zone.
 
@@ -66,7 +66,7 @@ If not specified, time zone will be set to UTC.
 
 ## Checking the time zone of instance
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timestamp-transact-sql) function returns a display name of the time zone of the instance.
+[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) function returns a display name of the time zone of the instance.
 
 ## Cross-feature considerations
 
@@ -88,8 +88,6 @@ Using the same time zone across primary and secondary instance in failover group
 
 - Time zone of the existing managed instance cannot be changed.
 - External processes launched from the SQL Agent jobs do not observe time zone of the instance.
-- Managed Instance’s native [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance) PowerShell cmdlet does not support passing time zone parameter yet. Use PowerShell wrapper with [Resource Manager template](https://aka.ms/sql-mi-create-arm-posh) instead.
-- CLI command [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-create) does not support time zone parameter yet.
 
 ## List of supported time zones
 

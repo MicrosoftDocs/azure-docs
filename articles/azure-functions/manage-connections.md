@@ -21,6 +21,8 @@ The number of available connections is limited partly because a function app run
 
 This limit is per instance.  When the [scale controller adds function app instances](functions-scale.md#how-the-consumption-and-premium-plans-work) to handle more requests, each instance has an independent connection limit. That means there's no global connection limit, and you can have much more than 600 active connections across all active instances.
 
+When troubleshooting, make sure that you have enabled Application Insights for your function app. Application Insights lets you view metrics for your function apps like executions. For more information, see [View telemetry in Application Insights](functions-monitoring.md#view-telemetry-in-application-insights).  
+
 ## Static clients
 
 To avoid holding more connections than necessary, reuse client instances rather than creating new ones with each function invocation. We recommend reusing client connections for any language that you might write your function in. For example, .NET clients like the [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient

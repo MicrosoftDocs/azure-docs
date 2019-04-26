@@ -110,6 +110,9 @@
   - name: Recognize speech intents with LUIS, C#
     href: how-to-recognize-intents-from-speech-csharp.md
     displayName: recognize intent, intent recognition, language understanding service, luis
+  - name: Build a Flask app to translate and synthesize text, REST
+    maintainContext: true
+    href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
 - name: How-to guides
   items:
   - name: Sign up for the Speech Services
@@ -207,6 +210,11 @@
     - name: Batch transcription & customization
       href: https://westus.cris.ai/swagger/ui/index
       displayName: Batch transcription, transcription, custom models, customization, model management
+    - name: Webhooks
+      href: webhooks.md
+      displayName: Webhooks
+  - name: Swagger documentation
+    href: swagger-documentation.md
   - name: Speech Synthesis Markup Language (SSML)
     href: speech-synthesis-markup.md
   - name: PowerShell

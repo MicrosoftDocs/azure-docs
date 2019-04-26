@@ -4,17 +4,19 @@ description: This page provides information on web application firewall CRS rule
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 4/8/2019
+ms.date: 4/11/2019
 ms.author: victorh
 ---
 
-# List of web application firewall CRS rule groups and rules offered
+# Web application firewall CRS rule groups and rules
 
-Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. This is done through rules that are defined based on the OWASP core rule sets 2.2.9 or 3.0. These rules can be disabled on a rule by rule basis. This article contains the current rules and rulesets offered.
+Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. This is done through rules that are defined based on the OWASP core rule sets 3.0 or 2.2.9. These rules can be disabled on a rule by rule basis. This article contains the current rules and rulesets offered.
 
-The following tables are the Rule groups and rules that are available when using Application Gateway with web application firewall.  Each table represents the rules found in a rule group for a specific CRS version.
+The following rule groups and rules are available when using Application Gateway with web application firewall.
 
-## <a name="owasp30"></a> OWASP_3.0
+# [OWASP 3.0](#tab/owasp3)
+
+## <a name="owasp30"></a> Rule sets
 
 ### <a name="General"></a> <p x-ms-format-detection="none">General</p>
 
@@ -45,7 +47,7 @@ The following tables are the Rule groups and rules that are available when using
 |---|---|
 |920100|Invalid HTTP Request Line|
 |920130|Failed to parse request body.|
-|920140|Multipart request body failed strict validation =     PE %@{REQBODY_PROCESSOR_ERROR}     BQ %@{MULTIPART_BOUNDARY_QUOTED}     BW %@{MULTIPART_BOUNDARY_WHITESPACE}     DB %@{MULTIPART_DATA_BEFORE}     DA %@{MULTIPART_DATA_AFTER}     HF %@{MULTIPART_HEADER_FOLDING}     LF %@{MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING}     IQ %@{MULTIPART_INVALID_QUOTING}     IH %@{MULTIPART_INVALID_HEADER_FOLDING}     FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|920140|Multipart request body failed strict validation|
 |920160|Content-Length HTTP header is not numeric.|
 |920170|GET or HEAD Request with Body Content.|
 |920180|POST request missing Content-Length Header.|
@@ -211,7 +213,9 @@ The following tables are the Rule groups and rules that are available when using
 |943110|Possible Session Fixation Attack = SessionID Parameter Name with Off-Domain Referrer|
 |943120|Possible Session Fixation Attack = SessionID Parameter Name with No Referrer|
 
-## <a name="owasp229"></a> OWASP_2.2.9
+# [OWASP 2.2.9](#tab/owasp2)
+
+## <a name="owasp229"></a> Rule sets
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
@@ -220,7 +224,7 @@ The following tables are the Rule groups and rules that are available when using
 |960911|Invalid HTTP Request Line|
 |981227|Apache Error = Invalid URI in Request.|
 |960912|Failed to parse request body.|
-|960914|Multipart request body failed strict validation =     PE %@{REQBODY_PROCESSOR_ERROR}     BQ %@{MULTIPART_BOUNDARY_QUOTED}     BW %@{MULTIPART_BOUNDARY_WHITESPACE}     DB %@{MULTIPART_DATA_BEFORE}     DA %@{MULTIPART_DATA_AFTER}     HF %@{MULTIPART_HEADER_FOLDING}     LF %@{MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING}     IQ %@{MULTIPART_INVALID_QUOTING}     IH %@{MULTIPART_INVALID_HEADER_FOLDING}     FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|960914|Multipart request body failed strict validation|
 |960915|Multipart parser detected a possible unmatched boundary.|
 |960016|Content-Length HTTP header is not numeric.|
 |960011|GET or HEAD Request with Body Content.|
@@ -467,6 +471,8 @@ The following tables are the Rule groups and rules that are available when using
 |950921|Backdoor access|
 |950922|Backdoor access|
 
+---
+
 ## Next steps
 
-Learn how to disable WAF rules by visiting: [Customize WAF rules](application-gateway-customize-waf-rules-portal.md)
+Learn how to disable WAF rules: [Customize WAF rules](application-gateway-customize-waf-rules-portal.md)

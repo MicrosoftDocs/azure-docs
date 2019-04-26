@@ -1,6 +1,6 @@
 ---
-title: Collecting Microsoft web application firewall data in Azure Sentinel Preview| Microsoft Docs
-description: Learn how to collect Microsoft web application firewall data in Azure Sentinel.
+title: Connect Microsoft web application firewall data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect Microsoft web application firewall data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
-# Collect data from Microsoft web application firewall
+# Connect data from Microsoft web application firewall
 
 > [!IMPORTANT]
 > Azure Sentinel is currently in public preview.
@@ -36,15 +36,15 @@ You can stream logs from the Azure Application Gateway’s Microsoft web applica
 If you already have Microsoft web application firewall, make sure you have an existing gateway resource.
 Once your Microsoft web application firewall is deployed and getting data, the alert data can easily be streamed into Azure Sentinel.
 	
-5. In the Azure Sentinel portal, select **Data connectors**.
-5. In the Data connectors page, select the **WAF** tile.
+1. In the Azure Sentinel portal, select **Data connectors**.
+1. In the Data connectors page, select the **WAF** tile.
 1. Go to [Application Gateway resource](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) and choose your WAF.​
     1. Select **Diagnostic settings**.​
     1. Select **+ Add diagnostic setting** under the table.​
     1. In the **Diagnostic settings** page, type a **Name** and select **Send to Log Analytics**.
     1. Under **Log Analytics Workspace** select the Azure Sentinel workspace.​
     1. Select the log types that you want to analyze. We recommended: ApplicationGatewayAccessLog and ApplicationGatewayFirewallLog.​
-6. To use the relevant schema in Log Analytics for the Microsoft web application firewall alerts, search for **AzureDiagnostics**.
+1. To use the relevant schema in Log Analytics for the Microsoft web application firewall alerts, search for **AzureDiagnostics**.
 
 ## Next steps
 In this document, you learned how to connect Microsoft web application firewall to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:

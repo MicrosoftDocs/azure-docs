@@ -1,6 +1,6 @@
 ---
-title: Collect Palo Alto Networks data in Azure Sentinel Preview| Microsoft Docs
-description: Learn how to collect Palo Alto Networks data in Azure Sentinel.
+title: Connect Palo Alto Networks data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect Palo Alto Networks data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
@@ -40,7 +40,7 @@ To see a network diagram of both options, see [Connect data sources](connect-dat
 
 ### Deploy the agent in Azure
 
-1. In the Azure Sentinel portal, click **Data collection** and select your appliance type. 
+1. In the Azure Sentinel portal, click **Data connectors** and select your appliance type. 
 
 1. Under **Linux Syslog agent configuration**:
    - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated VM that is automatically connected to your workspace, is . The VM is a **standard D2s v3 (2 vCPUs, 8 GB memory)** and has a public IP address.
@@ -77,7 +77,7 @@ To see a network diagram of both options, see [Connect data sources](connect-dat
 If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a dedicated Linux server.
 
 
-1. In the Azure Sentinel portal, click **Data collection** and select your appliance type.
+1. In the Azure Sentinel portal, click **Data connectors** and select your appliance type.
 1. To create a dedicated Linux VM, under **Linux Syslog agent configuration** choose **Manual deployment**.
    1. Under **Download and install the Syslog agent**, select **Non-Azure Linux machine**. 
    1. In the **Direct agent** screen that opens, select **Agent for Linux** to download the agent or run this command to download it on your Linux machine:

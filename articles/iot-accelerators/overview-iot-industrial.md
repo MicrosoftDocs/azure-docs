@@ -18,7 +18,7 @@ IIoT is the Industrial Internet of Things. IIoT enhances industrial efficiencies
 
 Enhance your operational productivity and profitability with a connected factory solution accelerator. Connect and monitor your industrial equipment and devices in the cloud—including your machines already operating on the factory floor. Analyze your IoT data for insights that help you increase the performance of the entire factory floor.
 
-Reduce the time-consuming process of accessing factory floor machines with Azure IoT OPC UA device management (OPC Twin), and focus your time on building IIoT solutions. Streamline certificate management and industrial asset integration with Azure IoT OPC UA certificate management (OPC Vault), and feel confident that asset connectivity is secured. These microservices provide a REST-like API on top of [Azure Industrial IoT components](https://github.com/Azure/azure-iiot-opc-ua). The service API gives you control of edge module functionality. 
+Reduce the time-consuming process of accessing factory floor machines with OPC Twin, and focus your time on building IIoT solutions. Streamline certificate management and industrial asset integration with OPC Vault, and feel confident that asset connectivity is secured. These microservices provide a REST-like API on top of [Azure Industrial IoT components](https://github.com/Azure/azure-iiot-opc-ua). The service API gives you control of edge module functionality. 
 
 ![Industrial IoT overview](media/overview-iot-industrial/overview.png)
 
@@ -35,11 +35,11 @@ Azure Industrial IoT services, see the GitHub [repository](https://github.com/Az
 
 ## Factory floor connectivity
 
-Azure IoT OPC UA device management, also known as OPC Twin, is an IIoT component that automates device discovery and registration, and offers remote control of industrial devices through REST APIs. OPC Twin, uses Azure IoT Edge and IoT Hub to connect the cloud and the factory network. OPC Twin allows IIoT developers to focus on building IIoT applications without worrying about how to securely access the on-premises machines.
+OPC Twin is an IIoT component that automates device discovery and registration, and offers remote control of industrial devices through REST APIs. OPC Twin, uses Azure IoT Edge and IoT Hub to connect the cloud and the factory network. OPC Twin allows IIoT developers to focus on building IIoT applications without worrying about how to securely access the on-premises machines.
 
 ## Security
 
-Azure IoT OPC UA certificate management or OPC Vault is an implementation of OPC UA Global Discovery Server (GDS) that can configure, register, and manage certificate lifecycle for OPC UA server and client applications in the cloud. OPC Vault simplifies the implementation and maintenance of secure asset connectivity in the industrial space. By automating certificate management, OPC Vault frees factory operators from the manual and complex processes associated with connectivity and certificate management.
+OPC Vault is an implementation of OPC UA Global Discovery Server (GDS) that can configure, register, and manage certificate lifecycle for OPC UA server and client applications in the cloud. OPC Vault simplifies the implementation and maintenance of secure asset connectivity in the industrial space. By automating certificate management, OPC Vault frees factory operators from the manual and complex processes associated with connectivity and certificate management.
 
 ## Next steps
 

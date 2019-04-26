@@ -1,6 +1,6 @@
 ---
-title: Collecting Azure Information Protection data in Azure Sentinel Preview| Microsoft Docs
-description: Learn how to collect Azure Information Protection data in Azure Sentinel.
+title: Connecting Azure Information Protection data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect Azure Information Protection data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
-# Collect data from Azure Information Protection
+# Connect data from Azure Information Protection
 
 > [!IMPORTANT]
 > Azure Sentinel is currently in public preview.
@@ -38,7 +38,7 @@ If you already have Azure Information Protection, make sure it is [enabled on yo
 If Azure Information Protection is deployed and getting data, the alert data can easily be streamed into Azure Sentinel.
 
 
-1. In Azure Sentinel, select **Data collection** and then click the **Azure Information Protection** tile.
+1. In Azure Sentinel, select **Data connectors** and then click the **Azure Information Protection** tile.
 
 2. Go to the [Azure Information Protection portal](https://portal.azure.com/?ScannerConfiguration=true&EndpointDiscovery=true#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/quickstartBlade) 
 

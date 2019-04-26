@@ -57,25 +57,14 @@ You can read more about the different installation options and parameters in the
 
 2. Run PowerShell as an administrator.
 
-3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature if necessary, and then downloads the IoT Edge runtime. Declare Linux as the container operating system so that the Deploy-IoTEdge command doesn't install the Moby engine for Windows containers.
+3. The **Install-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature if necessary, and downloads the IoT Edge runtime. Then, it configures the IoT Edge runtime on your machine and provisions the device with IoT Hub. The command defaults to manual provisioning. Declare Linux as the container operating system so that the Deploy-IoTEdge command doesn't install the Moby engine for Windows containers.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge -ContainerOs Linux
+   Install-IoTEdge -ContainerOs Linux
    ```
 
-4. Your machine may restart automatically. If you are prompted by the Deploy-IoTEdge command to reboot, do so now. 
-
-5. Run PowerShell as an administrator again.
-
-6. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. Declare Linux as the container operating system so that the IoT Edge runtime will point to Docker Desktop as the default container engine. 
-
-   ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -ContainerOs Linux
-   ```
-
-7. When prompted, provide the device connection string that will associate this physical device with a device ID in IoT Hub. 
+4. When prompted, provide the device connection string that will associate this physical device with a device ID in IoT Hub. 
 
 ## Verify successful installation
 
@@ -85,7 +74,7 @@ Check the status of the IoT Edge service. It should be listed as running.
 Get-Service iotedge
 ```
 
-Examine service logs from the last 5 minutes. If you just finished installing the IoT Edge runtime, you may see a list of errors from the time between running **Deploy-IoTEdge** and **Initialize-IoTEdge**. These errors are expected, as the service is trying to start before being configured. 
+Examine service logs from the last 5 minutes. 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog

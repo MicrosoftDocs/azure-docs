@@ -165,8 +165,8 @@ The most common point of failure is that firewall and or proxy ports and idle ti
 
 For Azure AD Connect version 1.1.443.0 and above, you need outbound HTTPS access to the following:
 
-* passwordreset.microsoftonline.com
-* servicebus.windows.net
+* \*.passwordreset.microsoftonline.com
+* \*.servicebus.windows.net
 
 For more granularity, reference the updated list of [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) updated every Wednesday and put into effect the next Monday.
 

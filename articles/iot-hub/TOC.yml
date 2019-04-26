@@ -276,6 +276,7 @@
       - name: Use the REST API
         href: iot-hub-rm-rest.md
       - name: Use a template from Azure PowerShell
+        displayName: Azure Resource Manager, ARM
         href: iot-hub-rm-template-powershell.md
       - name: Use a template from .NET
         href: iot-hub-rm-template.md

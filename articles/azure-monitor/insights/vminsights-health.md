@@ -11,12 +11,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 04/12/2019
 ms.author: magoedte
 ---
 
-# Understand the health of your Azure virtual machines 
-Azure includes multiple services that individually perform a specific role or task in the monitoring space, but providing an in-depth health perspective of the operating system hosted on Azure virtual machines wasn't available.  While you could monitor for different conditions using Azure Monitor, it wasn't designed to model and represent health of core components or overall health of the virtual machine.  With Azure Monitor for VMs health feature, it proactively monitors the availability and performance of the Windows or Linux guest OS with a model that represent key components and their relationships, criteria that specifies how to measure the health of those components, and alert you when an unhealthy condition is detected.  
+# Understand the health of your Azure virtual machines
+
+Azure includes multiple services that individually perform a specific role or task in the monitoring space, but haven't provided an in-depth health perspective of the operating system hosted on Azure virtual machines. While you could monitor for different conditions using Azure Monitor, it wasn't designed to model and represent health of core components or overall health of the virtual machine. With Azure Monitor for VMs health feature, it proactively monitors the availability and performance of the Windows or Linux guest OS with a model that represent key components and their relationships, criteria that specifies how to measure the health of those components, and alert you when an unhealthy condition is detected.  
 
 Viewing the overall health state of the Azure VM and underlying operating system can be observed from two perspectives with Azure Monitor for VMs health, directly from the virtual machine or across all VMs in a resource group from Azure Monitor.
 
@@ -25,6 +26,7 @@ This article will help you understand how to quickly assess, investigate, and re
 For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-onboard.md).
 
 ## Monitoring configuration details
+
 This section outlines the default health criteria defined to monitor Azure Windows and Linux virtual machines. All health criteria are pre-configured to alert when the unhealthy condition is met. 
 
 ### Windows VMs
@@ -71,17 +73,20 @@ This section outlines the default health criteria defined to monitor Azure Windo
 - Operating System Available Megabytes of Memory
 
 ## Sign in to the Azure portal
+
 Sign in to the [Azure portal](https://portal.azure.com). 
 
 ## Introduction to Health experience
+
 Before diving into using the Health feature for a single virtual machine or group of VMs, it's important we provide a brief introduction so you understand how the information is presented and what the visualizations represent.  
 
 ## View health directly from a virtual machine 
+
 To view the health of an Azure VM, select **Insights (preview)** from the left-hand pane of the virtual machine. On the VM insights page, **Health** is open by default and shows the health view of the VM.  
 
 ![Azure Monitor for VMs health overview of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
 
-On the **Health** tab, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of VM Health alerts raised by an unhealthy component. Refer to Alerts section for more details about the alerting experience.  
+On the **Health** tab, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of VM Health alerts raised by an unhealthy component. For more information, see [Alerts](#alerts) for additional details about the alerting experience.  
 
 The health states defined for a VM are described in the following table: 
 
@@ -99,6 +104,7 @@ Under the **Component health** section, the table shows a health rollup status o
 When accessing Health from an Azure VM running the Windows operating system, the health state of the top five core Windows services are shown under the section **Core services health**.  Selecting any one of the services opens a page listing the health criteria monitoring that component and its health state.  Clicking on the name of the health criteria will open the property pane, and from here you can review the configuration details, including if the health criteria has a corresponding Azure Monitor alert defined. To learn more, see [Health Diagnostics and working with health criteria](#health-diagnostics).  
 
 ## Aggregate virtual machine perspective
+
 To view health collection for all of your virtual machines in a resource group, from the navigation list in the portal, select **Azure Monitor** and then select **Virtual Machines (preview)**.  
 
 ![VM Insights monitoring view from Azure Monitor](./media/vminsights-health/vminsights-aggregate-health.png)
@@ -142,6 +148,7 @@ Selecting **View all health criteria** opens a page showing a list of all the he
 You can drill further down to see which instances are unhealthy by clicking on a value under the **Unhealthy Component** column.  On the page, a table lists the components, which are in a critical health state.    
 
 ## Health diagnostics
+
 Thge **Health Diagnostics** page allows you to visualize the Health Model of a VM, listing all the components of the VM, associated health criteria, state changes, and other significant issues identified by monitored components related to the VM.
 
 ![Example of Health Diagnostics page for a VM](./media/vminsights-health/health-diagnostics-page-01.png)
@@ -161,7 +168,7 @@ Health Diagnostics organizes health information into the following categories:
  
 All health criteria defined for a specific component such as logical disk, CPU, etc. can be viewed without filtering on the two categories (that is an all-up view of all criteria), or filter the results by either category when selecting **Availability** or **Performance** options on the page. Additionally, the category of the criteria can be seen next to it in the **Health Criteria** column. If the criteria doesn't match the selected category, it will show the message **No health criteria available for the selected category** in the **Health Criteria** column.  
 
-State of a health criteria is defined by one of the four states – *Critical*, *Warning*, *Healthy*, and *Unknown*. The first three are configurable, meaning you can modify the threshold values of the monitors using the [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Unknown* is not configurable and reserved for specific scenarios.  
+State of a health criteria is defined by one of the four states – *Critical*, *Warning*, *Healthy*, and *Unknown*. The first three are configurable, meaning you can modify the threshold values of the monitors directly from the Health Criteria configuration pane or using the Azure Monitor REST API [update monitor operation](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Unknown* is not configurable and reserved for specific scenarios.  
 
 Health diagnostics page has three main sections:
 
@@ -172,6 +179,7 @@ Health diagnostics page has three main sections:
 ![Sections of Health Diagnostics page](./media/vminsights-health/health-diagnostics-page-02.png)
 
 ### Component model
+
 The left-most column in the Health Diagnostics page is the component model. All the components, which are associated with the VM, are displayed in this column along with their current health state. 
 
 In the following example, the discovered components are disk, logical disk, processor, memory, and operating system. Multiple instances of these components are discovered and displayed in this column. For example, the image below shows the VM has two instances of logical disks - C: and D:, which are in a healthy state.  
@@ -179,19 +187,20 @@ In the following example, the discovered components are disk, logical disk, proc
 ![Example component model presented in Health diagnostics](./media/vminsights-health/health-diagnostics-page-component.png)
 
 ### Health criteria
+
 The center column in the Health Diagnostics page is the **Health Criteria** column. The health model defined for the VM is displayed in a hierarchical tree. The health model for a VM consists of unit and aggregate health criteria.  
 
 ![Example health criteria presented in Health diagnostics](./media/vminsights-health/health-diagnostics-page-healthcriteria.png)
 
 A health criterion measures the health of the monitored instance with some criteria, which could be a threshold value, state of an entity, etc. A health criterion has either two or three configurable health state thresholds as described earlier. At any given point, the health criterion can be in only one of its potential states. 
 
-The overall health of a target is determined by the health of each of its health criteria defined in the health model. It is a combination of health criteria targeted directly at the target, health criteria targeted at components rolling up to the target through an aggregate health criterion. This hierarchy is illustrated in the **Health Criteria** section of the Health Diagnostics page. The health rollup policy is part of the configuration of the aggregate health criteria (default is set to *Worst-of*). You can find a list of default set of health criteria running as part of this feature under the section [Monitoring configuration details](#monitoring-configuration-details).  
+The overall health of a target is determined by the health of each of its health criteria defined in the health model. It is a combination of health criteria targeted directly at the target, health criteria targeted at components rolling up to the target through an aggregate health criterion. This hierarchy is illustrated in the **Health Criteria** section of the Health Diagnostics page. The health rollup policy is part of the configuration of the aggregate health criteria (default is set to *Worst-of*). You can find a list of default set of health criteria running as part of this feature under the section [Monitoring configuration details](#monitoring-configuration-details), and you can use the Azure Monitor REST API [monitor instances - list by resource operation](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitorinstances/listbyresource) to get a list of all the health criteria and its detailed configuration running against the Azure VM resource.  
 
 **Unit** Health criteria type can have their configuration modified by clicking on the ellipse link to the far right and selecting **Show Details** to open the configuration pane. 
 
 ![Configuring a health criteria example](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-In the configuration pane for the selected health criteria, using the example **Average Disk Seconds Per Write**, its threshold can be configured with a different numeric value. It is a two-state monitor, meaning it only changes from healthy to warning. Other health criterion may be three states, where you can configure the value for the warning and critical health state threshold.  
+In the configuration pane for the selected health criteria, using the example **Average Disk Seconds Per Write**, its threshold can be configured with a different numeric value. It is a two-state monitor, meaning it only changes from healthy to warning. Other health criterion may be three states, where you can configure the value for the warning and critical health state threshold. You can also modify the threshold using the Azure Monitor REST API [update monitor operation](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update).
 
 >[!NOTE]
 >Applying health criteria configuration changes to one instance is applied to all monitored instances.  For example, if you select **Disk -1 D:** and modify the **Average Disk Seconds Per Write** threshold, it doesn't apply to only that instance, but all other disk instances discovered and monitored on the VM.
@@ -202,13 +211,15 @@ In the configuration pane for the selected health criteria, using the example **
 If you want to learn more about the health indicator, knowledge articles are included to help you identify problems, causes, and resolutions. Click on the **View information** link on the page and it opens a new tab in your browser showing the specific knowledge article. At any time, you can review all of the health criterion knowledge articles included with Azure Monitor for VMs Health feature [here](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
   
 ### State changes
+
 The right-most column in the Health Diagnostics page is **State Changes**. It lists all the state changes associated with the health criteria that is selected in the **Health Criteria** section or the state change of the VM if a VM was selected from the **Component Model** or **Health Criteria** column of the table. 
 
 ![Example state changes presented in Health diagnostics](./media/vminsights-health/health-diagnostics-page-statechanges.png)
 
 This section consists of the health criteria state and the associated time sorted by the latest state on top.   
 
-### Association of Component Model, Health Criteria and State change columns 
+### Association of Component Model, Health Criteria, and State change columns 
+
 The three columns are interlinked with each other. When you select a discovered instance in the **Component Model** section, the **Health Criteria** section is filtered to that component view and correspondingly the **State Change** section is updated based on the selected health criteria. 
 
 ![Example of selecting monitored instance and results](./media/vminsights-health/health-diagnostics-vm-example-01.png)
@@ -218,13 +229,16 @@ In the above example, when you select **Disk - 1 D:**, the Health Criteria tree 
 To see an updated health state, you can refresh the Health Diagnostics page by clicking the **Refresh** link.  If there is an update to the health criterion's health state based on the pre-defined polling interval, this task allows you to avoid waiting and reflects the latest health state.  The **Health Criteria State** is a filter allowing you to scope the results based on the selected health state - *Healthy*, *Warning*, *Critical*, *Unknown*, and *All*.  The **Last Updated** time in the top-right corner represents the last time when the Health Diagnostics page was refreshed.  
 
 ## Alerts
-Azure Monitor for VMs Health feature integrates with [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and raises an alert when the predefined health criteria change from healthy to an unhealthy state when the condition is detected. Alerts are categorized by severity - Sev 0 through 4, with Sev 0 representing the highest severity level.  
+
+Azure Monitor for VMs Health feature integrates with [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and raises an alert when the predefined health criteria change from healthy to an unhealthy state when the condition is detected. Alerts are categorized by severity - Sev 0 through 4, with Sev 0 representing the highest severity level. 
+
+Alerts are not associated with an action group to notify you when the alert has been triggered. The subscription owner needs to configure notifications following the steps [later in this section](#configure-alerts).   
 
 Total number of VM Health alerts categorized by severity is available on the **Health** dashboard under the section **Alerts**. When you select either the total number of alerts or the number corresponding to a severity level, the **Alerts** page opens and lists all alerts matching your selection.  For example, if you selected the row corresponding to **Sev level 1**, then you see the following view:
 
 ![Example of all Severity Level 1 alerts](./media/vminsights-health/vminsights-sev1-alerts-01.png)
 
-On the **Alerts** page, it is not only scoped to show alerts matching your selection, but are also filtered by **Resource type** to only show health alerts raised by the virtual machine resource.  This is reflected in the list of alerts, under the column **Target Resource**, where it shows the Azure VM the alert was raised for when the particular health criteria's unhealthy condition was met.  
+On the **Alerts** page, it is not only scoped to show alerts matching your selection, but are also filtered by **Resource type** to only show health alerts raised by the virtual machine resource.  It is reflected in the list of alerts, under the column **Target Resource**, where it shows the Azure VM the alert was raised for when the particular health criteria's unhealthy condition was met.  
 
 Alerts from other resource types or services are not intended to be included in this view, such as log alerts based on log queries or metric alerts that you would normally view from the default Azure Monitor [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page. 
 
@@ -262,7 +276,7 @@ The approach used in each example is using [ARMClient](https://github.com/projec
 
 #### Enable or disable alert rule
 
-To enable or disable an alert rule for a specific health criteria, the health criteria property *alertGeneration* needs to be modified with a value of either **Disabled** or **Enabled**. To identify the *monitorId* of a particular health criteria, the following example will show how to query for that value for the criteria **LogicalDisk\Avg Disk Seconds Per Transfer**.
+To enable or disable an alert for a specific health criteria, the health criteria property *alertGeneration* needs to be modified with a value of either **Disabled** or **Enabled**. To identify the *monitorId* of a particular health criteria, the following example will show how to query for that value for the criteria **LogicalDisk\Avg Disk Seconds Per Transfer**.
 
 1. In a terminal window, type **armclient.exe login**. Doing so prompts you to sign in to Azure.
 
@@ -272,14 +286,49 @@ To enable or disable an alert rule for a specific health criteria, the health cr
     armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
     ```
 
-    The following example shows the output of that command. Take note of the value of *MonitorId* highlighted in red. This value is required for the next step where we need to specify the ID of the health criteria and modify its property to create an alert.
+    The following example shows the output of that command. Take note of the value of *MonitorId*. This value is required for the next step where we need to specify the ID of the health criteria and modify its property to create an alert.
 
-    ![Example retrieving monitor ID for health criteria](./media/vminsights-health/get-monitor-identifier-01.png)
+    ```
+    "id": "/subscriptions/a7f23fdb-e626-4f95-89aa-3a360a90861e/resourcegroups/Lab/providers/Microsoft.Compute/virtualMachines/SVR01/providers/Microsoft.WorkloadMonitor/monitors/ComponentTypeId='LogicalDisk',MonitorId='Microsoft_LogicalDisk_AvgDiskSecPerRead'",
+      "name": "ComponentTypeId='LogicalDisk',MonitorId='Microsoft_LogicalDisk_AvgDiskSecPerRead'",
+      "type": "Microsoft.WorkloadMonitor/virtualMachines/monitors"
+    },
+    {
+      "properties": {
+        "description": "Monitor the performance counter LogicalDisk\\Avg Disk Sec Per Transfer",
+        "monitorId": "Microsoft_LogicalDisk_AvgDiskSecPerTransfer",
+        "monitorName": "Microsoft.LogicalDisk.AvgDiskSecPerTransfer",
+        "monitorDisplayName": "Average Logical Disk Seconds Per Transfer",
+        "parentMonitorName": null,
+        "parentMonitorDisplayName": null,
+        "monitorType": "Unit",
+        "monitorCategory": "PerformanceHealth",
+        "componentTypeId": "LogicalDisk",
+        "componentTypeName": "LogicalDisk",
+        "componentTypeDisplayName": "Logical Disk",
+        "monitorState": "Enabled",
+        "criteria": [
+          {
+            "healthState": "Warning",
+            "comparisonOperator": "GreaterThan",
+            "threshold": 0.1
+          }
+        ],
+        "alertGeneration": "Enabled",
+        "frequency": 1,
+        "lookbackDuration": 17,
+        "documentationURL": "https://aka.ms/Ahcs1r",
+        "configurable": true,
+        "signalType": "Metrics",
+        "signalName": "VMHealth_Avg. Logical Disk sec/Transfer"
+      },
+      "etag": null,
+    ```
 
 3. Type the following command to modify the *alertGeneration* property.
 
     ```
-    armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview 1-preview "{'properties':{'alertGeneration':'Disabled'}}"
+    armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview "{'properties':{'alertGeneration':'Disabled'}}"
     ```   
 
 4. Type the GET command used in step 2 to verify the value of the property is set to **Disabled**.  
@@ -308,7 +357,25 @@ Azure Monitor for VMs Health supports SMS and email notifications when alerts ar
 
     The output should resemble the following:
     
-    ![Example output of Get notificationSettings](./media/vminsights-health/get-notification-config-status.png)
+    ```
+    {
+	  "value": [
+		{
+		  "properties": {
+			"actionGroupResourceIds": [
+			  "/subscriptions/a7f23fdb-e626-4f95-89aa-3a360a90861e/resourceGroups/Lab/providers/microsoft.insights/actionGroups/Lab-IT%20Ops%20Notify"
+			]
+		  },
+		  "etag": null,
+		  "id": "/subscriptions/a7f23fdb-e626-4f95-89aa-3a360a90861e/resourcegroups/Lab/providers/Microsoft.Compute/virtualMachines/SVR01/providers/Microsoft.WorkloadMonitor/notificationSettings/default",
+		  "name": "notificationSettings/default",
+		  "type": "Microsoft.WorkloadMonitor/virtualMachines/notificationSettings"
+		}
+	  ],
+	  "nextLink": null
+    }
+    ```
 
 ## Next steps
+
 To identify bottlenecks and overall utilization with your VMs performance, see [View Azure VM Performance](vminsights-performance.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). 

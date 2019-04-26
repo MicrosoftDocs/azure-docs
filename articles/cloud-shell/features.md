@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 04/10/2019
 ms.author: damaerte
 ---
 
@@ -72,7 +72,7 @@ Cloud Shell includes pre-configured authentication for open-source tools such as
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.1.2](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.2.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 and 3.5 (default)|
 
 ## Next steps

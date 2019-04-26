@@ -1,6 +1,6 @@
 ---
 title: Send notifications to Universal Windows Platform apps using Azure Notification Hubs | Microsoft Docs
-description: In this tutorial, you learn how to use Azure Notification Hubs to push notifications to a Windows Universal Platform application.
+description: Lean how to use Azure Notification Hubs to push notifications to a Windows Universal Platform application.
 services: notification-hubs
 documentationcenter: windows
 author: jwargo
@@ -22,12 +22,12 @@ ms.author: jowargo
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-In this tutorial, you create a notification hub to send push notifications to a Universal Windows Platform (UWP) app. You create a blank Windows Store app that receives push notifications by using the Windows Push Notification Service (WNS). Then, you can use your notification hub to broadcast push notifications to all devices that are running your app.
+In this tutorial, you create a notification hub to send push notifications to a Universal Windows Platform (UWP) app. You create a blank Windows Store app that receives push notifications by using the Windows Push Notification Service (WNS). Then, you use your notification hub to broadcast push notifications to all devices that are running your app.
 
 > [!NOTE]
 > You can find the completed code for this tutorial on [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
 
-In this tutorial, you take the following steps:
+You take the following steps:
 
 > [!div class="checklist"]
 > * Create an app in Windows Store
@@ -41,6 +41,11 @@ In this tutorial, you take the following steps:
 - [Microsoft Visual Studio Community 2015 or later](https://www.visualstudio.com/products/visual-studio-community-vs) or later.
 - [UWP app-development tools installed](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 - An active Windows Store account
+- Confirm that **Get notifications from apps and other senders** setting is enabled. 
+    - Launch **Settings** window on your computer.
+    - Select the **System** tile.
+    - Select **Notifications & actions** from the left menu. 
+    - Confirm that the **Get notifications from apps and other senders** setting is enabled. If it isn't enabled, enable it. 
 
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for UWP apps.
 
@@ -166,8 +171,7 @@ You can quickly test receiving notifications in your app by sending notification
     ![Notification message](./media/notification-hubs-windows-store-dotnet-get-started/test-notification-message.png)
 
 ## Next steps
-
-In this tutorial, you sent broadcast notifications to all your Windows devices by using the portal or a console app. To learn how to push notifications to specific devices, advance to the following tutorial:
+You have sent broadcast notifications to all your Windows devices by using the portal or a console app. To learn how to push notifications to specific devices, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
 >[Push notifications to specific devices](

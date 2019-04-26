@@ -162,7 +162,9 @@
     - name: View events
       href: security-center-events-dashboard.md
     - name: Search
-      href: security-center-search.md   
+      href: security-center-search.md    
+    - name: Planning and operations
+      href: security-center-planning-and-operations-guide.md
 
 - name: Reference
   items:
@@ -179,8 +181,6 @@
     href: security-center-privacy.md
   - name: FAQ
     href: security-center-faq.md
-  - name: Planning and operations
-    href: security-center-planning-and-operations-guide.md
   - name: Azure Security
     href: /azure/security/
   - name: Azure Roadmap

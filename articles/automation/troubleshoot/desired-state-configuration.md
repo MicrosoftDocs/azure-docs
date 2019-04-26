@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -23,7 +23,7 @@ This article provides information on troubleshooting issues with Desired State C
 When attempting to delete a DSC configuration from the portal, you see the following error:
 
 ```error
-An error occured while deleteing the DSC configuration '<name>'.  Error-details: The arguement configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
+An error occurred while deleting the DSC configuration '<name>'.  Error-details: The argument configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
 ```
 
 #### Cause
@@ -35,6 +35,31 @@ This error is a temporary issue that is planned to be resolved.
 * Use the Az Cmdlet "Remove-AzAutomationDscConfiguration" to delete the configuration.
 * The documentation for this cmdlet hasn't been updated yet.  Until then, refer to the documentation for the AzureRM module.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
+
+### <a name="failed-to-register-agent"></a>Scenario: Failed to register Dsc Agent
+
+#### Issue
+
+When attempting to run `Set-DscLocalConfigurationManager` or another DSC cmdlet you receive the error:
+
+```error
+Registration of the Dsc Agent with the server
+https://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-0000-0000-000000000000 failed. The
+underlying error is: Failed to register Dsc Agent with AgentId 00000000-0000-0000-0000-000000000000 with the server htt
+ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-0000-0000-000000000000/Nodes(AgentId='00000000-0000-0000-0000-000000000000'). .
+    + CategoryInfo          : InvalidResult: (root/Microsoft/...gurationManager:String) [], CimException
+    + FullyQualifiedErrorId : RegisterDscAgentCommandFailed,Microsoft.PowerShell.DesiredStateConfiguration.Commands.Re
+   gisterDscAgentCommand
+    + PSComputerName        : <computerName>
+```
+
+#### Cause
+
+This error is normally caused by a firewall, the machine being behind a proxy server, or other network errors.
+
+#### Resolution
+
+Verify your machine has access to the proper endpoints for Azure Automation DSC and try again. For a list of ports and addresses needed, see [network planning](../automation-dsc-overview.md#network-planning)
 
 ### <a name="failed-not-found"></a>Scenario: Node is in failed status with a "Not found" error
 

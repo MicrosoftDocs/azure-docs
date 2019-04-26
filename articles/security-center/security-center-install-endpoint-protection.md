@@ -43,7 +43,7 @@ In this example, we will use **Compute**.  We will look at how to install antima
 
 ## Install antimalware on Azure VMs
 
-1. Select **Compute** under the Security Center main menu or **Overview**.
+1. Select **Compute & apps** under the Security Center main menu or **Overview**.
 
    ![Select Compute][1]
 

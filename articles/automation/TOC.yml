@@ -181,7 +181,7 @@
     - name: Manage Python 2 packages
       href: python-packages.md
     - name: Credentials
-      href: automation-credentials.md
+      href: shared-resources/credentials.md
     - name: Connections
       href: automation-connections.md
     - name: Certificates

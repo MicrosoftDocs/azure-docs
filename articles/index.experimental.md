@@ -2,6 +2,7 @@
 layout: HubPage
 hide_bc: true
 experiment_id: "81ba5f65-59fb-4d"
+experimental: false
 title: Microsoft Azure Documentation
 description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, sample code, tutorials, and more.
 ---

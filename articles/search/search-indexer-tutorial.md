@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/09/2019
 ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Search.
 ---
 
-# Tutorial in C#: Crawl an Azure SQL database using Azure Search indexers
+# C# Tutorial: Crawl an Azure SQL database using Azure Search indexers
 
 Learn how to configure an indexer for extracting searchable data from a sample Azure SQL database. [Indexers](search-indexer-overview.md) are a component of Azure Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL Database is the most widely used. 
 
@@ -52,7 +52,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
-1.. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
 ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
@@ -83,7 +83,7 @@ In this step, create an external data source that an indexer can crawl. You can 
 
 The following exercise assumes no existing server or database, and instructs you to create both in step 2. Optionally, if you have an existing resource, you can add the hotels table to it, starting at step 4.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/). 
+1. [Sign in to the Azure portal](https://portal.azure.com/). 
 
 2. Find or create an **Azure SQL Database** to create a database, server, and resource group. You can use defaults and the lowest level pricing tier. One advantage to creating a server is that you can specify an administrator user name and password, necessary for creating and loading tables in a later step.
 
@@ -95,7 +95,7 @@ The following exercise assumes no existing server or database, and instructs you
 
    ![SQL database page](./media/search-indexer-tutorial/hotels-db.png)
 
-4. On the command bar, click **Tools** > **Query editor**.
+4. On the navigation pane, click **Query editor (preview)**.
 
 5. Click **Login** and enter the user name and password of server admin.
 
@@ -133,7 +133,7 @@ The following exercise assumes no existing server or database, and instructs you
 
 ## Understand the code
 
-Your code is now ready to build and run. Before doing that, take a minute to study the index and indexer definitions for this sample. The relevant code is in two files:
+Once the data and configuration settings are in place, the sample program in **DotNetHowToIndexers.sln** is ready to build and run. Before doing that, take a minute to study the index and indexer definitions for this sample. The relevant code is in two files:
 
   + **hotel.cs**, containing the schema that defines the index
   + **Program.cs**, containing the functions for creating and managing structures in your service
@@ -151,45 +151,65 @@ public string HotelName { get; set; }
 
 A schema can also include other elements, including scoring profiles for boosting a search score, custom analyzers, and other constructs. However, for our purposes, the schema is sparsely defined, consisting only of fields found in the sample datasets.
 
-In this tutorial, the indexer pulls data from one data source. In practice, you can attach multiple indexers to the same index, creating a consolidated searchable index from multiple data sources and indexers. You can use the same index-indexer pair, varying just the data sources, or one index with various indexer and data source combinations, depending on where you need the flexibility.
+In this tutorial, the indexer pulls data from one data source. In practice, you can attach multiple indexers to the same index, creating a consolidated searchable index from multiple data sources. You can use the same index-indexer pair, varying just the data sources, or one index with various indexer and data source combinations, depending on where you need the flexibility.
 
 ### In Program.cs
 
-The main program includes functions for all three representative data sources. Focusing on just Azure SQL Database, the following objects stand out:
+The main program includes logic for creating a client, an index, a data source, and an indexer. The code checks for and deletes existing resources of the same name, under the assumption that you might run this program multiple times.
+
+The data source object is configured with settings that are specific to Azure SQL database resources, including [incremental indexing](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) for leveraging the built-in [change detection features](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) of Azure SQL. The demo hotels database in Azure SQL has a "soft delete" column named **IsDeleted**. When this column is set to true in the database, the indexer removes the corresponding document from the Azure Search index.
 
   ```csharp
-  private const string IndexName = "hotels";
-  private const string AzureSqlHighWaterMarkColumnName = "RowVersion";
-  private const string AzureSqlDataSourceName = "azure-sql";
-  private const string AzureSqlIndexerName = "azure-sql-indexer";
+  Console.WriteLine("Creating data source...");
+
+  DataSource dataSource = DataSource.AzureSql(
+      name: "azure-sql",
+      sqlConnectionString: configuration["AzureSQLConnectionString"],
+      tableOrViewName: "hotels",
+      deletionDetectionPolicy: new SoftDeleteColumnDeletionDetectionPolicy(
+          softDeleteColumnName: "IsDeleted",
+          softDeleteMarkerValue: "true"));
+  dataSource.DataChangeDetectionPolicy = new SqlIntegratedChangeTrackingPolicy();
+
+  searchService.DataSources.CreateOrUpdateAsync(dataSource).Wait();
   ```
 
-In Azure Search, objects that you can view, configure, or delete independently include indexes, indexers, and data sources (*hotels*, *azure-sql-indexer*, *azure-sql*, respectively). 
-
-The *AzureSqlHighWaterMarkColumnName* column deserves special mention because it provides change detection information, used by the indexer to determine whether a row has changed since the last indexing workload. [Change detection policies](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) are supported only in indexers and vary by data source. For Azure SQL Database, you can choose from two policies, depending on database requirements.
-
-The following code shows the methods in Program.cs used for creating a data source and indexer. The code checks for and deletes existing resources of the same name, under the assumption that you might run this program multiple times.
+An indexer object is platform-agnostic, where  configuration, scheduling, and invocation are the same regardless of the source. This example indexer includes a schedule, a reset option that clears indexer history, and calls a method to create and run the indexer immediately.
 
   ```csharp
-  private static string SetupAzureSqlIndexer(SearchServiceClient serviceClient, IConfigurationRoot configuration)
+  Console.WriteLine("Creating Azure SQL indexer...");
+  Indexer indexer = new Indexer(
+      name: "azure-sql-indexer",
+      dataSourceName: dataSource.Name,
+      targetIndexName: index.Name,
+      schedule: new IndexingSchedule(TimeSpan.FromDays(1)));
+  // Indexers contain metadata about how much they have already indexed
+  // If we already ran the sample, the indexer will remember that it already
+  // indexed the sample data and not run again
+  // To avoid this, reset the indexer if it exists
+  exists = await searchService.Indexers.ExistsAsync(indexer.Name);
+  if (exists)
   {
-    Console.WriteLine("Deleting Azure SQL data source if it exists...");
-    DeleteDataSourceIfExists(serviceClient, AzureSqlDataSourceName);
+      await searchService.Indexers.ResetAsync(indexer.Name);
+  }
 
-    Console.WriteLine("Creating Azure SQL data source...");
-    DataSource azureSqlDataSource = CreateAzureSqlDataSource(serviceClient, configuration);
+  await searchService.Indexers.CreateOrUpdateAsync(indexer);
 
-    Console.WriteLine("Deleting Azure SQL indexer if it exists...");
-    DeleteIndexerIfExists(serviceClient, AzureSqlIndexerName);
+  // We created the indexer with a schedule, but we also
+  // want to run it immediately
+  Console.WriteLine("Running Azure SQL indexer...");
 
-    Console.WriteLine("Creating Azure SQL indexer...");
-    Indexer azureSqlIndexer = CreateIndexer(serviceClient, AzureSqlDataSourceName, AzureSqlIndexerName);
-
-    return azureSqlIndexer.Name;
+  try
+  {
+      await searchService.Indexers.RunAsync(indexer.Name);
+  }
+  catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
+  {
+      Console.WriteLine("Failed to run indexer: {0}", e.Response.Content);
   }
   ```
 
-Notice that the indexer API calls are platform-agnostic except for [DataSourceType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet), which specifies the type of crawler to invoke.
+
 
 ## Run the indexer
 
@@ -232,12 +252,10 @@ In the Azure portal, in the search service Overview page, click **Search explore
 
 All indexers, including the one you just created programmatically, are listed in the portal. You can open an indexer definition and view its data source, or configure a refresh schedule to pick up new and changed rows.
 
-1. Open the service Overview page of your Azure Search service.
-2. Scroll down to find the tiles for **Indexers** and **Data Sources**.
-3. Click a tile to open a list of each resource. You can select individual indexers or data sources to view or modify configuration settings.
+1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, click the links for **Indexes**, **Indexers**, and **Data Sources**.
+3. Select individual objects to view or modify configuration settings.
 
    ![Indexer and data source tiles](./media/search-indexer-tutorial/tiles-portal.png)
-
 
 ## Clean up resources
 

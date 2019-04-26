@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Use the Azure Database Migration Service to perform an online migration of RDS SQL Server to Azure SQL Database or an Azure SQL Database managed instance | Microsoft Docs"
-description: Learn to perform an online migration from RDS SQL Server to Azure SQL Database or an Azure SQL Database managed instance by using the Azure Database Migration Service.
+title: "Tutorial: Use the Azure Database Migration Service for an online migration of RDS SQL Server to Azure SQL Database or to an Azure SQL Database managed instance | Microsoft Docs"
+description: Learn to perform an online migration from RDS SQL Server to Azure SQL Database or to an Azure SQL Database managed instance by using the Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/24/2019
 ---
 
 # Tutorial: Migrate RDS SQL Server to Azure SQL Database or an Azure SQL Database managed instance online using DMS
@@ -182,12 +182,19 @@ After the service is created, locate it within the Azure portal, open it, and th
  
 3. Select + **New Migration Project**.
 4. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **AWS RDS for SQL Server**, in the **Target server type** text box, select **Azure SQL Database**.
+
+    > [!NOTE]
+    > For Target server type, select **Azure SQL Database** for migrating to both an Azure SQL Database singleton database and as well as to an Azure SQL Database managed instance.
+
 5. In the **Choose type of activity** section, select **Online data migration**.
+
+    > [!IMPORTANT]
+    > Be sure to select **Online data migration**; offline migrations are not supported for this scenario.
 
     ![Create Database Migration Service Project](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-create-project4.png)
 
     > [!NOTE]
-    > Alternately, you can chose **Create project only** to create the migration project now and execute the migration later.
+    > Alternately, you can choose **Create project only** to create the migration project now and execute the migration later.
 
 6. Select **Save**.
 

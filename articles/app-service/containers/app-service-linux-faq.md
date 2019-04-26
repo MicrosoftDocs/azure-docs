@@ -158,7 +158,7 @@ In order to use ACR with multi-container, **all container images** need to be ho
 Create the following application settings:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (full URL, ex: https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_URL (full URL, ex: `https://<server-name>.azurecr.io`)
 - DOCKER_REGISTRY_SERVER_PASSWORD (enable admin access in ACR settings)
 
 Within the configuration file, reference your ACR image like the following example:

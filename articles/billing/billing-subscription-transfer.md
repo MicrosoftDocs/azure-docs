@@ -15,7 +15,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
@@ -25,7 +25,7 @@ Transfer your subscription to another user in the Account Center to change the A
 
 > [!IMPORTANT]
 > 
-> If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../role-based-access-control/overview.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
+> If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../role-based-access-control/overview.md) are permanently deleted from the source tenant and are not migrated to the target tenant. You also have to manually recreate managed identities for Azure resources. For more information, see [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
 
 ## Transfer ownership of an Azure subscription
 
@@ -47,7 +47,7 @@ Transfer your subscription to another user in the Account Center to change the A
 
    > [!IMPORTANT]
    > 
-   > If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../role-based-access-control/overview.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
+   > If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../role-based-access-control/overview.md) are permanently deleted from the source tenant and are not migrated to the target tenant. You also have to manually recreate managed identities for Azure resources. For more information, see [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
 
    ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.PNG)
 

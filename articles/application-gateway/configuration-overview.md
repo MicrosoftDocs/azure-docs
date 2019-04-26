@@ -224,9 +224,9 @@ Choose listener as the redirection target to redirect traffic from one listener 
 ![Application Gateway components dialog box](./media/configuration-overview/configure-redirection.png)
 
 For more information about HTTP-to-HTTPS redirection, see:
-- [HTTP-to-HTTP redirection by using the Azure portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
-- [HTTP-to-HTTP redirection by using PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
-- [HTTP to HTTP redirection by using the Azure CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
+- [HTTP-to-HTTPS redirection by using the Azure portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
+- [HTTP-to-HTTPS redirection by using PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
+- [HTTP-to-HTTPS redirection by using the Azure CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
 
 ##### External site
 

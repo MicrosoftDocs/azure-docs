@@ -3,11 +3,11 @@ title: This quickstart shows you how to enroll X.509 devices to the Azure Device
 description: This quickstart uses group enrollments. In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using the Node.js service SDK
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/21/2017
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
-manager: timlt
+manager: philmea
 ms.devlang: nodejs
 ms.custom: mvc
 ---
@@ -45,7 +45,7 @@ To use this test tooling to generate certificates, perform the following steps:
    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
    ```
 
-   The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
+   You should expect this operation to take several minutes to complete.
 
    The test tooling is located in the *azure-iot-sdk-c/tools/CACertificates* of the repository you cloned.    
 

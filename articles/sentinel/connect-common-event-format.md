@@ -1,6 +1,6 @@
 ---
-title: Collect CEF data in Azure Sentinel Preview| Microsoft Docs
-description: Learn how to collect CEF data in Azure Sentinel.
+title: Connect CEF data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect CEF data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -26,8 +26,7 @@ ms.author: rkarlin
 
 You can connect Azure Sentinel with an external solution that enables you to save log files in Syslog. If your appliance enables you to save logs as Syslog Common Event Format (CEF), the integration with Azure Sentinel enables you to easily run analytics and queries across the data.
 
-> [!NOTE]
-> 
+> [!NOTE] 
 > Data is stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
 ## How it works
@@ -56,7 +55,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 ### Deploy the agent in Azure
 
 
-1. In the Azure Sentinel portal, click **Data collection** and select your appliance type. 
+1. In the Azure Sentinel portal, click **Data connectors** and select your appliance type. 
 
 1. Under **Linux Syslog agent configuration**:
    - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated Linux VM that is automatically connected to your workspace, is . The VM is a **standard D2s v3 (2 vcpus, 8 GB memory)** and has a public IP address.
@@ -93,7 +92,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a dedicated Linux server.
 
 
-1. In the Azure Sentinel portal, click **Data collection** and select your appliance type.
+1. In the Azure Sentinel portal, click **Data connectors** and select your appliance type.
 1. To create a dedicated Linux VM, under **Linux Syslog agent configuration** choose **Manual deployment**.
    1. Under **Download and install the Syslog agent**, select **Non-Azure Linux machine**. 
    1. In the **Direct agent** screen that opens, select **Agent for Linux** to download the agent or run this command to download it on your Linux machine:

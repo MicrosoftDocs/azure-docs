@@ -72,7 +72,7 @@ After you associate a subscription to a different directory, there might be addi
 
 1. If you have any key vaults, you must change the key vault tenant ID. For more information, see [Change a key vault tenant ID after a subscription move](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. If you have registered an Azure Stack using this subscription, you must re-register. For more information, see [Register Azure Stack with Azure](../../azure-stack/azure-stack-registration.md).
+2. If you have registered an Azure Stack using this subscription, you must re-register. For more information, see [Register Azure Stack with Azure](/azure-stack/operator/azure-stack-registration).
 
 
 

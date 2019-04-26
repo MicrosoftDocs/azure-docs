@@ -1,6 +1,6 @@
 ---
-title: Collect Azure ATP data in Azure Sentinel Preview| Microsoft Docs
-description: Learn how to collect Azure ATP data in Azure Sentinel.
+title: Connect Azure ATP data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect Azure ATP data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
-# Collect data from Azure Advanced Threat Protection (ATP)
+# Connect data from Azure Advanced Threat Protection (ATP)
 
 > [!IMPORTANT]
 > Azure Sentinel is currently in public preview.
@@ -39,7 +39,7 @@ If Azure ATP is deployed and ingesting your data, the suspicious alerts can easi
 
 
 
-1. In Azure Sentinel, select **Data collection** and then click the **Azure ATP** tile.
+1. In Azure Sentinel, select **Data connectors** and then click the **Azure ATP** tile.
 
 2. Click **Connect**.
 
