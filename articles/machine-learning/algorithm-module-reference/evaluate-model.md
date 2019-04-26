@@ -8,16 +8,11 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Evaluate Model module
-
-*Evaluates the results of a classification or regression model with standard metrics*  
-  
- Category: Machine Learning / Evaluate 
-  
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 

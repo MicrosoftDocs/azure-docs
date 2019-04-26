@@ -8,14 +8,12 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
 # Apply Transformation module
-
-*Applies a well-specified data transformation to a dataset*  
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 

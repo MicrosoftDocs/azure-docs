@@ -8,16 +8,12 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
 # Add Rows module
-
-*Appends a set of rows from an input dataset to the end of another dataset*  
-
- Category: Data Transformation / Manipulation 
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 

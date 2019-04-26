@@ -8,17 +8,11 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Create Python Model
-
-*Creates a Python model using custom script*
-
-Category: Python Language Modules
-
-## Module overview
 
 This article describes how to use the **Create Python Model** module to create an untrained model from a Python script. 
 

@@ -16,9 +16,9 @@ ms.custom: seodec18
 
 # What is automated machine learning?
 
-Automated machine learning, also referred to as AutoML, allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. 
+Automated machine learning, also referred to as AutoML, allows data scientists, analysts, and developers to build ML models with high scale, efficiency and productivity all while sustaining model quality. 
 
-Automated ML builds a set of ML models automatically, fine-tunes them, and then recommends the best one for you. Traditional machine learning model development is resource-intensive-- requiring significant domain knowledge and time to produce and compare dozens of models. With automated ML, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
+Automated ML builds a set of ML models automatically, intelligently selecting models for training and then recommends the best one for you. Traditional machine learning model development is resource-intensive requiring significant domain knowledge and time to produce and compare dozens of models. With automated ML, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
 Behind the scenes, your training data is taken with a defined target feature, and intelligently iterated upon through combinations of ML algorithms and feature selections. Then, based on training scores, the best fitted model is identified and recommended to you. 
 
@@ -26,19 +26,13 @@ You still have control over your experiment and transparency into what is happen
 
 ## How automated ML works
 
-Using **Azure Machine Learning service**, you can design and run your automated ML training experiments [in Azure portal](how-to-create-portal-experiments.md) interface or using the [Python SDK](how-to-configure-auto-train.md).  When you use Azure Machine Learning to automate ML modeling and tuning, you go through these steps:
+Using **Azure Machine Learning service**, you can design and run your automated ML training experiments with these steps:
 
-1. **Identify the ML problem (**Classification**, **Forecasting**, or **Regression**) to be solved.** See the full [list of models](how-to-configure-auto-train.md#select-your-experiment-type).
+1. **Identify the ML problem** to be solved: classification, forecasting, or regression
    
-1. **Specify the training data's source and format.** 
-   + Data must be labeled. 
-   + Store data in your development environment (alongside your training scripts) or in Azure Blob Storage. This directory is copied to the compute target you select for training.
-   + Script data can be read into Numpy arrays or a Pandas dataframe.
-   + Use split options for training and validation data, or specify separate training and validation data sets.
+1. **Specify the source and format of the labelled training data**: Numpy arrays or Pandas dataframe
 
-1. **Configure the compute target for model training.** 
-   
-   Options include [your local computer, an Azure Machine Learning Compute, a remote VM, Azure Databricks](how-to-set-up-training-targets.md).  Learn more about using automated training [on a remote resource](how-to-auto-train-remote.md)
+1. **Configure the compute target for model training**, such as your [local computer, Azure Machine Learning Computes, remote VMs, or Azure Databricks](how-to-set-up-training-targets.md).  Learn about automated training [on a remote resource](how-to-auto-train-remote.md).
 
 1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  You can configure the settings for automatic training experiment [in Azure portal](how-to-create-portal-experiments.md) or [with the SDK](how-to-configure-auto-train.md).
 
@@ -47,7 +41,7 @@ Using **Azure Machine Learning service**, you can design and run your automated 
 
 [![Automated Machine learning](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
 
-During training, the Azure Machine Learning service creates a number of pipelines that try different algorithms and parameters. It will stop once it hits the iteration limit you provide, or when it reaches the target value for the metric you specify.  
+During training, the Azure Machine Learning service creates a number of pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment. 
 
 You can also inspect the logged run information, which contains metrics gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
@@ -87,9 +81,12 @@ You can train ensemble models using automated machine learning with the [Caruana
 
 With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. The ONNX runtime supports  C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Try an example of this flow [in this Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-with-onnx/auto-ml-classification-with-onnx.ipynb).
 
-## Automated ML in other Microsoft solutions.
+## Automated ML across Microsoft
 
-Automated ML is also available for .NET apps using Visual Studio and Visual Studio Code with [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet) as well as in Power BI.
+Automated ML is also available in other Microsoft solutions such as:
++ In .NET apps using Visual Studio and Visual Studio Code with [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet)
++ [On HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), where you scale out your automated ML training jobs on Spark in HDInsight clusters in parallel. 
++ [In Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)
 
 ## Next steps
 
@@ -100,5 +97,7 @@ See examples and learn how to build models using Automated Machine Learning:
 + Configure the settings for automatic training experiment: 
    + In Azure portal interface, [use these steps](how-to-create-portal-experiments.md).
    + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
+  
+ + Learn how to auto train using time series data, [use these steps](how-to-auto-train-forecast.md).
 
 + Try out [Jupyter Notebook samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)

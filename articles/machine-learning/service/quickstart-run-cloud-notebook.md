@@ -57,17 +57,15 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
 
-1. Select **Jupyter** in the **Launch** column for your VM.  
+1. Select **Jupyter** in the **URI** column for your VM.  
 
     ![Start the Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-server.png)
 
-    The link starts your notebook server and opens the server homepage in a new browser tab.  
+    The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM.
 
-1. The notebook server opens in a new browser tab.  The URL can only be used by the person who creates the VM.
+1. On the Jupyter notebook webpage, select the **samples/quickstart** folder to see the quickstart notebook.
 
-1. Select the **samples/quickstart** folder to see the quickstart notebook.
-
-### Run the notebook
+## Run the notebook
 
 Run a notebook that estimates pi and logs the error to your workspace.
 
@@ -84,13 +82,11 @@ Run a notebook that estimates pi and logs the error to your workspace.
 1.  Click into the first code cell and select **Run**.
 
     > [!NOTE]
-    > Code cells have brackets before them. If the brackets are empty (__[  ]__), the code has not been run. While the code is running, you see an asterisk(__[*]__). After the code completes, a number **[1]** appears.
+    > Code cells have brackets before them. If the brackets are empty (__[  ]__), the code has not been run. While the code is running, you see an asterisk(__[*]__). After the code completes, a number **[1]** appears.  The number tells you the order in which the cells ran.
     >
     > Use **Shift-Enter** as a shortcut to run a cell.
 
     ![Run the first code cell](media/quickstart-run-cloud-notebook/cell1.png)
-
-1. The notebook contains instructions titled **Important note** which you can ignore.  This information is only applicable when using the notebook From Azure Notebooks.  
 
 1. Run the second code cell. If you see instructions to authenticate, copy the code and follow the link to sign in. Once you sign in, your browser will remember this setting.  
 
@@ -99,13 +95,11 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
     ![Authenticate](media/quickstart-run-cloud-notebook/authenticate.png)
 
-1. When you are done, the cell number __[ 2 ]__ appears and you see a successful authentication status message.
+1. When you are done, the cell number __[2]__ appears.  If you had to sign in, you will see a successful authentication status message.   If you didn't have to sign in, you won't see any output for this cell, only the number appears to show that the cell ran successfully.
 
     ![Success message](media/quickstart-run-cloud-notebook/success.png)
 
-1. Skip the next code cell which includes `!az-login`.  You are already logged in.
-
-1. Run the rest of the cells, starting with `experiment = Experiment(workspace = ws, name = "my-first-experiment")`.
+1. Run the rest of the code cells.  As each cell finishes running, you will see its cell number appear. Only the last cell displays any other output.  In the largest code cell, you see `run.log`  used in multiple places. Each `run.log` adds its value to your workspace.
 
 
 ## View logged values

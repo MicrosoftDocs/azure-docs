@@ -8,16 +8,12 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
 # Decision Forest Regression module
-
-*Creates a regression model using the decision forest algorithm*
-
-Category: Initialize Model - Regression
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
