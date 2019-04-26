@@ -19,7 +19,9 @@ ms.custom: seodec18
 
 # Media Services concepts
 
-This topic gives a brief overview of Azure Media Services concepts and provides links to articles with in-depth explanation of Media Services v3 concepts and functionality. The fundamental concepts described in these topics should be reviewed prior to starting development.
+This topic gives a brief overview of Azure Media Services terminology and concepts. The article also provides links to articles with in-depth explanation of Media Services v3 concepts and functionality. 
+
+The fundamental concepts described in these topics should be reviewed prior to starting development.
 
 > [!NOTE]
 > Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
@@ -36,7 +38,7 @@ In Media Services v3, **Live Event** = **Channel**.
 
 ### Origin/Streaming Endpoint
 
-An **Origin** represents a dynamic packaging and streaming service that can deliver live or on-demand content directly to a client player application. You can choose to dynamically encrypt the content. 
+An **Origin** represents a dynamic packaging and streaming service that can deliver your live and on-demand content encrypted dynamically directly to a client player application.  
 
 In Media Services v3, **Origin** = **Streaming Endpoint**.
  
