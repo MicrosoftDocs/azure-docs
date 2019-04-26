@@ -130,7 +130,9 @@
     - name: Common alert schema
       href: platform/alerts-common-schema.md
     - name: Action rules
-      href: platform/alerts-action-rules.md  
+      href: platform/alerts-action-rules.md
+    - name: Change analysis
+      href: app/change-analysis.md 
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations
