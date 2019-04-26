@@ -168,7 +168,7 @@ Within the storage account, the enrichments can be expressed as tables within Az
 
 + Blob storage creates one all-inclusive JSON representation of each document. You can use both storage options in one skillset to get a full range of expressions.
 
-+ Azure Search persists content in an index. If your scenario is non-search-related, for example if your objective is analysis in another tool, you can delete the index that the pipeline creates. But you could also keep the index and use a built-in tool like [Search Explorer](search-explorer.md) as third medium (behind Storage Explorer and your analytics app) for interacting with your content.
++ Azure Search persists content in an index. If your scenario is non-search-related, for example if your objective is analysis in another tool, you can delete the index that the pipeline creates. But you could also keep the index and use a built-in tool like [Search Explorer](search-explorer.md) as a third medium (behind Storage Explorer and your analytics app) for interacting with your content.
 
 Along with document contents, enriched documents include the metadata of the skillset version that produced the enrichments.  
 
