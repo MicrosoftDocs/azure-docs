@@ -18,7 +18,7 @@ In this article, you learn to how to create and manage snapshots of your [Azure 
 **Dataset snapshots** store a profile (summary statistics) of the data at the time it's created. You can choose to also store a copy of the data in your snapshot for reproducibility. 
 
 >[!Important]
-> Snapshots incur storage costs. Adding data to your snapshot requires even more storage. Remember to [delete](#delete) snapshots when they are no longer needed.
+> Snapshots incur storage costs. Storing a copy of data in your snapshot requires even more storage. Use [`dataset.delete_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#delete-snapshot-snapshot-name-) when they are no longer needed.
 
 ## When to use snapshots
 
@@ -40,7 +40,7 @@ To create a snapshot of a dataset, use [`dataset.create_snapshot()`](https://doc
 
 By default, the snapshot stores the profile (summary statistics) of the data with the latest [dataset definition](how-to-manage-dataset-definitions.md) applied. A dataset definition contains a record of any transformation steps defined for the data. It is a great way to make your data prep work reproducible.
 
-Optionally, you can also include a copy of the data in your snapshot by adding `create_data_snapshot = True`.  This data can be useful for reproducibility.
+Optionally, you can also include a copy of the data in your snapshot by adding `create_data_snapshot = True`.  This data can be useful for reproducibility. 
 
 This example uses [sample crime data](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) and a dataset called `dataset_crime` created using the article, ["Create and register datasets"](how-to-create-register-datasets.md).
 
@@ -92,6 +92,7 @@ Dataset definition version: 1,
 Snapshot created date: 2019-05-11 17:24:00+00:00)
 ```
 
+Use [`dataset.delete_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#delete-snapshot-snapshot-name-) when they are no longer needed.
 
 ## Find snapshots
 
@@ -135,14 +136,7 @@ Beat|FieldType.INTEGER|531|2433|10.0|0.0|10.0|0.0|0.0|0.0|531|531|531|614|1318.5
 District|FieldType.INTEGER|5|24|10.0|0.0|10.0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|13.5|6.94822|48.2778|0.0930109|-1.62325
 Ward|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0.0|0.0|1|5|1|9|22.5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
 Community Area|FieldType.INTEGER|4|77|10.0|0.0|10.0|0.0|0.0|0.0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
-FBI Code|FieldType.INTEGER|6|11|10.0|0.0|10.0|0.0|0.0|0.0|6|6|6|6|11|11|11|11|11|9.4|2.36643|5.6|-0.702685|-1.59582
-X Coordinate|FieldType.INTEGER|1.16309e+06|1.18336e+06|10.0|7.0|3.0|0.7|0.0|0.0|1.16309e+06|1.16309e+06|1.16309e+06|1.16401e+06|1.16678e+06|1.17921e+06|1.18336e+06|1.18336e+06|1.18336e+06|1.17108e+06|10793.5|1.165e+08|0.335126|-2.33333
-Y Coordinate|FieldType.INTEGER|1.8315e+06|1.908e+06|10.0|7.0|3.0|0.7|0.0|0.0|1.8315e+06|1.8315e+06|1.8315e+06|1.83614e+06|1.85005e+06|1.89352e+06|1.908e+06|1.908e+06|1.908e+06|1.86319e+06|39905.2|1.59243e+09|0.293465|-2.33333
-Year|FieldType.INTEGER|2016|2016|10.0|0.0|10.0|0.0|0.0|0.0|2016|2016|2016|2016|2016|2016|2016|2016|2016|2016|0|0|NaN|NaN
-Updated On|FieldType.DATE|2016-05-11 15:48:00+00:00|2016-05-27 15:45:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Latitude|FieldType.DECIMAL|41.6928|41.9032|10.0|7.0|3.0|0.7|0.0|0.0|41.6928|41.6928|41.6928|41.7057|41.7441|41.8634|41.9032|41.9032|41.9032|41.78|0.109695|0.012033|0.292478|-2.33333
-Longitude|FieldType.DECIMAL|-87.6764|-87.6043|10.0|7.0|3.0|0.7|0.0|0.0|-87.6764|-87.6764|-87.6764|-87.6734|-87.6645|-87.6194|-87.6043|-87.6043|-87.6043|-87.6484|0.0386264|0.001492|0.344429|-2.33333
-Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7.0||||||||||||||
+
 
 ### Get the data from the snapshot
 
@@ -151,7 +145,7 @@ To get a copy of the data saved in a dataset snapshot, generate a pandas DataFra
 This method fails if a copy of the data was not requested during snapshot creation. 
 
 ```Python
-snapshot.to_pandas_dataframe().head(5)
+snapshot.to_pandas_dataframe().head(3)
 ```
 
 ||ID|Case Number|Date|Block|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Location
@@ -159,22 +153,7 @@ snapshot.to_pandas_dataframe().head(5)
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|1153|DECEPTIVE PRACTICE|FINANCIAL IDENTITY THEFT OVER $ 300|OTHER|False|False|...|9|50|11|1183356.0|1831503.0|2016|2016-05-11 15:48:00|41.692834|-87.604319|(41.692833841, -87.60431945)
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|890|THEFT|FROM BUILDING|RESIDENCE|False|False|...|21|71|6|1166776.0|1850053.0|2016|2016-05-12 15:48:00|41.744107|-87.664494|(41.744106973, -87.664494285)
 2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO AVE|1154|DECEPTIVE PRACTICE|FINANCIAL IDENTITY THEFT $300 AND UNDER|RESIDENCE|False|False|...|19|74|11|NaN|NaN|2016|2016-05-12 15:50:00|NaN|NaN|
-3|10519591|HZ261534|2016-04-15 09:00:00|113XX S PRAIRIE AVE|1120|DECEPTIVE PRACTICE|FORGERY|RESIDENCE|False|False|...|9|49|10|NaN|NaN|2016|2016-05-13 15:51:00|NaN|NaN|
-4|10534446|HZ277630|2016-04-15 10:00:00|055XX N KEDZIE AVE|890|THEFT|FROM BUILDING|SCHOOL, PUBLIC, BUILDING|False|False|...|40|13|6|NaN|NaN|2016|2016-05-25 15:59:00|NaN|NaN|
 
-<a name="delete"></a>
-
-## Delete snapshots
-
-Since snapshots incur storage costs, delete obsolete snapshots when they are no longer needed. To delete, use the [`delete_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#delete-snapshot-snapshot-name-) method and specify the name of the snapshot.
-
-```Python
-# delete the snapshot by name
-dataset.delete_snapshot(snapshot_name)
-
-# verify it is gone
-dataset.get_all_snapshots()
-```
 
 ## Next steps
 
