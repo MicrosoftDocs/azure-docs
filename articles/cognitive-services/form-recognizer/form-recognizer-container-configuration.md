@@ -11,7 +11,7 @@ ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
 ---
-# Configure containers
+# Configure Form Recognizer containers
 
 Form Recognizer containers enable customers to build an application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality.
 
