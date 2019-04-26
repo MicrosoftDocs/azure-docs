@@ -86,7 +86,10 @@ With Azure Machine Learning, you can use automated ML to build a Python model an
 
 ## Automated ML in other Microsoft solutions.
 
-Automated ML is also available for .NET apps using Visual Studio and Visual Studio Code with [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet) as well as in Power BI.
+Automated ML is also available in other Microsoft solutions such as:
++ In .NET apps using Visual Studio and Visual Studio Code with [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet)
++ [On HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), where you scale out your automated ML training jobs on Spark in HDInsight clusters in parallel. 
++ [In Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)
 
 ## Next steps
 
