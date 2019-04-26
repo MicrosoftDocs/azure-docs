@@ -25,4 +25,4 @@ Make your application great:
 
 Test your integration:
 
-- Follow the [Microsoft identity platform integration checklist](../articles/active-directory/develop/active-directory-integration-checklist.md).
+- Follow the [Microsoft identity platform integration checklist](../articles/active-directory/develop/identity-platform-integration-checklist.md).

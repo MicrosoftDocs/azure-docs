@@ -31,7 +31,7 @@ Follow the steps needed to make your app production ready.
 
 ## Test your integration
 
-- Test your integration by following the [Microsoft identity platform integration checklist](active-directory-integration-checklist.md).
+- Test your integration by following the [Microsoft identity platform integration checklist](identity-platform-integration-checklist.md).
 
 ## Next steps
 

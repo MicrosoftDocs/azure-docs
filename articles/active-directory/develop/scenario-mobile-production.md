@@ -42,7 +42,7 @@ Collecting data will help your app diagnose issues. For more detail on the type 
 
 ## Testing your app
 
-Be sure to test your app against the [Integration check list](active-directory-integration-checklist.md).
+Be sure to test your app against the [Integration check list](identity-platform-integration-checklist.md).
 
 ## Next steps
 
