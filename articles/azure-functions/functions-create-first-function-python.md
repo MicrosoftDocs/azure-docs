@@ -168,4 +168,4 @@ You're now ready to publish your local functions project to the function app in 
 You've created a Python functions project with an HTTP triggered function, run it on your local machine, and deployed it to Azure. Now, extend your function by...
 
 > [!div class="nextstepaction"]
-> [Adding an Azure Storage queue output binding](add-output-binding-storage-queue-python.md)
+> [Adding an Azure Storage queue output binding](functions-add-output-binding-storage-queue-python.md)
