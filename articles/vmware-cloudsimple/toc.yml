@@ -160,17 +160,4 @@
         href: https://docs.azure.cloudsimple.com/er-connection/
       - name: Azure Virtual network connection with ExpressRoute
         href: https://docs.azure.cloudsimple.com/azure-er-connection/
-  - name: Resources
-    items:
-    - name: Region availability
-      href: https://docs.azure.cloudsimple.com/cloudsimple-region/
-    - name: Pricing
-      href: https://docs.azure.cloudsimple.com/cloudsimple-pricing/
-    - name: Release notes
-      href: https://docs.azure.cloudsimple.com/release-notes/
-    - name: Security
-      href: https://docs.azure.cloudsimple.com/cloudsimple-security/
-    - name: Common questions
-      href: https://docs.azure.cloudsimple.com/cloudsimple-common-questions/
-    - name: Support options
-      href: https://docs.azure.cloudsimple.com/cloudsimple-support-options/
+
