@@ -125,9 +125,9 @@ Unregister a SQL Server instance after you disable protection but before you del
 
 3. In **Protected Servers**, select the server to unregister. To delete the vault, you must unregister all servers.
 
-4. Right-click the protected server, and select **Delete**.
+4. Right-click the protected server, and select **Unregister**.
 
-   ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.png)
+   ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
 ## Re-register extension on the SQL Server VM
 
