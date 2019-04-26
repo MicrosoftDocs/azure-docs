@@ -305,19 +305,19 @@
           - name: Troubleshooting and known issues
             href: app/status-monitor-troubleshoot.md
           - name: API Disable-InstrumentationEngine
-            href: app/status-monitor-api-disableinstrumentationengine.md
+            href: app/status-monitor-api-disable-instrumentation-engine.md
           - name: API Disable-ApplicationInsightsMonitoring
-            href: app/status-monitor-api-disablemonitoring.md
+            href: app/status-monitor-api-disable-monitoring.md
           - name: API Enable-InstrumentationEngine
-            href: app/status-monitor-api-enableinstrumentationengine.md
+            href: app/status-monitor-api-enable-instrumentation-engine.md
           - name: API Enable-ApplicationInsightsMonitoring
-            href: app/status-monitor-api-enablemonitoring.md
+            href: app/status-monitor-api-enable-monitoring.md
           - name: API Get-ApplicationInsightsMonitoringConfig
-            href: app/status-monitor-api-getconfig.md
+            href: app/status-monitor-api-get-config.md
           - name: API Get-ApplicationInsightsMonitoringStatus
-            href: app/status-monitor-api-getstatus.md
+            href: app/status-monitor-api-get-status.md
           - name: API Set-ApplicationInsightsMonitoringConfig
-            href: app/status-monitor-api-setconfig.md
+            href: app/status-monitor-api-set-config.md
         - name: Windows services
           href: app/windows-services.md
         - name: Windows desktop
