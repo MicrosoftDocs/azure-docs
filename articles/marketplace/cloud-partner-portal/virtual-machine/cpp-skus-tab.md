@@ -79,7 +79,7 @@ Starting September 1 2018, a new section called **Simplified Currency Pricing** 
 
 ### Additional information on taxes and prices
 
-* Microsoft classifies some countries as *tax remitted countries*.  In such countries, Microsoft collects taxes from customers then pays (remits) taxes to the government.  In other countries, partners are typically responsible for collecting taxes from their customers and paying taxes to the government. If you choose to sell in the latter countries, you must have the capability to calculate and pay local taxes.  <!-- TD: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
+* Microsoft classifies some countries/regions as *tax remitted countries*.  In such countries/regions, Microsoft collects taxes from customers then pays (remits) taxes to the government.  In other countries/regions, partners are typically responsible for collecting taxes from their customers and paying taxes to the government. If you choose to sell in the latter countries/regions, you must have the capability to calculate and pay local taxes.  <!-- TD: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
 * Prices are not changeable once an offer goes live. However, you may still add or remove supported regions. 
 * Microsoft charges the customer standard Azure VM usage fees in addition to your scheduled SKU fees.
 * Prices are set for all regions in local currency on available currency rates at the time of setting prices.  <!-- TD: Meaning? - Offer created, published, other? -->
