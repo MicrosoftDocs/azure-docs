@@ -30,7 +30,9 @@ This tutorial guides you through the process of creating your own single-page we
 
 * Sign up for a [free Azure subscription](https://azure.microsoft.com/free/), if you don't already have one.
 
-* You'll also need to install Visual Studio if you haven't already. For this tutorial, [download the free Community version](https://www.visualstudio.com/downloads/).
+* You'll also need a free copy of Visual Studio. Download the [2017 or 2019 Community version](https://www.visualstudio.com/downloads/) to get started.
+
+* You'll also need the **IIS Express**, **Web Deploy**, and **Azure Cloud Services core tools** components for Visual Studio. Add these by modifying your Visual Studio installation.
 
 ## Application design overview
 
@@ -95,9 +97,19 @@ Before building the application, you need to register it with Azure AD. Registra
    > Depending on the browser, you may need to correct the file extension (to HTML or CSS), before saving the file.
 
    - [**index.html**](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): HTML and JavaScript for the page.
-   - [**sampleStyles.css**]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): CSS style sheet
+   - [**sampleStyles.css**]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): CSS style sheet.
 
-1. Start and sign in to Visual Studio, to create a project for the web application. On the **File** menu, select the **Open**, **Web Site** option. On the **Open Web Site** dialog, select the working directory where you stored the HTML and CSS files, then click **Open**:
+1. Verify that Visual Studio has the necessary components installed.
+
+    [![VS - Modify installed components](media/tutorial-create-tsi-sample-spa/vs-installation.png)](media/tutorial-create-tsi-sample-spa/vs-installation.png#lightbox)
+
+    * You'll need the **IIS Express**, **Web Deploy**, and **Azure Cloud Services core tools** components for Visual Studio.
+
+1. Start and sign in to Visual Studio, to create a project for the web application. On the **File** menu, select the **Open**, **Web Site** option.
+
+    [![VS - Create new solution](media/tutorial-create-tsi-sample-spa/vs-solution-create.png)](media/tutorial-create-tsi-sample-spa/vs-solution-create.png#lightbox)
+
+1. On the **Open Web Site** dialog, select the working directory where you stored the HTML and CSS files, then click **Open**:
 
    [![VS - File open web site](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png#lightbox)
 
@@ -183,7 +195,7 @@ Error code/condition | Description
 ---------------------| -----------
 *AADSTS50011: No reply address is registered for the application.* | The Azure AD registration is missing the **Reply URL** property. Go to the **Settings** / **Reply URLs** page for your Azure AD application registration. Verify that the **Sign-on** URL specified in **step 3** of [Register the application with Azure AD](#register-the-application-with-azure-ad) is present.
 *AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: '\<Application ID GUID>'.* | The `postLogoutRedirectUri` specified in step #4.b of [Build and publish the web application](#build-and-publish-the-web-application), must match the value specified under the **Settings** / **Reply URLs** property in your Azure AD application registration. Be sure to also change **Destination URL** to use `https`, per **step 5** of [Build and publish the web application](#build-and-publish-the-web-application).
-Web application loads, but has an unstyled text-only sign-in page, with a white background. | Verify that the paths discussed in step #4.a of [Build and publish the web application](#build-and-publish-the-web-application) are correct. If the web application can't find the .css files, the page won't be styled correctly.
+Web application loads, but has an unstyled text-only sign-in page, with a white background. | Verify that the paths discussed in **step 4** of [Build and publish the web application](#build-and-publish-the-web-application) are correct. If the web application can't find the .css files, the page won't be styled correctly.
 
 ## Clean up resources
 
@@ -201,7 +213,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * The application design
 > * How to register your application with Azure Active Directory (AD)
-> * How to build, publish, and test your web application 
+> * How to build, publish, and test your web application
 
 This tutorial integrates with Azure AD, using the signed-in user's identity to acquire an access token. To learn how to access the TSI API using the identity of a service/daemon application, see:
 
