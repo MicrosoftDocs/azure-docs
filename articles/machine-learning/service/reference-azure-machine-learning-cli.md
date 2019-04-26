@@ -92,14 +92,14 @@ The following commands demonstrate how to use the CLI to manage resources used b
     az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
     ```
     
-## <a id="experiments"></a>Run experiments
+## <a id="experiments"></a>Run Experiments
 
 + Attach a workspace configuration to a folder to enable CLI contextual awareness.
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
 
-* Start a run of your experiment. When using this command, specify the name of the runconfig file that contains the run configuration.
+* Start a run of your experiment. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you are looking at your file system) against the -c parameter.
 
     ```azurecli-interactive
     az ml run submit-script -c local -e testexperiment train.py
@@ -124,5 +124,5 @@ The following commands demonstrate how to register a trained model, and then dep
 + Deploy your model to AKS
 
   ```azurecli-interactive
-  az ml model deploy -n myservice -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
   ```
