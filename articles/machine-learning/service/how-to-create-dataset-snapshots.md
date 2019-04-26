@@ -1,7 +1,7 @@
 ---
-title: Compare data over time with snapshots
+title: Compare & reproduce data over time with snapshots
 titleSuffix: Azure Machine Learning service
-description: Learn how to create and manage dataset snapshots
+description: Learn how to compare data over time and ensure reproducibility with dataset snapshots
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,21 +11,24 @@ author: MayMSFT
 ms.date: 05/02/2019
 ---
 
-# Compare or keep data over time with snapshots (preview)
+# Compare data and ensure reproducibility with snapshots (preview)
 
 In this article, you learn to how to create and manage snapshots of your [Azure Machine Learning Datasets](how-to-create-register-datasets.md) (datasets) so you can capture or compare data over time. Datasets make it easier to access and work with your data in the cloud in various scenarios. 
 
-**Dataset snapshots** store a profile (summary statistics) of the data at the time it's created. You can choose to also store a copy of the data in your snapshot. 
+**Dataset snapshots** store a profile (summary statistics) of the data at the time it's created. You can choose to also store a copy of the data in your snapshot for reproducibility. 
+
+>[!Important]
+> Snapshots incur storage costs. Adding data to your snapshot requires even more storage. Remember to [delete](#delete) snapshots when they are no longer needed.
 
 ## When to use snapshots
 
-Take snapshots at pivotal times in your ML workflow. Then, you can compare the data profile in one snapshot against the data profile in other snapshots. Understanding your data in this way can help you:
+There are three main uses for snapshots:
 
-+ Validate your models by comparing the profiles of your data between training runs or against production data. 
++ **Model validation**: Compare the data profile of different snapshots between training runs or against production data. 
 
-+ Check for reproducibility by comparing profiles prior to and after training. 
++ **Model reproducibility**: Reproduce your results by calling a snapshot that includes data during training. 
 
-+ Track data over time to see how the dataset has evolved.
++ **Track data over time**: See how the dataset has evolved.
   
 ## Prerequisites
 
@@ -37,10 +40,7 @@ To create a snapshot of a dataset, use [`dataset.create_snapshot()`](https://doc
 
 By default, the snapshot stores the profile (summary statistics) of the data with the latest [dataset definition](how-to-manage-dataset-definitions.md) applied. A dataset definition contains a record of any transformation steps defined for the data. It is a great way to make your data prep work reproducible.
 
-Optionally, you can also include a copy of the data in your snapshot by adding `create_data_snapshot = True`. 
-
->[!Important]
-> Snapshots incur storage costs. While data profiles take space, data copies take even more. You can [delete obsolete snapshots](#delete) when they are no longer needed.
+Optionally, you can also include a copy of the data in your snapshot by adding `create_data_snapshot = True`.  This data can be useful for reproducibility.
 
 This example uses [sample crime data](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) and a dataset called `dataset_crime` created using the article, ["Create and register datasets"](how-to-create-register-datasets.md).
 
