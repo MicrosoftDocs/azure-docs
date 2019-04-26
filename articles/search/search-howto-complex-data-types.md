@@ -17,7 +17,7 @@ External datasets used to populate an Azure Search index sometimes include hiera
 
 Azure Search natively supports complex types and collections. Together, these types allow you to model almost any nested JSON structure in an Azure Search index. In previous versions of Azure Search APIs, only flattened row sets could be imported. In the newest version, your index can now more closely correspond to source data. In other words, if your source data has complex types, your index can have complex types also.
 
-To get started, we recommend the [Hotels demo dat set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), which you can load in the **Import data** wizard. The wizard detects complex types in the source and infers those structures in the default index schema.
+To get started, we recommend the [Hotels demo data set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), which you can load in the **Import data** wizard. The wizard detects complex types in the source and infers those structures in the default index schema.
 
 > [!Note]
 > Support for complex types is generally available in `api-version=2019-05-06`. 
@@ -142,9 +142,9 @@ Indexers are a different story. When defining an indexer, in particular one used
 
 All of the [reindexing rules](search-howto-reindex.md) that apply to fields in general still apply to complex fields. Restating a few of the main ones here, adding a field does not require an index rebuild, but modifying a field does.
 
-For complex fields containing sub-fields (Addresses), or for collections of complex fields (Rooms), the unit of operation for adding or modifying fields is at the parent level. If you want to add a sub-field to Address, or change a field name, you will need to rebuild the index. 
+For complex fields containing sub-fields (Addresses), or for collections of complex fields (Rooms), the unit of operation for adding or modifying fields is on the structure as a whole. If you want to add or modify a sub-field in a complex type, you will need to rebuild the index. 
 
-Data refresh, where you pick up new or changed rows but leave the index structure intact, is always at the document level (assuming that the document has been updated in the source). 
+Routine data refresh behaviors, where you pick up new or changed rows but leave the index structure intact, vary for collections and non-collections. On simple fields or sub-fields that are one-level deep (like Address), data refresh overwrites old values with new. On collections, there is no "merge" support where you keep the original and add only the new. A revised collection must be submitted in its entirety, with the full complement of items that you want it to contain.
 
 ## Searching complex fields
 
@@ -192,7 +192,7 @@ Recall that fields must be marked as Filterable and Sortable in the index to be 
 
 ## Next steps
 
- Try the [Hotels demo dat set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) in the **Import data** wizard. You'll need the Cosmos DB connection information provided in the readme. 
+ Try the [Hotels demo data set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) in the **Import data** wizard. You'll need the Cosmos DB connection information provided in the readme. 
  
  With that information in hand, your first step in the wizard is to create a new Azure Cosmos DB data source. Further on, when you get to the target index page, you will see an index with complex types. Create and load this index, and then execute queries to understand the new structure.
 
