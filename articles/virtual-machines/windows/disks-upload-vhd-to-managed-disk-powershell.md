@@ -21,7 +21,7 @@ Currently, direct upload is supported for standard HDD, standard SSD, and premiu
 
 ## Prerequisites
 
-- Download the latest [preview version of AzCopy](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
+- Download the latest [preview version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 - A vhd file, stored locally.
 
@@ -62,10 +62,10 @@ Now that you have a SAS for your empty managed disk, you can use it to set your 
 
 Use AzCopy v10 to upload your local VHD file to a managed disk by specifying the SAS URI you generated.
 
-This upload has the same throughput as the equivalent [standard HDD](disks-types.md#standard-hdd). For example, if you have a size which equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size which equates to S70, you will have a throughput of up to 500 MiB/s.
+This upload has the same throughput as the equivalent [standard HDD](disks-types.md#standard-hdd). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
 
 ```
-AzCopy /Source:c:\somewhere\mydisk.vhd /Dest:$diskSas
+AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas --blob-type PageBlob
 ```
 
 If your SAS expires during upload, and you haven't called `revoke-access` yet, you can get a new SAS to continue the upload using `grant-access`, again.
