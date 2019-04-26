@@ -25,20 +25,30 @@ This article explains how to add an R package to Azure SQL Database Machine Lear
 
 - Install [R](https://www.r-project.org) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer. R is available for Windows, MacOS, and Linux. This article assumes you're using Windows.
 
-- This article includes an example of using [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) or [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is) to run an R script in Azure SQL Database. You can run R scripts using other database management or query tools, but this example assumes SSMS or Azure Data Studio.
+- This article includes an example of using [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is) or [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) to run an R script in Azure SQL Database. You can run R scripts using other database management or query tools, but this example assumes Azure Data Studio or SSMS.
    
 > [!NOTE]
-> You can't install a package by running an R script using **sp_execute_external_script** in SSMS. You can only install and remove packages using the R command line and R Desktop as described in this article. Once the package is installed, you can access the package functions in an R script using **sp_execute_external_script**.
+> You can't install a package by running an R script using **sp_execute_external_script** in Azure Data Studio or SSMS. You can only install and remove packages using the R command line and RStudio as described in this article. Once the package is installed, you can access the package functions in an R script using **sp_execute_external_script**.
 
 ## List R packages
 
 Microsoft provides a number of R packages pre-installed with Machine Learning Services in your Azure SQL database.
+You can see a list of installed R packages by running the following command in Azure Data Studio or SSMS.
 
-You can see a list of installed R packages by running the following R script in RStudio. The list displays information for each package, including version, dependencies, and license information.
+1. Open Azure Data Studio or SSMS and connect to your Azure SQL Database.
 
-```R
-r=installed.packages()[,c("Package", "Version", "Depends", "License")]
-View(r)
+1. Run the following command:
+
+```sql
+EXECUTE sp_execute_external_script @language = N'R'
+    , @script = N'
+OutputDataSet <- data.frame(installed.packages()[,c("Package", "Version", "Depends", "License")]);'
+WITH RESULT SETS((
+            Package NVARCHAR(255)
+            , Version NVARCHAR(100)
+            , Depends NVARCHAR(4000)
+            , License NVARCHAR(1000)
+            ));
 ```
 
 The output should look similar to the following.
@@ -49,15 +59,15 @@ The output should look similar to the following.
 
 ## Add a package with sqlmlutils
 
-If you need to use a package that isn't already installed in your SQL database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils). **sqlmlutils** is a package designed to help users interact with SQL databases (SQL Server and Azure SQL Database) and execute R or Python code in SQL from an R/Python client. Currently, only the R version of sqlmlutils is supported in Azure SQL Database.
+If you need to use a package that isn't already installed in your Azure SQL Database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils). **sqlmlutils** is a package designed to help users interact with SQL databases (SQL Server and Azure SQL Database) and execute R or Python code in SQL from an R or Python client. Currently, only the R version of **sqlmlutils** is supported in Azure SQL Database.
 
-In the following example, you'll install the **[glue](https://cran.r-project.org/web/packages/glue/)** package that can format and interpolate strings. These steps install **sqlmlutils** and **RODBCext** (a prerequisite for **sqlmlutils**), and adds the **glue** package.
+In the following example, you'll install the **[glue](https://cran.r-project.org/web/packages/glue/)** package that can format and interpolate strings. These steps install **sqlmlutils** and **RODBCext** (a prerequisite for **sqlmlutils**), and add the **glue** package.
 
 ### Install **sqlmlutils**
 
 1. Download the latest **sqlmlutils** zip file from https://github.com/Microsoft/sqlmlutils/tree/master/R/dist to your local computer. You don't need to unzip the file.
 
-1. Open a **Command Prompt** and run the following commands to install the **RODBCext** package and then **sqlmlutils**. Substitute the full path to the **sqlmlutils** zip file you downloaded (the example assumes the file is in your Documents folder).
+1. Open a **Command Prompt** and run the following commands to install **RODBCext** and **sqlmlutils** on your local computer. Substitute the full path to the **sqlmlutils** zip file you downloaded (the example assumes the file is in your Documents folder).
     
     ```console
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
@@ -69,7 +79,7 @@ In the following example, you'll install the **[glue](https://cran.r-project.org
     ```text
     In R CMD INSTALL
     * installing to library 'C:/Users/<username>/Documents/R/win-library/3.5'
-    package 'sqlmlutils' successfully unpacked and MD5 sums checked
+    package sqlmlutils successfully unpacked and MD5 sums checked
     ```
 
     > [!TIP]
@@ -79,7 +89,7 @@ In the following example, you'll install the **[glue](https://cran.r-project.org
 
 1. Open RStudio and create a new **R Script** file. 
 
-1. Use the following R code to install the **glue** package using `sqlmlutils`. Substitute your own connection information.
+1. Use the following R code to install the **glue** package using **sqlmlutils**. Substitute your own Azure SQL Database connection information.
 
     ```R
     library(sqlmlutils)
@@ -97,7 +107,7 @@ In the following example, you'll install the **[glue](https://cran.r-project.org
 
 ### Verify the package
 
-Verify that the **glue** package has been installed by running the following R script in RStudio.
+Verify that the **glue** package has been installed by running the following R script in RStudio. Use the same **connection** you defined in the previous step.
 
 ```R
 r<-sql_installed.packages(connectionString = connection, fields=c("Package", "Version", "Depends", "License"))
@@ -112,9 +122,9 @@ View(r)
 
 Once the package is installed, you can use it in an R script through **sp_execute_external_script**.
 
-1. Open SSMS or Azure Data Studio and connect to your SQL database.
+1. Open Azure Data Studio or SSMS and connect to your Azure SQL Database.
 
-1. Run the following script:
+1. Run the following command:
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
@@ -142,7 +152,7 @@ Once the package is installed, you can use it in an R script through **sp_execut
 
 ### Remove the package
 
-If you would like to remove the package, run the following R script in RStudio. This example assumes the connection information from the **sql_install.packages** command used earlier.
+If you would like to remove the package, run the following R script in RStudio. Use the same **connection** you defined earlier.
 
 ```R
 sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLIC")
