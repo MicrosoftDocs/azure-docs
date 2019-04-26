@@ -1,5 +1,5 @@
 ---
-title: Daemon app calling web APIs - scenario landing page overview | Azure
+title: Daemon app calling web APIs (overview) - Microsoft identity platform
 description: Learn how to build a daemon app that calls web APIs
 services: active-directory
 documentationcenter: dev-center-name

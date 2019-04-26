@@ -1,6 +1,6 @@
 ---
-title: Web app that calls web APIs - overview | Azure
-description: Learn how to build a Web app that calls web APIs (overview)
+title: Web app that calls web APIs (overview) - Microsoft identity platform
+description: Learn how to build a web app that calls web APIs (overview)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur

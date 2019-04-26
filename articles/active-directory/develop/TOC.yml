@@ -502,7 +502,7 @@
     - name: National Clouds 
       items:
       - name: Overview
-        href: authentication-national-cloud.md  
+        href: authentication-national-cloud.md
       - name: Authentication
         href: msal-national-cloud.md
   - name: How-to guides

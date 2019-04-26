@@ -1,6 +1,6 @@
 ---
-title: Web app that signs-in users - code configuration | Azure
-description: Learn how to build a Web app that signs-in users (code configuration)
+title: Web app that signs in users (code configuration) - Microsoft identity platform
+description: Learn how to build a web app that signs in users (code configuration)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -28,9 +28,9 @@ Learn how to configure the code for your Web app that signs-in users.
 <!-- This section can be in an include for Web App and Web APIs -->
 The libraries used to protect a Web App (and a Web API) are:
 
-  Platform | Library | Description
-  ------------ | ---------- | ------------
-![.NET](media/sample-v2-code/logo_net.png) | [Identity model extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Used directly by ASP.NET and ASP.NET Core, Microsoft Identity Extensions for .NET proposes a set of DLLs running both on .NET Framework and .NET Core. From an ASP.NET/ASP.NET Core Web app, you can control token validation using the **TokenValidationParameters** class (in particular in some ISV scenarios)
+| Platform | Library | Description |
+|----------|---------|-------------|
+| ![.NET](media/sample-v2-code/logo_net.png) | [Identity model extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Used directly by ASP.NET and ASP.NET Core, Microsoft Identity Extensions for .NET proposes a set of DLLs running both on .NET Framework and .NET Core. From an ASP.NET/ASP.NET Core Web app, you can control token validation using the **TokenValidationParameters** class (in particular in some ISV scenarios) |
 
 ## ASP.NET Core configuration
 
@@ -99,13 +99,9 @@ In ASP.NET Core, there's another file that contains the URL (`applicationUrl`) a
 }
 ```
 
-The Reply URIs that you need to register in the Authentication page for your application in the Azure portal needs to match these URLs, that is, for the two configuration files above, they would be `https://localhost:44321/signin-oidc` as:
-
-- the applicationUrl is `http://localhost:3110`,
-- but the `sslPort` is specified (44321),
-- and the `CallbackPath` is `/signin-oidc` as defined in the `appsettings.json`.
+In the Azure portal, the reply URIs that you need to register in the **Authentication** page for your application needs to match these URLs; that is, for the two configuration files above, they would be `https://localhost:44321/signin-oidc` as the applicationUrl is `http://localhost:3110` but the `sslPort` is specified (44321), and the `CallbackPath` is `/signin-oidc` as defined in the `appsettings.json`.
   
-In the same way, the sign out URI would be set to `https://localhost:44321/signout-callback-oidc`
+In the same way, the sign out URI would be set to `https://localhost:44321/signout-callback-oidc`.
 
 ### Initialization code
 

@@ -1,6 +1,6 @@
 ---
-title: Web app that signs-in users - sign-in | Azure
-description: Learn how to build a web app that signs-in users (sign-in)
+title: Web app that signs in users (sign in) - Microsoft identity platform
+description: Learn how to build a web app that signs-in users (sign in)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -19,7 +19,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Web app that signs-in users - sign-in
+# Web app that signs in users - sign in
 
 Learn how to add sign-in to the code for your web app that signs-in users.
 

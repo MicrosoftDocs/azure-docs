@@ -51,9 +51,13 @@ Working with identity doesn’t have to be hard. Choose a scenario that applies 
 - [Build a daemon app](scenario-daemon-overview.md)
 - [Build a mobile app](scenario-mobile-overview.md)
 
+<!--- We are making updates to the application scenarios chart. This is placeholder text for it.
+
 The following chart outlines the full set of authentication scenarios and best practices – use it as a reference when integrating the Microsoft identity platform before shipping your app.
 
 [![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
+
+--->
 
 ## Next steps
 

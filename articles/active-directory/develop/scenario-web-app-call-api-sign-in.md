@@ -1,6 +1,6 @@
 ---
-title: Web app that calls Web APIs - sign-in | Azure
-description: Learn how to build a Web app that calls Web APIs (sign-in)
+title: Web app that calls web APIs (sign in) - Microsoft identity platform
+description: Learn how to build a Web app that calls web APIs (sign in)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -19,7 +19,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Web app that calls Web APIs - sign in
+# Web app that calls web APIs - sign in
 
 You already know how to add sign-in to your web app. You learn that in [Web app that signs-in users - add sign-in](scenario-web-app-sign-user-sign-in.md).
 

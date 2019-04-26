@@ -29,7 +29,7 @@ Learn all you need to build a mobile app that calls web APIs.
 
 ## Overview
 
-When building a mobile app, a personalized, seamless end user experience is essential.  Microsoft identity platform enables mobile developers to do exactly this for iOS and Android users. Your application can sign in Azure AD, personal Microsoft account, and Azure AD B2C users and acquire tokens to call a web API on their behalf. To implement these flows, we'll use Microsoft Authentication Library (MSAL) which implements the industry standard [OAuth2.0 authorization code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow).
+When building a mobile app, a personalized, seamless end user experience is essential.  Microsoft identity platform enables mobile developers to do exactly this for iOS and Android users. Your application can sign in Azure AD, personal Microsoft account, and Azure AD B2C users and acquire tokens to call a web API on their behalf. To implement these flows, we'll use Microsoft Authentication Library (MSAL) which implements the industry standard [OAuth2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
 ![Daemon apps](./media/scenarios/mobile-app.svg)
 

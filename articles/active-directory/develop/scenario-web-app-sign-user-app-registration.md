@@ -1,6 +1,6 @@
 ---
-title: Web app that signs-in users - app registration | Azure
-description: Learn how to build a web app that signs-in users (app registration)
+title: Web app that signs in users (app registration) - Microsoft identity platform
+description: Learn how to build a web app that signs in users (app registration)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -19,7 +19,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Web app that signs-in users - app registration
+# Web app that signs in users - app registration
 
 This page explains the app registration specifics for a web app that signs-in users.
 

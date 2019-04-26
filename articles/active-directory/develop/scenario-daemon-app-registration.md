@@ -1,5 +1,5 @@
 ---
-title: Daemon app calling web APIs - app registration | Azure
+title: Daemon app calling web APIs (app registration) - Microsoft identity platform
 description: Learn how to build a daemon app that calls web APIs - app registration
 services: active-directory
 documentationcenter: dev-center-name

@@ -1,6 +1,6 @@
 ---
-title: Web app that calls Web APIs - move to production | Azure
-description: Learn how to build a Web app that calls Web APIs (move to production)
+title: Web app that calls web APIs (move to production) - Microsoft identity platform
+description: Learn how to build a web app that calls web APIs (move to production)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -19,11 +19,9 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Web app that calls Web APIs - move to production
+# Web app that calls web APIs - move to production
 
 Now that you know how to acquire a token to call Web APIs, learn how to move to production.
-
-## Improve your app
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 

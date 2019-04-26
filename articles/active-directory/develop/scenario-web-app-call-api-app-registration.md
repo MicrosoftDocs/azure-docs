@@ -1,6 +1,6 @@
 ---
-title: Web app that calls web APIs - app registration | Azure
-description: Learn how to build a Web app that calls web APIs (app registration)
+title: Web app that calls web APIs (app registration) - Microsoft identity platform
+description: Learn how to build a web app that calls web APIs (app registration)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur

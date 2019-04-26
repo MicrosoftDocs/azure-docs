@@ -1,5 +1,5 @@
 ---
-title: Mobile app that calls web APIs - move to production | Microsoft identity platform
+title: Mobile app that calls web APIs (move to production) - Microsoft identity platform
 description: Learn how to build a mobile app that calls Web APIs (move to production)
 services: active-directory
 documentationcenter: dev-center-name

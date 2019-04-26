@@ -1,5 +1,5 @@
 ---
-title: Single-page application - Call a web API | Azure
+title: Single-page application (call a web API) - Microsoft identity platform
 description: Learn how to build a single-page application (Call a web API)
 services: active-directory
 documentationcenter: dev-center-name

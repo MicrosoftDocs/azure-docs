@@ -1,5 +1,5 @@
 ---
-title:  Single-page application - Move to production | Azure
+title:  Single-page application (move to production) - Microsoft identity platform
 description: Learn how to build a single-page application (move to production)
 services: active-directory
 documentationcenter: dev-center-name

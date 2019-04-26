@@ -1,5 +1,5 @@
 ---
-title: Daemon app calling web APIs - app configuration | Azure
+title: Daemon app calling web APIs (app configuration) - Microsoft identity platform
 description: Learn how to build a daemon app that calls web APIs (app configuration)
 services: active-directory
 documentationcenter: dev-center-name

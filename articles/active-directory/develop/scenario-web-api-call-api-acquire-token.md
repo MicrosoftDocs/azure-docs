@@ -1,5 +1,5 @@
 ---
-title: Web API that calls other web APIs - acquiring a token for the app | Azure
+title: Web API that calls other web APIs (acquire a token for the app) - Microsoft identity platform
 description: Learn how to build a web API that calls other web APIs (acquiring a token for the app).
 services: active-directory
 documentationcenter: dev-center-name

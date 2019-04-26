@@ -1,6 +1,6 @@
 ---
-title: Web app that signs-in users - move to production | Azure
-description: Learn how to build a web app that signs-in users (move to production)
+title: Web app that signs-in users (move to production) - Microsoft identity platform
+description: Learn how to build a web app that signs in users (move to production)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -19,7 +19,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Web app that signs-in users - move to production
+# Web app that signs in users - move to production
 
 Now that you know how to acquire a token to call web APIs, learn how to move it to production.
 
