@@ -58,6 +58,8 @@ Throughout this tutorial, a free, hosted, Time Series Insights sample app is use
 
 ### Page source and structure
 
+<div id="page-source-and-structure"></div>
+
 First, let's view the [HTML and JavaScript source code](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) of the rendered web paged:
 
 1. Open **Developer Tools** in your browser. Inspect the HTML elements that make up the current page (also known as the HTML or DOM tree).
@@ -116,7 +118,7 @@ The [Time Series Insights sample application](https://insights.timeseries.azure.
 
 ### Control identification
 
-In the provided example, `<div>` elements are arranged in the parent `<body>` element to provide a sensible layout for all of the chart controls rendered on the page. \
+In the provided example, `<div>` elements are arranged in the parent `<body>` element to provide a sensible layout for all of the chart controls rendered on the page.
 
 Each `<div>` element specifies properties for the placement and visual attributes of chart controls. HTML element `id` properties serve as unique identifiers to bind to specific controls for rendering and updating visualized data.
 
@@ -207,9 +209,9 @@ The TSI Client library provides eight unique, out-of-the-box, analytics controls
 
 ### Line, bar, pie chart examples
 
-Look at the code that's behind some of the standard chart controls that are demonstrated in the application and the programming model/patterns for creating the controls. Specifically, examine the section of HTML under the `// Example 3/4/5` comment, which renders controls with the ID values `chart3`, `chart4`, and `chart5`.
+Look at the demo code used to render some of the standard chart control. Notice the programming model and patterns for creating those controls. Specifically, examine the section of HTML under the `// Example 3/4/5` comment, which renders controls with the HTML `id` values `chart3`, `chart4`, and `chart5`.
 
-Recall from step #3 in the [Page source and structure section](#page-source-and-structure) that chart controls are arranged in rows on the page, each of which has a descriptive title row. In this example, the three charts are populated under the title "Multiple Chart Types From the Same Data" `<div>` element, and are bound to the three `<div>` elements that are beneath the title:
+Recall from **step 3** of the [Page source and structure section](#page-source-and-structure) that chart controls are arranged in rows on the page each of which has a descriptive title row. In this example, the three charts are populated under the title `"Multiple Chart Types From the Same Data"` `<div>` element, and are bound to the three `<div>` elements that are beneath the title:
 
 [!code-html[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
@@ -227,11 +229,11 @@ The TSI Client library has several additional features you can use to implement 
 
 ### States and events
 
-One example of the advanced functionality that's provided is the ability to add state transitions and discrete events to charts. This feature is useful for highlighting incidents, alerting, and state switches like on/off.
+One advanced functionality is the ability to add state transitions and discrete events to charts. This feature is useful for highlighting incidents, alerting, and creating state switches (on/off switches for example).
 
-Look at the code that's behind the section of HTML that's under the `// Example 10` comment. The code renders a line control under the title "Line Charts with Multiple Series Types", and binds it to the `<div>` element with the ID value `chart10`.
+Look at the code surrounding the `// Example 10` comment. The code renders a line control under the title `"Line Charts with Multiple Series Types"`, and binds it to the `<div>` element with the HTML `id` value `chart10`.
 
-1. First, a structure named `events4` is defined, to hold the state-change elements to track. The structure contains:
+1. First, a structure named `events4` is defined to hold the state-change elements to track. The structure contains:
 
    * A string key named `Component States`.
    * An array of value objects that represent the states. Each object includes:
@@ -252,9 +254,9 @@ Visually, the diamond markers/pop-up windows that are used to indicate incidents
 
 <div id="contextMenu"></div>
 
-Another example of advanced functionality is custom context menus (right-click pop-up menus). Custom context menus are useful for enabling actions and logical next steps within the scope of your application.
+Another advanced functionality is the ability to create custom context menus (right-click pop-up menus). Custom context menus are useful for enabling actions and logical next steps within the scope of your application.
 
-Look at the code that's behind the section of HTML that's under the `// Example 13/14/15` comment. This code initially renders a line chart under the title "Line Chart with Context Menu to Create Pie/Bar Chart", and the chart is bound to the `<div>` element with the ID value `chart13`.
+Look code around the `// Example 13/14/15` comment. This code initially renders a line chart under the title `"Line Chart with Context Menu to Create Pie/Bar Chart"` and the chart is bound to the `<div>` element with the HTML `id` value `chart13`.
 
 By using context menus, the line chart provides the capability to dynamically create a pie and bar chart that are bound to `<div>` elements with the IDs `chart14` and `chart15`. In addition, both the pie and bar charts also use context menus to enable their own features: the ability to copy data from the pie to bar chart, and print the bar chart data to the browser console window, respectively.
 
