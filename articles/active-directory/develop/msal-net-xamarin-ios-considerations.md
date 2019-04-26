@@ -24,10 +24,18 @@ ms.collection: M365-identity-device-management
 # Xamarin iOS-specific considerations with MSAL.NET
 On Xamarin iOS, there are several considerations that you must take into account when using MSAL.NET
 
+- [Known issues with iOS 12 and authentication](#known-issues-with-iOS-12-and-authentication)
 - [Override and implement the `OpenUrl` function in the `AppDelegate`](#implement-openurl)
 - [Enable Keychain groups](#enable-keychain-groups)
 - [Enable token cache sharing](#enable-token-cache-sharing-across-ios-applications)
 - [Enable Keychain access](#enable-keychain-access)
+
+## Known issues with iOS 12 and authentication
+Microsoft has released a [security advisory](https://github.com/aspnet/AspNetCore/issues/4647) to provide information about an incompatibility between iOS12 and some types of authentication. The incompatibility breaks social, WSFed and OIDC logins. This advisory also provides guidance on what developers can do to remove current security restrictions added by ASP.NET to their applications to become compatible with iOS12.  
+
+When developing MSAL.NET applications on Xamarin iOS, you may see an infinite loop when trying to sign in to websites from iOS 12 (similiar to this [ADAL issue](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329). 
+
+You might also see a break in ASP.NET Core OIDC authentication with iOS 12 Safari as described in this [WebKit issue](https://bugs.webkit.org/show_bug.cgi?id=188165).
 
 ## Implement OpenUrl
 
