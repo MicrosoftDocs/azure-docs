@@ -11,7 +11,7 @@ ms.custom: mvc
 
 # Explore Azure Stream Analytics with Visual Studio Code (Preview)
 
-The Azure Stream Analytics for Visual Studio Code extension gives developers a lightweight experience for managing their Stream Analytics jobs. With Azure Stream Analytics extension, you can:
+The Azure Stream Analytics for Visual Studio Code extension gives developers a lightweight experience for managing their Stream Analytics jobs. With the Azure Stream Analytics extension, you can:
 
 - [Create](quick-create-vs-code.md), start, and stop jobs
 - Export existing jobs to a local project
@@ -20,7 +20,7 @@ The Azure Stream Analytics for Visual Studio Code extension gives developers a l
 
 ## Export a job to a local project
 
-To export a job to a local project, locate the job you wish to export in the **Stream Analytics Explorer** in Visual Studio code. Then select a folder for your project.
+To export a job to a local project, locate the job you wish to export in the **Stream Analytics Explorer** in Visual Studio code. Then select a folder for your project. The project is exported to the folder you select, and you can continue to manage the job from Visual Studio Code. For more information on using Visual Studio Code to manage Stream Analytics jobs, see the Visual Studio Code [quickstart](quick-create-vs-code.md).
 
 ![Export ASA job in Visual Studio Code](./media/vs-code-how-to/export-job.png)
 
@@ -28,7 +28,7 @@ To export a job to a local project, locate the job you wish to export in the **S
 
 You can use the Azure Stream Analytics extension for Visual Studio Code to test your Stream Analytics jobs locally with sample data.
 
-1. Once you've created your Stream Analytics job, use  **Ctrl+Shift+P** to open the command pallet. Then type **ASA: Add Input**.
+1. Once you've created your Stream Analytics job, use  **Ctrl+Shift+P** to open the command pallet. Then type and select **ASA: Add Input**.
 
     ![Add ASA Input in Visual Studio code](./media/vs-code-how-to/add-input.png)
 
@@ -52,11 +52,11 @@ You can use the Azure Stream Analytics extension for Visual Studio Code to test 
 
     ![Select run locally in the query editor](./media/vs-code-how-to/run-locally.png)
 
-## Setup a CI/CD pipeline
+## Set up a CI/CD pipeline
 
-You can enable continuous integration and deployment for Azure Stream Analytics jobs using the **asa-cicd tools** NPM package. The NPM package provides the tools for the auto deployment of Stream Analytics Visual Studio Code projects. It can be used on Windows, macOS, and Linux without installing Visual Studio Code.
+You can enable continuous integration and deployment for Azure Stream Analytics jobs using the **asa-cicd tools** NPM package. The NPM package provides the tools for the auto-deployment of Stream Analytics Visual Studio Code projects. It can be used on Windows, macOS, and Linux without installing Visual Studio Code.
 
-Once you have downloaded the package, use the following command to output the Azure Resource Manager templates. If the **outputPath** is not specified, the templates will be placed in the **Deploy** folder under the project's **bin** folder.
+Once you have [downloaded the package](https://usqldownload.blob.core.windows.net/ext/asa/asa-cicd-0.0.1-preview-beta.tar), use the following command to output the Azure Resource Manager templates. If the **outputPath** is not specified, the templates will be placed in the **Deploy** folder under the project's **bin** folder.
 
 ```powershell
 asa-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>

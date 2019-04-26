@@ -176,9 +176,9 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
    HAVING Temperature > 27
    ```
 
-## Compile script
+## Compile the script
 
-Script compilation does two things: check syntax and generate the Azure Resource Manager templates for auto-deployment.
+Script compilation does two things: check syntax and generate the Azure Resource Manager templates for autodeployment.
 
 There are two ways to trigger script compilation:
 
@@ -190,7 +190,7 @@ There are two ways to trigger script compilation:
 
     ![Right-click the ASA script to compile](./media/quick-create-vs-code/compile-script2.png)
 
-3. After compilation, you can find the two generated Azure Resource Manager templates in **Deploy** folder of your project. These two files are used for auto-deployment.
+3. After compilation, you can find the two generated Azure Resource Manager templates in **Deploy** folder of your project. These two files are used for autodeployment.
 
     ![Stream Analytics deployment templates in file explorer](./media/quick-create-vs-code/deployment-templates.png)
 
@@ -202,7 +202,7 @@ There are two ways to trigger script compilation:
 
 2. Select your subscription from the popup list.
 
-3. Select **Select a job**. Then choose Create a new job.
+3. Select a job**. Then choose Create a new job.
 
 4. Enter your job name, **myASAjob** and then follow the instructions to choose the resource group and location.
 
@@ -230,7 +230,7 @@ There are two ways to trigger script compilation:
 
 3. Choose **Now** in the popup window to start the job.
 
-4. Note the job status has changed to **Running**. Right-click on the job name and choose **Open Job View in Portal** to see the input and output event metrics. This may take a few minutes.
+4. Note the job status has changed to **Running**. Right-click on the job name and choose **Open Job View in Portal** to see the input and output event metrics. This action may take a few minutes.
 
 5. To view the results, open the blob storage in the Visual Studio Code extension or in the Azure portal.
 
