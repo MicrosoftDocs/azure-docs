@@ -71,7 +71,7 @@ You can add a line to the map using a **Line Layer**, follow the steps below to 
 
     ```
     
-    The code snippet above first obtains an Azure Maps map control instance using the **onReady()** callback method. It then creates a data source object using the **DataSource** class and adds it to the map. Then it creates a list of **Point** objects. A **LineString** is created from the list of points and added to the **DataSource**. A **Line Layer** renders line objects wrapped in a data source on the map. A line layer is then created and the data source is added to it.
+    The code snippet above first obtains an Azure Maps map control instance using the **onReady()** callback method. It then creates a data source object using the **DataSource** class and adds it to the map. Then it creates a list of **Point** objects. A **LineString** is created from the list of points and added to the data source. A **Line Layer** renders line objects wrapped in a data source on the map. A line layer is then created and the data source is added to it.
 
     After adding the code snippet above, your `MainActivity.java` should look like the one below:
     
@@ -235,7 +235,7 @@ The **Polygon Layer** enables you to render the area of the polygon to the map. 
     });
     ```
 
-    The code snippet above first obtains an Azure Maps map control instance using the **onReady()** callback method. It then creates a data source object using the **DataSource** class and adds it to the map. A **Polygon** object is then created from an list of **Point**  objects and is added to the data source. A **Polygon Layer** renders data wrapped in the data source on the map. It then creates a polygon layer to render the polygon area and adds the data source to it. A **Line Layer** renders line objects wrapped in a data source. The last part of the code snippet creates a line layer to render the outline of the polygon and adds the data source to it.
+    The code snippet above first obtains an Azure Maps map control instance using the **onReady()** callback method. It then creates a data source object using the **DataSource** class and adds it to the map. A **Polygon** object is then created from a list of **Point**  objects and is added to the data source. A **Polygon Layer** renders data wrapped in the data source on the map. It then creates a polygon layer to render the polygon area and adds the data source to it. A **Line Layer** renders line objects wrapped in a data source. The last part of the code snippet creates a line layer to render the outline of the polygon and adds the data source to it.
 
     After adding the code snippet above, your `MainActivity.java` should look like the one below:
 

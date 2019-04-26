@@ -12,7 +12,7 @@ manager: philmea
 
 # Set map style using Azure Maps Android SDK
 
-Azure Maps has six different maps styles to choose from. For more about map styles, see [supported map styles in Azure Maps](./supported-map-styles.md). This article shows you two ways to set map styles using the Azure Maps Android SDK.
+This article shows you two ways to set map styles using the Azure Maps Android SDK. Azure Maps has six different maps styles to choose from. For more information about supported map styles, see [supported map styles in Azure Maps](./supported-map-styles.md).
 
 
 ## Prerequisites
@@ -22,7 +22,7 @@ To complete the process in this article, you need to install [Azure Maps Android
 
 ## Set map style in the layout
 
-You can set a map style in the layout file for your activity class. Edit **res > layout > activity_main.xml** so it looks like the one below:
+You can set a map style in the layout file for your activity class. Edit **res > layout > activity_main.xml**, so it looks like the one below:
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -54,19 +54,17 @@ The `mapcontrol_style` attribute above sets the map style to **grayscale_dark**.
 
 ## Set map style in the activity class
 
-Map style can be set in the activity class. Follow the steps below to set the map style to **satellite_road_labels** within the activity class.
+Map style can be set in the activity class. Copy the following code snippet into the **onCreate()** method of your `MainActivity.java` class. This will set the map style to **satellite_road_labels**.
 
-1. Add the following code snippet to your `MainActivity.java`. 
+```Java
+    mapControl.onReady(map -> {
+    //Set the camera of the map.
+    map.setCamera(center(47.64, -122.33), zoom(14));
 
-    ```Java
-     mapControl.onReady(map -> {
-        //Set the camera of the map.
-        map.setCamera(center(47.64, -122.33), zoom(14));
-    
-        //Set the style of the map.
-        map.setStyle(style(MapStyle.SATELLITE));
-    });
-    ```
+    //Set the style of the map.
+    map.setStyle(style(MapStyle.SATELLITE));
+});
+```
 
 <center>
 

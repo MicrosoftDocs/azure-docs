@@ -23,7 +23,7 @@ To complete the procedures in this article, you first need to [create an Azure M
 
 ### Download Android Studio
 
-You need to download Android Studio and create a project with an empty activity before you can install the Azure Maps Android SDK. You can [download Android Studio](https://developer.android.com/studio/) for free from Google. 
+You need to download Android Studio and create a project with an empty activity before you install the Azure Maps Android SDK. You can [download Android Studio](https://developer.android.com/studio/) for free from Google. 
 
 ## Create a project in Android Studio
 
@@ -104,7 +104,7 @@ The next step in building your application is to install the Azure Maps Android 
     * set your Azure Maps authentication information
     * get the map control instance in the **onCreate** method
 
-    Setting the authentication information on the AzureMaps class globally using the setSubscriptionKey or setAadProperties methods makes it so you won’t have to add your authentication information on every view. The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle, which must be called directly from the containing Activity. In order for your app to correctly call the map control ‘s lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control and call the respective map control method. 
+    Setting the authentication information on the AzureMaps class globally using the setSubscriptionKey or setAadProperties methods makes it so you won’t have to add your authentication information on every view. The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle, which must be called directly from the containing Activity. In order for your app to correctly, call the map control ‘s lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control and call the respective map control method. 
 
     Edit the **MainActivity.java** file as follows:
     
@@ -180,7 +180,7 @@ The next step in building your application is to install the Azure Maps Android 
 
 ## Import classes
 
-After you complete the preceding steps, you'll probably get warnings from Android Studio about some of the code. To resolve these warnings,import the classes referenced in `MainActivity.java`.
+After you complete the preceding steps, you'll probably get warnings from Android Studio about some of the code. To resolve these warnings, import the classes referenced in `MainActivity.java`.
 
 You can automatically import these classes by selecting Alt+Enter (Option+Return on a Mac).
 
