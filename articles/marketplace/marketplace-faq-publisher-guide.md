@@ -88,9 +88,9 @@ Dependencies are not automatically managed for Azure Marketplace offerings. Care
 
 If the publisher has configured their offering to be available through the CSP channel, it will be available through your reseller.
 
-**What countries are supported for purchasing applications and services sold/provisioned through the Azure Marketplace?**
+**What countries/regions are supported for purchasing applications and services sold/provisioned through the Azure Marketplace?**
 
-Azure Marketplace is available to Microsoft Azure customers in the countries listed in the [participation policies](https://docs.microsoft.com/legal/marketplace/participation-policy).
+Azure Marketplace is available to Microsoft Azure customers in the countries/regions listed in the [participation policies](https://docs.microsoft.com/legal/marketplace/participation-policy).
 
 **What currencies are supported by Azure Marketplace?**
 
@@ -377,7 +377,7 @@ After completing the offer and setting up a lead destination, the listing can pr
 
 **What countries/regions are Azure Marketplace available for publishers to sell from?**
 
-Publishers based in the following countries can currently sell in the Azure Marketplace: Afghanistan, Albania, Algeria, Angola, Antigua and Barbuda, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Belarus, Belgium, Benin, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Bulgaria, Burkina Faso, Burundi, Cambodia, Cameroon, Canada, Central African Republic, Chad, Chile, Colombia, Comoros, Congo, Congo (DRC), Costa Rica, Cote D'Ivoire, Croatia, Cyprus, Czech Republic, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Eritrea, Estonia, Ethiopia, Fiji Islands, Finland, France, Georgia, Germany, Ghana, Greece, Guatemala, Guinea, Haiti, Honduras, Hong Kong SAR, Hungary, Iceland, India, Indonesia, Iraq, Ireland, Israel, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Korea (South), Kuwait, Laos, Latvia, Lebanon, Liberia, Liechtenstein, Lithuania, Luxembourg, Madagascar, Malawi, Malaysia, Mali, Malta, Mauritius, Mexico, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Nepal, The Netherlands, New Zealand, Nicaragua, Niger, Nigeria, Norway, Oman, Pakistan, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saudi Arabia, Senegal, Serbia, Sierra Leone, Singapore, Slovakia, Slovenia, Somalia, South Africa, Spain, Sri Lanka, Sweden, Switzerland, Tajikistan, Tanzania, Thailand, Timor-Leste, Togo, Tonga, Trinidad and Tobago, Tunisia, Turkey, Turkmenistan, Uganda, Ukraine, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia, and Zimbabwe.
+Publishers based in the following countries/regions can currently sell in the Azure Marketplace: Afghanistan, Albania, Algeria, Angola, Antigua and Barbuda, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Belarus, Belgium, Benin, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Bulgaria, Burkina Faso, Burundi, Cambodia, Cameroon, Canada, Central African Republic, Chad, Chile, Colombia, Comoros, Congo, Congo (DRC), Costa Rica, Cote D'Ivoire, Croatia, Cyprus, Czech Republic, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Eritrea, Estonia, Ethiopia, Fiji Islands, Finland, France, Georgia, Germany, Ghana, Greece, Guatemala, Guinea, Haiti, Honduras, Hong Kong SAR, Hungary, Iceland, India, Indonesia, Iraq, Ireland, Israel, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Korea (South), Kuwait, Laos, Latvia, Lebanon, Liberia, Liechtenstein, Lithuania, Luxembourg, Madagascar, Malawi, Malaysia, Mali, Malta, Mauritius, Mexico, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Nepal, The Netherlands, New Zealand, Nicaragua, Niger, Nigeria, Norway, Oman, Pakistan, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saudi Arabia, Senegal, Serbia, Sierra Leone, Singapore, Slovakia, Slovenia, Somalia, South Africa, Spain, Sri Lanka, Sweden, Switzerland, Tajikistan, Tanzania, Thailand, Timor-Leste, Togo, Tonga, Trinidad and Tobago, Tunisia, Turkey, Turkmenistan, Uganda, Ukraine, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia, and Zimbabwe.
 
 **How do I delete a listing from the Azure Marketplace?**
 
@@ -482,19 +482,19 @@ Dependencies are not automatically managed for Azure Marketplace offerings. Care
 
 **Who can purchase applications and services sold/provisioned through the Azure Marketplace?**
 
-The Azure Marketplace is available to Microsoft Azure customers in the following countries:
+The Azure Marketplace is available to Microsoft Azure customers in the following countries/regions:
 
 Algeria, Argentina, Australia, Austria, Bahrain, Belarus, Belgium, Brazil, Bulgaria, Canada, Chile, Colombia, Costa Rica, Croatia, Cyprus, Czech Republic, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Finland, France, Germany, Greece, Guatemala, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Latvia, Liechtenstein, Lithuania, Luxembourg, North Macedonia, Malaysia, Malta, Mexico, Montenegro, Morocco, Netherlands, New Zealand, Nigeria, Norway, Oman, Pakistan, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Puerto Rico, Qatar, Romania, Russia, Saudi Arabia, Serbia, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Thailand, Trinidad and Tobago, Tunisia, Turkey, Ukraine, United Arab Emirates, United Kingdom, United States, Uruguay, Venezuela.
 
-**How do I define my geographic availability to enable selling in different countries?**
+**How do I define my geographic availability to enable selling in different countries/regions?**
 
-1.  In the Cloud Partner Portal, navigate to the SKU to which you want to add new countries.  Within the "SKU Details" navigate to "Country/Region availability" and click "Select regions."
+1.  In the Cloud Partner Portal, navigate to the SKU to which you want to add new countries/regions.  Within the "SKU Details" navigate to "Country/Region availability" and click "Select regions."
 
     ![Select regions](media/marketplace-publishers-guide/FAQ-choose-geo.png)
 
-1.  A list will pop up with all available countries to sell to.  Click the checkbox next to each country you want to make this SKU available. Click "OK".
+1.  A list will pop up with all available countries/regions to sell to.  Click the checkbox next to each country/region you want to make this SKU available. Click "OK".
 
-    ![Select country list](media/marketplace-publishers-guide/FAQ-select-countries.png)
+    ![Select country/region list](media/marketplace-publishers-guide/FAQ-select-countries.png)
 
 1.  Finally for the changes to be applied to your live offer, click "Publish."  
 
@@ -505,11 +505,11 @@ Algeria, Argentina, Australia, Austria, Bahrain, Belarus, Belgium, Brazil, Bulga
 
 **How can a publisher change the geographic availability for an existing offer?**
 
-The publisher can edit an existing offer, select the new countries, and use the spreadsheet download/upload function to set pricing.
+The publisher can edit an existing offer, select the new countries/regions, and use the spreadsheet download/upload function to set pricing.
 
-**In what countries can customers purchase Azure Marketplace offerings?**
+**In what countries/regions can customers purchase Azure Marketplace offerings?**
 
-Azure Marketplace supports 141 buy-from geographies as defined by the customer’s billing address. See [participation policies](https://docs.microsoft.com/legal/marketplace/participation-policy) for a list of countries.
+Azure Marketplace supports 141 buy-from geographies as defined by the customer’s billing address. See [participation policies](https://docs.microsoft.com/legal/marketplace/participation-policy) for a list of countries/regions.
 
 **What currencies are supported by Azure Marketplace?**
 

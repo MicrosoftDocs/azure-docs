@@ -47,7 +47,7 @@ Service offers that are based on Microsoft Dynamics 365, Office 365, and Power B
 > [!TIP]
 > To publish to the Azure Marketplace storefront, you will make this selection by choosing "Azure" from the "Primary Product" drop-down menu in the Cloud Partner Portal. To publish to AppSource, you will make this selection by choosing "Dynamics 365," "Power BI," or "Power Apps" from the "Primary Product" drop-down menu in the Cloud Partner Portal.
 
-## Eligible Partners and Supported Countries
+## Eligible Partners and Supported Countries/Regions
 
 Partners are required to have a **silver or gold competency** in the relevant area for their service. 
 
@@ -73,9 +73,9 @@ Partners are required to have a **silver or gold competency** in the relevant ar
 <b> For more information, see [competencies through Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  
 
-**SI partners can submit consulting-service offerings for the following 18 countries**
+**SI partners can submit consulting-service offerings for the following 18 countries/regions**
 
-|Eligible countries |   |   |   |
+|Eligible countries/regions |   |   |   |
 |---------|----------|----------|----------|
 |Australia |France  |     Mexico          |Spain       |
 |Belgium   |Germany |     Netherlands     |Sweden       |
@@ -83,7 +83,7 @@ Partners are required to have a **silver or gold competency** in the relevant ar
 |Denmark   |Italy   |     Norway          |United States |
 |Finland   |Japan   |     Poland          
 
-The launch of consulting services will go live in specific geo-region. First launch will be: United States, Canada, the United Kingdom, and Australia. The catalogs for other countries will go live after a meaningful number and compelling selection of service offerings have been submitted by partners and approved by Microsoft.
+The launch of consulting services will go live in specific geo-region. First launch will be: United States, Canada, the United Kingdom, and Australia. The catalogs for other countries/regions will go live after a meaningful number and compelling selection of service offerings have been submitted by partners and approved by Microsoft.
 
 ## How To Register For Consulting Services in Azure Marketplace and AppSource
 Start by [registering](https://azuremarketplace.microsoft.com/sell/signup) your company information in the marketplace. Publishers can reference [Become a Publisher in the Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), for a complete check-list of registration requirements. 
@@ -125,7 +125,7 @@ Listing your consulting-service offer on the Azure Marketplace and AppSource
 3. **Submit**: Provide the required information that's listed in the instructions. All content and supporting material must be submitted in English. 
 4. **Review**: Our marketing and editorial team reviews your submission and optimizes it for readability, grammar, and effectiveness. 
 5. **Staging**: Your submission is staged for your review. 
-6. **Publishing**: When you and Microsoft are satisfied with the staged content, your listing is ready to go live on the marketplace. The go-live date for your listing depends on the country that's specified in your offering. If the catalog for your selected country is already live on the Azure Marketplace or AppSource, your listing will appear within a few hours. Otherwise, the listing will appear as soon as the catalog goes live.
+6. **Publishing**: When you and Microsoft are satisfied with the staged content, your listing is ready to go live on the marketplace. The go-live date for your listing depends on the country/region that's specified in your offering. If the catalog for your selected country/region is already live on the Azure Marketplace or AppSource, your listing will appear within a few hours. Otherwise, the listing will appear as soon as the catalog goes live.
 
 ## Offer Listings and Content Review Criteria
 Offerings must be of one of the following five service types (you can list more than one): 
