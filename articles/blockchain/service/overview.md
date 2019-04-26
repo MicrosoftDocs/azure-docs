@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/25/2019
+ms.date: 04/26/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
@@ -29,7 +29,7 @@ These capabilities require almost no administration and all are provided at no a
 
 Deploying Azure Blockchain Service can be done through the Azure portal, Azure CLI as well as through Visual Studio code using the Azure Blockchain extension.  Deployment is simplified, including provisioning both transaction and validator nodes, Azure Virtual Networks for security isolation as well as service-managed storage.  In addition, when deploying a new blockchain member, users also create, or join, a consortium.  Consortiums enable multiple parties in different Azure subscriptions to be able to securely communicate with one another on a shared blockchain.  This simplified deployment reduces blockchain network deployment from days to minutes.
 
-### Performance and pricing tiers
+### Performance and service tiers
 
 The Azure Blockchain Service offers two service tiers: *Basic* and *Standard*. Each tier offers different performance and capabilities to support lightweight development and test workloads up to massively scaled production blockchain deployments. Both tiers include at least one transaction node, and one validator node (Basic) or two validator nodes (Standard).
 

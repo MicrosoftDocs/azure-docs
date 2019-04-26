@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/25/2019
+ms.date: 04/26/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
@@ -367,7 +367,7 @@ Exit the console.
 
 ## Send a transaction
 
-1. Create a file called `sampletx.js`. Save it in the root of your project.
+Create a file called `sampletx.js`. Save it in the root of your project.
 
 This script sets the contract **storedData** variable value to 65. Add the code to the new file.
 
