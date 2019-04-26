@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 12/04/2018
+ms.date: 4/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -52,8 +52,7 @@ This article lists common troubleshooting question.
 ## Polybase
 | Issue                                           | Resolution                                                   |
 | :---------------------------------------------- | :----------------------------------------------------------- |
-| Load fails because of large rows                | Currently large row support is not available for Polybase.  This means that if your table contains VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX), External tables cannot be used to load your data.  Loading large rows is currently only supported through Azure Data Factory (with BCP), Azure Stream Analytics, SSIS, BCP, or the .NET SQLBulkCopy class. PolyBase support for large rows will be added in a future release. |
-| bcp load of table with MAX data type is failing | There is a known issue which requires that VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX) be placed at the end of the table in some scenarios.  Try moving your MAX columns to the end of the table. |
+| Exports fail with TINYINT and DATE types             | For Parquet and ORC file formats, DATE type values must be greater than 1970-01-01 00:00:01 UTC and TINYINT type values must be between 0-127.    |
 
 ## Differences from SQL Database
 | Issue                                 | Resolution                                                   |
