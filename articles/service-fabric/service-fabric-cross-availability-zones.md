@@ -1,6 +1,6 @@
 ---
-title: Deploy an Azure Service Fabric cluster across availability zones| Microsoft Docs
-description: Learn how to create an Azure Service Fabric cluster across availability zones.
+title: Deploy an Azure Service Fabric cluster across Availability Zones| Microsoft Docs
+description: Learn how to create an Azure Service Fabric cluster across Availability Zones.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
@@ -17,7 +17,7 @@ ms.date: 04/25/2019
 ms.author: pepogors
 
 ---
-# Deploy an Azure Service Fabric cluster across availability zones
+# Deploy an Azure Service Fabric cluster across Availability Zones
 ## Overview
 Availability Zones in Azure is a high-availability offering that protects your applications and data from datacenter failures. An Availability Zone is a unique physical location within an Azure region. Each zone is comprised of one or more datacenters equipped with independent power, cooling, and networking.
 
