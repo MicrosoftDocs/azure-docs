@@ -26,7 +26,7 @@ This article describes how to enable alerts for the following situations:
 - *Failed*, *Pending*, *Unknown*, *Running*, or *Succeeded* pod-phase counts
 - When free disk space on cluster nodes exceeds a threshold 
 
-To alert for high CPU or memory utilization on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. Metric alerts have lower latency than log alerts. But log alerts provide advanced querying and greater sophistication. Log alerts queries compare a datetime to the present by using the *now* operator and going back one hour. (Azure Monitor for containers stores all dates in Coordinated Universal Time (UTC) format.)
+To alert for high CPU or memory utilization, or low free disk space on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. Metric alerts have lower latency than log alerts. But log alerts provide advanced querying and greater sophistication. Log alerts queries compare a datetime to the present by using the *now* operator and going back one hour. (Azure Monitor for containers stores all dates in Coordinated Universal Time (UTC) format.)
 
 If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../platform/alerts-metric-overview.md).
 
