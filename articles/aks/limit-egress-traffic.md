@@ -18,12 +18,6 @@ By default, AKS clusters have unrestricted outbound (egress) internet access. Th
 
 This article details what network ports and fully qualified domain names (FQDNs) are required and optional if you restrict egress traffic in an AKS cluster.
 
-## Before you begin
-
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
-
-You also need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
 ## Egress traffic overview
 
 For management and operational purposes, nodes in an AKS cluster need to access certain ports and fully qualified domain names (FQDNs). These actions could be to communicate with the API server, or to download and then install core Kubernetes cluster components and node security updates. By default, egress (outbound) internet traffic is not restricted for nodes in an AKS cluster.
@@ -35,62 +29,43 @@ You can use [Azure Firewall][azure-firewall] or a 3rd-party firewall appliance t
 In AKS, there are two sets of ports and addresses:
 
 * The [required ports and address for AKS clusters](#required-ports-and-addresses-for-aks-clusters) details the minimum requirements for whitelisting egress traffic.
-* The [optional recommended addresses and ports for AKS clusters](#optional-recommended-addresses-and-ports-for-aks-clusters) aren't required for all scenarios, but integration with other services such as Azure Container Registry or Azure Monitor won't work correctly. Review this list of optional ports and FQDNs, and whitelist any of the services and components used in your AKS cluster.
+* The [optional recommended addresses and ports for AKS clusters](#optional-recommended-addresses-and-ports-for-aks-clusters) aren't required for all scenarios, but integration with other services such as Azure Monitor won't work correctly. Review this list of optional ports and FQDNs, and whitelist any of the services and components used in your AKS cluster.
 
 ## Required ports and addresses for AKS clusters
 
 The following outbound ports / network rules are required for an AKS cluster:
 
 * TCP port *443*
-* TCP port *22* (being replaced with TCP port *9000*)
+* TCP port *9000*
 
-The following FQDN / application rules are required. This list only applies to non-GPU clusters. For AKS clusters that include GPU-based nodes, see the [additional list of required ports and address](#additional-required-addresses-for-gpu-based-clusters)
+The following FQDN / application rules are required:
 
-| FQDN                    | Use |
-|-------------------------|----------|
-| *<region>.azmk8s.io     | This address is the API server endpoint. |
-| k8s.gcr.io              | This address is Google’s Container Registry that allows `az aks upgrade` to work properly. |
-| storage.googleapis.com  | This address is the underlying data store for Google’s Container Registry used by the previous entry. |
-| *auth.docker.io         | This address is to authenticate to Docker Hub, even if you are not logged in. |
-| *cloudflare.docker.io   | This address is a CDN endpoint for cached Container Images on Docker Hub. |
-| *.cloudflare.docker.com | This address is a CDN endpoint for cached Container Images on Docker Hub. |
-| *registry-1.docker.io   | This address is Docker Hub’s registry. |
-
-### Additional required addresses for GPU-based clusters
-
-If you use GPU-based nodes, some additional FQDNs are required for egress traffic. To allow the nodes to download and use additional drivers and tooling, the following addresses are required:
-
-* *.azmk8s.io
-* *.azureedge.net
-* *.blob.core.windows.net
-* *.azure-automation.net
-* *.opinsights.azure.com
-* *.management.azure.com
-* *.login.microsoftonline.com
-* *.ubuntu.com
-* *.vo.msecnd.net
+| FQDN                      | Port      | Use      |
+|---------------------------|-----------|----------|
+| *.azmk8s.io               | HTTPS:443 | This address is the API server endpoint. |
+| aksrepos.azurecr.io       | HTTPS:443 | This address is required to access images in Azure Container Registry (ACR). |
+| *.blob.core.windows.net   | HTTPS:443 | This address is the backend store for images stored in ACR. |
+| mcr.microsoft.com         | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). |
+| management.azure.com      | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
+| login.microsoftonline.com | HTTPS:443 | This address is required for Azure Active Directory authentication. |
 
 ## Optional recommended addresses and ports for AKS clusters
 
 The following outbound ports / network rules aren't required for AKS clusters to function correctly, but are recommended:
 
-* TCP port *123* for time sync
-* TCP port *53* (DNS) to correctly resolve Ubuntu patches
+* UDP port *123* for NTP time sync
+* UDP port *53* for DNS
 
 The following FQDN / application rules are recommended for AKS clusters to function correctly:
 
-| FQDN                         | Use |
-|------------------------------|----------|
-| *.ubuntu.com                 | This address lets the cluster nodes download the required security patches and updates. If you only create new, short-lived clusters and won't update nodes, this address is not needed. |
-| *azurecr.io                  | If you use Azure Container Registry (ACR) to store your container images, this address is needed. To restrict egress traffic to a specific registry, add the FQDN of the ACR instead of a wild-card entry. |
-| *blob.core.windows.net       | If you use Azure Container Registry (ACR), Azure Blob Storage is the underlying data store. This address is needed to correctly pull from those container images. |
-| *login.microsoftonline.com   | If you use Azure Active Directory (AD) integration, this address is needed for the authentication flow for cluster resource management. |
-| *snapcraft.io                | If you install Ubuntu packages, this address is needed. |
-| *packages.microsoft.com      | If you install Microsoft packages, this address is needed. |
-| dc.services.visualstudio.com | If you use Azure Application Insights, this address is needed. |
-| *.opinsights.azure.com       | If you use Azure Monitor, this address is needed. |
-| *.monitoring.azure.com       | If you use Azure Monitor, this address is also needed. |
-| *.management.azure.com       | If you use Azure Tooling, this address is needed. |
+| FQDN                                    | Port      | Use      |
+|-----------------------------------------|-----------|----------|
+| *.ubuntu.com                            | HTTP:80   | This address lets the Linux cluster nodes download the required security patches and updates. |
+| packages.microsoft.com                  | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations. |
+| dc.services.visualstudio.com            | HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
+| *.opinsights.azure.com                  | HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
+| *.monitoring.azure.com                  | HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
+| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | This address is used for correct operation of Azure Policy (currently in preview in AKS). |
 
 ## Next steps
 
