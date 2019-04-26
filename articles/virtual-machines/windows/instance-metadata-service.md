@@ -554,12 +554,17 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api
 Department:IT;Environment:Test;Role:WebRole
 ```
 
+
+
+
 ### Validating that the VM is running in Azure
 
- Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have the ability to detect that. By calling into Instance Metadata Service Marketplace vendors can get signed data that guarantees response only from Azure.
-**Request**
+Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have the ability to detect that. By calling into Instance Metadata Service Marketplace vendors can get signed data that guarantees response only from Azure.
+
 > [!NOTE]
 > Requires jq to be installed.
+
+**Request**
 
  ```bash
   # Get the signature
