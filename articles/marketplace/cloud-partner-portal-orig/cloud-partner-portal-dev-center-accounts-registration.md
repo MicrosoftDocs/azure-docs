@@ -121,7 +121,7 @@ following important note before you proceed.
    ![Select country/region](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >"Sell-from" Countries: In order to sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved "sell-from" countries shown in the dropdown list. This restriction is for payout and taxation reasons. For more information, see the Marketplace participation policies.
+    >"Sell-from" Countries/Regions: In order to sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved "sell-from" countries/regions shown in the dropdown list. This restriction is for payout and taxation reasons. For more information, see the Marketplace participation policies.
 
 5. Select **Company** as your "Account Type" and then select **Next**.
 
