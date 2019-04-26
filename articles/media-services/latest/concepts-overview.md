@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services concepts - Azure | Microsoft Docs
-description: This topic gives a brief overview of Azure Media Services concepts and provides links for details.
+title: Azure Media Services terminology and concepts - Azure | Microsoft Docs
+description: This topic gives a brief overview of Azure Media Services terminology and concepts and provides links for more details.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -24,6 +24,22 @@ This topic gives a brief overview of Azure Media Services concepts and provides 
 > [!NOTE]
 > Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
 
+## Terminology
+
+This section shows how some common industry terms map to the Media Services v3 API.
+
+### Channel/Live Event
+
+A **Channel** represents a pipeline for processing live streaming content. 
+
+In Media Services v3, **Live Event** = **Channel**.
+
+### Origin/Streaming Endpoint
+
+An **Origin** represents a dynamic packaging and streaming service that can deliver live or on-demand content directly to a client player application. You can choose to dynamically encrypt the content. 
+
+In Media Services v3, **Origin** = **Streaming Endpoint**.
+ 
 ## Cloud upload and storage
 
 To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account and upload your digital files into **Assets**.
