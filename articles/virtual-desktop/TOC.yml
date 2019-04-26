@@ -44,6 +44,18 @@
     href: delegated-access-virtual-desktop.md
   - name: Host pool load-balancing methods
     href: host-pool-load-balancing.md
+- name: Troubleshoot
+  items:
+  - name: Overview of common issues when setting up Windows Virtual Desktop
+    href: troubleshoot-set-up-overview.md
+  - name: Troubleshoot issues during initial setup of Windows Virtual Desktop
+    href: troubleshoot-set-up-issues.md
+  - name: Troubleshoot Windows Virtual Desktop session host VM configuration
+    href: troubleshoot-vm-configuration.md
+  - name: Troubleshoot Windows Virtual Desktop client connection issues
+    href: troubleshoot-client-connection.md
+  - name: Troubleshoot Windows Virtual Desktop issues when using PowerShell 
+    href: troubleshoot-powershell.md
 - name: Reference
   items:
   - name: PowerShell
