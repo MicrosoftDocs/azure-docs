@@ -25,11 +25,12 @@ ms.collection: M365-identity-device-management
 
 Authentication flows can be used in different scenarios.
 
-| Flow | Description | Application type|  Diagram |
-| ---- | ----------- | ------- | ------- |
-| [Authorization code](#authorization-code) | | Web Apps / Web APIs / daemon apps | ![Authorization code flow](media/msal-authentication-flows/authorization-code.png) | 
-| [On-behalf-of](#on-behalf-of) | An application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. | Web Apps / Web APIs / daemon apps | ![On-behalf-of flow](media/msal-authentication-flows/on-behalf-of.png) |
-| [Username/password](#username-password) | | | Desktop/mobile apps | ![Username/password flow](media/msal-authentication-flows/username-password.png)
+| Flow | Description | Application type|  
+| ---- | ----------- | ------- | 
+| [Authorization code](#authorization-code) | Used in apps that are installed on a device to gain access to protected resources, such as web APIs. This allows you to add sign in and API access to your mobile and desktop apps. | Web Apps / Web APIs / daemon apps | 
+| [On-behalf-of](#on-behalf-of) | An application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. | Web Apps / Web APIs / daemon apps |
+| [Confidential client](#confidential-client) | Allows you to access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. | Web Apps / Web APIs / daemon apps |
+| [Username/password](#usernamepassword) | Allows an application to sign in the user by directly handling their password. This flow is not recommended. | Desktop/mobile apps | 
 
 
 ## Implicit grant
@@ -41,13 +42,12 @@ When users sign in to web applications (web sites), the web application receives
 
 ![Authorization code flow](media/msal-authentication-flows/authorization-code.png)
 
+### Considerations
+- The authorization code is usable only once to redeem a token. Acquring a token should not be called multiple times with the same authorization code (it's explicitly prohibited by the protocol standard specification). If you redeem the code several times intentionally, or because you are not aware that a framework also does it for you, you'll get an error: `AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
 
+- If you are writing an ASP.NET/ASP.NET Core application, this might happen if you don't tell the ASP.NET/Core framework that you have already redeemed the authorization code. For this you need to call `context.HandleCodeRedemption()` method of the `AuthorizationCodeReceived` event handler.
 
-The code is usable only once to redeem a token. AcquireTokenByAuthorizationCode should not be called several times with the same authorization code (it's explicitly prohibited by the protocol standard spec). If you redeem the code several times, consciously, or because you are not aware that a framework also does it for you, you'll get an error: 'invalid_grant', 'AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token
-
-In particular, if you are writing an ASP.NET / ASP.NET Core application, this might happen if you don't tell the ASP.NET/Core framework that you have already redeemed the code. For this you need to call context.HandleCodeRedemption() part of the AuthorizationCodeReceived event handler.
-
-Finally, avoid sharing the access token with ASP.NET otherwise this might prevent incremental consent happening correctly, (for details see issue #693).
+- Avoid sharing the access token with ASP.NET, which might prevent incremental consent happening correctly.  For more information, see [issue #693](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/693).
 
 ## On-behalf-of
 
@@ -62,21 +62,27 @@ MSAL supports the [OAuth 2 on-behalf-of authentication flow](v2-oauth2-on-behalf
 
 ## Confidential client
 
+MSAL supports the [OAuth 2 client credentials flow](v2-oauth2-client-creds-grant-flow.md). This flow allows you to access web-hosted resources by using the identity of an application. This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications are often referred to as daemons or service accounts. 
+
+The client credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. In this scenario, the client is typically a middle-tier web service, a daemon service, or a web site. For a higher level of assurance, the Microsoft identity platform also allows the calling service to use a certificate (instead of a shared secret) as a credential.
+
+> [!NOTE]
+> The confidential client flow is not available on the mobile platforms (UWP, Xamarin.iOS, and Xamarin.Android), since these only support public client applications.  Public client applications don't know how to prove the application's identity to the Identity Provider. A secure connection can be achieved on web app or web API back-ends by deploying a certificate.
+
 MSAL.NET supports three types of client credentials:
 
-- Application secrets
-- Certificates
-- Optimized client assertions
+- Application secrets <BR>![Confidential client with password](media/msal-authentication-flows/confidential-client-password.png)
+- Certificates <BR>![Confidential client with cert](media/msal-authentication-flows/confidential-client-certificate.png)
+- Optimized client assertions<BR>![Confidential client with assertions](media/msal-authentication-flows/confidential-client-assertions.png)
 
 These client credentials need to be:
 
-- registered with Azure AD
-- Passed in the constructors of ``ConfidentialClientApplication`` in your code
+- Registered with Azure AD.
+- Passed in to the constructors of the confidential client application in your code.
 
-Then you can call ``AcquireTokenForClient``.
 
 ## Device code
-Interactive authentication with Azure AD requires a web browser (for details see [Usage of web browsers](MSAL.NET-uses-web-browser)). However, in the case of devices and operating systems that do not provide a Web browser, Device code flow lets the user use another device (for instance another computer or a mobile phone) to sign-in interactively. By using the device code flow, the application obtains tokens through a two-step process especially designed for these devices/OS. Examples of such applications are applications running on iOT, or Command-Line tools (CLI). The idea is that:
+Interactive authentication with Azure AD requires a web browser (for details see [Usage of web browsers](msal-net-web-browsers.md)). However, in the case of devices and operating systems that do not provide a Web browser, Device code flow lets the user use another device (for instance another computer or a mobile phone) to sign-in interactively. By using the device code flow, the application obtains tokens through a two-step process especially designed for these devices/OS. Examples of such applications are applications running on iOT, or Command-Line tools (CLI). The idea is that:
 
 1. Whenever user authentication is required, the app provides a code and asks the user to use another device (such as an internet-connected smartphone) to navigate to a URL (for instance, http://microsoft.com/devicelogin), where the user will be prompted to enter the code. That done, the web page will lead the user through a normal authentication experience, including consent prompts and multi-factor authentication if necessary.
 
