@@ -155,42 +155,41 @@ To request the ability to create Hyperscale databases in regions not listed:
 
 1. Navigate to [Azure Help and Support Blade](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 
-2. Click on [New support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+2. Click on [**New support request**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-3. Select the Issue Type: Service and subscription limits (quotas)
- 
+    ![Azure Help and Support Blade](media/sql-database-service-tier-hyperscale/whitelist-request-screen-1.png)
+
+3. For **Issue Type**, select **Service and subscription limits (quotas)**
+
 4. Choose the subscription you would use to create the database(s)
- 
-5. Select Quota Type "SQL database"
 
-6. Click on "Next: Solutions"
+5. For **Quota Type**, select **SQL database**
 
-7. Click on "Provide Details"
+6. Click **Next: Solutions**
 
-8. Choose SQL Database quota type:  "Other quota request"
+1. Click **Provide Details**
+
+    ![Problem details](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
+
+8. Choose **SQL Database quota type**: **Other quota request**
 
 9. Fill in the following template:
 
->  
->
->  Request to create Azure Hyperscale SQL Database in a new region<br/> 
->  Region: [Fill in your requested region]  <br/>
->  Compute SKU/total cores including readable replicas <br/>
->  Number of TB estimated 
-> 
+    ![Quota details](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
 
+    In the template, provide the following information
 
+    > Request to create Azure Hyperscale SQL Database in a new region<br/> 
+    > Region: [Fill in your requested region]  <br/>
+    > Compute SKU/total cores including readable replicas <br/>
+    > Number of TB estimated 
+    >
 
-10.  Choose Severity C
+10. Choose **Severity C**
 
 11. Choose the appropriate contact method and fill in details.
 
-12. Click Save and Continue
-
-
-
-
-
+12. Click **Save** and **Continue**
 
 ## Known limitations
 
