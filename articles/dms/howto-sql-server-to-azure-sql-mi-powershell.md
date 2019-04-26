@@ -38,15 +38,15 @@ To complete these steps, you need:
 * To configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 * An Azure SQL Database managed instance. You can create an Azure SQL Database managed instance by following the detail in the article [Create an Azure SQL Database managed instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
-* [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
+* TO download and instanll [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 * An Azure Virtual Network (VNet) created using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* A completed assessment of your on-premises database and schema migration using Data Migration Assistant, as described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
-* To download and install the `Az.DataMigration` module (version 0.7.2 or later) from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
+* A completed assessment of your on-premises database and schema migration using Data Migration Assistant, as described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).
+* To download and install the `Az.DataMigration` module (version 0.7.2 or later) from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
 * To ensure that the credentials used to connect to source SQL Server instance have the [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permission.
 * To ensure that the credentials used to connect to target Azure SQL Database managed instance has the CONTROL DATABASE permission on the target Azure SQL Database managed instance databases.
 
     > [!IMPORTANT]
-    > For online migrations, your Azure Active Directory credentials need to have been set up. For more information, see the article [Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+    > For online migrations, you must alread have set up your Azure Active Directory credentials. For more information, see the article [Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 ## Sign in to your Microsoft Azure subscription
 
@@ -54,11 +54,11 @@ Sign in to your Azure subscription by using PowerShell. For more information, se
 
 ## Create a resource group
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. Create a resource group before you can create a virtual machine.
+An Azure resource group is a logical container in which Azure resources are deployed and managed.
 
-Create a resource group by using the [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) command.
+Create a resource group by using the [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) command.
 
-The following example creates a resource group named *myResourceGroup* in the *EastUS* region.
+The following example creates a resource group named *myResourceGroup* in the *East US* region.
 
 ```powershell
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
@@ -66,13 +66,14 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 
 ## Create an instance of Azure Database Migration Service
 
-You can create new instance of Azure Database Migration Service by using the `New-AzDataMigrationService` cmdlet. 
+You can create new instance of Azure Database Migration Service by using the `New-AzDataMigrationService` cmdlet.
 This cmdlet expects the following required parameters:
-- *Azure Resource Group name*. You can use [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) command to create Azure Resource group as previously shown and provide its name as a parameter.
-- *Service name*. String that corresponds to the desired unique service name for Azure Database Migration Service.
-- *Location*. Specifies the location of the service. Specify an Azure data center location, such as West US or Southeast Asia
-- *Sku*. This parameter corresponds to DMS Sku name. Currently supported Sku names are *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*
-- *Virtual Subnet Identifier*. You can use cmdlet [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com//powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create a subnet. 
+
+* *Azure Resource Group name*. You can use [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) command to create an Azure Resource group as previously shown and provide its name as a parameter.
+* *Service name*. String that corresponds to the desired unique service name for Azure Database Migration Service.
+* *Location*. Specifies the location of the service. Specify an Azure data center location, such as West US or Southeast Asia.
+* *Sku*. This parameter corresponds to DMS Sku name. Currently supported Sku names are *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*.
+* *Virtual Subnet Identifier*. You can use the cmdlet [`New-AzVirtualNetworkSubnetConfig`](https://docs.microsoft.com//powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create a subnet.
 
 The following example creates a service named *MyDMS* in the resource group *MyDMSResourceGroup* located in the *East US* region using a virtual network named *MyVNET* and a subnet named *MySubnet*.
 
@@ -97,13 +98,14 @@ After creating an Azure Database Migration Service instance, create a migration 
 
 ### Create a Database Connection Info object for the source and target connections
 
-You can create a Database Connection Info object by using the `New-AzDmsConnInfo` cmdlet. This cmdlet expects the following parameters:
-* *ServerType*. The type of database connection requested, for example, SQL, Oracle, or MySQL. Use SQL for SQL Server and Azure SQL.
-* *DataSource*. The name or IP of a SQL Server instance or Azure SQL database.
-* *AuthType*. The authentication type for connection, which can be either SqlAuthentication or WindowsAuthentication.
-* *TrustServerCertificate* parameter sets a value that indicates whether the channel is encrypted while bypassing walking the certificate chain to validate trust. Value can be true or false.
+You can create a Database Connection Info object by using the `New-AzDmsConnInfo` cmdlet, which expects the following parameters:
 
-The following example creates Connection Info object for source SQL Server called MySourceSQLServer using sql authentication: 
+* *ServerType*. The type of database connection requested, for example, SQL, Oracle, or MySQL. Use SQL for SQL Server and Azure SQL.
+* *DataSource*. The name or IP of a SQL Server instance or Azure SQL Database instance.
+* *AuthType*. The authentication type for connection, which can be either SqlAuthentication or WindowsAuthentication.
+* *TrustServerCertificate*. This parameter sets a value that indicates whether the channel is encrypted while bypassing walking the certificate chain to validate trust. The value can be `$true` or `$false`.
+
+The following example creates a Connection Info object for a source SQL Server called *MySourceSQLServer* using sql authentication:
 
 ```powershell
 $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
@@ -362,9 +364,9 @@ To monitor the migration, perform the following tasks.
     Write-Host ‘$CheckTask.ProjectTask.Properties.Output’
     ```
 
-2. Use the $CheckTask variable to get the current state of the migration task.
+2. Use the `$CheckTask` variable to get the current state of the migration task.
 
-    To use the $CheckTask variable to get the current state of the migration task, you can monitor the migration task running by querying the state property of the task, as shown in the following example:
+    To use the `$CheckTask` variable to get the current state of the migration task, you can monitor the migration task running by querying the state property of the task, as shown in the following example:
 
     ```powershell
     if (($CheckTask.ProjectTask.Properties.State -eq "Running") -or ($CheckTask.ProjectTask.Properties.State -eq "Queued"))
