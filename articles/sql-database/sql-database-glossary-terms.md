@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 05/06/2019
+ms.date: 04/26/2019
 ---
 # Azure SQL Database glossary of terms
 
