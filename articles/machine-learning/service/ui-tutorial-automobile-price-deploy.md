@@ -127,7 +127,7 @@ Navigate to the **API Doc** tab, to find more API details.
 
   ![Screenshot showing additional API details that users can find in the API Doc tab](./media/ui-tutorial-automobile-price-deploy/web-service-api.png)
 
-## Manage models and deployments
+## Manage models and deployments in Azure Machine Learning service workspace
 
 The models and web service deployments you create in the visual interface can be managed from the Azure Machine Learning service workspace.
 
