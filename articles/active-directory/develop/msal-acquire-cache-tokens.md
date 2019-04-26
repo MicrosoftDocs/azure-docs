@@ -29,7 +29,7 @@ MSAL caches a token after it has been acquired.  Application code should try to 
 You can also clear the token cache, which is achieved by removing the accounts from the cache. This does not remove the session cookie which is in the browser, though.
 
 ## Scopes when acquiring tokens
-[Scopes](v2-permissions-and-consent.md) are the permissions that a web API exposes for client applications to request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs. MSAL allows you to get tokens to access Azure AD v1.0 and Azure AD v2.0 APIs. Azure AD v2.0 protocol uses scopes instead of resource in the requests. For more information, read [Azure AD v1.0 and v2.0 comparison](active-directory-v2-compare.md). Based on the web API's configuration of the token version it accepts, the Azure AD v2.0 endpoint returns the access token to MSAL.
+[Scopes](v2-permissions-and-consent.md) are the permissions that a web API exposes for client applications to request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs. MSAL allows you to get tokens to access Azure AD for developers (v1.0) and Microsoft identity platform (v2.0) APIs. v2.0 protocol uses scopes instead of resource in the requests. For more information, read [v1.0 and v2.0 comparison](active-directory-v2-compare.md). Based on the web API's configuration of the token version it accepts, the v2.0 endpoint returns the access token to MSAL.
 
 A number of MSAL acquire token methods require a *scopes* parameter. This parameter is a simple list of strings that declare the desired permissions and resources that are requested. Well known scopes are the [Microsoft Graph permissions](/graph/permissions-reference).
 
@@ -48,7 +48,7 @@ For the Microsoft Graph API, only, a scope value `user.read` maps to `https://gr
 > Certain web APIs such as Azure Resource Manager API (https://management.core.windows.net/) expect a trailing '/' in the audience claim (aud) of the access token. In this case, it is important to pass the scope as https://management.core.windows.net//user_impersonation (note the double slash), for the token to be valid in the API.
 
 ### Request dynamic scopes for incremental consent
-When building applications using Azure AD v1.0, you had to register the full set of permissions (static scopes) required by the application for the user to consent at the time of login. In Azure AD v2.0, you can request additional permissions as needed using the scope parameter. These are called dynamic scopes and allow the user to provide incremental consent to scopes.
+When building applications using v1.0, you had to register the full set of permissions (static scopes) required by the application for the user to consent at the time of login. In v2.0, you can request additional permissions as needed using the scope parameter. These are called dynamic scopes and allow the user to provide incremental consent to scopes.
 
 For example, you can initially sign in the user and deny them any kind of access. Later, you can give them the ability to read the calendar of the user by requesting the calendar scope in the acquire token methods and get the user's consent.
 
