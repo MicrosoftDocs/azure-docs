@@ -99,11 +99,61 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 Replace these parameters with your own values in the following example `docker run` command.
 
-[!INCLUDE [Running multiple containers CLI on the same host with H2 & H3](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+### Form Recognizer
 
-[!INCLUDE [Running multiple containers Compose on the same host with H2 & H3](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+```bash
+docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
+--mount type=bind,source=c:\input,target=/input  \
+--mount type=bind,source=c:\output,target=/output \
+Eula=accept \
+Billing={BILLING_ENDPOINT_URI} \
+ApiKey={BILLING_KEY} \
+FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
+FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
+```
 
-For the Form Recognizer and Text Recognizer combination hosted locally on the same Host, an example Docker Compose YAML file follows. The Text Recognizer `{COMPUTER_VISION_API_KEY}` must be the same for both the `form` and `ocr` containers. The `{COMPUTER_VISION_ENDPOINT_URI}` is only used in the `ocr` container because the `form` container uses the `ocr` name and port. 
+This command:
+
+* Runs a Form Recognizer container from the container image
+* Allocates 2 CPU cores and 8 gigabytes (GB) of memory
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
+* Automatically removes the container after it exits. The container image is still available on the host computer.
+* Mounts an /input and an /output volume to the container
+
+[!INCLUDE [Running multiple containerson the same host H2](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+[!INCLUDE [Running multiple containers CLI on the same host - H3](../../../includes/cognitive-services-containers-run-multiple-docker-cli.md)]
+
+For the Form Recognizer and Text Recognizer combination hosted locally on the same host, two example Docker CLI commands follow.
+
+Run the first container on port 5000. 
+
+```bash 
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+<container-registry path including first container-name> \
+Eula=accept \
+Billing={BILLING_ENDPOINT_URI} \
+ApiKey={BILLING_KEY}
+FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
+FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
+```
+
+Run the second container on port 5001.
+
+
+```bash 
+docker run --rm -it -p 5001:5000 --memory 4g --cpus 1 \
+<container-registry path including second container-name> \
+Eula=accept \
+Billing={COMPUTER_VISION_ENDPOINT_URI} \
+ApiKey={COMPUTER_VISION_API_KEY}
+```
+Each subsequent container should be on a different port. 
+
+[!INCLUDE [Running multiple containers Compose on the same host - H3](../../../includes/cognitive-services-containers-run-multiple-docker-compose.md)]
+
+For the Form Recognizer and Text Recognizer combination hosted locally on the same host, an example Docker Compose YAML file follows. The Text Recognizer `{COMPUTER_VISION_API_KEY}` must be the same for both the `form` and `ocr` containers. The `{COMPUTER_VISION_ENDPOINT_URI}` is only used in the `ocr` container because the `form` container uses the `ocr` name and port. 
 
 ```docker
 version: '3.3'
@@ -137,27 +187,6 @@ services:
 
 ```
 
-### Form Recognizer
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
---mount type=bind,source=c:\input,target=/input  \
---mount type=bind,source=c:\output,target=/output \
-Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} \
-FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
-FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
-```
-
-This command:
-
-* Runs a Form Recognizer container from the container image
-* Allocates 2 CPU cores and 8 gigabytes (GB) of memory
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits. The container image is still available on the host computer.
-* Mounts an /input and an /output volume to the container
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` as well as `FormRecognizer:ComputerVisionApiKey` and `FormRecognizer:ComputerVisionEndpointUri` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
