@@ -144,7 +144,7 @@ In this tutorial, you use the [Microsoft Cognitive Services Anomaly Detector API
 
 2. Select **+ Create a resource**.
 
-3. Under Azure Marketplace, Select **AI + Machine Learning** > **Cognitive Services - More** > **Anomaly Detector**. Or you could use [this link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) to go to the **Create** dialog box directly.
+3. Under Azure Marketplace, Select **AI + Machine Learning** > **See all** > **Cognitive Services - More** > **Anomaly Detector**. Or you could use [this link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) to go to the **Create** dialog box directly.
 
     ![Create Anomaly Detector resource](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Create Anomaly Detector resource")
 
