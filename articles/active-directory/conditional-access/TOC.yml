@@ -44,6 +44,8 @@
     href: conditional-access-for-exo-and-spo.md
   - name: Migrate classic policies
     href: policy-migration.md
+  - name: Sign-in frequency and browser persistence controls
+    href: howto-conditional-access-session-lifetime.md
   - name: Require approved client apps
     href: app-based-conditional-access.md
   - name: Require app protection policy
