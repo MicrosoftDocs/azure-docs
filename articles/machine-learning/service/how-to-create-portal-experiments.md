@@ -18,7 +18,7 @@ ms.date: 05/02/2019
 
  In this article, you learn how to create, run, and explore automated machine learning experiments in the Azure portal without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](https://docs.microsoft.com/azure/machine-learning/service/concept-automated-ml).
 
- If you prefer a more code based experience, you can also [Configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+ If you prefer a more code based experience, you can also [configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## Prerequisites
 
@@ -28,11 +28,11 @@ ms.date: 05/02/2019
 
 ## Get started
 
-Navigate to the left pane. Select Automated Machine Learning under the Authoring (Preview) section.
+Navigate to the left pane of your workspace. Select Automated Machine Learning under the Authoring (Preview) section.
 
 ![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)
 
-You'll see the following if this is your first time doing any experiments with Automated Machine Learning.
+ If this is your first time doing any experiments with Automated Machine Learning, you'll see the following:
 
 ![Azure portal experiment landing page](media/how-to-create-portal-experiments/landing-page.png)
 
@@ -50,7 +50,7 @@ Select the Create Experiment button to populate the following form.
 
 1. Select a compute for the data profiling and training job. A list of your existing computes is available in the dropdown. To create a new compute, follow the instructions in step 3.
 
-1. Select the Create a new compute button to open the below pane and configure your compute context for this experiment.
+1. Select the Create a new compute button to open the below pane, and configure your compute context for this experiment.
 
     ![Create new compute for experiment](media/how-to-create-portal-experiments/create-new-compute.png)
 
@@ -69,13 +69,13 @@ Select the Create Experiment button to populate the following form.
 
 1. Select a storage container.
 
-1. Select a data file from your storage container or upload a file from your local computer to the container.
+1. Select a data file from your storage container, or upload a file from your local computer to the container.
 
     ![Select data file for experiment](media/how-to-create-portal-experiments/select-file.png)
 
 1. Use the preview and profile tabs to further configure your data for this experiment.
 
-    1. On the Preview tab, indicate if your data includes headers and select the features (columns) for training using the **Included** switch buttons in each feature column.
+    1. On the Preview tab, indicate if your data includes headers, and select the features (columns) for training using the **Included** switch buttons in each feature column.
 
         ![Data preview](media/how-to-create-portal-experiments/data-preview.png)
 
@@ -92,9 +92,9 @@ Select the Create Experiment button to populate the following form.
 
 1. For forecasting:
     1. Select time column: This column contains the time data to be used.
-    1. Select forecast horizon: How many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further the model is required to predict into the future, the less accurate it will become. [Learn more about forecasting and forecast horizon](https://docs.microsoft.com/azure/machine-learning/service/how-to-auto-train-forecast#configure-experiment).
+    1. Select forecast horizon: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further the model is required to predict into the future, the less accurate it will become. [Learn more about forecasting and forecast horizon](https://docs.microsoft.com/azure/machine-learning/service/how-to-auto-train-forecast#configure-experiment).
 
-1. (optional) Advanced settings: additional settings you can use to better control the training job.
+1. (Optional) Advanced settings: additional settings you can use to better control the training job.
 
     Advanced settings|Description
     ------|------
@@ -158,7 +158,7 @@ When configuring your experiments, you can enable the advanced setting `Preproce
 |Impute missing values|For numerical features, impute with average of values in the column.<br/><br/>For categorical features, impute with most frequent value.|
 |Generate additional features|For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br/><br/>For Text features: Term frequency based on unigrams, bi-grams, and tri-character-grams.|
 |Transform and encode |Numeric features with few unique values are transformed into categorical features.<br/><br/>One-hot encoding is performed for low cardinality categorical; for high cardinality, one-hot-hash encoding.|
-|Word embeddings|Transforms is a text featurizer that converts vectors of text tokens into sentence vectors using a pre-trained model. Each word’s embedding vector in a document is aggregated together to produce a document feature vector.|
+|Word embeddings|Text featurizer that converts vectors of text tokens into sentence vectors using a pre-trained model. Each word’s embedding vector in a document is aggregated together to produce a document feature vector.|
 |Target encodings|For categorical features, maps each category with averaged target value for regression problems, and to the class probability for each class for classification problems. Frequency-based weighting and k-fold cross validation is applied to reduce over fitting of the mapping and noise caused by sparse data categories.|
 |Text target encoding|For text input, a stacked linear model with bag-of-words is used to generate the probability of each class.|
 |Weight of Evidence (WoE)|Calculates WoE as a measure of correlation of categorical columns to the target column. It is calculated as the log of the ratio of in-class vs out-of-class probabilities. This step outputs one numerical feature column per class and removes the need to explicitly impute missing values and outlier treatment.|
@@ -203,9 +203,11 @@ Automated ML helps you with deploying the model without writing code:
 
 1. Check the checkbox next to the model you registered, and select "Create image".
 
-    You can identify the model by its description, which includes the run ID and iteration number, in the following format: <Run_ID>_<Iteration_number>_Model.
+    You can identify the model by its description, which includes the run ID and iteration number, in the following format: **<Run_ID>_<Iteration_number>_Model**.
 
-1. Enter a name for the image and upload the scoring file you previously downloaded. [Learn more about scoring scripts](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where.md#script). You can use your own scoring script and Conda file, as well as upload additional files.  When you [create your own](tutorial-deploy-models-with-aml.md#create-environment-file) Conda file, be sure to include `azureml-sdk` and `scikit-learn`.
+1. Enter a name for the image, and upload the scoring file you previously downloaded. [Learn more about scoring scripts](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where.md#script).
+
+    You can use your own scoring script and Conda file. If you don't have a Conda file, [create your own](tutorial-deploy-models-with-aml.md#create-environment-file) and upload it along with any other additional files you may want to use.
 
     ![Create an image form](media/how-to-create-portal-experiments/create-image.png)
 
