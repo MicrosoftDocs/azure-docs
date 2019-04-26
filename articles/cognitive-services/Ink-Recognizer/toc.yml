@@ -37,8 +37,6 @@
   items:
   - name: REST API reference
     href: https://go.microsoft.com/fwlink/?linkid=2089907
-  - name: REST API testing console
-    href: https://go.microsoft.com/fwlink/?linkid=2090232
   - name: PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Azure CLI
