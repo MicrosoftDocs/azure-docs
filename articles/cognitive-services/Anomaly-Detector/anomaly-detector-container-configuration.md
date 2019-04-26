@@ -11,7 +11,7 @@ ms.date: 05/07/2019
 ms.author: aahi
 ---
 
-# Configure containers
+# Configure Anomaly Detector containers
 
 The **Anomaly Detector** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
 
