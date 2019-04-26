@@ -24,7 +24,7 @@ Currently, you can find the request charge in the Azure portal only for a SQL qu
 
 1. [Create a new Azure Cosmos account](create-sql-api-dotnet.md#create-account) and feed it with data, or select an existing Azure Cosmos account that already contains data.
 
-1. Open the **Data Explorer** pane, and then select the container you want to work on.
+1. Go to the **Data Explorer** pane, and then select the container you want to work on.
 
 1. Select **New SQL Query**.
 
@@ -103,7 +103,7 @@ For more information, see [Quickstart: Build a Java application by using an Azur
 
 ### Use the Node.js SDK
 
-Objects that are returned from the [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) expose a `headers` subobject that maps all the headers returned by the underlying HTTP API. The request charge is available under the `x-ms-request-charge` key.
+Objects that are returned from the [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) expose a `headers` subobject that maps all the headers returned by the underlying HTTP API. The request charge is available under the `x-ms-request-charge` key:
 
 ```javascript
 const item = await client
@@ -138,7 +138,7 @@ For more information, see [Quickstart: Build a Node.js app by using an Azure Cos
 
 ### Use the Python SDK
 
-The `CosmosClient` object from the [Python SDK](https://pypi.org/project/azure-cosmos/) exposes a `last_response_headers` dictionary that maps all the headers returned by the underlying HTTP API for the last operation executed. The request charge is available under the `x-ms-request-charge` key.
+The `CosmosClient` object from the [Python SDK](https://pypi.org/project/azure-cosmos/) exposes a `last_response_headers` dictionary that maps all the headers returned by the underlying HTTP API for the last operation executed. The request charge is available under the `x-ms-request-charge` key:
 
 ```python
 response = client.ReadItem('dbs/database/colls/container/docs/itemId', { 'partitionKey': 'partitionKey' })
@@ -152,7 +152,7 @@ For more information, see [Quickstart: Build a Python app by using an Azure Cosm
 
 ## Azure Cosmos DB API for MongoDB
 
-The RU charge is exposed by a custom [database command](https://docs.mongodb.com/manual/reference/command/) named `getLastRequestStatistics`. The command returns a document that contains the name of the last operation executed, its request charge, and its duration. You have multiple options for retrieving the RU charge.
+The RU charge is exposed by a custom [database command](https://docs.mongodb.com/manual/reference/command/) named `getLastRequestStatistics`. The command returns a document that contains the name of the last operation executed, its request charge, and its duration. If you use the Azure Cosmos DB API for MongoDB, you have multiple options for retrieving the RU charge.
 
 ### Use the Azure portal
 
@@ -162,7 +162,7 @@ Currently, you can find the request charge in the Azure portal only for a query.
 
 1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-a-database-account) and feed it with data, or select an existing account that already contains data.
 
-1. Open the **Data Explorer** pane, and then select the collection you want to work on.
+1. Go to the **Data Explorer** pane, and then select the collection you want to work on.
 
 1. Select **New Query**.
 
@@ -174,7 +174,7 @@ Currently, you can find the request charge in the Azure portal only for a query.
 
 ### Use the MongoDB .NET driver
 
-When you use the [official MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/), you can execute commands by calling the `RunCommand` method on a `IMongoDatabase` object. This method requires an implementation of the `Command<>` abstract class.
+When you use the [official MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/), you can execute commands by calling the `RunCommand` method on a `IMongoDatabase` object. This method requires an implementation of the `Command<>` abstract class:
 
 ```csharp
 class GetLastRequestStatisticsCommand : Command<Dictionary<string, object>>
@@ -200,7 +200,7 @@ Document stats = database.runCommand(new Document("getLastRequestStatistics", 1)
 Double requestCharge = stats.getDouble("RequestCharge");
 ```
 
-For more information, see [Quickstart: Build a web app by using the Azure Cosmos DB API for MongoDB and Java SDK](create-mongodb-java.md).
+For more information, see [Quickstart: Build a web app by using the Azure Cosmos DB API for MongoDB and the Java SDK](create-mongodb-java.md).
 
 ### Use the MongoDB Node.js driver
 
@@ -251,7 +251,7 @@ Headers returned by the Gremlin API are mapped to custom status attributes, whic
 
 ### Use the .NET SDK
 
-When you use the [Gremlin.NET SDK](https://www.nuget.org/packages/Gremlin.Net/), status attributes are available under the `StatusAttributes` property of the `ResultSet<>` object.
+When you use the [Gremlin.NET SDK](https://www.nuget.org/packages/Gremlin.Net/), status attributes are available under the `StatusAttributes` property of the `ResultSet<>` object:
 
 ```csharp
 ResultSet<dynamic> results = client.SubmitAsync<dynamic>("g.V().count()").Result;
@@ -273,7 +273,7 @@ For more information, see [Quickstart: Create a graph database in Azure Cosmos D
 
 ## Table API
 
-Currently, the only SDK that returns the RU charge for table operations is the [.NET Standard SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table). The `TableResult` object exposes a `RequestCharge` property that is populated by the SDK when used against the Azure Cosmos DB Table API:
+Currently, the only SDK that returns the RU charge for table operations is the [.NET Standard SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table). The `TableResult` object exposes a `RequestCharge` property that is populated by the SDK when you use it against the Azure Cosmos DB Table API:
 
 ```csharp
 CloudTable tableReference = client.GetTableReference("table");
@@ -288,7 +288,7 @@ For more information, see [Quickstart: Build a Table API app by using the .NET S
 
 ## Next steps
 
-See the following articles to learn about optimizing your request unit consumption:
+To learn about optimizing your RU consumption, see these articles:
 
 * [Request units and throughput in Azure Cosmos DB](request-units.md)
 * [Optimize provisioned throughput cost in Azure Cosmos DB](optimize-cost-throughput.md)
