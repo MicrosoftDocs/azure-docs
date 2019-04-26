@@ -38,5 +38,5 @@ This example overrides the method `get_pandas_limit` and balances data load perf
 ## Next steps
 
 * [Tutorial: Regression modeling with automated machine learning and an open dataset](tutorial-opendatasets-automl.md)
-* [Python SDK for Open Datasets](https://aka.ms/open-datasets-sdk)
+* [Python SDK for Open Datasets](https://aka.ms/open-datasets-api)
 * [Azure Open Datasets catalog](https://azure.microsoft.com/services/open-datasets/catalog/)
