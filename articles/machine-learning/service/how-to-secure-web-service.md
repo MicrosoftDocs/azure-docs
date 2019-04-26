@@ -65,6 +65,35 @@ When requesting a certificate, you must provide the fully qualified domain name 
 
 To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` parameter to `True`, wherever applicable. Set the `ssl_certificate` parameter to the value of the __certificate__ file and the `ssl_key` to the value of the __key__ file.
 
++ **Visual interface - Create secure Azure Kubernetes Service (AKS) for deployment** 
+    
+    Refer to this if you are trying to create secure deploying compute for visual interface. While provisioning the AKS cluster, provide values for SSL-related parameters then create a new AKS.  Please refer to below code snippet:
+    
+
+    > [!TIP]
+    >  If you are not familiar with the Python SDK, start from [Azure Machine Learning Python SDK Overview.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+
+
+    ```python
+    from azureml.core.compute import AksCompute, ComputeTarget
+
+    # Provide SSL-related parameters when provisioning the AKS cluster
+    prov_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")   
+ 
+    aks_name = 'secure-aks'
+    # Create the cluster
+    aks_target = ComputeTarget.create(workspace = ws,
+                                        name = aks_name,
+                                        provisioning_configuration = prov_config)
+    
+    # Wait for the create process to complete
+    aks_target.wait_for_completion(show_output = True)
+    print(aks_target.provisioning_state)
+    print(aks_target.provisioning_errors)
+    ```
+    
+   
+
 + **Deploy on Azure Kubernetes Service (AKS) and FPGA**
 
   While provisioning the AKS cluster, provide values for SSL-related parameters as shown in the code snippet:
@@ -97,9 +126,14 @@ Next, you must update your DNS to point to the web service.
 
 + **For AKS**:
 
+    > [!TIP]
+    > Refer to this if you are trying to create secure deploying compute for visual interface.
+
   Update the DNS under the "Configuration" tab of the "Public IP Address" of the AKS cluster as shown in the image. You can find the Public IP Address as one of the resource types created under the resource group that contains the AKS agent nodes and other networking resources.
 
   ![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+
+
 
 ## Next steps
 Learn how to:

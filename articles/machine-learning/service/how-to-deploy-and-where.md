@@ -40,17 +40,17 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 - A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](http://aka.ms/azml-deploy-cloud).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), or the Python SDK.
+- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), or the [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk).
 
 ## <a id="registermodel"></a> Register a machine learning model
 
-The model registry is a way to store and organize your trained models in the Azure cloud. Models are registered in your Azure Machine Learning service workspace. The model can be trained using Azure Machine Learning, or imported from a model trained elsewhere. The following examples demonstrates how to register a model from file:
+The model registry is a way to store and organize your trained models in the Azure cloud. Models are registered in your Azure Machine Learning service workspace. The model can be trained using Azure Machine Learning, or imported from a model trained elsewhere. The following examples demonstrate how to register a model from file:
 
 ### Register a model from an Experiment Run
 
-**SScikit-Learn example with the CLI**
+**Scikit-Learn example with the CLI**
 ```azurecli-interactive
-az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name plktexperiment  -f output.json -t model-output.json
+az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
 ```
 **Using the SDK**
 ```python
@@ -69,14 +69,14 @@ urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
 
 model = Model.register(workspace = ws,
                        model_path ="mnist/model.onnx",
-                       model_name = "mnist_1",
+                       model_name = "onnx_mnist",
                        tags = {"onnx": "demo"},
                        description = "MNIST image classification CNN from ONNX Model Zoo",)
 ```
 
 **Using the CLI**
 ```azurecli-interactive
-az ml model register -n sklearn_mnist -p sklearn_mnist_model.pkl
+az ml model register -n onnx_mnist -p mnist/model.onnx
 ```
 
 **Time estimate**: Approximately 10 seconds.
@@ -85,7 +85,7 @@ For more information, see the reference documentation for the [Model class](http
 
 ## How to deploy
 
-To deploy as a web service, you must create an inference configuration (`InferenceConfig`) and a deployment configuration. In the inference config, you specify the scripts and dependencies needed to serve your model. In the deployment config you specify details of how to serve the model on the the compute target.
+To deploy as a web service, you must create an inference configuration (`InferenceConfig`) and a deployment configuration. In the inference config, you specify the scripts and dependencies needed to serve your model. In the deployment config you specify details of how to serve the model on the compute target.
 
 
 ### <a id="script"></a> 1. Define your entry script & dependencies
@@ -100,7 +100,7 @@ The script contains two functions that load and run the model:
 
 #### (Optional) Automatic Swagger schema generation
 
-To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects, and the type and sample are used to automatically create the schema. This creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service.
+To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects, and the type and sample are used to automatically create the schema. Azure Machine Learning service then creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service during deployment.
 
 The following types are currently supported:
 
@@ -112,7 +112,7 @@ The following types are currently supported:
 To use schema generation, include the `inference-schema` package in your conda environment file. The following example uses `[numpy-support]` since the entry script uses a numpy parameter type: 
 
 #### Example dependencies file
-This is an example of a Conda dependencies file for inference.
+The following is an example of a Conda dependencies file for inference.
 ```python
 name: project_environment
 dependencies:
@@ -131,7 +131,8 @@ Define the input and output sample formats in the `input_sample` and `output_sam
 > After deploying the service, use the `swagger_uri` property to retrieve the schema JSON document.
 
 #### Example entry script
-The following example script accepts and returns JSON data.
+
+The following example demonstrates how to accept and return JSON data:
 
 **Scikit-learn example with Swagger generation:**
 ```python
@@ -175,7 +176,7 @@ For more example scripts, see the following examples:
 * ONNX: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 * Scoring against binary data: [How to consume a web service](how-to-consume-web-service.md)
 
-### 2. Define your InferenceConfiguration
+### 2. Define your InferenceConfig
 
 The inference configuration describes how to configure the model to make predictions. The following example demonstrates how to create an inference configuration:
 
@@ -193,9 +194,9 @@ In this example, the configuration contains the following items:
 * The [entry script](#script), which is used to handle web requests sent to the deployed service
 * The conda file that describes the Python packages needed to run inferencing
 
-For information on InferenceConfig functionality, please click <a href="#advanced-config">here</a>.
+For information on InferenceConfig functionality, see the [Advanced configuration](#advanced-config) section.
 
-### 3. Define your DeploymentConfiguration
+### 3. Define your Deployment configuration
 
 Before deploying, you must define the deployment configuration. The deployment configuration is specific to the compute target that will host the web service. For example, when deploying locally you must specify the port where the service accepts requests.
 
@@ -231,7 +232,7 @@ print(service.state)
 **Using the CLI**
 
 ```azurecli-interactive
-az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
+az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
 ```
 
 ### <a id="aci"></a> Deploy to Azure Container Instances (DEVTEST)
@@ -240,7 +241,7 @@ Use Azure Container Instances for deploying your models as a web service if one 
 - You need to quickly deploy and validate your model.
 - You are testing a model that is under development. 
 
-To see quota and region availability for ACI, see the [Quotas and region availability for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) document.
+To see quota and region availability for ACI, see the [Quotas and region availability for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) article.
 
 **Using the SDK**
 
@@ -254,7 +255,7 @@ print(service.state)
 **Using the CLI**
 
 ```azurecli-interactive
-az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
+az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
 ```
 
 For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
@@ -272,7 +273,7 @@ You can use an existing AKS cluster or create a new one using the Azure Machine 
 
 You can deploy to AKS with the Azure ML CLI:
 ```azurecli-interactive
-az ml model deploy -ct myaks -ic inferenceconfig.json -dc deploymentconfig.json
+az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
 ```
 
 You can also use the Python SDK:
@@ -285,18 +286,19 @@ print(service.state)
 print(service.get_logs())
 ```
 
-For more information on configuring your AKS deployment, including autoscale,see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
+For more information on configuring your AKS deployment, including autoscale, see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
 
 **Time estimate:** Approximately 5 minutes.
 
 #### Create or attach an AKS cluster <a id="create-attach-aks"></a>
 Creating or attaching an AKS cluster is a **one time process** for your workspace. 
-After a cluster has been associated with your workspace you can use it for multiple deployments. 
+After a cluster has been associated with your workspace, you can use it for multiple deployments. 
 
 If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy.
 
 ##### Create a new AKS cluster
-To create a new Azure Kubernetes Service cluster use the following code:
+
+The following example demonstrates how to create a new Azure Kubernetes Service cluster:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -439,10 +441,10 @@ image_config.base_image = run.properties["AzureML.DerivedImageName"]
 ### <a id="azuremlcompute"></a> Batch inference
 Azure Machine Learning Compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure Machine Learning Pipelines.
 
-For a walkthrough of batch inference with Azure Machine Learning Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) document.
+For a walkthrough of batch inference with Azure Machine Learning Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) article.
 
 ## <a id="iotedge"></a> Inference on IoT Edge
-Support for deploying to the edge is in preview. For more info check out [this article](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning).
+Support for deploying to the edge is in preview. For more information, see the  [Deploy Azure Machine Learning as an IoT Edge module](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning) article.
 
 ## Next steps
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)

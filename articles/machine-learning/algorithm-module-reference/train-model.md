@@ -8,16 +8,12 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 # Train Model module
 
-*Trains a classification or regression model in a supervised manner*  
-  
- Category: Machine Learning / Train  
- 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to  train a classification or regression model. Training takes place after you have defined a model and set its parameters, and requires tagged data. You can also use **Train Model** to retrain an existing model with new data. 

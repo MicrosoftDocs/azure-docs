@@ -8,16 +8,12 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
 # Two-Class Support Vector Machine module
-
-*Creates a binary classification model using the Support Vector Machine algorithm*  
-  
- Category: Machine Learning / Initialize Model / Classification
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
