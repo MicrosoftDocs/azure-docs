@@ -108,7 +108,7 @@ Select the Create Experiment button to populate the following form.
    ![Advanced settings form](media/how-to-create-portal-experiments/advanced-settings.png)
 
 > [!NOTE]
-> For more information on fields click the information tool tip.
+> For more information on fields, click the information tool tip.
 
 <a name="profile"></a>
 
@@ -168,7 +168,7 @@ When configuring your experiments, you can enable the advanced setting `Preproce
 
 To run the experiment, click the Start button.
   
-The experiment preparing process takes a couple minutes.
+The experiment preparing process takes a couple of minutes.
 
 ## View results
 
@@ -205,9 +205,7 @@ Automated ML helps you with deploying the model without writing code:
 
     You can identify the model by its description, which includes the run ID and iteration number, in the following format: <Run_ID>_<Iteration_number>_Model.
 
-1. Enter a name for the image and upload the scoring file you previously downloaded. For the Conda file, you can download and use the following file:
-
-    <!TODO: insert link to "env.yml">
+1. Enter a name for the image and upload the scoring file you previously downloaded. For the Conda file, [Create your own](tutorial-deploy-models-with-aml.md#create-environment-file) and  be sure to include `azureml-sdk` and `scikit-learn`.
 
     ![Create an image form](media/how-to-create-portal-experiments/create-image.png)
 
@@ -223,7 +221,7 @@ Automated ML helps you with deploying the model without writing code:
 
 1. (optional) Enter a description for the deployment.
 
-1. Select the target compute type to use. [Learn more about deployments](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+1. Select the target compute type to use. 
 
     ![Create deployment form](media/how-to-create-portal-experiments/create-deployment.png)
 
@@ -234,3 +232,4 @@ Automated ML helps you with deploying the model without writing code:
 ## Next steps
 
 * [How to consume a deployed model](how-to-consume-web-service.md).
+* [Learn more about deployments](how-to-deploy-and-where.md).
