@@ -25,13 +25,11 @@ For additional information about using environment variables with Batch, see [En
 
 These environment variables are visible only in the context of the **task user**, the user account on the node under which a task is executed. You will *not* see these if you [connect remotely](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) to a compute node via Remote Desktop Protocol (RDP) or Secure Shell (SSH) and list the environment variables. This is because the user account that is used for remote connection is not the same as the account that is used by the task.
 
-## Environment variable values
+To get the current value of an environment variable, launch `cmd.exe` on a Windows compute node or `/bin/sh` on a Linux node:
 
-To get the current value of an environment variable, use the command:
+`cmd /c set <ENV_VARIABLE_NAME>`
 
-`cmd /c set `
-
-`/bin/sh -c set`
+`/bin/sh printenv <ENV_VARIABLE_NAME>`
 
 ## Command-line expansion of environment variables
 
