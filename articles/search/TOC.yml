@@ -262,6 +262,8 @@
       href: cognitive-search-skill-ocr.md
     - name: Shaper
       href: cognitive-search-skill-shaper.md
+    - name: Conditional
+      href: cognitive-search-skill-conditional.md
     - name: Deprecated Skills
       href: cognitive-search-skill-deprecated.md
 - name: Resources
