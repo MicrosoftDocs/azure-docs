@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 04/24/2019
+ms.date: 05/02/2019
 ms.author: maheff
 ---
 
@@ -32,7 +32,7 @@ This tutorial runs on the Free service, but the number of free transactions is l
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to attach a billable Cognitive Services resource. Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
 >
 > Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
-. Image extraction pricing is charged at preview pricing, as described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
+. Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -88,7 +88,7 @@ Begin by opening Visual Studio and creating a new Console App project that can r
 
 ### Install NuGet packages
 
-The [Azure Search .NET SDK](https://aka.ms/search-sdk) consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and skillsets, as well as upload and manage documents, and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
+The [Azure Search .NET SDK](https://aka.ms/search-sdk) consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and skillsets, as well as upload and manage documents and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
 
 For this project, you will need to install the 7.x.x-preview version of the `Microsoft.Azure.Search` NuGet package and the latest `Microsoft.Extensions.Configuration.Json` NuGet package.
 
@@ -98,7 +98,7 @@ To install the `Microsoft.Extensions.Configuration.Json` NuGet package in Visual
 
 ## Add Azure Search service information
 
-In order to connect to your Azure Search service you will need to add the search service information to your project. Right click on your project in the Solution Explorer and select **Add** > **New Item...**. Name the file `appsettings.json` and select **Add**. 
+In order to connect to your Azure Search service you will need to add the search service information to your project. Right click on your project in the Solution Explorer and select **Add** > **New Item...** . Name the file `appsettings.json` and select **Add**. 
 
 This file will need to be included in your output directory. To do that, right click on `appsettings.json` and select **Properties**. Change the value of **Copy to Output Directory** to **Copy of newer**.
 
@@ -126,7 +126,6 @@ This tutorial uses many different types from various namespaces. In order to use
 ```csharp
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using Microsoft.Azure.Search;
 using Microsoft.Azure.Search.Models;
 using Microsoft.Extensions.Configuration;
@@ -151,6 +150,8 @@ SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
 ## Create a data source
 
 Create a new `DataSource` instance by calling `DataSource.AzureBlobStorage`. `DataSource.AzureBlobStorage` requires that you specify the data source name, connection string, and blob container name.
+
+Although it's not used in this tutorial a soft delete policy is also defined which is used to identify deleted blobs based on the value of a soft delete column. The following policy considers a blob to be deleted if it has a metadata property `IsDeleted` with the value `true`.
 
 ```csharp
 DataSource dataSource = DataSource.AzureBlobStorage(
@@ -192,7 +193,7 @@ In this section, you define a set of enrichment steps that you want to apply to 
 
 + [Language Detection](cognitive-search-skill-language-detection.md) to identify the content's language.
 
-+ [Text Split](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
++ [Text Split](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill and the named entity recognition skill. Key phrase extraction and named entity recogntion accept inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
 
 + [Named Entity Recognition](cognitive-search-skill-named-entity-recognition.md) for extracting the names of organizations from content in the blob container.
 
@@ -206,7 +207,7 @@ For more information about skillset fundamentals, see [How to define a skillset]
 
 ### OCR Skill
 
-The **OCR** skill extracts text from images. This skill assumes that a normalized_images field exists. To generate this field, we'll set the imageAction configuration in your indexer definition to generateNormalizedImages when building the indexer.
+The **OCR** skill extracts text from images. This skill assumes that a normalized_images field exists. To generate this field, later in the tutorial we'll set the ```"imageAction"``` configuration in the indexer definition to ```"generateNormalizedImages"```.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -260,7 +261,7 @@ MergeSkill mergeSkill = new MergeSkill(
 
 ### Language Detection Skill
 
-The **Language Detection** skill detects the language of input text and reports a single language code for every document submitted on the request. We'll use the output of the **Language Detection** skill as part of the input to the **Text Split** skill.
+The **Language Detection** skill detects the language of the input text and reports a single language code for every document submitted on the request. We'll use the output of the **Language Detection** skill as part of the input to the **Text Split** skill.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -282,7 +283,7 @@ LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
 
 ### Text Split Skill
 
-The below **Split** skill will split text by pages and limit the page length to 4,000 characters as measured by `String.Length`. The algorithm will try to split the text into chunks that are at most "maximumPageLength" in size. In this case, the algorithm will do its best to break the sentence on a sentence boundary, so the size of the chunk may be slightly less than "maximumPageLength".
+The below **Split** skill will split text by pages and limit the page length to 4,000 characters as measured by `String.Length`. The algorithm will try to split the text into chunks that are at most `maximumPageLength` in size. In this case, the algorithm will do its best to break the sentence on a sentence boundary, so the size of the chunk may be slightly less than `maximumPageLength`.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -311,6 +312,8 @@ SplitSkill splitSkill = new SplitSkill(
 
 This `NamedEntityRecognitionSkill` instance is set to recognize category type `organization`. The **Named Entity Recognition** skill can also recognize category types `person` and `location`.
 
+Notice that the "context" field is set to ```"/document/pages/*"``` with an asterisk, meaning the enrichment step is called for each page under ```"/document/pages"```.
+
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
 inputMappings.Add(new InputFieldMappingEntry(
@@ -336,7 +339,7 @@ NamedEntityRecognitionSkill namedEntityRecognition = new NamedEntityRecognitionS
 
 ### Key Phrase Extraction Skill
 
-Notice how the **Key Phrase Extraction** skill is applied for each page. By setting the context to ```"/document/pages/*"``` you run this skill for each member of the /document/pages array (for each page in the document).
+Like the `NamedEntityRecognitionSkill` instance that was just created, the **Key Phrase Extraction** skill is called for each page of the document.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -406,7 +409,7 @@ This exercise uses the following fields and field types:
 
 The fields for this index are defined using a model class. Each property of the model class has attributes which determine the search-related behaviors of the corresponding index field. 
 
-We'll add the model class to a new C# file. Right click on your project and select **Add** > **New Item...**, select Class and name the file `DemoIndex.cs`, and select **Add**.
+We'll add the model class to a new C# file. Right click on your project and select **Add** > **New Item...**, select "Class" and name the file `DemoIndex.cs`, then select **Add**.
 
 Make sure to indicate that you want to use types from the `Microsoft.Azure.Search` and `Microsoft.Azure.Search.Models` namespaces.
 
@@ -474,7 +477,7 @@ So far you have created a data source, a skillset, and an index. These three com
 
 + The outputFieldMappings are processed after the skillset, referencing sourceFieldNames that don't exist until document cracking or enrichment creates them. The targetFieldName is a field in an index.
 
-Besides hooking up inputs to outputs, you can also use field mappings to flatten data structures. For more information, see [How to map enriched fields to a searchable index](cognitive-search-output-field-mapping.md).
+In addition to hooking up inputs to outputs, you can also use field mappings to flatten data structures. For more information, see [How to map enriched fields to a searchable index](cognitive-search-output-field-mapping.md).
 
 ```csharp
 IDictionary<string, object> config = new Dictionary<string, object>();
@@ -538,7 +541,7 @@ catch (Exception e)
 Expect that creating the indexer will take a little time to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are long-running.
 
 > [!TIP]
-> Creating an indexer invokes the pipeline. If there are problems reaching the data, mapping inputs and outputs, or order of operations, they appear at this stage. To re-run the pipeline with code or script changes, you might need to drop objects first. For more information, see [Reset and re-run](#reset).
+> Creating an indexer invokes the pipeline. If there are problems reaching the data, mapping inputs and outputs, or order of operations, they appear at this stage.
 
 ### Explore creating the indexer
 
@@ -546,38 +549,38 @@ The code sets ```"maxFailedItems"```  to -1, which instructs the indexing engine
 
 Also notice the ```"dataToExtract"``` is set to ```"contentAndMetadata"```. This statement tells the indexer to automatically extract the content from different file formats as well as metadata related to each file.
 
-When content is extracted, you can set ```imageAction``` to extract text from images found in the data source. The ```"imageAction"``` set to ```"generateNormalizedImages"``` configuration, combined with the OCR Skill and Text Merge Skill, tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF), as well as images found in the data source, for instance a JPG file.
+When content is extracted, you can set `imageAction` to extract text from images found in the data source. The ```"imageAction"``` set to ```"generateNormalizedImages"``` configuration, combined with the OCR Skill and Text Merge Skill, tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF), as well as images found in the data source, for instance a JPG file.
 
 ## Check indexer status
 
-Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer is still running, use the `GetStatus` method and provide the indexer name.
+Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer is still running, use the `GetStatus` method.
 
 ```csharp
 IndexerExecutionInfo demoIndexerExecutionInfo = serviceClient.Indexers.GetStatus(indexer.Name);
 switch (demoIndexerExecutionInfo.Status)
 {
     case IndexerStatus.Error:
-        Console.WriteLine("Error with running indexer");
+        Console.WriteLine("Indexer has error status");
         break;
     case IndexerStatus.Running:
         Console.WriteLine("Indexer is running");
         break;
     case IndexerStatus.Unknown:
-        Console.WriteLine("Indexer status is unknown.");
+        Console.WriteLine("Indexer status is unknown");
         break;
     default:
-        Console.WriteLine("No indexer information");
+        Console.WriteLine("No indexer status information");
         break;
 }
 ```
 
 `IndexerExecutionInfo` represents the current status and execution history of an indexer.
 
-Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files). You can review the status response for verbose information about warnings emitted during indexing.
+Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files).
  
 ## Verify content
 
-After indexing is finished, run queries that return the contents of individual fields. By default, Azure Search returns the top 50 results. The sample data is small so the default works fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Search](search-pagination-page-layout.md).
+After indexing is finished, you can run queries that return the contents of individual fields. By default, Azure Search returns the top 50 results. The sample data is small so the default works fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Search](search-pagination-page-layout.md).
 
 As a verification step, query the index for all of the fields.
 
@@ -664,19 +667,11 @@ public class DemoIndex
 
 ## Reset and rerun
 
-In the early experimental stages of pipeline development, the most practical approach for design iterations is to delete the objects from Azure Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+In the early experimental stages of development, the most practical approach for design iterations is to delete the objects from Azure Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name. 
 
-To reindex your documents with the new definitions:
+This tutorial took care of checking for existing indexers and indexes and deleting them if they already existed so that you can rerun your code.
 
-1. Delete the index to remove persisted data. Delete the indexer to recreate it on your service.
-2. Modify a skillset and index definition.
-3. Recreate an index and indexer on the service to run the pipeline.
-
-You can also use the portal to delete indexes, indexers, and Skillsets.
-
-```csharp
-serviceClient.Indexes.Delete(index.Name);
-```
+You can also use the portal to delete indexes, indexers, and skillsets.
 
 As your code matures, you might want to refine a rebuild strategy. For more information, see [How to rebuild an index](search-howto-reindex.md).
 
