@@ -161,7 +161,6 @@ export SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP_
 
 Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster* in the defined virtual network and network policy.
   * The cluster is configured with one node
-  * Azure Monitor for containers is enabled using the *--enable-addons monitoring* parameter.
   * The *windows-admin-password* and *windows-admin-username* parameters set the admin credentials for any Windows Server containers created on the cluster.
 
 Provide your own secure *PASSWORD_WIN*.
@@ -173,9 +172,8 @@ az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --kubernetes-version 1.12.7 \
+    --kubernetes-version 1.13.5 \
     --generate-ssh-keys \
-    --enable-addons monitoring \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
     --enable-vmss \
@@ -201,8 +199,8 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.12.7 \
-    --vnet-subnet-id $SUBNET_ID 
+    --kubernetes-version 1.13.5 \
+    --vnet-subnet-id $SUBNET_ID
 ```
 
 The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. When creating a node pool to run Windows Server containers, the default value for *node-vm-size* is *Standard_D2s_v3*. If you choose to set the *node-vm-size* parameter, please check the list of [restricted VM sizes][restricted-vm-sizes]. The minimum recommended size is *Standard_D2s_v3*.
@@ -230,9 +228,9 @@ kubectl get nodes
 The following example output shows the single node created in the previous steps. Make sure that the status of the node is *Ready*:
 
 ```
-NAME                                STATUS   ROLES   AGE     VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.12.7
-aksnpwin987654                      Ready    agent   108s   v1.12.7
+NAME                                STATUS   ROLES   AGE    VERSION
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.13.5
+aksnpwin987654                      Ready    agent   108s   v1.13.5
 ```
 
 ## Run the application
