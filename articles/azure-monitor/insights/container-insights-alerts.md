@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 04/26/2019
 ms.author: magoedte
 ---
 
@@ -20,10 +20,11 @@ Azure Monitor for containers monitors the performance of container workloads tha
 
 This article describes how to enable alerts for the following situations:
 
-* When CPU or memory utilization on cluster nodes exceeds a defined threshold
-* When CPU or memory utilization on any container within a controller exceeds a defined threshold as compared to a limit that's set on the corresponding resource
-* *NotReady* status node counts
-*  *Failed*, *Pending*, *Unknown*, *Running*, or *Succeeded* pod-phase counts
+- When CPU or memory utilization on cluster nodes exceeds a threshold
+- When CPU or memory utilization on any container within a controller exceeds a threshold as compared to a limit that's set on the corresponding resource
+- *NotReady* status node counts
+- *Failed*, *Pending*, *Unknown*, *Running*, or *Succeeded* pod-phase counts
+- When disk free space on the disk exceeds a threshold 
 
 To alert for high CPU or memory utilization on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. Metric alerts have lower latency than log alerts. But log alerts provide advanced querying and greater sophistication. Log alerts queries compare a datetime to the present by using the *now* operator and going back one hour. (Azure Monitor for containers stores all dates in Coordinated Universal Time (UTC) format.)
 
@@ -250,6 +251,26 @@ let endDateTime = now();
 >[!NOTE]
 >To alert on certain pod phases, such as *Pending*, *Failed*, or *Unknown*, modify the last line of the query. For example, to alert on *FailedCount* use: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
+The following query returns cluster nodes disks which exceed 90% free space used.  
+
+```kusto
+let clusterId = '<cluster-id>';
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+InsightsMetrics
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| where Origin == 'container.azm.ms/telegraf'            
+| where Namespace == 'disk'            
+| extend Tags = todynamic(Tags)            
+| project TimeGenerated, ClusterId = Tags['container.azm.ms/clusterId'], Computer = tostring(Tags.hostName), Device = tostring(Tags.device), Path = tostring(Tags.path), DiskMetricName = Name, DiskMetricValue = Val   
+| where ClusterId =~ clusterId       
+| where DiskMetricName == 'used_percent'
+| summarize AggregatedValue = max(DiskMetricValue) by bin(TimeGenerated, trendBinSize)
+| where AggregatedValue > 90
+```
+
 ## Create an alert rule
 Follow these steps to create a log alert in Azure Monitor by using one of the log search rules that was provided earlier.  
 
@@ -267,9 +288,9 @@ Follow these steps to create a log alert in Azure Monitor by using one of the lo
 8. Configure the alert as follows:
 
     1. From the **Based on** drop-down list, select **Metric measurement**. A metric measurement creates an alert for each object in the query that has a value above our specified threshold.
-    1. For **Condition**, select **Greater than**, and enter **75** as an initial baseline **Threshold**. Or enter a different value that meets your criteria.
+    1. For **Condition**, select **Greater than**, and enter **75** as an initial baseline **Threshold** for the CPU and memory utilization alerts. For the low disk space alert, enter **90**. Or enter a different value that meets your criteria.
     1. In the **Trigger Alert Based On** section, select **Consecutive breaches**. From the drop-down list, select **Greater than**, and enter **2**.
-    1. To configure an alert for container CPU or memory utilization, under **Aggregate on**, select **ContainerName**. 
+    1. To configure an alert for container CPU or memory utilization, under **Aggregate on**, select **ContainerName**. To configure for cluster node low disk alert, select **ClusterId**.
     1. In the **Evaluated based on** section, set the **Period** value to **60 minutes**. The rule will run every 5 minutes and return records that were created within the last hour from the current time. Setting the time period to a wide window accounts for potential data latency. It also ensures that the query returns data to avoid a false negative in which the alert never fires.
 
 9. Select **Done** to complete the alert rule.
