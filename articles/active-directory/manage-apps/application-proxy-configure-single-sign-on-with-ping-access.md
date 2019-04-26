@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2017
+ms.date: 04/22/2019
 ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -27,13 +27,13 @@ Azure Active Directory Application Proxy and PingAccess have partnered together 
 
 PingAccess for Azure Active Directory is an offering of PingAccess that enables you to give users access and single sign-on to applications that use headers for authentication. Application Proxy treats these apps like any other, using Azure AD to authenticate access and then passing traffic through the connector service. PingAccess sits in front of the apps and translates the access token from Azure AD into a header so that the application receives the authentication in the format it can read.
 
-Your users won’t notice anything different when they sign in to use your corporate apps. They can still work from anywhere on any device. 
+Your users won’t notice anything different when they sign in to use your corporate apps. They can still work from anywhere on any device.
 
 Since the Application Proxy connectors direct remote traffic to all apps regardless of their authentication type, they’ll continue to load balance automatically, as well.
 
 ## How do I get access?
 
-Since this scenario is offered through a partnership between Azure Active Directory and PingAccess, you need licenses for both services. However, Azure Active Directory Premium subscriptions include a basic PingAccess license that covers up to 20 applications. If you need to publish more than 20 header-based applications, you can purchase an additional license from PingAccess. 
+Since this scenario is offered through a partnership between Azure Active Directory and PingAccess, you need licenses for both services. However, Azure Active Directory Premium subscriptions include a basic PingAccess license that covers up to 20 applications. If you need to publish more than 20 header-based applications, you can purchase an additional license from PingAccess.
 
 For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
@@ -57,7 +57,6 @@ The Application Proxy connector is a Windows Server service that directs the tra
    ![Enable Application Proxy and download the connector](./media/application-proxy-configure-single-sign-on-with-ping-access/install-connector.png)
 
 4. Downloading the connector should automatically enable Application Proxy for your directory, but if not you can select **Enable Application Proxy**.
-
 
 ### Add your app to Azure AD with Application Proxy
 
@@ -89,7 +88,7 @@ Follow these steps to publish your app. For a more detailed walkthrough of steps
 10. Choose **Header-based sign-on** from the drop-down menu. Select **Save**.
 
     >[!TIP]
-    >If this is your first time using header-based single sign-on, you need to install PingAccess. To make sure your Azure subscription is automatically associated with your PingAccess installation, use the link on this single sign-on page to download PingAccess. You can open the download site now, or come back to this page later. 
+    >If this is your first time using header-based single sign-on, you need to install PingAccess. To make sure your Azure subscription is automatically associated with your PingAccess installation, use the link on this single sign-on page to download PingAccess. You can open the download site now, or come back to this page later.
 
     ![Select header-based sign-on](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
 
@@ -102,7 +101,7 @@ Follow these steps to publish your app. For a more detailed walkthrough of steps
 
     ![Select Reply URLs](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
 
-14. Check to see if the external URL that you assigned to your app in step 5 is in the Reply URLs list. If it’s not, add it now.
+14. Check to see if the external URL that you assigned to your app in step 5 is in the Reply URLs list. If it isn't, add it now.
 15. On the app settings blade, select **Required permissions**.
 
     ![Select Required permissions](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
@@ -111,12 +110,12 @@ Follow these steps to publish your app. For a more detailed walkthrough of steps
 
     ![Select permissions](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
 
-17. Grant permissions before you close the permissions screen. 
+17. Grant permissions before you close the permissions screen.
     ![Grant Permissions](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
 
 ### Collect information for the PingAccess steps
 
-1. On your app settings blade, select **Properties**. 
+1. On your app settings blade, select **Properties**.
 
    ![Select Properties](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
 
@@ -138,24 +137,26 @@ Follow these steps to publish your app. For a more detailed walkthrough of steps
 
 ### Optional - Update GraphAPI to send custom fields
 
-For a list of security tokens that Azure AD sends for authentication, see [Azure AD token reference](../develop/v1-id-and-access-tokens.md). If you need a custom claim that sends other tokens, use Graph Explorer or the manifest for the application in the Azure Portal to set the app field *acceptMappedClaims* to **True**.    
+For a list of security tokens that Azure AD sends for authentication, see [Azure AD token reference](../develop/v1-id-and-access-tokens.md). If you need a custom claim that sends other tokens, use Graph Explorer or the manifest for the application in the Azure Portal to set the app field *acceptMappedClaims* to **True**.
 
 This example uses Graph Explorer:
 
 ```
-PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application> 
+PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
 
 {
   "acceptMappedClaims":true
 }
 ```
+
 This example uses the [Azure portal](https://portal.azure.com) to update the *acceptedMappedClaims* field:
+
 1. Sign in to the [Azure portal](https://portal.azure.com) as an application administrator.
 2. Select **Azure Active Directory** > **App registrations**.
 3. Select your application > **Manifest**.
 4. Select **Edit**, search for the *acceptedMappedClaims* field and change the value to **true**.
 ![App manifest](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-ping-access-manifest.PNG)
-1. Select **Save**.
+5. Select **Save**.
 
 >[!NOTE]
 >To use a custom claim, you must also have a custom policy defined and assigned to the application.  This policy should include all required custom attributes.
@@ -163,11 +164,12 @@ This example uses the [Azure portal](https://portal.azure.com) to update the *ac
 >Policy definition and assignment can be done through PowerShell, Azure AD Graph Explorer, or MS Graph.  If you are doing this in PowerShell, you may need to first use `New-AzureADPolicy` and then assign it to the application with `Set-AzureADServicePrincipalPolicy`.  For more information see the [Azure AD Policy documentation](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### Optional - Use a custom claim
+
 To make your application use a custom claim and include additional fields, be sure that you have also [created a custom claims mapping policy and assigned it to the application](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## Download PingAccess and configure your app
 
-Now that you've completed all the Azure Active Directory setup steps, you can move on to configuring PingAccess. 
+Now that you've completed all the Azure Active Directory setup steps, you can move on to configuring PingAccess.
 
 The detailed steps for the PingAccess part of this scenario continue in the Ping Identity documentation, [Configure PingAccess for Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html).
 
