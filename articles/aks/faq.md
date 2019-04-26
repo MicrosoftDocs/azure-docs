@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 04/25/2019
 ms.author: iainfou
 ---
 
@@ -21,9 +21,7 @@ For a complete list of available regions, see [AKS Regions and availability][aks
 
 ## Does AKS support node autoscaling?
 
-Yes, autoscaling is available via the [Kubernetes autoscaler][auto-scaler] as of Kubernetes 1.10. For more information on how to manually configure and use the cluster autoscaler, see [Cluster autoscale on AKS][aks-cluster-autoscale].
-
-You can also use the built-in cluster autoscaler (currently in preview in AKS) to manage the scaling of nodes. For more information, see [Automatically scale a cluster to meet application demands in AKS][aks-cluster-autoscaler].
+Yes, autoscaling is available via the [Kubernetes autoscaler][auto-scaler] as of Kubernetes 1.10. For more information on how to configure and use the cluster autoscaler, see [Cluster autoscale on AKS][aks-cluster-autoscale].
 
 ## Does AKS support Kubernetes role-based access control (RBAC)?
 
@@ -39,17 +37,13 @@ Not at this time. The Kubernetes API server is exposed as a public fully qualifi
 
 ## Are security updates applied to AKS agent nodes?
 
-Azure automatically applies security patches to the Linux nodes in your cluster on a nightly schedule. However, you are responsible for ensuring that those Linux nodes are rebooted as required. You have several options for performing node reboots:
+Yes, Azure automatically applies security patches to the nodes in your cluster on a nightly schedule. However, you are responsible for ensuring that nodes are rebooted as required. You have several options for performing node reboots:
 
 - Manually, through the Azure portal or the Azure CLI.
 - By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes][cordon-drain], then bring each node back up with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade].
 - Using [Kured](https://github.com/weaveworks/kured), an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and monitors each node for the presence of a file indicating that a reboot is required. OS reboots are managed across the cluster using the same [cordon and drain process][cordon-drain] as a cluster upgrade.
 
 For more information about using kured, see [Apply security and kernel updates to nodes in AKS][node-updates-kured].
-
-### Windows Server nodes
-
-For Windows Server nodes (currently in preview in AKS), Windows Update does not automatically run and apply the latest updates. On a regular schedule around the Windows Update release cycle and your own validation process, you should perform an upgrade on the Windows Server node pool(s) in your AKS cluster. This upgrade process creates nodes that run the latest Windows Server image and patches, then removes the older nodes. For more information on this process, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
 ## Why are two resource groups created with AKS?
 
@@ -63,6 +57,8 @@ If you create resources for use with your AKS cluster, such as storage accounts 
 ## Can I provide my own name for the AKS infrastructure resource group?
 
 Yes. By default, the AKS resource provider automatically creates a secondary resource group during deployment, such as *MC_myResourceGroup_myAKSCluster_eastus*. To comply with corporate policy, you can provide your own name for this managed cluster (*MC_*) resource group.
+
+To specify your own resource group name, install the [aks-preview][aks-preview-cli] Azure CLI extension version *0.3.2* or later. When you create an AKS cluster using the [az aks create][az-aks-create] command, use the *--node-resource-group* parameter and specify a name for the resource group. If you [use an Azure Resource Manager template][aks-rm-template] to deploy an AKS cluster, you can define the resource group name using the *nodeResourceGroup* property.
 
 * This resource group is automatically created by the Azure resource provider in your own subscription.
 * You can only specify a custom resource group name when the cluster is created.
@@ -102,9 +98,7 @@ AKS is not currently natively integrated with Azure Key Vault. However, the [Azu
 
 ## Can I run Windows Server containers on AKS?
 
-Yes, Windows Server containers are available in preview. To run Windows Server containers in AKS, you create a node pool that runs Windows Server as the guest OS. Windows Server containers can only use Windows Server 2019. To get started, [Create an AKS cluster with a Windows Server node pool][aks-windows-cli].
-
-Window Server node pool support includes some limitations that are part of the upstream Windows Server in Kubernetes project. For more information on these limitations, see [Windows Server containers in AKS limitations][aks-windows-limitations].
+To run Windows Server containers, you need to run Windows Server-based nodes. Windows Server-based nodes are not available in AKS at this time. You can, however, use Virtual Kubelet to schedule Windows containers on Azure Container Instances and manage them as part of your AKS cluster. For more information, see [Use Virtual Kubelet with AKS][virtual-kubelet].
 
 ## Does AKS offer a service level agreement?
 
@@ -119,12 +113,12 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md
-[aks-cluster-autoscaler]: cluster-autoscaler.md
-[nodepool-upgrade]: faq.md
-[aks-windows-cli]: windows-container-cli.md
-[aks-windows-limitations]: windows-node-limitations.md
+[aks-preview-cli]: /cli/azure/ext/aks-preview/aks
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
 
 <!-- LINKS - external -->
+
 [auto-scaler]: https://github.com/kubernetes/autoscaler
 [cordon-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
