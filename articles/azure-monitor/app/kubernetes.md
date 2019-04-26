@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor - Application Insights for Kubernetes with service mesh | Microsoft Docs
-description: Application Insight for Kubernetes is a monitoring solution that allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your Kubernetes cluster. 
+title: Azure Monitor - Application Insights for Kubernetes with service mesh Istio | Microsoft Docs
+description: Application Insight for Kubernetes is a monitoring solution that allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your Kubernetes cluster by utilizing service mesh technology called Istio.
 services: application-insights
 author: tokaplan
 manager: carmonm
@@ -17,7 +17,7 @@ ms.author: alkaplan
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Monitor now leverages service mesh tech such as Istio on your Kubernetes cluster to provide out of the box application monitoring for any Kubernetes hosted app. Rich application level metrics such as failed requests, latency, error rate etc., and application map will be available for your Kubernetes workloads. This feature will help users to spot performance bottlenecks or failure hotspots across all of their Kubernetes workloads within a selected Kubernetes namespace. By leveraging service mesh(in this case Istio), Azure monitor will enable auto-instrumented app monitoring.
+Azure Monitor now leverages service mesh technology on your Kubernetes cluster to provide out of the box application monitoring for any Kubernetes hosted app. With default Application Insight features like [Application Map](../../azure-monitor/app/app-map.md) to model your dependencies, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) for real-time monitoring, powerful visualizations with the [default dashboard], [Metric Explorer](../../azure-monitor/platform/metrics-getting-started.md), and [Workbooks](../../azure-monitor/app/usage-workbooks.md). This feature will help users spot performance bottlenecks and failure hotspots across all of their Kubernetes workloads within a selected Kubernetes namespace. By capitalizing on your existing service mesh investments with technologies like Istio, Azure Monitor enables auto-instrumented app monitoring without any modification to your application's code.
 
 > [!NOTE]
 > This is one of many ways to perform application monitoring on Kubernetes​​​​​​​. You can also instrument any app hosted in Kubernetes by using the [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.md) without the need for a service mesh. To monitor Kubernetes without instrumenting the application with an SDK you can use the below method.
@@ -36,7 +36,7 @@ By using Application Insights for your Kubernetes hosted app, you will be able t
 - [Application Map](../../azure-monitor/app/app-map.md)
 - [Live Stream Metrics](../../azure-monitor/app/live-stream.md)
 - [Dashboards](../../azure-monitor/app/overview-dashboard.md)
-- [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md)
+- [Metrics Explorer](../../azure-monitor/platformmetrics-getting-started.md)
 - [Distributed-tracing](../../azure-monitor/app/distributed-tracing.md)
 - [End-to-end transaction monitoring](../../azure-monitor/learn/tutorial-performance.md#identify-slow-server-operations)
 
