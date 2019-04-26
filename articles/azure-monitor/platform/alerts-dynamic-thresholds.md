@@ -36,6 +36,9 @@ Dynamic Thresholds continuously learns the data of the metric series and tries t
 
 The thresholds are selected in such a way that a deviation from these thresholds indicates an anomaly in the metric behavior.
 
+> [!NOTE]
+> Seasonal pattern detection is set to hour, day, or week interval. This means other patterns like bihourly pattern or semiweekly might not be detected.
+
 ## What does 'Sensitivity' setting in Dynamic Thresholds mean?
 
 Alert threshold sensitivity is a high-level concept that controls the amount of deviation from metric behavior required to trigger an alert.
@@ -43,7 +46,7 @@ This option doesn't require domain knowledge about the metric like static thresh
 
 - High – The thresholds will be tight and close to the metric series pattern. Alert rule will be triggered on smallest deviation, resulting in more alerts.
 - Medium – Less tight and more balanced thresholds, fewer alerts than with high sensitivity (default).
-- Low – The thresholds will be loose with more distance from metric series pattern. Alert rule will only trigger on large deviation, resulting in less alerts.
+- Low – The thresholds will be loose with more distance from metric series pattern. Alert rule will only trigger on large deviation, resulting in fewer alerts.
 
 ## What are the 'Operator' setting options in Dynamic Thresholds?
 
@@ -68,13 +71,23 @@ To trigger an alert when there was a violation from a Dynamic Thresholds in 20 m
 
 **Ignore data before** - Users may also optionally define a start date from which the system should begin calculating the thresholds from. A typical use case may occur when a resource was a running in a testing mode and is now promoted to serve a production workload, and therefore the behavior of any metric during the testing phase should be disregarded.
 
+## How do you find out why a Dynamic Thresholds alert was triggered?
+
+You can explore triggered alert instances in the alerts view either by clicking on the link in the email or text message, or browser to see the alerts view in the Azure portal. [Learn more about the alerts view](alerts-overview.md#alerts-experience).
+
+The alert view displays:
+
+- All the metric details at the moment the Dynamic Thresholds alert fired.
+- A chart of the period in which the alert was trigger that includes the Dynamic Thresholds used at that point in time.
+- Ability to provide feedback on Dynamic Thresholds alert and the alerts view experience, which could improve future detections.
+
 ## Will slow behavior change in the metric trigger an alert?
 
 Probably not. Dynamic Thresholds are good for detecting significant deviations rather than slowly evolving issues.
 
 ## How much data is used to preview and then calculate thresholds?
 
-The thresholds appearing in the chart, before an alert rule is created on the metric, are calculated based enough historical data to calculate hour or daily seasonal patterns (10 days). Pressing on 'Display weekly pattern' will acquire enough historical data to calculate weekly seasonal patterns (28 days). Once an alert rule is created, the Dynamic Thresholds will use all needed historical data that is available and will continuously learn and adept based on new data to make the thresholds more accurate.
+The thresholds appearing in the chart, before an alert rule is created on the metric, are calculated based enough historical data to calculate hour or daily seasonal patterns (10 days). Once an alert rule is created, the Dynamic Thresholds will use all needed historical data that is available and will continuously learn and adept based on new data to make the thresholds more accurate. This means that after this calculation chart will also display weekly patterns.
 
 ## How much data is needed to trigger an alert?
 

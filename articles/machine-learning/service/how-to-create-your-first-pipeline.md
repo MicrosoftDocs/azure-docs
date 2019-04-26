@@ -250,8 +250,8 @@ trainStep = PythonScriptStep(
 
 After you define your steps, you build the pipeline by using some or all of those steps.
 
->[!NOTE]
->No file or data is uploaded to the Azure Machine Learning service when you define the steps or build the pipeline.
+> [!NOTE]
+> No file or data is uploaded to the Azure Machine Learning service when you define the steps or build the pipeline.
 
 ```python
 # list of steps to run
@@ -286,8 +286,12 @@ For more information, see the [azure-pipeline-steps package](https://docs.micros
 
 ## Submit the pipeline
 
-When you submit the pipeline, Azure Machine Learning service checks the dependencies for each step and uploads a snapshot of the source directory you specified. If no source directory is specified, the current local directory is uploaded.
+When you submit the pipeline, Azure Machine Learning service checks the dependencies for each step and uploads a snapshot of the source directory you specified. If no source directory is specified, the current local directory is uploaded. The snapshot is also stored as part of the experiment in your workspace.
 
+> [!IMPORTANT]
+> To prevent files from being included in the snapshot, create a [.gitignore](https://git-scm.com/docs/gitignore) or `.amlignore` file in the directory and add the files to it. The `.amlignore` file uses the same syntax and patterns as the [.gitignore](https://git-scm.com/docs/gitignore) file. If both files exist, the `.amlignore` file takes precedence.
+>
+> For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshot).
 
 ```python
 # Submit the pipeline to be run

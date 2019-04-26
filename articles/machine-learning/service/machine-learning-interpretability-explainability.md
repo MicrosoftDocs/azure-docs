@@ -1,7 +1,7 @@
 ---
 title: Model interpretability
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Azure Machine Learning Interpretability SDK to explain why your model makes predictions. It can be used during training and inferencing to understand how your model makes predictions.
+description: Learn how to explain why your model makes predictions using the Azure Machine Learning Interpretability SDK. It can be used during training and inferencing to understand how your model makes predictions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,7 +12,7 @@ ms.reviewer: larryfr
 ms.date: 04/09/2019
 ---
 
-# Azure Machine Learning Interpretability SDK
+# Model interpretability with Azure Machine Learning service
 
 In this article, you will learn how to explain why your model made the predictions it made by using the Azure Machine Learning Interpretability SDK. Being able to explain your model is important for the following reasons:
 
@@ -20,9 +20,10 @@ In this article, you will learn how to explain why your model made the predictio
 * As a data scientist, you want to understand **how to query the model to find insights**. You also need tools to make informed decisions on **how to improve your model**.
 * As a company, you need to understand **the behavior of the model with varying input distributions** and **how will the model behave while analyzing specific input**.
 
-Machine learning interpretability is important in two phases of machine learning development cycle: **training** time and **inferencing** time:
+Machine learning interpretability is important in two phases of machine learning development cycle: 
 
 * During **training**: Model designers and evaluators require interpretability tools to explain the output of a model to stakeholders to build trust. They also need insights into the model so that they can debug the model and make decisions on whether the behavior matches their objectives. Finally, they need to ensure that the model is not biased.
+
 * During **inferencing**: Predictions need to be explainable to the people who use your model. For example, why did the model deny a mortgage loan, or predict that an investment portfolio carries a higher risk?
 
 The Azure Machine Learning Interpretability SDK incorporates technologies developed by Microsoft and  proven third-party libraries (for example, SHAP and LIME). The SDK creates a common API across the integrated libraries and integrates Azure Machine Learning services. Using this SDK, you can explain machine learning models **globally on all data**, or **locally on a specific data point** using the state-of-art technologies in an easy-to-use and scalable fashion.

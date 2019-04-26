@@ -62,7 +62,7 @@ With Site Recovery, you can replicate and recover VMs between any two regions wi
 
 No, Site Recovery does not require internet connectivity. But it does require access to Site Recovery URLs and IP ranges, as mentioned in [this article](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
-### Can I replicate the application having separate resource group for separate tiers? 
+### Can I replicate the application having separate resource group for separate tiers?
 Yes, you can replicate the application and keep the disaster recovery configuration in separate resource group too.
 For example, if you have an application with each tiers app, db and web in separate resource group, then you have to click the [replication wizard](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) thrice to protect all the tiers. ASR will replicate these three tiers in three different resource group.
 
@@ -84,12 +84,12 @@ Today, most applications can recover well from crash-consistent snapshots. A cra
 ### What is the frequency of crash-consistent recovery point generation?
 Site Recovery creates a crash-consistent recovery point every 5 minutes.
 
-### What is an application-consistent recovery point? 
-Application-consistent recovery points are created from application-consistent snapshots. Application-consistent recovery points capture the same data as crash-consistent snapshots, with the addition of all data in memory and all transactions in process. 
+### What is an application-consistent recovery point?
+Application-consistent recovery points are created from application-consistent snapshots. Application-consistent recovery points capture the same data as crash-consistent snapshots, with the addition of all data in memory and all transactions in process.
 Because of their extra content, application-consistent snapshots are the most involved and take the longest to perform. We recommend application-consistent recovery points for database operating systems and applications such as SQL Server.
 
 ### What is the impact of application-consistent recovery points on application performance?
-Considering application-consistent recovery points captures all the data in memory and in process it requires the framework like VSS on windows to quiesce the application. This, if done very frequently can have performance impact if the workload is already very busy. It is usually suggested not to use low frequency for app-consistent recovery points for non- database workloads and even for database workload 1 hour is enough. 
+Considering application-consistent recovery points captures all the data in memory and in process it requires the framework like VSS on windows to quiesce the application. This, if done very frequently can have performance impact if the workload is already very busy. It is usually suggested not to use low frequency for app-consistent recovery points for non- database workloads and even for database workload 1 hour is enough.
 
 ### What is the minimum frequency of application-consistent recovery point generation?
 Site Recovery can creates an application-consistent recovery point with a minimum frequency of in 1 hour.
@@ -142,7 +142,7 @@ Because it is CPU intensive, enabling Multi-VM consistency can affect workload p
 
 ## Failover
 
-### How is capacity guaranteed in target region for Azure VMs?
+### How is capacity assured in target region for Azure VMs?
 The Azure Site Recovery (ASR) team works with Azure capacity management team to plan for sufficient infrastructure capacity, in an attempt to ensure that VMs protected by ASR for disaster recovery will successfully be deployed in the disaster recovery (DR) region, whenever ASR failover operations are initiated.
 
 ### Is failover automatic?
@@ -211,8 +211,12 @@ It depends on the situation. For example, if the source region VM exists, only c
 ### How much time does it take to fail back?
 After reprotection, the amount of time for failback is usually similar to the time for failover from the primary region to a secondary region.
 
-## Capacity
-### Does Site Recovery work with Reserved Instance?
+## <a name="capacity"></a>Capacity
+
+### How is capacity assured in target region for Azure VMs?
+The Azure Site Recovery (ASR) team works with Azure capacity management team to plan for sufficient infrastructure capacity, in an attempt to ensure that VMs protected by ASR for disaster recovery will successfully be deployed in the disaster recovery (DR) region, whenever ASR failover operations are initiated.
+
+### Does Site Recovery work with Reserved Instances?
 Yes, You can purchase [reserve instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the DR region and ASR failover operations will use them. </br> No additional configuration is required from the customers.
 
 

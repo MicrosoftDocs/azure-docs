@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 03/01/2019
+ms.date: 04/18/2019
 ---
 # SQL Database resource limits for Azure SQL Database server
 
@@ -69,7 +69,7 @@ When encountering high session or worker utilization, mitigation options include
 - Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## Transaction Log Rate Governance 
-Transaction log rate governance is a process in Azure SQL Database used to limit high ingestion rates for workloads such as bulk insert, SELECT INTO, and index builds. These limits are tracked and enforced at the sub-second level to the rate of log record generation, limiting throughput regardless of how many IOs may be issued against data files.  Transaction log generation rates currently scale linearly up to a point that is hardware dependent, with the maximum log rate allowed being 48 MB/s with the vCore purchasing model. 
+Transaction log rate governance is a process in Azure SQL Database used to limit high ingestion rates for workloads such as bulk insert, SELECT INTO, and index builds. These limits are tracked and enforced at the sub-second level to the rate of log record generation, limiting throughput regardless of how many IOs may be issued against data files.  Transaction log generation rates currently scale linearly up to a point that is hardware dependent, with the maximum log rate allowed being 96 MB/s with the vCore purchasing model. 
 
 > [!NOTE]
 > The actual physical IOs to transaction log files are not governed or limited. 
@@ -92,7 +92,7 @@ Log rate governor traffic shaping is surfaced via the following wait types (expo
 |||
 
 When encountering a log rate limit that is hampering desired scalability, consider the following options:
-- Scale up to a larger tier in order to get the maximum 48 MB/s log rate. 
+- Scale up to a larger tier in order to get the maximum 96 MB/s log rate. 
 - If data being loaded is transient, i.e. staging data in an ETL process, it can be loaded into tempdb (which is minimally logged). 
 - For analytic scenarios, load into a clustered columnstore covered table. This reduces the required log rate due to compression. This technique does increase CPU utilization and is only applicable to data sets that benefit from clustered columnstore indexes. 
 

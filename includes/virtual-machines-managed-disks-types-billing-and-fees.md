@@ -11,7 +11,7 @@
 ---
 **Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/bandwidth/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
-**Transactions**: You're billed for the number of transactions that you perform on a standard managed disk.
+**Transactions**: You're billed for the number of transactions that you perform on a standard managed disk. For standard SSDs, the I/O unit size of 256 KiB is used for accounting the number of transactions. Larger I/O sizes are counted as multiple I/Os of size 256 KiB. For Standard HDDs, each IO operation is considered as a single transaction, regardless of the I/O size.
 
 For detailed information on pricing for Managed Disks, including transaction costs, see [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 

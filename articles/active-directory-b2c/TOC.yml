@@ -84,8 +84,8 @@
     href: add-native-application.md
   - name: Configure age gating
     href: basic-age-gating.md
-  - name: Configure tokens
-    href: active-directory-b2c-token-session-sso.md
+  - name: Configure session behavior
+    href: session-behavior.md
   - name: Customize language
     href: active-directory-b2c-reference-language-customization.md
   - name: Customize password
@@ -110,8 +110,6 @@
       href: active-directory-b2c-ui-customization-custom.md
     - name: Customize the UI dynamically
       href: active-directory-b2c-ui-customization-custom-dynamic.md
-    - name: Customize tokens
-      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
     - name: Define custom attributes
       href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
     - name: Enable keep me signed in
@@ -146,8 +144,6 @@
         href: active-directory-b2c-custom-setup-twitter-idp.md
     - name: Page contract
       href: page-contract.md
-    - name: Pass through access token
-      href: idp-pass-through-custom.md
     - name: Password complexity
       href: active-directory-b2c-reference-password-complexity-custom.md
     - name: Password change
@@ -158,6 +154,12 @@
         href: active-directory-b2c-custom-setup-adfs2016-idp.md
       - name: Salesforce
         href: active-directory-b2c-setup-sf-app-custom.md
+    - name: Tokens
+      items:
+      - name: Customize tokens
+        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+      - name: Pass through access token
+        href: idp-pass-through-custom.md
     - name: Track user behavior
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: Reference
@@ -271,10 +273,6 @@
       href: active-directory-b2c-devquickstarts-ios.md
     - name: Android using App Auth
       href: active-directory-b2c-devquickstarts-android.md
-  - name: Obtain access tokens
-    href: active-directory-b2c-access-tokens.md
-  - name: Pass through access token
-    href: idp-pass-through-user-flow.md
   - name: Report usage
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: Resource owner password credentials
@@ -283,6 +281,14 @@
     href: direct-signin.md
   - name: Set up self-serve-password reset
     href: active-directory-b2c-reference-sspr.md
+  - name: Tokens
+    items:
+    - name: Configure tokens
+      href: configure-tokens.md
+    - name: Pass through access token
+      href: idp-pass-through-user-flow.md
+    - name: Request access token
+      href: active-directory-b2c-access-tokens.md
   - name: Use b2clogin.com
     href: b2clogin.md
   - name: Use the Azure AD Graph API

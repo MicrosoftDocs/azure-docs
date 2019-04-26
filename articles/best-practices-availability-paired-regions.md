@@ -2,9 +2,10 @@
 title: 'Business continuity and disaster recovery (BCDR): Azure Paired Regions | Microsoft Docs'
 description: Learn about Azure regional pairing, to ensure that applications are resilient during data center failures.
 author: rayne-wiselman
+manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 12/23/2018
+ms.date: 04/17/2019
 ms.author: raynew
 ---
 
@@ -32,6 +33,7 @@ Figure 1 – Azure regional pairs
 | Europe |North Europe |West Europe |
 | France |France Central|France South|
 | Germany |Germany Central |Germany Northeast |
+| Germany |Germany North | Germany West Central
 | India |Central India |South India |
 | India |West India |South India |
 | Japan |Japan East |Japan West |
@@ -40,7 +42,14 @@ Figure 1 – Azure regional pairs
 | North America |East US 2 |Central US |
 | North America |North Central US |South Central US |
 | North America |West US 2 |West Central US 
+| North America |West US 3 |East US
+| Norway |Norway East |Norway West
+| South Africa | South Africa North | South Africa West
+| Sweden |Sweden Central |Sweden South
+| Switzerland | Switzerland North | Switzerland West
 | UK |UK West |UK South |
+| UK |UK North |UK South 2
+| United Arab Emirates | UAE North | UAE Center
 | US Department of Defense |US DoD East |US DoD Central |
 | US Government |US Gov Arizona |US Gov Texas |
 | US Government |US Gov Iowa |US Gov Virginia |
@@ -48,10 +57,11 @@ Figure 1 – Azure regional pairs
 
 Table 1 - Mapping of Azure regional pairs
 
-- West India is different because it is paired with another region in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.
-- Brazil South is unique because it is paired with a region outside of its own geography. Brazil South’s secondary region is South Central US, but South Central US’s secondary region is not Brazil South.
-- US Gov Iowa's secondary region is US Gov Virginia, but US Gov Virginia's secondary region is not US Gov Iowa.
-- US Gov Virginia's secondary region is US Gov Texas, but US Gov Texas' secondary region is not US Gov Virginia.
+- West India is paired in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.
+- Brazil South is unique because it is paired with a region outside of its own geography. Brazil South’s secondary region is South Central US. South Central US’s secondary region is not Brazil South.
+- US Gov Iowa's secondary region is US Gov Virginia.
+- US Gov Virginia's secondary region is US Gov Texas.
+- US Gov Texas' secondary region is US Gov Arizona.
 
 
 We recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from Azure’s isolation and availability policies. For applications which support multiple active regions, we recommend using both regions in a region pair where possible. This will ensure optimal availability for applications and minimized recovery time in the event of a disaster. 
