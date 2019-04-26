@@ -23,7 +23,7 @@ ms.subservice:
 > - [Analyze data usage in Log Analytics](manage-cost-storage.md) describes how to analyze and alert on your data usage.
 > - [Monitoring usage and estimated costs](usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
 
-Log Analytics in Azure Monitor is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, it's important to understand that the cost of a Log Analytics workspace isn't just based on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
+Log Analytics in Azure Monitor is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, it's important to understand that the cost of a Log Analytics workspace isn't based only on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
 
 In this article we review how you can proactively monitor data volume and storage growth, and define limits to control those associated costs. 
 
@@ -36,6 +36,7 @@ The cost of data can be considerable depending on the following factors:
 - The length of time you decide to retain your data 
 
 ## Understand your workspace's usage and estimated cost
+
 Log Analytics makes it easy to understand what the costs are likely be based on recent usage patterns.  To do this, use  **Log Analytics Usage and Estimated Costs**  to review and analyze data usage. The shows how much data is collected by each solution, how much data is being retained and an estimate of your costs 
 based on the amount of data ingested and any additional retention beyond the included amount.
 
@@ -50,40 +51,47 @@ From the **Usage and Estimated Costs** page you can review your data volume for 
 Log Analytics charges are added to your Azure bill. You can see details of your Azure bill under the Billing section of the Azure portal or in the [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
 
 ## Daily cap
+
 You can configure a daily cap and limit the daily ingestion for your workspace, but use care as your goal should not be to hit the daily limit.  Otherwise, you lose data for the remainder of the day, which can impact other Azure services and solutions whose functionality may depend on up-to-date data being available in the workspace.  As a result, your ability to observe and receive alerts when the health conditions of resources supporting IT services are impacted.  The daily cap is intended to be used as a way to manage the unexpected increase in data volume from your managed resources and stay within your limit, or when you want to simply limit unplanned charges for your workspace.  
 
 When the daily limit is reached, the collection of billable data types stops for the rest of the day. A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached. 
 
-### Identify what daily data limit to define 
+### Identify what daily data limit to define
+
 Review [Log Analytics Usage and estimated costs](usage-estimated-costs.md) to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won’t be able to monitor your resources after the limit is reached. 
 
-### Manage the maximum daily data volume 
+### Manage the maximum daily data volume
+
 The following steps describe how to configure a limit to manage the volume of data that Log Analytics will ingest per day.  
 
 1. From your workspace, select **Usage and estimated costs** from the left pane.
 2. On the **Usage and estimated costs** page for the selected workspace, click **Data volume management** from the top of the page. 
-3. Daily cap is **OFF** by default – click **ON** to enable it, and then set the data volume limit in GB/day.<br><br> ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
+3. Daily cap is **OFF** by default – click **ON** to enable it, and then set the data volume limit in GB/day.
+
+    ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### Alert when daily cap reached
+
 While we present a visual cue in the Azure portal when your data limit threshold is met, this behavior doesn't necessarily align to how you manage operational issues requiring immediate attention.  To receive an alert notification, you can create a new alert rule in Azure Monitor.  To learn more, see [how to create, view and manage alerts](alerts-metric.md).
 
 To get you started, here are the recommended settings for the alert:
 
-* Target: Select your Log Analytics resource
-* Criteria: 
-   * Signal name: Custom log search
-   * Search query: Operation | where Detail has 'OverQuota'
-   * Based on: Number of results
-   * Condition: Greater than
-   * Threshold: 0
-   * Period: 5 (minutes)
-   * Frequency: 5 (minutes)
-* Alert rule name: Daily data limit reached
-* Severity: Warning (Sev 1)
+- Target: Select your Log Analytics resource
+- Criteria: 
+   - Signal name: Custom log search
+   - Search query: Operation | where Detail has 'OverQuota'
+   - Based on: Number of results
+   - Condition: Greater than
+   - Threshold: 0
+   - Period: 5 (minutes)
+   - Frequency: 5 (minutes)
+- Alert rule name: Daily data limit reached
+- Severity: Warning (Sev 1)
 
 Once alert is defined and the limit is reached, an alert is triggered and performs the response defined in the Action Group. It can notify your team via email and text messages, or automate actions using webhooks, Automation runbooks or [integrating with an external ITSM solution](itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
 
-## Change the data retention period 
+## Change the data retention period
+
 The following steps describe how to configure how long log data is kept by in your workspace.
  
 1. From your workspace, select **Usage and estimated costs** from the left pane.
@@ -164,7 +172,7 @@ This can be extended to return the count of computers per hour that are sending 
 | where computerName != ""
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
 
-## Understanding ingested data volume 
+## Understanding ingested data volume
 
 On the **Usage and Estimated Costs** page, the *Data ingestion per solution* chart shows the total volume of data sent and how much is being sent by each solution. This allows you to determine trends such as whether the overall data usage (or usage by a particular solution) is growing, remaining steady or decreasing. The query used to generate this is
 
@@ -183,7 +191,7 @@ You can drill in further to see data trends for specific data types, for example
 
 To see the **size** of billable events ingested per computer, use the [_BilledSize](log-standard-properties.md#_billedsize) property, which provides the size in bytes:
 
-```
+```kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
@@ -193,18 +201,22 @@ The [_IsBillable](log-standard-properties.md#_isbillable) property specifies whe
 
 To see the **count** of events ingested per computer, use
 
-`union withsource = tt *
-| summarize count() by Computer | sort by count_ nulls last`
+```kusto
+union withsource = tt *
+| summarize count() by Computer | sort by count_ nulls last
+```
 
 To see the count of billable events ingested per computer, use 
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize count() by Computer  | sort by count_ nulls last`
+| summarize count() by Computer  | sort by count_ nulls last
+```
 
 If you want to see counts for billable data types are sending data to a specific computer, use:
 
-```
+```kusto
 union withsource = tt *
 | where Computer == "computer name"
 | where _IsBillable == true 
@@ -215,7 +227,7 @@ union withsource = tt *
 
 For data from nodes hosted in Azure you can get the **size** of billable events ingested __per computer__, use the [_ResourceId](log-standard-properties.md#_resourceid) property, which provides the full path to the resource:
 
-```
+```kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
@@ -223,7 +235,7 @@ union withsource = tt *
 
 For data from nodes hosted in Azure you can get the **size** of billable events ingested __per Azure subscription__, parse the `_ResourceId` property as:
 
-```
+```kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
@@ -271,13 +283,14 @@ Some suggestions for reducing the volume of logs collected include:
 | AzureDiagnostics           | Change resource log collection to: <br> - Reduce the number of resources send logs to Log Analytics <br> - Collect only required logs |
 | Solution data from computers that don't need the solution | Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers. |
 
-### Getting Security and Automation node counts 
+### Getting Security and Automation node counts
 
 If you are on "Per node (OMS)" pricing tier, then you are charged based on the number of nodes and solutions you use, the number of Insights and Analytics nodes for which you are being billed will be shown in table on the **Usage and Estimated Cost** page.  
 
 To see the number of distinct Security nodes, you can use the query:
 
-`union
+```kusto
+union
 (
     Heartbeat
     | where (Solutions has 'security' or Solutions has 'antimalware' or Solutions has 'securitycenter')
@@ -297,11 +310,12 @@ To see the number of distinct Security nodes, you can use the query:
 | distinct Computer
 | project lowComputer = tolower(Computer)
 | distinct lowComputer
-| count`
+| count
+```
 
 To see the number of distinct Automation nodes, use the query:
 
-```
+```kusto
  ConfigurationData 
  | where (ConfigDataType == "WindowsServices" or ConfigDataType == "Software" or ConfigDataType =="Daemons") 
  | extend lowComputer = tolower(Computer) | summarize by lowComputer 
@@ -323,11 +337,22 @@ Azure Alerts support [log alerts](alerts-unified-log.md) that use search queries
 
 The following query has a result when there is more than 100 GB of data collected in the last 24 hours:
 
-`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+```kusto
+union withsource = $table Usage 
+| where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
+| extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type 
+| where DataGB > 100
+```
 
 The following query uses a simple formula to predict when more than 100 GB of data will be sent in a day: 
 
-`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+```kusto
+union withsource = $table Usage 
+| where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
+| extend Type = $table 
+| summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type 
+| where EstimatedGB > 100
+```
 
 To alert on a different data volume, change the 100 in the queries to the number of GB you want to alert on.
 
@@ -364,12 +389,11 @@ Specify an existing or create a new [Action Group](action-groups.md) so that whe
 When you receive an alert, use the steps in the following section to troubleshoot why usage is higher than expected.
 
 ## Next steps
-* See [Log searches in Log Analytics](../log-query/log-query-overview.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
-* Use the steps described in [create a new log alert](alerts-metric.md) to be notified when a search criteria is met.
-* Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers.
-* To configure an effective   event collection policy, review [Azure Security Center filtering policy](../../security-center/security-center-enable-data-collection.md).
-* Change [performance counter configuration](data-sources-performance-counters.md).
-* To modify your event collection settings, review [event log configuration](data-sources-windows-events.md).
-* To modify your syslog collection settings, review [syslog configuration](data-sources-syslog.md).
 
-
+- See [Log searches in Log Analytics](../log-query/log-query-overview.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
+- Use the steps described in [create a new log alert](alerts-metric.md) to be notified when a search criteria is met.
+- Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers.
+- To configure an effective   event collection policy, review [Azure Security Center filtering policy](../../security-center/security-center-enable-data-collection.md).
+- Change [performance counter configuration](data-sources-performance-counters.md).
+- To modify your event collection settings, review [event log configuration](data-sources-windows-events.md).
+- To modify your syslog collection settings, review [syslog configuration](data-sources-syslog.md).
