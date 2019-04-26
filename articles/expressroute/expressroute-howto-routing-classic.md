@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
 
@@ -183,6 +183,10 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 ## Azure public peering
 
 This section provides instructions on how to create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit.
+
+> [!NOTE]
+> Azure public peering is deprecated for new circuits.
+>
 
 ### To create Azure public peering
 

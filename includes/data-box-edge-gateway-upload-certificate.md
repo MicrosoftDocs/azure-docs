@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 03/05/2019
+ms.date: 04/23/2019
 ms.author: alkohli
 ---
 
@@ -18,6 +18,6 @@ A proper SSL certificate ensures that you're sending encrypted information to th
      The following example shows the usage of this cmdlet:
 
      ```
-     Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credentials "Username/Password"
+     Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credential "Username/Password"
      ```
 

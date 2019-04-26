@@ -211,10 +211,11 @@ You can show and hide elements in the chart panel by selecting the visible icon 
 
 ## Next steps
 
-See the following articles:
-* [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md)
-* [Data modeling](./time-series-insights-update-tsm.md)
-* [Diagnosing and troubleshooting](./time-series-insights-update-how-to-troubleshoot.md)
+- Learn about [storage and ingress](./time-series-insights-update-storage-ingress.md) in the Azure Time Series Insights Preview.
+
+- Read the Time Series Insights Preview document on [data modeling](./time-series-insights-update-tsm.md).
+
+- Learn [how to diagnose and troubleshoot](./time-series-insights-update-how-to-troubleshoot.md) your Time Series Insights instance.
 
 <!-- Images -->
 [1]: media/v2-update-explorer/explorer-one.png
