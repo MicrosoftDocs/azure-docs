@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services concepts - Azure | Microsoft Docs
-description: This topic gives a brief overview of Azure Media Services concepts and provides links for details.
+title: Azure Media Services terminology and concepts - Azure | Microsoft Docs
+description: This topic gives a brief overview of Azure Media Services terminology and concepts and provides links for more details.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -19,11 +19,29 @@ ms.custom: seodec18
 
 # Media Services concepts
 
-This topic gives a brief overview of Azure Media Services concepts and provides links to articles with in-depth explanation of Media Services v3 concepts and functionality. The fundamental concepts described in these topics should be reviewed prior to starting development.
+This topic gives a brief overview of Azure Media Services terminology and concepts. The article also provides links to articles with in-depth explanation of Media Services v3 concepts and functionality. 
+
+The fundamental concepts described in these topics should be reviewed prior to starting development.
 
 > [!NOTE]
 > Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
 
+## Terminology
+
+This section shows how some common industry terms map to the Media Services v3 API.
+
+### Live Event
+
+A **Live Event** represents a pipeline for ingesting, transcoding (optionally), and packaging live streams of video, audio, and real-time metadata.
+
+For customers migrating from Media Services v2 APIs, the **Live Event** replaces the **Channel** entity in v2. For more information, see [Migrating from v2 to v3](migrate-from-v2-to-v3.md).
+
+### Streaming Endpoint (Packaging and Origin)
+
+A **Streaming Endpoint** represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application, using one of the common streaming media protocols (HLS or DASH). In addition, the **Streaming Endpoint** provides dynamic (just-in-time) encryption to industry leading DRMs.
+
+In the media streaming industry, this service is commonly referred to as a **Packager** or **Origin**.  Other common terms in the industry for this capability include JITP (Just-in-time-packager) or JITE (Just-in-time-encryption). 
+ 
 ## Cloud upload and storage
 
 To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account and upload your digital files into **Assets**.

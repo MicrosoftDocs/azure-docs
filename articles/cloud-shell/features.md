@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/26/2019
 ms.author: damaerte
 ---
 
@@ -46,6 +46,18 @@ You can continue to use the familiar [Azure PowerShell cmdlets](https://docs.mic
 Any changes made to the Azure resources, either made directly in Azure portal or through Azure PowerShell cmdlets, are reflected in the Azure drive.  You can run `dir -Force` to refresh your resources.
 
 ![](media/features-powershell/azure-drive.png)
+
+### Manage Exchange Online
+
+PowerShell in Cloud Shell contains a private build of the Exchange Online module.  Run `Connect-EXOPSSession` to get your Exchange cmdlets.
+
+![](media/features-powershell/exchangeonline.png)
+
+ Run `Get-Command -Module tmp_*`
+> [!NOTE]
+> The module name should begin with `tmp_`, if you have installed modules with the same prefix, their cmdlets will also be surfaced. 
+
+![](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### Deep integration with open-source tooling
 
