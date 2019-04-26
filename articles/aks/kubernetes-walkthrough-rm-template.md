@@ -118,9 +118,9 @@ The following example output shows the nodes created in the previous steps. Make
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.16
-aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.16
-aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.16
+aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6
+aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
+aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
 ```
 
 ## Run the application

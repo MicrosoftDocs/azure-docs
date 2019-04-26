@@ -120,7 +120,7 @@ The following JSON defines a copy activity in a pipeline. The columns from sourc
         "translator":
         {
             "type": "TabularTranslator",
-            "columnMappings": 
+            "columnMappings":
             {
                 "UserId": "MyUserId",
                 "Group": "MyGroup",
@@ -149,7 +149,7 @@ Schema mapping applies when copying data between hierarchical-shaped data and ta
 
 **Example: copy from MongoDB to SQL:**
 
-For example, if you have MongoDB document with the following content: 
+For example, if you have MongoDB document with the following content:
 
 ```json
 {
@@ -200,9 +200,9 @@ Configure the schema-mapping rule as the following copy activity JSON sample:
         "translator": {
             "type": "TabularTranslator",
             "schemaMapping": {
-                "orderNumber": "$.number", 
-                "orderDate": "$.date", 
-                "order_pd": "prod", 
+                "orderNumber": "$.number",
+                "orderDate": "$.date",
+                "order_pd": "prod",
                 "order_price": "price",
                 "city": " $.city[0].name"
             },
@@ -223,7 +223,7 @@ You can find the mapping between native type to interim type in the "Data type m
 
 ### Supported data types
 
-Data Factory supports the following interim data types: You can specify below values when configuring type information in [dataset structure](concepts-datasets-linked-services.md#dataset-structure) configuration:
+Data Factory supports the following interim data types: You can specify below values when configuring type information in [dataset structure](concepts-datasets-linked-services.md#dataset-structure-or-schema) configuration:
 
 * Byte[]
 * Boolean
