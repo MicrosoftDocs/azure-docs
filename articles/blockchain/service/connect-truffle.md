@@ -69,7 +69,11 @@ Truffle is a blockchain development environment you can use to connect to an Azu
 We'll use Web3 to connect to the transaction node. You can get the Web3 connection string from the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to your Azure Blockchain service member default transaction node and select **Sample Code > Web3**.
+1. Navigate to your Azure Blockchain Service member. Select **Transaction nodes** and the default transaction node link.
+
+    ![Select default transaction node](./media/connect-truffle/transaction-nodes.png)
+
+1. Select **Sample Code > Web3**.
 1. Copy the JavaScript from **HTTPS (Access key 1)**. You need the code for Truffle's interactive development console.
 
     ![Web3 code](./media/connect-truffle/web3-code.png)

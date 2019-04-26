@@ -30,7 +30,10 @@ In this quickstart, you'll use MetaMask to connect to an Azure Blockchain Servic
 You need the Azure Blockchain Service endpoint address to connect to the blockchain network. You can find the endpoint address and access keys in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to your default Azure Blockchain Service member transaction node.
+1. Navigate to your Azure Blockchain Service member. Select **Transaction nodes** and the default transaction node link.
+
+    ![Select default transaction node](./media/connect-truffle/transaction-nodes.png)
+
 1. Select **Connection strings > Access keys**.
 1. Copy the endpoint address from **HTTPS (Access key 1)**. You need the address for the next section.
 
