@@ -243,7 +243,7 @@
       href: virtual-machine-scale-sets-maintenance-notifications.md
   - name: Use Ansible
     items:
-    - name: Create and manange scale sets
+    - name: Create and manage scale sets
       href: /azure/ansible/ansible-create-configure-vmss
       maintainContext: true
     - name: Deploy apps to scale sets
