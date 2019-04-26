@@ -24,7 +24,7 @@ You can follow the steps below using a Mac, Windows, or Linux computer.
 
 Before running this sample, you must have the following:
 
-+ Install [Azure Core Tools version 2.x](functions-run-local.md#v2) (requires the .NET Core 2.x SDK).
++ Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or later.
 
 + Install the [Azure CLI]( /cli/azure/install-azure-cli). This article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
@@ -59,6 +59,10 @@ Use the following command to navigate to the new `MyFunctionProj` project folder
 ```bash
 cd MyFunctionProj
 ```
+
+## Reference bindings
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 

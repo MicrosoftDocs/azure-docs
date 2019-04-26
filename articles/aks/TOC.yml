@@ -7,10 +7,15 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an AKS cluster - CLI
-    href: kubernetes-walkthrough.md
-  - name: Create an AKS cluster - Portal
-    href: kubernetes-walkthrough-portal.md
+  - name: Create an AKS Cluster
+    expanded: true
+    items:
+    - name: Use the Azure CLI
+      href: kubernetes-walkthrough.md
+    - name: Use the Azure portal
+      href: kubernetes-walkthrough-portal.md
+    - name: Use a Resource Manager template
+      href: kubernetes-walkthrough-rm-template.md
   - name: Develop applications
     expanded: true
     items:
@@ -87,7 +92,7 @@
       - name: Pod security
         href: developer-best-practices-pod-security.md
   - name: Quotas and regional limits
-    href: container-service-quotas.md
+    href: quotas-skus-regions.md
   - name: Migrate from ACS to AKS
     href: acs-aks-migration.md
   - name: Supported Kubernetes version

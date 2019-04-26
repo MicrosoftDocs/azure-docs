@@ -27,7 +27,7 @@ Before you start, you must have the following:
 
 + Install [Python 3.6](https://www.python.org/downloads/).
 
-+ Install [Azure Functions Core Tools](functions-run-local.md#v2) version 2.4.x or later (requires the .NET Core 2.x SDK).
++ Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or later.
 
 + Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.x or later.
 
@@ -71,6 +71,10 @@ A folder named _MyFunctionProj_ is created, which contains the following three f
 * `host.json` contains global configuration options that affect all functions in a function app. This file does get published to Azure.
 
 You should now be in the new MyFunctionProj folder.
+
+## Reference bindings
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ## Create a function
 

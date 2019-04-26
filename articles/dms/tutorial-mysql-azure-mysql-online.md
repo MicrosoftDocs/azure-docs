@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 04/24/2019
 ---
 
 # Tutorial: Migrate MySQL to Azure Database for MySQL online using DMS
@@ -59,7 +59,7 @@ To complete this tutorial, you need to:
 - Enable binary logging in the my.ini (Windows) or my.cnf (Unix) file in source database by using the  following configuration:
 
     - **server_id** = 1 or greater (relevant only for MySQL 5.6)
-    - **log-bin** =<path> (relevant only for MySQL 5.6)
+    - **log-bin** =\<path> (relevant only for MySQL 5.6)
 
         For example: log-bin = E:\MySQL_logs\BinLog
     - **binlog_format** = row
@@ -183,7 +183,7 @@ After the service is created, locate it within the Azure portal, open it, and th
     ![Create Database Migration Service Project](media/tutorial-mysql-to-azure-mysql-online/dms-create-project4.png)
 
     > [!NOTE]
-    > Alternately, you can chose **Create project only** to create the migration project now and execute the migration later.
+    > Alternately, you can choose **Create project only** to create the migration project now and execute the migration later.
 
 6. Select **Save**, note the requirements to successfully use DMS to migrate data, and then select **Create and run activity**.
 
