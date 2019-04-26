@@ -27,23 +27,6 @@ Learn all you need to build a Desktop app that calls web APIs
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## Overview
-
-You write a desktop application, and you want to sign in users to your application and call web APIs such as the Microsoft Graph, other Microsoft APIs, or your own web API. You have several possibilities:
-
-- If your desktop application supports graphical controls, for instance if it's a Windows.Form application or a WPF application, you can use the interactive token acquisition.
-- For Windows hosted applications, it's also possible for applications running on computers joined to a Windows domain or AAD joined to acquire a token silently by using Integrated Windows Authentication.
-- Finally, and although it's not recommended, you can use Username/Password in public client applications. It's still needed in some scenarios (like DevOps), but beware that using it will impose constraints
-  on your application. For instance, it can't sign in user who needs to perform multi-factor authentication (conditional access). Also your application won't benefit from single sign-on (SSO).
-  It's also against the principles of modern authentication and is only provided for legacy reasons.
-
-  ![Desktop application](media/scenarios/desktop-app.svg)
-
-- If you're writing a portable command-line tool - probably a .NET Core application running on Linux or Mac - you won't be able to use neither the interactive authentication (as .NET Core doesn't provide a [Web browser](https://aka.ms/msal-net-uses-web-browser)),
-  nor Integrated Windows Authentication. The best option in that case is to use device code flow. This flow is also used for applications without a browser, such as  iOT applications
-
-  ![Browserless application](media/scenarios/device-code-flow-app.svg)
-
 ## Getting started
 
 If you haven't already, create your first application by following the .NET desktop quickstart or the UWP quickstart:
@@ -54,6 +37,23 @@ If you haven't already, create your first application by following the .NET desk
 
 > [!div class="nextstepaction"]
 > [Quickstart: Acquire a token and call Microsoft Graph API from a UWP app](./quickstart-v2-uwp.md)
+
+## Overview
+
+You write a desktop application, and you want to sign in users to your application and call web APIs such as the Microsoft Graph, other Microsoft APIs, or your own web API. You have several possibilities:
+
+- If your desktop application supports graphical controls, for instance if it's a Windows.Form application or a WPF application, you can use the interactive token acquisition.
+- For Windows hosted applications, it's also possible for applications running on computers joined to a Windows domain or AAD joined to acquire a token silently by using Integrated Windows Authentication.
+- Finally, and although it's not recommended, you can use Username/Password in public client applications. It's still needed in some scenarios (like DevOps), but beware that using it will impose constraints on your application. For instance, it can't sign in user who needs to perform multi-factor authentication (conditional access). Also your application won't benefit from single sign-on (SSO).
+
+  It's also against the principles of modern authentication and is only provided for legacy reasons.
+
+  ![Desktop application](media/scenarios/desktop-app.svg)
+
+- If you're writing a portable command-line tool - probably a .NET Core application running on Linux or Mac - you won't be able to use neither the interactive authentication (as .NET Core doesn't provide a [Web browser](https://aka.ms/msal-net-uses-web-browser)),
+  nor Integrated Windows Authentication. The best option in that case is to use device code flow. This flow is also used for applications without a browser, such as  iOT applications
+
+  ![Browserless application](media/scenarios/device-code-flow-app.svg)
 
 ## Specifics
 

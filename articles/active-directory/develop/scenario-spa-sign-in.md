@@ -39,9 +39,9 @@ You can also optionally pass the scopes of the APIs for which you need the user 
 
 You cannot use a combination of both the pop-up and redirect methods in your application. The choice between a pop-up or redirect experience depends on your application flow.
 
-* If you don't want the user to navigate away from your main application page during authentication, it is recommended to use the pop-up methods. Since the authentication redirect happens in a pop-up window, the state of the main application is preserved.
+* If you don't want the user to navigate away from your main application page during authentication, it's recommended to use the pop-up methods. Since the authentication redirect happens in a pop-up window, the state of the main application is preserved.
 
-* There are certain cases where you may need to use the redirect methods. If users of your application have browser constraints or policies where pop-ups windows are disabled, you can use the redirect methods. It is also recommended to use the redirect methods with Internet Explorer browser since there are certain [known issues with Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) when handling pop-up windows.
+* There are certain cases where you may need to use the redirect methods. If users of your application have browser constraints or policies where pop-ups windows are disabled, you can use the redirect methods. Use the redirect methods with Internet Explorer browser since there are certain [known issues with Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) when handling pop-up windows.
 
 ## Sign in with a pop-up window
 

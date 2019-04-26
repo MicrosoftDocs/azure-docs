@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Single-page application - call a web API
 
-We recommend calling the `acquireTokenSilent` method to acquire or renew an access token before calling a web API. Once you have a token, you can call a protected web API.
+We recommend that you call the `acquireTokenSilent` method to acquire or renew an access token before calling a web API. Once you have a token, you can call a protected web API.
 
 ## Call a web API
 
@@ -47,7 +47,7 @@ Use the acquired access token as a bearer in an HTTP request to call any web API
 
 ### Angular
 
-As mentioned in the acquiring tokens section, the MSAL Angular wrapper leverages the HTTP interceptor to automatically acquire access tokens silently and attach them to the HTTP requests to APIs.
+As mentioned in the [acquiring tokens section](scenario-spa-acquire-token.md), the MSAL Angular wrapper leverages the HTTP interceptor to automatically acquire access tokens silently and attach them to the HTTP requests to APIs.
 
 ## Next steps
 

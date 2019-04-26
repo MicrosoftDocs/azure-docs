@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Single-page application - code configuration
 
-Learn how to configure the code for your single-page application.
+Learn how to configure the code for your single-page application (SPA).
 
 ## MSAL libraries supporting implicit flow
 

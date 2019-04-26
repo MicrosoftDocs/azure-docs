@@ -27,17 +27,17 @@ Learn all you need to build a web app that signs-in users with the Microsoft ide
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## Quickstart
+## Getting started
 
-If you want to create your first portable (ASP.NET Core) web apps that sign in users, follow the following quickstart:
-
-> [!div class="nextstepaction"]
-> [ASP.NET Core web app that signs-in users](quickstart-v2-aspnet-core-webapp.md)
-
-Otherwise if you prefer to stay with ASP.NET, try out the following tutorial:
+If you want to create your first portable (ASP.NET Core) web apps that sign in users, follow this quickstart:
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core web app that signs-in users](quickstart-v2-aspnet-webapp.md)
+> [Quickstart: ASP.NET Core web app that signs-in users](quickstart-v2-aspnet-core-webapp.md)
+
+If you prefer to stay with ASP.NET, try out the following tutorial:
+
+> [!div class="nextstepaction"]
+> [Quickstart: ASP.NET Core web app that signs-in users](quickstart-v2-aspnet-webapp.md)
 
 ## Overview
 

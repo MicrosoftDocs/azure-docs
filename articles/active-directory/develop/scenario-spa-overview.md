@@ -27,6 +27,13 @@ Learn all you need to build a single-page application (SPA).
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
+## Getting started
+
+You can create your first application by following the JavaScript SPA quickstart:
+
+> [!div class="nextstepaction"]
+> [Quickstart: Single-page application](./quickstart-v2-javascript.md)
+
 ## Overview
 
 Many modern web applications are built as client-side single-page applications written using JavaScript or a SPA framework such as Angular, Vue.js, and React.js. These applications run in a web browser and have different authentication characteristics than traditional server-side web applications. The Microsoft identity platform enables single-page applications to sign in users and get tokens to access backend services or web APIs using the [OAuth 2.0 implicit flow](./v2-oauth2-implicit-grant-flow.md). The implicit flow allows the application to get ID tokens to represent the authenticated user and also access tokens needed to call protected APIs.
@@ -34,13 +41,6 @@ Many modern web applications are built as client-side single-page applications w
 ![Single-page applications](./media/scenarios/spa-app.svg)
 
 This authentication flow does not include application scenarios using cross-platform JavaScript frameworks such as Electron, React-Native and so on. since they require further capabilities for interaction with the native platforms.
-
-## Getting started
-
-You can create your first application by following the JS SPA quickstart:
-
-> [!div class="nextstepaction"]
-> [Single-page application - Quickstart](./quickstart-v2-javascript.md)
 
 ## Specifics
 

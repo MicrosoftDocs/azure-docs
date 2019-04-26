@@ -21,21 +21,22 @@ ms.collection: M365-identity-device-management
 
 # Single-page application - app registration
 
-This page explains the app registration specifics for a single-page application.
+This page explains the app registration specifics for a single-page application (SPA).
 
-Follow the steps to [register a new application with Azure AD](quickstart-register-app.md), and select the supported accounts for your application. The SPA scenario can support authentication with accounts in your organization or any organization and personal Microsoft accounts.
+Follow the steps to [register a new application with Microsoft identity platform](quickstart-register-app.md), and select the supported accounts for your application. The SPA scenario can support authentication with accounts in your organization or any organization and personal Microsoft accounts.
 
-Next, here are the specific aspects of application registration that apply to single-page applications.
+Next, learn the specific aspects of application registration that apply to single-page applications.
 
 ## Register a redirect URI
 
-The implicit flow sends the tokens in a redirect to the single-page application running in a web browser. Therefore, it is an important requirement to register a redirect URI where your application can receive the tokens. Please ensure that the redirect URI matches exactly with the URI for your application.
+The implicit flow sends the tokens in a redirect to the single-page application running in a web browser. Therefore, it's an important requirement to register a redirect URI where your application can receive the tokens. Please ensure that the redirect URI matches exactly with the URI for your application.
 
 In the [Azure portal](https://go.microsoft.com/fwlink/?linkid=2083908), navigate to your registered application, on the **Authentication** page of the application, select the **Web** platform and enter the value of the redirect URI for your application in the **Redirect URI** field.
 
 ## Enable the implicit flow
 
-On the same **Authentication** page, under **Advanced settings**, you must also enable the **Implicit grant**. If your application is only performing sign in of users and getting ID tokens, it is sufficient to enable **ID tokens** checkbox.
+On the same **Authentication** page, under **Advanced settings**, you must also enable the **Implicit grant**. If your application is only performing sign in of users and getting ID tokens, it's sufficient to enable **ID tokens** checkbox.
+
 If your application also needs to get access tokens to call APIs, make sure to enable the **Access tokens** checkbox as well. For more information, see [ID tokens](./id-tokens.md) and [Access tokens](./access-tokens.md).
 
 ## API permissions
