@@ -130,7 +130,7 @@ Next, you will analyze a document and extract key-value pairs and tables from it
         }
     
         try:
-            url = base_url + "/model/" + model_id + "/analyze" 
+            url = base_url + "/models/" + model_id + "/analyze" 
             with open(file_path, "rb") as f:
                 data_bytes = f.read()  
             resp = http_post(url = url, data = data_bytes, headers = headers)
