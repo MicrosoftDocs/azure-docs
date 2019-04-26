@@ -139,11 +139,11 @@ From here, you can enable/disable/delete action rules at scale by selecting the 
 
 ## Best practices
 
-Log alerts created with the ['number of results'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option generate **a single alert instance** with the entirety of the search results (which could be across multiple computers for example). In this scenario, if an action rule uses the 'Alert Context (payload)' filter, it will act on the alert instance as long as there is a match. In scenario 2 as described above, if the search results for the log alert generated contains both 'Computer-01' and 'Computer-02', the entire notification is suppressed (there is no notification generated for 'Computer-02' at all).
+Log alerts created with the ['number of results'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option generate **a single alert instance** using the whole search result (which could be across multiple computers for example). In this scenario, if an action rule uses the 'Alert Context (payload)' filter, it will act on the alert instance as long as there is a match. In scenario 2 as described previously, if the search results for the log alert generated contains both 'Computer-01' and 'Computer-02', the entire notification is suppressed (that is, there is no notification generated for 'Computer-02' at all).
 
 ![Action rules and log alerts (number of results)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-To best leverage log alerts with action rules, it is advised to create log alerts with the ['metric measurement'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option. In this scenario, separate alert instances are generated based on the Group Field defined. In scenario 2 as described above, if the log alert is created with the metric measurement option, separate alert instances are generated for 'Computer-01' and 'Computer-02'. With the action rule described in the scenario, only the notification for 'Computer-01' would be suppressed while the notification for 'Computer-02' will continue to fire as normal.
+To best leverage log alerts with action rules, we advise you to create log alerts with the ['metric measurement'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option. Using this option, separate alert instances are generated based on the Group Field defined. Then in scenerio 2, separate alert instances are generated for 'Computer-01' and 'Computer-02'. With the action rule described in the scenario, only the notification for 'Computer-01' would be suppressed while the notification for 'Computer-02' would continue to fire as normal.
 
 ![Action rules and log alerts (number of results)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
@@ -162,18 +162,16 @@ To best leverage log alerts with action rules, it is advised to create log alert
 * Q. While configuring an alert rule, is it possible to know if there are already action rules defined that might act on the alert rule I am defining?
 
     A. Once you define the target resource for your alert rule, you can see the list of action rules which act on the same scope (if any) by clicking on 'View configured actions' under the 'Actions' section. This list is populated based on following scenarios for the scope:
-    * An exact match: For example, the alert rule you are defining and the  action rule are on the same subscription.
+    * An exact match: For example, the alert rule you are defining and the action rule are on the same subscription.
     * A subset: For example, the alert rule you are defining is on a subscription, and the action rule is on a resource group within the subscription.
     * A superset: For example, the alert rule you are defining is on a resource group, and the action rule is on the subscription that contains the resource group.
     * An intersection: For example, the alert rule you are defining is on 'VM1' and 'VM2', and the action rule is on 'VM2' and 'VM3'.
     
-
-
     ![Overlapping action rules](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
 
 * Q. Can I see the alerts that have been suppressed by an action rule?
 
-    A. In the [alerts list page](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-managing-alert-instances), there is an additional column that can be chosen called 'Suppression Status'. If the notification for an alert instance was suppressed, it would show so in the list.
+    A. In the [alerts list page](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-managing-alert-instances), there is an additional column that can be chosen called 'Suppression Status'. If the notification for an alert instance was suppressed, it would show that status in the list.
 
     ![Suppressed alert instances](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
@@ -181,16 +179,25 @@ To best leverage log alerts with action rules, it is advised to create log alert
 
     A. **Suppression always takes precedence on the same scope**.
 
-* Q. If I have an action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' and action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1', what happens?
+* Q. What happens if I have an resource monitored in two separate action rules? Do I get one or two notifications? For example 'VM2' in this scenario:
+
+      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' 
+      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1' 
 
     A. For every alert on 'VM1' and 'VM3', action group 'AG1' would be triggered once. For every alert on 'VM2', action group 'AG1' would be triggered twice (**action rules do not de-duplicate actions**). 
 
-* Q. If I have an action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' and action rule 'AR2' defined for 'VM2' and 'VM3' with suppression, what happens?
+* Q. What happens if I have a resource monitored in two separate action rules and one calls for action while another for suppression? For example, 'VM2' in this scenario:
+
+      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' 
+      action rule 'AR2' defined for 'VM2' and 'VM3' with suppression
 
     A. For every alert on 'VM1', action group 'AG1' would be triggered once. Actions and notifications for every alert on 'VM2' and 'VM3' will be suppressed. 
 
-* Q. If I have an action rule 'AR1' defined for 'VM1' with action group 'AG1', and alert rule 'rule1' on 'VM1' with action group 'AG2', what happens?
+* Q. What happens if I have an alert rule and an action rule defined for the same resource calling different action groups? For example, 'VM1' in this scenario:
 
+     alert rule  'rule1' on          'VM1' with action group 'AG2'
+     action rule 'AR1'   defined for 'VM1' with action group 'AG1',  
+ 
     A. For every alert on 'VM1', action group 'AG1' would be triggered once. Whenever alert rule 'rule1' is triggered, it will also trigger 'AG2' additionally. (**action groups defined within action rules and alert rules operate independently, with no de-duplication**) 
 
 ## Next steps
