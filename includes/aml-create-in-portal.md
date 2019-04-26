@@ -21,7 +21,7 @@ ms.date: 09/24/2018
 
 1. In the search bar, enter **Machine Learning**. Select the **Machine Learning service workspace** search result.
 
-   ![Search for a workspace](./media/aml-create-in-portal/allservices-search.PNG)
+   ![Search for a workspace](./media/aml-create-in-portal/allservices-search.png)
 
 1. In the **ML service workspace** pane, scroll to the bottom and select **Create** to begin.
 
