@@ -21,10 +21,14 @@ You open the resource picker dialog but it doesn't list the resource you are loo
 **Solution:** Metrics explorer resource picker only shows resources from selected subscription and resource groups. If you don't see the resource you are looking for:
 
 1. Ensure that you've selected correct subscription in the **Subscription** dropdown. If your subscription isn't listed, open the **Directory + Subscription settings** dialog and add a subscription that contains your resource.
+
 1. Ensure that you select correct resource group:
     > [!NOTE]
-    > When you first open metrics explorer, the resource group picker has no resource group selected. You must pick at least one resource group to see  resources: ![empty resource picker image](./media/metrics-troubleshoot/resource-picker-empty.png)
-1. You can use **Resource type** filter to narrow down search results. 
+    > When you first open metrics explorer, the resource group picker has no resource group selected. You must pick at least one resource group to see  resources
+
+    ![empty resource picker image](./media/metrics-troubleshoot/resource-picker-empty.png)
+
+1. You can use **Resource type** filter to narrow down search results.
 
 ## My chart shows no data
 
