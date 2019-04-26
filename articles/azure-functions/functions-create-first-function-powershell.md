@@ -1,5 +1,5 @@
 ---
-title: Create your first PowerShell function in Azure
+title: Create your first PowerShell function with Azure Functions
 description: Learn how to create your first PowerShell function in Azure using Visual Studio Code.
 services: functions
 keywords:
