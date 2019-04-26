@@ -45,7 +45,7 @@ Some resources don’t constantly emit their metrics. For example, Azure will no
 
 ### You picked a time range greater than 30 days
 
-With a few exceptions, [metrics in Azure are stored for 93 days](data-platform-metrics.md#retention-of-metrics). However, you can only query for no more than 30 days worth of data on any single chart. This limitation doesn't apply to [log-based metrics](../app/pre-aggregated-metrics-log-metrics#log-based-metrics).
+With a few exceptions, [metrics in Azure are stored for 93 days](data-platform-metrics.md#retention-of-metrics). However, you can only query for no more than 30 days worth of data on any single chart. This limitation doesn't apply to [log-based metrics](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
 **Solution:** If you see a blank chart on a long-ranged chart, verify that the difference between start- and end- dates in the time picker doesn't exceed the 30-day interval.
 
