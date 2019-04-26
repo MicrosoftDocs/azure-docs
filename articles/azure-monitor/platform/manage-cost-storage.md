@@ -23,7 +23,7 @@ ms.subservice:
 > - [Analyze data usage in Log Analytics](manage-cost-storage.md) describes how to analyze and alert on your data usage.
 > - [Monitoring usage and estimated costs](usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
 
-Log Analytics in Azure Monitor is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, its important to understand that the cost of a Log Analytics workspace isn't just based on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
+Log Analytics in Azure Monitor is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, it's important to understand that the cost of a Log Analytics workspace isn't just based on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
 
 In this article we review how you can proactively monitor data volume and storage growth, and define limits to control those associated costs. 
 
@@ -92,7 +92,7 @@ The following steps describe how to configure how long log data is kept by in yo
 
 ## Legacy pricing tiers
 
-Customers with an Enterprise Agreement signed prior to July 1, 2018 or who already created a Log Analytics workspace in a subscription, you still have access to the *Free* plan. If your subscription is not tied to an existing EA enrollment, the *Free* tier is not available when you create a workspace in a new subscription after April 2, 2018.  Data is limited to 7 days retention for the *Free* tier.  For the legacy *Standalone* or *Per Node* tiers, as well as the current 2018 single pricing tier , data collected is available for the last 31 days. The *Free* tier has 500 MB daily ingestion limit, and if you find that you consistently exceed the amounts allowed volume, you can change your workspace to another plan to collect data beyond this limit. 
+Customers with an Enterprise Agreement signed prior to July 1, 2018 or who already created a Log Analytics workspace in a subscription, you still have access to the *Free* plan. If your subscription is not tied to an existing EA enrollment, the *Free* tier is not available when you create a workspace in a new subscription after April 2, 2018.  Data is limited to 7 days retention for the *Free* tier.  For the legacy *Standalone* or *Per Node* tiers, as well as the current 2018 single pricing tier, data collected is available for the last 31 days. The *Free* tier has 500 MB daily ingestion limit, and if you find that you consistently exceed the amounts allowed volume, you can change your workspace to another plan to collect data beyond this limit. 
 
 > [!NOTE]
 > To use the entitlements that come from purchasing OMS E1 Suite, OMS E2 Suite or OMS Add-On for System Center, choose the Log Analytics *Per Node* pricing tier.
@@ -122,7 +122,7 @@ If you are on the legacy Free pricing tier and have sent more than 500 MB of dat
 
 `Operation | where OperationCategory == 'Data Collection Status'`
 
-When data collection stops, the OperationStatus is Warning. When data collection starts, the OperationStatus is Succeeded. The following table describes reasons that data collection stops and a suggested action to resume data collection:  
+When data collection stops, the OperationStatus is **Warning**. When data collection starts, the OperationStatus is **Succeeded**. The following table describes reasons that data collection stops and a suggested action to resume data collection:  
 
 |Reason collection stops| Solution| 
 |-----------------------|---------|
@@ -130,15 +130,13 @@ When data collection stops, the OperationStatus is Warning. When data collection
 |Daily cap of your workspace was reached|Wait for collection to automatically restart, or increase the daily data volume limit described in manage the maximum daily data volume. The daily cap reset time is shows on the **Data volume management** page. |
 |Azure subscription is in a suspended state due to:<br> Free trial ended<br> Azure pass expired<br> Monthly spending limit reached (for example on an MSDN or Visual Studio subscription)|Convert to a paid subscription<br> Remove limit, or wait until limit resets|
 
-To be notified when data collection stops, use the steps described in *Create daily data cap* alert to be notified when data collection stops and follow the steps Use the steps described in add actions to alert rules configure an e-mail, webhook, or runbook action for the alert rule. 
+To be notified when data collection stops, use the steps described in *Create daily data cap* alert to be notified when data collection stops. Use the steps described in [create an action group](action-groups.md) to configure an e-mail, webhook, or runbook action for the alert rule. 
 
 ## Troubleshooting why usage is higher than expected
 
 Higher usage is caused by one, or both of:
 - More nodes than expected sending data to Log Analytics
 - More data than expected being sent to Log Analytics
-
-The next sections explor
 
 ## Understanding nodes sending data
 
@@ -213,7 +211,7 @@ union withsource = tt *
 | summarize count() by tt | sort by count_ nulls last
 ```
 
-### Data volume by Azure resource, resource group or subscription
+### Data volume by Azure resource, resource group, or subscription
 
 For data from nodes hosted in Azure you can get the **size** of billable events ingested __per computer__, use the [_ResourceId](log-standard-properties.md#_resourceid) property, which provides the full path to the resource:
 
@@ -233,7 +231,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
 ```
 
-Changing `subscriptionId` to `resourceGroup` will show the billable ingested data volume by Azure resouurce group. 
+Changing `subscriptionId` to `resourceGroup` will show the billable ingested data volume by Azure resource group. 
 
 
 > [!NOTE]
