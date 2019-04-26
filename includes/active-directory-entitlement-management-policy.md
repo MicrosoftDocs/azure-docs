@@ -85,7 +85,7 @@ In the Request section, you specify approval settings when users request the acc
 
 1. To require the approver to provide a justification to approve a request for the access package, set **Require approver justification** to **Yes**.
 
-1. In the **Approval request timeout (days)** box, specify the amount of time the approvers have to review a request. If no  approvers review it in this amount of days, the request expires and the user will have to submit another request for the access package.
+1. In the **Approval request timeout (days)** box, specify the amount of time the approvers have to review a request. If no  approvers review it in this number of days, the request expires and the user will have to submit another request for the access package.
 
 ### Policy: Expiration
 
@@ -103,7 +103,7 @@ In the Expiration section, you specify when a user's assignment to the access pa
 
 1. To allow user to extend their assignments, set **Allow users to extend access** to **Yes**.
 
-    If extensions are allowed in the policy, the user will receive an email 14 and 1 days before their access package assignment is set to expire prompting them to extend the assignment.
+    If extensions are allowed in the policy, the user will receive an email 14 days and also 1 day before their access package assignment is set to expire prompting them to extend the assignment.
 
     ![Access package - Policy- Expiration settings](./media/active-directory-entitlement-management-policy/policy-expiration.png)
 
