@@ -11,7 +11,7 @@ ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
 ---
-# Install and run containers
+# Install and run Form Recognizer containers
 Form Recognizer applies machine learning technology to identify and extract key-value pairs and tables from forms. It associates values and table entries to them and then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model using a simple REST API in order to reduce complexity and easily integrate it in your workflow automation process or other application. Only five documents (or an empty form) are needed, so you can get results quickly, accurately and tailored to your specific content, without heavy manual intervention or extensive data science expertise. It does not require data labeling or data annotation.
 
 |Function|Features|
@@ -120,6 +120,89 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 * Mounts an /input and an /output volume to the container
+
+[!INCLUDE [Running multiple containers on the same host H2](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+### Run separate containers as separate docker run commands
+
+For the Form Recognizer and Text Recognizer combination hosted locally on the same host, two example Docker CLI commands follow.
+
+Run the first container on port 5000. 
+
+```bash 
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
+Eula=accept \
+Billing={BILLING_ENDPOINT_URI} \
+ApiKey={BILLING_KEY}
+FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
+FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
+```
+
+Run the second container on port 5001.
+
+
+```bash 
+docker run --rm -it -p 5001:5000 --memory 4g --cpus 1 \
+containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+Eula=accept \
+Billing={COMPUTER_VISION_ENDPOINT_URI} \
+ApiKey={COMPUTER_VISION_API_KEY}
+```
+Each subsequent container should be on a different port. 
+
+### Run separate containers with Docker Compose
+
+For the Form Recognizer and Text Recognizer combination hosted locally on the same host, an example Docker Compose YAML file follows. The Text Recognizer `{COMPUTER_VISION_API_KEY}` must be the same for both the `formrecognizer` and `ocr` containers. The `{COMPUTER_VISION_ENDPOINT_URI}` is only used in the `ocr` container because the `formrecognizer` container uses the `ocr` name and port. 
+
+```docker
+version: '3.3'
+services:   
+  ocr:
+    image: "containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text"
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 8g
+        reservations:
+          cpus: '1'
+          memory: 4g
+    environment:
+      eula: accept
+      billing: "{COMPUTER_VISION_ENDPOINT_URI}"
+      apikey: {COMPUTER_VISION_API_KEY}  
+
+  formrecognizer:
+    image: "containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer"
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 8g
+        reservations:
+          cpus: '1'
+          memory: 4g
+    environment:
+      eula: accept
+      billing: "{BILLING_ENDPOINT_URI}"
+      apikey: {BILLING_KEY}
+      FormRecognizer__ComputerVisionApiKey: {COMPUTER_VISION_API_KEY}
+      FormRecognizer__ComputerVisionEndpointUri: "http://ocr:5000"
+      FormRecognizer__SyncProcessTaskCancelLimitInSecs: 75
+    links:
+      - ocr
+    volumes:
+      - type: bind
+        source: c:\output
+        target: /output
+      - type: bind
+        source: c:\input
+        target: /input
+    ports:
+      - "5000:5000"  
+```
+
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` as well as `FormRecognizer:ComputerVisionApiKey` and `FormRecognizer:ComputerVisionEndpointUri` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
