@@ -1,7 +1,6 @@
 ---
 title: Apache Phoenix in HDInsight - Azure HDInsight 
 description: 
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 
