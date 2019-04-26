@@ -32,14 +32,17 @@ For any additional endpoints: `{EndpointName}-{AccountName}-{DatacenterAbbreviat
 
 ## Types  
 
-There are two **Streaming Endpoint** types: **Standard** and **Premium**. The type is defined by the number of scale units (`scaleUnits`) you allocate for the streaming endpoint. 
+There are two **Streaming Endpoint** types: **Standard** (preview) and **Premium**. The type is defined by the number of scale units (`scaleUnits`) you allocate for the streaming endpoint. 
 
 The table describes the types:  
 
 |Type|Scale units|Description|
 |--------|--------|--------|  
-|**Standard** (preview)|0|The default Streaming Endpoint is a **Standard** type (recommended), can be changed to the Premium type by adjusting `scaleUnits`.<br/><br/>The **Standard** type is the recommended option for virtually all streaming scenarios and audience sizes. The **Standard** type scales outbound bandwidth automatically. Video fragments cached in the CDN, do not use the Streaming Endpoint bandwidth.<br/>For customers with extremely demanding requirements Media Services offer **Premium** streaming endpoints, which can be used to scale out capacity for the largest internet audiences. If you expect large audiences and concurrent viewers, contact us at amsstreaming\@microsoft.com for guidance on whether you need to move to the **Premium** type. |
+|**Standard**|0|The default Streaming Endpoint is a **Standard** type, can be changed to the Premium type by adjusting `scaleUnits`.|
 |**Premium**|>0|**Premium** Streaming Endpoints are suitable for advanced workloads, providing dedicated and scalable bandwidth capacity. You move to a **Premium** type by adjusting `scaleUnits` (streaming units). `scaleUnits` provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. When using the **Premium** type, each enabled unit provides additional bandwidth capacity to the application. |
+
+> [!NOTE]
+> For customers looking to deliver content to large internet audiences, we recommend that you enable CDN on the Streaming Endpoint.
 
 For SLA information, see [Pricing and SLA](https://azure.microsoft.com/pricing/details/media-services/).
 
@@ -56,11 +59,10 @@ Dynamic packaging|Yes|Yes
 Scale|Auto scales up to the targeted throughput.|Additional SUs
 IP filtering/G20/Custom host  <sup>2</sup>|Yes|Yes
 Progressive download|Yes|Yes
-Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage. <sup>3</sup> 
+Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.
 
 <sup>1</sup> The free trial only applies to newly created media services accounts and the default Streaming Endpoint.<br/>
 <sup>2</sup> Only used directly on the Streaming Endpoint when the CDN is not enabled on the endpoint.<br/>
-<sup>3</sup> If you expect a concurrent audience size larger than 50,000 viewers, contact us at amsstreaming@microsoft.com for guidance on whether you need to move to the **Premium** type. 
 
 ## Properties 
 
