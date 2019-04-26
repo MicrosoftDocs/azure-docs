@@ -127,7 +127,7 @@ You can specify a list of asset or account filters, which would apply to your St
 - The values for **forceEndTimestamp**, **presentationWindowDuration**, and **liveBackoffDuration** should not be set for a VoD filter. They are only used for live filter scenarios. 
 - Dynamic manifest operates in GOP boundaries (Key Frames) hence trimming has GOP accuracy. 
 - You can use same filter name for Account and Asset filters. Asset filters have higher precedence and will override Account filters.
-- If you update a filter, it can take up to 2 minutes for Streaming Endpoint to refresh the rules. If the content was served using some filters (and cached in proxies and CDN caches), updating these filters can result in player failures. It is recommended to clear the cache after updating the filter. If this option is not possible, consider using a different filter.
+- If you update a filter, it can take up to 2 minutes for the Streaming Endpoint to refresh the rules. If the content was served using some filters (and cached in proxies and CDN caches), updating these filters can result in player failures. It is recommended to clear the cache after updating the filter. If this option is not possible, consider using a different filter.
 - Customers need to manually download the manifest and parse the exact startTimestamp and time scale.
     
     - To determine properties of the tracks in an Asset, [get and examine the manifest file](#get-and-examine-manifest-files).
