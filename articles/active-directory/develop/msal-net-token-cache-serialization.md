@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 # Token cache serialization in MSAL.NET
 After a [token is acquired](msal-acquire-cache-tokens.md), it is cached by Microsoft Authentication Library (MSAL).  Application code should try to get a token from the cache before acquiring a token by another method.  This article discusses default and custom serialization of the token cache in MSAL.NET.
 
-This article is for MSAL.NET 3.x. If you are interested in MSAL.NET 2.x, see [Token cache serialization in MSAL.NET 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Token-cache-serialization-2x).
+This article is for MSAL.NET 3.x. If you're interested in MSAL.NET 2.x, see [Token cache serialization in MSAL.NET 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Token-cache-serialization-2x).
 
 ## Default serialization for mobile platforms
 
@@ -35,16 +35,12 @@ In MSAL.NET, an in-memory token cache is provided by default. Serialization is p
 
 ## Custom serialization for Windows desktop apps and web apps/web APIs
 
-For .NET Framework and .NET Core, by default, the in-memory token cache lasts for the duration of the application. .NET desktop and .NET Core applications can be console or Windows applications, which would have access to the file system. However, .NET desktop and .NET Core applications can also be web applications or web APIs which might use some specific cache mechanisms (such as databases, distributed caches, or Redis caches).  So serialization is not provide out-of-the-box. To have a persistent token cache application in .NET desktop or .NET Core, you need to customize the serialization.
+Remember, custom serialization isn't available on mobile platforms (UWP, Xamarin.iOS, and Xamarin.Android). MSAL already defines a secure and performant serialization mechanism for these platforms. .NET desktop and .NET Core applications, however, have varied architectures and MSAL cannot implement a general-purpose serialization mechanism. For example, web sites may choose to store tokens in a Redis cache, or desktop apps store tokens in an encrypted file. So serialization isn't provided out-of-the-box. To have a persistent token cache application in .NET desktop or .NET Core, you need to customize the serialization.
 
-## Custom token cache serialization in MSAL.NET
+The following classes and interfaces are used in token cache serialization:
 
-Remember, custom serialization is not available on mobile platforms (UWP, Xamarin.iOS, and Xamarin.Android). MSAL already defines a secure and performant serialization mechanism for these platforms. .NET desktop and .NET Core applications, however, have varied architectures and MSAL cannot implement a general-purpose serialization mechanism. For example, web sites may choose to store tokens in a Redis cache, or desktop apps store tokens in an encrypted file.
-
-The classes and interfaces involved in token cache serialization are the following:
-
-- `ITokenCache`, which defines events to subscribe to token cache serialization requests, as well as methods to serialize or de-serialize the cache at various formats (ADAL v3.0, MSAL 2.x and MSAL 3.x = ADAL v5.0)
-- `TokenCacheCallback` is a callback passed to the events so that you can handle the serialization. they will be called with arguments of type `TokenCacheNotificationArgs`.
+- `ITokenCache`, which defines events to subscribe to token cache serialization requests as well as methods to serialize or de-serialize the cache at various formats (ADAL v3.0, MSAL 2.x and MSAL 3.x = ADAL v5.0).
+- `TokenCacheCallback` is a callback passed to the events so that you can handle the serialization. They will be called with arguments of type `TokenCacheNotificationArgs`.
 - `TokenCacheNotificationArgs` only provides the `ClientId` of the application and a reference to the user for which the token is available.
 
   ![Class diagram](media/msal-net-token-cache-serialization/class-diagram.png)
@@ -54,21 +50,22 @@ The classes and interfaces involved in token cache serialization are the followi
 > - React to `BeforeAccess` and `AfterAccess` "events". The `BeforeAccess` delegate is responsible to deserialize the cache, whereas the `AfterAccess` one is responsible for serializing the cache.
 > - Part of these events store or load blobs, which are passed through the event argument to whatever storage you want.
 
-The strategies are different depending on if you are writing a token cache serialization for a public client application (desktop), or a confidential client application (web app / web API, daemon app).
+The strategies are different depending on if you are writing a token cache serialization for a [public client application](msal-client-applications.md) (desktop), or a [confidential client application](msal-client-applications.md)) (web app / web API, daemon app).
 
-### Token cache for a public client application
+### Token cache for a public client 
 
-Since MSAL V2.x you have several options, depending on if you want to serialize the cache only to the MSAL.NET format (unified format cache which is common with MSAL, but also across the platforms), or if you also want to also support the [legacy](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) Token cache serialization of ADAL V3.
+Since MSAL.NET v2.x you have several options for serializing the token cache of a public client. You can serialize the cache only to the MSAL.NET format (the unified format cache is common across MSAL and the platforms).  You can also support the [legacy](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) token cache serialization of ADAL V3.
 
-The customization of Token cache serialization to share the SSO state between ADAL.NET 3.x, ADAL.NET 5.x and MSAL.NET is explained in part of the following sample: [active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)
+Customizing the token cache serialization to share the single sign-on state between ADAL.NET 3.x, ADAL.NET 5.x, and MSAL.NET is explained in part of the following sample: [active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2).
 
-> Note: The MSAL.NET 1.1.4-preview token cache format is no longer supported in MSAL 2.x. If you have applications leveraging MSAL.NET 1.x, your users will have to re-sign-in. On the other hand, the migration from ADAL 4.x (and 3.x) is supported.
+> [!Note]
+> The MSAL.NET 1.1.4-preview token cache format is no longer supported in MSAL 2.x. If you have applications leveraging MSAL.NET 1.x, your users will have to re-sign-in. Alternately, the migration from ADAL 4.x (and 3.x) is supported.
 
 #### Simple token cache serialization (MSAL only)
 
-Below is an example of a naive implementation of custom serialization of a token cache for desktop applications. Here the user token cache in a file in the same folder as the application.
+Below is an example of a naive implementation of custom serialization of a token cache for desktop applications. Here, the user token cache is a file in the same folder as the application.
 
-After you build the application, you enable the serialization by calling `TokenCacheHelper.EnableSerialization()` passing the application `UserTokenCache`
+After you build the application, you enable the serialization by calling the `TokenCacheHelper.EnableSerialization()` method and passing the application `UserTokenCache`.
 
 ```csharp
 app = PublicClientApplicationBuilder.Create(ClientId)
@@ -76,7 +73,7 @@ app = PublicClientApplicationBuilder.Create(ClientId)
 TokenCacheHelper.EnableSerialization(app.UserTokenCache);
 ```
 
-This helper class looks like the following:
+The `TokenCacheHelper` helper class is defined as:
 
 ```csharp
 static class TokenCacheHelper
@@ -126,11 +123,11 @@ static class TokenCacheHelper
  }
 ```
 
-A preview of a product quality token cache file based serializer for public client applications (for desktop applications running on Windows, Mac and Linux) is available from the [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) open source library. You can include it in your applications from the following nuget package: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
+A preview of a product quality token cache file based serializer for public client applications (for desktop applications running on Windows, Mac and Linux) is available from the [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) open-source library. You can include it in your applications from the following nuget package: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
-#### Dual token cache serialization (MSAL unified cache + ADAL V3)
+#### Dual token cache serialization (MSAL unified cache and ADAL v3)
 
-If you want to implement token cache serialization both with the Unified cache format (common to ADAL.NET 4.x and MSAL.NET 2.x, and with other MSALs of the same generation or older, on the same platform), you can get inspired by the following code:
+If you want to implement token cache serialization both with the unified cache format (common to ADAL.NET 4.x, MSAL.NET 2.x, and other MSALs of the same generation or older, on the same platform), take a look at the following code:
 
 ```csharp
 string appLocation = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location;
@@ -147,7 +144,7 @@ FilesBasedTokenCacheHelper.EnableSerialization(app.UserTokenCache,
 
 ```
 
-This time the helper class looks like the following:
+This time the helper class as defined as:
 
 ```csharp
 using System;
@@ -279,9 +276,9 @@ namespace CommonCacheMsalV3
 
 ### Token cache for a web app (confidential client application)
 
-In the case of web apps or web APIs, the cache coule leverage the session, a Redis cache, or a database.
+In web apps or web APIs the cache could leverage the session, a Redis cache, or a database.
 
-A very important thing to remember is that for web apps and web APIs, there should be one token cache per user (per account). You need to serialize the token cache for each account.
+An important thing to remember is that for web apps and web APIs, there should be one token cache per user (per account). You need to serialize the token cache for each account.
 
 Examples of how to use token caches for web apps and web APIs are available in the [ASP.NET Core web app tutorial](https://ms-identity-aspnetcore-webapp-tutorial) in the phase [2-2 Token Cache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). For implementations have a look at the following folder [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) in the [microsoft-authentication-extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) library (in the [Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) folder. This library could be available in the future as a NuGet package.
 
