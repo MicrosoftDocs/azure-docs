@@ -120,8 +120,10 @@
   items:
   - name: Pipelines and activities
     href: concepts-pipelines-activities.md
-  - name: Datasets and linked services
-    href: concepts-datasets-linked-services.md
+  - name: Linked services
+    href: concepts-linked-services.md
+  - name: Datasets
+    href: concepts-datasets.md
   - name: Pipeline execution and triggers
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
