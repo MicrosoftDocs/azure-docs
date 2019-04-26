@@ -398,7 +398,9 @@ private AuthenticationCallback getAuthInteractiveCallback() {
 
 #### Using MSAL for Sign-out
 
-Often after signing in a user apps want to implement UI to allow their users to sign out of an app. Next up, we'll add support for sign-out to our app. It's important to note, sign-out with MSAL removes all known information about a user from this application, but the user will still be signed into their device.
+Often after signing in a user, apps want to implement UI to allow their users to sign out of an app. 
+
+Next up, we'll add support for sign-out to our app. It's important to note, sign-out with MSAL removes all known information about a user from this application, but the user will still be signed into their device. If the user attempts to sign in again they may see interaction, but may not need to re-enter their credentials due to the device session being active. 
 
 To add sign-out, copy the following method into your app that cycles through all accounts and removes them:
 
