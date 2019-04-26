@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Application Insights Application Monitor | Microsoft Docs
-description: Monitor a website's performance without redeploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+title: Azure Monitor Application Insights Application Monitor API | Microsoft Docs
+description: Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
 author: tilee
@@ -15,7 +15,7 @@ ms.author: tilee
 ---
 # Application Monitor API reference
 
-This document describes a cmdlet that is shipped as member of the [ApplicationMonitor PowerShell Module.](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)
+This document describes a cmdlet that's shipped as a member of the [ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!CAUTION] 
 > This module is a prototype application, and isn't recommended for your production environments.
