@@ -11,7 +11,7 @@ ms.date: 05/07/2019
 ms.author: edjez
 ---
 
-# Install and run containers
+# Install and run Personalizer containers
 
 The Personalizer Service has the following container(s): 
 
