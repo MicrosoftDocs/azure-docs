@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 04/25/2019
+ms.date: 04/26/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -190,7 +190,7 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
 ## Step 4: Request access
 
-In this step, you perform the steps as the **internal requestor** and request access to the access package.
+In this step, you perform the steps as the **internal requestor** and request access to the access package. Requestors submit their requests using a site called the My Access portal. The My Access portal enables requestors to submit request for access packages, see the access packages they already have access to, and view their request history.
 
 **Prerequisite role:** Internal requestor
 
@@ -224,7 +224,7 @@ In this step, you perform the steps as the **internal requestor** and request ac
 
 ## Step 5: Approve access request
 
-In this step, you sign in as the **approver** user and approve the access request for an internal requestor.
+In this step, you sign in as the **approver** user and approve the access request for the internal requestor. Approvers use the same My Access portal as requestors use to submit requests. Using the My Access portal, approvers can view pending approvals and approve or deny requests.
 
 **Prerequisite role:** Approver
 

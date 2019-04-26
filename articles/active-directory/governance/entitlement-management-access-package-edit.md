@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/25/2019
+ms.date: 04/26/2019
 ms.author: rolyon
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -32,10 +32,23 @@ An access package enables you to do a one-time setup of resources and policies t
 
 This article describes how to edit and manage existing access packages.
 
-
 ## Add resource roles
 
-A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is add resource roles to your access package. You can add resource roles for groups, applications, and SharePoint sites.
+A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is by adding resource roles to your access package. You can add resource roles for groups, applications, and SharePoint sites.
+
+**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. In the left menu, click **Resource roles**.
+
+1. Click **Add resource roles** to open the Add resource roles to access package page.
+
+    ![Access package - Add resource roles](./media/entitlement-management-access-package-edit/resource-roles-add.png)
+
+1. Depending on whether you want to add a group, application, or SharePoint site, perform the steps in one of the following resource role sections.
 
 ### Add a group resource role
 
@@ -50,31 +63,23 @@ You can select any Office 365 group or Azure AD security group.  Administrators 
 - Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect.  
 - The membership of dynamic groups cannot be updated by adding or removing a member, so dynamic group memberships are not suitable for use with entitlement management.
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+1. On the **Add resource roles to access package** page, click **Groups** to open the Select groups pane.
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. Select the groups you want to include in the access package.
 
-1. In the left menu, click **Access packages** and then open the access package.
+    ![Access package - Add resource roles - Select groups](./media/entitlement-management-access-package-edit/group-select.png)
 
-1. In the left menu, click **Resource roles**.
+1. Click **Select**.
 
-1. Click **Add resource roles**.
-
-1. For **Resource type**, select **Group**.
-
-1. For **Resource**, select a group that is available in the catalog.
-
-    If you don't see the group you want to add in the list, follow the steps to [add the group to the catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog).
-
-1. For **Role**, select **Owner** or **Member**.
+1. In the **Role** list, select **Owner** or **Member**.
 
     You typically select the Member role. If you select the Owner role, that will allow users to add or remove other members or owners.
 
-    ![Access package - Add resource role for a group](./media/entitlement-management-access-package-edit/resource-role-group.png)
+    ![Access package - Add resource role for a group](./media/entitlement-management-access-package-edit/group-role.png)
 
 1. Click **Add**.
 
-    Any users with existing assignments to the access package will automatically be given access to this group when it is added.
+    Any users with existing assignments to the access package will automatically become members of this group when it is added.
 
 ### Add an application resource role
 
@@ -91,25 +96,17 @@ Here are some considerations when selecting an application:
 
 - Applications may also have groups assigned to their roles as well.  You can choose to add a group in place of an application role in an access package, however then the application will not be visible to the user as part of the access package in the My Access portal.
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+1. On the **Add resource roles to access package** page, click **Applications** to open the Select applications pane.
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. Select the applications you want to include in the access package.
 
-1. In the left menu, click **Access packages** and then open the access package.
+    ![Access package - Add resource roles - Select applications](./media/entitlement-management-access-package-edit/application-select.png)
 
-1. In the left menu, click **Resource roles**.
+1. Click **Select**.
 
-1. Click **Add resource roles**.
+1. In the **Role** list, select an application role.
 
-1. For **Resource type**, select **Application**.
-
-1. For **Resource**, select an application that is available in the catalog.
-
-    If you don't see the application you want to add in the list, follow the steps to [add the application to the catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog).
-
-1. For **Role**, select an application role.
-
-    ![Access package - Add resource role for an application](./media/entitlement-management-access-package-edit/resource-role-application.png)
+    ![Access package - Add resource role for an application](./media/entitlement-management-access-package-edit/application-role.png)
 
 1. Click **Add**.
 
@@ -119,29 +116,21 @@ Here are some considerations when selecting an application:
 
 Azure AD can automatically assign users access to a SharePoint Online site or SharePoint Online site collection when they are assigned an access package.
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+1. On the **Add resource roles to access package** page, click **SharePoint sites** to open the Select SharePoint Online sites pane.
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. Select the SharePoint Online sites you want to include in the access package.
 
-1. In the left menu, click **Access packages** and then open the access package.
+    ![Access package - Add resource roles - Select SharePoint Online sites](./media/entitlement-management-access-package-edit/sharepoint-site-select.png)
 
-1. In the left menu, click **Resource roles**.
+1. Click **Select**.
 
-1. Click **Add resource roles**.
+1. In the **Role** list, select a SharePoint Online site role.
 
-1. For **Resource type**, select **SharePoint site**.
-
-1. For **Resource**, select a SharePoint site that is available in the catalog.
-
-    If you don't see the SharePoint site you want to add in the list, follow the steps to [add the SharePoint site to the catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog).
-
-1. For **Role**, select a SharePoint site role.
-
-    ![Access package - Add resource role for a SharePoint site](./media/entitlement-management-access-package-edit/resource-role-sharepoint-site.png)
+    ![Access package - Add resource role for a SharePoint Online site](./media/entitlement-management-access-package-edit/sharepoint-site-role.png)
 
 1. Click **Add**.
 
-    Any users with existing assignments to the access package will automatically be given access to this SharePoint site when it is added.
+    Any users with existing assignments to the access package will automatically be given access to this SharePoint Online site when it is added.
 
 ## Remove resource roles
 
@@ -152,6 +141,8 @@ Azure AD can automatically assign users access to a SharePoint Online site or Sh
 1. In the left menu, click **Access packages** and then open the access package.
 
 1. In the left menu, click **Resource roles**.
+
+1. In the list of resource roles, find the resource role you want to remove.
 
 1. Click the ellipsis (**...**) and then click **Remove resource role**.
 
@@ -205,7 +196,7 @@ You can edit a policy at any time. If you change the expiration date for a polic
 
 ## Directly assign a user
 
-You can directly assign specific users to an access package if you do not need them to request the access package.
+In some cases, you might want to directly assign specific users to an access package so that users don't have to go through the process of requesting the access package. To directly assign users, the access package must have a policy that allows administrator direct assignments.
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
@@ -213,23 +204,19 @@ You can directly assign specific users to an access package if you do not need t
 
 1. In the left menu, click **Access packages** and then open the access package.
 
-1. Add a new policy.
-
-1. In the **Users who can request access** section, select **None (administrator direct assignments only)**.
-
-1. Specify expiration settings.
-
-1. Open the **Assignments** page for the access package.
+1. In the left menu, click **Assignments**.
 
 1. Click **New assignment** to open Add user to access package.
 
     ![Assignments - Add user to access package](./media/entitlement-management-access-package-edit/assignments-add-user.png)
 
-1. Select the users you want to give an assignment to.
+1. Click **Add users** to select the users you want to assign the access package to.
 
-1. Select the policy you created in a previous step that you want the users' assignment to be governed by.
+1. In the **Select policy** list, select a policy that has the [None (administrator direct assignments only)](#policy-none-administrator-direct-assignments-only) setting.
 
-1. Set the date and time you want the users' assignment to start and end. If an end date is not provided, the policy's expiration settings will be used.
+    If this access package does not have this type of policy, you can click **Create new policy** to add one.
+
+1. Set the date and time you want the selected users' assignment to start and end. If an end date is not provided, the policy's expiration settings will be used.
 
 1. Optionally provide a justification for your direct assignment for record keeping.
 
