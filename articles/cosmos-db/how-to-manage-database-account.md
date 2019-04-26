@@ -139,7 +139,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Name $accountName -PropertyObject $CosmosDBProperties
 
-# ARM does not wait on the resource update
+# Azure Resource Manager does not wait on the resource update
 Write-Host "Confirm region added before continuing..."
 
 # Remove a region
