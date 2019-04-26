@@ -64,12 +64,6 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     static final String inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 
-3. Read in the JSON data file
-
-    ```java
-    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
-    ```
-
 ## Create a function to send requests
 
 1. Create a new function called `sendRequest()` that takes the variables created above. Then perform the following steps.
