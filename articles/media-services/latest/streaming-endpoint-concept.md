@@ -32,13 +32,13 @@ For any additional endpoints: `{EndpointName}-{AccountName}-{DatacenterAbbreviat
 
 ## Types  
 
-There are two **Streaming Endpoint** types: **Standard** (preview) and **Premium**. The type is defined by the number of scale units (`scaleUnits`) you allocate for the streaming endpoint. 
+There are two **Streaming Endpoint** types: **Standard** and **Premium**. The type is defined by the number of scale units (`scaleUnits`) you allocate for the streaming endpoint. 
 
 The table describes the types:  
 
 |Type|Scale units|Description|
 |--------|--------|--------|  
-|**Standard** (recommended)|0|The default Streaming Endpoint is a **Standard** type, but can be changed to the Premium type.<br/>The **Standard** type is the recommended option for virtually all streaming scenarios and audience sizes. The **Standard** type scales outbound bandwidth automatically. Video fragments cached in the CDN, do not use the Streaming Endpoint bandwidth.<br/>For customers with extremely demanding requirements Media Services offer **Premium** streaming endpoints, which can be used to scale out capacity for the largest internet audiences. If you expect large audiences and concurrent viewers, contact us at amsstreaming\@microsoft.com for guidance on whether you need to move to the **Premium** type. |
+|**Standard** (preview)|0|The default Streaming Endpoint is a **Standard** type (recommended) but can be changed to the Premium type by adjusting `scaleUnits`.<br/><br/>The **Standard** type is the recommended option for virtually all streaming scenarios and audience sizes. The **Standard** type scales outbound bandwidth automatically. Video fragments cached in the CDN, do not use the Streaming Endpoint bandwidth.<br/>For customers with extremely demanding requirements Media Services offer **Premium** streaming endpoints, which can be used to scale out capacity for the largest internet audiences. If you expect large audiences and concurrent viewers, contact us at amsstreaming\@microsoft.com for guidance on whether you need to move to the **Premium** type. |
 |**Premium**|>0|**Premium** Streaming Endpoints are suitable for advanced workloads, providing dedicated and scalable bandwidth capacity. You move to a **Premium** type by adjusting `scaleUnits` (streaming units). `scaleUnits` provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. When using the **Premium** type, each enabled unit provides additional bandwidth capacity to the application. |
 
 For SLA information, see [Pricing and SLA](https://azure.microsoft.com/pricing/details/media-services/).
