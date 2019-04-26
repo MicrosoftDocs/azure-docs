@@ -16,7 +16,7 @@ ms.date: 05/07/2019
 
 As a cloud service provider, we understand the importance of maintaining the integrity and confidentiality of customer data. We continually invest in our policies, processes, and tools for governing when Microsoft may need to access customer data hosted in Azure. One of the key tools to provide control over these processes is Customer Lockbox for Microsoft Azure.
 
-In most cases, Microsoft engineers do not access customer data. For example, routine platform maintenance does not need access to customer data and if customers have opened support tickets, Microsoft support engineers can troubleshoot most issues by using tools and telemetry.
+In most cases, Microsoft engineers do not access customer data. For example, routine platform maintenance doesn't need access to customer data and if customers have opened support tickets, Microsoft support engineers can typically troubleshoot issues by using tools and telemetry.
 
 However, If a Microsoft engineer does needs to access customer data during a support request, Customer Lockbox provides an interface for a customer to review this access request, and approve or reject it, as well as track historical request logs. This article covers how this workflow is initiated, tracked, and stored for later reviews and audits.
 
