@@ -15,7 +15,7 @@ CloudSimple provides a network per region where your CloudSimple service is depl
 
 ## VLANs
 
-A VLAN (Layer 2 network) is created per private cloud.  The Layer 2 traffic stays within the boundary of a private cloud, allowing you to isolate the local traffic within the private cloud.  A VLAN created on the private cloud can be used to create distributed port groups only in that private cloud.  A VLAN created on a private cloud is automatically configured on all the switches connected to the hosts of a private cloud.
+VLANs (Layer 2 network) are created per private cloud.  The Layer 2 traffic stays within the boundary of a private cloud, allowing you to isolate the local traffic within the private cloud.  A VLAN created on the private cloud can be used to create distributed port groups only in that private cloud.  A VLAN created on a private cloud is automatically configured on all the switches connected to the hosts of a private cloud.
 
 ## Subnets
 
