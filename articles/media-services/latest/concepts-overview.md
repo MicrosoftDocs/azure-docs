@@ -30,17 +30,17 @@ The fundamental concepts described in these topics should be reviewed prior to s
 
 This section shows how some common industry terms map to the Media Services v3 API.
 
-### Channel/Live Event
+### Live Event
 
-A **Channel** represents a pipeline for processing live streaming content. 
+A **Live Event** represents a pipeline for ingesting, transcoding (optionally), and packaging live streams of video, audio, and real-time metadata.
 
-In Media Services v3, **Live Event** = **Channel**.
+For customers migrating from Media Services v2 APIs, the **Live Event** replaces the **Channel** entity in v2. For more information, see [Migrating from v2 to v3](migrate-from-v2-to-v3.md).
 
-### Origin/Streaming Endpoint
+### Streaming Endpoint (Origin)
 
-An **Origin** represents a dynamic packaging and streaming service that can deliver your live and on-demand content encrypted dynamically directly to a client player application.  
+An **Streaming Endpoint** represents a dynamic packaging and streaming service that can deliver your live and on-demand content encrypted dynamically directly to a client player application.  
 
-In Media Services v3, **Origin** = **Streaming Endpoint**.
+In the media streaming industry, this service commonly called **Origin**.  
  
 ## Cloud upload and storage
 
