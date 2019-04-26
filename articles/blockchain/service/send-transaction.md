@@ -243,7 +243,7 @@ Truffle first compiles and then deploys the **SimpleStorage** smart contract.
 
 Example output:
 
-```bash
+```
 pat@DESKTOP:/mnt/c/truffledemo$ truffle migrate --network defaultnode
 
 2_deploy_simplestorage.js
@@ -292,7 +292,7 @@ If querying the default transaction node is successful, the value 42 is returned
 
 Example output:
 
-```bash
+```
 pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network defaultnode
 truffle(defaultnode)> SimpleStorage.deployed().then(function(instance){return instance.get();})
 '42'
@@ -320,7 +320,7 @@ If querying the **alpha** node is successful, the value 42 is returned.
 
 Example output:
 
-```bash
+```
 pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network alpha
 truffle(alpha)> SimpleStorage.deployed().then(function(instance){return instance.get();})
 '42'
@@ -348,7 +348,7 @@ Querying the **beta** node fails since the contract is private.
 
 Example output:
 
-```bash
+```
 pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network beta
 truffle(beta)> SimpleStorage.deployed().then(function(instance){return instance.get();})
 Thrown:
@@ -415,7 +415,11 @@ If the transaction was successful, the value 65 is returned.
 
 Example output:
 
-```bash
+```
+Getting deployed version of SimpleStorage...
+Setting value to 65...
+Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
+Finished!
 ```
 
 Exit the console.
@@ -442,7 +446,7 @@ If the transaction was successful, the value 65 is returned.
 
 Example output:
 
-```bash
+```
 Getting deployed version of SimpleStorage...
 Setting value to 65...
 Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
