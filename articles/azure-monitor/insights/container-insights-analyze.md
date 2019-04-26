@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2019
+ms.date: 04/24/2019
 ms.author: magoedte
 ---
 
@@ -22,15 +22,15 @@ This article will help you understand the experience between the two perspective
 
 For information about enabling Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
 
-Azure Monitor provides a multi-cluster view showing the health status of all monitored AKS clusters deployed across resource groups in your subscriptions.  It shows AKS clusters discovered that are not monitored by the solution. Immediately you can understand cluster health, and from here you can drill down to the node and controller performance page, or navigate to see performance charts for the cluster.  For AKS clusters discovered and identified as unmonitored, you can enable monitoring for that cluster at any time.  
+Azure Monitor provides a multi-cluster view showing the health status of all monitored AKS clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions.  It shows AKS clusters discovered that are not monitored by the solution. Immediately you can understand cluster health, and from here you can drill down to the node and controller performance page, or navigate to see performance charts for the cluster.  For AKS clusters discovered and identified as unmonitored, you can enable monitoring for that cluster at any time.  
 
-The main differences monitoring a Windows cluster with Azure Monitor for containers compared to a Linux cluster are the following:
+The main differences monitoring a Windows Server cluster with Azure Monitor for containers compared to a Linux cluster are the following:
 
 - Memory RSS metric is not available for Windows node and containers 
-- Disk capacity information is not available for Windows nodes
+- Disk storage capacity information is not available for Windows nodes
 - Live logs support is available with the exception of Windows container logs.
 - Only pod environments are monitored, not Docker environments.
-- With the preview release for monitoring Windows clusters, a maximum of 30 windows containers are supported. This limitation does not apply to Linux containers.  
+- With the preview release, a maximum of 30 Windows Server containers are supported. This limitation does not apply to Linux containers.  
 
 ## Sign in to the Azure portal
 Sign in to the [Azure portal](https://portal.azure.com). 
@@ -38,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Multi-cluster view from Azure Monitor 
 To view the health status of all AKS clusters deployed, select **Monitor** from the left-hand pane in the Azure portal.  Under the **Insights** section, select **Containers**.  
 
-![Azure Monitor multi-cluster dashboard example](./media/container-insights-analyze/azmon-containers-multiview-1018.png)
+![Azure Monitor multi-cluster dashboard example](./media/container-insights-analyze/azmon-containers-multiview.png)
 
 On the **Monitored clusters** tab, you are able to learn the following:
 
@@ -131,11 +131,11 @@ You can apply [splitting](../platform/metrics-charts.md#apply-splitting-to-a-cha
 
 ## Analyze nodes, controllers, and container health
 
-When you switch to **Nodes**, **Controllers**, and **Containers** tab, automatically displayed on the right-side of the page is the property pane.  It shows the properties of the item-selected, including labels you define to organize Kubernetes objects. Click on the **>>** link in the pane to view\hide the pane.  
+When you switch to **Nodes**, **Controllers**, and **Containers** tab, automatically displayed on the right-side of the page is the property pane. It shows the properties of the item-selected, including labels you define to organize Kubernetes objects. When a Linux node is selected, it also shows under the section **Local Disk Capacity** available disk space and percent used for each disk presented to the node. Click on the **>>** link in the pane to view\hide the pane. 
 
 ![Example Kubernetes perspectives properties pane](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you can also view Kubernetes events with pre-defined log searches by clicking on the **View Kubernetes event logs** link at the top of the pane. For more information about viewing Kubernetes log data, see [Search logs to analyze data](container-insights-log-search.md). While you are reviewing your containers in the **Containers** view, you can see container logs in real time. For more information about this feature and the configuration required to grant and control access, see [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md). 
+As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you can also view Kubernetes events with pre-defined log searches by clicking on the **View Kubernetes event logs** link at the top of the pane. For more information about viewing Kubernetes log data, see [Search logs to analyze data](container-insights-log-search.md). While you are reviewing cluster resources, you can see container logs and events in real time. For more information about this feature and the configuration required to grant and control access, see [How to view logs real time with Azure Monitor for containers](container-insights-live-logs.md). 
 
 Use the **+ Add Filter** option from the top of the page to filter the results for the view by **Service**, **Node**, **Namespace**, or **Node Pool** and after selecting the filter scope, you then select from one of the values shown in the **Select value(s)** field.  After the filter is configured, it is applied globally while viewing any perspective of the AKS cluster.  The formula only supports the equal sign.  You can add additional filters on top of the first one to further narrow your results.  For example, if you specified a filter by **Node**, your second filter would only allow you to select **Service** or **Namespace**.  
 
@@ -146,6 +146,10 @@ Specifying a filter in one tab continues to be applied when you select another a
 Switch to the **Nodes** tab and the row hierarchy follows the Kubernetes object model, starting with a node in your cluster. Expand the node and you can view one or more pods running on the node. If more than one container is grouped to a pod, they are displayed as the last row in the hierarchy. You can also view how many non-pod related workloads are running on the host if the host has processor or memory pressure.
 
 ![Example Kubernetes Node hierarchy in the performance view](./media/container-insights-analyze/containers-nodes-view.png)
+
+Windows Server containers running the Windows Server 2019 OS are shown after all of the Linux-based nodes in the list. When you expand a Windows Server node, you can view one or more pods and containers running on the node. When a node is selected, the properties pane shows version information, excluding agent information since Windows Server nodes do not have an agent installed.  
+
+![Example Node hierarchy with Windows Server nodes listed](./media/container-insights-analyze/nodes-view-windows.png) 
 
 Azure Container Instances Virtual Nodes running the Linux OS are shown after the last AKS cluster node in the list.  When you expand an ACI Virtual Node, you can view one or more ACI pods and containers running on the node.  Metrics are not collected and reported for nodes, only pods.
 
