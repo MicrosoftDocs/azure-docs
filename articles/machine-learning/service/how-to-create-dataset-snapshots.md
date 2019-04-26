@@ -28,7 +28,7 @@ There are three main uses for snapshots:
 
 + **Model reproducibility**: Reproduce your results by calling a snapshot that includes data during training. 
 
-+ **Track data over time**: See how the dataset has evolved.
++ **Track data over time**: See how the dataset has evolved by [comparing profiles](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#compare-profiles-rhs-dataset-snapshot--include-columns-none--exclude-columns-none--histogram-compare-method--histogramcomparemethod-wasserstein--0--)
   
 ## Prerequisites
 
