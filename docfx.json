@@ -379,6 +379,15 @@
       "featureFlags": {
         "articles/**/*.md": [
           "show_learn_banner"
+        ],
+        "articles/active-directory-b2c/**/*.md": [
+          "show_star_rating"
+        ],
+        "articles/active-directory-domain-services/**/*.md": [
+          "show_star_rating"
+        ],
+        "articles/active-directory/**/*.md": [
+          "show_star_rating"
         ]
       },
       "learn_banner_products": {
