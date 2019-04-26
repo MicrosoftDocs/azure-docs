@@ -47,7 +47,7 @@
     items:
     - name: Overview
       href: encoding-concept.md   
-      displayName: Presets
+      displayName: encoding, presets, jobs, adaptive, bitrate
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
     - name: Media Encoder Standard formats
@@ -56,12 +56,13 @@
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md      
     - name: Content-aware encoding
+      displayName: content, aware, cae
       href: cae-experimental.md
   - name: Media analytics 
     items:
     - name: Overview
       href: analyzing-video-audio-files-concept.md
-      displayName: Presets
+      displayName: analyzing, presets, jobs
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
   - name: Packaging, delivery, protection
