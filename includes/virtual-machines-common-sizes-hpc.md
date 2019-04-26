@@ -20,6 +20,36 @@ Both HB and HC VMs feature 100 Gb/sec Mellanox EDR InfiniBand in a non-blocking 
 
 H-series VMs are optimized for applications driven by high CPU frequencies or large memory per core requirements. H-series VMs feature 8 or 16 Intel Xeon E5 2667 v3 processor cores, 7 or 14 GB of RAM per CPU core, and no hyperthreading. H-series features 56 Gb/sec Mellanox FDR InfiniBand in a non-blocking fat tree configuration for consistent RDMA performance. H-series VMs support Intel MPI 5.x and MS-MPI.
 
+## HB-series
+
+ACU: 
+
+Premium Storage: Supported
+
+Premium Storage Caching: Not Supported
+
+| Size | vCPU | Memory (GB) | Memory bandwidth GB/s | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (GB/s) | MPI support | Temp storage (GB) | Max data disks | Max Ethernet NICs |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_HB60rs | 60 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | All | 700 | 4 | 1 |
+
+<br>
+
+## HC-series
+
+ACU: 
+
+Premium Storage: Supported
+
+Premium Storage Caching:  Not Supported
+
+
+| Size | vCPU | Memory (GB) | Memory bandwidth GB/s | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (GB/s) | MPI support | Temp storage (GB) | Max data disks | Max Ethernet NICs |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_HC44rs | 44 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | All | 700 | 4 | 1 |
+
+
+<br>
+
 ## H-series
 
 ACU: 290-300
@@ -28,39 +58,15 @@ Premium Storage:  Not Supported
 
 Premium Storage Caching:  Not Supported
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max disk throughput: IOPS | Max NICs |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 | 8 | 56 | 1000 | 32 | 32 x 500 | 2 |
-| Standard_H16 | 16 | 112 | 2000 | 64 | 64 x 500 | 4 |
-| Standard_H8m | 8 | 112 | 1000 |32 | 32 x 500 | 2  |
-| Standard_H16m | 16 | 224 | 2000 |64 | 64 x 500 |4  |
-| Standard_H16r <sup>1</sup> | 16 | 112 | 2000 | 64 | 64 x 500 | 4 |
-| Standard_H16mr <sup>1</sup> | 16 | 224 | 2000 | 64 | 64 x 500 | 4 |
+| Size | vCPU | Memory (GB) | Memory bandwidth GB/s | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (GB/s) | MPI support | Temp storage (GB) | Max data disks | Max Ethernet NICs |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_H8 | 8 | 56 | 40 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 1000 | 32 | 2 |
+| Standard_H16 | 16 | 112 | 80 | 3.2 | 3.3 | 3.6 |  56 | Intel 5.x, MS-MPI | 2000 | 64 | 4 |
+| Standard_H8m | 8 | 112 | 40 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 1000 | 32 | 2 |
+| Standard_H16m | 16 | 224 | 80 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 2000 | 64 | 4 |
+| Standard_H16r <sup>1</sup> | 16 | 112 | 80 | 3.2 | 3.3 | 3.6 | 56 | 2000 | Intel 5.x, MS-MPI | 64 | 4 |
+| Standard_H16mr <sup>1</sup> | 16 | 224 | 80 | 3.2 | 3.3 | 3.6 | 56 | 2000 | Intel 5.x, MS-MPI | 64 | 4 |
 
 <sup>1</sup> For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.
-
-<br>
-
-## HB-series
-
-Premium Storage: Supported
-
-Premium Storage Caching: Not Supported
-
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max disk throughput: IOPS | Max NICs |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_HB60rs | 60 | 240 | 700 | 4 | 4 x 500 | 1 |
-
-<br>
-
-## HC-series
-
-Premium Storage: Supported
-
-Premium Storage Caching:  Not Supported
-
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max disk throughput: IOPS | Max NICs |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_HC44rs | 44 | 352 | 700 | 4 | 4 x 500 | 1 |
 
 <br>
