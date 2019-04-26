@@ -47,7 +47,15 @@ You can find the Geth connection string in the Azure portal.
     geth attach <connection string>
     ```
 
-1. Once connected to the transaction node's Ethereum console, you can call the web3 JavaScript Dapp API or the admin API. For example, to find out the chainId, type `admin.nodeInfo.protocols.istanbul.config.chainId` in the console.
+1. Once connected to the transaction node's Ethereum console, you can call the web3 JavaScript Dapp API or the admin API.
+
+    For example, Use the following API to find out the chainId.
+
+    ```bash
+    admin.nodeInfo.protocols.istanbul.config.chainId
+    ```
+
+    In this example, the chainId is 297.
 
     ![Azure Blockchain Service option](./media/connect-geth/geth-attach.png)
 
