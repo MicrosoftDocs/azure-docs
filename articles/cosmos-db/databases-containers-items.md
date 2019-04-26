@@ -12,13 +12,15 @@ ms.reviewer: sngun
 
 # Work with Azure Cosmos DB databases, containers, and items
 
-After you create an [Azure Cosmos DB account](account-overview.md) under your Azure subscription, you can manage data in your account by creating databases, containers, and items. This article describes each of these entities. The following image shows the hierarchy of different entities in an Azure Cosmos DB account:
+After you create an [Azure Cosmos DB account](account-overview.md) under your Azure subscription, you can manage data in your account by creating databases, containers, and items. This article describes each of these entities. 
+
+The following image shows the hierarchy of different entities in an Azure Cosmos DB account:
 
 ![Azure Cosmos account entities](./media/databases-containers-items/cosmos-entities.png)
 
 ## Azure Cosmos databases
 
-You can create one or multiple Azure Cosmos databases under your account. A database is analogous to a namespace. It is the unit of management for a set of Azure Cosmos containers. The following table shows how an Azure Cosmos database is mapped to various API-specific entities:
+You can create one or multiple Azure Cosmos databases under your account. A database is analogous to a namespace. A database is the unit of management for a set of Azure Cosmos containers. The following table shows how an Azure Cosmos database is mapped to various API-specific entities:
 
 | Azure Cosmos entity | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- |
@@ -41,7 +43,7 @@ You can interact with an Azure Cosmos database with Azure Cosmos APIs as describ
 
 ## Azure Cosmos containers
 
-An Azure Cosmos container is the unit of scalability for both provisioned throughput and storage. A container is horizontally partitioned and then replicated across multiple regions. The items that you add to the container and the throughput that you provision on it are automatically distributed across a set of logical partitions based on the partition key. To learn more about partitioning and partition keys, see [Partition data](partition-data.md). 
+An Azure Cosmos container is the unit of scalability both for provisioned throughput and storage. A container is horizontally partitioned and then replicated across multiple regions. The items that you add to the container and the throughput that you provision on it are automatically distributed across a set of logical partitions based on the partition key. To learn more about partitioning and partition keys, see [Partition data](partition-data.md). 
 
 When you create an Azure Cosmos container, you configure throughput in one of the following modes:
 
@@ -49,9 +51,9 @@ When you create an Azure Cosmos container, you configure throughput in one of th
 
 * **Shared provisioned throughput mode**: These containers share the provisioned throughput with the other containers in the same database (excluding containers that have been configured with dedicated provisioned throughput). In other words, the provisioned throughput on the database is shared among all the “shared throughput” containers. To learn more, see [Provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
 
-An Azure Cosmos container can scale elastically, whether you create containers by using “shared” or “dedicated” provisioned throughput modes.
+An Azure Cosmos container can scale elastically, whether you create containers by using dedicated or shared provisioned throughput modes.
 
-An Azure Cosmos container is a schema-agnostic container of items. Items in a container can have arbitrary schemas. For example, an item that represents a person and an item that represents an automobile can be placed in the *same container*. By default, all items that you add to a container are automatically indexed without requiring explicit index or schema management. You can customize the indexing behavior by configuring the [indexing policy](index-overview.md) on a container. 
+An Azure Cosmos container is a schema-agnostic container of items. Items in a container can have arbitrary schemas. For example, an item that represents a person and an item that represents an automobile can be placed in the *same container*. By default, all items that you add to a container are automatically indexed. Explicit index or schema management isn't required. You can customize the indexing behavior by configuring the [indexing policy](index-overview.md) on a container. 
 
 You can set [Time to Live (TTL)](time-to-live.md) on selected items in an Azure Cosmos container or for the entire container to gracefully purge those items from the system. Azure Cosmos DB automatically deletes the items when they expire. It also guarantees that a query performed on the container doesn't return the expired items within a fixed bound. To learn more, see [Configure TTL on your container](how-to-time-to-live.md).
 
@@ -59,7 +61,7 @@ You can use [change feed](change-feed.md) to subscribe to the operations log tha
 
 You can register [stored procedures, triggers, user-defined functions (UDFs)](stored-procedures-triggers-udfs.md), and [merge procedures](how-to-manage-conflicts.md) for your Azure Cosmos container. 
 
-You can specify a [unique key constraint](unique-keys.md) on your Azure Cosmos container. By creating a unique key policy, you ensure the uniqueness of one or more values per logical partition key. After a container has been created with a unique key policy, it prevents the creation of any new or updated items with values that duplicate the values specified by the unique key constraint. To learn more, see [Unique key constraints](unique-keys.md).
+You can specify a [unique key constraint](unique-keys.md) on your Azure Cosmos container. By creating a unique key policy, you ensure the uniqueness of one or more values per logical partition key. If you create a container by using a unique key policy, no new or updated items with values that duplicate the values specified by the unique key constraint can be created. To learn more, see [Unique key constraints](unique-keys.md).
 
 An Azure Cosmos container is specialized into API-specific entities as shown in the following table:
 

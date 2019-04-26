@@ -14,7 +14,7 @@ To use the multi-master feature in your application, you must enable multi-regio
 
 ## <a id="netv2"></a>.NET SDK v2
 
-To enable multi-master in your application, set `UseMultipleWriteLocations` to `true`. Also, configure `SetCurrentLocation` to the region in which the application is being deployed and where Azure Cosmos DB is replicated:
+To enable multi-master in your application, set `UseMultipleWriteLocations` to `true`. Also, set `SetCurrentLocation` to the region in which the application is being deployed and where Azure Cosmos DB is replicated:
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
@@ -28,7 +28,7 @@ policy.SetCurrentLocation("West US 2");
 
 ## <a id="netv3"></a>.NET SDK v3 (preview)
 
-To enable multi-master in your application, configure `UseCurrentRegion` to the region in which the application is being deployed and where Cosmos DB is replicated:
+To enable multi-master in your application, set `UseCurrentRegion` to the region in which the application is being deployed and where Cosmos DB is replicated:
 
 ```csharp
 CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
@@ -38,7 +38,7 @@ CosmosClient client = new CosmosClient(config);
 
 ## <a id="java"></a>Java Async SDK
 
-To enable multi-master in your application, set `policy.setUsingMultipleWriteLocations(true)` and configure `policy.setPreferredLocations` to the region in which the application is being deployed and where Cosmos DB is replicated:
+To enable multi-master in your application, set `policy.setUsingMultipleWriteLocations(true)` and set `policy.setPreferredLocations` to the region in which the application is being deployed and where Cosmos DB is replicated:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -55,7 +55,7 @@ AsyncDocumentClient client =
 
 ## <a id="javascript"></a>Node.js, JavaScript, and TypeScript SDKs
 
-To enable multi-master in your application, set `connectionPolicy.UseMultipleWriteLocations` to `true`. Also, configure `connectionPolicy.PreferredLocations` to the region in which the application is being deployed and where Cosmos DB is replicated:
+To enable multi-master in your application, set `connectionPolicy.UseMultipleWriteLocations` to `true`. Also, set `connectionPolicy.PreferredLocations` to the region in which the application is being deployed and where Cosmos DB is replicated:
 
 ```javascript
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
@@ -72,7 +72,7 @@ const client = new CosmosClient({
 
 ## <a id="python"></a>Python SDK
 
-To enable multi-master in your application, set `connection_policy.UseMultipleWriteLocations` to `true`. Also, configure `connection_policy.PreferredLocations` to the region in which the application is being deployed and where Cosmos DB is replicated.
+To enable multi-master in your application, set `connection_policy.UseMultipleWriteLocations` to `true`. Also, set `connection_policy.PreferredLocations` to the region in which the application is being deployed and where Cosmos DB is replicated.
 
 ```python
 connection_policy = documents.ConnectionPolicy()
