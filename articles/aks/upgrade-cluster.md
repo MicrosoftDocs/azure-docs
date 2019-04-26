@@ -81,4 +81,4 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [az-aks-show]: /cli/azure/aks#az-aks-show
-[nodepool-upgrade]: upgrade-cluster.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
