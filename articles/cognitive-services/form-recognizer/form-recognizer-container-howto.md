@@ -153,38 +153,58 @@ Each subsequent container should be on a different port.
 
 ### Run separate containers with Docker Compose
 
-For the Form Recognizer and Text Recognizer combination hosted locally on the same host, an example Docker Compose YAML file follows. The Text Recognizer `{COMPUTER_VISION_API_KEY}` must be the same for both the `form` and `ocr` containers. The `{COMPUTER_VISION_ENDPOINT_URI}` is only used in the `ocr` container because the `form` container uses the `ocr` name and port. 
+For the Form Recognizer and Text Recognizer combination hosted locally on the same host, an example Docker Compose YAML file follows. The Text Recognizer `{COMPUTER_VISION_API_KEY}` must be the same for both the `formrecognizer` and `ocr` containers. The `{COMPUTER_VISION_ENDPOINT_URI}` is only used in the `ocr` container because the `formrecognizer` container uses the `ocr` name and port. 
 
 ```docker
 version: '3.3'
-services:
-  form:
-    image:  "containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer"
-    environment:
-       eula: accept
-       billing: "{BILLING_ENDPOINT_URI}"
-       apiKey: {BILLING_KEY}
-       FormRecognizer__ComputerVisionApiKey: {COMPUTER_VISION_API_KEY}
-       FormRecognizer__ComputerVisionEndpointUri: "http://ocr:5000"
-    volumes:
-       - type: bind
-         source: c:\output
-         target: /output
-       - type: bind
-         source: c:\input
-         target: /input
-    ports:
-      - "5000:5000"
-
+services:   
   ocr:
     image: "containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text"
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 8g
+        reservations:
+          cpus: '1'
+          memory: 4g
     environment:
       eula: accept
-      apikey: {COMPUTER_VISION_API_KEY}
       billing: "{COMPUTER_VISION_ENDPOINT_URI}"
-    ports:
-      - "5001:5000"
+      apikey: {COMPUTER_VISION_API_KEY}  
+    restart:
+      on-failure
 
+  formrecognizer:
+    image: "containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer"
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 8g
+        reservations:
+          cpus: '1'
+          memory: 4g
+    environment:
+      eula: accept
+      billing: "{BILLING_ENDPOINT_URI}"
+      apikey: {BILLING_KEY}
+      FormRecognizer__ComputerVisionApiKey: {COMPUTER_VISION_API_KEY}
+      FormRecognizer__ComputerVisionEndpointUri: "http://ocr:5000"
+      FormRecognizer__SyncProcessTaskCancelLimitInSecs: 75
+    links:
+      - ocr
+    volumes:
+      - type: bind
+        source: c:\output
+        target: /output
+      - type: bind
+        source: c:\input
+        target: /input
+    ports:
+      - "5000:5000"  
+    restart:
+      on-failure 
 ```
 
 
