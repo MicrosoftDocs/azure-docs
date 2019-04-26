@@ -21,7 +21,7 @@ We currently aren't taking support cases while Windows Virtual Desktop is in pre
 
 This section lists PowerShell commands that are typically used while setting up Windows Virtual Desktop and provides ways to resolve issues that may occur while using them.
 
-### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName is already assigned to a RemoteApp AppGroup in the specified HostPool
+### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName is already assigned to a RemoteApp AppGroup in the specified Host Pool
 
 ```Powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
@@ -80,10 +80,10 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 ## Next Steps
 
-- To see an overview for troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshoot overview for Windows Virtual Desktop issues](troubleshoot-set-up-overview.md) 
-- To troubleshoot issues during the initial set up of Windows Virtual Desktop, see [Troubleshoot Windows Virtual Desktop set up issues](troubleshoot-set-up-issues.md)
-- To troubleshoot issues with Windows Virtual Desktop VM configuration, see [Troubleshoot Windows Virtual Desktop VM issues](troubleshoot-vm-configuration.md)
-- To troubleshoot issues with Windows Virtual Desktop client connections, see [Troubleshoot Windows Virtual Desktop client connections](troubleshoot-client-connection.md)
+- To see an overview for troubleshooting Windows Virtual Desktop and the escalation tracks, see [Overview of common issues when setting up Windows Virtual Desktop](troubleshoot-set-up-overview.md).
+- To troubleshoot issues during the initial set up of Windows Virtual Desktop, see [Troubleshoot issues during initial setup of Windows Virtual Desktop](troubleshoot-set-up-issues.md).
+- To troubleshoot issues with Windows Virtual Desktop VM configuration, see [Troubleshoot Windows Virtual Desktop VM issues](troubleshoot-vm-configuration.md).
+- To troubleshoot issues with Windows Virtual Desktop client connections, see [Troubleshoot Windows Virtual Desktop client connections](troubleshoot-client-connection.md).
 - To learn more about the Preview service, see [Windows Desktop Preview environment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup?branch=pr-en-us-71423).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).

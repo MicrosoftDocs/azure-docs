@@ -166,9 +166,9 @@ If the web client is being used, confirm that there are no cached credentials is
 ## Next Steps
 
 - For an overview of common Windows Virtual Desktop issues during setup and the escalation tracks, see [Overview of common issues when setting up Windows Virtual Desktop](troubleshoot-set-up-overview.md).
-- To troubleshoot issues during initial setup of a Windows Virtual Desktop environment, see [Troubleshoot issues during initial setup of a Windows Virtual Desktop environment](troubleshoot-set-up-issues.md)
-- To troubleshoot issues with VM configuration, see [Troubleshoot Windows Virtual Desktop session host VM configuration](troubleshoot-vm-configuration.md)
-- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Troubleshoot Windows Virtual Desktop issues when using PowerShell](troubleshoot-powershell.md)
+- To troubleshoot issues during initial setup of a Windows Virtual Desktop environment, see [Troubleshoot issues during initial setup of Windows Virtual Desktop](troubleshoot-set-up-issues.md).
+- To troubleshoot issues with VM configuration, see [Troubleshoot Windows Virtual Desktop session host VM configuration](troubleshoot-vm-configuration.md).
+- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Troubleshoot Windows Virtual Desktop issues when using PowerShell](troubleshoot-powershell.md).
 - To learn more about the Preview service, see [Windows Desktop Preview environment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup?branch=pr-en-us-71423).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).

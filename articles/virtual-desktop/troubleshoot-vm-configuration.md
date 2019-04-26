@@ -168,7 +168,7 @@ The Windows Virtual Desktop side-by-side stack is automatically installed with W
 
 There are three main ways the side-by-side stack gets installed or enabled on session host pool VMs:
 
-- With the Azure Resource Manager **Create and provision new Windows Virtual Desktop hostpool** template
+- With the Azure Resource Manager **Create and provision new Windows Virtual Desktop host pool** template
 - By being included and enabled on the master image
 - Installed or enabled manually on each VM (or with extensions/PowerShell)
 
@@ -281,9 +281,10 @@ If your operating system is Microsoft Windows 10, continue with the instructions
 
 ## Next Steps
 
-- To see an overview for troubleshooting Windows Virtual Desktop and the escalation tracks, see [Overview for troubleshooting common set up issues for Windows Virtual Desktop](troubleshoot-set-up-overview.md).
-- To troubleshoot issues during initial setup of Windows Virtual Desktop, see [Troubleshoot Windows Virtual Desktop set up issues](troubleshoot-set-up-issues.md)
-- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Troubleshoot common issues when using PowerShell](troubleshoot-powershell.md)
+- To see an overview for troubleshooting Windows Virtual Desktop and the escalation tracks, see [Overview of common issues when setting up Windows Virtual Desktop](troubleshoot-set-up-overview.md).
+- To troubleshoot issues during initial setup of Windows Virtual Desktop, see [Troubleshoot issues during initial setup of Windows Virtual Desktop](troubleshoot-set-up-issues.md).
+- To troubleshoot issues with Windows Virtual Desktop client connections, see [Troubleshoot Windows Virtual Desktop client connections](troubleshoot-client-connection.md).
+- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Troubleshoot common issues when using PowerShell](troubleshoot-powershell.md).
 - To learn more about the Preview service, see [Windows Desktop Preview environment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup?branch=pr-en-us-71423).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).

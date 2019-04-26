@@ -9,7 +9,7 @@ ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
 ---
-# Troubleshoot issues during initial setup of a Windows Virtual Desktop environment
+# Troubleshoot issues during initial setup of Windows Virtual Desktop
 
 This article covers common issues during the initial setup of the Windows Virtual Desktop tenant and the related session host pool infrastructure.
 
@@ -334,10 +334,10 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 
 ## Next Steps
 
-- To see an overview for troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshoot overview for Windows Virtual Desktop issues](troubleshoot-set-up-overview.md) 
-- To troubleshoot issues with Windows Virtual Desktop client connections, see [Troubleshoot Windows Virtual Desktop client connections](troubleshoot-client-connection.md)
-- To troubleshoot issues with Windows Virtual Desktop VM configuration, see [Troubleshoot Windows Virtual Desktop VM issues](troubleshoot-vm-configuration.md)
-- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Troubleshoot common issues when using PowerShell](troubleshoot-powershell.md)
+- To see an overview for troubleshooting Windows Virtual Desktop and the escalation tracks, see [Overview of common issues when setting up Windows Virtual Desktop](troubleshoot-set-up-overview.md).
+- To troubleshoot issues with Windows Virtual Desktop VM configuration, see [Troubleshoot Windows Virtual Desktop VM issues](troubleshoot-vm-configuration.md).
+- To troubleshoot issues with Windows Virtual Desktop client connections, see [Troubleshoot Windows Virtual Desktop client connections](troubleshoot-client-connection.md).
+- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Troubleshoot common issues when using PowerShell](troubleshoot-powershell.md).
 - To learn more about the Preview service, see [Windows Desktop Preview environment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup?branch=pr-en-us-71423).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
