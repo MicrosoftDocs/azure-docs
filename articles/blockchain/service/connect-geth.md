@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/25/2019
+ms.date: 04/26/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
@@ -29,7 +29,10 @@ Geth is a Go Ethereum client you can use to attach to a Geth instance on an Azur
 You can find the Geth connection string in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to one of your Azure Blockchain Service member transaction nodes.
+1. Navigate to your Azure Blockchain Service member. Select **Transaction nodes** and the default transaction node link.
+
+    ![Select default transaction node](./media/connect-geth/transaction-nodes.png)
+
 1. Select **Connection strings**.
 1. Copy the connection string from **HTTPS (Access key 1)**. You need the command for the next section.
 
