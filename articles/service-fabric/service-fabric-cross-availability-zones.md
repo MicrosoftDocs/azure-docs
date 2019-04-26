@@ -19,23 +19,23 @@ ms.author: pepogors
 ---
 # Deploy an Azure Service Fabric cluster across availability zones
 ## Overview
-Availability Zones is a high-availability offering that protects your applications and data from data center failures. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking.
+Availability Zones in Azure is a high-availability offering that protects your applications and data from datacenter failures. An Availability Zone is a unique physical location within an Azure region. Each zone is comprised of one or more datacenters equipped with independent power, cooling, and networking.
 
-Service Fabric supports clusters that can span across availability zones through the deployment of node types that are pinned to zones in a supported region. Deploying a Service Fabric cluster across availability zones will ensure high-availability of your applications. Azure Availability Zones are only available in select regions. For more information, see [Azure Availability Zones Overview](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Service Fabric supports clusters that span across Availability Zones by deploying node types that are pinned to specific zones. This will ensure high-availability of your applications. Azure Availability Zones are only available in select regions. For more information, see [Azure Availability Zones Overview](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 Sample templates are available: [Service Fabric cross availability zone template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
 ## Recommended Topology for primary node type of Azure Service Fabric clusters spanning across availability zones
-A Service Fabric cluster distributed across availability zones ensures high availability of the cluster state. To enable a Service Fabric cluster that spans across zones it is necessary to create a primary node type in each of the availability zones that is supported by the region. To spread a primary node type across availability zones, you can mark multiple node types as primary which will distribute seed nodes evenly across the multiple primary node types.
+A Service Fabric cluster distributed across Availability Zones ensures high availability of the cluster state. To span a Service Fabric cluster across zones, you must create a primary node type in each Availability Zone supported by the region. To spread a primary node type across availability zones, you can mark multiple node types as primary. This will also distribute seed nodes evenly across each primary node types.
 
 The recommended topology for the primary node type requires the resources outlined below:
-* A Public IP Resource using Standard SKU.
-* A Load Balancer Resource using Standard SKU.
-* A NSG referenced by the subnet in which you deploy your Virtual Machine Scale sets. 
-* Three node types marked as primary.
-    * Each node type should be mapped to its own Virtual Machine Scale Set located in different zones.
-    * Each virtual machine scale set should have at least five nodes (Silver Durability).
+
 * The cluster reliability level set to Platinum.
+* Three Node Types marked as primary.
+    * Each Node Type should be mapped to its own virtual machine scale set (VMSS) located in different zones.
+    * Each virtual machine scale set should have at least five nodes (Silver Durability).
+* A Single Public IP Resource using Standard SKU.
+* A Single Load Balancer Resource using Standard SKU.
 
 >[!NOTE]
 > Service Fabric does not support a single virtual machine scale set which span zones. The virtual machine scale set **single placement group property must be set to true**.
@@ -44,7 +44,7 @@ The recommended topology for the primary node type requires the resources outlin
 
 ## Networking Requirements
 ### Public IP and Load Balancer Resource
-To enable the zones property on a virtual machine scale set resource, the load balancer and IP resource that is referenced by the virtual machine scale set must both be using a standard SKU. When creating a load balancer or IP resource without the SKU property, the default SKU will be basic. Resources with a basic SKU will not have the ability to support availability zones.
+To enable the zones property on a virtual machine scale set resource (VMSS), the load balancer and IP resource referenced by that VMSS must both be using a *Standard* SKU. Creating a load balancer or IP resource without the SKU property will create a Basic SKU, which will not have the ability to support Availability Zones. A Standard SKU load balancer will by default block all traffic from the outside; to allow outside traffic, an NSG must be deployed to the subnet.
 
 ```json
 {
@@ -92,10 +92,11 @@ To enable the zones property on a virtual machine scale set resource, the load b
 ```
 
 >[!NOTE]
-> It is not possible to do an in-place change of SKU on the public IP and load balancer resources. If you are migrating from existing resources which are basic SKU see the migration section for more info.
+> It is not possible to do an in-place change of SKU on the public IP and load balancer resources. If you are migrating from existing resources which have a Basic SKU, see the migration section of this article.
 
 ### Virtual Machine Scale Set (VMSS) NAT Rules
 The load balancer inbound NAT rules should match the NAT pools from the Virtual Machine Scale Set. Each Virtual Machine Scale Set must have a unique inbound NAT pool.
+
 ```json
 {
 "inboundNatPools": [
@@ -139,16 +140,18 @@ The load balancer inbound NAT rules should match the NAT pools from the Virtual 
 }
 ```
 
-## Standard SKU Load Balancer outbound rules
-Standard Load Balancer and Standard Public IP introduce new abilities and different behaviors to outbound connectivity. Outbound connectivity is not the same as when using Basic SKUs. If you want outbound connectivity when working with Standard SKUs, you must explicitly define it either with Standard Public IP addresses or Standard public Load Balancer. For more information, see [Outbound connections](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) and [Azure Standard Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-overview).
+### Standard SKU Load Balancer outbound rules
+Standard Load Balancer and Standard Public IP introduce new abilities and different behaviors to outbound connectivity when compared to using Basic SKUs. If you want outbound connectivity when working with Standard SKUs, you must explicitly define it either with Standard Public IP addresses or Standard public Load Balancer. For more information, see [Outbound connections](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) and [Azure Standard Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-overview).
 
 >[!NOTE]
 > The standard template references an NSG which allows all outbound traffic by default. Inbound traffic is limited to the ports that are required for Service Fabric management operations. The NSG rules can be modified to meet your requirements.
 
-## Enabling zones on a Virtual Machine Scale Set
-To enable a zone, on a virtual machine scale set you must include three values in the virtual machine scale set resource. The first value is the **zones** property that specifies which availability zone the virtual machine scale set will be deployed to. The second value is the "singlePlacementGroup" property that must be set to true.
+### Enabling zones on a Virtual Machine Scale Set
+To enable a zone, on a virtual machine scale set you must include the following three values in the virtual machine scale set resource.
 
-The “faultDomainOverride” property in the Service Fabric virtual machine scale set extension needs to be included. The value for this property should include the region and zone in which this virtual machine scale set will be placed. Example: "faultDomainOverride": "eastus/az1" All virtual machine scale set resources must be placed in the same region as Azure Service Fabric clusters do not have cross region support.
+* The first value is the **zones** property, which specifies which Availability Zone the virtual machine scale set will be deployed to.
+* The second value is the "singlePlacementGroup" property, which must be set to true.
+* The third value is the “faultDomainOverride” property in the Service Fabric virtual machine scale set extension. The value for this property should include the region and zone in which this virtual machine scale set will be placed. Example: "faultDomainOverride": "eastus/az1" All virtual machine scale set resources must be placed in the same region because Azure Service Fabric clusters do not have cross region support.
 
 ```json
 {
@@ -188,8 +191,8 @@ The “faultDomainOverride” property in the Service Fabric virtual machine sca
 }
 ```
 
-## Enabling multiple primary Node Types in the Service Fabric Cluster resource
-To set multiple node types as primary in a cluster resource, set the isPrimary property to "true" for each of the node types that you would like to mark as primary. When deploying a Service Fabric cluster across availability zones, you should have three node types in distinct zones.
+### Enabling multiple primary Node Types in the Service Fabric Cluster resource
+To set one or more node types as primary in a cluster resource, set the "isPrimary" property to "true". When deploying a Service Fabric cluster across Availability Zones, you should have three node types in distinct zones.
 
 ```json
 {
@@ -247,12 +250,12 @@ To set multiple node types as primary in a cluster resource, set the isPrimary p
 }
 ```
 
-## Migrate to using availability zones from a cluster using a Basic SKU Load Balancer and a Basic SKU IP
+## Migrate to using Availability Zones from a cluster using a Basic SKU Load Balancer and a Basic SKU IP
 To migrate a cluster, which was using a Load Balancer and IP with a basic SKU, you must first create an entirely new Load Balancer and IP resource using the standard SKU. It is not possible to update these resources in-place.
 
-The new LB and IP should be referenced in the new cross availability zone node types that you would like to use. In the example above, three new virtual machine scale set resources were added in zones 1,2, and 3. These virtual machine scale sets reference the newly created LB and IP and are marked as primary node types in the Service Fabric Cluster Resource.
+The new LB and IP should be referenced in the new cross Availability Zone node types that you would like to use. In the example above, three new virtual machine scale set resources were added in zones 1,2, and 3. These virtual machine scale sets reference the newly created LB and IP and are marked as primary node types in the Service Fabric Cluster Resource.
 
-To begin you will need to add the new resources to your existing ARM template. These resources include:
+To begin, you will need to add the new resources to your existing ARM template. These resources include:
 * A Public IP Resource using Standard SKU.
 * A Load Balancer Resource using Standard SKU.
 * A NSG referenced by the subnet in which you deploy your Virtual Machine Scale sets. 
@@ -291,7 +294,7 @@ foreach($name in $nodeNames) {
 }
 ```
 
-Once the nodes are all disabled, the system services will be running on the primary node type which is spread across zones. You can then remove the disabled nodes from the cluster. Once the nodes are removed you can remove the original IP, Load Balancer, and Virtual Machine Scale Set resources. 
+Once the nodes are all disabled, the system services will be running on the primary node type, which is spread across zones. You can then remove the disabled nodes from the cluster. Once the nodes are removed, you can remove the original IP, Load Balancer, and Virtual Machine Scale Set resources.
 
 ```powershell
 foreach($name in $nodeNames){
@@ -313,7 +316,7 @@ Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupna
 
 You should then remove the references to these resources from the ARM template that you had deployed.
 
-The final step will involve updating the DNS name as well Public IP.
+The final step will involve updating the DNS name and Public IP.
 
 ```powershell
 $oldprimaryPublicIP = Get-AzureRmPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $groupname
@@ -330,4 +333,4 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 ```
 
-[sf-architecture]: .\media\service-fabric-availability-zones\sf-cross-az-topology.png
+[sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
