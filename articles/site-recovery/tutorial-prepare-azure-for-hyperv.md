@@ -63,7 +63,7 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 ## Create a recovery services vault
 
 1. In the Azure portal, select **+Create a resource**, and then search the Azure Marketplace for Recovery Services.
-2. Select **Backup and Site Recovery (OMS)**. Next, in the Backup and Site Recovery page, select **Create**.
+2. Select **Backup and Site Recovery (OMS)**. Next, on the **Backup and Site Recovery** page, select **Create**.
 1. In **Recovery services vault > Name**, enter a friendly name to identify the vault. For this tutorial, use **ContosoVMVault**.
 2. In **Resource group**, select an existing resource group or create a new one. For this tutorial, use **contosoRG**.
 3. In **Location**, select the region where the vault should be located. For this tutorial, use **West Europe**.
@@ -71,7 +71,7 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 
 ![Create a new vault](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-The new vault appears on Dashboard > All resources, and on the main Recovery Services vaults page.
+The new vault appears on **Dashboard** > **All resources**, and on the main **Recovery Services vaults** page.
 
 ## Set up an Azure network
 
