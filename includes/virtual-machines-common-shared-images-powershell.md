@@ -47,7 +47,7 @@ $gallery = New-AzGallery `
    
 ## Create an image definition 
 
-Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
 Create the image definition using [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In this example, the gallery image is named *myGalleryImage*.
 
@@ -96,3 +96,5 @@ It can take a while to replicate the image to all of the target regions, so we h
 $job.State
 ```
 
+> [!NOTE]
+> You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.

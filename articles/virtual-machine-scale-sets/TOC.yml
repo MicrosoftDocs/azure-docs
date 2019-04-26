@@ -222,7 +222,7 @@
       - name: PowerShell
         href: shared-images-powershell.md
       - name: Share images across tenants
-        href: cross-tenant-image-sharing.md
+        href: share-images-across-tenants.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Vertical scaling in a scale set

@@ -12,10 +12,10 @@
 
 Shared Image Gallery is a service that helps you build structure and organization around your custom managed VM images. Shared Image Galleries provide:
 
-- Highly available images using Zone Redundant Storage. Even if a data center goes down, you’ll have access to the images in that region.
 - Managed global replication of images.
 - Versioning and grouping of images for easier management.
 - Higher scaling limits. Custom images allow for 600 concurrent VMs, while Shared Image Galleries allow for 1000 concurrent VMs.
+- Highly available images using Zone Redundant Storage. Even if a data center goes down, you’ll have access to the images in that region.
 - Sharing across subscriptions, and even between tenants, using RBAC.
 
 Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
@@ -106,7 +106,7 @@ There are limits, per subscription, for deploying resources using Shared Image G
 - 200 image definitions, per subscription, per region
 - 2000 image versions, per subscription, per region
 
-For more information, see [Check resource usage against limits](https://docs.microsoft.com/en-us/azure/networking/check-usage-against-limits) for examples on how to check your current usage.
+For more information, see [Check resource usage against limits](https://docs.microsoft.com/azure/networking/check-usage-against-limits) for examples on how to check your current usage.
  
 
 ## Scaling
@@ -125,7 +125,7 @@ The regions a Shared Image version is replicated to can be updated after creatio
 
 ## Access
 
-As the Shared Image Gallery, Shared Image and Shared Image version are all resources, they can be shared using the built-in native Azure RBAC controls. Using RBAC you can share these resources to other users, service principals, and groups in your organization. The scope of sharing these resources is within the same Azure AD tenant. Once a user has access to the Shared Image version, they can deploy a VM or a Virtual Machine Scale Set in any of the subscriptions they have access to within the same Azure AD tenant as the Shared Image version.  Here is the sharing matrix that helps understand what the user gets access to:
+As the Shared Image Gallery, Shared Image and Shared Image version are all resources, they can be shared using the built-in native Azure RBAC controls. Using RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the Shared Image version, they can deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:
 
 | Shared with User     | Shared Image Gallery | Shared Image | Shared Image version |
 |----------------------|----------------------|--------------|----------------------|
@@ -133,9 +133,9 @@ As the Shared Image Gallery, Shared Image and Shared Image version are all resou
 | Shared Image         | No                   | Yes          | Yes                  |
 | Shared Image version | No                   | No           | Yes                  |
 
-For more information about RBAC, see [Manage access to Azure resources using RBAC](../articles/role-based-access-control/role-assignments-portal.md).
+We recommend sharing at the Gallery level for the best experience. For more information about RBAC, see [Manage access to Azure resources using RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
-Images can also be shared across tenants using a multi-tenant app registration. For more information about sharing images across tenants, see [Share gallery VM images across Azure tenants](../articles/virtual-machines/linux/cross-tenant-image-sharing.md).
+Images can also be shared, at scale, across tenants using a multi-tenant app registration. For more information about sharing images across tenants, see [Share gallery VM images across Azure tenants](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
 ## Billing
 There is no extra charge for using the Shared Image Gallery service. You will be charged for the following resources:
@@ -233,7 +233,7 @@ You can create Shared Image Gallery resource using templates. There are several 
 
 **Q.** Can I share image versions across Azure AD tenants? 
 
- A. Yes, see "Share gallery images across Azure tenants" using [PowerShell](../articles/virtual-machines/windows/cross-tenant-image-sharing.md) or [CLI](../articles/virtual-machines/linux/cross-tenant-image-sharing.md).
+ A. Yes, you can use RBAC to share to individuals across tenants. But, to share at scale, see "Share gallery images across Azure tenants" using [PowerShell](../articles/virtual-machines/windows/share-images-across-tenants.md) or [CLI](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
 
 **Q.** How long does it take to replicate image versions across the target regions?

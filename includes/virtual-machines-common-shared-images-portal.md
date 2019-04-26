@@ -33,7 +33,7 @@ The following example creates a gallery named *myGallery* in the *myGalleryRG* r
    
 ## Create an image definition 
 
-Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
 Create the gallery image definition inside of your gallery. In this example, the gallery image is named *myImageDefinition*.
 

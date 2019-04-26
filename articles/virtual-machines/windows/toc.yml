@@ -25,7 +25,7 @@
     href: tutorial-custom-images.md
   - name: 5 - Highly available VMs
     href: tutorial-availability-sets.md
-  - name: 6 - Create a VM scale set
+  - name: 6 - Create a scale set
     href: tutorial-create-vmss.md
   - name: 7 - Load balance VMs
     href: tutorial-load-balancer.md
@@ -254,7 +254,7 @@
       - name: CLI
         href: ../linux/shared-images.md
       - name: Share images across tenants
-        href: cross-tenant-image-sharing.md
+        href: share-images-across-tenants.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Find and use images

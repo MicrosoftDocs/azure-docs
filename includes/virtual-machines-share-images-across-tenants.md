@@ -5,15 +5,15 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/05/2019
+ ms.date: 04/25/2019
  ms.author: cynthn
  ms.custom: include file
 ---
 
-Shared Image Galleries let you share images across within organization. If you want to share images outside of your Azure tenant, you can create an app registration to facilitate sharing.  Using an app registration can enable some more complex sharing scenarios, like: 
+Shared Image Galleries let you share images using RBAC. You can use RBAC to share images within your tenant, and even to individuals outside of your tenant. But, if you want to share images outside of your Azure tenant, at scale, you should create an app registration to facilitate sharing.  Using an app registration can enable more complex sharing scenarios, like: 
 
 * Managing shared images when one company acquires another, and the Azure infrastructure is spread across separate tenants. 
-* Azure Partners manage Azure infrastructure on behalf of their customers. Customization of images is done within the partners tenant, but the infrastructure deployments will happen in the customers tenant. 
+* Azure Partners manage Azure infrastructure on behalf of their customers. Customization of images is done within the partners tenant, but the infrastructure deployments will happen in the customer's tenant. 
 
 
 ## Create the app registration
@@ -52,5 +52,6 @@ In the [Azure portal](https://portal.azure.com) sign in as Tenant 2 and give the
 1. Under **Assign access to:**, leave this as **Azure AD user, group, or service principal**.
 1. Under **Select** type *myGalleryApp* then select it when it shows up in the list. When you are done, select **Save**.
 
-
+> [!NOTE]
+> You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
 

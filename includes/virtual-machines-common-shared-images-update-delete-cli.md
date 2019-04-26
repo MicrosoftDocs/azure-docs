@@ -29,7 +29,7 @@ Image version:
 - Exclusion from latest
 - End of life date
 
-Update the description of a gallery using ([az sig update](https://docs.microsoft.com/en-us/cli/azure/sig?view=azure-cli-latest#az-sig-update). 
+Update the description of a gallery using ([az sig update](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-update). 
 
 ```azurecli-interactive
 az sig update \
@@ -39,7 +39,7 @@ az sig update \
 ```
 
 
-Update the description of an image definition using [az sig image-definition update](https://docs.microsoft.com/en-us/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update).
+Update the description of an image definition using [az sig image-definition update](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update).
 
 ```azurecli-interactive
 az sig image-definition update \
@@ -49,7 +49,7 @@ az sig image-definition update \
    --set description="My updated description."
 ```
 
-Update an image version to add a region to replicate to using [az sig image-version update](https://docs.microsoft.com/en-us/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update). This change will take a while as the image gets replicated to the new region.
+Update an image version to add a region to replicate to using [az sig image-version update](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update). This change will take a while as the image gets replicated to the new region.
 
 ```azurecli-interactive
 az sig image-version update \
@@ -64,7 +64,7 @@ az sig image-version update \
 
 You have to delete resources in reverse order, by deleting the image version first. After you delete all of the image versions, you can delete the image definition. After you delete all image definitions, you can delete the gallery. 
 
-Delete an image version using [az sig image-version delete](https://docs.microsoft.com/en-us/cli/azure/sig/image-version?view=azure-cli-latest#az-sig-image-version-delete).
+Delete an image version using [az sig image-version delete](https://docs.microsoft.com/cli/azure/sig/image-version?view=azure-cli-latest#az-sig-image-version-delete).
 
 ```azurecli-interactive
 az sig image-version delete \
@@ -74,7 +74,7 @@ az sig image-version delete \
    --gallery-image-version 1.0.0 
 ```
 
-Delete an image definition using [az sig image-definition delete](https://docs.microsoft.com/en-us/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-delete).
+Delete an image definition using [az sig image-definition delete](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-delete).
 
 ```azurecli-interactive
 az sig image-definition delete \
@@ -84,7 +84,7 @@ az sig image-definition delete \
 ```
 
 
-Delete an image gallery using [az sig delete](https://docs.microsoft.com/en-us/cli/azure/sig?view=azure-cli-latest#az-sig-delete).
+Delete an image gallery using [az sig delete](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-delete).
 
 ```azurecli-interactive
 az sig delete \

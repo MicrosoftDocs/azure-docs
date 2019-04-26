@@ -1,11 +1,11 @@
 ---
 title: Share gallery images across tenants in Azure | Microsoft Docs
 description: Learn how to share VM images across Azure tenants using Shared Image Galleries.
-services: virtual-machine-scale-sets
+services: virtual-machines-linux
 author: cynthn
 manager: jeconnoc
 
-ms.service: virtual-machine-scale-sets
+ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
@@ -14,10 +14,10 @@ ms.author: cynthn
 ---
 # Share gallery VM images across Azure tenants
 
-[!INCLUDE [virtual-machines-cross-tenant-image-sharing](../../includes/virtual-machines-cross-tenant-image-sharing.md)]
+[!INCLUDE [virtual-machines-share-images-across-tenants](../../..includes/virtual-machines-share-images-across-tenants.md)]
 
 
-## Create a scale set using Azure CLI
+## Create a VM using Azure CLI
 
 Sign in the service principal for tenant 1 using the appID, the app key, and the ID of tenant 1. You can use `az account show --query "tenantId"` to get the tenant IDs if needed.
 
@@ -34,12 +34,12 @@ az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 2 ID>
 az account get-access-token
 ```
 
-Create the scale set. Replace the information in the example with your own.
+Create the VM. Replace the information in the example with your own.
 
 ```azurecli-interactive
-az vmss create \
-  -g myResourceGroup \
-  -n myScaleSet \
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
   --image "/subscriptions/<Tenant 1 subscription>/resourceGroups/<Resource group>/providers/Microsoft.Compute/galleries/<Gallery>/images/<Image definition>/versions/<version>" \
   --admin-username azureuser \
   --generate-ssh-keys

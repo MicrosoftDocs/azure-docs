@@ -34,7 +34,7 @@ az sig create -g myGalleryRG --gallery-name myGallery
 
 ## Create an image definition
 
-Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
 
 Create an initial image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
@@ -70,3 +70,5 @@ az sig image-version create \
    --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 ```
 
+> [!NOTE]
+> You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
