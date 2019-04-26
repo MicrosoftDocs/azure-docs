@@ -39,7 +39,7 @@ The throughput limit for a volume is determined by the combination of the follow
 
 This concept is illustrated in the diagram below:
 
-    ![Service level illustration](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
+![Service level illustration](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
 
 In the example above, a volume from a capacity pool with the Premium storage tier that is assigned 2 TiB of quota will be assigned a throughput limit of 128 MiB/s.  This remains the case regardless of the capacity pool size or the actual volume consumption.
 
