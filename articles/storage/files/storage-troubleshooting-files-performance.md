@@ -137,7 +137,7 @@ If the number of DirectoryOpen/DirectoryClose calls is among the top API calls a
 
 ### Workaround
 
-- A fix for this issue is available in the [April Platform Update for Windows](https://support.microsoft.com/en-us/help/4052623/update-for-windows-defender-antimalware-platform).
+- A fix for this issue is available in the [April Platform Update for Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
 
 ## File creation is slower than expected
 
@@ -157,4 +157,4 @@ Higher than expected latency accessing Azure Files for IO intensive workloads.
 
 ### Workaround
 
-- Install the available [hotfix](https://support.microsoft.com/en-us/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
+- Install the available [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
