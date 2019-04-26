@@ -99,6 +99,10 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 Replace these parameters with your own values in the following example `docker run` command.
 
+[!INCLUDE [Running multiple containers CLI on the same host with H2 & H3](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+[!INCLUDE [Running multiple containers Compose on the same host with H2 & H3](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
 ### Form Recognizer
 
 ```bash
