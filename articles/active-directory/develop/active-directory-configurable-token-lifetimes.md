@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 04/13/2019
 ms.author: celested
-ms.custom: aaddev
+ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 
 ms.collection: M365-identity-device-management
@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 You can specify the lifetime of a token issued by Azure Active Directory (Azure AD). You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization.
 
 > [!IMPORTANT]
-> After hearing from customers during the preview, we're planning to replace this functionality with a new feature in Azure Active Directory Conditional Access.  Once the new feature is complete, this functionality will eventually be deprecated after a notification period.  If you use the Configurable Token Lifetime policy, be prepared to switch to the new Conditional Access feature once it's available. 
+> After hearing from customers during the preview, we've replaced the configurable token lifetimes feature with [authentication session management capabilities](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure AD Conditional Access. This feature will be deprecated on November 1, 2019. If you're using the configurable token lifetime policy, switch to the new conditional access feature. 
 
 In Azure AD, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they are assigned.
 
