@@ -9,6 +9,8 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ---
 
+# Azure Database for PostgreSQL – Hyperscale (Citus) (preview) performance options
+
 ## Compute and storage
  
 You can select the compute and storage settings independently for
