@@ -545,7 +545,7 @@
     - name : Manage Azure Cosmos DB resources
       items:
       - name: Manage using PowerShell 
-        href: manage-account-with-powershell.md
+        href: manage-with-powershell.md
       - name: Manage using Azure CLI
         href: manage-with-cli.md
     - name : Logging
