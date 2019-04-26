@@ -75,12 +75,12 @@ You can register your application in either of two ways, as described in the nex
 
 1. Go to the [Azure portal](https://aka.ms/MobileAppReg) > Select `New registration`. 
 2. Enter a **Name** for your app > `Register`. **Do not set a Redirect URI at this stage**. 
-3. In the `Manage` section, Go to `Authentication` blade > `Add a platform` > `Android`
+3. In the `Manage` section, go to `Authentication` > `Add a platform` > `Android`
     - Enter your project's Package Name. If you downloaded the code, this is `com.azuresamples.msalandroidapp`. 
     - Enter your debug/development signature hash. Use the KeyTool command in the portal to generate this. 
 4. Hit `Configure` and store the ***MSAL Configuration*** for later. 
 
-## Building your app
+## Build your app
 
 ### Configure your Android app
 
@@ -174,7 +174,7 @@ You can register your application in either of two ways, as described in the nex
     implementation 'com.microsoft.identity.client:msal:0.3.+'
     ```
 
-### Using MSAL 
+### Use MSAL 
 
 The next few sections will be making changes inside the `MainAcitivty.java`. We'll be walking through each step needed to add and use MSAL in your app.
 
@@ -263,11 +263,15 @@ sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
 
 This block of code also attempts to sign in users silently when they open your application through `getAccounts(...)` and, if successful, `acquireTokenSilentAsync(...)`.  In the next few sections we'll implement the callback handler for the case there are no signed in accounts. 
 
-#### Using MSAL for getting Tokens
+#### Use MSAL to get Tokens
 
 Now, we want can implement the app's UI procesing logic and getting tokens interactively through MSAL. 
 
-MSAL exposes two primary methods for getting tokens: `acquireTokenSilentAsync` and `acquireToken`.  The former attempts to sign in a user and get tokens without any user interaction if an account is present. If it it succeeds, MSAL will handoff the tokens to your apps, if it fails it will generate a `MsalUiRequiredException`.  If this exception is generated or you want your user to have an interactive sign in experience (credentials, mfa, or other conditional access policies may or may not be required), then you can use `acquireToken`.  `acquireToken` will always show UI when attemptign to sign in the user and get tokens; however, it might use session cookies in the browser or an account in the Microsoft authenticator to give an interactive-SSO experience. 
+MSAL exposes two primary methods for getting tokens: `acquireTokenSilentAsync` and `acquireToken`.  
+
+`acquireTokenSilentAsync` signs in a user and get tokens without any user interaction if an account is present. If it succeeds, MSAL will handoff the tokens to your apps, if it fails it will generate a `MsalUiRequiredException`.  If this exception is generated or you want your user to have an interactive sign in experience (credentials, mfa, or other conditional access policies may or may not be required), then you can use `acquireToken`.  
+
+`acquireToken` will always show UI when attemptign to sign in the user and get tokens; however, it might use session cookies in the browser or an account in the Microsoft authenticator to give an interactive-SSO experience. 
 
 To begin, create the following three UI methods:
 
@@ -396,11 +400,11 @@ private AuthenticationCallback getAuthInteractiveCallback() {
 }
 ```
 
-#### Using MSAL for Sign-out
+#### Use MSAL for Sign-out
 
-Often after signing in a user, apps want to implement UI to allow their users to sign out of an app. 
+Next up, we'll add support for sign-out to our app. 
 
-Next up, we'll add support for sign-out to our app. It's important to note, sign-out with MSAL removes all known information about a user from this application, but the user will still be signed into their device. If the user attempts to sign in again they may see interaction, but may not need to re-enter their credentials due to the device session being active. 
+It's important to note, sign-out with MSAL removes all known information about a user from this application, but the user will still have an active session on their device. If the user attempts to sign in again they may see interaction, but may not need to re-enter their credentials due to the device session being active. 
 
 To add sign-out, copy the following method into your app that cycles through all accounts and removes them:
 
@@ -514,7 +518,7 @@ Learn more about the [Microsoft Graph API](https://graph.microsoft.com)!
 
 This app is build for a single account scenario. MSAL supports multi-account scenarios as well, but it requires some additionl work from apps. You will need to create UI to help user's select which account they want to use for each action that requires tokens. Alternatively, your app can implement a heuristic to select which account to use via the `getAccounts(...)` method. 
 
-## Testing your app
+## Test your app
 
 ### Run locally
 
