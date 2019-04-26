@@ -11,7 +11,7 @@ ms.date: 04/24/2019
 ms.author: maheff
 ---
 
-# C# Tutorial: Call Cognitive Services APIs in an Azure Search indexing pipeline (Preview)
+# C# Tutorial: Call Cognitive Services APIs in an Azure Search indexing pipeline
 
 In this tutorial, you learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Skills are backed by natural language processing (NLP) and image analysis capabilities in Cognitive Services. Through skillset composition and configuration, you can extract text and text representations of an image or scanned document file. You can also detect language, entities, key phrases, and more. The end result is rich additional content in an Azure Search index, created by an AI-powered indexing pipeline.
 
@@ -90,7 +90,7 @@ Begin by opening Visual Studio and creating a new Console App project that can r
 
 The [Azure Search .NET SDK](https://aka.ms/search-sdk) consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and skillsets, as well as upload and manage documents, and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
 
-For this project, you will need to install the 7.x-preview version of the `Microsoft.Azure.Search` NuGet package and the latest `Microsoft.Extensions.Configuration.Json` NuGet package. Cognitive skills are only available using 2017-11-11-Preview of the REST API or version 7.x-preview of the .NET SDK.
+For this project, you will need to install the 7.x.x-preview version of the `Microsoft.Azure.Search` NuGet package and the latest `Microsoft.Extensions.Configuration.Json` NuGet package.
 
 Install the `Microsoft.Azure.Search` NuGet package using the Package Manager console in Visual Studio. To open the Package Manager console select **Tools** > **NuGet Package Manager** > **Package Manager Console**. To get the command to run, navigate to the  [Microsoft.Azure.Search NuGet package page](https://www.nuget.org/packages/Microsoft.Azure.Search), select version 7.x.x-preview, and copy the Package Manager command. In the Package Manager console, run this command.
 
