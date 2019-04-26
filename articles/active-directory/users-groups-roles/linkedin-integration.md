@@ -39,9 +39,9 @@ You can enable LinkedIn account connections for only the users you want to have 
 1. On the **Users** blade, select **User settings**.
 1. Under **LinkedIn account connections**, allow users to connect their accounts to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts.
 
-  * Select **Yes** to consent to the service for all users in your organization
-  * Select **Selected group** to consent for a group of users in your organization
-  * Select **No** to withdraw consent for users in your organization
+    * Select **Yes** to consent to the service for all users in your organization
+    * Select **Selected group** to consent for a group of users in your organization
+    * Select **No** to withdraw consent for users in your organization
 
     ![Integrate LinkedIn account connections in the organization](./media/linkedin-integration/linkedin-integration.png)
 
