@@ -296,28 +296,28 @@
         - name: Status Monitor 
           href: app/monitor-performance-live-website-now.md
         - name: Status Monitor v2
-          href: app/statusmonitor-overview.md
+          href: app/status-monitor-overview.md
           items:
           - name: Getting started
-            href: app/statusmonitor-getting-started.md
+            href: app/status-monitor-getting-started.md
           - name: Detailed instructions
-            href: app/statusmonitor-detailed-instructions.md
+            href: app/status-monitor-detailed-instructions.md
           - name: Troubleshooting and known issues
-            href: app/statusmonitor-troubleshoot.md
+            href: app/status-monitor-troubleshoot.md
           - name: API Disable-InstrumentationEngine
-            href: app/statusmonitor-api-disableinstrumentationengine.md
+            href: app/status-monitor-api-disableinstrumentationengine.md
           - name: API Disable-ApplicationInsightsMonitoring
-            href: app/statusmonitor-api-disablemonitoring.md
+            href: app/status-monitor-api-disablemonitoring.md
           - name: API Enable-InstrumentationEngine
-            href: app/statusmonitor-api-enableinstrumentationengine.md
+            href: app/status-monitor-api-enableinstrumentationengine.md
           - name: API Enable-ApplicationInsightsMonitoring
-            href: app/statusmonitor-api-enablemonitoring.md
+            href: app/status-monitor-api-enablemonitoring.md
           - name: API Get-ApplicationInsightsMonitoringConfig
-            href: app/statusmonitor-api-getconfig.md
+            href: app/status-monitor-api-getconfig.md
           - name: API Get-ApplicationInsightsMonitoringStatus
-            href: app/statusmonitor-api-getstatus.md
+            href: app/status-monitor-api-getstatus.md
           - name: API Set-ApplicationInsightsMonitoringConfig
-            href: app/statusmonitor-api-setconfig.md
+            href: app/status-monitor-api-setconfig.md
         - name: Windows services
           href: app/windows-services.md
         - name: Windows desktop
