@@ -27,7 +27,7 @@ To build and test locally, you will need to:
 
 + Install [Python 3.6](https://www.python.org/downloads/).
 
-+ Install [Azure Functions Core Tools](functions-run-local.md#v2) version 2.2.70 or later (requires .NET Core 2.x SDK).
+- Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above.
 
 To publish and run in Azure:
 
@@ -87,6 +87,10 @@ A new folder named _MyFunctionProj_ is created. To continue, change directory to
 ```bash
 cd MyFunctionProj
 ```
+
+## Reference bindings
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ## Create a function
 
