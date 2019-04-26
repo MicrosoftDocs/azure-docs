@@ -79,8 +79,8 @@ The template used in this quickstart is to [deploy an Azure Kubernetes Service c
 
     * **Subscription**: Select an Azure subscription.
     * **Resource group**: Select **Create new**. Enter a unique name for the resource group, such as *myResourceGroup*, then choose **OK**.
-    * **Cluster name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
     * **Location**: Select a location, such as **East US**.
+    * **Cluster name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
     * **DNS prefix**: Enter a unique DNS prefix for your cluster, such as *myakscluster*.
     * **Linux Admin Username**: Enter a username to connect using SSH, such as *azureuser*.
     * **SSH RSA Public Key**: Copy and paste the *public* part of your SSH key pair (by default, the contents of *~/.ssh/id_rsa.pub*).
@@ -114,7 +114,7 @@ To verify the connection to your cluster, use the [kubectl get][kubectl-get] com
 kubectl get nodes
 ```
 
-The following example output shows the nodes created in the previous steps. Make sure that the status of the node is *Ready*:
+The following example output shows the nodes created in the previous steps. Make sure that the status for all the nodes is *Ready*:
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
