@@ -159,16 +159,6 @@ HDInsight 3.5 clusters and above, by default, disable use of local file paths to
 
 If you connect to an HDInsight Spark cluster from within an Azure Virtual Network, you can directly connect to Livy on the cluster. In such a case, the URL for Livy endpoint is `http://<IP address of the headnode>:8998/batches`. Here, **8998** is the port on which Livy runs on the cluster headnode. For more information on accessing services on non-public ports, see [Ports used by Apache Hadoop services on HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
 
-## Troubleshooting
-
-Here are some issues that you might run into while using Livy for remote job submission to Spark clusters.
-
-### Using an external jar from the additional storage is not supported
-
-**Problem:** If your Livy Spark job references an external jar from the additional storage account associated with the cluster, the job fails.
-
-**Resolution:** Make sure that the jar you want to use is available in the default storage associated with the HDInsight cluster.
-
 
 
 
