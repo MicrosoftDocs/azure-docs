@@ -1,16 +1,16 @@
-# How to install IoT Edge on Kubernetes (Preview)
+# How to install IoT Edge on Kubernetes (PREVIEW)
 
 ## Architecture
 
 IoT Edge can integrate with Kubernetes using it as a resilient, highly available infrastructure layer. It registers an IoT Edge *Custom Resource Definition* (CRD) with the Kubernetes API Server. Additionally, it provides an *Operator* (Edge Agent) that reconciles cloud-managed desired state with the local cluster state. 
 
-Module lifetime is managed by the Kubernetes scheduler which maintains module availability and chooses their placement. IoT Edge manages the edge application platform running on top, continuously reconciling the desired state specified in IoT Hub with the state on the edge cluster. The edge application model is the still the familiar model based on IoT Edge modules and routes. The Edge Agent operator performs *automatic* translation to the Kubernetes natives constructs like pods, deployments, services etc.
+Module lifetime is managed by the Kubernetes scheduler, which maintains module availability and chooses their placement. IoT Edge manages the edge application platform running on top, continuously reconciling the desired state specified in IoT Hub with the state on the edge cluster. The edge application model is still the familiar model based on IoT Edge modules and routes. The Edge Agent operator performs *automatic* translation to the Kubernetes natives constructs like pods, deployments, services etc.
 
-Here is a high level architecture diagram:
+Here is a high-level architecture diagram:
 
 ![kubernetes arch](./media/how-to-install-iot-edge-kubernetes/k8s-arch.png)
 
-Every component of the edge deployment is scoped to a Kubernetes namespace specific to the device. This makes it possible to share the same cluster resources among multiple edge devices and their deployments.
+Every component of the edge deployment is scoped to a Kubernetes namespace specific to the device, making it possible to share the same cluster resources among multiple edge devices and their deployments.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Every component of the edge deployment is scoped to a Kubernetes namespace speci
     helm repo update
     ```
 
-1. [Create an IoT Hub](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux#create-an-iot-hub), [register an IoT Edge device](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux#register-an-iot-edge-device) and note its connection string.
+1. [Create an IoT Hub](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux#create-an-iot-hub), [register an IoT Edge device](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux#register-an-iot-edge-device), and note its connection string.
 
 1. Install iotedged and Edge Agent into your cluster
 
@@ -65,7 +65,7 @@ Every component of the edge deployment is scoped to a Kubernetes namespace speci
 
 ## Clean up resources
 
-To remove all resources created by the edge deployment, use the following command with the name used in step 5 of the previous section
+To remove all resources created by the edge deployment, use the following command with the name used in step 5 of the previous section.
 
 ``` shell
 helm delete --purge k8s-edge1
@@ -73,7 +73,6 @@ helm delete --purge k8s-edge1
 
 ## Next steps
 
-### Deploy as a highly-available edge gateway 
+### Deploy as a highly available edge gateway 
 
-The edge device in a Kubernetes cluster can be used as an IoT gateway for downstream devices. It can be configured to be resilient to node failure thus providing high availability to edge deployments. Please see this [detailed walkthrough](https://github.com/Azure-Samples/iotedge-gateway-on-kubernetes) to use IoT Edge in this scenario.
-
+The edge device in a Kubernetes cluster can be used as an IoT gateway for downstream devices. It can be configured to be resilient to node failure thus providing high availability to edge deployments. See this [detailed walkthrough](https://github.com/Azure-Samples/iotedge-gateway-on-kubernetes) to use IoT Edge in this scenario.
