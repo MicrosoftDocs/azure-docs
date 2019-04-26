@@ -34,8 +34,8 @@ Currently, the following Media Services [Streaming Endpoints](https://docs.micro
 
 |Name|Description|
 |---|---|
-|Requests|Gives details around total # of requests serviced by streaming endpoint.|
-|Egress|Total number of egress bytes. For example, bytes streamed by streaming endpoint.|
+|Requests|Gives details around total # of requests serviced by the Streaming Endpoint.|
+|Egress|Total number of egress bytes. For example, bytes streamed by the Streaming Endpoint.|
 |Success end to end Latency| Gives information about end to end latency of successful requests.|
 
 For example, to get "Egress" metrics with CLI, you would run the following `az monitor metrics` CLI command:
