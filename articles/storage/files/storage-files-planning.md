@@ -106,13 +106,9 @@ It is possible to decrease the size of your provisioned share below your used Gi
 
 The following table illustrates a few examples of these formulae for the provisioned share sizes:
 
-<<<<<<< HEAD
-|Capacity (GiB) | Baseline IOPS | Burst limit | Egress (MiB/s) | Ingress (MiB/s) |
-=======
 (Sizes denoted by an * are in limited public preview)
 
 |Capacity (GiB) | Baseline IOPS | Burst IOPS | Egress (MiB/s) | Ingress (MiB/s) |
->>>>>>> da93c4c0ac9238ab35c40e3762c3d77df395bca7
 |---------|---------|---------|---------|---------|
 |100         | 100     | Up to 300     | 66   | 44   |
 |500         | 500     | Up to 1,500   | 90   | 60   |
