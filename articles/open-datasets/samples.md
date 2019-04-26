@@ -30,13 +30,11 @@ The example Jupyter notebooks for Azure Open Datasets show you how to load open 
 ## Join NYC taxi data with NOAA ISD data 
 |Notebook        | Description                                    |
 |----------------|------------------------------------------------|
-|[Taxi trip data enriched with weather data - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) | Load NYC green taxi data (over 1 month) and enrich it with weather data in a Pandas dataframe. 
-This example overrides the method `get_pandas_limit` and balances data load performance with the amount of data.
- |
+|[Taxi trip data enriched with weather data - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) | Load NYC green taxi data (over 1 month) and enrich it with weather data in a Pandas dataframe. This example overrides the method `get_pandas_limit` and balances data load performance with the amount of data.|
 |[Taxi trip data enriched with weather data – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/03-nyc-taxi-join-weather-in-spark.ipynb) | Load NYC green taxi data and enrich it with weather data, in Spark dataframe.  |
 
 ## Next steps
 
 * [Tutorial: Regression modeling with automated machine learning and an open dataset](tutorial-opendatasets-automl.md)
-* [Python SDK for Open Datasets](https://aka.ms/open-datasets-sdk)
+* [Python SDK for Open Datasets](https://aka.ms/open-datasets-api)
 * [Azure Open Datasets catalog](https://azure.microsoft.com/services/open-datasets/catalog/)

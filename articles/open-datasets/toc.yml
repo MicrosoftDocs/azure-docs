@@ -17,7 +17,7 @@
   items:
   - name: Python SDK
     displayName: api open datasets reference sdk
-    href: https://aka.ms/open-datasets-sdk
+    href: https://aka.ms/open-datasets-api
   - name: Jupyter notebooks
     displayName: python notebooks
     href: https://github.com/Azure/OpenDatasetsNotebooks
