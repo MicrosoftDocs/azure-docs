@@ -2,7 +2,7 @@
 title: Azure Monitor application change analysis - Discover changes that may impact live site issues/outages with Azure Monitor application change analysis  | Microsoft Docs
 description: Troubleshoot application live site issues on Azure App Services with Azure Monitor application change analysis
 services: application-insights
-author: cawama
+author: cawams
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
@@ -26,8 +26,6 @@ When a live site issue/outage occurs determining root cause quickly is critical.
 Azure Monitor application change analysis is currently built into the self-service **Diagnose and solve problems** experience which can be accessed from the **Overview** section of you Azure App Service application:
 
 ![Screenshot of Azure App Service overview page with red boxes around overview button and diagnose and solve problems button](./media/change-analysis/change-analysis.png)
-
-
 
 ## Next Steps
 
