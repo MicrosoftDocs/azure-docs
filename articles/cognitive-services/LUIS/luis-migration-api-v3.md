@@ -206,8 +206,8 @@ In V3, the same result with the `verbose` flag to return entity metadata:
     "$instance":{
         "Destination": [
             {
-                "role": "Role1",
-                "type": "simple",
+                "role": "Destination",
+                "type": "Location",
                 "text": "Yellow Bird Lane",
                 "startIndex": 25,
                 "length":16,
