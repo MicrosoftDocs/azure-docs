@@ -120,7 +120,9 @@
   items:
   - name: Pipelines and activities
     href: concepts-pipelines-activities.md
-  - name: Datasets and linked services
+  - name: Linked services
+    href: concepts-linked-services.md
+  - name: Datasets
     href: concepts-datasets-linked-services.md
   - name: Pipeline execution and triggers
     href: concepts-pipeline-execution-triggers.md
@@ -130,8 +132,6 @@
     items:
     - name: Mapping data flow concepts
       href: concepts-data-flow-overview.md
-    - name: Data flow datasets
-      href: concepts-data-flow-datasets.md
     - name: Debug mode
       href: concepts-data-flow-debug-mode.md
     - name: Schema drift
