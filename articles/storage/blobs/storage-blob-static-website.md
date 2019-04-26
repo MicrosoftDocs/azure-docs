@@ -157,6 +157,9 @@ Yes, the new web endpoint obeys the VNET and firewall rules configured for the s
 **Is the web endpoint case-sensitive?**  
 Yes, the web endpoint is case-sensitive just like the blob endpoint. 
 
+**Is the web enpoint accessible on http and https?**
+Yes, the web endpoint is accessible on http and https. However, please note that if the "[Secure transfer required](../common/storage-require-secure-transfer)" feature is enabled, only https endpoint is available.
+
 ## Next steps
 * [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
 * [Configure a custom domain name for your blob or web endpoint](storage-custom-domain-name.md)
