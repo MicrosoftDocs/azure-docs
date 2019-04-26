@@ -15,11 +15,11 @@ ms.date: 05/02/2019
 
 In this article, you learn to how to create and manage snapshots of your [Azure Machine Learning Datasets](how-to-create-register-datasets.md) (datasets) so you can capture or compare data over time. Datasets make it easier to access and work with your data in the cloud in various scenarios. 
 
-Dataset snapshots store a profile (summary statistics) of the data at the time it's created. You can choose to also store a copy of the data in your snapshot. 
+**Dataset snapshots** store a profile (summary statistics) of the data at the time it's created. You can choose to also store a copy of the data in your snapshot. 
 
 ## When to use snapshots
 
-Take snapshots at pivotal times in your ML workflow. Then, you can compare the data profile in one snapshot again the data profile in other snapshots. Understanding your data in this way can help you:
+Take snapshots at pivotal times in your ML workflow. Then, you can compare the data profile in one snapshot against the data profile in other snapshots. Understanding your data in this way can help you:
 
 + Validate your models by comparing the profiles of your data between training runs or against production data. 
 
