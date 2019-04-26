@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 05/06/2019
+ms.date: 04/26/2019
 ---
 # Choose among the vCore service tiers and migrate from DTU service tiers
 
