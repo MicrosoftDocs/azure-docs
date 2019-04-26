@@ -37,7 +37,7 @@ Azure Blockchain Service is created with a defined set of compute and storage re
     Resource group | A new resource group name or an existing one from your subscription.
     Region | Location must be the same for all members of the consortium.
     Member account password | Provide a new password for the member account. The member account password is used to authenticate to the blockchain member's public endpoint using basic authentication.
-    Consortium name | For new consortiums, enter a unique name. If joining a consortium through an invite, the value is the consortium you are joining.
+    Consortium name | For a new consortium, enter a unique name. If joining a consortium through an invite, the value is the consortium you are joining.
     Description | Description of the consortium.
     Protocol |  Preview supports the Quorum protocol.
     Pricing | The node configuration for your new service. Select **Standard**. 2 validator nodes and 1 transaction node is the default setting.

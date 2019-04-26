@@ -426,7 +426,7 @@ Exit the console.
 
 ## Validate transaction privacy
 
-Because of transaction privacy, transactions can only be performed on nodes we declared in **privateFor**. In this example, we can perform transactions since we declared **alpha** node's public key in **privateFor**. Use Truffle to execute the **sampletx** transaction on **alpha** node.
+Because of transaction privacy, transactions can only be performed on nodes we declared in **privateFor**. In this example, we can perform transactions since we declared **alpha** node's public key in **privateFor**. Use Truffle to execute the transaction on the **alpha** node.
 
 ```bash
 truffle exec sampletx.js --network alpha
