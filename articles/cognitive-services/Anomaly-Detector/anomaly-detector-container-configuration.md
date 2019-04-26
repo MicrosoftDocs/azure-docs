@@ -47,7 +47,7 @@ This setting can be found in the following place:
 
 ## Billing configuration setting
 
-The `Billing` setting specifies the endpoint URI of the _Anomaly Detector_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for an Anomaly Detector_ resource on Azure.
+The `Billing` setting specifies the endpoint URI of the _Anomaly Detector_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for an _Anomaly Detector_ resource on Azure.
 
 This setting can be found in the following place:
 
@@ -94,7 +94,7 @@ The following examples use the configuration settings to illustrate how to write
 * **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character for a bash shell. Replace or remove this based on your host operating system's requirements. For example, the line continuation character for windows is a caret, `^`. Replace the back slash with the caret. 
 * **Argument order**: Do not change the order of the arguments unless you are very familiar with Docker containers.
 
-Replace {_argument_name_} with your own values:
+Replace value in brackets, `{}`, with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
