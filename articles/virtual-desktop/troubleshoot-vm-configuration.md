@@ -5,7 +5,7 @@ services: virtual-desktop
 author: ChJenk
 
 ms.service: virtual-desktop
-ms.topic: troubleshooting
+ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
 ---
@@ -17,7 +17,7 @@ Use this article to troubleshoot issues you're having when configuring the Windo
 
 We currently aren't taking support cases while Windows Virtual Desktop is in preview. Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
 
-## VMs are not joining the domain
+## VMs are not joined to the domain
 
 Follow these instructions if you're having issues joining VMs to the domain.
 
@@ -69,11 +69,11 @@ The recommended way to provision VMs is using the Azure Resource Manager **Creat
 
 Follow these instructions to confirm the components are installed and to check for error messages.
 
-1. Confirm that the two components are installed by checking in **Control Panel** \>**Programs** \>**Programs and Features**. If **Windows Virtual Desktop Agent** and **Windows Virtual Desktop Agent Boot Loader** are not visible, they aren't installed on the VM.
-2. Open **File Explorer** and navigate to **C:\\Windows\\Temp\\scriptlogs.log**. If the file is missing, it indicates that the PowerShell DSC that installed the two components was not able to run in the security context provided.
-3. If the file **C:\\Windows\\Temp\\scriptlogs.log** is present, open it and check for error messages.
+1. Confirm that the two components are installed by checking in **Control Panel** > **Programs** > **Programs and Features**. If **Windows Virtual Desktop Agent** and **Windows Virtual Desktop Agent Boot Loader** are not visible, they aren't installed on the VM.
+2. Open **File Explorer** and navigate to **C:\Windows\Temp\scriptlogs.log**. If the file is missing, it indicates that the PowerShell DSC that installed the two components was not able to run in the security context provided.
+3. If the file **C:\Windows\Temp\scriptlogs.log** is present, open it and check for error messages.
 
-### Error: Windows Virtual Desktop Agent and Windows Virtual Desktop Agent Boot Loader are missing. C:\\Windows\\Temp\\scriptlogs.log is also missing
+### Error: Windows Virtual Desktop Agent and Windows Virtual Desktop Agent Boot Loader are missing. C:\Windows\Temp\scriptlogs.log is also missing
 
 **Cause 1:** Credentials provided during input for the Azure Resource Manager template were incorrect or permissions were insufficient.
 
@@ -87,7 +87,7 @@ Follow these instructions to confirm the components are installed and to check f
 - Confirm that the tenant name is accurate and the tenant exists in Windows Virtual Desktop.
 - Confirm the account has at least RDS Contributor permissions.
 
-### Error: Authentication failed, error in C:\\Windows\\Temp\\scriptlogs.log
+### Error: Authentication failed, error in C:\Windows\Temp\scriptlogs.log
 
 **Cause:** PowerShell DSC was able to execute but couldn't connect to Windows Virtual Desktop.
 
@@ -181,11 +181,11 @@ The output of **qwinsta** will list **rdp-sxs** in the output if the side-by-sid
 Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow the instructions in [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell) on how to reinstall the side-by-side stack.
 
 ```registry
-    HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal
-    Server\\WinStations\\rds-sxs\\"fEnableWinstation":DWORD=1
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal
+    Server\WinStations\rds-sxs\"fEnableWinstation":DWORD=1
 
-    HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal
-    Server\\ClusterSettings\\"SessionDirectoryListener":rdp-sxs
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal
+    Server\ClusterSettings\"SessionDirectoryListener":rdp-sxs
 ```
 
 ### Error: O_REVERSE_CONNECT_STACK_FAILURE

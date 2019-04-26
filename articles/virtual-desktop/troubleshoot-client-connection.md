@@ -1,15 +1,15 @@
 ---
-title: Windows Virtual Desktop troubleshooting guide for client connections - Azure
+title: Troubleshoot Windows Virtual Desktop client connection issues - Azure
 description: How to resolve common issues when you set up client connections in a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
 author: ChJenk
 
 ms.service: virtual-desktop
-ms.topic: troubleshooting
+ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
 ---
-# Windows Virtual Desktop troubleshooting guide for client connections
+# Troubleshoot Windows Virtual Desktop client connection issues
 
 Use this article to resolve common issues with Windows Virtual Desktop client connections.
 
@@ -19,7 +19,7 @@ We currently aren't taking support cases while Windows Virtual Desktop is in pre
 
 ## You can't open a web client
 
-Confirm there is internet connectivity by opening another web site; for example, [www.Bing.com](https://www.bing.com).
+Confirm there's internet connectivity by opening another web site; for example, [www.Bing.com](https://www.bing.com).
 
 Use **nslookup** to confirm DNS can resolve the FQDN:
 
@@ -41,13 +41,13 @@ Try connecting with another client, like Remote Desktop client for Windows 7 or 
 
 **Fix:** Contact network support
 
-### Error: Other clients can connect
+### Error: You can't connect but other clients can connect
 
 **Cause:** The browser isn't behaving as expected and stopped working.
 
 **Fix:** Follow these instructions to troubleshoot the browser.
 
-1. Restart browser.
+1. Restart the browser.
 2. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
 3. Clear browser cache. See [clear browser cache for your browser](https://binged.it/2RKyfdU).
 4. Open browser in Private mode.
@@ -58,7 +58,7 @@ Try connecting using another browser or client.
 
 ### Error: Other browsers and clients also malfunction or fail to open
 
-**Cause:** Network and/or operation system issues or outages.
+**Cause:** Network and/or operation system issues or outages
 
 **Fix:** Contact support teams.
 
@@ -86,13 +86,13 @@ Remove-Item 'HKCU:\Software\Microsoft\RdClientRadc' -Recurse
 Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
 ```
 
-Navigate to **%AppData%\\RdClientRadc\\** and delete all content.
+Navigate to **%AppData%\RdClientRadc** and delete all content.
 
 Uninstall and reinstall Remote Desktop client for Windows 7 and Windows 10.
 
 ## Troubleshooting end-user connectivity
 
-Sometiems users can access their feed and local resources, but still have configuration, availability, or performance issues that prevent them from accessing remote resources. The user gets messages similar to these:
+Sometimes users can access their feed and local resources, but still have configuration, availability, or performance issues that prevent them from accessing remote resources. In these cases, the user gets messages similar to these:
 
 ![Remote Desktop Connection error message.](media/eb76b666808bddb611448dfb621152ce.png)
 
@@ -118,7 +118,7 @@ Follow these general troubleshooting instructions for common error codes.
 (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
 ```
 
-8. The command produces output of the type show below. Use **ErrorCodeSymbolic** and **ErrorMessage** to troubleshoot the root cause.
+8. The command produces output similar to the output shown below. Use **ErrorCodeSymbolic** and **ErrorMessage** to troubleshoot the root cause.
 
 ```
 ErrorSource       : <Source>
@@ -151,7 +151,7 @@ Time              : <Timestampt>
 
 ## User connects but nothing is displayed (no feed)
 
-A User can start Remote Desktop clients and is able to authenticate, however the user doesn't see any icons in the web discovery feed.
+A user can start Remote Desktop clients and is able to authenticate, however the user doesn't see any icons in the web discovery feed.
 
 Confirm that the user reporting the issues has been assigned to application groups by using this command line:
 
@@ -161,14 +161,14 @@ Get-RdsAppGroupUser \<tenantname\> \<hostpoolname\> \<appgroupname\>
 
 Confirm that the user is logging in with the correct credentials.
 
-If the web client is being used, confirm that there are no cached credentials issue.
+If the web client is being used, confirm that there are no cached credentials issues.
 
 ## Next Steps
 
-- For an overview of troubleshooting Windows Virtual Desktop and the escalation tracks, see [Overview for troubleshooting common set up issues for Windows Virtual Desktop](troubleshoot-set-up-overview.md).
-- To troubleshoot issues during initial setup of a Windows Virtual Desktop environment, see [Troubleshoot Windows Virtual Desktop set up issues](troubleshoot-set-up-issues.md)
-- To troubleshoot issues with VM configuration, see [Troubleshoot Windows Virtual Desktop VM issues](troubleshoot-vm-configuration.md)
-- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Troubleshoot common issues when using PowerShell](troubleshoot-powershell.md)
+- For an overview of common Windows Virtual Desktop issues during setup and the escalation tracks, see [Overview of common issues when setting up Windows Virtual Desktop](troubleshoot-set-up-overview.md).
+- To troubleshoot issues during initial setup of a Windows Virtual Desktop environment, see [Troubleshoot issues during initial setup of a Windows Virtual Desktop environment](troubleshoot-set-up-issues.md)
+- To troubleshoot issues with VM configuration, see [Troubleshoot Windows Virtual Desktop session host VM configuration](troubleshoot-vm-configuration.md)
+- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Troubleshoot Windows Virtual Desktop issues when using PowerShell](troubleshoot-powershell.md)
 - To learn more about the Preview service, see [Windows Desktop Preview environment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup?branch=pr-en-us-71423).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).

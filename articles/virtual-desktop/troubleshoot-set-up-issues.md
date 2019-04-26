@@ -1,15 +1,15 @@
 ---
 title: Troubleshoot issues during initial set up of Windows Virtual Desktop - Azure
-description: How to resolve common issues during initial setup of a Windows Virtual Desktop tenant environment.
+description: How to troubleshoot and resolve common issues during initial setup of a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
 author: ChJenk
 
 ms.service: virtual-desktop
-ms.topic: troubleshooting
+ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
 ---
-# Troubleshooting issues during initial setup of a Windows Virtual Desktop tenant environment
+# Troubleshoot issues during initial setup of a Windows Virtual Desktop environment
 
 This article covers common issues during the initial setup of the Windows Virtual Desktop tenant and the related session host pool infrastructure.
 
@@ -19,7 +19,7 @@ We currently aren't taking support cases while Windows Virtual Desktop is in pre
 
 ## Acquiring the Windows 10 Enterprise multi-session image
 
-To use the Windows 10 Enterprise multi-session image, go to the Azure Marketplace, select **Get Started** > **Microsoft Windows** 10 > and [Windows 10 Enterprise for Virtual Desktops Preview, Version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+To use the Windows 10 Enterprise multi-session image, go to the Azure Marketplace, select **Get Started** > **Microsoft Windows 10** > and [Windows 10 Enterprise for Virtual Desktops Preview, Version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 ![A screenshot of selecting Windows 10 Enterprise for Virtual Desktops Preview, Version 1809.](media/AzureMarketPlace.png)
 
@@ -74,12 +74,12 @@ The Windows Virtual Desktop – Provision a host pool template is available from
 
 1. Right-click on **Deploy to Azure** and select **Copy link address**.
 2. Open **Notepad** and paste the link.
-3. Before the \# character, insert the CSP end customer tenant name.
+3. Before the # character, insert the CSP end customer tenant name.
 4. Open the new link in a browser and the Azure portal will load the template.
 
 ```
-    Example: https://portal.azure.com/\<CSP end customer tenant name\>
-     \#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
+    Example: https://portal.azure.com/<CSP end customer tenant name>
+     #create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
      2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
 ```
 
@@ -92,7 +92,7 @@ Follow these instructions to troubleshoot unsuccessful deployments of Azure Reso
 3. Once the error is identified, use the error message and the resources in [Troubleshoot common Azure deployment errors with Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) to address the issue.
 4. Delete any resources created during the previous deployment and retry deploying the template again.
 
-### Error: Your deployment failed….\<hostname\>/joindomain
+### Error: Your deployment failed….<hostname>/joindomain
 
 ![Your Deployment Failed screenshot.](media/e72df4d5c05d390620e07f0d7328d50f.png)
 
@@ -108,11 +108,11 @@ Example of raw error:
 
 **Cause 1:** Credentials provided for joining VMs to the domain are incorrect.
 
-**Fix 1:** See the "Incorrect credentials" error in [VMs are not joined to the domain](#vms-are-not-joined-to-the-domain).
+**Fix 1:** See the "Incorrect credentials" error for VMs are not joined to the domain in [Troubleshoot Windows Virtual Desktop session host VM configuration](troubleshoot-vm-configuration.md).
 
 **Cause 2:** Domain name doesn't resolve.
 
-**Fix 2:** See the "Domain name doesn't resolve" error in [VMs are not joined to the domain](#vms-are-not-joined-to-the-domain).
+**Fix 2:** See the "Domain name doesn't resolve" error for VMs are not joined to the domain in [Troubleshoot Windows Virtual Desktop session host VM configuration](troubleshoot-vm-configuration.md).
 
 ### Error: VMExtensionProvisioningError
 
@@ -258,9 +258,9 @@ resources are in the same region.\\\",\\r\\n \\\"details\\\": []\\r\\n }\\r\\n}\
 
 **Cause:** This error is because the NIC created with the Azure Resource Manager template has the same name as another NIC already in the VNET.
 
-**Fix:** Use different host prefix.
+**Fix:** Use a different host prefix.
 
-### Error: DeploymentFailed – Error downloading.
+### Error: DeploymentFailed – Error downloading
 
 Example of raw error:
 
@@ -306,7 +306,7 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 
 ### Error: User requires Azure Multi-Factor Authentication (MFA)
 
-![Screenshot of Your Deployment Failed due to lack of Multi-Factor Authentication (MFA).](media/MFARequiredError.png)
+![Screenshot of your deployment failed due to lack of Multi-Factor Authentication (MFA)](media/MFARequiredError.png)
 
 Example of raw error:
 
@@ -334,8 +334,9 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 
 ## Next Steps
 
-- To see an overview for troubleshooting Windows Virtual Desktop and the escalation tracks, see [Overview for troubleshooting common set up issues for Windows Virtual Desktop](troubleshoot-set-up-overview.md).
-- 
+- To see an overview for troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshoot overview for Windows Virtual Desktop issues](troubleshoot-set-up-overview.md) 
+- To troubleshoot issues with Windows Virtual Desktop client connections, see [Troubleshoot Windows Virtual Desktop client connections](troubleshoot-client-connection.md)
+- To troubleshoot issues with Windows Virtual Desktop VM configuration, see [Troubleshoot Windows Virtual Desktop VM issues](troubleshoot-vm-configuration.md)
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Troubleshoot common issues when using PowerShell](troubleshoot-powershell.md)
 - To learn more about the Preview service, see [Windows Desktop Preview environment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup?branch=pr-en-us-71423).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
