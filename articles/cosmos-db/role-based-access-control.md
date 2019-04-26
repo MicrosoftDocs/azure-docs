@@ -21,7 +21,7 @@ The following are the built-in roles supported by Azure Cosmos DB:
 |[DocumentDB Accounts Contributor](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)   | Can manage Azure Cosmos DB accounts.  |
 |[Cosmos DB Account Reader](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)  | Can read Azure Cosmos DB account data.        |
 |[Cosmos Backup Operator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)     |  Can submit restore request for an Azure Cosmos database or a container.       |
-|Cosmos DB Operator  | Can provision Azure Cosmos accounts, databases, and containers but cannot access the keys that are required to access the data.         |
+|[Cosmos DB Operator](../role-based-access-control/built-in-roles.md#cosmos-db-operator)  | Can provision Azure Cosmos accounts, databases, and containers but cannot access the keys that are required to access the data.         |
 
 > [!IMPORTANT]
 > RBAC support in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured using master keys or resource tokens. To learn more, see [Secure access to data in Azure Cosmos DB](secure-access-to-data.md)
