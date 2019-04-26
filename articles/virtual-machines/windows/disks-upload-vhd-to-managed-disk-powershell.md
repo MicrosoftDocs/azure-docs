@@ -22,8 +22,8 @@ Currently, direct upload is supported for standard HDD, standard SSD, and premiu
 ## Prerequisites
 
 - Download the latest [preview version of AzCopy](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
-- [Install the Azure CLI](/cli/azure/install-azure-cli).
-- A vhd file, stored locally
+- [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+- A vhd file, stored locally.
 
 ## Create an empty managed disk
 
@@ -36,15 +36,15 @@ This kind of managed disk has two unique states:
 
 While in either of these states, the managed disk will be billed at [standard HDD pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/), regardless of the actual type of disk. For example, a P10 will be billed as an S10. This will be true until `revoke-access` is called on the managed disk, which is required in order to attach the disk to a VM.
 
-Create an empty standard HDD for uploading by specifying the **–for-upload** parameter in the [disk create](/cli/azure/disk#az-disk-create) cmdlet:
+Create an empty standard HDD for uploading by specifying the **Upload** parameter in the [New-AzDiskConfig](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) cmdlet, then call [New-AzDisk](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) to create the disk:
 
 ```powershell
-$diskconfig = New-AzDiskConfig -SkuName 'StandardLRS' -OsType 'Windows' -DiskSizeGB 1023 -DiskIOPSReadWrite 500 - DiskMBpsReadWrite 8 -Location 'West US' -CreateOption 'Upload'
+$diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -DiskSizeGB 1023 -DiskIOPSReadWrite 500 - DiskMBpsReadWrite 8 -Location 'West US' -CreateOption 'Upload'
 
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName' -Disk $diskconfig
 ```
 
-If you would like to upload either a premium SSD or a standard SSD, replace **standard_lrs** with either **premium_LRS** or **standardssd_lrs**. Ultra SSD is not yet supported.
+If you would like to upload either a premium SSD or a standard SSD, replace **Standard_LRS** with either **Premium_LRS** or **StandardSSD_LRS**. Ultra SSD is not yet supported.
 
 Now that you've created an empty managed disk, you'll need a writeable SAS, so that you can reference it as the destination for your upload.
 
