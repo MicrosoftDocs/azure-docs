@@ -8,17 +8,11 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 # Select Columns in Dataset module
-
-*Selects columns to include or exclude from a dataset in an operation*
-
-Category: Data Transformation / Manipulation
-
-## Module overview
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
@@ -28,7 +22,7 @@ This module is useful when you need to limit the columns available for a downstr
 
 The columns in the dataset are output in the same order as in the original data, even if you specify them in a different order.
 
-## How to use Select Columns in Dataset
+## How to use
 
 This module has no parameters. You use the column selector to choose the columns to include or exclude.
 
@@ -110,3 +104,8 @@ For example, in a dataset with the columns Col1, Col2, Col3, and Col4, you could
 
 + `Col4, Col3, Col1`
 + `4,3,1`
+
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

@@ -8,17 +8,11 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Evaluate Model module
-
-*Evaluates the results of a classification or regression model with standard metrics*  
-  
- Category: Machine Learning / Evaluate 
-  
-## Module overview  
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
@@ -34,7 +28,6 @@ Use this module to measure the accuracy of a trained model. You provide a datase
 > [!TIP]
 > If you are new to model evaluation, we recommend the video series by Dr. Stephen Elston, as part of the [machine learning course](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) from EdX. 
 
-## How to use Evaluate Model
 
 There are three ways to use the **Evaluate Model** module:
 
@@ -42,14 +35,14 @@ There are three ways to use the **Evaluate Model** module:
 + Generate scores on the model, but compare those scores to scores on a reserved testing set
 + Compare scores for two different but related models, using the same set of data
 
-### Use the training data
+## Use the training data
 
 To evaluate a model, you must connect a dataset that contains a set of input columns and scores.  If no other data is available, you can use your original dataset.
 
 1. Connect the **Scored dataset** output of the [Score Model](./score-model.md) to the input of **Evaluate Model**. 
 2. Click **Evaluate Model** module, and run the experiment to generate the evaluation scores.
 
-### Use testing data
+## Use testing data
 
 A common scenario in machine learning is to separate your original data set into training and testing datasets, using the [Split](./split-data.md) module, or the [Partition and Sample](./partition-and-sample.md) module. 
 
@@ -57,7 +50,7 @@ A common scenario in machine learning is to separate your original data set into
 2. Connect the output of the Split Data module that contains the testing data to the right-hand input of **Evaluate Model**.
 2. Click **Evaluate Model** module, and select **Run selected** to generate the evaluation scores.
 
-### Compare scores from two models
+## Compare scores from two models
 
 You can also connect a second set of scores to **Evaluate Model**.  The scores might be a shared evaluation set that has known results, or a set of results from a different model for the same data.
 
@@ -83,14 +76,14 @@ For example, the following image represents a comparison of results from two clu
 
 Because this is a clustering model, the evaluation results are different than if you compared scores from two regression models, or compared two classification models. However, the overall presentation is the same. 
 
-### Metrics
+## Metrics
 
 This section describes the metrics returned for the specific types of models supported for use with **Evaluate Model**:
 
 + [classification models](#bkmk_classification)
 + [regression models](#bkmk_regression)
 
-####  <a name="bkmk_classification"></a> Metrics for classification models
+###  <a name="bkmk_classification"></a> Metrics for classification models
 
 The following metrics are reported when evaluating classification models. If you compare models, they are ranked by the metric you select for evaluation.  
   
@@ -108,7 +101,7 @@ The following metrics are reported when evaluating classification models. If you
   
 - **Training log loss** is a single score that represents the advantage of the classifier over a random prediction. The log loss measures the uncertainty of your model by comparing the probabilities it outputs to the known values (ground truth) in the labels. You want to minimize log loss for the model as a whole.
 
-###  <a name="bkmk_regression"></a> Metrics for regression models
+##  <a name="bkmk_regression"></a> Metrics for regression models
  
 The metrics returned for regression models are generally designed to estimate the amount of error.  A model is considered to fit the data well if the difference between observed and predicted values is small. However, looking at the pattern of the residuals (the difference between any one predicted point and its corresponding actual value) can tell you a lot about potential bias in the model.  
   
@@ -126,3 +119,7 @@ The metrics returned for regression models are generally designed to estimate th
   
 - **Coefficient of determination**, often referred to as R<sup>2</sup>, represents the predictive power of the model as a value between 0 and 1. Zero means the model is random (explains nothing); 1 means there is a perfect fit. However, caution should be used in interpreting  R<sup>2</sup> values, as low values can be entirely normal and high values can be suspect.
   
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

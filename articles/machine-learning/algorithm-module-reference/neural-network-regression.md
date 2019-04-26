@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
@@ -30,7 +30,7 @@ Use this module to create a regression model using a customizable neural network
   
  You can train the model by providing the model and the tagged dataset as an input to [Train Model](./train-model.md). The trained model can then be used to predict values for the new input examples.  
   
-## How to configure Neural Network Regression 
+## Configure Neural Network Regression 
 
 Neural networks can be extensively customized. This section describes how to create a model using two methods:
   
@@ -46,16 +46,14 @@ Neural networks can be extensively customized. This section describes how to cre
     
     This option is best if you are already somewhat familiar with neural networks. You use the Net# language to define the network architecture.  
 
-###  <a name="bkmk_DefaultArchitecture"></a> Create a neural network model using the default architecture
+##  <a name="bkmk_DefaultArchitecture"></a> Create a neural network model using the default architecture
   
 1.  Add the **Neural Network Regression** module to your experiment in the interface. You can find this module under **Machine Learning**, **Initialize**, in the **Regression** category. 
   
 2. Indicate how you want the model to be trained, by setting the **Create trainer mode** option.  
   
     -   **Single Parameter**: Choose this option if you already know how you want to configure the model.  
-  
 
-  
 3.  In **Hidden layer specification**, select **Fully connected case**. This option creates a model using the default neural network architecture, which for a neural network regression model, has these attributes:  
   
     + The network has exactly one hidden layer.
@@ -74,11 +72,9 @@ Neural networks can be extensively customized. This section describes how to cre
 
 8.  For **The momentum**, type a value to apply during learning as a weight on nodes from previous iterations.
 
-  
 10. Select the option, **Shuffle examples**, to change the order of cases between iterations. If you deselect this option, cases are processed in exactly the same order each time you run the experiment.
   
 11. For **Random number seed**, you can optionally type a value to use as the seed. Specifying a seed value is useful when you want to ensure repeatability across runs of the same experiment.
-  
   
 13. Connect a training dataset and one of the [training modules](module-reference.md): 
   
@@ -87,11 +83,7 @@ Neural networks can be extensively customized. This section describes how to cre
    
 14. Run the experiment.  
 
-
-  
-
-
-### Results
+## Results
 
 After training is complete:
 
@@ -99,3 +91,7 @@ After training is complete:
 
 + To save a snapshot of the trained model, right-click the **Trained model** output and select **Save As Trained Model**. This model is not updated on successive runs of the same experiment.
 
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

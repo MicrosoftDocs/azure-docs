@@ -8,19 +8,13 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
 # Convert to CSV module
 
-*Converts data input to a comma-separated values format*  
-  
- Category: **Data Format Conversions**  
-  
-## Module overview
- 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to convert a dataset into a CSV format that can be downloaded, exported, or shared with R or Python script modules.
@@ -56,3 +50,7 @@ Double-click the output of [Convert to CSV](./convert-to-csv.md), and select one
  + **Result Dataset -> Save as Dataset**: Saves the CSV file back to the Azure ML workspace as a separate dataset.
 
  + **Generate Data Access Code**: Azure ML generates two sets of code for you to access the data, either by using Python or by using R. To access the data, copy the code snippet into your application. (*Generate Data Access Code will come soon.*)
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

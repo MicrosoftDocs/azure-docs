@@ -8,17 +8,11 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 # Multiclass Decision Forest module
-
-*Creates a multiclass classification model using the decision forest algorithm*
-
-Category: Machine Learning / Initialize Model / Classification
-
-## Module overview
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
@@ -78,15 +72,16 @@ The decision forest classifier in Azure Machine Learning consists of an ensemble
 
     + If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.
 
-   
-
-
-
 11. Run the experiment.
 
-### Results
+## Results
 
 After training is complete:
 
 + To see the tree that was created on each iteration, right-click the output of the [Train Model](./train-model.md) module, and select **Visualize**.
 + To see the rules for each node, click each tree to drill down into the splits.
+
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

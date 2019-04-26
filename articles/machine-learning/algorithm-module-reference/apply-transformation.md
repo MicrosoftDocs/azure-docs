@@ -8,17 +8,13 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
 # Apply Transformation module
 
-*Applies a well-specified data transformation to a dataset*  
-
-
-## Module overview  
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to modify an input dataset based on a previously computed transformation.  
@@ -44,3 +40,7 @@ Azure Machine Learning provides support for creating and then applying many diff
 4. No other parameters need to be set since all customization is done when defining the transformation.  
   
 5. To apply a transformation to the new dataset, run the experiment.  
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

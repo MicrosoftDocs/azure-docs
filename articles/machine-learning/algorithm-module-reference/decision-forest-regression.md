@@ -8,18 +8,12 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
 # Decision Forest Regression module
-
-*Creates a regression model using the decision forest algorithm*
-
-Category: Initialize Model - Regression
-
-## Module overview
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
@@ -27,7 +21,7 @@ Use this module to create a regression model based on an ensemble of decision tr
 
 After you have configured the model, you must train the model using a labeled dataset and the [Train Model](./train-model.md) module.  The trained model can then be used to make predictions. 
 
-## How decision forests work in regression tasks
+## How it works
 
 Decision trees are non-parametric models that perform a sequence of simple tests for each instance, traversing a binary tree data structure until a leaf node (decision) is reached.
 
@@ -96,3 +90,7 @@ After training is complete:
 + To see the rules for each node, click each tree and drill down into the splits.
 
 + To save a snapshot of the trained model, right-click the output of the training module, and select **Save As Trained Model**. This copy of the model is not updated on successive runs of the experiment. 
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

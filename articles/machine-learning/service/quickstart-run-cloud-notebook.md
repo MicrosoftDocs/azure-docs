@@ -57,17 +57,15 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
 
-1. Select **Jupyter** in the **Launch** column for your VM.  
+1. Select **Jupyter** in the **URI** column for your VM.  
 
     ![Start the Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-server.png)
 
-    The link starts your notebook server and opens the server homepage in a new browser tab.  
+    The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM.
 
-1. The notebook server opens in a new browser tab.  The URL can only be used by the person who creates the VM.
+1. On the Jupyter notebook webpage, select the **samples/quickstart** folder to see the quickstart notebook.
 
-1. Select the **samples/quickstart** folder to see the quickstart notebook.
-
-### Run the notebook
+## Run the notebook
 
 Run a notebook that estimates pi and logs the error to your workspace.
 

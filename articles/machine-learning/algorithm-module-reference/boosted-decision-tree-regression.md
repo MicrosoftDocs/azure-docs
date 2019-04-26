@@ -8,18 +8,13 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 
 # Boosted Decision Tree Regression module
 
-*Creates a regression model using the Boosted Decision Tree algorithm*  
-
-Category: Machine Learning / Initialize Model / Regression
-
-## Module overview  
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to create an ensemble of regression trees using boosting. *Boosting* means that each tree is dependent on prior trees. The algorithm learns by fitting the residual of the trees that preceded it. Thus, boosting in a decision tree ensemble tends to improve accuracy with some small risk of less coverage.  
@@ -100,3 +95,7 @@ After training is complete:
 + To use the model for scoring, connect it to [Score Model](./score-model.md), to predict values for new input examples.
 
 + To save a snapshot of the trained model, right-click the **Trained model** output of the training module and select **Save As**. The copy of the trained model that you save is not updated on successive runs of the experiment.
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

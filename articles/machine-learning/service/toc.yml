@@ -201,6 +201,9 @@
       href: how-to-deploy-and-where.md
     - name: FPGAs
       href: how-to-deploy-fpga-web-service.md
+    - name: IoT Edge
+      href: ../../iot-edge/tutorial-deploy-machine-learning.md
+      maintainContext: true
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md
   - name: Consume web services
@@ -246,7 +249,7 @@
   - name: Visual interface modules
     displayName: module reference
     items:
-    - name: Overview
+    - name: Module reference overview
       href: ../algorithm-module-reference/module-reference.md
     - name: Data format conversions
       items:
@@ -284,8 +287,12 @@
       items:  
       - name: Score Model
         href: ../algorithm-module-reference/score-model.md
+      - name: Assign Data To Clusters 
+        href: ../algorithm-module-reference/assign-data-to-clusters.md
       - name: Train Model
         href: ../algorithm-module-reference/train-model.md
+      - name: Train Clustering Model
+        href: ../algorithm-module-reference/train-clustering-model.md
       - name: Evaluate Model
         href: ../algorithm-module-reference/evaluate-model.md
       - name: Apply Transformation
@@ -316,10 +323,14 @@
         href: ../algorithm-module-reference/two-class-neural-network.md
       - name: Two-Class Support Vector Machine
         href: ../algorithm-module-reference/two-class-support-vector-machine.md
+      - name: K-Means Clustering
+        href: ../algorithm-module-reference/k-means-clustering.md
     - name: Python language modules
       items:  
       - name: Execute Python Script
         href: ../algorithm-module-reference/execute-python-script.md
+      - name: Create Python Model
+        href: ../algorithm-module-reference/create-python-model.md
     - name: Error messages & codes
       href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resources

@@ -8,17 +8,11 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 # Export Data module
-
-*Writes a dataset to Azure blob storage*
-
-Category: Data Input and Output
-
-## Module overview
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
@@ -78,3 +72,7 @@ This module supports exporting or saving your data to the following cloud data s
     5. **Use cached results**: Select this option if you want to avoid rewriting the results to the blob file each time you run the experiment. If there are no other changes to module parameters, the experiment writes the results only the first time the module is run, or when there are changes to the data.
 
     6. Run the experiment.
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

@@ -8,17 +8,11 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 # Edit Metadata module
-
-*Edits metadata associated with columns in a dataset*  
-  
- Category: Data Transformation / Manipulation 
-  
-## Module overview  
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
@@ -40,7 +34,7 @@ Typical metadata changes might include:
   
  After performing the required operation, you can reset the metadata to its original state. 
   
-##  How to configure Edit Metadata
+## Configure Edit Metadata
   
 1.  In Azure Machine Learning, add [Edit Metadata](./edit-metadata.md) module to your experiment and connect the dataset you want to update. You can find it under **Data Transformation**, in the **Manipulate** category.
   
@@ -102,3 +96,7 @@ Typical metadata changes might include:
   
   
 8.  Run the experiment.  
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
