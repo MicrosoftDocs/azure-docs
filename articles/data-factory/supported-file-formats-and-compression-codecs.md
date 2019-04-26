@@ -26,7 +26,7 @@ If you want to **copy files as-is** between file-based stores (binary copy), ski
 * [Avro format](#avro-format)
 
 > [!TIP]
-> Learn how copy activity maps your source data to sink from [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md), including how the metadata is determined based on your file format settings and tips on when to specify the [dataset `structure`](concepts-datasets-linked-services.md#dataset-structure) section.
+> Learn how copy activity maps your source data to sink from [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md), including how the metadata is determined based on your file format settings and tips on when to specify the [dataset `structure`](concepts-datasets-linked-services.md#dataset-structure-or-schema) section.
 
 ## Text format
 
@@ -94,7 +94,7 @@ If you want to parse the JSON files or write the data in JSON format, set the `t
 | nestingSeparator |Character that is used to separate nesting levels. The default value is '.' (dot). |No |
 
 >[!NOTE]
->For the case of cross-apply data in array into multiple rows (case 1 -> sample 2 in [JsonFormat examples](#jsonformat-example)), you can only choose to expand single array using property `jsonNodeReference`. 
+>For the case of cross-apply data in array into multiple rows (case 1 -> sample 2 in [JsonFormat examples](#jsonformat-example)), you can only choose to expand single array using property `jsonNodeReference`.
 
 ### JSON file patterns
 
@@ -193,7 +193,7 @@ Copy activity can parse the following patterns of JSON files:
 
 **Sample 1: extract data from object and array**
 
-In this sample, you expect one root JSON object maps to single record in tabular result. If you have a JSON file with the following content:  
+In this sample, you expect one root JSON object maps to single record in tabular result. If you have a JSON file with the following content:
 
 ```json
 {
@@ -423,13 +423,13 @@ Note the following points:
 > [!IMPORTANT]
 > For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. See the following paragraph with more details.
 
-For copy running on Self-hosted IR with Parquet file serialization/deserialization, ADF locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK. 
+For copy running on Self-hosted IR with Parquet file serialization/deserialization, ADF locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
 
 - **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **To use OpenJDK**: it's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
 
 >[!TIP]
->If you copy data to/from Parquet format using Self-hosted Integration Runtime and hit error saying "An error occurred when invoking java, message: **java.lang.OutOfMemoryError:Java heap space**", you can add an environment variable `_JAVA_OPTIONS` in the machine that hosts the Self-hosted IR to adjust the min/max heap size for JVM to empower such copy, then rerun the pipeline. 
+>If you copy data to/from Parquet format using Self-hosted Integration Runtime and hit error saying "An error occurred when invoking java, message: **java.lang.OutOfMemoryError:Java heap space**", you can add an environment variable `_JAVA_OPTIONS` in the machine that hosts the Self-hosted IR to adjust the min/max heap size for JVM to empower such copy, then rerun the pipeline.
 
 ![Set JVM heap size on Self-hosted IR](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
@@ -480,7 +480,7 @@ Note the following points:
 > [!IMPORTANT]
 > For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying ORC files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. See the following paragraph with more details.
 
-For copy running on Self-hosted IR with ORC file serialization/deserialization, ADF locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK. 
+For copy running on Self-hosted IR with ORC file serialization/deserialization, ADF locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
 
 - **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **To use OpenJDK**: it's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
@@ -535,7 +535,7 @@ Azure Data Factory supports compress/decompress data during copy. When you speci
 * Read .zip file from FTP server, decompress it to get the files inside, and land those files in Azure Data Lake Store. You define an input FTP dataset with the `compression` `type` property as ZipDeflate.
 * Read a GZIP-compressed data from an Azure blob, decompress it, compress it using BZIP2, and write result data to an Azure blob. You define the input Azure Blob dataset with `compression` `type` set to GZIP and the output dataset with `compression` `type` set to BZIP2.
 
-To specify compression for a dataset, use the **compression** property in the dataset JSON as in the following example:   
+To specify compression for a dataset, use the **compression** property in the dataset JSON as in the following example:
 
 ```json
 {
@@ -576,7 +576,7 @@ The **compression** section has two properties:
 
 ## Unsupported file types and compression formats
 
-You can use the extensibility features of Azure Data Factory to transform files that aren't supported. 
+You can use the extensibility features of Azure Data Factory to transform files that aren't supported.
 Two options include Azure Functions and custom tasks by using Azure Batch.
 
 You can see a sample that uses an Azure function to [extract the contents of a tar file](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). For more information, see [Azure Functions activity](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
