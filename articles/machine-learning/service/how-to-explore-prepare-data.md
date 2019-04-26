@@ -172,7 +172,7 @@ lat_mean = ds_def.summarize(group_by_columns = ['Arrest'],
                             summary_columns = [dprep.SummaryColumnsValue(column_id = 'Latitude',
                                                                          summary_column_name = 'Latitude_MEAN',
                                                                          summary_function = dprep.SummaryFunction.MEAN)])
-lat_mean = lat_mean.filter(dprep.col('Arrest') == False)
+lat_mean = lat_mean.filter(lat_mean['Arrest'] == False)
 lat_mean.head(1)
 ```
 
@@ -379,3 +379,5 @@ dataset = dataset.update_definition(ds_def, 'fuzzy grouping')
 * See the automated machine learning [tutorial](tutorial-auto-train-models.md) for a regression model example.
 
 * See the SDK [overview](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) for design patterns and usage examples.
+
+* For an example of using Datasets, see the [sample notebooks](https://aka.ms/dataset-tutorial).

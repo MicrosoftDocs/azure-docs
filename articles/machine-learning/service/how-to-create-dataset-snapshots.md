@@ -178,4 +178,6 @@ dataset.get_all_snapshots()
 
 ## Next steps
 
-See the SDK [overview](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) for design patterns and usage examples.
+* See the SDK [overview](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) for design patterns and usage examples.
+
+* For an example of using Dataset snapshots, see the [sample notebooks](https://aka.ms/dataset-tutorial).
