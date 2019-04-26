@@ -74,6 +74,8 @@
       href: powershell-samples.md
     - name: Azure CLI
       href: cli-samples.md
+    - name: Azure Resource Manager
+      href: resource-manager-samples.md
   - name: Concepts
     items:
     - name: Global distribution
@@ -280,6 +282,8 @@
             href: cassandra-spark-aggregation-ops.md
           - name: Copy table data
             href: cassandra-spark-table-copy-ops.md
+        - name: Manage using Resource Manager templates
+          href: manage-cassandra-with-resource-manager.md
     - name: MongoDB API
       items: 
       - name: Introduction
@@ -357,6 +361,8 @@
         - name: MongoDB extension commands
           href: mongodb-custom-commands.md
           displayName: custom commands
+        - name: Manage using Resource Manager templates
+          href: manage-mongodb-with-resource-manager.md
     - name: Gremlin API
       displayName: graph, graph database
       items: 
@@ -393,6 +399,8 @@
         - name: Store and manage Spring Data
           href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
           maintainContext: true
+        - name: Manage using Resource Manager templates
+          href: manage-gremlin-with-resource-manager.md
     - name: Table API
       items:
       - name: Introduction
@@ -443,6 +451,8 @@
           href: table-support.md
         - name: Table storage design guide
           href: table-storage-design-guide.md
+        - name: Manage using Resource Manager templates
+          href: manage-table-with-resource-manager.md
       - name: Reference
         items:
           - name: .NET
@@ -548,6 +558,8 @@
         href: manage-with-powershell.md
       - name: Manage using Azure CLI
         href: manage-with-cli.md
+      - name: Manage using Resource Manager templates
+        href: manage-sql-with-resource-manager.md
     - name : Logging
       items:
       - name: Diagnostic logging
@@ -676,7 +688,7 @@
     - name: REST Resource Provider
       href: /rest/api/cosmos-db-resource-provider/
     - name: Resource Manager template
-      href: /azure/templates/microsoft.documentdb/databaseaccounts
+      href: /templates/microsoft.documentdb/allversions
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn
