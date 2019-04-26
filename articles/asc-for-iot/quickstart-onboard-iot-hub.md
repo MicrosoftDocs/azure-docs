@@ -1,8 +1,9 @@
 ---
 
-title: Enable ASC for IoT service in IoT Hub Preview| Microsoft Docs
-description: Learn how to enable ASC for IoT service in your IoT Hub.
-services: ascforiot
+title: Enable Azure Security Center for IoT service in IoT Hub Preview| Microsoft Docs
+description: Learn how to enable Azure Security Center for IoT service in your IoT Hub.
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess
@@ -14,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/18/2019
 ms.author: mlottner
 
 ---
@@ -22,20 +23,20 @@ ms.author: mlottner
 # Quickstart: Enable service in IoT Hub
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides an explanation of how to enable the ASC for IoT preview service on your IoT Hub.  
+This article provides an explanation of how to enable the Azure Security Center (ASC) for IoT preview service on your IoT Hub.  
 
 > [!NOTE]
-> ASC for IoT currently only supports standard tier and higher IoT Hubs.
->ASC for IoT is a single hub solution. If you require multiple hubs, multiple solutions are required. 
+> Azure Security Center for IoT currently only supports standard tier and higher IoT Hubs.
+> Azure Security Center for IoT is a single hub solution. If you require multiple hubs, multiple solutions are required. 
 
 ## Prerequisites for enabling the service
 
 - Log Analytics workspace
-  - Two types of information are stored by default in your Log Analytics workspace by by ASC for IoT; **security alerts** and **recommendations**. 
+  - Two types of information are stored by default in your Log Analytics workspace by ASC for IoT; **security alerts** and **recommendations**. 
   - You can choose to add storage of an additional information type, **raw events**. Note that storing **raw events** in Log Analytics carries additional storage costs. 
 - IoT Hub (standard tier or higher)
 
@@ -44,7 +45,7 @@ This article provides an explanation of how to enable the ASC for IoT preview se
 To enable security on your IoT Hub, do the following: 
 
 1. Open your **IoT Hub** in Azure portal. 
-2. Select and open **Security** from the left menu. 
+2. Under the **Security** menu, click **Overview**, then click **Start preview**. 
 3. Choose **Enable IoT Security**. 
 4. Provide your Log Analytics Workspace details. 
    - Elect to store **raw events** in addition to the default information types of storage by leaving the **raw event** toggle **On**. 

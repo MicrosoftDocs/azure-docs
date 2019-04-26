@@ -75,7 +75,7 @@ The following examples show you to register an Azure Blob Container or an Azure 
   ```Python
   ds = Datastore.register_azure_file_share(workspace=ws, 
                                            datastore_name='your datastore name', 
-                                           container_name='your file share name',
+                                           file_share_name='your file share name',
                                            account_name='your storage account name', 
                                            account_key='your storage account key',
                                            create_if_not_exists=True)
@@ -120,13 +120,14 @@ To upload a directory to a datastore `ds`:
 
 ```Python
 import azureml.data
-from azureml.data import AzureFileDatastore, AzureBlobDatastore
+from azureml.data.azure_storage_datastore import AzureFileDatastore, AzureBlobDatastore
 
 ds.upload(src_dir='your source directory',
           target_path='your target path',
           overwrite=True,
           show_progress=True)
 ```
+
 `target_path` specifies the location in the file share (or blob container) to upload. It defaults to `None`, in which case the data gets uploaded to root. `overwrite=True` will overwrite any existing data at `target_path`.
 
 Or upload a list of individual files to the datastore via the datastore's `upload_files()` method.
@@ -139,6 +140,7 @@ ds.download(target_path='your target path',
             prefix='your prefix',
             show_progress=True)
 ```
+
 `target_path` is the location of the local directory to download the data to. To specify a path to the folder in the file share (or blob container) to download, provide that path to `prefix`. If `prefix` is `None`, all the contents of your file share (or blob container) will get downloaded.
 
 <a name="train"></a>
@@ -156,7 +158,7 @@ Upload|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azurem
 
  ```Python
 import azureml.data
-from azureml.data import DataReference
+from azureml.data.data_reference import DataReference
 
 ds.as_mount()
 ds.as_download(path_on_compute='your path on compute')

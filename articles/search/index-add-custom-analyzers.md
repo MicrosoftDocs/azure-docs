@@ -24,7 +24,7 @@ translation.priority.mt:
 
 A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) that consists of a user-defined combination of existing tokenizer and optional filters. By combining tokenizers and filters in new ways, you can customize text processing in the search engine to achieve specific outcomes. For example, you could create a custom analyzer with a *char filter* to remove HTML markup before text inputs are tokenized.
 
- You can define multiple custom analyzers to vary the combination of filters, but each field can only use one analyzer for indexing analysis and one for search analysis. For an illustration of what a customer analyzer looks like, see [Custom analyzer example](search-analyzers.md#Example1).
+ You can define multiple custom analyzers to vary the combination of filters, but each field can only use one analyzer for indexing analysis and one for search analysis. For an illustration of what a customer analyzer looks like, see [Custom analyzer example](search-analyzers.md#Custom-analyzer-example).
 
 ## Overview
 

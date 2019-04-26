@@ -54,7 +54,7 @@ You use the following properties to describe the filters.
 |Name|Description|
 |---|---|
 |firstQuality|The first quality bitrate of the filter.|
-|presentationTimeRange|The presentation time range. This property is used for filtering manifest start/end points, presentation window length, and the live start position. <br/>For more information, see [PresentationTimeRange](#PresentationTimeRange).|
+|presentationTimeRange|The presentation time range. This property is used for filtering manifest start/end points, presentation window length, and the live start position. <br/>For more information, see [PresentationTimeRange](#presentationtimerange).|
 |tracks|The tracks selection conditions. For more information, see [tracks](#tracks)|
 
 ### presentationTimeRange

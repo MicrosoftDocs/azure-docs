@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-ms.date: 11/16/2018
+ms.date: 4/11/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -97,8 +97,8 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 >
 
 
-## Create a data warehouse with sample data
-This example creates a data warehouse using the previously defined variables.  It specifies the service objective as DW400, which is a lower-cost starting point for your data warehouse. 
+## Create a data warehouse
+This example creates a data warehouse using the previously defined variables.  It specifies the service objective as DW100c, which is a lower-cost starting point for your data warehouse. 
 
 ```Powershell
 New-AzSqlDatabase `
@@ -106,7 +106,7 @@ New-AzSqlDatabase `
     -ServerName $servername `
     -DatabaseName $databasename `
     -Edition "DataWarehouse" `
-    -RequestedServiceObjectiveName "DW400" `
+    -RequestedServiceObjectiveName "DW100c" `
     -CollationName "SQL_Latin1_General_CP1_CI_AS" `
     -MaxSizeBytes 10995116277760
 ```
@@ -122,7 +122,7 @@ Required Parameters are:
 Optional Parameters are:
 
 - **CollationName**: The default collation if not specified is SQL_Latin1_General_CP1_CI_AS. Collation can't be changed on a database.
-- **MaxSizeBytes**: The default max size of a database is 10 GB.
+- **MaxSizeBytes**: The default max size of a database is 240TB. The max size limits rowstore data. There is unlimited storage for columnar data.
 
 For more information on the parameter options, see [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 

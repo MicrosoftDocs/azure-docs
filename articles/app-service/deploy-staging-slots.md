@@ -80,7 +80,12 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Monitoring and diagnostic settings
 * Public certificates
 * WebJobs content
-* Hybrid connections
+* Hybrid connections *
+* VNet integration *
+* Service Endpoints *
+* Azure CDN *
+
+Features marked with a * are planned to be made sticky to the slot. 
 
 **Settings that aren't swapped**:
 
@@ -89,10 +94,15 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Private certificates and SSL bindings
 * Scale settings
 * WebJobs schedulers
+* IP restrictions
+* Always On
+* Protocol Settings (HTTP**S**, TLS version, client certificates)
+* Diagnostic log settings
+* CORS
 
-<!-- VNET, IP restrictions, CORS, hybrid connections? -->
+<!-- VNET and hybrid connections not yet sticky to slot -->
 
-To configure an app setting or connection string to stick to a specific slot (not swapped), navigate to the **Application settings** page for that slot, then select the **Slot Setting** box for the configuration elements that should stick to the slot. Marking a configuration element as slot specific tells App Service that it's not swappable.
+To configure an app setting or connection string to stick to a specific slot (not swapped), navigate to the **Application settings** page for that slot, then select the **Slot Setting** box for the configuration elements that should stick to the slot. Marking a configuration element as slot specific tells App Service that it's not swappable. 
 
 ![Slot setting](./media/web-sites-staged-publishing/SlotSetting.png)
 

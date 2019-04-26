@@ -23,14 +23,14 @@ Each API Management service instance has a properties collection of key/value pa
 
 | Attribute | Type | Description |
 | --- | --- | --- |
-| Display name |string |Alphanumeric string used for referencing the property in the policies. |
-| Value |string |The value of the property. It may not be empty or consist only of whitespace. |
-|Secret|boolean|Determines whether the value is a secret and should be encrypted or not.|
-| Tags |array of string |Optional tags that when provided can be used to filter the property list. |
+| `Display name` |string |Alphanumeric string used for referencing the property in the policies. |
+| `Value`        |string |The value of the property. It may not be empty or consist only of whitespace. |
+| `Secret`       |boolean|Determines whether the value is a secret and should be encrypted or not.|
+| `Tags`         |array of string |Optional tags that when provided can be used to filter the property list. |
 
 ![Named values](./media/api-management-howto-properties/named-values.png)
 
-Property values can contain literal strings and [policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx). For example, the value of `ExpressionProperty` is a policy expression that returns a string containing the current date and time. The property `ContosoHeaderValue` is marked as a secret, so its value is not displayed.
+Property values can contain literal strings and [policy expressions](/azure/api-management/api-management-policy-expressions). For example, the value of `ExpressionProperty` is a policy expression that returns a string containing the current date and time. The property `ContosoHeaderValue` is marked as a secret, so its value is not displayed.
 
 | Name | Value | Secret | Tags |
 | --- | --- | --- | --- |
@@ -51,7 +51,7 @@ Property values can contain literal strings and [policy expressions](https://msd
 
 Once the property is created, you can edit it by clicking on the property. If you change the property name, any policies that reference that property are automatically updated to use the new name.
 
-For information on editing a property using the REST API, see [Edit a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
+For information on editing a property using the REST API, see [Edit a property using the REST API](/rest/api/apimanagement/property?Patch).
 
 ## To delete a property
 
@@ -62,7 +62,7 @@ To delete a property, click **Delete** beside the property to delete.
 > 
 > 
 
-For information on deleting a property using the REST API, see [Delete a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
+For information on deleting a property using the REST API, see [Delete a property using the REST API](/rest/api/apimanagement/property?Delete).
 
 ## To search and filter Named Values
 
@@ -107,8 +107,8 @@ While property values can contain policy expressions, property values can't cont
 ## Next steps
 * Learn more about working with policies
   * [Policies in API Management](api-management-howto-policies.md)
-  * [Policy reference](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-  * [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+  * [Policy reference](/azure/api-management/api-management-policies)
+  * [Policy expressions](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

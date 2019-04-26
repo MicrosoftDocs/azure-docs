@@ -4,6 +4,8 @@
   items:
   - name: About application gateways
     href: overview.md
+  - name: What's new?
+    href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -15,8 +17,6 @@
     href: quick-create-cli.md
 - name: Tutorials
   items:
-  - name: Host single site
-    href: quick-create-portal.md
   - name: Enable web application firewall
     href: application-gateway-web-application-firewall-portal.md
   - name: Secure with SSL
@@ -29,8 +29,6 @@
     href: tutorial-url-redirect-cli.md
   - name: Autoscaling and zone redundant
     href: tutorial-autoscale-ps.md
-  - name: Rewrite HTTP headers
-    href: tutorial-http-header-rewrite-powershell.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -65,6 +63,8 @@
       href: ssl-overview.md
     - name: SSL policy overview
       href: application-gateway-ssl-policy-overview.md
+    - name: Using Key Vault
+      href: key-vault-certs.md
   - name: WAF
     items:
     - name: Web application firewall
@@ -109,6 +109,8 @@
         href: tutorial-ssl-powershell.md
       - name: SSL termination - Azure CLI
         href: tutorial-ssl-cli.md
+      - name: Configure Key Vault - PowerShell
+        href: configure-keyvault-ps.md
     - name: End-to-end SSL
       items:        
       - name: End-to-end SSL - Portal
@@ -175,8 +177,10 @@
         href: redirect-internal-site-cli.md
     - name: Redirect web traffic using Azure PowerShell
       href: tutorial-url-redirect-powershell.md
-  - name: Rewrite HTTP headers in existing gateway
+  - name: Rewrite HTTP headers
     items:
+    - name: Azure portal
+      href: rewrite-http-headers-portal.md    
     - name: Azure PowerShell
       href: add-http-header-rewrite-rule-powershell.md
   - name: Configure App service webapp and multi-tenant service

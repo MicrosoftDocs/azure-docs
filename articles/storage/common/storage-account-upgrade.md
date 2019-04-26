@@ -17,7 +17,7 @@ General-purpose v2 storage accounts support the latest Azure Storage features an
 Upgrading to a General-purpose v2 storage account from your General-purpose v1 or Blob storage accounts is simple. You can upgrade using the Azure portal, PowerShell, or Azure CLI.
 
 > [!IMPORTANT]
-> Upgrading a General-purpose v1 or Blob storage storage account to General-purpose v2 is permanent and cannot be undone.
+> Upgrading a General-purpose v1 or Blob storage account to General-purpose v2 is permanent and cannot be undone.
 
 ## Upgrade using the Azure portal
 

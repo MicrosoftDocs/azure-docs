@@ -17,10 +17,10 @@ ms.date: 01/25/2019
 
 Azure SQL Database is an automatically managed data service that constantly monitors your queries and identifies the action that you can perform to improve performance of your workload. You can review recommendations and manually apply them, or let Azure SQL Database automatically apply corrective actions - this is known as **automatic tuning mode**.
 
-Automatic tuning can be enabled at the server or the database level through the [Azure portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) calls and [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) commands.
+Automatic tuning can be enabled at the server or the database level through the [Azure portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) calls and [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) commands.
 
 > [!NOTE]
-> For Managed Instance, the supported option FORCE_LAST_GOOD_PLAN can be configured through [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) only. Portal based configuration and automatic index tuning options described in this article do not apply to Managed Instance.
+> For Managed Instance, the supported option FORCE_LAST_GOOD_PLAN can be configured through [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) only. Portal based configuration and automatic index tuning options described in this article do not apply to Managed Instance.
 
 > [!NOTE]
 > Configuring Automatic tuning options through ARM (Azure Resource Manager) template is not supported at this time.

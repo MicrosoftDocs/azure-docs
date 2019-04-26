@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 04/15/2019
 ms.author: aschhab
 
 ---
@@ -30,12 +30,14 @@ from Node.js applications. The scenarios covered include:
 - Receiving messages from a subscription
 - Deleting topics and subscriptions 
 
-For more information about topics
-and subscriptions, see [Next steps](#next-steps) section.
+For more information about topics and subscriptions, see [Next steps](#next-steps) section.
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+## Prerequisites
+1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to create a Service Bus **namespace** and get the **connection string**.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > You will create a **topic** and a **subscription** to the topic by using **Node.js** in this quickstart. 
 
 ## Create a Node.js application
 Create a blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] using Windows PowerShell, or Web Site with WebMatrix.

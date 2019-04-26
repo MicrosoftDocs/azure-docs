@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Perform extract, transform, load (ETL) operations using Hive on HDInsight - Azure '
 description: Learn how to extract data from a raw CSV dataset, transform it using Hive on HDInsight, and then load the transformed data into Azure SQL database by using Apache Sqoop.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -318,7 +317,7 @@ To learn more ways to work with data in HDInsight, see the following articles:
 * [Use Apache Hive with HDInsight][hdinsight-use-hive]
 * [Use Apache Pig with HDInsight][hdinsight-use-pig]
 * [Develop Java MapReduce programs for Apache Hadoop on HDInsight][hdinsight-develop-mapreduce]
-* [Develop Python streaming MapReduce programs for HDInsight][hdinsight-develop-streaming]
+
 * [Use Apache Oozie with HDInsight][hdinsight-use-oozie]
 * [Use Apache Sqoop with HDInsight][hdinsight-use-sqoop]
 
@@ -340,7 +339,7 @@ To learn more ways to work with data in HDInsight, see the following articles:
 [hdinsight-get-started]: hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-[hdinsight-develop-streaming]:hadoop/apache-hadoop-streaming-python.md
+
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL

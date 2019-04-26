@@ -4,7 +4,7 @@ description: Generate and use Service Fabric Java client APIs using Service Fabr
 services: service-fabric
 documentationcenter: java
 author: rapatchi
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

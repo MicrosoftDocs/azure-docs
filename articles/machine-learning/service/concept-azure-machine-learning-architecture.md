@@ -1,25 +1,28 @@
 ---
-title: 'Machine learning in the cloud: Terms and architecture'
+title: 'Architecture & key concepts'
 titleSuffix: Azure Machine Learning service
-description: Learn about the architecture, terminology, and concepts that make up Azure Machine Learning service. You also learn about the general workflow of using the service, and the Azure services that are used by Azure Machine Learning service.
+description: Learn about the architecture, terms, concepts and workflow that make up Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 12/04/2018
+ms.date: 04/15/2019
+ms.custom: seoapril2019
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning service works.
 ms.custom: seodec18
 ---
 
 # How Azure Machine Learning service works: Architecture and concepts
 
-This article describes the architecture and concepts for Azure Machine Learning service. The major components of the service and the general workflow for using the service are shown in the following diagram:
+Learn about the architecture, concepts, and workflow for Azure Machine Learning service. The major components of the service and the general workflow for using the service are shown in the following diagram:
 
 [![Azure Machine Learning service architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-The workflow generally follows this sequence:
+## Workflow
+
+The machine learning workflow generally follows this sequence:
 
 1. Develop machine learning training scripts in **Python**.
 1. Create and configure a **compute target**.
@@ -42,11 +45,13 @@ The workspace keeps a list of compute targets that you can use to train your mod
 
 You register models with the workspace. You use a registered model and scoring scripts to create an image. You can then deploy the image to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. You can also deploy the image to an Azure IoT Edge device as a module.
 
-You can create multiple workspaces, and each workspace can be shared by multiple people. When you share a workspace, you can control access to it by assigning the following roles to users:
+You can create multiple workspaces, and each workspace can be shared by multiple people. When you share a workspace, you can control access to it by assigning users to the following roles:
 
 * Owner
 * Contributor
 * Reader
+
+For more information on these roles, see the [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md) article.
 
 When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
 
@@ -74,7 +79,7 @@ At its simplest, a model is a piece of code that takes an input and produces out
 
 A model is produced by a run in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. You can register a model in an Azure Machine Learning service workspace.
 
-Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, Chainer, and Microsoft Cognitive Toolkit (formerly known as CNTK).
+Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
 For an example of training a model, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
@@ -179,6 +184,10 @@ Azure Machine Learning can create two types of images:
 
 * **FPGA image**: Used when you deploy to a field-programmable gate array in Azure.
 * **Docker image**: Used when you deploy to compute targets other than FPGA. Examples are Azure Container Instances and Azure Kubernetes Service.
+
+The Azure Machine Learning service provides a base image, which is used by default. You can also provide your own custom images.
+
+For more information, see the configure and register image section of [Deploy models](how-to-deploy-and-where.md#configureimage).
 
 For an example of creating an image, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 

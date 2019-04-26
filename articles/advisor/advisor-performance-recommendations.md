@@ -70,6 +70,25 @@ Migrate your Storage Account deployment model to Azure Resource Manager (Resourc
 > [!NOTE]
 > Classic alerts in Azure Monitor are scheduled to retire in June 2019. We recommended that you upgrade your classic storage account to use Resource Manager to retain alerting functionality with the new platform. For more information, see [Classic Alerts Retirement](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
+## Design your storage accounts to prevent hitting the maximum subscription limit
+
+An Azure region can support a maximum of 250 storage accounts per subscription. Once the limit is reached, you will be unable to create any more storage accounts in that region/subscription combination. Advisor will check your subscriptions and surface recommendations for you to design for fewer storage accounts for any that are close to reaching the maximum limit.
+
+## Optimize the performance of your Azure MySQL, Azure PostgreSQL, and Azure MariaDB servers 
+
+### Fix the CPU pressure of your Azure MySQL, Azure PostgreSQL, and Azure MariaDB servers with CPU bottlenecks
+Very high utilization of the CPU over an extended period can cause slow query performance for your workload. Increasing the CPU size will help in optimizing the runtime of the database queries and improve overall performance. Azure Advisor will identify servers with a high CPU utilization that are likely running CPU constrained workloads and recommend scaling your compute.
+
+### Reduce memory constraints on your Azure MySQL, Azure PostgreSQL, and Azure MariaDB servers or move to a memory optimized SKU
+A low cache hit ratio can result in slower query performance and increased IOPS. This could be due to a bad query plan or running a memory intensive workload. Fixing the query plan or [increasing the memory](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) of the Azure Database for PostgreSQL database server, Azure MySQL database server, or Azure MariaDB server will help optimize the execution of the database workload. Azure Advisor identifies servers affected due to this high buffer pool churn and recommends either fixing the query plan, moving to a higher SKU with more memory, or increasing storage size to get more IOPS.
+
+### Use a Azure MySQL or Azure PostgreSQL Read Replica to scale out reads for read intensive workloads
+Azure Advisor leverages workload-based heuristics such as the ratio of reads to writes on the server over the past seven days to identify read-intensive workloads. Your Azure database for PostgreSQL resource or Azure database for MySQL resource with a very high read/writes ratio can result in CPU and/or memory contentions leading to slow query performance. Adding a [replica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) will help in scaling out reads to the replica server, preventing CPU and/or memory constraints on the primary server. Advisor will identify servers with such high read-intensive workloads and recommend adding a [read replica](https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas) to offload some of the read workloads.
+
+
+### Scale your Azure MySQL, Azure PostgreSQL, or Azure MariaDB server to a higher SKU to prevent connection constraints
+Each new connection to your database server occupies some memory. The database server's performance degrades if connections to your server are failing because of an [upper limit](https://docs.microsoft.com/en-us/azure/postgresql/concepts-limits) in memory. Azure Advisor will identify servers running with many connection failures and recommend upgrading your server's connections limits to provide more memory to your server by scaling up compute or using Memory Optimized SKUs, which have more compute per core.
+
 ## How to access Performance recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).

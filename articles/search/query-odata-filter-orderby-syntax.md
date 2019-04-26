@@ -1,7 +1,7 @@
 ---
 title: OData expression syntax for filters and order-by clauses - Azure Search
 description: Filter and order-by expression OData syntax for Azure Search queries.
-ms.date: 01/31/2019
+ms.date: 03/27/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -78,9 +78,11 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 - The `search.in` function tests whether a given string field is equal to one of a given list of values. It can also be used in any or all to compare a single value of a string collection field with a given list of values. Equality between the field and each value in the list is determined in a case-sensitive fashion, the same way as for the `eq` operator. Therefore an expression like `search.in(myfield, 'a, b, c')` is equivalent to `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, except that `search.in` will yield much better performance. 
 
-  The first parameter to the `search.in` function is the string field reference (or a range variable over a string collection field in the case where `search.in` is used inside an `any` or `all` expression). The second parameter is a string containing the list of values, separated by spaces and/or commas. If you need to use separators other than spaces and commas because your values include those characters, you can specify an optional third parameter to `search.in`. 
-
-  This third parameter is a string where each character of the string, or subset of this string is treated as a separator when parsing the list of values in the second parameter.
+   The first parameter to the `search.in` function is the string field reference (or a range variable over a string collection field in the case where `search.in` is used inside an `any` or `all` expression). 
+  
+   The second parameter is a string containing the list of values, separated by spaces and/or commas. 
+  
+   The third parameter is a string where each character of the string, or subset of this string is treated as a separator when parsing the list of values in the second parameter. If you need to use separators other than spaces and commas because your values include those characters, you can specify an optional third parameter to `search.in`. 
 
   > [!NOTE]   
   > Some scenarios require comparing a field against a large number of constant values. For example, implementing security trimming with filters might require comparing the document ID field against a list of IDs to which the requesting user is granted read access. In scenarios like this we highly recommend using the `search.in` function instead of a more complicated disjunction of equality expressions. For example, use `search.in(Id, '123, 456, ...')` instead of `Id eq 123 or Id eq 456 or ....`. 
@@ -201,7 +203,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-Find all hotels with name equal to either Roach motel' or 'Budget hotel'):  
+Find all hotels with name equal to either 'Roach motel' or 'Budget hotel'). Phrases contain spaces, which is a default delimiter. You can specicfy an alternative delimiter in single quotes as the third string parameter:  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -217,6 +219,12 @@ Find all hotels with the tag 'wifi' or 'pool':
 
 ```
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
+```
+
+Find a match on phrases within a collection, such as 'heated towel racks' or 'hairdryer included' in tags. 
+
+```
+$filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))
 ```
 
 Find all hotels without the tag 'motel' nor 'cabin':  

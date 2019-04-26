@@ -3,7 +3,7 @@ title: User migration approaches in Azure Active Directory B2C | Microsoft Docs
 description: Discuss core and advanced concepts on user migration using Graph API and optionally using Azure AD B2C custom policies.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
@@ -253,7 +253,7 @@ To track the password change, you use an Azure table. When you run the pre-migra
 ### 4.1: Update your application setting
 1. To test the RESTful API demo, open `AADB2C.UserMigration.sln` in Visual Studio.
 
-1. In the `AADB2C.UserMigration.API` project, open the *appsettings.json* file. Replace the setting with the one configured in [Step 2.2](#step-22-configure-the-application-settings):
+1. In the `AADB2C.UserMigration.API` project, open the *Web.config* file. Replace the setting with the one configured in [Step 2.2](#step-22-configure-the-application-settings):
 
     ```json
     {

@@ -2,11 +2,11 @@
 title: Deploy Azure File Sync | Microsoft Docs
 description: Learn how to deploy Azure File Sync, from start to finish.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -153,7 +153,7 @@ Login-AzureRmStorageSync `
     -Location $region
 ```
 
-Once you have created the Azure File Sync context with the `Login-AzureR,StorageSync` cmdlet, you can create the Storage Sync Service. Be sure to replace `<my-storage-sync-service>` with the desired name of your Storage Sync Service.
+Once you have created the Azure File Sync context with the `Login-AzureRmStorageSync` cmdlet, you can create the Storage Sync Service. Be sure to replace `<my-storage-sync-service>` with the desired name of your Storage Sync Service.
 
 ```powershell
 $storageSyncName = "<my-storage-sync-service>"

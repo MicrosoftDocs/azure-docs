@@ -4,7 +4,7 @@ description: Describes the Service Fabric CLI sfctl mesh secret commands.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 

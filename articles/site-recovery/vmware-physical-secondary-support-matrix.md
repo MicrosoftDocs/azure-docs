@@ -6,7 +6,7 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 04/08/2019
 ms.author: raynew
 ---
 

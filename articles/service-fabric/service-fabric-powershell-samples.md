@@ -3,8 +3,8 @@ title: Azure PowerShell Samples - Service Fabric | Microsoft Docs
 description: Azure PowerShell Samples - Service Fabric
 services: service-fabric
 documentationcenter: service-fabric
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: 
 tags: 
 
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
 ms.date: 11/29/2018
-ms.author: ryanwi
+ms.author: atsenthi
 ms.custom: mvc
 ---
 # Azure PowerShell samples

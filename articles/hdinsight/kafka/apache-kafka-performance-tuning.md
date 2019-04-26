@@ -1,7 +1,6 @@
 ---
 title: Performance optimization for Apache Kafka HDInsight clusters
 description: Provides an overview of techniques for optimizing Apache Kafka workloads on Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -60,7 +59,7 @@ Storage disks have limited IOPS (Input/Output Operations Per Second) and read/wr
 
 ### Number of topics and partitions
 
-Kafka producers write to topics. Kafka consumers read from topics. A topic is associated with a log, which is a data structure on disk. Kafka appends records from a producer(s) to the end of a topic log. A topic log consists of many partitions that are spread over multiple files. These files are, in turn, spread across multiple Kafka cluster nodes. Consumers read from Kafka topics at their cadence and and can pick their position (offset) in the topic log.
+Kafka producers write to topics. Kafka consumers read from topics. A topic is associated with a log, which is a data structure on disk. Kafka appends records from a producer(s) to the end of a topic log. A topic log consists of many partitions that are spread over multiple files. These files are, in turn, spread across multiple Kafka cluster nodes. Consumers read from Kafka topics at their cadence and can pick their position (offset) in the topic log.
 
 Each Kafka partition is a log file on the system, and producer threads can write to multiple logs simultaneously. Similarly, since each consumer thread reads messages from one partition, consuming from multiple partitions is handled in parallel as well.
 

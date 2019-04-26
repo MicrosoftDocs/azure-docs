@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
@@ -15,6 +15,8 @@ ms.custom:
 # Understand Cost Management data
 
 This article helps you better understand what data is included in Azure Cost Management. And it explains how frequently data is processed, collected, shown, and closed. You're billed for Azure usage monthly. However, your Azure subscription type determines when your billing month ends. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
+
+Cost Management includes all usage and purchases, including reservations and third-party offerings for Enterprise Agreement (EA) accounts. Microsoft Customer Agreement (MCA) accounts and pay-as-you-go subscriptions only include usage from Azure and Marketplace services. Support and other costs are not included. Costs are estimated until an invoice is generated and do not factor in credits.
 
 ## Supported Microsoft offers
 
@@ -26,6 +28,8 @@ The following information shows the currently supported [Microsoft Azure offers]
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
 | **Enterprise Agreement (EA)** | Enterprise Dev/Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
 | **Enterprise Agreement (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
+| **Microsoft Customer Agreement** | [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A |
+| **Microsoft Customer Agreement** | [Microsoft Azure Plan for Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | N/A |
 | **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
 | **Pay-As-You-Go** | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
 | **Pay-As-You-Go** | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
@@ -66,27 +70,29 @@ If you don't see data for a subscription and you want to determine if your subsc
 
 ## Costs included in Cost Management
 
-The following tables show data that's included or isn't in Cost Management.
+The following tables show data that's included or isn't in Cost Management. All costs are estimated until an invoice is generated. Costs shown do not include free and prepaid credits.
 
 **Cost and usage data**
 
 | **Included** | **Not included** |
 | --- | --- |
 | Azure service usage<sup>1</sup> | Reservation purchases – For more information, see [APIs for Azure reservation automation](../billing/billing-reservation-apis.md). |
-| Marketplace offering usage | Marketplace purchases – For more information, see [Third-party service charges](../billing/billing-understand-your-azure-marketplace-charges.md). |
+| Marketplace offering usage<sup>2</sup> | Marketplace purchases – For more information, see [Third-party service charges](../billing/billing-understand-your-azure-marketplace-charges.md). |
 |   | Support charges - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 |   | Taxes - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 |   | Credits - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> Azure service usage is based on reservation and negotiated prices.
 
+<sup>2</sup> Marketplace offering usage is not available for Pay-As-You-Go, MSDN, and Visual Studio offers at this time.
+
 **Metadata**
 
 | **Included** | **Not included** |
 | --- | --- |
-| Resource tags<sup>2</sup> | Resource group tags |
+| Resource tags<sup>3</sup> | Resource group tags |
 
-<sup>2</sup> Resource tags are applied as usage is emitted from each service and aren't available retroactively to historical usage.
+<sup>3</sup> Resource tags are applied as usage is emitted from each service and aren't available retroactively to historical usage.
 
 ## Rated usage data refresh schedule
 
@@ -105,7 +111,7 @@ Pay-as-you-go subscriptions – If the billing month ends on May 15, then the es
 
 ### Rerated data
 
-Whether you use the [Cost Management APIs](https://aka.ms/costmgmt/docs), PowerBI, or the Azure portal to retrieve data, expect the current billing period's charges to get re-rated, and consequently change, until the invoice is closed.
+Whether you use the [Cost Management APIs](https://aka.ms/costmgmt/docs), Power BI, or the Azure portal to retrieve data, expect the current billing period's charges to get re-rated, and consequently change, until the invoice is closed.
 
 ## Usage data update frequency varies
 
@@ -115,6 +121,25 @@ The availability of your incurred usage data in Cost Management depends on a cou
 - The time taken to process the usage data through the rating engine and cost management pipelines.
 
 Some services emit usage more frequently than others. So, you might see data in Cost Management for some services sooner than other services that emit data less frequently. Typically, usage for services takes 8-24 hours to appear in Cost Management. Keep in mind that data for an open month gets refreshed as you incur more usage because updates are cumulative.
+
+## Historical data might not match invoice
+
+Historical data for credit-based and pay-in-advance offers might not match your invoice. Some Azure Pay-As-You-Go, MSDN, and Visual Studio offers can have Azure credits and advanced payments applied to the invoice. However, the historical data shown in Cost Management is based on your estimated consumption charges only. Cost Management historical data doesn't include payments and credits. As a result, the historical data shown for the following offers may not match exactly with your invoice.
+
+-	MS-AZR-0029P
+-	MS-AZR-0064P
+-	MS-AZR-0170P
+-	MS-AZR-0062P
+-	MS-AZR-0123P
+-	MS-AZR-0129P
+-	MS-AZR-0044P
+-	MS-AZR-0128P
+-	MS-AZR-0120P
+-	MS-AZR-0125P
+-	MS-AZR-0059P
+-	MS-AZR-0063P
+-	MS-AZR-0060P
+-	MS-AZR-0111P
 
 ## See also
 

@@ -72,7 +72,7 @@ However, Maps does not have the same level of information and accuracy for all r
 | Réunion                          | ✓ | ✓ |
 | Rwanda                           | ✓ | ✓ |
 | Saint Helena, Ascension and Tristan da Cunha | ✓ | Ø |
-| Sao Tome and Principe            | ✓ | Ø |
+| São Tomé and Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
 | Sierra Leone                     | ✓ | ✓ |
 | Somalia                          | ✓ | ✓ |
@@ -165,7 +165,7 @@ However, Maps does not have the same level of information and accuracy for all r
 | Cocos (Keeling) Islands   |   | Ø |
 | Democratic People's Republic of Korea |   | Ø |
 | Dokdo and Takeshima       |   | Ø |
-| Hong Kong                 | ✓ | ✓ |
+| Hong Kong SAR             | ✓ | ✓ |
 | India                     | Ø | ✓ | 
 | Indonesia                 | ✓ | ✓ |
 | Iran                      |   | Ø |
@@ -178,7 +178,7 @@ However, Maps does not have the same level of information and accuracy for all r
 | Kyrgyzstan                |   | Ø |
 | Lao People's Democratic Republic |   | Ø |
 | Lebanon                   | ✓ | ✓ |
-| Macao                     | ✓ | ✓ |
+| Macao SAR                 | ✓ | ✓ |
 | Malaysia                  | ✓ | ✓ |
 | Maldives                  |   | Ø |
 | Mongolia                  |   | Ø |
@@ -272,7 +272,7 @@ However, Maps does not have the same level of information and accuracy for all r
 | Liechtenstein             | ✓ | ✓ |
 | Lithuania                 | ✓ | ✓ |
 | Luxembourg                | ✓ | ✓ |
-| Macedonia                 | ✓ | ✓ |
+| North Macedonia           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
 | Monaco                    | ✓ | ✓ |

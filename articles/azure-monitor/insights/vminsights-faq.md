@@ -96,7 +96,7 @@ The Azure Monitor for VMs Map feature is based on Service Map, but has the follo
 * Monitored VMs are now included in the client group node, and the donut chart shows the proportion of monitored vs unmonitored virtual machines in the group.  It can also be used to filter the list of machines when the group is expanded.
 * Monitored virtual machines are now included in the server port group nodes, and the donut chart shows the proportion of monitored vs unmonitored machines in the group.  It can also be used to filter the list of machines when the group is expanded.
 * The map style has been updated to be more consistent with App Map from Application insights.
-* The side panels have been updated, but do not yet have the full set of integration's that were supported in Service Map - Update Management, Change Tracking, Security, and Service Desk. 
+* The side panels have been updated, and do not have the full set of integration's that were supported in Service Map - Update Management, Change Tracking, Security, and Service Desk. 
 * The option for choosing groups and machines to map has been updated and now supports Subscriptions, Resource Groups, Azure virtual machine scale sets, and Cloud services.
 * You cannot create new Service Map machine groups in the Azure Monitor for VMs Map feature.  
 
@@ -121,6 +121,12 @@ While we have made improvements to Map to handle large and complex configuration
 ## Why does the network chart on the Performance tab look different than the network chart on the Azure VM Overview page?
 
 The overview page for an Azure VM displays charts based on the host's measurement of activity in the guest VM.  For the network chart on the Azure VM Overview, it only displays network traffic that will be billed.  This does not include inter-vnet traffic.  The data and charts shown for Azure Monitor for VMs is based on data from the guest VM and the network chart displays all TCP/IP traffic that is inbound and outbound to that VM, including inter-vnet.
+
+## How is response time measured for data stored in VMConnection and displayed in the connection panel and workbooks?
+
+Response time is an approximation. Since we do not instrument the code of the application, we do not really know when a request begins and when the response arrives. Instead we observe data being sent on a connection and then data coming back on that connection. Our agent keeps track of these sends and receives and attempts to pair them: a sequence of sends, followed by a sequence of receives is interpreted as a request/response pair. The timing between these operations is the response time. It will include the network latency and the server processing time.
+
+This approximation works well for protocols that are request/response based: a single request goes out on the connection, and a single response arrives. This is the case for HTTP(S) (without pipelining), but not satisfied for other protocols.
 
 ## Are their limitations if I am on the Log Analytics Free pricing plan?
 If you have configured Azure Monitor with a Log Analytics workspace using the *Free* pricing tier, Azure Monitor for VMs Map feature will only support five connected machines connected to the workspace. If you have five VMs connected to a free workspace, you disconnect one of the VMs and then later connect a new VM, the new VM is not monitored and reflected on the Map page.  

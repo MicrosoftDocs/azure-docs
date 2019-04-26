@@ -1,5 +1,5 @@
 ---
-title: Azure Marketplace SEO Publisher Guide | Microsoft Docs
+title: Azure Marketplace SEO guidance | Microsoft Docs
 description: Provides guidance on maximizing search engine optimization (SEO).
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -13,18 +13,18 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/09/2019
 ms.author: pbutlerm
 ---
 
+# Azure Marketplace SEO guidance
 
-Azure Marketplace SEO Publisher Guide
-=======================================
+This article explains how to maximize your offer's discoverability through the search functionality in the [Azure Marketplace](https://azuremarketplace.microsoft.com) and [AppSource](https://appsource.microsoft.com). 
 
-### General explanation of algorithm
 
-The marketplace utilizes Azure Search for powering the site's search
-capabilities. The algorithm is based on term frequency–inverse document frequency ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). The standard [Lucene Analyzer](https://lucene.apache.org/core/) is used.
+## General explanation of algorithm
+
+Microsoft marketplaces utilize Azure Search for powering the site's search capabilities. The algorithm is based on term frequency–inverse document frequency ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). The standard [Lucene Analyzer](https://lucene.apache.org/core/) is used.
 
 In general, all text fields, categories, and industries and included
 into the weightage of the relevance. Specialized terms that are used
@@ -44,7 +44,7 @@ Below are the most relevant fields to consider.
 |  |  |  |
 
 
-### Other Tips
+## Other Tips
 
 -   Search suggests gets heavy user activity. It prioritizes matches
     against app name/publisher. Short description becomes the key field

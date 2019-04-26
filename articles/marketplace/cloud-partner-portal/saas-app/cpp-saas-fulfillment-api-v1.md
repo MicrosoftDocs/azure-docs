@@ -13,23 +13,19 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: reference
-ms.date: 02/27/2019
+ms.date: 03/28/2019
 ms.author: pbutlerm
+
+ROBOTS: NOINDEX
 ---
 
-# SaaS Fulfillment APIs Version 1
+# SaaS Fulfillment APIs Version 1  (Deprecated)
 
-This article explains how to create a SaaS offer with APIs. The APIs are necessary for allowing subscriptions to your SaaS offer if you have Sell
+This article explains how to create a SaaS offer with APIs. The APIs, composed of REST methods and endpoints, are necessary for allowing subscriptions to your SaaS offer if you have Sell
 through Azure selected.  
 
 > [!WARNING]
-> This initial version of the SaaS Fulfillment API is deprecated; instead, use [SaaS Fulfillment API V2](./cpp-saas-fulfillment-api-v2.md).
-
-
-This article is divided into two sections:
-
--   Service-to-service Authentication between a SaaS Service and Azure Marketplace
--   API Methods and Endpoints
+> This initial version of the SaaS Fulfillment API is deprecated; instead, use [SaaS Fulfillment API V2](./cpp-saas-fulfillment-api-v2.md).  This API is currently being maintained only to serve existing publishers. 
 
 The following APIs are provided to help you integrate your SaaS service with Azure:
 
@@ -38,140 +34,11 @@ The following APIs are provided to help you integrate your SaaS service with Azu
 -   Convert
 -   Unsubscribe
 
-The following diagram shows the subscription flow of a new customer and when these APIs are used:
 
-![SaaS offer API flow](./media/saas-offer-publish-api-flow-v1.png)
-
-
-## Service to service authentication between SaaS service and Azure marketplace
-
-Azure does not impose any constraints on the authentication that the
-SaaS service exposes to its end users. However, when it comes to the
-SaaS service communicating with Azure Marketplace APIs, the
-authentication is done in the context of an Azure Active Directory
-(Azure AD) application.
-
-The following section describes how to create an Azure AD application.
-
-
-### Register an Azure AD Application
-
-Any application that wants to use the capabilities of Azure AD must
-first be registered in an Azure AD tenant. This registration process
-involves giving Azure AD details about your application, such as the URL
-where it's located, the URL to send replies after a user is
-authenticated, the URI that identifies the app, and so on.
-
-To register a new application using the Azure portal, perform the following steps:
-
-1. Sign in to the [Azure Portal](https://portal.azure.com/).
-2. If your account gives you access to more than one, click your
-   account in the top right corner, and set your portal session to the
-   desired Azure AD tenant.
-3. In the left-hand navigation pane, click the **Azure Active
-   Directory** service, click **App registrations**, and click **New application registration**.
-
-   ![SaaS AD App Registrations](./media/saas-offer-app-registration-v1.png)
-
-4. On the Create page, enter your application\'s registration
-   information:
-   - **Name**: Enter a meaningful application name
-   - **Application type**: 
-     - Select **Native** for [client applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client).
-     - Select **Web app / API** for
-     [client applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)
-     and [resource/API applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server)
-     that are installed on a secure server. This setting is used for
-     OAuth confidential [web clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client)
-     and public [user-agent-based  clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
-     The same application can also expose both a client and resource/API.
-   - **Sign-On URL**: For Web app/API applications, provide the base
-     URL of your app. For example, **http:\//localhost:31544** might
-     be the URL for a web app running on your local machine. Users
-     would then use this URL to sign in to a web client application.
-   - **Redirect URI**: For Native applications, provide the URI used
-     by Azure AD to return token responses. Enter a value specific to
-     your application, for example **http:\//MyFirstAADApp**.
-
-     ![SaaS AD App Registrations](./media/saas-offer-app-registration-v1-2.png)
-
-     For specific examples for web applications or native
-     applications, check out the quick start guided setups that are
-     available in the Get Started section of the [Azure AD Developers Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-
-5. When finished, click **Create**. Azure AD assigns a unique
-   Application ID to your application, and you\'re taken to your
-   application\'s main registration page. Depending on whether your
-   application is a web or native application, different options are
-   provided to add additional capabilities to your application.
-
->[!Note]
->By default, the newly registered application is configured to allow only users from the same tenant to sign in to your application.
-
-API Methods and Endpoints
--------------------------
+## API methods and endpoints
 
 The following sections describe the API methods and endpoints available for enabling subscriptions for a SaaS offer.
 
-### Get a token based on the Azure AD app
-
-HTTP Method
-
-`GET`
-
-*Request URL*
-
-**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
-
-*URI parameter*
-
-|  **Parameter name**  | **Required**  | **Description**                               |
-|  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | True          | Tenant ID of the registered AAD application   |
-|  |  |  |
-
-
-*Request header*
-
-|  **Header name**  | **Required** |  **Description**                                   |
-|  --------------   | ------------ |  ------------------------------------------------- |
-|  Content-Type     | True         | Content type associated with the request. The default value is `application/x-www-form-urlencoded`.  |
-|  |  |  |
-
-
-*Request body*
-
-| **Property name**   | **Required** |  **Description**                                                          |
-| -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | True         | Grant type. The default value is `client_credentials`.                    |
-|  Client_id          | True         |  Client/app identifier associated with the Azure AD app.                  |
-|  client_secret      | True         |  Password associated with the Azure AD app.                               |
-|  Resource           | True         |  Target resource for which the token is requested. The default value is `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
-|  |  |  |
-
-
-*Response*
-
-|  **Name**  | **Type**       |  **Description**    |
-| ---------- | -------------  | ------------------- |
-| 200 OK    | TokenResponse  | Request succeeded   |
-|  |  |  |
-
-*TokenResponse*
-
-Sample response token:
-
-``` json
-  {
-      "token_type": "Bearer",
-      "expires_in": "3600",
-      "ext_expires_in": "0",
-      "expires_on": "15251…",
-      "not_before": "15251…",
-      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
-      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
-  }               
-```
 
 ### Marketplace API endpoint and API version
 
@@ -248,7 +115,7 @@ When a user is redirected to an ISV’s website, the URL contains a token in the
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Yes          | Request ID received from the client.                                                                   |
 | x-ms-correlationid | Yes          | Correlation ID if passed by the client, otherwise this value is the server correlation ID.                   |
-| x-ms-activityid    | Yes          | A unique string value for tracking the request from the service. This is used for any reconciliations. |
+| x-ms-activityid    | Yes          | A unique string value for tracking the request from the service. This ID is used for any reconciliations. |
 | Retry-After        | No           | This value is set only for a 429 response.                                                                   |
 |  |  |  |
 
@@ -264,7 +131,7 @@ service for a given plan and enable billing in the commerce system.
 
 | **Parameter Name**  | **Description**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | Unique Id of saas subscription that is obtained after resolving the token via Resolve API.                              |
+| subscriptionId      | Unique ID of SaaS subscription that is obtained after resolving the token via Resolve API.                              |
 | api-version         | The version of the operation to use for this request. |
 |  |  |
 
@@ -650,15 +517,13 @@ A SaaS webhook is used for notifying changes proactively to the SaaS service. Th
 *Body*
 
 ``` json
-  { 
+  {
     "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
     "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
     "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "sampleSaaSOffer", // Provided with "Update" action
-    "publisherId": "contoso", 
-    "planId": "silver",     // Provided with "Update" action
-    "action": "Activate", // Activate/Delete/Suspend/Reinstate/Update
-    "timeStamp": "2018-12-01T00:00:00"
+    "action": "Subscribe", // Subscribe/Unsubscribe/ChangePlan
+    "operationRequestSource":"Azure",
+    "timeStamp":"2018-12-01T00:00:00"
   }
 ```
 

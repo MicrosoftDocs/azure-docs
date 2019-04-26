@@ -249,7 +249,7 @@ This operation level policy does not forward requests to the backend service.
 
 | Attribute                               | Description                                                                                                      | Required | Default     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| timeout="integer"                       | The timeout interval in seconds before the call to the backend service fails. Minimum value is 0 seconds. Maximum values is 240 seconds.| No       | 240 seconds |
+| timeout="integer"                       | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored as the underlying network infrastructure can drop idle connections after this time. | No       | None |
 | follow-redirects="true &#124; false"    | Specifies whether redirects from the backend service are followed by the gateway or returned to the caller.      | No       | false       |
 | buffer-request-body="true &#124; false" | When set to "true" request is buffered and will be reused on [retry](api-management-advanced-policies.md#Retry). | No       | false       |
 

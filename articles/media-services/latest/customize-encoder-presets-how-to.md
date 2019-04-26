@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 ---
 
-# How to encode with a custom transform by using .NET
+# How to encode with a custom transform - .NET
 
 When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets based on industry best practices as demonstrated in the [Streaming files](stream-files-tutorial-with-api.md) tutorial. You can also build a custom preset to target your specific scenario or device requirements.
 

@@ -1,7 +1,8 @@
 ---
-title: ASC for IoT prerequisites Preview| Microsoft Docs
-description: Details of everything needed to get started with ASC for IoT service prerequisites.
-services: ascforiot
+title: Azure Security Center for IoT prerequisites Preview| Microsoft Docs
+description: Details of everything needed to get started with Azure Security Center for IoT service prerequisites.
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess
@@ -17,14 +18,14 @@ ms.date: 03/26/2019
 ms.author: mlottner
 
 ---
-# ASC for IoT prerequisites
+# Azure Security Center for IoT prerequisites
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides an explanation of the different building blocks of the ASC for IoT service, what you need to begin and basic concepts to help understand the service. 
+This article provides an explanation of the different building blocks of the Azure Security Center (ASC) for IoT service, what you need to begin and basic concepts to help understand the service. 
 
 ## Minimum requirements
 
@@ -56,7 +57,7 @@ Check your IoT Hub location to verify service availability before you begin.
 
 ## Supported platforms for agents 
 
-ASC for IoT agents supports a growing list of devices and platforms. See the [supported platform list](select-deploy-agent.md) to check your existing or planned device library.  
+ASC for IoT agents supports a growing list of devices and platforms. See the [supported platform list](how-to-deploy-agent.md) to check your existing or planned device library.  
 
 ## Next steps
 - [Overview](overview.md)

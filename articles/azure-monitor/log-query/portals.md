@@ -10,7 +10,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/22/2018
+ms.date: 04/05/2019
 ms.author: bwren
 ---
 
@@ -34,7 +34,7 @@ Log Analytics provides the following features for working with log queries.
 
 ![Log Analytics](media/portals/log-analytics.png)
 
-### Resource logs
+## Resource logs
 Log Analytics integrates with various Azure resources such as Virtual Machines. This means that you can open Log Analytics directly through the resource's monitoring menu without switching to Azure Monitor and losing the resource context. **Logs** has not yet been enabled for all Azure resources, but it will start appearing in the portal menu for different resources types.
 
 When opening Log Analytics from a specific resource, it's automatically scoped to log records of that resource only.   If you want to write a query that includes other records, then you would need to open it from the Azure Monitor menu.
@@ -47,7 +47,7 @@ The following options are not yet available through the resource view of Log Ana
 - Switching to different workspace/resource (currently not planned)
 
 
-### Firewall requirements
+## Firewall requirements
 Your browser requires access to the following addresses to access Log Analytics.  If your browser is accessing the Azure portal through a firewall, you must enable access to these addresses.
 
 | Uri | IP | Ports |
@@ -55,14 +55,6 @@ Your browser requires access to the following addresses to access Log Analytics.
 | portal.loganalytics.io | Dynamic | 80,443 |
 | api.loganalytics.io    | Dynamic | 80,443 |
 | docs.loganalytics.io   | Dynamic | 80,443 |
-
-
-## Log search (classic)
-Log Search is the legacy experience in the Azure portal for querying and analyzing log data in Azure Monitor. It will be retired soon but is currently still available. Open Log Search from **Logs (Classic)** in the Log Analytics menu.
-
-
-
-![Log Search](media/portals/log-search-portal.png)
 
 
 ## Next steps

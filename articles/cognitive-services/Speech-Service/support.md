@@ -19,6 +19,7 @@ Are you just starting to explore the functionality of the Speech Services? Are y
 
 > [!div class="checklist"]
 > * Stay informed about new developments in *Azure Cognitive Services*, or find the latest news related to *Speech service*.
+> * Release notes contain information for all releases.
 > * Search to see if your issue was discussed by the community, or if existing documentation for the feature you want to implement already exists.
 > * If you can't find a satisfactory answer, ask a question on *Stack Overflow*.
 > * If you find an issue with one of the samples on GitHub, raise a *GitHub* issue.
@@ -27,6 +28,10 @@ Are you just starting to explore the functionality of the Speech Services? Are y
 ## Stay informed
 
 News about Cognitive Services is collected in the [Cognitive Services blog](https://azure.microsoft.com/blog/topics/cognitive-services/). For the latest information about Speech Services, track the [Speech Services blog](https://azure.microsoft.com/blog/tag/speech-service/).
+
+## Release notes
+
+The [release notes](https://aka.ms/csspeech/whatsnew) are updated as soon as a new release is available. The notes contain information about new features, improvements, and bug fixes.
 
 ## Search
 
@@ -46,7 +51,7 @@ Where *{Your Search Terms}* is your search keywords.
 
 Azure customers can create and manage support requests in the Azure portal.
 
-* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure portal for the United States government](https://portal.azure.us)
 
 ## Post a question to Stack Overflow
@@ -104,7 +109,7 @@ Which version of the SDK are you using.
 **Additional context**
 
  - Error messages, log information, stack trace, ...
- - If you report an error for a specific service interaction, please report the SessionId and time (incl. timezone) of the reported incidents. The SessionId is reported in all call-backs/events you receive.
+ - If you report an error for a specific service interaction, report the SessionId and time (incl. timezone) of the reported incidents. The SessionId is reported in all call-backs/events you receive.
  - Any other additional information
 
 

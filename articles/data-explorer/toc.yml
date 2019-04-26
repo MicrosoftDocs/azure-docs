@@ -84,12 +84,18 @@
       href: delete-data.md
     - name: Deal with duplicate data
       href: dealing-with-duplicates.md
+  - name: Monitoring
+    items:
+    - name: Using metrics to monitor cluster health
+      href: using-metrics.md
   - name: Work with other tools
     items:
     - name: Connect from Databricks using Python
       href: connect-from-databricks.md
     - name: Analyze data in Jupyter Notebooks & Kqlmagic
       href: kqlmagic.md
+    - name: Copy data using Azure Data Factory
+      href: data-factory-load-data.md 
     - name: Visualize data in Grafana
       href: grafana.md
     - name: Connect with ODBC

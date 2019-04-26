@@ -2,13 +2,13 @@
 title: 'Tutorial: Load New York Taxicab data to Azure SQL Data Warehouse | Microsoft Docs'
 description: Tutorial uses Azure portal and SQL Server Management Studio to load New York Taxicab data from a public Azure blob  to Azure SQL Data Warehouse. 
 services: sql-data-warehouse
-author: ckarst
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 09/12/2018
-ms.author: cakarst
+ms.date: 03/27/2019
+ms.author: mlee3gsd
 ms.reviewer: igorstan
 ---
 
@@ -75,7 +75,7 @@ Follow these steps to create a blank SQL data warehouse.
 
 6. Click **Performance level** to specify whether the data warehouse is Gen1 or Gen2, and the number of data warehouse units. 
 
-7. For this tutorial, select  **Gen1** of SQL Data Warehouse. The slider, by default, is set to **DW1000c**.  Try moving it up and down to see how it works. 
+7. For this tutorial, select  **Gen2** of SQL Data Warehouse. The slider is set to **DW1000c** by default.  Try moving it up and down to see how it works. 
 
     ![configure performance](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 

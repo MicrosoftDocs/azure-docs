@@ -1,7 +1,6 @@
 ---
 title: Migrate to Azure Resource Manager tools for HDInsight 
 description: How to migrate to Azure Resource Manager development tools for HDInsight clusters
-services: hdinsight
 ms.reviewer: jasonh
 author: hrasheed-msft
 
@@ -90,7 +89,7 @@ Before you can use the HDInsight cmdlets, you must connect to your Azure account
 ### Renamed cmdlets
 To list the HDInsight ASM cmdlets in Windows PowerShell console:
 
-    help *azurermhdinsight*
+    help *azurehdinsight*
 
 The following table lists the ASM cmdlets and their names in Resource Manager mode:
 

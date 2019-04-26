@@ -52,7 +52,7 @@ To view and configure your Git configuration settings, you can click the **Secur
 >
 >
 
-For information on enabling or disabling Git access using the REST API, see [Enable or disable Git access using the REST API](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
+For information on enabling or disabling Git access using the REST API, see [Enable or disable Git access using the REST API](/rest/api/apimanagement/tenantaccess?EnableGit).
 
 ## To save the service configuration to the Git repository
 
@@ -64,7 +64,7 @@ After a few moments the configuration is saved, and the configuration status of 
 
 Once the configuration is saved to the repository, it can be cloned.
 
-For information on performing this operation using the REST API, see [Commit configuration snapshot using the REST API](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
+For information on performing this operation using the REST API, see [Commit configuration snapshot using the REST API](/rest/api/apimanagement/tenantaccess?CommitSnapshot).
 
 ## To clone the repository to your local machine
 
@@ -261,7 +261,7 @@ For information on other ways to manage your service instance, see:
   * [Service deployment PowerShell cmdlet reference](https://docs.microsoft.com/powershell/module/wds)
   * [Service management PowerShell cmdlet reference](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Manage your service instance using the REST API
-  * [API Management REST API reference](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+  * [API Management REST API reference](/rest/api/apimanagement/)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png

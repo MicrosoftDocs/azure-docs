@@ -132,7 +132,7 @@
       href: source-control-integration.md
       displayName: github, vsts, azure devops, personal access token
     - name: Source control integration - legacy
-      href: automation-source-control-integration-legacy.md
+      href: source-control-integration-legacy.md
       displayname: github
   - name: Hybrid Runbook Worker
     items:
@@ -175,19 +175,19 @@
   - name: Manage shared resources
     items:
     - name: Schedules
-      href: automation-schedules.md
+      href: shared-resources/schedules.md
     - name: Modules
       href: shared-resources/modules.md
     - name: Manage Python 2 packages
       href: python-packages.md
     - name: Credentials
-      href: automation-credentials.md
+      href: shared-resources/credentials.md
     - name: Connections
       href: automation-connections.md
     - name: Certificates
-      href: automation-certificates.md
+      href: shared-resources/certificates.md
     - name: Variables
-      href: automation-variables.md
+      href: shared-resources/variables.md
     - name: Update Azure PowerShell modules
       href: automation-update-azure-modules.md
     - name: Az modules in runbooks
