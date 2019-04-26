@@ -8,15 +8,11 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 # Select Columns in Dataset module
-
-*Selects columns to include or exclude from a dataset in an operation*
-
-Category: Data Transformation / Manipulation
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 

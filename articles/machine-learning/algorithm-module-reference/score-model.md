@@ -8,15 +8,11 @@ ms.subservice: core
 ms.topic: reference
 
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ---
 # Score Model module
-
-*Scores predictions for a trained classification or regression model*
-
-Category: Machine Learning / Score 
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
