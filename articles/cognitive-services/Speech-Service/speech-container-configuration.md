@@ -12,7 +12,7 @@ ms.date: 05/07/2019
 ms.author: diberry
 ---
 
-# Configure containers
+# Configure Speech Service containers
 
 Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The two speech containers we support now are **speech-to-text** and **text-to-speech**. 
 
