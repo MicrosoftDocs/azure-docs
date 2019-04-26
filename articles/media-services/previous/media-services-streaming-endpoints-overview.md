@@ -43,11 +43,11 @@ For any additional endpoints: `{EndpointName}-{AccountName}.streaming.mediaservi
 
 ### Standard/Premium types (version 2.0)
 
-Starting with the January 2017 release of Media Services, you have two streaming types: **Standard** and **Premium**. These types are part of the Streaming endpoint version "2.0".
+Starting with the January 2017 release of Media Services, you have two streaming types: **Standard** (preview) and **Premium**. These types are part of the Streaming endpoint version "2.0".
 
 Type|Description
 ---|---
-**Standard** |This is the default option that would work for the majority of the scenarios.<br/>With this option, you get fixed/limited SLA, first 15 days after you start the streaming endpoint is free.<br/>If you create more than one streaming endpoints, only the first one is free for the first 15 days, the others are billed as soon as you start them. <br/>Note that free trial only applies to newly created media services accounts and default streaming endpoint. Existing streaming endpoints and additionally created streaming endpoints doesn't includes free trial period even they are upgraded to version 2.0 or they are created as version 2.0.
+**Standard** (preview)|This is the default option that would work for the majority of the scenarios.<br/>With this option, you get fixed/limited SLA, first 15 days after you start the streaming endpoint are free.<br/>If you create more than one streaming endpoints, only the first one is free for the first 15 days, the others are billed as soon as you start them. <br/>Note that free trial only applies to newly created media services accounts and default streaming endpoint. Existing streaming endpoints and additionally created streaming endpoints doesn't includes free trial period even they are upgraded to version 2.0 or they are created as version 2.0.
 **Premium** |This option is suitable for professional scenarios that require higher scale or control.<br/>Variable SLA that is based on premium streaming unit (SU) capacity purchased, dedicated streaming endpoints live in isolated environment and do not compete for resources.
 
 For more detailed information, see the **Compare Streaming types** following section.
@@ -68,12 +68,14 @@ If your **version "1.0"** streaming endpoint has >=1 premium streaming units (SU
 
 ### Versions
 
-|Type|StreamingEndpointVersion|ScaleUnits|CDN|Billing|SLA| 
-|--------------|----------|-----------------|-----------------|-----------------|-----------------|    
-|Classic|1.0|0|NA|Free|NA|
-|Standard Streaming Endpoint|2.0|0|Yes|Paid|Yes|
-|Premium Streaming Units|1.0|>0|Yes|Paid|Yes|
-|Premium Streaming Units|2.0|>0|Yes|Paid|Yes|
+|Type|StreamingEndpointVersion|ScaleUnits|CDN|Billing|
+|--------------|----------|-----------------|-----------------|-----------------|
+|Classic|1.0|0|NA|Free|
+|Standard Streaming Endpoint (preview)|2.0|0|Yes|Paid|
+|Premium Streaming Units|1.0|>0|Yes|Paid|
+|Premium Streaming Units|2.0|>0|Yes|Paid|
+
+For SLA information, see [Pricing and SLA](https://azure.microsoft.com/pricing/details/media-services/).
 
 ### Features
 
@@ -81,7 +83,6 @@ Feature|Standard|Premium
 ---|---|---
 Free first 15 days| Yes |No
 Throughput |Up to 600 Mbps when Azure CDN is not used. Scales with CDN.|200 Mbps per streaming unit (SU). Scales with CDN.
-SLA | 99.9|99.9(200 Mbps per SU).
 CDN|Azure CDN, third party CDN, or no CDN.|Azure CDN, third party CDN, or no CDN.
 Billing is prorated| Daily|Daily
 Dynamic encryption|Yes|Yes
