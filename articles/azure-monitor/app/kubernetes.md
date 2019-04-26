@@ -36,7 +36,7 @@ By using Application Insights for your Kubernetes hosted app, you will be able t
 - [Application Map](../../azure-monitor/app/app-map.md)
 - [Live Stream Metrics](../../azure-monitor/app/live-stream.md)
 - [Dashboards](../../azure-monitor/app/overview-dashboard.md)
-- [Metrics Explorer](../../azure-monitor/platformmetrics-getting-started.md)
+- [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md)
 - [Distributed-tracing](../../azure-monitor/app/distributed-tracing.md)
 - [End-to-end transaction monitoring](../../azure-monitor/learn/tutorial-performance.md#identify-slow-server-operations)
 
