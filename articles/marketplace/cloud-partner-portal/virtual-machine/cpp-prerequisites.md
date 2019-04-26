@@ -45,7 +45,7 @@ The business requirements include procedural, contractual, and legal obligations
     > You should use the same Microsoft Developer Center registration account to sign onto the [Cloud Partner Portal](https://cloudpartner.azure.com).
     > You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to individual services or offers.
     
-- Your company (or its subsidiary) must be located in a sell-from-country supported by the Azure Marketplace.  For a current list of these countries, see [Microsoft Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+- Your company (or its subsidiary) must be located in a sell-from-country/region supported by the Azure Marketplace.  For a current list of these countries/regions, see [Microsoft Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 - Your product must be licensed in a way that is compatible with billing models supported by the Azure Marketplace.  For more information, see [Billing options in the Azure Marketplace](https://docs.microsoft.com/azure/marketplace/billing-options-azure-marketplace). 
 - You are responsible for making technical support available to customers in a commercially reasonable manner. This support can be free, paid, or through community approaches.
 - You are responsible for licensing your software and any third-party software dependencies.
