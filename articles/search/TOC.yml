@@ -34,7 +34,11 @@
   - name: Index Azure JSON blobs
     href: search-semi-structured-data.md
   - name: Enrich with AI (Cognitive Search)
-    href: cognitive-search-tutorial-blob.md
+    items:
+    - name: REST
+      href: cognitive-search-tutorial-blob.md
+    - name: C#
+      href: cognitive-search-tutorial-blob-dotnet.md
 - name: Samples
   items:
   - name: Azure code samples
