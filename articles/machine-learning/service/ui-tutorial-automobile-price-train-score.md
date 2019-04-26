@@ -184,7 +184,7 @@ The following statistics are shown for your model:
 
 For each of the error statistics, smaller is better. A smaller value indicates that the predictions more closely match the actual values. For Coefficient of Determination, the closer its value is to one (1.0), the better the predictions.
 
-## Manage experiments
+## Manage experiments in Azure Machine Learning service workspace
 
 The experiments you create in the visual interface can be managed from the Azure Machine Learning service workspace. Use the workspace to see more detailed information such as individuals experiment runs, diagnostic logs, execution graphs, and more.
 
