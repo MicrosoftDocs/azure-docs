@@ -1,7 +1,6 @@
 ---
 title: Create Apache Hadoop clusters using .NET - Azure HDInsight 
 description: Learn how to create Apache Hadoop, Apache HBase, Apache Storm, or Apache Spark clusters on Linux for HDInsight using the HDInsight .NET SDK.
-services: hdinsight
 author: mamccrea
 ms.reviewer: jasonh
 ms.service: hdinsight

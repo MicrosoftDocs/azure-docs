@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.workload: tbd
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
@@ -20,13 +20,13 @@ ms.custom: mvc
 ---
 # Tutorial: Use dynamic configuration in an ASP.NET Core app
 
-ASP.NET Core has a pluggable configuration system that can read configuration data from a variety of sources. It can handle changes on the fly without causing an application to restart. ASP.NET Core supports the binding of configuration settings to strongly typed .NET classes. It injects them into your code by using the various `IOptions<T>` patterns. One of these patterns, specifically `IOptionsSnapshot<T>`, automatically reloads the application's configuration when the underlying data changes. 
+ASP.NET Core has a pluggable configuration system that can read configuration data from a variety of sources. It can handle changes on the fly without causing an application to restart. ASP.NET Core supports the binding of configuration settings to strongly typed .NET classes. It injects them into your code by using the various `IOptions<T>` patterns. One of these patterns, specifically `IOptionsSnapshot<T>`, automatically reloads the application's configuration when the underlying data changes.
 
 You can inject `IOptionsSnapshot<T>` into controllers in your application to access the most recent configuration stored in Azure App Configuration. You also can set up the App Configuration ASP.NET Core client library to continuously monitor and retrieve any change in an app configuration store. You define the periodic interval for the polling.
 
 This tutorial shows how you can implement dynamic configuration updates in your code. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
-You can use any code editor to do the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option that's available on the Windows, macOS, and Linux platforms.
+You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option that's available on the Windows, macOS, and Linux platforms.
 
 In this tutorial, you learn how to:
 
@@ -36,13 +36,13 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
+To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Reload data from App Configuration
 
-1. Open Program.cs, and update the `CreateWebHostBuilder` method by adding the `config.AddAzureAppConfiguration()` method.
+1. Open *Program.cs*, and update the `CreateWebHostBuilder` method by adding the `config.AddAzureAppConfiguration()` method.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -61,7 +61,7 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
     The second parameter in the `.Watch` method is the polling interval at which the ASP.NET client library queries an app configuration store. The client library checks the specific configuration setting to see if any change occurred.
 
-2. Add a Settings.cs file that defines and implements a new `Settings` class.
+2. Add a *Settings.cs* file that defines and implements a new `Settings` class.
 
     ```csharp
     namespace TestAppConfig
@@ -76,7 +76,7 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
     }
     ```
 
-3. Open Startup.cs, and update the `ConfigureServices` method to bind configuration data to the `Settings` class.
+3. Open *Startup.cs*, and update the `ConfigureServices` method to bind configuration data to the `Settings` class.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -95,7 +95,13 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
 ## Use the latest configuration data
 
-1. Open HomeController.cs in the Controllers directory. Update the `HomeController` class to receive `Settings` through dependency injection, and make use of its values.
+1. Open *HomeController.cs* in the Controllers directory, and add a reference to the `Microsoft.Extensions.Options` package.
+
+    ```csharp
+    using Microsoft.Extensions.Options;
+    ```
+
+2. Update the `HomeController` class to receive `Settings` through dependency injection, and make use of its values.
 
     ```csharp
     public class HomeController : Controller
@@ -118,7 +124,7 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
     }
     ```
 
-2. Open Index.cshtml in the Views > Home directory, and replace its content with the following script:
+3. Open *Index.cshtml* in the Views > Home directory, and replace its content with the following script:
 
     ```html
     <!DOCTYPE html>
@@ -161,7 +167,7 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
     | Key | Value |
     |---|---|
-    | TestAppSettings:BackgroundColor | blue |
+    | TestAppSettings:BackgroundColor | green |
     | TestAppSettings:FontColor | lightGray |
     | TestAppSettings:Message | Data from Azure App Configuration - now with live updates! |
 

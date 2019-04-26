@@ -16,6 +16,8 @@ Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (
 
 This article shows you how to create the required Azure AD components, then deploy an Azure AD-enabled cluster and create a basic RBAC role in the AKS cluster. You can also [complete these steps using the Azure portal][azure-ad-portal].
 
+For the complete sample script used in this article, see [Azure CLI samples - AKS integration with Azure AD][complete-script].
+
 The following limitations apply:
 
 - Azure AD can only be enabled when you create a new, RBAC-enabled cluster. You can't enable Azure AD on an existing AKS cluster.

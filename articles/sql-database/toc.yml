@@ -128,6 +128,7 @@
     items:
     - name: Overview
       href: sql-database-service-tiers-general-purpose-business-critical.md
+      displayName: provisioned compute tier  
     - name: General purpose / Standard service tiers
       href: sql-database-service-tier-general-purpose.md
     - name: Business critical / Premium service tiers
