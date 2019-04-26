@@ -45,7 +45,7 @@ Some resources don’t constantly emit their metrics. For example, Azure will no
 
 ### You picked a time range greater than 30 days
 
-With a few exceptions, [metrics in Azure are stored for 93 days](data-platform-metrics.md#retention-of-metrics). However, you can only query for no more than 30 days worth of data on any single chart. This limitation doesn't apply to some resources and log-based metrics.
+With a few exceptions, [metrics in Azure are stored for 93 days](data-platform-metrics.md#retention-of-metrics). However, you can only query for no more than 30 days worth of data on any single chart. This limitation doesn't apply to [log-based metrics](../app/pre-aggregated-metrics-log-metrics#log-based-metrics).
 
 **Solution:** If you see a blank chart on a long-ranged chart, verify that the difference between start- and end- dates in the time picker doesn't exceed the 30-day interval.
 
@@ -72,7 +72,7 @@ This problem is common when your dashboard was created with a metric that was la
 You are looking at a **Guest OS** metric but metrics explorer only shows **Virtual Machine Host** metrics for your Azure virtual machine or virtual machine scale set:
     ![metric image](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
 
-**Solution:** Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running as a process on the virtual machine. You install the agent by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md)). If the agent isn't running, the **Guest OS** metrics namespace is not shown in metrics explorer. See also [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+**Solution:** Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running as a process on the virtual machine. You install the agent by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md). If the agent isn't running, the **Guest OS** metrics namespace is not shown in metrics explorer. See also [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
 ## See a dashed line on the chart
 
