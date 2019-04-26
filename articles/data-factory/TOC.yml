@@ -582,6 +582,8 @@
     href: https://feedback.azure.com/forums/270578-azure-data-factory
   - name: FAQ
     href: frequently-asked-questions.md
+  - name: Whitepapers
+    href: whitepapers.md
   - name: Roadmap
     href: https://azure.microsoft.com/roadmap/?tag=data-factory
   - name: Pricing

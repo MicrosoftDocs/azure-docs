@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/18/2019
 ms.author: cynthn
-ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications). 
+ms.custom: mvc 
 ---
 
 # What are Availability Zones in Azure?
