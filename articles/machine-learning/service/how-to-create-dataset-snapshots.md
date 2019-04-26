@@ -13,30 +13,20 @@ ms.date: 05/02/2019
 
 # Create and manage dataset snapshots (preview)
 
-In this article, you learn to how to create and manage snapshots of your datasets. [Azure Machine Learning Datasets](how-to-create-register-datasets.md) (datasets) make it easier to access and work with your data in the cloud in various scenarios. 
+In this article, you learn to how to create, get, and delete snapshots of your [Azure Machine Learning Datasets](how-to-create-register-datasets.md) (datasets). Datasets make it easier to access and work with your data in the cloud in various scenarios. 
 
-Dataset snapshots can store:
-+ The profile of the data, including summary statistics 
+Dataset snapshots store the following:
++ The profile (summary statistics) of the data at the time it's created
+
 + Optionally, a copy of the data
 
-Use the snapshots to: 
-* Validate ML models. Take and compare snapshots of your data between training runs. Or, compare the snapshot of training data to the snapshot of the model production data. 
+## When to use snapshots
 
-* Verify reproducibility. Prior to and after training, take a snapshot and save the data copies. Compare them to ensure the results of your machine learning models are reproducible.
-
-* Track data over time to evaluate how the data has evolved.
+Take snapshots at pivotal times in your ML workflow. Then, validate your models by comparing the profiles of your data between training runs or against production data. Similarly, you can compare data profiles prior to and after training to check for reproducibility. You can also use snapshots to track data over time to see how data has evolved.
   
 ## Prerequisites
 
-To use Azure Machine Learning service and create dataset snapshots, you need:
-
-* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
-
-* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
-
-* The Azure Machine Learning SDK for Python. To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-
-* A registered Dataset. If you do not have one, see [Create and register datasets](how-to-create-register-datasets.md).
+To create or manage dataset snapshots, you need a registered Azure Machine Learning Dataset. If you do not have one, see [Create and register datasets](how-to-create-register-datasets.md).
 
 ## Create dataset snapshots
 
