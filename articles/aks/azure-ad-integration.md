@@ -257,4 +257,4 @@ For best practices on identity and resource control, see [Best practices for aut
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
-[azure-ad-cli]: azure-ad-integration.cli
+[azure-ad-cli]: azure-ad-integration-cli.md
