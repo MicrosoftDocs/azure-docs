@@ -29,7 +29,7 @@ To run this tutorial, you need an Azure account that already has a SQL Data Ware
 PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external object definitions are stored in SQL Data Warehouse. The data is stored externally.
 
 ### 1.1. Create a credential
-**Skip this step** as you're loading the Contoso public data. You don't need secure access to the public data since it's already accessible to anyone.
+**Skip this step** if you are loading the Contoso public data. You don't need secure access to the public data since it's already accessible to anyone.
 
 **Don't skip this step** if you're using this tutorial as a template for loading your own data. To access data through a credential, use the following script to create a database-scoped credential, and then use it when defining the location of the data source.
 
@@ -65,8 +65,6 @@ WITH (
     CREDENTIAL = AzureStorageCredential
 );
 ```
-
-Skip to step 2.
 
 ### 1.2. Create the external data source
 Use this [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] command to store the location of the data, and the type of data. 
@@ -117,7 +115,6 @@ Run the following script to create the DimProduct and FactOnlineSales external t
 The  **LOCATION** parameter is the folder under the root folder in the Azure Storage Blob. Each table is in a different folder.
 
 ```sql
-
 --DimProduct
 CREATE EXTERNAL TABLE [asb].DimProduct (
     [ProductKey] [int] NOT NULL,
