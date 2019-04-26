@@ -173,7 +173,7 @@ To request the ability to create Hyperscale databases in regions not listed:
 
 8. Choose **SQL Database quota type**: **Other quota request**
 
-    ![Quota details](media/sql-database-service-tier-hyperscale/whitelist-request-screen-1.png)
+    ![Quota details](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
 
 9. Fill in the following template:
 
