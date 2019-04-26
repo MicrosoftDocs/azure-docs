@@ -51,7 +51,7 @@ Copy Activity goes through the following stages to copy data from a source to a 
 
 You can use Copy Activity to **copy files as-is** between two file-based data stores, in which case the data is copied efficiently without any serialization/deserialization.
 
-Copy Activity also supports reading from and writing to files in specified formats: **Text, JSON, Avro, ORC, and Parquet**, and compressing and decompresing files with the following codecs: **GZip, Deflate, BZip2, and ZipDeflate**. See [Supported file and compression formats](supported-file-formats-and-compression-codecs.md) with details.
+Copy Activity also supports reading from and writing to files in specified formats: **Text, JSON, Avro, ORC, and Parquet**, and compressing and decompressing files with the following codecs: **GZip, Deflate, BZip2, and ZipDeflate**. See [Supported file and compression formats](supported-file-formats-and-compression-codecs.md) with details.
 
 For example, you can do the following copy activities:
 
@@ -136,7 +136,7 @@ The following template of a copy activity contains an exhaustive list of support
 | translator | Specify explicit column mappings from source to sink. Applies when the default copy behavior cannot fulfill your need.<br/><br/>Learn details from [Schema and data type mapping](copy-activity-schema-and-type-mapping.md). | No |
 | dataIntegrationUnits | Specify the powerfulness of [Azure Integration Runtime](concepts-integration-runtime.md) to empower data copy. Formerly known as cloud Data Movement Units (DMU). <br/><br/>Learn details from [Data Integration Units](copy-activity-performance.md#data-integration-units). | No |
 | parallelCopies | Specify the parallelism that you want Copy Activity to use when reading data from source and writing data to sink.<br/><br/>Learn details from [Parallel copy](copy-activity-performance.md#parallel-copy). | No |
-| enableStaging<br/>stagingSettings | Choose to stage the interim data in aa blob storage instead of directly copy data from source to sink.<br/><br/>Learn the useful scenarios and configuration details from [Staged copy](copy-activity-performance.md#staged-copy). | No |
+| enableStaging<br/>stagingSettings | Choose to stage the interim data in a blob storage instead of directly copy data from source to sink.<br/><br/>Learn the useful scenarios and configuration details from [Staged copy](copy-activity-performance.md#staged-copy). | No |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choose how to handle incompatible rows when copying data from source to sink.<br/><br/>Learn details from [Fault tolerance](copy-activity-fault-tolerance.md). | No |
 
 ## Monitoring
