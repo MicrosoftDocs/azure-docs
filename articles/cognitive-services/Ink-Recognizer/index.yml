@@ -23,7 +23,7 @@ sections:
       className: cardsM
       columns: 3
       items:
-        - href: /azure/cognitive-services/translator/translator-info-overview
+        - href: /azure/cognitive-services/overview
           html: <p>Learn about Ink Recognizer and how to integrate it into your products</p>
           image:
             src: ../media/index/i_overview.svg

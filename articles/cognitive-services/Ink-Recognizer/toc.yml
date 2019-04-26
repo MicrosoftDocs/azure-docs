@@ -36,9 +36,9 @@
 - name: Reference
   items:
   - name: REST API reference
-    href: https://docs.microsoft.com/rest/api/documentation-preview/inkrecognizer/recognizeink
+    href: https://go.microsoft.com/fwlink/?linkid=2089907
   - name: REST API testing console
-    href: https://dev.cognitive.microsoft.com/docs/services/inkrecognizer
+    href: https://go.microsoft.com/fwlink/?linkid=2090232
   - name: PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Azure CLI

@@ -58,10 +58,10 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 
     ```csharp
     // Replace the subscriptionKey string with your valid subscription key.
-    const string subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";
+    const string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
     // Replace the dataPath string with a path to the JSON formatted ink stroke data.
-    const string dataPath = @"PATH-TO-INK-STROKE-DATA]]"; 
+    const string dataPath = @"PATH-TO-INK-STROKE-DATA"; 
 
     // URI information for ink recognition:
     const string endpoint = "https://api.cognitive.microsoft.com";
