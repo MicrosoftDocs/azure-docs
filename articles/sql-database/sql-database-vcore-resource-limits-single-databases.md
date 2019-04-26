@@ -133,7 +133,7 @@ The [serverless compute tier](sql-database-serverless.md) is in public preview a
 |:--- | --: |--: |--: |
 |H/W generation|5|5|5|
 |Min-max vCores|0.5-1|0.5-2|0.5-4|
-|Min-max memory (GB)|3|6|12|
+|Min-max memory (GB)|2.02-3|2.05-6|2.10-12|
 |Min auto-pause delay (hours)|6|6|6|
 |Columnstore support|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|
