@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 04/24/2019
 ms.author: iainfou
 ---
 
@@ -104,7 +104,8 @@ In the following example, a developer creates a pod that uses a managed identity
 1. A developer deploys a pod with a managed identity that requests an access token through the NMI server.
 1. The token is returned to the pod and used to access an Azure SQL Server instance.
 
-Managed pod identities is an AKS open source project, and is not supported by Azure technical support. It is provided to gather feedback and bugs from our community. The project is not recommended for production use.
+> [!NOTE]
+> Managed pod identities is an open source project, and is not supported by Azure technical support.
 
 To use pod identities, see [Azure Active Directory identities for Kubernetes applications][aad-pod-identity].
 
