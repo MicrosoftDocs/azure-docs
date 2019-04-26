@@ -16,9 +16,13 @@ ms.author: erhopf
 
 Digital inking refers to the technologies that enable digital representations of input such as handwriting and drawings. This is typically achieved using a digitizer that captures the movements of input devices, such as a stylus. As devices continue to enable rich digital inking experiences, artificial intelligence and machine learning enables the recognition of written shapes and text in any context. The Ink Recognizer API enables you to send ink strokes and get detailed information about them. 
 
-## Sending ink data to the API
+## The Ink recognizer API vs. OCR services
 
-The Ink Recognizer API requires the X and Y coordinates that represent the ink strokes created by an input device, from the moment it touches the detection surface to when it's lifted. Data points sent to the Ink Recognizer API must be formatted in JSON and have numerical X and Y values, like the example below.
+The Ink Recognizer API does not use Optical Character Recognition(OCR). OCR services process the pixel data from images to provide handwriting and text recognition. This is sometimes called offline recognition. Instead, The Ink Recognizer API requires digital ink stroke data that's captured as the input device is used. Processing digital ink data in this way can produce more accurate recognition results compared to OCR services. 
+
+## Sending ink data
+
+The Ink Recognizer API requires the X and Y coordinates that represent the ink strokes created by an input device, from the moment it touches the detection surface to when it's lifted. The points of each stroke must be a string of comma separated values, and be formatted in JSON like the example below. In addition, each ink stroke must have a unique ID in each request. If the ID is repeated within the same request, the API will return an error. For the most accurate recognition results, have at least eight digits after the decimal point. The origin (0,0) of the canvas is assumed to be the top left corner of the inking canvas.
 
 > [!NOTE]
 > The following example isn't valid JSON. You can find a full Ink Recognizer JSON request on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089909).
@@ -47,6 +51,10 @@ The Ink Recognizer API requires the X and Y coordinates that represent the ink s
 }
 ```
 
+## Ink Recognizer response
+
+The Ink Recognizer API returns an analysis response about the objects it recognized from the ink content. The response contains recognition units that describe the relationships between different ink strokes. For example, strokes that create distinct, separate shapes will be contained in different units. Each unit contains detailed information about its ink strokes including the recognized object, its coordinates, and other drawing attributes.
+
 ## Shapes recognized by the Ink Recognizer API
 
 The Ink Recognizer API can identify the most commonly used shapes in note taking. The below image shows some basic examples. For a full list of shapes and other ink content recognized by the API, see the [API reference article](https://go.microsoft.com/fwlink/?linkid=2089907). 
@@ -59,7 +67,7 @@ You can call the Ink Recognizer REST API in different patterns according to your
 
 ### User initiated API calls
 
-If you're building an app that takes user input (for example, a note taking or annotation app), you may want to give them control of when and which ink gets sent to the Ink Recognizer API. This is especially useful when text and shapes are both present on the canvas, and users want to perform different actions for each. Consider adding selection features (like a lasso or other geometric selection tool) that enable users to choose what gets sent to the API.  
+If you're building an app that takes user input (for example, a note taking or annotation app), you may want to give them control of when and which ink gets sent to the Ink Recognizer API. This functionality is especially useful when text and shapes are both present on the canvas, and users want to perform different actions for each. Consider adding selection features (like a lasso or other geometric selection tool) that enable users to choose what gets sent to the API.  
 
 ### App initiated API calls
 

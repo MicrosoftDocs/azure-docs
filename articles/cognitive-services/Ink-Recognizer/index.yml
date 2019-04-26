@@ -14,7 +14,7 @@ metadata:
   ms.date: 05/02/2019
   ms.author: erhopf
 abstract:
-  description: Digital inking refers to the technologies that enable digital representations of input such as handwriting and drawings. As devices continue to enable rich digital inking experiences, artificial intelligence and machine learning enables the recognition of written shapes and text in any context. The Ink Recognizer Cognitive Service is a cloud-based REST API that enables you to send ink strokes and get detailed information about them. 
+  description: Digital inking refers to the technologies that enable digital representations of input such as handwriting and drawings. As devices continue to enable rich digital inking experiences, artificial intelligence and machine learning enables the recognition of written shapes and text in any context. The Ink Recognizer API is a cloud-based service that enables you to send ink strokes and get detailed information about them. 
   
 sections:
 - items:
@@ -23,12 +23,12 @@ sections:
       className: cardsM
       columns: 3
       items:
-        - href: /azure/cognitive-services/translator/translator-info-overview
+        - href: /azure/cognitive-services/ink-recognizer/overview
           html: <p>Learn about Ink Recognizer and how to integrate it into your products</p>
           image:
             src: ../media/index/i_overview.svg
           title: What is Ink Recognizer API?
-        - href: concepts/recommended-calling-patterns.md
+        - href: concepts/send-ink-data.md
           html: <p>Learn about recommended calling patterns when using the API</p>
           image:
             src: ../media/index/i_overview.svg
@@ -60,7 +60,7 @@ sections:
 - title: Samples
   items:
   - type: paragraph
-    text: "Use these example programs to start integrating the Ink Recognizer API into your applications:"
+    text: "Use these example programs to see how the Ink Recognizer API can integrate into your applications:"
   - type: paragraph
     text: <a href="https://go.microsoft.com/fwlink/?linkid=2089502">C# and Universal Windows Platform(UWP)</a>
   - type: paragraph
