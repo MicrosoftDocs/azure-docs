@@ -24,7 +24,7 @@ ms.custom: seodec18
 [App Service on Linux](app-service-linux-intro.md) offers three different paths to getting your application published to the web:
 
 - **Custom image deployment**: "Dockerize" your app into a Docker image that contains all of your files and dependencies in a ready-to-run package.
-- **Multi-container deployment**: "Dockerize" your app across multiple containers using a Docker Compose or a Kubernetes configuration file.
+- **Multi-container deployment**: "Dockerize" your app across multiple containers using a Docker Compose configuration file.
 - **App deployment with a built-in platform image**: Our built-in platform images contain common web app runtimes and dependencies, such as Node and PHP. Use any one of the [Azure App Service deployment methods](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to deploy your app to your web app's storage, and then use a built-in platform image to run it.
 
 ## Which method is right for your app? 
