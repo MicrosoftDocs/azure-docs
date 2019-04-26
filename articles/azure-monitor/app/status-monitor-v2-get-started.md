@@ -1,6 +1,6 @@
 ---
 title: Azure Status Monitor v2 Getting Started | Microsoft Docs
-description: A quick start guide for Status Monitor v2. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+description: A quickstart guide for Status Monitor v2. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
