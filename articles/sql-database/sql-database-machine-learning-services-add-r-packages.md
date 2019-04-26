@@ -158,7 +158,5 @@ If you would like to remove the package, run the following R script in RStudio. 
 sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLIC")
 ```
 
-<!-- Checking if this is correct
 > [!TIP]
-> Another way to install an R package to your SQL database is to upload the R package with [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
--->
+> Another way to install an R package to your Azure SQL database is to upload the R package from a byte stream using the **CREATE EXTERNAL LIBRARY** T-SQL statement. See [Create a library from a byte stream](/sql/t-sql/statements/create-external-library-transact-sql.md#c-create-a-library-from-a-byte-stream) in the [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) reference documentation.
