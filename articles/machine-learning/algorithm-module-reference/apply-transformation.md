@@ -15,8 +15,6 @@ ROBOTS: NOINDEX
 
 # Apply Transformation module
 
-*Applies a well-specified data transformation to a dataset*  
-
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to modify an input dataset based on a previously computed transformation.  

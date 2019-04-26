@@ -14,10 +14,6 @@ ROBOTS: NOINDEX
 ---
 # Edit Metadata module
 
-*Edits metadata associated with columns in a dataset*  
-  
- Category: Data Transformation / Manipulation 
-
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to change metadata that is associated with columns in a dataset. The value and data type of the dataset will be changed after using the **Edit Metadata** module. 

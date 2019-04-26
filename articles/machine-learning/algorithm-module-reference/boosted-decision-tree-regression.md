@@ -15,10 +15,6 @@ ROBOTS: NOINDEX
 
 # Boosted Decision Tree Regression module
 
-*Creates a regression model using the Boosted Decision Tree algorithm*  
-
-Category: Machine Learning / Initialize Model / Regression
-
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
 Use this module to create an ensemble of regression trees using boosting. *Boosting* means that each tree is dependent on prior trees. The algorithm learns by fitting the residual of the trees that preceded it. Thus, boosting in a decision tree ensemble tends to improve accuracy with some small risk of less coverage.  
