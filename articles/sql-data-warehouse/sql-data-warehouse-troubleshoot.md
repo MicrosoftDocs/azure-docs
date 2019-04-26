@@ -52,7 +52,9 @@ This article lists common troubleshooting question.
 ## Polybase
 | Issue                                           | Resolution                                                   |
 | :---------------------------------------------- | :----------------------------------------------------------- |
-| Exports fail with TINYINT and DATE types             | For Parquet and ORC file formats, DATE type values must be greater than 1970-01-01 00:00:01 UTC and TINYINT type values must be between 0-127.    |
+| Exports fail with TINYINT and DATE types             | For Parquet and ORC file formats, DATE type values must be between 1970-01-01 00:00:01 UTC and 2038-01-19 03:14:07. TINYINT type values must be between 0-127.    |
+| Issue with Parquet DECIMAL type: writing from Spark type DecimalType(18,4) and importing into a column of type double or real gives “Error: java.base/java.lang.Long cannot be cast to java.base/java.lang.Float”. | You must import into bigint and divide by 10000 or use the [Databricks] SQL DW connector. |
+| Issue with Parquet DATE type: writing from Spark type Date and importing into a column of type date or datetime gives “Error: java.base/java.lang.Integer cannot be cast to parquet.io.api.Binary”. | You must use a different Spark type (int) and compute the date or use the [Databricks] SQL DW connector. |
 
 ## Differences from SQL Database
 | Issue                                 | Resolution                                                   |
@@ -126,3 +128,4 @@ For more help in finding solution to your issue, here are some other resources y
 [Stack Overflow forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Databricks]: https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse
