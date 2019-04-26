@@ -5,12 +5,12 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 03/20/2019
+ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-#Customer intent: As a network operator, I want use Azure Blockchain Service so that I can create a managed ledger on Azure
+#Customer intent: As a network operator, I want use Azure Blockchain Service so that I can create a managed ledger on Azure.
 ---
 
 # Quickstart: Create an Azure Blockchain Service using the Azure portal
@@ -25,44 +25,34 @@ Azure Blockchain Service is created with a defined set of compute and storage re
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
-1. Select **Blockchain** > **Managed Ledger Service**.
+1. Select **Blockchain** > **Azure Blockchain Service**.
+1. Complete the template.
 
-    ![Azure Blockchain Service option](./media/create-member-portal/managed-ledger.png)
+    ![Create Service](./media/create-member/create-member.png)
 
-1. Fill out the new service details form with the following information:
-
-    ![Create Service](./media/create-member-portal/create-service.png)
-
-    **Setting** | **Suggested value** | **Field description**
-    ------------|---------------------|----------------------
-    Blockchain Member | mymanagedledger | Choose a unique name that identifies your Azure Managed Ledger Service. For example, `myblockchain`. The blockchain member name can only contain lowercase letters and numbers. The first character must be a letter. The value must be between 2 and 20 characters long.
-    Subscription | Your subscription | Select the Azure subscription that you want to use for your service. If you have multiple subscriptions, choose the subscription in which you get billed for the resource. 
-    Resource group | myresourcegroup | A new resource group name or an existing one from your subscription.
-    Location | US West | Choose the location that is closest to your users or your other Azure applications.
-    Public endpoint password | password123 | Provide a new password for the public endpoint.
-    Confirm password | password123 | Confirm the public endpoint password.
-    Do you want to create a new consortium? | Yes | Select whether you want to create a new consortium. 
-    Consortium name| Food tracking chain | Choose a unique name for the consortium. 
-    Description | This is to track the source, transportation, selling of organic food from manufacturer | Description of the consortium. 
-    Protocol | Parity POA | Select which protocol you want to use to connect to your blockchain.
-    Node type | **Standard, 3 Nodes** | The node configuration for your new service. Select **Standard**. 2 validator nodes is the default setting. Select **OK**.
-
-    ![Node type](./media/create-member-portal/node-type.png)
+    Setting | Description
+    --------|------------
+    Blockchain Member | Choose a unique name that identifies your Azure Blockchain Service member. The blockchain member name can only contain lowercase letters and numbers. The first character must be a letter. The value must be between 2 and 20 characters long.
+    Subscription | Select the Azure subscription that you want to use for your service. If you have multiple subscriptions, choose the subscription in which you get billed for the resource.
+    Resource group | A new resource group name or an existing one from your subscription.
+    Region | Location must be the same for all members of the consortium.
+    Member account password | Provide a new password for the member account. The member account password is used to authenticate to the blockchain member's public endpoint using basic authentication.
+    Consortium name | For new consortiums, enter a unique name. If joining a consortium through an invite, the value is the consortium you are joining.
+    Description | Description of the consortium.
+    Protocol |  Preview supports the Quorum protocol.
+    Pricing | The node configuration for your new service. Select **Standard**. 2 validator nodes and 1 transaction node is the default setting.
 
 1. Select **Create** to provision the service. Provisioning takes about 10 minutes.
-1. Select **Notifications** on the toolbar (the bell icon) to monitor the deployment process.
-1. After deployment is successful, you can find the recourse in the **Notifications**, or by typing the blockchain member name in the search box.
-1. Click **Overview**, you can check the basic information about your service.(Image here to be added)
+1. Select **Notifications** on the toolbar to monitor the deployment process.
+1. After deployment, navigate to your blockchain member.
 
-    **Name** | **Explanation**
-    --- | ---
-    Status | The status of the service shows whether if it is deployed successfully
-    Node Credential | The public key of the transaction node
-    Service DNS | The RPC endpoint address of your service. You may use it to connect your service to third-party application such as MetaMask
+Select **Overview**, you can view the basic information about your service including the RootContract address and member account.
+
+![Blockchain member overview](./media/create-member/overview.png)
 
 ## Clean up resources
 
-You can use the member you created for the next quickstart or tutorial. When no longer needed, you can delete the resources by deleting the `myresourcegroup` resource group you created by the Azure Blockchain Service.
+You can use the member you created for the next quickstart or tutorial. When no longer needed, you can delete the resources by deleting the `myResourceGroup` resource group you created by the Azure Blockchain Service.
 
 To delete the resource group:
 
@@ -72,4 +62,4 @@ To delete the resource group:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Send a transaction](send-transaction.md)
+> [Use MetaMask to connect and deploy a smart contract](connect-metamask.md)
