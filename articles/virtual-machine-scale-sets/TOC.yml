@@ -204,6 +204,9 @@
         href: virtual-machine-scale-sets-encrypt-disks-ps.md
       - name: Use the Azure CLI
         href: virtual-machine-scale-sets-encrypt-disks-cli.md
+      - name: Disk encrytion with extension sequencing
+        href: ../security/azure-security-disk-encryption-extension-sequencing.md
+        maintainContext: true
     - name: Work with large scale sets
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
