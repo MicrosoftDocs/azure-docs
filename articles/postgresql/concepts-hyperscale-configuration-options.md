@@ -46,7 +46,7 @@ portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) shows the
 monthly cost on the **Configure** tab based on the options you select. If you
 don't have an Azure subscription, you can use the Azure pricing calculator to
 get an estimated price. On the [Azure pricing
-calculator](https://azure.microsoft.com/en-us/pricing/calculator/) website,
+calculator](https://azure.microsoft.com/pricing/calculator/) website,
 select **Add items**, expand the **Databases** category, and choose **Azure
 Database for PostgreSQL – Hyperscale (Citus)** to customize the options.
  
