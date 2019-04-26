@@ -56,21 +56,21 @@ The following are valid values of an expression:
        "= null"                 // null value
     ```
 
-3.  Expressions that use a comparison operator (==, !=, >=, >, <=, <)
+3.  Expressions that use a comparison operator (==, !=, >=, >, <=, <) <br/>
     Examples:
     ```
         "= $(/document/language) == 'en'"
         "= $(/document/sentiment) >= 0.5"
     ```
 
-4.	Expressions that use boolean operators  (&&, ||, !, ^)
+4.	Expressions that use boolean operators  (&&, ||, !, ^) <br/>
     Examples:
     ```
         "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"
         "= !true"
     ```
 
-5.	Expressions that use a numeric operator (+, -, \*, /, %)
+5.	Expressions that use a numeric operator (+, -, \*, /, %) <br/>
     Examples: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
