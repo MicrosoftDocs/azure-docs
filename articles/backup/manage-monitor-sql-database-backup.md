@@ -27,7 +27,7 @@ Azure Backup shows all manually triggered jobs in the **Backup jobs** portal. Th
 > The **Backup jobs** portal doesn't show scheduled backup jobs. Use SQL Server Management Studio to monitor scheduled backup jobs, as described in the next section.
 >
 
-For details on Monitoring scenarios, go to [Monitoring in Azure Portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
+For details on Monitoring scenarios, go to [Monitoring in the Azure portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
 
 ## View backup alerts
@@ -125,9 +125,9 @@ Unregister a SQL Server instance after you disable protection but before you del
 
 3. In **Protected Servers**, select the server to unregister. To delete the vault, you must unregister all servers.
 
-4. Right-click the protected server, and select **Delete**.
+4. Right-click the protected server, and select **Unregister**.
 
-   ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.png)
+   ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
 ## Re-register extension on the SQL Server VM
 

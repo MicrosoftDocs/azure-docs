@@ -87,7 +87,7 @@ In your cluster's Azure Resource Manager template, you can turn on the EventStor
               {
                 "name": "MinReplicaSetSize",
                 "value": "1"
-              }
+              },
               {
                 "name": "PlacementConstraints",
                 "value": "(NodeType==<node_type_name_here>)"
