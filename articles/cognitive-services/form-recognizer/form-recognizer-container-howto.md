@@ -172,8 +172,6 @@ services:
       eula: accept
       billing: "{COMPUTER_VISION_ENDPOINT_URI}"
       apikey: {COMPUTER_VISION_API_KEY}  
-    restart:
-      on-failure
 
   formrecognizer:
     image: "containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer"
@@ -203,8 +201,6 @@ services:
         target: /input
     ports:
       - "5000:5000"  
-    restart:
-      on-failure 
 ```
 
 
