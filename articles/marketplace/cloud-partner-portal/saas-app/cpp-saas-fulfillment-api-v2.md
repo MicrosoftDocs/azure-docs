@@ -35,7 +35,7 @@ The following table lists the provisioning states for a SaaS subscription, inclu
 
 #### Provisioning
 
-When a customer initiates a purchase, the ISV receives this information in an Auth Code on a customer interactive web page using a URL parameter (For example: https://contoso.com/signup?token=..). The Auth code can be validated and exchanged for the details of what needs to be provisioned by calling the Resolve API.  When the SaaS service finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed.  The following diagram shows the sequence of API calls for a provisioning scenario.  
+When a customer initiates a purchase, the ISV receives this information in an Auth Code on a customer interactive web page using a URL parameter. For example: https://contoso.com/signup?token=.., where the landing page URL provider in partner center is https://contoso.com/signup. The Auth code can be validated and exchanged for the details of what needs to be provisioned by calling the Resolve API.  When the SaaS service finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed.  The following diagram shows the sequence of API calls for a provisioning scenario.  
 
 ![API calls for provisioning a SaaS service.](./media/saas-post-provisioning-api-v2-calls.png)
 
