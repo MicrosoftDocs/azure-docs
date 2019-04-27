@@ -46,7 +46,7 @@ namespace MyNamespace
 
 ## Service lifetimes
 
-Azure Function apps provide the same service lifetimes as [ASP.NET Dependency Injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection#service-lifetimes), transient, scoped, and singleton.
+Azure Function apps provide the same service lifetimes as [ASP.NET Dependency Injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes), transient, scoped, and singleton.
 
 In a function app, a scoped service lifetime matches a function execution lifetime. Scoped services are created once per execution.  Later requests for that service during the execution reuse that instance.  A singleton service lifetime matches the host lifetime and is reused across function executions on that instance.
 

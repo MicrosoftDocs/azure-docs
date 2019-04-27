@@ -140,6 +140,8 @@
       href: create-function-app-linux-app-service-plan.md
     - name: Debug local PowerShell functions
       href: functions-debug-powershell-local.md
+    - name: Dependency injection
+      href: functions-dotnet-dependency-injection.md
     - name: Manage connections
       href: manage-connections.md
     - name: Error handling
