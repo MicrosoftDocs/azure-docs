@@ -1,18 +1,21 @@
 ---
+title: Creating secure admin workstations - Azure Active Directory
+description: Learn how to secure workstations to reduce the risk of breach due to misconfiguration or compromise
 
+services: active-directory
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: conceptual
+ms.date: 04/26/2019
 
-
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: jairoc
 
 # Customer intent: As an administrator, I want to provide staff with secured workstations to reduce the risk of breach due to misconfiguration or compromise.
 
-
-
-
-
-
-
-
-
+ms.collection: M365-identity-device-management
 ---
 # Overview
 
