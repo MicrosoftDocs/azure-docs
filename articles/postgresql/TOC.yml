@@ -144,6 +144,10 @@
       href: concepts-hyperscale-colocation.md
     - name: PostgreSQL extensions
       href: concepts-hyperscale-extensions.md
+    - name: Resources
+      items:
+      - name: Configuration options
+        href: concepts-hyperscale-configuration-options.md
 - name: How-to guides
   items:
   - name: Create users 
