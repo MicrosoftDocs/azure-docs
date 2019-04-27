@@ -44,7 +44,7 @@ This sample uses the Microsoft Authentication library (MSAL) to implement Auth. 
 ## Prerequisites
 
 - XCode version 10.x is required for the sample that is created in this guide. You can download XCode from the [iTunes website](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
-- Microsoft Authentication Library - [MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc). You can use dependency manager or add manually. There is section below for [more information](#add-msal). 
+- Microsoft Authentication Library ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). You can use dependency manager or add manually. There is section below with [more information](#add-msal). 
 
 ## Set up your project
 
@@ -55,7 +55,7 @@ This tutorial will create a new project. If you want to download the completed t
 1. Open Xcode and select **Create a new Xcode project**.
 2. Select **iOS > Single view Application** and select **Next**.
 3. Give a product name and select **Next**.
-4. Select a folder to create your app and click *Create*
+4. Select a folder to create your app and click *Create*.
 
 ## Register your application 
 

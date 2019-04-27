@@ -103,9 +103,9 @@ You can register your application in either of two ways, as described in the nex
     </activity>
     ```
 
-    Note, the Signautre Hash used should NOT be URL encoded. 
+    Note, the Signature Hash used should NOT be URL encoded in the **AndroidManifest.xml**. 
 
-4. Inside the **AndroidManifest.xml** and just above the `<application` tag, add the following permissions:
+4. Inside the **AndroidManifest.xml** and just above the `<application>` tag, add the following permissions:
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
@@ -307,8 +307,8 @@ private void updateSignedOutUI() {
 }
 
 /* Use MSAL to acquireToken for the end-user
-* Callback will call Graph api w/ access token & update UI
-*/
+ * Callback will call Graph api w/ access token & update UI
+ */
 private void onCallGraphClicked() {
     sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
 }
@@ -322,9 +322,9 @@ public Activity getActivity() {
 }
 
 /* Callback used in for silent acquireToken calls.
-    * Looks if tokens are in the cache (refreshes if necessary and if we don't forceRefresh)
-    * else errors that we need to do an interactive request.
-    */
+ * Looks if tokens are in the cache (refreshes if necessary and if we don't forceRefresh)
+ * else errors that we need to do an interactive request.
+ */
 private AuthenticationCallback getAuthSilentCallback() {
     return new AuthenticationCallback() {
 
@@ -366,8 +366,8 @@ private AuthenticationCallback getAuthSilentCallback() {
 }
 
 /* Callback used for interactive request.  If succeeds we use the access
-    * token to call the Microsoft Graph. Does not check cache
-    */
+ * token to call the Microsoft Graph. Does not check cache
+ */
 private AuthenticationCallback getAuthInteractiveCallback() {
     return new AuthenticationCallback() {
 
@@ -418,13 +418,13 @@ To add sign-out, copy the following method into your app that cycles through all
 
 ```java
 /* Clears an account's tokens from the cache.
-    * Logically similar to "sign out" but only signs out of this app.
-    * User will get interactive SSO if trying to sign back-in.
-    */
+ * Logically similar to "sign out" but only signs out of this app.
+ * User will get interactive SSO if trying to sign back-in.
+ */
 private void onSignOutClicked() {
     /* Attempt to get a user and acquireTokenSilent
-        * If this fails we do an interactive request
-        */
+     * If this fails we do an interactive request
+     */
     sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
         @Override
         public void onAccountsLoaded(final List<IAccount> accounts) {

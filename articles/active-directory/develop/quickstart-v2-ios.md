@@ -56,7 +56,7 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app when they sign in or consent to your app, for example `iOSQuickstart`.
->      - You can skip other configurations on this page. 
+>      - Skip other configurations on this page. 
 >      - Hit the `Register` button.
 > 1. Click on the new app > go to `Authentication` > `Add Platform` > `iOS`.    
 >      - Enter the ***Bundle Identifier*** for your application. 
