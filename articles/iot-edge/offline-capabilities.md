@@ -56,11 +56,47 @@ For an IoT Edge device to extend its extended offline capabilities to child IoT 
 
 ### Assign child devices
 
-Child devices can be any non-Edge device registered to the same IoT Hub. You can manage the parent-child relationship on creating a new device, or from the device details page of either the parent IoT Edge device or the child IoT device. 
+Child devices can be any non-Edge device registered to the same IoT Hub. Parent devices can have multiple child devices, but a child device can only have one parent. There are three options to set child devices to an edge device:
+
+#### Option 1: IoT Hub Portal
+
+ You can manage the parent-child relationship on creating a new device, or from the device details page of either the parent IoT Edge device or the child IoT device. 
 
    ![Manage child devices from the IoT Edge device details page](./media/offline-capabilities/manage-child-devices.png)
 
-Parent devices can have multiple child devices, but a child device can only have one parent.
+
+#### Option 2: Use the `az` command-line tool
+
+Using the [Azure command-line interface](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) with [IoT extension](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 or newer), you can manage parent child relationships with the [device-identity](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) sub-commands. In the example below, we execute a query to assign all non IoT Edge devices in the hub as child devices of an IoT Edge device. 
+
+```shell
+# Set IoT Edge parent device
+egde_device="edge-device1"
+
+# Get All IoT Devices
+device_list=$(az iot hub query \
+        --hub-name replace-with-hub-name \
+        --subscription replace-with-sub-name \
+        --resource-group replace-with-rg-name \
+        -q "SELECT * FROM devices WHERE capabilities.iotEdge = false" \
+        --query 'join(`, `, [].deviceId)' -o tsv)
+
+# Add all IoT devices to IoT Edge (as child)
+az iot hub device-identity add-children \
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name 
+```
+
+You can modify the [query](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-query-language) to select a smaller subset of devices. The command may take several seconds if you specify a large set of devices.
+
+#### Option 3: Use IoT Hub Service SDK 
+
+Finally, you can manage parent child relationships programmatically using either C#, Java or Node.JS IoT Hub Service SDK. Here is an [example](https://aka.ms/set-child-iot-device-c-sharp) using the C# SDK.
+
+
 
 ### Specifying DNS servers 
 
