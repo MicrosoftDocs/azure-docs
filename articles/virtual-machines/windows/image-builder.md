@@ -3,17 +3,22 @@ title: Create a Windows VM with Azure Image Builder (preview)
 description: Create a Windows VM with the Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 04/20/2019
+ms.date: 04/26/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: jeconnoc
 ---
 # Preview: Create a Windows VM with Azure Image Builder
 
-This article is to show you how you can create a customized Windows image using the Azure VM Image Builder, and distribute to a region. This covers using three different customizations:
-- PowerShell (ScriptUri) - download and run a PowerShell script.
-- PowerShell (inline) - run a specific command.
-- File - copy a file from GitHub.
+This article is to show you how you can create a customized Windows image using the Azure VM Image Builder, and distribute to a region. This covers using three different [customizations](../linux/image-builder-json.md#properties-customize?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json):
+- PowerShell (ScriptUri) - download and run a [PowerShell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
+- Windows Restart - restarts the VM.
+- PowerShell (inline) - run a specific command. In this example, it creates a directory on the VM using `mkdir c:\\buildActions`.
+- File - copy a file from GitHub onto the VM. This example copies [index.md](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) to `c:\buildArtifacts\index.html` on the VM.
+
+We will be using a .json template to configure the image. The .json file we are using is here: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). The .json template creates an image using:
+
+
 
 
 > [!IMPORTANT]
@@ -133,7 +138,7 @@ Wait until the build is complete. This can take about 15 minutes.
 
 ## Create the VM
 
-Create the VM using the image you built.
+Create the VM using the image you built. Replace *<password>* with your own password for the *aibuser* on the VM.
 
 ```azurecli-interactive
 az vm create \
@@ -147,7 +152,7 @@ az vm create \
 
 ## Verify the customization
 
-Create a Remote Desktop connection to the VM. Inside the VM, open a cmd prompt and type:
+Create a Remote Desktop connection to the VM using the username and password you set when you created the VM. Inside the VM, open a cmd prompt and type:
 
 ```console
 dir c:\
@@ -171,5 +176,5 @@ az group delete -n $imageResourceGroup
 
 ## Next steps
 
-To learn more about the components of the .json file used in this article, see [Image builder json template example](image-builder-json.md).
+To learn more about the components of the .json file used in this article, see [Image builder json template example](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
