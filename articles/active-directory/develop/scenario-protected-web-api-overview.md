@@ -19,7 +19,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Protected web API - overview
+# Scenario: Protected web API
 
 In this scenario, we'll show you how you can expose a web API and how you can protect it so that only authenticated users can access the API. You'll want to enable authenticated users with both work and school accounts, or personal Microsoft personal accounts to use your web API.
 

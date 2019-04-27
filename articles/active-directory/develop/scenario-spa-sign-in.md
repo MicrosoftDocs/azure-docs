@@ -1,6 +1,6 @@
 ---
-title: Single Page Application - Sign in | Azure
-description: Learn how to build a Single Page Application (Sign in)
+title: Single-page application (sign in) - Microsoft identity platform
+description: Learn how to build a single-page application (Sign in)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -17,15 +17,16 @@ ms.workload: identity
 ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a Single Page Application using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a single-page application using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Single Page Application - Sign in
+# Single-page application - sign in
 
-Learn how to add sign in to the code for your Single Page Application.
+Learn how to add sign in to the code for your single-page application.
 
 Before you can get tokens to access APIs in your application, you will need an authenticated user context. You can sign in users to your application in MSAL.js in two ways:
+
 * [Sign in with a pop-up window](#sign-in-with-a-pop-up-window) using `loginPopup` method
 * [Sign in with redirect](#sign-in-with-redirect) using `loginRedirect` method
 
@@ -34,13 +35,13 @@ You can also optionally pass the scopes of the APIs for which you need the user 
 > [!NOTE]
 > If your application already has access to an authenticated user context or id token, you can skip the login step and directly acquire tokens. For more details, see [sso without msal.js login](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Sso#sso-to-an-app-without-msaljs-login).
 
-**Choosing between a pop-up or redirect experience**
+## Choosing between a pop-up or redirect experience
 
- You cannot use a combination of both the pop-up and redirect methods in your application. The choice between a pop-up or redirect experience depends on your application flow.
+You cannot use a combination of both the pop-up and redirect methods in your application. The choice between a pop-up or redirect experience depends on your application flow.
 
-* If you don't want the user to navigate away from your main application page during authentication, it is recommended to use the pop-up methods. Since the authentication redirect happens in a pop-up window, the state of the main application is preserved.
+* If you don't want the user to navigate away from your main application page during authentication, it's recommended to use the pop-up methods. Since the authentication redirect happens in a pop-up window, the state of the main application is preserved.
 
-* There are certain cases where you may need to use the redirect methods. If users of your application have browser constraints or policies where pop-ups windows are disabled, you can use the redirect methods. It is also recommended to use the redirect methods with Internet Explorer browser since there are certain [known issues with Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) when handling pop-up windows.
+* There are certain cases where you may need to use the redirect methods. If users of your application have browser constraints or policies where pop-ups windows are disabled, you can use the redirect methods. Use the redirect methods with Internet Explorer browser since there are certain [known issues with Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) when handling pop-up windows.
 
 ## Sign in with a pop-up window
 
@@ -116,7 +117,7 @@ userAgentApplication.loginRedirect(loginRequest);
 The code here is the same as described above under the sign in with a pop-up window section. The default flow is redirect.
 
 > [!NOTE]
-> The ID token does not contain the consented scopes and only represents the authenticated user. The consented scopes are returned in the access token which you will acquire in the next step.
+> The ID token doesn't contain the consented scopes and only represents the authenticated user. The consented scopes are returned in the access token which you will acquire in the next step.
 
 ## Sign out
 

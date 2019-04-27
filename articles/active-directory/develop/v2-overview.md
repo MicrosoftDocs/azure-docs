@@ -49,11 +49,15 @@ Working with identity doesn’t have to be hard. Choose a scenario that applies 
 - [Build a web API that calls web APIs](scenario-web-api-call-api-overview.md)
 - [Build a desktop app](scenario-desktop-overview.md)
 - [Build a daemon app](scenario-daemon-overview.md)
-- Build a mobile app
+- [Build a mobile app](scenario-mobile-overview.md)
+
+<!--- We are making updates to the application scenarios chart. This is placeholder text for it.
 
 The following chart outlines the full set of authentication scenarios and best practices – use it as a reference when integrating the Microsoft identity platform before shipping your app.
 
 [![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
+
+--->
 
 ## Next steps
 
@@ -72,7 +76,7 @@ When you’re ready to launch your app into a **production environment**, review
 - [Enable logging](msal-logging.md) in your application.
 - Enable telemetry in your application.
 - Enable [proxies and customize HTTP clients](msal-net-provide-httpclient.md).
-- Test your integration by following the [Microsoft identity platform integration checklist](active-directory-integration-checklist.md).
+- Test your integration by following the [Microsoft identity platform integration checklist](identity-platform-integration-checklist.md).
 
 ## Learn more
 

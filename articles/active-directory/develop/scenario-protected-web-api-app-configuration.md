@@ -20,22 +20,22 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Protected web API - app code configuration
+# Protected web API - code configuration
 
 To successfully configure the code for your protected web API, you need to understand what makes the APIs protected, what you need to configure the bearer token, and how to validate the token.
 
 ## What makes ASP.NET/ASP.NET Core APIs protected?
 
-Like in web Apps, the ASP.NET/ASP.NET core web APIs are "protected" because their controller actions are prefixed with the `[Authorize]` attribute. Therefore, the controller actions can only be called if the API is called with an identity that is authorized. 
+Like in web Apps, the ASP.NET/ASP.NET core web APIs are "protected" because their controller actions are prefixed with the `[Authorize]` attribute. Therefore, the controller actions can only be called if the API is called with an identity that is authorized.
 
 Consider the following questions:
 
-- How does the web API know the identity of the application that calls it (only an application can call a Web API)?
+- How does the web API know the identity of the application that calls it (only an application can call a web API)?
 - If the application called the web API on behalf of a user, what is the user's identity?
 
 ## Bearer token
 
-The information about the identity of the application, and about the user (unless the web app accepts service-to-service calls from a daemon application), is held in the bearer token that's set in the header when calling the application. 
+The information about the identity of the application, and about the user (unless the web app accepts service-to-service calls from a daemon application), is held in the bearer token that's set in the header when calling the application.
 
 Here's a C# code example that shows a client calling the API after acquiring a token with MSAL.NET.
 
@@ -47,12 +47,12 @@ var result = await app.AcquireToken(scopes)
 httpClient = new HttpClient();
 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
-// Call the Web API.
+// Call the web API.
 HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> The bearer token was requested by a client application to the Microsoft identity platform endpoint **for the Web API**. The web API is the only application that should verify the token and look at the claims it contains. The client applications should never look at the claims in the tokens (the web API could decide, in the future, that it demands that the token be encrypted and this will break the client application which can crack open the access tokens).
+> The bearer token was requested by a client application to the Microsoft identity platform endpoint **for the web API**. The web API is the only application that should verify the token and look at the claims it contains. The client applications should never look at the claims in the tokens (the web API could decide, in the future, that it demands that the token be encrypted and this will break the client application which can crack open the access tokens).
 
 ## JwtBearer configuration
 
@@ -96,21 +96,21 @@ In ASP.NET Core, this middleware is initialized in the `Startup.cs` file.
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 ```
 
-The middleware is added to the Web API by the following instruction:
+The middleware is added to the web API by the following instruction:
 
 ```CSharp
  services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
- Currently, the ASP.NET Core templates create Azure AD v1.0 Web APIs. However, you can easily change them to use the Microsoft identity platform endpoint by adding the following code in the `Startup.cs` file.
+ Currently, the ASP.NET Core templates create Azure AD v1.0 web APIs. However, you can easily change them to use the Microsoft identity platform endpoint by adding the following code in the `Startup.cs` file.
 
 ```CSharp
 services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
 {
-    // This is a Microsoft identity platform v2.0 Web API
+    // This is a Microsoft identity platform v2.0 web API
     options.Authority += "/v2.0";
 
-    // The Web API accepts as audiences are both the Client ID (options.Audience) and api://{ClientID}
+    // The web API accepts as audiences are both the Client ID (options.Audience) and api://{ClientID}
     options.TokenValidationParameters.ValidAudiences = new []
     {
      options.Audience,
@@ -128,8 +128,8 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
 
 The JwtBearer middleware, like the OpenID Connect middleware in web apps, is directed by the `TokenValidationParameters` to validate the token. The token is decrypted (if needed), the claims are extracted, and the signature is verified. Then, the token is validated by checking for the following data:
 
-- It's targeted for the Web API (audience)
-- It was issued for an application that is allowed to call the Web API (sub)
+- It's targeted for the web API (audience)
+- It was issued for an application that is allowed to call the web API (sub)
 - It was issued by a trustable Security Token Server (STS) (issuer)
 - The token's lifetime is in range (expiry)
 - It wasn't tampered with (signature)

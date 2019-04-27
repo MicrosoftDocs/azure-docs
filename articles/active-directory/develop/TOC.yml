@@ -175,18 +175,6 @@
           href: scenario-desktop-call-api.md
         - name: Move to production
           href: scenario-desktop-production.md
-      - name: Mobile app that calls Web APIs
-        items:
-        - name: Overview
-          href: scenario-mobile-overview.md
-        - name: App registration
-          href: scenario-mobile-app-registration.md
-        - name: Acquiring a token for the app
-          href: scenario-mobile-acquire-token.md
-        - name: Calling a Web API
-          href: scenario-mobile-call-api.md
-        - name: Move to production
-          href: scenario-mobile-production.md
       - name: Daemon app
         items:
         - name: Overview
@@ -201,8 +189,20 @@
           href: scenario-daemon-call-api.md
         - name: Move to production
           href: scenario-daemon-production.md
+      - name: Mobile app that calls web APIs
+        items:
+        - name: Overview
+          href: scenario-mobile-overview.md
+        - name: App registration
+          href: scenario-mobile-app-registration.md
+        - name: Acquiring a token for the app
+          href: scenario-mobile-acquire-token.md
+        - name: Calling a web API
+          href: scenario-mobile-call-api.md
+        - name: Move to production
+          href: scenario-mobile-production.md
       - name: Integration checklist
-        href: active-directory-integration-checklist.md
+        href: identity-platform-integration-checklist.md
     - name: Microsoft Authentication Library (MSAL)
       items:
         - name: Overview
@@ -300,8 +300,12 @@
         href: consent-framework.md
       - name: Application consent experiences
         href: application-consent-experience.md
-    - name: National clouds
-      href: authentication-national-cloud.md
+    - name: National Clouds
+      items:
+      - name: Overview
+        href: authentication-national-cloud.md
+      - name: Authentication
+        href: msal-national-cloud.md
   - name: How-to guides
     items:
     - name: Authentication
@@ -503,12 +507,8 @@
         href: application-consent-experience.md
     - name: Conditional access
       href: conditional-access-dev-guide.md
-    - name: National Clouds 
-      items:
-      - name: Overview
-        href: authentication-national-cloud.md  
-      - name: Authentication
-        href: msal-national-cloud.md
+    - name: National Clouds
+      href: authentication-national-cloud.md
   - name: How-to guides
     items:
     - name: Authentication

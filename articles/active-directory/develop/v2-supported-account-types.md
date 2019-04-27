@@ -1,5 +1,5 @@
 ---
-title: Supported accounts in apps - Audience | Azure
+title: Supported accounts in apps (Audience) - Microsoft identity platform
 description: Conceptual documentation about audiences and supported account types in applications
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/15/2019
+ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev

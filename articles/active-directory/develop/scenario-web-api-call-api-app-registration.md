@@ -1,5 +1,5 @@
 ---
-title: Web API that calls downstream web APIs - app registration | Azure
+title: Web API that calls downstream web APIs (app registration) - Microsoft identity platform
 description: Learn how to build a web API that calls downstream web APIs (app registration)
 services: active-directory
 documentationcenter: dev-center-name

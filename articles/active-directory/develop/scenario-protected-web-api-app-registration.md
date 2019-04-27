@@ -20,7 +20,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Protected Web API - app registration
+# Protected web API - app registration
 
 This article explains the app registration specifics for a protected web API.
 
@@ -36,7 +36,7 @@ The Microsoft identity platform endpoint can issue two types of tokens: v1.0 tok
 Once you've created the application, you can change the accepted token version by following these steps:
 
 1. In the Azure portal, select your app and then select the **Manifest** for your app.
-2. In the manifest, search for **"accessTokenAcceptedVersion"**, and see that its value is **2**. This property lets Azure AD know that the Web API accepts v2.0 tokens. If it's **null**, the accepted token version will be v1.0.
+2. In the manifest, search for **"accessTokenAcceptedVersion"**, and see that its value is **2**. This property lets Azure AD know that the web API accepts v2.0 tokens. If it's **null**, the accepted token version will be v1.0.
 3. Select **Save**.
 
 > [!NOTE]

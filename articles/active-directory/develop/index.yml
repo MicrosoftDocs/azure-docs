@@ -63,7 +63,7 @@ sections:
       - html: <a href="/azure/active-directory/develop/scenario-web-api-call-api-overview">Web API that calls downstream web APIs</a>
       - html: <a href="/azure/active-directory/develop/scenario-desktop-overview">Desktop app that calls web APIs</a>
       - html: <a href="/azure/active-directory/develop/scenario-daemon-overview">Daemon application</a>
-      - html: <a href="TBD">Mobile application</a>
+      - html: <a href="/azure/active-directory/develop/scenario-mobile-overview">Mobile application</a>
 
   - title: Quickstarts
     items:

@@ -1,6 +1,6 @@
 ---
-title: Daemon app calling Web APIs - calling Web APIs | Azure
-description: Learn how to build a daemon app that calls web apis (calling Web APIs)
+title: Daemon app calling web APIs (calling web APIs) - Microsoft identity platform
+description: Learn how to build a daemon app that calls web APIs (calling web APIs)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,15 +16,17 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a daemon app that can call Web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Call a Web API from a daemon application
+# Daemon app that calls web APIs - call a web API from the app
 
-## Calling a Web API from a .NET daemon application
+A daemon app can call a web API from a .NET daemon application or call several pre-approved web APIs.
 
-[!INCLUDE [Call Web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
+## Calling a web API from a .NET daemon application
+
+[!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
 <!--
 More includes will come later for Python and Java
@@ -32,7 +34,7 @@ More includes will come later for Python and Java
 
 ## Calling several APIs
 
-For daemon apps, the Web APIs that you call need to be pre-approved. There won't be any incremental consent with daemon apps (there's no user interaction). The tenant admin needs to pre-consent the application and all the API permissions. If you want to call several APIs, you'll need to acquire a token for each resource, each time calling `AcquireTokenForClient`. MSAL will use the application token cache to avoid unnecessary service calls.
+For daemon apps, the web APIs that you call need to be pre-approved. There won't be any incremental consent with daemon apps (there's no user interaction). The tenant admin needs to pre-consent the application and all the API permissions. If you want to call several APIs, you'll need to acquire a token for each resource, each time calling `AcquireTokenForClient`. MSAL will use the application token cache to avoid unnecessary service calls.
 
 ## Next steps
 
