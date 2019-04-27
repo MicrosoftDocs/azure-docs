@@ -17,7 +17,7 @@ manager: jeconnoc
 To build and run Microsoft Azure Red Hat OpenShift applications, you'll need to:
 
 * Purchase Azure virtual machine reserved instances.
-* Install version 2.0.61 (or higher) of the Azure CLI (or use the Azure Cloud Shell).
+* Install version 2.0.64 (or higher) of the Azure CLI (or use the Azure Cloud Shell).
 * Register for the `openshiftmanagedcluster` feature and associated resource providers.
 * Create an Azure Active Directory (Azure AD) tenant.
 * Create an Azure AD application object.
@@ -35,13 +35,13 @@ If you are not an Azure customer, [contact sales](https://aka.ms/openshift/conta
 
 ## Install the Azure CLI
 
-Azure Red Hat OpenShift requires version 2.0.61 or higher of the Azure CLI. If you've already installed the Azure CLI, you can check which version you have by running:
+Azure Red Hat OpenShift requires version 2.0.64 or higher of the Azure CLI. If you've already installed the Azure CLI, you can check which version you have by running:
 
 ```bash
 az --version
 ```
 
-The first line of output will have the CLI version, for example `azure-cli (2.0.61)`.
+The first line of output will have the CLI version, for example `azure-cli (2.0.64)`.
 
 Here are instructions for [installing the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) if you require a new installation or an upgrade.
 
