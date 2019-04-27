@@ -27,7 +27,7 @@ This quickstart requires:
 
 ## Create a Visual Studio project
 
-[!INCLUDE[](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
+[!INCLUDE [Quickstart C++ project](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
 ## Add sample code
 
