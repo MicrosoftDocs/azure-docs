@@ -97,8 +97,9 @@ You can register your application in either of two ways, as described in the nex
             <category android:name="android.intent.category.BROWSABLE" />
             
             <!--Add in your scheme/host from registered redirect URI-->
-            <data android:scheme="msauth"
-                android:host="<PACKAGE_NAME>/<SIGNATURE_HASH>" />
+>            <data android:scheme="msauth"
+>                android:host="Enter_the_Package_Name"
+>                android:path="/Enter_the_Signature_Hash" />
         </intent-filter>
     </activity>
     ```

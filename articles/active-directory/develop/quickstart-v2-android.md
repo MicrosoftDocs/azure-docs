@@ -114,7 +114,8 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > 
 >            <!--Add in your scheme/host from registered redirect URI-->
 >            <data android:scheme="msauth"
->                android:host="Enter_the_Package_Name/Enter_the_Signature_Hash" />
+>                android:host="Enter_the_Package_Name"
+>                android:path="Enter_the_Signature_Hash" />
 >        </intent-filter>
 >    </activity>
 >    ```
@@ -141,11 +142,12 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > 
 >            <!--Add in your scheme/host from registered redirect URI-->
 >            <data android:scheme="msauth"
->                android:host="<YOUR_PackageName>/<YOUR_SignatureHash>" />
+>                android:host="Enter_the_Package_Name"
+>                android:path="/Enter_the_Signature_Hash" />
 >        </intent-filter>
 >    </activity>
 >    ```
-> 1. Replace `<YOUR_PackageName>` and `<YOUR_SignatureHash>` with the values you registered in the Azure portal. 
+> 1. Replace `Enter_the_Package_Name` and `Enter_the_Signature_Hash` with the values you registered in the Azure portal. 
 > 1. Run the app! 
 
 ## More Information
