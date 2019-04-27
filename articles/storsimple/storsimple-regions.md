@@ -81,12 +81,12 @@ If using a StorSimple 8100 or 8600 physical device, the device is available in t
 | 14 | Germany               | 29 | Mexico             | 44 | Slovakia            | 59 | Vietnam                    |
 | 15 | Greece                | 30 | Netherlands        | 45 | Slovenia            | 60 | Croatia                    |
 
-This list changes as more countries are added. For a most up-to-date list of the geographies, go to the Storage Array Terms Appendix in the [Product terms](https://www.microsoft.com/en-us/licensing/product-licensing/products).
+This list changes as more countries/regions are added. For a most up-to-date list of the geographies, go to the Storage Array Terms Appendix in the [Product terms](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
 Microsoft can ship physical hardware and provide hardware spare parts replacement for StorSimple to the geographies in the preceding list.
 
 > [!IMPORTANT]
-> Do not place a StorSimple physical device in a region where StorSimple is not supported. Microsoft will not be able to ship any replacement parts to countries where StorSimple is not supported.
+> Do not place a StorSimple physical device in a region where StorSimple is not supported. Microsoft will not be able to ship any replacement parts to countries/regions where StorSimple is not supported.
 
 ### StorSimple Cloud Appliance (Models 8010/8020)
 
