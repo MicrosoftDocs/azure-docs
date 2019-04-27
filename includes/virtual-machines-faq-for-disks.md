@@ -137,7 +137,7 @@ For managed disks you cannot rename them. However, you may rename an unmanaged d
 
 GPT partitioning can be used only on data disks, not OS disks. OS disks must use the MBR partition style.
 
-## Uploading to a managed disk
+## Direct upload to a managed disk
 
 **Can I upload data to an existing managed disk?**
 
