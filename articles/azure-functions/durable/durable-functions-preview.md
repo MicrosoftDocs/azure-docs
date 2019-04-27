@@ -1,5 +1,5 @@
 ---
-title: Durable Functions preview features - Azure
+title: Durable Functions preview features - Azure Functions
 description: Learn about preview features for Durable Functions.
 services: functions
 author: cgillum
@@ -14,24 +14,24 @@ ms.author: azfuncdf
 
 # Durable Functions 2.0 preview (Azure Functions)
 
-*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) and [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you. If you are not already familiar with Durable Functions, please see the [overview documentation](durable-functions-overview.md).
+*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) and [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you. If you are not already familiar with Durable Functions, see the [overview documentation](durable-functions-overview.md).
 
-Durable Functions is a GA (Generally Available) feature of Azure Functions, but also contains several sub-features which are currently in public preview. This article describes newly released preview features and goes into details on how they work and how you can start using them.
+Durable Functions is a GA (Generally Available) feature of Azure Functions, but also contains several subfeatures that are currently in public preview. This article describes newly released preview features and goes into details on how they work and how you can start using them.
 
 > [!NOTE]
 > These preview features are part of a Durable Functions 2.0 release, which is currently an **alpha quality release** with several breaking changes. The Azure Functions Durable extension package builds can be found on nuget.org with versions in the form of **2.0.0-alpha**. These builds are not suitable for any production workloads, and subsequent releases may contain additional breaking changes.
 
 ## Breaking changes
 
-Several breaking changes are being introduced in Durable Functions 2.0. Existing applications are not expected to be able to move to Durable Functions 2.0 without code changes. This section lists some of the changes:
+Several breaking changes are introduced in Durable Functions 2.0. Existing applications are not expected to be compatible with Durable Functions 2.0 without code changes. This section lists some of the changes:
 
 ### Dropping .NET Framework support
 
-Support for .NET Framework (and therefore Functions 1.0) has been dropped for Durable Functions 2.0. The primary reason this was done to enable non-Windows contributors to easily build and test changes they make to Durable Functions from macOS and Linux platforms. The secondary reason for this change is to help move the Azure Functions ecosystem forward.
+Support for .NET Framework (and therefore Functions 1.0) has been dropped for Durable Functions 2.0. The primary reason is to enable non-Windows contributors to easily build and test changes they make to Durable Functions from macOS and Linux platforms. The secondary reason is to help encourage developers to move to the latest version of the Azure Functions runtime.
 
 ### Host.json schema
 
-The following is the new schema for host.json. The main change to be aware of us the new `"storageProvider"` section, and the `"azureStorage"` section underneath it. This change was done to support [alternate storage providers](durable-functions-preview.md#alternate-storage-providers).
+The following snippet shows the new schema for host.json. The main change to be aware of us the new `"storageProvider"` section, and the `"azureStorage"` section underneath it. This change was done to support [alternate storage providers](durable-functions-preview.md#alternate-storage-providers).
 
 ```json
 {
@@ -68,11 +68,11 @@ The following is the new schema for host.json. The main change to be aware of us
 }
 ```
 
-As Durable Functions 2.0 continues to stabilize, more changes will be introduced to the `durableTask` section host.json. For more information on these changes, please refer to [this GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/641).
+As Durable Functions 2.0 continues to stabilize, more changes will be introduced to the `durableTask` section host.json. For more information on these changes, see [this GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/641).
 
 ### Public interface changes
 
-The various "context" objects supported by Durable Functions had abstract base classes intended for use in unit testing. As part of Durable Functions 2.0, these abstract base classes have been replaced with interfaces. Function code which used the concrete types directly are not affected.
+The various "context" objects supported by Durable Functions had abstract base classes intended for use in unit testing. As part of Durable Functions 2.0, these abstract base classes have been replaced with interfaces. Function code that uses the concrete types directly are not affected.
 
 The following table represents the main changes:
 
@@ -88,7 +88,7 @@ In the case where an abstract base class contained virtual methods, these virtua
 
 Entity functions define operations for reading and updating small pieces of state, known as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. Unlike orchestrator functions, entity functions do not have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
 
-The following is an example lf a simple entity function which defines a *Counter* entity. The function defines three operations, `add`, `remove`, and `reset`, each of which update an integer value, `currentValue`.
+The following code is an example of a simple entity function that defines a *Counter* entity. The function defines three operations, `add`, `remove`, and `reset`, each of which update an integer value, `currentValue`.
 
 ```csharp
 public static async Task Counter(
@@ -115,29 +115,29 @@ public static async Task Counter(
 }
 ```
 
-Entity *instances* are accessed via a unique identifier, the *entity id*. An entity id is simply a pair of strings that uniquely identifies an entity instance. It consists of:
+Entity *instances* are accessed via a unique identifier, the *entity ID*. An entity ID is simply a pair of strings that uniquely identifies an entity instance. It consists of:
 
-1. an **entity name**: a name that identifies the type of the entity (e.g. "Counter")
-2. an **entity key**: a string that uniquely identifies the the entity among all other entities of the same name (e.g. a GUID)
+1. an **entity name**: a name that identifies the type of the entity (for example, "Counter")
+2. an **entity key**: a string that uniquely identifies the entity among all other entities of the same name (for example, a GUID)
 
 For example, a *counter* entity function might be used for keeping score in an online game. Each instance of the game will have a unique entity ID, such as `@Counter@Game1`, `@Counter@Game2`, and so on.
 
 ### Comparison with virtual actors
 
-The design of durable entities is heavily influenced by the [actor model](https://en.wikipedia.org/wiki/Actor_model). If you are already familiar with actors, then the concepts behind durable entities should be somewhat familiar to you. In particular, durable entities are similar to [virtual actors](https://research.microsoft.com/en-us/projects/orleans/) in many ways:
+The design of Durable Entities is heavily influenced by the [actor model](https://en.wikipedia.org/wiki/Actor_model). If you are already familiar with actors, then the concepts behind durable entities should be familiar to you. In particular, durable entities are similar to [virtual actors](https://research.microsoft.com/en-us/projects/orleans/) in many ways:
 
 * Durable entities are addressable via an *entity ID*.
 * Durable entity operations execute serially, one at a time, to prevent race conditions.
-* Durable entities are created automatically when they are invoked.
+* Durable entities are created automatically when they are called or signaled.
 * When not executing operations, durable entities are silently unloaded from memory.
 
 There are some important differences, however, that are worth noting:
 
-* Durable entities are modeled as pure functions. This is different from most object-oriented frameworks which represent actors using language-specific support for classes, properties, and methods.
+* Durable entities are modeled as pure functions. This design is different from most object-oriented frameworks that represent actors using language-specific support for classes, properties, and methods.
 * Durable entities prioritize *durability* over *latency*, and thus may not be appropriate for applications with strict latency requirements.
 * Messages sent between entities are delivered reliably and in order.
-* Durable entities can be used in conjunction with durable orchestrations, and can serve as distributed locks, which is described later in this article.
-* Request/response patterns in entities are limited to orchestrations. For entity-to-entity communication, only one-way messages (a.k.a. "signaling") are permitted, as in the original actor model. This prevents distributed deadlocks.
+* Durable entities can be used in conjunction with durable orchestrations, and can serve as distributed locks, which are described later in this article.
+* Request/response patterns in entities are limited to orchestrations. For entity-to-entity communication, only one-way messages (also known as "signaling") are permitted, as in the original actor model. This behavior prevents distributed deadlocks.
 
 ### Durable Entity APIs
 
@@ -152,9 +152,9 @@ The execution of an operation on an entity can call these members on the context
 * **GetState\<T>**: gets the current state of the entity.
 * **SetState**: updates the state of the entity.
 * **SignalEntity**: sends a one-way message to an entity.
-* **Self**: gets the id of the entity.
+* **Self**: gets the ID of the entity.
 * **Return**: returns a value to the client or orchestration that called the operation.
-* **IsNewlyConstructed**: is true if the entity did not exist prior to the operation.
+* **IsNewlyConstructed**: returns `true` if the entity did not exist prior to the operation.
 * **DestructOnExit**: deletes the entity after finishing the operation.
 
 Operations are less restricted than orchestrations:
@@ -164,12 +164,12 @@ Operations are less restricted than orchestrations:
 
 ### Accessing entities from clients
 
-Durable entities can be invoked from ordinary functions via the `orchestrationClient` binding (`IDurableOrchestrationClient` in .NET). These are the supported methods:
+Durable entities can be invoked from ordinary functions via the `orchestrationClient` binding (`IDurableOrchestrationClient` in .NET). The following methods are supported:
 
 * **ReadEntityStateAsync\<T>**: reads the state of an entity.
 * **SignalEntityAsync**: sends a one-way message to an entity, and waits for it to be enqueued.
 
-Note that these methods prioritize performance over consistency: `ReadEntityStateAsync` can return a stale value, and `SignalEntityAsync` can return before the operation has finished. In contrast, calling entities from orchestrations (as described next) is strongly consistent.
+These methods prioritize performance over consistency: `ReadEntityStateAsync` can return a stale value, and `SignalEntityAsync` can return before the operation has finished. In contrast, calling entities from orchestrations (as described next) is strongly consistent.
 
 ### Accessing entities from orchestrations
 
@@ -179,11 +179,11 @@ Orchestrations can access entities using the context object. They can choose bet
 * **CallEntityAsync**: sends a message to an entity, and waits for a response indicating that the operation has completed.
 * **CallEntityAsync\<T>**: sends a message to an entity, and waits for a response containing a result of type T.
 
-When using two-way communication, any exceptions thrown during the execution of the operation are also transmitted back to the calling orchestration and re-thrown. In contrast, when using fire-and-forget, exceptions are not observed.
+When using two-way communication, any exceptions thrown during the execution of the operation are also transmitted back to the calling orchestration and rethrown. In contrast, when using fire-and-forget, exceptions are not observed.
 
 ### Locking entities from orchestrations
 
-Orchestrations can lock entities. This provides a simple way to prevent unwanted races by using *critical sections*.
+Orchestrations can lock entities. This capability provides a simple way to prevent unwanted races by using *critical sections*.
 
 The context object provides the following methods:
 
@@ -192,7 +192,7 @@ The context object provides the following methods:
 
 The critical section ends, and all locks are released, when the orchestration ends. In .NET, `LockAsync` returns an `IDisposable` that ends the critical section when disposed, which can be used together with a `using` clause to get a syntactic representation of the critical section.
 
-For example, consider an orchestration that needs to test whether two players are available, and then assign them both to a game. This can be implemented using a critical section as follows:
+For example, consider an orchestration that needs to test whether two players are available, and then assign them both to a game. This task can be implemented using a critical section as follows:
 
 ```csharp
 
@@ -214,12 +214,12 @@ using (await ctx.LockAsync(player1, player2))
 }
 ```
 
-During the critical section, both player entities are locked. This means they are not executing any operations other than the ones that are called from within the critical section). This prevents races with conflicting operations, such as players being assigned to a different game, or signing off.
+Within the critical section, both player entities are locked, which means they are not executing any operations other than the ones that are called from within the critical section). This behavior prevents races with conflicting operations, such as players being assigned to a different game, or signing off.
 
-We impose several restrictions on how critical sections can be used. These serve to prevent deadlocks and reentrancy.
+We impose several restrictions on how critical sections can be used. These restrictions serve to prevent deadlocks and reentrancy.
 
 * Critical sections cannot be nested.
-* Critical sections cannot create sub-orchestrations.
+* Critical sections cannot create suborchestrations.
 * Critical sections can call only entities they have locked.
 * Critical sections cannot call the same entity using multiple parallel calls.
 * Critical sections can signal only entities they have not locked.
@@ -233,7 +233,7 @@ The Durable Task Framework supports multiple storage providers today, including 
 
 ### Emulator
 
-The [DurableTask.Emulator](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Emulator/) provider is an local memory, non-durable storage provider suitable for local testing scenarios. It can be configured using the following minimal **host.json** schema:
+The [DurableTask.Emulator](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Emulator/) provider is a local memory, non-durable storage provider suitable for local testing scenarios. It can be configured using the following minimal **host.json** schema:
 
 ```json
 {
@@ -269,7 +269,7 @@ The [DurableTask.Redis](https://www.nuget.org/packages/Microsoft.Azure.DurableTa
 }
 ```
 
-The `connectionStringName` must reference the name of an app setting or environment variable. That app setting or environment variable should contain a Redis connection string value in the for of *server:port*. For example `localhost:6379` for connecting to a local Redis cluster.
+The `connectionStringName` must reference the name of an app setting or environment variable. That app setting or environment variable should contain a Redis connection string value in the form of *server:port*. For example, `localhost:6379` for connecting to a local Redis cluster.
 
 > [!NOTE]
 > The Redis provider is currently experimental and only supports function apps running on a single node.
