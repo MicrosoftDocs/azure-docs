@@ -227,7 +227,7 @@ private PublicClientApplication sampleApp;
 private IAuthenticationResult authResult;
 ```
 
-Now, we can instantiate MSAL, copy the following code inside the `onCreate(...)` method:
+Now to instantiate MSAL, copy the following code inside the `onCreate(...)` method:
 
 ```java
 super.onCreate(savedInstanceState);
@@ -267,7 +267,7 @@ sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
 });
 ```
 
-This block of code also attempts to sign in users silently when they open your application through `getAccounts(...)` and, if successful, `acquireTokenSilentAsync(...)`.  In the next few sections we'll implement the callback handler for the case there are no signed in accounts. 
+The above block of code attempts to sign in users silently when they open your application through `getAccounts(...)` and, if successful, `acquireTokenSilentAsync(...)`.  In the next few sections we'll implement the callback handler for the case there are no signed in accounts. 
 
 #### Use MSAL to get Tokens
 
@@ -277,9 +277,9 @@ MSAL exposes two primary methods for getting tokens: `acquireTokenSilentAsync` a
 
 `acquireTokenSilentAsync` signs in a user and get tokens without any user interaction if an account is present. If it succeeds, MSAL will handoff the tokens to your apps, if it fails it will generate a `MsalUiRequiredException`.  If this exception is generated or you want your user to have an interactive sign in experience (credentials, mfa, or other conditional access policies may or may not be required), then you can use `acquireToken`.  
 
-`acquireToken` will always show UI when attemptign to sign in the user and get tokens; however, it might use session cookies in the browser or an account in the Microsoft authenticator to give an interactive-SSO experience. 
+`acquireToken` will always show UI when attempting to sign in the user and get tokens; however, it might use session cookies in the browser or an account in the Microsoft authenticator to give an interactive-SSO experience. 
 
-To begin, create the following three UI methods:
+To begin, create the following three UI methods inside the `MainActivity` class:
 
 ```java
 /* Set the UI for successful token acquisition data */
@@ -312,7 +312,7 @@ private void onCallGraphClicked() {
 }
 ```
 
-Next, create a method to get the current activity and callbacks to process silent and interactive responses:
+Next, add a method to get the current activity and process silent & interactive callbacks:
 
 ```java
 public Activity getActivity() {
@@ -522,7 +522,7 @@ Learn more about the [Microsoft Graph API](https://graph.microsoft.com)!
 
 #### Multi-account applications
 
-This app is build for a single account scenario. MSAL supports multi-account scenarios as well, but it requires some additionl work from apps. You will need to create UI to help user's select which account they want to use for each action that requires tokens. Alternatively, your app can implement a heuristic to select which account to use via the `getAccounts(...)` method. 
+This app is built for a single account scenario. MSAL supports multi-account scenarios as well, but it requires some additional work from apps. You will need to create UI to help user's select which account they want to use for each action that requires tokens. Alternatively, your app can implement a heuristic to select which account to use via the `getAccounts(...)` method. 
 
 ## Test your app
 
