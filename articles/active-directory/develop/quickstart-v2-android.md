@@ -115,7 +115,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >            <!--Add in your scheme/host from registered redirect URI-->
 >            <data android:scheme="msauth"
 >                android:host="Enter_the_Package_Name"
->                android:path="Enter_the_Signature_Hash" />
+>                android:path="/Enter_the_Signature_Hash" />
 >        </intent-filter>
 >    </activity>
 >    ```
