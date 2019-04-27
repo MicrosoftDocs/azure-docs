@@ -36,7 +36,7 @@ Microsoft.Skills.Util.ConditionalSkill
 
 ## Evaluated fields
 
-Note that this skill is special because its inputs are actually evaluated fields.
+This skill is special because its inputs are evaluated fields.
 
 The following are valid values of an expression:
 
@@ -85,9 +85,9 @@ Inputs are case-sensitive.
 
 | Inputs	  | Description |
 |-------------|-------------|
-| condition   | This is an [evaluated field](#evaluated-fields) that represents the condition to evaluate. This condition should evaluate to a boolean value (true or false).   <br/>  Examples: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
-| whenTrue    | This is an [evaluated field](#evaluated-fields). The value to return if the condition is evaluated to true. Constants strings should be returned in ' ' quotes. <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
-| whenFalse   | This is an [evaluated field](#evaluated-fields). The value to return if the condition is evaluated to false.  <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
+| condition   | This input is an [evaluated field](#evaluated-fields) that represents the condition to evaluate. This condition should evaluate to a boolean value (true or false).   <br/>  Examples: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
+| whenTrue    | This input is an [evaluated field](#evaluated-fields). The value to return if the condition is evaluated to true. Constants strings should be returned in ' ' quotes. <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
+| whenFalse   | This input is an [evaluated field](#evaluated-fields). The value to return if the condition is evaluated to false.  <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
 
 ## Skill outputs
 There is a single output called 'output'. It will return the value of whenFalse if the condition is false, or whenTrue if the condition is true.
@@ -110,7 +110,7 @@ The following output will return an array of sentences ("/document/frenchSentenc
     "outputs": [ { "name": "output", "targetName": "frenchSentences" } ]
 }
 ```
-Note that if "/document/frenchSentences" is used as the *context* of another skill, that skill will only run if "/document/frenchSentences" is not set to null
+If "/document/frenchSentences" is used as the *context* of another skill, that skill will only run if "/document/frenchSentences" is not set to null
 
 
 ###	Sample skill definition 2: Setting a default value when it does not exist.
@@ -130,9 +130,9 @@ The following output will create an annotation ("/document/languageWithDefault")
 }
 ```
 
-###	Sample skill definition 3: Merging values from 2 different fields into a single field
+###	Sample skill definition 3: Merging values from two different fields into a single field
 
-In this example some sentences have a *frenchSentiment* property. Whenever the *frenchSentiment* property is null, we would like to use the *englishSentiment* value. We assign the output to a member called simply *sentiment* ("/document/sentiment/*/sentiment").
+In this example, some sentences have a *frenchSentiment* property. Whenever the *frenchSentiment* property is null, we would like to use the *englishSentiment* value. We assign the output to a member called simply *sentiment* ("/document/sentiment/*/sentiment").
 
 ```json
 {
@@ -150,7 +150,7 @@ In this example some sentences have a *frenchSentiment* property. Whenever the *
 ## Transformation examples
 ###	Sample skill definition 4: Performing data transformations on a single field
 
-In this example we receive a sentiment between 0 and 1, and we would like to transform it so that it is between -1 and 1. This is a small math transformation that we could do using the Conditional Skill.
+In this example, we receive a sentiment between 0 and 1, and we would like to transform it so that it is between -1 and 1. This is a small math transformation that we could do using the Conditional Skill.
 
 In this specific example, we never use the conditional aspect of the skill as the condition is always true. 
 
@@ -169,7 +169,7 @@ In this specific example, we never use the conditional aspect of the skill as th
 
 
 ## Special considerations
-Please note that some of the parameters are evaluated, so you need to be especially careful following the documented pattern. Expressions must start with an equals sign "=" and paths must be delimited by "$(" and ")". Please make sure to put your strings in 'single quotes' as that will help the evaluator distinguish between strings and actual paths and operators. Also, make sure to put a whitespace around operators (for instance a * in a path has a different meaning than the multiplication operator).
+Note that some of the parameters are evaluated, so you need to be especially careful following the documented pattern. Expressions must start with an equals sign "=" and paths must be delimited by "$(" and ")". Make sure to put your strings in 'single quotes' as that will help the evaluator distinguish between strings and actual paths and operators. Also, make sure to put a whitespace around operators (for instance a * in a path has a different meaning than the multiplication operator).
 
 
 ## Next steps
