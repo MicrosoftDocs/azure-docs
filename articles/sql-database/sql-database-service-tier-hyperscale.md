@@ -192,6 +192,7 @@ To request the ability to create Hyperscale databases in regions not listed:
 12. Click **Save** and **Continue**
 
 ## Known limitations
+These are the current limitations to the Hyperscale service tier as of GA.  We are actively working to remove as many of these limitations as possible.
 
 | Issue | Description |
 | :---- | :--------- |
