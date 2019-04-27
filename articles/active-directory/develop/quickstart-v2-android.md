@@ -111,8 +111,6 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >            <action android:name="android.intent.action.VIEW" />
 >            <category android:name="android.intent.category.DEFAULT" />
 >            <category android:name="android.intent.category.BROWSABLE" />
-> 
->            <!--Add in your scheme/host from registered redirect URI-->
 >            <data android:scheme="msauth"
 >                android:host="Enter_the_Package_Name"
 >                android:path="/Enter_the_Signature_Hash" />
@@ -139,8 +137,6 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >            <action android:name="android.intent.action.VIEW" />
 >            <category android:name="android.intent.category.DEFAULT" />
 >            <category android:name="android.intent.category.BROWSABLE" />
-> 
->            <!--Add in your scheme/host from registered redirect URI-->
 >            <data android:scheme="msauth"
 >                android:host="Enter_the_Package_Name"
 >                android:path="/Enter_the_Signature_Hash" />
