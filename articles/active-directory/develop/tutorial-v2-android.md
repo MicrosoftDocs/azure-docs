@@ -60,10 +60,10 @@ This tutorial will create a new project. If you want to download the completed t
 
 ### Create a new project
 
-1. Open Android Studio, and then select **File** > **New** > **New Project**.
-2. Name your application, and then select **Next**.
-3. Select **API 19 or newer (Android 4.4)**, and then select **Next**.
-4. Leave **Empty Activity** as it is, select **Next**, and then select **Finish**.
+1. Open Android Studio, and select either **Start a new Android Studio project**.
+    - If Android Studio is already open, select **File** > **New** > **New Project**.
+2. Leave **Empty Activity** as it is, select **Next**.
+3. Name your application, set the `Minimum API level` to **API 19 or newer**, hit **Finish**.
 5. In your `app/build.gradle`, set the `targetedSdkVersion` to 27. 
 
 ## Register your application
