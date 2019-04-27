@@ -89,7 +89,7 @@ You can register your application in either of two ways, as described in the nex
 3. In **app** > **manifests** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity below. This allows Microsoft to call back to your application after it completes the authentication:
 
     ```xml
-    <!--Intent filter to capture System Browser calling back to our app after sign-in-->
+    <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
     <activity
         android:name="com.microsoft.identity.client.BrowserTabActivity">
         <intent-filter>
@@ -102,6 +102,8 @@ You can register your application in either of two ways, as described in the nex
         </intent-filter>
     </activity>
     ```
+
+    Note, the Signautre Hash used should NOT be URL encoded. 
 
 4. Inside the **AndroidManifest.xml** and just above the `<application` tag, add the following permissions:
 
