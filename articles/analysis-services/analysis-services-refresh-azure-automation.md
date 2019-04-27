@@ -42,9 +42,9 @@ Install the SqlServer modules from the gallery.
 
 4. Click **OK**
  
-Configure permissions to Azure Analysis Services
-
 Make sure you have a Service Principal (SPN) created.
+
+Configure permissions to Azure Analysis Services.
 
 For more information on creating a Service Principal, see the following article https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
 

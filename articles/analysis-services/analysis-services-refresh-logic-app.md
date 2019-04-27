@@ -31,6 +31,8 @@ For more information on creating a Service Principal, see the following article:
 
 Ensure you have a Service Principal created.  
 
+Configure permissions to Azure Analysis Services.
+
 For more information on creating a Service Principal, see the following article https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
 
 For more information on assigning a service principal to server administrators, see the following article https://docs.microsoft.com/azure/analysis-services/analysis-services-addservprinc-admins.
