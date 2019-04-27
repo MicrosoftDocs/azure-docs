@@ -80,7 +80,7 @@ You can use [CocoaPods](http://cocoapods.org/) to install `MSAL` by adding it to
 ```
 use_frameworks!
 
-target 'MSALiOS' do
+target '<your-target-here>' do
    pod 'MSAL', '~> 0.4.0'
 end
 ```
@@ -138,6 +138,14 @@ To do this, open `Info.plist` as a source code and add the following, replacing 
 </array>
 ```
 
+### Import MSAL
+
+Import MSAL framework in `ViewController.swift` and `AppDelegate.swift` files:
+
+```swift
+import MSAL
+```
+
 ## Create your app’s UI
 
 For this tutorial, you need to create:
@@ -165,7 +173,7 @@ func initUI() {
         
         callGraphButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         callGraphButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50.0).isActive = true
-        callGraphButton.widthAnchor.constraint(equalToConstant: 150.0).isActive = true
+        callGraphButton.widthAnchor.constraint(equalToConstant: 300.0).isActive = true
         callGraphButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         
         // Add sign out button
@@ -181,6 +189,7 @@ func initUI() {
         signOutButton.topAnchor.constraint(equalTo: callGraphButton.bottomAnchor, constant: 10.0).isActive = true
         signOutButton.widthAnchor.constraint(equalToConstant: 150.0).isActive = true
         signOutButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        signOutButton.isEnabled = false
         
         // Add logging textfield
         loggingText = UITextView()
@@ -214,7 +223,7 @@ Next, add to `viewDidLoad()` of ViewController.swift:
 
 ### Initialize MSAL
 
-First, you would need to create an `MSALPublicClientApplication` with an `MSALPublicClientConfiguration` for your application:
+First, you need to create an `MSALPublicClientApplication` with an instance of `MSALPublicClientConfiguration` for your application:
 
 ```swift
     func initMSAL() throws {
@@ -248,7 +257,7 @@ To handle the callback after sign-in, add `MSALPublicClientApplication.handleMSA
 
 #### Acquire Tokens
 
-Now, we can implement the app's UI processing logic and getting tokens interactively through MSAL. 
+Now, we can implement the application's UI processing logic and getting tokens interactively through MSAL. 
 
 MSAL exposes two primary methods for getting tokens: `acquireTokenSilently` and `acquireTokenInteractively`.  
 
@@ -293,9 +302,9 @@ MSAL exposes two primary methods for getting tokens: `acquireTokenSilently` and 
 
 To acquire a token for the first time, you will need to create an `MSALInteractiveTokenParameters` and call `acquireToken`.
 
-1. Create `MSALInteractiveTokenParameter` with scopes.
-2. Call `acquireToken` with the parameter created.
-3. Handle error accordingly. For more detail, refer [here](<https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki/Error-Handling>).
+1. Create `MSALInteractiveTokenParameters` with scopes.
+2. Call `acquireToken` with the parameters created.
+3. Handle error accordingly. For more detail, refer to the [iOS error handling guide](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki/Error-Handling).
 4. Handle the successful case. 
 
 ```swift
@@ -318,7 +327,7 @@ To acquire a token for the first time, you will need to create an `MSALInteracti
      // #4            
             self.accessToken = result.accessToken
             self.updateLogging(text: "Access token is \(self.accessToken)")
-            self.updateSignoutButton(enabled: true)
+            self.updateSignOutButton(enabled: true)
             self.getContentWithToken()
         }
     }
@@ -328,7 +337,7 @@ To acquire a token for the first time, you will need to create an `MSALInteracti
 
 #### Get a token silently
 
-To acquire an updated token silently, you will need to create an    `MSALSilentTokenParameters` and call `acquireTokenSilent`:
+To acquire an updated token silently, you will need to create an    `MSALSilentTokenParameters`  and call `acquireTokenSilent`:
 
 ```swift
     
@@ -358,7 +367,7 @@ To acquire an updated token silently, you will need to create an    `MSALSilentT
             
             self.accessToken = result.accessToken
             self.updateLogging(text: "Refreshed Access token is \(self.accessToken)")
-            self.updateSignoutButton(enabled: true)
+            self.updateSignOutButton(enabled: true)
             self.getContentWithToken()
         }
     }
@@ -384,8 +393,21 @@ Add the following to `ViewController.swift`:
         request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
                
         URLSession.shared.dataTask(with: request) { data, response, error in
-            ...
-            }.resume()
+               
+        if let error = error {
+            self.updateLogging(text: "Couldn't get graph result: \(error)")
+            return
+        }
+               
+        guard let result = try? JSONSerialization.jsonObject(with: data!, options: []) else {
+               
+        self.updateLogging(text: "Couldn't deserialize result JSON")
+            return
+        }
+               
+        self.updateLogging(text: "Result from Graph: \(result))")
+        
+        }.resume()
     }
 ```
 
@@ -424,6 +446,12 @@ To add sign-out, copy the following method into your `ViewController.swift`:
         }
     }
 ```
+
+### Enable token caching
+
+By default, MSAL caches your app's tokens in the iOS keychain. 
+
+To enable token caching, go to your Xcode Project Settings > `Capabilities tab` > `Enable Keychain Sharing` > Click `Plus` > Enter **com.microsoft.adalcache**.
 
 ### Add helper methods
 
