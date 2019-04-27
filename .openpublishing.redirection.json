@@ -38625,6 +38625,11 @@
       "source_path": "articles/storage/common/storage-data-lake-storage-security-guide.md",
       "redirect_url": "/azure/storage/common/storage-security-guide",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-security-index.yml",
+      "redirect_url": "/azure/sql-database/sql-database-security-overview",
+      "redirect_document_id": false
     }
   ]
 }
