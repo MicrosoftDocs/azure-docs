@@ -21,7 +21,7 @@ Your VMware environment runs natively on Azure Bare Metal infrastructure, on Azu
 * On-demand self-service provisioning of VMware cloud environments. Ability to add and remove capacity on demand
 * VMware platform deployment, upgrade, management plane backup, health/capacity monitoring, alerting, troubleshooting, and remediation.
 * Underlay networking services required to enable VMware, including L2/L3 services and firewall rule management.
-* Edge-type networking services, including VPN, Public IP, and Internet Gateways. These edge services run on the Google Cloud and carry the corresponding security and DDoS protection of Azure.
+* Edge-type networking services, including VPN, Public IP, and Internet Gateways. These edge services run on Azure and carry the corresponding security and DDoS protection of Azure.
 * Capacity reservation to lower costs.
 * High-speed, low-latency connectivity to Azure and on-premises.
 * Solution architectures for customers to consume Azure services in an integrated fashion, take advantage of this unique "VMware cloud in a public cloud” architecture. These Azure services include Azure AD, storage, application gateways, and others.
