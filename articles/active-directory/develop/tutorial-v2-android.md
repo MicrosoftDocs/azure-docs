@@ -83,9 +83,10 @@ You can register your application in either of two ways, as described in the nex
 
 ### Configure your Android app
 
-1. Under **app** > **res** > **raw**, create a new JSON file called `auth_config.json` and paste your ***MSAL Configuration***. See [MSAL Configuration for more info](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app).
+1. Right click **res** > **New** > **Folder** > **Raw Resources Folder**
+2. In **app** > **res** > **raw**, create a new JSON file called `auth_config.json` and paste your ***MSAL Configuration***. See [MSAL Configuration for more info](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app).
    <!-- Workaround for Docs conversion bug -->
-2. In **app** > **manifests** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity below. This allows Microsoft to call back to your application after it completes the authentication:
+3. In **app** > **manifests** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity below. This allows Microsoft to call back to your application after it completes the authentication:
 
     ```xml
     <!--Intent filter to capture System Browser calling back to our app after sign-in-->
@@ -104,14 +105,14 @@ You can register your application in either of two ways, as described in the nex
     </activity>
     ```
 
-3. Inside the **AndroidManifest.xml** and just above the `<application` tag, add the following permissions:
+4. Inside the **AndroidManifest.xml** and just above the `<application` tag, add the following permissions:
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     ```
 
-4. In the `BrowserTabActivity`, replace the ***Package Name*** and ***Signature Hash*** with the values registered in the Azure portal.
+5. In the `BrowserTabActivity`, replace the ***Package Name*** and ***Signature Hash*** with the values registered in the Azure portal.
 
 ### Create the app's UI
 

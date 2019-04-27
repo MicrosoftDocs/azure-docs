@@ -150,7 +150,7 @@ Add the following to this podfile (with your project's target):
 use_frameworks!
 
 target 'MSALiOS' do
-   pod 'MSAL', '0.4'
+   pod 'MSAL', '~> 0.4.0'
 end
 
 ```
