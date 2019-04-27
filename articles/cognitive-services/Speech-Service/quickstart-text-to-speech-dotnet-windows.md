@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 4/03/2019
+ms.date: 04/26/2019
 ms.author: yinhew
 ---
 
@@ -24,7 +24,7 @@ Get the latest [Cognitive Services Speech SDK Samples](https://github.com/Azure-
 
 To complete this project, you'll need:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 * A subscription key for the Speech Service. [Get one for free](get-started.md).
 * A speaker (or headset) available.
 

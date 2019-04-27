@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 04/26/2019
 ms.author: wolfma
 ---
 
@@ -29,7 +29,7 @@ If you are not familiar with Unity, it is recommended to study the [Unity User M
 To complete this project, you'll need:
 
 * [Unity 2018.3 or later](https://store.unity.com/)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 * A subscription key for the Speech Service. [Get one for free](get-started.md).
 * Access to your computer's microphone.
 
