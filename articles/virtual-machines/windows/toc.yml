@@ -253,6 +253,18 @@
         href: ../linux/shared-images.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
+    - name: Image builder (preview)
+      items:
+      - name: Overview
+        href: image-builder-overview.md
+      - name: Use CLI
+        href: image-builder.md
+      - name: .json reference
+        href: image-builder-json.md
+      - name: Use with galleries
+        href: image-builder-gallery.md
+      - name: Update an image version
+        href: image-builder-gallery-update-image-version.md
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Prepare VM for upload

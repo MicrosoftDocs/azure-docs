@@ -269,6 +269,10 @@
         href: image-builder.md
       - name: .json reference
         href: image-builder-json.md
+      - name: Use with galleries
+        href: image-builder-gallery.md
+      - name: Update an image version
+        href: image-builder-gallery-update-image-version.md
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Create custom image
