@@ -34,7 +34,11 @@
   - name: Index Azure JSON blobs
     href: search-semi-structured-data.md
   - name: Enrich with AI (Cognitive Search)
-    href: cognitive-search-tutorial-blob.md
+    items:
+    - name: REST
+      href: cognitive-search-tutorial-blob.md
+    - name: C#
+      href: cognitive-search-tutorial-blob-dotnet.md
 - name: Samples
   items:
   - name: Azure code samples
@@ -165,7 +169,7 @@
       href: search-howto-index-cosmosdb.md
     - name: One-to-many blob indexing
       href: search-howto-index-one-to-many-blobs.md
-    - name: CSV blob indexing (preview)
+    - name: CSV blob indexing
       href: search-howto-index-csv-blobs.md
     - name: JSON blob indexing
       href: search-howto-index-json-blobs.md

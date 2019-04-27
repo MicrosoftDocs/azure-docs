@@ -26,14 +26,11 @@ This article describes the `api-version=2019-05-06-Preview` version of Azure Sea
 
 [**Knowledge store**](knowledge-store-concept-intro.md) is a new destination of an AI-based enrichment pipeline. In addition to an index, you can now persist populated data structures created during indexing in Azure storage. You control the physical structures of your data through elements in a Skillset, including how data is shaped, whether data is stored in Table storage or Blob storage, and whether there are multiple views.
 
-[**Customer-managed encryption keys**](search-security-manage-encryption-keys.md) for service-side encryption-at-rest is a new capability in Azure Search making its entrance in this preview release. In addition to the built-in encryption-at-rest managed by Microsoft, you can apply an additional layer of encryption where you are the sole owner of the keys.
-
+[**Customer-managed encryption keys**](search-security-manage-encryption-keys.md) for service-side encryption-at-rest is also a new preview feature. In addition to the built-in encryption-at-rest managed by Microsoft, you can apply an additional layer of encryption where you are the sole owner of the keys.
 
 ## Other preview features
 
 Features announced in earlier previews are still in public preview. If you're calling an API with an earlier preview api-version, you can continue to use that version or switch to `2019-05-06-Preview` with no changes to expected behavior.
-
-+ [CSV files in Azure Blob indexing](search-howto-index-csv-blobs.md), introduced in `api-version=2015-02-28-Preview`, remains a preview feature. This feature is part of Azure Blob indexing and is invoked through a parameter setting. Each line in a CSV file is indexed as a separate document.
 
 + [moreLikeThis query parameter](search-more-like-this.md) finds documents that are relevant to a specific document. This feature has been in earlier previews. 
 
