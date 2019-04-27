@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 04/26/2019
 ms.author: iainfou
 ---
 
@@ -14,7 +14,7 @@ ms.author: iainfou
 
 Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you can sign in to an AKS cluster using your Azure Active Directory authentication token. Additionally, cluster administrators are able to configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership.
 
-This article shows you how to deploy the prerequisites for AKS and Azure AD, then how to deploy an Azure AD-enabled cluster and create a basic RBAC role in the AKS cluster.
+This article shows you how to deploy the prerequisites for AKS and Azure AD, then how to deploy an Azure AD-enabled cluster and create a basic RBAC role in the AKS cluster using the Azure portal. You can also [complete these steps using the Azure CLI][azure-ad-cli].
 
 The following limitations apply:
 
@@ -42,7 +42,7 @@ The first Azure AD application is used to get a users Azure AD group membership.
 
 2. Select **Manifest** and edit the `groupMembershipClaims` value to `"All"`.
 
-   Save the updates once complete.
+   **Save** the updates once complete.
 
    ![Update group membership to all](media/aad-integration/edit-manifest.png)
 
@@ -60,11 +60,11 @@ The first Azure AD application is used to get a users Azure AD group membership.
 
    ![Set application graph permissions](media/aad-integration/read-directory.png)
 
-6. Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user profile** and **Read directory data**. Save the updates once done.
+6. Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user profile** and **Read directory data**. Choose **Select** to save the updates.
 
    ![Set application graph permissions](media/aad-integration/delegated-permissions.png)
 
-   Select **Done**.
+   Then, select **Done**.
 
 7. Choose *Microsoft Graph* from the list of APIs, then select **Grant Permissions**. This step will fail if the current account is not a tenant admin.
 
@@ -92,11 +92,13 @@ The second Azure AD application is used when logging in with the Kubernetes CLI 
 
    ![Configure application permissions](media/aad-integration/select-api.png)
 
-3. Place a check mark next to the application and click **Select**.
+    Select your server application, then choose **Select**.
+
+3. Back on the *Add API access* window, choose **Select permissions**. Please a check mark under the *Delegated permissions* for access to your application, then choose **Select**.
 
    ![Select AKS AAD server application endpoint](media/aad-integration/select-server-app.png)
 
-   Select **Done**
+   Back on the *Add API access* window, select **Done**.
 
 4. Select your server API from the list and then choose **Grant Permissions**:
 
@@ -255,3 +257,4 @@ For best practices on identity and resource control, see [Best practices for aut
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[azure-ad-cli]: azure-ad-integration-cli.md
