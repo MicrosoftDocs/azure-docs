@@ -16,15 +16,15 @@ Use this article if you run into issues with creating, customizing, or interpret
 
 ## Can't find resource
 
-You open **Select a resource** dialog but it doesn't show the resource you are looking for.
+You clicked on **Select a resource** button, which opened a resource picker dialog, but it doesn't show the resource you are looking for.
 
 **Solution:** Metrics explorer requires you to select subscriptions and resource groups before listing available resources. If you don't see the resource you are looking for:
 
-1. Ensure that you've selected correct subscription in the **Subscription** dropdown. If your subscription isn't listed, open the **Directory + Subscription settings** dialog and add a subscription with your resource.
+1. Ensure that you've selected correct subscription in the **Subscription** dropdown. If your subscription isn't listed, click on the  **Directory + Subscription settings** and add a subscription with your resource.
 
-1. Ensure that you've selected correct resource group:
-    > [!NOTE]
-    > When you first open metrics explorer, the resource group picker has no resource group pre-selected. You must pick at least one resource group before you can see resources
+1. Ensure that you've selected correct resource group.
+    > [!WARNING]
+    > For best performance, when you first open metrics explorer, the **Resource group** dropdown has no pre-selected resource groups. You must pick at least one group before you can see any resources.
 
 ## Chart shows no data
 
@@ -52,7 +52,7 @@ Some resources don’t constantly emit their metrics. For example, Azure will no
 
 With a few exceptions, [metrics in Azure are stored for 93 days](data-platform-metrics.md#retention-of-metrics). However, you can only query for no more than 30 days worth of data on any single chart. This limitation doesn't apply to [log-based metrics](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
-**Solution:** If you see a blank chart on a long-ranged chart, verify that the difference between start- and end- dates in the time picker doesn't exceed the 30-day interval.
+**Solution:** If you see a blank chart or your chart only displays part of metric data, verify that the difference between start- and end- dates in the time picker doesn't exceed the 30-day interval.
 
 ### All metric values were outside of the locked y-axis range
 
