@@ -46,25 +46,9 @@ Configure permissions to Azure Analysis Services
 
 Make sure you have a Service Principal (SPN) created.
 
-> [!NOTE]
-> For more information on creating a Service Principal, see the following article: https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
+For more information on creating a Service Principal, see the following article https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
 
-1. Connect to the Azure Analysis Services instance through SQL Server Management Studio, and sign in when prompted.
-
-    ![Connect to Azure Analysis Services](./media/analysis-services-refresh-azure-automation/3.png)
-
-2. In object explorer, right click the instance, and select **properties**
-
-    ![Instance Properties](./media/analysis-services-refresh-azure-automation/4.png)
-
-3. In the security tab, click **Add**.  Search for your Service Principal, and click **Add**.
-
-    ![Add service principal](./media/analysis-services-refresh-azure-automation/5.png)
-
-If you are unable to find the SPN in the list, add it manually using the following format:
-App:*SPN ClientID*@*TenantID*
-
-See [Create service principal - Azure portal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) and [Add a service principal to the server administrator role](https://docs.microsoft.com/azure/analysis-services/analysis-services-addservprinc-admins) for more info on how to set up a service principal and assign the necessary permissions in Azure AS.
+For more information on assigning a service principal to server administrators, see the following article https://docs.microsoft.com/azure/analysis-services/analysis-services-addservprinc-admins.
 
 ## Designing the Azure Automation Runbook
 
@@ -125,7 +109,7 @@ This can be configured as follows:
 
 5. Click **OK**.
 
-## Consume the Azure Automation Runbook with Azure Data Factory
+## Consume with Data Factory
 
 To consume the runbook using Azure Data Factory, first create a **Webhook** for the runbook.  The **Webhook** will provide a URL which can be called via an Azure Data Factory web activity.
 
@@ -138,9 +122,9 @@ To consume the runbook using Azure Data Factory, first create a **Webhook** for 
 
 2. Give the Webhook a name and an expiry.  The name only identifies the Webhook inside the Automation Runbook, it doesn't form part of the URL.
 
-> [!CAUTION]
-> Ensure to copy the URL before closing the wizard as you cannot get it back once closed.
-
+   >[!CAUTION]
+   >Ensure to copy the URL before closing the wizard as you cannot get it back once closed.
+    
    ![Configure Webhook](./media/analysis-services-refresh-azure-automation/18.png)
 
 The parameters for the webhook can remain blank.  When configuring the Azure Data Factory web activity, the parameters can be passed into the body of the web call.
@@ -178,7 +162,7 @@ This is deserialized and stored as PowerShell parameters, which are then used by
 
 ![Deserialized Webhook](./media/analysis-services-refresh-azure-automation/20.png)
 
-## Using an Azure Automation Hybrid Worker with Azure Analysis Services
+## Using a Hybrid Worker with Azure Analysis Services
 
 An Azure Virtual Machine with a static public IP address can be used as an Azure Automation Hybrid Worker.  This public IP address can then be added to the Azure Analysis Services firewall.
 
@@ -236,7 +220,7 @@ else
 ```
 
 
-## See also
+## Next steps
 
 [Samples](analysis-services-samples.md)  
 [REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)

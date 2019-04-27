@@ -27,32 +27,17 @@ For more information on creating a Service Principal, see the following article:
 >
 >See the following article for Logic App IP ranges per region:  https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#firewall-configuration-ip-addresses
 
-### Pre-requisites
+### Prerequisites
 
 Ensure you have a Service Principal created.  
 
-Once the SPN is created, assign it permissions to Azure Analysis Services.  For example, to add the SPN as an Administrator:
+For more information on creating a Service Principal, see the following article https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
 
-1. Connect to the Azure Analysis Services instance through SQL Server Management Studio, and sign in when prompted.
-
-    ![Connect to Azure Analysis Services](./media/analysis-services-async-refresh-logic-app/3.png)
-
-2. In object explorer, right click the instance, and select **properties**
-
-    ![Instance Properties](./media/analysis-services-async-refresh-logic-app/4.png)
-
-3. In the security tab, click **Add**.  Search for your Service Principal, and click **Add**.
-
-    ![Add service principal](./media/analysis-services-async-refresh-logic-app/5.png)
-
-If you are unable to find the SPN in the list, add it manually using the following format:
-App:*SPN ClientID*@*TenantID*
-
-For more information on creating a Service Principal, see the following article: https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
-
-In this example, the Logic App is designed to trigger when a HTTP request is received.  This will enable the use of an orchestration tool, such as Azure Data Factory, to trigger the Azure Analysis Services model refresh.
+For more information on assigning a service principal to server administrators, see the following article https://docs.microsoft.com/azure/analysis-services/analysis-services-addservprinc-admins.
 
 ### Configure the Logic App
+
+In this example, the Logic App is designed to trigger when a HTTP request is received.  This will enable the use of an orchestration tool, such as Azure Data Factory, to trigger the Azure Analysis Services model refresh.
 
 Once you have created a Logic App:
 
@@ -79,9 +64,9 @@ Configure the HTTP activity as follows:
 |**Method**     |POST         |
 |**URI**     | https://*your server region*/servers/*aas server name*/models/*your database name*/ <br /> <br /> For example:  https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
 |**Headers**     |   Content-Type, application/json <br /> <br />  ![Headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
-|**Body**     |   For more information, see the following article on forming the request body:  https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-async-refresh#post-refreshes |
+|**Body**     |   For more information, see the following article on forming the request body:  https://docs.microsoft.com/azure/analysis-services/analysis-services-async-refresh#post-refreshes |
 |**Authentication**     |Active Directory OAuth         |
-|**Tentant**     |Fill in your Azure Active Directory TenantId         |
+|**Tenant**     |Fill in your Azure Active Directory TenantId         |
 |**Audience**     |https://*.asazure.windows.net         |
 |**Client ID**     |Enter your Service Principal Name ClientID         |
 |**Credential Type**     |Secret         |
@@ -123,7 +108,7 @@ Select the wanted hours.
 
 Save the Logic App.
 
-## See also
+## Next steps
 
 [Samples](analysis-services-samples.md)  
 [REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)
