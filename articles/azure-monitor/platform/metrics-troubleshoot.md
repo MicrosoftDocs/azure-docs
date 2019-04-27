@@ -16,19 +16,19 @@ Use this article if you run into issues with creating, customizing, or interpret
 
 ## Can't find resource
 
-You open the resource picker dialog but it doesn't list the resource you are looking for.
+You open **Select a resource** dialog but it doesn't show the resource you are looking for.
 
-**Solution:** Metrics explorer resource picker only shows resources from the selected subscription and resource groups. If you don't see the resource you are looking for:
+**Solution:** Metrics explorer requires you to select subscriptions and resource groups before listing available resources. If you don't see the resource you are looking for:
 
-1. Ensure that you've selected correct subscription in the **Subscription** dropdown. If your subscription isn't listed, open the **Directory + Subscription settings** dialog and add a subscription that contains your resource.
+1. Ensure that you've selected correct subscription in the **Subscription** dropdown. If your subscription isn't listed, open the **Directory + Subscription settings** dialog and add a subscription with your resource.
 
-1. Ensure that you select correct resource group:
+1. Ensure that you've selected correct resource group:
     > [!NOTE]
-    > When you first open metrics explorer, the resource group picker has no resource group selected. You must pick at least one resource group to see  resources
+    > When you first open metrics explorer, the resource group picker has no resource group pre-selected. You must pick at least one resource group before you can see resources
 
 ## Chart shows no data
 
-Sometimes the chart shows no data after selecting correct resource and metric. This behavior can be caused by several of the following reasons:
+Sometimes the charts might show no data after selecting correct resources and metrics. This behavior can be caused by several of the following reasons:
 
 ### Microsoft.Insights resource provider isn't registered for your subscription
 
@@ -81,7 +81,7 @@ Azure metrics charts use dashed line style to indicate that there is a missing v
   ![metric image](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
 
    > [!NOTE]
-   > If you still prefer a line chart for your metric, moving mouse over the chart may help to  assess the time granularity by highlighting the data point at the location of the mouse pointer.
+   > If you still prefer a line chart for your metric, moving mouse over the chart may help to assess the time granularity by highlighting the data point at the location of the mouse pointer.
 
 ## Chart shows unexpected drop in values
 
