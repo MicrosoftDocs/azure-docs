@@ -18,7 +18,7 @@ Use this article if you run into issues with creating, customizing, or interpret
 
 You clicked on **Select a resource** button, which opened a resource picker dialog, but it doesn't show the resource you are looking for.
 
-**Solution:** Metrics explorer requires you to select subscriptions and resource groups before listing available resources. If you don't see the resource you are looking for:
+**Solution:** Metrics explorer requires you to select subscriptions and resource groups before listing available resources. If you don't see your resource:
 
 1. Ensure that you've selected correct subscription in the **Subscription** dropdown. If your subscription isn't listed, click on the  **Directory + Subscription settings** and add a subscription with your resource.
 
