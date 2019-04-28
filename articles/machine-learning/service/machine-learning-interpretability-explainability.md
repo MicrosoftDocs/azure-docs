@@ -33,36 +33,32 @@ The [`explain`](](https://docs.microsoft.com/python/api/azureml-explain-model/?v
 * Integrates Azure Machine Learning services
 * Applies appropriate optimizations to enable interpretability on real-world datasets at scale 
 
-## How does it work?
+The interpretability classes are structured into two Python packages:
 
-You can apply the interpretability classes and methods in the `explain` package to understand the model’s global behavior or specific predictions. The former is called global explanation and the latter is called local explanation.
+* [azureml.explain.model](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), the main package, contaiing functionalities supported by Microsoft.
 
-The methods can be also categorized based on whether the method is model agnostic or model specific. Some methods target certain type of models. For example, SHAP’s tree explainer only applies to tree-based models. Some methods treat the model as a black box, such as mimic explainer or SHAP’s kernel explainer. 
-
-The `explain` package leverages these different approaches based on data sets, model types, and use cases. The output is a set of information on how a model makes its prediction, such as:
-* Global/local relative feature importance
-
-* Global/local feature and prediction relationship
-
-## Architecture
-
-The classes supporting interpretability are structured into two Python packages:
-
-* [azureml.explain.model](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py) - The main package, which contains the functionalities that are supported by Microsoft.
-
-* `azureml.contrib.explain.model` - Preview and experimental functionalities that you can try.
+* `azureml.contrib.explain.model`, preview and experimental functionalities that you can try.
 
 > [!IMPORTANT]
 > Things in contrib are not fully supported. As the experimental functionalities become mature, they will gradually be moved to the main package.
 
+## How does it work?
+
+You can apply the interpretability classes and methods to understand the model’s global behavior or specific predictions. The former is called global explanation and the latter is called local explanation.
+
+The methods can be also categorized based on whether the method is model agnostic or model specific. Some methods target certain type of models. For example, SHAP’s tree explainer only applies to tree-based models. Some methods treat the model as a black box, such as mimic explainer or SHAP’s kernel explainer. The `explain` package leverages these different approaches based on data sets, model types, and use cases. 
+
+The output is a set of information on how a given model makes its prediction, such as:
+* Global/local relative feature importance
+
+* Global/local feature and prediction relationship
+
 ### Explainers
 
-The Azure Machine Learning Interpretability SDK introduces two sets of explainers: Direct Explainers and Meta Explainers.
+There are two sets of explainers: Direct Explainers and Meta Explainers in the SDK.
 
-__Direct explainers__ come from integrated libraries. The SDK wraps all the explainers so that they expose a common API and output format. The following are a list of the direct explainers available in the SDK:
+__Direct explainers__ come from integrated libraries. The SDK wraps all the explainers so that they expose a common API and output format. If you are more comfortable directly using these explainers, you can directly invoke them instead of using the common API and output format. The following are a list of the direct explainers available in the SDK:
 
-> [!TIP]
-> If you are more comfortable directly using these explainers, you can directly invoke them instead of using the common API and output format.
 
 * **Tree Explainer**: SHAP’s tree explainer, which focuses on polynomial time fast SHAP value estimation algorithm specific to trees and ensembles of trees.
 * **Deep Explainer**: Based on the explanation from SHAP, Deep Explainer "is a high-speed approximation algorithm for SHAP values in deep learning models that builds on a connection with DeepLIFT described in the SHAP NIPS paper. TensorFlow models and Keras models using the TensorFlow backend are supported (there is also preliminary support for PyTorch)".
