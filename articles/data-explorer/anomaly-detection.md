@@ -11,9 +11,9 @@ ms.date: 04/24/2019
 
 # Anomaly detection and forecasting in Azure Data Explorer
 
-Azure Data Explorer performs on-going collection of telemetry data from cloud services or IoT devices. This data is analyzed for various insights such as monitoring service health, physical production processes, usage trends, load forecast. The analysis is done on time series of selected metrics to locate a deviation pattern of the metric relative to its typical normal baseline pattern. Azure Data Explorer contains native support for creation, manipulation & analysis of multiple time series. It can create and analyze thousands of time series in seconds, enabling near real time monitoring solutions and workflows.
+Azure Data Explorer performs on-going collection of telemetry data from cloud services or IoT devices. This data is analyzed for various insights such as monitoring service health, physical production processes, usage trends, and load forecast. The analysis is done on time series of selected metrics to locate a deviation pattern of the metric relative to its typical normal baseline pattern. Azure Data Explorer contains native support for creation, manipulation and analysis of multiple time series. It can create and analyze thousands of time series in seconds,enabling near real time monitoring solutions and workflows.
 
-This article details the Azure Data Explorer time series anomaly detection and forecasting capability. The applicable time series functions are based on a robust well-known decomposition model, where each original time series is decomposed into seasonal, trend, and residual components. Anomalies are detected by outliers on the residual component, while forecasting is done by extrapolating the seasonal and trend components (defined as baseline). The Azure Data Explorer implementation significantly enhances the basic decomposition model by automatic detection of seasonality and outliers and vectorized implementation to process thousands of time series in seconds.
+This article details the Azure Data Explorer time series anomaly detection and forecasting capabilities. The applicable time series functions are based on a robust well-known decomposition model, where each original time series is decomposed into seasonal, trend, and residual components. Anomalies are detected by outliers on the residual component, while forecasting is done by extrapolating the seasonal and trend components. The Azure Data Explorer implementation significantly enhances the basic decomposition model by automatic seasonality detection, robust outlier analysis, and vectorized implementation to process thousands of time series in seconds.
 
 ## Prerequisites
 
@@ -21,8 +21,8 @@ Read [Time series analysis in Azure Data Explorer](/azure/data-explorer/time-ser
 
 ## Time series decomposition model
 
-Azure Data Explorer native implementation for time series prediction and anomaly detection uses a well-known decomposition model. It is applied to time series of metrics expected to manifest periodic and trend behavior, such as service traffic, components heart-bits, and IoT periodic measurements to forecast future metric values and detect anomalous ones. The assumption of this regression process is that other than the previously known seasonal and trend behavior, the time series is randomly distributed. You can then forecast future metric values from the seasonal and trend components (ignoring the residual part). You can also detect anomalous values based on outlier detection using only the residual portion.
-To create a decomposition model, use the function [`series_decompose()`](/azure/kusto/query/series-decomposefunction). The `series_decompose()` function takes a set of time series and automatically decomposes each time series to its seasonal, trend, residual and baseline components. For example, you can decompose traffic of an internal web service by using the following query:
+Azure Data Explorer native implementation for time series prediction and anomaly detection uses a well-known decomposition model. It is applied to time series of metrics expected to manifest periodic and trend behavior, such as service traffic, component heartbeats, and IoT periodic measurements to forecast future metric values and detect anomalous ones. The assumption of this regression process is that other than the previously known seasonal and trend behavior, the time series is randomly distributed. You can then forecast future metric values from the seasonal and trend components, collectively named baseline, and ignore the residual part. You can also detect anomalous values based on outlier analysis using only the residual portion.
+To create a decomposition model, use the function [`series_decompose()`](/azure/kusto/query/series-decomposefunction). The `series_decompose()` function takes a set of time series and automatically decomposes each time series to its seasonal, trend, residual, and baseline components. For example, you can decompose traffic of an internal web service by using the following query:
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -38,14 +38,14 @@ demo_make_series2
 ![Time series decomposition](media/anomaly-detection/series-decompose-timechart.png)
 
 * The original time series is labeled **num** (in red). 
-* The decomposition function begins by auto detection of the seasonality using the function [`series_periods_detect()`](/azure/kusto/query/series-periods-detectfunction) and extracts the **seasonal** pattern (in purple)
-* The decomposition subtracts the seasonal pattern from the original time series and runs a linear regression using the function [`series_fit_line()`](/azure/kusto/query/series-fit-linefunction) to find the **trend** component (in light blue).
-* When the function subtracts the trend, the rest is the **residual** component (in green).
-* The function adds the seasonal and trend components to generate the **baseline** (in blue).
+* The process starts by auto detection of the seasonality using the function [`series_periods_detect()`](/azure/kusto/query/series-periods-detectfunction) and extracts the **seasonal** pattern (in purple).
+* The seasonal pattern is subtracted from the original time series and a linear regression is run using the function [`series_fit_line()`](/azure/kusto/query/series-fit-linefunction) to find the **trend** component (in light blue).
+* Then the function subtracts the trend, the rest is the **residual** component (in green).
+* Finally, the function adds the seasonal and trend components to generate the **baseline** (in blue).
 
 ## Time series anomaly detection
 
-The function [`series_decompose_anomalies()`](/azure/kusto/query/series-decompose-anomaliesfunction), built on `series_decompose()`,  finds anomalous points on a set of time series. This function calls `series_decompose()` to build the decomposition model and then runs [`series_outliers()`](/azure/kusto/query/series-outliersfunction) on the residual component. `series_outliers()` calculates anomaly score for each point of the residual component using Tukey's fence test. Anomaly scores above 1.5 or below -1.5 indicate a mild anomaly rise or decline respectively. Anomaly scores above 3.0 or below -3.0 indicate a strong anomaly. The following query allows you to detect anomalies in internal web service traffic:
+The function [`series_decompose_anomalies()`](/azure/kusto/query/series-decompose-anomaliesfunction) finds anomalous points on a set of time series. This function calls `series_decompose()` to build the decomposition model and then runs [`series_outliers()`](/azure/kusto/query/series-outliersfunction) on the residual component. `series_outliers()` calculates anomaly score for each point of the residual component using Tukey's fence test. Anomaly scores above 1.5 or below -1.5 indicate a mild anomaly rise or decline respectively. Anomaly scores above 3.0 or below -3.0 indicate a strong anomaly. The following query allows you to detect anomalies in internal web service traffic:
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -61,7 +61,7 @@ demo_make_series2
 ![Time series anomaly detection](media/anomaly-detection/series-anomaly-detection.png)
 
 * The original time series (in red). 
-* The baseline (seasonal and trend) component (in blue).
+* The baseline (seasonal + trend) component (in blue).
 * The anomalous points (in purple) on top of the original time series. You can see that the anomalous points significantly deviate from the expected baseline values.
 
 ## Time series forecasting
@@ -82,12 +82,12 @@ demo_make_series2
 
 ![Time series forecasting](media/anomaly-detection/series-forecasting.png)
 
-* Original metric (in red). Future values are missing, that's why they're set to 0, by default.
+* Original metric (in red). Future values are missing. threfore, set to 0 by default.
 * Extrapolate the baseline component (in blue) to predict next week’s values.
 
 ## Scalability
 
-Azure Data Explorer query language syntax enables a single call to process a single or multiple time series. Its unique optimized implementation allows for fast performance, which is critical for effective anomaly detection and forecasting when monitoring thousands of counters in near real-time scenarios.
+Azure Data Explorer query language syntax enables a single call to process multiple time series. Its unique optimized implementation allows for fast performance, which is critical for effective anomaly detection and forecasting when monitoring thousands of counters in near real-time scenarios.
 The following query shows the processing of three time series simultaneously:
 
 ```kusto
@@ -107,7 +107,8 @@ demo_make_series2
 
 ## Summary
 
-The time series functions for anomaly detection and forecasting are effectively used for near real-time monitoring scenarios, such as fault detection, predictive maintenance, and forecasting demand and load.
-
-## Next steps
+The time series functions for anomaly detection and forecasting are effectively used for near real-time monitoring scenarios, such as fault detection, predictive maintenance, and forecasting demand and load. The time series 
+decomposition model?
+scalability?
+functions?
 
