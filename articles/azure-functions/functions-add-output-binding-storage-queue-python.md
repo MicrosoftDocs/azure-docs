@@ -17,11 +17,13 @@ manager: jeconnoc
 
 Azure Functions lets you connect Azure services and other resources to functions without having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A trigger is a special type of input binding. While a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-This article shows you how to integrate the function you created in the [previous quickstart article](functions-create-first-function-python.md) with an Azure Storage queue. The output binding that you add to this function writes data from the HTTP request to a message in the queue. Most bindings require a stored connection string that Functions uses to access the bound service. To make it easier, you use the Storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
+This article shows you how to integrate the function you created in the [previous quickstart article](functions-create-first-function-python.md) with an Azure Storage queue. The output binding that you add to this function writes data from the HTTP request to a message in the queue. 
+
+Most bindings require a stored connection string that Functions uses to access the bound service. To make it easier, you use the Storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
 
 ## Prerequisites
 
-Before you start this article, first complete the steps in [part 1 of the Python quickstart](functions-create-first-function-python.md) article.
+Before you start this article, complete the steps in [part 1 of the Python quickstart](functions-create-first-function-python.md).
 
 ## Download the function app settings
 
@@ -33,7 +35,7 @@ func azure functionapp fetch-app-settings <APP_NAME>
 
 You may be required to sign in to your Azure account.
 
-> [!NOTE]
+> [!IMPORTANT]  
 > Because it contains secrets, the local.settings.json file never gets published, and it should be excluded from source control.
 
 You need the value `AzureWebJobsStorage`, which is the Storage account connection string. You use this connection to verify that the output binding works as expected.
@@ -125,7 +127,7 @@ As before, use the following command to start the Functions runtime locally:
 func host start
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Because the previous article had you enable extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x) was downloaded and installed for you during startup.
 
 Copy the URL of your `HttpTrigger` function from the runtime output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. You should see the same response in the browser as you did in the previous article.
@@ -162,7 +164,7 @@ echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{M
 
 The string returned should be the same as the message you sent to test the function.
 
-> [!NOTE]
+> [!NOTE]  
 > The previous example decodes the returned string from base64. This is because the Queue storage bindings write to and read from Azure Storage as [base64 strings](functions-bindings-storage-queue.md#encoding).
 
 Now, it's time to republish the updated function app to Azure.
@@ -183,7 +185,7 @@ You can [Examine the Storage queue message](#query-the-storage-queue) to verify 
 
 You've updated your HTTP triggered function to write data to a Storage queue. To learn more about developing Azure Functions using Python, see the [Azure Functions Python developer guide](functions-reference-python.md) and [Azure Functions triggers and bindings](functions-triggers-bindings.md).
 
-We recommend that you enable Application Insights monitoring for your function app:
+Next, you should enable Application Insights monitoring for your function app:
 
 > [!div class="nextstepaction"]
 > [Enable Application Insights integration](functions-monitoring.md#manually-connect-an-app-insights-resource)
