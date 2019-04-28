@@ -15,21 +15,15 @@ ms.date: 04/29/2019
 
 # Model interpretability with Azure Machine Learning service
 
-In this article, you will learn how to explain, in Python, why your model made the predictions it did. 
+In this article, you will learn how to explain why your model made the predictions it did with the interpretability package ([`explain`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py)) of the Azure Machine Learning Python SDK.
 
-During the training phase of the development cycle, model designers and evaluators can use interpretability to explain the output of a model to stakeholders to build trust.  They also use the insights into the model for debugging, validating model behavior matches their objectives, and to check for bias.
+During the training phase of the development cycle, model designers and evaluators can use to explain the output of a model to stakeholders to build trust.  They also use the insights into the model for debugging, validating model behavior matches their objectives, and to check for bias.
 
 During the inferencing phase, data scientists can use interpretability to explain predictions to the people who use your model. For example, why did the model deny a mortgage loan, or predict that an investment portfolio carries a higher risk?
 
-The [`explain`](](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py)) of the Azure Machine Learning SDK enable you to: 
-* Incorporates technologies developed by Microsoft and  proven third-party libraries (for example, SHAP and LIME)
-* Creates a common API across the integrated libraries
-* Integrates Azure Machine Learning services
-* Applies appropriate optimizations to enable interpretability on real-world datasets at scale 
+The interpretability classes are made available through two Python packages. Learn how to [install SDK packages for Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-The interpretability classes are structured into two Python packages:
-
-* [azureml.explain.model](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), the main package, contaiing functionalities supported by Microsoft.
+* [azureml.explain.model](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), the main package, contaiing functionalities supported by Microsoft. 
 
 * `azureml.contrib.explain.model`, preview and experimental functionalities that you can try.
 
