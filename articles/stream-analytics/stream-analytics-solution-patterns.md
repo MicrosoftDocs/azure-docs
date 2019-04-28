@@ -1,221 +1,154 @@
 ---
-title: Understand time handling in Azure Stream Analytics
-description: Learn about time handling in Azure Stream Analytics
+title: Azure Stream Analytics end to end solution patterns
+description: Learn about composable end to end solution patterns using Azure Stream Analytics
 author: jasonwhowell
 ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/05/2018
+ms.date: 04/28/2019
 ---
 
-# Understand time handling in Azure Stream Analytics
+# Azure Stream Analytics end to end solution patterns
 
-In this article, we discuss how you can make design choices to solve practical time handling problems in the Azure Stream Analytics service. Time handling design decisions are closely related to event ordering factors.
+Like many other services in Azure, ASA is often composed with other services to create a larger end to end solution. In this article, we start with the simplest ASA solutions, and enumerate various architecture patterns that can be further composed into even more complex solutions. The patterns described in this page are not scenario specific, so they can be used in a wide variety of scenarios. Example of scenario-specific patterns are available on [azure architecture](https://azure.microsoft.com/solutions/architecture/?product=stream-analytics).
 
-## Background time concepts
+## Create the first ASA job for real-time dashboard
+ASA is designed for ease of use, so you can stand up real-time dashboard and alert solutions very quickly. The simplest solution ingests events from Event Hubs or IoT Hub, and [feeds the PowerBI dashboard using streaming dataset](service-real-time-streaming.md). The detailed step by step tutorial can be found [here](stream-analytics-manage-job.md).
 
-To better frame the discussion, let's define some background concepts:
+![ASA PowerBI dashboard](media/stream-analytics-solution-patterns/pbidashboard.png)
 
-- **Event time**: The time when the original event happened. For example, when a moving car on the highway approaches a toll booth.
+With ASA, a user can stand up such a solution in just a few minutes from Azure portal. No extensive coding is involved. SQL language is used to express the business logic.
 
-- **Processing time**: The time when the event reaches the processing system and is observed. For example, when a toll booth sensor sees the car and the computer system takes a few moments to process the data.
+This real time dashboard solution pattern offers the lowest latency from events entering event sources to reaching PowerBI dashboard in a browser, and ASA is the only Azure service with such builtin capability.
 
-- **Watermark**: An event time marker that indicates up to what point events have been ingressed to the streaming processor. Watermarks let the system indicate clear progress on ingesting the events. By the nature of streams, the incoming event data never stops, so watermarks indicate the progress to a certain point in the stream.
+## Use of SQL for dashboard
+PowerBI streaming dataset powered dashboard has the lowest latency, but it cannot be used to produce full fledged PowerBI reports. The common pattern to serve a PowerBI report is to output to a SQL database first, then use PowerBI’s SQL connector to query SQL for the latest data.
 
-   The watermark concept is important. Watermarks allow Stream Analytics to determine when the system can produce complete, correct, and repeatable results that don’t need to be retracted. The processing can be done in a guaranteed way that's predictable and repeatable. For example, if a recount needs to be done for some error handling condition, watermarks are safe starting and ending points.
+![ASA SQL dashboard](media/stream-analytics-solution-patterns/sqldashboard.png)
 
-As additional resources on this subject, see Tyler Akidau's blog posts [Streaming 101](https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-101) and [Streaming 102](https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-102).
+This solution pattern trades off flexibility with increased latency. If the latency requirement is not as stringent as under a second (e.g. on the order of a few seconds or even a minute), the solution still works well, while maximizing PowerBI’s utility to further slice/dice the data in the reporting user experience. Using SQL database, you also gain the flexibility of using other dashboarding solutions such as Tableau, if desirable.
 
-## Choosing the best starting time
+Just note, the maximum throughput to a SQL database from ASA is 24MB/s. SQL is inherently not a high throughput data store, if the event sources in your solution produces data at a higher rate, you will need to use processing logic in ASA to reduce the output rate to SQL, using techniques such as filtering, windowed aggregates, pattern matching with temporal joins and analytic functions. Output rate to SQL can be further optimized using techniques described [here](stream-analytics-sql-output-perf.md).
 
-Stream Analytics gives users two choices for picking event time:
+## Incorporate real time insights into your application with event messaging
+The second most popular use of ASA is to generate real time alerts. In this solution pattern, business logic in ASA can be used to detect certain [temporal and spatial patterns](stream-analytics-geospatial-functions.md) and even [anomalies](stream-analytics-machine-learning-anomaly-detection.md), then produce alerting signals. However, unlike the dashboarding solution, where ASA has a preferred endpoint (PowerBI), a number of intermediate data sinks can be used, such as Event Hubs, Service Bus, and Function. You, as the application builder, need to decide which data sink works best for your application to realize the end to end scenario. Downstream event consumer logic has to be implemented to generate the real alert in your existing business workflow. Because you can implement custom logic in Azure Function, Function is the fastest way you can perform such integration. A tutorial for using Azure Function as ASA’s output can be found [here](stream-analytics-with-azure-functions.md). Azure Function also supports various types of notifications or output such as text or email. The full list is available here. Logic App may also be used for such integration through the use of Event Hubs between ASA and Logic App.
 
-1. **Arrival time**  
+![ASA event messaging app](media/stream-analytics-solution-patterns/eventmessagingapp.png)
 
-   Arrival time is assigned at the input source when the event reaches the source. You can access arrival time by using the **EventEnqueuedUtcTime** property for Event Hubs inputs, **IoTHub.EnqueuedTime** property for IoT Hub, and using the **BlobProperties.LastModified** property for blob input.
+Event Hubs, on the other hand, offers the most flexible integration point, as many other services can consume events from Event Hubs, for example, Azure Data Explorer, and Time Series Insight. They can be connected directly to the Event Hubs sink from ASA to complete the solution. Event Hubs is also the highest throughput messaging broker you have on Azure for such integration scenarios.
 
-   Using arrival time is the default behavior, and best used for data archiving scenarios, where there's no temporal logic necessary.
+## Dynamic applications and websites
+You can create custom real-time visualization such as dashboard or map visualization using Azure Stream Analytics and Azure SignalR Service. Using SignalR, web clients can be updated in real-time and show dynamic content.
 
-2. **Application time** (also named Event Time)
+![ASA dynamic app](media/stream-analytics-solution-patterns/dynamicapp.png)
 
-   Application time is assigned when the event is generated, and it's part of the event payload. To process events by application time, use the **Timestamp by** clause in the select query. If the **Timestamp by** clause is absent, events are processed by arrival time.
+## Incorporate real-time insights into your application through data stores
+Most web services and web applications today use request/response pattern to serve the presentation layer. The request/response pattern is simple to build, and can be easily scaled with low response time using stateless frontend and scalable stores such as Cosmos DB.
 
-   It’s important to use a timestamp in the payload when temporal logic is involved. That way, delays in the source system or in the network can be accounted for.
+On the other hand, high data volume often creates performance bottlenecks in a CRUD based system, in addition to other problems. [Event sourcing solution pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing) is used to address this problem . Furthermore, temporal patterns and insights are difficult and inefficient to extract from a traditional data store. Modern high-volume data driven applications often adopt a dataflow based architecture. ASA as the compute engine for data in motion is a linchpin in such an architecture.
 
-## How time progresses in Azure Stream Analytics
+![ASA event sourcing app](media/stream-analytics-solution-patterns/eventsourcingapp.png)
 
-When using application time, the time progression is based on the incoming events. It’s difficult for the stream processing system to know if there are no events, or if events are delayed. For this reason, Azure Stream Analytics generates heuristic watermarks in the following ways for each input partition:
+In this solution pattern, events are processed and consolidated into data stores by ASA. The application layer again interacts with data stores using the traditional request/response pattern. Because ASA’s ability to process large amount of events in real time efficiently, the application is highly scalable without the need to bulk up the data store layer. The data store layer is essentially a materialized view in the system. [This article](stream-analytics-documentdb-output.md) describes how Cosmos DB is used as an ASA output.
 
-1. Whenever there's any incoming event, the watermark is the largest event time we have seen so far minus the out-of-order tolerance window size.
+In real applications where processing logic is complex and there is the need to upgrade certain parts of the logic independently, multiple ASA jobs can be composed together with Event Hubs as the intermediary event broker.
 
-2. Whenever there is no incoming event, the watermark is the current estimated arrival time (the elapsed time on behind the scenes VM processing the events from last time an input event is seen plus that input event’s arrival time) minus the late arrival tolerance window.
+![ASA complex event sourcing app](media/stream-analytics-solution-patterns/eventsourcingapp2.png)
 
-   The arrival time can only be estimated, because the real arrival time is generated on the input event broker, such as Event Hubs, and not the Azure Stream Analytics VM processing the events.
+This pattern improves the resiliency and manageability of the system. One thing to note though, even though ASA guarantees exactly once processing, there is a small chance that duplicate events may land in the intermediary Event Hubs. It’s important for the downstream ASA job to perform dedupe logic using logic keys in a lookback window. You can find more details [here](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics).
 
-The design serves two additional purposes, besides generating watermarks:
+## Use reference data for application customization
+Many of ASA’s customers are ISVs who build SaaS solutions for their customers. End user customization is often a requirement (e.g. alerting threshold, processing rules, [geofences](geospatial-scenarios.md), etc.) ASA’s reference data feature is designed specifically for this use case. The application layer can accept parameter changes and store them in a SQL database. The ASA job periodically queries for changes from the database and makes the customization parameters accessible through reference data join. More information on how to use reference data for application customization purpose can be found for [SQL reference data](sql-reference-data.md), and [reference data join](https://docs.microsoft.com/en-us/stream-analytics-query/reference-data-join-azure-stream-analytics).
 
-1. The system generates results in a timely fashion with or without incoming events.
+This pattern can also be used to implement a rule engine, where the threshold of the rules are defined from reference data. More info on the page: [Process configurable threshold-based rules in Azure Stream Analytics](stream-analytics-threshold-based-rules.md).
 
-   You have control over how timely they want to see the output results. In the Azure portal, on the **Event ordering** page of your Stream Analytics job, you can configure the **Out of order events** setting. When configuring that setting, consider the trade-off of timeliness with tolerance of out-of-order events in the event stream.
+![ASA reference data app](media/stream-analytics-solution-patterns/refdataapp.png)
 
-   The late arrival tolerance window is important to keep generating watermarks, even in the absence of incoming events. At times, there may be a period where no incoming events come in, such as when an event input stream is sparse. That problem is exacerbated by the use of multiple partitions in the input event broker.
+## Adding ML to your real time insights
+ASA’s built-in [Anomaly Detection model](stream-analytics-machine-learning-anomaly-detection.md) is a convenient way to introduce Machine Learning magic to your real time application. For a wider range of ML needs, ASA integrates with Azure Machine Learning’s scoring service by [calling into their endpoints for scoring from within the streaming application](stream-analytics-machine-learning-integration-tutorial.md). However, at this moment because of the interaction between ASA and certain design choices of AML, the throughput for such scoring can be limited. We are investigating how ASA can call into a model scoring endpoint hosted in AKS/ACI while removing the throughput limitation. Regardless, this pattern gives you instant Machine Learning power in your ASA job, and turn your analytics from reactive to predictive.
+For the more advanced customers of ASA, who wants to incorporate online training and scoring into the same stream analytics pipeline, [here](stream-analytics-high-frequency-trading.md) is an example of how to do that with linear regression. Unfortunately, there is no built-in support for online training at this time.
 
-   Streaming data processing systems without a late arrival tolerance window may suffer from delayed outputs when inputs are sparse and multiple partitions are used.
+![ASA ML app](media/stream-analytics-solution-patterns/mlapp.png)
 
-2. The system behavior has to be repeatable. Repeatability is an important property of a streaming data processing system.
+## Near real time data warehousing
+Another application pattern ASA customers use, after dashboarding and alerting, is near real-time data warehousing also called streaming data warehouse. In addition to events arriving at Event Hubs and IoT Hub from user’s application, [ASA running on IoT Edge](stream-analytics/stream-analytics-edg.md) can be used to fulfill data cleansing, data reduction, and data store and forward needs in order to gracefully handle bandwidth limitation and connectivity issues in the system. ASA’s SQL output adapter can be used to output to SQL DW. However, the maximum throughput is only limited to 10MB/s.
 
-   The watermark is derived from arrival time and application time. Both are persisted in the event broker, and thus repeatable. In the case the arrival time has to be estimated in the absence of events, Azure Stream Analytics journals the estimated arrival time for repeatability during replay for the purpose of failure recovery.
+![ASA Data Warehousing](media/stream-analytics-solution-patterns/datawarehousing.png)
 
-Notice that when you choose to use **arrival time** as the event time, there is no need to configure the out-of-order tolerance and late arrival tolerance. Since **arrival time** is guaranteed to be monotonically increasing in the input event broker, Azure Stream Analytics simply disregards the configurations.
+One way to improve the throughput with some latency tradeoff is to archive the events into Azure Blob, and the [import them into SQL DW with Polybase](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md). Today, the user has to manually stitch together output from ASA to blob and input from blob to SQL DW, by [archiving the data by timestamp](stream-analytics-custom-path-patterns-blob-storage-output.md), and perform imports periodically. We are looking into how to automatically trigger the import when new data arrive.
+In this usage pattern, ASA is used as a near real time ETL engine. Newly arriving events are continuously transformed and stored for downstream analytics service consumption.
 
-## Late arriving events
+![ASA high throughput Data Warehousing](media/stream-analytics-solution-patterns/datawarehousing2.png)
 
-By definition of late arrival tolerance window, for each incoming event, Azure Stream Analytics compares the **event time** with the **arrival time**; if the event time is outside of the tolerance window, you can configure the system to either drop the event or adjust the event’s time to be within the tolerance.
+## Archiving real time data for analytics
+Today, most of data science and analytics activities still happen offline. Data archived by ASA serves this needs well. During Build, we will announce the support of ADLS gen 2 output, and Parquet output format. These capabilities remove the friction to feed data directly into ADLA, Azure Databricks, and Azure HDInsight. Again, ASA is used as a near real time ETL engine in this solution. Customers can then explore archived data in Data Lake using various compute engines.
 
-Consider that after watermarks are generated, the service can potentially receive events with event time lower than the watermark. You can configure the service to either **drop** those events, or **adjust** the event’s time to the watermark value.
+![ASA offline analytics](media/stream-analytics-solution-patterns/offlineanalytics.png)
 
-As a part of the adjustment, the event’s **System.Timestamp** is set to the new value, but the **event time** field itself is not changed. This adjustment is the only situation where an event’s **System.Timestamp** can be different from the value in the event time field, and may cause unexpected results to be generated.
+## Use reference data for enrichment
+Data enrichment is often a requirement for ETL engines. ASA supports data enrichment with [reference data](stream-analytics-use-reference-data.md) from both SQL database and Azure blob. This can be done for both data landing in the Data Lake or data going into SQL DW.
 
-## Handling time variation with substreams
+![ASA offline analytics with data enrichment](media/stream-analytics-solution-patterns/offlineanalytics.png)
 
-The heuristic watermark generation mechanism described here works well in most of the cases where time is mostly synchronized between the various event senders. However, in real life, especially in many IoT scenarios, the system has little control over the clock on the event senders. The event senders could be all sorts of devices in the field, perhaps on different versions of hardware and software.
+## Operationalize insights from archived data in real time application
+Now, if we combine the offline analytics pattern with the near real time application pattern, you can create a feedback loop, and let the application automatically adjust for changing patterns in the data. This can be as simple as changing threshold value for alerting, or as complex as retraining ML models. The same solution architecture can be applied to both ASA jobs running in the cloud, or ASA jobs running on IoT Edge.
 
-Instead of using a watermark global to all events in an input partition, Stream Analytics has another mechanism called substreams to help you. You can utilize substreams in your job by writing a job query that uses the [**TIMESTAMP BY**](/stream-analytics-query/timestamp-by-azure-stream-analytics) clause and the keyword **OVER**. To designate the substream, provide a key column name after the **OVER** keyword, such as a `deviceid`, so that system applies time policies by that column. Each substream gets its own independent watermark. This mechanism is useful to allow timely output generation, when dealing with large clock skews or network delays among event senders.
+![ASA operationalize insights](media/stream-analytics-solution-patterns/insightsoperationalization.png)
 
-Substreams are a unique solution provided by Azure Stream Analytics, and are not offered by other streaming data processing systems. Stream Analytics applies the late arrival tolerance window to incoming events when substreams are used. The default setting (5 seconds) is likely too small for devices with divergent timestamps. We recommend that you start with 5 minutes, and make adjustments according to their device clock skew pattern.
+## How to monitor ASA jobs
+An ASA job runs 24/7 to process incoming events continuously in real time. Its uptime guarantee is crucial to the health of the end to end application. While ASA is the only stream analytics service in the industry that offers [99.9% availability guarantee]( https://azure.microsoft.com/en-us/support/legal/sla/stream-analytics/v1_0/), you may still incur some level of down time. Over the years, ASA has introduced metrics, logs and job states to reflect the health of the jobs. All of them are surfaced through Azure Monitor service, and can be further exported to OMS. More details can be found [here](stream-analytics-monitoring.md).
 
-## Early arriving events
+![ASA monitoring](media/stream-analytics-solution-patterns/monitoring.png)
 
-You may have noticed another concept called early arrival window, that looks like the opposite of late arrival tolerance window. This window is fixed at 5 minutes, and serves a different purpose from late arrival one.
+There are two key things to monitor
+1.	[Job failed state](job-states.md)
 
-Because Azure Stream Analytics guarantees it always generates complete results, you can only specify **job start time** as the first output time of the job, not the input time. The job start time is required so that the complete window is processed, not just from the middle of the window.
+    First and foremost, you need to make sure the job is running. Without the job in the running state, no new metrics and log is generated. Jobs can get into failed state for various reasons, including high SU utilization level (running out of resources).
 
-Stream Analytics then derives the starting time from the query specification. However, because input event broker is only indexed by arrival time, the system has to translate the starting event time to arrival time. The system can start processing events from that point in the input event broker. With the early arriving window limit, the translation is straightforward. It’s starting event time minus the 5-minute early arriving window. This calculation also means that the system drops all events that are seen having event time 5 minutes greater than arrival time.
+2.	[Watermark delay metrics](https://azure.microsoft.com/en-us/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/)
 
-This concept is used to ensure the processing is repeatable no matter where you start to output from. Without such a mechanism, it would not be possible to guarantee repeatability, as many other streaming systems claim they do.
+    This metric reflects how far behind your processing pipeline is in wall clock time (seconds). Some of the delay is attributed to the inherent processing logic, so monitoring the increasing trend is much more important than monitoring the absolute value. The steady state delay should be addressed by your application design, not by monitoring/alert.
 
-## Side effects of event ordering time tolerances
+Upon failure, activity logs and [diagnostics logs](stream-analytics-job-diagnostic-logs.md) are the best places to start look for errors.
 
-Stream Analytics jobs have several **Event ordering** options. Two can be configured in the Azure portal: the **Out of order events** setting (out-of-order tolerance), and the **Events that arrive late** setting (late arrival tolerance). The **early arrival** tolerance is fixed and cannot be adjusted. These time policies are used by Stream Analytics to provide strong guarantees. However, these settings do have some sometimes unexpected implications:
+## Build resilient and mission critical applications
+Regardless of ASA’s SLA guarantee and how careful you run your end to end application, outage happens. You need to be prepared for such outage to recover gracefully, if your application is mission critical.
 
-1. Accidentally sending events that are too early.
+For alerting applications, the most important thing is to detect the next alert, so you may choose to restart the ASA job from current time when recovering, ignoring past alerts. Because ASA’s job start time semantics is by the first output time, not the first input time, the input is rewind backwards appropriate amount of time to guarantee the first output at the specified time is complete and correct. You won’t get partial aggregates and trigger alerts unexpectedly as a result.
 
-   Early events should not be outputted normally. It's possible that early events are sent to the output if sender’s clock is running too fast though. All early arriving events are dropped, so you will not see any of them from the output.
+You may also choose to start output from some amount of time in the past, since both Event Hubs and IoT Hub’s retention policy holds reasonable amount of data to allow processing from the past. The tradeoff is how fast you can catch up to current time and start to generate timely new alerts. As we know data lose their value rapidly over time, it’s important to catch up to the current time quickly. There are two ways to do that.
+1.	Provision more resources (SU) when catching up.
+2.	Restart from current time.
 
-2. Sending old events to Event Hubs to be processed by Azure Stream Analytics.
+Restarting from current time is simple to do, with the tradeoff of leaving a gap during processing. This might be OK for alerting scenarios, but can be problematic for dashboarding scenario, and a non-starter for archiving or data warehousing scenarios.
+Provision more resources can speed up catchup, but the effect of having a processing rate surge is complex.
+1.	You need to test your ASA job is scalable to a larger number of SUs. Not all ASA queries are scalable. You need to make sure your query is [parallelized](stream-analytics-parallelization.md).
+2.	You need to make sure there is enough number of partitions in the upstream Event Hubs or IoT Hub that you can add more Throughput Units (TUs) to scale the input throughput. Remember, each Event Hub TU max out at 2MB/s output rate.
+3.	You need to make sure you have provisioned enough resource in the output sinks (e.g. SQL Database, Cosmos DB), so they don’t throttle the surge in output, which can sometimes cause the system to be totally locked up.
 
-   While old events may seem harmless at first, because of the application of the late arrival tolerance, the old events may be dropped. If the events are too old, the **System.Timestamp** value is altered during event ingestion. Due to this behavior, currently Azure Stream Analytics is more suited for near-real-time event processing scenarios, instead of historical event processing scenarios. You can set the **Events that arrive late** time to the largest possible value (20 days) to work around this behavior in some cases.
+The most important thing to do is for you to anticipate the processing rate change, test these scenarios before going into production, and be ready to scale the processing accordingly during failure recovery time.
 
-3. Outputs seem to be delayed.
+In the extreme scenario that incoming events are completely delayed, because of the application of late arriving window in an ASA job, [it’s possible all the delayed events are dropped](stream-analytics-time-handling.md). This may appear to be a mysterious behavior at the beginning. However, considering ASA is a real time processing engine, it’s not to difficult to understand it expects incoming events to be close to the wall clock time. It has to drop events that violates these constraints.
 
-   The first watermark is generated at the calculated time: the **maximum event time** the system has observed so far, minus the out-of-order tolerance window size. By default, the out-of-order tolerance is configured to zero (00 minutes and 00 seconds). When you set it to a higher, non-zero time value, the streaming job's first output is delayed by that value of time (or greater) due to the first watermark time that is calculated.
+### Backfilling process
+Fortunately, the aforementioned data archiving pattern can be used to process these late events gracefully. The idea is the archiving job processes incoming events in arrival time, and archives events into the right time bucket in Azure Blob or ADLS with their event time. It doesn’t matter how late an event arrives, it will never be dropped, and will always land in the right time bucket. During recovery, it’s now possible to reprocess the archived events and backfill the results to the store of choice.
 
-4. Inputs are sparse.
+![ASA backfill](media/stream-analytics-solution-patterns/backfill.png)
 
-   When there is no input in a given partition, the watermark time is calculated as the **arrival time** minus the late arrival tolerance window. As a result, if input events are infrequent and sparse, the output can be delayed by that amount of time. The default **Events that arrive late** value is 5 seconds. You should expect to see some delay when sending input events one at a time, for example. The delays can get worse, when you set **Events that arrive late** window to a large value.
+Today, the backfill process has to be done with an offline batch processing system, that most likely has a different programming model from ASA, which means you have to reimplement the entire processing logic. It’s conceivable that we enable running an ASA query in offline mode, so backfill can take place with the same query on the archived data.
 
-5. **System.Timestamp** value is different from the time in the **event time** field.
+For backfilling, it’s still important to at least temporarily provision more resource to the output sinks to handle higher throughput than the steady state processing needs.
 
-   As described previously, the system adjusts event time by the out-of-order tolerance or late arrival tolerance windows. The **System.Timestamp** value of the event is adjusted, but not the **event time** field.
+|Scenarios	|Restart from now only	|Restart from last stopped time	|Restart from now + backfill with archived events|
+|---------|---------|---------|---------|
+|**Dashboarding**	|Creates gap	|OK for short outage	|Use for long outage |
+|**Alerting**	|Acceptable	|OK for short outage	|Not necessary |
+|**Event sourcing app**	|Acceptable	|OK for short outage	|Use for long outage |
+|**Data warehousing**	|Data loss	|Acceptable	|Not necessary |
+|**Offline analytics**	|Data loss	|Acceptable	|Not necessary|
 
-## Metrics to observe
+## Putting it all together
+It’s not hard to imagine that all the solution patterns mentioned above, including dashboarding, alerting, event sourcing application, data warehousing, and offline analytics application can be combined together in a single end to end system, which can be very complex.
 
-You can observe a number of the Event ordering time tolerance effects through [Stream Analytics job metrics](stream-analytics-monitoring.md). The following metrics are relevant:
-
-|Metric  | Description  |
-|---------|---------|
-| **Out-of-Order Events** | Indicates the number of events received out of order, that were either dropped or given an adjusted timestamp. This metric is directly impacted by the configuration of the **Out of order events** setting on the **Event ordering** page on the job in the Azure portal. |
-| **Late Input Events** | Indicates the number of events arriving late from the source. This metric includes events that have been dropped or have had their timestamp was adjusted. This metric is directly impacted by the configuration of the **Events that arrive late** setting in the **Event ordering** page on the job in the Azure portal. |
-| **Early Input Events** | Indicates the number of events arriving early from the source that have either been dropped, or their timestamp has been adjusted if they are beyond 5 minutes early. |
-| **Watermark Delay** | Indicates the delay of the streaming data processing job. See more information in the following section.|
-
-## Watermark Delay details
-
-The **Watermark delay** metric is computed as the wall clock time of the processing node minus the largest watermark it has seen so far. For more information, see the [watermark delay blog post](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/).
-
-There can be several reasons this metric value is larger than 0 under normal operation:
-
-1. Inherent processing delay of the streaming pipeline. Normally this delay is nominal.
-
-2. The out-of-order tolerance window introduced delay, because watermark is reduced by the size of the tolerance window.
-
-3. The late arrival window introduced delay, because watermark is reduced by the size the tolerance window.
-
-4. Clock skew of the processing node generating the metric.
-
-There are a number of other resource constraints that can cause the streaming pipeline to slow down. The watermark delay metric can rise due to:
-
-1. Not enough processing resources in Stream Analytics to handle the volume of input events. To scale up resources, see [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md).
-
-2. Not enough throughput within the input event brokers, so they are throttled. For possible solutions, see [Automatically scale up Azure Event Hubs throughput units](../event-hubs/event-hubs-auto-inflate.md).
-
-3. Output sinks are not provisioned with enough capacity, so they are throttled. The possible solutions vary widely based on the flavor of output service being used.
-
-## Output event frequency
-
-Azure Stream Analytics uses watermark progress as the only trigger to produce output events. Because the watermark is derived from input data, it is repeatable during failure recovery and also in user initiated reprocessing.
-
-When using [windowed aggregates](stream-analytics-window-functions.md), the service only produces outputs at the end of the windows. In some cases, users may want to see partial aggregates generated from the windows. Partial aggregates are not supported currently in Azure Stream Analytics.
-
-In other streaming solutions, output events could be materialized at various trigger points, depending on external circumstances. It's possible in some solutions that the output events for a given time window could be generated multiple times. As the input values are refined, the aggregate results become more accurate. Events could be speculated at first, and revised over time. For example, when a certain device is offline from the network, an estimated value could be used by a system. Later on, the same device comes online to the network. Then the actual event data could be included in the input stream. The output results from processing that time window produces more accurate output.
-
-## Illustrated example of watermarks
-
-The following images illustrate how watermarks progress in different circumstances.
-
-This table shows the example data that is charted below. Notice that the event time and the arrival time vary, sometimes matching and sometimes not.
-
-| Event time | Arrival time | DeviceId |
-| --- | --- | --- |
-| 12:07 | 12:07 | device1
-| 12:08 | 12:08 | device2
-| 12:17 | 12:11 | device1
-| 12:08 | 12:13 | device3
-| 12:19 | 12:16 | device1
-| 12:12 | 12:17 | device3
-| 12:17 | 12:18 | device2
-| 12:20 | 12:19 | device2
-| 12:16 | 12:21 | device3
-| 12:23 | 12:22 | device2
-| 12:22 | 12:24 | device2
-| 12:21 | 12:27 | device3
-
-In this illustration, the following tolerances are used:
-
-- Early arrival windows is 5 minutes
-- Late arriving window is 5 minutes
-- Reorder window is 2 minutes
-
-1. Illustration of watermark progressing through these events:
-
-   ![Azure Stream Analytics watermark illustration](media/stream-analytics-time-handling/WaterMark-graph-1.png)
-
-   Notable processes illustrated in the preceding graphic:
-
-   1. The first event (device1), and second event (device2) have aligned times and are processed without adjustments. The watermark progresses on each event.
-
-   2. When the third event (device1) is processed, the arrival time (12:11) precedes the event time (12:17). The event arrived 6 minutes early, so the event is dropped due to the 5-minute early arrival tolerance.
-
-      The watermark doesn't progress in this case of an early event.
-
-   3. The fourth event (device3), and fifth event (device1) have aligned times and are processed without adjustment. The watermark progresses on each event.
-
-   4. When the sixth event (device3) is processed, the arrival time (12:17) and the event time (12:12) is below the watermark level. The event time is adjusted to the water mark level (12:17).
-
-   5. When the ninth event (device3) is processed, the arrival time (12:27) is 6 minutes ahead of the event time (12:21). The late arrival policy is applied. The event time is adjusted (12:22), which is above the watermark (12:21) so no further adjustment is applied.
-
-2. Second illustration of watermark progressing without an early arrival policy:
-
-   ![Azure Stream Analytics no early policy watermark illustration](media/stream-analytics-time-handling/watermark-graph-2.png)
-
-   In this example, no early arrival policy is applied. Outlier events that arrive early raise the watermark significantly. Notice the third event (deviceId1 at time 12:11) is not dropped in this scenario, and the watermark is raised to 12:15. The fourth event time is adjusted forward 7 minutes (12:08 to 12:15) as a result.
-
-3. In the final illustration, substreams are used (OVER the DeviceId). Multiple watermarks are tracked, one per stream. There are fewer events with their times adjusted as a result.
-
-   ![Azure Stream Analytics substreams watermark illustration](media/stream-analytics-time-handling/watermark-graph-3.png)
-
-## Next steps
-
-- [Azure Stream Analytics event order considerations](stream-analytics-out-of-order-and-late-events.md)
-- [Stream Analytics job metrics](stream-analytics-monitoring.md)
+The key is to design your system in composable patterns, so each sub-system can be built, tested, upgraded, and recover independently. Hope this article gives you some insights into how to reason about the composable parts, and use ASA effectively in your next project.
