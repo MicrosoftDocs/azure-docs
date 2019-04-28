@@ -20,8 +20,8 @@ Most of the retired features can be replaced with new features in Azure Security
 
 The list of features being retired from the Security Center includes:
 
-- [Events](#menu_events)
-- [Search](#menu_search)
+- [Events dashboard](#menu_events)
+- [Search menu entry](#menu_search)
 - [View classic Identity & Access link on Identity and access (preview)](#menu_classicidentity)
 - [Security events map button on Security alerts map (preview)](#menu_securityeventsmap)
 - [Custom alert rules (preview)](#menu_customalerts)
@@ -32,7 +32,7 @@ The list of features being retired from the Security Center includes:
 
 The below provides detailed information for each retired feature and the steps you can take using the replacement features.
 
-## Events<a name="menu_events"></a>
+## Events dashboard<a name="menu_events"></a>
 Security Center uses the Microsoft Monitoring Agent to collect various security related configurations and events from your machines and stores these events in your workspace(s). The [Events dashboard](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) allows viewing this data, and essentially provides another entry point to Log Analytics.
 
 Going forward the events dashboard will be retired:
@@ -43,19 +43,19 @@ The events dashboard that appears once a user clicks on a workspace, will also b
 
 ![Events dashboard][2]
 
-### Events - New experience
+### Events dashboard - New experience
 
 Customers are encouraged to use Log Analytics’ native capabilities to view notable events on their workspace(s).
 If you have already created custom notable events from Security Center, these will be accessible via Log analytics -> select workspace -> Saved Searches. Your data will not be lost nor modified. Native Notable events are also available from the same screen.
 
 ![Workspace saved searches][3]
 
-## Search<a name="menu_search"></a>
+## Search menu entry<a name="menu_search"></a>
 Azure Security Center currently uses Azure Monitor logs search to retrieve and analyze your security data. This screen essentially serves as a façade to Log Analytics “[Search](https://docs.microsoft.com/azure/security-center/security-center-search)” page – allowing users to run Search queries on their selected workspace. Going forward this search window will be retired:
 
 ![Search page][4]
 
-### Search - New experience
+### Search menu entry - New experience
 
 Customers are encouraged to use **Log Analytics** native capabilities to perform Search queries on their workspaces. To do so, they can go to Log analytics in Azure, and select: “Logs”:
 
