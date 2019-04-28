@@ -15,17 +15,11 @@ ms.date: 04/29/2019
 
 # Model interpretability with Azure Machine Learning service
 
-In this article, you will learn how to explain, in Python, why your model made the predictions it did. Being able to explain your model, or model interpretability, is important for the following reasons:
+In this article, you will learn how to explain, in Python, why your model made the predictions it did. 
 
-* Customers and stakeholders need to **trust the predictions** your model makes.
-* As a data scientist, you want to understand how to **query the model for insights** to make informed decisions on how to improve your model.
-* As a company, you need varying input distributions and specific input affects model behavior.
+During the training phase of the development cycle, model designers and evaluators can use interpretability to explain the output of a model to stakeholders to build trust.  They also use the insights into the model for debugging, validating model behavior matches their objectives, and to check for bias.
 
-Machine learning interpretability is important in two phases of machine learning development cycle: 
-
-* During **training**: Model designers and evaluators require interpretability tools to explain the output of a model to stakeholders to build trust. They also need insights into the model so that they can debug the model and make decisions on whether the behavior matches their objectives. Finally, they need to ensure that the model is not biased.
-
-* During **inferencing**: Predictions need to be explainable to the people who use your model. For example, why did the model deny a mortgage loan, or predict that an investment portfolio carries a higher risk?
+During the inferencing phase, data scientists can use interpretability to explain predictions to the people who use your model. For example, why did the model deny a mortgage loan, or predict that an investment portfolio carries a higher risk?
 
 The [`explain`](](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py)) of the Azure Machine Learning SDK enable you to: 
 * Incorporates technologies developed by Microsoft and  proven third-party libraries (for example, SHAP and LIME)
@@ -42,7 +36,7 @@ The interpretability classes are structured into two Python packages:
 > [!IMPORTANT]
 > Things in contrib are not fully supported. As the experimental functionalities become mature, they will gradually be moved to the main package.
 
-## How does it work?
+## How explainability works
 
 You can apply the interpretability classes and methods to understand the model’s global behavior or specific predictions. The former is called global explanation and the latter is called local explanation.
 
@@ -58,7 +52,6 @@ The output is a set of information on how a given model makes its prediction, su
 There are two sets of explainers: Direct Explainers and Meta Explainers in the SDK.
 
 __Direct explainers__ come from integrated libraries. The SDK wraps all the explainers so that they expose a common API and output format. If you are more comfortable directly using these explainers, you can directly invoke them instead of using the common API and output format. The following are a list of the direct explainers available in the SDK:
-\\
 
 * **Tree Explainer**: SHAP’s tree explainer, which focuses on polynomial time fast SHAP value estimation algorithm specific to trees and ensembles of trees.
 * **Deep Explainer**: Based on the explanation from SHAP, Deep Explainer "is a high-speed approximation algorithm for SHAP values in deep learning models that builds on a connection with DeepLIFT described in the SHAP NIPS paper. TensorFlow models and Keras models using the TensorFlow backend are supported (there is also preliminary support for PyTorch)".
