@@ -60,8 +60,6 @@
   - name: Data ingestion overview
     displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
     href: ingest-data-overview.md
-  - name: Time series analysis
-    href: time-series-analysis.md
 - name: How-to guides
   items:
   - name: Get Started
