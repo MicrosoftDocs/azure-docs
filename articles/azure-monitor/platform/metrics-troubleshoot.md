@@ -92,14 +92,22 @@ In many cases, the perceived drop in the metric values is a misunderstanding of 
 
 ## Cannot pick Guest OS namespace and metrics
 
-You are looking at a **Guest OS** metric but metrics explorer only shows **Virtual Machine Host** metrics for your Azure virtual machine or virtual machine scale set:
+Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running on the virtual machine. You install the agent by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md).
+
+By default, **Guest OS** metrics are stored in Azure Storage accounts. You select which storage account to use from the **Diagnostic settings** tab of your resource. If **Guest OS** metrics aren't collected or metrics explorer cannot access them, you will only see the **Virtual Machine Host** metric namespace:
     ![metric image](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
 
-**Solution:** Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running as a process on the virtual machine. You install the agent by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md). If the agent isn't running, the **Guest OS** metrics namespace is not shown in metrics explorer. See also [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+**Solution:** Follow steps to identify problems with **Guest OS** metrics:
+
+1. Confirm that [Azure Diagnostic Extension](diagnostics-extension-overview.md) is enabled, and configured to collect metrics.
+
+1. Verify that storage account isn't protected by the firewall or network security rules allow Azure portal to access metrics. You may need to [grant access to storage account from your virtual network](../../storage/common/storage-network-security#grant-access-from-a-virtual-network.md), [grant access to storage account from your internet IP range](../../storage/common/storage-network-security#grant-access-from-a-virtual-network.md#grant-access-from-an-internet-ip-range), or [configure an exception to grant access to metrics tables](../../storage/common/storage-network-security#/azure/storage/common/storage-network-security#managing-exceptions).
+
+1. Use [Azure storage explorer](https://azure.microsoft.com/features/storage-explorer/) to validate that metrics are flowing into the storage account. If metrics aren't collected, follow the [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
 ## Next steps
 
-* [Learn about getting started with Metric Explorer](metrics-getting-started.md)
-* [Learn about advanced features of Metric Explorer](metrics-charts.md)
-* [See a list of available metrics for Azure services](metrics-supported.md)
-* [See examples of configured charts](metric-chart-samples.md)
+    * [Learn about getting started with Metric Explorer](metrics-getting-started.md)
+    * [Learn about advanced features of Metric Explorer](metrics-charts.md)
+    * [See a list of available metrics for Azure services](metrics-supported.md)
+    * [See examples of configured charts](metric-chart-samples.md)
