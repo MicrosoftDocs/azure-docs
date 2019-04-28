@@ -15,7 +15,9 @@ Every component of the edge deployment is scoped to a Kubernetes namespace speci
 >[!NOTE]
 >IoT Edge on Kubernetes is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Prerequisites
+## Install locally for a quick test environment
+
+### Prerequisites
 
 * Kubernetes 1.10 or newer. If you don't have an existing cluster setup, you can use [Minikube](https://kubernetes.io/docs/setup/minikube/) for a local cluster environment. 
 
@@ -23,7 +25,6 @@ Every component of the edge deployment is scoped to a Kubernetes namespace speci
 
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) for viewing and interacting with the cluster.
 
-## Install locally for a quick test environment
 
 1. Start **Minikube**
 

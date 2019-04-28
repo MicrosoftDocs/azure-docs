@@ -88,7 +88,7 @@ az iot hub device-identity add-children \
   --subscription replace-with-sub-name 
 ```
 
-You can modify the [query](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-query-language) to select a smaller subset of devices. The command may take several seconds if you specify a large set of devices.
+You can modify the [query](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-query-language) to select a different subset of devices. The command may take several seconds if you specify a large set of devices.
 
 #### Option 3: Use IoT Hub Service SDK 
 
