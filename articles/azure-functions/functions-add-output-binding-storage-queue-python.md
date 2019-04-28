@@ -137,27 +137,13 @@ This time, the output binding also creates a queue named **outqueue** in your St
 
 ### Set the Storage account connection
 
-Open the local.settings.json file and copy the value of `AzureWebJobsStorage`, which is the Storage account connection string. Set the `AZURE_STORAGE_CONNECTION_STRING` environment variable to the connection string using one of the following commands:
+Open the local.settings.json file and copy the value of `AzureWebJobsStorage`, which is the Storage account connection string. Set the `AZURE_STORAGE_CONNECTION_STRING` environment variable to the connection string using the following Bash command:
 
-* **Bash**
+```azurecli-interactive
+export AZURE_STORAGE_CONNECTION_STRING=<STORAGE_CONNECTION_STRING>
+```
 
-    ```bash
-    export AZURE_STORAGE_CONNECTION_STRING=<STORAGE_CONNECTION_STRING>
-    ```
-
-* **PowerShell**
-
-    ```powershell
-    $env:AZURE_STORAGE_CONNECTION_STRING = "<STORAGE_CONNECTION_STRING>"
-    ```
-
-* **Windows command prompt**
-
-    ```command
-    SET AZURE_STORAGE_CONNECTION_STRING="<STORAGE_CONNECTION_STRING>"
-    ```
-
-With the connection string set in the `AZURE_STORAGE_CONNECTION_STRING` environment variable, you can access your Storage account without having to provide authentication each time
+With the connection string set in the `AZURE_STORAGE_CONNECTION_STRING` environment variable, you can access your Storage account without having to provide authentication each time.
 
 ### Query the Storage queue
 
@@ -167,15 +153,18 @@ You can use the [`az storage queue list`](/cli/azure/storage/queue#az-storage-qu
 az storage queue list --output tsv
 ```
 
-The output from this command contains a queue named `outqueue`. 
+The output from this command includes a queue named `outqueue`, which is the that was created when the function ran.
 
 Next, use the [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) command to view the messages in this queue, as in the following example.
 
 ```azurecli-interactive
-az storage message peek --queue-name outqueue -o table --query '[].{Message:content}'
+echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
 ```
 
 The string returned should be the same as the message you sent to test the function.
+
+> [!NOTE]
+> The previous example decodes the returned string from base64. This is because the Queue storage bindings write to and read from Azure Storage as [base64 strings](functions-bindings-storage-queue.md#encoding).
 
 Now, it's time to republish the updated function app to Azure.
 
@@ -187,7 +176,7 @@ Again, you can use cURL or a browser to test the deployed function. As before ap
 curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
 ```
 
-You can [Examine the Storage queue message](#examine-the-storage-queue-message) to verify that the output binding again generates a new message in the queue.
+You can [Examine the Storage queue message](#query-the-storage-queue) to verify that the output binding again generates a new message in the queue.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
