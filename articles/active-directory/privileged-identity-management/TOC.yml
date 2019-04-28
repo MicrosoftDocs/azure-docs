@@ -77,17 +77,17 @@
     items:
     - name: Azure AD roles
       items:
-      - name: Review my Azure AD roles
-        href: pim-how-to-perform-security-review.md
-      - name: Start an access review
+      - name: Create an access review
         href: pim-how-to-start-security-review.md
+      - name: Review access
+        href: pim-how-to-perform-security-review.md
       - name: Complete an access review
         href: pim-how-to-complete-review.md
     - name: Azure resource roles
       items:
-      - name: Review my Azure resource roles
-        href: pim-resource-roles-perform-access-review.md
-      - name: Start an access review
+      - name: Create an access review
         href: pim-resource-roles-start-access-review.md
+      - name: Review access
+        href: pim-resource-roles-perform-access-review.md
       - name: Complete an access review
         href: pim-resource-roles-complete-access-review.md
