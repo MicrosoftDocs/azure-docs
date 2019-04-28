@@ -67,6 +67,6 @@ Based on your selections in **Upon completion settings**, auto-apply will be exe
 
 ## Next steps
 
-- [Review access to Azure resource roles](ppim-resource-roles-perform-access-review.md)
+- [Review access to Azure resource roles](pim-resource-roles-perform-access-review.md)
 - [Complete an access review of Azure resource roles](pim-resource-roles-complete-access-review.md)
 - [Create an access review of Azure AD roles](pim-how-to-start-security-review.md)
