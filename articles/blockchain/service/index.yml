@@ -24,19 +24,19 @@ sections:
     style: icon48
     items:
     - image: 
-        src: ./media/index/i_deploy.svg
+        src: ./media/index/deploy.svg
       text: Create a consortium member
       href: /azure/blockchain/service/create-member
     - image: 
-        src: ./media/index/i_multi-connect.svg
+        src: ./media/index/multi-connect.svg
       text: Connect using MetaMask
       href: /azure/blockchain/service/connect-metamask
     - image: 
-        src: ./media/index/i_multi-connect.svg
+        src: ./media/index/multi-connect.svg
       text: Connect using geth
       href: /azure/blockchain/service/connect-geth
     - image: 
-        src: ./media/index/i_multi-connect.svg
+        src: ./media/index/multi-connect.svg
       text: Connect using Truffle
       href: /azure/blockchain/service/connect-truffle
 - title: Step-by-Step Tutorials
