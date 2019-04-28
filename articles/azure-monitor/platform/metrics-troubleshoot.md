@@ -94,17 +94,14 @@ In many cases, the perceived drop in the metric values is a misunderstanding of 
 
 Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest OS** metrics that are collected by the [monitoring agent](agents-overview.md) running on your virtual machines. You install the monitoring agent by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md).
 
-By default, **Guest OS** metrics are stored in Azure Storage account which you pick from the **Diagnostic settings** tab of your resource. If **Guest OS** metrics aren't collected or metrics explorer cannot access them, you will only see the **Virtual Machine Host** metric namespace:
+By default, **Guest OS** metrics are stored in Azure Storage account, which you pick from the **Diagnostic settings** tab of your resource. If **Guest OS** metrics aren't collected or metrics explorer cannot access them, you will only see the **Virtual Machine Host** metric namespace:
     ![metric image](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
 
 **Solution:** If you don't see **Guest OS** namespace and metrics in metrics explorer:
 
 1. Confirm that [Azure Diagnostic Extension](diagnostics-extension-overview.md) is enabled and configured to collect metrics.
     > [!WARNING]
-    > You cannot use [Log Analytics agent](agents-overview.md#log-analytics-agent) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest OS** into storage account. Use Log Analytics agent if you want to:
-    > * Collect data from a variety of sources both within Azure, other cloud providers, and on-premises resources. 
-    > * Using one of the Azure Monitor monitoring solutions such as [Azure Monitor for VMs](../insights/vminsights-overview.md), [Azure Monitor for containers](../insights/container-insights-overview.md), etc.
-    > * Use one of the other Azure management services such as [Azure Security Center](../../security-center/security-center-intro.md), [Azure Automation](../../automation/automation-intro.md), etc.
+    > You cannot use [Log Analytics agent](agents-overview.md#log-analytics-agent) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest OS** into storage account.
 
 1. Verify that storage account isn't protected by the firewall or network security rules allow Azure portal to access metrics. You may need to [grant access to storage account from your virtual network](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [grant access to storage account from your internet IP range](../../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range), or [configure an exception to grant access to metrics tables](../../storage/common/storage-network-security.md#managing-exceptions).
 
