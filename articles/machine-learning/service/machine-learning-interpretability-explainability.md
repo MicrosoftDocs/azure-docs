@@ -100,8 +100,9 @@ The explanation functions accept both models and pipelines as input. If a model 
 ### Local and remote compute target
 
 The Machine Learning Interpretability SDK is designed to work with both local and remote compute targets. If run locally, The SDK functions will not contact any Azure services. You can run explanation remotely on Azure Machine Learning Compute and log the explanation info into Azure Machine Learning Run History Services. Once this information is logged, reports and visualizations from the explanation are readily available on Azure Machine Learning Workspace Portal for user analysis.
+## Training time interpretability
 
-## Train and explain locally
+### Train and explain locally
 
 1. Train your model in a local Jupyter notebook. 
 
@@ -119,24 +120,27 @@ The Machine Learning Interpretability SDK is designed to work with both local an
     model = clf.fit(x_train, y_train)
     ```
 
-2. Call the explainer: To initiate an explainer object, you need to pass the model, training data, features of interest (optional), and output class names (if classification) to the explainer. 
-Here is how to instantiate an explainer object using [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), and `LimeExplainer` locally. `TabularExplainer` is calling one of the three explainers underneath (`TreeExplainer`, `DeepExplainer`, or `KernelExplainer`), and is automatically selecting the most appropriate one for your use case. You can however, call each of its three underlying explainers directly.
+2. Call the explainer: To initialize an explainer object, you need to pass your model and some training data to the explainer's constructor. You can also optionally pass in feature names and output class names (if doing classification) which will be used to make your explanations and visualizations more informative. Here is how to instantiate an explainer object using [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py) and [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py) locally. `TabularExplainer` is calling one of the three explainers underneath (`TreeExplainer`, `DeepExplainer`, or `KernelExplainer`), and is automatically selecting the most appropriate one for your use case. You can however, call each of its three underlying explainers directly.
 
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
+    # "features" and "classes" fields are optional
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     ```
     or
+    
     ```python
     from azureml.explain.model.mimic.mimic_explainer import MimicExplainer
     from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
+
+    # "features" and "classes" fields are optional
     explainer = MimicExplainer(model, x_train, LGBMExplainableModel, features=breast_cancer_data.feature_names, classes=classes)
     ```
 
 3. Get the global feature importance values.
 
     ```python
-    # You can use the training data or the test data here. 
+    # You can use the training data or the test data here
     global_explanation = explainer.explain_global(x_train)
     # Sorted feature importance values and feature names
     sorted_global_importance_values = global_explanation.get_ranked_global_values()
@@ -148,7 +152,7 @@ Here is how to instantiate an explainer object using [TabularExplainer](https://
 
     ```python
     # explain the first data point in the test set
-    local_explanation = explainer.explain_local(x_test[0,:])
+    local_explanation = explainer.explain_local(x_test[0])
     
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
@@ -157,14 +161,12 @@ Here is how to instantiate an explainer object using [TabularExplainer](https://
     or
     ```python
     # explain the first five data points in the test set
-    local_explanation = explainer.explain_local(x_test[0:4,:])
+    local_explanation = explainer.explain_local(x_test[0:4])
     
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
     ```
-
-
 
 ### Train and explain remotely
 
