@@ -11,15 +11,15 @@ ms.date: 04/24/2019
 
 # Machine learning clustering in Azure Data Explorer
 
-Azure Data Explorer is a Big Data analytics platform that is used to collect telemetry data from cloud services or IoT devices. Azure Data Explorer is used to monitor service health, QoS, or malfunctioning devices for anomalous behavior using [Anomaly detection and forecasting in Azure Data Explorer](/azure/data-explorer/anomaly-detection). Once an anomalous pattern is detected, investigate to verify that it’s a true anomaly, and diagnose the root cause. Following RCA (Root Cause Analysis), mitigate or resolve the anomaly. 
+Azure Data Explorer, a Big Data analytics platform, is used to monitor service health, QoS, or malfunctioning devices for anomalous behavior using built-in [anomaly detection and forecasting](/azure/data-explorer/anomaly-detection) functions. Once an anomalous pattern is detected, a Root Cause Analysis (RCA) is performed to mitigate or resolve the anomaly.
 
-The diagnosis process is complex and lengthy and done by domain experts. The process includes fetching and joining additional data from different sources for the same time frame, looking for changes in the distribution of values on multiple dimensions, charting additional variables, and other techniques based on domain knowledge and intuition. This process is partially automated by Machine Learning algorithms and techniques. Azure Data Explorer use cases often include these diagnosis scenarios. That's why Machine Learning plugins are available to make the diagnosis phase easier and shorten the duration of the RCA.
+The diagnosis process is complex and lengthy and done by domain experts. The process includes fetching and joining additional data from different sources for the same time frame, looking for changes in the distribution of values on multiple dimensions, charting additional variables,and other techniques based on domain knowledge and intuition. Since these diagnosis scenarios are very common in Azure Data Explorer, machine learning plugins are available to make the diagnosis phase easier and shorten the duration of the RCA.
 
 Azure Data Explorer has three Machine Learning plugins: [autocluster](/azure/kusto/query/autoclusterplugin), [basket](/azure/kusto/query/basketplugin), and [diffpatterns](/azure/kusto/query/diffpatternsplugin). All plugins implement clustering algorithms. The `autocluster` and `basket` plugins cluster a single record set and the `diffpatterns` plugin clusters the differences between two record sets.
 
 ## Clustering a single record set
 
-A common scenario includes a data set selected by a specific criteria such as time window anomalous behavior, high temperature device readings, long duration commands, and top spending users). You want a simple and fast way to find common patterns (segments) in the data set. Patterns are a subset of the data set whose records share the same values over multiple dimensions (categorical columns). The following query builds and shows a time series of service exceptions over a week in ten-minute bins:
+A common scenario includes a data set selected by a specific criteria such as time window anomalous behavior, high temperature device readings, long duration commands, and top spending users. We would like a simple and fast way to find common patterns (segments) in the data. Patterns are a subset of the data set whose records share the same values over multiple dimensions (categorical columns). The following query builds and shows a time series of service exceptions over a week in ten-minute bins:
 
 ```kusto
 let min_t = toscalar(demo_clustering1 | summarize min(PreciseTimeStamp));  
@@ -31,11 +31,11 @@ demo_clustering1
 
 ![Service exceptions timechart](media/machine-learning-clustering/service-exceptions-timechart.png)
 
-The service exception count correlates with the overall service traffic. You can clearly see the daily pattern, for business days of Monday to Friday, a rise in service exception counts mid-day and drops in counts during the night. Flat low service exception counts are visible over the weekend. 
+The service exception count correlates with the overall service traffic. You can clearly see the daily pattern, for business days of Monday to Friday, a rise in service exception counts mid-day, and drops in counts during the night. Flat low counts are visible over the weekend.
 
 There are a few exception spikes that could have been detected by [time series anomaly detection](/azure/data-explorer/anomaly-detection?#time-series-anomaly-detection). 
 
-The following query is used to further diagnose the second spike on Tuesday afternoon. Use the query to redraw the chart around the spike in higher resolution (eight hours in one-minute bins). Then verify whether it’s a spike, and view its borders.
+The following query is used to further diagnose the second spike that occurs on Tuesday afternoon. Use the query to redraw the chart around the spike in higher resolution (eight hours in one-minute bins) to verify whether it’s a spike, and view its borders.
 
 ```kusto
 let min_t=datetime(2016-08-23 11:00);
@@ -46,7 +46,7 @@ demo_clustering1
 
 ![Focus on spike timechart](media/machine-learning-clustering/focus-spike-timechart.png)
 
-You can see a narrow two-minute spike from 15:00 to 15:02. In the following query, you count and view the exceptions in this two-minute window:
+We see a narrow two-minute spike from 15:00 to 15:02. In the following query, count the exceptions in this two-minute window:
 
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
@@ -60,7 +60,7 @@ demo_clustering1
 |---------|
 |972    |
 
-In the following query, you sample 20 exceptions:
+In the following query, sample 20 exceptions:
 
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
@@ -95,7 +95,7 @@ demo_clustering1
 
 ### Use `autocluster()` for single record set clustering
 
-Even though there are less than a thousand exceptions, it’s still hard to find common segments, as there are multiple values in each column. You can use [`autocluster()`](/azure/kusto/query/autoclusterplugin)plugin to instantly extract a small list of common segments and find the interesting clusters within the spike's two minutes as seen in the following query:
+Even though there are less than a thousand exceptions, it’s still hard to find common segments, as there are multiple values in each column. You can use [`autocluster()`](/azure/kusto/query/autoclusterplugin) plugin to instantly extract a small list of common segments and find the interesting clusters within the spike's two minutes as seen in the following query:
 
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
@@ -113,7 +113,7 @@ demo_clustering1
 | 3 | 68 | 6.99588477366255 | scus | su3 | 90d3d2fc7ecc430c9621ece335651a01 |  |
 | 4 | 55 | 5.65843621399177 | weu | su4 | be1d6d7ac9574cbc9a22cb8ee20f16fc |  |
 
-You can see from the results above that the most dominant segment contains 65.74% of the total exception records and share four dimensions. The next segment is much less common, contains only 9.67% of the records and shares three dimensions. The other segments are even less common. 
+You can see from the results above that the most dominant segment contains 65.74% of the total exception records and shares four dimensions. The next segment is much less common, contains only 9.67% of the records and shares three dimensions. The other segments are even less common. 
 
 Autocluster uses a proprietary algorithm for mining multiple dimensions and extracting interesting segments. Interesting means that each segment has significant coverage of both the records set and the features set. The segments are also diverged, meaning that each one is different from the others. One or more of these segments would probably be relevant for the RCA process. Autocluster extracts only a small segment list so that segment review and assessment is minimal.
 
