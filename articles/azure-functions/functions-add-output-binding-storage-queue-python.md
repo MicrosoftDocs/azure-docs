@@ -15,9 +15,9 @@ manager: jeconnoc
 
 # Add an Azure Storage queue binding to your function
 
-Azure Functions lets you connect Azure services and other resources to functions without having to write your own integration code. These *bindings* are declared within the function definition and can represent input, output, or both. Data from bindings is provided to the function as parameters. A trigger is a special kind of input binding. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+Azure Functions lets you connect Azure services and other resources to functions without having to write your own integration code. These *bindings*, which can represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A trigger is a special kind of input binding. While a function can have only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-This article shows you how to integrate the function you created in the [previous quickstart article](functions-create-first-function-python.md) with an Azure Storage queue. The output binding that you add to this function writes the HTTP request data to a message in the queue. To make it easier, you use the Storage account that you created with your function app. The connection to this account is stored in an app setting named `AzureWebJobsStorage`.  
+This article shows you how to integrate the function you created in the [previous quickstart article](functions-create-first-function-python.md) with an Azure Storage queue. The output binding that you add to this function writes data from the HTTP request to a message in the queue. Most bindings require a stored connection string that Functions uses to access the bound service. To make it easier, you use the Storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
 
 ## Prerequisites
 
@@ -118,7 +118,7 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
         )
 ```
 
-By using an output binding, you don't have to write code for tasks such as authenticating to your storage account, getting a reference to the queue, or using the SDK methods to write to it. The Azure Functions runtime and queue output binding do those tasks for you.
+By using an output binding, you don't have to write code for tasks such as authenticating to your storage account, getting a reference to the queue, or using the SDK methods to write to it. The Functions runtime and queue output binding do those tasks for you.
 
 ## Run the function locally
 
@@ -128,33 +128,54 @@ As before, use the following command to start the Functions runtime locally:
 func host start
 ```
 
+> [!NOTE]
+> Because the previous article had you enable extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x) was downloaded and installed for you during startup.
+
 Copy the URL of your `HttpTrigger` function from the runtime output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. You should see the same response in the browser as you did in the previous article.
 
-This time, the output binding also creates a queue named **outqueue** in your Storage account and adds a message with this same string. You you can use the [Microsoft Azure Storage Explorer][Azure Storage Explorer] to view the new queue and verify that a message was added.
+This time, the output binding also creates a queue named **outqueue** in your Storage account and adds a message with this same string. You you can use the Azure CLI to view the new queue and verify that a message was added.
 
-### Connect Azure Storage Explorer to your Storage account
+### Set the Storage account connection
 
-Use the following steps to connect to your Storage account.
+Open the local.settings.json file and copy the value of `AzureWebJobsStorage`, which is the Storage account connection string. Set the `AZURE_STORAGE_CONNECTION_STRING` environment variable to the connection string using one of the following commands:
 
-1. Open the local.settings.json file and copy the value of `AzureWebJobsStorage`, which is the Storage account connection string.
- 
-1. Run the [Azure Storage Explorer] tool, select the connect icon on the left, choose **Use a connection string**, and select **Next**.
+* **Bash**
 
-    ![Connect to Storage account using connection string](./media/functions-add-output-binding-storage-queue-python/functions-storage-manager-connect-1.png)
+    ```bash
+    export AZURE_STORAGE_CONNECTION_STRING=<STORAGE_CONNECTION_STRING>
+    ```
 
-1. Type `AzureWebJobsStorage` as the **Display name**, then paste the copied string into the **Connection string:** field and select **Next > Connect**.
+* **PowerShell**
 
-### Examine the Storage queue message
+    ```powershell
+    $env:AZURE_STORAGE_CONNECTION_STRING = "<STORAGE_CONNECTION_STRING>"
+    ```
 
-1. In Azure Storage Explorer, expand **Local & attached** > **Storage Accounts** > **AzureWebJobsStorage (Key)**.
+* **Windows command prompt**
 
-1. Expand the **Queues** node, and then select the queue named **outqueue**.
+    ```command
+    SET AZURE_STORAGE_CONNECTION_STRING="<STORAGE_CONNECTION_STRING>"
+    ```
 
-    ![Queue message shown in Storage Explorer](./media/functions-add-output-binding-storage-queue-python/connect-storage-explorer-queues.png)
+With the connection string set in the `AZURE_STORAGE_CONNECTION_STRING` environment variable, you can access your Storage account without having to provide authentication each time
 
-   The queue contains the message that the queue output binding created when you ran the HTTP-triggered function.
+### Query the Storage queue
 
-1. Call the HTTP endpoint again, and you'll see a new message appear in the queue.  
+You can use the [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) command to view the Storage queues in your account, as in the following example:
+
+```azurecli-interactive
+az storage queue list --output tsv
+```
+
+The output from this command contains a queue named `outqueue`. 
+
+Next, use the [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) command to view the messages in this queue, as in the following example.
+
+```azurecli-interactive
+az storage message peek --queue-name outqueue -o table --query '[].{Message:content}'
+```
+
+The string returned should be the same as the message you sent to test the function.
 
 Now, it's time to republish the updated function app to Azure.
 

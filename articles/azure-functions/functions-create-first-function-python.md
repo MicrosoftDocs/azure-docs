@@ -39,14 +39,16 @@ Before you start, you must have the following:
 
 To locally develop and test Python functions, you must work in a Python 3.6 environment. Run the following commands to create and activate a virtual environment named `.env`.
 
+### Bash or a terminal window:
+
 ```bash
-# In Bash or a terminal window:
 python3.6 -m venv .env
 source .env/bin/activate
 ```
 
+### PowerShell or a Windows command prompt:
+
 ```powershell
-# In PowerShell or a Windows command prompt:
 py -3.6 -m venv .env
 .env\scripts\activate
 ```
@@ -59,9 +61,8 @@ A Functions project is the equivalent of a function app in Azure. It can have mu
 
 In the virtual environment, run the following command, choosing **python** as your worker runtime.
 
-```bash
+```command
 func init MyFunctionProj
-cd MyFunctionProj
 ```
 
 A folder named _MyFunctionProj_ is created, which contains the following three files:
@@ -70,17 +71,27 @@ A folder named _MyFunctionProj_ is created, which contains the following three f
 * `requirements.txt` contains the list of packages to be installed on publishing to Azure.
 * `host.json` contains global configuration options that affect all functions in a function app. This file does get published to Azure.
 
-You should now be in the new MyFunctionProj folder.
+Navigate to the new MyFunctionProj folder:
+
+```command
+cd MyFunctionProj
+```
+
+Next, you update the host.json file to enable extension bundles.  
 
 ## Reference bindings
 
+Extension bundles makes it easier to add binding extensions down the road. It also removes the requirement of installing the .NET Core 2.x SDK. Extension bundles requires version 2.6.1071 of the Core Tools, or a later version. 
+
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+Now, you can add a function to your project.
 
 ## Create a function
 
 To add a function to your project, run the following command:
 
-```bash
+```command
 func new
 ```
 
