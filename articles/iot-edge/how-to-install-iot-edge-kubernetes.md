@@ -1,6 +1,6 @@
-# How to install IoT Edge on Kubernetes (PREVIEW)
+# How to install IoT Edge on Kubernetes (Preview)
 
-## Architecture
+# Architecture
 
 IoT Edge can integrate with Kubernetes using it as a resilient, highly available infrastructure layer. It registers an IoT Edge *Custom Resource Definition* (CRD) with the Kubernetes API Server. Additionally, it provides an *Operator* (Edge Agent) that reconciles cloud-managed desired state with the local cluster state. 
 
@@ -11,6 +11,9 @@ Here is a high-level architecture diagram:
 ![kubernetes arch](./media/how-to-install-iot-edge-kubernetes/k8s-arch.png)
 
 Every component of the edge deployment is scoped to a Kubernetes namespace specific to the device, making it possible to share the same cluster resources among multiple edge devices and their deployments.
+
+>[!NOTE]
+>Offline support for IoT Edge is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

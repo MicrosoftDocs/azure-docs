@@ -11,12 +11,10 @@ services: iot-edge
 ms.custom: seodec18
 ---
 
-# Understand extended offline capabilities for IoT Edge devices, modules, and child devices (preview)
+# Understand extended offline capabilities for IoT Edge devices, modules, and child devices
 
 Azure IoT Edge supports extended offline operations on your IoT Edge devices, and enables offline operations on non-Edge child devices too. As long as an IoT Edge device has had one opportunity to connect to IoT Hub, it and any child devices can continue to function with intermittent or no internet connection. 
 
->[!NOTE]
->Offline support for IoT Edge is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## How it works
 
@@ -94,7 +92,7 @@ You can modify the [query](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hu
 
 #### Option 3: Use IoT Hub Service SDK 
 
-Finally, you can manage parent child relationships programmatically using either C#, Java or Node.JS IoT Hub Service SDK. Here is an [example](https://aka.ms/set-child-iot-device-c-sharp) using the C# SDK.
+Finally, you can manage parent child relationships programmatically using either C#, Java or Node.js IoT Hub Service SDK. Here is an [example](https://aka.ms/set-child-iot-device-c-sharp) using the C# SDK.
 
 
 
