@@ -17,14 +17,6 @@ manager: femila
 
 You can use PowerShell to manage blockchain consortium members for your Azure Blockchain Service. Members with an administrator privilege can invite, add, remove, and changes roles for all participants in the blockchain consortium. Members with user privilege can view all participants in the blockchain consortium and can change their member display name.
 
-The PowerShell module for blockchain consortium management is broken into three parts:
-
-[Network and smart contract connection management](#network-and-smart-contract-management) - This part of the module is responsible for connecting to your blockchain endpoint and smart contracts responsible for consortium management.
-
-[Consortium member management](#consortium-member-management) - This part of the module is responsible for managing members within the consortium. You will be able to take appropriate action depending on your consortium role.
-
-[Consortium member invitation management](#consortium-member-invitation-management) This part of the module is responsible for managing consortium member invitations. You will be able to take appropriate action depending on your consortium role.
-
 ## Prerequisites
 
 * [Create a blockchain member using the Azure portal](create-member.md)
@@ -44,9 +36,8 @@ Install the Microsoft.AzureBlockchainService.ConsortiumManagement.PS package fro
 Install-Module -Name Microsoft.AzureBlockchainService.ConsortiumManagement.PS -Scope CurrentUser
 Import-Module Microsoft.AzureBlockchainService.ConsortiumManagement.PS
 ```
-## Network and smart contract management
 
-### Establish a Web3 connection
+## Establish a Web3 connection
 
 To manage consortium members, you need to establish a Web3 connection to your Azure Blockchain Service member endpoint. You can use this script to set global variables that can be used when calling the consortium management cmdlets.
 
@@ -74,9 +65,9 @@ Find the other values in the Azure portal:
 
     Replace \<Endpoint address\> with the value from **HTTPS (Access key 1)** or **HTTPS (Access key 2)**.
 
+## Network and smart contract management
 
-
-Use the network and smart contract cmdlets to establish a connection to transaction nodes, import consortium management contracts, and Web3 accounts.
+Use the network and smart contract cmdlets to establish a connection to your blockchain endpoint smart contracts responsible for consortium management.
 
 ### Import-ConsortiumManagementContracts
 
@@ -137,7 +128,7 @@ New-Web3Connection -RemoteRPCEndpoint '<Endpoint address>'
 
 ## Consortium member management
 
-Use consortium member management cmdlets to get, remove, and set consortium members.
+Use consortium member management cmdlets to manage members within the consortium. Available actions depend on your consortium role.
 
 ### Get-BlockchainMember
 
@@ -214,12 +205,12 @@ Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <St
 **Example**
 
 ```powershell
-$ContractConnection | Set-BlockchainMember -Name <Member Name> -DisplayName myCompany -Web3Account $MemberAccount
+$ContractConnection | Set-BlockchainMember -Name <Member Name> -DisplayName <Display name> -Web3Account $MemberAccount
 ```
 
 ## Consortium member invitation management
 
-Use consortium member invitation management cmdlets to create, get, remove, and set consortium member invitations.
+Use consortium member invitation management cmdlets to manage consortium member invitations. Available actions depend on your consortium role.
 
 ### New-BlockchainMemberInvitation
 
