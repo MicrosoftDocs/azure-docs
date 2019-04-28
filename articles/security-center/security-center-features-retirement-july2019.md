@@ -21,7 +21,7 @@ Most of the retired features can be replaced with new features in Azure Security
 The list of features being retired from the Security Center includes:
 
 - [Events dashboard](#menu_events)
-- [Search dashboard](#menu_search)
+- [Search menu entry](#menu_search)
 - [View classic Identity & Access link on Identity and access (preview)](#menu_classicidentity)
 - [Security events map button on Security alerts map (preview)](#menu_securityeventsmap)
 - [Custom alert rules (preview)](#menu_customalerts)
@@ -50,12 +50,12 @@ If you have already created custom notable events from Security Center, these wi
 
 ![Workspace saved searches][3]
 
-## Search dashboard<a name="menu_search"></a>
+## Search menu entry<a name="menu_search"></a>
 Azure Security Center currently uses Azure Monitor logs search to retrieve and analyze your security data. This screen essentially serves as a façade to Log Analytics “[Search](https://docs.microsoft.com/azure/security-center/security-center-search)” page – allowing users to run Search queries on their selected workspace. Going forward this search window will be retired:
 
 ![Search page][4]
 
-### Search dashboard - New experience
+### Search menu entry - New experience
 
 Customers are encouraged to use **Log Analytics** native capabilities to perform Search queries on their workspaces. To do so, they can go to Log analytics in Azure, and select: “Logs”:
 
