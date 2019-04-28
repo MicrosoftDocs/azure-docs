@@ -50,7 +50,7 @@ Some resources don’t constantly emit their metrics. For example, Azure will no
 
 ### You picked a time range greater than 30 days
 
-With a few exceptions, [metrics in Azure are stored for 93 days](data-platform-metrics.md#retention-of-metrics). However, you can only query for no more than 30 days worth of data on any single chart. This limitation doesn't apply to [log-based metrics](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
+[Most metrics in Azure are stored for 93 days](data-platform-metrics.md#retention-of-metrics). However, you can only query for no more than 30 days worth of data on any single chart. This limitation doesn't apply to [log-based metrics](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
 **Solution:** If you see a blank chart or your chart only displays part of metric data, verify that the difference between start- and end- dates in the time picker doesn't exceed the 30-day interval.
 
@@ -101,7 +101,7 @@ By default, **Guest OS** metrics are stored in Azure Storage accounts. You selec
 
 1. Confirm that [Azure Diagnostic Extension](diagnostics-extension-overview.md) is enabled, and configured to collect metrics.
 
-1. Verify that storage account isn't protected by the firewall or network security rules allow Azure portal to access metrics. You may need to [grant access to storage account from your virtual network](../../storage/common/storage-network-security#grant-access-from-a-virtual-network.md), [grant access to storage account from your internet IP range](../../storage/common/storage-network-security#grant-access-from-a-virtual-network.md#grant-access-from-an-internet-ip-range), or [configure an exception to grant access to metrics tables](../../storage/common/storage-network-security#/azure/storage/common/storage-network-security#managing-exceptions).
+1. Verify that storage account isn't protected by the firewall or network security rules allow Azure portal to access metrics. You may need to [grant access to storage account from your virtual network](../../../storage/common/storage-network-security#grant-access-from-a-virtual-network.md), [grant access to storage account from your internet IP range](../../../storage/common/storage-network-security#grant-access-from-a-virtual-network.md#grant-access-from-an-internet-ip-range), or [configure an exception to grant access to metrics tables](../../../storage/common/storage-network-security#managing-exceptions).
 
 1. Use [Azure storage explorer](https://azure.microsoft.com/features/storage-explorer/) to validate that metrics are flowing into the storage account. If metrics aren't collected, follow the [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
