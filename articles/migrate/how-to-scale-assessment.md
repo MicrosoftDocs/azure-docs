@@ -49,7 +49,7 @@ Based on the number of VMs you are planning to discover, you can create multiple
 In case of one-time discovery (deprecated now), the discovery works in a fire and forget model, once a discovery is done, you can use the same collector to collect data from a different vCenter Server or send it to a different migration project.
 
 > [!NOTE]
-> The one-time discovery appliance is now deprecated as this method relied on vCenter Server's statistics settings for performance data point availability and collected average performance counters which resulted in under-sizing of VMs for migration to Azure. It is recommended to move to the one-time discovery appliance.
+> The one-time discovery appliance is now deprecated as this method relied on vCenter Server's statistics settings for performance data point availability and collected average performance counters which resulted in under-sizing of VMs for migration to Azure. It is recommended to move to the continuous discovery appliance.
 
 Plan your discoveries and assessments based on the following limits:
 
