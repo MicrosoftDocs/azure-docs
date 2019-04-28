@@ -101,7 +101,7 @@ By default, **Guest OS** metrics are stored in Azure Storage accounts. You selec
 
 1. Confirm that [Azure Diagnostic Extension](diagnostics-extension-overview.md) is enabled, and configured to collect metrics.
 
-1. Verify that storage account isn't protected by the firewall or network security rules allow Azure portal to access metrics. You may need to [grant access to storage account from your virtual network](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [grant access to storage account from your internet IP range](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network.md#grant-access-from-an-internet-ip-range), or [configure an exception to grant access to metrics tables](../../storage/common/storage-network-security.md#managing-exceptions).
+1. Verify that storage account isn't protected by the firewall or network security rules allow Azure portal to access metrics. You may need to [grant access to storage account from your virtual network](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [grant access to storage account from your internet IP range](../../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range), or [configure an exception to grant access to metrics tables](../../storage/common/storage-network-security.md#managing-exceptions).
 
 1. Use [Azure storage explorer](https://azure.microsoft.com/features/storage-explorer/) to validate that metrics are flowing into the storage account. If metrics aren't collected, follow the [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
