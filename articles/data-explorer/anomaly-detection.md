@@ -13,11 +13,11 @@ ms.date: 04/24/2019
 
 Azure Data Explorer performs on-going collection of telemetry data from cloud services or IoT devices. This data is analyzed for various insights such as monitoring service health, physical production processes, usage trends, and load forecast. The analysis is done on time series of selected metrics to locate a deviation pattern of the metric relative to its typical normal baseline pattern. Azure Data Explorer contains native support for creation, manipulation, and analysis of multiple time series. It can create and analyze thousands of time series in seconds, enabling near real time monitoring solutions and workflows.
 
-This article details the Azure Data Explorer time series anomaly detection and forecasting capabilities. The applicable time series functions are based on a robust well-known decomposition model, where each original time series is decomposed into seasonal,trend, and residual components. Anomalies are detected by outliers on the residual component, while forecasting is done by extrapolating the seasonal and trend components. The Azure Data Explorer implementation significantly enhances the basic decomposition model by automatic seasonality detection, robust outlier analysis, and vectorized implementation to process thousands of time series in seconds.
+This article details the Azure Data Explorer time series anomaly detection and forecasting capabilities. The applicable time series functions are based on a robust well-known decomposition model, where each original time series is decomposed into seasonal, trend, and residual components. Anomalies are detected by outliers on the residual component, while forecasting is done by extrapolating the seasonal and trend components. The Azure Data Explorer implementation significantly enhances the basic decomposition model by automatic seasonality detection, robust outlier analysis, and vectorized implementation to process thousands of time series in seconds.
 
 ## Prerequisites
 
-Read [Time series analysis in Azure Data Explorer](/azure/data-explorer/time-series-analysis) for an overview of time series capabilities in Azure Data Explorer.
+Read [Time series analysis in Azure Data Explorer](/azure/data-explorer/time-series-analysis) for an overview of time series capabilities.
 
 ## Time series decomposition model
 
@@ -66,7 +66,7 @@ demo_make_series2
 
 * The original time series (in red). 
 * The baseline (seasonal + trend) component (in blue).
-* The anomalous points (in purple) on top of the original time series. Note that the anomalous points significantly deviate from the expected baseline values.
+* The anomalous points (in purple) on top of the original time series. The anomalous points significantly deviate from the expected baseline values.
 
 ## Time series forecasting
 
@@ -88,7 +88,7 @@ demo_make_series2
 
 ![Time series forecasting](media/anomaly-detection/series-forecasting.png)
 
-* Original metric (in red). Future values are missing, therefore, set to 0 by default.
+* Original metric (in red). Future values are missing and set to 0, by default.
 * Extrapolate the baseline component (in blue) to predict next week’s values.
 
 ## Scalability
@@ -114,4 +114,4 @@ demo_make_series2
 
 ## Summary
 
-This document details native Azure Data Explorer functions for time series anomaly detection and forecasting which significantly enhances the basic decomposition model on which it is based. Each original time series is decomposed, anomalies detected, and forecasting performed. The time series anomaly detection and forecasting functionality is in use by many customers for near real-time monitoring scenarios, such as fault detection, predictive maintenance, and demand and load forecasting.
+This document details native Azure Data Explorer functions for time series anomaly detection and forecasting, which significantly enhances the basic decomposition model on which it's based. Each original time series is decomposed, anomalies detected, and forecasting performed. The time series anomaly detection and forecasting functionalities are used for near real-time monitoring scenarios, such as fault detection, predictive maintenance, and demand and load forecasting.
