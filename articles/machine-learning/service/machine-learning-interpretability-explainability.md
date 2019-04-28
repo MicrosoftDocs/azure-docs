@@ -3,22 +3,23 @@ title: Model interpretability
 titleSuffix: Azure Machine Learning service
 description: Learn how to explain why your model makes predictions using the Azure Machine Learning Interpretability SDK. It can be used during training and inferencing to understand how your model makes predictions.
 services: machine-learning
+services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 04/09/2019
+ms.date: 04/29/2019
 ---
 
 # Model interpretability with Azure Machine Learning service
 
-In this article, you will learn how to explain why your model made the predictions it made by using the Azure Machine Learning Interpretability SDK. Being able to explain your model is important for the following reasons:
+In this article, you will learn how to explain, in Python, why your model made the predictions it did. Being able to explain your model, or model interpretability, is important for the following reasons:
 
-* Customers and stakeholders want to know **if they can trust the predictions your model makes**.
-* As a data scientist, you want to understand **how to query the model to find insights**. You also need tools to make informed decisions on **how to improve your model**.
-* As a company, you need to understand **the behavior of the model with varying input distributions** and **how will the model behave while analyzing specific input**.
+* Customers and stakeholders need to **trust the predictions** your model makes.
+* As a data scientist, you want to understand how to **query the model for insights** to make informed decisions on how to improve your model.
+* As a company, you need varying input distributions and specific input affects model behavior.
 
 Machine learning interpretability is important in two phases of machine learning development cycle: 
 
@@ -26,28 +27,33 @@ Machine learning interpretability is important in two phases of machine learning
 
 * During **inferencing**: Predictions need to be explainable to the people who use your model. For example, why did the model deny a mortgage loan, or predict that an investment portfolio carries a higher risk?
 
-The Azure Machine Learning Interpretability SDK incorporates technologies developed by Microsoft and  proven third-party libraries (for example, SHAP and LIME). The SDK creates a common API across the integrated libraries and integrates Azure Machine Learning services. Using this SDK, you can explain machine learning models **globally on all data**, or **locally on a specific data point** using the state-of-art technologies in an easy-to-use and scalable fashion.
+The [`explain`](](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py)) of the Azure Machine Learning SDK enable you to: 
+* Incorporates technologies developed by Microsoft and  proven third-party libraries (for example, SHAP and LIME)
+* Creates a common API across the integrated libraries
+* Integrates Azure Machine Learning services
+* Applies appropriate optimizations to enable interpretability on real-world datasets at scale 
 
 ## How does it work?
 
-Azure Machine Learning Interpretability can be applied to understand the model’s global behavior or specific predictions. The former is called global explanation and the latter is called local explanation.
+You can apply the interpretability classes and methods in the `explain` package to understand the model’s global behavior or specific predictions. The former is called global explanation and the latter is called local explanation.
 
-Azure Machine Learning Interpretability methods can be also categorized based on whether the method is model agnostic or model specific. Some methods target certain type of models. For example, SHAP’s tree explainer only applies to tree-based models. Some methods treat the model as a black box, such as mimic explainer or SHAP’s kernel explainer. Azure Machine Learning Interpretability SDK leverages these different approaches based on data sets, model types, and use cases.
+The methods can be also categorized based on whether the method is model agnostic or model specific. Some methods target certain type of models. For example, SHAP’s tree explainer only applies to tree-based models. Some methods treat the model as a black box, such as mimic explainer or SHAP’s kernel explainer. 
 
-Azure Machine Learning Interpretability returns a set of information on how a model makes its prediction. The information includes items such as:
-
+The `explain` package leverages these different approaches based on data sets, model types, and use cases. The output is a set of information on how a model makes its prediction, such as:
 * Global/local relative feature importance
+
 * Global/local feature and prediction relationship
 
 ## Architecture
 
-Azure Machine Learning Interpretability SDK is structured into two Python packages:
+The classes supporting interpretability are structured into two Python packages:
 
 * [azureml.explain.model](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py) - The main package, which contains the functionalities that are supported by Microsoft.
+
 * `azureml.contrib.explain.model` - Preview and experimental functionalities that you can try.
 
-    > [!IMPORTANT]
-    > Things in contrib are not fully supported. As the experimental functionalities become mature, they will gradually be moved to the main package.
+> [!IMPORTANT]
+> Things in contrib are not fully supported. As the experimental functionalities become mature, they will gradually be moved to the main package.
 
 ### Explainers
 
