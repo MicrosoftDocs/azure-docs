@@ -25,6 +25,7 @@ Every component of the edge deployment is scoped to a Kubernetes namespace speci
 
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) for viewing and interacting with the cluster.
 
+### Setup steps
 
 1. Start **Minikube**
 
