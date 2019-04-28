@@ -30,7 +30,7 @@ The interpretability classes are made available through two Python packages. Lea
 > [!IMPORTANT]
 > Things in contrib are not fully supported. As the experimental functionalities become mature, they will gradually be moved to the main package.
 
-## How explainability works
+## How to interpret your model
 
 You can apply the interpretability classes and methods to understand the model’s global behavior or specific predictions. The former is called global explanation and the latter is called local explanation.
 
