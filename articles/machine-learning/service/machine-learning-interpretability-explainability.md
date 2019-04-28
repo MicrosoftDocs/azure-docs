@@ -168,9 +168,11 @@ Here is how to instantiate an explainer object using [TabularExplainer](https://
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
     ```
 
-## Train and explain remotely
 
-While you can train on the various compute targets supported by Azure Machine Learning service, the example in this section shows how to do this using AMLCompute.
+
+### Train and explain remotely
+
+While you can train on the various compute targets supported by Azure Machine Learning service, the example in this section shows how to do this using an Azure Machine Learning Compute target.
 
 1. Create a training script in a local Jupyter notebook (for example, run_explainer.py).
 
@@ -180,14 +182,15 @@ While you can train on the various compute targets supported by Azure Machine Le
     
     # Train your model here
 
-    # explain predictions on your local machine    
+    # explain predictions on your local machine   
+    # "features" and "classes" fields are optional 
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     # explain overall model predictions (global explanation)
     global_explanation = explainer.explain_global(x_test)
     # explain local data points (individual instances)
-    local_explanation = explainer.explain_local(x_test[0,:])
+    local_explanation = explainer.explain_local(x_test[0])
     # upload global and local explanation objects to Run History
-    upload_model_explanation(run, local_explanation, top_k=2, comment='local explanation: top 2 features')
+    client.upload_model_explanation(run, local_explanation, top_k=2, comment='local explanation: top 2 features')
     # Uploading global model explanation data for storage or visualization in webUX
     # The explanation can then be downloaded on any compute
     # Multiple explanations can be uploaded
@@ -199,8 +202,7 @@ While you can train on the various compute targets supported by Azure Machine Le
 2. Follow the instructions on [Set up compute targets for model training](how-to-set-up-training-targets.md#amlcompute) to learn about how to set up an Azure Machine Learning Compute as your compute target and submit your training run.
 
 3. Download the explanation in your local Jupyter notebook. 
-    > [!IMPORTANT]
-    > Things in contrib are not fully supported. As the experimental functionalities become mature, they will gradually be moved to the main package.
+
 
     ``` python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
@@ -221,7 +223,7 @@ While you can train on the various compute targets supported by Azure Machine Le
     print('global importance values: {}'.format(global_importance_values))
     print('global importance names: {}'.format(global_importance_names))
     ```
-
+    
 ## Next Steps
 
-To see a collection of Jupyter notebooks that demonstrate the instructions above, see the [Azure Machine Learning Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+To see a demonstration of interpretability with the Azure Machine Learning SDK, look at the [Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) on GitHub.
