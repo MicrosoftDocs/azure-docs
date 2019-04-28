@@ -92,14 +92,14 @@ In many cases, the perceived drop in the metric values is a misunderstanding of 
 
 ## Cannot pick Guest OS namespace and metrics
 
-Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest OS** metrics that are collected by [the agent](agents-overview.md) running on the virtual machine. You install the agent by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md).
+Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest OS** metrics that are collected by the [monitoring agent](agents-overview.md) running on your virtual machines. You install the monitoring agent by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md).
 
 By default, **Guest OS** metrics are stored in Azure Storage accounts. You select which storage account to use from the **Diagnostic settings** tab of your resource. If **Guest OS** metrics aren't collected or metrics explorer cannot access them, you will only see the **Virtual Machine Host** metric namespace:
     ![metric image](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
 
-**Solution:** Follow steps to identify problems with **Guest OS** metrics:
+**Solution:** If you don't see **Guest OS** namespace and metrics in metrics explorer:
 
-1. Confirm that [Azure Diagnostic Extension](diagnostics-extension-overview.md) is enabled, and configured to collect metrics.
+1. Confirm that [Azure Diagnostic Extension](diagnostics-extension-overview.md) is enabled and configured to collect metrics.
 
 1. Verify that storage account isn't protected by the firewall or network security rules allow Azure portal to access metrics. You may need to [grant access to storage account from your virtual network](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [grant access to storage account from your internet IP range](../../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range), or [configure an exception to grant access to metrics tables](../../storage/common/storage-network-security.md#managing-exceptions).
 
@@ -107,7 +107,7 @@ By default, **Guest OS** metrics are stored in Azure Storage accounts. You selec
 
 ## Next steps
 
-    * [Learn about getting started with Metric Explorer](metrics-getting-started.md)
-    * [Learn about advanced features of Metric Explorer](metrics-charts.md)
-    * [See a list of available metrics for Azure services](metrics-supported.md)
-    * [See examples of configured charts](metric-chart-samples.md)
+- [Learn about getting started with Metric Explorer](metrics-getting-started.md)
+- [Learn about advanced features of Metric Explorer](metrics-charts.md)
+- [See a list of available metrics for Azure services](metrics-supported.md)
+- [See examples of configured charts](metric-chart-samples.md)
