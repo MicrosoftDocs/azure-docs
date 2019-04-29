@@ -171,4 +171,4 @@ First explore the resources that were created with the application gateway. Then
 
 ## Next steps
 
-- [Create an application gateway with URL path-based routing rules](./article-url-route-powershell.md)
+- [Create an application gateway with URL path-based routing rules](./tutorial-url-route-powershell.md)
