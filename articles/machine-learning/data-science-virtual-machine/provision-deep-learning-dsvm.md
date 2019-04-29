@@ -43,8 +43,8 @@ Here are the steps to create an instance of the Deep Learning Virtual Machine:
       5. **Resource Group**: You can create a new one or use an **empty** existing Azure resource group in your subscription.
       6. **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access. 
       
-   > [!NOTE]
-   > The DLVM supports all NC and ND series GPU VM instances. When provisioning the DLVM, you must choose one of the locations in Azure that has GPUs. Check the [Azure Products by Region Page](https://azure.microsoft.com/regions/services/) page for the available locations and look for **NC-Series**, **NCv2-Series**, **NCv3-Series**, or **ND-Series** under **Compute**. 
+      > [!NOTE]
+      > The DLVM supports all NC and ND series GPU VM instances. When provisioning the DLVM, you must choose one of the locations in Azure that has GPUs. Check the [Azure Products by Region Page](https://azure.microsoft.com/regions/services/) page for the available locations and look for **NC-Series**, **NCv2-Series**, **NCv3-Series**, or **ND-Series** under **Compute**. 
 
    1. **Settings**: Select one of the NC series (NC, NCv2, NCv3) or ND series GPU virtual machine sizes that meets your functional requirement and cost constraints. Create a storage account for your VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
