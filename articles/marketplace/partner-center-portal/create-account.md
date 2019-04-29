@@ -15,90 +15,84 @@ In order to publish offers to [Azure Marketplace](https://azuremarketplace.micro
 
 In this article, we'll cover how to create a Partner Center account, including how to: 
 
-- Set up your account profile
-- Link your company's work account 
-- Review account guidelines, terms, and conditions 
-- Add payment information 
-- Add tax information
+- [Register for an account using the Partner Center enrollment page](#register-for-an-account-using-the-partner-center-enrollment-page)
+- [Enter your work email address](#enter-your-work-email-address)
+- [Agree to the terms and conditions](#agree-to-terms-and-conditions) 
+- [Troubleshoot work email sign-in](#troubleshoot-work-email-sign-in)
+- [Create a new work account](#create-a-new-work-account)
+
+If you had an account in the [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com) that has been migrated over to Partner Center, you do not need to create a new account. See [Publishers migrated from CPP](#publishers-migrated-from-cpp). 
 
 ## Prerequisites
 
 To create an account on Partner Center, make sure you have:
 
-- Your company's Azure Active Directory (AD) tenant ID. 
-
--   Global administrator work email. If you're not sure what your company's work account is, see [Link your company work account](#link-your-company-work-account) below. If your company doesn’t have a work account, you can create one, see [Create a new work account](#create-a-new-work-account) below. 
-
--   Your company’s legal business name, address, and primary contact. We need this information to confirm that your company has an established profile and that you are authorized to act on its behalf. 
-
--   Authority to sign legal agreements. Ensure that you are authorized to sign legal agreements on your company's behalf as you’ll be asked to do so during the enrollment process.
-
--   Name and company email of the person you want to act as your primary contact. To help ensure your company’s security and privacy, we’ll email your primary contact to verify that (1) he or she signed up for a Partner Center account, and that (2) this email address belongs to your company. After the primary contact verifies his or her email address, we’ll continue our review of the information you provided.
+- An [Azure subscription](https://azure.microsoft.com/free/)
+- Your company's [Azure Active Directory (AD) tenant ID](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Global administrator permissions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) set on your account inside your company's Azure AD settings 
+- Authority to sign legal agreements on your company's behalf
+- Your company’s legal business name, address, and primary contact (this can be you)
 
 We’ll verify this information during the account creation process.
 
-## Create a Partner Center account
+## Register for an account using the Partner Center enrollment page 
 
-1.	Review the information on the [**Welcome to Microsoft Partner Center**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) enrollment and registration page.
+Visit the [**Welcome to Microsoft Partner Center**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) enrollment page and review the registration information found there.
 
-2.	**Enter your work email address.** This email should be connected to your company's work account. For the initial Partner Center account set-up, you should be listed as the account's global administrator. If you're not sure what your company's work account is, see [Link your company work account](#link-your-company-work-account) below. On the next page, you will need to select the account with global administrator credentials associated with your company's work account. 
+### Enter your work email address
 
-   <!-- Didn't see this option: If your company doesn’t have a work account, select **Create one** to set one up now. After creating a work account, sign in using the global admin credentials for the work account you just created. -->
+Your **work email** is also known as your **Azure Active Directory (AD) tenant**, a dedicated and isolated virtual representation of your company in the Azure public cloud. The Azure AD tenant is created when subscribing to a Microsoft cloud service such as Azure, Microsoft Intune, or Office 365.
 
-Set up your Partner Center account
-To create your company's Partner Center account, we need a few more details and your signature on consent agreements.
-You'll also be able to invite others from your company to create their own user accounts.
+Partner Center leverages Azure AD for multi-user account access and management. By setting up a work account (Azure AD tenant), your organization can host users, manage their passwords, profile data, and permissions, host groups, applications, and manage other information pertaining to company security. 
 
-Get started working in Partner Center
-Take the welcome tour and then get busy. Manage your users, create a business profile, get referrals, start using your benefits, and more.
+**Not sure if your company already has a work account?**
+Follow these steps to check. Note that if you have an active subscription to Microsoft Azure or Office 365, you already have a work account.
+    - Sign in to the Azure admin portal at https://ms.portal.azure.com
+    - Select Azure Active Directory from the menu and then select Domain Names.
+    - If you already have a work account, your domain name will be listed.
+
+Your organization may have multiple work accounts (Azure AD tenants). Before deciding to use an existing work account, think about how many users in the account will need to work in the Partner Center. If you have users in the account who won’t need to work in Partner Center, consider [creating a new account](#create-a-new-work-account) for only those users who will need to work in the Partner Center.
+
+### Agree to terms and conditions
+
+You will need to agree to two sets of terms and conditions, including the [Microsoft Online Subscription Agreement](https://go.microsoft.com/fwlink/?LinkId=870457) and the [Microsoft Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/?linkid=843476).
 
 
-3.	Provide or update your company’s legal business profile and primary contact information and then select **Enroll now**. 
+### Provide your Publisher profile
 
-    The primary contact should be the person in your company we can contact about your application (this can be you or another person in your company). We'll also use this information to verify that this person works at your company and has signed up for a Partner Center account.
+Your publisher profile includes your company name and MPN ID. If you have not yet done so, you will need to join the [Microsoft Partner Network](https://partner.microsoft.com/commercial). By joining the Microsoft Partner Network, you will be provided with an MPN ID number. 
 
-    > [!IMPORTANT]  
-    > To help ensure your company’s security and privacy, we’ll email your primary contact to verify that (1) he or she signed up for a Partner Center account, and (2) that this email address belongs to your company. After the primary contact verifies his or her email address, we’ll continue our review of the information you provided.
+You will also need to declare your Publisher ID at this time. Your Publisher ID will uniquely identify your company in the Azure Marketplace and AppSource. 
 
-4.	Read and accept the terms and conditions in the [Microsoft Partner Network agreement](https://support.microsoft.com/en-us/help/4488914/how-to-download-the-microsoft-partner-network-mpn-agreement-partner-ce). 
+Once you've confirmed your publisher profile information, you can agree to the terms and conditions and create your Partner Center account by selecting **Accept and continue**. *You must be authorized to act on your company's behalf in order to accept these terms.*
 
-5. Provide a publisher display name that you want the partners to identify you with.  
+You've now completed your Partner Center enrollment and will be taken to the [Commercial Marketplace Overview](./commercial-marketplace-overview.md) page.
 
-6. Read and accept the terms and conditions in the [Microsoft Marketplace Publisher Agreement](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). 
+## Troubleshoot work email sign-in
 
-## Link your company work account
-
-Your Partner Center account must be linked with your company's Azure work account so that your users can sign-in with their work account username and password.
-
-An Azure work account is a dedicated and isolated virtual representation of your company in the Azure public cloud, created by an organization's administrator (this may or may not be you) when subscribing to a Microsoft cloud service such as Azure, Microsoft Intune, or Office 365.
-
-Your work account enables you to access Microsoft cloud services, such as Microsoft Azure, Microsoft Intune, or Office 365. Your work account also hosts your Azure AD users and information about them, including passwords, profile data, permissions, and so on. The work account also contains groups, applications, and other information pertaining to a company and its security.
-
-A work account can take the form of a user’s work email address, such as username@orgname.com, when an organization synchronizes its Active Directory accounts with Azure Active Directory.
-
-### Use an existing work account
-
-If you’re not sure whether your company has a work account, follow these steps to check. Note that if you have an active subscription to Microsoft Azure or Office 365, you already have a work account.
-
-1.	Sign in to the Azure admin portal at [https://ms.portal.azure.com](https://ms.portal.azure.com)
-2.	Select **Azure Active Directory** from the menu and then select **Domain Names**
-3.	If you already have a work account, your domain name will be listed
-
-Before you decide to use an existing work account, think about how many users in the account will need to work in the Partner Center. If you have users in the account who won’t need to work in Partner Center, consider creating a new account for only those users who will need to work in the Partner Center.
-
-If you want to use an existing work account, but you’re having trouble signing in, find the scenario on the diagram below that best matches your situation and follow the recommended steps. 
+If you’re having trouble signing in to your work account, find the scenario on the diagram below that best matches your situation and follow the recommended steps. 
 
 ![Diagram for troubleshooting work account sign-in](./media/onboarding-aad-flow.png)
 
-For more information about adding domains in Azure AD, see [Add or associate a domain in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
 
-### Create a new work account
+## Create a new work account
 
-If your company doesn’t already have a work account, you can create one during the enrollment process. You may need to request assistance from whoever has administrative permissions on your Microsoft Azure account.
+To create a work account (Azure AD tenant) for your company, follow the steps below. Note that you may need to request assistance from whoever has administrative permissions on your Microsoft Azure account.
 
-- Log in to the [Microsoft Azure portal](https://portal.azure.com/)
-- From the left navigation menu, select the **Azure Active Directory** -> **Users and groups** -> **All users** 
-- Select **New user** and create a new Azure work account by entering a name and email address. Ensure that the **Directory role** is set to **User** and select the **Show Password** checkbox at the bottom to view and make a note of the auto-generated password. - Select **Create** to save the new user
+1. Log in to the [Microsoft Azure portal](https://portal.azure.com/).
+2. From the left navigation menu, select the **Azure Active Directory** -> **Users and groups** -> **All users**. 
+3. Select **New user** and create a new Azure work account by entering a name and email address. Ensure that the **Directory role** is set to **User** and select the **Show Password** checkbox at the bottom to view and make a note of the auto-generated password. 
+4. Select **Create** to save the new user.
 
 The email address for the user account must be a verified domain name in your directory. You can list all the verified domains in your directory using the **Azure Active Directory** -> **Domain names**.
+
+## Publishers migrated from CPP
+
+If your account was migrated from the [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com), you do not need to create a new Parnter Center account, but will have received a customized link to your new Partner Center account via email and in a banner notification displayed after logging in to your existing CPP account.
+
+Once you've enabled your new Partner Center account by visiting this customized link, you can return to your account by visiting the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/) in Partner Center.
+
+The pubishing agreement and company profile information will be migrated to your new Partner Center account, along with any previously set up account payout profile information, user accounts and permissions, and active offers associated with your CPP account. 
+
+Once your account is migrated from CPP to Partner Center, the Partner Center account becomes the master account to be used for any account updates, user management, permissions, and payout management. These account updates will automatically be synced back to your read-only CPP account until the CPP portal is eventually deprecated. 
 
