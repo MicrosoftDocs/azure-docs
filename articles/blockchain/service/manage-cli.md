@@ -34,7 +34,7 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName> --re
 | **resource-group** | Resource group name where Azure Blockchain Service resources are created. |
 | **name** | A unique name that identifies your Azure Blockchain Service blockchain member. The name is used for the public endpoint address. For example, `myblockchainmember.blockchain.azure.com`. |
 | **location** | Azure region where the blockchain member is created. For example, `eastus`. Choose the location that is closest to your users or your other Azure applications. |
-| **password** | The member account password. The member account password is used to authenticate to the blockchain member's public endpoint using basic authentication. The password must meet these four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not '#', ',' , '\`', '*', '\"', ''', '-', '%', ';' |
+| **password** | The member account password. The member account password is used to authenticate to the blockchain member's public endpoint using basic authentication. The password must meet three of following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolon(;). |
 | **protocol** | Public preview supports Quorum. |
 | **consortium** | Name of the consortium to join or create. |
 | **consortiumManagementAccountPassword** | The consortium management password. The password is used for joining a consortium. |
@@ -54,7 +54,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 |---------|-------------|
 | **resource-group** | Resource group name where Azure Blockchain Service resources are created. |
 | **name** | Name that identifies your Azure Blockchain Service member. |
-| **password** | The member account password. The password must meet these four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not '#', ',' , '\`', '*', '\"', ''', '-', '%', ';' |
+| **password** | The member account password. The password must meet three of following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolon(;). |
 
 
 ## Create transaction node
@@ -70,7 +70,7 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName>/tran
 | **resource-group** | Resource group name where Azure Blockchain Service resources are created. |
 | **name** | Name of the Azure Blockchain Service blockchain member that also includes the new transaction node name. |
 | **location** | Azure region where the blockchain member is created. For example, `eastus`. Choose the location that is closest to your users or your other Azure applications. |
-| **password** | The transaction node password. The password must meet these four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not '#', ',' , '\`', '*', '\"', ''', '-', '%', ';' |
+| **password** | The transaction node password. The password must meet three of following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolon(;). |
 | **ruleName** | Rule name for whitelisting an IP address range. Optional parameter for firewall rules. |
 | **startIpAddress** | Start of the IP address range for whitelisting. Optional parameter for firewall rules. |
 | **endIpAddress** | End of the IP address range for whitelisting. Optional parameter for firewall rules.|
@@ -87,7 +87,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName>/tran
 |---------|-------------|
 | **resource-group** | Resource group name where Azure Blockchain Service resources exist. |
 | **name** | Name of the Azure Blockchain Service blockchain member that also includes the new transaction node name. |
-| **password** | The transaction node password. The password must meet these four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not '#', ',' , '\`', '*', '\"', ''', '-', '%', ';' |
+| **password** | The transaction node password. The password must meet three of following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolon(;). |
 
 ## Change consortium management account password
 
@@ -101,7 +101,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 |---------|-------------|
 | **resource-group** | Resource group name where Azure Blockchain Service resources are created. |
 | **name** | Name that identifies your Azure Blockchain Service member. |
-| **consortiumManagementAccountPassword** | The consortium management account password. The password must meet these four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not '#', ',' , '\`', '*', '\"', ''', '-', '%', ';' |
+| **consortiumManagementAccountPassword** | The consortium management account password. The password must meet three of following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolon(;). |
   
 ## Update firewall rules
 
