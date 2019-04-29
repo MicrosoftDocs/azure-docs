@@ -62,7 +62,7 @@ Open the Availability blade and add a test.
 
     **HTTP response**: The returned status code that is counted as a success. 200 is the code that indicates that a normal web page has been returned.
 
-    **Content match**: a string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
+    **Content match**: a string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it. **Only English characters are currently supported with content match.** 
 
 * **Alert location threshold**: We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations** - 2, with a minimum of five test locations.
 
