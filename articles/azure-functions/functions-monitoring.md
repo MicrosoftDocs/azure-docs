@@ -11,14 +11,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-# Customer intent: As a developer, I want to be able to monitor my functions so that I can know if they are running correctly.
+# Customer intent: As a developer, I want to monitor my functions so I can know if they're running correctly.
 ---
 
 # Monitor Azure Functions
 
 [Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) to monitor functions. This article shows you how to configure Azure Functions to send system-generated log files to Application Insights.
 
-We recommend using Application Insights because it collects log, performance, and error data. It automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. It's designed to help you continuously improve performance and usability. You can even use Application Insights during local function app project development. For more information, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md)
+We recommend using Application Insights because it collects log, performance, and error data. It automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. It's designed to help you continuously improve performance and usability. You can even use Application Insights during local function app project development. For more information, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
 As the required Application Insights instrumentation is built into Azure Functions, all you need is a valid instrumentation key to connect your function app to an Application Insights resource.
 
@@ -622,7 +622,7 @@ This connects your app to the log streaming service and application logs are dis
 
 ### Azure CLI
 
-You can enable streaming logs by using the [Azure Command Line Interface (CLI)](/cli/azure/install-azure-cli). For the Azure CLI, use the following commands to sign in, choose your subscription, and stream log files:
+You can enable streaming logs by using the [Azure CLI](/cli/azure/install-azure-cli). Use the following commands to sign in, choose your subscription, and stream log files:
 
 ```azurecli
 az login
