@@ -14,20 +14,14 @@
     - name: Configure an application
       items:
       - name: Register an app
-        href: quickstart-v1-add-azure-ad-app.md
-      - name: Update an app
-        href: quickstart-v1-update-azure-ad-app.md
-      - name: Remove an app
-        href: quickstart-v1-remove-azure-ad-app.md
-      - name: Register an app (Preview)
         href: quickstart-register-app.md
-      - name: Configure app to access web APIs (Preview)
+      - name: Configure app to access web APIs
         href: quickstart-configure-app-access-web-apis.md
-      - name: Configure app to expose web APIs (Preview)
+      - name: Configure app to expose web APIs
         href: quickstart-configure-app-expose-web-apis.md
-      - name: Modify accounts supported by an app (Preview)
+      - name: Modify accounts supported by an app
         href: quickstart-modify-supported-accounts.md
-      - name: Remove an app (Preview)
+      - name: Remove an app
         href: quickstart-remove-app.md
     - name: Single-page apps
       items:
@@ -243,20 +237,14 @@
     - name: Configure an application
       items:
       - name: Register an app
-        href: quickstart-v2-register-an-app.md
-      - name: Update an app
-        href: quickstart-v1-update-azure-ad-app.md
-      - name: Remove an app
-        href: quickstart-v1-remove-azure-ad-app.md
-      - name: Register an app (Preview)
         href: quickstart-register-app.md
-      - name: Configure app to access web APIs (Preview)
+      - name: Configure app to access web APIs
         href: quickstart-configure-app-access-web-apis.md
-      - name: Configure app to expose web APIs (Preview)
+      - name: Configure app to expose web APIs
         href: quickstart-configure-app-expose-web-apis.md
-      - name: Modify accounts supported by an app (Preview)
+      - name: Modify accounts supported by an app
         href: quickstart-modify-supported-accounts.md
-      - name: Remove an app (Preview)
+      - name: Remove an app
         href: quickstart-remove-app.md
     - name: Single-page apps
       items:
@@ -350,6 +338,8 @@
         href: active-directory-certificate-credentials.md     
     - name: Application configuration
       items:
+      - name: App registrations training guide
+        href: app-registrations-training-guide.md
       - name: Applications and service principals
         href: app-objects-and-service-principals.md
       - name: Single tenant and multi-tenant apps
