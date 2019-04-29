@@ -587,7 +587,7 @@ Two options include Azure Functions and custom tasks by using Azure Batch.
 
 You can see a sample that uses an Azure function to [extract the contents of a tar file](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). For more information, see [Azure Functions activity](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
 
-You can also build this functionality using a custom dotnet activity. Further information is available [here](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-dotnet-custom-activity)
+You can also build this functionality using a custom dotnet activity. Further information is available [here](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## Next steps
 
