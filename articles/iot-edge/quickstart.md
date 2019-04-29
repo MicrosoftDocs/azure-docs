@@ -12,7 +12,7 @@ ms.custom: "mvc, seodec18"
 
 ---
 
-# Quickstart: Deploy your first IoT Edge module from the Azure portal to a Windows device - preview
+# Quickstart: Deploy your first IoT Edge module from the Azure portal to a Windows device
 
 In this quickstart, use the Azure IoT Edge cloud interface to deploy prebuilt code remotely to an IoT Edge device. To accomplish this task, first create and configure a Windows virtual machine to work as an IoT Edge device, then you can deploy a module to it.
 
@@ -26,9 +26,6 @@ In this quickstart you learn how to:
 ![Diagram - Quickstart architecture for device and cloud](./media/quickstart/install-edge-full.png)
 
 The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights.
-
-> [!NOTE]
-> The IoT Edge runtime on Windows is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
@@ -67,6 +64,10 @@ IoT Edge device:
   1. On the **RDP** tab, select **Download RDP File**.
 
   Open this file with Remote Desktop Connection to connect to your Windows virtual machine using the administrator name and password you specified with the `az vm create` command.
+
+
+> [!NOTE]
+> This quickstart uses a Windows desktop virtual machine for simplicity. For information about which Windows operating systems are generally available for production scenarios, see [Azure IoT Edge supported systems](support.md).
 
 ## Create an IoT hub
 
