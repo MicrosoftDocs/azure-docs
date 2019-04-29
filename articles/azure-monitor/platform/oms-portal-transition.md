@@ -19,9 +19,9 @@ ms.author: bwren
 > [!NOTE]
 > This article applies to both the Azure public cloud and government cloud except where noted otherwise.
 
-The Azure portal is the hub for all Azure services and offers a rich management experience with capabilities such as dashboards for pinning resources, intelligent search for finding resources, and tagging for resource management. To consolidate and streamline the monitoring and management workflow, we started adding the OMS portal capabilities into the Azure portal. All of the features of the OMS portal are now part of the Azure portal. In fact, some of the new features such as Traffic Analytics are only available in the Azure portal. You will be able to accomplish everything you were doing in the OMS portal with the Azure portal and more. If you haven’t already done so, you should start using the Azure portal today!
+**The OMS portal for the Azure public cloud has been officially retired. The OMS portal for Azure Azure US Government cloud will be officially retired on May 15, 2019.** We are excited to move to the Azure portal and expect the transition to be easy. But we understand changes are difficult and can be disruptive. Send any questions, feedback, or concerns to **LAUpgradeFeedback\@microsoft.com**. The rest of this article goes over the key scenarios and the roadmap for this transition.
 
-**The OMS portal will be officially retired on January 15, 2019** for Azure commercial cloud and for Azure US Government cloud, the OMS portal **will be officially retired on March 30, 2019.** We are excited to move to the Azure portal and expect the transition to be easy. But we understand changes are difficult and can be disruptive. Send any questions, feedback, or concerns to **LAUpgradeFeedback\@microsoft.com**. The rest of this article goes over the key scenarios and the roadmap for this transition.
+The Azure portal is the hub for all Azure services and offers a rich management experience with capabilities such as dashboards for pinning resources, intelligent search for finding resources, and tagging for resource management. To consolidate and streamline the monitoring and management workflow, we started adding the OMS portal capabilities into the Azure portal. All of the features of the OMS portal are now part of the Azure portal. In fact, some of the new features such as Traffic Analytics are only available in the Azure portal. You will be able to accomplish everything you were doing in the OMS portal with the Azure portal and more. If you haven’t already done so, you should start using the Azure portal today!
 
 ## What is changing? 
 The following changes are being announced with the deprecation of the OMS portal. Each of these changes is described in more detail in the sections below.
@@ -71,10 +71,7 @@ You are no longer be able to create new workspaces using the OMS portal. Follow 
 
 ### Alert extension  
 
-> [!NOTE]
-> Alerts have now been fully extended into the Azure portal for the public cloud. Existing alert rules can be viewed in the OMS portal, but they can only be managed in the Azure portal. Extension of alerts into the Azure portal will start for the Azure government cloud on February, 2019.
-
-Alerts have been [extended into the Azure portal](alerts-extend.md). Once this is complete, management actions on alerts will only be available in Azure portal. Existing alerts will continue to be listed in the OMS portal. If you access alerts programmatically by using the Log Analytics Alert REST API or Log Analytics Alert Resource Template, you'll need to use action groups instead of actions in your API calls, Azure Resource Manager templates, and PowerShell commands.
+Alerts have been [extended into the Azure portal](alerts-extend.md) Existing alerts will continue to be listed in the OMS portal, but you can only manage them in Azure portal. If you access alerts programmatically by using the Log Analytics Alert REST API or Log Analytics Alert Resource Template, you'll need to use action groups instead of actions in your API calls, Azure Resource Manager templates, and PowerShell commands.
 
 ### Alert management solution
 As a change from a previous announcement, the [Alert management solution](alert-management-solution.md) will continue to be available and fully supported in the Azure portal. You can continue to install the solution from Azure Marketplace.
