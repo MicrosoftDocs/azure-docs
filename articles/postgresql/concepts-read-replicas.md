@@ -109,7 +109,7 @@ This section summarizes considerations about the read replica feature.
 Before you create a read replica, the `azure.replication_support` parameter must be set to **REPLICA** on the master server. When this parameter is changed, a server restart is required for the change to take effect. The `azure.replication_support` parameter applies to the General Purpose and Memory Optimized tiers only.
 
 ### New replicas
-A read replica is created as a new Azure Database for PostgreSQL server. An existing server can't be made into a replica. A read replica can only be created in the same Azure region as the master. You can't create a replica of another read replica.
+A read replica is created as a new Azure Database for PostgreSQL server. An existing server can't be made into a replica. You can't create a replica of another read replica.
 
 ### Replica configuration
 A replica is created by using the same server configuration as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and backup retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
