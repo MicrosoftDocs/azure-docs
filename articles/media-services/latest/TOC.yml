@@ -148,7 +148,7 @@
       items:
       - name: Origin error codes  
         href: origin-error-codes.md
-      - Job error codes
+      - name: Job error codes
         href: https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode
   - name: Migration guidance from v2 to v3
     href: migrate-from-v2-to-v3.md      
