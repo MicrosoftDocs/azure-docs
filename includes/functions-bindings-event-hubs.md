@@ -444,7 +444,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-The following sample shows how to use the `IAsyncCollector` to correctly send messages being processed in a batch. This is a very common situation that happen when you are processing messages coming from Event Hub, sending to another Event Hub:
+The following sample shows how to use the `IAsyncCollector` interface to send a batch of messages. This scenario is common when you are processing messages coming from one Event Hub and sending the result to another Event Hub.
 
 ```csharp
 [FunctionName("EH2EH")]
@@ -463,7 +463,6 @@ public static async Task Run(
     }
 }
 ```
-
 
 ### Output - C# script example
 
