@@ -31,9 +31,7 @@ demo_clustering1
 
 ![Service exceptions timechart](media/machine-learning-clustering/service-exceptions-timechart.png)
 
-The service exception count correlates with the overall service traffic. You can clearly see the daily pattern, for business days of Monday to Friday, a rise in service exception counts mid-day, and drops in counts during the night. Flat low counts are visible over the weekend.
-
-Exception spikes can be detected using [time series anomaly detection](/azure/data-explorer/anomaly-detection?#time-series-anomaly-detection) in Azure Data Explorer. 
+The service exception count correlates with the overall service traffic. You can clearly see the daily pattern, for business days of Monday to Friday, with a rise in service exception counts mid-day, and drops in counts during the night. Flat low counts are visible over the weekend. Exception spikes can be detected using [time series anomaly detection](/azure/data-explorer/anomaly-detection?#time-series-anomaly-detection) in Azure Data Explorer.
 
 The second spike in the data occurs on Tuesday afternoon. The following query is used to further diagnose this spike. Use the query to redraw the chart around the spike in higher resolution (eight hours in one-minute bins) to verify whether it’s a sharp spike, and view its borders.
 
@@ -60,7 +58,7 @@ demo_clustering1
 |---------|
 |972    |
 
-In the following query, sample 20 exceptions:
+In the following query, sample 20 exceptions out of 972:
 
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
