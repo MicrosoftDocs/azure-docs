@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Fine-tune text-to-speech output
 
-Azure Speech Services allow you to adjust the speed, pronunciation, volume, pitch, and contour of text-to-speech output using [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). SSML is an XML-based markup language that uses tags to inform the service about what feature requires tuning. The SSML message is then sent in the body of each request to the text-to-speech service. To simplify the customization process, the Speech Services now offer a [Voice Tuning](https://speech.microsoft.com/app.html#/VoiceTuning) tool that allows you to visually inspect and fine-tune text-to-speech outputs in real time.
+Azure Speech Services allow you to adjust the speed, pronunciation, volume, pitch, and contour of text-to-speech output using [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). SSML is an XML-based markup language that uses tags to inform the service about what feature requires tuning. The SSML message is then sent in the body of each request to the text-to-speech service. To simplify the customization process, the Speech Services now offer a [Voice Tuning](https://aka.ms/voicetuning) tool that allows you to visually inspect and fine-tune text-to-speech outputs in real time.
 
 The Voice Tuning tool supports Microsoft's [standard](language-support.md#standard-voices), [neural](language-support.md#text-to-speech), and [custom voices](how-to-customize-voice-font.md).
 
@@ -32,7 +32,7 @@ Before you can start fine-tuning the text-to-speech output with the Voice Tuning
    >[!NOTE]
    >You need to have a F0 or a S0 key created in the Azure portal before you can use the service. Voice Tuning  **doesn't** support the [30-day free trial key](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
 
-4. Sign in to the [Voice Tuning](https://speech.microsoft.com/app.html#/VoiceTuning) portal, and connect your Speech Services subscription. Choose a single Speech Services subscription and then create a project.
+4. Sign in to the [Voice Tuning](https://aka.ms/voicetuning) portal, and connect your Speech Services subscription. Choose a single Speech Services subscription and then create a project.
 5. Select **New Tuning**. Then follow these steps:
 
    * Locate and select **All Subscriptions**.  
