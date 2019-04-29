@@ -194,7 +194,7 @@ For more information, see the Azure naming conventions for blob names and file n
 
 Remove any non-VHD/VHDX data from the page blob share. You can use shares for block blob or Azure files for generic data.
 
-For more information, see [Overview of Page blobs](../storage/blobs/storage-blob-pageblob-overview.md).|
+For more information, see [Overview of Page blobs](../storage/blobs/storage-blob-pageblob-overview.md).
 
 ### ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED
 
