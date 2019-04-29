@@ -15,7 +15,7 @@ ms.date: 04/29/2019
 
 # Model interpretability with Azure Machine Learning service
 
-In this article, you will learn how to explain why your model made the predictions it did with the interpretability package  of the Azure Machine Learning Python SDK.
+In this article, you will learn how to explain why your model made the predictions it did with the interpretability package of the Azure Machine Learning Python SDK.
 
 Using the classes and methods in this package, you can get:
 + Interpretability on real-world datasets at scale, during training time and inferencing. 
@@ -95,7 +95,7 @@ The explanation functions accept both models and pipelines as input. If a model 
 
 The `explain` package is designed to work with both local and remote compute targets. If run locally, The SDK functions will not contact any Azure services. You can run explanation remotely on Azure Machine Learning Compute and log the explanation info into Azure Machine Learning Run History Services. Once this information is logged, reports and visualizations from the explanation are readily available on Azure Machine Learning Workspace portal for user analysis.
 
-## Training time interpretability
+## Interpretability in training
 
 ### Train and explain locally
 
@@ -248,6 +248,49 @@ clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
 # "features" and "classes" fields are optional
 tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
 ```
+
+# Interpretability in inferencing
+
+The explainer can be deployed along with the original model and can be used at scoring time to provide the local explanation information. The process of deploying a scoring explainer is similar to deploying a model and includes the following steps:
+
+1. Create an explanation object:
+   ```python
+   from azureml.contrib.explain.model.tabular_explainer import TabularExplainer
+
+   explainer = TabularExplainer(model, x_test)
+   ``` 
+
+1. Create a scoring explainer using the explanation object:
+   ```python
+   scoring_explainer = explainer.create_scoring_explainer(x_test)
+
+   # Pickle scoring explainer
+   scoring_explainer_path = scoring_explainer.save('scoring_explainer_deploy')
+   ``` 
+
+1. Configure and register an image that uses the scoring explainer model.
+   ```python
+   # Register explainer model using the path from ScoringExplainer.save - could be done on remote compute
+   run.upload_file('breast_cancer_scoring_explainer.pkl', scoring_explainer_path)
+   model = run.register_model(model_name='breast_cancer_scoring_explainer', model_path='breast_cancer_scoring_explainer.pkl')
+   print(model.name, model.id, model.version, sep = '\t')
+   ``` 
+
+1. [Optional] Retrieve the scoring explainer from cloud and test the explanations
+   ```python
+   from azureml.contrib.explain.model.scoring.scoring_explainer import ScoringExplainer
+
+   # Retreive the scoring explainer model from cloud"
+   scoring_explainer_model = Model(ws, 'breast_cancer_scoring_explainer')
+   scoring_explainer_model_path = scoring_explainer_model.download(target_dir=os.getcwd(), exist_ok=True)
+
+   # Load scoring explainer from disk
+   scoring_explainer = ScoringExplainer.load(scoring_explainer_model_path)
+
+   # Test scoring explainer locally
+   preds = scoring_explainer.explain(x_test)
+   print(preds)
+   ```
 
 1. Deploy the image to a compute target:
 
