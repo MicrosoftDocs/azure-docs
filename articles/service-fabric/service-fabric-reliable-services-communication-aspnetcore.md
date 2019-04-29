@@ -19,7 +19,7 @@ ms.author: vturecek
 
 # ASP.NET Core in Azure Service Fabric Reliable Services
 
-ASP.NET Core is a new open-source and cross-platform framework. This framework is designed for building cloud-based, internet-connected applications, such as web apps, IoT apps, and mobile back ends.
+ASP.NET Core is an open-source and cross-platform framework. This framework is designed for building cloud-based, internet-connected applications, such as web apps, IoT apps, and mobile back ends.
 
 This article is an in-depth guide to hosting ASP.NET Core services in Service Fabric Reliable Services by using the **Microsoft.ServiceFabric.AspNetCore.** set of NuGet packages.
 
