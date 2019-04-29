@@ -14,11 +14,11 @@ ms.custom: seodec18
 
 # Visualize data in the explorer Preview
 
-This article describes features and options available in the Azure Time Series Insights Preview [explorer web app](https://insights.timeseries.azure.com/preview/samples).
+This document describes the UI/UX features and interface of the Azure Time Series Insights Preview [explorer web app](https://insights.timeseries.azure.com/preview/samples). Specifically, it discusses the layout of the hosted sample, interface customization options, and navigation through the provided demo.
 
 ## Prerequisites
 
-Before you use the Azure Time Series Insights Preview explorer, you must:
+To get started with the Azure Time Series Insights Preview explorer, you must:
 
 * Have a Time Series Insights environment set up. To learn more about provisioning an instance try our [Azure Time Series Insights Preview](./time-series-insights-update-create-environment.md) tutorial.
 * [Provide data access](./time-series-insights-data-access.md) to the Time Series Insights environment that you created for the account. You can provide access to others as well as to yourself.
@@ -42,7 +42,7 @@ The Azure Time Series Insights Preview explorer consists of the following elemen
 
 ## Environment panel
 
-The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go environments Preview and S1/S2 environments (GA). Simply click the Time Series Insights environment you want to use.
+The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go environments (Preview) and S1/S2 environments (general availability). Simply click the Time Series Insights environment you want to use.
 
   [![The control panel](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
 
@@ -50,7 +50,7 @@ The environment panel displays all the Time Series Insights environments you hav
 
   [![The navigation menu](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
 
-With the navigation menu, you can switch between the Time Series Insights apps:
+The navigation menu unites all of your Time Series Insights app in one convenient location. And, with the navigation menu, you can switch between them:
 
 * **Analyze**: Lets you chart and perform rich analytics on your modeled or unmodeled time series data.
 * **Model**: Lets you push new Time Series Insights Preview types, hierarchies, and instances to your Time Series Insights model.
@@ -77,7 +77,7 @@ To learn more about the Time Series Model, see [Times Series Models](./time-seri
 
 ## Preview well
 
-The well displays instance fields and other metadata associated with selected time series instances. The check boxes at the right side let you hide or display specific instances from the current chart. You can also remove specific data elements from your current data well by clicking the red x control to the right of the element.
+The well displays instance fields and other metadata associated with selected TSI instances. The check boxes at the right side let you hide or display specific instances from the current chart. You may also remove specific data elements from your current data well by clicking the red **X** control in the top-right corner of the element.
 
   [![The Preview well](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
 
@@ -171,7 +171,7 @@ Select the link web control (highlighted) to generate a URL to save or share you
 
 ### Theme selection
 
-To select a new theme, click on your profile icon located in the top right corner. Then select **Change Theme**.
+To select a new theme, click on your profile icon located in the top-right corner. Then select **Change Theme**.
 
   [![Theme selection](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
 
