@@ -5,22 +5,74 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 04/29/2019
 ---
 
 # Read replicas in Azure Database for MySQL
 
-The read replica feature allows you to replicate data from an Azure Database for MySQL server (master) to up to five read-only servers (replicas) within the same Azure region. Read-only replicas are asynchronously updated using the MySQL engine's native binary log (binlog) file position-based replication technology. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+The read replica feature allows you to replicate data from an Azure Database for MySQL server to a read-only server. You can replicate from the master server to up to five replicas. Replicas are updated asynchronously using the MySQL engine's native binary log (binlog) file position-based replication technology. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Replicas created in the Azure Database for MySQL service are new servers that can be managed in the same way as normal/standalone MySQL servers. For each read replica, you are billed for the provisioned compute in vCores and provisioned storage in GB/month.
+> [!IMPORTANT]
+> You can create a read replica in the same region as your master server, or in any other Azure region of your choice. Cross-region replication is currently in public preview.
+
+Replicas are new servers that you manage similar to regular Azure Database for MySQL servers. For each read replica, you're billed for the provisioned compute in vCores and storage in GB/ month.
 
 To learn more about MySQL replication features and issues, please see the [MySQL replication documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
-## When to use read replicas
+## When to use a read replica
 
-Applications and workloads that are read intensive can be served by the read-only replicas. Read replicas help increase the amount of read capacity available compared to if you were to just use a single server for both read and write. The read workloads can be isolated to the replicas, while write workloads can be directed to the master.
+The read replica feature helps to improve the performance and scale of read-intensive workloads. Read workloads can be isolated to the replicas, while write workloads can be directed to the master.
 
 A common scenario is to have BI and analytical workloads use the read replica as the data source for reporting.
+
+Because replicas are read-only, they don't directly reduce write-capacity burdens on the master. This feature isn't targeted at write-intensive workloads.
+
+The read replica feature uses MySQL asynchronous replication. The feature isn't meant for synchronous replication scenarios. There will be a measurable delay between the master and the replica. The data on the replica eventually becomes consistent with the data on the master. Use this feature for workloads that can accommodate this delay.
+
+Read replicas can be used to enhance your disaster recovery plan. You first need to have a replica in a different Azure region from the master. In the event of a disaster, you can stop replication to that server and redirect your workload to it. Stopping replication allows the replica to begin accepting writes, as well as reads. Learn more in the [stop replication](#stop-replication) section.
+
+## Create a replica
+
+If a master server has no existing replica servers, the master will first restart to prepare itself for replication.
+
+When you start the create replica workflow, a blank Azure Database for MySQL server is created. The new server is filled with the data that was on the master server. The creation time depends on the amount of data on the master and the time since the last weekly full backup. The time can range from a few minutes to several hours.
+
+> [!NOTE]
+> If you don't have a storage alert set up on your servers, we recommend that you do so. The alert informs you when a server is approaching its storage limit, which will affect the replication.
+
+Learn how to [create a read replica in the Azure portal](howto-read-replicas-portal.md).
+
+## Connect to a replica
+
+When you create a replica, it doesn't inherit the firewall rules or VNet service endpoint of the master server. These rules must be set up independently for the replica.
+
+The replica inherits the admin account from the master server. All user accounts on the master server are replicated to the read replicas. You can only connect to a read replica by using the user accounts that are available on the master server.
+
+You can connect to the replica by using its hostname and a valid user account, as you would on a regular Azure Database for MySQL server. For a server named **myreplica** with the admin username **myadmin**, you can connect to the replica by using the mysql CLI:
+
+```bash
+mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
+```
+
+At the prompt, enter the password for the user account.
+
+## Monitor replication
+
+Azure Database for MySQL provides the **Replication lag in seconds** metric in Azure Monitor. This metric is available for replicas only.
+
+This metric is calculated using the `seconds_behind_master` metric available in MySQL's `SHOW SLAVE STATUS` command.
+
+Set an alert to inform you when the replication lag reaches a value that isn’t acceptable for your workload.
+
+## Stop replication
+
+You can stop replication between a master and a replica. After replication is stopped between a master server and a read replica, the replica becomes a standalone server. The data in the standalone server is the data that was available on the replica at the time the stop replication command was started. The standalone server doesn't catch up with the master server.
+
+> [!IMPORTANT]
+> The standalone server can't be made into a replica again.
+> Before you stop replication on a read replica, ensure the replica has all the data that you require.
+
+Learn how to [stop replication to a replica](howto-read-replicas-portal.md).
 
 ## Considerations and limitations
 
@@ -32,38 +84,22 @@ Read replicas are currently only available in the General Purpose and Memory Opt
 
 When you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Please take this into consideration and perform these operations during an off-peak period.
 
-### Stopping replication
+### New replicas
 
-You can choose to stop replication between a master and a replica server. Stopping replication removes the replication relationship between the master and replica server.
+A read replica is created as a new Azure Database for MySQL server. An existing server can't be made into a replica. A read replica can only be created in the same Azure region as the master. You can't create a replica of another read replica.
 
-Once replication has been stopped, the replica server becomes a standalone server. The data in the standalone server is the data that was available on the replica at the time the "stop replication" command was initiated. The standalone server does not catch up with the master server. This server cannot be made into a replica again.
+### Replica configuration
 
-### Replicas are new servers
+A replica is created by using the same server configuration as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, backup retention period, and MySQL engine version. The pricing tier can also be changed independently, except to or from the Basic tier.
 
-Replicas are created as new Azure Database for MySQL servers. Existing servers cannot be made into replicas.
+> [!IMPORTANT]
+> Before a master server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.
 
-### Replica server configuration
+### Stopped replicas
 
-Replica servers are created using the same server configurations as the master, which includes the following configurations:
+If you stop replication between a master server and a read replica, the stopped replica becomes a standalone server that accepts both reads and writes. The standalone server can't be made into a replica again.
 
-- Pricing tier
-- Compute generation
-- vCores
-- Storage
-- Backup retention period
-- Backup redundancy option
-- MySQL engine version
-- Firewall rules
-
-After a replica has been created, you can change the pricing tier (except to and from Basic), compute generation, vCores, storage, and backup retention independently from the master server.
-
-### Master server configuration
-
-If a master's server configuration (ex. vCores or storage) is updated, the replicas' configuration should also be updated to equal or greater values. Without this, the replica server may not be able to keep up with changes made to the master and may crash as a result.
-
-New firewall rules added to the master server after a replica server has been created are not replicated to the replica. The replica should be updated with this new firewall rule as well.
-
-### Deleting the master server
+### Deleted master and standalone servers
 
 When a master server is deleted, replication is stopped to all read replicas. These replicas become standalone servers. The master server itself is deleted.
 
