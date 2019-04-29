@@ -1,5 +1,5 @@
 ---
-title: Configure an application to access web APIs (Preview) | Azure
+title: Configure an application to access web APIs - Microsoft identity platform
 description: Learn how to configure an application registered with the Microsoft identity platform to include redirect URI(s), credentials, or permissions to access web APIs.
 services: active-directory
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an application developer, I need to know how to configure my application to add redirect URI(s), credentials, or permissions so I can access web APIs.
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Configure a client application to access web APIs (Preview)
+# Quickstart: Configure a client application to access web APIs
 
 For a web/confidential client application to be able to participate in an authorization grant flow that requires authentication (and obtain an access token), it must establish secure credentials. The default authentication method supported by the Azure portal is client ID + secret key.
 

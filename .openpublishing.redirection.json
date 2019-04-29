@@ -17628,25 +17628,11 @@
       "redirect_url": "/azure/active-directory/hybrid/tshoot-connect-password-hash-synchronization",
       "redirect_document_id": false
     },
-
-
-
-
-
-
-
-
     {
       "source_path": "articles/iot-hub/iot-hub-security-ground-up.md",
       "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
       "redirect_document_id": true
     },
-
-
-
-
-
-
     {
       "source_path": "articles/active-directory/active-directory-app-gallery-listing.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-app-gallery-listing",
@@ -17681,6 +17667,26 @@
       "source_path": "articles/active-directory/active-directory-authentication-scenarios.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-authentication-scenarios",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/quickstart-v1-add-azure-ad-app.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/quickstart-v2-register-an-app.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/quickstart-v1-update-azure-ad-app.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-configure-app-access-web-apis",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/quickstart-v1-remove-azure-ad-app.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-remove-app",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/active-directory-b2b-collaboration-overview.md",
