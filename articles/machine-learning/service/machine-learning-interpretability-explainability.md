@@ -249,10 +249,10 @@ clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
 tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
 ```
 
-* Deploy the image to a compute target
+1. Deploy the image to a compute target:
 
-    1. Create a scoring file (before this step, follow the steps in [Deploy models with the Azure Machine Learning service](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-and-where) to register your original prediction model)
-        ``` python
+   1. Create a scoring file (before this step, follow the steps in [Deploy models with the Azure Machine Learning service](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-and-where) to register your original prediction model)
+        ```python
         %%writefile score.py
         import json
         import numpy as np
@@ -285,8 +285,8 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x
             # You can return any data type as long as it is JSON-serializable
             return {'predictions': predictions.tolist(), 'local_importance_values': local_importance_values}
         ``` 
-    1. Define the deployment configuration. This configuration depends on the requirements of your model. The following example defines a configuration that uses one CPU core and 1 GB of memory:
-        ``` python
+    1. Define the deployment configuration (This configuration depends on the requirements of your model. The following example defines a configuration that uses one CPU core and 1 GB of memory)
+        ```python
         from azureml.core.webservice import AciWebservice
 
         aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, 
@@ -296,9 +296,9 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x
                                                        description='Get local explanations for breast cancer data')
         ``` 
 
-    1. Create a file with environment dependencies:
-        
-        ``` python
+    1. Create a file with environment dependencies
+
+        ```python
         from azureml.core.conda_dependencies import CondaDependencies 
 
         # WARNING: to install this, g++ needs to be available on the Docker image and is not by default (look at the next cell)
@@ -313,15 +313,14 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x
         with open("myenv.yml","r") as f:
             print(f.read())
         ``` 
+    1. Create a custom dockerfile with g++ installed
 
-    1. Create a custom Dockerfile with g++ installed:
-
-        ``` python
+        ```python
         %%writefile dockerfile
         RUN apt-get update && apt-get install -y g++  
         ``` 
-    - Deploy the created image (time estimate: 5 minutes)
-        ``` python
+    1. Deploy the created image (time estimate: 5 minutes)
+        ```python
         from azureml.core.webservice import Webservice
         from azureml.core.image import ContainerImage
 
@@ -341,8 +340,8 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x
         service.wait_for_deployment(show_output=True)
         ``` 
 
-* Test the deployment
-    ``` python
+1. Test the deployment
+    ```python
     import requests
 
     # Create data to test service with
@@ -359,8 +358,9 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x
     # can covert back to Python objects from json string if desired
     print("prediction:", resp.text)
     ``` 
-* Clean up by deleting any obsolete deployed web service using `service.delete()`.
+
+1. Clean up: To delete a deployed web service, use `service.delete()`.
 
 ## Next Steps
 
-To see a demonstration of interpretability with the Azure Machine Learning SDK, look at the [Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) on GitHub.
+To see a collection of Jupyter notebooks that demonstrate the instructions above, see the [Azure Machine Learning Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
