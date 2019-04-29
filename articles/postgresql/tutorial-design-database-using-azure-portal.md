@@ -6,7 +6,7 @@ ms.author: raagyema
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 05/6/2019
+ms.date: 5/16/2019
 ---
 # Tutorial: Design an Azure Database for PostgreSQL - Single Server using the Azure portal
 

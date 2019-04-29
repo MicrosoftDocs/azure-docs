@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: sample, mvc
-ms.date: 02/28/2018
+ms.date: 5/6/2019
 ---
 # Azure CLI samples for Azure Database for PostgreSQL - Single Server
 The following table includes links to sample Azure CLI scripts for Azure Database for PostgreSQL.

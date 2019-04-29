@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
-ms.date: 05/6/2019
+ms.date: 5/6/2019
 ---
 
 # Tutorial: Monitor and tune Azure Database for PostgreSQL - Single Server
