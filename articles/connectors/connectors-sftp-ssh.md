@@ -42,7 +42,7 @@ If you're new to logic apps, review
 ## Limits
 
 * SFTP-SSH actions can read or write files that are *1 GB or smaller* 
-by managing data as *50 MB pieces*, not 1 GB pieces.
+by managing data as *15 MB pieces*, not 1 GB pieces.
 
 * For files *larger than 1 GB*, actions can use 
 [message chunking](../logic-apps/logic-apps-handle-large-messages.md). 
@@ -58,7 +58,7 @@ later in the next section.
 Here are other key differences between the SFTP-SSH connector and the 
 SFTP connector where the SFTP-SSH connector has these capabilities:
 
-* Uses the <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a> library, 
+* Uses the [SSH.NET library](https://github.com/sshnet/SSH.NET), 
 which is an open-source Secure Shell (SSH) library that supports .NET.
 
   > [!NOTE]
@@ -73,7 +73,7 @@ which is an open-source Secure Shell (SSH) library that supports .NET.
   > * **Fingerprint**: MD5
 
 * Actions can read or write files *up to 1 GB* compared to 
-the SFTP connector, but handles data in 50 MB pieces, 
+the SFTP connector, but handles data in 15 MB pieces, 
 not 1 GB pieces. For files larger than 1 GB, actions 
 can also use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). 
 Currently, SFTP-SSH triggers don't support chunking.
@@ -209,7 +209,7 @@ server again. Sometimes, this behavior might cause a delay that is up to twice
 the trigger's polling interval. 
 
 When requesting file content, triggers don't get files 
-larger than 50 MB. To get files larger than 50 MB, 
+larger than 15 MB. To get files larger than 15 MB, 
 follow this pattern: 
 
 * Use a trigger that returns file properties, 
@@ -239,7 +239,7 @@ so you get the order's contents for further processing
 and store that order in an orders database.
 
 When requesting file content, triggers don't get files 
-larger than 50 MB. To get files larger than 50 MB, 
+larger than 15 MB. To get files larger than 15 MB, 
 follow this pattern: 
 
 * Use a trigger that returns file properties, 
@@ -259,7 +259,7 @@ example and a condition that the file's content must meet.
 If the condition is true, the action that gets the content can run. 
 
 When requesting file content, triggers don't get files 
-larger than 50 MB. To get files larger than 50 MB, 
+larger than 15 MB. To get files larger than 15 MB, 
 follow this pattern: 
 
 * Use a trigger that returns file properties, 
