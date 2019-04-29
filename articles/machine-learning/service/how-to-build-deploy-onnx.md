@@ -115,7 +115,7 @@ Here is an example for deploying an ONNX model:
 
    model = Model.register(model_path = "model.onnx",
                           model_name = "MyONNXmodel",
-                          tags = ["onnx"],
+                          tags = {"type": "onnx"},
                           description = "test",
                           workspace = ws)
    ```
@@ -129,7 +129,7 @@ Here is an example for deploying an ONNX model:
                                                      runtime = "python",
                                                      conda_file = "myenv.yml",
                                                      description = "test",
-                                                     tags = ["onnx"]
+                                                     tags = {"type": "onnx"}
                                                     )
 
    image = ContainerImage.create(name = "myonnxmodelimage",
