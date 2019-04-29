@@ -21,7 +21,7 @@ We recommend that you monitor the health of process servers in  portal, to ensur
 
 - [Learn about](vmware-physical-azure-monitor-process-server.md) monitoring process servers.
 - [Review best practices](vmware-physical-azure-troubleshoot-process-server.md#best-practices-for-process-server-deployment)
-- [Troubleshoot](vmware-physical-azure-troubleshoot-process-server.md#check-process-server-health). 
+- [Troubleshoot](vmware-physical-azure-troubleshoot-process-server.md#check-process-server-health) process server health.
 
 ## Step 2: Troubleshoot connectivity and replication issues
 
