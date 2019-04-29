@@ -259,6 +259,8 @@
         href: shared-image-galleries.md
       - name: Create shared images using CLI
         href: shared-images.md
+      - name: Portal
+        href: shared-images-portal.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Find and use images
