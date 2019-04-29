@@ -17,9 +17,16 @@ ms.date: 04/29/2019
 
 In this article, you will learn how to explain why your model made the predictions it did with the interpretability package  of the Azure Machine Learning Python SDK.
 
+Using the classes and methods in this package, you can get:
++ Interpretability on real-world datasets at scale, during training time and inferencing. 
++ Interactive visualizations to aid you in the discovery of patterns in data and explanations at training time
++ Feature importance values: both raw and engineered features
+
 During the training phase of the development cycle, model designers and evaluators can use to explain the output of a model to stakeholders to build trust.  They also use the insights into the model for debugging, validating model behavior matches their objectives, and to check for bias.
 
 During the inferencing phase, data scientists can use interpretability to explain predictions to the people who use your model. For example, why did the model deny a mortgage loan, or predict that an investment portfolio carries a higher risk?
+
+Using these offering, you can explain machine learning models **globally on all data**, or **locally on a specific data point** using the state-of-art technologies in an easy-to-use and scalable fashion.
 
 The interpretability classes are made available through two Python packages. Learn how to [install SDK packages for Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
@@ -209,7 +216,55 @@ While you can train on the various compute targets supported by Azure Machine Le
     print('global importance values: {}'.format(global_importance_values))
     print('global importance names: {}'.format(global_importance_names))
     ```
-    
+
+## Raw Feature Transformations
+
+Optionally, you can pass your feature transformation pipeline to the explainer to receive explanations in terms of the raw features before the transformation (rather than engineered features). If you skip this, the explainer provides explanations in terms of engineered features. 
+
+The format of supported transformations is same as the one described in [sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). We currently support these one-to-many or one-to-one transformers: 
++ oneBinarizer
++ KBinsDiscretizer
++ KernelCenterer
++ LabelEncoder
++ MaxAbsScaler
++ MinMaxScaler
++ Normalizer
++ OneHotEncoder
++ OrdinalEncoder
++ PowerTransformer
++ QuantileTransformer
++ RobustScaler
++ StandardScaler
+
+In general, any transformations are supported as long as they operate on a single column and are therefore clearly one to many.
+
+```python
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.linear_model import LogisticRegression
+from sklearn_pandas import DataFrameMapper
+
+# Assume that we have created two arrays, numerical and categorical, which holds the numerical and categorical feature names
+
+numeric_transformations = [([f], Pipeline(steps=[('imputer', SimpleImputer(strategy='median')), ('scaler', StandardScaler())])) for f in numerical]
+
+categorical_transformations = [([f], OneHotEncoder(handle_unknown='ignore', sparse=False)) for f in categorical]
+
+
+transformations = numeric_transformations + categorical_transformations
+
+# Append model to preprocessing pipeline.
+# Now we have a full prediction pipeline.
+clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
+                    ('classifier', LogisticRegression(solver='lbfgs'))])
+
+# clf.steps[-1][1] returns the trained classification model
+# Pass transformation as an input to create the explanation object
+# "features" and "classes" fields are optional
+tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
+```
+
 ## Next Steps
 
 To see a demonstration of interpretability with the Azure Machine Learning SDK, look at the [Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) on GitHub.
