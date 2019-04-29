@@ -118,6 +118,9 @@ If your environment has managed domains, hybrid Azure AD join supports:
 - Pass Through Authentication (PTA)
 - Password Hash Sync (PHS)
 
+> [!NOTE]
+> Azure AD does not support smartcards or certificates in managed domains.
+
 Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. For more information, see:
 
 - [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md)
