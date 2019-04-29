@@ -29,7 +29,7 @@ This integration provides these benefits:
 
 To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you start.
 
 ## Prerequisites
 
@@ -48,21 +48,21 @@ In this tutorial, you'll configure and test Azure AD single sign-on in a test en
 
 To set up the integration of Predictix Ordering into Azure AD, you need to add Predictix Ordering from the gallery to your list of managed SaaS apps.
 
-1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**:
 
 	![Select Azure Active Directory](common/select-azuread.png)
 
-2. Go to **Enterprise applications** > **All applications**.
+2. Go to **Enterprise applications** > **All applications**:
 
 	![Enterprise applications](common/enterprise-applications.png)
 
-3. To add an application, select **New application** at the top of the window.
+3. To add an application, select **New application** at the top of the window:
 
 	![Select New application](common/add-new-app.png)
 
-4. In the search box, enter **Predictix Ordering**. Select **Predictix Ordering** in the results and then select **Add**.
+4. In the search box, enter **Predictix Ordering**. Select **Predictix Ordering** in the search results and then select **Add**.
 
-	 ![Results list](common/search-new-app.png)
+	 ![Search results](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -72,7 +72,7 @@ To enable single sign-on, you need to establish a relationship between an Azure 
 To configure and test Azure AD single sign-on with Predictix Ordering, you need to complete these steps:
 
 1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable the feature for your users.
-2. **[Configure Predictix Ordering single sign-on](#configure-predictix-ordering-single-sign-on)** to configure the single sign-on settings on the application side.
+2. **[Configure Predictix Ordering single sign-on](#configure-predictix-ordering-single-sign-on)** to set up single sign-on on the application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Azure AD single sign-on for the user.
 5. **[Create a Predictix Ordering test user](#create-predictix-ordering-test-user)** that's linked to the Azure AD representation of the user.
@@ -86,11 +86,11 @@ To configure Azure AD single sign-on with Predictix Ordering, take these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Predictix Ordering** application integration page, select **Single sign-on**:
 
-    ![Single sign-on link](common/select-sso.png)
+    ![Select Single sign-on](common/select-sso.png)
 
 2. In the **Select a single sign-on method** dialog box, select **SAML/WS-Fed** mode to enable single sign-on:
 
-    ![Single sign-on select method](common/select-saml-option.png)
+    ![Select a sign-on method](common/select-saml-option.png)
 
 3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
 
@@ -100,16 +100,17 @@ To configure Azure AD single sign-on with Predictix Ordering, take these steps:
 
     ![Basic SAML Configuration section](common/sp-identifier.png)
 
-	a. In the **Sign on URL** box, enter a URL by using this pattern:
-    `https://<companyname-pricing>.ordering.predictix.com/sso/request`
+	1. In the **Sign on URL** box, enter a URL by using this pattern:
 
-    b. In the **Identifier (Entity ID)** box, enter a URL by using this pattern:
+       `https://<companyname-pricing>.ordering.predictix.com/sso/request`
 
-    | |
-	|--|
-	| `https://<companyname-pricing>.dev.ordering.predictix.com` |
-	| `https://<companyname-pricing>.ordering.predictix.com` |
-	| |
+    1. In the **Identifier (Entity ID)** box, enter a URL by using this pattern:
+
+        | |
+	    |--|
+    	| `https://<companyname-pricing>.dev.ordering.predictix.com` |
+    	| `https://<companyname-pricing>.ordering.predictix.com` |
+    	| |
 
 	> [!NOTE]
 	> These values aren't real. You need to use the actual sign-on URL and identifier. Contact the [Predictix Ordering support team](https://www.predix.io/support/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -122,15 +123,15 @@ To configure Azure AD single sign-on with Predictix Ordering, take these steps:
 
 	![Copy the configuration URLs](common/copy-configuration-urls.png)
 
-	a. **Login URL**.
+	1. **Login URL**.
 
-	b. **Azure AD Identifier**.
+	2. **Azure AD Identifier**.
 
-	c. **Logout URL**.
+	3. **Logout URL**.
 
 ### Configure Predictix Ordering single sign-on
 
-To configure single sign-on on the Predictix Ordering side, you need to send the certificate that you downloaded and the URLs that you copied from the Azure portal to the [Predictix Ordering support team](https://www.predix.io/support/). This team configures the setting to ensure the SAML SSO connection is set properly on both sides.
+To configure single sign-on on the Predictix Ordering side, you need to send the certificate that you downloaded and the URLs that you copied from the Azure portal to the [Predictix Ordering support team](https://www.predix.io/support/). This team ensures the SAML SSO connection is set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -148,13 +149,13 @@ In this section, you'll create a test user named Britta Simon in the Azure porta
 
     ![User dialog box](common/user-properties.png)
 
-    a. In the **Name** box, enter **BrittaSimon**.
+    1. In the **Name** box, enter **BrittaSimon**.
   
-    b. In the **User name** field, enter brittasimon@\<yourcompanydomain>.\<extension>. (For example, BrittaSimon@contoso.com.)
+    1. In the **User name** field, enter brittasimon@\<yourcompanydomain>.\<extension>. (For example, BrittaSimon@contoso.com.)
 
-    c. Select **Show Password**, and then write down the value that's in the **Password** box.
+    1. Select **Show Password**, and then write down the value that's in the **Password** box.
 
-    d. Select **Create**.
+    1. Select **Create**.
 
 ### Assign the Azure AD test user
 
@@ -162,7 +163,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **Predictix Ordering**:
 
-	![Select All applications](common/enterprise-applications.png)
+	![Enterprise applications](common/enterprise-applications.png)
 
 2. In the list of applications, select **Predictix Ordering**.
 
@@ -184,13 +185,13 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 ### Create a Predictix Ordering test user
 
-Next, you need to create a user named Britta Simon in Predictix Ordering. Work with the [Predictix Ordering support team](https://www.predix.io/support/) to add users. Users must be created and activated before you use single sign-on.
+Next, you need to create a user named Britta Simon in Predictix Ordering. Work with the [Predictix Ordering support team](https://www.predix.io/support/) to add users. Users need to be created and activated before you use single sign-on.
 
 ### Test single sign-on
 
 Now you need to test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you click the Predictix Ordering tile in the Access Panel, you should be automatically signed in to the Predictix Ordering instance for which you set up SSO. For more information, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Predictix Ordering tile in the Access Panel, you should be automatically signed in to the Predictix Ordering instance for which you set up SSO. For more information, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
