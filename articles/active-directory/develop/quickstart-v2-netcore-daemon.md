@@ -195,7 +195,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 > | `config.ClientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
 > | `config.Authority`    | (Optional) The STS endpoint for user to authenticate. Usually <https://login.microsoftonline.com/{tenant}> for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
 
-For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
+For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
 
 ### Requesting tokens
 

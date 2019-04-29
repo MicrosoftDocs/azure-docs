@@ -214,19 +214,20 @@ Service Fabric provides scaffolding tools that help you create Service Fabric ap
 1. Install Node.js and npm on your machine.
 
     ```bash
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-    nvm install node
+    sudo apt-add-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
+    sudo apt-get update
+    sudo apt-get install nodejs
     ```
 2. Install the [Yeoman](https://yeoman.io/) template generator from npm on your machine.
 
     ```bash
-    npm install -g yo
+    sudo npm install -g yo
     ```
 3. Install the Service Fabric Yeo container generator and guest executable generator from npm.
 
     ```bash
-    npm install -g generator-azuresfcontainer  # for Service Fabric container application
-    npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+    sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
+    sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
 After you install the generators, create guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer`, respectively.

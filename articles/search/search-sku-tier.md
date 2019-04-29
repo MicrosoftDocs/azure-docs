@@ -55,7 +55,7 @@ The following table lists the available tiers. Other sources of tier information
 
 ## How billing works
 
-In Azure Search, there are three ways to incur costs in Aure Search, and there are fixed and variable components. This section looks at each billing component in turn.
+In Azure Search, there are three ways to incur costs in Azure Search, and there are fixed and variable components. This section looks at each billing component in turn.
 
 ### 1. Core service costs (fixed and variable)
 
