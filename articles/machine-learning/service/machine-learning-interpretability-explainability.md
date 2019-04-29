@@ -15,17 +15,24 @@ ms.date: 04/29/2019
 
 # Model interpretability with Azure Machine Learning service
 
-In this article, you will learn how to explain why your model made the predictions it did with the interpretability package  of the Azure Machine Learning Python SDK.
+In this article, you will learn how to explain why your model made the predictions it did with the interpretability package of the Azure Machine Learning Python SDK.
+
+Using the classes and methods in this package, you can get:
++ Interpretability on real-world datasets at scale, during training time and inferencing. 
++ Interactive visualizations to aid you in the discovery of patterns in data and explanations at training time
++ Feature importance values: both raw and engineered features
 
 During the training phase of the development cycle, model designers and evaluators can use to explain the output of a model to stakeholders to build trust.  They also use the insights into the model for debugging, validating model behavior matches their objectives, and to check for bias.
 
 During the inferencing phase, data scientists can use interpretability to explain predictions to the people who use your model. For example, why did the model deny a mortgage loan, or predict that an investment portfolio carries a higher risk?
 
+Using these offering, you can explain machine learning models **globally on all data**, or **locally on a specific data point** using the state-of-art technologies in an easy-to-use and scalable fashion.
+
 The interpretability classes are made available through two Python packages. Learn how to [install SDK packages for Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* [`azureml.explain.model`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), the main package, contaiing functionalities supported by Microsoft. 
+* [`azureml.explain.model`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), the main package, containing functionalities supported by Microsoft. 
 
-* `azureml.contrib.explain.model`, preview and experimental functionalities that you can try.
+* `azureml.contrib.explain.model`, preview, and experimental functionalities that you can try.
 
 > [!IMPORTANT]
 > Things in contrib are not fully supported. As the experimental functionalities become mature, they will gradually be moved to the main package.
@@ -88,7 +95,7 @@ The explanation functions accept both models and pipelines as input. If a model 
 
 The `explain` package is designed to work with both local and remote compute targets. If run locally, The SDK functions will not contact any Azure services. You can run explanation remotely on Azure Machine Learning Compute and log the explanation info into Azure Machine Learning Run History Services. Once this information is logged, reports and visualizations from the explanation are readily available on Azure Machine Learning Workspace portal for user analysis.
 
-## Training time interpretability
+## Interpretability in training
 
 ### Train and explain locally
 
@@ -209,7 +216,228 @@ While you can train on the various compute targets supported by Azure Machine Le
     print('global importance values: {}'.format(global_importance_values))
     print('global importance names: {}'.format(global_importance_names))
     ```
-    
-## Next Steps
 
-To see a demonstration of interpretability with the Azure Machine Learning SDK, look at the [Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) on GitHub.
+## Visualizations
+
+Use the visualization dashboard to understand and interpret your model:
+
+### Global visualizations
+
+The following plots provide a global view of the trained model along with its predictions and explanations.
+
+|Plot|Description|
+|----|-----------|
+|Data Exploration| An overview of the dataset along with prediction values.|
+|Global Importance|Shows the top K (configurable K) important features globally. This chart is useful for understanding the global behavior of the underlying model.|
+|Explanation Exploration|Demonstrates how a feature is responsible for making a change in model’s prediction values (or probability of prediction values). |
+|Summary| Uses a signed local feature importance values across all data points to show the distribution of the impact each feature has on the prediction value.|
+
+[![Visualization Dashboard Global](./media/machine-learning-interpretability-explainability/global-charts.png)](./media/machine-learning-interpretability-explainability/global-charts.png#lightbox)
+
+### Local visualizations
+You can click on any individual data point at any time of the preceding plots to load the local feature importance plot for the given data point.
+
+|Plot|Description|
+|----|-----------|
+|Local Importance|Shows the top K (configurable K) important features globally. This chart is useful for understanding the local behavior of the underlying model on a specific data point.|
+
+[![Visualization Dashboard Local](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
+
+To load the visualization dashboard, use the following code:
+
+```python
+from azureml.contrib.explain.model.visualize import ExplanationDashboard
+
+ExplanationDashboard(global_explanation, model, x_test)
+``` 
+
+## Raw feature transformations
+
+Optionally, you can pass your feature transformation pipeline to the explainer to receive explanations in terms of the raw features before the transformation (rather than engineered features). If you skip this, the explainer provides explanations in terms of engineered features. 
+
+The format of supported transformations is same as the one described in [sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). In general, any transformations are supported as long as they operate on a single column and are therefore clearly one to many.
+
+```python
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.linear_model import LogisticRegression
+from sklearn_pandas import DataFrameMapper
+
+# Assume that we have created two arrays, numerical and categorical, which holds the numerical and categorical feature names
+
+numeric_transformations = [([f], Pipeline(steps=[('imputer', SimpleImputer(strategy='median')), ('scaler', StandardScaler())])) for f in numerical]
+
+categorical_transformations = [([f], OneHotEncoder(handle_unknown='ignore', sparse=False)) for f in categorical]
+
+transformations = numeric_transformations + categorical_transformations
+
+# Append model to preprocessing pipeline.
+# Now we have a full prediction pipeline.
+clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
+                    ('classifier', LogisticRegression(solver='lbfgs'))])
+
+# clf.steps[-1][1] returns the trained classification model
+# Pass transformation as an input to create the explanation object
+# "features" and "classes" fields are optional
+tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
+```
+
+## Interpretability in inferencing
+
+The explainer can be deployed along with the original model and can be used at scoring time to provide the local explanation information. The process of deploying a scoring explainer is similar to deploying a model and includes the following steps:
+
+1. Create an explanation object:
+   ```python
+   from azureml.contrib.explain.model.tabular_explainer import TabularExplainer
+
+   explainer = TabularExplainer(model, x_test)
+   ``` 
+
+1. Create a scoring explainer using the explanation object:
+   ```python
+   scoring_explainer = explainer.create_scoring_explainer(x_test)
+
+   # Pickle scoring explainer
+   scoring_explainer_path = scoring_explainer.save('scoring_explainer_deploy')
+   ``` 
+
+1. Configure and register an image that uses the scoring explainer model.
+   ```python
+   # Register explainer model using the path from ScoringExplainer.save - could be done on remote compute
+   run.upload_file('breast_cancer_scoring_explainer.pkl', scoring_explainer_path)
+   model = run.register_model(model_name='breast_cancer_scoring_explainer', model_path='breast_cancer_scoring_explainer.pkl')
+   print(model.name, model.id, model.version, sep = '\t')
+   ``` 
+
+1. [Optional] Retrieve the scoring explainer from cloud and test the explanations
+   ```python
+   from azureml.contrib.explain.model.scoring.scoring_explainer import ScoringExplainer
+
+   # Retreive the scoring explainer model from cloud"
+   scoring_explainer_model = Model(ws, 'breast_cancer_scoring_explainer')
+   scoring_explainer_model_path = scoring_explainer_model.download(target_dir=os.getcwd(), exist_ok=True)
+
+   # Load scoring explainer from disk
+   scoring_explainer = ScoringExplainer.load(scoring_explainer_model_path)
+
+   # Test scoring explainer locally
+   preds = scoring_explainer.explain(x_test)
+   print(preds)
+   ```
+
+1. Deploy the image to a compute target:
+
+   1. Create a scoring file (before this step, follow the steps in [Deploy models with the Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) to register your original prediction model)
+        ```python
+        %%writefile score.py
+        import json
+        import numpy as np
+        import os
+        import pickle
+        from sklearn.externals import joblib
+        from sklearn.linear_model import LogisticRegression
+        from azureml.core.model import Model
+
+        def init():
+
+            global original_model
+            global scoring_model
+
+            # Retrieve the path to the model file using the model name
+            # Assume original model is named original_prediction_model
+            original_model_path = Model.get_model_path('original_prediction_model')
+            scoring_explainer_path = Model.get_model_path('breast_cancer_scoring_explainer')
+
+            original_model = joblib.load(original_model_path)
+            scoring_explainer = joblib.load(scoring_explainer_path)
+
+        def run(raw_data):
+            # Get predictions and explanations for each data point
+            data = np.array(json.loads(raw_data)['data'])
+            # Make prediction
+            predictions = original_model.predict(data)
+            # Retrieve model explanations
+            local_importance_values = scoring_explainer.explain(data)
+            # You can return any data type as long as it is JSON-serializable
+            return {'predictions': predictions.tolist(), 'local_importance_values': local_importance_values}
+        ``` 
+    1. Define the deployment configuration (This configuration depends on the requirements of your model. The following example defines a configuration that uses one CPU core and 1 GB of memory)
+        ```python
+        from azureml.core.webservice import AciWebservice
+
+        aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, 
+                                                       memory_gb=1, 
+                                                       tags={"data": "breastcancer",  
+                                                             "method" : "local_explanation"}, 
+                                                       description='Get local explanations for breast cancer data')
+        ``` 
+
+    1. Create a file with environment dependencies
+
+        ```python
+        from azureml.core.conda_dependencies import CondaDependencies 
+
+        # WARNING: to install this, g++ needs to be available on the Docker image and is not by default (look at the next cell)
+
+
+        myenv = CondaDependencies.create(pip_packages=["azureml-defaults", "azureml-explain-model", "azureml-contrib-explain-model"], 
+                                        conda_packages=["scikit-learn"])
+
+        with open("myenv.yml","w") as f:
+            f.write(myenv.serialize_to_string())
+            
+        with open("myenv.yml","r") as f:
+            print(f.read())
+        ``` 
+    1. Create a custom dockerfile with g++ installed
+
+        ```python
+        %%writefile dockerfile
+        RUN apt-get update && apt-get install -y g++  
+        ``` 
+    1. Deploy the created image (time estimate: 5 minutes)
+        ```python
+        from azureml.core.webservice import Webservice
+        from azureml.core.image import ContainerImage
+
+        # Use the custom scoring, docker, and conda files we created above
+        image_config = ContainerImage.image_configuration(execution_script="score.py",
+                                                        docker_file="dockerfile", 
+                                                        runtime="python", 
+                                                        conda_file="myenv.yml")
+
+        # Use configs and models generated above
+        service = Webservice.deploy_from_model(workspace=ws,
+                                            name='model-scoring-service',
+                                            deployment_config=aciconfig,
+                                            models=[scoring_explainer_model, original_model],
+                                            image_config=image_config)
+
+        service.wait_for_deployment(show_output=True)
+        ``` 
+
+1. Test the deployment
+    ```python
+    import requests
+
+    # Create data to test service with
+    x_list = x_test.tolist()
+    examples = x_list[:4]
+    input_data = "{\"data\": " + str(examples) + "}"
+
+    headers = {'Content-Type':'application/json'}
+
+    # send request to service
+    resp = requests.post(service.scoring_uri, input_data, headers=headers)
+
+    print("POST to url", service.scoring_uri)
+    # can covert back to Python objects from json string if desired
+    print("prediction:", resp.text)
+    ``` 
+
+1. Clean up: To delete a deployed web service, use `service.delete()`.
+
+## Next steps
+
+To see a collection of Jupyter notebooks that demonstrate the instructions above, see the [Azure Machine Learning Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).

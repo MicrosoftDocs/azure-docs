@@ -130,7 +130,7 @@ Azure subscription is included with the publisher’s Independent Software Vendo
 
 *Monthly Fee:* Rates are charged or billed a fixed monthly fee for a subscription to the offering (from the start date of the subscription for that plan). The monthly fee may be prorated for mid-month cancellations or unused services.
 
-Offer specific pricing details can be found on the solution details page on [https://azure.microsoft.com/en-us/pricing/](https://azure.microsoft.com/pricing/) or within the [Microsoft Azure Management portal](https://portal.azure.com/).
+Offer specific pricing details can be found on the solution details page on [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) or within the [Microsoft Azure Management portal](https://portal.azure.com/).
 
 >[!Note]
 > Except for monthly fees, Azure usage charges are applicable to all pricing models unless otherwise stated.
@@ -541,7 +541,7 @@ Pricing varies based on product types and publisher specifications. Software lic
 
 * **Monthly Fee**: You are charged or billed a fixed monthly fee for a subscription to the offering, from start of that particular plan. The monthly fee may be prorated for mid-month cancellations or unused services.
 
-Pricing details can be found on the solution details page on [https://azure.microsoft.com/en-us/pricing/](https://azure.microsoft.com/pricing/), or within the Microsoft Azure Management portal.
+Pricing details can be found on the solution details page on [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/), or within the Microsoft Azure Management portal.
 
 >[!Note]
 >Except for monthly fees, Azure usage charges are applicable to all pricing models unless otherwise stated.
