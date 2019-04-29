@@ -35,7 +35,7 @@ The following table lists the provisioning states for a SaaS subscription, inclu
 
 #### Provisioning
 
-When a customer initiates a purchase, the ISV receives this information in an Auth Code on a customer interactive web page using a URL parameter. For example: https://contoso.com/signup?token=.., where the landing page URL provider in partner center is https://contoso.com/signup. The Auth code can be validated and exchanged for the details of what needs to be provisioned by calling the Resolve API.  When the SaaS service finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed.  The following diagram shows the sequence of API calls for a provisioning scenario.  
+When a customer initiates a purchase, the ISV receives this information in an Auth Code on a customer interactive web page using a URL parameter. For example: `https://contoso.com/signup?token=..`, where the landing page URL provider in partner center is `https://contoso.com/signup`. The Auth code can be validated and exchanged for the details of what needs to be provisioned by calling the Resolve API.  When the SaaS service finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed.  The following diagram shows the sequence of API calls for a provisioning scenario.  
 
 ![API calls for provisioning a SaaS service.](./media/saas-post-provisioning-api-v2-calls.png)
 
@@ -112,7 +112,7 @@ The resolve endpoint enables the publisher to resolve a marketplace token to a p
 |  x-ms-requestid    |  Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 |  x-ms-correlationid |  Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value is not provided, one will be generated and provided in the response headers.  |
 |  authorization     |  [Get JSON web token (JWT) bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
-|  x-ms-marketplace-token  |  Token query parameter in the URL when the user is redirected to the SaaS ISV’s website from Azure (For eg: https://contoso.com/signup?token=..). *Note:* The URL decodes the token value from the browser before using it.  |
+|  x-ms-marketplace-token  |  Token query parameter in the URL when the user is redirected to the SaaS ISV’s website from Azure (For eg: `https://contoso.com/signup?token=..`). *Note:* The URL decodes the token value from the browser before using it.  |
 
 *Response codes:*
 
