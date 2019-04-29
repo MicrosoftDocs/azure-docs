@@ -131,7 +131,7 @@ Add the full image name, including the private registry URL (for example, myacr.
 
 **Can I expose more than one port on my custom container image?**
 
-We do not currently support exposing more than one port.
+We don't support exposing more than one port.
 
 **Can I bring my own storage?**
 

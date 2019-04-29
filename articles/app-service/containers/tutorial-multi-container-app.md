@@ -249,7 +249,7 @@ For more information on environment variables, see [Configure environment variab
 
 ### Use a custom image for MySQL SSL and other configurations
 
-By default, SSL is used by Azure Database for MySQL. WordPress requires additional configuration to use SSL with MySQL. The WordPress 'official image' doesn't provide the additional configuration, but a [custom image](https://github.com/Azure-Samples/multicontainerwordpress) has been prepared fo your convenience. In practice, you would add desired changes to your own image.
+By default, SSL is used by Azure Database for MySQL. WordPress requires additional configuration to use SSL with MySQL. The WordPress 'official image' doesn't provide the additional configuration, but a [custom image](https://github.com/Azure-Samples/multicontainerwordpress) has been prepared for your convenience. In practice, you would add desired changes to your own image.
 
 The custom image is based on the 'official image' of [WordPress from Docker Hub](https://hub.docker.com/_/wordpress/). The following changes have been made in this custom image for Azure Database for MySQL:
 
@@ -466,7 +466,7 @@ Complete the steps and install WordPress.
 
 ### Connect WordPress to Redis
 
-Log-in to WordPress admin. In the left navigation, select **Plugins**, and then select **Installed Plugins**.
+Sign in to WordPress admin. In the left navigation, select **Plugins**, and then select **Installed Plugins**.
 
 ![Select WordPress Plugins][2]
 

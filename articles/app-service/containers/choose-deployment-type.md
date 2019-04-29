@@ -39,3 +39,20 @@ The primary factors to consider are:
 - **Disk read/write requirements**: All web apps are allocated a storage volume for web content. This volume, backed by Azure Storage, is mounted to `/home` in the app's filesystem. Unlike files in the container filesystem, files in the content volume are accessible across all scale instances of an app, and modifications will persist across app restarts. However, the disk latency of the content volume is higher and more variable than the latency of the local container filesystem, and access can be impacted by platform upgrades, unplanned downtime, and network connectivity issues. Apps that require heavy read-only access to content files may benefit from custom image deployment, which places files in the image filesystem instead of on the content volume.
 - **Build resource usage**: When an app is deployed from source, the deployment scripts run by Kudu use the same App Service Plan compute and storage resources as the running app. Large app deployments may consume more resources or time than desired. In particular, many deployment workflows generate heavy disk activity on the app content volume, which is not optimized for such activity. A custom image delivers all of your app's files and dependencies to Azure in a single package with no need for additional file transfers or deployment actions.
 - **Need for rapid iteration**: Dockerizing an app requires additional build steps. For changes to take effect, you must push your new image to a repository with each update. These updates are then pulled to the Azure environment. If one of the built-in containers meets your app's needs, deploying from source may offer a faster development workflow.
+
+## Next steps
+
+Custom container:
+* [Run custom container](quickstart-docker-go.md)
+
+Multi-container:
+* [Create multi-container app](quickstart-multi-container.md)
+
+The following articles get you started with App Service on Linux with a built-in platform image:
+
+* [.NET Core](quickstart-dotnetcore.md)
+* [PHP](quickstart-php.md)
+* [Node.js](quickstart-nodejs.md)
+* [Java](quickstart-java.md)
+* [Python](quickstart-python.md)
+* [Ruby](quickstart-ruby.md)
