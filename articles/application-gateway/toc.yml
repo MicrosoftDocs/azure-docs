@@ -183,6 +183,8 @@
       href: rewrite-http-headers-portal.md    
     - name: Azure PowerShell
       href: add-http-header-rewrite-rule-powershell.md
+    - name: Create and rewrite HTTP headers
+      href: tutorial-http-header-rewrite-powershell.md
   - name: Configure App service webapp and multi-tenant service
     items:
     - name: Portal
