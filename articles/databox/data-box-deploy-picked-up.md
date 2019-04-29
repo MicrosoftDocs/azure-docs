@@ -1,5 +1,5 @@
 ---
-title: Ship Microsoft Azure Data Box back| Microsoft Docs
+title: Tutorial to ship Azure Data Box back| Microsoft Docs
 description: Learn how to ship your Azure Data Box to Microsoft
 services: databox
 author: alkohli
