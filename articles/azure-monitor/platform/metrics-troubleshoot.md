@@ -104,13 +104,7 @@ By default, Guest OS metrics are stored in Azure Storage account, which you pick
     > [!WARNING]
     > You cannot use [Log Analytics agent](agents-overview.md#log-analytics-agent) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest OS** into a storage account.
 
-1. Verify that storage account isn't protected by the firewall or network security rules allow Azure portal to access metrics. You may need to do one of more of the following actions:
-
-    a. [Grant access to storage account from your virtual network](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)
-
-    b. [Grant access to storage account from your internet IP range](../../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range)
-
-    c. [Configure an exception to grant access to metrics tables](../../storage/common/storage-network-security.md#managing-exceptions).
+1. Verify that storage account isn't protected by the firewall.
 
 1. Use the [Azure storage explorer](https://azure.microsoft.com/features/storage-explorer/) to validate that metrics are flowing into the storage account. If metrics aren't collected, follow the [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
