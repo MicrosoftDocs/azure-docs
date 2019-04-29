@@ -99,7 +99,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
     az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
     ```
     
-## <a id="experiments"></a>Run Experiments
+## <a id="experiments"></a>Run experiments
 
 + Attach a workspace configuration to a folder to enable CLI contextual awareness.
 
@@ -119,7 +119,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
     az ml experiment list
     ```
 
-## Model registration, profiling & deployment
+## Model registration, profiling, deployment
 
 The following commands demonstrate how to register a trained model, and then deploy it as a production service:
 
