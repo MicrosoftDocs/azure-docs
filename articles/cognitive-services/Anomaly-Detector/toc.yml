@@ -19,7 +19,7 @@
 - name: Tutorials
   items:
     - name: Anomaly detection on streaming data using Azure Databricks
-      href: tutorials/anomaly-detection-on-streaming-data.md
+      href: tutorials/anomaly-detection-on-streaming-data-using-azure-databricks.md
 - name: How-to guides
   items:
     - name: Identify anomalies in your data
