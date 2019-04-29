@@ -124,33 +124,31 @@ To copy data from HDFS in **Parquet or delimited text format**, refer to [Parque
 | fileName   | The file name under the given folderPath. If you want to use wildcard to filter files, skip this setting and specify in activity source settings. | No       |
 
 > [!NOTE]
->
-> **FileShare** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup activity for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types; all the existing capabilities are supported.
+> **FileShare** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup activity for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
 ```json
 {
-	"name": "DelimitedTextDataset",
-	"properties": {
-		"type": "DelimitedText",
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
         "linkedServiceName": {
-          	"referenceName": "<HDFS linked service name>",
-          	"type": "LinkedServiceReference"
-    	},
-        "schema": [ <physical schema, optional, auto retrieved during authoring> ],
-        "typeProperties":{
-          	"location": {
-            	"type": "HdfsLocation",
+            "referenceName": "<HDFS linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "HdfsLocation",
                 "folderPath": "root/folder/subfolder"
-          	},
+            },
             "columnDelimiter": ",",
-        	"rowDelimiter": "\r\n",
-        	"quoteChar": "\"",
-        	"firstRowAsHeader": true,
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
             "compressionCodec": "gzip"
         }
-  	}
+    }
 }
 ```
 
@@ -229,8 +227,7 @@ To copy data from HDFS in **Parquet or delimited text format**, refer to [Parque
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                  |
 
 > [!NOTE]
->
-> For Parquet/delimited text format, **FileSystemSource** type copy activity source mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types; all the existing capabilities are supported.
+> For Parquet/delimited text format, **FileSystemSource** type copy activity source mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 

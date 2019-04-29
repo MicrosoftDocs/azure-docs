@@ -21,7 +21,7 @@ This article outlines how to copy data from Google Cloud Storage. To learn about
 
 This Google Cloud Storage connector is supported for the following activities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md) table
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
 
@@ -95,34 +95,32 @@ To copy data from Google Cloud Storage in **Parquet or delimited text format**, 
 | fileName   | The file name under the given bucket + folderPath. If you want to use wildcard to filter files, skip this setting and specify in activity source settings. | No       |
 
 > [!NOTE]
->
-> **AmazonS3Object** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup/GetMetadata activity for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types; all the existing capabilities are supported.
+> **AmazonS3Object** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup/GetMetadata activity for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
 ```json
 {
-	"name": "DelimitedTextDataset",
-	"properties": {
-		"type": "DelimitedText",
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
         "linkedServiceName": {
-          	"referenceName": "<Google Cloud Storage linked service name>",
-          	"type": "LinkedServiceReference"
-    	},
-        "schema": [ <physical schema, optional, auto retrieved during authoring> ],
-        "typeProperties":{
-          	"location": {
-            	"type": "AmazonS3Location",
+            "referenceName": "<Google Cloud Storage linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "AmazonS3Location",
                 "bucketName": "bucketname",
                 "folderPath": "folder/subfolder"
-          	},
+            },
             "columnDelimiter": ",",
-        	"rowDelimiter": "\r\n",
-        	"quoteChar": "\"",
-        	"firstRowAsHeader": true,
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
             "compressionCodec": "gzip"
         }
-  	}
+    }
 }
 ```
 
@@ -188,20 +186,19 @@ For a full list of sections and properties available for defining activities, se
 
 To copy data from  Google Cloud Storage in **Parquet or delimited text format**, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based copy activity source and supported settings. The following properties are supported for Google Cloud Storage under `storeSettings` settings in format-based copy source:
 
-| Property                 | Description                                                  | Required |
-| ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | The type property under `storeSettings` must be set to **AmazonS3ReadSetting**. | Yes      |
-| recursive                | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. Allowed values are **true** (default) and **false**. | No       |
-| prefix                   | Prefix for the S3 object key under the given bucket configured in dataset to filter source objects. Objects whose keys start with this prefix are selected. Applies only when "key" property is not specified. |          |
-| wildcardFolderPath       | The folder path with wildcard characters under the given bucket configured in dataset to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No       |
-| wildcardFileName         | The file name with wildcard characters under the given bucket + folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No       |
-| modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected. | No       |
-| modifiedDatetimeEnd      | Same as above.                                               | No       |
-| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
+| Property                 | Description                                                  | Required                                                    |
+| ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
+| type                     | The type property under `storeSettings` must be set to **AmazonS3ReadSetting**. | Yes                                                         |
+| recursive                | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. Allowed values are **true** (default) and **false**. | No                                                          |
+| prefix                   | Prefix for the S3 object key under the given bucket configured in dataset to filter source objects. Objects whose keys start with this prefix are selected. Applies only when `wildcardFolderPath` and `wildcardFileName` properties are not specified. |                                                             |
+| wildcardFolderPath       | The folder path with wildcard characters under the given bucket configured in dataset to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                                          |
+| wildcardFileName         | The file name with wildcard characters under the given bucket + folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes if `fileName` in dataset and `prefix` are not specified |
+| modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected. | No                                                          |
+| modifiedDatetimeEnd      | Same as above.                                               | No                                                          |
+| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                                          |
 
 > [!NOTE]
->
-> For Parquet/delimited text format, **FileSystemSource** type copy activity source mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types; all the existing capabilities are supported.
+> For Parquet/delimited text format, **FileSystemSource** type copy activity source mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 

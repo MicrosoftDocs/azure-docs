@@ -19,18 +19,16 @@ ms.author: jingwang
 
 This article outlines how to copy data to and from Azure Blob storage. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
-This Azure Blob connector is supported for the following activities:
-
-- [Copy activity](copy-activity-overview.md)
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
-- [GetMetadata activity](control-flow-get-metadata-activity.md)
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Supported capabilities
 
-You can copy data from any supported source data store to Blob storage. You also can copy data from Blob storage to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md) table.
+This Azure Blob connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Mapping data flow](concepts-data-flow-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+- [GetMetadata activity](control-flow-get-metadata-activity.md)
 
 Specifically, this Blob storage connector supports:
 
@@ -320,33 +318,32 @@ To copy data to and from Blob storage in Parquet or delimited text format, refer
 
 > [!NOTE]
 >
-> AzureBlob type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup/GetMetadata activity for backward compatibility, but it doesn't work with Mapping Data Flow. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types; all the existing capabilities are supported.
+> **AzureBlob** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup/GetMetadata activity for backward compatibility, but it doesn't work with Mapping Data Flow. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
 ```json
 {
-	"name": "DelimitedTextDatasetOnAzureBlob",
-	"properties": {
-		"type": "DelimitedText",
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
         "linkedServiceName": {
-          	"referenceName": "<Azure Blob Storage linked service name>",
-          	"type": "LinkedServiceReference"
-    	},
-        "schema": [ <physical schema, optional, auto retrieved during authoring> ],
-        "typeProperties":{
-          	"location": {
-            	"type": "AzureBlobStorageLocation",
+            "referenceName": "<Azure Blob Storage linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobStorageLocation",
                 "container": "containername",
                 "folderPath": "folder/subfolder"
-          	},
+            },
             "columnDelimiter": ",",
-        	"rowDelimiter": "\r\n",
-        	"quoteChar": "\"",
-        	"firstRowAsHeader": true,
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
             "compressionCodec": "gzip"
         }
-  	}
+    }
 }
 ```
 
@@ -361,7 +358,7 @@ To copy data to and from Blob storage in ORC/Avro/JSON/Binary format, set the ty
 | fileName | **Name or wildcard filter** for the blob(s) under the specified "folderPath". If you don't specify a value for this property, the dataset points to all blobs in the folder. <br/><br/>For filter, allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual file name has wildcard or this escape char inside.<br/><br/>When fileName isn't specified for an output dataset and **preserveHierarchy** isn't specified in the activity sink, the copy activity automatically generates the blob name with the following pattern: "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*", e.g. "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; if you copy from tabular source using table name instead of query, the name pattern is "*[table name].[format].[compression if configured]*", e.g. "MyTable.csv". |No |
 | modifiedDatetimeStart | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.| No |
 | modifiedDatetimeEnd | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.| No |
-| format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both the input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat** (back-compat). Set the **type** property under **format** to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs.md#text-format), [JSON format](supported-file-formats-and-compression-codecs.md#json-format), [Avro format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
+| format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both the input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under **format** to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs.md#text-format), [JSON format](supported-file-formats-and-compression-codecs.md#json-format), [Avro format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are **Optimal** and **Fastest**. |No |
 
 >[!TIP]
@@ -410,20 +407,18 @@ For a full list of sections and properties available for defining activities, se
 
 To copy data from Blob storage in Parquet or delimited text format, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based copy activity source and supported settings. The following properties are supported for Azure Blob under `storeSettings` settings in format-based copy source:
 
-| Property                 | Description                                                  | Required |
-| ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | The type property under `storeSettings` must be set to **AzureBlobStorageReadSetting**. | Yes      |
-| recursive                | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. Allowed values are **true** (default) and **false**. | No       |
-| wildcardFolderPath       | The folder path with wildcard characters under the given container configured in dataset to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No       |
-| wildcardFileName         | The file name with wildcard characters under the given container + folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. 
-See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No       |
-| modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br>
-The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected. | No       |
-| modifiedDatetimeEnd      | Same as above.                                               | No       |
-| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
+| Property                 | Description                                                  | Required                                      |
+| ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
+| type                     | The type property under `storeSettings` must be set to **AzureBlobStorageReadSetting**. | Yes                                           |
+| recursive                | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. Allowed values are **true** (default) and **false**. | No                                            |
+| wildcardFolderPath       | The folder path with wildcard characters under the given container configured in dataset to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
+| wildcardFileName         | The file name with wildcard characters under the given container + folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes if `fileName` is not specified in dataset |
+| modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected. | No                                            |
+| modifiedDatetimeEnd      | Same as above.                                               | No                                            |
+| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                            |
+
 > [!NOTE]
->
-> For Parquet/delimited text format, BlobSource type copy activity source mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types; all the existing capabilities are supported.
+> For Parquet/delimited text format, **BlobSource** type copy activity source mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
@@ -524,8 +519,7 @@ To copy data to Blob storage in Parquet or delimited text format, refer to [Parq
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
 
 > [!NOTE]
->
-> For Parquet/delimited text format, BlobSink type copy activity sink mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types; all the existing capabilities are supported.
+> For Parquet/delimited text format, **BlobSink** type copy activity sink mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 

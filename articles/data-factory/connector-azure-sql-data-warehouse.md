@@ -418,7 +418,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Service principal authentication |
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Account key authentication |
 
-2. The **source dataset format** is of **ParquetFormat**, **OrcFormat**, or **TextFormat**, with the following configurations:
+2. The **source data format** is of **Parquet**, **ORC**, or **Delimited text**, with the following configurations:
 
    1. `folderPath` and `fileName` don't contain wildcard filter.
    2. `rowDelimiter` must be **\n**.
@@ -426,20 +426,6 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
    4. `encodingName` is set to **utf-8**, which is the default value.
    5. `escapeChar`, `quoteChar` and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
    6. `compression` can be **no compression**, **GZip**, or **Deflate**.
-
-      ```json
-      "typeProperties": {
-        "folderPath": "<path>",
-        "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "<any delimiter>",
-            "rowDelimiter": "\n",
-            "nullValue": "",
-            "encodingName": "utf-8",
-            "firstRowAsHeader": <any>
-        }
-      },
-      ```
 
 ```json
 "activities":[

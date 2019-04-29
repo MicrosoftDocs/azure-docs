@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 04/29/2019
 ms.author: jingwang
 
 ---
@@ -175,33 +175,31 @@ To copy data from HTTP in **Parquet or delimited text format**, refer to [Parque
 > The supported HTTP request payload size is around 500 KB. If the payload size you want to pass to your web endpoint is larger than 500 KB, consider batching the payload in smaller chunks.
 
 > [!NOTE]
->
-> **HttpFile** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup activity for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types; all the existing capabilities are supported.
+> **HttpFile** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup activity for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
 ```json
 {
-	"name": "DelimitedTextDataset",
-	"properties": {
-		"type": "DelimitedText",
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
         "linkedServiceName": {
-          	"referenceName": "<HTTP linked service name>",
-          	"type": "LinkedServiceReference"
-    	},
-        "schema": [ <physical schema, optional, auto retrieved during authoring> ],
-        "typeProperties":{
-          	"location": {
-            	"type": "HttpServerLocation",
+            "referenceName": "<HTTP linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "HttpServerLocation",
                 "relativeUrl": "<relative url>"
-          	},
+            },
             "columnDelimiter": ",",
-        	"rowDelimiter": "\r\n",
-        	"quoteChar": "\"",
-        	"firstRowAsHeader": true,
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
             "compressionCodec": "gzip"
         }
-  	}
+    }
 }
 ```
 
@@ -286,8 +284,7 @@ To copy data from HTTP in **Parquet or delimited text format**, refer to [Parque
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
 
 > [!NOTE]
->
-> For Parquet/delimited text format, **HttpSource** type copy activity source mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types; all the existing capabilities are supported.
+> For Parquet/delimited text format, **HttpSource** type copy activity source mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 

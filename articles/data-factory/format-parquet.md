@@ -3,7 +3,7 @@ title: Parquet format in Azure Data Factory | Microsoft Docs
 description: 'This topic describes how to deal with Parquet format in Azure Data Factory.'
 author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 
 ms.service: data-factory
 ms.workload: data-services
@@ -30,30 +30,29 @@ For a full list of sections and properties available for defining datasets, see 
 | compressionCodec | The compression codec to use when writing to Parquet files. When reading from Parquet files, Data Factory automatically determine the compression codec based on the file metadata.<br>Supported types are “**none**”, “**gzip**”, “**snappy**” (default), and "**lzo**". Note currently Copy activity doesn't support LZO. | No       |
 
 > [!NOTE]
->
 > White space in column name is not supported for Parquet files.
 
 Below is an example of Parquet dataset on Azure Blob Storage:
 
 ```json
 {
-	"name": "ParquetDataset",
-	"properties": {
-		"type": "Parquet",
+    "name": "ParquetDataset",
+    "properties": {
+        "type": "Parquet",
         "linkedServiceName": {
-          	"referenceName": "<Azure Blob Storage linked service name>",
-          	"type": "LinkedServiceReference"
-    	},
-        "schema": [ <physical schema, optional, auto retrieved during authoring> ],
-        "typeProperties":{
-          	"location": {
-            	"type": "AzureBlobStorageLocation",
+            "referenceName": "<Azure Blob Storage linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobStorageLocation",
                 "container": "containername",
                 "folderPath": "folder/subfolder",
-          	},
+            },
             "compressionCodec": "snappy"
         }
-  	}
+    }
 }
 ```
 
