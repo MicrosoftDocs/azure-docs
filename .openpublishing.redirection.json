@@ -4706,6 +4706,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/automation/automation-change-tracking.md",
+      "redirect_url": "/azure/automation/change-tracking",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/extensions/custom-script-classic.md",
       "redirect_url": "/azure/virtual-machines/extensions/custom-script-windows",
       "redirect_document_id": false
