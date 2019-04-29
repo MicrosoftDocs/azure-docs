@@ -38,7 +38,7 @@ Spark Connector can be built from [sources](https://github.com/Azure/azure-kusto
 > [!NOTE]
 > This step is optional. If you are using pre-built libraries go to [Spark cluster setup](#spark-cluster-setup).
 
-### Build Prerequisites
+### Build prerequisites
 
 * Java 1.8 SDK installed
 * [Maven 3.x](https://maven.apache.org/download.cgi) installed
@@ -57,7 +57,7 @@ For Scala/Java applications using Maven project definitions, link your applicati
    </dependency>
 ```
 
-### Build Commands
+### Build commands
 
 To build jar and run all tests:
 
@@ -99,9 +99,9 @@ For more information, see [connector usage](https://github.com/Azure/azure-kusto
 
 ## Authentication
 
-Azure Data Explorer Spark connector allows you to authenticate with Azure Active Directory (Azure AD) using an [Azure AD application](#aad-application-authentication), [Azure AD access token](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [device authentication](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (for non-production scenarios), or [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault). The user must install azure-keyvault package and provide application credentials to access the Key Vault resource.
+Azure Data Explorer Spark connector allows you to authenticate with Azure Active Directory (Azure AD) using an [Azure AD application](#azure-ad-application-authentication), [Azure AD access token](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [device authentication](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (for non-production scenarios), or [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault). The user must install azure-keyvault package and provide application credentials to access the Key Vault resource.
 
-### Azure AD Application Authentication
+### Azure AD application authentication
 
 Most simple and common authentication method. This method is recommended for Azure Data Explorer Spark connector usage.
 
