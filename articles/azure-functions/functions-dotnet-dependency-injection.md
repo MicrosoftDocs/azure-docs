@@ -19,6 +19,14 @@ Azure Functions supports the dependency injection (DI) software design pattern, 
 
 Azure Functions builds on top of the ASP.NET Core Dependency Injection features.  You should understand services, lifetimes, and design patterns of [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) before using them in functions.
 
+## Installing dependency injection packages
+
+In order to use the dependency injection features, you will need to include the NuGet package that exposes those APIs.
+
+```powershell
+Install-Package Microsoft.Azure.Functions.Extensions
+```
+
 ## Registering services
 
 To register services, you can create a configure method and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an `IFunctionsHostBuilder` and passes it directly into your configured method.
