@@ -111,6 +111,10 @@ The following table shows the code differences between v2 and v3 for common scen
 > [!NOTE]
 > This page will be maintained as the Media Services team makes continued improvements to the v3 APIs and addresses the gaps between the versions.
 
+## Provide feedback
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
+
 ## Next steps
 
 To see how easy it is to start encoding and streaming video files, check out [Stream files](stream-files-dotnet-quickstart.md). 

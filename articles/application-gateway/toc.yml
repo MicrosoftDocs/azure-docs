@@ -63,6 +63,8 @@
       href: ssl-overview.md
     - name: SSL policy overview
       href: application-gateway-ssl-policy-overview.md
+    - name: Using Key Vault
+      href: key-vault-certs.md
   - name: WAF
     items:
     - name: Web application firewall
@@ -107,6 +109,8 @@
         href: tutorial-ssl-powershell.md
       - name: SSL termination - Azure CLI
         href: tutorial-ssl-cli.md
+      - name: Configure Key Vault - PowerShell
+        href: configure-keyvault-ps.md
     - name: End-to-end SSL
       items:        
       - name: End-to-end SSL - Portal

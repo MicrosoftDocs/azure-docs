@@ -53,7 +53,7 @@ The set of optional claims available by default for applications to use are list
 | `auth_time`                | Time when the user last authenticated. See OpenID Connect spec.| JWT        |           |  |
 | `tenant_region_scope`      | Region of the resource tenant | JWT        |           | |
 | `home_oid`                 | For guest users, the object ID of the user in the user’s home tenant.| JWT        |           | |
-| `sid`                      | Session ID, used for per-session user sign out. | JWT        |           |         |
+| `sid`                      | Session ID, used for per-session user sign out. | JWT        |  Personal and Azure AD accounts.   |         |
 | `platf`                    | Device platform    | JWT        |           | Restricted to managed devices that can verify device type.|
 | `verified_primary_email`   | Sourced from the user’s PrimaryAuthoritativeEmail      | JWT        |           |         |
 | `verified_secondary_email` | Sourced from the user’s SecondaryAuthoritativeEmail   | JWT        |           |        |
@@ -87,7 +87,6 @@ These claims are always included in v1.0 Azure AD tokens, but not included in v2
 | `family_name` | Last Name                       | Provides the last name, surname, or family name of the user as defined in the user object. <br>"family_name":"Miller" | Supported in MSA and AAD   |
 | `given_name`  | First name                      | Provides the first or "given" name of the user, as set on the user object.<br>"given_name": "Frank"                   | Supported in MSA and AAD  |
 | `upn`         | User Principal Name | An identifer for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and should not be used to key data. | See [additional properties](#additional-properties-of-optional-claims) below for configuration of the claim. |
-| `sid`         | Session ID                      | GUID session identifier, used for tracking authentication session with MSA. | MSA only.  Will not be included for Azure AD accounts. | 
 
 
 ### Additional properties of optional claims

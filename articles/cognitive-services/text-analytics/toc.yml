@@ -69,7 +69,7 @@
   - name: PowerShell reference
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Text Analytics API
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
+    href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7
   - name: SDKs
     items:
     - name: .NET
@@ -81,7 +81,7 @@
     - name: Node.js 
       href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest
     - name: Go
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics
 - name: Resources
   items:
   - name: Identify the sentiment of comments in a Yammer group with MS Flow

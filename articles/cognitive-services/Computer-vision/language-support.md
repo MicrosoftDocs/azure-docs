@@ -38,7 +38,7 @@ OCR automatically detects the language of the input material, so there is no nee
 |Hungarian | `hu` |✔ |
 |Italian | `it` |✔ |
 |Japanese | `ja` |✔ |
-|Korean | `ko ` |✔ |
+|Korean | `ko` |✔ |
 |Norwegian | `nb` |✔ |
 |Polish | `pl` |✔ |
 |Portuguese | `pt` |✔ |

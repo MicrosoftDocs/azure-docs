@@ -4,7 +4,6 @@ titleSuffix: Azure Cognitive Services
 description: Get an access key for Text Analytics operations to submit raw text for processing in Cognitive Services.
 services: cognitive-services
 author: aahill
-
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics

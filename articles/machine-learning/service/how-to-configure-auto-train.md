@@ -236,43 +236,6 @@ If you use `preprocess=True`, the following data preprocessing steps are perform
 ## Ensemble Models
 Ensemble learning improves machine learning results and predictive performance by combing many models as opposed to using single models. When using automated machine learning, you can train ensemble models using the [Caruana ensemble selection algorithm with sorted Ensemble initialization](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). The ensemble iteration appears as the last iteration of your run.
 
-## Time Series Forecasting
-For time series forecasting task type you have additional parameters to define.
-1. time_column_name - This is a required parameter which defines the name of the column in your training data containing date/time series. 
-1. max_horizon - This defines the length of time you want to predict out based on the periodicity of the training data. For example if you have training data with daily time grains, you define how far out in days you want the model to train for.
-1. grain_column_names - This defines the name of columns which contain individual time series data in your training data. For example, if you are forecasting sales of a particular brand by store, you would define store and brand columns as your grain columns.
-
-See example of these settings being used below, notebook example is available [here](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
-
-```python
-# Setting Store and Brand as grains for training.
-grain_column_names = ['Store', 'Brand']
-nseries = data.groupby(grain_column_names).ngroups
-
-# View the number of time series data with defined grains
-print('Data contains {0} individual time-series.'.format(nseries))
-```
-
-```python
-time_series_settings = {
-    'time_column_name': time_column_name,
-    'grain_column_names': grain_column_names,
-    'drop_column_names': ['logQuantity'],
-    'max_horizon': n_test_periods
-}
-
-automl_config = AutoMLConfig(task='forecasting',
-                             debug_log='automl_oj_sales_errors.log',
-                             primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
-                             X=X_train,
-                             y=y_train,
-                             n_cross_validations=5,
-                             path=project_folder,
-                             verbosity=logging.INFO,
-                             **time_series_settings)
-```
-
 ## Run experiment
 
 Submit the experiment to run and generate a model. Pass the `AutoMLConfig` to the `submit` method to generate the model.

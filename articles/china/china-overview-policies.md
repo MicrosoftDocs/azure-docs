@@ -34,7 +34,7 @@ The following agencies are involved in decisions related to Azure hosting:
 This basic background is intended to help you get started. For updated and official laws and regulations, refer to each Chinese government organization’s office public announcements. 
 
 ## Step 1: ICP license and filing
-To host a website on a server located in mainland China, you must apply for a state-issued registration number: either the ICP license for commercial entities or the ICP filing for non-commercial entities.
+To host a website on a server located in China, you must apply for a state-issued registration number: either the ICP license for commercial entities or the ICP filing for non-commercial entities.
 
 Sharing an ICP license is against Chinese laws and regulations. Providers that violate this law can be shut down at any time, with no notice, along with the websites they host. In addition, if your organization shares an ICP license, you no longer own your online presence in China. This includes your website, hosting, and even domain name. If your provider goes out of business or stops services, you have little to no legal recourse.
 

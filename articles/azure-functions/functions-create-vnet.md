@@ -118,7 +118,7 @@ Functions running in a Premium plan share the same underlying App Service infras
 * [Connect to individual on-premises resources without firewall changes by using Hybrid Connections](../app-service/app-service-hybrid-connections.md)
 * [Learn more about Functions Proxies](./functions-proxies.md)
 
-<!--Image references-->
+<!--Image references -->
 [1]: ./media/functions-create-vnet/topology.png
 [2]: ./media/functions-create-vnet/create-function-app.png
 [3]: ./media/functions-create-vnet/create-app-service-plan.png

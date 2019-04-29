@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -123,6 +123,8 @@ To run sync, use [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/po
 To set the number of query replicas, use [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specify the optional `-ReadonlyReplicaCount` parameter.
 
 To separate the processing server from the query pool, use [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specify the optional `-DefaultConnectionMode` parameter to use `Readonly`.
+
+To learn more, see [Using a service principal with the Az.AnalysisServices module](analysis-services-service-principal.md#azmodule).
 
 ## Connections
 

@@ -53,7 +53,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
-     var authKey = new "your authKey from the Azure portal";
+     var authKey = "your authKey from the Azure portal";
      DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
      new ConnectionPolicy
      {

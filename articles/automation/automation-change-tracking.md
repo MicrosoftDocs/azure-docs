@@ -17,6 +17,10 @@ This article helps you use the Change Tracking solution to easily identify chang
 
 Changes to installed software, Windows services, Windows registry and files, and Linux daemons on the monitored servers are sent to the Azure Monitor service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
 
+> [!NOTE]
+> Azure Automation Change Tracking tracks changes in virtual machines. To track Azure Resource
+> Manager property changes, see Azure Resource Graph's [Change history](../governance/resource-graph/how-to/get-resource-changes.md).
+
 ## Supported Windows operating systems
 
 The following versions of the Windows operating system are officially supported for the Windows agent:
