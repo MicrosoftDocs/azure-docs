@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -78,6 +78,7 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 To configure and test Azure AD single sign-on with Alibaba Cloud Service (Role-based SSO), you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure Role-Based Single Sign-On in Alibaba Cloud Service](#configure-role-based-single-sign-on-in-alibaba-cloud-service)** - to enable your users to use this feature.
 2. **[Configure Alibaba Cloud Service (Role-based SSO) Single Sign-On](#configure-alibaba-cloud-service-role-based-sso-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
@@ -166,7 +167,7 @@ To configure Azure AD single sign-on with Alibaba Cloud Service (Role-based SSO)
 
 	c. Logout URL
 
-### Configure role-based SSO in Alibaba Cloud
+### Configure Role-Based Single Sign-On in Alibaba Cloud Service
 
 1. Sign in to the Alibaba Cloud [RAM console](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A%2F%2Fram.console.aliyun.com%2F%3Fspm%3Da2c63.p38356.879954.8.7d904e167h6Yg9) by using Account1.
 
@@ -187,7 +188,7 @@ the **Note** field, click **Upload** to upload the federation metadata file you 
 7. Associate the Alibaba Cloud RAM role (AADrole) with the Azure AD user (u2):
 To associate the RAM role with the Azure AD user, you must create a role in Azure AD by following these steps:
 
-	a. Log on to the [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer?spm=a2c63.p38356.879954.9.7d904e167h6Yg9).
+	a. Sign on to the [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer?spm=a2c63.p38356.879954.9.7d904e167h6Yg9).
 
 	b. Click **modify permissions** to obtain required permissions for creating a role.
 
