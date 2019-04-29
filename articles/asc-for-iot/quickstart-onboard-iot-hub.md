@@ -6,7 +6,7 @@ services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 670e6d2b-e168-4b14-a9bf-51a33c2a9aad
