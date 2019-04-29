@@ -42,7 +42,7 @@ Azure IoT Edge with Windows containers can run on the following versions of Wind
 * Windows 10 or IoT Core with October 2018 update (build 17763)
 * Windows Server 2019 (build 17763)
 
-For more information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge support](support.md#operating-systems). 
+For more information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems). 
 
 For more information about what's included in the latest version of IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
