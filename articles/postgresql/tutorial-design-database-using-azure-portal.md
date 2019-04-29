@@ -25,9 +25,6 @@ In this tutorial, you use the Azure portal to learn how to:
 ## Prerequisites
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Log in to the Azure portal
-Log in to the [Azure portal](https://portal.azure.com).
-
 ## Create an Azure Database for PostgreSQL
 
 An Azure Database for PostgreSQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
