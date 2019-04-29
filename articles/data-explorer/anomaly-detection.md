@@ -115,3 +115,7 @@ demo_make_series2
 ## Summary
 
 This document details native Azure Data Explorer functions for time series anomaly detection and forecasting, which significantly enhances the basic decomposition model on which it's based. Each original time series is decomposed, anomalies detected, and forecasting performed. The time series anomaly detection and forecasting functionalities are used for near real-time monitoring scenarios, such as fault detection, predictive maintenance, and demand and load forecasting.
+
+## Next steps
+
+Learn about [Machine learning capabilities](/azure/data-explorer/machine-learning-clustering) in Azure Data Explorer.
