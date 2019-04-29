@@ -1,6 +1,6 @@
 ---
-title: About the Azure Site Recovery configuration and process servers | Microsoft Docs
-description: This article provides an overview of the configuration and process servers using when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery
+title: About the Azure Site Recovery configuration, process, and master target servers | Microsoft Docs
+description: This article provides an overview of the configuration, process, and master target servers using when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
@@ -9,7 +9,7 @@ ms.date: 04/28/2019
 ms.author: raynew
 ---
 
-# About the configuration and process servers
+# About Site Recovery components (configuration, process, master target)
 
 This article describes the configuration, process, and master target servers used when replicating VMware VMs and physical servers to Azure with the [Site Recovery](site-recovery-overview.md) service.
 
@@ -46,5 +46,5 @@ The master target server handles replication data during failback from Azure.
 
 
 ## Next steps
-
-Review the [requirements and prerequisites](vmware-physical-azure-support-matrix.md) for disaster recovery of VMware VMs and physical servers to Azure. 
+- Review the [architecture](/vmware-azure-architecture.md) for disaster recovery of VMware VMs and physical servers.
+- Review the [requirements and prerequisites](vmware-physical-azure-support-matrix.md) for disaster recovery of VMware VMs and physical servers to Azure. 
