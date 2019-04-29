@@ -44,11 +44,11 @@ To change the application image, see [Prepare and upload images to your Azure Io
 ### Copy an application
 You can create a copy of any application, minus any device instances, device data history, and user data. The copy is a Pay-As-You-Go application that you'll be charged for. You can't create a Trial application in this way.
 
-Select **Copy**. In the dialog box, enter the details for the new Pay-As-You-Go application. Then select **Copy** to confirm that you want to proceed. Learn more about the fields in this form in [Create an application](quick-deploy-iot-central.md) quickstart.
+Select **Copy**. In the dialog box, enter the details for the new Pay-As-You-Go application. Then select **Copy** to confirm that you want to continue. Learn more about the fields in this form in [Create an application](quick-deploy-iot-central.md) quickstart.
 
 ![Application settings page](media/howto-administer/appcopy2.png)
 
-After the app copy operation succeeds, you  can go to the new application that was created by copying your application using the link that appears.
+After the app copy operation succeeds, you can navigate to the new application using the link.
 
 ![Application settings page](media/howto-administer/appCopy3.png)
 
@@ -60,7 +60,7 @@ After the app copy operation succeeds, you  can go to the new application that w
 > [!Note]
 > To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
-Use the **Delete** button to permanently delete your IoT Central application. Doing this permanently deletes all data that's associated with that application.
+Use the **Delete** button to permanently delete your IoT Central application. This action permanently deletes all data that's associated with the application.
 
 ## Manage users
 
@@ -103,11 +103,11 @@ The user who creates an application is automatically assigned to the **Administr
 
 ### Application Builder
 
-Users in the **Application Builder** role can do everything in an application except administer the application. This means builders can create, edit, and delete device templates and devices, manage device sets, and run analytics and jobs. Builders won't have access to the **Administration** section of the application.
+Users in the **Application Builder** role can do everything in an application except administer the application. Builders can create, edit, and delete device templates and devices, manage device sets, and run analytics and jobs. Builders won't have access to the **Administration** section of the application.
 
 ### Application Operator
 
-Users in the **Application Operator** role can't make changes to device templates and can't administer the application. This means operators can adding and deleting devices, manage device sets, and run analytics and jobs. Operators won't have access to the **Application Builder** and **Administration** pages.
+Users in the **Application Operator** role can't make changes to device templates and can't administer the application. Operators can add and delete devices, manage device sets, and run analytics and jobs. Operators won't have access to the **Application Builder** and **Administration** pages.
 
 ## View your bill
 
@@ -117,8 +117,8 @@ To view your bill, go to the **Billing** page in the **Administration** section.
 
 You can convert your Trial application to a Pay-As-You-Go application. Here are the differences between these types of applications.
 
-- **Trial** applications are free for 7 days before they expire. They can be converted to Pay-As-You-Go at any time before they expire.
-- **Pay-As-You-Go** applications are charged per device, with the first 5 devices free.
+- **Trial** applications are free for seven days before they expire. They can be converted to Pay-As-You-Go at any time before they expire.
+- **Pay-As-You-Go** applications are charged per device, with the first five devices free.
 
 Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
 
@@ -146,7 +146,7 @@ Connect devices at scale in your application using the keys and certificates her
 
 ## Use access tokens
 
-Generate access tokens to use them in developer tools. Currently there is one developer tool available which is the IoT Central explorer for monitoring device messages and changes in properties and settings. Learn more about the [IoT Central explorer](howto-use-iotc-explorer.md).
+Generate access tokens to use them in developer tools. Currently the only developer tool available is the IoT Central explorer for monitoring device messages and changes in properties and settings. Learn more about the [IoT Central explorer](howto-use-iotc-explorer.md).
 
 ## Customize your application
 

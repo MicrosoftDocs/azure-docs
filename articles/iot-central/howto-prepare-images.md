@@ -69,7 +69,7 @@ To upload an image to use on the **My applications** page, navigate to the **App
 
 ![Upload application image](media/howto-prepare-images/uploadapplicationmanager.png)
 
-Select the Application Image tile to upload your prepared image (268x160 px) from your local machine.
+Select the **Application Image** tile to upload an image (268x160 px) from your local machine.
 
 ### Application dashboard
 
@@ -77,7 +77,7 @@ To upload an image on the application dashboard, navigate to the **Dashboard** p
 
 ![Upload dashboard image](media/howto-prepare-images/uploadhomepage.png)
 
-Under Configure Image, select the Image tile to upload your prepared image from your local machine. The smallest sized tile is 200x200 px, larger tiles can be either square or rectangular multiples of small tiles. For example 200x400 px, 400x200 px, or 400x400 px.
+Under **Configure Image**, select the **Image** tile to upload an image from your local machine. The smallest sized tile is 200x200 px, larger tiles can be either square or rectangular multiples of small tiles. For example 200x400 px, 400x200 px, or 400x400 px.
 
 **Save** the uploaded image. You can resize it while in the edit mode. Select **Done** when finished.
 
@@ -87,7 +87,7 @@ To upload an image on a device template, navigate to **Device Templates** and ch
 
 ![Upload device template image](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Select the image tile to upload your prepared image (64x64 px) from your local machine.
+Select the image tile to upload an image (64x64 px) from your local machine.
 
 ### Device dashboard
 
@@ -95,7 +95,7 @@ To upload an image on a device dashboard, navigate to **Device Templates** and c
 
 ![Upload device dashboard image](media/howto-prepare-images/uploaddevicedashboard.png)
 
-Under Configure Image, select the Image tile, and then choose the file to upload from your local machine. The smallest sized tile is 200x200 px, larger tiles can be either square or rectangular multiples of small tiles. For example 200x400 px, 400x200 px, or 400x400 px.
+Under **Configure Image**, select the **Image** tile, and then choose the file to upload from your local machine. The smallest sized tile is 200x200 px, larger tiles can be either square or rectangular multiples of small tiles. For example 200x400 px, 400x200 px, or 400x400 px.
 
 **Save** the uploaded image. You can resize and reposition it while in the edit mode. Select **Done** when finished.
 
@@ -105,7 +105,7 @@ To upload an image on a device set dashboard, navigate to **Device Sets** and ch
 
 ![Upload device set dashboard image](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-Under Configure Image, select the Image tile to upload your prepared image from your local machine. The smallest sized tile is 200x200 px, larger tiles can be either square or rectangular multiples of small tiles. For example 200x400 px, 400x200 px, or 400x400 px.
+Under **Configure Image**, select the **Image** tile to upload an image from your local machine. The smallest sized tile is 200x200 px, larger tiles can be either square or rectangular multiples of small tiles. For example 200x400 px, 400x200 px, or 400x400 px.
 
 **Save** the uploaded image. You can resize and reposition it while in the edit mode. Select **Done** when finished.
 
