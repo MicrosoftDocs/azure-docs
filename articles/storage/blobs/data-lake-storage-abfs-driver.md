@@ -6,6 +6,7 @@ author: normesta
 
 ms.topic: conceptual
 ms.author: normesta
+ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2

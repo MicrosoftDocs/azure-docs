@@ -3,11 +3,13 @@ title: 'Tutorial: Perform extract, transform, load (ETL) operations by using Apa
 description: In this tutorial, you learn how to extract data from a raw CSV dataset, transform it by using Apache Hive on Azure HDInsight, and then load the transformed data into Azure SQL Database by using Sqoop.
 services: storage
 author: normesta
+
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: normesta
+ms.reviewer: jamesbak
 #Customer intent: As an analytics user, I want to perform an ETL operation so that I can work with my data in my preferred environment.
 ---
 

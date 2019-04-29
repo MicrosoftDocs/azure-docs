@@ -9,6 +9,7 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
+ms.reviewer: jamesbak
 ---
 
 # Access control in Azure Data Lake Storage Gen2
