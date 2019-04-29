@@ -14,7 +14,7 @@ ms.subservice: metrics
 
 Use this article if you run into issues with creating, customizing, or interpreting charts in Azure metrics explorer. If you are new to metrics, learn about [getting started with metrics explorer](metrics-getting-started.md) and [advanced features of metrics explorer](metrics-charts.md). You can also see [examples](metric-chart-samples.md) of the configured metric charts.
 
-## Can't find resource
+## Can't find your resource to select it
 
 You clicked on the **Select a resource** button, but don't see your resource in the resource picker dialog.
 
@@ -22,7 +22,7 @@ You clicked on the **Select a resource** button, but don't see your resource in 
 
 1. Ensure that you've selected correct subscription in the **Subscription** dropdown. If your subscription isn't listed, click on the  **Directory + Subscription settings** and add a subscription with your resource.
 
-1. Ensure that you've selected correct resource group.
+1. Ensure that you've selected the correct resource group.
     > [!WARNING]
     > For best performance, when you first open metrics explorer, the **Resource group** dropdown has no pre-selected resource groups. You must pick at least one group before you can see any resources.
 
@@ -34,7 +34,7 @@ Sometimes the charts might show no data after selecting correct resources and me
 
 Exploring metrics requires *Microsoft.Insights* resource provider registered in your subscription. In many cases, it is registered automatically (that is, after you configure an alert rule, customize diagnostic settings for any resource, or configure an autoscale rule). If the Microsoft.Insights resource provider is not registered, you must manually register it by  following steps described in [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md).
 
-**Solution:** Open **Subscriptions**, **Resource providers** tab, and verify that Microsoft.Insights is registered for your subscription.
+**Solution:** Open **Subscriptions**, **Resource providers** tab, and verify that *Microsoft.Insights* is registered for your subscription.
 
 ### You don't have sufficient access rights to your resource
 
@@ -56,7 +56,7 @@ Some resources don’t constantly emit their metrics. For example, Azure will no
 
 ### All metric values were outside of the locked y-axis range
 
-By [locking the boundaries of chart y-axis](metrics-charts.md#lock-boundaries-of-chart-y-axis), you can inadvertently make the chart display area misaligned with the chart line. For example, if the y-axis is locked to a range between 0% and 50%, and the metric has a constant value of 100%, the line is always rendered outside of the visible area, making the chart appear blank.
+By [locking the boundaries of chart y-axis](metrics-charts.md#lock-boundaries-of-chart-y-axis), you can unintentionally  make the chart display area not show the chart line. For example, if the y-axis is locked to a range between 0% and 50%, and the metric has a constant value of 100%, the line is always rendered outside of the visible area, making the chart appear blank.
 
 **Solution:** Verify that the y-axis boundaries of the chart aren’t locked outside of the range of the metric values. If the y-axis boundaries are locked, you may want to temporarily reset them to ensure that the metric values don’t fall outside of the chart range. Locking the y-axis range isn’t recommended with automatic granularity for the charts with **sum**, **min**, and **max** aggregation because their values will change with granularity by resizing browser window or going from one screen resolution to another. Switching granularity may leave the display area of your chart empty.
 
@@ -94,18 +94,25 @@ In many cases, the perceived drop in the metric values is a misunderstanding of 
 
 Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest OS** metrics that are collected by the [monitoring agent](agents-overview.md) running on your virtual machines. You install the monitoring agent by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md).
 
-By default, **Guest OS** metrics are stored in Azure Storage account, which you pick from the **Diagnostic settings** tab of your resource. If **Guest OS** metrics aren't collected or metrics explorer cannot access them, you will only see the **Virtual Machine Host** metric namespace:
+By default, Guest OS metrics are stored in Azure Storage account, which you pick from the **Diagnostic settings** tab of your resource. If Guest OS metrics aren't collected or metrics explorer cannot access them, you will only see the **Virtual Machine Host** metric namespace:
+
 ![metric image](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
 
 **Solution:** If you don't see **Guest OS** namespace and metrics in metrics explorer:
 
 1. Confirm that [Azure Diagnostic Extension](diagnostics-extension-overview.md) is enabled and configured to collect metrics.
     > [!WARNING]
-    > You cannot use [Log Analytics agent](agents-overview.md#log-analytics-agent) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest OS** into storage account.
+    > You cannot use [Log Analytics agent](agents-overview.md#log-analytics-agent) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest OS** into a storage account.
 
-1. Verify that storage account isn't protected by the firewall or network security rules allow Azure portal to access metrics. You may need to [grant access to storage account from your virtual network](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [grant access to storage account from your internet IP range](../../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range), or [configure an exception to grant access to metrics tables](../../storage/common/storage-network-security.md#managing-exceptions).
+1. Verify that storage account isn't protected by the firewall or network security rules allow Azure portal to access metrics. You may need to do one of more of the following actions:
 
-1. Use [Azure storage explorer](https://azure.microsoft.com/features/storage-explorer/) to validate that metrics are flowing into the storage account. If metrics aren't collected, follow the [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+    a. [Grant access to storage account from your virtual network](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)
+
+    b. [Grant access to storage account from your internet IP range](../../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range)
+
+    c. [Configure an exception to grant access to metrics tables](../../storage/common/storage-network-security.md#managing-exceptions).
+
+1. Use the [Azure storage explorer](https://azure.microsoft.com/features/storage-explorer/) to validate that metrics are flowing into the storage account. If metrics aren't collected, follow the [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
 ## Next steps
 
