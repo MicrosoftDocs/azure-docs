@@ -328,7 +328,7 @@ The explainer can be deployed along with the original model and can be used at s
 
 1. Deploy the image to a compute target:
 
-   1. Create a scoring file (before this step, follow the steps in [Deploy models with the Azure Machine Learning service](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-and-where) to register your original prediction model)
+   1. Create a scoring file (before this step, follow the steps in [Deploy models with the Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where) to register your original prediction model)
         ```python
         %%writefile score.py
         import json
@@ -438,6 +438,6 @@ The explainer can be deployed along with the original model and can be used at s
 
 1. Clean up: To delete a deployed web service, use `service.delete()`.
 
-## Next Steps
+## Next steps
 
 To see a collection of Jupyter notebooks that demonstrate the instructions above, see the [Azure Machine Learning Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
