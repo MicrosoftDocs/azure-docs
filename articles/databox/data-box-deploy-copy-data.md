@@ -1,5 +1,5 @@
 ---
-title: Copy data to  your Microsoft Azure Data Box via SMB| Microsoft Docs
+title: Tutorial to copy data via SMB on Azure Data Box | Microsoft Docs
 description: Learn how to copy data to your Azure Data Box via SMB
 services: databox
 author: alkohli
@@ -37,8 +37,8 @@ Before you begin, make sure that:
 
 Based on the storage account selected, Data Box creates up to:
 - Three shares for each associated storage account for GPv1 and GPv2.
-- One share for premium storage. 
-- One share for blob storage account. 
+- One share for premium storage.
+- One share for blob storage account.
 
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
@@ -128,7 +128,7 @@ After you've connected to the SMB share, begin data copy. You can use any SMB co
 |/z    | Copies files in Restart mode, use this if the environment is unstable. This option reduces throughput due to additional logging.      |
 | /zb     | Uses Restart mode. If access is denied, this option uses Backup mode. This option reduces throughput due to checkpointing.         |
 |/efsraw     | Copies all encrypted files in EFS raw mode. Use only with encrypted files.         |
-|log+:<LogFile>| Appends the output to the existing log file.|    
+|log+:\<LogFile>| Appends the output to the existing log file.|    
  
 The following sample shows the output of the robocopy command to copy files to the Data Box.
     

@@ -3,7 +3,7 @@ title: Pass an access token through a user flow to your application - Azure Acti
 description: Learn how you can pass through an access token for OAuth2.0 identity providers as a claim in a user flow in Azure Active Directory B2C. 
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
