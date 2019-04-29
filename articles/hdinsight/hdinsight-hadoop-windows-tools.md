@@ -79,7 +79,7 @@ If you encounter a situation where you must use a tool or technology that is onl
 
 ## Cross-platform tools
 
-The Azure command-line interface (CLI) is Microsoft's cross-platform command-line experience for managing Azure resources.  For more information, see [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest).
+The Azure command-line interface (CLI) is Microsoft's cross-platform command-line experience for managing Azure resources.  For more information, see [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## Next steps
 If you're new to working in Linux-based clusters, see the follow articles:
