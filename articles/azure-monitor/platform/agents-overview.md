@@ -61,7 +61,7 @@ Previously, several Azure services were bundled as the *Operations Management Su
 
 * [Azure Automation Update management](../../automation/automation-update-management.md) of operating system updates.
 * [Azure Automation Desired State Configuration](../../automation/automation-dsc-overview.md) to maintain consistent configuration state.
-* Track configuration changes with [Azure Automation Change Tracking and Inventory](../../automation/automation-change-tracking.md).
+* Track configuration changes with [Azure Automation Change Tracking and Inventory](../../automation/change-tracking.md).
 * Azure services such as [Application Insights](https://docs.microsoft.com/azure/application-insights/) and [Azure Security Center](https://docs.microsoft.com/azure/security-center/), which natively store their data directly in Log Analytics.  
 
 ## Dependency agent
