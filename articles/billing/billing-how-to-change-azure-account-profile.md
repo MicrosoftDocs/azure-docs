@@ -10,13 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
 # Change your Azure account profile information
 
-The email address in the Account Administrator’s profile is used by Microsoft to notify you about important billing-related updates about the subscription. We recommend that you specify a contact email address that you check regularly. You can also update your profile to change your mailing address and phone number.
+Your profile information is used to contact you about your Azure account. You should keep it updated so that Microsoft can alert you about important notifications.
+
+The email address in the Account Administrator’s profile is used by Microsoft to send important billing, service, and recommendation-related notifications about the account. We recommend that you specify an email address that you check regularly. As the account administrator, you can also update your profile to change the mailing address and phone number for the account.
+
+The email address in a user’s profile, an account user who is not the Account Administrator, is used by Microsoft to send service-related notifications and account recommendations. All billing notifications are sent to the Account Administrator. You can also update your profile to change your mailing address and phone number, but it doesn't change the account mailing address or phone number.
 
 ## Change your profile information
 
@@ -25,9 +29,9 @@ The email address in the Account Administrator’s profile is used by Microsoft 
 
    ![Example showing your Azure profile information](./media/billing-how-to-change-azure-account-profile/profile.png)
 
-### Send notifications to a different account
+### Send notifications to an additional email address
 
-You can have notifications sent to a different email address other than the Account Administrator email address associated with your account. The email address on the account gets important notifications about all the subscriptions under the account. So we recommend that you specify a contact email address that the Account Administrator checks regularly.
+You can have service notifications and account recommendations sent to an email address in addition to the Account Administrator email address associated with your account. The Account Administrator’s email address gets important notifications about all the subscriptions under the account, including billing-related updates.
 
 ### Change the Account Administrator email address in your profile
 
@@ -47,7 +51,9 @@ Because of technical constraints, we cannot change the country for an existing a
 
 ## Service and marketing emails
 
-In the [Azure portal](https://portal.azure.com), you're prompted to update your email address every 90 days. The notification purpose is to ensure that Microsoft has updated contact information. Microsoft sends emails to your *contact address* with Azure account-related information for:
+The Microsoft Azure team sends service-related emails informing you of critical alerts. The team also sends account recommendation emails, also known as marketing emails, to help you optimize and scale your projects.
+
+You are prompted in the [Azure portal](https://portal.azure.com) to verify or update your email address every 90 days. The notification purpose is to make sure that Microsoft has updated contact information in case of any urgent service-related notifications. Microsoft sends emails to your profile email address with Azure account-related information for:
 
 - Service notifications
 - Security alerts
@@ -56,7 +62,7 @@ In the [Azure portal](https://portal.azure.com), you're prompted to update your 
 - Marketing communications
 - Best practice recommendations, based on your Azure usage
 
-Enter a preferred contact email address where you'll receive communications about your subscription. By entering an address, you're opting-in to receive communications from Microsoft.
+Enter the email address where you want to receive communications about your account. By entering an email address, you're opting-in to receive communications from Microsoft.
 
 ![Example showing the Update your contact information box](./media/billing-how-to-change-azure-account-profile/update-contact-information.png)
 
@@ -64,9 +70,11 @@ Enter a preferred contact email address where you'll receive communications abou
 
 You can change your contact email address using the following methods:
 
-**Option 1**: Go to the [Contact information](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) area in the Azure portal and enter an email address. The address you provide will receive service and marketing communications.
+**Option 1**: Sign-in to the [Azure Account Center](https://account.azure.com/Profile). Select the **Edit details** and then update the profile email address information. Updating your profile email address doesn't update your sign-in email address.
 
-**Option 2**: In the [Azure portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), select the icon with your initials or picture. Then, select the context menu (**...**). Next, select **My Contact Information** from the menu and enter an email address. The address you provide will receive service and marketing communications.
+**Option 2**: Go to the [Contact information](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) area in the Azure portal and enter an email address. The address you provide receives service and marketing communications. The email address in the Azure Account Center Profile is updated to match automatically. Updating your profile email address doesn't update your sign-in email address.
+
+**Option 3**: In the [Azure portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), select the icon with your initials or picture. Then, select the context menu (**...**). Next, select **My Contact Information** from the menu and enter an email address. The address you provide receives service and marketing communications. The email address in your Azure Account Center Profile is updated to match automatically. Updating your profile email address doesn't update your sign-in email address.
 
 ![Example showing contact information update in Azure](./media/billing-how-to-change-azure-account-profile/azure-contact-information.png)
 
@@ -74,9 +82,9 @@ You can change your contact email address using the following methods:
 
 To opt-out of receiving marketing emails:
 
-1. Open https://www.microsoft.com and click **Sign in** in the top right corner of the webpage to sign-in to your Microsoft account.
-2. After you sign-in, open https://account.microsoft.com/profile/communications.
-3. Your account page shows the types of marketing communications that you are opted-in to. Clear any topics that you want to opt-out of and then click **Save**.
+1. Go to the [request form](https://account.microsoft.com/profile/permissions-link-request) to submit a request using your profile email address. You will receive a link by email to update your preferences.
+2. This link shows you the types of marketing communications that the email address is opted-in to. Clear any topics that you want to opt-out of and then click **Save**.
+
 
 ![Example showing Manage communications permissions options](./media/billing-how-to-change-azure-account-profile/manage-communication-permissions.png)
 
@@ -87,3 +95,6 @@ If you provided an email address for communications, you will receive service no
 ## Need help? Contact us.
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## Next steps
+- [View your billing accounts](billing-view-all-accounts.md)
