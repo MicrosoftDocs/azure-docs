@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 04/29/2019
 ms.custom: seodec18
 ---
 
@@ -24,11 +24,11 @@ Before you use the Azure Time Series Insights Preview explorer, you must:
 * Provide data access to the Time Series Insights environment that you created for the account. You can provide access to others as well as to yourself.
 * Add an event source to the Time Series Insights environment to push data to the environment.
 
-## Learn about the Azure Time Series Insights Preview explorer
-
-  ![explorer-one][1]
+## Learn about the Preview explorer
 
 The Azure Time Series Insights Preview explorer consists of the following elements:
+
+[![explorer-one](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
 
 * **Navigation bar**: Lets you switch between analytics and model pages.
 * **Hierarchy tree**: Lets you select specific data elements to be charted.
@@ -37,15 +37,15 @@ The Azure Time Series Insights Preview explorer consists of the following elemen
 * **Timeline**: Lets you modify your working time span.
 * **App bar**: Contains your user management options, such as current tenant, and lets you change theme and language settings.
 
-## Time Series Insights Preview environment panel
+## Preview environment panel
 
 The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go environments Preview and S1/S2 environments (GA). Simply click the Time Series Insights environment you want to use.
 
-  ![explorer-two][2]
+  [![explorer-two](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
 
 ## Time Series Insights Preview navigation menu
 
-  ![explorer-three][3]
+  [![explorer-three](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
 
 With the navigation menu, you can switch between the Time Series Insights apps:
 
@@ -53,7 +53,7 @@ With the navigation menu, you can switch between the Time Series Insights apps:
 
 * **Model**: Lets you push new Time Series Insights Preview types, hierarchies, and instances to your Time Series Insights model.
 
-## Time Series Insights Preview model authoring
+## Preview model authoring
 
 With this app, you can perform Create, Read, Update, and Delete (CRUD) operations on your Time Series Model.  
 
@@ -63,32 +63,32 @@ With this app, you can perform Create, Read, Update, and Delete (CRUD) operation
 
 To learn more about the Time Series Model, see [Times Series Models](./time-series-insights-update-tsm.md).
 
-## Time Series Insights Preview model search panel
+## Preview model search panel
 
 The model search panel lets you easily search and navigate your Time Series Model hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are added to both the current chart and the data well.
 
   ![explorer-four][4]
 
-## Time Series Insights Preview well
+## Preview well
 
 The well displays instance fields and other metadata associated with selected time series instances. The check boxes at the right side let you hide or display specific instances from the current chart. You can also remove specific data elements from your current data well by clicking the red x control to the right of the element.
 
-  ![explorer-five][5]
+  [![explorer-five](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
 
 You can also pop out the telemetry panel to get a better vertical view of the elements in your data well.
 
-  ![explorer-six][6]
+  [![explorer-six](media/v2-update-explorer/explorer-six.png)](media/v2-update-explorer/explorer-six.png#lightbox)
 
 > [!NOTE]
 > If you see the following message, the instance does not have any data during the time span selected. To resolve the issue, you can increase the time span or confirm that the instance is pushing data.
 >
-> ![explorer-seven][7]
+> ![explorer-seven](media/v2-update-explorer/explorer-seven.png)
 
-## Time Series Insights Preview chart
+## Preview chart
 
 With the chart, you can display time series instances as lines. You can collapse the environment panel, data model, and time span control panel by clicking the web controls to make the chart larger.
 
-  ![explorer-eight][8]
+  [![explorer-eight](media/v2-update-explorer/explorer-eight.png)](media/v2-update-explorer/explorer-eight.png#lightbox)
 
 1. **Selected Date range**: Controls which data elements are available for visualization.
 
@@ -106,21 +106,21 @@ With the chart, you can display time series instances as lines. You can collapse
 
 You can further drill into a specific data slice by left-clicking a data point on the current graph and then dragging the selected area to the endpoint of your choice. Right-click the greyed, selected area, and click zoom as shown in this following image:
 
-  ![explorer-nine][9]
+  [![explorer-nine](media/v2-update-explorer/explorer-nine.png)](media/v2-update-explorer/explorer-nine.png#lightbox)
 
 After you perform the zoom action, you will see your selected dataset. Click the Y-axis format control to cycle through the three Y-axis representations of your Time Series Insights data.
 
-  ![explorer-ten][10]
+  [![explorer-ten](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
 
 Here you can see an example of shared Y-axes:
 
-  ![explorer-eleven][11]
+  [![explorer-eleven](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
 
-## Time Series Insights Preview time editor panel
+## Preview time editor panel
 
 When you work with Time Series Insights Preview, you first select a time span. The selected time span controls the dataset that is available for manipulation with the Time Series Insights Preview widgets. The following web controls are available in Time Series Insights Preview for selecting your working time span.
 
-  ![explorer-twelve][12]
+  [![explorer-twelve](media/v2-update-explorer/explorer-twelve.png)](media/v2-update-explorer/explorer-twelve.png#lightbox)
 
 1. **Inner-date range slider tool**: Use the two endpoint controls by dragging them over the desired time span. This inner-date range is constrained by the outer-date range slider control.
 
@@ -136,17 +136,17 @@ When you work with Time Series Insights Preview, you first select a time span. T
 
 1. **Date range to and from web control**: With this web control you can easily click and select your desired date and time ranges. You can also use the control to switch between different time zones. After you make the changes, to apply to your current workspace, select **Save**.
 
-   ![explorer-thirteen][13]
+   [![explorer-thirteen](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
 
-## Time Series Insights Preview navigation panel
+## Preview navigation panel
 
 The Time Series Insights Preview navigation panel provides the following functionality:
 
-  ![explorer-fourteen][14]
+  [![explorer-fourteen](media/v2-update-explorer/explorer-fourteen.png)](media/v2-update-explorer/explorer-fourteen.png#lightbox)
 
 ### Current session share link control
 
-  ![explorer-fifteen][15]
+  [![explorer-fifteen](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
 
 Select the link web control (highlighted) to generate a URL to save or share your current Azure Time Series Insights working session, which includes:
 
@@ -156,7 +156,7 @@ Select the link web control (highlighted) to generate a URL to save or share you
 
 ### Tenant section
 
-  ![explorer-sixteen][16]
+  [![explorer-sixteen](media/v2-update-explorer/explorer-sixteen.png)](media/v2-update-explorer/explorer-sixteen.png#lightbox)
 
 * Displays your current Time Series Insights login account information.
 * Lets you switch between the available Time Series Insights themes.
@@ -168,19 +168,19 @@ Azure Time Series Insights Preview supports two themes:
 * **Light Theme**: The default theme shown throughout this document.
 * **Dark theme**:  Renders the explorer as shown here:
 
-  ![explorer-seventeen][17]
+  [![explorer-seventeen](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
 
 Here you can also change between supported languages.
 
 ## S1/S2 environment controls
 
-### Time Series Insights Preview terms panel
+### Preview terms panel
 
 This section applies only to existing S1/S2 environments that attempt to use the explorer in the updated UI. You might want to use the GA product and Preview in combination. We’ve added some functionality from the existing UI to the updated explorer, but you can get the full UI experience for S1/S2 environment in the existing Time Series Insights explorer.  
 
 In lieu of the hierarchy, you will see the Time Series Insights terms panel, where you define queries in your environment. It lets you filter your data based on a predicate.
 
-  ![explorer-eighteen][18]
+  [![explorer-eighteen](media/v2-update-explorer/explorer-eighteen.png)](media/v2-update-explorer/explorer-eighteen.png#lightbox)
 
 The Time Series Insights Preview terms editor panel takes the following parameters:
 
@@ -197,17 +197,17 @@ Learn more about supported query operations and data types by reading [Time Seri
 
 ### Examples of Where clauses
 
-  ![explorer-nineteen][19]
+  [![explorer-nineteen](media/v2-update-explorer/explorer-nineteen.png)](media/v2-update-explorer/explorer-nineteen.png#lightbox)
 
 **Measure**: This drop-down displays all numeric columns (**Doubles**) that you can use as elements for your current chart.
 
 **Split by**: This drop-down displays all the available categorical columns (Strings) in your model that you can group your data by. You can add up to five terms to view on the same X-axis. Enter your desired parameters, and then select **Add** to add a fresh term.
 
-  ![explorer-twenty][20]
+  [![explorer-twenty](media/v2-update-explorer/explorer-twenty.png)](media/v2-update-explorer/explorer-twenty.png#lightbox)
 
 You can show and hide elements in the chart panel by selecting the visible icon as shown in the following image. You can completely remove queries by clicking the red **x**.
 
-  ![explorer-twenty-one][21]
+  [![explorer-twenty-one](media/v2-update-explorer/explorer-twenty-one.png)](media/v2-update-explorer/explorer-twenty-one.png#lightbox)
 
 ## Next steps
 
@@ -216,26 +216,3 @@ You can show and hide elements in the chart panel by selecting the visible icon 
 - Read the Time Series Insights Preview document on [data modeling](./time-series-insights-update-tsm.md).
 
 - Learn [how to diagnose and troubleshoot](./time-series-insights-update-how-to-troubleshoot.md) your Time Series Insights instance.
-
-<!-- Images -->
-[1]: media/v2-update-explorer/explorer-one.png
-[2]: media/v2-update-explorer/explorer-two.png
-[3]: media/v2-update-explorer/explorer-three.png
-[4]: media/v2-update-explorer/explorer-four.png
-[5]: media/v2-update-explorer/explorer-five.png
-[6]: media/v2-update-explorer/explorer-six.png
-[7]: media/v2-update-explorer/explorer-seven.png
-[8]: media/v2-update-explorer/explorer-eight.png
-[9]: media/v2-update-explorer/explorer-nine.png
-[10]: media/v2-update-explorer/explorer-ten.png
-[11]: media/v2-update-explorer/explorer-eleven.png
-[12]: media/v2-update-explorer/explorer-twelve.png
-[13]: media/v2-update-explorer/explorer-thirteen.png
-[14]: media/v2-update-explorer/explorer-fourteen.png
-[15]: media/v2-update-explorer/explorer-fifteen.png
-[16]: media/v2-update-explorer/explorer-sixteen.png
-[17]: media/v2-update-explorer/explorer-seventeen.png
-[18]: media/v2-update-explorer/explorer-eighteen.png
-[19]: media/v2-update-explorer/explorer-nineteen.png
-[20]: media/v2-update-explorer/explorer-twenty.png
-[21]: media/v2-update-explorer/explorer-twenty-one.png
