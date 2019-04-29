@@ -140,7 +140,7 @@ credentials = batch_auth.SharedKeyCredentials(config._BATCH_ACCOUNT_NAME,
 
 batch_client = batch.BatchServiceClient(
     credentials,
-    base_url=config._BATCH_ACCOUNT_URL)
+    batch_url=config._BATCH_ACCOUNT_URL)
 ```
 
 ### Create a pool of compute nodes

@@ -1,12 +1,11 @@
 ﻿---
-ms.assetid:
 title: Azure Key Vault managed storage account - CLI
 description: Storage account keys provide a seamless integration between Azure Key Vault and key based access to Azure Storage Account.
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
-author: prashanthyv
-ms.author: prashanthyv
+author: mbaldwin
+ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
 # Customer intent: As a developer I want storage credentials and SAS tokens to be managed securely by Azure Key Vault.

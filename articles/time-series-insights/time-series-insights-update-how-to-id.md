@@ -52,4 +52,5 @@ The following scenarios describe selecting more than one key property as your Ti
 ## Next steps
 
 * Read more about [Data modeling](./time-series-insights-update-tsm.md).
+
 * Plan your [Azure Time Series Insights (preview) environment](./time-series-insights-update-plan.md).

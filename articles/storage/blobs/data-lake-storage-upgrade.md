@@ -249,8 +249,7 @@ The main task here is to translate URI's that have a prefix of `adl://` into URI
 The URI scheme for Data Lake Storage Gen1 is mentioned [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store) in detail, but broadly speaking, it is
 *adl://mydatalakestore.azuredatalakestore.net/\<file_path\>.*
 
-The URI scheme for accessing Data Lake Storage Gen2 files is explained [here](https://docs.microsoft.com/azure/storage/data-lake-storage/use-hdi-cluster)
-in detail, but broadly speaking, it is `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
+The URI scheme for accessing Data Lake Storage Gen2 files is explained [here](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) in detail, but broadly speaking, it is `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
 
 You'll need to go through your existing applications and ensure that you've changed the URIs appropriately to point to Data Lake Storage Gen2 ones. Also, you'll need to add the appropriate credentials. Finally, how you retire the original applications and replace with the new application will have to be aligned closely to your overall upgrade strategy.
 
