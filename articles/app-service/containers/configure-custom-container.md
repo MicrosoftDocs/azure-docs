@@ -105,7 +105,6 @@ SSH enables secure communication between a container and a client. In order for 
 - [Use persistent storage in Docker Compose](#use-persistent-storage-in-docker-compose)
 - [Preview limitations](#preview-limitations)
 - [Docker Compose options](#docker-compose-options)
-- [Kubernetes configuration options](#kubernetes-configuration-options)
 
 ### Use persistent storage in Docker Compose
 
@@ -175,22 +174,6 @@ The following lists show supported and unsupported Docker Compose configuration 
 
 > [!NOTE]
 > Any other options not explicitly called out are ignored in Public Preview.
-
-### Kubernetes configuration options
-
-The following configuration options are supported for Kubernetes:
-
-- args
-- command
-- containers
-- image
-- name
-- ports
-- spec
-
-> [!NOTE]
-> Any other options not explicitly called out aren't supported in Public Preview.
->
 
 ## Next steps
 
