@@ -72,7 +72,7 @@ After you create an action group, it's visible in the **Action groups** section 
 
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article
 
-**ITSM** - You may have a limited number limited number of ITSM actions in an Action Group. ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../../azure-monitor/platform/itsmc-overview.md).
+**ITSM** - You may have a limited number of ITSM actions in an Action Group. ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../../azure-monitor/platform/itsmc-overview.md).
 
 **Logic App** - You may have a limited number of Logic App actions in an Action Group.
 
