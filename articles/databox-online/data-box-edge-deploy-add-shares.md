@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Transfer data to shares with Azure Data Box Edge | Microsoft Docs
+title: Tutorial to transfer data to shares with Azure Data Box Edge | Microsoft Docs
 description: Learn how to add and connect to shares on Data Box Edge device.
 services: databox
 author: alkohli
