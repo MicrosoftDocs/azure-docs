@@ -3,14 +3,16 @@ title: Create a new image version from an existing image version using Azure Ima
 description: Create a new image version from an existing image version using Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 04/17/2019
+ms.date: 04/27/2019
 ms.topic: article
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-windows
 manager: jeconnoc
 ---
 # Create a new image version from an existing image version using Azure Image Builder
 
-This article is to show you how you can create a basic customized image using the Azure VM Image Builder, and then use the Azure [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries).
+This article is to show you how you can create a basic customized image using the Azure VM Image Builder, and then use the Azure [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries). 
+
+
 
 
 ## Register the features
@@ -30,39 +32,41 @@ Check your registration.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-
 az provider show -n Microsoft.Storage | grep registrationState
+az provider show -n Microsoft.Compute | grep registrationState
 ```
 
 If they do not say registered, run the following:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
-
 az provider register -n Microsoft.Storage
+az provider register -n Microsoft.Compute
 ```
 
 
-## Set permissions
+## Set variables and permissions
 
-For preview, Azure Image Builder will only support creating custom images in the same resource group as the source custom managed image. For example, if your existing managed custom images resides in RG1, then you must make sure the sigResourceGroup variable below is set to RG1. 
+If you used [Create an image and distribute to a Shared Image Gallery](image-builder-gallery.md) to create your Shared Image Gallery, you've already created the variables we need. If not, please setup some variables to be used for this example.
 
-If you used [Create an image and distribute to a Shared Image Gallery (preview)](image-builder-gallery.md) to create your Shared Image Gallery, you've already created the variables we need. If not, please setup some variables to be used for this example:
-
+For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
 
 ```azurecli-interactive
-# Resource group name 
-sigResourceGroup=ibsigRG
-# Gallery location 
-location=westus2
-# Additional region to replicate the image version to 
+# Resource group name - we are using ibsigRG in this example
+sigResourceGroup=myIBWinRG
+# Datacenter location - we are using West US 2 in this example
+location=westus
+# Additional region to replicate the image to - we are using East US in this example
 additionalregion=eastus
-# Name of the shared image gallery 
-sigName=myIbGallery
-# Name of the image definition to use
-imageDefName=myIbImageDef
+# name of the shared image gallery - in this example we are using myGallery
+sigName=my22stSIG
+# name of the image definition to be created - in this example we are using myImageDef
+imageDefName=winSvrimages
 # image distribution metadata reference name
-runOutputName=ubuntusig2sig
+runOutputName=w2019SigRo
+# User name and password for the VM
+username="user name for the VM"
+vmpassword="password for the VM"
 ```
 
 Create a variable for your subscription ID. You can get this using `az account show | grep id`.
@@ -82,11 +86,10 @@ sigDefImgVersionId=$(az sig image-version list \
 ```
 
 
-If you already have your own Shared Image Gallery, and did not follow the previous example, you will need to assign permissions for Image Builder to access the Resource Group, so it can access the SIG.
+If you already have your own Shared Image Gallery, and did not follow the previous example, you will need to assign permissions for Image Builder to access the Resource Group, so it can access the gallery.
 
 
-```bash
-# assign permissions for that resource group
+```azurecli-interactive
 az role assignment create \
     --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
     --role Contributor \
@@ -95,21 +98,21 @@ az role assignment create \
 
 
 ## Modify HelloImage Example
-You can review the example we are about to use by opening the .json file here: [https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) along with the [Image Builder .json reference](image-builder-json.md). 
+You can review the example we are about to use by opening the .json file here: [https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) along with the [Image Builder .json reference](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 
 Download the .json example and configure it with your variables. 
 
-```bash
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json -o helloImageTemplateforSIGfromSIG.json
-sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforSIGfromSIG.json
-sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforSIGfromSIG.json
-sed -i -e "s/<imageDefName>/$imageDefName/g" helloImageTemplateforSIGfromSIG.json
-sed -i -e "s/<sharedImageGalName>/$sigName/g" helloImageTemplateforSIGfromSIG.json
-sed -i -e "s%<sigDefImgVersionId>%$sigDefImgVersionId%g" helloImageTemplateforSIGfromSIG.json
-sed -i -e "s/<region1>/$location/g" helloImageTemplateforSIGfromSIG.json
-sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforSIGfromSIG.json
-sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIGfromSIG.json
+```azurecli-interactive
+curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json -o helloImageTemplateforSIGfromWinSIG.json
+sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforSIGfromWinSIG.json
+sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforSIGfromWinSIG.json
+sed -i -e "s/<imageDefName>/$imageDefName/g" helloImageTemplateforSIGfromWinSIG.json
+sed -i -e "s/<sharedImageGalName>/$sigName/g" helloImageTemplateforSIGfromWinSIG.json
+sed -i -e "s%<sigDefImgVersionId>%$sigDefImgVersionId%g" helloImageTemplateforSIGfromWinSIG.json
+sed -i -e "s/<region1>/$location/g" helloImageTemplateforSIGfromWinSIG.json
+sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforSIGfromWinSIG.json
+sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIGfromWinSIG.json
 ```
 
 ## Create the Image
@@ -119,11 +122,11 @@ Submit the image confiuration to the VM Image Builder Service.
 ```azurecli-interactive
 az resource create \
     --resource-group $sigResourceGroup \
-    --properties @helloImageTemplateforSIGfromSIG.json \
+    --properties @helloImageTemplateforSIGfromWinSIG.json \
     --is-full-object \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateforSIGfromSIG01
-
+    -n imageTemplateforSIGfromWinSIG01
+```
 
 Start the image build.
 
@@ -131,7 +134,7 @@ Start the image build.
 az resource invoke-action \
      --resource-group $sigResourceGroup \
      --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
-     -n helloImageTemplateforSIGfromSIG01 \
+     -n imageTemplateforSIGfromWinSIG01 \
      --action Run 
 ```
 
@@ -143,31 +146,20 @@ Wait until the image has been built and replication before moving on to the next
 ```azurecli-interactive
 az vm create \
   --resource-group $sigResourceGroup \
-  --name aibImgVm001 \
-  --admin-username azureuser \
-  --location $location \
+  --name aibImgWinVm002 \
+  --admin-username $username \
+  --admin-password $vmpassword \
   --image "/subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup/providers/Microsoft.Compute/galleries/$sigName/images/$imageDefName/versions/latest" \
-  --generate-ssh-keys
+  --location $location
 ```
 
-Create an SSH connection to the VM using the public IP address of the VM.
+## Verify the customization
 
-```azurecli-interactive
-ssh azureuser@<pubIp>
-```
 
-You should see the image was customized with a "Message of the Day" as soon as your SSH connection is established.
 
-```console
-*******************************************************
-**            This VM was built from the:            **
-**      !! AZURE VM IMAGE BUILDER Custom Image !!    **
-**         You have just been Customized :-)         **
-*******************************************************
-```
 
 
 
 ## Next Steps
 
-To learn more about the components of the .json file used in this article, see [Image builder json template example](image-builder-json.md).
+To learn more about the components of the .json file used in this article, see [Image builder json template example](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

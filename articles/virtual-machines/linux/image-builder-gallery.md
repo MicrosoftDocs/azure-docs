@@ -8,7 +8,7 @@ ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ---
-# Create an image and distribute to a Shared Image Gallery (preview)
+# Create an image and distribute to a Shared Image Gallery 
 
 This article is to show you how you can create a basic customized image using the Azure VM Image Builder to create an image version in a [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries).
 
@@ -41,9 +41,11 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Storage
 ```
 
-## Set Permissions 
+## Set variables and permissions 
 
 We will be using some pieces of information repeatedly, so we will create some variables to store that information.
+
+For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
 
 ```azurecli-interactive
 # Resource group name - we are using ibsigRG in this example

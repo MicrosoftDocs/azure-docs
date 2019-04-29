@@ -8,9 +8,17 @@ ms.topic: article
 ms.service: virtual-machines-widows
 manager: jeconnoc
 ---
-# Create an image and distribute to a Shared Image Gallery (preview)
+# Create an image and distribute to a Shared Image Gallery 
 
 This article is to show you how you can create a basic customized image using the Azure VM Image Builder to create an image version in a [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries).
+
+The example in this article uses three different [customizers](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize):
+- PowerShell (ScriptUri) - download and run a [PowerShell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
+- Windows Restart - restarts the VM.
+- PowerShell (inline) - run a specific command. In this example, it creates a directory on the VM using `mkdir c:\\buildActions`.
+- File - copy a file from GitHub onto the VM. This example copies [index.md](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) to `c:\buildArtifacts\index.html` on the VM.
+
+We will be using a .json template to configure the image. The .json file we are using is here: [helloImageTemplateforWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/helloImageTemplateforWinSIG.json). 
 
 ## Register the features
 To use Azure Image Builder during the preview, you need to register the new feature.
@@ -29,41 +37,44 @@ Check your registration.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-
 az provider show -n Microsoft.Storage | grep registrationState
+az provider show -n Microsoft.Compute | grep registrationState
 ```
 
 If they do not say registered, run the following:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
-
 az provider register -n Microsoft.Storage
+az provider register -n Microsoft.Compute
 ```
 
-## Set Permissions 
+## Set variables and permissions 
 
-We will be using some pieces of information repeatedly, so we will create some variables to store that information.
+We will be using some pieces of information repeatedly, so we will create some variables to store that information. Replace the values for the variables with your own information.
 
 ```azurecli-interactive
 # Resource group name - we are using ibsigRG in this example
-sigResourceGroup=ibsigRG
+sigResourceGroup=myIBWinRG
 # Datacenter location - we are using West US 2 in this example
-location=westus2
+location=westus
 # Additional region to replicate the image to - we are using East US in this example
 additionalregion=eastus
 # name of the shared image gallery - in this example we are using myGallery
-sigName=myIbGallery
+sigName=my22stSIG
 # name of the image definition to be created - in this example we are using myImageDef
-imageDefName=myIbImageDef
+imageDefName=winSvrimages
 # image distribution metadata reference name
-runOutputName=u1804SigRo
+runOutputName=w2019SigRo
+# User name and password for the VM
+username="user name for the VM"
+vmpassword="password for the VM"
 ```
 
 Create a variable for your subscription ID. You can get this using `az account show | grep id`.
 
 ```azurecli-interactive
-subscriptionID=<Subscription ID>
+subscriptionID="Subscription ID"
 ```
 
 Create the resource group.
@@ -103,10 +114,10 @@ az sig image-definition create \
    -g $sigResourceGroup \
    --gallery-name $sigName \
    --gallery-image-definition $imageDefName \
-   --publisher myIbPublisher \
+   --publisher corpIT \
    --offer myOffer \
-   --sku 18.04-LTS \
-   --os-type Linux
+   --sku 2019 \
+   --os-type Windows
 ```
 
 
@@ -115,14 +126,14 @@ az sig image-definition create \
 Download the .json template and configure it with your variables.
 
 ```azurecli-interactive
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json -o helloImageTemplateforSIG.json
-sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforSIG.json
-sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforSIG.json
-sed -i -e "s/<imageDefName>/$imageDefName/g" helloImageTemplateforSIG.json
-sed -i -e "s/<sharedImageGalName>/$sigName/g" helloImageTemplateforSIG.json
-sed -i -e "s/<region1>/$location/g" helloImageTemplateforSIG.json
-sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforSIG.json
-sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIG.json
+curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/helloImageTemplateforWinSIG.json -o helloImageTemplateforWinSIG.json
+sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforWinSIG.json
+sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforWinSIG.json
+sed -i -e "s/<imageDefName>/$imageDefName/g" helloImageTemplateforWinSIG.json
+sed -i -e "s/<sharedImageGalName>/$sigName/g" helloImageTemplateforWinSIG.json
+sed -i -e "s/<region1>/$location/g" helloImageTemplateforWinSIG.json
+sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforWinSIG.json
+sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforWinSIG.json
 ```
 
 ## Create the image version
@@ -134,10 +145,10 @@ Submit the image configuration to the Azure Image Builder service.
 ```azurecli-interactive
 az resource create \
     --resource-group $sigResourceGroup \
-    --properties @helloImageTemplateforSIG.json \
+    --properties @helloImageTemplateforWinSIG.json \
     --is-full-object \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateforSIG01
+    -n helloImageTemplateforWinSIG01
 ```
 
 Start the image build.
@@ -146,7 +157,7 @@ Start the image build.
 az resource invoke-action \
      --resource-group $sigResourceGroup \
      --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
-     -n helloImageTemplateforSIG01 \
+     -n helloImageTemplateforWinSIG01 \
      --action Run 
 ```
 
@@ -160,32 +171,28 @@ Create a VM from the image version that was created by Azure Image Builder.
 ```azurecli-interactive
 az vm create \
   --resource-group $sigResourceGroup \
-  --name myAibGalleryVM \
-  --admin-username aibuser \
-  --location $location \
+  --name aibImgWinVm001 \
+  --admin-username $username \
+  --admin-password $vmpassword \
   --image "/subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup/providers/Microsoft.Compute/galleries/$sigName/images/$imageDefName/versions/latest" \
-  --generate-ssh-keys
+  --location $location
 ```
 
-SSH into the VM.
 
-```azurecli-interactive
-ssh aibuser@<publicIpAddress>
-```
-
-You should see the image was customized with a *Message of the Day* as soon as your SSH connection is established!
+## Verify the customization
+Create a Remote Desktop connection to the VM using the username and password you set when you created the VM. Inside the VM, open a cmd prompt and type:
 
 ```console
-*******************************************************
-**            This VM was built from the:            **
-**      !! AZURE VM IMAGE BUILDER Custom Image !!    **
-**         You have just been Customized :-)         **
-*******************************************************
+dir c:\
 ```
 
-## Clean up resources
+You should see these two directories created during image customization:
+- buildActions
+- buildArtifacts
 
-If you want to now try re-customizing the image version to create a new version of the same image, skip the next steps and go on to [Use Azure Image Builder to create another image version](image-builder-gallery-update-image-version.md).
+
+## Clean up resources
+If you want to now try re-customizing the image version to create a new version of the same image, **skip this step** and go on to [Use Azure Image Builder to create another image version](image-builder-gallery-update-image-version.md).
 
 
 This will delete the image that was created, along with all of the other resource files. Make sure you are finished with this deployment before deleting the resources.
@@ -198,7 +205,7 @@ Delete the image builder template.
 az resource delete \
     --resource-group $sigResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateforSIG01
+    -n helloImageTemplateforWinSIG01
 ```
 
 Get the image version created by image builder, this always starts with `0.`, and then delete the image version
@@ -242,4 +249,4 @@ az group delete -n $sigResourceGroup -y
 
 ## Next Steps
 
-Learn more about [Azure Shared Image Galleries](shared-image-galleries.md).
+To learn how to update the image version you created, see [Use Azure Image Builder to create another image version](image-builder-gallery-update-image-version.md).

@@ -61,7 +61,6 @@ az provider register -n Microsoft.Storage
 
 We will be using some pieces of information repeatedly, so we will create some variables to store that information.
 
-
 ```azurecli-interactive
 # Resource group name - we are using myImageBuilderRG in this example
 imageResourceGroup=myWinImgBuilderRG
