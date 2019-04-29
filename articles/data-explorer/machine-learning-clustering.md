@@ -13,9 +13,9 @@ ms.date: 04/29/2019
 
 Azure Data Explorer, a Big Data analytics platform, is used to monitor service health, QoS, or malfunctioning devices for anomalous behavior using built-in [anomaly detection and forecasting](/azure/data-explorer/anomaly-detection) functions. Once an anomalous pattern is detected, a Root Cause Analysis (RCA) is performed to mitigate or resolve the anomaly.
 
-The diagnosis process is complex and lengthy and done by domain experts. The process includes fetching and joining additional data from different sources for the same time frame, looking for changes in the distribution of values on multiple dimensions, charting additional variables,and other techniques based on domain knowledge and intuition. Since these diagnosis scenarios are very common in Azure Data Explorer, machine learning plugins are available to make the diagnosis phase easier and shorten the duration of the RCA.
+The diagnosis process is complex and lengthy and done by domain experts. The process includes fetching and joining additional data from different sources for the same time frame, looking for changes in the distribution of values on multiple dimensions, charting additional variables, and other techniques based on domain knowledge and intuition. Since these diagnosis scenarios are common in Azure Data Explorer, machine learning plugins are available to make the diagnosis phase easier and shorten the duration of the RCA.
 
-Azure Data Explorer has three Machine Learning plugins: [autocluster](/azure/kusto/query/autoclusterplugin), [basket](/azure/kusto/query/basketplugin), and [diffpatterns](/azure/kusto/query/diffpatternsplugin). All plugins implement clustering algorithms. The `autocluster` and `basket` plugins cluster a single record set and the `diffpatterns` plugin clusters the differences between two record sets.
+Azure Data Explorer has three Machine Learning plugins: [`autocluster`](/azure/kusto/query/autoclusterplugin), [`basket`](/azure/kusto/query/basketplugin), and [`diffpatterns`](/azure/kusto/query/diffpatternsplugin). All plugins implement clustering algorithms. The `autocluster` and `basket` plugins cluster a single record set and the `diffpatterns` plugin clusters the differences between two record sets.
 
 ## Clustering a single record set
 
