@@ -22,7 +22,7 @@ All calls must be authenticated with a valid Azure Active Directory (OAuth 2) to
 ## Design the Logic App
 
 > [!IMPORTANT]
-> The following examples assume that the Azure Analysis Services firewall is disabled.  If the firewall is enabled, then the public IP address of the request initiator must be whitelisted in the Azure Analysis Services firewall. To learn more about Logic App IP ranges per region, see [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses.md).
+> The following examples assume that the Azure Analysis Services firewall is disabled.  If the firewall is enabled, then the public IP address of the request initiator must be whitelisted in the Azure Analysis Services firewall. To learn more about Logic App IP ranges per region, see [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses).
 
 ### Prerequisites
 
