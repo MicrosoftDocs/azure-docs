@@ -74,7 +74,7 @@ No, Site Recovery does not require internet connectivity. But it does require ac
 
 ### Can I replicate the application having separate resource group for separate tiers?
 Yes, you can replicate the application and keep the disaster recovery configuration in separate resource group too.
-For example, if you have an application with each tiers app, db and web in separate resource group, then you have to click the [replication wizard](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) thrice to protect all the tiers. ASR will replicate these three tiers in three different resource group.
+For example, if you have an application with each tiers app, db and web in separate resource group, then you have to click the [replication wizard](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) thrice to protect all the tiers. Site Recovery will replicate these three tiers in three different resource groups.
 
 ## Replication policy
 

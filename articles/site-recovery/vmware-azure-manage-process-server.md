@@ -112,7 +112,7 @@ If an on-premises process server uses a proxy to connect to Azure, you can modif
 
 ## Exclude folders from anti-virus software
 
-If anti-virus software is running on a standlone process server (or master target server), exclude the following folders from anti-virus operations:
+If anti-virus software is running on a scale-out process server (or master target server), exclude the following folders from anti-virus operations:
 
 
 - C:\Program Files\Microsoft Azure Recovery Services Agent

@@ -23,7 +23,7 @@ This article describes how to monitor the [Site Recovery](site-recovery-overview
 
 Since the process server has so many roles, particularly in replicated data caching, compression, and transfer to Azure, it's important to monitor process server health on an ongoing basis.
 
-There are a number of situations that commonly affect process server performance. Issues affecting performance will have a cascading effect on VM health, eventually pushing both the process server and its replicated machines into a critical state. Situtations include:
+There are a number of situations that commonly affect process server performance. Issues affecting performance will have a cascading effect on VM health, eventually pushing both the process server and its replicated machines into a critical state. Situations include:
 
 - High numbers of VMs use a process server, approaching or exceeding recommended limitations.
 - VMs using the process server have a high churn rate.
