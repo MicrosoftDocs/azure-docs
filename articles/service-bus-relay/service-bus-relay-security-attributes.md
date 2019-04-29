@@ -23,8 +23,8 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
 | Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  N/A | Relay is a web socket and does not persist data. |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | Service requires SSL. |
-| Encryption key handling (CMK, BYOK, etc.)| No | Uses Microsoft SSL certs only.  |
+| Encryption in transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | Service requires TLS. |
+| Encryption key handling (CMK, BYOK, etc.)| No | Uses Microsoft TLS certs only.  |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | HTTPS. |
 
@@ -34,7 +34,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 |---|---|--|
 | Service endpoint support| No |  |
 | Network isolation and firewalling support| No |  |
-| Forced tunneling support| N/A | Relay is the SSL tunnel  |
+| Forced tunneling support| N/A | Relay is the TLS tunnel  |
 
 ## Detection
 
