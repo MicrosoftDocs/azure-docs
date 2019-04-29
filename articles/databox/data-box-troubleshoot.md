@@ -25,7 +25,7 @@ All the errors that are seen during data copy are summarized in the following se
 
 **Suggested resolution:** The folder under the Data Box (SMB/NFS) share to which you have copied data becomes an Azure container in your storage account. 
 
-- On the **Connect and copy** page of the Data Box local web UI, download and review the error files to identify the folder names with issues.
+- On the **Connect and copy** page of the Data Box local web UI, download, and review the error files to identify the folder names with issues.
 - Change the folder name under the Data Box share to make sure that:
 
     - The name has between 3 and 63 characters.
@@ -43,7 +43,7 @@ All the errors that are seen during data copy are summarized in the following se
 
 **Suggested resolution:** The folder under the Data Box (SMB/NFS) share to which you have copied data becomes an Azure container in your storage account. 
 
-- On the **Connect and copy** page of the Data Box local web UI, download and review the error files to identify the folder names with issues.
+- On the **Connect and copy** page of the Data Box local web UI, download, and review the error files to identify the folder names with issues.
 - Change the folder name under the Data Box share to make sure that:
 
     - The name has between 3 and 63 characters.
@@ -62,7 +62,7 @@ All the errors that are seen during data copy are summarized in the following se
 
 **Suggested resolution:** The folder under the Data Box (SMB/NFS) share to which you have copied data becomes an Azure container in your storage account. 
 
-- On the **Connect and copy** page of the Data Box local web UI, download and review the error files to identify the folder names with issues.
+- On the **Connect and copy** page of the Data Box local web UI, download, and review the error files to identify the folder names with issues.
 - Change the folder name under the Data Box share to make sure that:
 
     - The name has between 3 and 63 characters.
@@ -80,7 +80,7 @@ All the errors that are seen during data copy are summarized in the following se
 
 **Suggested resolution:** The folder under the Data Box (SMB/NFS) share to which you have copied data becomes an Azure container in your storage account. 
 
-- On the **Connect and copy** page of the Data Box local web UI, download and review the error files to identify the folder names with issues.
+- On the **Connect and copy** page of the Data Box local web UI, download, and review the error files to identify the folder names with issues.
 - Change the folder name under the Data Box share to make sure that:
 
     - The name has between 3 and 63 characters.
@@ -108,7 +108,7 @@ For more information, see [Copy to managed disks](data-box-deploy-copy-data-from
 
 **Error description:** Azure file share limits a share to 5 TB of data. This limit has exceeded for some shares.
 
-**Suggested resolution:** On the **Connect and copy** page of the Data Box local web UI, download and review the error files.
+**Suggested resolution:** On the **Connect and copy** page of the Data Box local web UI, download, and review the error files.
 
 Identify the folders that have this issue from the error logs and make sure that the files in that folder are under 5 TB.
 
@@ -118,7 +118,7 @@ Identify the folders that have this issue from the error logs and make sure that
 
 **Suggested resolution:** The blobs or the files that you have copied contain names with unsupported characters.
 
-On the **Connect and copy** page of the local web UI, download and review the error files.
+On the **Connect and copy** page of the local web UI, download, and review the error files.
 Remove or rename the files to remove unsupported characters.
 
 For more information, see the Azure naming conventions for [blob names](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) and [file names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
@@ -129,7 +129,7 @@ For more information, see the Azure naming conventions for [blob names](https://
 
 **Suggested resolution:** The blobs or the files that you have copied contain names with unsupported characters.
 
-On the **Connect and copy** page of the local web UI, download and review the error files.
+On the **Connect and copy** page of the local web UI, download, and review the error files.
 Remove or rename the files to remove unsupported characters.
 
 For more information, see the Azure naming conventions for [blob names](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) and [file names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
@@ -141,7 +141,7 @@ For more information, see the Azure naming conventions for [blob names](https://
 
 **Suggested resolution:** The blobs or the files that you have copied contain names with unsupported characters.
 
-On the **Connect and copy** page of the local web UI, download and review the error files.
+On the **Connect and copy** page of the local web UI, download, and review the error files.
 Remove or rename the files to remove unsupported characters.
 
 For more information, see the Azure naming conventions for [blob names](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) and [file names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
@@ -153,7 +153,7 @@ For more information, see the Azure naming conventions for [blob names](https://
 
 **Suggested resolution:** The blobs or the files that you have copied exceed the maximum number of path segments. A path segment is the string between consecutive delimiter characters, for example, the forward slash /.
 
-- On the **Connect and copy** page of the local web UI, download and review the error files.
+- On the **Connect and copy** page of the local web UI, download, and review the error files.
 - Make sure that the [blob names](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) and [file names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) conform to Azure naming conventions.
 
 ### ERROR_BLOB_OR_FILE_NAME_AGGREGATE_LENGTH
@@ -162,7 +162,7 @@ For more information, see the Azure naming conventions for [blob names](https://
 
 **Suggested resolution:** The blob or the file names exceed the maximum length.
 
-- On the **Connect and copy** page of the local web UI, download and review the error files.
+- On the **Connect and copy** page of the local web UI, download, and review the error files.
 - The blob name must not exceed 1,024 characters.
 - Remove or rename the blob or files so that the names don’t exceed 1024 characters.
 
@@ -174,7 +174,7 @@ For more information, see the Azure naming conventions for blob names and file n
 
 **Suggested resolution:** One of the path segments in the blob or file name exceeds the maximum numbers of characters. A path segment is the string between consecutive delimiter characters, for example, the forward slash /.
 
-- On the **Connect and copy** page of the local web UI, download and review the error files.
+- On the **Connect and copy** page of the local web UI, download, and review the error files.
 - Make sure that the [blob names](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) and [file names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) conform to Azure naming conventions.
 
 ### ERROR_BLOB_OR_FILE_SIZE_LIMIT
@@ -183,7 +183,7 @@ For more information, see the Azure naming conventions for blob names and file n
 
 **Suggested resolution:** The blob or the file sizes exceed the maximum limit allowed for upload.
 
-- On the **Connect and copy** page of the local web UI, download and review the error files.
+- On the **Connect and copy** page of the local web UI, download, and review the error files.
 - Make sure that the blob and file sizes do not exceed the Azure object size limits.
 
 ### ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT
