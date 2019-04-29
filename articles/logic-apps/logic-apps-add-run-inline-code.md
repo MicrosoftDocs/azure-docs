@@ -21,18 +21,13 @@ to run code that fits this scenario:
 * Runs in JavaScript.
 * Finishes running in five seconds or fewer.
 * Handles data up to 50 MB in size.
-* Uses the same libraries that Azure Functions supports.
-
-  For example, with JavaScript, this action uses these 
-  [Node.js modules](https://www.w3schools.com/nodejs/ref_modules.asp). 
-  For more information, see [Azure Functions JavaScript developer guide](../azure-functions/functions-reference-node.md).
+* Uses these [Node.js modules](https://www.w3schools.com/nodejs/ref_modules.asp). 
 
 This action returns just one output named **Result**, 
 which you can use in subsequent actions in your logic app. 
 For other scenarios where you want to create a function for your code, try 
 [creating and calling an Azure function](../logic-apps/logic-apps-azure-functions.md) 
-in your logic app. If you're new to Azure Logic Apps, see 
-[What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+in your logic app.
 
 In this article, the example logic app triggers when 
 a new email arrives in an Office 365 Outlook account. 
@@ -64,7 +59,7 @@ open your logic app in the Logic App Designer.
 1. In the designer, add the **Inline Code** action at the 
 location that you want in your logic app's workflow.
 
-   * To add the action at the end of your workflow, choose **Next step**.
+   * To add the action at the end of your workflow, choose **New step**.
 
    * To add the action between existing steps, move your mouse pointer over 
    the arrow that connects those steps. Choose the plus sign (**+**), 
@@ -153,9 +148,11 @@ and select the parameters you want:
 
 If you select **Actions**, you're prompted for the action outputs that you want.
 
-1. To add the first action, click in the **Actions Item - 1** box.
+1. To add the first action, click inside the **Actions Item - 1** box.
 
-1. From the dynamic content list that opens, select the output you want.
+1. From the dynamic content list that appears, select the output you want.
+
+   ![](./media/logic-apps-add-run-inline-code/add-body-parameter.png)
 
 1. To add another output, choose **Add new item**.
 
