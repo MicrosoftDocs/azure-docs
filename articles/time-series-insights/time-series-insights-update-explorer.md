@@ -23,8 +23,8 @@ Before you use the Azure Time Series Insights Preview explorer, you must:
 * Have a Time Series Insights environment set up. To learn more about provisioning an instance try our [Azure Time Series Insights Preview](./time-series-insights-update-create-environment.md) tutorial.
 * [Provide data access](./time-series-insights-data-access.md) to the Time Series Insights environment that you created for the account. You can provide access to others as well as to yourself.
 * Add an event source to the Time Series Insights environment to push data to the environment:
-  * [Connect to an Event hub](./time-series-insights-how-to-add-an-event-source-eventhub.md)
-  * [Connect to an IoT hub](./time-series-insights-how-to-add-an-event-source-iothub.md)
+  * Learn [How to connect to an Event hub](./time-series-insights-how-to-add-an-event-source-eventhub.md)
+  * Learn [How to connect to an IoT hub](./time-series-insights-how-to-add-an-event-source-iothub.md)
 
 ## Learn about the Preview explorer
 
@@ -32,22 +32,25 @@ The Azure Time Series Insights Preview explorer consists of the following elemen
 
 [![The Explorer view](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
 
-| Menu item | Description |
-| --- | --- |
-| **Navigation bar** | Lets you switch between analytics and model pages. |
-| **Hierarchy tree** | Lets you select specific data elements to be charted. |
-| **Time series well** | Displays your currently selected data elements. |
-| **Chart panel** | Displays your current working chart. |
-| **Timeline** | Lets you modify your working time span. |
-| **App bar**|  Contains your user management options, such as current tenant, and lets you change theme and language settings. |
+1. <a href="#tsi-env">**Environment panel**</a>: Displays your Azure TSI environments.
+1. <a href="#tsi-nav">**Navigation bar**</a>: Lets you switch between analytics and model pages.
+1. <a href="#tsi-model">**Hierarchy tree**</a>: Lets you select specific model and data elements to be charted.
+1. <a href="#tsi-well">**Time series well**</a>: Displays your currently selected data elements in table format with color-coding.
+1. <a href="#tsi-chart">**Chart panel**</a>:  Displays your current working chart.
+1. <a href="#tsi-timeline">**Timeline**</a>:  Lets you modify your working time span.
+1. <a href="#tsi-bar">**App bar**</a>:  Contains your user management options, such as current tenant, and lets you change theme and language settings.
 
-## Preview environment panel
+<div id="tsi-env"></div>
+
+## Environment panel
 
 The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go environments Preview and S1/S2 environments (GA). Simply click the Time Series Insights environment you want to use.
 
   [![The control panel](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
 
-## Time Series Insights Preview navigation menu
+<div id="tsi-nav"></div>
+
+## Navigation menu
 
   [![The navigation menu](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
 
@@ -56,9 +59,21 @@ With the navigation menu, you can switch between the Time Series Insights apps:
 * **Analyze**: Lets you chart and perform rich analytics on your modeled or unmodeled time series data.
 * **Model**: Lets you push new Time Series Insights Preview types, hierarchies, and instances to your Time Series Insights model.
 
-## Preview model authoring
+<div id="tsi-model"></div>
 
-With this app, you can perform Create, Read, Update, and Delete (CRUD) operations on your Time Series Model.  
+## Hierarchy tree
+
+The hierarchy tree displays selected data elements including models, specific devices, and sensors on your devices.
+
+### Model search panel
+
+The model search panel lets you easily search and navigate your Time Series Model hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are added to both the current chart and the data well.
+
+  [![The model search panel](media/v2-update-explorer/explorer-four.png)](media/v2-update-explorer/explorer-four.png#lightbox)
+
+### Model authoring
+
+The Azure Time Series Insights Preview supports full Create, Read, Update, and Delete (CRUD) operations on your Time Series Model.  
 
 * **Time Series Model type**: Time Series Insights types enable defining variables or formulas for doing computations. They are associated with a given Time Series Insights instance. A type can have one or more variables.
 * **Time Series Model hierarchy**: Hierarchies are systematic organizations of your data. Hierarchies depict the relationships between different entities in your Time Series Insights data.
@@ -66,11 +81,7 @@ With this app, you can perform Create, Read, Update, and Delete (CRUD) operation
 
 To learn more about the Time Series Model, see [Times Series Models](./time-series-insights-update-tsm.md).
 
-## Preview model search panel
-
-The model search panel lets you easily search and navigate your Time Series Model hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are added to both the current chart and the data well.
-
-  [![The model search panel](media/v2-update-explorer/explorer-four.png)](media/v2-update-explorer/explorer-four.png#lightbox)
+<div id="tsi-well"></div>
 
 ## Preview well
 
@@ -86,6 +97,8 @@ You can also pop out the telemetry panel to get a better vertical view of the el
 > If you see the following message, the instance does not have any data during the time span selected. To resolve the issue, you can increase the time span or confirm that the instance is pushing data.
 >
 > ![No data notification](media/v2-update-explorer/explorer-seven.png)
+
+<div id="tsi-chart"></div>
 
 ## Preview chart
 
@@ -119,7 +132,9 @@ Here you can see an example of shared Y-axes:
 
   [![Preview chart Y-axis](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
 
-## Preview time editor panel
+<div id="tsi-timeline"></div>
+
+## Time editor panel
 
 When you work with Time Series Insights Preview, you first select a time span. The selected time span controls the dataset that is available for manipulation with the Time Series Insights Preview widgets. The following web controls are available in Time Series Insights Preview for selecting your working time span.
 
@@ -141,11 +156,15 @@ When you work with Time Series Insights Preview, you first select a time span. T
 
    [![To and from selection panel](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
 
-## Preview navigation panel
+<div id="tsi-bar"></div>
 
-The Time Series Insights Preview navigation panel provides the following functionality:
+## Navigation panel
+
+The Time Series Insights Preview navigation panel appears at the top of your hosted TSI app:
 
   [![Top menu bar](media/v2-update-explorer/explorer-fourteen.png)](media/v2-update-explorer/explorer-fourteen.png#lightbox)
+
+It, in turns provides the following functionality:
 
 ### Current session share link control
 
@@ -166,19 +185,19 @@ Select the link web control (highlighted) to generate a URL to save or share you
 
 ### Theme selection
 
-Azure Time Series Insights Preview supports two themes:
-
-* **Light Theme**: The default theme shown throughout this document.
-* **Dark theme**:  Renders the explorer as shown here:
-
-  [![Selected dark theme](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
-
 To select a new theme, click on your profile icon located in the top right corner. Then select **Change Theme**.
 
   [![Theme selection](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
 
 > [!TIP]
 > Language selection is also available by clicking on your profile icon.
+
+Azure Time Series Insights Preview supports two themes:
+
+* **Light Theme**: The default theme shown throughout this document.
+* **Dark theme**:  Renders the explorer as shown here:
+
+  [![Selected dark theme](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
 
 ## S1/S2 environment controls
 
