@@ -20,7 +20,15 @@ Like setting [environment variables](container-instances-environment-variables.m
 
 * By default, the command line specifies a *single process that starts without a shell* in the container. For example, the command line might run a Python script or executable file. 
 
-* To execute multiple commands, begin your command line by setting a shell environment in the container operating system (examples: `bin/sh`, `/bin/bash`, `cmd`). Follow the conventions of the shell to combine multiple commands to run in sequence.
+* To execute multiple commands, begin your command line by setting a shell environment that is supported in the container operating system. Examples:
+
+  |Operating system  |Default shell  |
+  |---------|---------|
+  |Ubuntu     |   `/bin/bash`      |
+  |Alpine     |   `/bin/sh`      |
+  |Windows     |    `cmd`     |
+
+  Follow the conventions of the shell to combine multiple commands to run in sequence.
 
 * Depending on the container configuration, you might need to set a full path to the command line executable or arguments.
 
