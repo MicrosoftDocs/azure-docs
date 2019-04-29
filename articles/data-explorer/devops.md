@@ -7,7 +7,7 @@ ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 04/29/2019
 
 #Customer intent: I want to use Azure DevOps to create a release pipeline and deploy
 ---
@@ -59,9 +59,9 @@ When creating your own workflow, ensure your code idempotent. For example, use [
 
     ![Add an artifact](media/devops/add-artifact.png)
 
-1. Create a **Variable** for **Endpoint URL** that'll be used in the task. The Azure Data Explorer cluster URI can be found in the overview page in the Azure portal. Construct the URI in the following format "https://<cluster URI>?DatabaseName=<DBName>" for example, https://democluster.westus2.kusto.windows.net?DatabaseName=SampleDB 
+1. Create a **Variable** for **Endpoint URL** that'll be used in the task. The Azure Data Explorer cluster URI can be found in the overview page in the Azure portal. Construct the URI in the following format "https://<cluster URI>?DatabaseName=<DBName>" for example, https://democluster.westus2.kusto.windows.net?DatabaseName=SampleDB
 
-    ![Variable](media/devops/create-variable.png)
+    ![Create variable](media/devops/create-variable.png)
 
 1. In the **Pipeline** tab, click on the **1 job, 0 task** to add the tasks.
 
@@ -81,7 +81,7 @@ When creating your own workflow, ensure your code idempotent. For example, use [
     |Setting  |Suggested value  |
     |---------|---------|
     |Connection name     |    Enter a name to identify this service endpoint     |
-    |Cluster Url    |         | Value can be found in overview section of your Azure Data Explorer cluster in the Azure portal
+    |Cluster Url    |    Value can be found in overview section of your Azure Data     |  Explorer cluster in the Azure portal
     |Service Principal Id    |    Enter the AAD App ID (created as prerequisite)     |
     |Service Principal App Key     |    Enter the AAD App Key (created as prerequisite)    |
     |AAD tenant id    |      Enter your AAD tenant (such as microsoft.com, contoso.com...)    |
@@ -98,6 +98,6 @@ When creating your own workflow, ensure your code idempotent. For example, use [
 
     ![Create a release](media/devops/create-release.png)
 
-1. Check the deployment status to check that it's successfully deployed.
+1. Check the deployment status is successful:
 
     ![Deployment is successful](media/devops/deployment-successful.png)
