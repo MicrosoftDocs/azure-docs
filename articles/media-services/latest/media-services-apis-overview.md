@@ -27,7 +27,7 @@ The following image shows some of the most commonly used objects when developing
 
 Click the image to view it full size.  
 
-<a href="./media/api-diagram/ClassDiagram1.png" target="_blank"><img src="./media/api-diagram/thumbnail.png"></a> 
+<a href="./media/api-diagrams/ClassDiagram1.png" target="_blank"><img src="./media/api-diagrams/thumbnail.png"></a> 
 
 ## Accessing the Azure Media Services API
 
