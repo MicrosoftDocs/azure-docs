@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services packaging/origin errors | Microsoft Docs
-description: This topic describes errors that you may recieve from the Azure Media Services packaging service.
+description: This topic describes errors that you may receive from the Azure Media Services packaging service.
 author: Juliako
 manager: femila
 editor: ''
