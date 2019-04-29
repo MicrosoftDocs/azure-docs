@@ -34,7 +34,7 @@ The following diagram shows transforms/jobs workflow.
 3. List Transforms 
 4. Delete a Transform, if you are not planning to use it in the future. 
 
-### Example
+#### Example
 
 Suppose you wanted to extract the first frame of all your videos as a thumbnail image – the steps you would take are: 
 
