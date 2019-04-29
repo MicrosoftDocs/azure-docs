@@ -1,17 +1,9 @@
 ---
-title: Azure SaaS application offer plans 
+title: Azure SaaS application offer plans | Azure Marketplace
 description: Create a plan for a SaaS application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pabutler

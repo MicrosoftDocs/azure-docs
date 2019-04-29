@@ -1,17 +1,9 @@
 ---
-title: How to create your new Microsoft Dynamics 365 Business Central offer 
+title: How to create your new Microsoft Dynamics 365 Business Central offer  | Azure Marketplace
 description: Explains how to create a new Microsoft Dynamics 365 Business Central offer using the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pabutler

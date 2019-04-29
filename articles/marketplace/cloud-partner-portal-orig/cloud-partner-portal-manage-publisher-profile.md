@@ -1,16 +1,10 @@
 ---
-title: Manage ‘Azure Marketplace’ and ‘AppSource’ publisher profile
-description: Managing ‘Azure Marketplace’ and ‘AppSource’ publisher profile
+title: Manage Azure Marketplace and AppSource publisher profile
+description: Managing Azure Marketplace and AppSource publisher profile
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: qianw211
 manager: pbutlerm  
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pabutler

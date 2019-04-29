@@ -1,17 +1,9 @@
 ---
-title: Support for an Azure IoT Edge module 
+title: Support for an Azure IoT Edge module | Azure Marketplace
 description: Support options for an IoT Edge module.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler

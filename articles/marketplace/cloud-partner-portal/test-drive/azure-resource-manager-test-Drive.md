@@ -1,22 +1,14 @@
 ---
-title: Azure Resource Manager Test Drive 
+title: Azure Resource Manager Test Drive | Azure Marketplace
 description: Build a Marketplace Test Drive using Azure Resource Manager
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: pbutlerm
 manager: Patrick .Butler  
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ---
-
 
 # Azure Resource Manager Test Drive
 

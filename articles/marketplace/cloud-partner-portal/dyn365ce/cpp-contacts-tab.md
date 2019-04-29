@@ -1,17 +1,9 @@
 ---
-title: Dynamics 365 for Customer Engagement offer Contacts tab - Azure Marketplace 
+title: Dynamics 365 for Customer Engagement offer Contacts tab | Azure Marketplace 
 description: Configure contact information for Dynamics 365 for Customer Engagement offer on the AppSource Marketplace.
 services: Dynamics 365 for Customer Engagement, Azure, AppSource, Marketplace, Cloud Partner Portal, 
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler

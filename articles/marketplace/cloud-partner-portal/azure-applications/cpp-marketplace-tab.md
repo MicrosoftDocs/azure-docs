@@ -2,16 +2,8 @@
 title: Azure application offer Marketplace tab 
 description: Use the Marketplace tab to identify marketing assets for an Azure application offer.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler

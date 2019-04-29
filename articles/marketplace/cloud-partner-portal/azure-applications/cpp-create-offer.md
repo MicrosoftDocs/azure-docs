@@ -1,17 +1,9 @@
 ---
-title: Create an Azure application offer 
+title: Create an Azure application offer | Azure Marketplace 
 description: How to publish a new Azure application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: pabutler

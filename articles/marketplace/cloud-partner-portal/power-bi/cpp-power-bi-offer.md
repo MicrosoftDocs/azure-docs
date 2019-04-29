@@ -1,17 +1,9 @@
 ---
-title: Power BI App offer - Azure Marketplace 
+title: Power BI App offer | Azure Marketplace 
 description: How to publish a Power BI app to the Microsoft AppSource marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler

@@ -1,17 +1,9 @@
 ---
-title: Create a Power BI App offer - Azure Marketplace 
+title: Create a Power BI App offer | Azure Marketplace 
 description: How to create a Power BI App offer for the Microsoft AppSource Marketplace. 
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pabutler

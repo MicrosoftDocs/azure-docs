@@ -1,17 +1,9 @@
 ---
-title: Azure SaaS application offer support configuration 
+title: Azure SaaS application offer support configuration | Azure Marketplace
 description: Configure engineering and support contacts for SaaS application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: pabutler

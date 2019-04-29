@@ -1,17 +1,9 @@
 ---
-title: Azure SaaS application offer storefront configuration 
+title: Azure SaaS application offer storefront configuration | Azure Marketplace
 description: Configure storefront for SaaS application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler

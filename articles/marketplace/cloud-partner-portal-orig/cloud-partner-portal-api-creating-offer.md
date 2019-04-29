@@ -1,22 +1,13 @@
 ---
-title: Create or modify an offer 
+title: Create or modify an offer | Azure Marketplace
 description: API to create a new or update and existing offer.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ---
-
 
 Create or modify an offer
 =========================

@@ -1,17 +1,9 @@
 ---
-title: Private SKUs and plans 
+title: Private SKUs and plans | Azure Marketplace
 description: How to use private SKUs to manage the offer availability.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler

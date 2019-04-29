@@ -1,17 +1,9 @@
 ---
-title: Azure IoT Edge Module offer publishing overview 
+title: Azure IoT Edge Module offer publishing overview | Azure Marketplace
 description: Overview of the process for publishing an IoT Edge module offer on Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: pabutler

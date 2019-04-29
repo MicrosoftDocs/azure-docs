@@ -1,17 +1,9 @@
 ---
-title: Azure Containers image offer 
+title: Azure Containers image offer | Azure Marketplace
 description: Overview of the process for publishing a container offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: pabutler

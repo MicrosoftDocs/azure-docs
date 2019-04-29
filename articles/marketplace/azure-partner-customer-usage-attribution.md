@@ -1,5 +1,5 @@
 ---
-title: Azure partner and customer usage attribution
+title: Azure partner and customer usage attribution | Azure Marketplace
 description: Overview of how to track customer usage for Azure Marketplace solutions
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj

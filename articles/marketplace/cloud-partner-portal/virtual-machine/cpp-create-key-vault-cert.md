@@ -1,17 +1,9 @@
 ---
-title: Create an Azure Key Vault certificate 
+title: Create an Azure Key Vault certificate | Azure Marketplace
 description: Explains how to register a VM from an Azure-deployed VHD.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler

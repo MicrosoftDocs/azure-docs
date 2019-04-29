@@ -1,17 +1,10 @@
 ---
-title: Managing users on cloud partner portal - Azure Marketplace 
+title: Managing users on Cloud Partner Portal | Azure Marketplace 
 description: Managing users on cloud partner portal
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: v-miclar
 manager: pbutlerm  
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler

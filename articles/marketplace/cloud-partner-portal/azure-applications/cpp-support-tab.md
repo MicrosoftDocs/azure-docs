@@ -1,17 +1,9 @@
 ---
-title: Configure Azure application support 
+title: Configure Azure application support | Azure Marketplace 
 description: Configure Azure application support for an offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler

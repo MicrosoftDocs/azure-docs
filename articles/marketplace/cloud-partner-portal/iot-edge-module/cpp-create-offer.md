@@ -1,17 +1,9 @@
 ---
-title: Create an Azure IoT Edge module offer 
+title: Create an Azure IoT Edge module offer | Azure Marketplace
 description: How to publish a new IoT Edge Module for the Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pabutler

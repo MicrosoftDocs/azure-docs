@@ -1,17 +1,9 @@
 ---
 title: Audit history page for Azure Marketplace 
-description: .
+description: Overview of the Audit history page in Cloud Partner Portal for Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pabutler

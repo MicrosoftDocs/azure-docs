@@ -1,24 +1,17 @@
 ---
-title: Publishing checklist for AppSource | Azure
+title: Publishing checklist for AppSource | Azure Marketplace
 description: Publishing checklist for AppSource.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
 author: jm-aditi-ms
 manager: pabutler
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-
 ---
 
 # Publishing Checklist for AppSource  
+
 Review required components prior to starting the publishing process.  
 
 The following artifacts are required to publish your app on AppSource.  

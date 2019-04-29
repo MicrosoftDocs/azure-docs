@@ -1,5 +1,5 @@
 ---
-title: AppSource offer publishing guide for AppsSource storefront - Azure Marketplace
+title: AppSource offer publishing guide for AppsSource storefront | Azure Marketplace
 description: Step-by-step guide and publishing checklists for publishing apps to the AppSource storefront for Office 365, Dynamics 365, Power BI, and Power Apps
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: ellacroi

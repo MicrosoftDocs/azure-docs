@@ -1,17 +1,9 @@
 ---
-title: Contacts information for a Power BI App offer - Azure Marketplace 
+title: Contacts information for a Power BI App offer | Azure Marketplace 
 description: Configure Contacts fields for a Power BI App offer for the Microsoft AppSource Marketplace. 
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler

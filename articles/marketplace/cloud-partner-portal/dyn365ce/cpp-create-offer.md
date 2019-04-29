@@ -1,17 +1,9 @@
 ---
-title: Create a Dynamics 365 for Customer Engagement application offer - Azure Marketplace 
+title: Create a Dynamics 365 for Customer Engagement application offer | Azure Marketplace 
 description: How to create a new Dynamics 365 for Customer Engagement application offer on the AppSource Marketplace.
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: pabutler

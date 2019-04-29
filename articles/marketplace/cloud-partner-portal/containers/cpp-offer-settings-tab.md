@@ -1,22 +1,13 @@
 ---
-title: Offer settings for an Azure Containers image 
+title: Offer settings for an Azure Containers image | Azure Marketplace
 description: Configure offer settings for an Azure container.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ---
-
 
 # Container Offer Settings tab
 

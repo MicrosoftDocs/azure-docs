@@ -1,17 +1,9 @@
 ---
-title: Dynamics 365 for Customer Engagement Technical Info tab - Azure Marketplace 
+title: Dynamics 365 for Customer Engagement Technical Info tab | Azure Marketplace 
 description: How to specify the technical information for a Dynamics 365 for Customer Engagement application on the AppSource Marketplace. 
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler

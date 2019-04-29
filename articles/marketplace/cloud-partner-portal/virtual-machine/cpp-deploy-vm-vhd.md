@@ -2,16 +2,8 @@
 title: Deploy a VM from your VHDs for the Azure Marketplace 
 description: Explains how to register a VM from an Azure-deployed VHD.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pabutler

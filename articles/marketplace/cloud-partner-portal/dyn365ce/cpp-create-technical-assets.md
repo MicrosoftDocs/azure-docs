@@ -1,22 +1,13 @@
 ---
-title: Create Dynamics 365 for Customer Engagement technical assets - Azure Marketplace 
+title: Create Dynamics 365 for Customer Engagement technical assets | Azure Marketplace 
 description: Create the technical assets for a Dynamics 365 for Customer Engagement application offer.
 services: Dynamics 365 for Customer Engagement, Azure, Marketplace, Cloud Partner Portal, AppSource
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: article
 ms.date: 12/29/2018
 ms.author: pabutler
 ---
-
 
 # Create technical assets for Azure application offer
 

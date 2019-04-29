@@ -1,22 +1,13 @@
 ---
-title: Support for Cloud Partner Portal 
+title: Support for Cloud Partner Portal  | Azure Marketplace
 description: Get support in the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pabutler
 ---
-
 
 # Get Support for Cloud Partner Portal
 

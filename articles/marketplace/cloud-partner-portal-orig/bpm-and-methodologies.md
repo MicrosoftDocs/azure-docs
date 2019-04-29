@@ -1,17 +1,10 @@
 ---
-title: Business Process Libraries 
+title: Business Process Libraries | Azure Marketplace
 description: Explanation of business process libraries and methodologies.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: pbutlerm
 manager: Ricardo.Villalobos  
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler

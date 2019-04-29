@@ -1,17 +1,9 @@
 ---
-title: SaaS Fulfillment APIs - Azure Marketplace 
+title: SaaS Fulfillment APIs | Azure Marketplace 
 description: Introduces the versions of the fulfillment APIs that enable you to integrate your SaaS offers with the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: pabutler

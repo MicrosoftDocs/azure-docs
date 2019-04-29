@@ -1,17 +1,10 @@
 ---
-title: Hosted Test Drive 
+title: Hosted Test Drive | Azure Marketplace
 description: How to setup an maintain a Marketplace Hosted Test Drive
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: pbutlerm
 manager: Ricardo.Villalobos  
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler

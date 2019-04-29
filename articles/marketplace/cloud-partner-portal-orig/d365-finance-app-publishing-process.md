@@ -1,28 +1,17 @@
 ---
-title: App Publishing Steps 
-description: .
+title: App Publishing Steps  | Azure Marketplace
+description: Steps to publish an application to the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pabutler
 ---
 
+# App Publishing Steps
 
-App Publishing Steps
-====================
-
-To start the Publish process, you will click "Publish" under the Editor
-tab.
+To start the Publish process, you will click "Publish" under the Editor tab.
 
 ![CPP Publish App button](./media/d365-financials/image014.jpg)
 

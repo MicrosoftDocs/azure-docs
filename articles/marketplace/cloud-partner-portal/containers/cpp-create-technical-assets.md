@@ -1,22 +1,13 @@
 ---
-title: Create Azure Containers image technical assets 
+title: Create Azure Containers image technical assets | Azure Marketplace
 description: Create the technical assets for an Azure container.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
 ---
-
 
 # Prepare your container technical assets
 

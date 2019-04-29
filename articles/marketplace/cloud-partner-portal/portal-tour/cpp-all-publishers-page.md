@@ -1,17 +1,9 @@
 ---
-title: All Publishers page for Azure Marketplace  
-description: .
+title: All publishers page for Azure Marketplace  
+description: Overview of the All publishers in the Cloud Partner Portal for Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pabutler

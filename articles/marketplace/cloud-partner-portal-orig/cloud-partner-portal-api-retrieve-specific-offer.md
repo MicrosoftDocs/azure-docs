@@ -1,17 +1,9 @@
 ---
-title: Retrieve a specific offer API 
+title: Retrieve a specific offer API | Azure Marketplace
 description: API retrieves the specified offer within the publisher namespace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler

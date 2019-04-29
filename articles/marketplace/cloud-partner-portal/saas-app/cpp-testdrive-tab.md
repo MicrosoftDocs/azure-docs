@@ -1,17 +1,9 @@
 ---
-title: Azure SaaS application offer test drive configuration 
+title: Azure SaaS application offer test drive configuration | Azure Marketplace
 description: Configure test drive for SaaS application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler

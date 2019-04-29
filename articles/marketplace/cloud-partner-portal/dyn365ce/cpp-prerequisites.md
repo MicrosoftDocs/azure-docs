@@ -1,17 +1,9 @@
 ---
-title: Dynamics 365 for Customer Engagement offer prerequisites - Azure Marketplace 
+title: Dynamics 365 for Customer Engagement offer prerequisites | Azure Marketplace 
 description: The prerequisites for publishing an Azure application offer on the Azure Marketplace.
 services: Dynamics 365 for Customer Engagement offer, Azure, Marketplace, Cloud Partner Portal, 
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler

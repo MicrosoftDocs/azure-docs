@@ -1,22 +1,13 @@
 ---
-title: Prerequisites for managing accounts on the Cloud Partner Portal - Azure Marketplace 
+title: Prerequisites for managing accounts on the Cloud Partner Portal | Azure Marketplace 
 description: Prerequisites for managing Azure Marketplace accounts on the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
 ---
-
 
 # Prerequisites for managing accounts on the Cloud Partner Portal 
 

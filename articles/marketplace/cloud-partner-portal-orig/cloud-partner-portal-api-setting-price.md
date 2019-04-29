@@ -1,17 +1,9 @@
 ---
-title: Pricing for virtual machine offers 
+title: Pricing for virtual machine offers | Azure Marketplace
 description: Explains the three methods of specifying the pricing of virtual machine offers.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: v-miclar
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler

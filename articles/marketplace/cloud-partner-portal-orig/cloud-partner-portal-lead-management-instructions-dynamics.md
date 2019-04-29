@@ -1,17 +1,9 @@
 ---
-title: Dynamics CRM 
+title: Dynamics CRM | Azure Marketplace
 description: Configure lead management for Dynamics CRM.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler

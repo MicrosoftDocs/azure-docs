@@ -1,22 +1,13 @@
 ---
-title: Marketplace settings for an Azure Containers image 
+title: Marketplace settings for an Azure Containers image | Azure Marketplace
 description: Configure marketplace settings for an Azure container.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ---
-
 
 # Container Marketplace tab
 

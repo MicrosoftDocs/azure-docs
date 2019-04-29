@@ -1,17 +1,9 @@
 ---
-title: Publish Azure SaaS application offer 
+title: Publish Azure SaaS application offer | Azure Marketplace
 description: Publishing process and steps for a SaaS application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-
 author: dan-wesley
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pabutler
