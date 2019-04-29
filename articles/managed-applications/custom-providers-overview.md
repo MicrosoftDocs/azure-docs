@@ -1,0 +1,85 @@
+---
+title: Overview of Azure Custom Providers Preview
+description: Describes the concepts for creating a custom resource provider with Azure Resource Manager
+author: MSEvanhi
+ms.service: managed-applications
+ms.topic: conceptual
+ms.date: 04/29/2019
+ms.author: evanhi
+---
+
+# Azure Custom Providers Preview overview
+
+With Azure custom providers, you can extend Azure to work with your service. You create your own resource provider, including customized resource types and actions. The solution is integrated with Azure Resource Manager. After defining your custom provider, you can use Resource Manager's deployment methods, such as templates, to deploy your custom resources.
+
+> [!IMPORTANT]
+> Custom Providers is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This article provides an overview of custom providers and its capabilities. The following image shows the work flow for resources and actions defined in a custom provider.
+
+![Custom provider overview](./media/custom-providers-overview/overview.png)
+
+## Define your custom provider
+
+You start by letting Azure Resource Manager know about your custom provider. You deploy to Azure a custom provider resource, which uses the resource type of **Microsoft.CustomProviders/resourceProviders**. In that resource, you define the customized resources for your service. For example, if your service needs a resource type named **users**, you include that resource type in your custom provider definition.
+
+For each resource type, you provide an endpoint that contains the REST operations (PUT, GET, DELETE) for that resource type. The endpoint can be hosted on any environment.
+
+You can also define custom actions for your resource provider. Use actions for operations such as start, stop, or restart. These actions call an endpoint directly, without deploying a resource.
+
+The following example shows how to define a custom provider with an action and a resource type.
+
+```json
+{
+    "apiVersion": "2018-09-01-preview",
+    "type": "Microsoft.CustomProviders/resourceProviders",
+    "name":"[parameters('rpname')]",
+    "location":"[parameters('location')]",
+    "properties" :{
+        "actions": [
+          {
+            "name": "ping",
+            "routingType":"Proxy",
+            "endpoint": "[concat('https://', parameters('funcname'), '.azurewebsites.net/api/{requestPath}')]"
+          }
+        ],
+        "resourceTypes": [
+          {
+            "name":"users",
+            "routingType":"Proxy,Cache",
+            "endpoint": "[concat('https://', parameters('funcname'), '.azurewebsites.net/api/{requestPath}')]"
+          }
+        ]
+    }
+},
+```
+
+## Deploy your resource types
+
+After defining your custom provider, you can deploy your customized resource types. You can deploy your custom resource types in the same template as Azure resource types.
+
+```json
+{
+    "type": "Microsoft.CustomProviders/resourceProviders/users",
+    "name": "[concat(parameters('rpname'), '/santa')]",
+    "apiVersion": "2018-09-01-preview",
+    "location": "[parameters('location')]",
+    "properties": {
+        "FullName": "Santa Claus",
+        "Location": "NorthPole"
+    }
+}
+```
+
+## Manage access
+
+Use Azure [role-based access control](../role-based-access-control/overview.md) to manage access to your resource provider. You can assign [built-in roles](../role-based-access-control/built-in-roles.md) such as Owner, Contributor, or Reader to users. Or, you can define [custom roles](../role-based-access-control/custom-roles.md) that are specific to the operation in your resource provider.
+
+## Next steps
+
+In this article, you learned about benefits of using managed applications. Go to the next article to create a managed application definition.
+
+> [!div class="nextstepaction"]
+> [Quickstart: Publish an Azure managed application definition](publish-managed-app-definition-quickstart.md)

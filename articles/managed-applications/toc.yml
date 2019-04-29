@@ -25,6 +25,10 @@
     href: powershell-samples.md
   - name: Managed application solutions
     href: sample-projects.md
+- name: Concepts
+  items:
+  - name: Custom Providers
+    href: custom-providers-overview.md
 - name: How-to guides
   items:
   - name: Publishers
