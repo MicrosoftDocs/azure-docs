@@ -177,11 +177,11 @@ If your JavaScript app have a dependency on Windows native modules, you will nee
 
 - The Agent Pool version to **Hosted VS2017**
 
-![Change Build Agent OS](media/functions-how-to-azure-devops/change-agent.png)
+  ![Change Build Agent OS](media/functions-how-to-azure-devops/change-agent.png)
 
 - The script in the **Build extensions** step in the template to `IF EXIST *.csproj dotnet build extensions.csproj --output ./bin`
 
-![Change Script](media/functions-how-to-azure-devops/change-script.png)
+  ![Change Script](media/functions-how-to-azure-devops/change-script.png)
 
 ### Deploy your app
 
