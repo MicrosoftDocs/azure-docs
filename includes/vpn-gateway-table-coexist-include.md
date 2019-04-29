@@ -9,7 +9,7 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-| **Deployment Model/Method** | **Azure Portal** | **PowerShell** | 
+| **Deployment model/method** | **Azure portal** | **PowerShell** | 
 | --- | --- | --- |
 | Resource Manager | **Supported** | [Tutorial](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)|
 | Classic | **Not Supported** | [Tutorial](../articles/expressroute/expressroute-howto-coexist-classic.md) |
