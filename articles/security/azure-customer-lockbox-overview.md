@@ -14,12 +14,11 @@ ms.date: 05/07/2019
 > [!NOTE]
 > To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
 
-As a cloud service provider, Microsoft understands the importance of maintaining the integrity and confidentiality of customer data. We continually invest in our policies, processes, and tools for governing when Microsoft may need to access customer data hosted in Azure. One of the key tools to provide control over these processes is Customer Lockbox for Microsoft Azure.
+Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data during a support request.
 
-In most cases, Microsoft engineers do not access customer data. For example, routine platform maintenance doesn't need access to customer data and if customers have opened support tickets, Microsoft support engineers can troubleshoot the majority of issues by using tools and telemetry.
+This article covers how Customer Lockbox requests are initiated, tracked, and stored for later reviews and audits.
 
-However, If a Microsoft engineer does needs to access customer data during a support request, Customer Lockbox provides an interface for a customer to review this access request, and approve or reject it, as well as track historical request logs. This article covers how this workflow is initiated, tracked, and stored for later reviews and audits.
-
+Customer Lockbox is now generally available and currently enabled for remote desktop access to virtual machines.
 
 ## Workflow
 
@@ -108,7 +107,7 @@ For scenarios that involve remote desktop access, you can use Windows event logs
 
 Customer Lockbox requests aren't triggered in the following engineering support scenarios:
 
-- A Microsoft engineer needs to do an activity that falls outside of standard operating procedures. For example, to recover or restore a service.
+- A Microsoft engineer needs to do an activity that falls outside of standard operating procedures. For example, to recover or restore services in unexpected or unpredictable scenarios.
 
 - A Microsoft engineer accesses the Azure platform as part of troubleshooting and inadvertently has access to customer data. For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. However, if the customer encrypted the data while it was in transit, the engineer cannot read the data.
 
