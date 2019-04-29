@@ -71,7 +71,7 @@ Most storage browsing tools enable you to view the metadata of blobs; you can al
  }  
  ```  
 
-For information about listing blobs programmatically, see [Enumerating Blob Resources](http://msdn.microsoft.com/library/azure/hh452233.aspx) and [Setting and Retrieving Properties and Metadata for Blob Resources](http://msdn.microsoft.com/library/azure/dd179404.aspx).  
+For information about listing blobs programmatically, see [Enumerating Blob Resources](https://msdn.microsoft.com/library/azure/hh452233.aspx) and [Setting and Retrieving Properties and Metadata for Blob Resources](https://msdn.microsoft.com/library/azure/dd179404.aspx).  
 
 ### Log naming conventions
 

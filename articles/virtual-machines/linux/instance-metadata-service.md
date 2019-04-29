@@ -23,11 +23,11 @@ ms.reviewer: azmetadata
 The Azure Instance Metadata Service provides information about running virtual machine instances that can be used to manage and configure your virtual machines.
 This includes information such as SKU, network configuration, and upcoming maintenance events. For more information on what type of information is available, see [metadata APIs](#metadata-apis).
 
-Azure's Instance Metadata Service is a REST Endpoint accessible to IaaS VMs created via the [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
+Azure's Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs created via the [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
 The endpoint is available at a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.
 
 > [!IMPORTANT]
-> This service is  **generally available** in Azure Regions.  It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [metadata APIs](#metadata-apis) available.
+> This service is  **generally available** in all Azure Regions.  It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [metadata APIs](#metadata-apis) available.
 
 ## Service availability
 
@@ -40,6 +40,7 @@ Regions                                        | Availability?                  
 [Azure China](https://www.azure.cn/)                                                     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Public West Central US](https://azure.microsoft.com/regions/)                           | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01
+
 This table is updated when there are service updates and or new supported versions are available.
 
 > [!NOTE]
@@ -96,6 +97,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > All instance metadata queries are case-sensitive.
 
 ### Data output
+
 By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, different APIs return data in different formats if requested.
 The following table is a reference of other data formats APIs may support.
 
@@ -266,6 +268,7 @@ curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-versio
 Or through the `Invoke-RestMethod` cmdlet:
 
 ```powershell
+
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2018-10-01 -Method get 
 ```
 
@@ -397,7 +400,6 @@ Instance Metadata responds at http endpoint on 169.254.169.254. Part of the scen
 
  **Request**
 
-
  ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
 
@@ -407,6 +409,7 @@ Api-version is a mandatory field and the version supported for attested data is 
 Nonce is an optional 10-digit string provided. Nonce can be used to track the request and if not provided, in response encoded string the current UTC timestamp is returned.
 
  **Response**
+
 > [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
 
@@ -416,7 +419,7 @@ Nonce is an optional 10-digit string provided. Nonce can be used to track the re
 }
 ```
 
- > The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, nonce, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
+> The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, nonce, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
 
 #### Retrieving attested metadata in Windows Virtual Machine
 
@@ -526,18 +529,18 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure has various sovereign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Sometimes you need the Azure Environment to make some runtime decisions. The following sample shows you how you can achieve this behavior.
 
 **Request**
-``` bash
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Response**
-```
+```bash
 AZUREPUBLICCLOUD
 ```
 
 ### Getting the tags for the VM
 
-You may have assigned tags to your Azure VMs to logically organize them into a taxonomy. The tags assigned to a VM can be retrieved by using the request below.
+Tags may have been applied to your Azure VM to logically organize them into a taxonomy. The tags assigned to a VM can be retrieved by using the request below.
 
 **Request**
 
@@ -556,12 +559,12 @@ Department:IT;Environment:Test;Role:WebRole
 
 ### Validating that the VM is running in Azure
 
- Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have a way to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
+Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have the ability to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
 
- > [!NOTE]
+> [!NOTE]
 > Requires jq to be installed.
 
- **Request**
+**Request**
 
  ```bash
   # Get the signature
@@ -602,7 +605,7 @@ Verification successful
 Data | Description
 -----|------------
 nonce | User supplied optional string with the request. If no nonce was supplied in the request, the current UTC timestamp is returned
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in it's an Azure Marketplace Image, contains name, product and publisher
+plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in it's an Azure Marketplace Image, contains name, product, and publisher
 timestamp/createdOn | The timestamp at which the first signed document was created
 timestamp/expiresOn | The timestamp at which the signed document expires
 vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM
@@ -634,6 +637,7 @@ openssl x509 -noout -issuer -in intermediate.pem
 # Verify the certificate chain
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
+
 ### Failover Clustering in Windows Server
 
 For certain scenarios, when querying Instance Metadata Service with Failover Clustering, it is necessary to add a route to the routing table.
@@ -680,7 +684,7 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### Custom Data
-Instance Metadata Service provides the ability for the VM to have access to its custom data. The binary data must be less than 64KB and is provided to the VM in base64 encoded form. For more information about custom data and how to create a VM with custom data, see [Custom Data and Cloud-Init on Microsoft Azure](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/). 
+Instance Metadata Service provides the ability for the VM to have access to its custom data. The binary data must be less than 64KB and is provided to the VM in base64 encoded form. For details on how to create a VM with custom data, see [Deploy a Virtual Machine with CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
 #### Retrieving custom data in Virtual Machine
 Instance Metadata Service provides custom data to the VM in base64 encoded form. The following example decodes the base64 encoded string.
