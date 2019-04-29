@@ -49,22 +49,37 @@ If your IoT Edge device is a Windows computer, check that it meets the [system r
 
 A PowerShell script downloads and installs the Azure IoT Edge security daemon. The security daemon then starts the first of two runtime modules, the IoT Edge agent, which enables remote deployments of other modules. 
 
-When you install the IoT Edge runtime for the first time on a device, you need to provision the device with an identity from an IoT hub. A single IoT Edge device can be provisioned manually using a device connections string provided by IoT Hub. Or, you can use the Device Provisioning Service to automatically provision devices, which is helpful when you have many devices to set up. 
+When you install the IoT Edge runtime for the first time on a device, you need to provision the device with an identity from an IoT hub. A single IoT Edge device can be provisioned manually using a device connections string provided by your IoT hub. Or, you can use the Device Provisioning Service to automatically provision devices, which is helpful when you have many devices to set up. 
 
 You can read more about the different installation options and parameters in the article [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md). Once you have Docker Desktop installed and configured for Linux containers, the main installation difference is declaring Linux with the **-ContainerOs** parameter. For example: 
 
-1. If you haven't already, follow the steps in [Register a new Azure IoT Edge device](how-to-register-device-portal.md) to register your device and retrieve the device connection string. 
+1. If you haven't already, register a new IoT Edge device and retrieve the device connection string. Copy the connection string to use later in this section. You can complete this step using the following tools:
+
+   * [Azure portal](how-to-register-device-portal.md)
+   * [Azure CLI](how-to-register-device-cli.md)
+   * [Visual Studio Code](how-to-register-device-vscode.md)
 
 2. Run PowerShell as an administrator.
 
-3. The **Install-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature if necessary, and downloads the IoT Edge runtime. Then, it configures the IoT Edge runtime on your machine and provisions the device with IoT Hub. The command defaults to manual provisioning. Declare Linux as the container operating system so that the Deploy-IoTEdge command doesn't install the Moby engine for Windows containers.
+3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, and then downloads the moby runtime (which is not used for Linux containers) and the IoT Edge runtime. The command defaults to Windows containers, so declare Linux as the desired container operating system. 
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-IoTEdge -ContainerOs Linux
+   Deploy-IoTEdge -ContainerOs Linux
    ```
 
-4. When prompted, provide the device connection string that will associate this physical device with a device ID in IoT Hub. 
+4. At this point, IoT Core devices may restart automatically. Other Windows 10 or Windows Server devices may prompt you to restart. If so, restart your device now. Once your device is ready, run PowerShell as an administrator again.
+
+5. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with a device connection string. Declare Linux as the desired container operating system again. 
+
+   ```powershell
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -ContainerOs Linux
+   ```
+
+6. When prompted, provide the device connection string that you retrieved in step 1. The device connection string associates the physical device with a device ID in IoT Hub. 
+
+   The device connection string takes the following format, and should not include quotation marks: `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`. 
 
 ## Verify successful installation
 
