@@ -19,7 +19,7 @@ ms.author: juliako
 
 # Media Services packaging errors 
 
-This topic describes errors that you may recieve from the Azure Media Services [packaging service](streaming-endpoint-concept.md).
+This topic describes errors that you may receive from the Azure Media Services [packaging service](streaming-endpoint-concept.md).
 
 ## 400 Bad Request
 
