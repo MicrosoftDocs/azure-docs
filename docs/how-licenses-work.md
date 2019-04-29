@@ -184,6 +184,8 @@ Seller Dashboard now supports moving from paid to free add-ins. You can choose w
 
 For the license token schema, see [Add-in license schema](add-in-license-schema.md).
 
+Note: For Outlook add-ins offered for free or as unlimited trials, no license is generated or stored by AppSource, and no license token is downloaded to Exchange.
+
 For information about using licensing to upsell your add-in services, see [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md). 
 
 The following examples describe the experience after an add-in switches from paid to free:
