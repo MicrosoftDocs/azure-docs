@@ -137,6 +137,8 @@ For more information on those services, contact the providers directly.
 
 To create a custom control, you should first contact the provider that you wish to utilize. Each non-Microsoft provider has its own process and requirements to sign up, subscribe, or otherwise become a part of the service, and to indicate that you wish to integrate with conditional access. At that point, the provider will provide you with a block of data in JSON format. This data allows the provider and conditional access to work together for your tenant, creates the new control and defines how conditional access can tell if your users have successfully performed verification with the provider.
 
+Custom controls cannot be used with Identity Protection's automation requiring multi-factor authentication or to elevate roles in Privileged Identity Manager (PIM).
+
 Copy the JSON data and then paste it into the related textbox. Do not make any changes to the JSON unless you explicitly understand the change you’re making. Making any change could break the connection between the provider and Microsoft and potentially lock you and your users out of your accounts.
 
 The option to create a custom control is in the **Manage** section of the **Conditional access** page.
