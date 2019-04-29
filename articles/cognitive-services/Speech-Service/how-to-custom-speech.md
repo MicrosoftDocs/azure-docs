@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # What is Custom Speech?
 
-[Custom Speech](https://speech.microsoft.com/customspeech.html) is a set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your applications, tools, and products. All it takes to get started are a handful of test audio files. Follow the links below to start creating a custom speech-to-text experience.
+[Custom Speech](https://aka.ms/custom-speech) is a set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your applications, tools, and products. All it takes to get started are a handful of test audio files. Follow the links below to start creating a custom speech-to-text experience.
 
 ## What's in Custom Speech?
 
@@ -26,7 +26,7 @@ This diagram highlights the pieces that make up the Custom Speech portal. Use th
 
 1. [Subscribe and create a project](#set-up-your-azure-account) - Create an Azure account and subscribe the Speech Services. This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the custom speech portal. Then, using your Speech Services subscription, create your first Custom Speech project.
 
-2. [Upload test data](how-to-custom-speech-test-data.md) - Upload test data (audio and text) to customize and improve Microsoft's speech-to-text offering for your applications, tools, and products.
+2. [Upload test data](how-to-custom-speech-test-data.md) - Upload test data (audio files) to evaluate Microsoft's speech-to-text offering for your applications, tools, and products.
 
 3. [Inspect recognition quality](how-to-custom-speech-inspect-data.md) - Use the Custom Speech portal to play back uploaded audio and inspect the speech recognition quality of your test data. For quantitative measurements, see [Inspect data](how-to-custom-speech-inspect-data.md).
 
@@ -46,7 +46,7 @@ A Speech Services subscription is required before you can use the Custom Speech 
 Once you've created an Azure account and a Speech Services subscription, you'll need to sign in to Custom Speech portal and connect your subscription.
 
 1. Get your Speech Services subscription key from the Azure portal.
-2. Sign-in to the [Custom Speech portal](https://portal.cris.ai/customspeech.html).
+2. Sign-in to the [Custom Speech portal](https://aka.ms/custom-speech).
 3. Select the subscription you need to work on and creat a speech project.
 4. If you'd like to modify your subscription, use the **cog** icon located in the top navigation.
 
