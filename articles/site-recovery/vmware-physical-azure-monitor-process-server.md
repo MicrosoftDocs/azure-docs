@@ -27,8 +27,8 @@ There are a number of situations that commonly affect process server performance
 
 - High numbers of VMs use a process server, approaching or exceeding recommended limitations.
 - VMs using the process server have a high churn rate.
-- Network throughput between VMs and the process server exceeds capacity.
-- Network throughput between the process server and Azure exceeds capacity.
+- Network throughput between VMs and the process server isn't enough to upload replication data to the process server.
+- Network throughput between the process server and Azure isn't sufficient to upload replication data from the process server to Azure.
 
 All of these issues can affect the recovery point objective (RPO) of VMs. 
 
