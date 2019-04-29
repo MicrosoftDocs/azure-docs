@@ -217,6 +217,40 @@ While you can train on the various compute targets supported by Azure Machine Le
     print('global importance names: {}'.format(global_importance_names))
     ```
 
+## Visualizations
+
+Use the visualization dashboard to understand and interpret your model:
+
+### Global visualizations
+
+The following plots provide a global view of the trained model along with its predictions and explanations.
+
+|Plot|Description|
+|----|-----------|
+|Data Exploration| An overview of the dataset along with prediction values.|
+|Global Importance|Shows the top K (configurable K) important features globally. This chart is useful for understanding the global behavior of the underlying model.|
+|Explanation Exploration|Demonstrates how a feature is responsible for making a change in model’s prediction values (or probability of prediction values). |
+|Summary| Uses a signed local feature importance values across all data points to show the distribution of the impact each feature has on the prediction value.|
+
+[![Visualization Dashboard Global](./media/machine-learning-interpretability-explainability/globalCharts.png)](./media/machine-learning-interpretability-explainability/globalCharts.png#lightbox)
+
+### Local visualizations
+You can click on any individual data point at any time of the preceding plots to load the local feature importance plot for the given data point.
+
+|Plot|Description|
+|----|-----------|
+|Local Importance|Shows the top K (configurable K) important features globally. This chart is useful for understanding the local behavior of the underlying model on a specific data point.|
+
+[![Visualization Dashboard Local](./media/machine-learning-interpretability-explainability/localCharts.png)](./media/machine-learning-interpretability-explainability/localCharts.png#lightbox)
+
+To load the visualization dashboard, use the following code:
+
+```python
+from azureml.contrib.explain.model.visualize import ExplanationDashboard
+
+ExplanationDashboard(global_explanation, model, x_test)
+``` 
+
 ## Raw feature transformations
 
 Optionally, you can pass your feature transformation pipeline to the explainer to receive explanations in terms of the raw features before the transformation (rather than engineered features). If you skip this, the explainer provides explanations in terms of engineered features. 
@@ -249,7 +283,7 @@ clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
 tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
 ```
 
-# Interpretability in inferencing
+## Interpretability in inferencing
 
 The explainer can be deployed along with the original model and can be used at scoring time to provide the local explanation information. The process of deploying a scoring explainer is similar to deploying a model and includes the following steps:
 
