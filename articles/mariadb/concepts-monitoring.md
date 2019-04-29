@@ -35,7 +35,7 @@ These metrics are available for Azure Database for MariaDB:
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
 
 ## Server logs
-You can enable slow query logging on your server. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
+You can enable slow query logging on your server. These logs are also available through Azure Diagnostic Logs in Azure Monitor logs, Event Hubs, and Storage Account. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
 
 ## Next steps
 - For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
