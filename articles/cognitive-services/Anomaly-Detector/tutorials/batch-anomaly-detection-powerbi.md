@@ -22,7 +22,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), available for free.
-* A JSON file containing time series data points. The example data for this quickstart can be found on GitHub
+* An excel file (.xlsx) containing time series data points. The example data for this quickstart can be found on GitHub
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
@@ -43,7 +43,9 @@ After the dialog appears, navigate to the folder where you downloaded the exampl
 
 ![An image of the data source "Navigator" screen in Power BI](../media/tutorials/navigator-dialog-box.png)
 
-Power BI will convert the timestamps in the first column to a `Date/Time` data type. These timestamps must be converted to text in order to be sent to the Anomaly Detector API. To do this, click the **Transform** ribbon in the Power Query Editor. in the **Any Column** group, click **Text**
+Power BI will convert the timestamps in the first column to a `Date/Time` data type. These timestamps must be converted to text in order to be sent to the Anomaly Detector API. To do this, open the Power Query Editor by clicking **Edit Queries** on the home tab. 
+
+Click the **Transform** ribbon in the Power Query Editor. in the **Any Column** group, click **Text**. Afterwards, click **Close & Apply** or **Apply** in the drop-down menu under it to apply the changes. 
 
 ![An image of the data source "Navigator" screen in Power BI](../media/tutorials/data-type-drop-down.png)
 
@@ -60,38 +62,42 @@ Within the Advanced Editor, use the following Power Query M snippet to extract t
 ```M
 (table as table) => let
 
-    apikey     = "your api key",
-    endpoint   = "https://westus2.api.cognitive.microsoft.com/anomalyfinder/v2.0/timeseries/entire/detect",
+    apikey      = "your api key",
+    endpoint    = "https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect",
     inputTable = Table.TransformColumnTypes(table,{{"Timestamp", type text},{"Value", type number}}),
-    jsontext   = Text.FromBinary(Json.FromValue(inputTable)),
-    jsonbody   = "{ ""Granularity"": ""daily"", ""Sensitivity"": 80, ""Series"": "& jsontext &" }",
-    bytesbody  = Text.ToBinary(jsonbody),
-    headers    = [#"Content-Type" = "application/json", #"Ocp-Apim-Subscription-Key" = apikey],
-    bytesresp  = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
-    jsonresp   = Json.Document(bytesresp),
+    jsontext    = Text.FromBinary(Json.FromValue(inputTable)),
+    jsonbody    = "{ ""Granularity"": ""daily"", ""Sensitivity"": 95, ""Series"": "& jsontext &" }",
+    bytesbody   = Text.ToBinary(jsonbody),
+    headers     = [#"Content-Type" = "application/json", #"Ocp-Apim-Subscription-Key" = apikey],
+    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
+    jsonresp    = Json.Document(bytesresp),
 
-    respTable  = Table.FromColumns({
+    respTable = Table.FromColumns({
+                    
                      Table.Column(inputTable, "Timestamp")
-                     , Table.Column(inputTable, "Value")
+                     ,Table.Column(inputTable, "Value")
                      , Record.Field(jsonresp, "IsAnomaly") as list
                      , Record.Field(jsonresp, "ExpectedValues") as list
                      , Record.Field(jsonresp, "UpperMargins")as list
                      , Record.Field(jsonresp, "LowerMargins") as list
                      , Record.Field(jsonresp, "IsPositiveAnomaly") as list
                      , Record.Field(jsonresp, "IsNegativeAnomaly") as list
+
                   }, {"Timestamp", "Value", "IsAnomaly", "ExpectedValues", "UpperMargin", "LowerMargin", "IsPositiveAnomaly", "IsNegativeAnomaly"}
                ),
     
-    respTable1 = Table.AddColumn(respTable , "UpperMargins", (row) => row[Value] + row[UpperMargin]),
-    respTable2 = Table.AddColumn(respTable1 , "LowerMargins", (row) => row[Value] -  row[LowerMargin]),
+    respTable1 = Table.AddColumn(respTable , "UpperMargins", (row) => row[ExpectedValues] + row[UpperMargin]),
+    respTable2 = Table.AddColumn(respTable1 , "LowerMargins", (row) => row[ExpectedValues] -  row[LowerMargin]),
     respTable3 = Table.RemoveColumns(respTable2, "UpperMargin"),
     respTable4 = Table.RemoveColumns(respTable3, "LowerMargin"),
 
     results = Table.TransformColumnTypes(
+
                 respTable4,
                 {{"Timestamp", type datetime}, {"Value", type number}, {"IsAnomaly", type logical}, {"IsPositiveAnomaly", type logical}, {"IsNegativeAnomaly", type logical},
                  {"ExpectedValues", type number}, {"UpperMargins", type number}, {"LowerMargins", type number}}
               )
+
  in results
 ```
 
@@ -108,13 +114,19 @@ To fix this, click **File**, and **Options and settings**. Then click **Options*
 > [NOTE]
 > Be aware of your organization's policies for data privacy and access. See [Power BI Desktop privacy levels](https://docs.microsoft.com/en-us/power-bi/desktop-privacy-levels) for more information.
 
+Additionally, you may get a message asking you to specify how you want to connect to the API.
+
+![An image showing a request to specify access credentials](../media/tutorials/edit-credentials-message.png)
+
+To fix this, Click **Edit Credentials** in the message. After the dialogue box appears, select **Anonymous** to connect to the API anonymously. Then click **Connect**. 
+
 ## Visualize the Anomaly Detector API response
 
 Use the screenshot below to help build your chart.
 
 1. Select the line chart visualization.
 
-2. Add the `day` field from **Timestamp**, **Date Hierarchy** to the line chart's **Axis**.
+2. Add the `day` field from **Timestamp** to the line chart's **Axis**.
 
 3. Add the following fields to the chart's **Values**. 
     * Value
@@ -126,7 +138,7 @@ Use the screenshot below to help build your chart.
 
 Your chart will look similar to the below screenshot:
 
-![An image of the new quick measure screen](../media/tutorials/chart-visualization.png)
+![An image of the new quick measure screen](../media/tutorials/chart-visualization2.jpg)
 
 ### Display data anomaly points
 
@@ -144,5 +156,5 @@ After clicking **Ok**, you will have a `Value for True` field, at the bottom of 
 
 Apply colors to your chart by clicking on the **Format** tool and **Data colors**. Your chart should look something like the following:
 
-![An image of the new quick measure screen](../media/tutorials/chart-final.jpg)
+![An image of the new quick measure screen](../media/tutorials/chart-final2.jpg)
 
