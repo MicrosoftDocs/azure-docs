@@ -120,7 +120,13 @@ so that you can select from available keywords, for example:
 Optionally, you can require that the **Inline Code** action 
 includes outputs from the trigger or specific actions that 
 your code references by adding the **Trigger** or **Actions** 
-parameters.
+parameters. This way is useful for scenarios where the 
+referenced outputs might not be available.
+
+> [!TIP]
+> If you plan to reuse your code, select your outputs 
+> from inside the **Code** box so that your code 
+> includes the resolved token references.
 
 For example, suppose you have code that references the **To** 
 and **Subject** outputs from the **Send an email** action for 
