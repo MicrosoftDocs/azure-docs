@@ -232,7 +232,7 @@ The following plots provide a global view of the trained model along with its pr
 |Explanation Exploration|Demonstrates how a feature is responsible for making a change in model’s prediction values (or probability of prediction values). |
 |Summary| Uses a signed local feature importance values across all data points to show the distribution of the impact each feature has on the prediction value.|
 
-[![Visualization Dashboard Global](./media/machine-learning-interpretability-explainability/global-charts.png)](./media/machine-learning-interpretability-explainability/globalCharts.png#lightbox)
+[![Visualization Dashboard Global](./media/machine-learning-interpretability-explainability/global-charts.png)](./media/machine-learning-interpretability-explainability/global-charts.png#lightbox)
 
 ### Local visualizations
 You can click on any individual data point at any time of the preceding plots to load the local feature importance plot for the given data point.
@@ -241,7 +241,7 @@ You can click on any individual data point at any time of the preceding plots to
 |----|-----------|
 |Local Importance|Shows the top K (configurable K) important features globally. This chart is useful for understanding the local behavior of the underlying model on a specific data point.|
 
-[![Visualization Dashboard Local](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/localCharts.png#lightbox)
+[![Visualization Dashboard Local](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
 
 To load the visualization dashboard, use the following code:
 
