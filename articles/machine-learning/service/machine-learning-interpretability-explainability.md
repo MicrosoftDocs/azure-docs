@@ -32,7 +32,7 @@ The interpretability classes are made available through two Python packages. Lea
 
 * [`azureml.explain.model`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), the main package, containing functionalities supported by Microsoft. 
 
-* `azureml.contrib.explain.model`, preview and experimental functionalities that you can try.
+* `azureml.contrib.explain.model`, preview, and experimental functionalities that you can try.
 
 > [!IMPORTANT]
 > Things in contrib are not fully supported. As the experimental functionalities become mature, they will gradually be moved to the main package.
@@ -217,7 +217,7 @@ While you can train on the various compute targets supported by Azure Machine Le
     print('global importance names: {}'.format(global_importance_names))
     ```
 
-## Raw reature transformations
+## Raw feature transformations
 
 Optionally, you can pass your feature transformation pipeline to the explainer to receive explanations in terms of the raw features before the transformation (rather than engineered features). If you skip this, the explainer provides explanations in terms of engineered features. 
 
@@ -248,6 +248,98 @@ clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
 # "features" and "classes" fields are optional
 tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
 ```
+
+* Deploy the image to a compute target
+
+    1. Create a scoring file (before this step, follow the steps in [Deploy models with the Azure Machine Learning service](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-and-where) to register your original prediction model)
+        ``` python
+        %%writefile score.py
+        import json
+        import numpy as np
+        import os
+        import pickle
+        from sklearn.externals import joblib
+        from sklearn.linear_model import LogisticRegression
+        from azureml.core.model import Model
+
+        def init():
+
+            global original_model
+            global scoring_model
+
+            # Retrieve the path to the model file using the model name
+            # Assume original model is named original_prediction_model
+            original_model_path = Model.get_model_path('original_prediction_model')
+            scoring_explainer_path = Model.get_model_path('breast_cancer_scoring_explainer')
+
+            original_model = joblib.load(original_model_path)
+            scoring_explainer = joblib.load(scoring_explainer_path)
+
+        def run(raw_data):
+            # Get predictions and explanations for each data point
+            data = np.array(json.loads(raw_data)['data'])
+            # Make prediction
+            predictions = original_model.predict(data)
+            # Retrieve model explanations
+            local_importance_values = scoring_explainer.explain(data)
+            # You can return any data type as long as it is JSON-serializable
+            return {'predictions': predictions.tolist(), 'local_importance_values': local_importance_values}
+        ``` 
+    1. Define the deployment configuration. This configuration depends on the requirements of your model. The following example defines a configuration that uses one CPU core and 1 GB of memory:
+        ``` python
+        from azureml.core.webservice import AciWebservice
+
+        aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, 
+                                                       memory_gb=1, 
+                                                       tags={"data": "breastcancer",  
+                                                             "method" : "local_explanation"}, 
+                                                       description='Get local explanations for breast cancer data')
+        ``` 
+
+    1. Create a file with environment dependencies:
+        
+        ``` python
+        from azureml.core.conda_dependencies import CondaDependencies 
+
+        # WARNING: to install this, g++ needs to be available on the Docker image and is not by default (look at the next cell)
+
+
+        myenv = CondaDependencies.create(pip_packages=["azureml-defaults", "azureml-explain-model", "azureml-contrib-explain-model"], 
+                                        conda_packages=["scikit-learn"])
+
+        with open("myenv.yml","w") as f:
+            f.write(myenv.serialize_to_string())
+            
+        with open("myenv.yml","r") as f:
+            print(f.read())
+        ``` 
+
+    1. Create a custom Dockerfile with g++ installed:
+
+        ``` python
+        %%writefile dockerfile
+        RUN apt-get update && apt-get install -y g++  
+        ``` 
+    - Deploy the created image (time estimate: 5 minutes)
+        ``` python
+        from azureml.core.webservice import Webservice
+        from azureml.core.image import ContainerImage
+
+        # Use the custom scoring, docker, and conda files we created above
+        image_config = ContainerImage.image_configuration(execution_script="score.py",
+                                                        docker_file="dockerfile", 
+                                                        runtime="python", 
+                                                        conda_file="myenv.yml")
+
+        # Use configs and models generated above
+        service = Webservice.deploy_from_model(workspace=ws,
+                                            name='model-scoring-service',
+                                            deployment_config=aciconfig,
+                                            models=[scoring_explainer_model, original_model],
+                                            image_config=image_config)
+
+        service.wait_for_deployment(show_output=True)
+        ``` 
 
 * Test the deployment
     ``` python
