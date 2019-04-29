@@ -41,9 +41,9 @@ To manage Azure Service Fabric applications and clusters successfully, there are
 
 * [Best practices for cluster monitoring and diagnostics](service-fabric-best-practices-monitoring.md)
 
-## Application and service design
+## Application design
 
-* [Best practices for application and service design](service-fabric-best-practices-applications.md)
+* [Best practices for application design](service-fabric-best-practices-applications.md)
 
 ## Checklist
 
