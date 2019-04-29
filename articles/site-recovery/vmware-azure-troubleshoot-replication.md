@@ -27,7 +27,7 @@ We recommend that you monitor the health of process servers in  portal, to ensur
 
 Initial and ongoing replication failures often are caused by connectivity issues between the source server and the process server or between the process server and Azure. 
 
-To solve these issues, [troubleshoot process server connectivity and replication](vmware-physical-azure-troubleshoot-process-server.md#check-connectivity-and-replication).
+To solve these issues, [troubleshoot connectivity and replication](vmware-physical-azure-troubleshoot-process-server.md#check-connectivity-and-replication).
 
 
 

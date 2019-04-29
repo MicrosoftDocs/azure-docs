@@ -15,7 +15,7 @@ This article describes how to monitor the [Site Recovery](site-recovery-overview
 
 - The process server is used when you set up disaster recovery of on-premises VMware VMs and physical servers to Azure.
 - By default the process server runs on the configuration server. It's installed by default when you deploy the configuration server.
-- Optionally, to scale and handle larger numbers of replicated machines and higher volumes of replication traffic, you can deploy additional, standalone process servers.
+- Optionally, to scale and handle larger numbers of replicated machines and higher volumes of replication traffic, you can deploy additional, scale-out process servers.
 
 [Learn more](vmware-physical-azure-config-process-server-overview.md) about the role and deployment of process servers.
 
@@ -52,12 +52,10 @@ The process server generates a number of health alerts, summarized in the follow
 ![Warning][yellow] | CPU utilization > 80% for the last 15 minutes
 ![Warning][yellow] | Memory usage > 80% for the last 15 minutes
 ![Warning][yellow] | Cache folder free space < 30% for the last 15 minutes
-![Warning][yellow] | Site Recovery monitors pending/outgoing data every five minutes, and estimates that data in the process server cache can't be uploaded to Azure within 30 minutes.
 ![Warning][yellow] | Process server services aren't running for the last 15 minutes
 ![Critical][red] | CPU utilization > 95% for the last 15 minutes
 ![Critical][red] | Memory usage > 95% for the last 15 minutes
 ![Critical][red] | Cache folder free space < 25% for the last 15 minutes
-![Critical][red] | Site Recovery monitors pending/outgoing data every five minutes, and estimates that data in the process server cache can't be uploaded to Azure within 45 minutes.
 ![Critical][red] | No heartbeat from the process server for 15 minutes.
 
 ![Table key](./media/vmware-physical-azure-monitor-process-server/table-key.png)
@@ -71,26 +69,27 @@ The process server generates a number of health alerts, summarized in the follow
 
 You can monitor the health state of your process servers as follows: 
 
-1. For a quick view of the process server in the vault, click **Overview**.In **Infrastructure view**, click **VMware**.
-    - A standalone process will be highlighted in orange if there are warnings associated with it, and red if it has any critical issues. 
-    - If the process server is running in the default deployment on the configuration server, then the configuration server will be highlighted accordingly.
-    - To drill down, click on the configuration server or process server. Note any issues, and any remediation recommendations.
-2. To monitor the replication health and status of a replicated machine, and of its process server, in vault > **Replicated items**, click the machine you want to monitor, to open its dashboard.
-3. In **Replication Health**, you can monitor the VM health status. Click the status to drill down for error details.
+1. To monitor the replication health and status of a replicated machine, and of its process server, in vault > **Replicated items**, click the machine you want to monitor.
+2. In **Replication Health**, you can monitor the VM health status. Click the status to drill down for error details.
 
-    ![Process server health in VM dashboard](./media/vmware-physical-azure-monitor-process-server/vm-health.png)
+    ![Process server health in VM dashboard](./media/vmware-physical-azure-monitor-process-server/vm-ps-health.png)
 
 4. In **Process Server Health**, you can monitor the status of the process server. Drill down for details.
 
-    ![Process server details in VM dashboard](./media/vmware-physical-azure-monitor-process-server/vm-ps-details.png)
+    ![Process server details in VM dashboard](./media/vmware-physical-azure-monitor-process-server/ps-summary.png)
 
+5. Health can also be monitored using the graphical representation on the VM page.
+    - A scale-out process server will be highlighted in orange if there are warnings associated with it, and red if it has any critical issues. 
+    - If the process server is running in the default deployment on the configuration server, then the configuration server will be highlighted accordingly.
+    - To drill down, click on the configuration server or process server. Note any issues, and any remediation recommendations.
 
-
+You can also monitor process servers in the vault under **Site Recovery Infrastructure**. In **Manage your Site Recovery infrastructure**, click **Configuration Servers**. Select the configuration server associated with the process server, and drill down into process server details.
 
 
 ## Next steps
 
-If you need more help, post your question in the [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
+- If you have any process servers issues, follow our [troubleshooting guidance](vmware-physical-azure-troubleshoot-process-server.md)
+- If you need more help, post your question in the [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
 
 [green]: ./media/vmware-physical-azure-monitor-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-monitor-process-server/yellow.png
