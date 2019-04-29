@@ -18,7 +18,7 @@ Customer Lockbox for Microsoft Azure provides an interface for customers to revi
 
 This article covers how Customer Lockbox requests are initiated, tracked, and stored for later reviews and audits.
 
-Customer Lockbox is now generally available and currently enabled for Remote Desktop access to virtual machines.
+Customer Lockbox is now generally available and currently enabled for remote desktop access to virtual machines.
 
 ## Workflow
 
