@@ -3,7 +3,7 @@ title: Administer an Azure IoT Central application | Microsoft Docs
 description: As an administrator, how to administer your Azure IoT Central application
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -21,7 +21,10 @@ After you create an IoT Central application, you can go to the **Administration*
 - Convert your Trial to Pay-As-You-Go
 - Export data
 - Manage device connection
-- Use access tokens
+- Use access tokens for developer tools
+- Customize the UI of your application
+- Customize help links in the application
+- Manage IoT Central programmatically
 
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application. The [Manage Users](#manage-users) section in this article explains more about how to assign the **Administrator** role to other users.
 
@@ -145,13 +148,21 @@ Connect devices at scale in your application using the keys and certificates her
 
 Generate access tokens to use them in developer tools. Currently there is one developer tool available which is the IoT Central explorer for monitoring device messages and changes in properties and settings. Learn more about the [IoT Central explorer](howto-use-iotc-explorer.md).
 
-## Use the Azure SDKs for control plane operations
+## Customize your application
 
-IoT Central Azure Resource Manager SDK packages are available for Node, Python, C#, Ruby, Java, and Go. These libraries support control plane operations for IoT Central, which enable you to create, list, update, or delete IoT Central applications. They also provide helpers for dealing with authentication and error handling that is specific to each language. 
+For more information about changing the colors and icons in your application, see [Customize the Azure IoT Central UI](./howto-customize-ui.md).
+
+## Customize help
+
+For more information about adding custom help links in your application, see [Customize the Azure IoT Central UI](./howto-customize-ui.md).
+
+## Manage programatically
+
+IoT Central Azure Resource Manager SDK packages are available for Node, Python, C#, Ruby, Java, and Go. You can use these packages to create, list, update, or delete IoT Central applications. The packages include helpers to manage authentication and error handling.
 
 You can find examples of how to use the Azure Resource Manager SDKs at [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples).
 
-To learn more, take a look at these packages on GitHub.
+To learn more, see the following GitHub repositories and packages:
 
 | Language | Repository | Package |
 | ---------| ---------- | ------- |
