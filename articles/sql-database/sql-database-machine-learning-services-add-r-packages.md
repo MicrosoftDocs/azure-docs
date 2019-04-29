@@ -163,7 +163,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 
 ## Next steps
 
-For more information on Azure SQL Database Machine Learning Services with R (preview), see the following articles.
+For more information about Azure SQL Database Machine Learning Services with R (preview), see the following articles.
 
 - [Azure SQL Database Machine Learning Services with R (preview)](sql-database-machine-learning-services-overview.md)
 - [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](sql-database-machine-learning-services-functions.md)
