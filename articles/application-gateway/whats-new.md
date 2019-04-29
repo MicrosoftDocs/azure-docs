@@ -22,8 +22,8 @@ Azure Application Gateway is updated on an ongoing basis. To stay up-to-date wit
 
 |Feature  |Description  |Date added  |
 |---------|---------|---------|
-|Autoscaling, zone redundancy, static VIP support GA |General availability for v2 SKU which supports autoscaling, zone redundancy, enhance performance, static VIPs, Key Vault, Header rewrite. See [Application Gateway autoscaling documentation](application-gateway-autoscaling-zone-redundant.md) |April 2019 |
-|Key Vault integration |Application Gateway now supports integration with Key Vault (in public preview) for server certificates that are attached to HTTPS enabled listeners. See [Application Gateway Key Vault integration](application-gateway/key-vault-certs.md) |April 2019 |
+|Autoscaling, zone redundancy, static VIP support GA |General availability for v2 SKU which supports autoscaling, zone redundancy, enhance performance, static VIPs, Key Vault, Header rewrite. See [Application Gateway autoscaling documentation](application-gateway-autoscaling-zone-redundant.md). |April 2019 |
+|Key Vault integration |Application Gateway now supports integration with Key Vault (in public preview) for server certificates that are attached to HTTPS enabled listeners. See [Application Gateway Key Vault integration](application-gateway/key-vault-certs.md). |April 2019 |
 |Header CRUD/Rewrites     |You can now rewrite HTTP headers. See [Tutorial: Create an application gateway and rewrite HTTP headers](tutorial-http-header-rewrite-powershell.md) for more information.|December 2018|
 |WAF configuration and exclusion list     |We’ve added more options to help you configure your WAF and reduce false positives. See [Web application firewall request size limits and exclusion lists](application-gateway-waf-configuration.md) for more information.|December 2018|
 |Autoscaling, zone redundancy, static VIP support      |With the v2 SKU, there are many improvements such as Autoscaling, improved performance, and more. See [What is Azure Application Gateway?](overview.md#v2-sku) for more information.|September 2018|
