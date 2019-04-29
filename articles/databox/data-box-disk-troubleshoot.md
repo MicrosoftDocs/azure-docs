@@ -49,12 +49,12 @@ To navigate to the path for copy log, go to the storage account associated with 
 Use the activity logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource. Through activity logs, you can determine:
 
 - What operations were taken on the resources in your subscription.
-- Who initiated the operation. 
+- Who initiated the operation.
 - When the operation occurred.
 - The status of the operation.
 - The values of other properties that might help you research the operation.
 
-The activity log contains all write operations (such as PUT, POST, DELETE) performed on your resources but not the read operations (such as GET). 
+The activity log contains all write operations (such as PUT, POST, DELETE) performed on your resources but not the read operations (such as GET).
 
 Activity logs are retained for 90 days. You can query for any range of dates, as long as the starting date is not more than 90 days in the past. You can also filter by one of the built-in queries in Insights. For instance, click error and then select and click specific failures to understand the root cause.
 
@@ -99,21 +99,7 @@ Though the remounting was successful, the data will not persist.
 
 **Resolution**
 
-If you have easy access to a Windows system, take the following steps:
-
-1. [Unlock the disks on your Windows system](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client).
-2. Use `fsutil` to unmount the volume on Windows. Run this command as an administrator in PowerShell or Command Prompt window.
-    
-   ```
-   fsutil volume dismount <driveletter>:-
-   ```
-3. Shut down the system while the drive is connected. This flushes any outstanding writes to the drive and closes the drive gracefully.
-4. Remove the drive and connect it to your Linux system.
-5. Unlock the drive on the Linux system and continue data copy.
-6. Write a dummy file to validate read-write access. Unmount and remount to validate data persistence. This should work after `fsutil` unmount.
-7. Continue with the data copy.
-
-If you do not have access to a Windows system, take the following steps on your Linux system:
+Take the following steps on your Linux system:
 
 1. Install the `ntfsprogs` package for the ntfsfix utility.
 2. Unmount the mount points provided for the drive by the unlock tool. The number of mount points will vary for drives.

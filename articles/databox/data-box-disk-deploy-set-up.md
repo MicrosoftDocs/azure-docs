@@ -203,7 +203,7 @@ Perform the following steps to connect and unlock your disks.
 
     Type the following command.
  
-    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
+    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’          
 
     The sample output is shown below. 
  
