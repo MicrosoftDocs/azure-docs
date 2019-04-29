@@ -121,7 +121,7 @@ When a user authenticates to the application, Azure AD will issue a SAML token t
 
 To view or edit the claims sent in the SAML token to the application, go to the **User Attributes & Claims** heading and select the **Edit** icon. The **User Attributes & Claims** page appears.
 
-![User attributes and claims](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.PNG)
+![User attributes and claims](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
 
 There are two reasons why you might need to edit the claims issued in the SAML token:
 
