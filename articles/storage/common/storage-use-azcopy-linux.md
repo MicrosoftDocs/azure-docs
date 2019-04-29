@@ -2,18 +2,23 @@
 title: Copy or move data to Azure Storage with AzCopy on Linux | Microsoft Docs
 description: Use the AzCopy on Linux utility to move or copy data to or from blob and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
-author: seguler
+author: tamram
+
 ms.service: storage
 ms.topic: article
 ms.date: 04/26/2018
-ms.author: seguler
+ms.author: tamram
 ms.subservice: common
 ---
 # Transfer data with AzCopy on Linux
 
 AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob and File storage, using simple commands designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
 
-There are two versions of AzCopy that you can download. AzCopy on Linux targets Linux platforms offering POSIX style command-line options. [AzCopy on Windows](../storage-use-azcopy.md) offers Windows style command-line options. This article covers AzCopy on Linux. 
+> [!IMPORTANT]
+> This article describes an older version of AzCopy.
+>To install the most recent version of AzCopy, see [AzCopy v10](storage-use-azcopy-v10.md).
+
+If you choose to install the older version of AzCopy (AzCopy v8.1), then there are multiple versions of AzCopy v8.1 that you can download. AzCopy on Linux targets Linux platforms offering POSIX style command-line options. [AzCopy on Windows](../storage-use-azcopy.md) offers Windows style command-line options. This article covers AzCopy on Linux. 
 
 > [!NOTE]  
 > Starting in AzCopy 7.2 version, the .NET Core dependencies are packaged with the AzCopy package. If you use 7.2 version or later, you no longer need to install .NET Core as a pre-requisite.
