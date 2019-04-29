@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: seal
-ms.date: 04/23/2019
+ms.date: 05/02/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
@@ -106,4 +106,7 @@ connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAA
 
 ## Next steps
 
-For more information about data security in Azure Blockchain Service, see [Azure Blockchain Service security](data-security.md).
+For more information about data security in Azure Blockchain Service, see:
+
+> [!div class="nextstepaction"]
+> [Azure Blockchain Service security](data-security.md)

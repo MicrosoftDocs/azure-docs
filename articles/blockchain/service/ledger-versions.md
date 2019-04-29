@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 03/14/2019
+ms.date: 05/02/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
@@ -28,4 +28,4 @@ Azure Blockchain Service provides the latest versions of the ledger within 60 da
 
 ## Next steps
 
-[What’s available in each service tier]()
+[Limits in Azure Blockchain Service](limits.md)

@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/26/2019
+ms.date: 05/02/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -310,4 +310,7 @@ $ContractConnection | Set-BlockchainMemberInvitation -SubscriptionId <Azure subs
 
 ## Next steps
 
-For more information about consortia, members, and nodes, see [Azure Blockchain Service consortium](consortium.md)
+For more information about consortia, members, and nodes, see:
+
+> [!div class="nextstepaction"]
+> [Azure Blockchain Service consortium](consortium.md)

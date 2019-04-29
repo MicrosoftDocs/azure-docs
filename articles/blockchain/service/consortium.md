@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/24/2019
+ms.date: 05/02/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -17,9 +17,9 @@ manager: femila
 
 Using Azure Blockchain Service, you can create private consortium blockchain networks where each blockchain network can be limited to specific participants in the network. Only participants in the private consortium blockchain network can view and interact with the blockchain. Consortium networks in Azure Blockchain Service can contain two types of member participant roles:
 
-**Administrator** - Privileged participants who can take consortium management actions and can participate in blockchain transactions.
+* **Administrator** - Privileged participants who can take consortium management actions and can participate in blockchain transactions.
 
-**User** -  Participants who cannot take any consortium management action but can participate in blockchain transactions.
+* **User** -  Participants who cannot take any consortium management action but can participate in blockchain transactions.
 
 Consortium networks can be a mix of participant roles and can have an arbitrary number of each role type. There must be at least one administrator.
 
