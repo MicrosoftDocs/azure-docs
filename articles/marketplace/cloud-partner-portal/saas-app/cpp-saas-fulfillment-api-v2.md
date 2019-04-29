@@ -96,7 +96,8 @@ Globally unique identifiers ([GUIDs](https://en.wikipedia.org/wiki/Universally_u
 
 The resolve endpoint enables the publisher to resolve a marketplace token to a persistent Resource ID. The Resource ID is the unique identifier for SAAS subscription.  When a user is redirected to an ISV’s website, the URL contains a token in the query parameters. The ISV is expected to use this token, and make a request to resolve it. The response contains the unique SAAS subscription ID, name, offer ID, and plan for the resource. This token is valid for an hour only. 
 
-**Post:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
+**Post:
+`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
 
 *Query parameters:*
 
