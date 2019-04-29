@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services errors and reasons | Microsoft Docs
+title: Azure Media Services packaging errors | Microsoft Docs
 description: This topic describes errors that you may recieve from the Azure Media Services packaging service.
 author: Juliako
 manager: femila
@@ -16,9 +16,10 @@ ms.date: 04/22/2019
 ms.author: juliako
 
 ---
-# Media Services errors and reasons
 
-This topic describes errors that you may recieve from the Azure Media Services [Streaming Endpoints/Origin service](streaming-endpoint-concept.md).
+# Media Services packaging errors 
+
+This topic describes errors that you may recieve from the Azure Media Services [packaging service](streaming-endpoint-concept.md).
 
 ## 400 Bad Request
 
