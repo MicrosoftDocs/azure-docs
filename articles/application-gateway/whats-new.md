@@ -29,10 +29,6 @@ Azure Application Gateway is updated on an ongoing basis. To stay up-to-date wit
 |Custom error pages     |With custom error pages, you can create an error page within the format of the rest of your websites. To enable this, see [Create Application Gateway custom error pages](custom-error.md).|September 2018|
 |Metrics Enhancements     |You can get a better view of the state of your Application Gateway with enhanced metrics. To enable metrics on your Application Gateway, see [Back-end health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md).|June 2018|
 
-## Known issues
-
-- [Known issues in the v2 SKU](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations)
-
 ## Next steps
 
 For more information about Azure Application Gateway, see [What is Azure Application Gateway?](overview.md)
