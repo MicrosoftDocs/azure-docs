@@ -33,25 +33,25 @@ Use this table to determine availability of standard and neural voices by region
 
 ### Custom voices
 
-If you've created a custom voice font, use the endpoint that you've created, not one of the endpoints in these lists.
+If you've created a custom voice font, use the endpoint that you've created. You can also use the endpoints listed below, replacing the `{deploymentId}` with the deployment ID for your voice model.
 
 | Region | Endpoint |
 |--------|----------|
-| Australia East | https://australiaeast.voice.speech.microsoft.com |
-| Canada Central | https://canadacentral.voice.speech.microsoft.com |
-| Central US | https://centralus.voice.speech.microsoft.com |
-| East Asia | https://eastasia.voice.speech.microsoft.com |
-| East US | https://eastus.voice.speech.microsoft.com |
-| East US 2 | https://eastus2.voice.speech.microsoft.com |
-| France Central | https://francecentral.voice.speech.microsoft.com |
-| India Central | https://centralindia.voice.speech.microsoft.com |
-| Japan East | https://japaneast.voice.speech.microsoft.com |
-| Korea Central | https://koreacentral.voice.speech.microsoft.com |
-| North Central US | https://northcentralus.voice.speech.microsoft.com |
-| North Europe | https://northeurope.voice.speech.microsoft.com |
-| South Central US | https://southcentralus.voice.speech.microsoft.com |
-| Southeast Asia | https://southeastasia.voice.speech.microsoft.com |
-| UK South | https://uksouth.voice.speech.microsoft.com |
-| West Europe | https://westeurope.voice.speech.microsoft.com |
-| West US | https://westus.voice.speech.microsoft.com |
-| West US 2 | https://westus2.voice.speech.microsoft.com |
+| Australia East | https://australiaeast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| Canada Central | https://canadacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| Central US | https://centralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| East Asia | https://eastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| East US | https://eastus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| East US 2 | https://eastus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| France Central | https://francecentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| India Central | https://centralindia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| Japan East | https://japaneast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| Korea Central | https://koreacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| North Central US | https://northcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| North Europe | https://northeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| South Central US | https://southcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| Southeast Asia | https://southeastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| UK South | https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| West Europe | https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| West US | https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| West US 2 | https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
