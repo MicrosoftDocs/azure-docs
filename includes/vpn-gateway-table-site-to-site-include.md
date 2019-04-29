@@ -9,7 +9,7 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-| **Deployment Model/Method** | **Azure Portal** | **PowerShell** | **Azure CLI** |
+| **Deployment model/method** | **Azure portal** | **PowerShell** | **Azure CLI** |
 | --- | --- | --- | --- |
 | Resource Manager |[Tutorial](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)<br>[Tutorial+](../articles/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) |[Tutorial](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) | [Tutorial](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md) |
 | Classic |[Tutorial**](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) |[Tutorial+](../articles/vpn-gateway/vpn-gateway-multi-site.md) | Not Supported |
