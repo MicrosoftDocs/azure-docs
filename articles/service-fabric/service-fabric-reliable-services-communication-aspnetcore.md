@@ -48,7 +48,7 @@ Typically, self-hosted ASP.NET Core applications create a WebHost in an applicat
 
 ![Hosting ASP.NET Core in a process][0]
 
-But the application entry point isn't the right place to create a WebHost in a reliable service. That's because the application entry point is only used to register a service type with the Service Fabric runtime, so that it can create instances of that service type. The WebHost should be created in a reliable aervice itself. Within the service host process, service instances and/or replicas can go through multiple life cycles. 
+But the application entry point isn't the right place to create a WebHost in a reliable service. That's because the application entry point is only used to register a service type with the Service Fabric runtime, so that it can create instances of that service type. The WebHost should be created in a reliable service itself. Within the service host process, service instances and/or replicas can go through multiple life cycles. 
 
 A Reliable Service instance is represented by your service class deriving from `StatelessService` or `StatefulService`. The communication stack for a service is contained in an `ICommunicationListener` implementation in your service class. The `Microsoft.ServiceFabric.AspNetCore.*` NuGet packages contain implementations of `ICommunicationListener` that start and manage the ASP.NET Core WebHost for either Kestrel or HTTP.sys in a reliable service.
 
