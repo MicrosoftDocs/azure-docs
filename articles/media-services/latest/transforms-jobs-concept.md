@@ -45,22 +45,24 @@ Suppose you wanted to extract the first frame of all your videos as a thumbnail 
 
 A **Transform** helps you create the recipe once (Step 1), and submit Jobs using that recipe (Step 2).
 
-### Jobs class and relationships diagram
-
-The following diagram shows the **Job** object and the objects it references including the derivation relationships. The gray arrows show a type that the Job references and the green arrows show class derivation relationships:
-
-![Job object](./media/api-diagrams/job.png)
-
 > [!NOTE]
 > Properties of **Transform** and **Job** that are of the Datetime type are always in UTC format.
 
 ## Transforms
+
+The following diagram shows the **Transform** object and the objects it references including the derivation relationships. The gray arrows show a type that the Job references and the green arrows show class derivation relationships:
+
+![Transform object](./media/api-diagrams/transforms.png)
 
 Use **Transforms** to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files. A single Transform can apply more than one rule. For example, a Transform could specify that each video be encoded into an MP4 file at a given bitrate, and that a thumbnail image be generated from the first frame of the video. You would add one TransformOutput entry for each rule that you want to include in your Transform. You can create Transforms in your Media Services account using the Media Services v3 API, or using any of the published SDKs. The Media Services v3 API is driven by Azure Resource Manager, so you can also use Resource Manager templates to create and deploy Transforms in your Media Services account. Role-based access control can be used to lock down access to Transforms.
 
 The Update operation on the [Transform](https://docs.microsoft.com/rest/api/media/transforms) entity is intended for making changes to the description, or the priorities of the underlying TransformOutputs. It is recommended that such updates be performed when all in-progress jobs have completed. If you intend to rewrite the recipe, you need to create a new transform.
 
 ## Jobs
+
+The following diagram shows the **Job** object and the objects it references including the derivation relationships. The gray arrows show a type that the Job references and the green arrows show class derivation relationships:
+
+![Job object](./media/api-diagrams/jobs.png)
 
 A **Job** is the actual request to Azure Media Services to apply the **Transform** to a given input video or audio content. Once the Transform has been created, you can submit jobs using Media Services APIs, or any of the published SDKs. The **Job** specifies information such as the location of the input video, and the location for the output. You can specify the location of your input video using: HTTPS URLs, SAS URLs, or [Assets](https://docs.microsoft.com/rest/api/media/assets).  
 
