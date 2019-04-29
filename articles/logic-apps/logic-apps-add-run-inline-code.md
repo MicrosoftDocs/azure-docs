@@ -94,20 +94,20 @@ so that you can select from available keywords, for example:
 
    ![Create variables](./media/logic-apps-add-run-inline-code/save-email-body-variable.png)
 
-   While your cursor is inside the **Code** box, the dynamic 
-   content list shows any outputs from the trigger and previous 
-   actions that the current action's expected input format. 
-   To reference these outputs, you can select tokens that 
-   represent those outputs from this list. To view all the 
-   avaialable outputs from previous steps, choose **See more** 
-   in the dynamic content list.
+   To make outputs from the trigger and previous actions 
+   easier to reference, the dynamic content list appears 
+   while your cursor is inside the **Code** box. By default, 
+   this list shows only those outputs that match the current 
+   action's expected input format. To view all the available 
+   outputs from previous steps, choose **See more** in the 
+   dynamic content list.
 
    ![Dynamic content list](./media/logic-apps-add-run-inline-code/inline-code-dynamic-content.png)
 
    The list now shows all the outputs from the trigger, including the 
    **Body** token, which you can now select. In this particular action, 
-   the **Body** token resolves to a `workflowContext` object that references 
-   the email's `Body` property value.
+   the **Body** token resolves to a `workflowContext` object that 
+   references the email's `Body` property value.
 
    ![Select trigger output](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
@@ -123,9 +123,9 @@ so that you can select from available keywords, for example:
 ## Add parameters
 
 Optionally, you can require that the **Inline Code** action 
-to include outputs from the trigger or specific actions that 
+includes outputs from the trigger or specific actions that 
 your code references by adding the **Trigger** or **Actions** 
-parameters. 
+parameters.
 
 For example, suppose you have code that references the **To** 
 and **Subject** outputs from the **Send an email** action for 
