@@ -109,7 +109,7 @@ This can be configured as follows:
 
 5. Click **OK**.
 
-## Consume with Data Fatory
+## Consume with Data Factory
 
 To consume the runbook using Azure Data Factory, first create a **Webhook** for the runbook.  The **Webhook** will provide a URL which can be called via an Azure Data Factory web activity.
 
