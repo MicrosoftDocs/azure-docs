@@ -21,14 +21,6 @@ ms.custom: seodec18
 
 This article discusses rules that apply to entities and APIs when developing with Media Services v3.
 
-## Media Services class diagram
-
-The following image shows some of the most commonly used objects when developing against the Media Services v3 model.
-
-Click the image to view it full size.  
-
-<a href="./media/api-diagrams/ClassDiagram1.png" target="_blank"><img src="./media/api-diagrams/thumbnail.png"></a> 
-
 ## Accessing the Azure Media Services API
 
 To access the Azure Media Services resources, you can use the Azure Active Directory (AD) service principal authentication.
