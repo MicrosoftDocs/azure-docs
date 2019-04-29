@@ -18,11 +18,22 @@ You can run AzCopy commands from the command line or, if you prefer a user inter
 
 ## Get AzCopy
 
-If you want to run AzCopy commands by using a command line, then download the AzCopy executable file. There's nothing to install.
+You can use AzCopy from Storage Explorer or from the command line.
+
+### Use AzCopy from Storage Explorer
 
 If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer.
 
-### Download the AzCopy executable file
+In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload and Download**.
+
+![Enable AzCopy as a transfer engine in Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
+
+> [!NOTE]
+> You don't have to enable this setting if you've enabled a hierarchical namespace on your storage account. That's because Storage Explorer automatically uses AzCopy on storage accounts that have a hierarchical namespace.  
+
+### Use AzCopy from the command line
+
+If you want to run AzCopy commands by using a command line, then download the AzCopy executable file. There's nothing to install.
 
 Choose the link appropriate for your platform.
 
@@ -31,15 +42,6 @@ Choose the link appropriate for your platform.
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 If you need to use AzCopy to work with [Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview), then see [AzCopy v7.3 supporting copying data to/from Microsoft Azure Table storage service](https://aka.ms/downloadazcopynet).
-
-### Enable AzCopy in Storage Explorer
-
-In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload and Download**.
-
-![Enable AzCopy as a transfer engine in Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
-
-> [!NOTE]
-> You don't have to enable this setting if you've enabled a hierarchical namespace on your storage account. That's because Storage Explorer automatically uses AzCopy on storage accounts that have a hierarchical namespace.  
 
 ## Find AzCopy on your computer
 
