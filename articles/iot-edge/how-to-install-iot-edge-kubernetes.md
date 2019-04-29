@@ -75,10 +75,7 @@ Every component of the edge deployment is scoped to a Kubernetes namespace speci
 
     Under the cluster namespaces, you will see one for the IoT Edge device following the convention *msiot-\<iothub-name>-\<edgedevice-name>*. The IoT Edge agent and iotedged pods should be up and running in this namespace.
 
-1. Add a simulated temperature sensor module using the steps in the [Deploy a module](quickstart-linux.md#deploy-a-module) section of the quickstart.
-
-    >[!NOTE]
-    >IoT Edge module management is done from the IoT Hub portal just like any other IoT Edge device. Making local changes to module configuration via Kubernetes tools is not recommended as they might get overwritten.
+1. Add a simulated temperature sensor module using the steps in the [Deploy a module](quickstart-linux.md#deploy-a-module) section of the quickstart. IoT Edge module management is done from the IoT Hub portal just like any other IoT Edge device. Making local changes to module configuration via Kubernetes tools is not recommended as they might get overwritten.
 
 1. In a few seconds, refreshing the **Pods** page under the edge device namespace in the dashboard will list the IoT Edge hub and simulated sensor pods as running with the IoT Edge hub pod ingesting data into IoT Hub.
 
