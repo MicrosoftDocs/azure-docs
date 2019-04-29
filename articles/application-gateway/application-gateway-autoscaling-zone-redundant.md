@@ -37,7 +37,8 @@ With the v2 SKU, the pricing model is driven by consumption and is no longer att
 - **Fixed price** - This is hourly (or partial hour) price to provision a Standard_v2 or WAF_v2 Gateway.
 - **Capacity Unit price** - This is consumption-based cost that is charged in addition to fixed cost. Capacity Unit charge is also computed hourly or partial hourly.
 
-Pricing in US East
+**Pricing in US East**:
+
 |              SKU Name                             | Fixed price ($/hr)  | Capacity Unit price ($/CU-hr)   |
 | ------------------------------------------------- | ------------------- | ------------------------------- |
 | Standard_v2                                       |    0.20             | 0.0080                          |
@@ -50,17 +51,27 @@ Capacity Unit details:
 
 **Example 1**:
 
-An application gateway standard_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88 Mbps data transfer. Assuming connections are short lived, your price would be:<br>
-Fixed price = 744(hours) * $0.20 = $148.8 <br>
-Capacity Unit price = 744(hours) * Max (50/25 capacity unit for connections/sec, 8.88/2.22 capacity unit for throughput) * $0.008 = 744 * 4 * 0.008 = $23.81<br>
-Total price = $148.8+23.81 = $172.61
+An application gateway standard_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88 Mbps data transfer. Assuming connections are short lived, your price would be:
+
+Fixed price = 744(hours) * $0.20 = **$148.8**
+
+Capacity Unit price = 744(hours) * Max (50/25 capacity unit for connections/sec, 8.88/2.22 capacity unit for throughput) * $0.008 
+
+= 744 * 4 * 0.008 = **$23.81**
+
+Total price = $148.8 + 23.81 = **$172.61**
 
 **Example 2**:
 
-An application gateway WAF_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88 Mbps data transfer and does 80 request per second. Assuming connections are short lived, your price would be:<br>
-Fixed price = 744(hours) * $0.36 = $267.84<br>
-Capacity Unit price = 744(hours) * Max (50/25 capacity unit for connections/sec, 8.88/2.22 capacity unit for throughput, 80/10 WAF RPS) * $0.0144 = 744 * 8 * 0.0144 = $85.71<br>
-Total price = $267.84 + $85.71 = $353.55
+An application gateway WAF_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88 Mbps data transfer and does 80 request per second. Assuming connections are short lived, your price would be:
+
+Fixed price = 744(hours) * $0.36 = **$267.84**
+
+Capacity Unit price = 744(hours) * Max (50/25 capacity unit for connections/sec, 8.88/2.22 capacity unit for throughput, 80/10 WAF RPS) * $0.0144
+
+ = 744 * 8 * 0.0144 = **$85.71**
+
+Total price = $267.84 + $85.71 = **$353.55**
 
 > [!NOTE]
 > Each instance can support approximately 10 Capacity Units currently.
@@ -118,6 +129,7 @@ The following table compares the features available with each SKU.
 
 ## Next steps
 
+- [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 - [Create an autoscaling, zone redundant application gateway with a reserved virtual IP address using Azure PowerShell](tutorial-autoscale-ps.md)
 - Learn more about [Application Gateway](overview.md).
 - Learn more about [Azure Firewall](../firewall/overview.md).
