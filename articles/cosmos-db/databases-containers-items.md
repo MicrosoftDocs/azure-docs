@@ -53,7 +53,7 @@ When you create an Azure Cosmos container, you configure throughput in one of th
 
 An Azure Cosmos container can scale elastically, whether you create containers by using dedicated or shared provisioned throughput modes.
 
-An Azure Cosmos container is a schema-agnostic container of items. Items in a container can have arbitrary schemas. For example, an item that represents a person and an item that represents an automobile can be placed in the *same container*. By default, all items that you add to a container are automatically indexed. Explicit index or schema management isn't required. You can customize the indexing behavior by configuring the [indexing policy](index-overview.md) on a container. 
+An Azure Cosmos container is a schema-agnostic container of items. Items in a container can have arbitrary schemas. For example, an item that represents a person and an item that represents an automobile can be placed in the *same container*. By default, all items that you add to a container are automatically indexed without explicit index or schema management. You can customize the indexing behavior by configuring the [indexing policy](index-overview.md) on a container. 
 
 You can set [Time to Live (TTL)](time-to-live.md) on selected items in an Azure Cosmos container or for the entire container to gracefully purge those items from the system. Azure Cosmos DB automatically deletes the items when they expire. It also guarantees that a query performed on the container doesn't return the expired items within a fixed bound. To learn more, see [Configure TTL on your container](how-to-time-to-live.md).
 
