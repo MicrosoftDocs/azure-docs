@@ -43,7 +43,7 @@ User-Agent: <sdk-name>/<sdk-version>
 
 {
     "jobId": "<jobId>",
-    "type": "scheduleDirectMethod",
+    "type": "scheduleDeviceMethod",
     "cloudToDeviceMethod": {
         "methodName": "<methodName>",
         "payload": <payload>,
@@ -79,7 +79,7 @@ User-Agent: <sdk-name>/<sdk-version>
 
 {
     "jobId": "<jobId>",
-    "type": "scheduleTwinUpdate",
+    "type": "scheduleUpdateTwin",
     "updateTwin": <patch>                 // Valid JSON object
     "queryCondition": "<queryOrDevices>", // query condition
     "startTime": <jobStartTime>,          // as an ISO-8601 date string
@@ -114,8 +114,8 @@ The following list shows the properties and corresponding descriptions, which ca
 | **startTime** |Application provided start time (ISO-8601) for the job. |
 | **endTime** |IoT Hub provided date (ISO-8601) for when the job completed. Valid only after the job reaches the 'completed' state. |
 | **type** |Types of jobs: |
-| | **scheduledUpdateTwin**: A job used to update a set of desired properties or tags. |
-| | **scheduledDeviceMethod**: A job used to invoke a device method on a set of device twins. |
+| | **scheduleUpdateTwin**: A job used to update a set of desired properties or tags. |
+| | **scheduleDeviceMethod**: A job used to invoke a device method on a set of device twins. |
 | **status** |Current state of the job. Possible values for status: |
 | | **pending**: Scheduled and waiting to be picked up by the job service. |
 | | **scheduled**: Scheduled for a time in the future. |
