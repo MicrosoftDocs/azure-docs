@@ -185,7 +185,7 @@ Our customers are advised to use Azure Security Center, which provides the same 
 <!--Image references - custom alerts-->
 [13]: ./media/security-center-features-retirement-july2019/asc_custom_alerts.png
 <!--Image references - Investigation-->
-[14]: ./media/security-center-features-retirement-july2019/asc_security_incident.png
+[14]: ./media/security-center-features-retirement-july2019/asc-security-incident.png
 [15]: ./media/security-center-features-retirement-july2019/loganalytics_investigation_dashboard.png
 <!--Image references - Solutions-->
 [16]: ./media/security-center-features-retirement-july2019/asc_security_solutions.png
