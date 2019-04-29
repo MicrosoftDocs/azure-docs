@@ -29,8 +29,6 @@ For each best practice, this article explains:
 
 This Azure Network Security Best Practices article is based on a consensus opinion, and Azure platform capabilities and feature sets, as they exist at the time this article was written. Opinions and technologies change over time and this article will be updated on a regular basis to reflect those changes.
 
-The following sections describe best practices for network security.
-
 ## Logically segment subnets
 Azure virtual networks are similar to a LAN on your on-premises network. The idea behind an Azure virtual network is that you create a single private IP address space–based network on which you can place all your Azure virtual machines. The private IP address spaces available are in the Class A (10.0.0.0/8), Class B (172.16.0.0/12), and Class C (192.168.0.0/16) ranges.
 
