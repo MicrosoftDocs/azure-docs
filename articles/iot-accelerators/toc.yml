@@ -103,7 +103,7 @@
       href: iot-accelerators-remote-monitoring-rbac.md
     - name: Explore telemetry
       items:
-      - name: Visualize telemetry with PowerBI
+      - name: Visualize telemetry with Power BI
         href: iot-accelerators-integrate-data-powerbi.md
       - name: Integrate Azure Time Series Insights with Remote Monitoring
         href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
