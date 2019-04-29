@@ -8,13 +8,16 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 04/29/2019
 ms.custom: seodec18
 ---
 
 # Plan your Azure Time Series Insights Preview environment
 
 This article describes best practices to plan and get started quickly using the Azure Time Series Insights Preview.
+
+> [!NOTE]
+> See [Plan your Azure Time Series Insights GA environment](time-series-insights-environment-planning.md), For best practices to plan a general availability TSI instance
 
 ## Best practices for planning and preparation
 
@@ -23,12 +26,12 @@ To get started with Time Series Insights, it’s best if you understand:
 * What you get when you provision a Time Series Insights Preview environment.
 * What your Time Series IDs and Timestamp properties are.
 * What the new Time Series Model is, and how to build your own.
-* How to send events efficiently in JSON. 
+* How to send events efficiently in JSON.
 * Time Series Insights business disaster recovery options.
 
-Time Series Insights employs a pay-as-you-go business model. For more information about charges and capacity, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
+Azure Time Series Insights employs a pay-as-you-go business model. For more information about charges and capacity, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-## The Time Series Insights Preview environment
+## The Preview environment
 
 When you provision a Time Series Insights Preview environment, you create two Azure resources:
 
@@ -36,12 +39,12 @@ When you provision a Time Series Insights Preview environment, you create two Az
 * Azure Storage general-purpose V1 account
 
 To start, you need three additional items:
- 
+
 - A [Time Series Model](./time-series-insights-update-tsm.md) 
 - An [event source connected to Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md) 
 - [Events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format 
 
-## Configure your Time Series IDs and Timestamp properties
+## Configure Time Series IDs and Timestamp properties
 
 To create a new Time Series Insights environment, select a Time Series ID. Doing so acts as a logical partition for your data. As noted, make sure to have your Time Series IDs ready.
 

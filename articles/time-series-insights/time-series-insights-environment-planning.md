@@ -10,13 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 04/29/2019
 ms.custom: seodec18
 ---
 
-# Plan your Azure Time Series Insights environment
+# Plan your Azure Time Series Insights GA environment
 
-This article describes how to plan your Azure Time Series Insights environment based on your expected ingress rate and your data retention requirements.
+This article describes how to plan your Azure Time Series Insights general availabiity (GA) environment based on your expected ingress rate and your data retention requirements.
 
 ## Video
 
@@ -52,15 +52,15 @@ You can configure a maximum of 400 days of data retention in your Time Series In
 
 1. In the [Azure portal](https://portal.azure.com), select your Time Series Insights environment.
 
-2. On the **Time Series Insights environment page**, under the **Settings** heading, select **Configure**. 
+1. On the **Time Series Insights environment page**, under the **Settings** heading, select **Configure**.
 
-3. In the **Data retention time (in days)** box, enter a value from 1 to 400.
+1. In the **Data retention time (in days)** box, enter a value from 1 to 400.
 
    ![Configure retention](media/environment-mitigate-latency/configure-retention.png)
 
 ## Understand ingress capacity
 
-The other area to focus on for planning is ingress capacity, which is a derivative of the per-minute allocation. 
+The other area to focus on for planning is ingress capacity, which is a derivative of the per-minute allocation.
 
 From a throttling perspective, an ingressed data packet with a packet size of 32 KB is treated as 32 events, each sized 1 KB. The maximum allowed event size is 32 KB; data packets larger than 32 KB are truncated.
 
