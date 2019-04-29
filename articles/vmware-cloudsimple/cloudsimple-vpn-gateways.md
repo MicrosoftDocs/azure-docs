@@ -35,26 +35,29 @@ Use cases for site-to-site VPN include:
 
 A site-to-site VPN connection uses the following default cryptographic parameters to establish a secure connection.  When you create a connection from on-premises VPN device, the parameters must match.
 
-#### Phase 1
+A site-to-site VPN connection uses the following default cryptographic parameters to establish a secure connection.  When you create a connection from on-premises VPN device, use any of the following parameters supported by your on-premises VPN gateway.
 
-| Parameter | Value |
-|-----------|-------|
-| IKE Version | IKEv1 |
-| Encryption | AES 256 |
-| Hash Algorithm| SHA 256 |
-| Diffie Hellman Group (DH Group) | 1 |
-| Life Time | 86,400 seconds |
-| Data Size | 4 GB |
+#### Phase 1 proposals
 
-#### Phase 2
+| Parameter | Proposal 1 | Proposal 2 | Proposal 3 |
+|-----------|------------|------------|------------|
+| IKE Version | IKEv1 | IKEv1 | IKEv1 |
+| Encryption | AES 128 | AES 256 | AES 256 |
+| Hash Algorithm| SHA 256 | SHA 256 | SHA 1 |
+| Diffie Hellman Group (DH Group) | 1 | 1 | 1 |
+| Life Time | 28,800 seconds | 28,800 seconds | 28,800 seconds |
+| Data Size | 4 GB | 4 GB | 4 GB |
 
-| Parameter | Value |
-|-----------|-------|
-| Encryption | AES 256 |
-| Hash Algorithm| SHA 256 |
-| Perfect Forward Secrecy Group (PFS Group) | None |
-| Life Time | 28,800 seconds |
-| Data Size | 4 GB |
+
+#### Phase 2 proposals 
+
+| Parameter | Proposal 1 | Proposal 2 | Proposal 3 |
+|-----------|------------|------------|------------|
+| Encryption | AES 128 | AES 256 | AES 256 |
+| Hash Algorithm| SHA 256 | SHA 256 | SHA 1 |
+| Perfect Forward Secrecy Group (PFS Group) | None | None | None |
+| Life Time | 1,800 seconds | 1,800 seconds | 1,800 seconds |
+| Data Size | 4 GB | 4 GB | 4 GB |
 
 ## Point-to-site VPN gateway
 
