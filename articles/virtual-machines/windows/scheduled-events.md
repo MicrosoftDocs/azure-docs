@@ -44,7 +44,7 @@ Scheduled Events provides events in the following use cases:
 - Platform initiated maintenance (e.g. Host OS Update)
 - Degraded hardware
 - User initiated maintenance (e.g. user restarts or redeploys a VM)
-- [Low-Priority VM eviction](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) in scale sets
+- [Low-Priority VM eviction](https://azure.microsoft.com/blog/low-priority-scale-sets) in scale sets
 
 ## The Basics  
 

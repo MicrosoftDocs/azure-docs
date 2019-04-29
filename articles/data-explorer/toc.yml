@@ -96,6 +96,8 @@
       href: using-metrics.md
   - name: Work with other tools
     items:
+    - name: Apache Spark Connector
+      href: spark-connector.md
     - name: Connect from Databricks using Python
       href: connect-from-databricks.md
     - name: Analyze data in Jupyter Notebooks & Kqlmagic
