@@ -97,7 +97,7 @@ The following steps show you how to run the Remote Monitoring microservices in I
 
 As an example the following image, shows adding configuration for a service:
 
-[![Add-Configuration](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
+[![Add-Configuration](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 
 #### Create Compound Configuration
@@ -109,7 +109,7 @@ As an example the following image, shows adding configuration for a service:
 As an example the following image, shows adding all sbt tasks to single configuration:
 
 
-[![Add-All-Services](./media/deploy-locally-intelliJ/all-services.png)](./media/deploy-locally-intelliJ/all-services.png#lightbox)
+[![Add-All-Services](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
 
 
