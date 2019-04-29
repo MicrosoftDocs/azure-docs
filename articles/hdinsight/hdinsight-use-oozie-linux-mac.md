@@ -1,7 +1,6 @@
 ---
 title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight 
 description: Use Hadoop Oozie in Linux-based HDInsight. Learn how to define an Oozie workflow and submit an Oozie job.
-services: hdinsight
 ms.service: hdinsight
 ms.custom: hdinsightactive
 author: omidm1
