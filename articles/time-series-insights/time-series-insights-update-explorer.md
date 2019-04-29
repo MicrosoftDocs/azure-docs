@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Visualize data in the explorer Preview
 
-This document describes the UI/UX features and interface of the Azure Time Series Insights Preview [explorer web app](https://insights.timeseries.azure.com/preview/samples). Specifically, it discusses the layout of the hosted sample, interface customization options, and navigation through the provided demo.
+This document describes the UI/UX features and interface of the Azure Time Series Insights  Preview [explorer web app](https://insights.timeseries.azure.com/preview/samples). Specifically, it discusses the layout of the hosted sample, interface customization options, and navigation through the provided demo.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ The Azure Time Series Insights Preview explorer consists of the following elemen
 
 ## Environment panel
 
-The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go environments (Preview) and S1/S2 environments (general availability). Simply click the Time Series Insights environment you want to use.
+The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go environments (Preview) and S1/S2 environments (general availability or GA). Simply click the Time Series Insights environment you want to use.
 
   [![The control panel](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
 
@@ -77,7 +77,7 @@ To learn more about the Time Series Model, see [Times Series Models](./time-seri
 
 ## Preview well
 
-The well displays instance fields and other metadata associated with selected TSI instances. The check boxes at the right side let you hide or display specific instances from the current chart. You may also remove specific data elements from your current data well by clicking the red **X** control in the top-right corner of the element.
+The well displays instance fields and other metadata associated with selected TSI instances. The check boxes on the right-side let you hide or display specific instances from the current chart. You may also remove specific data elements from your current data well by clicking the red **X** control in the top-right corner of the element.
 
   [![The Preview well](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
 
@@ -92,7 +92,7 @@ You can also pop out the telemetry panel to get a better vertical view of the el
 
 ## Preview chart
 
-With the chart, you can display time series instances as lines. You can collapse the environment panel, data model, and time span control panel by clicking the web controls to make the chart larger.
+With the chart, you can display TSI instances as lines. You can collapse the environment panel, data model, and time span control panel by clicking the web controls to make the chart larger.
 
   [![Preview chart overview](media/v2-update-explorer/explorer-eight.png)](media/v2-update-explorer/explorer-eight.png#lightbox)
 
@@ -146,11 +146,11 @@ When you work with Time Series Insights Preview, you first select a time span. T
 
 ## Navigation panel
 
-The Time Series Insights Preview navigation panel appears at the top of your hosted TSI app:
+The Time Series Insights Preview navigation panel appears at the top of your TSI app:
 
   [![Top menu bar](media/v2-update-explorer/explorer-fourteen.png)](media/v2-update-explorer/explorer-fourteen.png#lightbox)
 
-It, in turns provides the following functionality:
+It provides the following functionalities.
 
 ### Current session share link control
 
@@ -171,7 +171,7 @@ Select the link web control (highlighted) to generate a URL to save or share you
 
 ### Theme selection
 
-To select a new theme, click on your profile icon located in the top-right corner. Then select **Change Theme**.
+To select a new theme, click on your profile icon located in the top-right corner. Then, select **Change Theme**.
 
   [![Theme selection](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
 
@@ -218,7 +218,7 @@ Learn more about supported query operations and data types by reading [Time Seri
 
   [![Queried and filtered view one](media/v2-update-explorer/explorer-twenty.png)](media/v2-update-explorer/explorer-twenty.png#lightbox)
 
-You can show and hide elements in the chart panel by selecting the visible icon as shown in the following image. You can completely remove queries by clicking the red **x**.
+You can show and hide elements in the chart panel by selecting the visible icon as shown in the following image. You can completely remove queries by clicking the red **X**.
 
   [![Queried and filtered view two](media/v2-update-explorer/explorer-twenty-one.png)](media/v2-update-explorer/explorer-twenty-one.png#lightbox)
 
