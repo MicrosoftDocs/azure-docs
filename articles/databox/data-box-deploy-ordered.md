@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Order Azure Data Box | Microsoft Docs
+title: Tutorial to order Azure Data Box | Microsoft Docs
 description: Learn the deployment prerequisites and how to order an Azure Data Box
 services: databox
 author: alkohli

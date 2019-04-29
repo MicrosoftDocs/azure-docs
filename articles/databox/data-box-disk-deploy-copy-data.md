@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Copy data to  your Azure Data Box Disk| Microsoft Docs
+title: Tutorial to copy data to Azure Data Box Disk| Microsoft Docs
 description: Use this tutorial to learn how to copy data to your Azure Data Box Disk
 services: databox
 author: alkohli

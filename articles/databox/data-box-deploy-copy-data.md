@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Copy data via SMB on your Azure Data Box | Microsoft Docs
+title: Tutorial to copy data via SMB on Azure Data Box | Microsoft Docs
 description: Learn how to copy data to your Azure Data Box via SMB
 services: databox
 author: alkohli
