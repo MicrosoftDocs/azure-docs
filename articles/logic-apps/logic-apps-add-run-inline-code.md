@@ -148,6 +148,14 @@ and select the parameters you want:
    | **Trigger** | Include outputs from the trigger. See [Include trigger outputs](#trigger-outputs). |
    |||
 
+<a name="trigger-outputs"></a>
+
+### Include trigger outputs
+
+If you select **Triggers**, you're prompted whether to include trigger outputs.
+
+* From the **Trigger** list, select **Yes**.
+
 <a name="action-outputs"></a>
 
 ### Include action outputs
@@ -161,14 +169,6 @@ If you select **Actions**, you're prompted for the action outputs that you want.
    ![](./media/logic-apps-add-run-inline-code/add-body-parameter.png)
 
 1. To add another output, choose **Add new item**.
-
-<a name="trigger-outputs"></a>
-
-### Include trigger outputs
-
-When you select **Triggers**, you're prompted whether to include trigger outputs.
-
-* From the **Trigger** list, select **Yes**.
 
 ## Next steps
 
