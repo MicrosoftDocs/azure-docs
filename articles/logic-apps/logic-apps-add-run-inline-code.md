@@ -81,22 +81,33 @@ select this action: **Execute JavaScript Code**
 
    ![Select "Execute JavaScript Code"](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
 
-1. In the **Code** box, enter the code that you want to run.
+1. In the **Code** box, enter the code that you want to run. 
+When you type a recognized keyword, the autocomplete list appears 
+so that you can select from available keywords, for example:
 
-   When you click in the **Code** box, the dynamic content list 
-   opens and shows any outputs from previous steps that match 
-   the current action's expected input format. To reference 
-   these outputs in your code, select the outputs that you want.
-   To view all outputs from previous steps, choose **See more** 
+   ![Keyword autocomplete list](./media/logic-apps-add-run-inline-code/auto-complete.png)
+
+   In this example, the code snippet first creates a variable 
+   that stores a *regular expression*, which specifies a pattern 
+   to match in input text. The code then creates a variable that 
+   stores the email body output from the trigger.
+
+   ![Create variables](./media/logic-apps-add-run-inline-code/save-email-body-variable.png)
+
+   While your cursor is inside the **Code** box, the dynamic 
+   content list shows any outputs from the trigger and previous 
+   actions that the current action's expected input format. 
+   To reference these outputs, you can select tokens that 
+   represent those outputs from this list. To view all the 
+   avaialable outputs from previous steps, choose **See more** 
    in the dynamic content list.
 
    ![Dynamic content list](./media/logic-apps-add-run-inline-code/inline-code-dynamic-content.png)
 
-   In this example, the code snippet first creates a variable that stores 
-   a *regular expression*, which specifies a pattern to match in input text. 
-   The code then creates a variable that stores the email body. Rather than 
-   appear as the **Body** field, the email body resolves to a `workflowContext` 
-   object that references the email's `Body` property value.
+   The list now shows all the outputs from the trigger, including the 
+   **Body** token, which you can now select. In this particular action, 
+   the **Body** token resolves to a `workflowContext` object that references 
+   the email's `Body` property value.
 
    ![Select trigger output](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
