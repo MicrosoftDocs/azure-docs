@@ -155,10 +155,10 @@ No, static website hosting is only available in GPv2 standard storage accounts.
 Yes, the new web endpoint obeys the VNET and firewall rules configured for the storage account.
 
 **Is the web endpoint case-sensitive?**  
-Yes, the web endpoint is case-sensitive just like the blob endpoint. 
+Yes, the web endpoint is case-sensitive just like the blob endpoint.
 
-**Is the web enpoint accessible on http and https?**
-Yes, the web endpoint is accessible on http and https. However, if the "[Secure transfer required](../common/storage-require-secure-transfer.md)" feature is enabled, only https endpoint is available.
+**Is the web endpoint accessible via both HTTP and HTTPS?**
+Yes, the web endpoint is accessible via both HTTP and HTTPS. However, if the storage account is configured to require secure transfer over HTTPS, then users must use the HTTPS endpoint. For more information, see [Require secure transfer in Azure Storage](../common/storage-require-secure-transfer.md).
 
 ## Next steps
 * [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
