@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services packaging/origin errors | Microsoft Docs
+title: Azure Media Services packaging and origin errors | Microsoft Docs
 description: This topic describes errors that you may receive from the Azure Media Services packaging service.
 author: Juliako
 manager: femila
@@ -25,7 +25,7 @@ This topic describes errors that you may receive from the Azure Media Services [
 
 The request contains invalid information and is rejected with these error codes and due to one of the following reasons:
 
-|Error Code|Hexadecimal value |Error Description|
+|Error code|Hexadecimal value |Error description|
 |---|---|---|
 |MPE_BAD_URL_SYNTAX |0x80890201|A URL syntax or format error. Examples include requests for an invalid type, an invalid fragment, or an invalid track. |
 |MPE_ENC_ENCRYPTION_NOT_SPECIFIED_IN_URL |0x8088024C|The request has no encryption tag in the URL. CMAF requests require an encryption tag in the URL. Other protocols that are configured with more than one encryption type also require the encryption tag for disambiguation. |
@@ -35,7 +35,7 @@ The request contains invalid information and is rejected with these error codes 
 
 The request is not allowed due to one of the following reasons:
 
-|Error Code|Hexadecimal value |Error Description|
+|Error code|Hexadecimal value |Error description|
 |---|---|---|
 |MPE_STORAGE_AUTHENTICATION_FAILED |0x808900EA|The request to storage to fulfill the request failed with an Authentication failure. This can happen if the storage keys were rotated and the service was unable to sync the storage keys. <br/><br/>Contact Azure support by going to [Help + support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.|
 |MPE_STORAGE_INSUFFICIENT_ACCOUNT_PERMISSIONS |0x808900EB |Storage Operation error, access failed due to Insufficient Account Permissions. |
@@ -49,7 +49,7 @@ The request is not allowed due to one of the following reasons:
 
 The operation is attempting to act on a resource that no longer exists. For example, the resource may have already been deleted.
 
-|Error Code|Hexadecimal value |Error Description|
+|Error code|Hexadecimal value |Error description|
 |---|---|---|
 |MPE_EGRESS_TRACK_NOT_FOUND |0x80890209 |The requested track is not found. |
 |MPE_RESOURCE_NOT_FOUND |0x808901F9 |The requested resource is not found. |
@@ -67,13 +67,13 @@ The operation is attempting to act on a resource that no longer exists. For exam
 
 The ID provided for a resource on a `PUT` or `POST` operation has been taken by an existing resource. Use another ID for the resource to resolve this issue.
 
-|Error Code|Hexadecimal value |Error Description|
+|Error code|Hexadecimal value |Error description|
 |---|---|---|
 |MPE_STORAGE_CONFLICT  |0x808900EE  |Storage Operation error, conflict error.  |
 
 ## 410
 
-|Error Code|Hexadecimal value |Error Description|
+|Error code|Hexadecimal value |Error description|
 |---|---|---|
 |MPE_FILTER_FORCE_END_LEFT_EDGE_CROSSED_DVR_WINDOW|0x80890263|For live streaming, when the filter that has forceEndTimestamp set to true, the start or end timestamp is outside of the current DVR window.|
 
@@ -81,7 +81,7 @@ The ID provided for a resource on a `PUT` or `POST` operation has been taken by 
 
 The operation specified an eTag that is different from the version available at the server, that is, an optimistic concurrency error. Retry the request after reading the latest version of the resource and updating the eTag on the request.
 
-|Error Code|Hexadecimal value |Error Description|
+|Error code|Hexadecimal value |Error description|
 |---|---|---|
 |MPE_FRAGMENT_NOT_READY	|0x80890200	|The requested fragment is not ready.|
 |MPE_STORAGE_PRECONDITION_FAILED| 0x808900EF|Storage operation error, a precondition failure.|
@@ -90,7 +90,7 @@ The operation specified an eTag that is different from the version available at 
 
 The payload format sent by the client is in an unsupported format.
 
-|Error Code|Hexadecimal value |Error Description|
+|Error code|Hexadecimal value |Error description|
 |---|---|---|
 |MPE_ENC_ALREADY_ENCRYPTED|	0x8088021F|	Should not apply encryption on already encrypted content.|
 |MPE_ENC_INVALID_INPUT_ENCRYPTION_FORMAT|0x8088021D	|The encryption is invalid for the input format.|
@@ -162,7 +162,7 @@ For live articles and samples, see:
 
 ## 416 Range Not Satisfiable
 
-|Error Code|Hexadecimal value |Error Description|
+|Error code|Hexadecimal value |Error description|
 |---|---|---|
 |MPE_STORAGE_INVALID_RANGE|0x808900F1|Storage Operation error, returned http 416 error, invalid range.|
 
@@ -170,7 +170,7 @@ For live articles and samples, see:
 
 During the processing of the request, Media Services encounters some error that prevents the processing from continuing.  
 
-|Error Code|Hexadecimal value |Error Description|
+|Error code|Hexadecimal value |Error description|
 |---|---|---|
 |MPE_STORAGE_SOCKET_TIMEOUT|0x808900F4|Received and translated from Winhttp error code of ERROR_WINHTTP_TIMEOUT (0x00002ee2).|
 |MPE_STORAGE_SOCKET_CONNECTION_ERROR|0x808900F5|Received and translated from Winhttp error code of ERROR_WINHTTP_CONNECTION_ERROR (0x00002efe).|
@@ -187,7 +187,7 @@ The server is currently unable to receive requests. This error may be caused by 
 > Check the error message and error code string to get more detailed information about the reason you got the 503 error. This error does not always mean throttling.
 > 
 
-|Error Code|Hexadecimal value |Error Description|
+|Error code|Hexadecimal value |Error description|
 |---|---|---|
 |MPE_STORAGE_SERVER_BUSY|0x808900E8|Storage Operation error, received HTTP server busy error 503.|
 
@@ -197,7 +197,7 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## See also
 
-- [Encoding error codes](https://docs.microsoft.com/en-us/rest/api/media/jobs/get#joberrorcode)
+- [Encoding error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
 - [Azure Media Services concepts](concepts-overview.md)
 - [Quotas and Limitations](limits-quotas-constraints.md)
 
