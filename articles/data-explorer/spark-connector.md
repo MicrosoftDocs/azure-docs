@@ -26,7 +26,7 @@ Azure Data Explorer Spark connector is an [open source project](https://github.c
 
 * [Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal) 
 * Create a Spark cluster
-* Install Azure Data Explorer connector library, and libraries listed in [dependencies](https://github.com/Azure/azure-kusto-spark#dependencies) including the following [Kusto Java SDK](https://docs.microsoft.com/en-us/azure/kusto/api/java/kusto-java-client-library) libraries:
+* Install Azure Data Explorer connector library, and libraries listed in [dependencies](https://github.com/Azure/azure-kusto-spark#dependencies) including the following [Kusto Java SDK](/azure/kusto/api/java/kusto-java-client-library) libraries:
     * [Kusto Data Client](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
     * [Kusto Ingest Client](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
 * Pre-built libraries for [Spark 2.4, Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases)
@@ -99,28 +99,28 @@ For more information, see [connector usage](https://github.com/Azure/azure-kusto
 
 ## Authentication
 
-Azure Data Explorer Spark connector allows you to authenticate with AAD using an [AAD application](#aad-application-authentication), [AAD access token](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [device authentication](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (for non-production scenarios), or [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault). The user must install azure-keyvault package and provide application credentials to access the Key Vault resource.
+Azure Data Explorer Spark connector allows you to authenticate with Azure Active Directory (Azure AD) using an [Azure AD application](#aad-application-authentication), [Azure AD access token](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [device authentication](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (for non-production scenarios), or [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault). The user must install azure-keyvault package and provide application credentials to access the Key Vault resource.
 
-### AAD Application Authentication
+### Azure AD Application Authentication
 
 Most simple and common authentication method. This method is recommended for Azure Data Explorer Spark connector usage.
 
 |Properties  |Description  |
 |---------|---------|
-|**KUSTO_AAD_CLIENT_ID**     |   AAD application (client) identifier.      |
-|**KUSTO_AAD_AUTHORITY_ID**     |  AAD authentication authority. AAD Directory (tenant) ID.        |
-|**KUSTO_AAD_CLIENT_PASSWORD**    |    AAD application key for the client.     |
+|**KUSTO_AAD_CLIENT_ID**     |   Azure AD application (client) identifier.      |
+|**KUSTO_AAD_AUTHORITY_ID**     |  Azure AD authentication authority. Azure AD Directory (tenant) ID.        |
+|**KUSTO_AAD_CLIENT_PASSWORD**    |    Azure AD application key for the client.     |
 
 ### Azure Data Explorer Privileges
 
 The following privileges must be granted on an Azure Data Explorer Cluster:
 
-* For reading (data source), AAD application must have *viewer* privileges on the target database, or *admin* privileges on the target table.
-* For writing (data sink), AAD application must have *ingestor* privileges on the target database. It must also have *user* privileges on the target database to create new tables. If the target table already exists, *admin* privileges on the target table can be configured.
+* For reading (data source), Azure AD application must have *viewer* privileges on the target database, or *admin* privileges on the target table.
+* For writing (data sink), Azure AD application must have *ingestor* privileges on the target database. It must also have *user* privileges on the target database to create new tables. If the target table already exists, *admin* privileges on the target table can be configured.
  
 For more information on Azure Data Explorer principal roles,see [role-based authorization](/azure/kusto/management/access-control/role-based-authorization). For managing security roles, see [security roles management](/azure/kusto/management/security-roles).
 
-## Spark sink: writing to Azure Data Explorer
+## Spark sink: Writing to Azure Data Explorer
 
 1. Set up sink parameters:
 
@@ -176,7 +176,7 @@ For more information on Azure Data Explorer principal roles,see [role-based auth
     kustoQ.start().awaitTermination(TimeUnit.MINUTES.toMillis(8))
     ```
 
-## Spark source: reading from Azure Data Explorer
+## Spark source: Reading from Azure Data Explorer
 
 1. When reading small amounts of data, define the data query:
 
@@ -197,9 +197,6 @@ For more information on Azure Data Explorer principal roles,see [role-based auth
     ```
 
 1. When reading large amounts of data, transient blob storage must be provided. Provide storage container SAS key, or storage account name, account key, and container name. 
-
-    > [!NOTE]
-    > This is a temporary requirement. Future versions of the connector will be able to provision transient storage internally.
 
     ```scala
     // Use either container/account-key/account name, or container SaS
