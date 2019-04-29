@@ -364,13 +364,21 @@
       href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Transfer data
       items:
-      - name: AzCopy (v10)
-        href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: AzCopy on Windows (v8)
-        href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: AzCopy on Linux (v8)
-        href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Using Azure Data Factory
+      - name: Copy data with AzCopy
+        items:
+        - name: Get started with AzCopy
+          href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: AzCopy with blobs
+          href: ../common/storage-use-azcopy-v10-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: AzCopy with Data Lake Storage Gen2
+          href: ../common/storage-use-azcopy-v10-data-lake-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: AzCopy with files
+          href: ../common/storage-use-azcopy-v10-files.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: AzCopy with Amazon S3 buckets
+          href: ../common/storage-use-azcopy-v10-data-lake-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Configure, optimize, troubleshoot
+          href: ../common/storage-use-azcopy-v10-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Copy data with Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Mount Blob storage as a file system on Linux
         href: storage-how-to-mount-container-linux.md
@@ -447,6 +455,10 @@
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
+    - name: AzCopy on Windows (v8)
+      href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: AzCopy on Linux (v8)
+      href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Resources
     items:
     - name: Azure roadmap
