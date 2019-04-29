@@ -10847,17 +10847,17 @@
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-go-get-started-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-go-get-started-send",
       "redirect_document_id": false
-    },        
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-handling-errors-retry.md",
       "redirect_url": "/azure/event-hubs/",
@@ -10877,7 +10877,7 @@
       "source_path": "articles/event-hubs/event-hubs-java-get-started-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-java-storm-getstarted.md",
       "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
@@ -10897,7 +10897,7 @@
       "source_path": "articles/event-hubs/event-hubs-python-get-started-receive.md",
       "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/active-directory/active-directory-saml-protocol-reference.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
@@ -10950,6 +10950,11 @@
     },
     {
       "source_path": "articles/data-factory/data-factory-sdks.md",
+      "redirect_url": "https://azure.microsoft.com/services/data-factory/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/concepts-data-flow-datasets.md",
       "redirect_url": "https://azure.microsoft.com/services/data-factory/",
       "redirect_document_id": false
     },
@@ -17362,6 +17367,11 @@
       "source_path": "articles/active-directory/connect/active-directory-aadconnectsyncservice-features.md",
       "redirect_url": "/azure/active-directory/hybrid/how-to-connect-syncservice-features",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/conditional-access-for-exo-and-spo.md",
+      "redirect_url": "/azure/active-directory/conditional-access/block-legacy-authentication",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/connect/active-directory-aadconnectsyncservice-shadow-attributes.md",
@@ -38614,6 +38624,11 @@
     {
       "source_path": "articles/storage/common/storage-data-lake-storage-security-guide.md",
       "redirect_url": "/azure/storage/common/storage-security-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-security-index.yml",
+      "redirect_url": "/azure/sql-database/sql-database-security-overview",
       "redirect_document_id": false
     }
   ]
