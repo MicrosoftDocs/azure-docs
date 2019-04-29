@@ -67,7 +67,7 @@ The set of optional claims available by default for applications to use are list
 | `xms_tpl`                  | Tenant preferred language| JWT | | The resource tenant’s preferred language, if set. Formatted LL (“en”). |
 | `ztdid`                    | Zero-touch Deployment ID | JWT | | The device identity used for [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | The addressable email for this user, if the user has one.  | JWT, SAML | MSA, AAD | This value is included by default if the user is a guest in the tenant.  For managed users (those inside the tenant), it must be requested through this optional claim or, on v2.0 only, with the OpenID scope.  For managed users, the email address must be set in the [Office admin portal](https://portal.office.com/adminportal/home#/users).| 
-| `groups`| Optional formatting for group claims |JWT, SAML| |Used in conjunction with the GroupMembershipClaims setting in the [application manifest](reference-app-manifest.md), which must be set as well. For details see [Group claims](#configuring-group-optional-claims) below. For more information on group claims see [How to configure group claims]()
+| `groups`| Optional formatting for group claims |JWT, SAML| |Used in conjunction with the GroupMembershipClaims setting in the [application manifest](reference-app-manifest.md), which must be set as well. For details see [Group claims](#configuring-group-optional-claims) below. For more information on group claims see [How to configure group claims](../hybrid/how-to-connect-fed-group-claims)
 | `acct`   		     | Users account status in tenant. | JWT, SAML | | If the user is a member of the tenant, the value is `0`. If they are a guest, the value is `1`. |
 | `upn`                      | UserPrincipalName claim. | JWT, SAML  |           | Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case.  |
 
@@ -197,7 +197,7 @@ Within the SAML tokens, these claims will be emitted with the following URI form
 
 This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory
 > [!IMPORTANT]
-> See [Configure group claims for applications with Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md) for more details including important caveats for the public preview of group claims from on-premises attributes.
+> See [Configure group claims for applications with Azure Active Directory](../hybrid/how-to-connect-fed-group-claims) for more details including important caveats for the public preview of group claims from on-premises attributes.
 
 1. In the portal ->Azure Active Directory -> Application Registrations->Select Application->Manifest
 
