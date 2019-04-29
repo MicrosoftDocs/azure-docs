@@ -20,6 +20,8 @@
       href: quickstart-create-vmware-virtual-machine.md
   - name: Concepts
     items:
+    - name: Service
+      href: https://docs.azure.cloudsimple.com/cloudsimple-service/
     - name: Nodes
       href: cloudsimple-node.md
     - name: Private cloud
@@ -42,10 +44,14 @@
       href: https://docs.azure.cloudsimple.com/cloudsimple-activity/
     - name: VMware on private cloud
       href: https://docs.azure.cloudsimple.com/vmware-components/
+    - name: Security overview
+      href: https://docs.azure.cloudsimple.com/cloudsimple-security/
     - name: Node quota
       href:  https://docs.azure.cloudsimple.com/node-quota/
     - name: Maintenance and updates
       href: https://docs.azure.cloudsimple.com/cloudsimple-maintenance-updates/
+    - name: FAQ
+      href: https://docs.azure.cloudsimple.com/cloudsimple-faq/
   - name: Tutorials
     items:
     - name: Enable resource provider
@@ -72,6 +78,8 @@
         href: https://docs.azure.cloudsimple.com/view-cloud-racks/
       - name: Map your Azure subscription
         href: https://docs.azure.cloudsimple.com/azure-subscription-mapping/
+      - name: Escalate privileges
+        href: https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges/
     - name: Monitor CloudSimple activity
       href: https://docs.azure.cloudsimple.com/activity/
     - name: Set up private cloud networking

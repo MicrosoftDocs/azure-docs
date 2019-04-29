@@ -11,13 +11,15 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 04/27/2019
 ms.author: juliako
 ---
 
-# Streaming Endpoints / Origin
+# Streaming Endpoints (Origin)
 
-In Microsoft Azure Media Services, a [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)/Origin represents a dynamic packaging and streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a **Streaming Endpoint** service can be a live stream, or a video on-demand Asset in your Media Services account. When you create a Media Services account, a **default** Streaming Endpoint is created for you in a stopped state. You cannot delete the **default** Streaming Endpoint. Additional Streaming Endpoints can be created under the account. 
+In Microsoft Azure Media Services, a [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application, using one of the common streaming media protocols (HLS or DASH). In addition, the **Streaming Endpoint** provides dynamic (just-in-time) encryption to industry leading DRMs.
+
+When you create a Media Services account, a **default** Streaming Endpoint is created for you in a stopped state. You cannot delete the **default** Streaming Endpoint. Additional Streaming Endpoints can be created under the account (see [Quotas and limitations](limits-quotas-constraints.md)). 
 
 > [!NOTE]
 > To start streaming videos, you need to start the **Streaming Endpoint** from which you want to stream the video. 
