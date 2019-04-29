@@ -5,7 +5,7 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -72,35 +72,27 @@ If you are using Azure File Sync to access your Azure file share, we will always
 Azure Files offers two performance tiers: standard and premium.
 
 * **Standard file shares** are backed by rotational hard disk drives (HDDs) that provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
-* **Premium file shares (preview)** are backed by solid-state disks (SSDs) that provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for the most IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares. If you'd like to learn how to create a premium file share, see our article on the subject: [How to create an Azure premium file storage account](storage-how-to-create-premium-fileshare.md).
+* **Premium file shares (preview)** are backed by solid-state disks (SSDs) that provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for the most IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares.
+
+Azure Backup is available for premium file shares and Azure Kubernetes Service supports premium file shares in version 1.13 and above.
+
+If you'd like to learn how to create a premium file share, see our article on the subject: [How to create an Azure premium file storage account](storage-how-to-create-premium-fileshare.md).
+
+Currently, you cannot directly convert between a standard file share and a premium file share. If you would like to switch to either tier, you must create a new file share in that tier and manually copy the data from your original share to the new share you created. You can do this using any of the Azure Files supported copy tools, such as AzCopy.
 
 > [!IMPORTANT]
-> Premium file shares are still in preview, only available with LRS, and are only available in a subset of regions with Azure Backup support being available in select regions:
-
-|Available region  |Azure Backup support  |
-|---------|---------|
-|East US2      | Yes|
-|East US       | Yes|
-|West US       | No |
-|West US2      | No |
-|Central US    | No |
-|North Europe  | No |
-|West Europe   | Yes|
-|SE Asia       | Yes|
-|Japan East    | No |
-|Korea Central | No |
-|Australia East| No |
+> Premium file shares are still in preview, are only available with LRS, and are available in most regions that offer storage accounts. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure.
 
 ### Provisioned shares
 
-Premium file shares (preview) are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned, the share will be issued one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput. Share size can be increased at any time and decreased anytime but can be decreased once every 24 hours since the last increase.
+Premium file shares (preview) are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned, the share will be issued one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput.
 
 On a best effort basis, all shares can burst up to three IOPS per GiB of provisioned storage for 60 minutes or longer depending on the size of the share. New shares start with the full burst credit based on the provisioned capacity.
 
-All shares can burst up to at least 100 IOPS and target throughput of 100 MiB/s. Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next size is 101 GIB and so on.
+Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next size is 101 GIB and so on.
 
 > [!TIP]
-> Baseline IOPS = 100 + 1 * provisioned GiB. (Up to a max of 100,000 IOPS).
+> Baseline IOPS = 1 * provisioned GiB. (Up to a max of 100,000 IOPS).
 >
 > Burst Limit = 3 * Baseline IOPS. (Up to a max of 100,000 IOPS).
 >
@@ -108,13 +100,15 @@ All shares can burst up to at least 100 IOPS and target throughput of 100 MiB/s.
 >
 > ingress rate = 40 MiB/s + 0.04 * provisioned GiB
 
-Share size can be increased at any time and decreased anytime but can be decreased once every 24 hours since the last increase. IOPS/Throughput scale changes will be effective within 24 hours after the size change.
+Share size can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a size increase, you can decrease the share size as many times as you like, until you increase it again. IOPS/Throughput scale changes will be effective within a few minutes after the size change.
+
+It is possible to decrease the size of your provisioned share below your used GiB. If you do this, you will not lose data but, you will still be billed for the size used and receive the performance (baseline IOPS, throughput, and burst IOPS) of the provisioned share, not the size used.
 
 The following table illustrates a few examples of these formulae for the provisioned share sizes:
 
 (Sizes denoted by an * are in limited public preview)
 
-|Capacity (GiB) | Baseline IOPS | Burst limit | Egress (MiB/s) | Ingress (MiB/s) |
+|Capacity (GiB) | Baseline IOPS | Burst IOPS | Egress (MiB/s) | Ingress (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Up to 300     | 66   | 44   |
 |500         | 500     | Up to 1,500   | 90   | 60   |
@@ -131,20 +125,20 @@ Currently, file share sizes up to 5 TiB are in public preview, while sizes up to
 
 Premium file shares can burst their IOPS up to a factor of three. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis and the burst limit is not a guarantee, file shares can burst *up to* the limit.
 
-Credits accumulate in a burst bucket whenever traffic for your fileshares is below baseline IOPS. For example, a 100 GiB share has 100 baseline IOPS. If actual traffic on the share was 40 IOPS for a specific 1-second interval, then the 60 unused IOPS are credited to a burst bucket. These credits will then be used later when operations would exceed the baseline IOPs.
+Credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. For example, a 100 GiB share has 100 baseline IOPS. If actual traffic on the share was 40 IOPS for a specific 1-second interval, then the 60 unused IOPS are credited to a burst bucket. These credits will then be used later when operations would exceed the baseline IOPs.
 
 > [!TIP]
-> Size of the burst limit bucket = Baseline_IOPS * 2 * 3600.
+> Size of the burst bucket = Baseline IOPS * 2 * 3600.
 
-Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst. Shares can continue to burst as long as credits are remaining, though shares smaller than 50 tiB will only stay at the burst limit for up to an hour. Shares larger than 50 TiB can technically exceed this one hour limit, up to two hours but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to baseline IOPS.
+Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst. Shares can continue to burst as long as credits are remaining, though shares smaller than 50 TiB will only stay at the burst limit for up to an hour. Shares larger than 50 TiB can technically exceed this one hour limit, up to two hours but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to baseline IOPS.
 
 Share credits have three states:
 
 - Accruing, when the file share is using less than the baseline IOPS.
 - Declining, when the file share is bursting.
-- Remaining at zero, when there are either no credits or baseline IOPS are in use.
+- Remaining constant, when there are either no credits or baseline IOPS are in use.
 
-New file shares start with the full number of credits in its burst bucket.
+New file shares start with the full number of credits in its burst bucket. Burst credits will not be accrued if the share IOPS fall below baseline IOPS due to throttling by the server.
 
 ## File share redundancy
 

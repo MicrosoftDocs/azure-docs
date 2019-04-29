@@ -80,7 +80,7 @@ A public IP isn't required for an internal endpoint that's not exposed to the in
 
 Only 1 public IP address or 1 private IP address is supported. You choose the front-end IP when you create the application gateway.
 
-- For a public IP, you can create a new public IP address or use an existing public IP in the same location as the application gateway. If you create a new public IP, the IP address type that you select (static or dynamic) can't be changed later. For more information, see [static vs. dynamic public IP address](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
+- For a public IP, you can create a new public IP address or use an existing public IP in the same location as the application gateway. If you create a new public IP, the IP address type that you select (static or dynamic) can't be changed later. For more information, see [static vs. dynamic public IP address](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
 
 - For a private IP, you can specify a private IP address from the subnet where the application gateway is created. If you don't specify one, an arbitrary IP address is automatically selected from the subnet. For more information, see [Create an application gateway with an internal load balancer](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
@@ -224,9 +224,9 @@ Choose listener as the redirection target to redirect traffic from one listener 
 ![Application Gateway components dialog box](./media/configuration-overview/configure-redirection.png)
 
 For more information about HTTP-to-HTTPS redirection, see:
-- [HTTP-to-HTTP redirection by using the Azure portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
-- [HTTP-to-HTTP redirection by using PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
-- [HTTP to HTTP redirection by using the Azure CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
+- [HTTP-to-HTTPS redirection by using the Azure portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
+- [HTTP-to-HTTPS redirection by using PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
+- [HTTP-to-HTTPS redirection by using the Azure CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
 
 ##### External site
 

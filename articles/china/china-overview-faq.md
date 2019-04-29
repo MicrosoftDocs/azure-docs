@@ -53,7 +53,7 @@ To comply with the [Anti-Terrorism Law](https://www.gov.cn/zhengce/2015-12/28/co
 If you want to purchase an Enterprise Agreement through OSPA, you should complete a credit check with 21Vianet prior to starting the contract process. You must update your business license with registered capital information, tax register certification, past two years of financial reports, and other details. The Microsoft Account Team can help you with this process prior to submitting your request to 21Vianet. This requirement ensures that you can pay for the service. 
 
 ### Can I merge my Azure China 21Vianet account into my existing global Azure account?
-Your Azure China 21Vianet account can’t be merged into an existing global Azure account because Azure China 21Vianet is a physically separated instance of cloud services located in mainland China.
+Your Azure China 21Vianet account can’t be merged into an existing global Azure account because Azure China 21Vianet is a physically separated instance of cloud services located in China.
 
 ### Is there guidance on planning the migration of my applications?
 Yes. To run on Azure China 21Vianet:

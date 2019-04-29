@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
 
 ---
@@ -21,11 +21,16 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-azure-sql-connector.md)
 > * [Current version](connector-azure-sql-database.md)
 
-This article explains how to use Copy Activity in Azure Data Factory to copy data from or to Azure SQL Database. It builds on the [Copy Activity overview](copy-activity-overview.md) article, which presents a general overview of Copy Activity.
+This article outlines how to copy data to and from Azure SQL Database. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities
 
-You can copy data from or to Azure SQL Database to any supported sink data store. And you can copy data from any supported source data store to Azure SQL Database. For a list of data stores that are supported as sources or sinks by Copy Activity, see the [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats) table.
+This Azure SQL Database connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md) table
+- [Mapping data flow](concepts-data-flow-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+- [GetMetadata activity](control-flow-get-metadata-activity.md)
 
 Specifically, this Azure SQL Database connector supports these functions:
 
@@ -129,21 +134,21 @@ To use a service principal-based Azure AD application token authentication, foll
     - Application key
     - Tenant ID
 
-1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator must be an Azure AD user or Azure AD group, but it can't be a service principal. This step is done so that, in the next step, you can use an Azure AD identity to create a contained database user for the service principal.
+2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator must be an Azure AD user or Azure AD group, but it can't be a service principal. This step is done so that, in the next step, you can use an Azure AD identity to create a contained database user for the service principal.
 
-1. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the database from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL: 
-    
+3. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the database from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL: 
+  
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code:
+4. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code, or refer to more options [here](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-1. **Configure an Azure SQL Database linked service** in Azure Data Factory.
+5. **Configure an Azure SQL Database linked service** in Azure Data Factory.
 
 
 #### Linked service example that uses service principal authentication
@@ -179,31 +184,21 @@ A data factory can be associated with a [managed identity for Azure resources](d
 
 To use managed identity authentication, follow these steps:
 
-1. **Create a group in Azure AD.** Make the managed identity a member of the group.
-    
-   1. Find the data factory managed identity from the Azure portal. Go to your data factory's **Properties**. Copy the SERVICE IDENTITY ID.
-    
-   1. Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Sign in by using the `Connect-AzureAD` command. Run the following commands to create a group and add the managed identity as a member.
-      ```powershell
-      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
-      ```
-    
 1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-1. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Azure AD group. Connect to the database from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL: 
-    
+2. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Data Factory Managed Identity. Connect to the database from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL: 
+  
     ```sql
-    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **Grant the Azure AD group needed permissions** as you normally do for SQL users and others. For example, run the following code:
+3. **Grant the Data Factory Managed Identity needed permissions** as you normally do for SQL users and others. Run the following code, or refer to more options [here](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your AAD group name];
+    EXEC sp_addrolemember [role name], [your Data Factory name];
     ```
 
-1. **Configure an Azure SQL Database linked service** in Azure Data Factory.
+4. **Configure an Azure SQL Database linked service** in Azure Data Factory.
 
 **Example:**
 
@@ -594,6 +589,10 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 The stored procedure feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+
+## Mapping Data Flow properties
+
+Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in Mapping Data Flow.
 
 ## Data type mapping for Azure SQL Database
 

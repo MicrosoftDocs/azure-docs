@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.author: diberry
 #Customer intent: As an knowledge base manager new to the QnA Maker service, I want to get an answer from a published knowledge base using Postman. 
 ---
@@ -68,9 +68,7 @@ To generate an answer with Postman, complete the following steps:
 
 ## Use staging endpoint
 
-If you want to get an answer from the staging endpoint, append the URL with the querystring boolean parameter `isTest` with the value of `true`.
-
-`?isTest=true`
+If you want to get an answer from the staging endpoint, append the URL with the `isTest` body property.
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ---
 
@@ -19,7 +19,7 @@ Versions allow you to build and publish different models. A good practice is to 
 
 To work with versions, open your app by selecting its name on **My Apps** page, and then select **Manage** in the top bar, then select **Versions** in the left navigation. 
 
-The list of versions show which versions are published, where they are published, and which version is currently active. 
+The list of versions shows which versions are published, where they are published, and which version is currently active. 
 
 [![Manage section, versions page](./media/luis-how-to-manage-versions/versions-import.png "Manage section, versions page")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
@@ -62,5 +62,5 @@ Select a version from the list, then select **Make Active** from the toolbar.
 
 * To **delete** a version, select a version from the list, then select **Delete** from the toolbar. Select **Ok**. 
 * To **rename** a version, select a version from the list, then select **Rename** from the toolbar. Enter new name and select **Done**. 
-* To **export** a version, select a version from the list, then select **Export app** from the toolbar. The file is downloaded to your local machine. 
+* To **export** a version, select a version from the list, then select **Export app** from the toolbar. Choose JSON to export for backup, choose **Export for container** to [use this app in a LUIS container](luis-container-howto.md).  
 

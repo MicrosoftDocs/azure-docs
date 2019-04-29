@@ -28,7 +28,7 @@ This article lists common troubleshooting question.
 | Issue                                                        | Resolution                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio object explorer is missing AAD users           | This is a known issue.  As a workaround, view the users in [sys.database_principals][sys.database_principals].  See [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] to learn more about using Azure Active Directory with SQL Data Warehouse. |
-| Manual scripting, using the scripting wizard, or connecting via SSMS is slow, hung, or producing errors | Ensure that users have been created in the master database. In scripting options, also make sure that the engine edition is set as “Microsoft Azure SQL Data Warehouse Edition” and engine type is “Microsoft Azure SQL Database”. |
+| Manual scripting, using the scripting wizard, or connecting via SSMS is slow, not responding, or producing errors | Ensure that users have been created in the master database. In scripting options, also make sure that the engine edition is set as “Microsoft Azure SQL Data Warehouse Edition” and engine type is “Microsoft Azure SQL Database”. |
 | Generate scripts fails in SSMS                             | Generating a script for SQL data warehouse fails if the option "Generate script for dependent objects" option is set to "True." As a workaround, users must manually go to Tools -> Options ->SQL Server Object Explorer -> Generate script for dependent options and set to false |
 
 ## Performance
@@ -106,7 +106,7 @@ For more help in finding solution to your issue, here are some other resources y
 [Poor columnstore index quality]: sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Workload management]: resource-classes-for-workload-management.md
-[Using CTAS to work around unsupported UPDATE and DELETE syntax]: sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
+[Using CTAS to work around unsupported UPDATE and DELETE syntax]: sql-data-warehouse-develop-ctas.md
 [UPDATE workarounds]: sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [MERGE workarounds]: sql-data-warehouse-develop-ctas.md#replace-merge-statements

@@ -45,7 +45,7 @@ The following table provides coverage information for Azure Maps routing.
 | Burkina Faso                   |        ✓       |                       |             |
 | Burundi                        |        ✓       |                       |             |
 | Cameroon                       |        ✓       |                       |             |
-| Cape Verde                     |        ✓       |                       |             |
+| Cabo Verde                     |        ✓       |                       |             |
 | Congo- Brazzaville Kinshasa    |        ✓       |                       |             |
 | Congo- Kinshasa                |        ✓       |                       |             |
 | côte d’ivoire                  |        ✓       |                       |             |
@@ -133,12 +133,12 @@ The following table provides coverage information for Azure Maps routing.
 | Cambodia                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
 | Guam                           |        ✓       |                      |             |
-| Hong Kong                      |        ✓       |         ✓            |             |
+| Hong Kong SAR                  |        ✓       |         ✓            |             |
 | India                          |        ✓       |         ✓            |             |
 | Indonesia                      |        ✓       |         ✓            |             |
 | Korea                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
-| Macau                          |        ✓       |         ✓            |             |
+| Macao SAR                      |        ✓       |         ✓            |             |
 | Malaysia                       |        ✓       |         ✓            |             |
 | Myanmar                        |        ✓       |                      |             |
 | New Zealand                    |        ✓       |         ✓            |     ✓       | 
@@ -187,7 +187,7 @@ The following table provides coverage information for Azure Maps routing.
 | Liechtenstein                  |        ✓       |         ✓            |             |
 | Lithuania                      |        ✓       |         ✓            |     ✓      | 
 | Luxembourg                     |        ✓       |         ✓            |     ✓      | 
-| Macedonia                      |        ✓       |                      |             |
+| North Macedonia                |        ✓       |                      |             |
 | Malta                          |        ✓       |         ✓            |             |
 | Moldova                        |        ✓       |                      |             |
 | Monaco                         |        ✓       |         ✓            |             |

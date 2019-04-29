@@ -59,6 +59,8 @@
       href: container-instances-restart-policy.md
     - name: Set environment variables (env)
       href: container-instances-environment-variables.md
+    - name: Override container entrypoint
+      href: container-instances-start-command.md
     - name: Execute a command (exec)
       href: container-instances-exec.md
     - name: Run Jenkins build job
@@ -67,6 +69,8 @@
       href: container-instances-managed-identity.md
     - name: Use GPU resources (preview)
       href: container-instances-gpu.md
+    - name: Enable SSL endpoint
+      href: container-instances-container-group-ssl.md     
   - name: Mount data volumes
     items:
     - name: Azure file share
@@ -81,6 +85,8 @@
     items:
     - name: Configure liveness probes
       href: container-instances-liveness-probe.md
+    - name: Stop and start containers
+      href: container-instances-stop-start.md
     - name: Update running containers
       href: container-instances-update.md
   - name: Monitor and log

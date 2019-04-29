@@ -105,7 +105,6 @@ SSH enables secure communication between a container and a client. In order for 
 - [Use persistent storage in Docker Compose](#use-persistent-storage-in-docker-compose)
 - [Preview limitations](#preview-limitations)
 - [Docker Compose options](#docker-compose-options)
-- [Kubernetes configuration options](#kubernetes-configuration-options)
 
 ### Use persistent storage in Docker Compose
 
@@ -117,7 +116,9 @@ Enable persistent storage by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` a
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-In your *docker-compose.yml* file, map the `volumes` option to `${WEBAPP_STORAGE_HOME}`. `WEBAPP_STORAGE_HOME` is an environment variable in App Service that is mapped to persistent storage for your app. For example:
+In your *docker-compose.yml* file, map the `volumes` option to `${WEBAPP_STORAGE_HOME}`. 
+
+`WEBAPP_STORAGE_HOME` is an environment variable in App Service that is mapped to persistent storage for your app. For example:
 
 ```yaml
 wordpress:
@@ -160,22 +161,6 @@ The following lists show supported and unsupported Docker Compose configuration 
 
 > [!NOTE]
 > Any other options not explicitly called out are ignored in Public Preview.
-
-### Kubernetes configuration options
-
-The following configuration options are supported for Kubernetes:
-
-- args
-- command
-- containers
-- image
-- name
-- ports
-- spec
-
-> [!NOTE]
-> Any other options not explicitly called out aren't supported in Public Preview.
->
 
 ## Next steps
 

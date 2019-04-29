@@ -3,8 +3,8 @@ title: Route network traffic Azure PowerShell | Microsoft Docs
 description: In this article, learn how to route network traffic with a route table using PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: 
 ---
 

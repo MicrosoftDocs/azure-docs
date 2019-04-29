@@ -65,7 +65,7 @@ For more information, see [How to Require app protection policy for cloud app ac
 
 We've enhanced our Azure AD support for Microsoft Edge, including providing new support for Azure AD single sign-on and conditional access. If you've previously used Microsoft Intune Managed Browser, you can now use Microsoft Edge instead.
 
-For more information about setting up and managing your devices and apps using conditional access, see [Require managed devices for cloud app access with conditional access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/require-managed-devices) and [Require approved client apps for cloud app access with conditional access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-conditional-access). For more information about how to manage access using Microsoft Edge with Microsoft Intune policies, see [Manage Internet access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/en-us/intune/app-configuration-managed-browser).
+For more information about setting up and managing your devices and apps using conditional access, see [Require managed devices for cloud app access with conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) and [Require approved client apps for cloud app access with conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). For more information about how to manage access using Microsoft Edge with Microsoft Intune policies, see [Manage Internet access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).
 
 ---
 
@@ -115,9 +115,9 @@ For more information about the apps, see [SaaS application integration with Azur
 
 Automate creating, updating, and deleting user accounts for the following apps:
 
-[Zscaler](https://aka.ms/ZscalerProvisioning), [Zscaler Beta](http://aka.ms/ZscalerBetaProvisioning), [Zscaler One](https://aka.ms/ZscalerOneProvisioning), [Zscaler Two](http://aka.ms/ZscalerTwoProvisioning), [Zscaler Three](http://aka.ms/ZscalerThreeProvisioning), [Zscaler ZSCloud](http://aka.ms/ZscalerZSCloudProvisioning), [Atlassian Cloud](http://aka.ms/atlassianCloudProvisioning)
+[Zscaler](https://aka.ms/ZscalerProvisioning), [Zscaler Beta](https://aka.ms/ZscalerBetaProvisioning), [Zscaler One](https://aka.ms/ZscalerOneProvisioning), [Zscaler Two](https://aka.ms/ZscalerTwoProvisioning), [Zscaler Three](https://aka.ms/ZscalerThreeProvisioning), [Zscaler ZSCloud](https://aka.ms/ZscalerZSCloudProvisioning), [Atlassian Cloud](https://aka.ms/atlassianCloudProvisioning)
 
-For more information about how to better secure your organization through automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](http://aka.ms/ProvisioningDocumentation).
+For more information about how to better secure your organization through automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](https://aka.ms/ProvisioningDocumentation).
 
 ---
 
@@ -549,7 +549,7 @@ For more information about roles and permissions, see [Assigning administrator r
 **Service category:** Device Registration and Management  
 **Product capability:** Device Lifecycle Management
 
-We realize that over time you must refresh and retire your organizations' devices in Azure AD, to avoid having stale devices hanging around in your environment. To help with this process, Azure AD now updates your devices with a new activity timestamp, helping you to manage your device lifecycle.
+We realize that over time you must refresh and retire your organizations' devices in Azure AD, to avoid having stale devices in your environment. To help with this process, Azure AD now updates your devices with a new activity timestamp, helping you to manage your device lifecycle.
 
 For more information about how to get and use this timestamp, see [How To: Manage the stale devices in Azure AD](https://docs.microsoft.com/azure/active-directory/devices/manage-stale-devices)
 

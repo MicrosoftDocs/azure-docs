@@ -146,7 +146,7 @@ There are many options for languages, development environments, and tools. Be aw
 * [Microsoft Azure Powershell](/powershell/azure/overview) - a script language used to administer your Azure resources in a script language
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
-* [RStudio](http://www.rstudio.com)
+* [RStudio](https://www.rstudio.com)
 * [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)
 * [Anaconda](https://www.continuum.io/why-anaconda)
 * [Jupyter notebooks](https://jupyter.org/)
