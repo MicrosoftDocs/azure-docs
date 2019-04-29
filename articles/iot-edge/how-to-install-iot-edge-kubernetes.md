@@ -1,10 +1,21 @@
+---
+title: How to install IoT Edge on Kubernetes | Microsoft Docs 
+description: Learn on how to install IoT Edge on Kubernetes using a local development cluster environment
+author: kgremban
+manager: philmea
+ms.author: veyalla
+ms.date: 04/26/2019
+ms.topic: conceptual
+ms.service: iot-edge
+services: iot-edge
+ms.custom: seodec18
+---
+
 # How to install IoT Edge on Kubernetes (Preview)
 
-# Architecture
+IoT Edge can integrate with Kubernetes using it as a resilient, highly available infrastructure layer. It registers an IoT Edge *Custom Resource Definition* (CRD) with the Kubernetes API Server. Additionally, it provides an *Operator* (IoT Edge agent) that reconciles cloud-managed desired state with the local cluster state. 
 
-IoT Edge can integrate with Kubernetes using it as a resilient, highly available infrastructure layer. It registers an IoT Edge *Custom Resource Definition* (CRD) with the Kubernetes API Server. Additionally, it provides an *Operator* (Edge Agent) that reconciles cloud-managed desired state with the local cluster state. 
-
-Module lifetime is managed by the Kubernetes scheduler, which maintains module availability and chooses their placement. IoT Edge manages the edge application platform running on top, continuously reconciling the desired state specified in IoT Hub with the state on the edge cluster. The edge application model is still the familiar model based on IoT Edge modules and routes. The Edge Agent operator performs *automatic* translation to the Kubernetes natives constructs like pods, deployments, services etc.
+Module lifetime is managed by the Kubernetes scheduler, which maintains module availability and chooses their placement. IoT Edge manages the edge application platform running on top, continuously reconciling the desired state specified in IoT Hub with the state on the edge cluster. The edge application model is still the familiar model based on IoT Edge modules and routes. The IoT Edge agent operator performs *automatic* translation to the Kubernetes natives constructs like pods, deployments, services etc.
 
 Here is a high-level architecture diagram:
 
@@ -46,9 +57,9 @@ Every component of the edge deployment is scoped to a Kubernetes namespace speci
     helm repo update
     ```
 
-1. [Create an IoT Hub](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux#create-an-iot-hub), [register an IoT Edge device](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux#register-an-iot-edge-device), and note its connection string.
+1. [Create an IoT Hub](../iot-hub/iot-hub-create-through-portal.md), [register an IoT Edge device](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux#register-an-iot-edge-device), and note its connection string.
 
-1. Install iotedged and Edge Agent into your cluster
+1. Install iotedged and IoT Edge agent into your cluster
 
     ```shell
     helm install \
@@ -64,9 +75,12 @@ Every component of the edge deployment is scoped to a Kubernetes namespace speci
 
     Under the cluster namespaces, you will see one for the IoT Edge device following the convention *msiot-\<iothub-name>-\<edgedevice-name>*.
 
-1. Making local changes to module configuration via Kubernetes tools is not recommended as they might get overwritten. IoT Edge module management is done from the IoT Hub portal just like any other IoT Edge device. For example, to add a simulated temperature sensor module, follow [these](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux#deploy-a-module) steps.
+1. Add a simulated temperature sensor module using the steps in the [Deploy a module](quickstart-linux.md#deploy-a-module) section of the quickstart.
 
-1. In a few seconds, refreshing the **Pods** page under the edge device namespace in the dashboard will list the Edge Hub and simulated sensor pods as running with the Edge Hub pod ingesting data into IoT Hub.
+>[!NOTE]
+>Making local changes to module configuration via Kubernetes tools is not recommended as they might get overwritten. IoT Edge module management is done from the IoT Hub portal just like any other IoT Edge device.
+
+1. In a few seconds, refreshing the **Pods** page under the edge device namespace in the dashboard will list the IoT Edge hub and simulated sensor pods as running with the IoT Edge hub pod ingesting data into IoT Hub.
 
 ## Clean up resources
 

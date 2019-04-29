@@ -65,7 +65,7 @@ Child devices can be any non-Edge device registered to the same IoT Hub. Parent 
 
 #### Option 2: Use the `az` command-line tool
 
-Using the [Azure command-line interface](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) with [IoT extension](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 or newer), you can manage parent child relationships with the [device-identity](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) sub-commands. In the example below, we execute a query to assign all non IoT Edge devices in the hub as child devices of an IoT Edge device. 
+Using the [Azure command-line interface](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) with [IoT extension](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 or newer), you can manage parent child relationships with the [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) sub-commands. In the example below, we execute a query to assign all non IoT Edge devices in the hub as child devices of an IoT Edge device. 
 
 ```shell
 # Set IoT Edge parent device
@@ -88,26 +88,15 @@ az iot hub device-identity add-children \
   --subscription replace-with-sub-name 
 ```
 
-You can modify the [query](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-query-language) to select a different subset of devices. The command may take several seconds if you specify a large set of devices.
+You can modify the [query](../iot-hub/iot-hub-devguide-query-language.md) to select a different subset of devices. The command may take several seconds if you specify a large set of devices.
 
 #### Option 3: Use IoT Hub Service SDK 
 
-Finally, you can manage parent child relationships programmatically using either C#, Java or Node.js IoT Hub Service SDK. Here is an [example](https://aka.ms/set-child-iot-device-c-sharp) using the C# SDK.
-
-
+Finally, you can manage parent child relationships programmatically using either C#, Java or Node.js IoT Hub Service SDK. Here is an [example of assigning a child device](https://aka.ms/set-child-iot-device-c-sharp) using the C# SDK.
 
 ### Specifying DNS servers 
 
-To improve robustness, it is recommended you specify the DNS server addresses used in your environment. For example, on Linux, update **/etc/docker/daemon.json** (you might need to create the file) to include:
-
-```json
-{
-    "dns": ["1.1.1.1"]
-}
-```
-
-If you are using a local DNS server, replace the 1.1.1.1 with the IP address of the local DNS server. Restart the docker service for the changes to take effect.
-
+To improve robustness, it is highly recommended you specify the DNS server addresses used in your environment. Please see the [two options to do this from the troubleshooting article](troubleshoot.md#resolution-7).
 
 ## Optional offline settings
 
