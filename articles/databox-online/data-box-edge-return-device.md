@@ -29,7 +29,7 @@ In this article, you learn how to:
 
 To begin the return process, take the following steps.
 
-1. Open a Support ticket with customer indicating that you wish to return the device. Select the problem type as **Data Box Edge Hardware**. For more information, see [Log a Support ticket]().
+1. Open a Support ticket with customer indicating that you wish to return the device. Select the problem type as **Data Box Edge Hardware**. 
 2. A Microsoft Support engineer will contact you. Provide the shipping details.
 3. If you need a return shipping box, you can request it. Answer **Yes** to the question **Need an empty box to return**.
 
@@ -80,7 +80,15 @@ After the device is received at the Azure datacenter, the device is inspected fo
 - If the device arrives intact and in good shape, the billing meter stops for that resource. The resource associated with the device can now be deleted from the Azure portal.
 - If the device arrives significantly damaged, fines may apply. For details, see the [FAQ on lost or damaged device](https://azure.microsoft.com/pricing/details/databox/edge/) and [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products).  
 
-Take the following steps to delete the resource in Azure portal.
+
+You can delete the device in the Azure portal:
+-	After you have placed the order and before the device is prepared by Microsoft.
+-	After you’ve returned the device to Microsoft and it passes the physical inspection at the Azure datacenter.
+
+If you’ve activated the device against another subscription or location, Microsoft will move your order to the new subscription or location within 1 business day. After the order is moved, you can delete this resource.
+
+
+Take the following steps to delete the device and the resource in Azure portal.
 
 1. In the Azure portal, go to your resource and then to **Overview**. From the command bar, select **Delete**.
 
@@ -90,12 +98,8 @@ Take the following steps to delete the resource in Azure portal.
 
     ![Confirm delete](media/data-box-edge-return-device/delete-resource-2.png)
 
-You're notified after the resource is successfully deleted.
+You're notified after the device and the associated resource is successfully deleted.
 
-
-## Reimage the device
-
-After the device reaches Azure datacenter, the device is reimaged for future use. The process of reimaging will remove all the data off the data disks and the operating system disks.
 
 ## Next steps
 
