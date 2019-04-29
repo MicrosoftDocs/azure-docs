@@ -1,7 +1,7 @@
 ---
 title: How licenses work for Office and SharePoint Add-ins
 description: The types of licenses that are available, how users acquire licenses, and how licenses work in terms of duration and scope.
-ms.date: 3/6/2019
+ms.date: 4/29/2019
 localization_priority: Normal
 ---
 
@@ -184,7 +184,8 @@ Seller Dashboard now supports moving from paid to free add-ins. You can choose w
 
 For the license token schema, see [Add-in license schema](add-in-license-schema.md).
 
-Note: For Outlook add-ins offered for free or as unlimited trials, no license is generated or stored by AppSource, and no license token is downloaded to Exchange.
+> [!NOTE]
+> For Outlook add-ins offered for free or as unlimited trials, no license is generated or stored by AppSource, and no license token is downloaded to Exchange.
 
 For information about using licensing to upsell your add-in services, see [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md). 
 
