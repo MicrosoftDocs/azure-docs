@@ -9,19 +9,24 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/29/2019
 ms.author: jingwang
 
 ---
 # Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory
 
-Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms.
+Azure Data Lake Storage Gen2 (ADLS Gen2) is a set of capabilities dedicated to big data analytics, built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms.
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data to and from Data Lake Storage Gen2. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
+This article outlines how to copy data to and from Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities
 
-You can copy data from any supported source data store to Data Lake Storage Gen2. You also can copy data from Data Lake Storage Gen2 to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md) table.
+This Azure Data Lake Storage Gen2 connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Mapping data flow](concepts-data-flow-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+- [GetMetadata activity](control-flow-get-metadata-activity.md)
 
 Specifically, this connector supports:
 
@@ -58,7 +63,7 @@ To use storage account key authentication, the following properties are supporte
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AzureBlobFS**. |Yes |
-| url | Endpoint for the Data Lake Storage Gen2 with the pattern of `https://<accountname>.dfs.core.windows.net`. | Yes | 
+| url | Endpoint for the Data Lake Storage Gen2 with the pattern of `https://<accountname>.dfs.core.windows.net`. | Yes |
 | accountKey | Account key for the Data Lake Storage Gen2 service. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
@@ -110,7 +115,7 @@ These properties are supported in linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AzureBlobFS**. |Yes |
-| url | Endpoint for the Data Lake Storage Gen2 with the pattern of `https://<accountname>.dfs.core.windows.net`. | Yes | 
+| url | Endpoint for the Data Lake Storage Gen2 with the pattern of `https://<accountname>.dfs.core.windows.net`. | Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalKey | Specify the application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
@@ -142,7 +147,7 @@ These properties are supported in linked service:
 
 ### <a name="managed-identity"></a> Managed identities for Azure resources authentication
 
-A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this managed identity for Blob storage authentication similar to using your own service principal. It allows this designated factory to access and copy data from/to your Blob storage.
+A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this managed identity for ADLS Gen2 authentication similar to using your own service principal. It allows this designated factory to access and copy data from/to your ADLS Gen2.
 
 To use managed identities for Azure resources authentication, follow these steps:
 
@@ -164,7 +169,7 @@ These properties are supported in linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AzureBlobFS**. |Yes |
-| url | Endpoint for the Data Lake Storage Gen2 with the pattern of `https://<accountname>.dfs.core.windows.net`. | Yes | 
+| url | Endpoint for the Data Lake Storage Gen2 with the pattern of `https://<accountname>.dfs.core.windows.net`. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -187,7 +192,55 @@ These properties are supported in linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. The following properties are supported for Azure Data Lake Storage dataset:
+For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
+
+- For **Parquet and delimited text format**, refer to [Parquet and delimited text format dataset](#parquet-and-delimited-text-format-dataset) section.
+- For other formats like **ORC/Avro/JSON/Binary format**, refer to [Other format dataset](#other-format-dataset) section.
+
+### Parquet and delimited text format dataset
+
+To copy data to and from ADLS Gen2 in **Parquet or delimited text format**, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based dataset and supported settings. The following properties are supported for ADLS Gen2 under `location` settings in format-based dataset:
+
+| Property   | Description                                                  | Required |
+| ---------- | ------------------------------------------------------------ | -------- |
+| type       | The type property under `location` in dataset must be set to **AzureBlobFSLocation**. | Yes      |
+| fileSystem | The ADLS Gen2 file system name.                              | No       |
+| folderPath | The path to folder under the given file system. If you want to use wildcard to filter folder, skip this setting and specify in activity source settings. | No       |
+| fileName   | The file name under the given fileSystem + folderPath. If you want to use wildcard to filter files, skip this setting and specify in activity source settings. | No       |
+
+> [!NOTE]
+> **AzureBlobFSFile** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup/GetMetadata activity for backward compatibility, but it doesn't work with Mapping Data Flow. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
+
+**Example:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<ADLS Gen2 linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "fileSystem": "filesystemname",
+                "folderPath": "folder/subfolder"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### Other format dataset
+
+To copy data to and from ADLS Gen2 in **ORC/Avro/JSON/Binary format**, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -206,7 +259,7 @@ For a full list of sections and properties available for defining datasets, see 
 
 ```json
 {
-    "name": "AzureDataLakeStorageDataset",
+    "name": "ADLSGen2Dataset",
     "properties": {
         "type": "AzureBlobFSFile",
         "linkedServiceName": {
@@ -214,7 +267,7 @@ For a full list of sections and properties available for defining datasets, see 
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
-            "folderPath": "mycontainer/myfolder",
+            "folderPath": "myfilesystem/myfolder",
             "fileName": "*",
             "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
             "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
@@ -238,23 +291,87 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure Data Lake storage Gen2 as a source type
 
-The following properties are supported in the copy activity **source** section:
+- For copy from **Parquet and delimited text format**, refer to [Parquet and delimited text format source](#parquet-and-delimited-text-format-source) section.
+- For copy from other formats like **ORC/Avro/JSON/Binary format**, refer to [Other format source](#other-format-source) section.
 
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to **AzureBlobFSSource**. |Yes |
-| recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink.<br/>Allowed values are **true** (default) and **false**. | No |
+#### Parquet and delimited text format source
+
+To copy data from ADLS Gen2 in **Parquet or delimited text format**, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based copy activity source and supported settings. The following properties are supported for ADLS Gen2 under `storeSettings` settings in format-based copy source:
+
+| Property                 | Description                                                  | Required                                      |
+| ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
+| type                     | The type property under `storeSettings` must be set to **AzureBlobFSReadSetting**. | Yes                                           |
+| recursive                | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. Allowed values are **true** (default) and **false**. | No                                            |
+| wildcardFolderPath       | The folder path with wildcard characters under the given file system configured in dataset to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
+| wildcardFileName         | The file name with wildcard characters under the given file system + folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes if `fileName` is not specified in dataset |
+| modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected. | No                                            |
+| modifiedDatetimeEnd      | Same as above.                                               | No                                            |
+| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                            |
+
+> [!NOTE]
+> For Parquet/delimited text format, **AzureBlobFSSource** type copy activity source mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
 ```json
 "activities":[
     {
-        "name": "CopyFromAzureDataLakeStorage",
+        "name": "CopyFromADLSGen2",
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Azure Data Lake Storage input dataset name>",
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "AzureBlobFSReadSetting",
+                    "recursive": true,
+                    "wildcardFolderPath": "myfolder*A",
+                    "wildcardFileName": "*.csv"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### Other format source
+
+To copy data from ADLS Gen2 in **ORC/Avro/JSON/Binary format**, the following properties are supported in the copy activity **source** section:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the copy activity source must be set to **AzureBlobFSSource**. |Yes |
+| recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink.<br/>Allowed values are **true** (default) and **false**. | No |
+| maxConcurrentConnections | The number of the connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No |
+
+**Example:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromADLSGen2",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<ADLS Gen2 input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -279,19 +396,28 @@ The following properties are supported in the copy activity **source** section:
 
 ### Azure Data Lake Storage Gen2 as a sink type
 
-The following properties are supported in the copy activity **sink** section:
+- For copy to **Parquet and delimited text format**, refer to [Parquet and delimited text format sink](#parquet-and-delimited-text-format-sink) section.
+- For copy to other formats like **ORC/Avro/JSON/Binary format**, refer to [Other format sink](#other-format-sink) section.
 
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type | The type property of the copy activity sink must be set to **AzureBlobFSSink**. |Yes |
-| copyBehavior | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No |
+#### Parquet and delimited text format sink
+
+To copy data to ADLS Gen2 in **Parquet or delimited text format**, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based copy activity sink and supported settings. The following properties are supported for ADLS Gen2 under `storeSettings` settings in format-based copy sink:
+
+| Property                 | Description                                                  | Required |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| type                     | The type property under `storeSettings` must be set to **AzureBlobFSWriteSetting**. | Yes      |
+| copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
+| maxConcurrentConnections | The number of the connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
+
+> [!NOTE]
+> For Parquet/delimited text format, **AzureBlobFSSink** type copy activity sink mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
 ```json
 "activities":[
     {
-        "name": "CopyToAzureDataLakeStorage",
+        "name": "CopyToADLSGen2",
         "type": "Copy",
         "inputs": [
             {
@@ -301,7 +427,52 @@ The following properties are supported in the copy activity **sink** section:
         ],
         "outputs": [
             {
-                "referenceName": "<Azure Data Lake Storage Gen2 output dataset name>",
+                "referenceName": "<Parquet output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "ParquetSink",
+                "storeSettings":{
+                    "type": "AzureBlobFSWriteSetting",
+                    "copyBehavior": "PreserveHierarchy"
+                }
+            }
+        }
+    }
+]
+```
+
+#### Other format sink
+
+To copy data to ADLS Gen2 in **ORC/Avro/JSON/Binary format**, the following properties are supported in the **sink** section:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the copy activity sink must be set to **AzureBlobFSSink**. |Yes |
+| copyBehavior | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No |
+| maxConcurrentConnections | The number of the connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No |
+
+**Example:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToADLSGen2",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<ADLS Gen2 output dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -341,6 +512,10 @@ This section describes the resulting behavior of the Copy operation for differen
 | false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder Folder1 is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Subfolder1 with File3, File4, and File5 is not picked up. |
 | false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder Folder1 is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File2<br/><br/>Subfolder1 with File3, File4, and File5 is not picked up. |
 | false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder Folder1 is created with the following structure<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 contents are merged into one file with an autogenerated file name. autogenerated name for File1<br/><br/>Subfolder1 with File3, File4, and File5 is not picked up. |
+
+## Mapping Data Flow properties
+
+Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in Mapping Data Flow.
 
 ## Next steps
 
