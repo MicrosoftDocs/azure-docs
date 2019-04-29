@@ -80,7 +80,7 @@ For the Audio Analysis and Video Analysis Jobs that are triggered by Media Servi
 
 For details, see [Scale media processing with CLI](media-reserved-units-cli-how-to.md).
 
-## Provide feedback
+## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
