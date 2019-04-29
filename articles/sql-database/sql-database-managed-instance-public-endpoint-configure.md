@@ -28,8 +28,8 @@ In this article, you'll learn how to:
 
 Due to the sensitivity of data that is in a managed instance, the configuration to enable managed instance public endpoint requires a two-step process. This security measure adheres to separation of duties (SoD):
 
-- Enabling public endpoint on a managed instance needs to be done by the managed instance admin.
-- Allowing traffic using a network security group that needs to be done by a network admin.
+- Enabling public endpoint on a managed instance needs to be done by the managed instance admin. The managed instance admin can be found on **Overview** page of your SQL managed instance resource.
+- Allowing traffic using a network security group that needs to be done by a network admin. For more information, see [network security group permissions](../virtual-network/manage-network-security-group.md#permissions).
 
 ## Enabling public endpoint for a managed instance in the Azure portal
 
