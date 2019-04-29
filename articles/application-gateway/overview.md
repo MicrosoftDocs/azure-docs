@@ -17,7 +17,8 @@ Azure Application Gateway is a web traffic load balancer that enables you to man
 
 ![Application Gateway conceptual](media/overview/figure1-720.png)
 
-But with the Application Gateway you can be even more specific. For example, you can route traffic based on the incoming URL. So if `/images` is in the incoming URL, you can route traffic to a specific set of servers (known as a pool) configured for images. If `/video` is in the URL, that traffic is routed to another pool optimized for videos.
+With Application Gateway, you can make routing decisions that are based on additional attributes of an HTTP request, such as URI path or host headers. For example, you can route traffic based on the incoming URL. So if `/images` is in the incoming URL, you can route traffic to a specific set of servers (known as a pool) configured for images. If `/video` is in the URL, that traffic is routed to another pool that's optimized for videos.
+
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
@@ -116,9 +117,9 @@ Application Gateway provides native support for the WebSocket and HTTP/2 protoco
 
 The WebSocket and HTTP/2 protocols enable full duplex communication between a server and a client over a long running TCP connection. This allows for a more interactive communication between the web server and the client, which can be bidirectional without the need for polling as required in HTTP-based implementations. These protocols have low overhead, unlike HTTP, and can reuse the same TCP connection for multiple request/responses resulting in a more efficient utilization of resources. These protocols are designed to work over traditional HTTP ports of 80 and 443.
 
-For more information, see [WebSocket support](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) and [HTTP/2 support](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support). 
+For more information, see [WebSocket support](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) and [HTTP/2 support](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
 
-## Rewrite HTTP headers (public preview)
+## Rewrite HTTP headers
 
 HTTP headers allow the client and server to pass additional information with the request or the response. Rewriting these HTTP headers helps you accomplish several important scenarios, such as:
 - Adding security-related header fields like HSTS/ X-XSS-Protection.
@@ -127,11 +128,13 @@ HTTP headers allow the client and server to pass additional information with the
 
 Application Gateway supports the capability to add, remove, or update HTTP request and response headers, while the request and response packets move between the client and back-end pools. It also provides you with the capability to add conditions to ensure the specified headers are rewritten only when certain conditions are met.
 
-For more information about this public preview feature, see [Rewrite HTTP headers](rewrite-http-headers.md).
+For more information, see [Rewrite HTTP headers](rewrite-http-headers.md).
 
 ## Sizing
 
-Application Gateway is currently offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
+Application Gateway Standard_v2 and WAF_v2 SKU can be configured for autoscaling or fixed size deployments. These SKUs do not offer different instance sizes.
+
+Application Gateway Standard and WAF SKU is currently offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
 
 For a complete list of application gateway limits, see [Application Gateway service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 

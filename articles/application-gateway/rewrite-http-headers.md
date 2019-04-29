@@ -2,10 +2,10 @@
 title: Rewrite HTTP headers in Azure Application Gateway | Microsoft Docs
 description: This article provides an overview of the capability to rewrite HTTP headers in Azure Application Gateway
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 04/29/2019
 ms.author: absha
 ---
 
@@ -16,7 +16,7 @@ ms.author: absha
 HTTP headers allow the client and the server to pass additional information with the request or the response. Rewriting these HTTP headers helps you accomplish several important scenarios such as adding security-related header fields like HSTS/ X-XSS-Protection, removing response header fields which may reveal sensitive information, removing port information from X-Forwarded-For headers, etc. Application gateway supports the capability to add, remove, or update HTTP request and response headers while the request and response packets move between the client and backend pools. It provides you the capability to add conditions to ensure that the specified headers are rewritten only when certain conditions are met. The capability also supports several [server variables](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) which help store additional information about the requests and responses, thereby enabling you to make powerful rewrite rules.
 > [!NOTE]
 >
-> The HTTP header rewrite support is only available for the [new SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+> The HTTP header rewrite support is only available for the [Standard_V2 and WAF_v2 SKU](application-gateway-autoscaling-zone-redundant.md).
 
 ![Rewriting headers](media/rewrite-http-headers/rewrite-headers.png)
 
