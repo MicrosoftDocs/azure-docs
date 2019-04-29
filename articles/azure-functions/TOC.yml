@@ -17,6 +17,8 @@
     href: functions-create-first-function-vs-code.md
   - name: Create function - Java/Maven
     href: functions-create-first-java-maven.md
+  - name: Create function - Kotlin/Maven
+    href: functions-create-first-kotlin-maven.md
   - name: Create function - Python
     href: functions-create-first-function-python.md
   - name: Create function - PowerShell
