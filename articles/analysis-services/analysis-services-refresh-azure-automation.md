@@ -87,7 +87,7 @@ If the Runbook executed successfully, you will receive an output like the follow
 
 ![Successful Run](./media/analysis-services-refresh-azure-automation/13.png)
 
-## Using a self-contained Azure Automation Runbook
+## Use a self-contained Azure Automation Runbook
 
 The Runbook can be configured to trigger the Azure Analysis Services model refresh on a scheduled basis.
 
@@ -162,7 +162,7 @@ This is deserialized and stored as PowerShell parameters, which are then used by
 
 ![Deserialized Webhook](./media/analysis-services-refresh-azure-automation/20.png)
 
-## Using a Hybrid Worker with Azure Analysis Services
+## Use a Hybrid Worker with Azure Analysis Services
 
 An Azure Virtual Machine with a static public IP address can be used as an Azure Automation Hybrid Worker.  This public IP address can then be added to the Azure Analysis Services firewall.
 
