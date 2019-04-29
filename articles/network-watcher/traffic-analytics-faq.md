@@ -3,8 +3,8 @@ title: Azure traffic analytics frequently asked questions | Microsoft Docs
 description: Get answers to some of the most frequently asked questions about traffic analytics.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: 
 
 ms.service: network-watcher
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 03/08/2018
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Traffic Analytics frequently asked questions
@@ -239,7 +239,7 @@ For example, as per the [pricing plan](https://azure.microsoft.com/pricing/detai
 
 ## How frequently does Traffic Analytics process data?
 
-Refer to the [data aggregation section](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) in Traffic Analytics Schema and Data Aggregation Document
+Refer to the [data aggregation section](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) in Traffic Analytics Schema and Data Aggregation Document
 
 ## How does Traffic Analytics decide that an IP is malicious? 
 
@@ -253,7 +253,7 @@ Steps :
 - You can use the shortlink for Log Analytics in Traffic Analytics. 
 - Use the [schema documented here](traffic-analytics-schema.md) to write your queries 
 - Click "New alert rule" to create the alert
-- Refer to [log alerts documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) to create the alert
+- Refer to [log alerts documentation](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) to create the alert
 
 ## How can I navigate by using the keyboard in the geo map view?
 

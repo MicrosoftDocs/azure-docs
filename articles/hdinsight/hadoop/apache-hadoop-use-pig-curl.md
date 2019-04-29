@@ -1,7 +1,6 @@
 ---
 title: Use Apache Hadoop Pig with REST in HDInsight - Azure 
 description: Learn how to use REST to run Pig Latin jobs on an Apache Hadoop cluster in Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 

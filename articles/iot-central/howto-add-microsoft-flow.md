@@ -4,7 +4,7 @@ description: Use the IoT Central connector in Microsoft Flow to trigger workflow
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/26/2019
+ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
@@ -96,9 +96,12 @@ This section shows you how to update device settings and properties in IoT Centr
 
 1. Add a new action. Search for the **Azure IoT Central - Update a device** action.
 
-1. Pick your application from the dropdown. Now you'll need an ID of the existing device you want to update. You can get the ID of the IoT Central device from the **Device Explorer**.
+1. Pick your application from the dropdown. Now you'll need an ID of the existing device you want to update. 
 
-    ![IoT Central device explorer device ID](./media/howto-add-microsoft-flow/iotcdeviceid.png)
+    > [!NOTE] 
+    > **You must use the ID found in the URL** on the device details page of the device you want to update. The device ID found in the device explorer's list of devices is not the right one to use in Microsoft Flow.
+
+    ![IoT Central ID from URL](./media/howto-add-microsoft-flow/iotcdeviceidurl.png)
 
 1. You can update the device name. To update any of the device's properties and settings, you must select the device template of the device you want to update in the **Device Template** dropdown. The action tile expands to show all the properties and settings you can update.
 
@@ -112,19 +115,32 @@ This section shows you how to update device settings and properties in IoT Centr
 
 ## Get device information in a workflow
 
-You can get device information by its device ID using the **Azure IoT Central - Get a device** action. You can get information such as device name, device template name, property values, and settings values to pass to later actions in your workflow. Here is an example workflow that passes along the Customer Name property value from a device to Microsoft Teams.
+You can get device information by its ID using the **Azure IoT Central - Get a device** action. 
+> [!NOTE] 
+> **You must use the ID found in the URL** on the device details page of the device you want to update. The device ID found in the device explorer's list of devices is not the right one to use in Microsoft Flow.
+
+You can get information such as device name, device template name, property values, and settings values to pass to later actions in your workflow. Here is an example workflow that passes along the Customer Name property value from a device to Microsoft Teams.
 
    ![Flow get device workflow](./media/howto-add-microsoft-flow/flowgetdevice.png)
 
 
 ## Run a command on a device in a workflow
-You can run a command on a device specified by its device ID using the **Azure IoT Central - Run a command** action. You can pick the command to run and pass in the parameters of the command through this action. Here is an example workflow that runs a device reboot command from a button in the Microsoft Flow mobile app.
+You can run a command on a device specified by its ID using the **Azure IoT Central - Run a command** action. 
+
+> [!NOTE] 
+> **You must use the ID found in the URL** on the device details page of the device you want to update. The device ID found in the device explorer's list of devices is not the right one to use in Microsoft Flow.
+    
+You can pick the command to run and pass in the parameters of the command through this action. Here is an example workflow that runs a device reboot command from a button in the Microsoft Flow mobile app.
 
    ![Flow get device workflow](./media/howto-add-microsoft-flow/flowrunacommand.png)
 
 ## Delete a device in a workflow
 
-You can delete a device by its device ID using the **Azure IoT Central - Delete a device** action. Here is an example workflow that deletes a device at the push of a button in the Microsoft Flow mobile app.
+You can delete a device by its ID using the **Azure IoT Central - Delete a device** action. 
+> [!NOTE] 
+> **You must use the ID found in the URL** on the device details page of the device you want to update. The device ID found in the device explorer's list of devices is not the right one to use in Microsoft Flow.
+
+Here is an example workflow that deletes a device at the push of a button in the Microsoft Flow mobile app.
 
    ![Flow delete device workflow](./media/howto-add-microsoft-flow/flowdeletedevice.png)
 

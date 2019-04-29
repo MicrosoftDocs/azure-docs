@@ -2,15 +2,11 @@
 title: Azure Key Vault logging | Microsoft Docs
 description: Use this tutorial to help you get started with Azure Key Vault logging.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
 
-ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn

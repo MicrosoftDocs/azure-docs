@@ -337,8 +337,7 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 In this configuration, `KestrelCommunicationListener` will automatically select an unused port from the application port range.
 
 ## Service Fabric configuration provider
-App configuration in ASP.NET Core is based on key-value pairs established by the configuration provider. Read 
-[Configuration in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/) to understand more on general ASP.NET Core configuration support.
+App configuration in ASP.NET Core is based on key-value pairs established by the configuration provider. Read [Configuration in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/) to understand more on general ASP.NET Core configuration support.
 
 This section describes how the Service Fabric configuration provider integrates with ASP.NET Core configuration by importing the `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet package.
 
@@ -449,8 +448,9 @@ public Startup()
   Configuration = builder.Build();
 }
 ```
+
 ### Configuration updates
-The Service Fabric configuration provider also supports configuration updates. You can use ASP.NET Core `IOptionsMonitor` to receive change notifications, and then use `IOptionsSnapshot` to reload configuration data. For more information, see [Options pattern in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
+The Service Fabric configuration provider also supports configuration updates. You can use ASP.NET Core `IOptionsMonitor` to receive change notifications, and then use `IOptionsSnapshot` to reload configuration data. For more information, see [ASP.NET Core options](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
 
 These options are supported by default. No further coding is needed to enable configuration updates.
 

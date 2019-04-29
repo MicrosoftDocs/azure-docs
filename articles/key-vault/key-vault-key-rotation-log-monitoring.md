@@ -2,15 +2,11 @@
 title: Set up Azure Key Vault with end-to-end key rotation and auditing | Microsoft Docs
 description: Use this how-to guide to help you set up key rotation and monitor key vault logs.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: ''
 
-ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn

@@ -7,8 +7,6 @@ manager: dougeby
 tags: azure-resource-manager
 
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/04/2019
