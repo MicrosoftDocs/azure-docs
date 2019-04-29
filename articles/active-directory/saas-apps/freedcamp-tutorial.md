@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 25-04-2019
+ms.date: 04/29/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -140,7 +140,7 @@ To configure Azure AD single sign-on with Freedcamp, perform the following steps
 
 	![Freedcamp configuration](./media/freedcamp-tutorial/config01.png)
 
-3. from the left side of the menu bar, click on **SSO** and on the **Your SSO connections** page perform the following steps:
+3. From the left side of the menu bar, click on **SSO** and on the **Your SSO connections** page perform the following steps:
 
 	![Freedcamp configuration](./media/freedcamp-tutorial/config02.png)
 
