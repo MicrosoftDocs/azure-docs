@@ -9,7 +9,7 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-| **Deployment Model/Method** | **Azure Portal** | **PowerShell** | **Azure CLI** |
+| **Deployment model/method** | **Azure portal** | **PowerShell** | **Azure CLI** |
 | --- | --- | --- | --- |
 | Classic |[Tutorial*](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md)|Supported | Not Supported|
 | Resource Manager |[Tutorial+](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) |[Tutorial](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) |[Tutorial](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)
