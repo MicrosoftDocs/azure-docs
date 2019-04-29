@@ -71,7 +71,7 @@ To build jar, run all tests, and install jar to your local Maven repository:
 mvn clean install
 ```
 
-For more information, refer to [connector usage](https://github.com/Azure/azure-kusto-spark#usage).
+For more information, see [connector usage](https://github.com/Azure/azure-kusto-spark#usage).
 
 ## Spark cluster setup
 
@@ -99,7 +99,7 @@ For more information, refer to [connector usage](https://github.com/Azure/azure-
 
 ## Authentication
 
-Azure Data Explorer Spark connector allows you to authenticate with AAD using an [AAD application](#aad-application-authentication), [AAD access token](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [device authentication](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (for non-production scenarios) or [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault). The user must install azure-keyvault package and provide application credentials to access the Key Vault resource.
+Azure Data Explorer Spark connector allows you to authenticate with AAD using an [AAD application](#aad-application-authentication), [AAD access token](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [device authentication](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (for non-production scenarios), or [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault). The user must install azure-keyvault package and provide application credentials to access the Key Vault resource.
 
 ### AAD Application Authentication
 
@@ -118,7 +118,7 @@ The following privileges must be granted on an Azure Data Explorer Cluster:
 * For reading (data source), AAD application must have *viewer* privileges on the target database, or *admin* privileges on the target table.
 * For writing (data sink), AAD application must have *ingestor* privileges on the target database. It must also have *user* privileges on the target database to create new tables. If the target table already exists, *admin* privileges on the target table can be configured.
  
-For more information on Azure Data Explorer principal roles, refer to [role-based authorization](/azure/kusto/management/access-control/role-based-authorization). For managing security roles, refer to [security roles management](/azure/kusto/management/security-roles).
+For more information on Azure Data Explorer principal roles,see [role-based authorization](/azure/kusto/management/access-control/role-based-authorization). For managing security roles, see [security roles management](/azure/kusto/management/security-roles).
 
 ## Spark sink: writing to Azure Data Explorer
 
