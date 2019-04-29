@@ -42,7 +42,7 @@ The recommended topology for the primary node type requires the resources outlin
 
  ![Azure Service Fabric Availability Zone Architecture][sf-architecture]
 
-## Networking Requirements
+## Networking requirements
 ### Public IP and Load Balancer Resource
 To enable the zones property on a virtual machine scale set resource, the load balancer and IP resource referenced by that virtual machine scale set must both be using a *Standard* SKU. Creating a load balancer or IP resource without the SKU property will create a Basic SKU, which does not support Availability Zones. A Standard SKU load balancer will block all traffic from the outside by default; to allow outside traffic, an NSG must be deployed to the subnet.
 
@@ -94,7 +94,7 @@ To enable the zones property on a virtual machine scale set resource, the load b
 >[!NOTE]
 > It is not possible to do an in-place change of SKU on the public IP and load balancer resources. If you are migrating from existing resources which have a Basic SKU, see the migration section of this article.
 
-### Virtual Machine Scale Set (VMSS) NAT Rules
+### Virtual machine scale set NAT rules
 The load balancer inbound NAT rules should match the NAT pools from the Virtual Machine Scale Set. Each Virtual Machine Scale Set must have a unique inbound NAT pool.
 
 ```json
@@ -141,12 +141,12 @@ The load balancer inbound NAT rules should match the NAT pools from the Virtual 
 ```
 
 ### Standard SKU Load Balancer outbound rules
-Standard Load Balancer and Standard Public IP introduce new abilities and different behaviors to outbound connectivity when compared to using Basic SKUs. If you want outbound connectivity when working with Standard SKUs, you must explicitly define it either with Standard Public IP addresses or Standard public Load Balancer. For more information, see [Outbound connections](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) and [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+Standard Load Balancer and Standard Public IP introduce new abilities and different behaviors to outbound connectivity when compared to using Basic SKUs. If you want outbound connectivity when working with Standard SKUs, you must explicitly define it either with Standard Public IP addresses or Standard public Load Balancer. For more information, see [Outbound connections](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) and [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
 >[!NOTE]
 > The standard template references an NSG which allows all outbound traffic by default. Inbound traffic is limited to the ports that are required for Service Fabric management operations. The NSG rules can be modified to meet your requirements.
 
-### Enabling zones on a Virtual Machine Scale Set
+### Enabling zones on a virtual machine scale set
 To enable a zone, on a virtual machine scale set you must include the following three values in the virtual machine scale set resource.
 
 * The first value is the **zones** property, which specifies which Availability Zone the virtual machine scale set will be deployed to.
@@ -314,7 +314,7 @@ Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
 Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
 ```
 
-You should then remove the references to these resources from the ARM template that you had deployed.
+You should then remove the references to these resources from the Resource Manager template that you had deployed.
 
 The final step will involve updating the DNS name and Public IP.
 
