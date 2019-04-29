@@ -95,7 +95,7 @@ To enable the zones property on a virtual machine scale set resource, the load b
 > It is not possible to do an in-place change of SKU on the public IP and load balancer resources. If you are migrating from existing resources which have a Basic SKU, see the migration section of this article.
 
 ### Virtual machine scale set NAT rules
-The load balancer inbound NAT rules should match the NAT pools from the Virtual Machine Scale Set. Each Virtual Machine Scale Set must have a unique inbound NAT pool.
+The load balancer inbound NAT rules should match the NAT pools from the virtual machine scale set. Each virtual machine scale set must have a unique inbound NAT pool.
 
 ```json
 {
@@ -258,9 +258,9 @@ The new LB and IP should be referenced in the new cross Availability Zone node t
 To begin, you will need to add the new resources to your existing Resource Manager template. These resources include:
 * A Public IP Resource using Standard SKU.
 * A Load Balancer Resource using Standard SKU.
-* A NSG referenced by the subnet in which you deploy your Virtual Machine Scale sets. 
+* A NSG referenced by the subnet in which you deploy your virtual machine scale sets.
 * Three node types marked as primary.
-    * Each node type should be mapped to its own Virtual Machine Scale Set located in different zones.
+    * Each node type should be mapped to its own virtual machine scale set located in different zones.
     * Each virtual machine scale set should have at least five nodes (Silver Durability).
 
 An example of these resources can be found in the [sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-Ubuntu-2-NodeType-Secure).
@@ -294,7 +294,7 @@ foreach($name in $nodeNames) {
 }
 ```
 
-Once the nodes are all disabled, the system services will be running on the primary node type, which is spread across zones. You can then remove the disabled nodes from the cluster. Once the nodes are removed, you can remove the original IP, Load Balancer, and Virtual Machine Scale Set resources.
+Once the nodes are all disabled, the system services will be running on the primary node type, which is spread across zones. You can then remove the disabled nodes from the cluster. Once the nodes are removed, you can remove the original IP, Load Balancer, and virtual machine scale set resources.
 
 ```powershell
 foreach($name in $nodeNames){
