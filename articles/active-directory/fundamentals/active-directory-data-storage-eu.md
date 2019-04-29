@@ -20,27 +20,27 @@ Identity data is stored by Azure AD in a geographical location  based on the add
 
 For customers who provided an address in Europe, Azure AD keeps most of the identity data within European datacenters. This document provides information on any data that is stored outside of Europe by Azure AD services.
 
-**Microsoft Azure multi-factor authentication (MFA)**
+## Microsoft Azure multi-factor authentication (MFA)
     
 - All two-factor authentication using phone calls or SMS originate from US datacenters and are also routed by global providers.
 - Push notifications using the Microsoft Authenticator app originate from US datacenters. In addition, device vendor specific services may also come into play and these services maybe outside Europe.
 - OATH codes are always validated in the U.S. 
 
-**Microsoft Azure Active Directory B2C (Azure AD B2C)**
+## Microsoft Azure Active Directory B2C (Azure AD B2C)
 
 Azure AD B2C policy configuration data and Key Containers are stored in U.S. datacenters. These do not contain any user personal data. For more info about policy configurations, see the [Azure Active Directory B2C: Built-in policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) article.
 
-**Microsoft Azure Active Directory B2B (Azure AD B2B)** 
+## Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
 Azure AD B2B stores invitations with redeem link and redirect URL information in US datacenters. In addition, email address of users that unsubscribe from receiving B2B invitations are  also stored in U.S. datacenters.
 
-**Microsoft Azure Active Directory Domain Services (Azure AD DS)**
+## Microsoft Azure Active Directory Domain Services (Azure AD DS)
 
 Azure AD DS stores user data in the same location as the customer-selected Azure Virtual Network. So, if the network is outside Europe, the data is replicated and stored outside Europe.
 
-**Other considerations:**
+## Other considerations
 
-Please note that services and applications that integrate with Azure AD have access to identity data. Evaluate each service and application you use to determine how identity data is processed by that specific service and application, and whether they meet your company's data storage requirements.
+Services and applications that integrate with Azure AD have access to identity data. Evaluate each service and application you use to determine how identity data is processed by that specific service and application, and whether they meet your company's data storage requirements.
 
 For more information about Microsoft services' data residency, see the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
