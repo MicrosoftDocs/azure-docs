@@ -63,6 +63,11 @@ az extension remove -n azure-cli-ml
 
 The following commands demonstrate how to use the CLI to manage resources used by Azure Machine Learning.
 
++ If you do not already have one, create a resource group:
+
+    ```azurecli-interactive
+    az group create -n myresourcegroup -l westus2
+    ```
 
 + Create an Azure Machine Learning service workspace:
 
@@ -71,6 +76,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
     ```
 
 + Attach a workspace configuration to a folder to enable CLI contextual awareness.
+
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
@@ -80,7 +86,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
     ```azurecli-interactive
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
-    
+
 + Attach an AKS cluster as a Compute Target.
 
     ```azurecli-interactive
@@ -88,6 +94,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
     ```
 
 + Create a new AMLcompute target
+
     ```azurecli-interactive
     az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
     ```
@@ -95,6 +102,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
 ## <a id="experiments"></a>Run Experiments
 
 + Attach a workspace configuration to a folder to enable CLI contextual awareness.
+
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
