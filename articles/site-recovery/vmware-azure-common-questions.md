@@ -247,7 +247,7 @@ In the Recovery Services vault, click **Configuration Servers** in **Site Recove
 
 ### Unable to select process server during enable replication
 
-From 9.24 version, enhancements are made to provide [in-product guidance](vmware-azure-manage-process-server.md#process-server-selection-guidance) on when to set up a scale-out process server. This is to avoid process server throttling and avoid usage of unhealthy process server.
+From 9.24 version, enhancements are made to provide [process server alerts](vmware-physical-azure-monitor-process-server.md#process-server-alerts) on when to set up a scale-out process server. This is to avoid process server throttling and avoid usage of unhealthy process server.
 
 ### What should I do to obtain accurate health status of process server?
 

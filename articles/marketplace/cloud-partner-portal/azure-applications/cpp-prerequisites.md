@@ -34,7 +34,7 @@ For more information, see  [Understand the structure and syntax of Azure Resourc
 For more information, see:
 
   * [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/). Deploy Azure resources through the Azure Resource Manager with community contributed templates to get more done. Azure Resource Manager allows you to provision your applications using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application during every stage of the application lifecycle.
-  * [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates). This repo contains all the currently available Azure Resource Manager templates contributed by the community. A searchable template index is maintained at https://azure.microsoft.com/en-us/documentation/templates/.
+  * [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates). This repo contains all the currently available Azure Resource Manager templates contributed by the community. A searchable template index is maintained at https://azure.microsoft.com/documentation/templates/.
 * Create UI Definition<br>
 For more information, see [Create Azure portal user interface for your managed application](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). This article introduces the core concepts of the createUiDefinition.json file. The Azure portal uses this file to generate the user interface for creating a managed application.
 
