@@ -1,13 +1,13 @@
 ---
 title: Azure Container Instances security considerations
-description: Security considerations and solutions for Azure Container Instances
+description: Recommendations to secure images and secrets for Azure Container Instances, and general security considerations for any container platform
 services: container-instances
 author: dlepow
 manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 04/29/2019
 ms.author: danlep
 ms.custom: 
 ---
@@ -24,7 +24,7 @@ This article introduces security considerations for using Azure Container Instan
 
 ### Use a private registry
 
-Containers are built from images that are stored in one or more repositories. These repositories can belong to a public registry, like [Docker Hub](https://hub.docker.com), or to a private registry. An example of a private registry is the [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/), which can be installed on-premises or in a virtual private cloud. There are also cloud-based private container registry services, including [Azure Container Registry](../container-registry/container-registry-intro.md). 
+Containers are built from images that are stored in one or more repositories. These repositories can belong to a public registry, like [Docker Hub](https://hub.docker.com), or to a private registry. An example of a private registry is the [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/), which can be installed on-premises or in a virtual private cloud. You can also use cloud-based private container registry services, including [Azure Container Registry](../container-registry/container-registry-intro.md). 
 
 A publicly available container image does not guarantee security. Container images consist of multiple software layers, and each software layer might have vulnerabilities. To help reduce the threat of attacks, you should store and retrieve images from a private registry, such as Azure Container Registry or Docker Trusted Registry. In addition to providing a managed private registry, Azure Container Registry supports [service principal-based authentication](../container-registry/container-registry-authentication.md) through Azure Active Directory for basic authentication flows. This authentication includes role-based access for read-only (pull), write (push), and owner permissions.
 
@@ -42,7 +42,7 @@ The following security measures, implemented well and managed effectively, can h
 
 ### Use vulnerability management as part of your container development lifecycle 
 
-By using effective vulnerability management throughout the container development lifecycle, you improve the odds that you can identify and resolve security concerns before they become a more serious problem. 
+By using effective vulnerability management throughout the container development lifecycle, you improve the odds that you identify and resolve security concerns before they become a more serious problem. 
 
 ### Scan for vulnerabilities 
 
@@ -59,9 +59,9 @@ You need to have a means of mapping vulnerabilities identified in container imag
 
 There’s enough change and volatility in a container ecosystem without allowing unknown containers as well. Allow only approved container images. Have tools and processes in place to monitor for and prevent the use of unapproved container images. 
 
-An effective way of reducing the attack surface and preventing developers from making critical security mistakes is to control the flow of container images into your development environment. For example, you might sanction a single Linux distribution as a base image, preferably one that is lean (Alpine or CoreOS rather than Ubuntu) to minimize the surface for potential attacks. 
+An effective way of reducing the attack surface and preventing developers from making critical security mistakes is to control the flow of container images into your development environment. For example, you might sanction a single Linux distribution as a base image, preferably one that is lean (Alpine or CoreOS rather than Ubuntu), to minimize the surface for potential attacks. 
 
-Image signing or fingerprinting can provide a chain of custody that enables you to verify the integrity of the containers. 
+Image signing or fingerprinting can provide a chain of custody that enables you to verify the integrity of the containers. For example, Azure Container Registry supports Docker's [content trust](https://docs.docker.com/engine/security/trust/content_trust) model, which allows image publishers to sign images that are pushed to a registry, and image consumers to pull only signed images.
 
 ### Permit only approved registries 
 
@@ -107,14 +107,18 @@ For example, the partner tool [Aqua](https://azuremarketplace.microsoft.com/mark
 
 ### Monitor container activity and user access 
 
-As with any IT environment, you should [consistently monitor activity](../log-analytics/log-analytics-containers.md) and user access to your container ecosystem to quickly identify any suspicious or malicious activity. The Azure Container Monitoring solution can help you view and manage your Docker and Windows container hosts in a single location. For example:
+As with any IT environment, you should consistently monitor activity and user access to your container ecosystem to quickly identify any suspicious or malicious activity. Azure provides container monitoring solutions including:
 
-* View detailed audit information that shows commands used with containers. 
-* Troubleshoot containers by viewing and searching centralized logs without having to remotely view Docker or Windows hosts.  
-* Find containers that may be noisy and consuming excess resources on a host.
-* View centralized CPU, memory, storage, and network usage and performance information for containers.  
+* [Azure Monitor for containers](../azure-monitor/insights/container-insights-overview.md) to monitor the performance of your workloads deployed to Kubernetes environments hosted on Azure Kubernetes Service (AKS). Azure Monitor for containers gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. 
 
-On computers running Windows, you can centralize and compare logs from Windows Server, Hyper-V, and Docker containers. The solution supports container orchestrators such as Docker Swarm, DC/OS, Kubernetes, Service Fabric, and Red Hat OpenShift. 
+* The [Azure Container Monitoring solution](../azure-monitor/insights/containers.md) helps you view and manage other Docker and Windows container hosts in a single location. For example:
+
+  * View detailed audit information that shows commands used with containers. 
+  * Troubleshoot containers by viewing and searching centralized logs without having to remotely view Docker or Windows hosts.  
+  * Find containers that may be noisy and consuming excess resources on a host.
+  * View centralized CPU, memory, storage, and network usage and performance information for containers.  
+
+  The solution supports container orchestrators including Docker Swarm, DC/OS, unmanaged Kubernetes, Service Fabric, and Red Hat OpenShift. 
 
 ### Monitor container resource activity 
 
@@ -126,7 +130,7 @@ Metrics are available that provide performance statistics for different resource
 
 ### Log all container administrative user access for auditing 
 
-Maintain an accurate audit trail of administrative access to your container ecosystem, container registry, and container images. These logs might be necessary for auditing purposes and will be useful as forensic evidence after any security incident. You can use the [Container Monitoring solution](../log-analytics/log-analytics-containers.md) in Azure Log Analytics to achieve this purpose. 
+Maintain an accurate audit trail of administrative access to your container ecosystem, container registry, and container images. These logs might be necessary for auditing purposes and will be useful as forensic evidence after any security incident. You can use the [Azure Container Monitoring solution](../azure-monitor/insights/containers.md) to achieve this purpose. 
 
 ## Next steps
 
