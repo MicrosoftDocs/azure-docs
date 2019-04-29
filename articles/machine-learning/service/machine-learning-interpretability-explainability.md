@@ -30,7 +30,7 @@ Using these offering, you can explain machine learning models **globally on all 
 
 The interpretability classes are made available through two Python packages. Learn how to [install SDK packages for Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* [`azureml.explain.model`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), the main package, contaiing functionalities supported by Microsoft. 
+* [`azureml.explain.model`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), the main package, containing functionalities supported by Microsoft. 
 
 * `azureml.contrib.explain.model`, preview and experimental functionalities that you can try.
 
