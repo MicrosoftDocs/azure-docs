@@ -34,7 +34,7 @@ This document describes a simple example on the use of the **Azure Data Explorer
 
 ## Create folders
 
-Create the following folders (*Functions*, *Policies*, *Tables*) in your Git repository. Copy the files from <location> into the respective folders and commit the change. These sample files are provided to execute the following workflow. 
+Create the following folders (*Functions*, *Policies*, *Tables*) in your Git repository. Copy the files from [here](https://github.com/Azure/azure-kusto-docs-samples/tree/master/DevOps_release_pipeline) into the respective folders and commit the change. These sample files are provided to execute the following workflow. 
 
 ![Create folders](media/devops/create-folders.png)
 
@@ -59,7 +59,7 @@ When creating your own workflow, ensure your code idempotent. For example, use [
 
     ![Add an artifact](media/devops/add-artifact.png)
 
-** 1. Create a Variable for Endpoint URL that will be used in the task. You can get the Azure Data Explorer cluster URI from the overview page in the portal. Construct the URI in the following format “https://<cluster URI>?DatabaseName=<DBName>”  for example, https://democluster.westus2.kusto.windows.net?DatabaseName=SampleDB 
+1. Create a **Variable** for **Endpoint URL** that'll be used in the task. The Azure Data Explorer cluster URI can be found in the overview page in the Azure portal. Construct the URI in the following format "https://<cluster URI>?DatabaseName=<DBName>" for example, https://democluster.westus2.kusto.windows.net?DatabaseName=SampleDB 
 
     ![Variable](media/devops/create-variable.png)
 
@@ -100,4 +100,4 @@ When creating your own workflow, ensure your code idempotent. For example, use [
 
 1. Check the deployment status to check that it's successfully deployed.
 
-     ![Deployment is successful](media/devops/deployment-successful.png)
+    ![Deployment is successful](media/devops/deployment-successful.png)
