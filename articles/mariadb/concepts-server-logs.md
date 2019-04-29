@@ -66,11 +66,11 @@ The following table describes what's in each log. Depending on the output method
 | `rows_sent_s` | Number of rows sent |
 | `rows_examined_s` | Number of rows examined |
 | `last_insert_id_s` | [last_insert_id](https://mariadb.com/kb/en/library/last_insert_id/) |
-| `insert_id_s` | Insert id |
+| `insert_id_s` | Insert ID |
 | `sql_text_s` | Full query |
-| `server_id_s` | The server's id |
-| `thread_id_s` | Thread id |
+| `server_id_s` | Server ID |
+| `thread_id_s` | Thread ID |
 | `\_ResourceId` | Resource URI |
 
-## Next Steps
+## Next steps
 - [How to configure and access server logs from the Azure portal](howto-configure-server-logs-portal.md).
