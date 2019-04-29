@@ -33,7 +33,7 @@ Currently, these complete, end-to-end system reference designs are available:
 
 |||
 |-|-|
-|[![ROOBO logo](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO provides complete artificial intelligence (AI) system solutions for household electric appliances, automobiles, robots, toys, and other industries. ROOBO's reference designs greatly reduce development time-to-market via integration with the Azure Speech Services. [Visit ROOBO](http://ddk.roobo.com/).|
+|[![ROOBO logo](media/speech-devices-sdk/roobo-logo.png)](https://ddk.roobo.com/)|ROOBO provides complete artificial intelligence (AI) system solutions for household electric appliances, automobiles, robots, toys, and other industries. ROOBO's reference designs greatly reduce development time-to-market via integration with the Azure Speech Services. [Visit ROOBO](https://ddk.roobo.com/).|
 
 ## Next steps
 
