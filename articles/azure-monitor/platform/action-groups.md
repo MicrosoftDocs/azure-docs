@@ -99,15 +99,12 @@ Source IP address ranges
  - 51.5.148.86
  - 51.5.149.19
 
-To receive updates about changes to these IP addresses we recommend you configure a [Service Health alert, which monitors for Informational notifications about the Action Groups service.
-
+To receive updates about changes to these IP addresses we recommend you configure a Service Health alert, which monitors for Informational notifications about the Action Groups service.
 
 ## Next steps ##
-
 * Learn more about [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Gain an [understanding of the activity log alert webhook schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Learn more about [ITSM Connector](../../azure-monitor/platform/itsmc-overview.md)
 * Learn more about [rate limiting](../../azure-monitor/platform/alerts-rate-limiting.md) on alerts.
 * Get an [overview of activity log alerts](../../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-
