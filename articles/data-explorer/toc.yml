@@ -74,6 +74,8 @@
       href: time-series-analysis.md
     - name: Anomaly detection and forecasting
       href: anomaly-detection.md
+    - name: Machine learning
+      href: machine-learning-clustering.md
   - name: Manage
     items:
     - name: Manage database permissions
