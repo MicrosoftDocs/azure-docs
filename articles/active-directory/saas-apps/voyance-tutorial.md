@@ -155,7 +155,7 @@ To configure Azure AD single sign-on with Voyance, perform the following steps:
 
 6. Go to **SAML v2** section and perform below steps:
 
-	![Configure Single Sign-On On App Side SAML v2](./media/voyance-tutorial/tutorial_voyance_005.png)
+	![Configure Single Sign-On On App Side SAML v2](./media/voyance-tutorial/tutorial-voyance-005.png)
 	
 	a. Select **Enabled**.
 	
