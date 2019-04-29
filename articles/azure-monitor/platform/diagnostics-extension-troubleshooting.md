@@ -4,11 +4,10 @@ description: Troubleshoot problems when using Azure diagnostics in Azure Virtual
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 07/12/2017
-ms.author: robb
 ms.subservice: diagnostic-extension
+ms.topic: conceptual
+ms.date: 04/17/2019
+ms.author: robb
 ---
 # Azure Diagnostics troubleshooting
 This article describes troubleshooting information that's relevant to using Azure Diagnostics. For more information about Azure diagnostics, see [Azure Diagnostics overview](diagnostics-extension-overview.md).
@@ -76,7 +75,7 @@ If there's no data for the specific metric, check **Diagnostics Configuration** 
 If the configuration is set correctly but you still can't see the metric data, use the following guidelines to help you troubleshoot.
 
 
-## Azure Diagnostics isn't starting
+## Azure Diagnostics is not starting
 For information about why Azure Diagnostics failed to start, see the **DiagnosticsPluginLauncher.log** and **DiagnosticsPlugin.log** files in the log files location that was provided earlier.
 
 If these logs indicate `Monitoring Agent not reporting success after launch`, it means there was a failure launching MonAgentHost.exe. Look at the logs in the location that's indicated for `MonAgentHost log file` in the previous section.
@@ -99,9 +98,16 @@ The most common reason that event data doesn't appear at all is that the storage
 
 Solution: Correct your Diagnostics configuration and reinstall Diagnostics.
 
-If the storage account is configured correctly, remote access into the machine and verify that DiagnosticsPlugin.exe and MonAgentCore.exe are running. If they aren't running, follow the steps in Azure Diagnostics is not starting.
+If the storage account is configured correctly, remote access into the machine and verify that *DiagnosticsPlugin.exe* and *MonAgentCore.exe* are running. If they aren't running, follow the steps in [Azure Diagnostics is not starting](#azure-diagnostics-is-not-starting).
 
 If the processes are running, go to [Is data getting captured locally?](#is-data-getting-captured-locally) and follow the instructions there.
+
+If this doesn't solve the problem, try to:
+
+1. Uninstall the agent
+2. Remove directory C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
+3. Install agent again
+
 
 ### Part of the data is missing
 If you are getting some data but not all, it means that the data collection/transfer pipeline is set correctly. Follow the subsections here to narrow down the issue.

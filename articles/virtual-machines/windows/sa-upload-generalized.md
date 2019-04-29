@@ -27,7 +27,7 @@ If you want to create a VM from a specialized VHD in a storage account, see [Cre
 
 This topic covers using storage accounts, but we recommend customers move to using Managed Disks instead. For a complete walk-through of how to prepare, upload and create a new VM using managed disks, see [Create a new VM from a generalized VHD uploaded to Azure using Managed Disks](upload-generalized-managed.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Prepare the VM
 

@@ -11,11 +11,14 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 04/19/2019
 ---
 # Azure SQL Transparent Data Encryption with customer-managed keys in Azure Key Vault: Bring Your Own Key support
 
 [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) with Azure Key Vault integration allows to encrypt the Database Encryption Key (DEK) with a customer-managed asymmetric key called TDE Protector. This is also generally referred to as Bring Your Own Key (BYOK) support for Transparent Data Encryption.  In the BYOK scenario, the TDE Protector is stored in a customer-owned and managed [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azure’s cloud-based external key management system. The TDE Protector can be [generated](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates) by the key vault or [transferred](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) to the key vault from an on premises HSM device. The TDE DEK, which is stored on the boot page of a database, is encrypted and decrypted by the TDE Protector stored in Azure Key Vault, which it never leaves.  SQL Database needs to be granted permissions to the customer-owned key vault to decrypt and encrypt the DEK. If permissions of the logical SQL server to the key vault are revoked, a database will be inaccessible and all data is encrypted. For Azure SQL Database, the TDE protector is set at the logical SQL server level and is inherited by all databases associated with that server. For [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), the TDE protector is set at the instance level and it is inherited by all *encrypted* databases on that instance. The term *server* refers both to server and instance throughout this document, unless stated differently.
+
+> [!NOTE]
+> Transparent Data Encryption with Azure Key Vault integration (Bring Your Own Key) for Azure SQL Database Managed Instance is in preview.
 
 With TDE with Azure Key Vault integration, users can control key management tasks including key rotations, key vault permissions, key backups, and enable auditing/reporting on all TDE protectors using Azure Key Vault functionality. Key Vault provides central key management, leverages tightly monitored hardware security modules (HSMs), and enables separation of duties between management of keys and data to help meet compliance with security policies.  
 

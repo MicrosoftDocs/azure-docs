@@ -48,7 +48,7 @@
       - name: Users, groups, and roles
         tocHref: /azure/active-directory/users-groups-roles/
         topicHref: /azure/active-directory/users-groups-roles/
-      - name: Identity governance
+      - name: Identity Governance
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
       - name: Application management
@@ -145,6 +145,9 @@
   - name: Azure NetApp Files
     tocHref: /azure/azure-netapp-files/
     topicHref: /azure/azure-netapp-files/
+  - name: Azure VMware Solution by CloudSimple
+    tocHref: /azure/vmware-cloudsimple/
+    topicHref: /azure/vmware-cloudsimple/
   - name: Azure portal customization
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/\
