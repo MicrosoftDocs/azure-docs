@@ -171,9 +171,14 @@ Azure Time Series Insights Preview supports two themes:
 * **Light Theme**: The default theme shown throughout this document.
 * **Dark theme**:  Renders the explorer as shown here:
 
-  [![Theme selection view](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
+  [![Selected dark theme](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
 
-Here you can also change between supported languages.
+To select a new theme, click on your profile icon located in the top right corner. Then select **Change Theme**.
+
+  [![Theme selection](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
+
+> [!TIP]
+> Language selection is also available by clicking on your profile icon.
 
 ## S1/S2 environment controls
 
