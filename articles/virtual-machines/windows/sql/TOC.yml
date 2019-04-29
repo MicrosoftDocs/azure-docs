@@ -35,7 +35,7 @@
   - name: Management
     items:
     - name: Extend support for SQL 2008 & R2
-      href: virtual-machines-windows-sql-server-2008-end-of-support-migration.md
+      href: virtual-machines-windows-sql-server-2008-eos-extend-support.md
     - name: Connect to a VM
       href: virtual-machines-windows-sql-connect.md
     - name: Configure storage

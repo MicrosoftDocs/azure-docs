@@ -46,13 +46,13 @@ You can migrate EOS SQL Server instances to an Azure VM with manual backup/resto
 
 ### Azure Site Recovery
 
-For bulk migrations, we recommend [Azure Site Recovery](azure/site-recovery/site-recovery-overview) service. With Azure Site Recovery, customers can replicate the whole VM including SQL Server from on-premises to an Azure VM.
+For bulk migrations, we recommend [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) service. With Azure Site Recovery, customers can replicate the whole VM including SQL Server from on-premises to an Azure VM.
 
 SQL Server requires app-consistent Azure Site Recovery snapshots to guarantee recovery; and Azure Site Recovery supports app-consistent snapshots with minimum 1-hour interval. The minimum RPO possible for SQL Server with Azure Site Recovery migrations is 1 hour and the RTO is 2 hours plus SQL Server recovery time.
 
 ### Database Migration Service
 
-The [Database Migration Service](dms/dms-overview) is an option for customers on Windows Server 2012 and greater. 
+The [Database Migration Service](/dms/dms-overview) is an option for customers on Windows Server 2012 and greater. 
 
 ## Disaster recovery
 
