@@ -38557,6 +38557,111 @@
       "source_path": "articles/sql-database/sql-database-security-index.yml",
       "redirect_url": "/azure/sql-database/sql-database-security-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-workspace-collections/index.md",
+      "redirect_url": "/azure/power-bi-workspace-collections/get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/cpp-linux.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-cpp-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/cpp-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-cpp-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-recognize-intents-from-speech-cpp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-recognize-intents-from-speech-java.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-recognize-speech-cpp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-cpp-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-recognize-speech-csharp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-recognize-speech-java.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-java-jre",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-recognize-speech-rest.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/rest-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-speech-to-text.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-recognize-speech-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-translate-speech-cpp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-translate-speech-cpp-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-translate-speech-csharp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-translate-speech-dotnetcore-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-translate-speech-java.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-translate-speech-java-jre",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-translate-speech.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-translate-speech-dotnetframework-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/intent.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-csharp-windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/rest-apis.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/overview#reference-docs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/samples.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-sdk#get-the-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-sdk-reference.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-to-text-sample.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-recognize-speech-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/translation.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-translate-speech-csharp",
+      "redirect_document_id": false
     }
   ]
 }
