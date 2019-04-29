@@ -1,6 +1,6 @@
 ---
-title: Single sign-on - non-gallery applications - Azure Active Directory | Microsoft Docs
-description: Configure single sign-on (SSO) to non-gallery applications in Azure Active Directory (Azure AD)
+title: Single sign-on - non-gallery applications - Microsoft identity platform | Microsoft Docs
+description: Configure single sign-on (SSO) to non-gallery applications in Microsoft identity platform (Azure AD)
 services: active-directory
 author: CelesteDG
 manager: mtillman
@@ -14,17 +14,17 @@ ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
 ---
 
-# Configure single sign-on to non-gallery applications in Azure Active Directory
+# Configure single sign-on to non-gallery applications in Microsoft identity platform
 
-This article is about a feature that enables administrators to configure single sign-on for applications not present in the Azure Active Directory app gallery *without writing code*.
+This article is about a feature that enables administrators to configure single sign-on for applications not present in the Microsoft identity platform app gallery *without writing code*.
 
 If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md).
 
-The Azure Active Directory application gallery provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory, as described in [this article](what-is-single-sign-on.md). Once you (as an IT specialist or system integrator in your organization) have found the application you want to connect, you can get started by following the step-by-step instructions presented in the Azure portal to enable single sign-on.
+The Microsoft identity platform application gallery provides a listing of applications that are known to support a form of single sign-on with Microsoft identity platform, as described in [this article](what-is-single-sign-on.md). Once you (as an IT specialist or system integrator in your organization) have found the application you want to connect, you can get started by following the step-by-step instructions presented in the Azure portal to enable single sign-on.
 
 These capabilities are also available, according to your license agreement. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
 
-- Self-service integration of an application that use a modern protocol like [OpenId Connect/OAuth](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols) to authenticate its users and obtain tokens for [Microsoft Graph](https://graph.microsoft.com).
+- Self-service integration of an application that use a modern protocol like [OpenId Connect/OAuth](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) to authenticate its users and obtain tokens for [Microsoft Graph](https://graph.microsoft.com).
 - Self-service integration of any application that supports SAML 2.0 identity providers (SP-initiated or IdP-initiated)
 - Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](what-is-single-sign-on.md#password-based-sso)
 - Self-service connection of applications that use the SCIM protocol for user provisioning ([described here](use-scim-to-provision-users-and-groups.md))
@@ -38,11 +38,11 @@ These capabilities, also known as *app integration templates*, provide standards
 
 The Microsoft Identity platform provides two mechanisms to register applications.
 
-An application that uses a modern protocol like [OpenId Connect/OAuth](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols) to authenticate its users is registered using the [Application registration Portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v2-register-an-app).
+An application that uses a modern protocol like [OpenId Connect/OAuth](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) to authenticate its users is registered using the [Application registration Portal](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-register-an-app).
 
-Registration of applications utilizing all other types of [supported authentication mechanisms](what-is-single-sign-on) like the [SAML](https://docs.microsoft.com/en-us/azure/active-directory/develop/single-sign-on-saml-protocol) protocol use the **Enterprise Applications** blade to connect themselves with the Microsoft Identity Platform.
+Registration of applications utilizing all other types of [supported authentication mechanisms](what-is-single-sign-on) like the [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) protocol use the **Enterprise Applications** blade to connect themselves with the Microsoft Identity Platform.
 
-To connect an application using an app integration template, sign in to the Azure portal using your Azure Active Directory administrator account. Browse to the **Active Directory > Enterprise Applications > New application > Non-gallery application** section, select **Add**, and then **Add an application from the gallery**.
+To connect an application using an app integration template, sign in to the Azure portal using your Microsoft identity platform administrator account. Browse to the **Active Directory > Enterprise Applications > New application > Non-gallery application** section, select **Add**, and then **Add an application from the gallery**.
 
   ![Add application](./media/configure-single-sign-on-non-gallery-applications/customapp1.png)
 
@@ -57,6 +57,7 @@ Adding an application this way provides a similar experience to the one availabl
   ![Configuration options](./media/configure-single-sign-on-non-gallery-applications/customapp3.png)
 
 ## SAML-based single sign-on
+
 Select this option to configure SAML-based authentication for the application. This requires that the application support SAML 2.0. You should collect information on how to use the SAML capabilities of the application before continuing. Complete the following sections to configure single sign-on between the application and Azure AD.
 
 ### Enter basic SAML configuration
@@ -70,7 +71,7 @@ To set up Azure AD, enter the basic SAML configuration. You can manually enter t
 
     The following is an example of how the Identifier or Issuer appears in the SAML request sent by the application to Azure AD:
 
-    ```
+    ```XML
     <samlp:AuthnRequest
     xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
     ID="id6c1c178c166d486687be4aaf5e482730"
@@ -91,7 +92,7 @@ To set up Azure AD, enter the basic SAML configuration. You can manually enter t
     Set-AzureADServicePrincipal -ObjectId $sp.ObjectId -ReplyUrls "<ReplyURLs>"
     ```
 
-For more information, see [SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)
+For more information, see [SAML 2.0 authentication requests and responses that Microsoft identity platform (Azure AD) supports](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)
 
 
 ### Review or customize the claims issued in the SAML token
@@ -105,11 +106,9 @@ You can view or edit the claims sent in the SAML token to the application under 
 There are two reasons why you might need to edit the claims issued in the SAML token:
 
 - The application has been written to require a different set of claim URIs or claim values.
-- Your application has been deployed in a way that requires the NameIdentifier claim to be something other than the username (AKA user principal name) stored in Azure Active Directory. 
+- Your application has been deployed in a way that requires the NameIdentifier claim to be something other than the username (AKA user principal name) stored in Microsoft identity platform.
 
 For more information, see [Customizing claims issued in the SAML token for enterprise applications](./../develop/../develop/active-directory-saml-claims-customization.md). 
-
-
 
 ### Review certificate expiration data, status, and email notification
 
@@ -125,7 +124,7 @@ Verify the certificate has:
 - A status of active. If the status is inactive, change the status to active. To change the status, check **Active** and then save the configuration. 
 - The correct notification email. When the active certificate is near the expiration date, Azure AD will send a notification to the email address configured in this field.  
 
-For more information, see [Manage certificates for federated single sign-on in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md).
+For more information, see [Manage certificates for federated single sign-on in Microsoft identity platform](manage-certificates-for-federated-single-sign-on.md).
 
 ### Set up target application
 
@@ -150,7 +149,7 @@ Assigning a user will allow Azure AD to issue a token for the user. It also caus
 
 ### Test the SAML application
 
-Before testing the SAML application, you must have set up the application with Azure AD, and assigned users or groups to the application. To test the SAML application, see [How to debug SAML-based single sign-on to applications in Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md).
+Before testing the SAML application, you must have set up the application with Azure AD, and assigned users or groups to the application. To test the SAML application, see [How to debug SAML-based single sign-on to applications in Microsoft identity platform](../develop/howto-v1-debug-saml-sso-issues.md).
 
 ## Password single sign-on
 
@@ -174,6 +173,7 @@ After selecting **Next**, you will be prompted to enter the URL of the applicati
 >
 
 ## Related Articles
+
 - [How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](../develop/active-directory-saml-claims-customization.md)
 - [Troubleshooting SAML-Based Single Sign-On](../develop/howto-v1-debug-saml-sso-issues.md)
-
+- [Microsoft identity platform (Azure Active Directory for developers](https://aka.ms/aaddev)
