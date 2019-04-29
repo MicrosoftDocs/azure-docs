@@ -1,4 +1,4 @@
-﻿---
+---
 title: Best practices for network security - Microsoft Azure
 description: This article provides a set of best practices for network security using built in Azure capabilities.
 services: security
@@ -15,7 +15,7 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: TomSh
 
-
+---
 # Azure Network Security Best Practices
 This article discusses a collection of Azure network security best practices. These best practices are derived from our experience with Azure networking and the experiences of customers like yourself.
 
