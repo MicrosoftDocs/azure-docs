@@ -21,8 +21,12 @@ This article describes features and options available in the Azure Time Series I
 Before you use the Azure Time Series Insights Preview explorer, you must:
 
 * Have a Time Series Insights environment set up. For more information, see [Tutorial: Azure Time Series Insights Preview](./time-series-insights-update-create-environment.md).
-* Provide data access to the Time Series Insights environment that you created for the account. You can provide access to others as well as to yourself.
-* Add an event source to the Time Series Insights environment to push data to the environment.
+
+* [Provide data access](./time-series-insights-data-access.md) to the Time Series Insights environment that you created for the account. You can provide access to others as well as to yourself.
+
+* Add an event source to the Time Series Insights environment to push data to the environment;
+  * [Connect to an Event hub](./time-series-insights-how-to-add-an-event-source-eventhub.md)
+  * [Connect to an IoT hub](./time-series-insights-how-to-add-an-event-source-iothub.md)
 
 ## Learn about the Preview explorer
 
@@ -30,12 +34,14 @@ The Azure Time Series Insights Preview explorer consists of the following elemen
 
 [![explorer-one](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
 
-* **Navigation bar**: Lets you switch between analytics and model pages.
-* **Hierarchy tree**: Lets you select specific data elements to be charted.
-* **Time series well**: Displays your currently selected data elements.
-* **Chart panel**: Displays your current working chart.
-* **Timeline**: Lets you modify your working time span.
-* **App bar**: Contains your user management options, such as current tenant, and lets you change theme and language settings.
+| Menu item | Description |
+| --- | --- |
+| **Navigation bar** | Lets you switch between analytics and model pages. |
+| **Hierarchy tree** | Lets you select specific data elements to be charted. |
+| **Time series well** | Displays your currently selected data elements. |
+| **Chart panel** | Displays your current working chart. |
+| **Timeline** | Lets you modify your working time span. |
+| **App bar**|  Contains your user management options, such as current tenant, and lets you change theme and language settings. |
 
 ## Preview environment panel
 
@@ -59,7 +65,7 @@ With this app, you can perform Create, Read, Update, and Delete (CRUD) operation
 
 * **Time Series Model type**: Time Series Insights types enable defining variables or formulas for doing computations. They are associated with a given Time Series Insights instance. A type can have one or more variables.
 * **Time Series Model hierarchy**: Hierarchies are systematic organizations of your data. Hierarchies depict the relationships between different entities in your Time Series Insights data.
-* **Time Series Model instance**: Instances are the time series themselves. In most cases, they are the DeviceID or AssetID, which is the unique identifier of the asset in the environment.
+* **Time Series Model instance**: Instances are the time series themselves. In most cases, they are the **DeviceID** or **AssetID**, which is the unique identifier of the asset in the environment.
 
 To learn more about the Time Series Model, see [Times Series Models](./time-series-insights-update-tsm.md).
 
@@ -130,7 +136,7 @@ When you work with Time Series Insights Preview, you first select a time span. T
 
 1. **Outer-date range slider control**: Use the endpoint controls to select the outer-date range, which will be available for your inner-date range control.
 
-1. **Quick times date range drop-down**: Lets you quickly switch between preset time span selections, such as the last 30 minutes, the last 12 hours, or a custom range. Changing this value also changes the available interval ranges discussed in the interval-size slider tool.
+1. **Quick times date range drop-down**: Lets you quickly switch between preset time span selections, such as the last **30 minutes**, the **last 12 hours**, or a **custom range**. Changing this value also changes the available interval ranges discussed in the interval-size slider tool.
 
 1. **Interval-size slider tool**: Lets you zoom in and out of intervals over the same time span. This action provides more precise control of movement between large slices of time. It displays smooth trends down to slices as small as a millisecond, allowing you to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection, which balances resolution, query speed, and granularity.
 
