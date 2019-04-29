@@ -32,23 +32,19 @@ The Azure Time Series Insights Preview explorer consists of the following elemen
 
 [![The Explorer view](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
 
-1. <a href="#tsi-env">**Environment panel**</a>: Displays your Azure TSI environments.
-1. <a href="#tsi-nav">**Navigation bar**</a>: Lets you switch between analytics and model pages.
-1. <a href="#tsi-model">**Hierarchy tree**</a>: Lets you select specific model and data elements to be charted.
-1. <a href="#tsi-well">**Time series well**</a>: Displays your currently selected data elements in table format with color-coding.
-1. <a href="#tsi-chart">**Chart panel**</a>:  Displays your current working chart.
-1. <a href="#tsi-timeline">**Timeline**</a>:  Lets you modify your working time span.
-1. <a href="#tsi-bar">**App bar**</a>:  Contains your user management options, such as current tenant, and lets you change theme and language settings.
-
-<div id="tsi-env"></div>
+1. <a href="#environment-panel">**Environment panel**</a>: Displays your Azure TSI environments.
+1. <a href="#navigation-menu">**Navigation bar**</a>: Lets you switch between analytics and model pages.
+1. <a href="#hierarchy-tree">**Hierarchy tree**</a>: Lets you select specific model and data elements to be charted.
+1. <a href="#preview-well">**Time series well**</a>: Displays your currently selected data elements in table format with color-coding.
+1. <a href="#preview-chart">**Chart panel**</a>:  Displays your current working chart.
+1. <a href="#time-editor-panel">**Timeline**</a>:  Lets you modify your working time span.
+1. <a href="#navigation-panel">**App bar**</a>:  Contains your user management options, such as current tenant, and lets you change theme and language settings.
 
 ## Environment panel
 
 The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go environments Preview and S1/S2 environments (GA). Simply click the Time Series Insights environment you want to use.
 
   [![The control panel](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
-
-<div id="tsi-nav"></div>
 
 ## Navigation menu
 
@@ -58,8 +54,6 @@ With the navigation menu, you can switch between the Time Series Insights apps:
 
 * **Analyze**: Lets you chart and perform rich analytics on your modeled or unmodeled time series data.
 * **Model**: Lets you push new Time Series Insights Preview types, hierarchies, and instances to your Time Series Insights model.
-
-<div id="tsi-model"></div>
 
 ## Hierarchy tree
 
@@ -81,8 +75,6 @@ The Azure Time Series Insights Preview supports full Create, Read, Update, and D
 
 To learn more about the Time Series Model, see [Times Series Models](./time-series-insights-update-tsm.md).
 
-<div id="tsi-well"></div>
-
 ## Preview well
 
 The well displays instance fields and other metadata associated with selected time series instances. The check boxes at the right side let you hide or display specific instances from the current chart. You can also remove specific data elements from your current data well by clicking the red x control to the right of the element.
@@ -97,8 +89,6 @@ You can also pop out the telemetry panel to get a better vertical view of the el
 > If you see the following message, the instance does not have any data during the time span selected. To resolve the issue, you can increase the time span or confirm that the instance is pushing data.
 >
 > ![No data notification](media/v2-update-explorer/explorer-seven.png)
-
-<div id="tsi-chart"></div>
 
 ## Preview chart
 
@@ -132,8 +122,6 @@ Here you can see an example of shared Y-axes:
 
   [![Preview chart Y-axis](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
 
-<div id="tsi-timeline"></div>
-
 ## Time editor panel
 
 When you work with Time Series Insights Preview, you first select a time span. The selected time span controls the dataset that is available for manipulation with the Time Series Insights Preview widgets. The following web controls are available in Time Series Insights Preview for selecting your working time span.
@@ -155,8 +143,6 @@ When you work with Time Series Insights Preview, you first select a time span. T
 1. **Date range to and from web control**: With this web control, you can easily click and select your desired date and time ranges. You can also use the control to switch between different time zones. After you make the changes, to apply to your current workspace, select **Save**.
 
    [![To and from selection panel](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
-
-<div id="tsi-bar"></div>
 
 ## Navigation panel
 
