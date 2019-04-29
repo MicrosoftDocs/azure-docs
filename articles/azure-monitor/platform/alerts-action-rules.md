@@ -25,7 +25,7 @@ With action rules you can do the following:
 
 ## Configuring an action rule
 
-You can access the feature by selecting **Manage actions** from the Alerts landing page in Azure Monitor. Then select **Action Rules (Preview)**. You can access them by selectiing **Action Rules (preview)**  from the dashboard of the landing page for Alerts.
+You can access the feature by selecting **Manage actions** from the Alerts landing page in Azure Monitor. Then select **Action Rules (Preview)**. You can access them by selecting **Action Rules (preview)**  from the dashboard of the landing page for Alerts.
 
 ![Action rules from the Azure Monitor landing page](media/alerts-action-rules/action-rules-landing-page.png)
 
@@ -37,7 +37,7 @@ Alternatively, you can also choose to create an action rule while configuring an
 
 ![Add new action rule](media/alerts-action-rules/action-rules-alert-rule.png)
 
-You should now see the action rule creation flow open. You have to configuire the following elements: 
+You should now see the action rule creation flow open. You have to configure the following elements: 
 
 ![New action rule creation flow](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
@@ -65,7 +65,7 @@ These filters are applied in conjunction to one another. For example, if I set '
 
 ![Action rule filters](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
-### Scope suppression or action group configuration
+### Suppression or action group configuration
 
 Next configure the action rule for either alert suppression or action group support. You cannot choose both. The configuration acts on all alert instances matching the previously defined scope and filters.
 
@@ -96,7 +96,7 @@ Lastly, configure the following details for the action rule
 
 ## Example scenarios
 
-### Scenario 1: General alert suppression by severity
+### Scenario 1: General alert suppression by severity example
 Contoso wants to suppress notifications for all Sev4 alerts on all VMs within their subscription 'ContosoSub' every weekend.
 
 **Solution:** Create an action rule with
@@ -106,7 +106,7 @@ Contoso wants to suppress notifications for all Sev4 alerts on all VMs within th
     * Resource Type = 'Virtual Machines'
 * Suppression with recurrence set to weekly, and 'Saturday' and 'Sunday' checked
 
-### Scenario 2: Log alert suppression 
+### Scenario 2: Log alert suppression example
 Contoso wants to suppress notifications for all log alerts generated for 'Computer-01' in 'ContosoSub' indefinitely as it's going through maintenance.
 
 **Solution:** Create an action rule with
@@ -116,11 +116,7 @@ Contoso wants to suppress notifications for all log alerts generated for 'Comput
     * Alert Context (payload) contains 'Computer-01'
 * Suppression set to 'From now (Always)'
 
-> [!Note]
-> Log alerts created with the ['number of results'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option generate **a single alert instance** with the entirety of the search results (which could be across multiple computers for example). If an action rule uses the 'Alert Context (payload)' filter, it will act on the alert instance as long as there is a match. 
-> In scenario 2 described above, if the search results for the log alert generated contains both 'Computer-01' and 'Computer-02', the entire notification is suppressed (there is no notification generated for 'Computer-02' at all). To best leverage log alerts with action rules, we advise you to create log alerts with the ['metric measurement'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option. With that option enabled, separate alert instances are generated based on the Group Field defined. If the log alert in scenario 2 is instead created with the metric measurement option, separate alert instances are generated for 'Computer-01' and 'Computer-02'. Then the action rule would only suppress the notification for 'Computer-01' while the notification for 'Computer-02' would continue to fire as normal.
-
-### Scenario 3: Metric Alert
+### Scenario 3: Metric Alert example
 
 Contoso has defined [a metric alert at a subscription level](https://docs.microsoft.comazure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), but wants to define the actions that trigger for alerts separately for their resource group 'ContosoRG'.
 
