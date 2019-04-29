@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform | Azure | iOS Getting Started | Microsoft Docs
+title: Getting started with iOS - Microsoft identity platform | Azure 
 description: How iOS (Swift) applications can call an API that requires access tokens using Microsoft identity platform
 services: active-directory
 documentationcenter: dev-center-name
