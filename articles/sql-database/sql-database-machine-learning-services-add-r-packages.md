@@ -1,5 +1,5 @@
 ---
-title: Add an R package
+title: Add an R package to Azure SQL Database Machine Learning Services (preview)
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: This article explains how to install an R package that isn't already installed in Azure SQL Database Machine Learning Services (preview).
 services: sql-database
@@ -12,7 +12,7 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ---
 
 # Add an R package to Azure SQL Database Machine Learning Services (preview)
@@ -25,7 +25,7 @@ This article explains how to add an R package to Azure SQL Database Machine Lear
 
 - Install [R](https://www.r-project.org) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer. R is available for Windows, MacOS, and Linux. This article assumes you're using Windows.
 
-- This article includes an example of using [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is) or [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) to run an R script in Azure SQL Database. You can run R scripts using other database management or query tools, but this example assumes Azure Data Studio or SSMS.
+- This article includes an example of using [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) or [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) to run an R script in Azure SQL Database. You can run R scripts using other database management or query tools, but this example assumes Azure Data Studio or SSMS.
    
 > [!NOTE]
 > You can't install a package by running an R script using **sp_execute_external_script** in Azure Data Studio or SSMS. You can only install and remove packages using the R command line and RStudio as described in this article. Once the package is installed, you can access the package functions in an R script using **sp_execute_external_script**.
@@ -160,3 +160,11 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 
 > [!TIP]
 > Another way to install an R package to your Azure SQL database is to upload the R package from a byte stream using the **CREATE EXTERNAL LIBRARY** T-SQL statement. See [Create a library from a byte stream](/sql/t-sql/statements/create-external-library-transact-sql#c-create-a-library-from-a-byte-stream) in the [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) reference documentation.
+
+## Next steps
+
+For more information on Azure SQL Database Machine Learning Services with R (preview), see the following articles.
+
+- [Azure SQL Database Machine Learning Services with R (preview)](sql-database-machine-learning-services-overview.md)
+- [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](sql-database-machine-learning-services-functions.md)
+- [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-data-issues.md)
