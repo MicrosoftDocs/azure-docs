@@ -117,3 +117,8 @@ You're ready to create your own Time Series Insights Preview environment:
 
 > [!div class="nextstepaction"]
 > [Plan your Time Series Insights Preview environment](time-series-insights-update-plan.md)
+
+Learn to navigate the demo and its features:
+
+> [!div class="nextstepaction"]
+> [The Time Series Insights Preview explorer](time-series-insights-update-explorer.md)
