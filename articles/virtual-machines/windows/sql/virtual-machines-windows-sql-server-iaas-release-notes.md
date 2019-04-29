@@ -24,7 +24,7 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 | Service improvements | Details |
 | --- | --- |
-| **Extend support for SQL Server 2008/2008R2** | Learn how to extend support for SQL Server 2008 and 2008 R2 by migrating your SQL Server instance to Azure, or purchasing extended support to keep your instance on-premises. | 
+| **Extend support for SQL Server 2008/2008R2** | [Extend support](virtual-machines-windows-sql-server-2008-eos-extend-support.md) for SQL Server 2008 and SQL Server 2008 R2 by migrating *as-is* to an Azure VM. | 
 | &nbsp; | &nbsp; |
 
 ### Documentation improvements
