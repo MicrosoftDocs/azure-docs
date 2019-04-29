@@ -19,9 +19,9 @@ Transactional replication enables you to replicate data into an Azure SQL Databa
 
 You can also use transactional replication to push changes made in an instance database in Azure SQL Database managed instance to:
 
-- a SQL Server database
-- a single database in Azure SQL Database 
-- a pooled database in an Azure SQL Database elastic pool
+- A SQL Server database.
+- A single database in Azure SQL Database.
+- A pooled database in an Azure SQL Database elastic pool.
  
 Transactional replication is in public preview on [Azure SQL Database managed instance](sql-database-managed-instance.md). A managed instance can host publisher, distributor, and subscriber databases. See [transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) for available configurations.
 
@@ -141,11 +141,11 @@ GO
 Connect to your `sql-mi-pub` managed instance using SQL Server Management Studio and run the following T-SQL code to configure your distribution database. 
 
 ```sql
-USE [master]​
+USE [master]
 GO
 
-EXEC sp_adddistributor @distributor = @@ServerName​;
-EXEC sp_adddistributiondb @database = N'distribution'​;
+EXEC sp_adddistributor @distributor = @@ServerName;
+EXEC sp_adddistributiondb @database = N'distribution';
 GO
 ```
 
@@ -160,10 +160,10 @@ On your publisher managed instance `sql-mi-pub`, change the query execution to [
 :setvar file_storage_key "DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net"
 
 
-USE [master]​
+USE [master]
 EXEC sp_adddistpublisher
   @publisher = @@ServerName,
-  @distribution_db = N'distribution',​
+  @distribution_db = N'distribution',
   @security_mode = 0,
   @login = N'$(username)',
   @password = N'$(password)',
@@ -191,16 +191,16 @@ Using [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) mode, 
 :setvar target_db ReplTran_SUB
 
 -- Enable replication for your source database
-USE [$(source_db)]​
+USE [$(source_db)]
 EXEC sp_replicationdboption
   @dbname = N'$(source_db)',
   @optname = N'publish',
-  @value = N'true'​;
+  @value = N'true';
 
 -- Create your publication
 EXEC sp_addpublication
   @publication = N'$(publication_name)',
-  @status = N'active';​
+  @status = N'active';
 
 
 -- Configure your log reaer agent
@@ -214,8 +214,8 @@ EXEC sp_changelogreader_agent
 -- Add the publication snapshot
 EXEC sp_addpublication_snapshot
   @publication = N'$(publication_name)',
-  @frequency_type = 1,​
-  @publisher_security_mode = 0,​
+  @frequency_type = 1,
+  @publisher_security_mode = 0,
   @publisher_login = N'$(username)',
   @publisher_password = N'$(password)',
   @job_login = N'$(username)',
@@ -227,19 +227,19 @@ EXEC sp_addarticle
   @type = N'logbased',
   @article = N'$(object)',
   @source_object = N'$(object)',
-  @source_owner = N'$(schema)'​;
+  @source_owner = N'$(schema)';
 
 -- Add the subscriber
 EXEC sp_addsubscription
   @publication = N'$(publication_name)',
   @subscriber = N'$(target_server)',
   @destination_db = N'$(target_db)',
-  @subscription_type = N'Push'​;
+  @subscription_type = N'Push';
 
 -- Create the push subscription agent
 EXEC sp_addpushsubscription_agent
   @publication = N'$(publication_name)',
-  @subscriber = N'$(target_server)',​
+  @subscriber = N'$(target_server)',
   @subscriber_db = N'$(target_db)',
   @subscriber_security_mode = 0,
   @subscriber_login = N'$(target_username)',
