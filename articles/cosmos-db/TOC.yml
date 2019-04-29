@@ -498,6 +498,9 @@
         href: data-explorer.md
       - name: Manage indexing policies
         href: how-to-manage-indexing-policy.md
+      - name: SQL subquery examples
+        displayName: subquery, exists
+        href: how-to-sql-subquery.md
     - name: Change Feed
       items:
       - name: Multiple Azure Cosmos DB Triggers
