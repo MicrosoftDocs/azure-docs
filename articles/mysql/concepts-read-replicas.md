@@ -68,6 +68,8 @@ Set an alert to inform you when the replication lag reaches a value that isn’t
 
 You can stop replication between a master and a replica. After replication is stopped between a master server and a read replica, the replica becomes a standalone server. The data in the standalone server is the data that was available on the replica at the time the stop replication command was started. The standalone server doesn't catch up with the master server.
 
+When you choose to stop replication to a replica, it loses all links to its previous master and other replicas. There is no automated failover between a master and its replica.
+
 > [!IMPORTANT]
 > The standalone server can't be made into a replica again.
 > Before you stop replication on a read replica, ensure the replica has all the data that you require.
@@ -86,7 +88,7 @@ When you create a replica for a master that has no existing replicas, the master
 
 ### New replicas
 
-A read replica is created as a new Azure Database for MySQL server. An existing server can't be made into a replica. A read replica can only be created in the same Azure region as the master. You can't create a replica of another read replica.
+A read replica is created as a new Azure Database for MySQL server. An existing server can't be made into a replica. You can't create a replica of another read replica.
 
 ### Replica configuration
 
