@@ -69,7 +69,7 @@ mvn clean install
 
 For more information, refer to [connector usage](https://github.com/Azure/azure-kusto-spark#usage).
 
-## Spark Cluster Settings
+## Spark Cluster Setup
 
 1. Spark cluster settings, based on Azure Databricks cluster using Spark 2.4 and Scala 2.11: 
 
@@ -104,8 +104,8 @@ Most simple and common authentication method. This method is recommended for Azu
 ### Azure Data Explorer Privileges
 
 The following privileges must be granted on an Azure Data Explorer Cluster:
-* For reading (data source), AAD application must have 'viewer' privileges on the target database, or 'admin' privileges on the target table.
-* For writing (data sink), AAD application must have 'ingestor' privileges on the target database. It must also have 'user' privileges on the target database to create new tables. If the target table already exists, 'admin' privileges on the target table can be configured. 
+* For reading (data source), AAD application must have *viewer* privileges on the target database, or *admin* privileges on the target table.
+* For writing (data sink), AAD application must have *ingestor* privileges on the target database. It must also have *user* privileges on the target database to create new tables. If the target table already exists, *admin* privileges on the target table can be configured. 
  
 For more information on Azure Data Explorer principal roles, refer to [role-based authorization](/azure/kusto/management/access-control/role-based-authorization). For managing security roles, refer to [security roles management](/azure/kusto/management/security-roles).
 
@@ -185,7 +185,10 @@ For more information on Azure Data Explorer principal roles, refer to [role-base
     display(df)
     ```
 
-1. When reading large amounts of data, transient blob storage must be provided. Provide storage container SAS key, or storage account name, account key, and container name:
+1. When reading large amounts of data, transient blob storage must be provided. Provide storage container SAS key, or storage account name, account key, and container name. 
+
+    > [!NOTE]
+    > This is a temporary requirement. Future versions of the connector will be able to provision transient storage internally.
 
     ```scala
     // Use either container/account-key/account name, or container SaS
@@ -195,8 +198,7 @@ For more information on Azure Data Explorer principal roles, refer to [role-base
     // val storageSas = dbutils.secrets.get(scope = "KustoDemos", key = "blobStorageSasUrl")
     ```
 
-    > [!NOTE]
-    > This is a temporary requirement. Future versions of the connector will be able to provision transient storage internally.
+    In the example above, we don't access the Key Vault using the connector interface. Alternatively, we use a simpler method of using the Databricks secrets.
 
 1. Read from Azure Data Explorer:
 
