@@ -59,5 +59,5 @@ Azure China 21Vianet provides world-class security and the <a href="https://www.
 </ul>
 
 <h3>Azure China 21Vianet</h3>
-    <a href="https://azure.microsoft.com/en-us/global-infrastructure/services/?products=all&regions=china-non-regional,china-east,china-east-2,china-north,china-north-2">Azure Products available by Region</a><br>
+    <a href="https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=china-non-regional,china-east,china-east-2,china-north,china-north-2">Azure Products available by Region</a><br>
     <a href="https://docs.azure.cn/zh-cn/">Azure Docs (in Chinese)</a>
