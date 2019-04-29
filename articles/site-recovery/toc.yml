@@ -95,7 +95,7 @@
       href: vmware-azure-common-questions.md
     - name: VMware/physical to Azure support matrix
       href: vmware-physical-azure-support-matrix.md
-    - name: About the configuration and process servers
+    - name: About Site Recovery components (configuration/process/master target server)
       href: vmware-physical-azure-config-process-server-overview.md
     - name: Support requirements for configuration and process servers 
       href: vmware-azure-configuration-server-requirements.md
