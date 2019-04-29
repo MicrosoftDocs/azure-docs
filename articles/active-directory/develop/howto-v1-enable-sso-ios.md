@@ -39,7 +39,7 @@ This how-to applies to:
 
 This how-to assumes that you know how to:
 
-* Provision your app using the legacy portal for Azure AD. For more info, see [Register an app with the Azure AD v1.0 endpoint](quickstart-v1-add-azure-ad-app.md)
+* Provision your app using the legacy portal for Azure AD. For more info, see [Register an app](quickstart-register-app.md)
 * Integrate your application with the [Azure AD iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## Single sign-on concepts
