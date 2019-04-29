@@ -18,7 +18,7 @@ Security alerts are triggered when anomalies in activity occur.  These security 
 
 > [!NOTE]
 > * Advanced Threat Protection for Azure Storage is currently available only for the Blob storage.
-> * For pricing details, including a free 30 day trial, see the [Azure Security Center pricing page]( https://azure.microsoft.com/en-us/pricing/details/security-center/).
+> * For pricing details, including a free 30 day trial, see the [Azure Security Center pricing page]( https://azure.microsoft.com/pricing/details/security-center/).
 > * ATP for Azure storage feature is currently not available in Azure government and sovereign cloud regions.
 
 Advanced Threat Protection for Azure Storage ingests diagnostic logs of read, write, and delete requests to Blob storage for threat detection. To investigate the alerts from Advanced Threat Protection, you can view related storage activity using Storage Analytics Logging. For more information, see how to [configure Storage Analytics logging](storage-monitor-storage-account.md#configure-logging).
