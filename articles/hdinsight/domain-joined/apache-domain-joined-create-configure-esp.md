@@ -330,9 +330,10 @@ This Step requires 3 Pre-requisites.
 
 1. Setup custom DNS on the **HDIFabrikam-AADDSVNET** virtual network.
     1. Go to the Azure portal > **Resource groups** > **OnPremADVRG** > **HDIFabrikam-AADDSVNET** > **DNS servers**.
-    1. Select **Custom** and 
+    1. Select **Custom** and enter `10.0.0.4` and `10.0.0.5`.
+    1. Click **Save**.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image123.png)
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image123.png)
 
 1. Create a new HDInsight cluster.
     1. Enter the desired details for section 1 **Basics**.
