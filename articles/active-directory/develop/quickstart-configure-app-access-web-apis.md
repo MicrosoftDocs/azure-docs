@@ -58,7 +58,7 @@ Before you can configure the app, follow these steps:
 1. Find and select the application you want to configure. Once you've selected the app, you'll see the application's **Overview** or main registration page.
 1. Follow the steps to configure your application to access web APIs: 
     * [Add redirect URIs to your application](#add-redirect-uris-to-your-application)
-    * [Add credentails to your web application](#add-credentials-to-your-web-application)
+    * [Add credentials to your web application](#add-credentials-to-your-web-application)
     * [Add permissions to access web APIs](#add-permissions-to-access-web-apis)
 
 ## Add redirect URI(s) to your application
