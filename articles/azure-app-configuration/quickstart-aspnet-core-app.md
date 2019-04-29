@@ -26,6 +26,8 @@ ASP.NET Core builds a single key-value-based configuration object by using setti
 
 You can use any code editor to do the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
+![Quickstart app launch local](./media/quickstarts/aspnet-core-app-launch-local.png)
+
 ## Prerequisites
 
 To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
@@ -115,10 +117,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(options => {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .SetOfflineCache(new OfflineFileCache());
-                });
+                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
             })
             .UseStartup<Startup>();
     ```
@@ -187,8 +186,6 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
         dotnet run
 
 3. Open a browser window, and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
-
-    ![Quickstart app launch local](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## Clean up resources
 

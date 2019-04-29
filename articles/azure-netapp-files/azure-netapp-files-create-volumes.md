@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/12/2019
+ms.date: 4/23/2019
 ms.author: b-juche
 ---
 # Create a volume for Azure NetApp Files
@@ -39,7 +39,7 @@ A subnet must be delegated to Azure NetApp Files.
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 
-        The name must be unique within a resource group. It must be at least three characters long.  You can use any alphanumeric characters.
+        A volume name must be unique within each capacity pool. It must be at least three characters long. You can use any alphanumeric characters.
 
     * **Capacity pool**  
         Specify the capacity pool where you want the volume to be created.
@@ -67,7 +67,9 @@ A subnet must be delegated to Azure NetApp Files.
 4. Click **Protocol**, then select **NFS** as the protocol type for the volume.   
     * Specify the **file path** that will be used to create the export path for the new volume. The export path is used to mount and access the volume.
 
-        The file path name can contain letters, numbers, and hyphens ("-") only. It must be between 16 and 40 characters in length.  
+        The file path name can contain letters, numbers, and hyphens ("-") only. It must be between 16 and 40 characters in length. 
+
+        The file path must be unique within each subscription and each region. 
 
     * Optionally, [configure export policy for the NFS volume](azure-netapp-files-configure-export-policy.md)
 
@@ -84,6 +86,33 @@ A subnet must be delegated to Azure NetApp Files.
 Azure NetApp Files supports SMBv3 volumes. You need to create Active Directory connections before adding an SMB volume. 
 
 ### Create an Active Directory connection
+
+1. Ensure that you meet the following requiements: 
+
+    * The admin account you use must be able to create machine accounts in the organizational unit (OU) path that you will specify.
+    * Proper ports must be open on the applicable Windows Active Directory (AD) server.  
+        The required ports are as follows: 
+
+        |     Service           |     Port     |     Protocol     |
+        |-----------------------|--------------|------------------|
+        |    AD Web Services    |    9389      |    TCP           |
+        |    DNS                |    53        |    TCP           |
+        |    DNS                |    53        |    UDP           |
+        |    ICMPv4             |    N/A       |    Echo Reply    |
+        |    Kerberos           |    464       |    TCP           |
+        |    Kerberos           |    464       |    UDP           |
+        |    Kerberos           |    88        |    TCP           |
+        |    Kerberos           |    88        |    UDP           |
+        |    LDAP               |    389       |    TCP           |
+        |    LDAP               |    389       |    UDP           |
+        |    LDAP               |    3268      |    TCP           |
+        |    NetBIOS name       |    138       |    UDP           |
+        |    SAM/LSA            |    445       |    TCP           |
+        |    SAM/LSA            |    445       |    UDP           |
+        |    Secure LDAP        |    636       |    TCP           |
+        |    Secure LDAP        |    3269      |    TCP           |
+        |    w32time            |    123       |    UDP           |
+
 
 1. From your NetApp account, click **Active Directory connections**, then click **Join**.  
 
@@ -129,12 +158,7 @@ Azure NetApp Files supports SMBv3 volumes. You need to create Active Directory c
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 
-        The name must be unique within a resource group. It must be at least three characters long.  You can use any alphanumeric characters.
-
-    * **File path**  
-        Specify the file path that will be used to create the export path for the new volume. The export path is used to mount and access the volume.   
-     
-        The file path name can contain letters, numbers, and hyphens ("-") only. It must be between 16 and 40 characters in length.  
+        A volume name must be unique within each capacity pool. It must be at least three characters long. You can use any alphanumeric characters.
 
     * **Capacity pool**  
         Specify the capacity pool where you want the volume to be created.

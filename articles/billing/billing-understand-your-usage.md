@@ -1,27 +1,23 @@
 ---
 title: Understand your detailed usage and charges | Microsoft Docs
 description: Learn how to read and understand your detailed usage and charges
-services: ''
-documentationcenter: ''
 author: bandersmsft
-manager: alherz
-editor: ''
+manager: micflan
 tags: billing
-
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 04/24/2019
 ms.author: banders
 
 ---
-# Understand terms from your detailed Microsoft Azure usage and charges 
+# Understand the terms in your Azure usage and charges file
 
-The detailed usage and charges file contains daily rated usage based on negotiated rates, 
+The detailed usage and charges file contains daily rated usage based on negotiated rates,
 purchases (for example, reservations, Marketplace fees), and refunds for the specified period.
-Fees don't include credits, taxes, or other charges or discounts. 
+Fees don't include credits, taxes, or other charges or discounts.
 The following table covers which charges are included for each account type.
 
 Account type | Azure usage | Marketplace usage | Purchases | Refunds
@@ -38,7 +34,7 @@ for download instructions.
 The usage and charges file is available in a comma-separated values (.csv) file format,
 which you can open in a spreadsheet application.
 
-## Detailed terms and descriptions in your Azure usage and charges file
+## List of terms and descriptions
 
 The following table describes the important terms used in the latest version of the Azure usage and charges file.
 The list covers pay-as-you-go (PAYG), Enterprise Agreement (EA), and Microsoft Customer Agreement (MCA) accounts.
@@ -116,13 +112,13 @@ UnitOfMeasure | All | The unit of measure for billing for the service. For examp
 UnitPrice | EA | The price per unit for the charge.
 UsageDate | PAYG | See Date.
 
-Note some fields may differ in casing and spacing between account types. 
+Note some fields may differ in casing and spacing between account types.
 Older versions of pay-as-you-go usage files have separate sections for the statement and daily usage.
 
-## How do I make sure the charges in my Azure usage and charges file are correct?
+## Ensure that your charges are correct
 
-To learn more about detailed usage and charges, read about how to understand your 
-[pay-as-you-go](./billing-understand-your-bill.md) 
+To learn more about detailed usage and charges, read about how to understand your
+[pay-as-you-go](./billing-understand-your-bill.md)
 or [Microsoft Customer Agreement](billing-mca-understand-your-bill.md) invoice.
 
 ## Need help? Contact us.
