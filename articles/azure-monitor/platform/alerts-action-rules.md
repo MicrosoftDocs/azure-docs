@@ -96,7 +96,8 @@ Lastly, configure the following details for the action rule
 
 ## Example scenarios
 
-### Scenario 1: General alert suppression by severity example
+### Scenario 1: Suppression of alerts based on severity
+
 Contoso wants to suppress notifications for all Sev4 alerts on all VMs within their subscription 'ContosoSub' every weekend.
 
 **Solution:** Create an action rule with
@@ -106,7 +107,8 @@ Contoso wants to suppress notifications for all Sev4 alerts on all VMs within th
     * Resource Type = 'Virtual Machines'
 * Suppression with recurrence set to weekly, and 'Saturday' and 'Sunday' checked
 
-### Scenario 2: Log alert suppression example
+### Scenario 2: Suppression of alerts based on alert context (payload)
+
 Contoso wants to suppress notifications for all log alerts generated for 'Computer-01' in 'ContosoSub' indefinitely as it's going through maintenance.
 
 **Solution:** Create an action rule with
@@ -116,7 +118,7 @@ Contoso wants to suppress notifications for all log alerts generated for 'Comput
     * Alert Context (payload) contains 'Computer-01'
 * Suppression set to 'From now (Always)'
 
-### Scenario 3: Metric Alert example
+### Scenario 3: Action group defined at a resource group
 
 Contoso has defined [a metric alert at a subscription level](https://docs.microsoft.comazure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), but wants to define the actions that trigger for alerts separately for their resource group 'ContosoRG'.
 
