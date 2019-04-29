@@ -158,7 +158,7 @@ XFS volumes are supported for data disk encryption only with the EncryptFormalAl
 
 ## Can I backup and restore an encrypted VM? 
 
-Azure Backup provides a mechanism to backup and restore encrypted VM's within the same subscription and region.  For instructions, please see [Back up and restore encrypted virtual machines with Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).  Restoring an encrypted VM to a different region is not currently supported.  
+Azure Backup provides a mechanism to backup and restore encrypted VM's within the same subscription and region.  For instructions, please see [Back up and restore encrypted virtual machines with Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).  Restoring an encrypted VM to a different region is not currently supported.  
 
 ## Where can I go to ask questions or provide feedback?
 
