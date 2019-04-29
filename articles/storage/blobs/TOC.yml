@@ -364,21 +364,21 @@
       href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Transfer data
       items:
-      - name: Copy data with AzCopy
+      - name: Use AzCopy
         items:
-        - name: Get started with AzCopy
+        - name: Get started
           href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: AzCopy with blobs
+        - name: Use with blobs
           href: ../common/storage-use-azcopy-v10-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: AzCopy with Data Lake Storage Gen2
+        - name: Use with Data Lake Storage Gen2
           href: ../common/storage-use-azcopy-v10-data-lake-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: AzCopy with files
+        - name: Use with Files
           href: ../common/storage-use-azcopy-v10-files.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: AzCopy with Amazon S3 buckets
+        - name: Use with Amazon S3 buckets
           href: ../common/storage-use-azcopy-v10-data-lake-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Configure, optimize, troubleshoot
           href: ../common/storage-use-azcopy-v10-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Copy data with Azure Data Factory
+      - name: Use Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Mount Blob storage as a file system on Linux
         href: storage-how-to-mount-container-linux.md

@@ -9,27 +9,12 @@ ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
 ---
+
 # Get started with AzCopy
 
 AzCopy is the command-line utility for copying data to or from Microsoft Azure Blob and File storage. AzCopy offers a redesigned command-line interface, and new architecture for reliable data transfers. By using AzCopy, you can copy data between a file system and a storage account, or between storage accounts.
 
 You can run AzCopy commands from the command line or, if you prefer a user interface, you can run them indirectly by using Microsoft Azure Storage Explorer.
-
-## Feature overview
-
-You get this with AzCopy V10.
-
-- Synchronizes file systems to Azure Blob storage or vice versa. Use `azcopy sync <source> <destination>`. Ideal for incremental copy scenarios.
-- Supports Azure Data Lake Storage Gen2 APIs. Use `myaccount.dfs.core.windows.net` as a URI to call the Data Lake Storage Gen2 APIs.
-- Supports copying an entire account (Blob service only) to another account.
-- Supports copying data from an Amazon Web Services S3 bucket.
-- Uses the new [Put Block from URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) APIs to support account-to-account copy. The data transfer is faster, since transfer to the client isn't required.
-- Lists or removes files and blobs in a given path.
-- Supports wildcard patterns in a path, and --exclude flags.
-- Creates a job order and a related log file with every AzCopy instance. You can view and restart previous jobs, and resume failed jobs. AzCopy will also automatically retry a transfer after a failure.
-- Features general performance improvements.
-
-If you need an older version of AzCopy, see blah.
 
 ## Get AzCopy
 
@@ -46,7 +31,6 @@ Choose the link appropriate for your platform.
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 If you need to use AzCopy to work with [Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview), then see [AzCopy v7.3 supporting copying data to/from Microsoft Azure Table storage service](https://aka.ms/downloadazcopynet).
-
 
 ### Enable AzCopy in Storage Explorer
 
