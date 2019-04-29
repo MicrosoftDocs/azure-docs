@@ -50,7 +50,7 @@ A **Transform** helps you create the recipe once (Step 1), and submit Jobs using
 
 ## Transforms
 
-The following diagram shows the **Transform** object and the objects it references including the derivation relationships. The gray arrows show a type that the Job references and the green arrows show class derivation relationships:
+The following diagram shows the **Transform** object and the objects it references including the derivation relationships. 
 
 ![Transform object](./media/api-diagrams/transforms.png)
 
