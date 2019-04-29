@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform iOS Getting Started | Microsoft Docs
+title: Microsoft identity platform | Azure | iOS Getting Started | Microsoft Docs
 description: How iOS (Swift) applications can call an API that requires access tokens using Microsoft identity platform
 services: active-directory
 documentationcenter: dev-center-name
@@ -497,7 +497,7 @@ If you have any issues, feel free to open an issue on this doc or in the MSAL li
 
 The first time any user signs into your app, they will be prompted by Microsoft identity to consent to the permissions requested.  While most users are capable of consenting, some Azure AD tenants have disabled user consent - requiring admins to consent on behalf of all users.  To support this scenario, be sure to register your app's scopes in the Azure portal.
 
-# Help and Support
+## Help and Support
 
 Had any trouble with this tutorial or with the Microsoft identity platform? See [Help and support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options)
 
