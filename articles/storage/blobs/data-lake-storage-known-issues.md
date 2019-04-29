@@ -28,7 +28,7 @@ This article lists the features and tools that are not yet supported or only par
 | **Custom domains** |Not yet supported|
 | **Diagnostic logs** |Not yet supported|
 | **File System Explorer** | Limited support |
-| **Immutable storage** |Not yet supported <br><br>Immutable storage gives the ability to store data in a [WORM (Write Once, Read Many)] state(https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage).|
+| **Immutable storage** |Not yet supported <br><br>Immutable storage gives the ability to store data in a [WORM (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) state.|
 | **Object-level tiers** |Not yet supported <br><br>For example: Premium, Hot, Cold, and Archive tiers.|
 | **Powershell and CLI support** | Limited functionality <br><br>You can create an account by using Powershell or the CLI. You can't perform operations or set access control lists on file systems, directories, and files.|
 | **Static websites** |Not yet supported <br><br>Specifically, the ability to serve files to [Static websites](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
