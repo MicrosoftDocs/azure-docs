@@ -27,12 +27,23 @@ The following diagram shows transforms/jobs workflow.
 
 ![Transforms](./media/encoding/transforms-jobs.png)
 
-## Typical workflow
+#### Typical workflow
 
 1. Create a Transform 
 2. Submit Jobs under that Transform 
 3. List Transforms 
 4. Delete a Transform, if you are not planning to use it in the future. 
+
+### Example
+
+Suppose you wanted to extract the first frame of all your videos as a thumbnail image – the steps you would take are: 
+
+1. Define the recipe, or the rule for processing your videos - "use the first frame of the video as the thumbnail". 
+2. For each video you would tell the service: 
+    1. Where to find that video,  
+    2. Where to write the output thumbnail image. 
+
+A **Transform** helps you create the recipe once (Step 1), and submit Jobs using that recipe (Step 2).
 
 ### Jobs class and relationships diagram
 
@@ -60,17 +71,6 @@ Use [Asset as job input](job-input-from-local-file-how-to.md) if the input conte
 The progress and state of jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using EventGrid](job-state-events-cli-how-to.md).
 
 The Update operation on the [Job](https://docs.microsoft.com/rest/api/media/jobs) entity can be used to modify the *description*, and the *priority* properties after the job has been submitted. A change to the *priority* property is effective only if the job is still in a queued state. If the job has begun processing, or has finished, changing priority has no effect.
-
-### Example
-
-Suppose you wanted to extract the first frame of all your videos as a thumbnail image – the steps you would take are: 
-
-1. Define the recipe, or the rule for processing your videos - "use the first frame of the video as the thumbnail". 
-2. For each video you would tell the service: 
-    1. Where to find that video,  
-    2. Where to write the output thumbnail image. 
-
-A **Transform** helps you create the recipe once (Step 1), and submit Jobs using that recipe (Step 2).
 
 ## Configure Media Reserved Units
 
