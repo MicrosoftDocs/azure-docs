@@ -15,7 +15,7 @@ ms.author: glenga
 #Customer intent: As a developer, I want to learn how to set up a continuous integration environment so that function app updates are deployed automatically when I check in my code changes.
 ---
 # Continuous deployment for Azure Functions
-Azure Functions makes it easy to deploy your function app by using continuous integration. Functions integrates with Bitbucket, Dropbox, GitHub, and Azure DevOps. This integration enables a workflow where function code updates made through one of these services trigger deployment to Azure. If you're new to Azure Functions, start with the [Azure Functions overview](functions-overview.md).
+Azure Functions makes it easy to deploy your function app by using continuous integration. Functions integrates with major code repositories and deployment sources. This integration enables a workflow where function code updates made through one of these services trigger deployment to Azure. If you're new to Azure Functions, start with the [Azure Functions overview](functions-overview.md).
 
 Continuous deployment is a great option for projects where you're integrating multiple and frequent contributions. It also lets you maintain source control on your function code. Azure Functions supports the following deployment sources:
 
