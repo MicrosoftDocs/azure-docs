@@ -52,7 +52,7 @@ To try out the Instance Metadata Service, create a VM from [Azure Resource Manag
 
 ### Versioning
 
-The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2018-10-01`. Current supported versions are (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01)
+The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2018-10-01`. Current supported versions are (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01).
 
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
@@ -554,12 +554,17 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api
 Department:IT;Environment:Test;Role:WebRole
 ```
 
+> [!NOTE]
+> The tags are semicolon separated. If a parser is written to programmatically extract the tags, the tag names and values shouldn't contain semicolons in order for the parser to work correctly.
+
 ### Validating that the VM is running in Azure
 
- Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have the ability to detect that. By calling into Instance Metadata Service Marketplace vendors can get signed data that guarantees response only from Azure.
-**Request**
+Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have the ability to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
+
 > [!NOTE]
 > Requires jq to be installed.
+
+**Request**
 
  ```bash
   # Get the signature
@@ -679,7 +684,7 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### Custom Data
-Instance Metadata Service provides the ability for the VM to have access to its custom data. The binary data must be less than 64KB and is provided to the VM in base64 encoded form. For more information about custom data and how to create a VM with custom data, see [Custom Data and Cloud-Init on Microsoft Azure](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/).
+Instance Metadata Service provides the ability for the VM to have access to its custom data. The binary data must be less than 64KB and is provided to the VM in base64 encoded form. For details on how to create a VM with custom data, see [Deploy a Virtual Machine with CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
 #### Retrieving custom data in Virtual Machine
 Instance Metadata Service provides custom data to the VM in base64 encoded form. The following example decodes the base64 encoded string.
