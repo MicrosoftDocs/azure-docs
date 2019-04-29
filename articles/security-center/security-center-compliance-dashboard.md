@@ -56,13 +56,18 @@ At the top of the screen, you see a dashboard with an overview of your complianc
 
     ![compliance tab](./media/security-center-compliance-dashboard/compliance-pci.png)
 
-3.  Select the **All** tab to see a view of all relevant Security Center recommendations and their associated standards. This view can be useful for identifying all the different standards impacted by a particular recommendation. <br> 
+3. Select the **All** tab to see a view of all relevant Security Center recommendations and their associated standards. This view can be useful for identifying all the different standards impacted by a particular recommendation. <br> 
 You can potentially use this view to prioritize recommendations you need to resolve. For example, if you see that the recommendation **Enable MFA for accounts with owner permissions on your subscription** is failing on multiple resources and is associated with multiple standards, then resolving this recommendation will have a high impact on your overall compliance score.
 
     ![compliance score impact](./media/security-center-compliance-dashboard/compliance-all-tabs.png)
 
-## Improve your compliance posture
+1. Click **Download report** to generate and download a PDF report summarizing your current compliance status for a particular standard.
 
+    The report provides a high-level summary of your compliance status for the selected standard based on Security Center assessments data, and is organized according to the controls of that particular standard. The report can be shared with relevant stakeholders, and may serve to provide evidence to internal and external auditors.
+
+    ![download](./media/security-center-compliance-dashboard/download-report.png)
+
+## Improve your compliance posture
 
 Given the information in the Regulatory compliance dashboard, you can improve your compliance posture by resolving recommendations directly within the dashboard.
 
