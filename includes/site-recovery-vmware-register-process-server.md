@@ -11,7 +11,7 @@ ms.author: raynew
     - The tool is launched automatically the first time you sign into the process server.
     - If it doesn't open automatically, click its shortcut on the desktop.
 
-3. In **Configuration server FQDN or IP**, specify the name or IP address of the configuration server with which to register the proces server.
+3. In **Configuration server FQDN or IP**, specify the name or IP address of the configuration server with which to register the process server.
 4. In **Configuration Server Port**, ensure that 443 is specified. This is the port on which the configuration server listens for requests.
 5. In **Connection Passphrase**, specify the passphrase that you specified when you set up the configuration server. To find the passphrase:
     -  On the configuration server, navigate to the Site Recovery installation folder **\home\svssystems\bin\**. 
