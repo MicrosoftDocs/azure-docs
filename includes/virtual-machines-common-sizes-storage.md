@@ -28,7 +28,7 @@ ACU: 150-175
 
 Premium Storage: Supported
 
-Premium Storage Caching: Not Supported
+Premium Storage caching: Not Supported
 
 | Size          | vCPU | Memory (GiB) | Temp disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe Disk throughput<sup>3</sup> (Read IOPS / MBps) | Max uncached data disk throughput (IOPs/MBps)<sup>4</sup> | Max Data Disks | Max NICs / Expected network bandwidth (Mbps) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 

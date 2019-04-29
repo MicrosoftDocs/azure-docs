@@ -4,7 +4,7 @@ description: Shows which Azure resource types support tags. Provides details for
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 04/26/2019
 ms.author: tomfitz
 ---
 
@@ -857,7 +857,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | dnszones/SOA | No | 
 | dnszones/SRV | No | 
 | dnszones/TXT | No | 
-| expressRouteCircuits | Yes | 
+| expressRouteCircuits | Yes (tag value doesn't currently appear in cost report) | 
 | expressRouteServiceProviders | No | 
 | frontdoors | Yes | 
 | frontdoorWebApplicationFirewallPolicies | Yes | 
@@ -871,7 +871,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | networkInterfaces | Yes | 
 | networkProfiles | Yes | 
 | networkSecurityGroups | Yes | 
-| networkWatchers | Yes | 
+| networkWatchers | Yes (tag value doesn't currently appear in cost report) | 
 | networkWatchers/connectionMonitors | Yes | 
 | networkWatchers/lenses | Yes | 
 | networkWatchers/pingMeshes | Yes | 
@@ -887,9 +887,10 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | virtualHubs | Yes | 
 | virtualNetworkGateways | Yes | 
 | virtualNetworks | Yes | 
+| virtualNetworks/subnets | No | 
 | virtualNetworkTaps | Yes | 
 | virtualWans | Yes | 
-| vpnGateways | Yes | 
+| vpnGateways | Yes (tag value doesn't currently appear in cost report) | 
 | vpnSites | Yes | 
 | webApplicationFirewallPolicies | Yes | 
 
