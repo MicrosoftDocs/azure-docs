@@ -23,9 +23,9 @@ Confirm there's internet connectivity by opening another web site; for example, 
 
 Use **nslookup** to confirm DNS can resolve the FQDN:
 
-```cmd
-nslookup rdweb.wvd.microsoft.com
-```
+    ```cmd
+    nslookup rdweb.wvd.microsoft.com
+    ```
 
 Try connecting with another client, like Remote Desktop client for Windows 7 or Windows 10, and check to see if you can open the web client.
 
