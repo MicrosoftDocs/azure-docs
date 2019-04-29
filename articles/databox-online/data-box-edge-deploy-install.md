@@ -140,7 +140,8 @@ Locate the components for installing the rail kit assembly:
 
 ### Engage and release the slam latch
 
-NOTE: For systems not equipped with slam latches, secure the system using screws, as described in step 3 of this procedure.
+> [!NOTE]
+> For systems not equipped with slam latches, secure the system using screws, as described in step 3 of this procedure.
 
 1. Facing the front, locate the slam latch on either side of the system.
 2. The latches engage automatically as the system is pushed into the rack and are released by pulling up on the latches.
