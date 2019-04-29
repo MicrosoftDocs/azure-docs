@@ -1,15 +1,15 @@
 ---
-title: Machine learning clustering in Azure Data Explorer
+title: Machine learning capability in Azure Data Explorer
 description: Use machine learning clustering for Root Cause Analysis in Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/29/2019
 ---
 
-# Machine learning clustering in Azure Data Explorer
+# Machine learning capability in Azure Data Explorer
 
 Azure Data Explorer, a Big Data analytics platform, is used to monitor service health, QoS, or malfunctioning devices for anomalous behavior using built-in [anomaly detection and forecasting](/azure/data-explorer/anomaly-detection) functions. Once an anomalous pattern is detected, a Root Cause Analysis (RCA) is performed to mitigate or resolve the anomaly.
 
@@ -19,7 +19,7 @@ Azure Data Explorer has three Machine Learning plugins: [autocluster](/azure/kus
 
 ## Clustering a single record set
 
-A common scenario includes a data set selected by a specific criteria such as time window anomalous behavior, high temperature device readings, long duration commands, and top spending users. We would like a simple and fast way to find common patterns (segments) in the data. Patterns are a subset of the data set whose records share the same values over multiple dimensions (categorical columns). The following query builds and shows a time series of service exceptions over a week in ten-minute bins:
+A common scenario includes a data set selected by a specific criteria such as time window that exhibits anomalous behavior, high temperature device readings, long duration commands, and top spending users. We would like a simple and fast way to find common patterns (segments) in the data. Patterns are a subset of the data set whose records share the same values over multiple dimensions (categorical columns). The following query builds and shows a time series of service exceptions over a week in ten-minute bins:
 
 ```kusto
 let min_t = toscalar(demo_clustering1 | summarize min(PreciseTimeStamp));  
@@ -33,9 +33,9 @@ demo_clustering1
 
 The service exception count correlates with the overall service traffic. You can clearly see the daily pattern, for business days of Monday to Friday, a rise in service exception counts mid-day, and drops in counts during the night. Flat low counts are visible over the weekend.
 
-There are a few exception spikes that could have been detected by [time series anomaly detection](/azure/data-explorer/anomaly-detection?#time-series-anomaly-detection). 
+Exception spikes can be detected using [time series anomaly detection](/azure/data-explorer/anomaly-detection?#time-series-anomaly-detection) in Azure Data Explorer. 
 
-The following query is used to further diagnose the second spike that occurs on Tuesday afternoon. Use the query to redraw the chart around the spike in higher resolution (eight hours in one-minute bins) to verify whether it’s a spike, and view its borders.
+The second spike in the data occurs on Tuesday afternoon. The following query is used to further diagnose this spike. Use the query to redraw the chart around the spike in higher resolution (eight hours in one-minute bins) to verify whether it’s a sharp spike, and view its borders.
 
 ```kusto
 let min_t=datetime(2016-08-23 11:00);
@@ -115,7 +115,7 @@ demo_clustering1
 
 You can see from the results above that the most dominant segment contains 65.74% of the total exception records and shares four dimensions. The next segment is much less common, contains only 9.67% of the records and shares three dimensions. The other segments are even less common. 
 
-Autocluster uses a proprietary algorithm for mining multiple dimensions and extracting interesting segments. Interesting means that each segment has significant coverage of both the records set and the features set. The segments are also diverged, meaning that each one is different from the others. One or more of these segments would probably be relevant for the RCA process. Autocluster extracts only a small segment list so that segment review and assessment is minimal.
+Autocluster uses a proprietary algorithm for mining multiple dimensions and extracting interesting segments. "Interesting" means that each segment has significant coverage of both the records set and the features set. The segments are also diverged, meaning that each one is significantly different from the others. One or more of these segments may be relevant for the RCA process. To minimize segment review and assessment, autocluster extracts only a small segment list.
 
 ### Use `basket()` for single record set clustering
 
@@ -147,7 +147,7 @@ demo_clustering1
 
 Basket implements the Apriori algorithm for item set mining and extracts all segments whose coverage of the record set is above a threshold (default 5%). You can see that more segments were extracted with similar ones (for example, segments 0,1 or 2,3).
 
-Both plugins are powerful and easy to use, but are unable to cluster a single record set in an unsupervised manner (with no labels). It's unclear whether the extracted patterns characterize the selected record set (the anomalous records) or the global record set.
+Both plugins are powerful and easy to use, but their significant limitation is due to the fact that they cluster a single record set in an unsupervised manner (with no labels). It's therefore unclear whether the extracted patterns characterize the selected record set (the anomalous records) or the global record set.
 
 ## Clustering the difference between two records sets using `diffpatterns()`
 
@@ -155,14 +155,11 @@ The [`diffpatterns()`](/azure/kusto/query/diffpatternsplugin) plugin overcomes t
 
 In the query below, we use `diffpatterns` to find interesting clusters within the spike's two minutes, which are different than clusters within the baseline. We define the baseline window as the eight minutes before 15:00 (when the spike started). We also need to extend by a binary column (AB) specifying whether a specific record belongs to the baseline or to the anomalous set. `Diffpatterns` implements a supervised learning algorithm, where the two class labels were generated by the anomalous versus the baseline flag (AB).
 
-> [!NOTE]
-> Leave out a two-minute gap between the baseline and the spike to avoid the transition zone.
-
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
 let max_peak_t=datetime(2016-08-23 15:02);
 let min_baseline_t=datetime(2016-08-23 14:50);
-let max_baseline_t=datetime(2016-08-23 14:58);
+let max_baseline_t=datetime(2016-08-23 14:58); // Leave a gap between the baseline and the spike to avoid the transition zone.
 let splitime=(max_baseline_t+min_peak_t)/2.0;
 demo_clustering1
 | where (PreciseTimeStamp between(min_baseline_t..max_baseline_t)) or
@@ -181,7 +178,7 @@ demo_clustering1
 | 5 | 55 | 252 | 5.66 | 20.45 | 14.8 | weu | su4 | be1d6d7ac9574cbc9a22cb8ee20f16fc |  |
 | 6 | 57 | 204 | 5.86 | 16.56 | 10.69 |  |  |  |  |
 
-The most dominant segment is the same segment that was extracted by `autocluster`, and its coverage on the two-minute anomalous window is also 65.74%. Its coverage on the eight-minute baseline window is only 1.7%. The difference is 64.04%. This difference seems to be related to the anomalous spike. You validate the `diffpattern` segment by splitting the original chart into the records belonging to this problematic segment versus the other segments as seen in the query below:
+The most dominant segment is the same segment that was extracted by `autocluster`, its coverage on the two-minute anomalous window is also 65.74%. But its coverage on the eight-minute baseline window is only 1.7%. The difference is 64.04%. This difference seems to be related to the anomalous spike. You can verify this assumption by splitting the original chart into the records belonging to this problematic segment versus the other segments as seen in the query below:
 
 ```kusto
 let min_t = toscalar(demo_clustering1 | summarize min(PreciseTimeStamp));  
@@ -199,6 +196,6 @@ This chart allows us to see that the spike on Tuesday afternoon was because of e
 
 ## Summary
 
-The Azure Data Explorer Machine Learning plugins are helpful for many scenarios. The `autocluster` and `basket` implement the unsupervised learning algorithm and are easy to use. `Diffpatterns` implements the supervised learning algorithm and although more complex, it's more powerful in extracting differentiation segments for RCA.
+The Azure Data Explorer Machine Learning plugins are helpful for many scenarios. The `autocluster` and `basket` implement unsupervised learning algorithm and are easy to use. `Diffpatterns` implements supervised learning algorithm and although more complex, it's more powerful in extracting differentiation segments for RCA.
 
-All these plugins are used interactively in ad-hoc scenarios and in automatic near real time monitoring services. Time series anomaly detection is followed by diagnosis of detected anomalies using these powerful plugins. These plugins are unique to Azure Data Explorer and are highly optimized to meet necessary performance standards.
+These plugins are used interactively in ad-hoc scenarios and in automatic near real-time monitoring services. In Azure Data Explorer, time series anomaly detection is followed by a diagnosis process that is highly optimized to meet necessary performance standards.
