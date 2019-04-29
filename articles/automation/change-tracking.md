@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/05/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
@@ -186,7 +186,7 @@ The average Log Analytics data usage for a machine using Change Tracking and Inv
 
 The default collection frequency for Windows services is 30 minutes. To configure the frequency, go to **Change Tracking**. Under **Edit Settings** on the **Windows Services** tab, there's a slider that allows you to change the collection frequency for Windows services from as quickly as 10 seconds to as long as 30 minutes. Move the slider bar to the frequency you want and it automatically saves it.
 
-![Windows services slider](./media/automation-change-tracking/windowservices.png)
+![Windows services slider](./media/change-tracking/windowservices.png)
 
 The agent only tracks changes, this optimizes the performance of the agent. Setting a high threshold may miss changes if the service reverted to their original state. Setting the frequency to a smaller value allows you to catch changes that may be missed otherwise.
 
@@ -250,13 +250,13 @@ The following addresses are required specifically for Change Tracking. Communica
 
 After the solution is enabled, you can view the summary of changes for your monitored computers by selecting **Change Tracking** under **CONFIGURATION MANAGEMENT** in your Automation account.
 
-You can view changes to your computers and then drill-into details for each event. Drop downs are available at the top of the chart to limit the chart and detailed information based on change type and time ranges. You can also click and drag on the chart to select a custom time range.
+You can view changes to your computers and then drill-into details for each event. Drop downs are available at the top of the chart to limit the chart and detailed information based on change type and time ranges. You can also click and drag on the chart to select a custom time range. **Change Type** will be one of the following values **Events**, **Daemons**, **Files**, **Registry**, **Software**, **Windows Services**. Category shows you the type of change and can be **Added**, **Modified**, or **Removed**.
 
-![image of Change Tracking dashboard](./media/automation-change-tracking/change-tracking-dash01.png)
+![image of Change Tracking dashboard](./media/change-tracking/change-tracking-dash01.png)
 
 Clicking on a change or event brings up the detailed information about that change. As you can see from the example, the startup type of the service was changed from Manual to Auto.
 
-![image of change tracking details](./media/automation-change-tracking/change-tracking-details.png)
+![image of change tracking details](./media/change-tracking/change-tracking-details.png)
 
 ## Search logs
 
@@ -277,17 +277,17 @@ A key capability of Change Tracking and Inventory is the ability to alert on the
 
 In the following example, the screenshot shows that the file `C:\windows\system32\drivers\etc\hosts` has been modified on a machine. This file is important because the Hosts file is used by Windows to resolve hostnames to IP addresses and takes precedence over even DNS, which could result in connectivity issues or the redirection of traffic to malicious or otherwise dangerous websites.
 
-![A chart showing the hosts file change](./media/automation-change-tracking/changes.png)
+![A chart showing the hosts file change](./media/change-tracking/changes.png)
 
 To analyze this change further, go to Log search from clicking **Log Analytics**. Once in Log search, search for content changes to the Hosts file with the query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. This query looks for changes that included a change of file content for files whose fully qualified path contains the word “hosts”. You can also ask for a specific file by changing the path portion to its fully qualified form (such as `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
 
 After the query returns the desired results, click the **New alert rule** button in the Log search experience to open the alert creation page. You could also navigate to this experience through **Azure Monitor** in the Azure portal. In the alert creation experience, check our query again and modify the alert logic. In this case, you want the alert to be triggered if there's even one change detected across all the machines in the environment.
 
-![An image showing the change query for tracking changes to the hosts file](./media/automation-change-tracking/change-query.png)
+![An image showing the change query for tracking changes to the hosts file](./media/change-tracking/change-query.png)
 
 After the condition logic is set, assign action groups to perform actions in response to the alert being triggered. In this case, I have set up emails to be sent and an ITSM ticket to be created.  Many other useful actions can also be taken such as triggering an Azure Function, Automation runbook, webhook, or Logic App.
 
-![An image configuring an action group to alert on the change](./media/automation-change-tracking/action-groups.png)
+![An image configuring an action group to alert on the change](./media/change-tracking/action-groups.png)
 
 After all the parameters and logic are set, we can apply the alert to the environment.
 
@@ -314,4 +314,3 @@ Visit the tutorial on Change Tracking to learn more about using the solution:
 > [Troubleshoot changes in your environment](automation-tutorial-troubleshoot-changes.md)
 
 * Use [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
-
