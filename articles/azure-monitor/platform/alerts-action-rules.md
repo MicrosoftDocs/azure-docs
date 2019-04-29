@@ -16,9 +16,9 @@ This article describes what action rules are, and how to configure and manage th
 
 ## What are action rules?
 
-Action rules allow you to define actions (or suppression of actions) at any Resource Manager scope (Subscription, Resource Group or Resource). They have a variety of filters that allow you to narrow down to the specific subset of alert instances that you want to act on. 
+Action rules allow you to define actions (or suppression of actions) at any Resource Manager scope (Subscription, Resource Group, or Resource). They have a variety of filters that allow you to narrow down to the specific subset of alert instances that you want to act on. 
 
-With action rules you can do the following:
+With action rules you can:
 
 * Suppress actions and notifications if you have planned maintenance windows or for the weekend/holidays, instead of having to disable each alert rule individually.
 * Define actions and notifications at scale: Instead of having to define an action group individually for each alert rule, you can now define an action group to trigger for alerts generated at any scope. For example, I can choose to have action group 'ContosoActionGroup' trigger for every alert generated within my subscription.
@@ -37,13 +37,13 @@ Alternatively, you can also choose to create an action rule while configuring an
 
 ![Add new action rule](media/alerts-action-rules/action-rules-alert-rule.png)
 
-You should now see the action rule creation flow open. You have to configure the following elements: 
+You should now see the action rule creation flow open. Configure the following elements: 
 
 ![New action rule creation flow](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
 ### Scope
 
-First choose the scope, i.e. target resource or resource group or subscription. You also have the ability to multi-select a combination of any of the above (within a single subscription). 
+First choose the scope, that is, target resource, resource group, or subscription. You also have the ability to multi-select a combination of any of the above (within a single subscription). 
 
 ![Action rule scope](media/alerts-action-rules/action-rules-new-rule-creation-flow-scope.png)
 
@@ -54,8 +54,8 @@ You can additionally define filter(s) to further narrow down to a specific subse
 The available filters are: 
 
 * **Severity**: Select one or more alert severities. Severity = Sev1 means that the action rule is applicable for all alerts with severity as Sev1.
-* **Monitor Service**: Filter based on the originating monitoring service. This is also multi-select. E.g. Monitor Service = “Application Insights” means that the action rule is applicable for all “Application Insights” based alerts.
-* **Resource Type**: Filter based on a specific resource type. This is also multi-select. For e.g. Resource Type = “Virtual Machines” means that the action rule is applicable for all Virtual Machines.
+* **Monitor Service**: Filter based on the originating monitoring service. This is also multi-select. For example, Monitor Service = “Application Insights” means that the action rule is applicable for all “Application Insights” based alerts.
+* **Resource Type**: Filter based on a specific resource type. This is also multi-select. For example, Resource Type = “Virtual Machines” means that the action rule is applicable for all Virtual Machines.
 * **Alert Rule ID**: Allows you to filter for specific alert rules using the Resource Manager ID of the alert rule.
 * **Monitor Condition**: Filter for alert instances with either "Fired" or "Resolved" as the monitor condition.
 * **Description**: Regex matching within the description defined as part of the alert rule.
@@ -74,7 +74,7 @@ Next configure the action rule for either alert suppression or action group supp
 If you select **suppression**, configure the duration for the suppression of actions and notifications. Choose one of the following:
 * **From now (always)**: Suppresses all notifications indefinitely.
 * **At a scheduled time**: Suppress notifications within a bounded duration.
-* **With a recurrence**: Suppress on a recurrence schedule, which can be daily, weekly or monthly.
+* **With a recurrence**: Suppress on a recurrence schedule, which can be daily, weekly, or monthly.
 
 ![Action rule suppression](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
 
@@ -139,7 +139,7 @@ Log alerts created with the ['number of results'](https://docs.microsoft.com/azu
 
 ![Action rules and log alerts (number of results)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-To best leverage log alerts with action rules, we advise you to create log alerts with the ['metric measurement'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option. Using this option, separate alert instances are generated based on the Group Field defined. Then in scenerio 2, separate alert instances are generated for 'Computer-01' and 'Computer-02'. With the action rule described in the scenario, only the notification for 'Computer-01' would be suppressed while the notification for 'Computer-02' would continue to fire as normal.
+To best leverage log alerts with action rules, we advise you to create log alerts with the ['metric measurement'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option. Using this option, separate alert instances are generated based on the Group Field defined. Then in scenario 2, separate alert instances are generated for 'Computer-01' and 'Computer-02'. With the action rule described in the scenario, only the notification for 'Computer-01' would be suppressed while the notification for 'Computer-02' would continue to fire as normal.
 
 ![Action rules and log alerts (number of results)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
@@ -147,7 +147,7 @@ To best leverage log alerts with action rules, we advise you to create log alert
 
 * Q. While configuring an action rule, I would like to see all the possible overlapping action rules so that I avoid duplicate notifications. Is it possible to do so?
 
-    A. Once you define a scope while configuring an action rule, you can see a list of action rules which overlap on the same scope (if any). This overlap could either be one of the following:
+    A. Once you define a scope while configuring an action rule, you can see a list of action rules which overlap on the same scope (if any). This overlap can be one of the following options:
     * An exact match: For example, the action rule you are defining and the overlapping action rule are on the same subscription.
     * A subset: For example, the action rule you are defining is on a subscription, and the overlapping action rule is on a resource group within the subscription.
     * A superset: For example, the action rule you are defining is on a resource group, and the overlapping action rule is on the subscription that contains the resource group.
@@ -175,7 +175,7 @@ To best leverage log alerts with action rules, we advise you to create log alert
 
     A. **Suppression always takes precedence on the same scope**.
 
-* Q. What happens if I have an resource monitored in two separate action rules? Do I get one or two notifications? For example 'VM2' in this scenario:
+* Q. What happens if I have a resource monitored in two separate action rules? Do I get one or two notifications? For example 'VM2' in this scenario:
 
       action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' 
       action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1' 
